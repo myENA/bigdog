@@ -3,23 +3,67 @@ package meshneighborinfo
 // API Version: v8_0
 
 type MeshNeighborInfo struct {
-	ApFirmware        *string `json:"apFirmware,omitempty"`
-	ApMac             *string `json:"apMac,omitempty"`
-	ApModel           *string `json:"apModel,omitempty"`
-	ApName            *string `json:"apName,omitempty"`
-	Channel           *string `json:"channel,omitempty"`
-	ConnectionStatus  *string `json:"connectionStatus,omitempty"`
+	// ApFirmware
+	// The firmware of the neighbor AP
+	ApFirmware *string `json:"apFirmware,omitempty"`
+
+	// ApMac
+	// The MAC of the neighbor AP
+	ApMac *string `json:"apMac,omitempty"`
+
+	// ApModel
+	// The model of the neighbor AP
+	ApModel *string `json:"apModel,omitempty"`
+
+	// ApName
+	// The name of the neighbor AP
+	ApName *string `json:"apName,omitempty"`
+
+	// Channel
+	// The channel of the neighbor AP
+	Channel *string `json:"channel,omitempty"`
+
+	// ConnectionStatus
+	// The connection status of the neighbor AP
+	ConnectionStatus *string `json:"connectionStatus,omitempty"`
+
+	// ExternalIPAddress
+	// The external IP of the neighbor AP
 	ExternalIPAddress *string `json:"externalIPAddress,omitempty"`
-	IPAddress         *string `json:"ipAddress,omitempty"`
-	Rssi              *int    `json:"rssi,omitempty"`
-	ZoneName          *string `json:"zoneName,omitempty"`
+
+	// IPAddress
+	// The IP of the neighbor AP
+	IPAddress *string `json:"ipAddress,omitempty"`
+
+	// Rssi
+	// The RSSI of the neighbor AP
+	Rssi *int `json:"rssi,omitempty"`
+
+	// ZoneName
+	// The zone name of the neighbor AP
+	ZoneName *string `json:"zoneName,omitempty"`
 }
 
 type MeshNeighborInfoList struct {
-	Extra             interface{}         `json:"extra,omitempty"`
-	FirstIndex        *int                `json:"firstIndex,omitempty"`
-	HasMore           *bool               `json:"hasMore,omitempty"`
-	List              []*MeshNeighborInfo `json:"list,omitempty"`
-	RawDataTotalCount *int                `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int                `json:"totalCount,omitempty"`
+	// Extra
+	// Any additional response data.
+	Extra interface{} `json:"extra,omitempty"`
+
+	// FirstIndex
+	// Index of the first MeshNeighborInfo returned out of the complete Rogue AP list
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	// HasMore
+	// Indicator of whether there are more MeshNeighborInfo after the current displayed list
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*MeshNeighborInfo `json:"list,omitempty"`
+
+	// RawDataTotalCount
+	// MeshNeighborInfos count.
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	// TotalCount
+	// MeshNeighborInfos count in this response.
+	TotalCount *int `json:"totalCount,omitempty"`
 }

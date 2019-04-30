@@ -7,6 +7,7 @@ type AckBulkAlarms struct {
 }
 
 type ClearBulkAlarms struct {
-	Comment *string  `json:"comment,omitempty"`
-	IDList  []string `json:"idList,omitempty"`
+	Comment *string `json:"comment,omitempty"`
+
+	IDList []string `json:"idList,omitempty"`
 }

@@ -4,7 +4,8 @@ package client
 
 type DeAuthClient struct {
 	ApMac *string `json:"apMac,omitempty"`
-	Mac   *string `json:"mac,omitempty"`
+
+	Mac *string `json:"mac,omitempty"`
 }
 
 type DeAuthClientList struct {
@@ -13,7 +14,8 @@ type DeAuthClientList struct {
 
 type DisconnectClient struct {
 	ApMac *string `json:"apMac,omitempty"`
-	Mac   *string `json:"mac,omitempty"`
+
+	Mac *string `json:"mac,omitempty"`
 }
 
 type DisconnectClientList struct {
@@ -21,29 +23,83 @@ type DisconnectClientList struct {
 }
 
 type HistoricalClient struct {
-	ApMac            *string `json:"apMac,omitempty"`
-	ClientMac        *string `json:"clientMac,omitempty"`
-	CoreNetworkType  *string `json:"coreNetworkType,omitempty"`
-	Hostname         *string `json:"hostname,omitempty"`
-	IPAddress        *string `json:"ipAddress,omitempty"`
-	Ipv6Address      *string `json:"ipv6Address,omitempty"`
-	MvnoName         *string `json:"mvnoName,omitempty"`
-	OsType           *string `json:"osType,omitempty"`
-	RxBytes          *int    `json:"rxBytes,omitempty"`
-	RxDrops          *int    `json:"rxDrops,omitempty"`
-	RxFrames         *int    `json:"rxFrames,omitempty"`
-	SessionEndTime   *int    `json:"sessionEndTime,omitempty"`
-	SessionStartTime *int    `json:"sessionStartTime,omitempty"`
-	Ssid             *string `json:"ssid,omitempty"`
-	TxBytes          *int    `json:"txBytes,omitempty"`
-	TxDrops          *int    `json:"txDrops,omitempty"`
-	TxFrames         *int    `json:"txFrames,omitempty"`
+	// ApMac
+	// Client connected AP's MAC address
+	ApMac *string `json:"apMac,omitempty"`
+
+	// ClientMac
+	// Client MAC address
+	ClientMac *string `json:"clientMac,omitempty"`
+
+	// CoreNetworkType
+	// Core network type of the client
+	CoreNetworkType *string `json:"coreNetworkType,omitempty"`
+
+	// Hostname
+	// Hostname of the client
+	Hostname *string `json:"hostname,omitempty"`
+
+	// IPAddress
+	// Client IP address
+	IPAddress *string `json:"ipAddress,omitempty"`
+
+	// Ipv6Address
+	// Client IPv6 address
+	Ipv6Address *string `json:"ipv6Address,omitempty"`
+
+	// MvnoName
+	// MVNO name of the client
+	MvnoName *string `json:"mvnoName,omitempty"`
+
+	// OsType
+	// OS type of the client
+	OsType *string `json:"osType,omitempty"`
+
+	// RxBytes
+	// Bytes to client
+	RxBytes *int `json:"rxBytes,omitempty"`
+
+	// RxDrops
+	// Dropped packets to client
+	RxDrops *int `json:"rxDrops,omitempty"`
+
+	// RxFrames
+	// Bytes to client
+	RxFrames *int `json:"rxFrames,omitempty"`
+
+	// SessionEndTime
+	// Session end time of the client
+	SessionEndTime *int `json:"sessionEndTime,omitempty"`
+
+	// SessionStartTime
+	// Session start time of the client
+	SessionStartTime *int `json:"sessionStartTime,omitempty"`
+
+	// Ssid
+	// Client connected SSID name
+	Ssid *string `json:"ssid,omitempty"`
+
+	// TxBytes
+	// Bytes from client
+	TxBytes *int `json:"txBytes,omitempty"`
+
+	// TxDrops
+	// Dropped packets from client
+	TxDrops *int `json:"txDrops,omitempty"`
+
+	// TxFrames
+	// Bytes from client
+	TxFrames *int `json:"txFrames,omitempty"`
 }
 
 type HistoricalClientList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*HistoricalClient  `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*HistoricalClient `json:"list,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
 }

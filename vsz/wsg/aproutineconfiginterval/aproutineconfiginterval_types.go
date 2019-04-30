@@ -8,6 +8,8 @@ type ApRoutineConfigIntervalReq struct {
 
 type ApRoutineConfigIntervalRsp struct {
 	ApRoutineConfigInterval *int `json:"apRoutineConfigInterval,omitempty"`
-	LowerBound              *int `json:"lowerBound,omitempty"`
-	UpperBound              *int `json:"upperBound,omitempty"`
+
+	LowerBound *int `json:"lowerBound,omitempty"`
+
+	UpperBound *int `json:"upperBound,omitempty"`
 }

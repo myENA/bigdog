@@ -2,6 +2,10 @@ package wiredclientquery
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type ClientQueryList struct {
 	Extra *common.RBACMetadata `json:"extra,omitempty"`
 

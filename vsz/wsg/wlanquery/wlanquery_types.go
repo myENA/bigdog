@@ -2,6 +2,10 @@ package wlanquery
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type ApWLANBssid struct {
 	ApMac *string `json:"apMac,omitempty"`
 

@@ -2,6 +2,10 @@ package urlfiltering
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type CreateURLFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy

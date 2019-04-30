@@ -2,6 +2,11 @@ package ap
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/apmodel"
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type AlarmList struct {
 	// FirstIndex
 	// Index of the first alarm returned from the complete alarm list

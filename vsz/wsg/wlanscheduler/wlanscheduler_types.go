@@ -2,6 +2,10 @@ package wlanscheduler
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type CreateWLANScheduler struct {
 	Description *string `json:"description,omitempty"`
 

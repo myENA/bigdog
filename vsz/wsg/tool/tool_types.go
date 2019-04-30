@@ -2,6 +2,10 @@ package tool
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type SpeedFlex struct {
 	ClientIP *string `json:"clientIp,omitempty"`
 

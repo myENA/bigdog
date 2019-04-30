@@ -2,6 +2,10 @@ package system
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type ApNumberLimitSettingOfDomain struct {
 	// DomainID
 	// Domain Id

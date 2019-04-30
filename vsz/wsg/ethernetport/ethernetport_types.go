@@ -2,6 +2,11 @@ package ethernetport
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/apmodel"
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type CreateEthernetPortProfile struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled

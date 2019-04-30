@@ -2,6 +2,10 @@ package portalservice
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type ConnectionCapability struct {
 	// PortNumber
 	// Port number of connection capability

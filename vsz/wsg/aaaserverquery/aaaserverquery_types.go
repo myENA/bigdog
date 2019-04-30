@@ -2,6 +2,10 @@ package aaaserverquery
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type AaaServerQueryList struct {
 	Extra *common.RBACMetadata `json:"extra,omitempty"`
 

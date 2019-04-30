@@ -2,6 +2,10 @@ package domain
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type CreateDomain struct {
 	Description *string `json:"description,omitempty"`
 

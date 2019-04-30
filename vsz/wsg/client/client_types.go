@@ -2,6 +2,10 @@ package client
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type DeAuthClient struct {
 	ApMac *string `json:"apMac,omitempty"`
 

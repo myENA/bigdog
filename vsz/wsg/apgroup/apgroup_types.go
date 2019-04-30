@@ -2,6 +2,10 @@ package apgroup
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type AddMembers struct {
 	// MemberList
 	// List of apMac

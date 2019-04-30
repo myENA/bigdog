@@ -2,6 +2,10 @@ package dpsk
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type BatchGenUnbound struct {
 	// Amount
 	// Amount of generate unbound DPSK

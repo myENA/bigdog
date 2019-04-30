@@ -2,6 +2,10 @@ package apmodel
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type ApModel struct {
 	CellularSettings *CellularSettings `json:"cellularSettings,omitempty"`
 

@@ -2,6 +2,11 @@ package rogueinfo
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/apinfo"
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type RogueInfo struct {
 	// Channel
 	// Channel of the rogue AP

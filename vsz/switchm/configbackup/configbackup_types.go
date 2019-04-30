@@ -2,6 +2,10 @@ package configbackup
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/switchm/common"
+)
+
 type BackupIds []string
 
 type Cfgbk struct {

@@ -2,6 +2,10 @@ package accountsecurityprofile
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type Create struct {
 	// AccountLockout
 	// The number of successive failures before a lockout will occur.

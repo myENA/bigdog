@@ -2,6 +2,10 @@ package service
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type ActiveDirectoryService struct {
 	AdminDomainName *string `json:"adminDomainName,omitempty"`
 

@@ -2,6 +2,10 @@ package identity
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type AaaServer struct {
 	// ID
 	// the identifier of the AAA server

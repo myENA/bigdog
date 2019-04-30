@@ -2,6 +2,10 @@ package certificate
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type Certificate struct {
 	CertificasSigningRequest *common.GenericRef `json:"certificasSigningRequest,omitempty"`
 

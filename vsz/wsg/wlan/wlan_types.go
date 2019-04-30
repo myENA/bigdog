@@ -2,6 +2,12 @@ package wlan
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+	"github.com/myENA/ruckus-client/vsz/wsg/dpsk"
+	"github.com/myENA/ruckus-client/vsz/wsg/flexivpn"
+)
+
 type CreateGuestAccessWLAN struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 

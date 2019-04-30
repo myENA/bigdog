@@ -2,6 +2,11 @@ package administration
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/clusterblade"
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type ApPatchHistory struct {
 	// ApFwVersion
 	// apFwVersion of the AP Patch history

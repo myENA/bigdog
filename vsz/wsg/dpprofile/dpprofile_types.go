@@ -2,6 +2,10 @@ package dpprofile
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type BulkDelete struct {
 	IDList common.IDList `json:"idList,omitempty"`
 }

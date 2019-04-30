@@ -2,6 +2,10 @@ package devicepolicy
 
 // API Version: v8_0
 
+import (
+	"github.com/myENA/ruckus-client/vsz/wsg/common"
+)
+
 type CreateDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig

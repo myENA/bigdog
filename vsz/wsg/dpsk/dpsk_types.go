@@ -23,6 +23,8 @@ type DeleteExpiredDpskConfig struct {
 	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty"`
 }
 
+type DpskInfo []*DpskInfoType
+
 type DpskInfoType struct {
 	CreationDateTime   *float64 `json:"creationDateTime,omitempty"`
 	ExpirationDateTime *string  `json:"expirationDateTime,omitempty"`
@@ -40,7 +42,7 @@ type DpskQueryList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*DpskQueryListType `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -63,10 +65,10 @@ type DpskQueryListType struct {
 }
 
 type GetDpskEnabledWlans struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                           `json:"firstIndex,omitempty"`
+	HasMore    *bool                          `json:"hasMore,omitempty"`
+	List       []*GetDpskEnabledWlansListType `json:"list,omitempty"`
+	TotalCount *int                           `json:"totalCount,omitempty"`
 }
 
 type GetDpskEnabledWlansListType struct {
@@ -76,15 +78,15 @@ type GetDpskEnabledWlansListType struct {
 }
 
 type GetDpskInfoList struct {
-	FirstIndex *int  `json:"firstIndex,omitempty"`
-	HasMore    *bool `json:"hasMore,omitempty"`
-	List       List  `json:"list,omitempty"`
-	TotalCount *int  `json:"totalCount,omitempty"`
+	FirstIndex *int     `json:"firstIndex,omitempty"`
+	HasMore    *bool    `json:"hasMore,omitempty"`
+	List       DpskInfo `json:"list,omitempty"`
+	TotalCount *int     `json:"totalCount,omitempty"`
 }
 
 type GetDpskResult struct {
-	DpskInfoList DpskInfoList `json:"dpskInfoList,omitempty"`
-	ResultCount  *int         `json:"resultCount,omitempty"`
+	DpskInfoList DpskInfo `json:"dpskInfoList,omitempty"`
+	ResultCount  *int     `json:"resultCount,omitempty"`
 }
 
 type ModifyDeleteExpiredDpsk struct {
@@ -104,9 +106,9 @@ type WLANDpskSetting struct {
 }
 
 type WLANExternalDpsk struct {
-	AuthService *AuthService `json:"authService,omitempty"`
-	Enabled     *bool        `json:"enabled,omitempty"`
-	Encryption  *Encryption  `json:"encryption,omitempty"`
+	AuthService *WLANExternalDpskAuthServiceType `json:"authService,omitempty"`
+	Enabled     *bool                            `json:"enabled,omitempty"`
+	Encryption  *WLANExternalDpskEncryptionType  `json:"encryption,omitempty"`
 }
 
 type WLANExternalDpskAuthServiceType struct {

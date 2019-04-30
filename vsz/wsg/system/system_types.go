@@ -23,10 +23,10 @@ type CaptchaSetting struct {
 }
 
 type ControllerList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*ControllerListType `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }
 
 type ControllerListType struct {
@@ -62,10 +62,10 @@ type ControlPlaneConfiguration struct {
 }
 
 type ControlPlaneList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                    `json:"firstIndex,omitempty"`
+	HasMore    *bool                   `json:"hasMore,omitempty"`
+	List       []*ControlPlaneListType `json:"list,omitempty"`
+	TotalCount *int                    `json:"totalCount,omitempty"`
 }
 
 type ControlPlaneListType struct {
@@ -102,10 +102,10 @@ type DataPlaneConfiguration struct {
 }
 
 type DataPlaneList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                 `json:"firstIndex,omitempty"`
+	HasMore    *bool                `json:"hasMore,omitempty"`
+	List       []*DataPlaneListType `json:"list,omitempty"`
+	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type DataPlaneListType struct {
@@ -135,10 +135,10 @@ type FriendlyNameLang struct {
 }
 
 type FriendlyNameLangList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                `json:"firstIndex,omitempty"`
+	HasMore    *bool               `json:"hasMore,omitempty"`
+	List       []*FriendlyNameLang `json:"list,omitempty"`
+	TotalCount *int                `json:"totalCount,omitempty"`
 }
 
 type Ftp struct {
@@ -168,7 +168,7 @@ type FtpList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*Ftp               `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -195,10 +195,10 @@ type GetDataPlaneMeshTunnelSetting struct {
 }
 
 type InventoryList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                 `json:"firstIndex,omitempty"`
+	HasMore    *bool                `json:"hasMore,omitempty"`
+	List       []*InventoryListType `json:"list,omitempty"`
+	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type InventoryListType struct {
@@ -340,9 +340,9 @@ type ModifyLwappScg struct {
 }
 
 type ModifySNMPAgent struct {
-	SNMPNotificationEnabled *bool          `json:"snmpNotificationEnabled,omitempty"`
-	SNMPV2Agent             []*SNMPV2Agent `json:"snmpV2Agent,omitempty"`
-	SNMPV3Agent             []*SNMPV3Agent `json:"snmpV3Agent,omitempty"`
+	SNMPNotificationEnabled *bool                   `json:"snmpNotificationEnabled,omitempty"`
+	SNMPV2Agent             []*common.SNMPCommunity `json:"snmpV2Agent,omitempty"`
+	SNMPV3Agent             []*common.SNMPUser      `json:"snmpV3Agent,omitempty"`
 }
 
 type ModifySystemTimeSetting struct {
@@ -361,10 +361,10 @@ type PortalLang struct {
 }
 
 type PortalLangList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int          `json:"firstIndex,omitempty"`
+	HasMore    *bool         `json:"hasMore,omitempty"`
+	List       []*PortalLang `json:"list,omitempty"`
+	TotalCount *int          `json:"totalCount,omitempty"`
 }
 
 type PortStatistic struct {
@@ -407,9 +407,9 @@ type SaveApNumberLimitSettingOfZone struct {
 }
 
 type SaveSystemSettings struct {
-	ApNumberLimitEnabled          *bool                            `json:"apNumberLimitEnabled,omitempty"`
-	ApNumberLimitSettingsOfDomain []*ApNumberLimitSettingsOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
-	ApNumberLimitSettingsOfZone   []*ApNumberLimitSettingsOfZone   `json:"apNumberLimitSettingsOfZone,omitempty"`
+	ApNumberLimitEnabled          *bool                               `json:"apNumberLimitEnabled,omitempty"`
+	ApNumberLimitSettingsOfDomain []*SaveApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
+	ApNumberLimitSettingsOfZone   []*SaveApNumberLimitSettingOfZone   `json:"apNumberLimitSettingsOfZone,omitempty"`
 }
 
 type SecondaryInterface struct {
@@ -433,14 +433,14 @@ type SmsList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*Sms               `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type SNMPAgentConfiguration struct {
-	SNMPNotificationEnabled *bool          `json:"snmpNotificationEnabled,omitempty"`
-	SNMPV2Agent             []*SNMPV2Agent `json:"snmpV2Agent,omitempty"`
-	SNMPV3Agent             []*SNMPV3Agent `json:"snmpV3Agent,omitempty"`
+	SNMPNotificationEnabled *bool                   `json:"snmpNotificationEnabled,omitempty"`
+	SNMPV2Agent             []*common.SNMPCommunity `json:"snmpV2Agent,omitempty"`
+	SNMPV3Agent             []*common.SNMPUser      `json:"snmpV3Agent,omitempty"`
 }
 
 type StaticRoute struct {
@@ -450,23 +450,25 @@ type StaticRoute struct {
 }
 
 type StaticRouteList struct {
-	StaticRoutes []*StaticRoutes `json:"staticRoutes,omitempty"`
+	StaticRoutes []*CpStaticRoute `json:"staticRoutes,omitempty"`
 }
 
+type StatisticList []*StatisticListType
+
 type StatisticListType struct {
-	Cluster    *Cluster    `json:"cluster,omitempty"`
-	Control    *Control    `json:"control,omitempty"`
-	CPU        *CPU        `json:"cpu,omitempty"`
-	Disk       *Disk       `json:"disk,omitempty"`
-	Management *Management `json:"management,omitempty"`
-	Memory     *Memory     `json:"memory,omitempty"`
-	Port0      *Port0      `json:"port0,omitempty"`
-	Port1      *Port1      `json:"port1,omitempty"`
-	Port2      *Port2      `json:"port2,omitempty"`
-	Port3      *Port3      `json:"port3,omitempty"`
-	Port4      *Port4      `json:"port4,omitempty"`
-	Port5      *Port5      `json:"port5,omitempty"`
-	Timestamp  *float64    `json:"timestamp,omitempty"`
+	Cluster    *PortStatistic               `json:"cluster,omitempty"`
+	Control    *PortStatistic               `json:"control,omitempty"`
+	CPU        *StatisticListTypeCPUType    `json:"cpu,omitempty"`
+	Disk       *StatisticListTypeDiskType   `json:"disk,omitempty"`
+	Management *PortStatistic               `json:"management,omitempty"`
+	Memory     *StatisticListTypeMemoryType `json:"memory,omitempty"`
+	Port0      *PortStatistic               `json:"port0,omitempty"`
+	Port1      *PortStatistic               `json:"port1,omitempty"`
+	Port2      *PortStatistic               `json:"port2,omitempty"`
+	Port3      *PortStatistic               `json:"port3,omitempty"`
+	Port4      *PortStatistic               `json:"port4,omitempty"`
+	Port5      *PortStatistic               `json:"port5,omitempty"`
+	Timestamp  *float64                     `json:"timestamp,omitempty"`
 }
 
 type StatisticListTypeCPUType struct {
@@ -489,9 +491,9 @@ type StatisticListTypeMemoryType struct {
 }
 
 type SystemSettings struct {
-	ApNumberLimitEnabled          *bool                            `json:"apNumberLimitEnabled,omitempty"`
-	ApNumberLimitSettingsOfDomain []*ApNumberLimitSettingsOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
-	ApNumberLimitSettingsOfZone   []*ApNumberLimitSettingsOfZone   `json:"apNumberLimitSettingsOfZone,omitempty"`
+	ApNumberLimitEnabled          *bool                           `json:"apNumberLimitEnabled,omitempty"`
+	ApNumberLimitSettingsOfDomain []*ApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
+	ApNumberLimitSettingsOfZone   []*ApNumberLimitSettingOfZone   `json:"apNumberLimitSettingsOfZone,omitempty"`
 }
 
 type SystemTimeSetting struct {

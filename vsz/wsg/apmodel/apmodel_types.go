@@ -3,19 +3,19 @@ package apmodel
 // API Version: v8_0
 
 type ApModel struct {
-	CellularSettings      *CellularSettings  `json:"cellularSettings,omitempty"`
-	ExternalAntenna24     *ExternalAntenna24 `json:"externalAntenna24,omitempty"`
-	ExternalAntenna50     *ExternalAntenna50 `json:"externalAntenna50,omitempty"`
-	InternalHeaterEnabled *bool              `json:"internalHeaterEnabled,omitempty"`
-	LanPorts              []*LanPorts        `json:"lanPorts,omitempty"`
-	LedMode               *string            `json:"ledMode,omitempty"`
-	LedStatusEnabled      *bool              `json:"ledStatusEnabled,omitempty"`
-	Lldp                  *Lldp              `json:"lldp,omitempty"`
-	PoeModeSetting        *string            `json:"poeModeSetting,omitempty"`
-	PoeOutPortEnabled     *bool              `json:"poeOutPortEnabled,omitempty"`
-	PoeTxChain            *int               `json:"poeTxChain,omitempty"`
-	RadioBand             *string            `json:"radioBand,omitempty"`
-	UsbPowerEnable        *bool              `json:"usbPowerEnable,omitempty"`
+	CellularSettings      *CellularSettings `json:"cellularSettings,omitempty"`
+	ExternalAntenna24     *ExternalAntenna  `json:"externalAntenna24,omitempty"`
+	ExternalAntenna50     *ExternalAntenna  `json:"externalAntenna50,omitempty"`
+	InternalHeaterEnabled *bool             `json:"internalHeaterEnabled,omitempty"`
+	LanPorts              []*LanPortSetting `json:"lanPorts,omitempty"`
+	LedMode               *string           `json:"ledMode,omitempty"`
+	LedStatusEnabled      *bool             `json:"ledStatusEnabled,omitempty"`
+	Lldp                  *LldpSetting      `json:"lldp,omitempty"`
+	PoeModeSetting        *string           `json:"poeModeSetting,omitempty"`
+	PoeOutPortEnabled     *bool             `json:"poeOutPortEnabled,omitempty"`
+	PoeTxChain            *int              `json:"poeTxChain,omitempty"`
+	RadioBand             *string           `json:"radioBand,omitempty"`
+	UsbPowerEnable        *bool             `json:"usbPowerEnable,omitempty"`
 }
 
 type AuthenticatorAAAServer struct {
@@ -75,16 +75,16 @@ type ExternalAntenna struct {
 }
 
 type LanPort8021X struct {
-	Authenticator *Authenticator `json:"authenticator,omitempty"`
-	Supplicant    *Supplicant    `json:"supplicant,omitempty"`
-	Type          *string        `json:"type,omitempty"`
+	Authenticator *LanPortAuthenticator `json:"authenticator,omitempty"`
+	Supplicant    *LanPortSupplicant    `json:"supplicant,omitempty"`
+	Type          *string               `json:"type,omitempty"`
 }
 
 type LanPortAuthenticator struct {
-	Accounting           *Accounting     `json:"accounting,omitempty"`
-	Authentication       *Authentication `json:"authentication,omitempty"`
-	DisabledAccounting   *bool           `json:"disabledAccounting,omitempty"`
-	MacAuthByPassEnabled *bool           `json:"macAuthByPassEnabled,omitempty"`
+	Accounting           *AuthenticatorAAAServer `json:"accounting,omitempty"`
+	Authentication       *AuthenticatorAAAServer `json:"authentication,omitempty"`
+	DisabledAccounting   *bool                   `json:"disabledAccounting,omitempty"`
+	MacAuthByPassEnabled *bool                   `json:"macAuthByPassEnabled,omitempty"`
 }
 
 type LanPortSetting struct {

@@ -33,8 +33,8 @@ type JobSchedule struct {
 }
 
 type JobScheduleResponse struct {
-	Data     *Data                  `json:"data,omitempty"`
-	Error    *Error                 `json:"error,omitempty"`
+	Data     *JobSchedule           `json:"data,omitempty"`
+	Error    *ErrorObject           `json:"error,omitempty"`
 	Extra    interface{}            `json:"extra,omitempty"`
 	MetaData map[string]interface{} `json:"metaData,omitempty"`
 	Success  *bool                  `json:"success,omitempty"`
@@ -44,7 +44,7 @@ type List struct {
 	Extra             interface{} `json:"extra,omitempty"`
 	FirstIndex        *int        `json:"firstIndex,omitempty"`
 	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
+	List              []*Job      `json:"list,omitempty"`
 	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int        `json:"totalCount,omitempty"`
 }

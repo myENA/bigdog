@@ -3,25 +3,25 @@ package profile
 // API Version: v8_0
 
 type AccountingProfile struct {
-	CreateDateTime   *int             `json:"createDateTime,omitempty"`
-	CreatorID        *string          `json:"creatorId,omitempty"`
-	CreatorUsername  *string          `json:"creatorUsername,omitempty"`
-	Description      *string          `json:"description,omitempty"`
-	DomainID         *string          `json:"domainId,omitempty"`
-	ID               *string          `json:"id,omitempty"`
-	ModifiedDateTime *int             `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string          `json:"modifierId,omitempty"`
-	ModifierUsername *string          `json:"modifierUsername,omitempty"`
-	MvnoID           *string          `json:"mvnoId,omitempty"`
-	Name             *string          `json:"name,omitempty"`
-	RealmMappings    []*RealmMappings `json:"realmMappings,omitempty"`
+	CreateDateTime   *int                       `json:"createDateTime,omitempty"`
+	CreatorID        *string                    `json:"creatorId,omitempty"`
+	CreatorUsername  *string                    `json:"creatorUsername,omitempty"`
+	Description      *string                    `json:"description,omitempty"`
+	DomainID         *string                    `json:"domainId,omitempty"`
+	ID               *string                    `json:"id,omitempty"`
+	ModifiedDateTime *int                       `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string                    `json:"modifierId,omitempty"`
+	ModifierUsername *string                    `json:"modifierUsername,omitempty"`
+	MvnoID           *string                    `json:"mvnoId,omitempty"`
+	Name             *string                    `json:"name,omitempty"`
+	RealmMappings    []*AcctServiceRealmMapping `json:"realmMappings,omitempty"`
 }
 
 type AccountingProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*AccountingProfile `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -52,38 +52,38 @@ type ApnRealm struct {
 }
 
 type AuthenticationProfile struct {
-	AaaSuppportEnabled        *bool             `json:"aaaSuppportEnabled,omitempty"`
-	CreateDateTime            *int              `json:"createDateTime,omitempty"`
-	CreatorID                 *string           `json:"creatorId,omitempty"`
-	CreatorUsername           *string           `json:"creatorUsername,omitempty"`
-	Description               *string           `json:"description,omitempty"`
-	DomainID                  *string           `json:"domainId,omitempty"`
-	GppSuppportEnabled        *bool             `json:"gppSuppportEnabled,omitempty"`
-	H20SuppportEnabled        *bool             `json:"h20SuppportEnabled,omitempty"`
-	ID                        *string           `json:"id,omitempty"`
-	IsContainDirectoryService *bool             `json:"isContainDirectoryService,omitempty"`
-	ModifiedDateTime          *int              `json:"modifiedDateTime,omitempty"`
-	ModifierID                *string           `json:"modifierId,omitempty"`
-	ModifierUsername          *string           `json:"modifierUsername,omitempty"`
-	MvnoID                    *string           `json:"mvnoId,omitempty"`
-	Name                      *string           `json:"name,omitempty"`
-	RealmMappings             []*RealmMappings  `json:"realmMappings,omitempty"`
-	TtgCommonSetting          *TtgCommonSetting `json:"ttgCommonSetting,omitempty"`
+	AaaSuppportEnabled        *bool                      `json:"aaaSuppportEnabled,omitempty"`
+	CreateDateTime            *int                       `json:"createDateTime,omitempty"`
+	CreatorID                 *string                    `json:"creatorId,omitempty"`
+	CreatorUsername           *string                    `json:"creatorUsername,omitempty"`
+	Description               *string                    `json:"description,omitempty"`
+	DomainID                  *string                    `json:"domainId,omitempty"`
+	GppSuppportEnabled        *bool                      `json:"gppSuppportEnabled,omitempty"`
+	H20SuppportEnabled        *bool                      `json:"h20SuppportEnabled,omitempty"`
+	ID                        *string                    `json:"id,omitempty"`
+	IsContainDirectoryService *bool                      `json:"isContainDirectoryService,omitempty"`
+	ModifiedDateTime          *int                       `json:"modifiedDateTime,omitempty"`
+	ModifierID                *string                    `json:"modifierId,omitempty"`
+	ModifierUsername          *string                    `json:"modifierUsername,omitempty"`
+	MvnoID                    *string                    `json:"mvnoId,omitempty"`
+	Name                      *string                    `json:"name,omitempty"`
+	RealmMappings             []*RealmAuthServiceMapping `json:"realmMappings,omitempty"`
+	TtgCommonSetting          *TtgCommonSetting          `json:"ttgCommonSetting,omitempty"`
 }
 
 type AuthenticationProfileList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata     `json:"extra,omitempty"`
+	FirstIndex *int                     `json:"firstIndex,omitempty"`
+	HasMore    *bool                    `json:"hasMore,omitempty"`
+	List       []*AuthenticationProfile `json:"list,omitempty"`
+	TotalCount *int                     `json:"totalCount,omitempty"`
 }
 
 type BaseServiceInfoList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                      `json:"firstIndex,omitempty"`
+	HasMore    *bool                     `json:"hasMore,omitempty"`
+	List       []*common.BaseServiceInfo `json:"list,omitempty"`
+	TotalCount *int                      `json:"totalCount,omitempty"`
 }
 
 type BlockClient struct {
@@ -99,10 +99,10 @@ type BlockClient struct {
 }
 
 type BlockClientList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                   `json:"firstIndex,omitempty"`
+	HasMore    *bool                  `json:"hasMore,omitempty"`
+	List       []*BlockClientListType `json:"list,omitempty"`
+	TotalCount *int                   `json:"totalCount,omitempty"`
 }
 
 type BlockClientListType struct {
@@ -115,35 +115,35 @@ type BlockClientListType struct {
 }
 
 type BonjourFencingPolicy struct {
-	BonjourFencingRuleList        []*BonjourFencingRuleList        `json:"bonjourFencingRuleList,omitempty"`
-	BonjourFencingRuleMappingList []*BonjourFencingRuleMappingList `json:"bonjourFencingRuleMappingList,omitempty"`
-	CreateDateTime                *int                             `json:"createDateTime,omitempty"`
-	CreatorID                     *string                          `json:"creatorId,omitempty"`
-	CreatorUsername               *string                          `json:"creatorUsername,omitempty"`
-	Description                   *string                          `json:"description,omitempty"`
-	ID                            *string                          `json:"id,omitempty"`
-	ModifiedDateTime              *int                             `json:"modifiedDateTime,omitempty"`
-	ModifierID                    *string                          `json:"modifierId,omitempty"`
-	ModifierUsername              *string                          `json:"modifierUsername,omitempty"`
-	Name                          *string                          `json:"name,omitempty"`
-	ZoneID                        *string                          `json:"zoneId,omitempty"`
+	BonjourFencingRuleList        []*BonjourFencingRule        `json:"bonjourFencingRuleList,omitempty"`
+	BonjourFencingRuleMappingList []*BonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList,omitempty"`
+	CreateDateTime                *int                         `json:"createDateTime,omitempty"`
+	CreatorID                     *string                      `json:"creatorId,omitempty"`
+	CreatorUsername               *string                      `json:"creatorUsername,omitempty"`
+	Description                   *string                      `json:"description,omitempty"`
+	ID                            *string                      `json:"id,omitempty"`
+	ModifiedDateTime              *int                         `json:"modifiedDateTime,omitempty"`
+	ModifierID                    *string                      `json:"modifierId,omitempty"`
+	ModifierUsername              *string                      `json:"modifierUsername,omitempty"`
+	Name                          *string                      `json:"name,omitempty"`
+	ZoneID                        *string                      `json:"zoneId,omitempty"`
 }
 
 type BonjourFencingPolicyList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                    `json:"firstIndex,omitempty"`
+	HasMore    *bool                   `json:"hasMore,omitempty"`
+	List       []*BonjourFencingPolicy `json:"list,omitempty"`
+	TotalCount *int                    `json:"totalCount,omitempty"`
 }
 
 type BonjourFencingRule struct {
-	ClosestAp         *string          `json:"closestAp,omitempty"`
-	CustomServiceName *string          `json:"customServiceName,omitempty"`
-	Description       *string          `json:"description,omitempty"`
-	DeviceMacList     []*DeviceMacList `json:"deviceMacList,omitempty"`
-	DeviceType        *string          `json:"deviceType,omitempty"`
-	FencingRange      *string          `json:"fencingRange,omitempty"`
-	ServiceType       *string          `json:"serviceType,omitempty"`
+	ClosestAp         *string                        `json:"closestAp,omitempty"`
+	CustomServiceName *string                        `json:"customServiceName,omitempty"`
+	Description       *string                        `json:"description,omitempty"`
+	DeviceMacList     []*BonjourFencingRuleDeviceMac `json:"deviceMacList,omitempty"`
+	DeviceType        *string                        `json:"deviceType,omitempty"`
+	FencingRange      *string                        `json:"fencingRange,omitempty"`
+	ServiceType       *string                        `json:"serviceType,omitempty"`
 }
 
 type BonjourFencingRuleDeviceMac struct {
@@ -163,38 +163,38 @@ type BonjourFencingService struct {
 }
 
 type BonjourFencingStatistic struct {
-	ApMac                          *string        `json:"apMac,omitempty"`
-	DroppedPacketsDueToNeighbor    *int           `json:"droppedPacketsDueToNeighbor,omitempty"`
-	DroppedPacketsDueToServiceType *int           `json:"droppedPacketsDueToServiceType,omitempty"`
-	ForwardedPackets               *int           `json:"forwardedPackets,omitempty"`
-	ServiceList                    []*ServiceList `json:"serviceList,omitempty"`
+	ApMac                          *string                  `json:"apMac,omitempty"`
+	DroppedPacketsDueToNeighbor    *int                     `json:"droppedPacketsDueToNeighbor,omitempty"`
+	DroppedPacketsDueToServiceType *int                     `json:"droppedPacketsDueToServiceType,omitempty"`
+	ForwardedPackets               *int                     `json:"forwardedPackets,omitempty"`
+	ServiceList                    []*BonjourFencingService `json:"serviceList,omitempty"`
 }
 
 type BridgeProfile struct {
-	CreateDateTime   *int       `json:"createDateTime,omitempty"`
-	CreatorID        *string    `json:"creatorId,omitempty"`
-	CreatorUsername  *string    `json:"creatorUsername,omitempty"`
-	Description      *string    `json:"description,omitempty"`
-	DHCPRelay        *DHCPRelay `json:"dhcpRelay,omitempty"`
-	DomainID         *string    `json:"domainId,omitempty"`
-	ID               *string    `json:"id,omitempty"`
-	ModifiedDateTime *int       `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string    `json:"modifierId,omitempty"`
-	ModifierUsername *string    `json:"modifierUsername,omitempty"`
-	Name             *string    `json:"name,omitempty"`
+	CreateDateTime   *int                    `json:"createDateTime,omitempty"`
+	CreatorID        *string                 `json:"creatorId,omitempty"`
+	CreatorUsername  *string                 `json:"creatorUsername,omitempty"`
+	Description      *string                 `json:"description,omitempty"`
+	DHCPRelay        *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DomainID         *string                 `json:"domainId,omitempty"`
+	ID               *string                 `json:"id,omitempty"`
+	ModifiedDateTime *int                    `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string                 `json:"modifierId,omitempty"`
+	ModifierUsername *string                 `json:"modifierUsername,omitempty"`
+	Name             *string                 `json:"name,omitempty"`
 }
 
 type BridgeProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*BridgeProfile     `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type BulkBlockClient struct {
-	BlockClientList []*BlockClientList `json:"blockClientList,omitempty"`
-	Description     *string            `json:"description,omitempty"`
+	BlockClientList []*BulkBlockClientBlockClientListType `json:"blockClientList,omitempty"`
+	Description     *string                               `json:"description,omitempty"`
 }
 
 type BulkBlockClientBlockClientListType struct {
@@ -211,31 +211,31 @@ type ClientIsolationEntry struct {
 }
 
 type ClientIsolationWhitelist struct {
-	ClientIsolationAutoEnabled *bool        `json:"clientIsolationAutoEnabled,omitempty"`
-	CreateDateTime             *int         `json:"createDateTime,omitempty"`
-	CreatorID                  *string      `json:"creatorId,omitempty"`
-	CreatorUsername            *string      `json:"creatorUsername,omitempty"`
-	Description                *string      `json:"description,omitempty"`
-	ID                         *string      `json:"id,omitempty"`
-	ModifiedDateTime           *int         `json:"modifiedDateTime,omitempty"`
-	ModifierID                 *string      `json:"modifierId,omitempty"`
-	ModifierUsername           *string      `json:"modifierUsername,omitempty"`
-	Name                       *string      `json:"name,omitempty"`
-	Whitelist                  []*Whitelist `json:"whitelist,omitempty"`
-	ZoneID                     *string      `json:"zoneId,omitempty"`
+	ClientIsolationAutoEnabled *bool                   `json:"clientIsolationAutoEnabled,omitempty"`
+	CreateDateTime             *int                    `json:"createDateTime,omitempty"`
+	CreatorID                  *string                 `json:"creatorId,omitempty"`
+	CreatorUsername            *string                 `json:"creatorUsername,omitempty"`
+	Description                *string                 `json:"description,omitempty"`
+	ID                         *string                 `json:"id,omitempty"`
+	ModifiedDateTime           *int                    `json:"modifiedDateTime,omitempty"`
+	ModifierID                 *string                 `json:"modifierId,omitempty"`
+	ModifierUsername           *string                 `json:"modifierUsername,omitempty"`
+	Name                       *string                 `json:"name,omitempty"`
+	Whitelist                  []*ClientIsolationEntry `json:"whitelist,omitempty"`
+	ZoneID                     *string                 `json:"zoneId,omitempty"`
 }
 
 type ClientIsolationWhitelistArray struct {
-	CreateDateTime   *int    `json:"createDateTime,omitempty"`
-	CreatorID        *string `json:"creatorId,omitempty"`
-	CreatorUsername  *string `json:"creatorUsername,omitempty"`
-	FirstIndex       *int    `json:"firstIndex,omitempty"`
-	HasMore          *bool   `json:"hasMore,omitempty"`
-	List             []*List `json:"list,omitempty"`
-	ModifiedDateTime *int    `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string `json:"modifierId,omitempty"`
-	ModifierUsername *string `json:"modifierUsername,omitempty"`
-	TotalCount       *int    `json:"totalCount,omitempty"`
+	CreateDateTime   *int                        `json:"createDateTime,omitempty"`
+	CreatorID        *string                     `json:"creatorId,omitempty"`
+	CreatorUsername  *string                     `json:"creatorUsername,omitempty"`
+	FirstIndex       *int                        `json:"firstIndex,omitempty"`
+	HasMore          *bool                       `json:"hasMore,omitempty"`
+	List             []*ClientIsolationWhitelist `json:"list,omitempty"`
+	ModifiedDateTime *int                        `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string                     `json:"modifierId,omitempty"`
+	ModifierUsername *string                     `json:"modifierUsername,omitempty"`
+	TotalCount       *int                        `json:"totalCount,omitempty"`
 }
 
 type CmProtocolOptionContent struct {
@@ -256,45 +256,45 @@ type CoreNetworkGateway struct {
 }
 
 type CreateAccountingProfile struct {
-	Description   *string          `json:"description,omitempty"`
-	DomainID      *string          `json:"domainId,omitempty"`
-	MvnoID        *string          `json:"mvnoId,omitempty"`
-	Name          *string          `json:"name,omitempty"`
-	RealmMappings []*RealmMappings `json:"realmMappings,omitempty"`
+	Description   *string                    `json:"description,omitempty"`
+	DomainID      *string                    `json:"domainId,omitempty"`
+	MvnoID        *string                    `json:"mvnoId,omitempty"`
+	Name          *string                    `json:"name,omitempty"`
+	RealmMappings []*AcctServiceRealmMapping `json:"realmMappings,omitempty"`
 }
 
 type CreateAuthenticationProfile struct {
-	AaaSuppportEnabled *bool             `json:"aaaSuppportEnabled,omitempty"`
-	Description        *string           `json:"description,omitempty"`
-	DomainID           *string           `json:"domainId,omitempty"`
-	GppSuppportEnabled *bool             `json:"gppSuppportEnabled,omitempty"`
-	H20SuppportEnabled *bool             `json:"h20SuppportEnabled,omitempty"`
-	MvnoID             *string           `json:"mvnoId,omitempty"`
-	Name               *string           `json:"name,omitempty"`
-	RealmMappings      []*RealmMappings  `json:"realmMappings,omitempty"`
-	TtgCommonSetting   *TtgCommonSetting `json:"ttgCommonSetting,omitempty"`
+	AaaSuppportEnabled *bool                      `json:"aaaSuppportEnabled,omitempty"`
+	Description        *string                    `json:"description,omitempty"`
+	DomainID           *string                    `json:"domainId,omitempty"`
+	GppSuppportEnabled *bool                      `json:"gppSuppportEnabled,omitempty"`
+	H20SuppportEnabled *bool                      `json:"h20SuppportEnabled,omitempty"`
+	MvnoID             *string                    `json:"mvnoId,omitempty"`
+	Name               *string                    `json:"name,omitempty"`
+	RealmMappings      []*RealmAuthServiceMapping `json:"realmMappings,omitempty"`
+	TtgCommonSetting   *TtgCommonSetting          `json:"ttgCommonSetting,omitempty"`
 }
 
 type CreateBonjourFencingPolicy struct {
-	BonjourFencingRuleList        []*BonjourFencingRuleList        `json:"bonjourFencingRuleList,omitempty"`
-	BonjourFencingRuleMappingList []*BonjourFencingRuleMappingList `json:"bonjourFencingRuleMappingList,omitempty"`
-	Description                   *string                          `json:"description,omitempty"`
-	Name                          *string                          `json:"name,omitempty"`
+	BonjourFencingRuleList        []*BonjourFencingRule        `json:"bonjourFencingRuleList,omitempty"`
+	BonjourFencingRuleMappingList []*BonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList,omitempty"`
+	Description                   *string                      `json:"description,omitempty"`
+	Name                          *string                      `json:"name,omitempty"`
 }
 
 type CreateBridgeProfile struct {
-	Description *string    `json:"description,omitempty"`
-	DHCPRelay   *DHCPRelay `json:"dhcpRelay,omitempty"`
-	DomainID    *string    `json:"domainId,omitempty"`
-	ID          *string    `json:"id,omitempty"`
-	Name        *string    `json:"name,omitempty"`
+	Description *string                 `json:"description,omitempty"`
+	DHCPRelay   *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DomainID    *string                 `json:"domainId,omitempty"`
+	ID          *string                 `json:"id,omitempty"`
+	Name        *string                 `json:"name,omitempty"`
 }
 
 type CreateClientIsolationWhitelist struct {
-	ClientIsolationAutoEnabled *bool        `json:"clientIsolationAutoEnabled,omitempty"`
-	Description                *string      `json:"description,omitempty"`
-	Name                       *string      `json:"name,omitempty"`
-	Whitelist                  []*Whitelist `json:"whitelist,omitempty"`
+	ClientIsolationAutoEnabled *bool                   `json:"clientIsolationAutoEnabled,omitempty"`
+	Description                *string                 `json:"description,omitempty"`
+	Name                       *string                 `json:"name,omitempty"`
+	Whitelist                  []*ClientIsolationEntry `json:"whitelist,omitempty"`
 }
 
 type CreateDHCPProfile struct {
@@ -322,44 +322,46 @@ type CreateDNSServerProfile struct {
 }
 
 type CreateIpsecProfile struct {
-	AdvancedOption         *AdvancedOption         `json:"advancedOption,omitempty"`
-	AuthType               *string                 `json:"authType,omitempty"`
-	CmProtocolOption       *CmProtocolOption       `json:"cmProtocolOption,omitempty"`
-	Description            *string                 `json:"description,omitempty"`
-	DomainID               *string                 `json:"domainId,omitempty"`
-	EspRekeyTime           *float64                `json:"espRekeyTime,omitempty"`
-	EspRekeyTimeUnit       *string                 `json:"espRekeyTimeUnit,omitempty"`
-	EspSecurityAssociation *EspSecurityAssociation `json:"espSecurityAssociation,omitempty"`
-	ID                     *string                 `json:"id,omitempty"`
-	IkeRekeyTime           *float64                `json:"ikeRekeyTime,omitempty"`
-	IkeRekeyTimeUnit       *string                 `json:"ikeRekeyTimeUnit,omitempty"`
-	IkeSecurityAssociation *IkeSecurityAssociation `json:"ikeSecurityAssociation,omitempty"`
-	IPMode                 *string                 `json:"ipMode,omitempty"`
-	Name                   *string                 `json:"name,omitempty"`
-	PreSharedKey           *string                 `json:"preSharedKey,omitempty"`
-	ServerAddr             *string                 `json:"serverAddr,omitempty"`
+	AdvancedOption         *AdvancedOptionContent         `json:"advancedOption,omitempty"`
+	AuthType               *string                        `json:"authType,omitempty"`
+	CmProtocolOption       *CmProtocolOptionContent       `json:"cmProtocolOption,omitempty"`
+	Description            *string                        `json:"description,omitempty"`
+	DomainID               *string                        `json:"domainId,omitempty"`
+	EspRekeyTime           *float64                       `json:"espRekeyTime,omitempty"`
+	EspRekeyTimeUnit       *string                        `json:"espRekeyTimeUnit,omitempty"`
+	EspSecurityAssociation *EspSecurityAssociationContent `json:"espSecurityAssociation,omitempty"`
+	ID                     *string                        `json:"id,omitempty"`
+	IkeRekeyTime           *float64                       `json:"ikeRekeyTime,omitempty"`
+	IkeRekeyTimeUnit       *string                        `json:"ikeRekeyTimeUnit,omitempty"`
+	IkeSecurityAssociation *IkeSecurityAssociationContent `json:"ikeSecurityAssociation,omitempty"`
+	IPMode                 *string                        `json:"ipMode,omitempty"`
+	Name                   *string                        `json:"name,omitempty"`
+	PreSharedKey           *string                        `json:"preSharedKey,omitempty"`
+	ServerAddr             *string                        `json:"serverAddr,omitempty"`
 }
 
 type CreateLOGREProfile struct {
-	CoreNetworkGateway *CoreNetworkGateway `json:"coreNetworkGateway,omitempty"`
-	Description        *string             `json:"description,omitempty"`
-	DHCPRelay          *DHCPRelay          `json:"dhcpRelay,omitempty"`
-	DomainID           *string             `json:"domainId,omitempty"`
-	ID                 *string             `json:"id,omitempty"`
-	Name               *string             `json:"name,omitempty"`
+	CoreNetworkGateway *CoreNetworkGateway     `json:"coreNetworkGateway,omitempty"`
+	Description        *string                 `json:"description,omitempty"`
+	DHCPRelay          *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DomainID           *string                 `json:"domainId,omitempty"`
+	ID                 *string                 `json:"id,omitempty"`
+	Name               *string                 `json:"name,omitempty"`
 }
 
 type CreatePrecedenceProfile struct {
-	DomainID               *string                   `json:"domainId,omitempty"`
-	Name                   *string                   `json:"name,omitempty"`
-	RateLimitingPrecedence []*RateLimitingPrecedence `json:"rateLimitingPrecedence,omitempty"`
-	VlanPrecedence         []*VlanPrecedence         `json:"vlanPrecedence,omitempty"`
+	DomainID               *string                       `json:"domainId,omitempty"`
+	Name                   *string                       `json:"name,omitempty"`
+	RateLimitingPrecedence []*RateLimitingPrecedenceItem `json:"rateLimitingPrecedence,omitempty"`
+	VlanPrecedence         []*VlanPrecedenceItem         `json:"vlanPrecedence,omitempty"`
 }
 
+type CreateResultList []*common.CreateResult
+
 type CreateRogueApPolicy struct {
-	Description *string  `json:"description,omitempty"`
-	Name        *string  `json:"name,omitempty"`
-	Rules       []*Rules `json:"rules,omitempty"`
+	Description *string            `json:"description,omitempty"`
+	Name        *string            `json:"name,omitempty"`
+	Rules       []*RogueApRuleList `json:"rules,omitempty"`
 }
 
 type CreateRtlsProfile struct {
@@ -397,22 +399,22 @@ type CreateSoftGREProfile struct {
 }
 
 type CreateTrafficClassProfile struct {
-	Description    *string           `json:"description,omitempty"`
-	Name           *string           `json:"name,omitempty"`
-	TrafficClasses []*TrafficClasses `json:"trafficClasses,omitempty"`
+	Description    *string                   `json:"description,omitempty"`
+	Name           *string                   `json:"name,omitempty"`
+	TrafficClasses []*common.TrafficClassRef `json:"trafficClasses,omitempty"`
 }
 
 type CreateTtgpdgProfile struct {
-	ApnForwardingRealms  []*ApnForwardingRealms `json:"apnForwardingRealms,omitempty"`
-	ApnRealms            []*ApnRealms           `json:"apnRealms,omitempty"`
-	CommonSetting        *CommonSetting         `json:"commonSetting,omitempty"`
-	DefaultNoMatchingAPN *string                `json:"defaultNoMatchingAPN,omitempty"`
-	DefaultNoRealmAPN    *string                `json:"defaultNoRealmAPN,omitempty"`
-	Description          *string                `json:"description,omitempty"`
-	DHCPRelay            *DHCPRelay             `json:"dhcpRelay,omitempty"`
-	DomainID             *string                `json:"domainId,omitempty"`
-	ID                   *string                `json:"id,omitempty"`
-	Name                 *string                `json:"name,omitempty"`
+	ApnForwardingRealms  []*TtgpdgApnForwardingRealm `json:"apnForwardingRealms,omitempty"`
+	ApnRealms            []*ApnRealm                 `json:"apnRealms,omitempty"`
+	CommonSetting        *TtgpdgCommonSetting        `json:"commonSetting,omitempty"`
+	DefaultNoMatchingAPN *string                     `json:"defaultNoMatchingAPN,omitempty"`
+	DefaultNoRealmAPN    *string                     `json:"defaultNoRealmAPN,omitempty"`
+	Description          *string                     `json:"description,omitempty"`
+	DHCPRelay            *DHCPRelayNoRelayTunnel     `json:"dhcpRelay,omitempty"`
+	DomainID             *string                     `json:"domainId,omitempty"`
+	ID                   *string                     `json:"id,omitempty"`
+	Name                 *string                     `json:"name,omitempty"`
 }
 
 type CreateUserTrafficProfile struct {
@@ -473,16 +475,16 @@ type DHCPOption82 struct {
 }
 
 type DHCPProfileList struct {
-	CreateDateTime   *int    `json:"createDateTime,omitempty"`
-	CreatorID        *string `json:"creatorId,omitempty"`
-	CreatorUsername  *string `json:"creatorUsername,omitempty"`
-	FirstIndex       *int    `json:"firstIndex,omitempty"`
-	HasMore          *bool   `json:"hasMore,omitempty"`
-	List             []*List `json:"list,omitempty"`
-	ModifiedDateTime *int    `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string `json:"modifierId,omitempty"`
-	ModifierUsername *string `json:"modifierUsername,omitempty"`
-	TotalCount       *int    `json:"totalCount,omitempty"`
+	CreateDateTime   *int                     `json:"createDateTime,omitempty"`
+	CreatorID        *string                  `json:"creatorId,omitempty"`
+	CreatorUsername  *string                  `json:"creatorUsername,omitempty"`
+	FirstIndex       *int                     `json:"firstIndex,omitempty"`
+	HasMore          *bool                    `json:"hasMore,omitempty"`
+	List             []*common.DHCPProfileRef `json:"list,omitempty"`
+	ModifiedDateTime *int                     `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string                  `json:"modifierId,omitempty"`
+	ModifierUsername *string                  `json:"modifierUsername,omitempty"`
+	TotalCount       *int                     `json:"totalCount,omitempty"`
 }
 
 type DHCPRelayNoRelayTunnel struct {
@@ -514,7 +516,7 @@ type DNSServerProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*DNSServerProfile  `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -530,8 +532,8 @@ type EspProposal struct {
 }
 
 type EspSecurityAssociationContent struct {
-	EspProposals    []*EspProposals `json:"espProposals,omitempty"`
-	EspProposalType *string         `json:"espProposalType,omitempty"`
+	EspProposals    []*EspProposal `json:"espProposals,omitempty"`
+	EspProposalType *string        `json:"espProposalType,omitempty"`
 }
 
 type FlexiVpnProfile struct {
@@ -547,21 +549,21 @@ type FlexiVpnProfile struct {
 }
 
 type FlexiVpnProfileList struct {
-	CreateDateTime   *int    `json:"createDateTime,omitempty"`
-	CreatorID        *string `json:"creatorId,omitempty"`
-	CreatorUsername  *string `json:"creatorUsername,omitempty"`
-	FirstIndex       *int    `json:"firstIndex,omitempty"`
-	HasMore          *bool   `json:"hasMore,omitempty"`
-	List             []*List `json:"list,omitempty"`
-	ModifiedDateTime *int    `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string `json:"modifierId,omitempty"`
-	ModifierUsername *string `json:"modifierUsername,omitempty"`
-	TotalCount       *int    `json:"totalCount,omitempty"`
+	CreateDateTime   *int               `json:"createDateTime,omitempty"`
+	CreatorID        *string            `json:"creatorId,omitempty"`
+	CreatorUsername  *string            `json:"creatorUsername,omitempty"`
+	FirstIndex       *int               `json:"firstIndex,omitempty"`
+	HasMore          *bool              `json:"hasMore,omitempty"`
+	List             []*FlexiVpnProfile `json:"list,omitempty"`
+	ModifiedDateTime *int               `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string            `json:"modifierId,omitempty"`
+	ModifierUsername *string            `json:"modifierUsername,omitempty"`
+	TotalCount       *int               `json:"totalCount,omitempty"`
 }
 
 type GetL3RoamingConfig struct {
-	DataPlanes     []*DataPlanes `json:"dataPlanes,omitempty"`
-	FeatureEnabled *int          `json:"featureEnabled,omitempty"`
+	DataPlanes     []*DataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
+	FeatureEnabled *int                      `json:"featureEnabled,omitempty"`
 }
 
 type Hs20FriendlyName struct {
@@ -570,53 +572,53 @@ type Hs20FriendlyName struct {
 }
 
 type Hs20Operator struct {
-	Certificate      *common.GenericRef `json:"certificate,omitempty"`
-	CreateDateTime   *int               `json:"createDateTime,omitempty"`
-	CreatorID        *string            `json:"creatorId,omitempty"`
-	CreatorUsername  *string            `json:"creatorUsername,omitempty"`
-	Description      *string            `json:"description,omitempty"`
-	DomainID         *string            `json:"domainId,omitempty"`
-	DomainNames      []string           `json:"domainNames,omitempty"`
-	FriendlyNames    []*FriendlyNames   `json:"friendlyNames,omitempty"`
-	ID               *string            `json:"id,omitempty"`
-	ModifiedDateTime *int               `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string            `json:"modifierId,omitempty"`
-	ModifierUsername *string            `json:"modifierUsername,omitempty"`
-	Name             *string            `json:"name,omitempty"`
+	Certificate      *common.GenericRef  `json:"certificate,omitempty"`
+	CreateDateTime   *int                `json:"createDateTime,omitempty"`
+	CreatorID        *string             `json:"creatorId,omitempty"`
+	CreatorUsername  *string             `json:"creatorUsername,omitempty"`
+	Description      *string             `json:"description,omitempty"`
+	DomainID         *string             `json:"domainId,omitempty"`
+	DomainNames      []string            `json:"domainNames,omitempty"`
+	FriendlyNames    []*Hs20FriendlyName `json:"friendlyNames,omitempty"`
+	ID               *string             `json:"id,omitempty"`
+	ModifiedDateTime *int                `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string             `json:"modifierId,omitempty"`
+	ModifierUsername *string             `json:"modifierUsername,omitempty"`
+	Name             *string             `json:"name,omitempty"`
 }
 
 type Hs20OperatorList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*Hs20Operator      `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type Hs20Provider struct {
-	Accountings      []*Accountings     `json:"accountings,omitempty"`
-	Authentications  []*Authentications `json:"authentications,omitempty"`
-	CreateDateTime   *int               `json:"createDateTime,omitempty"`
-	CreatorID        *string            `json:"creatorId,omitempty"`
-	CreatorUsername  *string            `json:"creatorUsername,omitempty"`
-	Description      *string            `json:"description,omitempty"`
-	DomainID         *string            `json:"domainId,omitempty"`
-	HomeOis          []*HomeOis         `json:"homeOis,omitempty"`
-	ID               *string            `json:"id,omitempty"`
-	ModifiedDateTime *int               `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string            `json:"modifierId,omitempty"`
-	ModifierUsername *string            `json:"modifierUsername,omitempty"`
-	Name             *string            `json:"name,omitempty"`
-	Osu              *Osu               `json:"osu,omitempty"`
-	Plmns            []*Plmns           `json:"plmns,omitempty"`
-	Realms           []*Realms          `json:"realms,omitempty"`
+	Accountings      []*ProviderAccounting     `json:"accountings,omitempty"`
+	Authentications  []*ProviderAuthentication `json:"authentications,omitempty"`
+	CreateDateTime   *int                      `json:"createDateTime,omitempty"`
+	CreatorID        *string                   `json:"creatorId,omitempty"`
+	CreatorUsername  *string                   `json:"creatorUsername,omitempty"`
+	Description      *string                   `json:"description,omitempty"`
+	DomainID         *string                   `json:"domainId,omitempty"`
+	HomeOis          []*ProviderHomeOIs        `json:"homeOis,omitempty"`
+	ID               *string                   `json:"id,omitempty"`
+	ModifiedDateTime *int                      `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string                   `json:"modifierId,omitempty"`
+	ModifierUsername *string                   `json:"modifierUsername,omitempty"`
+	Name             *string                   `json:"name,omitempty"`
+	Osu              *ProviderOnlineSignup     `json:"osu,omitempty"`
+	Plmns            []*ProviderPLMN           `json:"plmns,omitempty"`
+	Realms           []*ProviderRealm          `json:"realms,omitempty"`
 }
 
 type Hs20ProviderList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*Hs20Provider      `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -628,8 +630,8 @@ type IkeProposal struct {
 }
 
 type IkeSecurityAssociationContent struct {
-	IkeProposals    []*IkeProposals `json:"ikeProposals,omitempty"`
-	IkeProposalType *string         `json:"ikeProposalType,omitempty"`
+	IkeProposals    []*IkeProposal `json:"ikeProposals,omitempty"`
+	IkeProposalType *string        `json:"ikeProposalType,omitempty"`
 }
 
 type IPAclRules struct {
@@ -663,58 +665,58 @@ type IPAclRules struct {
 }
 
 type IpsecProfile struct {
-	AdvancedOption         *AdvancedOption         `json:"advancedOption,omitempty"`
-	AuthType               *string                 `json:"authType,omitempty"`
-	CmProtocolOption       *CmProtocolOption       `json:"cmProtocolOption,omitempty"`
-	CreateDateTime         *int                    `json:"createDateTime,omitempty"`
-	CreatorID              *string                 `json:"creatorId,omitempty"`
-	CreatorUsername        *string                 `json:"creatorUsername,omitempty"`
-	Description            *string                 `json:"description,omitempty"`
-	DomainID               *string                 `json:"domainId,omitempty"`
-	EspRekeyTime           *float64                `json:"espRekeyTime,omitempty"`
-	EspRekeyTimeUnit       *string                 `json:"espRekeyTimeUnit,omitempty"`
-	EspSecurityAssociation *EspSecurityAssociation `json:"espSecurityAssociation,omitempty"`
-	ID                     *string                 `json:"id,omitempty"`
-	IkeRekeyTime           *float64                `json:"ikeRekeyTime,omitempty"`
-	IkeRekeyTimeUnit       *string                 `json:"ikeRekeyTimeUnit,omitempty"`
-	IkeSecurityAssociation *IkeSecurityAssociation `json:"ikeSecurityAssociation,omitempty"`
-	IPMode                 *string                 `json:"ipMode,omitempty"`
-	ModifiedDateTime       *int                    `json:"modifiedDateTime,omitempty"`
-	ModifierID             *string                 `json:"modifierId,omitempty"`
-	ModifierUsername       *string                 `json:"modifierUsername,omitempty"`
-	Name                   *string                 `json:"name,omitempty"`
-	PreSharedKey           *string                 `json:"preSharedKey,omitempty"`
-	ServerAddr             *string                 `json:"serverAddr,omitempty"`
+	AdvancedOption         *AdvancedOptionContent         `json:"advancedOption,omitempty"`
+	AuthType               *string                        `json:"authType,omitempty"`
+	CmProtocolOption       *CmProtocolOptionContent       `json:"cmProtocolOption,omitempty"`
+	CreateDateTime         *int                           `json:"createDateTime,omitempty"`
+	CreatorID              *string                        `json:"creatorId,omitempty"`
+	CreatorUsername        *string                        `json:"creatorUsername,omitempty"`
+	Description            *string                        `json:"description,omitempty"`
+	DomainID               *string                        `json:"domainId,omitempty"`
+	EspRekeyTime           *float64                       `json:"espRekeyTime,omitempty"`
+	EspRekeyTimeUnit       *string                        `json:"espRekeyTimeUnit,omitempty"`
+	EspSecurityAssociation *EspSecurityAssociationContent `json:"espSecurityAssociation,omitempty"`
+	ID                     *string                        `json:"id,omitempty"`
+	IkeRekeyTime           *float64                       `json:"ikeRekeyTime,omitempty"`
+	IkeRekeyTimeUnit       *string                        `json:"ikeRekeyTimeUnit,omitempty"`
+	IkeSecurityAssociation *IkeSecurityAssociationContent `json:"ikeSecurityAssociation,omitempty"`
+	IPMode                 *string                        `json:"ipMode,omitempty"`
+	ModifiedDateTime       *int                           `json:"modifiedDateTime,omitempty"`
+	ModifierID             *string                        `json:"modifierId,omitempty"`
+	ModifierUsername       *string                        `json:"modifierUsername,omitempty"`
+	Name                   *string                        `json:"name,omitempty"`
+	PreSharedKey           *string                        `json:"preSharedKey,omitempty"`
+	ServerAddr             *string                        `json:"serverAddr,omitempty"`
 }
 
 type IpsecProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*IpsecProfile      `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type LOGREProfile struct {
-	CoreNetworkGateway *CoreNetworkGateway `json:"coreNetworkGateway,omitempty"`
-	CreateDateTime     *int                `json:"createDateTime,omitempty"`
-	CreatorID          *string             `json:"creatorId,omitempty"`
-	CreatorUsername    *string             `json:"creatorUsername,omitempty"`
-	Description        *string             `json:"description,omitempty"`
-	DHCPRelay          *DHCPRelay          `json:"dhcpRelay,omitempty"`
-	DomainID           *string             `json:"domainId,omitempty"`
-	ID                 *string             `json:"id,omitempty"`
-	ModifiedDateTime   *int                `json:"modifiedDateTime,omitempty"`
-	ModifierID         *string             `json:"modifierId,omitempty"`
-	ModifierUsername   *string             `json:"modifierUsername,omitempty"`
-	Name               *string             `json:"name,omitempty"`
+	CoreNetworkGateway *CoreNetworkGateway     `json:"coreNetworkGateway,omitempty"`
+	CreateDateTime     *int                    `json:"createDateTime,omitempty"`
+	CreatorID          *string                 `json:"creatorId,omitempty"`
+	CreatorUsername    *string                 `json:"creatorUsername,omitempty"`
+	Description        *string                 `json:"description,omitempty"`
+	DHCPRelay          *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DomainID           *string                 `json:"domainId,omitempty"`
+	ID                 *string                 `json:"id,omitempty"`
+	ModifiedDateTime   *int                    `json:"modifiedDateTime,omitempty"`
+	ModifierID         *string                 `json:"modifierId,omitempty"`
+	ModifierUsername   *string                 `json:"modifierUsername,omitempty"`
+	Name               *string                 `json:"name,omitempty"`
 }
 
 type LOGREProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*LOGREProfile      `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -739,30 +741,30 @@ type LbsProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*LbsProfile        `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type ModifyAccountingProfile struct {
-	Description   *string          `json:"description,omitempty"`
-	DomainID      *string          `json:"domainId,omitempty"`
-	ID            *string          `json:"id,omitempty"`
-	MvnoID        *string          `json:"mvnoId,omitempty"`
-	Name          *string          `json:"name,omitempty"`
-	RealmMappings []*RealmMappings `json:"realmMappings,omitempty"`
+	Description   *string                    `json:"description,omitempty"`
+	DomainID      *string                    `json:"domainId,omitempty"`
+	ID            *string                    `json:"id,omitempty"`
+	MvnoID        *string                    `json:"mvnoId,omitempty"`
+	Name          *string                    `json:"name,omitempty"`
+	RealmMappings []*AcctServiceRealmMapping `json:"realmMappings,omitempty"`
 }
 
 type ModifyAuthenticationProfile struct {
-	AaaSuppportEnabled *bool             `json:"aaaSuppportEnabled,omitempty"`
-	Description        *string           `json:"description,omitempty"`
-	DomainID           *string           `json:"domainId,omitempty"`
-	GppSuppportEnabled *bool             `json:"gppSuppportEnabled,omitempty"`
-	H20SuppportEnabled *bool             `json:"h20SuppportEnabled,omitempty"`
-	ID                 *string           `json:"id,omitempty"`
-	MvnoID             *string           `json:"mvnoId,omitempty"`
-	Name               *string           `json:"name,omitempty"`
-	RealmMappings      []*RealmMappings  `json:"realmMappings,omitempty"`
-	TtgCommonSetting   *TtgCommonSetting `json:"ttgCommonSetting,omitempty"`
+	AaaSuppportEnabled *bool                      `json:"aaaSuppportEnabled,omitempty"`
+	Description        *string                    `json:"description,omitempty"`
+	DomainID           *string                    `json:"domainId,omitempty"`
+	GppSuppportEnabled *bool                      `json:"gppSuppportEnabled,omitempty"`
+	H20SuppportEnabled *bool                      `json:"h20SuppportEnabled,omitempty"`
+	ID                 *string                    `json:"id,omitempty"`
+	MvnoID             *string                    `json:"mvnoId,omitempty"`
+	Name               *string                    `json:"name,omitempty"`
+	RealmMappings      []*RealmAuthServiceMapping `json:"realmMappings,omitempty"`
+	TtgCommonSetting   *TtgCommonSetting          `json:"ttgCommonSetting,omitempty"`
 }
 
 type ModifyBlockClient struct {
@@ -771,25 +773,25 @@ type ModifyBlockClient struct {
 }
 
 type ModifyBonjourFencingPolicy struct {
-	BonjourFencingRuleList        []*BonjourFencingRuleList        `json:"bonjourFencingRuleList,omitempty"`
-	BonjourFencingRuleMappingList []*BonjourFencingRuleMappingList `json:"bonjourFencingRuleMappingList,omitempty"`
-	Description                   *string                          `json:"description,omitempty"`
-	Name                          *string                          `json:"name,omitempty"`
+	BonjourFencingRuleList        []*BonjourFencingRule        `json:"bonjourFencingRuleList,omitempty"`
+	BonjourFencingRuleMappingList []*BonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList,omitempty"`
+	Description                   *string                      `json:"description,omitempty"`
+	Name                          *string                      `json:"name,omitempty"`
 }
 
 type ModifyBridgeProfile struct {
-	Description *string    `json:"description,omitempty"`
-	DHCPRelay   *DHCPRelay `json:"dhcpRelay,omitempty"`
-	DomainID    *string    `json:"domainId,omitempty"`
-	ID          *string    `json:"id,omitempty"`
-	Name        *string    `json:"name,omitempty"`
+	Description *string                 `json:"description,omitempty"`
+	DHCPRelay   *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DomainID    *string                 `json:"domainId,omitempty"`
+	ID          *string                 `json:"id,omitempty"`
+	Name        *string                 `json:"name,omitempty"`
 }
 
 type ModifyClientIsolationWhitelist struct {
-	ClientIsolationAutoEnabled *bool        `json:"clientIsolationAutoEnabled,omitempty"`
-	Description                *string      `json:"description,omitempty"`
-	Name                       *string      `json:"name,omitempty"`
-	Whitelist                  []*Whitelist `json:"whitelist,omitempty"`
+	ClientIsolationAutoEnabled *bool                   `json:"clientIsolationAutoEnabled,omitempty"`
+	Description                *string                 `json:"description,omitempty"`
+	Name                       *string                 `json:"name,omitempty"`
+	Whitelist                  []*ClientIsolationEntry `json:"whitelist,omitempty"`
 }
 
 type ModifyDNSServerProfile struct {
@@ -804,13 +806,13 @@ type ModifyDNSServerProfile struct {
 }
 
 type ModifyHS20Operator struct {
-	Certificate   *common.GenericRef `json:"certificate,omitempty"`
-	Description   *string            `json:"description,omitempty"`
-	DomainID      *string            `json:"domainId,omitempty"`
-	DomainNames   []string           `json:"domainNames,omitempty"`
-	FriendlyNames []*FriendlyNames   `json:"friendlyNames,omitempty"`
-	ID            *string            `json:"id,omitempty"`
-	Name          *string            `json:"name,omitempty"`
+	Certificate   *common.GenericRef  `json:"certificate,omitempty"`
+	Description   *string             `json:"description,omitempty"`
+	DomainID      *string             `json:"domainId,omitempty"`
+	DomainNames   []string            `json:"domainNames,omitempty"`
+	FriendlyNames []*Hs20FriendlyName `json:"friendlyNames,omitempty"`
+	ID            *string             `json:"id,omitempty"`
+	Name          *string             `json:"name,omitempty"`
 }
 
 type ModifyIPAclRules struct {
@@ -844,31 +846,31 @@ type ModifyIPAclRules struct {
 }
 
 type ModifyIpsecProfile struct {
-	AdvancedOption         *AdvancedOption         `json:"advancedOption,omitempty"`
-	AuthType               *string                 `json:"authType,omitempty"`
-	CmProtocolOption       *CmProtocolOption       `json:"cmProtocolOption,omitempty"`
-	Description            *string                 `json:"description,omitempty"`
-	DomainID               *string                 `json:"domainId,omitempty"`
-	EspRekeyTime           *float64                `json:"espRekeyTime,omitempty"`
-	EspRekeyTimeUnit       *string                 `json:"espRekeyTimeUnit,omitempty"`
-	EspSecurityAssociation *EspSecurityAssociation `json:"espSecurityAssociation,omitempty"`
-	ID                     *string                 `json:"id,omitempty"`
-	IkeRekeyTime           *float64                `json:"ikeRekeyTime,omitempty"`
-	IkeRekeyTimeUnit       *string                 `json:"ikeRekeyTimeUnit,omitempty"`
-	IkeSecurityAssociation *IkeSecurityAssociation `json:"ikeSecurityAssociation,omitempty"`
-	IPMode                 *string                 `json:"ipMode,omitempty"`
-	Name                   *string                 `json:"name,omitempty"`
-	PreSharedKey           *string                 `json:"preSharedKey,omitempty"`
-	ServerAddr             *string                 `json:"serverAddr,omitempty"`
+	AdvancedOption         *AdvancedOptionContent         `json:"advancedOption,omitempty"`
+	AuthType               *string                        `json:"authType,omitempty"`
+	CmProtocolOption       *CmProtocolOptionContent       `json:"cmProtocolOption,omitempty"`
+	Description            *string                        `json:"description,omitempty"`
+	DomainID               *string                        `json:"domainId,omitempty"`
+	EspRekeyTime           *float64                       `json:"espRekeyTime,omitempty"`
+	EspRekeyTimeUnit       *string                        `json:"espRekeyTimeUnit,omitempty"`
+	EspSecurityAssociation *EspSecurityAssociationContent `json:"espSecurityAssociation,omitempty"`
+	ID                     *string                        `json:"id,omitempty"`
+	IkeRekeyTime           *float64                       `json:"ikeRekeyTime,omitempty"`
+	IkeRekeyTimeUnit       *string                        `json:"ikeRekeyTimeUnit,omitempty"`
+	IkeSecurityAssociation *IkeSecurityAssociationContent `json:"ikeSecurityAssociation,omitempty"`
+	IPMode                 *string                        `json:"ipMode,omitempty"`
+	Name                   *string                        `json:"name,omitempty"`
+	PreSharedKey           *string                        `json:"preSharedKey,omitempty"`
+	ServerAddr             *string                        `json:"serverAddr,omitempty"`
 }
 
 type ModifyLOGREProfile struct {
-	CoreNetworkGateway *CoreNetworkGateway `json:"coreNetworkGateway,omitempty"`
-	Description        *string             `json:"description,omitempty"`
-	DHCPRelay          *DHCPRelay          `json:"dhcpRelay,omitempty"`
-	DomainID           *string             `json:"domainId,omitempty"`
-	ID                 *string             `json:"id,omitempty"`
-	Name               *string             `json:"name,omitempty"`
+	CoreNetworkGateway *CoreNetworkGateway     `json:"coreNetworkGateway,omitempty"`
+	Description        *string                 `json:"description,omitempty"`
+	DHCPRelay          *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DomainID           *string                 `json:"domainId,omitempty"`
+	ID                 *string                 `json:"id,omitempty"`
+	Name               *string                 `json:"name,omitempty"`
 }
 
 type ModifyRuckusGREProfile struct {
@@ -903,7 +905,7 @@ type ModifyUserTrafficProfile struct {
 	DomainID             *string               `json:"domainId,omitempty"`
 	DownlinkRateLimiting *DownlinkRateLimiting `json:"downlinkRateLimiting,omitempty"`
 	ID                   *string               `json:"id,omitempty"`
-	IPAclRules           []*IPAclRules         `json:"ipAclRules,omitempty"`
+	IPAclRules           []*ModifyIPAclRules   `json:"ipAclRules,omitempty"`
 	MvnoID               *string               `json:"mvnoId,omitempty"`
 	Name                 *string               `json:"name,omitempty"`
 	QmAppPolicyID        *string               `json:"qmAppPolicyId,omitempty"`
@@ -918,19 +920,19 @@ type ModifyZoneAffinityProfile struct {
 }
 
 type PrecedenceList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata  `json:"extra,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*PrecedenceListType `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }
 
 type PrecedenceListType struct {
-	DomainID               *string                   `json:"domainId,omitempty"`
-	ID                     *string                   `json:"id,omitempty"`
-	Name                   *string                   `json:"name,omitempty"`
-	RateLimitingPrecedence []*RateLimitingPrecedence `json:"rateLimitingPrecedence,omitempty"`
-	VlanPrecedence         []*VlanPrecedence         `json:"vlanPrecedence,omitempty"`
+	DomainID               *string                       `json:"domainId,omitempty"`
+	ID                     *string                       `json:"id,omitempty"`
+	Name                   *string                       `json:"name,omitempty"`
+	RateLimitingPrecedence []*RateLimitingPrecedenceItem `json:"rateLimitingPrecedence,omitempty"`
+	VlanPrecedence         []*VlanPrecedenceItem         `json:"vlanPrecedence,omitempty"`
 }
 
 type ProfileCloneRequest struct {
@@ -951,7 +953,7 @@ type ProfileList struct {
 	Extra            *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex       *int                 `json:"firstIndex,omitempty"`
 	HasMore          *bool                `json:"hasMore,omitempty"`
-	List             []*List              `json:"list,omitempty"`
+	List             []*ProfileListType   `json:"list,omitempty"`
 	ModifiedDateTime *int                 `json:"modifiedDateTime,omitempty"`
 	ModifierID       *string              `json:"modifierId,omitempty"`
 	ModifierUsername *string              `json:"modifierUsername,omitempty"`
@@ -986,17 +988,17 @@ type ProviderEAPAuthSetting struct {
 }
 
 type ProviderEAPMethod struct {
-	AuthSettings []*AuthSettings `json:"authSettings,omitempty"`
-	Type         *string         `json:"type,omitempty"`
+	AuthSettings []*ProviderEAPAuthSetting `json:"authSettings,omitempty"`
+	Type         *string                   `json:"type,omitempty"`
 }
 
 type ProviderExternalOSU struct {
-	CommonLanguageIcon       *string                     `json:"commonLanguageIcon,omitempty"`
-	OsuNaiRealm              *string                     `json:"osuNaiRealm,omitempty"`
-	OsuServiceURL            *string                     `json:"osuServiceUrl,omitempty"`
-	ProvisioningProtocals    []string                    `json:"provisioningProtocals,omitempty"`
-	SubscriptionDescriptions []*SubscriptionDescriptions `json:"subscriptionDescriptions,omitempty"`
-	WhitelistedDomains       []string                    `json:"whitelistedDomains,omitempty"`
+	CommonLanguageIcon       *string                            `json:"commonLanguageIcon,omitempty"`
+	OsuNaiRealm              *string                            `json:"osuNaiRealm,omitempty"`
+	OsuServiceURL            *string                            `json:"osuServiceUrl,omitempty"`
+	ProvisioningProtocals    []string                           `json:"provisioningProtocals,omitempty"`
+	SubscriptionDescriptions []*ProviderSubscriptionDescription `json:"subscriptionDescriptions,omitempty"`
+	WhitelistedDomains       []string                           `json:"whitelistedDomains,omitempty"`
 }
 
 type ProviderHomeOIs struct {
@@ -1005,15 +1007,15 @@ type ProviderHomeOIs struct {
 }
 
 type ProviderInternalOSU struct {
-	Certificate              *common.GenericRef          `json:"certificate,omitempty"`
-	CommonLanguageIcon       *string                     `json:"commonLanguageIcon,omitempty"`
-	OsuAuthServices          []*OsuAuthServices          `json:"osuAuthServices,omitempty"`
-	OsuPortal                *OsuPortal                  `json:"osuPortal,omitempty"`
-	ProvisioningFormat       *string                     `json:"provisioningFormat,omitempty"`
-	ProvisioningProtocals    []string                    `json:"provisioningProtocals,omitempty"`
-	ProvisioningUpdateType   *string                     `json:"provisioningUpdateType,omitempty"`
-	SubscriptionDescriptions []*SubscriptionDescriptions `json:"subscriptionDescriptions,omitempty"`
-	WhitelistedDomains       []string                    `json:"whitelistedDomains,omitempty"`
+	Certificate              *common.GenericRef                        `json:"certificate,omitempty"`
+	CommonLanguageIcon       *string                                   `json:"commonLanguageIcon,omitempty"`
+	OsuAuthServices          []*ProviderInternalOSUOsuAuthServicesType `json:"osuAuthServices,omitempty"`
+	OsuPortal                *ProviderInternalOSUOsuPortalType         `json:"osuPortal,omitempty"`
+	ProvisioningFormat       *string                                   `json:"provisioningFormat,omitempty"`
+	ProvisioningProtocals    []string                                  `json:"provisioningProtocals,omitempty"`
+	ProvisioningUpdateType   *string                                   `json:"provisioningUpdateType,omitempty"`
+	SubscriptionDescriptions []*ProviderSubscriptionDescription        `json:"subscriptionDescriptions,omitempty"`
+	WhitelistedDomains       []string                                  `json:"whitelistedDomains,omitempty"`
 }
 
 type ProviderInternalOSUOsuAuthServicesType struct {
@@ -1031,9 +1033,9 @@ type ProviderInternalOSUOsuPortalType struct {
 }
 
 type ProviderOnlineSignup struct {
-	ExternalOSU *ExternalOSU `json:"externalOSU,omitempty"`
-	InternalOSU *InternalOSU `json:"internalOSU,omitempty"`
-	Type        *string      `json:"type,omitempty"`
+	ExternalOSU *ProviderExternalOSU `json:"externalOSU,omitempty"`
+	InternalOSU *ProviderInternalOSU `json:"internalOSU,omitempty"`
+	Type        *string              `json:"type,omitempty"`
 }
 
 type ProviderPLMN struct {
@@ -1042,9 +1044,9 @@ type ProviderPLMN struct {
 }
 
 type ProviderRealm struct {
-	EapMethods []*EapMethods `json:"eapMethods,omitempty"`
-	Encoding   *string       `json:"encoding,omitempty"`
-	Name       *string       `json:"name,omitempty"`
+	EapMethods []*ProviderEAPMethod `json:"eapMethods,omitempty"`
+	Encoding   *string              `json:"encoding,omitempty"`
+	Name       *string              `json:"name,omitempty"`
 }
 
 type ProviderSubscriptionDescription struct {
@@ -1085,24 +1087,24 @@ type ReturnZoneAffinityProfile struct {
 }
 
 type RogueApPolicy struct {
-	CreateDateTime   *int     `json:"createDateTime,omitempty"`
-	CreatorID        *string  `json:"creatorId,omitempty"`
-	CreatorUsername  *string  `json:"creatorUsername,omitempty"`
-	Description      *string  `json:"description,omitempty"`
-	ID               *string  `json:"id,omitempty"`
-	ModifiedDateTime *int     `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string  `json:"modifierId,omitempty"`
-	ModifierUsername *string  `json:"modifierUsername,omitempty"`
-	Name             *string  `json:"name,omitempty"`
-	Rules            []*Rules `json:"rules,omitempty"`
-	ZoneID           *string  `json:"zoneId,omitempty"`
+	CreateDateTime   *int               `json:"createDateTime,omitempty"`
+	CreatorID        *string            `json:"creatorId,omitempty"`
+	CreatorUsername  *string            `json:"creatorUsername,omitempty"`
+	Description      *string            `json:"description,omitempty"`
+	ID               *string            `json:"id,omitempty"`
+	ModifiedDateTime *int               `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string            `json:"modifierId,omitempty"`
+	ModifierUsername *string            `json:"modifierUsername,omitempty"`
+	Name             *string            `json:"name,omitempty"`
+	Rules            []*RogueApRuleList `json:"rules,omitempty"`
+	ZoneID           *string            `json:"zoneId,omitempty"`
 }
 
 type RogueApPolicyList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int             `json:"firstIndex,omitempty"`
+	HasMore    *bool            `json:"hasMore,omitempty"`
+	List       []*RogueApPolicy `json:"list,omitempty"`
+	TotalCount *int             `json:"totalCount,omitempty"`
 }
 
 type RogueApRuleList struct {
@@ -1117,7 +1119,7 @@ type RtlsProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*CreateRtlsProfile `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -1142,7 +1144,7 @@ type RuckusGREProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*RuckusGREProfile  `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -1171,21 +1173,21 @@ type SoftGREProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*SoftGREProfile    `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type TrafficClassProfileList struct {
-	CreateDateTime   *int    `json:"createDateTime,omitempty"`
-	CreatorID        *string `json:"creatorId,omitempty"`
-	CreatorUsername  *string `json:"creatorUsername,omitempty"`
-	FirstIndex       *int    `json:"firstIndex,omitempty"`
-	HasMore          *bool   `json:"hasMore,omitempty"`
-	List             []*List `json:"list,omitempty"`
-	ModifiedDateTime *int    `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string `json:"modifierId,omitempty"`
-	ModifierUsername *string `json:"modifierUsername,omitempty"`
-	TotalCount       *int    `json:"totalCount,omitempty"`
+	CreateDateTime   *int                             `json:"createDateTime,omitempty"`
+	CreatorID        *string                          `json:"creatorId,omitempty"`
+	CreatorUsername  *string                          `json:"creatorUsername,omitempty"`
+	FirstIndex       *int                             `json:"firstIndex,omitempty"`
+	HasMore          *bool                            `json:"hasMore,omitempty"`
+	List             []*common.TrafficClassProfileRef `json:"list,omitempty"`
+	ModifiedDateTime *int                             `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string                          `json:"modifierId,omitempty"`
+	ModifierUsername *string                          `json:"modifierUsername,omitempty"`
+	TotalCount       *int                             `json:"totalCount,omitempty"`
 }
 
 type TtgCommonSetting struct {
@@ -1211,60 +1213,60 @@ type TtgpdgCommonSetting struct {
 }
 
 type TtgpdgProfile struct {
-	ApnForwardingRealms  []*ApnForwardingRealms `json:"apnForwardingRealms,omitempty"`
-	ApnRealms            []*ApnRealms           `json:"apnRealms,omitempty"`
-	CommonSetting        *CommonSetting         `json:"commonSetting,omitempty"`
-	CreateDateTime       *int                   `json:"createDateTime,omitempty"`
-	CreatorID            *string                `json:"creatorId,omitempty"`
-	CreatorUsername      *string                `json:"creatorUsername,omitempty"`
-	DefaultNoMatchingAPN *string                `json:"defaultNoMatchingAPN,omitempty"`
-	DefaultNoRealmAPN    *string                `json:"defaultNoRealmAPN,omitempty"`
-	Description          *string                `json:"description,omitempty"`
-	DHCPRelay            *DHCPRelay             `json:"dhcpRelay,omitempty"`
-	DomainID             *string                `json:"domainId,omitempty"`
-	ID                   *string                `json:"id,omitempty"`
-	ModifiedDateTime     *int                   `json:"modifiedDateTime,omitempty"`
-	ModifierID           *string                `json:"modifierId,omitempty"`
-	ModifierUsername     *string                `json:"modifierUsername,omitempty"`
-	Name                 *string                `json:"name,omitempty"`
+	ApnForwardingRealms  []*TtgpdgApnForwardingRealm `json:"apnForwardingRealms,omitempty"`
+	ApnRealms            []*ApnRealm                 `json:"apnRealms,omitempty"`
+	CommonSetting        *TtgpdgCommonSetting        `json:"commonSetting,omitempty"`
+	CreateDateTime       *int                        `json:"createDateTime,omitempty"`
+	CreatorID            *string                     `json:"creatorId,omitempty"`
+	CreatorUsername      *string                     `json:"creatorUsername,omitempty"`
+	DefaultNoMatchingAPN *string                     `json:"defaultNoMatchingAPN,omitempty"`
+	DefaultNoRealmAPN    *string                     `json:"defaultNoRealmAPN,omitempty"`
+	Description          *string                     `json:"description,omitempty"`
+	DHCPRelay            *DHCPRelayNoRelayTunnel     `json:"dhcpRelay,omitempty"`
+	DomainID             *string                     `json:"domainId,omitempty"`
+	ID                   *string                     `json:"id,omitempty"`
+	ModifiedDateTime     *int                        `json:"modifiedDateTime,omitempty"`
+	ModifierID           *string                     `json:"modifierId,omitempty"`
+	ModifierUsername     *string                     `json:"modifierUsername,omitempty"`
+	Name                 *string                     `json:"name,omitempty"`
 }
 
 type TtgpdgProfileConfiguration struct {
-	ApnForwardingRealms  []*ApnForwardingRealms `json:"apnForwardingRealms,omitempty"`
-	ApnRealms            []*ApnRealms           `json:"apnRealms,omitempty"`
-	CommonSetting        *CommonSetting         `json:"commonSetting,omitempty"`
-	DefaultNoMatchingAPN *string                `json:"defaultNoMatchingAPN,omitempty"`
-	DefaultNoRealmAPN    *string                `json:"defaultNoRealmAPN,omitempty"`
-	Description          *string                `json:"description,omitempty"`
-	DHCPRelay            *DHCPRelay             `json:"dhcpRelay,omitempty"`
-	DomainID             *string                `json:"domainId,omitempty"`
-	Name                 *string                `json:"name,omitempty"`
+	ApnForwardingRealms  []*TtgpdgApnForwardingRealm `json:"apnForwardingRealms,omitempty"`
+	ApnRealms            []*ApnRealm                 `json:"apnRealms,omitempty"`
+	CommonSetting        *TtgpdgCommonSetting        `json:"commonSetting,omitempty"`
+	DefaultNoMatchingAPN *string                     `json:"defaultNoMatchingAPN,omitempty"`
+	DefaultNoRealmAPN    *string                     `json:"defaultNoRealmAPN,omitempty"`
+	Description          *string                     `json:"description,omitempty"`
+	DHCPRelay            *DHCPRelayNoRelayTunnel     `json:"dhcpRelay,omitempty"`
+	DomainID             *string                     `json:"domainId,omitempty"`
+	Name                 *string                     `json:"name,omitempty"`
 }
 
 type TtgpdgProfileList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*TtgpdgProfile     `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
 type UpdateL3RoamingConfig struct {
-	DataPlanes     []*DataPlanes `json:"dataPlanes,omitempty"`
-	FeatureEnabled *int          `json:"featureEnabled,omitempty"`
+	DataPlanes     []*DataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
+	FeatureEnabled *int                      `json:"featureEnabled,omitempty"`
 }
 
 type UpdatePrecedenceProfile struct {
-	DomainID               *string                   `json:"domainId,omitempty"`
-	Name                   *string                   `json:"name,omitempty"`
-	RateLimitingPrecedence []*RateLimitingPrecedence `json:"rateLimitingPrecedence,omitempty"`
-	VlanPrecedence         []*VlanPrecedence         `json:"vlanPrecedence,omitempty"`
+	DomainID               *string                       `json:"domainId,omitempty"`
+	Name                   *string                       `json:"name,omitempty"`
+	RateLimitingPrecedence []*RateLimitingPrecedenceItem `json:"rateLimitingPrecedence,omitempty"`
+	VlanPrecedence         []*VlanPrecedenceItem         `json:"vlanPrecedence,omitempty"`
 }
 
 type UpdateRogueApPolicy struct {
-	Description *string  `json:"description,omitempty"`
-	Name        *string  `json:"name,omitempty"`
-	Rules       []*Rules `json:"rules,omitempty"`
+	Description *string            `json:"description,omitempty"`
+	Name        *string            `json:"name,omitempty"`
+	Rules       []*RogueApRuleList `json:"rules,omitempty"`
 }
 
 type UpdateRtlsProfile struct {
@@ -1303,11 +1305,11 @@ type UserTrafficProfile struct {
 }
 
 type UserTrafficProfileList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata  `json:"extra,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*UserTrafficProfile `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }
 
 type VdpProfile struct {
@@ -1343,5 +1345,5 @@ type VlanPrecedenceItem struct {
 }
 
 type ZoneAffinityProfileList struct {
-	List []*List `json:"list,omitempty"`
+	List []*ReturnZoneAffinityProfile `json:"list,omitempty"`
 }

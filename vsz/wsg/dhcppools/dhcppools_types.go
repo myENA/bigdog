@@ -12,24 +12,24 @@ type DHCPClientInfo struct {
 }
 
 type DHCPPoolInfo struct {
-	ApIP             *string         `json:"apIp,omitempty"`
-	AvailableIPCount *int            `json:"availableIpCount,omitempty"`
-	ClientInfoList   *ClientInfoList `json:"clientInfoList,omitempty"`
-	Name             *string         `json:"name,omitempty"`
-	PoolEndIP        *string         `json:"poolEndIp,omitempty"`
-	PoolIndex        *int            `json:"poolIndex,omitempty"`
-	PoolStartIP      *string         `json:"poolStartIp,omitempty"`
-	SubnetMask       *string         `json:"subnetMask,omitempty"`
-	TotalIPCount     *int            `json:"totalIpCount,omitempty"`
-	UsedIPCount      *int            `json:"usedIpCount,omitempty"`
-	VlanID           *int            `json:"vlanId,omitempty"`
+	ApIP             *string                         `json:"apIp,omitempty"`
+	AvailableIPCount *int                            `json:"availableIpCount,omitempty"`
+	ClientInfoList   *DHCPPoolInfoClientInfoListType `json:"clientInfoList,omitempty"`
+	Name             *string                         `json:"name,omitempty"`
+	PoolEndIP        *string                         `json:"poolEndIp,omitempty"`
+	PoolIndex        *int                            `json:"poolIndex,omitempty"`
+	PoolStartIP      *string                         `json:"poolStartIp,omitempty"`
+	SubnetMask       *string                         `json:"subnetMask,omitempty"`
+	TotalIPCount     *int                            `json:"totalIpCount,omitempty"`
+	UsedIPCount      *int                            `json:"usedIpCount,omitempty"`
+	VlanID           *int                            `json:"vlanId,omitempty"`
 }
 
 type DHCPPoolInfoClientInfoListType struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int              `json:"firstIndex,omitempty"`
+	HasMore    *bool             `json:"hasMore,omitempty"`
+	List       []*DHCPClientInfo `json:"list,omitempty"`
+	TotalCount *int              `json:"totalCount,omitempty"`
 }
 
 type DHCPPools struct {
@@ -37,6 +37,6 @@ type DHCPPools struct {
 	DomainEntity *string         `json:"domainEntity,omitempty"`
 	DomainID     *string         `json:"domainId,omitempty"`
 	ID           *string         `json:"id,omitempty"`
-	PoolInfoList []*PoolInfoList `json:"poolInfoList,omitempty"`
+	PoolInfoList []*DHCPPoolInfo `json:"poolInfoList,omitempty"`
 	TenantID     *string         `json:"tenantId,omitempty"`
 }

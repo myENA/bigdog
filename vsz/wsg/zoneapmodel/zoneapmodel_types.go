@@ -7,7 +7,7 @@ type ApModel struct {
 	ExternalAntenna24     *apmodel.ExternalAntenna  `json:"externalAntenna24,omitempty"`
 	ExternalAntenna50     *apmodel.ExternalAntenna  `json:"externalAntenna50,omitempty"`
 	InternalHeaterEnabled *bool                     `json:"internalHeaterEnabled,omitempty"`
-	LanPorts              []*LanPorts               `json:"lanPorts,omitempty"`
+	LanPorts              []*LanPortSetting         `json:"lanPorts,omitempty"`
 	LedMode               *string                   `json:"ledMode,omitempty"`
 	LedStatusEnabled      *bool                     `json:"ledStatusEnabled,omitempty"`
 	Lldp                  *apmodel.LldpSetting      `json:"lldp,omitempty"`

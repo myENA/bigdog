@@ -17,10 +17,10 @@ type DpDHCPProfileBasicBO struct {
 }
 
 type DpDHCPProfileBasicBOList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                    `json:"firstIndex,omitempty"`
+	HasMore    *bool                   `json:"hasMore,omitempty"`
+	List       []*DpDHCPProfileBasicBO `json:"list,omitempty"`
+	TotalCount *int                    `json:"totalCount,omitempty"`
 }
 
 type DpDHCPProfileHostBO struct {
@@ -39,10 +39,10 @@ type DpDHCPProfileHostBO struct {
 }
 
 type DpDHCPProfileHostBOList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                   `json:"firstIndex,omitempty"`
+	HasMore    *bool                  `json:"hasMore,omitempty"`
+	List       []*DpDHCPProfileHostBO `json:"list,omitempty"`
+	TotalCount *int                   `json:"totalCount,omitempty"`
 }
 
 type DpDHCPProfileOptionBO struct {
@@ -58,61 +58,61 @@ type DpDHCPProfileOptionInstance struct {
 }
 
 type DpDHCPProfileOptionSpaceApplyToBO struct {
-	AppliedPoolNames []string   `json:"appliedPoolNames,omitempty"`
-	Description      *string    `json:"description,omitempty"`
-	Name             *string    `json:"name,omitempty"`
-	Options          []*Options `json:"options,omitempty"`
-	SpaceID          *string    `json:"spaceId,omitempty"`
+	AppliedPoolNames []string                 `json:"appliedPoolNames,omitempty"`
+	Description      *string                  `json:"description,omitempty"`
+	Name             *string                  `json:"name,omitempty"`
+	Options          []*DpDHCPProfileOptionBO `json:"options,omitempty"`
+	SpaceID          *string                  `json:"spaceId,omitempty"`
 }
 
 type DpDHCPProfileOptionSpaceApplyToBOList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                                 `json:"firstIndex,omitempty"`
+	HasMore    *bool                                `json:"hasMore,omitempty"`
+	List       []*DpDHCPProfileOptionSpaceApplyToBO `json:"list,omitempty"`
+	TotalCount *int                                 `json:"totalCount,omitempty"`
 }
 
 type DpDHCPProfileOptionSpaceBO struct {
-	Description *string    `json:"description,omitempty"`
-	Name        *string    `json:"name,omitempty"`
-	Options     []*Options `json:"options,omitempty"`
-	SpaceID     *string    `json:"spaceId,omitempty"`
+	Description *string                  `json:"description,omitempty"`
+	Name        *string                  `json:"name,omitempty"`
+	Options     []*DpDHCPProfileOptionBO `json:"options,omitempty"`
+	SpaceID     *string                  `json:"spaceId,omitempty"`
 }
 
 type DpDHCPProfileOptionSpaceInstance struct {
-	Description *string    `json:"description,omitempty"`
-	Name        *string    `json:"name,omitempty"`
-	Options     []*Options `json:"options,omitempty"`
-	SpaceID     *string    `json:"spaceId,omitempty"`
+	Description *string                        `json:"description,omitempty"`
+	Name        *string                        `json:"name,omitempty"`
+	Options     []*DpDHCPProfileOptionInstance `json:"options,omitempty"`
+	SpaceID     *string                        `json:"spaceId,omitempty"`
 }
 
 type DpDHCPProfilePoolBO struct {
-	BroadcastAddress    *string            `json:"broadcastAddress,omitempty"`
-	Description         *string            `json:"description,omitempty"`
-	DomainName          *string            `json:"domainName,omitempty"`
-	ExcludeAddressRange *string            `json:"excludeAddressRange,omitempty"`
-	HostName            *string            `json:"hostName,omitempty"`
-	IP                  *string            `json:"ip,omitempty"`
-	IPRange             *string            `json:"ipRange,omitempty"`
-	LeaseTime           *int               `json:"leaseTime,omitempty"`
-	NetMask             *string            `json:"netMask,omitempty"`
-	PoolID              *string            `json:"poolId,omitempty"`
-	PoolName            *string            `json:"poolName,omitempty"`
-	PrimaryDNSServer    *string            `json:"primaryDnsServer,omitempty"`
-	PrimaryRouter       *string            `json:"primaryRouter,omitempty"`
-	ProfileID           *string            `json:"profileId,omitempty"`
-	QinqVlanRanges      []*QinqVlanRanges  `json:"qinqVlanRanges,omitempty"`
-	SecondaryDNSServer  *string            `json:"secondaryDnsServer,omitempty"`
-	SecondaryRouter     *string            `json:"secondaryRouter,omitempty"`
-	SubOptionSpaces     []*SubOptionSpaces `json:"subOptionSpaces,omitempty"`
-	VlanRange           *string            `json:"vlanRange,omitempty"`
+	BroadcastAddress    *string                             `json:"broadcastAddress,omitempty"`
+	Description         *string                             `json:"description,omitempty"`
+	DomainName          *string                             `json:"domainName,omitempty"`
+	ExcludeAddressRange *string                             `json:"excludeAddressRange,omitempty"`
+	HostName            *string                             `json:"hostName,omitempty"`
+	IP                  *string                             `json:"ip,omitempty"`
+	IPRange             *string                             `json:"ipRange,omitempty"`
+	LeaseTime           *int                                `json:"leaseTime,omitempty"`
+	NetMask             *string                             `json:"netMask,omitempty"`
+	PoolID              *string                             `json:"poolId,omitempty"`
+	PoolName            *string                             `json:"poolName,omitempty"`
+	PrimaryDNSServer    *string                             `json:"primaryDnsServer,omitempty"`
+	PrimaryRouter       *string                             `json:"primaryRouter,omitempty"`
+	ProfileID           *string                             `json:"profileId,omitempty"`
+	QinqVlanRanges      []*DpDHCPProfileQinqVlanRangeBO     `json:"qinqVlanRanges,omitempty"`
+	SecondaryDNSServer  *string                             `json:"secondaryDnsServer,omitempty"`
+	SecondaryRouter     *string                             `json:"secondaryRouter,omitempty"`
+	SubOptionSpaces     []*DpDHCPProfileOptionSpaceInstance `json:"subOptionSpaces,omitempty"`
+	VlanRange           *string                             `json:"vlanRange,omitempty"`
 }
 
 type DpDHCPProfilePoolBOList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                   `json:"firstIndex,omitempty"`
+	HasMore    *bool                  `json:"hasMore,omitempty"`
+	List       []*DpDHCPProfilePoolBO `json:"list,omitempty"`
+	TotalCount *int                   `json:"totalCount,omitempty"`
 }
 
 type DpDHCPProfileQinqVlanRangeBO struct {
@@ -121,41 +121,41 @@ type DpDHCPProfileQinqVlanRangeBO struct {
 }
 
 type DpNatProfileBasicBO struct {
-	AppliedDpKey                    *string            `json:"appliedDpKey,omitempty"`
-	Description                     *string            `json:"description,omitempty"`
-	NatPublicSubnetID               *NatPublicSubnetID `json:"natPublicSubnetId,omitempty"`
-	NatPublicVlanID                 *int               `json:"natPublicVlanId,omitempty"`
-	PrimaryNatDefaultRouteGateway   *string            `json:"primaryNatDefaultRouteGateway,omitempty"`
-	ProfileID                       *string            `json:"profileId,omitempty"`
-	ProfileName                     *string            `json:"profileName,omitempty"`
-	SecondaryNatDefaultRouteGateway *string            `json:"secondaryNatDefaultRouteGateway,omitempty"`
+	AppliedDpKey                    *string                       `json:"appliedDpKey,omitempty"`
+	Description                     *string                       `json:"description,omitempty"`
+	NatPublicSubnetID               *DpNatProfilePublicSubnetIDBO `json:"natPublicSubnetId,omitempty"`
+	NatPublicVlanID                 *int                          `json:"natPublicVlanId,omitempty"`
+	PrimaryNatDefaultRouteGateway   *string                       `json:"primaryNatDefaultRouteGateway,omitempty"`
+	ProfileID                       *string                       `json:"profileId,omitempty"`
+	ProfileName                     *string                       `json:"profileName,omitempty"`
+	SecondaryNatDefaultRouteGateway *string                       `json:"secondaryNatDefaultRouteGateway,omitempty"`
 }
 
 type DpNatProfileBasicBOList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                   `json:"firstIndex,omitempty"`
+	HasMore    *bool                  `json:"hasMore,omitempty"`
+	List       []*DpNatProfileBasicBO `json:"list,omitempty"`
+	TotalCount *int                   `json:"totalCount,omitempty"`
 }
 
 type DpNatProfilePoolBO struct {
-	Description          *string                 `json:"description,omitempty"`
-	NatPortRange         *string                 `json:"natPortRange,omitempty"`
-	PoolID               *string                 `json:"poolId,omitempty"`
-	PoolName             *string                 `json:"poolName,omitempty"`
-	PrivateQinqVlanRange []*PrivateQinqVlanRange `json:"privateQinqVlanRange,omitempty"`
-	PrivateVlanRange     []string                `json:"privateVlanRange,omitempty"`
-	ProfileID            *string                 `json:"profileId,omitempty"`
-	PublicAddressRange   []string                `json:"publicAddressRange,omitempty"`
-	PublicPrefix         *int                    `json:"publicPrefix,omitempty"`
-	PublicVlan           *int                    `json:"publicVlan,omitempty"`
+	Description          *string                               `json:"description,omitempty"`
+	NatPortRange         *string                               `json:"natPortRange,omitempty"`
+	PoolID               *string                               `json:"poolId,omitempty"`
+	PoolName             *string                               `json:"poolName,omitempty"`
+	PrivateQinqVlanRange []*DpNatProfilePrivateQinqVlanRangeBO `json:"privateQinqVlanRange,omitempty"`
+	PrivateVlanRange     []string                              `json:"privateVlanRange,omitempty"`
+	ProfileID            *string                               `json:"profileId,omitempty"`
+	PublicAddressRange   []string                              `json:"publicAddressRange,omitempty"`
+	PublicPrefix         *int                                  `json:"publicPrefix,omitempty"`
+	PublicVlan           *int                                  `json:"publicVlan,omitempty"`
 }
 
 type DpNatProfilePoolBOList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*DpNatProfilePoolBO `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }
 
 type DpNatProfilePrivateQinqVlanRangeBO struct {
@@ -180,8 +180,8 @@ type DpProfileSettingBO struct {
 }
 
 type DpProfileSettingBOList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*DpProfileSettingBO `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }

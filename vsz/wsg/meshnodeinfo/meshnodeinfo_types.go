@@ -23,13 +23,15 @@ type MeshNodeInfo struct {
 	UplinkRssi        *int              `json:"uplinkRssi,omitempty"`
 }
 
+type MeshNodeInfoArray []*MeshNodeInfo
+
 type MeshNodeInfoList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}     `json:"extra,omitempty"`
+	FirstIndex        *int            `json:"firstIndex,omitempty"`
+	HasMore           *bool           `json:"hasMore,omitempty"`
+	List              []*MeshNodeInfo `json:"list,omitempty"`
+	RawDataTotalCount *int            `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int            `json:"totalCount,omitempty"`
 }
 
 type UpdateAPZeroTouch struct {

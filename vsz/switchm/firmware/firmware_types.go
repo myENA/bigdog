@@ -7,12 +7,12 @@ type AllFirmwaresQueryResultList struct {
 }
 
 type FirmwaresQueryResultList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}       `json:"extra,omitempty"`
+	FirstIndex        *int              `json:"firstIndex,omitempty"`
+	HasMore           *bool             `json:"hasMore,omitempty"`
+	List              []*SwitchFirmware `json:"list,omitempty"`
+	RawDataTotalCount *int              `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int              `json:"totalCount,omitempty"`
 }
 
 type ScheduleIds struct {
@@ -25,8 +25,8 @@ type ScheduleIds struct {
 }
 
 type SwitchFirmware struct {
-	SwitchModels []*SwitchModels `json:"switchModels,omitempty"`
-	Version      *string         `json:"version,omitempty"`
+	SwitchModels []*SwitchModel `json:"switchModels,omitempty"`
+	Version      *string        `json:"version,omitempty"`
 }
 
 type SwitchModel struct {

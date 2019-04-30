@@ -3,12 +3,12 @@ package dhcpmsgstats
 // API Version: v8_0
 
 type DHCPMsgStats struct {
-	ApMac             *string            `json:"apMac,omitempty"`
-	DHCPMsgRecvdStats *DHCPMsgRecvdStats `json:"dhcpMsgRecvdStats,omitempty"`
-	DHCPMsgSentStats  *DHCPMsgSentStats  `json:"dhcpMsgSentStats,omitempty"`
-	DomainID          *string            `json:"domainId,omitempty"`
-	ID                *string            `json:"id,omitempty"`
-	TenantID          *string            `json:"tenantId,omitempty"`
+	ApMac             *string                            `json:"apMac,omitempty"`
+	DHCPMsgRecvdStats *DHCPMsgStatsDHCPMsgRecvdStatsType `json:"dhcpMsgRecvdStats,omitempty"`
+	DHCPMsgSentStats  *DHCPMsgStatsDHCPMsgSentStatsType  `json:"dhcpMsgSentStats,omitempty"`
+	DomainID          *string                            `json:"domainId,omitempty"`
+	ID                *string                            `json:"id,omitempty"`
+	TenantID          *string                            `json:"tenantId,omitempty"`
 }
 
 type DHCPMsgStatsDHCPMsgRecvdStatsType struct {

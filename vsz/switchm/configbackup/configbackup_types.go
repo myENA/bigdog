@@ -2,6 +2,8 @@ package configbackup
 
 // API Version: v8_0
 
+type BackupIds []string
+
 type Cfgbk struct {
 	FailureReason    *string `json:"failureReason,omitempty"`
 	ID               *string `json:"id,omitempty"`
@@ -21,8 +23,8 @@ type ConfigBackupContent struct {
 }
 
 type ConfigBackupDiff struct {
-	ConfigBackup1 *ConfigBackup1 `json:"configBackup1,omitempty"`
-	ConfigBackup2 *ConfigBackup2 `json:"configBackup2,omitempty"`
+	ConfigBackup1 *ConfigBackupContent `json:"configBackup1,omitempty"`
+	ConfigBackup2 *ConfigBackupContent `json:"configBackup2,omitempty"`
 }
 
 type ConfigBackupDiffInput struct {
@@ -31,12 +33,12 @@ type ConfigBackupDiffInput struct {
 }
 
 type CreateBackupResultList struct {
-	Extra             *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex        *int                 `json:"firstIndex,omitempty"`
-	HasMore           *bool                `json:"hasMore,omitempty"`
-	List              []*List              `json:"list,omitempty"`
-	RawDataTotalCount *int                 `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int                 `json:"totalCount,omitempty"`
+	Extra             *common.RBACMetadata          `json:"extra,omitempty"`
+	FirstIndex        *int                          `json:"firstIndex,omitempty"`
+	HasMore           *bool                         `json:"hasMore,omitempty"`
+	List              []*CreateBackupResultListType `json:"list,omitempty"`
+	RawDataTotalCount *int                          `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int                          `json:"totalCount,omitempty"`
 }
 
 type CreateBackupResultListType struct {
@@ -48,7 +50,7 @@ type List struct {
 	Extra             *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex        *int                 `json:"firstIndex,omitempty"`
 	HasMore           *bool                `json:"hasMore,omitempty"`
-	List              []*List              `json:"list,omitempty"`
+	List              []*Cfgbk             `json:"list,omitempty"`
 	RawDataTotalCount *int                 `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int                 `json:"totalCount,omitempty"`
 }
@@ -56,3 +58,5 @@ type List struct {
 type QueryCriteria struct {
 	ConfigBackupQueryCriteria *string `json:"configBackup_queryCriteria,omitempty"`
 }
+
+type SwitchIds []string

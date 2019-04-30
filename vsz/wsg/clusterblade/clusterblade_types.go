@@ -17,7 +17,7 @@ type ClusterApPatchOperationProgress struct {
 }
 
 type ClusterOperationProgress struct {
-	BladeProgresss             []*BladeProgresss        `json:"bladeProgresss,omitempty"`
+	BladeProgresss             []*BladeProgress         `json:"bladeProgresss,omitempty"`
 	ClusterOperationBlockUI    *bool                    `json:"clusterOperationBlockUI,omitempty"`
 	ClusterOperationDisplayMsg *string                  `json:"clusterOperationDisplayMsg,omitempty"`
 	ClusterSubTaskState        *string                  `json:"clusterSubTaskState,omitempty"`
@@ -28,13 +28,13 @@ type ClusterOperationProgress struct {
 }
 
 type ClusterState struct {
-	ClusterName                *string                       `json:"clusterName,omitempty"`
-	ClusterRole                *string                       `json:"clusterRole,omitempty"`
-	ClusterState               *string                       `json:"clusterState,omitempty"`
-	CurrentNodeID              *string                       `json:"currentNodeId,omitempty"`
-	CurrentNodeName            *string                       `json:"currentNodeName,omitempty"`
-	ManagementServiceStateList []*ManagementServiceStateList `json:"managementServiceStateList,omitempty"`
-	NodeStateList              []*NodeStateList              `json:"nodeStateList,omitempty"`
+	ClusterName                *string                                       `json:"clusterName,omitempty"`
+	ClusterRole                *string                                       `json:"clusterRole,omitempty"`
+	ClusterState               *string                                       `json:"clusterState,omitempty"`
+	CurrentNodeID              *string                                       `json:"currentNodeId,omitempty"`
+	CurrentNodeName            *string                                       `json:"currentNodeName,omitempty"`
+	ManagementServiceStateList []*ClusterStateManagementServiceStateListType `json:"managementServiceStateList,omitempty"`
+	NodeStateList              []*ClusterStateNodeStateListType              `json:"nodeStateList,omitempty"`
 }
 
 type ClusterStateManagementServiceStateListType struct {
@@ -54,7 +54,7 @@ type ClusterStatus struct {
 }
 
 type ControlNodeStatus struct {
-	NodeStatusList []*NodeStatusList `json:"nodeStatusList,omitempty"`
+	NodeStatusList []*ControlNodeStatusNodeStatusListType `json:"nodeStatusList,omitempty"`
 }
 
 type ControlNodeStatusNodeStatusListType struct {

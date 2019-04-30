@@ -3,39 +3,39 @@ package traffic
 // API Version: v8_0
 
 type TopPortErrorQueryResultList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}     `json:"extra,omitempty"`
+	FirstIndex        *int            `json:"firstIndex,omitempty"`
+	HasMore           *bool           `json:"hasMore,omitempty"`
+	List              []*TrafficUsage `json:"list,omitempty"`
+	RawDataTotalCount *int            `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int            `json:"totalCount,omitempty"`
 }
 
 type TopPortTrafficUsageQueryResultList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}     `json:"extra,omitempty"`
+	FirstIndex        *int            `json:"firstIndex,omitempty"`
+	HasMore           *bool           `json:"hasMore,omitempty"`
+	List              []*TrafficUsage `json:"list,omitempty"`
+	RawDataTotalCount *int            `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int            `json:"totalCount,omitempty"`
 }
 
 type TopSwitchPoEUtilizationQueryResultList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}     `json:"extra,omitempty"`
+	FirstIndex        *int            `json:"firstIndex,omitempty"`
+	HasMore           *bool           `json:"hasMore,omitempty"`
+	List              []*TrafficUsage `json:"list,omitempty"`
+	RawDataTotalCount *int            `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int            `json:"totalCount,omitempty"`
 }
 
 type TopTrafficUsageQueryResultList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}     `json:"extra,omitempty"`
+	FirstIndex        *int            `json:"firstIndex,omitempty"`
+	HasMore           *bool           `json:"hasMore,omitempty"`
+	List              []*TrafficUsage `json:"list,omitempty"`
+	RawDataTotalCount *int            `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int            `json:"totalCount,omitempty"`
 }
 
 type Traffic struct {
@@ -49,7 +49,7 @@ type TrafficQueryResultList struct {
 	Extra             interface{} `json:"extra,omitempty"`
 	FirstIndex        *int        `json:"firstIndex,omitempty"`
 	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
+	List              []*Traffic  `json:"list,omitempty"`
 	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int        `json:"totalCount,omitempty"`
 }

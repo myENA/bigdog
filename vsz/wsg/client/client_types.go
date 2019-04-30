@@ -8,7 +8,7 @@ type DeAuthClient struct {
 }
 
 type DeAuthClientList struct {
-	ClientList []*ClientList `json:"clientList,omitempty"`
+	ClientList []*DeAuthClient `json:"clientList,omitempty"`
 }
 
 type DisconnectClient struct {
@@ -17,7 +17,7 @@ type DisconnectClient struct {
 }
 
 type DisconnectClientList struct {
-	ClientList []*ClientList `json:"clientList,omitempty"`
+	ClientList []*DisconnectClient `json:"clientList,omitempty"`
 }
 
 type HistoricalClient struct {
@@ -44,6 +44,6 @@ type HistoricalClientList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*HistoricalClient  `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }

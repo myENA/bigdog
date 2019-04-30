@@ -3,23 +3,25 @@ package eventmanagement
 // API Version: v8_0
 
 type EventDataList struct {
-	HasMore           *bool   `json:"hasMore,omitempty"`
-	List              []*List `json:"list,omitempty"`
-	RawDataTotalCount *int    `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int    `json:"totalCount,omitempty"`
+	HasMore           *bool                 `json:"hasMore,omitempty"`
+	List              []*SingleEventSetting `json:"list,omitempty"`
+	RawDataTotalCount *int                  `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int                  `json:"totalCount,omitempty"`
 }
 
 type EventDataResponse struct {
-	Data    *Data   `json:"data,omitempty"`
-	Error   *string `json:"error,omitempty"`
-	Extra   *string `json:"extra,omitempty"`
-	Success *bool   `json:"success,omitempty"`
+	Data    *EventDataList `json:"data,omitempty"`
+	Error   *string        `json:"error,omitempty"`
+	Extra   *string        `json:"extra,omitempty"`
+	Success *bool          `json:"success,omitempty"`
 }
 
 type EventEmailSetting struct {
 	EmailEnabled *bool   `json:"emailEnabled,omitempty"`
 	MailTo       *string `json:"mailTo,omitempty"`
 }
+
+type EventSettingList []*SingleEventSetting
 
 type SingleEventSetting struct {
 	Category       *string `json:"category,omitempty"`

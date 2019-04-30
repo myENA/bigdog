@@ -3,16 +3,16 @@ package wlanquery
 // API Version: v8_0
 
 type ApWLANBssid struct {
-	ApMac      *string       `json:"apMac,omitempty"`
-	DeviceName *string       `json:"deviceName,omitempty"`
-	WLANBssids []*WLANBssids `json:"wlanBssids,omitempty"`
+	ApMac      *string      `json:"apMac,omitempty"`
+	DeviceName *string      `json:"deviceName,omitempty"`
+	WLANBssids []*WLANBssid `json:"wlanBssids,omitempty"`
 }
 
 type ApWLANBssidQueryList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*ApWLANBssid       `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -57,6 +57,6 @@ type WLANQueryList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*CreateWLANQuery   `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }

@@ -6,7 +6,7 @@ type AaaServerQueryList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*CreateAaaServer   `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 

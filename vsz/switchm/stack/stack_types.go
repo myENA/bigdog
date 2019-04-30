@@ -3,23 +3,23 @@ package stack
 // API Version: v8_0
 
 type List struct {
-	FirstIndex        *int    `json:"firstIndex,omitempty"`
-	HasMore           *bool   `json:"hasMore,omitempty"`
-	List              []*List `json:"list,omitempty"`
-	RawDataTotalCount *int    `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int    `json:"totalCount,omitempty"`
+	FirstIndex        *int      `json:"firstIndex,omitempty"`
+	HasMore           *bool     `json:"hasMore,omitempty"`
+	List              []*Member `json:"list,omitempty"`
+	RawDataTotalCount *int      `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int      `json:"totalCount,omitempty"`
 }
 
 type Member struct {
-	ActiveMode   *string        `json:"activeMode,omitempty"`
-	Model        *string        `json:"model,omitempty"`
-	Ports        *int           `json:"ports,omitempty"`
-	PortStatus   *PortStatus    `json:"portStatus,omitempty"`
-	SerialNumber *string        `json:"serialNumber,omitempty"`
-	SwitchModule *string        `json:"switchModule,omitempty"`
-	SwitchName   *string        `json:"switchName,omitempty"`
-	SwitchPorts  []*SwitchPorts `json:"switchPorts,omitempty"`
-	SwitchUnit   *string        `json:"switchUnit,omitempty"`
+	ActiveMode   *string                  `json:"activeMode,omitempty"`
+	Model        *string                  `json:"model,omitempty"`
+	Ports        *int                     `json:"ports,omitempty"`
+	PortStatus   *MemberPortStatusType    `json:"portStatus,omitempty"`
+	SerialNumber *string                  `json:"serialNumber,omitempty"`
+	SwitchModule *string                  `json:"switchModule,omitempty"`
+	SwitchName   *string                  `json:"switchName,omitempty"`
+	SwitchPorts  []*MemberSwitchPortsType `json:"switchPorts,omitempty"`
+	SwitchUnit   *string                  `json:"switchUnit,omitempty"`
 }
 
 type MemberPortStatusType struct {
@@ -32,30 +32,30 @@ type MemberPortStatusType struct {
 }
 
 type MemberSwitchPortsType struct {
-	AdminStatus        *string          `json:"adminStatus,omitempty"`
-	ConnectedDevice    *ConnectedDevice `json:"connectedDevice,omitempty"`
-	ID                 *string          `json:"id,omitempty"`
-	InUtilization      *float64         `json:"inUtilization,omitempty"`
-	LagName            *string          `json:"lagName,omitempty"`
-	Mac                *string          `json:"mac,omitempty"`
-	Name               *string          `json:"name,omitempty"`
-	NeighborName       *string          `json:"neighborName,omitempty"`
-	OpticsType         *string          `json:"opticsType,omitempty"`
-	OutUtilization     *float64         `json:"outUtilization,omitempty"`
-	Poe                *Poe             `json:"poe,omitempty"`
-	PoeEnabled         *bool            `json:"poeEnabled,omitempty"`
-	PortIdentifier     *string          `json:"portIdentifier,omitempty"`
-	PortSpeed          *string          `json:"portSpeed,omitempty"`
-	SampledInstant     *string          `json:"sampledInstant,omitempty"`
-	Status             *string          `json:"status,omitempty"`
-	StpState           *int             `json:"stpState,omitempty"`
-	SwitchGroup        *string          `json:"switchGroup,omitempty"`
-	SwitchName         *string          `json:"switchName,omitempty"`
-	TrafficUsage       *TrafficUsage    `json:"trafficUsage,omitempty"`
-	Type               *string          `json:"type,omitempty"`
-	UnTaggedVlan       *string          `json:"unTaggedVlan,omitempty"`
-	UsedInFormingStack *bool            `json:"usedInFormingStack,omitempty"`
-	Vlans              *string          `json:"vlans,omitempty"`
+	AdminStatus        *string                                   `json:"adminStatus,omitempty"`
+	ConnectedDevice    *MemberSwitchPortsTypeConnectedDeviceType `json:"connectedDevice,omitempty"`
+	ID                 *string                                   `json:"id,omitempty"`
+	InUtilization      *float64                                  `json:"inUtilization,omitempty"`
+	LagName            *string                                   `json:"lagName,omitempty"`
+	Mac                *string                                   `json:"mac,omitempty"`
+	Name               *string                                   `json:"name,omitempty"`
+	NeighborName       *string                                   `json:"neighborName,omitempty"`
+	OpticsType         *string                                   `json:"opticsType,omitempty"`
+	OutUtilization     *float64                                  `json:"outUtilization,omitempty"`
+	Poe                *MemberSwitchPortsTypePoeType             `json:"poe,omitempty"`
+	PoeEnabled         *bool                                     `json:"poeEnabled,omitempty"`
+	PortIdentifier     *string                                   `json:"portIdentifier,omitempty"`
+	PortSpeed          *string                                   `json:"portSpeed,omitempty"`
+	SampledInstant     *string                                   `json:"sampledInstant,omitempty"`
+	Status             *string                                   `json:"status,omitempty"`
+	StpState           *int                                      `json:"stpState,omitempty"`
+	SwitchGroup        *string                                   `json:"switchGroup,omitempty"`
+	SwitchName         *string                                   `json:"switchName,omitempty"`
+	TrafficUsage       *MemberSwitchPortsTypeTrafficUsageType    `json:"trafficUsage,omitempty"`
+	Type               *string                                   `json:"type,omitempty"`
+	UnTaggedVlan       *string                                   `json:"unTaggedVlan,omitempty"`
+	UsedInFormingStack *bool                                     `json:"usedInFormingStack,omitempty"`
+	Vlans              *string                                   `json:"vlans,omitempty"`
 }
 
 type MemberSwitchPortsTypeConnectedDeviceType struct {

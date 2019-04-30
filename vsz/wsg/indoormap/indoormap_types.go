@@ -2,6 +2,8 @@ package indoormap
 
 // API Version: v8_0
 
+type AccessPointList []*IndoorMapAp
+
 type BasicIndoorMap struct {
 	Address       *string  `json:"address,omitempty"`
 	ApGroupID     *string  `json:"apGroupId,omitempty"`
@@ -51,7 +53,7 @@ type IndoorMapList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*BasicIndoorMap    `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -77,7 +79,7 @@ type IndoorMapSummaryList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*IndoorMapSummary  `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -87,8 +89,8 @@ type IndoorMapXy struct {
 }
 
 type Scale struct {
-	A        *A       `json:"a,omitempty"`
-	B        *B       `json:"b,omitempty"`
-	Distance *float64 `json:"distance,omitempty"`
-	Unit     *string  `json:"unit,omitempty"`
+	A        *IndoorMapXy `json:"a,omitempty"`
+	B        *IndoorMapXy `json:"b,omitempty"`
+	Distance *float64     `json:"distance,omitempty"`
+	Unit     *string      `json:"unit,omitempty"`
 }

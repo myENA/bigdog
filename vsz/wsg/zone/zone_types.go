@@ -3,16 +3,16 @@ package zone
 // API Version: v8_0
 
 type ApFirmware struct {
-	FirmwareVersion           *string                      `json:"firmwareVersion,omitempty"`
-	Supported                 *bool                        `json:"supported,omitempty"`
-	UnsupportedApModelSummary []*UnsupportedApModelSummary `json:"unsupportedApModelSummary,omitempty"`
+	FirmwareVersion           *string               `json:"firmwareVersion,omitempty"`
+	Supported                 *bool                 `json:"supported,omitempty"`
+	UnsupportedApModelSummary []*UnsupportedApModel `json:"unsupportedApModelSummary,omitempty"`
 }
 
 type ApFirmwareList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int          `json:"firstIndex,omitempty"`
+	HasMore    *bool         `json:"hasMore,omitempty"`
+	List       []*ApFirmware `json:"list,omitempty"`
+	TotalCount *int          `json:"totalCount,omitempty"`
 }
 
 type ApLogin struct {
@@ -21,9 +21,9 @@ type ApLogin struct {
 }
 
 type ApSNMPOptions struct {
-	ApSNMPEnabled *bool          `json:"apSnmpEnabled,omitempty"`
-	SNMPV2Agent   []*SNMPV2Agent `json:"snmpV2Agent,omitempty"`
-	SNMPV3Agent   []*SNMPV3Agent `json:"snmpV3Agent,omitempty"`
+	ApSNMPEnabled *bool                   `json:"apSnmpEnabled,omitempty"`
+	SNMPV2Agent   []*common.SNMPCommunity `json:"snmpV2Agent,omitempty"`
+	SNMPV3Agent   []*SNMPUser             `json:"snmpV3Agent,omitempty"`
 }
 
 type AvailableTunnelProfile struct {
@@ -35,10 +35,10 @@ type AvailableTunnelProfile struct {
 }
 
 type AvailableTunnelProfileList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                      `json:"firstIndex,omitempty"`
+	HasMore    *bool                     `json:"hasMore,omitempty"`
+	List       []*AvailableTunnelProfile `json:"list,omitempty"`
+	TotalCount *int                      `json:"totalCount,omitempty"`
 }
 
 type BackgroundScanning struct {
@@ -51,16 +51,16 @@ type BandBalancing struct {
 }
 
 type BonjourGatewayPolicyConfiguration struct {
-	BonjourPolicyRuleList []*BonjourPolicyRuleList `json:"bonjourPolicyRuleList,omitempty"`
-	Description           *string                  `json:"description,omitempty"`
-	Name                  *string                  `json:"name,omitempty"`
+	BonjourPolicyRuleList []*BonjourPolicyRuleConfiguration `json:"bonjourPolicyRuleList,omitempty"`
+	Description           *string                           `json:"description,omitempty"`
+	Name                  *string                           `json:"name,omitempty"`
 }
 
 type BonjourGatewayPolicyList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                           `json:"firstIndex,omitempty"`
+	HasMore    *bool                          `json:"hasMore,omitempty"`
+	List       []*BonjourGatewayPolicySummary `json:"list,omitempty"`
+	TotalCount *int                           `json:"totalCount,omitempty"`
 }
 
 type BonjourGatewayPolicySummary struct {
@@ -93,9 +93,9 @@ type ClientLoadBalancing struct {
 }
 
 type CreateBonjourGatewayPolicy struct {
-	BonjourPolicyRuleList []*BonjourPolicyRuleList `json:"bonjourPolicyRuleList,omitempty"`
-	Description           *string                  `json:"description,omitempty"`
-	Name                  *string                  `json:"name,omitempty"`
+	BonjourPolicyRuleList []*BonjourPolicyRule `json:"bonjourPolicyRuleList,omitempty"`
+	Description           *string              `json:"description,omitempty"`
+	Name                  *string              `json:"name,omitempty"`
 }
 
 type CreateDiffServProfile struct {
@@ -113,8 +113,8 @@ type CreateZone struct {
 	ApRebootTimeout                            *common.ApRebootTimeout        `json:"apRebootTimeout,omitempty"`
 	AutoChannelSelection24                     *common.AutoChannelSelection   `json:"autoChannelSelection24,omitempty"`
 	AutoChannelSelection50                     *common.AutoChannelSelection   `json:"autoChannelSelection50,omitempty"`
-	BackgroundScanning24                       *BackgroundScanning24          `json:"backgroundScanning24,omitempty"`
-	BackgroundScanning50                       *BackgroundScanning50          `json:"backgroundScanning50,omitempty"`
+	BackgroundScanning24                       *BackgroundScanning            `json:"backgroundScanning24,omitempty"`
+	BackgroundScanning50                       *BackgroundScanning            `json:"backgroundScanning50,omitempty"`
 	BandBalancing                              *BandBalancing                 `json:"bandBalancing,omitempty"`
 	BonjourFencingPolicy                       *common.GenericRef             `json:"bonjourFencingPolicy,omitempty"`
 	BonjourFencingPolicyEnabled                *bool                          `json:"bonjourFencingPolicyEnabled,omitempty"`
@@ -124,8 +124,8 @@ type CreateZone struct {
 	ChannelModeEnabled                         *bool                          `json:"channelModeEnabled,omitempty"`
 	ClientAdmissionControl24                   *common.ClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 	ClientAdmissionControl50                   *common.ClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
-	ClientLoadBalancing24                      *ClientLoadBalancing24         `json:"clientLoadBalancing24,omitempty"`
-	ClientLoadBalancing50                      *ClientLoadBalancing50         `json:"clientLoadBalancing50,omitempty"`
+	ClientLoadBalancing24                      *ClientLoadBalancing           `json:"clientLoadBalancing24,omitempty"`
+	ClientLoadBalancing50                      *ClientLoadBalancing           `json:"clientLoadBalancing50,omitempty"`
 	ClusterRedundancyEnabled                   *bool                          `json:"clusterRedundancyEnabled,omitempty"`
 	CountryCode                                *string                        `json:"countryCode,omitempty"`
 	Description                                *string                        `json:"description,omitempty"`
@@ -142,16 +142,16 @@ type CreateZone struct {
 	HealthCheckSites                           []string                       `json:"healthCheckSites,omitempty"`
 	HealthCheckSitesEnabled                    *bool                          `json:"healthCheckSitesEnabled,omitempty"`
 	IpsecProfile                               *common.GenericRef             `json:"ipsecProfile,omitempty"`
-	IpsecProfiles                              []*IpsecProfiles               `json:"ipsecProfiles,omitempty"`
+	IpsecProfiles                              []*common.GenericRef           `json:"ipsecProfiles,omitempty"`
 	Ipv6TrafficFilterEnabled                   *int                           `json:"ipv6TrafficFilterEnabled,omitempty"`
 	Latitude                                   *float64                       `json:"latitude,omitempty"`
 	LoadBalancingMethod                        *string                        `json:"loadBalancingMethod,omitempty"`
 	Location                                   *string                        `json:"location,omitempty"`
 	LocationAdditionalInfo                     *string                        `json:"locationAdditionalInfo,omitempty"`
 	LocationBasedService                       *common.GenericRef             `json:"locationBasedService,omitempty"`
-	Login                                      *Login                         `json:"login,omitempty"`
+	Login                                      *ApLogin                       `json:"login,omitempty"`
 	Longitude                                  *float64                       `json:"longitude,omitempty"`
-	Mesh                                       *Mesh                          `json:"mesh,omitempty"`
+	Mesh                                       *MeshConfiguration             `json:"mesh,omitempty"`
 	Name                                       *string                        `json:"name,omitempty"`
 	NodeAffinityProfile                        *common.GenericRef             `json:"nodeAffinityProfile,omitempty"`
 	ProtectionMode24                           *string                        `json:"protectionMode24,omitempty"`
@@ -163,11 +163,11 @@ type CreateZone struct {
 	RogueApReportThreshold                     *int                           `json:"rogueApReportThreshold,omitempty"`
 	RuckusGreTunnelProfile                     *common.GenericRef             `json:"ruckusGreTunnelProfile,omitempty"`
 	SmartMonitor                               *common.SmartMonitor           `json:"smartMonitor,omitempty"`
-	SNMPAgent                                  *SNMPAgent                     `json:"snmpAgent,omitempty"`
-	SoftGreTunnelProflies                      []*SoftGreTunnelProflies       `json:"softGreTunnelProflies,omitempty"`
+	SNMPAgent                                  *ApSNMPOptions                 `json:"snmpAgent,omitempty"`
+	SoftGreTunnelProflies                      []*SoftGreRef                  `json:"softGreTunnelProflies,omitempty"`
 	SSHTunnelEncryption                        *string                        `json:"sshTunnelEncryption,omitempty"`
 	Syslog                                     *Syslog                        `json:"syslog,omitempty"`
-	Timezone                                   *Timezone                      `json:"timezone,omitempty"`
+	Timezone                                   *TimezoneSetting               `json:"timezone,omitempty"`
 	TunnelProfile                              *common.GenericRef             `json:"tunnelProfile,omitempty"`
 	TunnelType                                 *string                        `json:"tunnelType,omitempty"`
 	VenueProfile                               *common.GenericRef             `json:"venueProfile,omitempty"`
@@ -178,11 +178,11 @@ type CreateZone struct {
 }
 
 type CustomizedTimeZone struct {
-	Abbreviation    *string `json:"abbreviation,omitempty"`
-	End             *End    `json:"end,omitempty"`
-	GmtOffset       *int    `json:"gmtOffset,omitempty"`
-	GmtOffsetMinute *int    `json:"gmtOffsetMinute,omitempty"`
-	Start           *Start  `json:"start,omitempty"`
+	Abbreviation    *string             `json:"abbreviation,omitempty"`
+	End             *DaylightSavingTime `json:"end,omitempty"`
+	GmtOffset       *int                `json:"gmtOffset,omitempty"`
+	GmtOffsetMinute *int                `json:"gmtOffsetMinute,omitempty"`
+	Start           *DaylightSavingTime `json:"start,omitempty"`
 }
 
 type DaylightSavingTime struct {
@@ -193,10 +193,10 @@ type DaylightSavingTime struct {
 }
 
 type DHCPSiteConfigList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                            `json:"firstIndex,omitempty"`
+	HasMore    *bool                           `json:"hasMore,omitempty"`
+	List       []*common.DHCPSiteConfigListRef `json:"list,omitempty"`
+	TotalCount *int                            `json:"totalCount,omitempty"`
 }
 
 type DiffServConfiguration struct {
@@ -209,10 +209,10 @@ type DiffServConfiguration struct {
 }
 
 type DiffServList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int               `json:"firstIndex,omitempty"`
+	HasMore    *bool              `json:"hasMore,omitempty"`
+	List       []*DiffServSummary `json:"list,omitempty"`
+	TotalCount *int               `json:"totalCount,omitempty"`
 }
 
 type DiffServSummary struct {
@@ -237,9 +237,9 @@ type ModfiyApFirmware struct {
 }
 
 type ModifyBonjourGatewayPolicy struct {
-	BonjourPolicyRuleList []*BonjourPolicyRuleList `json:"bonjourPolicyRuleList,omitempty"`
-	Description           *string                  `json:"description,omitempty"`
-	Name                  *string                  `json:"name,omitempty"`
+	BonjourPolicyRuleList []*BonjourPolicyRule `json:"bonjourPolicyRuleList,omitempty"`
+	Description           *string              `json:"description,omitempty"`
+	Name                  *string              `json:"name,omitempty"`
 }
 
 type ModifyDiffServProfile struct {
@@ -259,8 +259,8 @@ type ModifyZone struct {
 	AutoChannelSelection24                     *common.AutoChannelSelection   `json:"autoChannelSelection24,omitempty"`
 	AutoChannelSelection50                     *common.AutoChannelSelection   `json:"autoChannelSelection50,omitempty"`
 	AwsVenue                                   *string                        `json:"awsVenue,omitempty"`
-	BackgroundScanning24                       *BackgroundScanning24          `json:"backgroundScanning24,omitempty"`
-	BackgroundScanning50                       *BackgroundScanning50          `json:"backgroundScanning50,omitempty"`
+	BackgroundScanning24                       *BackgroundScanning            `json:"backgroundScanning24,omitempty"`
+	BackgroundScanning50                       *BackgroundScanning            `json:"backgroundScanning50,omitempty"`
 	BandBalancing                              *BandBalancing                 `json:"bandBalancing,omitempty"`
 	BonjourFencingPolicy                       *common.GenericRef             `json:"bonjourFencingPolicy,omitempty"`
 	BonjourFencingPolicyEnabled                *bool                          `json:"bonjourFencingPolicyEnabled,omitempty"`
@@ -270,8 +270,8 @@ type ModifyZone struct {
 	ChannelModeEnabled                         *bool                          `json:"channelModeEnabled,omitempty"`
 	ClientAdmissionControl24                   *common.ClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 	ClientAdmissionControl50                   *common.ClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
-	ClientLoadBalancing24                      *ClientLoadBalancing24         `json:"clientLoadBalancing24,omitempty"`
-	ClientLoadBalancing50                      *ClientLoadBalancing50         `json:"clientLoadBalancing50,omitempty"`
+	ClientLoadBalancing24                      *ClientLoadBalancing           `json:"clientLoadBalancing24,omitempty"`
+	ClientLoadBalancing50                      *ClientLoadBalancing           `json:"clientLoadBalancing50,omitempty"`
 	ClusterRedundancyEnabled                   *bool                          `json:"clusterRedundancyEnabled,omitempty"`
 	CountryCode                                *string                        `json:"countryCode,omitempty"`
 	Description                                *string                        `json:"description,omitempty"`
@@ -288,16 +288,16 @@ type ModifyZone struct {
 	HealthCheckSites                           []string                       `json:"healthCheckSites,omitempty"`
 	HealthCheckSitesEnabled                    *bool                          `json:"healthCheckSitesEnabled,omitempty"`
 	IpsecProfile                               *common.GenericRef             `json:"ipsecProfile,omitempty"`
-	IpsecProfiles                              []*IpsecProfiles               `json:"ipsecProfiles,omitempty"`
+	IpsecProfiles                              []*common.GenericRef           `json:"ipsecProfiles,omitempty"`
 	Ipv6TrafficFilterEnabled                   *int                           `json:"ipv6TrafficFilterEnabled,omitempty"`
 	Latitude                                   *float64                       `json:"latitude,omitempty"`
 	LoadBalancingMethod                        *string                        `json:"loadBalancingMethod,omitempty"`
 	Location                                   *string                        `json:"location,omitempty"`
 	LocationAdditionalInfo                     *string                        `json:"locationAdditionalInfo,omitempty"`
 	LocationBasedService                       *common.GenericRef             `json:"locationBasedService,omitempty"`
-	Login                                      *Login                         `json:"login,omitempty"`
+	Login                                      *ApLogin                       `json:"login,omitempty"`
 	Longitude                                  *float64                       `json:"longitude,omitempty"`
-	Mesh                                       *Mesh                          `json:"mesh,omitempty"`
+	Mesh                                       *MeshConfiguration             `json:"mesh,omitempty"`
 	Name                                       *string                        `json:"name,omitempty"`
 	NodeAffinityProfile                        *common.GenericRef             `json:"nodeAffinityProfile,omitempty"`
 	ProtectionMode24                           *string                        `json:"protectionMode24,omitempty"`
@@ -309,11 +309,11 @@ type ModifyZone struct {
 	RogueApReportThreshold                     *int                           `json:"rogueApReportThreshold,omitempty"`
 	RuckusGreTunnelProfile                     *common.GenericRef             `json:"ruckusGreTunnelProfile,omitempty"`
 	SmartMonitor                               *common.SmartMonitor           `json:"smartMonitor,omitempty"`
-	SNMPAgent                                  *SNMPAgent                     `json:"snmpAgent,omitempty"`
-	SoftGreTunnelProflies                      []*SoftGreTunnelProflies       `json:"softGreTunnelProflies,omitempty"`
+	SNMPAgent                                  *ApSNMPOptions                 `json:"snmpAgent,omitempty"`
+	SoftGreTunnelProflies                      []*SoftGreRef                  `json:"softGreTunnelProflies,omitempty"`
 	SSHTunnelEncryption                        *string                        `json:"sshTunnelEncryption,omitempty"`
 	Syslog                                     *Syslog                        `json:"syslog,omitempty"`
-	Timezone                                   *Timezone                      `json:"timezone,omitempty"`
+	Timezone                                   *TimezoneSetting               `json:"timezone,omitempty"`
 	TunnelProfile                              *common.GenericRef             `json:"tunnelProfile,omitempty"`
 	TunnelType                                 *string                        `json:"tunnelType,omitempty"`
 	VenueProfile                               *common.GenericRef             `json:"venueProfile,omitempty"`
@@ -324,36 +324,6 @@ type ModifyZone struct {
 }
 
 type QueryCriteria struct {
-	Attributes      []string           `json:"attributes,omitempty"`
-	Criteria        *string            `json:"criteria,omitempty"`
-	ExpandDomains   *bool              `json:"expandDomains,omitempty"`
-	ExtraFilters    []*ExtraFilters    `json:"extraFilters,omitempty"`
-	ExtraNotFilters []*ExtraNotFilters `json:"extraNotFilters,omitempty"`
-	ExtraTimeRange  *ExtraTimeRange    `json:"extraTimeRange,omitempty"`
-	Filters         []*Filters         `json:"filters,omitempty"`
-	FullTextSearch  *FullTextSearch    `json:"fullTextSearch,omitempty"`
-	Limit           *int               `json:"limit,omitempty"`
-	Options         *Options           `json:"options,omitempty"`
-	Page            *int               `json:"page,omitempty"`
-	Query           *string            `json:"query,omitempty"`
-	SortInfo        *SortInfo          `json:"sortInfo,omitempty"`
-}
-
-type QueryCriteriaExtraFiltersType struct {
-	Operator *string `json:"operator,omitempty"`
-	Type     *string `json:"type,omitempty"`
-	Value    *string `json:"value,omitempty"`
-}
-
-type QueryCriteriaFiltersType struct {
-	Operator *string `json:"operator,omitempty"`
-	Type     *string `json:"type,omitempty"`
-	Value    *string `json:"value,omitempty"`
-}
-
-type QueryCriteriaOptionsType struct {
-	IncludeSharedResources *bool   `json:"includeSharedResources,omitempty"`
-	ZoneIpmode             *string `json:"zone_ipmode,omitempty"`
 }
 
 type Rogue struct {
@@ -363,16 +333,16 @@ type Rogue struct {
 }
 
 type SNMPUser struct {
-	AuthPassword        *string               `json:"authPassword,omitempty"`
-	AuthProtocol        *string               `json:"authProtocol,omitempty"`
-	NotificationEnabled *bool                 `json:"notificationEnabled,omitempty"`
-	NotificationTarget  []*NotificationTarget `json:"notificationTarget,omitempty"`
-	NotificationType    *string               `json:"notificationType,omitempty"`
-	PrivPassword        *string               `json:"privPassword,omitempty"`
-	PrivProtocol        *string               `json:"privProtocol,omitempty"`
-	ReadEnabled         *bool                 `json:"readEnabled,omitempty"`
-	UserName            *string               `json:"userName,omitempty"`
-	WriteEnabled        *bool                 `json:"writeEnabled,omitempty"`
+	AuthPassword        *string                `json:"authPassword,omitempty"`
+	AuthProtocol        *string                `json:"authProtocol,omitempty"`
+	NotificationEnabled *bool                  `json:"notificationEnabled,omitempty"`
+	NotificationTarget  []*common.TargetConfig `json:"notificationTarget,omitempty"`
+	NotificationType    *string                `json:"notificationType,omitempty"`
+	PrivPassword        *string                `json:"privPassword,omitempty"`
+	PrivProtocol        *string                `json:"privProtocol,omitempty"`
+	ReadEnabled         *bool                  `json:"readEnabled,omitempty"`
+	UserName            *string                `json:"userName,omitempty"`
+	WriteEnabled        *bool                  `json:"writeEnabled,omitempty"`
 }
 
 type SoftGreRef struct {
@@ -394,7 +364,7 @@ type Syslog struct {
 }
 
 type TimezoneSetting struct {
-	CustomizedTimezone *CustomizedTimezone `json:"customizedTimezone,omitempty"`
+	CustomizedTimezone *CustomizedTimeZone `json:"customizedTimezone,omitempty"`
 	SystemTimezone     *string             `json:"systemTimezone,omitempty"`
 }
 
@@ -417,8 +387,8 @@ type ZoneConfiguration struct {
 	AutoChannelSelection24                     *common.AutoChannelSelection   `json:"autoChannelSelection24,omitempty"`
 	AutoChannelSelection50                     *common.AutoChannelSelection   `json:"autoChannelSelection50,omitempty"`
 	AwsVenue                                   *string                        `json:"awsVenue,omitempty"`
-	BackgroundScanning24                       *BackgroundScanning24          `json:"backgroundScanning24,omitempty"`
-	BackgroundScanning50                       *BackgroundScanning50          `json:"backgroundScanning50,omitempty"`
+	BackgroundScanning24                       *BackgroundScanning            `json:"backgroundScanning24,omitempty"`
+	BackgroundScanning50                       *BackgroundScanning            `json:"backgroundScanning50,omitempty"`
 	BandBalancing                              *BandBalancing                 `json:"bandBalancing,omitempty"`
 	BonjourFencingPolicy                       *common.GenericRef             `json:"bonjourFencingPolicy,omitempty"`
 	BonjourFencingPolicyEnabled                *bool                          `json:"bonjourFencingPolicyEnabled,omitempty"`
@@ -428,8 +398,8 @@ type ZoneConfiguration struct {
 	ChannelModeEnabled                         *bool                          `json:"channelModeEnabled,omitempty"`
 	ClientAdmissionControl24                   *common.ClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 	ClientAdmissionControl50                   *common.ClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
-	ClientLoadBalancing24                      *ClientLoadBalancing24         `json:"clientLoadBalancing24,omitempty"`
-	ClientLoadBalancing50                      *ClientLoadBalancing50         `json:"clientLoadBalancing50,omitempty"`
+	ClientLoadBalancing24                      *ClientLoadBalancing           `json:"clientLoadBalancing24,omitempty"`
+	ClientLoadBalancing50                      *ClientLoadBalancing           `json:"clientLoadBalancing50,omitempty"`
 	ClusterRedundancyEnabled                   *bool                          `json:"clusterRedundancyEnabled,omitempty"`
 	CountryCode                                *string                        `json:"countryCode,omitempty"`
 	Description                                *string                        `json:"description,omitempty"`
@@ -448,16 +418,16 @@ type ZoneConfiguration struct {
 	ID                                         *string                        `json:"id,omitempty"`
 	IPMode                                     *string                        `json:"ipMode,omitempty"`
 	IpsecProfile                               *common.GenericRef             `json:"ipsecProfile,omitempty"`
-	IpsecProfiles                              []*IpsecProfiles               `json:"ipsecProfiles,omitempty"`
+	IpsecProfiles                              []*common.GenericRef           `json:"ipsecProfiles,omitempty"`
 	Ipv6TrafficFilterEnabled                   *int                           `json:"ipv6TrafficFilterEnabled,omitempty"`
 	Latitude                                   *float64                       `json:"latitude,omitempty"`
 	LoadBalancingMethod                        *string                        `json:"loadBalancingMethod,omitempty"`
 	Location                                   *string                        `json:"location,omitempty"`
 	LocationAdditionalInfo                     *string                        `json:"locationAdditionalInfo,omitempty"`
 	LocationBasedService                       *common.GenericRef             `json:"locationBasedService,omitempty"`
-	Login                                      *Login                         `json:"login,omitempty"`
+	Login                                      *ApLogin                       `json:"login,omitempty"`
 	Longitude                                  *float64                       `json:"longitude,omitempty"`
-	Mesh                                       *Mesh                          `json:"mesh,omitempty"`
+	Mesh                                       *MeshConfiguration             `json:"mesh,omitempty"`
 	Name                                       *string                        `json:"name,omitempty"`
 	NodeAffinityProfile                        *common.GenericRef             `json:"nodeAffinityProfile,omitempty"`
 	ProtectionMode24                           *string                        `json:"protectionMode24,omitempty"`
@@ -469,11 +439,11 @@ type ZoneConfiguration struct {
 	RogueApReportThreshold                     *int                           `json:"rogueApReportThreshold,omitempty"`
 	RuckusGreTunnelProfile                     *common.GenericRef             `json:"ruckusGreTunnelProfile,omitempty"`
 	SmartMonitor                               *common.SmartMonitor           `json:"smartMonitor,omitempty"`
-	SNMPAgent                                  *SNMPAgent                     `json:"snmpAgent,omitempty"`
-	SoftGreTunnelProflies                      []*SoftGreTunnelProflies       `json:"softGreTunnelProflies,omitempty"`
+	SNMPAgent                                  *ApSNMPOptions                 `json:"snmpAgent,omitempty"`
+	SoftGreTunnelProflies                      []*SoftGreRef                  `json:"softGreTunnelProflies,omitempty"`
 	SSHTunnelEncryption                        *string                        `json:"sshTunnelEncryption,omitempty"`
 	Syslog                                     *Syslog                        `json:"syslog,omitempty"`
-	Timezone                                   *Timezone                      `json:"timezone,omitempty"`
+	Timezone                                   *TimezoneSetting               `json:"timezone,omitempty"`
 	TunnelProfile                              *common.GenericRef             `json:"tunnelProfile,omitempty"`
 	TunnelType                                 *string                        `json:"tunnelType,omitempty"`
 	VenueProfile                               *common.GenericRef             `json:"venueProfile,omitempty"`
@@ -485,10 +455,10 @@ type ZoneConfiguration struct {
 }
 
 type ZoneList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int           `json:"firstIndex,omitempty"`
+	HasMore    *bool          `json:"hasMore,omitempty"`
+	List       []*ZoneSummary `json:"list,omitempty"`
+	TotalCount *int           `json:"totalCount,omitempty"`
 }
 
 type ZoneSummary struct {

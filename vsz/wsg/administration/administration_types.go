@@ -10,10 +10,10 @@ type ApPatchHistory struct {
 }
 
 type ApPatchHistoryList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int              `json:"firstIndex,omitempty"`
+	HasMore    *bool             `json:"hasMore,omitempty"`
+	List       []*ApPatchHistory `json:"list,omitempty"`
+	TotalCount *int              `json:"totalCount,omitempty"`
 }
 
 type ApPatchInfo struct {
@@ -36,10 +36,10 @@ type ApplicationLogAndStatus struct {
 }
 
 type ApplicationLogAndStatusList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                       `json:"firstIndex,omitempty"`
+	HasMore    *bool                      `json:"hasMore,omitempty"`
+	List       []*ApplicationLogAndStatus `json:"list,omitempty"`
+	TotalCount *int                       `json:"totalCount,omitempty"`
 }
 
 type AutoExportBackup struct {
@@ -61,10 +61,10 @@ type BackupFile struct {
 }
 
 type ClusterBackupList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                    `json:"firstIndex,omitempty"`
+	HasMore    *bool                   `json:"hasMore,omitempty"`
+	List       []*ClusterBackupSummary `json:"list,omitempty"`
+	TotalCount *int                    `json:"totalCount,omitempty"`
 }
 
 type ClusterBackupSummary struct {
@@ -75,10 +75,10 @@ type ClusterBackupSummary struct {
 }
 
 type ConfigurationBackupList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int          `json:"firstIndex,omitempty"`
+	HasMore    *bool         `json:"hasMore,omitempty"`
+	List       []*BackupFile `json:"list,omitempty"`
+	TotalCount *int          `json:"totalCount,omitempty"`
 }
 
 type Licenses struct {
@@ -96,15 +96,15 @@ type LicenseServer struct {
 }
 
 type LicensesList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int        `json:"firstIndex,omitempty"`
+	HasMore    *bool       `json:"hasMore,omitempty"`
+	List       []*Licenses `json:"list,omitempty"`
+	TotalCount *int        `json:"totalCount,omitempty"`
 }
 
 type LicensesSummary struct {
-	CapacityControlLicenseCount *CapacityControlLicenseCount `json:"capacityControlLicenseCount,omitempty"`
-	LicenseTypeDescription      *string                      `json:"licenseTypeDescription,omitempty"`
+	CapacityControlLicenseCount *LicensesSummaryCapacityControlLicenseCountType `json:"capacityControlLicenseCount,omitempty"`
+	LicenseTypeDescription      *string                                         `json:"licenseTypeDescription,omitempty"`
 }
 
 type LicensesSummaryCapacityControlLicenseCountType struct {
@@ -113,10 +113,10 @@ type LicensesSummaryCapacityControlLicenseCountType struct {
 }
 
 type LicensesSummaryList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int               `json:"firstIndex,omitempty"`
+	HasMore    *bool              `json:"hasMore,omitempty"`
+	List       []*LicensesSummary `json:"list,omitempty"`
+	TotalCount *int               `json:"totalCount,omitempty"`
 }
 
 type LicensesSyncLogs struct {
@@ -125,10 +125,10 @@ type LicensesSyncLogs struct {
 }
 
 type LicensesSyncLogsList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                `json:"firstIndex,omitempty"`
+	HasMore    *bool               `json:"hasMore,omitempty"`
+	List       []*LicensesSyncLogs `json:"list,omitempty"`
+	TotalCount *int                `json:"totalCount,omitempty"`
 }
 
 type ModfiyLicenseServer struct {
@@ -166,10 +166,10 @@ type ScheduleBackup struct {
 }
 
 type UpgradeHistoryList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                     `json:"firstIndex,omitempty"`
+	HasMore    *bool                    `json:"hasMore,omitempty"`
+	List       []*UpgradeHistorySummary `json:"list,omitempty"`
+	TotalCount *int                     `json:"totalCount,omitempty"`
 }
 
 type UpgradeHistorySummary struct {
@@ -204,7 +204,7 @@ type ZdAPList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*ZdAP              `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 

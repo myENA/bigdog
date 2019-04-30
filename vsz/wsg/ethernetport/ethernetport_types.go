@@ -54,10 +54,10 @@ type ModifyEthernetPortProfile struct {
 }
 
 type ProfileList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int               `json:"firstIndex,omitempty"`
+	HasMore    *bool              `json:"hasMore,omitempty"`
+	List       []*ProfileListType `json:"list,omitempty"`
+	TotalCount *int               `json:"totalCount,omitempty"`
 }
 
 type ProfileListType struct {

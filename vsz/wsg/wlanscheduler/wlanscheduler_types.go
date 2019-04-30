@@ -41,8 +41,8 @@ type WLANSchedule struct {
 }
 
 type WLANScheduleList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int            `json:"firstIndex,omitempty"`
+	HasMore    *bool           `json:"hasMore,omitempty"`
+	List       []*WLANSchedule `json:"list,omitempty"`
+	TotalCount *int            `json:"totalCount,omitempty"`
 }

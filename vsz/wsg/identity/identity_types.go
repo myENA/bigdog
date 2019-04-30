@@ -8,10 +8,10 @@ type AaaServer struct {
 }
 
 type AaaServerList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int         `json:"firstIndex,omitempty"`
+	HasMore    *bool        `json:"hasMore,omitempty"`
+	List       []*AaaServer `json:"list,omitempty"`
+	TotalCount *int         `json:"totalCount,omitempty"`
 }
 
 type AuthenticationServerConfig struct {
@@ -25,10 +25,10 @@ type AuthenticationServerConfig struct {
 }
 
 type CountryList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int              `json:"firstIndex,omitempty"`
+	HasMore    *bool             `json:"hasMore,omitempty"`
+	List       []*CountrySummary `json:"list,omitempty"`
+	TotalCount *int              `json:"totalCount,omitempty"`
 }
 
 type CountrySummary struct {
@@ -115,18 +115,18 @@ type IdentityGuestPassConfiguration struct {
 }
 
 type IdentityGuestPassList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata              `json:"extra,omitempty"`
+	FirstIndex *int                              `json:"firstIndex,omitempty"`
+	HasMore    *bool                             `json:"hasMore,omitempty"`
+	List       []*IdentityGuestPassConfiguration `json:"list,omitempty"`
+	TotalCount *int                              `json:"totalCount,omitempty"`
 }
 
 type IdentityList struct {
 	Extra      *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex *int                 `json:"firstIndex,omitempty"`
 	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
+	List       []*IdentityListType  `json:"list,omitempty"`
 	TotalCount *int                 `json:"totalCount,omitempty"`
 }
 
@@ -235,10 +235,10 @@ type PackageConfiguration struct {
 }
 
 type PackageList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                    `json:"firstIndex,omitempty"`
+	HasMore    *bool                   `json:"hasMore,omitempty"`
+	List       []*PackageConfiguration `json:"list,omitempty"`
+	TotalCount *int                    `json:"totalCount,omitempty"`
 }
 
 type PassValidFor struct {
@@ -247,57 +247,6 @@ type PassValidFor struct {
 }
 
 type QueryCriteria struct {
-	Attributes      []string               `json:"attributes,omitempty"`
-	Criteria        *string                `json:"criteria,omitempty"`
-	ExpandDomains   *bool                  `json:"expandDomains,omitempty"`
-	ExtraFilters    []*ExtraFilters        `json:"extraFilters,omitempty"`
-	ExtraNotFilters []*ExtraNotFilters     `json:"extraNotFilters,omitempty"`
-	ExtraTimeRange  *ExtraTimeRange        `json:"extraTimeRange,omitempty"`
-	Filters         []*Filters             `json:"filters,omitempty"`
-	FullTextSearch  *common.FullTextSearch `json:"fullTextSearch,omitempty"`
-	Limit           *int                   `json:"limit,omitempty"`
-	Options         *Options               `json:"options,omitempty"`
-	Page            *int                   `json:"page,omitempty"`
-	Query           *string                `json:"query,omitempty"`
-	SortInfo        *SortInfo              `json:"sortInfo,omitempty"`
-}
-
-type QueryCriteriaFiltersType struct {
-	Operator *string `json:"operator,omitempty"`
-	Type     *string `json:"type,omitempty"`
-	Value    *string `json:"value,omitempty"`
-}
-
-type QueryCriteriaOptionsType struct {
-	GlobalFilterID              *string              `json:"globalFilterId,omitempty"`
-	GuestPassDisplayName        *string              `json:"guestPass_displayName,omitempty"`
-	GuestPassExpiration         *GuestPassExpiration `json:"guestPass_expiration,omitempty"`
-	GuestPassWLAN               *string              `json:"guestPass_wlan,omitempty"`
-	IncludeSharedResources      *bool                `json:"includeSharedResources,omitempty"`
-	INCLUDERBACMETADATA         *bool                `json:"INCLUDE_RBAC_METADATA,omitempty"`
-	LocalUserAuditTime          *LocalUserAuditTime  `json:"localUser_auditTime,omitempty"`
-	LocalUserDisplayName        *string              `json:"localUser_displayName,omitempty"`
-	LocalUserFirstName          *string              `json:"localUser_firstName,omitempty"`
-	LocalUserLastName           *string              `json:"localUser_lastName,omitempty"`
-	LocalUserMailAddress        *string              `json:"localUser_mailAddress,omitempty"`
-	LocalUserPrimaryPhoneNumber *string              `json:"localUser_primaryPhoneNumber,omitempty"`
-	LocalUserStatus             *string              `json:"localUser_status,omitempty"`
-	LocalUserSubscriberType     *string              `json:"localUser_subscriberType,omitempty"`
-	LocalUserUserName           *string              `json:"localUser_userName,omitempty"`
-	LocalUserUserSource         *string              `json:"localUser_userSource,omitempty"`
-	TENANTID                    *string              `json:"TENANT_ID,omitempty"`
-}
-
-type QueryCriteriaOptionsTypeGuestPassExpirationType struct {
-	End      *float64 `json:"end,omitempty"`
-	Interval *float64 `json:"interval,omitempty"`
-	Start    *float64 `json:"start,omitempty"`
-}
-
-type QueryCriteriaOptionsTypeLocalUserAuditTimeType struct {
-	End      *float64 `json:"end,omitempty"`
-	Interval *float64 `json:"interval,omitempty"`
-	Start    *float64 `json:"start,omitempty"`
 }
 
 type SessionDuration struct {
@@ -321,11 +270,11 @@ type SubscriptionPackage struct {
 }
 
 type SubscriptionPackageList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata           `json:"extra,omitempty"`
+	FirstIndex *int                           `json:"firstIndex,omitempty"`
+	HasMore    *bool                          `json:"hasMore,omitempty"`
+	List       []*SubscriptionPackageListType `json:"list,omitempty"`
+	TotalCount *int                           `json:"totalCount,omitempty"`
 }
 
 type SubscriptionPackageListType struct {
@@ -338,32 +287,32 @@ type SubscriptionPackageListType struct {
 }
 
 type UserConfiguration struct {
-	Address                            *string                             `json:"address,omitempty"`
-	City                               *string                             `json:"city,omitempty"`
-	CountryName                        *string                             `json:"countryName,omitempty"`
-	CountryShortName                   *string                             `json:"countryShortName,omitempty"`
-	CreateDateTime                     *int                                `json:"createDateTime,omitempty"`
-	CreatorID                          *string                             `json:"creatorId,omitempty"`
-	CreatorUsername                    *string                             `json:"creatorUsername,omitempty"`
-	CredentialsGuestPassDto            *CredentialsGuestPassDto            `json:"credentialsGuestPassDto,omitempty"`
-	Email                              *string                             `json:"email,omitempty"`
-	FirstName                          *string                             `json:"firstName,omitempty"`
-	IsDisabled                         *string                             `json:"isDisabled,omitempty"`
-	LastName                           *string                             `json:"lastName,omitempty"`
-	ModifiedDateTime                   *int                                `json:"modifiedDateTime,omitempty"`
-	ModifierID                         *string                             `json:"modifierId,omitempty"`
-	ModifierUsername                   *string                             `json:"modifierUsername,omitempty"`
-	PackageExpirationDate              *int                                `json:"packageExpirationDate,omitempty"`
-	PackageExpirationInterval          *string                             `json:"packageExpirationInterval,omitempty"`
-	PackageExpirationValue             *int                                `json:"packageExpirationValue,omitempty"`
-	PackageStatus                      *string                             `json:"packageStatus,omitempty"`
-	Phone                              *string                             `json:"phone,omitempty"`
-	Remark                             *string                             `json:"remark,omitempty"`
-	State                              *string                             `json:"state,omitempty"`
-	SubscriberPackage                  *common.GenericRef                  `json:"subscriberPackage,omitempty"`
-	UserName                           *string                             `json:"userName,omitempty"`
-	UsernamePasswordCredentialsImplDto *UsernamePasswordCredentialsImplDto `json:"usernamePasswordCredentialsImplDto,omitempty"`
-	ZipCode                            *string                             `json:"zipCode,omitempty"`
+	Address                            *string                                       `json:"address,omitempty"`
+	City                               *string                                       `json:"city,omitempty"`
+	CountryName                        *string                                       `json:"countryName,omitempty"`
+	CountryShortName                   *string                                       `json:"countryShortName,omitempty"`
+	CreateDateTime                     *int                                          `json:"createDateTime,omitempty"`
+	CreatorID                          *string                                       `json:"creatorId,omitempty"`
+	CreatorUsername                    *string                                       `json:"creatorUsername,omitempty"`
+	CredentialsGuestPassDto            *UserConfigurationCredentialsGuestPassDtoType `json:"credentialsGuestPassDto,omitempty"`
+	Email                              *string                                       `json:"email,omitempty"`
+	FirstName                          *string                                       `json:"firstName,omitempty"`
+	IsDisabled                         *string                                       `json:"isDisabled,omitempty"`
+	LastName                           *string                                       `json:"lastName,omitempty"`
+	ModifiedDateTime                   *int                                          `json:"modifiedDateTime,omitempty"`
+	ModifierID                         *string                                       `json:"modifierId,omitempty"`
+	ModifierUsername                   *string                                       `json:"modifierUsername,omitempty"`
+	PackageExpirationDate              *int                                          `json:"packageExpirationDate,omitempty"`
+	PackageExpirationInterval          *string                                       `json:"packageExpirationInterval,omitempty"`
+	PackageExpirationValue             *int                                          `json:"packageExpirationValue,omitempty"`
+	PackageStatus                      *string                                       `json:"packageStatus,omitempty"`
+	Phone                              *string                                       `json:"phone,omitempty"`
+	Remark                             *string                                       `json:"remark,omitempty"`
+	State                              *string                                       `json:"state,omitempty"`
+	SubscriberPackage                  *common.GenericRef                            `json:"subscriberPackage,omitempty"`
+	UserName                           *string                                       `json:"userName,omitempty"`
+	UsernamePasswordCredentialsImplDto *UsernamePasswordCredentialsImplDto           `json:"usernamePasswordCredentialsImplDto,omitempty"`
+	ZipCode                            *string                                       `json:"zipCode,omitempty"`
 }
 
 type UserConfigurationCredentialsGuestPassDtoType struct {
@@ -393,11 +342,11 @@ type UserConfigurationCredentialsGuestPassDtoType struct {
 }
 
 type UserList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata   `json:"extra,omitempty"`
+	FirstIndex *int                   `json:"firstIndex,omitempty"`
+	HasMore    *bool                  `json:"hasMore,omitempty"`
+	List       []*IdentityUserSummary `json:"list,omitempty"`
+	TotalCount *int                   `json:"totalCount,omitempty"`
 }
 
 type UsernamePasswordCredentialsImplDto struct {

@@ -9,11 +9,11 @@ type CreateDevicePolicy struct {
 }
 
 type DevicePolicyPorfile struct {
-	DefaultAction *string `json:"defaultAction,omitempty"`
-	Description   *string `json:"description,omitempty"`
-	ID            *string `json:"id,omitempty"`
-	Name          *string `json:"name,omitempty"`
-	Rule          []*Rule `json:"rule,omitempty"`
+	DefaultAction *string             `json:"defaultAction,omitempty"`
+	Description   *string             `json:"description,omitempty"`
+	ID            *string             `json:"id,omitempty"`
+	Name          *string             `json:"name,omitempty"`
+	Rule          []*DevicePolicyRule `json:"rule,omitempty"`
 }
 
 type DevicePolicyRule struct {
@@ -26,17 +26,17 @@ type DevicePolicyRule struct {
 }
 
 type ModifyDevicePolicy struct {
-	DefaultAction *string `json:"defaultAction,omitempty"`
-	Description   *string `json:"description,omitempty"`
-	Name          *string `json:"name,omitempty"`
-	Rule          []*Rule `json:"rule,omitempty"`
+	DefaultAction *string             `json:"defaultAction,omitempty"`
+	Description   *string             `json:"description,omitempty"`
+	Name          *string             `json:"name,omitempty"`
+	Rule          []*DevicePolicyRule `json:"rule,omitempty"`
 }
 
 type PorfileList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int               `json:"firstIndex,omitempty"`
+	HasMore    *bool              `json:"hasMore,omitempty"`
+	List       []*PorfileListType `json:"list,omitempty"`
+	TotalCount *int               `json:"totalCount,omitempty"`
 }
 
 type PorfileListType struct {

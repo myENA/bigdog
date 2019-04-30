@@ -6,7 +6,7 @@ type AggMetrics struct {
 	Extra             interface{} `json:"extra,omitempty"`
 	FirstIndex        *int        `json:"firstIndex,omitempty"`
 	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
+	List              []*Aggs     `json:"list,omitempty"`
 	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int        `json:"totalCount,omitempty"`
 }
@@ -21,7 +21,7 @@ type IcxMetrics struct {
 	Extra             interface{} `json:"extra,omitempty"`
 	FirstIndex        *int        `json:"firstIndex,omitempty"`
 	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
+	List              []*Metrics  `json:"list,omitempty"`
 	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int        `json:"totalCount,omitempty"`
 }
@@ -34,12 +34,12 @@ type Metrics struct {
 }
 
 type Status struct {
-	Fan          []*Fan         `json:"fan,omitempty"`
-	FlaggedCount *int           `json:"flaggedCount,omitempty"`
-	OfflineCount *int           `json:"offlineCount,omitempty"`
-	OnlineCount  *int           `json:"onlineCount,omitempty"`
-	PowerSupply  []*PowerSupply `json:"powerSupply,omitempty"`
-	Temperature  []*Temperature `json:"temperature,omitempty"`
+	Fan          []*StatusFanType         `json:"fan,omitempty"`
+	FlaggedCount *int                     `json:"flaggedCount,omitempty"`
+	OfflineCount *int                     `json:"offlineCount,omitempty"`
+	OnlineCount  *int                     `json:"onlineCount,omitempty"`
+	PowerSupply  []*StatusPowerSupplyType `json:"powerSupply,omitempty"`
+	Temperature  []*StatusTemperatureType `json:"temperature,omitempty"`
 }
 
 type StatusFanType struct {

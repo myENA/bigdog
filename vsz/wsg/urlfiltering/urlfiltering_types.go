@@ -38,10 +38,10 @@ type ModifyURLFilteringPolicy struct {
 }
 
 type URLFilteringBlockCategoriesList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                         `json:"firstIndex,omitempty"`
+	HasMore    *bool                        `json:"hasMore,omitempty"`
+	List       []*URLFilteringBlockCategory `json:"list,omitempty"`
+	TotalCount *int                         `json:"totalCount,omitempty"`
 }
 
 type URLFilteringBlockCategory struct {
@@ -74,9 +74,9 @@ type URLFilteringPolicy struct {
 }
 
 type URLFilteringPolicyList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata  `json:"extra,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*URLFilteringPolicy `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }

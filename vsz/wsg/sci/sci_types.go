@@ -16,7 +16,7 @@ type DeleteSciProfile struct {
 }
 
 type DeleteSciProfileList struct {
-	List []*List `json:"list,omitempty"`
+	List []*DeleteSciProfile `json:"list,omitempty"`
 }
 
 type ModifyEventCode struct {
@@ -28,7 +28,7 @@ type ModifySciEnabled struct {
 }
 
 type ModifySciPriorityList struct {
-	List []*List `json:"list,omitempty"`
+	List []*ModifySciPriorityListType `json:"list,omitempty"`
 }
 
 type ModifySciPriorityListType struct {
@@ -48,10 +48,10 @@ type ModifySciProfile struct {
 }
 
 type SciEventCode struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                    `json:"firstIndex,omitempty"`
+	HasMore    *bool                   `json:"hasMore,omitempty"`
+	List       []*SciEventCodeListType `json:"list,omitempty"`
+	TotalCount *int                    `json:"totalCount,omitempty"`
 }
 
 type SciEventCodeListType struct {

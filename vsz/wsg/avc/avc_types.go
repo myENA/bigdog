@@ -8,10 +8,10 @@ type AppCategory struct {
 }
 
 type AppCategoryList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int           `json:"firstIndex,omitempty"`
+	HasMore    *bool          `json:"hasMore,omitempty"`
+	List       []*AppCategory `json:"list,omitempty"`
+	TotalCount *int           `json:"totalCount,omitempty"`
 }
 
 type Application struct {
@@ -21,35 +21,35 @@ type Application struct {
 }
 
 type ApplicationList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int           `json:"firstIndex,omitempty"`
+	HasMore    *bool          `json:"hasMore,omitempty"`
+	List       []*Application `json:"list,omitempty"`
+	TotalCount *int           `json:"totalCount,omitempty"`
 }
 
 type ApplicationPolicyProfile struct {
-	ApplicationRules []*ApplicationRules `json:"applicationRules,omitempty"`
-	AvcEventEnable   *bool               `json:"avcEventEnable,omitempty"`
-	AvcLogEnable     *bool               `json:"avcLogEnable,omitempty"`
-	CreateDateTime   *int                `json:"createDateTime,omitempty"`
-	CreatorID        *string             `json:"creatorId,omitempty"`
-	CreatorUsername  *string             `json:"creatorUsername,omitempty"`
-	Description      *string             `json:"description,omitempty"`
-	DomainID         *string             `json:"domainId,omitempty"`
-	ID               *string             `json:"id,omitempty"`
-	ModifiedDateTime *int                `json:"modifiedDateTime,omitempty"`
-	ModifierID       *string             `json:"modifierId,omitempty"`
-	ModifierUsername *string             `json:"modifierUsername,omitempty"`
-	Name             *string             `json:"name,omitempty"`
-	TenantID         *string             `json:"tenantId,omitempty"`
+	ApplicationRules []*ApplicationRule `json:"applicationRules,omitempty"`
+	AvcEventEnable   *bool              `json:"avcEventEnable,omitempty"`
+	AvcLogEnable     *bool              `json:"avcLogEnable,omitempty"`
+	CreateDateTime   *int               `json:"createDateTime,omitempty"`
+	CreatorID        *string            `json:"creatorId,omitempty"`
+	CreatorUsername  *string            `json:"creatorUsername,omitempty"`
+	Description      *string            `json:"description,omitempty"`
+	DomainID         *string            `json:"domainId,omitempty"`
+	ID               *string            `json:"id,omitempty"`
+	ModifiedDateTime *int               `json:"modifiedDateTime,omitempty"`
+	ModifierID       *string            `json:"modifierId,omitempty"`
+	ModifierUsername *string            `json:"modifierUsername,omitempty"`
+	Name             *string            `json:"name,omitempty"`
+	TenantID         *string            `json:"tenantId,omitempty"`
 }
 
 type ApplicationPolicyProfileList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata        `json:"extra,omitempty"`
+	FirstIndex *int                        `json:"firstIndex,omitempty"`
+	HasMore    *bool                       `json:"hasMore,omitempty"`
+	List       []*ApplicationPolicyProfile `json:"list,omitempty"`
+	TotalCount *int                        `json:"totalCount,omitempty"`
 }
 
 type ApplicationRule struct {
@@ -68,12 +68,12 @@ type ApplicationRule struct {
 }
 
 type CreateApplicationPolicyProfile struct {
-	ApplicationRules []*ApplicationRules `json:"applicationRules,omitempty"`
-	AvcEventEnable   *bool               `json:"avcEventEnable,omitempty"`
-	AvcLogEnable     *bool               `json:"avcLogEnable,omitempty"`
-	Description      *string             `json:"description,omitempty"`
-	DomainID         *string             `json:"domainId,omitempty"`
-	Name             *string             `json:"name,omitempty"`
+	ApplicationRules []*ApplicationRule `json:"applicationRules,omitempty"`
+	AvcEventEnable   *bool              `json:"avcEventEnable,omitempty"`
+	AvcLogEnable     *bool              `json:"avcLogEnable,omitempty"`
+	Description      *string            `json:"description,omitempty"`
+	DomainID         *string            `json:"domainId,omitempty"`
+	Name             *string            `json:"name,omitempty"`
 }
 
 type CreateUserDefinedProfile struct {
@@ -91,11 +91,11 @@ type DeleteBulk struct {
 }
 
 type ModifyApplicationPolicyProfile struct {
-	ApplicationRules []*ApplicationRules `json:"applicationRules,omitempty"`
-	AvcEventEnable   *bool               `json:"avcEventEnable,omitempty"`
-	AvcLogEnable     *bool               `json:"avcLogEnable,omitempty"`
-	Description      *string             `json:"description,omitempty"`
-	Name             *string             `json:"name,omitempty"`
+	ApplicationRules []*ApplicationRule `json:"applicationRules,omitempty"`
+	AvcEventEnable   *bool              `json:"avcEventEnable,omitempty"`
+	AvcLogEnable     *bool              `json:"avcLogEnable,omitempty"`
+	Description      *string            `json:"description,omitempty"`
+	Name             *string            `json:"name,omitempty"`
 }
 
 type ModifyUserDefinedProfile struct {
@@ -134,9 +134,9 @@ type UserDefinedProfile struct {
 }
 
 type UserDefinedProfileList struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata  `json:"extra,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*UserDefinedProfile `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }

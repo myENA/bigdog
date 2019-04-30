@@ -3,11 +3,11 @@ package alarmlist
 // API Version: v8_0
 
 type AlarmQueryResultList struct {
-	FirstIndex        *int    `json:"firstIndex,omitempty"`
-	HasMore           *bool   `json:"hasMore,omitempty"`
-	List              []*List `json:"list,omitempty"`
-	RawDataTotalCount *int    `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int    `json:"totalCount,omitempty"`
+	FirstIndex        *int           `json:"firstIndex,omitempty"`
+	HasMore           *bool          `json:"hasMore,omitempty"`
+	List              []*SingleAlarm `json:"list,omitempty"`
+	RawDataTotalCount *int           `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int           `json:"totalCount,omitempty"`
 }
 
 type SingleAlarm struct {

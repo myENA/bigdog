@@ -3,15 +3,15 @@ package splittunnel
 // API Version: v8_0
 
 type CreateSplitTunnelProfile struct {
-	Description *string  `json:"description,omitempty"`
-	Name        *string  `json:"name,omitempty"`
-	Rules       []*Rules `json:"rules,omitempty"`
+	Description *string                  `json:"description,omitempty"`
+	Name        *string                  `json:"name,omitempty"`
+	Rules       []*SplitTunnelIPMaskRule `json:"rules,omitempty"`
 }
 
 type ModifySplitTunnelProfile struct {
-	Description *string  `json:"description,omitempty"`
-	Name        *string  `json:"name,omitempty"`
-	Rules       []*Rules `json:"rules,omitempty"`
+	Description *string                  `json:"description,omitempty"`
+	Name        *string                  `json:"name,omitempty"`
+	Rules       []*SplitTunnelIPMaskRule `json:"rules,omitempty"`
 }
 
 type SplitTunnelIPMaskRule struct {
@@ -20,20 +20,20 @@ type SplitTunnelIPMaskRule struct {
 }
 
 type SplitTunnelProfile struct {
-	Description *string  `json:"description,omitempty"`
-	DomainID    *string  `json:"domainId,omitempty"`
-	ID          *string  `json:"id,omitempty"`
-	Name        *string  `json:"name,omitempty"`
-	Rules       []*Rules `json:"rules,omitempty"`
-	TenantID    *string  `json:"tenantId,omitempty"`
-	ZoneID      *string  `json:"zoneId,omitempty"`
+	Description *string                  `json:"description,omitempty"`
+	DomainID    *string                  `json:"domainId,omitempty"`
+	ID          *string                  `json:"id,omitempty"`
+	Name        *string                  `json:"name,omitempty"`
+	Rules       []*SplitTunnelIPMaskRule `json:"rules,omitempty"`
+	TenantID    *string                  `json:"tenantId,omitempty"`
+	ZoneID      *string                  `json:"zoneId,omitempty"`
 }
 
 type SplitTunnelProfileList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                          `json:"firstIndex,omitempty"`
+	HasMore    *bool                         `json:"hasMore,omitempty"`
+	List       []*SplitTunnelProfileListType `json:"list,omitempty"`
+	TotalCount *int                          `json:"totalCount,omitempty"`
 }
 
 type SplitTunnelProfileListType struct {
@@ -42,9 +42,9 @@ type SplitTunnelProfileListType struct {
 }
 
 type SplitTunnelProfileQuery struct {
-	Extra      *common.RBACMetadata `json:"extra,omitempty"`
-	FirstIndex *int                 `json:"firstIndex,omitempty"`
-	HasMore    *bool                `json:"hasMore,omitempty"`
-	List       []*List              `json:"list,omitempty"`
-	TotalCount *int                 `json:"totalCount,omitempty"`
+	Extra      *common.RBACMetadata  `json:"extra,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*SplitTunnelProfile `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }

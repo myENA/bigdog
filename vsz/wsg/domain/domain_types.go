@@ -26,10 +26,10 @@ type DomainConfiguration struct {
 }
 
 type DomainList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                   `json:"firstIndex,omitempty"`
+	HasMore    *bool                  `json:"hasMore,omitempty"`
+	List       []*DomainConfiguration `json:"list,omitempty"`
+	TotalCount *int                   `json:"totalCount,omitempty"`
 }
 
 type ModifyDomain struct {

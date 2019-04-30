@@ -15,10 +15,10 @@ type ApRuleConfiguration struct {
 }
 
 type ApRuleList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int              `json:"firstIndex,omitempty"`
+	HasMore    *bool             `json:"hasMore,omitempty"`
+	List       []*ApRuleListType `json:"list,omitempty"`
+	TotalCount *int              `json:"totalCount,omitempty"`
 }
 
 type ApRuleListType struct {

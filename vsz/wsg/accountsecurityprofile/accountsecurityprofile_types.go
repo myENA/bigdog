@@ -44,10 +44,10 @@ type GetByIDResult struct {
 }
 
 type ProfileListResult struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int       `json:"firstIndex,omitempty"`
+	HasMore    *bool      `json:"hasMore,omitempty"`
+	List       []*GetByID `json:"list,omitempty"`
+	TotalCount *int       `json:"totalCount,omitempty"`
 }
 
 type Update struct {

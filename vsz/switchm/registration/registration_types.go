@@ -10,24 +10,24 @@ type ClientObjectID struct {
 }
 
 type CreateResult struct {
-	Data     *Data                  `json:"data,omitempty"`
-	Error    *Error                 `json:"error,omitempty"`
+	Data     *ClientObjectID        `json:"data,omitempty"`
+	Error    *ErrorObject           `json:"error,omitempty"`
 	Extra    interface{}            `json:"extra,omitempty"`
 	MetaData map[string]interface{} `json:"metaData,omitempty"`
 	Success  *bool                  `json:"success,omitempty"`
 }
 
 type DeleteMultipleResult struct {
-	Data     *Data                  `json:"data,omitempty"`
-	Error    *Error                 `json:"error,omitempty"`
+	Data     *List                  `json:"data,omitempty"`
+	Error    *ErrorObject           `json:"error,omitempty"`
 	Extra    interface{}            `json:"extra,omitempty"`
 	MetaData map[string]interface{} `json:"metaData,omitempty"`
 	Success  *bool                  `json:"success,omitempty"`
 }
 
 type DeleteResult struct {
-	Data     *Data                  `json:"data,omitempty"`
-	Error    *Error                 `json:"error,omitempty"`
+	Data     *ClientObjectID        `json:"data,omitempty"`
+	Error    *ErrorObject           `json:"error,omitempty"`
 	Extra    interface{}            `json:"extra,omitempty"`
 	MetaData map[string]interface{} `json:"metaData,omitempty"`
 	Success  *bool                  `json:"success,omitempty"`
@@ -40,17 +40,17 @@ type ErrorObject struct {
 }
 
 type List struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}         `json:"extra,omitempty"`
+	FirstIndex        *int                `json:"firstIndex,omitempty"`
+	HasMore           *bool               `json:"hasMore,omitempty"`
+	List              []*RegistrationRule `json:"list,omitempty"`
+	RawDataTotalCount *int                `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int                `json:"totalCount,omitempty"`
 }
 
 type ModifyResult struct {
-	Data     *Data                  `json:"data,omitempty"`
-	Error    *Error                 `json:"error,omitempty"`
+	Data     *ClientObjectID        `json:"data,omitempty"`
+	Error    *ErrorObject           `json:"error,omitempty"`
 	Extra    interface{}            `json:"extra,omitempty"`
 	MetaData map[string]interface{} `json:"metaData,omitempty"`
 	Success  *bool                  `json:"success,omitempty"`
@@ -76,9 +76,11 @@ type RegistrationRule struct {
 }
 
 type RuleQueryResultList struct {
-	Data     *Data                  `json:"data,omitempty"`
-	Error    *Error                 `json:"error,omitempty"`
+	Data     *List                  `json:"data,omitempty"`
+	Error    *ErrorObject           `json:"error,omitempty"`
 	Extra    interface{}            `json:"extra,omitempty"`
 	MetaData map[string]interface{} `json:"metaData,omitempty"`
 	Success  *bool                  `json:"success,omitempty"`
 }
+
+type RuleUUIDs []string

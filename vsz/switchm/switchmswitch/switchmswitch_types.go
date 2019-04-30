@@ -14,12 +14,12 @@ type BarChart struct {
 }
 
 type ConnectedAPsQueryList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}        `json:"extra,omitempty"`
+	FirstIndex        *int               `json:"firstIndex,omitempty"`
+	HasMore           *bool              `json:"hasMore,omitempty"`
+	List              []*ConnectedDevice `json:"list,omitempty"`
+	RawDataTotalCount *int               `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int               `json:"totalCount,omitempty"`
 }
 
 type ConnectedDevice struct {
@@ -45,19 +45,19 @@ type ConnectedDevice struct {
 }
 
 type ConnectedDevicesQueryList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}        `json:"extra,omitempty"`
+	FirstIndex        *int               `json:"firstIndex,omitempty"`
+	HasMore           *bool              `json:"hasMore,omitempty"`
+	List              []*ConnectedDevice `json:"list,omitempty"`
+	RawDataTotalCount *int               `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int               `json:"totalCount,omitempty"`
 }
 
 type DeleteSwitchesResultList struct {
 	Extra             interface{} `json:"extra,omitempty"`
 	FirstIndex        *int        `json:"firstIndex,omitempty"`
 	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
+	List              []*AuditID  `json:"list,omitempty"`
 	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int        `json:"totalCount,omitempty"`
 }
@@ -72,39 +72,39 @@ type FirmwareHistoryQueryResultList struct {
 	Extra             interface{} `json:"extra,omitempty"`
 	FirstIndex        *int        `json:"firstIndex,omitempty"`
 	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
+	List              []*Firmware `json:"list,omitempty"`
 	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int        `json:"totalCount,omitempty"`
 }
 
 type NetworkSwitch struct {
-	Alarm              *int            `json:"alarm,omitempty"`
-	DefaultGateway     *string         `json:"defaultGateway,omitempty"`
-	DomainID           *string         `json:"domainId,omitempty"`
-	FirmwareUpdate     *FirmwareUpdate `json:"firmwareUpdate,omitempty"`
-	FirmwareVersion    *string         `json:"firmwareVersion,omitempty"`
-	GroupID            *string         `json:"groupId,omitempty"`
-	GroupName          *string         `json:"groupName,omitempty"`
-	ID                 *string         `json:"id,omitempty"`
-	IPAddress          *string         `json:"ipAddress,omitempty"`
-	IPAddressType      *string         `json:"ipAddressType,omitempty"`
-	LastBackupStatus   *string         `json:"lastBackupStatus,omitempty"`
-	LastBackupTime     *int            `json:"lastBackupTime,omitempty"`
-	LastRestoreStatus  *string         `json:"lastRestoreStatus,omitempty"`
-	LastRestoreTime    *int            `json:"lastRestoreTime,omitempty"`
-	MacAddress         *string         `json:"macAddress,omitempty"`
-	Model              *string         `json:"model,omitempty"`
-	Modules            *string         `json:"modules,omitempty"`
-	NumOfUnits         *int            `json:"numOfUnits,omitempty"`
-	Poe                *Poe            `json:"poe,omitempty"`
-	Ports              *int            `json:"ports,omitempty"`
-	PortStatus         *PortStatus     `json:"portStatus,omitempty"`
-	RegistrationStatus *string         `json:"registrationStatus,omitempty"`
-	SerialNumber       *string         `json:"serialNumber,omitempty"`
-	StackID            *string         `json:"stackId,omitempty"`
-	Status             *string         `json:"status,omitempty"`
-	SwitchName         *string         `json:"switchName,omitempty"`
-	UpTime             *string         `json:"upTime,omitempty"`
+	Alarm              *int                             `json:"alarm,omitempty"`
+	DefaultGateway     *string                          `json:"defaultGateway,omitempty"`
+	DomainID           *string                          `json:"domainId,omitempty"`
+	FirmwareUpdate     *NetworkSwitchFirmwareUpdateType `json:"firmwareUpdate,omitempty"`
+	FirmwareVersion    *string                          `json:"firmwareVersion,omitempty"`
+	GroupID            *string                          `json:"groupId,omitempty"`
+	GroupName          *string                          `json:"groupName,omitempty"`
+	ID                 *string                          `json:"id,omitempty"`
+	IPAddress          *string                          `json:"ipAddress,omitempty"`
+	IPAddressType      *string                          `json:"ipAddressType,omitempty"`
+	LastBackupStatus   *string                          `json:"lastBackupStatus,omitempty"`
+	LastBackupTime     *int                             `json:"lastBackupTime,omitempty"`
+	LastRestoreStatus  *string                          `json:"lastRestoreStatus,omitempty"`
+	LastRestoreTime    *int                             `json:"lastRestoreTime,omitempty"`
+	MacAddress         *string                          `json:"macAddress,omitempty"`
+	Model              *string                          `json:"model,omitempty"`
+	Modules            *string                          `json:"modules,omitempty"`
+	NumOfUnits         *int                             `json:"numOfUnits,omitempty"`
+	Poe                *NetworkSwitchPoeType            `json:"poe,omitempty"`
+	Ports              *int                             `json:"ports,omitempty"`
+	PortStatus         *NetworkSwitchPortStatusType     `json:"portStatus,omitempty"`
+	RegistrationStatus *string                          `json:"registrationStatus,omitempty"`
+	SerialNumber       *string                          `json:"serialNumber,omitempty"`
+	StackID            *string                          `json:"stackId,omitempty"`
+	Status             *string                          `json:"status,omitempty"`
+	SwitchName         *string                          `json:"switchName,omitempty"`
+	UpTime             *string                          `json:"upTime,omitempty"`
 }
 
 type NetworkSwitchFirmwareUpdateType struct {
@@ -132,33 +132,33 @@ type NetworkSwitchPortStatusType struct {
 }
 
 type PortDetails struct {
-	AdminStatus        *string          `json:"adminStatus,omitempty"`
-	ConnectedDevice    *ConnectedDevice `json:"connectedDevice,omitempty"`
-	ID                 *string          `json:"id,omitempty"`
-	InUtilization      *float64         `json:"inUtilization,omitempty"`
-	LagName            *string          `json:"lagName,omitempty"`
-	Mac                *string          `json:"mac,omitempty"`
-	Name               *string          `json:"name,omitempty"`
-	NeighborName       *string          `json:"neighborName,omitempty"`
-	OpticsType         *string          `json:"opticsType,omitempty"`
-	OutUtilization     *float64         `json:"outUtilization,omitempty"`
-	Packets            *Packets         `json:"packets,omitempty"`
-	Poe                *Poe             `json:"poe,omitempty"`
-	PoeEnabled         *bool            `json:"poeEnabled,omitempty"`
-	PoeType            *string          `json:"poeType,omitempty"`
-	PortError          *PortError       `json:"portError,omitempty"`
-	PortIdentifier     *string          `json:"portIdentifier,omitempty"`
-	PortSpeed          *string          `json:"portSpeed,omitempty"`
-	SampledInstant     *string          `json:"sampledInstant,omitempty"`
-	Status             *string          `json:"status,omitempty"`
-	StpState           *int             `json:"stpState,omitempty"`
-	SwitchGroup        *string          `json:"switchGroup,omitempty"`
-	SwitchName         *string          `json:"switchName,omitempty"`
-	TrafficUsage       *TrafficUsage    `json:"trafficUsage,omitempty"`
-	Type               *string          `json:"type,omitempty"`
-	UnTaggedVlan       *string          `json:"unTaggedVlan,omitempty"`
-	UsedInFormingStack *bool            `json:"usedInFormingStack,omitempty"`
-	Vlans              *string          `json:"vlans,omitempty"`
+	AdminStatus        *string                         `json:"adminStatus,omitempty"`
+	ConnectedDevice    *PortDetailsConnectedDeviceType `json:"connectedDevice,omitempty"`
+	ID                 *string                         `json:"id,omitempty"`
+	InUtilization      *float64                        `json:"inUtilization,omitempty"`
+	LagName            *string                         `json:"lagName,omitempty"`
+	Mac                *string                         `json:"mac,omitempty"`
+	Name               *string                         `json:"name,omitempty"`
+	NeighborName       *string                         `json:"neighborName,omitempty"`
+	OpticsType         *string                         `json:"opticsType,omitempty"`
+	OutUtilization     *float64                        `json:"outUtilization,omitempty"`
+	Packets            *PortDetailsPacketsType         `json:"packets,omitempty"`
+	Poe                *PortDetailsPoeType             `json:"poe,omitempty"`
+	PoeEnabled         *bool                           `json:"poeEnabled,omitempty"`
+	PoeType            *string                         `json:"poeType,omitempty"`
+	PortError          *PortDetailsPortErrorType       `json:"portError,omitempty"`
+	PortIdentifier     *string                         `json:"portIdentifier,omitempty"`
+	PortSpeed          *string                         `json:"portSpeed,omitempty"`
+	SampledInstant     *string                         `json:"sampledInstant,omitempty"`
+	Status             *string                         `json:"status,omitempty"`
+	StpState           *int                            `json:"stpState,omitempty"`
+	SwitchGroup        *string                         `json:"switchGroup,omitempty"`
+	SwitchName         *string                         `json:"switchName,omitempty"`
+	TrafficUsage       *PortDetailsTrafficUsageType    `json:"trafficUsage,omitempty"`
+	Type               *string                         `json:"type,omitempty"`
+	UnTaggedVlan       *string                         `json:"unTaggedVlan,omitempty"`
+	UsedInFormingStack *bool                           `json:"usedInFormingStack,omitempty"`
+	Vlans              *string                         `json:"vlans,omitempty"`
 }
 
 type PortDetailsConnectedDeviceType struct {
@@ -203,12 +203,12 @@ type PortDetailsPortErrorType struct {
 }
 
 type PortDetailsQueryResultList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}    `json:"extra,omitempty"`
+	FirstIndex        *int           `json:"firstIndex,omitempty"`
+	HasMore           *bool          `json:"hasMore,omitempty"`
+	List              []*PortDetails `json:"list,omitempty"`
+	RawDataTotalCount *int           `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int           `json:"totalCount,omitempty"`
 }
 
 type PortDetailsTrafficUsageType struct {
@@ -234,33 +234,35 @@ type StackMember struct {
 	SerialNumber *string      `json:"serialNumber,omitempty"`
 	SwitchModule *string      `json:"switchModule,omitempty"`
 	SwitchName   *string      `json:"switchName,omitempty"`
-	SwitchPorts  *SwitchPorts `json:"switchPorts,omitempty"`
+	SwitchPorts  *PortDetails `json:"switchPorts,omitempty"`
 	SwitchUnit   *string      `json:"switchUnit,omitempty"`
 }
 
 type StackMemberQueryResult struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}    `json:"extra,omitempty"`
+	FirstIndex        *int           `json:"firstIndex,omitempty"`
+	HasMore           *bool          `json:"hasMore,omitempty"`
+	List              []*StackMember `json:"list,omitempty"`
+	RawDataTotalCount *int           `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int           `json:"totalCount,omitempty"`
 }
 
+type SwitchIDList []string
+
 type SwitchPortsSummaryQueryResultList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}   `json:"extra,omitempty"`
+	FirstIndex        *int          `json:"firstIndex,omitempty"`
+	HasMore           *bool         `json:"hasMore,omitempty"`
+	List              []*PortStatus `json:"list,omitempty"`
+	RawDataTotalCount *int          `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int          `json:"totalCount,omitempty"`
 }
 
 type SwitchQueryResultList struct {
 	Extra             *common.RBACMetadata `json:"extra,omitempty"`
 	FirstIndex        *int                 `json:"firstIndex,omitempty"`
 	HasMore           *bool                `json:"hasMore,omitempty"`
-	List              []*List              `json:"list,omitempty"`
+	List              []*NetworkSwitch     `json:"list,omitempty"`
 	RawDataTotalCount *int                 `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int                 `json:"totalCount,omitempty"`
 }
@@ -269,7 +271,7 @@ type TopSwitchesByFirmwareQueryResultList struct {
 	Extra             interface{} `json:"extra,omitempty"`
 	FirstIndex        *int        `json:"firstIndex,omitempty"`
 	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
+	List              []*BarChart `json:"list,omitempty"`
 	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int        `json:"totalCount,omitempty"`
 }
@@ -278,7 +280,7 @@ type TopSwitchesByModelQueryResultList struct {
 	Extra             interface{} `json:"extra,omitempty"`
 	FirstIndex        *int        `json:"firstIndex,omitempty"`
 	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
+	List              []*BarChart `json:"list,omitempty"`
 	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
 	TotalCount        *int        `json:"totalCount,omitempty"`
 }

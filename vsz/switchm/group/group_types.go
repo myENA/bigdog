@@ -25,20 +25,20 @@ type ErrorObject struct {
 }
 
 type GroupsByIdsQueryResultList struct {
-	Data     *Data                  `json:"data,omitempty"`
-	Error    *Error                 `json:"error,omitempty"`
+	Data     *QueryResultList       `json:"data,omitempty"`
+	Error    *ErrorObject           `json:"error,omitempty"`
 	Extra    interface{}            `json:"extra,omitempty"`
 	MetaData map[string]interface{} `json:"metaData,omitempty"`
 	Success  *bool                  `json:"success,omitempty"`
 }
 
 type QueryResultList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}       `json:"extra,omitempty"`
+	FirstIndex        *int              `json:"firstIndex,omitempty"`
+	HasMore           *bool             `json:"hasMore,omitempty"`
+	List              []*ClientObjectID `json:"list,omitempty"`
+	RawDataTotalCount *int              `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int              `json:"totalCount,omitempty"`
 }
 
 type SwitchGroup struct {

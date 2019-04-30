@@ -120,15 +120,15 @@ type DHCPProfileRef struct {
 }
 
 type DHCPSiteConfigListRef struct {
-	DwpdEnabled   *bool           `json:"dwpdEnabled,omitempty"`
-	Eth0ProfileID *int            `json:"eth0ProfileId,omitempty"`
-	Eth1ProfileID *int            `json:"eth1ProfileId,omitempty"`
-	ManualSelect  *bool           `json:"manualSelect,omitempty"`
-	SiteAps       []*SiteAps      `json:"siteAps,omitempty"`
-	SiteEnabled   *bool           `json:"siteEnabled,omitempty"`
-	SiteMode      *string         `json:"siteMode,omitempty"`
-	SiteProfiles  []*SiteProfiles `json:"siteProfiles,omitempty"`
-	ZoneName      *string         `json:"zoneName,omitempty"`
+	DwpdEnabled   *bool                               `json:"dwpdEnabled,omitempty"`
+	Eth0ProfileID *int                                `json:"eth0ProfileId,omitempty"`
+	Eth1ProfileID *int                                `json:"eth1ProfileId,omitempty"`
+	ManualSelect  *bool                               `json:"manualSelect,omitempty"`
+	SiteAps       []*DHCPSiteConfigListRefSiteApsType `json:"siteAps,omitempty"`
+	SiteEnabled   *bool                               `json:"siteEnabled,omitempty"`
+	SiteMode      *string                             `json:"siteMode,omitempty"`
+	SiteProfiles  []*DHCPProfileRef                   `json:"siteProfiles,omitempty"`
+	ZoneName      *string                             `json:"zoneName,omitempty"`
 }
 
 type DHCPSiteConfigListRefSiteApsType struct {
@@ -142,14 +142,14 @@ type DHCPSiteConfigListRefSiteApsType struct {
 }
 
 type DHCPSiteConfigRef struct {
-	DwpdEnabled    *bool      `json:"dwpdEnabled,omitempty"`
-	Eth0ProfileID  *int       `json:"eth0ProfileId,omitempty"`
-	Eth1ProfileID  *int       `json:"eth1ProfileId,omitempty"`
-	ManualSelect   *bool      `json:"manualSelect,omitempty"`
-	SiteAps        []*SiteAps `json:"siteAps,omitempty"`
-	SiteEnabled    *bool      `json:"siteEnabled,omitempty"`
-	SiteMode       *string    `json:"siteMode,omitempty"`
-	SiteProfileIds []string   `json:"siteProfileIds,omitempty"`
+	DwpdEnabled    *bool                           `json:"dwpdEnabled,omitempty"`
+	Eth0ProfileID  *int                            `json:"eth0ProfileId,omitempty"`
+	Eth1ProfileID  *int                            `json:"eth1ProfileId,omitempty"`
+	ManualSelect   *bool                           `json:"manualSelect,omitempty"`
+	SiteAps        []*DHCPSiteConfigRefSiteApsType `json:"siteAps,omitempty"`
+	SiteEnabled    *bool                           `json:"siteEnabled,omitempty"`
+	SiteMode       *string                         `json:"siteMode,omitempty"`
+	SiteProfileIds []string                        `json:"siteProfileIds,omitempty"`
 }
 
 type DHCPSiteConfigRefSiteApsType struct {
@@ -163,12 +163,12 @@ type DHCPSiteConfigRefSiteApsType struct {
 }
 
 type DoAssignIP struct {
-	DwpdEnabled    *bool      `json:"dwpdEnabled,omitempty"`
-	ManualSelect   *bool      `json:"manualSelect,omitempty"`
-	SiteAps        []*SiteAps `json:"siteAps,omitempty"`
-	SiteEnabled    *bool      `json:"siteEnabled,omitempty"`
-	SiteMode       *string    `json:"siteMode,omitempty"`
-	SiteProfileIds []string   `json:"siteProfileIds,omitempty"`
+	DwpdEnabled    *bool                    `json:"dwpdEnabled,omitempty"`
+	ManualSelect   *bool                    `json:"manualSelect,omitempty"`
+	SiteAps        []*DoAssignIPSiteApsType `json:"siteAps,omitempty"`
+	SiteEnabled    *bool                    `json:"siteEnabled,omitempty"`
+	SiteMode       *string                  `json:"siteMode,omitempty"`
+	SiteProfileIds []string                 `json:"siteProfileIds,omitempty"`
 }
 
 type DoAssignIPSiteApsType struct {
@@ -194,6 +194,8 @@ type HealthCheckPolicy struct {
 	ReviveInterval *int  `json:"reviveInterval,omitempty"`
 	ZombiePeriod   *int  `json:"zombiePeriod,omitempty"`
 }
+
+type IDList []string
 
 type OverrideClientAdmissionControl struct {
 	Enabled                 *bool    `json:"enabled,omitempty"`
@@ -223,19 +225,19 @@ type PortalCustomization struct {
 }
 
 type QueryCriteria struct {
-	Attributes      []string               `json:"attributes,omitempty"`
-	Criteria        *string                `json:"criteria,omitempty"`
-	ExpandDomains   *bool                  `json:"expandDomains,omitempty"`
-	ExtraFilters    []*ExtraFilters        `json:"extraFilters,omitempty"`
-	ExtraNotFilters []*ExtraNotFilters     `json:"extraNotFilters,omitempty"`
-	ExtraTimeRange  *ExtraTimeRange        `json:"extraTimeRange,omitempty"`
-	Filters         []*Filters             `json:"filters,omitempty"`
-	FullTextSearch  *FullTextSearch        `json:"fullTextSearch,omitempty"`
-	Limit           *int                   `json:"limit,omitempty"`
-	Options         map[string]interface{} `json:"options,omitempty"`
-	Page            *int                   `json:"page,omitempty"`
-	Query           *string                `json:"query,omitempty"`
-	SortInfo        *SortInfo              `json:"sortInfo,omitempty"`
+	Attributes      []string                            `json:"attributes,omitempty"`
+	Criteria        *string                             `json:"criteria,omitempty"`
+	ExpandDomains   *bool                               `json:"expandDomains,omitempty"`
+	ExtraFilters    []*QueryCriteriaExtraFiltersType    `json:"extraFilters,omitempty"`
+	ExtraNotFilters []*QueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+	ExtraTimeRange  *TimeRange                          `json:"extraTimeRange,omitempty"`
+	Filters         []*QueryCriteriaFiltersType         `json:"filters,omitempty"`
+	FullTextSearch  *FullTextSearch                     `json:"fullTextSearch,omitempty"`
+	Limit           *int                                `json:"limit,omitempty"`
+	Options         map[string]interface{}              `json:"options,omitempty"`
+	Page            *int                                `json:"page,omitempty"`
+	Query           *string                             `json:"query,omitempty"`
+	SortInfo        *QueryCriteriaSortInfoType          `json:"sortInfo,omitempty"`
 }
 
 type QueryCriteriaExtraFiltersType struct {
@@ -261,59 +263,6 @@ type QueryCriteriaSortInfoType struct {
 }
 
 type QueryCriteriaSuperSet struct {
-	Attributes      []string           `json:"attributes,omitempty"`
-	Criteria        *string            `json:"criteria,omitempty"`
-	ExpandDomains   *bool              `json:"expandDomains,omitempty"`
-	ExtraFilters    []*ExtraFilters    `json:"extraFilters,omitempty"`
-	ExtraNotFilters []*ExtraNotFilters `json:"extraNotFilters,omitempty"`
-	ExtraTimeRange  *ExtraTimeRange    `json:"extraTimeRange,omitempty"`
-	Filters         []*Filters         `json:"filters,omitempty"`
-	FullTextSearch  *FullTextSearch    `json:"fullTextSearch,omitempty"`
-	Limit           *int               `json:"limit,omitempty"`
-	Options         *Options           `json:"options,omitempty"`
-	Page            *int               `json:"page,omitempty"`
-	Query           *string            `json:"query,omitempty"`
-	SortInfo        *SortInfo          `json:"sortInfo,omitempty"`
-}
-
-type QueryCriteriaSuperSetExtraFiltersType struct {
-	Operator *string `json:"operator,omitempty"`
-	Type     *string `json:"type,omitempty"`
-	Value    *string `json:"value,omitempty"`
-}
-
-type QueryCriteriaSuperSetExtraNotFiltersType struct {
-	Type  *string `json:"type,omitempty"`
-	Value *string `json:"value,omitempty"`
-}
-
-type QueryCriteriaSuperSetFiltersType struct {
-	Operator *string `json:"operator,omitempty"`
-	Type     *string `json:"type,omitempty"`
-	Value    *string `json:"value,omitempty"`
-}
-
-type QueryCriteriaSuperSetOptionsType struct {
-	AcctIncludeNa                 *bool   `json:"acct_includeNa,omitempty"`
-	AcctTestableOnly              *bool   `json:"acct_testableOnly,omitempty"`
-	AcctType                      *string `json:"acct_type,omitempty"`
-	AuthHostedAaaSupportedEnabled *bool   `json:"auth_hostedAaaSupportedEnabled,omitempty"`
-	AuthIncludeAdGlobal           *bool   `json:"auth_includeAdGlobal,omitempty"`
-	AuthIncludeGuest              *bool   `json:"auth_includeGuest,omitempty"`
-	AuthIncludeLocalDb            *bool   `json:"auth_includeLocalDb,omitempty"`
-	AuthIncludeNa                 *bool   `json:"auth_includeNa,omitempty"`
-	AuthPlmnIdentifierEnabled     *bool   `json:"auth_plmnIdentifierEnabled,omitempty"`
-	AuthRealmType                 *string `json:"auth_realmType,omitempty"`
-	AuthTestableOnly              *bool   `json:"auth_testableOnly,omitempty"`
-	AuthType                      *string `json:"auth_type,omitempty"`
-	ForwardingType                *string `json:"forwarding_type,omitempty"`
-	GlobalFilterID                *string `json:"globalFilterId,omitempty"`
-	IncludeSharedResources        *bool   `json:"includeSharedResources,omitempty"`
-	IncludeUserClickNode          *bool   `json:"includeUserClickNode,omitempty"`
-	IncludeUsers                  *bool   `json:"includeUsers,omitempty"`
-	INCLUDERBACMETADATA           *bool   `json:"INCLUDE_RBAC_METADATA,omitempty"`
-	InMap                         *bool   `json:"inMap,omitempty"`
-	TENANTID                      *string `json:"TENANT_ID,omitempty"`
 }
 
 type Radio24 struct {
@@ -385,25 +334,25 @@ type SmartMonitor struct {
 }
 
 type SNMPCommunity struct {
-	CommunityName       *string               `json:"communityName,omitempty"`
-	NotificationEnabled *bool                 `json:"notificationEnabled,omitempty"`
-	NotificationTarget  []*NotificationTarget `json:"notificationTarget,omitempty"`
-	NotificationType    *string               `json:"notificationType,omitempty"`
-	ReadEnabled         *bool                 `json:"readEnabled,omitempty"`
-	WriteEnabled        *bool                 `json:"writeEnabled,omitempty"`
+	CommunityName       *string         `json:"communityName,omitempty"`
+	NotificationEnabled *bool           `json:"notificationEnabled,omitempty"`
+	NotificationTarget  []*TargetConfig `json:"notificationTarget,omitempty"`
+	NotificationType    *string         `json:"notificationType,omitempty"`
+	ReadEnabled         *bool           `json:"readEnabled,omitempty"`
+	WriteEnabled        *bool           `json:"writeEnabled,omitempty"`
 }
 
 type SNMPUser struct {
-	AuthPassword        *string               `json:"authPassword,omitempty"`
-	AuthProtocol        *string               `json:"authProtocol,omitempty"`
-	NotificationEnabled *bool                 `json:"notificationEnabled,omitempty"`
-	NotificationTarget  []*NotificationTarget `json:"notificationTarget,omitempty"`
-	NotificationType    *string               `json:"notificationType,omitempty"`
-	PrivPassword        *string               `json:"privPassword,omitempty"`
-	PrivProtocol        *string               `json:"privProtocol,omitempty"`
-	ReadEnabled         *bool                 `json:"readEnabled,omitempty"`
-	UserName            *string               `json:"userName,omitempty"`
-	WriteEnabled        *bool                 `json:"writeEnabled,omitempty"`
+	AuthPassword        *string         `json:"authPassword,omitempty"`
+	AuthProtocol        *string         `json:"authProtocol,omitempty"`
+	NotificationEnabled *bool           `json:"notificationEnabled,omitempty"`
+	NotificationTarget  []*TargetConfig `json:"notificationTarget,omitempty"`
+	NotificationType    *string         `json:"notificationType,omitempty"`
+	PrivPassword        *string         `json:"privPassword,omitempty"`
+	PrivProtocol        *string         `json:"privProtocol,omitempty"`
+	ReadEnabled         *bool           `json:"readEnabled,omitempty"`
+	UserName            *string         `json:"userName,omitempty"`
+	WriteEnabled        *bool           `json:"writeEnabled,omitempty"`
 }
 
 type TargetConfig struct {
@@ -419,11 +368,11 @@ type TimeRange struct {
 }
 
 type TrafficClassProfileRef struct {
-	Description    *string           `json:"description,omitempty"`
-	ID             *string           `json:"id,omitempty"`
-	Name           *string           `json:"name,omitempty"`
-	TrafficClasses []*TrafficClasses `json:"trafficClasses,omitempty"`
-	ZoneID         *string           `json:"zoneId,omitempty"`
+	Description    *string            `json:"description,omitempty"`
+	ID             *string            `json:"id,omitempty"`
+	Name           *string            `json:"name,omitempty"`
+	TrafficClasses []*TrafficClassRef `json:"trafficClasses,omitempty"`
+	ZoneID         *string            `json:"zoneId,omitempty"`
 }
 
 type TrafficClassRef struct {

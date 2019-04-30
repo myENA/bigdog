@@ -16,10 +16,10 @@ type MeshNeighborInfo struct {
 }
 
 type MeshNeighborInfoList struct {
-	Extra             interface{} `json:"extra,omitempty"`
-	FirstIndex        *int        `json:"firstIndex,omitempty"`
-	HasMore           *bool       `json:"hasMore,omitempty"`
-	List              []*List     `json:"list,omitempty"`
-	RawDataTotalCount *int        `json:"rawDataTotalCount,omitempty"`
-	TotalCount        *int        `json:"totalCount,omitempty"`
+	Extra             interface{}         `json:"extra,omitempty"`
+	FirstIndex        *int                `json:"firstIndex,omitempty"`
+	HasMore           *bool               `json:"hasMore,omitempty"`
+	List              []*MeshNeighborInfo `json:"list,omitempty"`
+	RawDataTotalCount *int                `json:"rawDataTotalCount,omitempty"`
+	TotalCount        *int                `json:"totalCount,omitempty"`
 }

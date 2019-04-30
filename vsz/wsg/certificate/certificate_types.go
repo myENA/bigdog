@@ -17,10 +17,10 @@ type Certificate struct {
 }
 
 type CertificateList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                   `json:"firstIndex,omitempty"`
+	HasMore    *bool                  `json:"hasMore,omitempty"`
+	List       []*CertificateListType `json:"list,omitempty"`
+	TotalCount *int                   `json:"totalCount,omitempty"`
 }
 
 type CertificateListType struct {
@@ -43,7 +43,7 @@ type CertificatesSigningRequest struct {
 }
 
 type CertSetting struct {
-	ServiceCertificates []*ServiceCertificates `json:"serviceCertificates,omitempty"`
+	ServiceCertificates []*ServiceCertificate `json:"serviceCertificates,omitempty"`
 }
 
 type CreateCert struct {
@@ -77,10 +77,10 @@ type CreateTrustedCAChain struct {
 }
 
 type CsrList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int           `json:"firstIndex,omitempty"`
+	HasMore    *bool          `json:"hasMore,omitempty"`
+	List       []*CsrListType `json:"list,omitempty"`
+	TotalCount *int           `json:"totalCount,omitempty"`
 }
 
 type CsrListType struct {
@@ -106,6 +106,8 @@ type ServiceCertificate struct {
 	Service     *string            `json:"service,omitempty"`
 }
 
+type ServiceCertificates []*ServiceCertificate
+
 type TrustedCAChain struct {
 	Description   *string  `json:"description,omitempty"`
 	ID            *string  `json:"id,omitempty"`
@@ -115,10 +117,10 @@ type TrustedCAChain struct {
 }
 
 type TrustedCAChainCertList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                          `json:"firstIndex,omitempty"`
+	HasMore    *bool                         `json:"hasMore,omitempty"`
+	List       []*TrustedCAChainCertListType `json:"list,omitempty"`
+	TotalCount *int                          `json:"totalCount,omitempty"`
 }
 
 type TrustedCAChainCertListType struct {

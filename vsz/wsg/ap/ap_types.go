@@ -3,10 +3,10 @@ package ap
 // API Version: v8_0
 
 type AlarmList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int            `json:"firstIndex,omitempty"`
+	HasMore    *bool           `json:"hasMore,omitempty"`
+	List       []*common.Alarm `json:"list,omitempty"`
+	TotalCount *int            `json:"totalCount,omitempty"`
 }
 
 type AlarmSummary struct {
@@ -39,7 +39,7 @@ type ApConfiguration struct {
 	Login                                      *Login                                 `json:"login,omitempty"`
 	Longitude                                  *float64                               `json:"longitude,omitempty"`
 	Mac                                        *string                                `json:"mac,omitempty"`
-	MeshOptions                                *MeshOptions                           `json:"meshOptions,omitempty"`
+	MeshOptions                                *Mesh                                  `json:"meshOptions,omitempty"`
 	Model                                      *string                                `json:"model,omitempty"`
 	Name                                       *string                                `json:"name,omitempty"`
 	Network                                    *Network                               `json:"network,omitempty"`
@@ -57,35 +57,35 @@ type ApConfiguration struct {
 	VenueProfile                               *common.GenericRef                     `json:"venueProfile,omitempty"`
 	Wifi24                                     *common.Radio24SuperSet                `json:"wifi24,omitempty"`
 	Wifi50                                     *common.ApRadio50                      `json:"wifi50,omitempty"`
-	WLANGroup24                                *WLANGroup24                           `json:"wlanGroup24,omitempty"`
-	WLANGroup50                                *WLANGroup50                           `json:"wlanGroup50,omitempty"`
+	WLANGroup24                                *WLANGroup                             `json:"wlanGroup24,omitempty"`
+	WLANGroup50                                *WLANGroup                             `json:"wlanGroup50,omitempty"`
 	WLANService24Enabled                       *bool                                  `json:"wlanService24Enabled,omitempty"`
 	WLANService50Enabled                       *bool                                  `json:"wlanService50Enabled,omitempty"`
 	ZoneID                                     *string                                `json:"zoneId,omitempty"`
 }
 
 type ApLinemanSummary struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                        `json:"firstIndex,omitempty"`
+	HasMore    *bool                       `json:"hasMore,omitempty"`
+	List       []*ApLinemanSummaryListType `json:"list,omitempty"`
+	TotalCount *int                        `json:"totalCount,omitempty"`
 }
 
 type ApLinemanSummaryListType struct {
-	Alarms      *Alarms  `json:"alarms,omitempty"`
-	ConfigState *string  `json:"configState,omitempty"`
-	Latitude    *float64 `json:"latitude,omitempty"`
-	Location    *string  `json:"location,omitempty"`
-	Longitude   *float64 `json:"longitude,omitempty"`
-	Mac         *string  `json:"mac,omitempty"`
-	Name        *string  `json:"name,omitempty"`
+	Alarms      *AlarmSummary `json:"alarms,omitempty"`
+	ConfigState *string       `json:"configState,omitempty"`
+	Latitude    *float64      `json:"latitude,omitempty"`
+	Location    *string       `json:"location,omitempty"`
+	Longitude   *float64      `json:"longitude,omitempty"`
+	Mac         *string       `json:"mac,omitempty"`
+	Name        *string       `json:"name,omitempty"`
 }
 
 type ApListEntry struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                   `json:"firstIndex,omitempty"`
+	HasMore    *bool                  `json:"hasMore,omitempty"`
+	List       []*ApListEntryListType `json:"list,omitempty"`
+	TotalCount *int                   `json:"totalCount,omitempty"`
 }
 
 type ApListEntryListType struct {
@@ -136,10 +136,10 @@ type ApOperationalSummary struct {
 }
 
 type ClientList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int             `json:"firstIndex,omitempty"`
+	HasMore    *bool            `json:"hasMore,omitempty"`
+	List       []*common.Client `json:"list,omitempty"`
+	TotalCount *int             `json:"totalCount,omitempty"`
 }
 
 type CreateAP struct {
@@ -201,7 +201,7 @@ type ModifyAP struct {
 	LocationAdditionalInfo                     *string                                `json:"locationAdditionalInfo,omitempty"`
 	Login                                      *Login                                 `json:"login,omitempty"`
 	Longitude                                  *float64                               `json:"longitude,omitempty"`
-	MeshOptions                                *MeshOptions                           `json:"meshOptions,omitempty"`
+	MeshOptions                                *Mesh                                  `json:"meshOptions,omitempty"`
 	Model                                      *string                                `json:"model,omitempty"`
 	Name                                       *string                                `json:"name,omitempty"`
 	Network                                    *Network                               `json:"network,omitempty"`
@@ -218,8 +218,8 @@ type ModifyAP struct {
 	VenueProfile                               *common.GenericRef                     `json:"venueProfile,omitempty"`
 	Wifi24                                     *common.Radio24                        `json:"wifi24,omitempty"`
 	Wifi50                                     *common.ApRadio50                      `json:"wifi50,omitempty"`
-	WLANGroup24                                *WLANGroup24                           `json:"wlanGroup24,omitempty"`
-	WLANGroup50                                *WLANGroup50                           `json:"wlanGroup50,omitempty"`
+	WLANGroup24                                *WLANGroup                             `json:"wlanGroup24,omitempty"`
+	WLANGroup50                                *WLANGroup                             `json:"wlanGroup50,omitempty"`
 	WLANService24Enabled                       *bool                                  `json:"wlanService24Enabled,omitempty"`
 	WLANService50Enabled                       *bool                                  `json:"wlanService50Enabled,omitempty"`
 	ZoneID                                     *string                                `json:"zoneId,omitempty"`
@@ -230,10 +230,10 @@ type ModifyRogueType struct {
 }
 
 type NeighborAPList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                  `json:"firstIndex,omitempty"`
+	HasMore    *bool                 `json:"hasMore,omitempty"`
+	List       []*NeighborAPListType `json:"list,omitempty"`
+	TotalCount *int                  `json:"totalCount,omitempty"`
 }
 
 type NeighborAPListType struct {

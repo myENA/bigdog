@@ -13,26 +13,26 @@ type CreateGuestAccess struct {
 	Description         *string                     `json:"description,omitempty"`
 	Name                *string                     `json:"name,omitempty"`
 	PortalCustomization *common.PortalCustomization `json:"portalCustomization,omitempty"`
-	Redirect            *Redirect                   `json:"redirect,omitempty"`
+	Redirect            *PortalRedirect             `json:"redirect,omitempty"`
 	SmsGateway          *common.GenericRef          `json:"smsGateway,omitempty"`
 	UserSession         *UserSession                `json:"userSession,omitempty"`
 }
 
 type CreateHotspot20VenueProfile struct {
-	Description         *string       `json:"description,omitempty"`
-	DownlinkSpeedInKbps *float64      `json:"downlinkSpeedInKbps,omitempty"`
-	Group               *string       `json:"group,omitempty"`
-	Name                *string       `json:"name,omitempty"`
-	Type                *string       `json:"type,omitempty"`
-	UplinkSpeedInKbps   *float64      `json:"uplinkSpeedInKbps,omitempty"`
-	VenueNames          []*VenueNames `json:"venueNames,omitempty"`
+	Description         *string      `json:"description,omitempty"`
+	DownlinkSpeedInKbps *float64     `json:"downlinkSpeedInKbps,omitempty"`
+	Group               *string      `json:"group,omitempty"`
+	Name                *string      `json:"name,omitempty"`
+	Type                *string      `json:"type,omitempty"`
+	UplinkSpeedInKbps   *float64     `json:"uplinkSpeedInKbps,omitempty"`
+	VenueNames          []*VenueName `json:"venueNames,omitempty"`
 }
 
 type CreateHotspot20WLANProfile struct {
 	AccessNetworkType       *string              `json:"accessNetworkType,omitempty"`
 	DefaultIdentityProvider *common.GenericRef   `json:"defaultIdentityProvider,omitempty"`
 	Description             *string              `json:"description,omitempty"`
-	IdentityProviders       []*IdentityProviders `json:"identityProviders,omitempty"`
+	IdentityProviders       []*common.GenericRef `json:"identityProviders,omitempty"`
 	InternetOption          *bool                `json:"internetOption,omitempty"`
 	Ipv4AddressType         *string              `json:"ipv4AddressType,omitempty"`
 	Ipv6AddressType         *string              `json:"ipv6AddressType,omitempty"`
@@ -42,50 +42,50 @@ type CreateHotspot20WLANProfile struct {
 }
 
 type CreateHotspotExternal struct {
-	BackupPortalURL       *string      `json:"backupPortalUrl,omitempty"`
-	Description           *string      `json:"description,omitempty"`
-	HTTPSRedirect         *bool        `json:"httpsRedirect,omitempty"`
-	InternalNode          *string      `json:"internalNode,omitempty"`
-	Location              *Location    `json:"location,omitempty"`
-	MacAddressFormat      *int         `json:"macAddressFormat,omitempty"`
-	Name                  *string      `json:"name,omitempty"`
-	PortalURL             *string      `json:"portalUrl,omitempty"`
-	Redirect              *Redirect    `json:"redirect,omitempty"`
-	SignatureSigningKey   *string      `json:"signatureSigningKey,omitempty"`
-	SmartClientSupport    *string      `json:"smartClientSupport,omitempty"`
-	TrafficClassProfileID *string      `json:"trafficClassProfileId,omitempty"`
-	UserSession           *UserSession `json:"userSession,omitempty"`
-	WalledGardens         []string     `json:"walledGardens,omitempty"`
+	BackupPortalURL       *string         `json:"backupPortalUrl,omitempty"`
+	Description           *string         `json:"description,omitempty"`
+	HTTPSRedirect         *bool           `json:"httpsRedirect,omitempty"`
+	InternalNode          *string         `json:"internalNode,omitempty"`
+	Location              *PortalLocation `json:"location,omitempty"`
+	MacAddressFormat      *int            `json:"macAddressFormat,omitempty"`
+	Name                  *string         `json:"name,omitempty"`
+	PortalURL             *string         `json:"portalUrl,omitempty"`
+	Redirect              *PortalRedirect `json:"redirect,omitempty"`
+	SignatureSigningKey   *string         `json:"signatureSigningKey,omitempty"`
+	SmartClientSupport    *string         `json:"smartClientSupport,omitempty"`
+	TrafficClassProfileID *string         `json:"trafficClassProfileId,omitempty"`
+	UserSession           *UserSession    `json:"userSession,omitempty"`
+	WalledGardens         []string        `json:"walledGardens,omitempty"`
 }
 
 type CreateHotspotInternal struct {
-	Description           *string      `json:"description,omitempty"`
-	HTTPSRedirect         *bool        `json:"httpsRedirect,omitempty"`
-	InternalNode          *string      `json:"internalNode,omitempty"`
-	Location              *Location    `json:"location,omitempty"`
-	MacAddressFormat      *int         `json:"macAddressFormat,omitempty"`
-	Name                  *string      `json:"name,omitempty"`
-	Redirect              *Redirect    `json:"redirect,omitempty"`
-	SignatureSigningKey   *string      `json:"signatureSigningKey,omitempty"`
-	SmartClientSupport    *string      `json:"smartClientSupport,omitempty"`
-	TrafficClassProfileID *string      `json:"trafficClassProfileId,omitempty"`
-	UserSession           *UserSession `json:"userSession,omitempty"`
-	WalledGardens         []string     `json:"walledGardens,omitempty"`
+	Description           *string         `json:"description,omitempty"`
+	HTTPSRedirect         *bool           `json:"httpsRedirect,omitempty"`
+	InternalNode          *string         `json:"internalNode,omitempty"`
+	Location              *PortalLocation `json:"location,omitempty"`
+	MacAddressFormat      *int            `json:"macAddressFormat,omitempty"`
+	Name                  *string         `json:"name,omitempty"`
+	Redirect              *PortalRedirect `json:"redirect,omitempty"`
+	SignatureSigningKey   *string         `json:"signatureSigningKey,omitempty"`
+	SmartClientSupport    *string         `json:"smartClientSupport,omitempty"`
+	TrafficClassProfileID *string         `json:"trafficClassProfileId,omitempty"`
+	UserSession           *UserSession    `json:"userSession,omitempty"`
+	WalledGardens         []string        `json:"walledGardens,omitempty"`
 }
 
 type CreateHotspotSmartClientOnly struct {
-	Description           *string      `json:"description,omitempty"`
-	HTTPSRedirect         *bool        `json:"httpsRedirect,omitempty"`
-	InternalNode          *string      `json:"internalNode,omitempty"`
-	Location              *Location    `json:"location,omitempty"`
-	MacAddressFormat      *int         `json:"macAddressFormat,omitempty"`
-	Name                  *string      `json:"name,omitempty"`
-	Redirect              *Redirect    `json:"redirect,omitempty"`
-	SignatureSigningKey   *string      `json:"signatureSigningKey,omitempty"`
-	SmartClientInfo       *string      `json:"smartClientInfo,omitempty"`
-	TrafficClassProfileID *string      `json:"trafficClassProfileId,omitempty"`
-	UserSession           *UserSession `json:"userSession,omitempty"`
-	WalledGardens         []string     `json:"walledGardens,omitempty"`
+	Description           *string         `json:"description,omitempty"`
+	HTTPSRedirect         *bool           `json:"httpsRedirect,omitempty"`
+	InternalNode          *string         `json:"internalNode,omitempty"`
+	Location              *PortalLocation `json:"location,omitempty"`
+	MacAddressFormat      *int            `json:"macAddressFormat,omitempty"`
+	Name                  *string         `json:"name,omitempty"`
+	Redirect              *PortalRedirect `json:"redirect,omitempty"`
+	SignatureSigningKey   *string         `json:"signatureSigningKey,omitempty"`
+	SmartClientInfo       *string         `json:"smartClientInfo,omitempty"`
+	TrafficClassProfileID *string         `json:"trafficClassProfileId,omitempty"`
+	UserSession           *UserSession    `json:"userSession,omitempty"`
+	WalledGardens         []string        `json:"walledGardens,omitempty"`
 }
 
 type CreateL2ACL struct {
@@ -96,9 +96,9 @@ type CreateL2ACL struct {
 }
 
 type CreateWebAuthentication struct {
-	Description *string   `json:"description,omitempty"`
-	Name        *string   `json:"name,omitempty"`
-	Redirect    *Redirect `json:"redirect,omitempty"`
+	Description *string         `json:"description,omitempty"`
+	Name        *string         `json:"name,omitempty"`
+	Redirect    *PortalRedirect `json:"redirect,omitempty"`
 }
 
 type CreateWechat struct {
@@ -129,7 +129,7 @@ type GuestAccess struct {
 	ID                  *string                     `json:"id,omitempty"`
 	Name                *string                     `json:"name,omitempty"`
 	PortalCustomization *common.PortalCustomization `json:"portalCustomization,omitempty"`
-	Redirect            *Redirect                   `json:"redirect,omitempty"`
+	Redirect            *PortalRedirect             `json:"redirect,omitempty"`
 	SmsGateway          *common.GenericRef          `json:"smsGateway,omitempty"`
 	UserSession         *UserSession                `json:"userSession,omitempty"`
 	ZoneID              *string                     `json:"zoneId,omitempty"`
@@ -141,13 +141,13 @@ type Hotspot struct {
 	HTTPSRedirect         *bool                       `json:"httpsRedirect,omitempty"`
 	ID                    *string                     `json:"id,omitempty"`
 	InternalNode          *string                     `json:"internalNode,omitempty"`
-	Location              *Location                   `json:"location,omitempty"`
+	Location              *PortalLocation             `json:"location,omitempty"`
 	MacAddressFormat      *int                        `json:"macAddressFormat,omitempty"`
 	Name                  *string                     `json:"name,omitempty"`
 	PortalCustomization   *common.PortalCustomization `json:"portalCustomization,omitempty"`
 	PortalType            *string                     `json:"portalType,omitempty"`
 	PortalURL             *string                     `json:"portalUrl,omitempty"`
-	Redirect              *Redirect                   `json:"redirect,omitempty"`
+	Redirect              *PortalRedirect             `json:"redirect,omitempty"`
 	SignatureSigningKey   *string                     `json:"signatureSigningKey,omitempty"`
 	SmartClientInfo       *string                     `json:"smartClientInfo,omitempty"`
 	SmartClientSupport    *string                     `json:"smartClientSupport,omitempty"`
@@ -158,32 +158,32 @@ type Hotspot struct {
 }
 
 type Hotspot20VeuneProfile struct {
-	Description         *string       `json:"description,omitempty"`
-	DownlinkSpeedInKbps *float64      `json:"downlinkSpeedInKbps,omitempty"`
-	Group               *string       `json:"group,omitempty"`
-	ID                  *string       `json:"id,omitempty"`
-	Name                *string       `json:"name,omitempty"`
-	Type                *string       `json:"type,omitempty"`
-	UplinkSpeedInKbps   *float64      `json:"uplinkSpeedInKbps,omitempty"`
-	VenueNames          []*VenueNames `json:"venueNames,omitempty"`
-	ZoneID              *string       `json:"zoneId,omitempty"`
+	Description         *string      `json:"description,omitempty"`
+	DownlinkSpeedInKbps *float64     `json:"downlinkSpeedInKbps,omitempty"`
+	Group               *string      `json:"group,omitempty"`
+	ID                  *string      `json:"id,omitempty"`
+	Name                *string      `json:"name,omitempty"`
+	Type                *string      `json:"type,omitempty"`
+	UplinkSpeedInKbps   *float64     `json:"uplinkSpeedInKbps,omitempty"`
+	VenueNames          []*VenueName `json:"venueNames,omitempty"`
+	ZoneID              *string      `json:"zoneId,omitempty"`
 }
 
 type Hotspot20WLANProfile struct {
-	AccessNetworkType            *string                         `json:"accessNetworkType,omitempty"`
-	ConnectionCapabilities       []*ConnectionCapabilities       `json:"connectionCapabilities,omitempty"`
-	CustomConnectionCapabilities []*CustomConnectionCapabilities `json:"customConnectionCapabilities,omitempty"`
-	DefaultIdentityProvider      *common.GenericRef              `json:"defaultIdentityProvider,omitempty"`
-	Description                  *string                         `json:"description,omitempty"`
-	ID                           *string                         `json:"id,omitempty"`
-	IdentityProviders            []*IdentityProviders            `json:"identityProviders,omitempty"`
-	InternetOption               *bool                           `json:"internetOption,omitempty"`
-	Ipv4AddressType              *string                         `json:"ipv4AddressType,omitempty"`
-	Ipv6AddressType              *string                         `json:"ipv6AddressType,omitempty"`
-	Name                         *string                         `json:"name,omitempty"`
-	Operator                     *common.GenericRef              `json:"operator,omitempty"`
-	SignupSsid                   *common.GenericRef              `json:"signupSsid,omitempty"`
-	ZoneID                       *string                         `json:"zoneId,omitempty"`
+	AccessNetworkType            *string                        `json:"accessNetworkType,omitempty"`
+	ConnectionCapabilities       []*DefaultConnectionCapability `json:"connectionCapabilities,omitempty"`
+	CustomConnectionCapabilities []*ConnectionCapability        `json:"customConnectionCapabilities,omitempty"`
+	DefaultIdentityProvider      *common.GenericRef             `json:"defaultIdentityProvider,omitempty"`
+	Description                  *string                        `json:"description,omitempty"`
+	ID                           *string                        `json:"id,omitempty"`
+	IdentityProviders            []*common.GenericRef           `json:"identityProviders,omitempty"`
+	InternetOption               *bool                          `json:"internetOption,omitempty"`
+	Ipv4AddressType              *string                        `json:"ipv4AddressType,omitempty"`
+	Ipv6AddressType              *string                        `json:"ipv6AddressType,omitempty"`
+	Name                         *string                        `json:"name,omitempty"`
+	Operator                     *common.GenericRef             `json:"operator,omitempty"`
+	SignupSsid                   *common.GenericRef             `json:"signupSsid,omitempty"`
+	ZoneID                       *string                        `json:"zoneId,omitempty"`
 }
 
 type L2ACL struct {
@@ -199,7 +199,7 @@ type ModifyGuestAccess struct {
 	Description         *string                     `json:"description,omitempty"`
 	Name                *string                     `json:"name,omitempty"`
 	PortalCustomization *common.PortalCustomization `json:"portalCustomization,omitempty"`
-	Redirect            *Redirect                   `json:"redirect,omitempty"`
+	Redirect            *PortalRedirect             `json:"redirect,omitempty"`
 	SmsGateway          *common.GenericRef          `json:"smsGateway,omitempty"`
 	UserSession         *UserSession                `json:"userSession,omitempty"`
 }
@@ -209,12 +209,12 @@ type ModifyHotspot struct {
 	Description           *string                     `json:"description,omitempty"`
 	HTTPSRedirect         *bool                       `json:"httpsRedirect,omitempty"`
 	InternalNode          *string                     `json:"internalNode,omitempty"`
-	Location              *Location                   `json:"location,omitempty"`
+	Location              *PortalLocation             `json:"location,omitempty"`
 	MacAddressFormat      *int                        `json:"macAddressFormat,omitempty"`
 	Name                  *string                     `json:"name,omitempty"`
 	PortalCustomization   *common.PortalCustomization `json:"portalCustomization,omitempty"`
 	PortalURL             *string                     `json:"portalUrl,omitempty"`
-	Redirect              *Redirect                   `json:"redirect,omitempty"`
+	Redirect              *PortalRedirect             `json:"redirect,omitempty"`
 	SignatureSigningKey   *string                     `json:"signatureSigningKey,omitempty"`
 	SmartClientInfo       *string                     `json:"smartClientInfo,omitempty"`
 	SmartClientSupport    *string                     `json:"smartClientSupport,omitempty"`
@@ -224,28 +224,28 @@ type ModifyHotspot struct {
 }
 
 type ModifyHotspot20VenueProfile struct {
-	Description         *string       `json:"description,omitempty"`
-	DownlinkSpeedInKbps *float64      `json:"downlinkSpeedInKbps,omitempty"`
-	Group               *string       `json:"group,omitempty"`
-	Name                *string       `json:"name,omitempty"`
-	Type                *string       `json:"type,omitempty"`
-	UplinkSpeedInKbps   *float64      `json:"uplinkSpeedInKbps,omitempty"`
-	VenueNames          []*VenueNames `json:"venueNames,omitempty"`
+	Description         *string      `json:"description,omitempty"`
+	DownlinkSpeedInKbps *float64     `json:"downlinkSpeedInKbps,omitempty"`
+	Group               *string      `json:"group,omitempty"`
+	Name                *string      `json:"name,omitempty"`
+	Type                *string      `json:"type,omitempty"`
+	UplinkSpeedInKbps   *float64     `json:"uplinkSpeedInKbps,omitempty"`
+	VenueNames          []*VenueName `json:"venueNames,omitempty"`
 }
 
 type ModifyHotspot20WLANProfile struct {
-	AccessNetworkType            *string                         `json:"accessNetworkType,omitempty"`
-	ConnectionCapabilities       []*ConnectionCapabilities       `json:"connectionCapabilities,omitempty"`
-	CustomConnectionCapabilities []*CustomConnectionCapabilities `json:"customConnectionCapabilities,omitempty"`
-	DefaultIdentityProvider      *common.GenericRef              `json:"defaultIdentityProvider,omitempty"`
-	Description                  *string                         `json:"description,omitempty"`
-	IdentityProviders            []*IdentityProviders            `json:"identityProviders,omitempty"`
-	InternetOption               *bool                           `json:"internetOption,omitempty"`
-	Ipv4AddressType              *string                         `json:"ipv4AddressType,omitempty"`
-	Ipv6AddressType              *string                         `json:"ipv6AddressType,omitempty"`
-	Name                         *string                         `json:"name,omitempty"`
-	Operator                     *common.GenericRef              `json:"operator,omitempty"`
-	SignupSsid                   *common.GenericRef              `json:"signupSsid,omitempty"`
+	AccessNetworkType            *string                        `json:"accessNetworkType,omitempty"`
+	ConnectionCapabilities       []*DefaultConnectionCapability `json:"connectionCapabilities,omitempty"`
+	CustomConnectionCapabilities []*ConnectionCapability        `json:"customConnectionCapabilities,omitempty"`
+	DefaultIdentityProvider      *common.GenericRef             `json:"defaultIdentityProvider,omitempty"`
+	Description                  *string                        `json:"description,omitempty"`
+	IdentityProviders            []*common.GenericRef           `json:"identityProviders,omitempty"`
+	InternetOption               *bool                          `json:"internetOption,omitempty"`
+	Ipv4AddressType              *string                        `json:"ipv4AddressType,omitempty"`
+	Ipv6AddressType              *string                        `json:"ipv6AddressType,omitempty"`
+	Name                         *string                        `json:"name,omitempty"`
+	Operator                     *common.GenericRef             `json:"operator,omitempty"`
+	SignupSsid                   *common.GenericRef             `json:"signupSsid,omitempty"`
 }
 
 type ModifyL2ACL struct {
@@ -256,11 +256,11 @@ type ModifyL2ACL struct {
 }
 
 type ModifyWebAuthentication struct {
-	Description    *string      `json:"description,omitempty"`
-	Name           *string      `json:"name,omitempty"`
-	PortalLanguage *string      `json:"portalLanguage,omitempty"`
-	Redirect       *Redirect    `json:"redirect,omitempty"`
-	UserSession    *UserSession `json:"userSession,omitempty"`
+	Description    *string         `json:"description,omitempty"`
+	Name           *string         `json:"name,omitempty"`
+	PortalLanguage *string         `json:"portalLanguage,omitempty"`
+	Redirect       *PortalRedirect `json:"redirect,omitempty"`
+	UserSession    *UserSession    `json:"userSession,omitempty"`
 }
 
 type ModifyWechat struct {
@@ -284,10 +284,10 @@ type PortalRedirect struct {
 }
 
 type PortalServiceList struct {
-	FirstIndex *int    `json:"firstIndex,omitempty"`
-	HasMore    *bool   `json:"hasMore,omitempty"`
-	List       []*List `json:"list,omitempty"`
-	TotalCount *int    `json:"totalCount,omitempty"`
+	FirstIndex *int                     `json:"firstIndex,omitempty"`
+	HasMore    *bool                    `json:"hasMore,omitempty"`
+	List       []*PortalServiceListType `json:"list,omitempty"`
+	TotalCount *int                     `json:"totalCount,omitempty"`
 }
 
 type PortalServiceListType struct {
@@ -306,13 +306,13 @@ type VenueName struct {
 }
 
 type WebAuthentication struct {
-	Description    *string      `json:"description,omitempty"`
-	ID             *string      `json:"id,omitempty"`
-	Name           *string      `json:"name,omitempty"`
-	PortalLanguage *string      `json:"portalLanguage,omitempty"`
-	Redirect       *Redirect    `json:"redirect,omitempty"`
-	UserSession    *UserSession `json:"userSession,omitempty"`
-	ZoneID         *string      `json:"zoneId,omitempty"`
+	Description    *string         `json:"description,omitempty"`
+	ID             *string         `json:"id,omitempty"`
+	Name           *string         `json:"name,omitempty"`
+	PortalLanguage *string         `json:"portalLanguage,omitempty"`
+	Redirect       *PortalRedirect `json:"redirect,omitempty"`
+	UserSession    *UserSession    `json:"userSession,omitempty"`
+	ZoneID         *string         `json:"zoneId,omitempty"`
 }
 
 type WechatConfiguration struct {

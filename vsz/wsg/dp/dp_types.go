@@ -19,8 +19,8 @@ type SwitchoverDp struct {
 	// DP ID list
 	DpIDList []string `json:"dpIdList,omitempty"`
 
-	// IPOrFqdn
+	// IPOrFQDN
 	// IP or FQDN address of destination cluster, Notice: System will take ipOrFqdn as 1st priority, and
 	// clusterName as 2nd.
-	IPOrFqdn *string `json:"ipOrFqdn,omitempty"`
+	IPOrFQDN *string `json:"ipOrFqdn,omitempty"`
 }

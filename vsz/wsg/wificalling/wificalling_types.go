@@ -26,9 +26,9 @@ type DeleteBulk struct {
 }
 
 type Epdg struct {
-	// Fqdn
+	// FQDN
 	// Fully qualified domain name of ePDG
-	Fqdn *string `json:"fqdn,omitempty"`
+	FQDN *string `json:"fqdn,omitempty"`
 
 	IP *string `json:"ip,omitempty"`
 }

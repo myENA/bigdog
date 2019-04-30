@@ -310,9 +310,9 @@ type DHCPProfileRef struct {
 }
 
 type DHCPSiteConfigListRef struct {
-	// DwpdEnabled
+	// DWPDEnabled
 	// DHCP Service Dynamic WAN Port Detection
-	DwpdEnabled *bool `json:"dwpdEnabled,omitempty"`
+	DWPDEnabled *bool `json:"dwpdEnabled,omitempty"`
 
 	Eth0ProfileID *int `json:"eth0ProfileId,omitempty"`
 
@@ -359,9 +359,9 @@ type DHCPSiteConfigListRefSiteApsType struct {
 }
 
 type DHCPSiteConfigRef struct {
-	// DwpdEnabled
+	// DWPDEnabled
 	// DHCP Service Dynamic WAN Port Detection
-	DwpdEnabled *bool `json:"dwpdEnabled,omitempty"`
+	DWPDEnabled *bool `json:"dwpdEnabled,omitempty"`
 
 	Eth0ProfileID *int `json:"eth0ProfileId,omitempty"`
 
@@ -404,9 +404,9 @@ type DHCPSiteConfigRefSiteApsType struct {
 }
 
 type DoAssignIP struct {
-	// DwpdEnabled
+	// DWPDEnabled
 	// DHCP Service Dynamic WAN Port Detection
-	DwpdEnabled *bool `json:"dwpdEnabled,omitempty"`
+	DWPDEnabled *bool `json:"dwpdEnabled,omitempty"`
 
 	// ManualSelect
 	// DHCP Service AP Selection Mode. This value is effective when the siteMode is EnableOnMultipleAPs.

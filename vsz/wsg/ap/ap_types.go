@@ -687,10 +687,10 @@ type SwitchoverAP struct {
 	// Flag to delete AP record after switchover cluster. Default value is false.
 	DeleteRecord *bool `json:"deleteRecord,omitempty"`
 
-	// IPOrFqdn
+	// IPOrFQDN
 	// IP or FQDN address of destination cluster, Notice: Once this value been set, clusterName will be
 	// ignored.
-	IPOrFqdn *string `json:"ipOrFqdn,omitempty"`
+	IPOrFQDN *string `json:"ipOrFqdn,omitempty"`
 
 	// ZoneIDList
 	// Zone ID list for which APs attached to will be switchovered.

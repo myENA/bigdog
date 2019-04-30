@@ -46,7 +46,7 @@ type CreateGuestAccessWLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -58,7 +58,7 @@ type CreateGuestAccessWLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -137,7 +137,7 @@ type CreateHotspot20OpenWLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -149,7 +149,7 @@ type CreateHotspot20OpenWLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	Hessid *string `json:"hessid,omitempty"`
 
@@ -230,7 +230,7 @@ type CreateHotspot20WLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -242,7 +242,7 @@ type CreateHotspot20WLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	Hessid *string `json:"hessid,omitempty"`
 
@@ -331,7 +331,7 @@ type CreateHotspotWLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -343,7 +343,7 @@ type CreateHotspotWLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -422,7 +422,7 @@ type CreateStandard80211WLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -434,7 +434,7 @@ type CreateStandard80211WLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -521,7 +521,7 @@ type CreateStandardOpenWLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -533,7 +533,7 @@ type CreateStandardOpenWLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -616,7 +616,7 @@ type CreateWebAuthWLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -628,7 +628,7 @@ type CreateWebAuthWLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -707,7 +707,7 @@ type CreateWechatWLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -719,7 +719,7 @@ type CreateWechatWLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	Hessid *string `json:"hessid,omitempty"`
 
@@ -800,7 +800,7 @@ type ModifyWLAN struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled
@@ -812,7 +812,7 @@ type ModifyWLAN struct {
 
 	Encryption *WLANEncryption `json:"encryption,omitempty"`
 
-	ExternalDpsk *dpsk.WLANExternalDpsk `json:"externalDpsk,omitempty"`
+	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -1224,7 +1224,7 @@ type WLANConfiguration struct {
 
 	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	Dpsk *dpsk.WLANDpskSetting `json:"dpsk,omitempty"`
+	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDHCPEnabled
 	// DP Tunnel DHCP Enabled

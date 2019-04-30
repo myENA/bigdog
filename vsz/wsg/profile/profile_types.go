@@ -41,9 +41,9 @@ type AccountingProfile struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -193,9 +193,9 @@ type AuthenticationProfile struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -624,9 +624,9 @@ type CreateAccountingProfile struct {
 	// Domain UUID
 	DomainID *string `json:"domainId,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -654,9 +654,9 @@ type CreateAuthenticationProfile struct {
 	// Hotspot 2.0 support enabled or disabled
 	H20SuppportEnabled *bool `json:"h20SuppportEnabled,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -748,9 +748,9 @@ type CreateDNSServerProfile struct {
 	// Domain UUID
 	DomainID *string `json:"domainId,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1014,9 +1014,9 @@ type CreateUserTrafficProfile struct {
 	// Traffic access control list
 	IPAclRules []*IPAclRules `json:"ipAclRules,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1210,9 +1210,9 @@ type DNSServerProfile struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1862,9 +1862,9 @@ type ModifyAccountingProfile struct {
 	// ID of Accounting Profile
 	ID *string `json:"id,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1896,9 +1896,9 @@ type ModifyAuthenticationProfile struct {
 	// ID of Accounting Profile
 	ID *string `json:"id,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1970,9 +1970,9 @@ type ModifyDNSServerProfile struct {
 	// Profile Id
 	ID *string `json:"id,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -2287,9 +2287,9 @@ type ModifyUserTrafficProfile struct {
 	// Traffic access control list
 	IPAclRules []*ModifyIPAclRules `json:"ipAclRules,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -3226,9 +3226,9 @@ type UserTrafficProfile struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 

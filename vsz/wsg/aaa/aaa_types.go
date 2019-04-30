@@ -31,9 +31,9 @@ type ActiveDirectory struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*GroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the active directory server
@@ -107,9 +107,9 @@ type AuthenticationServer struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*GroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the RADIUS server
@@ -354,9 +354,9 @@ type LDAPServer struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*GroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the LDAP server

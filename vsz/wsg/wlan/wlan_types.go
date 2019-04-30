@@ -1447,9 +1447,9 @@ type WLANSummary struct {
 	// Identifier of the WLAN
 	ID *string `json:"id,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the WLAN

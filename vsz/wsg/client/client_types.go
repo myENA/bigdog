@@ -51,9 +51,9 @@ type HistoricalClient struct {
 	// Client IPv6 address
 	Ipv6Address *string `json:"ipv6Address,omitempty"`
 
-	// MvnoName
+	// MVNOName
 	// MVNO name of the client
-	MvnoName *string `json:"mvnoName,omitempty"`
+	MVNOName *string `json:"mvnoName,omitempty"`
 
 	// OsType
 	// OS type of the client

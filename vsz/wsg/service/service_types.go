@@ -55,9 +55,9 @@ type ActiveDirectoryService struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -157,9 +157,9 @@ type CommonAccountingService struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -225,9 +225,9 @@ type CommonAuthenticationService struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -393,7 +393,7 @@ type CreateHlrAuthentication struct {
 
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -804,9 +804,9 @@ type HlrService struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -916,9 +916,9 @@ type LDAPService struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -992,9 +992,9 @@ type MncNdc struct {
 	// MNC
 	Mnc *string `json:"mnc,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// MVNO ID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	// Ndc
 	// NDC
@@ -1170,7 +1170,7 @@ type ModifyHlrAuthentication struct {
 
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1288,9 +1288,9 @@ type ModifyLocalDbAuthentication struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1418,9 +1418,9 @@ type RadiusAccountingService struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1504,9 +1504,9 @@ type RadiusAuthenticationService struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoID
+	// MVNOID
 	// Tenant UUID
-	MvnoID *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 

@@ -750,6 +750,74 @@ type ModifyZone struct {
 }
 
 type QueryCriteria struct {
+	Attributes []string `json:"attributes,omitempty"`
+
+	Criteria *string `json:"criteria,omitempty"`
+
+	ExpandDomains *bool `json:"expandDomains,omitempty"`
+
+	// ExtraFilters
+	// "AND" condition for multiple filters
+	ExtraFilters []*QueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
+
+	ExtraNotFilters []*common.QueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+
+	ExtraTimeRange *common.TimeRange `json:"extraTimeRange,omitempty"`
+
+	// Filters
+	// Filters used to select specific resource scope
+	Filters []*QueryCriteriaFiltersType `json:"filters,omitempty"`
+
+	FullTextSearch *common.FullTextSearch `json:"fullTextSearch,omitempty"`
+
+	Limit *int `json:"limit,omitempty"`
+
+	// Options
+	// Specified feature required information.
+	Options *QueryCriteriaOptionsType `json:"options,omitempty"`
+
+	Page *int `json:"page,omitempty"`
+
+	Query *string `json:"query,omitempty"`
+
+	SortInfo *common.QueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
+}
+
+type QueryCriteriaExtraFiltersType struct {
+	Operator *common.FilterOperator `json:"operator,omitempty"`
+
+	// Type
+	// Filters for specific attribute
+	Type *string `json:"type,omitempty"`
+
+	// Value
+	// Value for filtering
+	Value *string `json:"value,omitempty"`
+}
+
+type QueryCriteriaFiltersType struct {
+	// Operator
+	// Operator for filtering
+	Operator *string `json:"operator,omitempty"`
+
+	// Type
+	// Group type
+	Type *string `json:"type,omitempty"`
+
+	// Value
+	// Group ID
+	Value *string `json:"value,omitempty"`
+}
+
+// QueryCriteriaOptionsType
+//
+// Specified feature required information.
+type QueryCriteriaOptionsType struct {
+	// IncludeSharedResources
+	// Include the resources of parent domain as well while querying.
+	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
+
+	ZoneIpmode *common.IPMode `json:"zone_ipmode,omitempty"`
 }
 
 type Rogue struct {

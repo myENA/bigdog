@@ -41,6 +41,47 @@ type PatchScgUserGroup struct {
 }
 
 type QueryCriteria struct {
+	Attributes []string `json:"attributes,omitempty"`
+
+	Criteria *string `json:"criteria,omitempty"`
+
+	ExpandDomains *bool `json:"expandDomains,omitempty"`
+
+	ExtraFilters []*common.QueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
+
+	ExtraNotFilters []*common.QueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+
+	ExtraTimeRange *common.TimeRange `json:"extraTimeRange,omitempty"`
+
+	// Filters
+	// Filters used to select specific resource scope
+	Filters []*QueryCriteriaFiltersType `json:"filters,omitempty"`
+
+	FullTextSearch *common.FullTextSearch `json:"fullTextSearch,omitempty"`
+
+	Limit *int `json:"limit,omitempty"`
+
+	Options map[string]interface{} `json:"options,omitempty"`
+
+	Page *int `json:"page,omitempty"`
+
+	Query *string `json:"query,omitempty"`
+
+	SortInfo *common.QueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
+}
+
+type QueryCriteriaFiltersType struct {
+	// Operator
+	// operator
+	Operator *string `json:"operator,omitempty"`
+
+	// Type
+	// Group type
+	Type *string `json:"type,omitempty"`
+
+	// Value
+	// DOMAIN ID
+	Value *string `json:"value,omitempty"`
 }
 
 type ScgUser struct {

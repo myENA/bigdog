@@ -669,6 +669,172 @@ type QueryCriteriaSortInfoType struct {
 }
 
 type QueryCriteriaSuperSet struct {
+	// Attributes
+	// Get specific columns only
+	Attributes []string `json:"attributes,omitempty"`
+
+	// Criteria
+	// Add backward compatibility for UI framework
+	Criteria *string `json:"criteria,omitempty"`
+
+	// ExpandDomains
+	// Whether to expand domains into sub domains/ zones or not
+	ExpandDomains *bool `json:"expandDomains,omitempty"`
+
+	// ExtraFilters
+	// "AND" condition for multiple filters
+	ExtraFilters []*QueryCriteriaSuperSetExtraFiltersType `json:"extraFilters,omitempty"`
+
+	// ExtraNotFilters
+	// "NOT" condition for multiple filters
+	ExtraNotFilters []*QueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+
+	ExtraTimeRange *TimeRange `json:"extraTimeRange,omitempty"`
+
+	// Filters
+	// Filters used to select specific resource scope
+	Filters []*QueryCriteriaSuperSetFiltersType `json:"filters,omitempty"`
+
+	FullTextSearch *FullTextSearch `json:"fullTextSearch,omitempty"`
+
+	// Limit
+	// Size of one page
+	Limit *int `json:"limit,omitempty"`
+
+	// Options
+	// Specified feature required information
+	Options *QueryCriteriaSuperSetOptionsType `json:"options,omitempty"`
+
+	// Page
+	// Page number to get
+	Page *int `json:"page,omitempty"`
+
+	// Query
+	// Add backward compatibility for UI framework
+	Query *string `json:"query,omitempty"`
+
+	// SortInfo
+	// About sorting
+	SortInfo *QueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
+}
+
+type QueryCriteriaSuperSetExtraFiltersType struct {
+	Operator *FilterOperator `json:"operator,omitempty"`
+
+	// Type
+	// Filters for specific attribute
+	Type *string `json:"type,omitempty"`
+
+	// Value
+	// value to search
+	Value *string `json:"value,omitempty"`
+}
+
+type QueryCriteriaSuperSetExtraNotFiltersType struct {
+	// Type
+	// Filters for specific attribute
+	Type *string `json:"type,omitempty"`
+
+	// Value
+	// value not to search
+	Value *string `json:"value,omitempty"`
+}
+
+type QueryCriteriaSuperSetFiltersType struct {
+	Operator *FilterOperator `json:"operator,omitempty"`
+
+	// Type
+	// Group type
+	Type *string `json:"type,omitempty"`
+
+	// Value
+	// Group ID
+	Value *string `json:"value,omitempty"`
+}
+
+// QueryCriteriaSuperSetOptionsType
+//
+// Specified feature required information
+type QueryCriteriaSuperSetOptionsType struct {
+	// AcctIncludeNa
+	// include Not Available acct service option while returning result
+	AcctIncludeNa *bool `json:"acct_includeNa,omitempty"`
+
+	// AcctTestableOnly
+	// only get testable service type
+	AcctTestableOnly *bool `json:"acct_testableOnly,omitempty"`
+
+	// AcctType
+	// accounting service types to get, use comma to separate, Ex: RADIUS,CGF
+	AcctType *string `json:"acct_type,omitempty"`
+
+	// AuthHostedAaaSupportedEnabled
+	// Indicate if Hosted AAA Support is enabled
+	AuthHostedAaaSupportedEnabled *bool `json:"auth_hostedAaaSupportedEnabled,omitempty"`
+
+	// AuthIncludeAdGlobal
+	// If AD is in list, include only AD with Global Catalog configured
+	AuthIncludeAdGlobal *bool `json:"auth_includeAdGlobal,omitempty"`
+
+	// AuthIncludeGuest
+	// include Guest auth service while returning result
+	AuthIncludeGuest *bool `json:"auth_includeGuest,omitempty"`
+
+	// AuthIncludeLocalDb
+	// include LocalDB auth service while returning result
+	AuthIncludeLocalDb *bool `json:"auth_includeLocalDb,omitempty"`
+
+	// AuthIncludeNa
+	// include Not Available auth service option while returning result
+	AuthIncludeNa *bool `json:"auth_includeNa,omitempty"`
+
+	// AuthPlmnIdentifierEnabled
+	// Indicate if Configure PLMN identifier is enabled
+	AuthPlmnIdentifierEnabled *bool `json:"auth_plmnIdentifierEnabled,omitempty"`
+
+	// AuthRealmType
+	// To get specific authentication service information for configuring realm based authentication profile
+	AuthRealmType *string `json:"auth_realmType,omitempty"`
+
+	// AuthTestableOnly
+	// only get testable service type
+	AuthTestableOnly *bool `json:"auth_testableOnly,omitempty"`
+
+	// AuthType
+	// authentication service types to get, use comma to separate, Ex: RADIUS,AD
+	AuthType *string `json:"auth_type,omitempty"`
+
+	// ForwardingType
+	// forwarding service types to get, use comma to separate, Ex: L2oGRE,TTGPDG,Bridge,Advanced
+	ForwardingType *string `json:"forwarding_type,omitempty"`
+
+	// GlobalFilterID
+	// Specify GlobalFilter ID for query.
+	GlobalFilterID *string `json:"globalFilterId,omitempty"`
+
+	// IncludeSharedResources
+	// Whether to include the resources of parent domain or not.
+	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
+
+	// IncludeUserClickNode
+	// Can be used when group tree rendering needs include user clicked node.
+	IncludeUserClickNode *bool `json:"includeUserClickNode,omitempty"`
+
+	// IncludeUsers
+	// Should also retrieve users or not
+	IncludeUsers *bool `json:"includeUsers,omitempty"`
+
+	// INCLUDERBACMETADATA
+	// Whether to include RBAC metadata or not.
+	INCLUDERBACMETADATA *bool `json:"INCLUDE_RBAC_METADATA,omitempty"`
+
+	// InMap
+	// Specify inMap status for query.
+	InMap *bool `json:"inMap,omitempty"`
+
+	// TENANTID
+	// Specify Tenant ID for query.
+	TENANTID *string `json:"TENANT_ID,omitempty"`
 }
 
 type Radio24 struct {
@@ -983,3 +1149,58 @@ type WildFQDN string
 //
 // Tunnel type configuration of the zone. No_Tunneled is for IPv6 mode
 type ZoneTunnelType string
+
+// Attributes
+// Get specific columns only
+// Criteria
+// Add backward compatibility for UI framework
+// ExpandDomains
+// Whether to expand domains into sub domains/ zones or not
+// ExtraFilters
+// "AND" condition for multiple filters
+// ExtraNotFilters
+// "NOT" condition for multiple filters
+// Limit
+// Size of one page
+// Page
+// Page number to get
+// Query
+// Add backward compatibility for UI framework
+// SortInfo
+// About sorting
+// Attributes
+// Get specific columns only
+// Criteria
+// Add backward compatibility for UI framework
+// ExpandDomains
+// Whether to expand domains into sub domains/ zones or not
+// ExtraFilters
+// "AND" condition for multiple filters
+// ExtraNotFilters
+// "NOT" condition for multiple filters
+// Limit
+// Size of one page
+// Options
+// Specified feature required information
+// Page
+// Page number to get
+// Query
+// Add backward compatibility for UI framework
+// SortInfo
+// About sorting
+// Attributes
+// Get specific columns only
+// Criteria
+// Add backward compatibility for UI framework
+// ExpandDomains
+// Whether to expand domains into sub domains/ zones or not
+// ExtraNotFilters
+// "NOT" condition for multiple filters
+// Limit
+// Size of one page
+// Page
+// Page number to get
+// Query
+// Add backward compatibility for UI framework
+// SortInfo
+// About sorting

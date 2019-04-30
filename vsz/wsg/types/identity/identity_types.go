@@ -603,6 +603,156 @@ type PassValidFor struct {
 }
 
 type QueryCriteria struct {
+	Attributes []string `json:"attributes,omitempty"`
+
+	Criteria *string `json:"criteria,omitempty"`
+
+	ExpandDomains *bool `json:"expandDomains,omitempty"`
+
+	ExtraFilters []*common.QueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
+
+	ExtraNotFilters []*common.QueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+
+	ExtraTimeRange *common.TimeRange `json:"extraTimeRange,omitempty"`
+
+	// Filters
+	// Filters used to select specific resource scope
+	Filters []*QueryCriteriaFiltersType `json:"filters,omitempty"`
+
+	FullTextSearch *common.FullTextSearch `json:"fullTextSearch,omitempty"`
+
+	Limit *int `json:"limit,omitempty"`
+
+	// Options
+	// Specified feature required information
+	Options *QueryCriteriaOptionsType `json:"options,omitempty"`
+
+	Page *int `json:"page,omitempty"`
+
+	Query *string `json:"query,omitempty"`
+
+	SortInfo *common.QueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
+}
+
+type QueryCriteriaFiltersType struct {
+	// Operator
+	// operator
+	Operator *string `json:"operator,omitempty"`
+
+	// Type
+	// Group type
+	Type *string `json:"type,omitempty"`
+
+	// Value
+	// Group ID
+	Value *string `json:"value,omitempty"`
+}
+
+// QueryCriteriaOptionsType
+//
+// Specified feature required information
+type QueryCriteriaOptionsType struct {
+	// GlobalFilterID
+	// Specify GlobalFilter ID for query
+	GlobalFilterID *string `json:"globalFilterId,omitempty"`
+
+	// GuestPassDisplayName
+	// Display name of guest pass
+	GuestPassDisplayName *string `json:"guestPass_displayName,omitempty"`
+
+	// GuestPassExpiration
+	// Expiration time of guest pass
+	GuestPassExpiration *QueryCriteriaOptionsTypeGuestPassExpirationType `json:"guestPass_expiration,omitempty"`
+
+	// GuestPassWLAN
+	// WLAN which used by quest pass
+	GuestPassWLAN *string `json:"guestPass_wlan,omitempty"`
+
+	// IncludeSharedResources
+	// Whether to include the resources of parent domain or not
+	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
+
+	// INCLUDERBACMETADATA
+	// Whether to include RBAC metadata or not
+	INCLUDERBACMETADATA *bool `json:"INCLUDE_RBAC_METADATA,omitempty"`
+
+	// LocalUserAuditTime
+	// Audit time of local users
+	LocalUserAuditTime *QueryCriteriaOptionsTypeLocalUserAuditTimeType `json:"localUser_auditTime,omitempty"`
+
+	// LocalUserDisplayName
+	// Display name of local users
+	LocalUserDisplayName *string `json:"localUser_displayName,omitempty"`
+
+	// LocalUserFirstName
+	// First name of local users
+	LocalUserFirstName *string `json:"localUser_firstName,omitempty"`
+
+	// LocalUserLastName
+	// Last name of local users
+	LocalUserLastName *string `json:"localUser_lastName,omitempty"`
+
+	// LocalUserMailAddress
+	// Mail address of local users
+	LocalUserMailAddress *string `json:"localUser_mailAddress,omitempty"`
+
+	// LocalUserPrimaryPhoneNumber
+	// Primary phone number of local users
+	LocalUserPrimaryPhoneNumber *string `json:"localUser_primaryPhoneNumber,omitempty"`
+
+	// LocalUserStatus
+	// Status of local users
+	LocalUserStatus *string `json:"localUser_status,omitempty"`
+
+	// LocalUserSubscriberType
+	// Subscriber type of local users
+	LocalUserSubscriberType *string `json:"localUser_subscriberType,omitempty"`
+
+	// LocalUserUserName
+	// User name of local users
+	LocalUserUserName *string `json:"localUser_userName,omitempty"`
+
+	// LocalUserUserSource
+	// User source of local users
+	LocalUserUserSource *string `json:"localUser_userSource,omitempty"`
+
+	// TENANTID
+	// Specify Tenant ID for query
+	TENANTID *string `json:"TENANT_ID,omitempty"`
+}
+
+// QueryCriteriaOptionsTypeGuestPassExpirationType
+//
+// Expiration time of guest pass
+type QueryCriteriaOptionsTypeGuestPassExpirationType struct {
+	// End
+	// end time of expiration
+	End *float64 `json:"end,omitempty"`
+
+	// Interval
+	// time interval in second
+	Interval *float64 `json:"interval,omitempty"`
+
+	// Start
+	// start time of expiration
+	Start *float64 `json:"start,omitempty"`
+}
+
+// QueryCriteriaOptionsTypeLocalUserAuditTimeType
+//
+// Audit time of local users
+type QueryCriteriaOptionsTypeLocalUserAuditTimeType struct {
+	// End
+	// end time for auditTime
+	End *float64 `json:"end,omitempty"`
+
+	// Interval
+	// time interval in second
+	Interval *float64 `json:"interval,omitempty"`
+
+	// Start
+	// start time for auditTime
+	Start *float64 `json:"start,omitempty"`
 }
 
 type SessionDuration struct {

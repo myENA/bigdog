@@ -31,9 +31,9 @@ type ApFirmwareList struct {
 }
 
 type ApLogin struct {
-	ApLoginName *string `json:"apLoginName,omitempty"`
+	ApLoginName *common.ApLoginName `json:"apLoginName,omitempty"`
 
-	ApLoginPassword *string `json:"apLoginPassword,omitempty"`
+	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty"`
 }
 
 type ApSNMPOptions struct {
@@ -59,7 +59,7 @@ type AvailableTunnelProfile struct {
 	// Tunnel Profile ID
 	ID *string `json:"id,omitempty"`
 
-	IPMode *string `json:"ipMode,omitempty"`
+	IPMode *common.IPMode `json:"ipMode,omitempty"`
 
 	// Name
 	// Tunnel Profile Name
@@ -104,9 +104,9 @@ type BonjourGatewayPolicyConfiguration struct {
 	// Bonjour policy rule list
 	BonjourPolicyRuleList []*BonjourPolicyRuleConfiguration `json:"bonjourPolicyRuleList,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type BonjourGatewayPolicyList struct {
@@ -206,17 +206,17 @@ type CreateBonjourGatewayPolicy struct {
 	// Bonjour policy rule list
 	BonjourPolicyRuleList []*BonjourPolicyRule `json:"bonjourPolicyRuleList,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type CreateDiffServProfile struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PreservedList
 	// Preserved list
@@ -282,7 +282,7 @@ type CreateZone struct {
 	// Country code of the zone
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DfsChannelEnabled
 	// DFS Channel enabled configuration of the zone, only for the US country code .
@@ -340,27 +340,27 @@ type CreateZone struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
 	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	LocationAdditionalInfo *string `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *common.LocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
 	LocationBasedService *common.GenericRef `json:"locationBasedService,omitempty"`
 
 	Login *ApLogin `json:"login,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	NodeAffinityProfile *common.GenericRef `json:"nodeAffinityProfile,omitempty"`
 
-	ProtectionMode24 *string `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *common.RecoverySsid `json:"recoverySsid,omitempty"`
 
@@ -398,11 +398,11 @@ type CreateZone struct {
 
 	TunnelProfile *common.GenericRef `json:"tunnelProfile,omitempty"`
 
-	TunnelType *string `json:"tunnelType,omitempty"`
+	TunnelType *common.ZoneTunnelType `json:"tunnelType,omitempty"`
 
 	VenueProfile *common.GenericRef `json:"venueProfile,omitempty"`
 
-	Version *string `json:"version,omitempty"`
+	Version *common.FirmwareVersion `json:"version,omitempty"`
 
 	// VlanOverlappingEnabled
 	// VLAN pooling overlapping of the zone
@@ -460,7 +460,7 @@ type DHCPSiteConfigList struct {
 }
 
 type DiffServConfiguration struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
@@ -468,7 +468,7 @@ type DiffServConfiguration struct {
 	// Identifier of the zone
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PreservedList
 	// Preserved list
@@ -534,17 +534,17 @@ type ModifyBonjourGatewayPolicy struct {
 	// Bonjour policy rule list
 	BonjourPolicyRuleList []*BonjourPolicyRule `json:"bonjourPolicyRuleList,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type ModifyDiffServProfile struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PreservedList
 	// Preserved list
@@ -616,7 +616,7 @@ type ModifyZone struct {
 	// Country code of the zone
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DfsChannelEnabled
 	// DFS Channel enabled configuration of the zone, only for the US country code .
@@ -674,27 +674,27 @@ type ModifyZone struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
 	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	LocationAdditionalInfo *string `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *common.LocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
 	LocationBasedService *common.GenericRef `json:"locationBasedService,omitempty"`
 
 	Login *ApLogin `json:"login,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	NodeAffinityProfile *common.GenericRef `json:"nodeAffinityProfile,omitempty"`
 
-	ProtectionMode24 *string `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *common.RecoverySsid `json:"recoverySsid,omitempty"`
 
@@ -732,7 +732,7 @@ type ModifyZone struct {
 
 	TunnelProfile *common.GenericRef `json:"tunnelProfile,omitempty"`
 
-	TunnelType *string `json:"tunnelType,omitempty"`
+	TunnelType *common.ZoneTunnelType `json:"tunnelType,omitempty"`
 
 	VenueProfile *common.GenericRef `json:"venueProfile,omitempty"`
 
@@ -817,7 +817,7 @@ type SoftGreRef struct {
 }
 
 type Syslog struct {
-	Address *string `json:"address,omitempty"`
+	Address *common.IPAddress `json:"address,omitempty"`
 
 	// Facility
 	// Facility of the syslog server
@@ -839,7 +839,7 @@ type Syslog struct {
 	// Protocol of the syslog server
 	Protocol *string `json:"protocol,omitempty"`
 
-	SecondaryAddress *string `json:"secondaryAddress,omitempty"`
+	SecondaryAddress *common.IPAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
@@ -941,7 +941,7 @@ type ZoneConfiguration struct {
 	// Country code of the zone
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DfsChannelEnabled
 	// DFS Channel enabled configuration of the zone, only for the US country code .
@@ -993,7 +993,7 @@ type ZoneConfiguration struct {
 	// Identifier of the zone
 	ID *string `json:"id,omitempty"`
 
-	IPMode *string `json:"ipMode,omitempty"`
+	IPMode *common.IPMode `json:"ipMode,omitempty"`
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
@@ -1005,27 +1005,27 @@ type ZoneConfiguration struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
 	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	LocationAdditionalInfo *string `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *common.LocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
 	LocationBasedService *common.GenericRef `json:"locationBasedService,omitempty"`
 
 	Login *ApLogin `json:"login,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	NodeAffinityProfile *common.GenericRef `json:"nodeAffinityProfile,omitempty"`
 
-	ProtectionMode24 *string `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *common.RecoverySsid `json:"recoverySsid,omitempty"`
 
@@ -1063,11 +1063,11 @@ type ZoneConfiguration struct {
 
 	TunnelProfile *common.GenericRef `json:"tunnelProfile,omitempty"`
 
-	TunnelType *string `json:"tunnelType,omitempty"`
+	TunnelType *common.ZoneTunnelType `json:"tunnelType,omitempty"`
 
 	VenueProfile *common.GenericRef `json:"venueProfile,omitempty"`
 
-	Version *string `json:"version,omitempty"`
+	Version *common.FirmwareVersion `json:"version,omitempty"`
 
 	// VlanOverlappingEnabled
 	// VLAN pooling overlapping of the zone

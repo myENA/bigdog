@@ -85,7 +85,7 @@ type CreateIdentityGuestPass struct {
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	GuestName *string `json:"guestName,omitempty"`
+	GuestName *common.NormalName `json:"guestName,omitempty"`
 
 	MaxDevices *MaxDevices `json:"maxDevices,omitempty"`
 
@@ -119,7 +119,7 @@ type CreateIdentityGuestPass struct {
 }
 
 type CreateIdentityUserRole struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
@@ -127,7 +127,7 @@ type CreateIdentityUserRole struct {
 
 	MaxDevices *MaxDevices `json:"maxDevices,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalNameTo64 `json:"name,omitempty"`
 
 	UserTrafficProfile *common.GenericRef `json:"userTrafficProfile,omitempty"`
 
@@ -139,7 +139,7 @@ type CreateIdentityUserRole struct {
 }
 
 type CreateSubscriptionPackage struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
@@ -153,7 +153,7 @@ type CreateSubscriptionPackage struct {
 	// Expiration value
 	ExpirationValue *int `json:"expirationValue,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type CreateUser struct {
@@ -241,7 +241,7 @@ type IdentityGuestPassConfiguration struct {
 	// Generated date and time
 	GeneratedOn *string `json:"generatedOn,omitempty"`
 
-	GuestName *string `json:"guestName,omitempty"`
+	GuestName *common.NormalName `json:"guestName,omitempty"`
 
 	// ID
 	// ID of the identity guest pass
@@ -323,7 +323,7 @@ type IdentityListType struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// identifier of the domain
@@ -347,7 +347,7 @@ type IdentityListType struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	UserTrafficProfile *common.GenericRef `json:"userTrafficProfile,omitempty"`
 
@@ -371,7 +371,7 @@ type IdentityUserRole struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// the identifier of the object
@@ -391,7 +391,7 @@ type IdentityUserRole struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalNameTo64 `json:"name,omitempty"`
 
 	UserTrafficProfile *common.GenericRef `json:"userTrafficProfile,omitempty"`
 
@@ -407,7 +407,7 @@ type IdentityUserSummary struct {
 	// Created on
 	CreatedOn *string `json:"createdOn,omitempty"`
 
-	DisplayName *string `json:"displayName,omitempty"`
+	DisplayName *common.NormalName `json:"displayName,omitempty"`
 
 	// DomainID
 	// identifier of the domain
@@ -469,7 +469,7 @@ type MaxDevices struct {
 }
 
 type ModifyIdentityUserRole struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
@@ -481,7 +481,7 @@ type ModifyIdentityUserRole struct {
 
 	MaxDevices *MaxDevices `json:"maxDevices,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalNameTo64 `json:"name,omitempty"`
 
 	UserTrafficProfile *common.GenericRef `json:"userTrafficProfile,omitempty"`
 
@@ -493,7 +493,7 @@ type ModifyIdentityUserRole struct {
 }
 
 type ModifySubscriptionPackage struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
@@ -511,7 +511,7 @@ type ModifySubscriptionPackage struct {
 	// ID
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type ModifyUser struct {
@@ -626,7 +626,7 @@ type SubscriptionPackage struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// identifier of the domain
@@ -652,7 +652,7 @@ type SubscriptionPackage struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type SubscriptionPackageList struct {
@@ -668,7 +668,7 @@ type SubscriptionPackageList struct {
 }
 
 type SubscriptionPackageListType struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// identifier of the domain
@@ -686,7 +686,7 @@ type SubscriptionPackageListType struct {
 	// the identifier of the subscription package
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type UserConfiguration struct {

@@ -69,7 +69,7 @@ type QueryCriteria struct {
 }
 
 type QueryCriteriaExtraFiltersType struct {
-	Operator interface{} `json:"operator,omitempty"`
+	Operator FilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attributes
@@ -91,7 +91,7 @@ type QueryCriteriaExtraNotFiltersType struct {
 }
 
 type QueryCriteriaFiltersType struct {
-	Operator interface{} `json:"operator,omitempty"`
+	Operator FilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Group type

@@ -7,9 +7,9 @@ import (
 )
 
 type ApInfo struct {
-	ApMac *string `json:"apMac,omitempty"`
+	ApMac *common.Mac `json:"apMac,omitempty"`
 
-	ApName *string `json:"apName,omitempty"`
+	ApName *ApName `json:"apName,omitempty"`
 
 	// LastDetected
 	// Timestamp of the AP

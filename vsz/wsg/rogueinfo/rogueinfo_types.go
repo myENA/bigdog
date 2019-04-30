@@ -36,9 +36,9 @@ type RogueInfo struct {
 	// Radio of the rogue AP
 	Radio *string `json:"radio,omitempty"`
 
-	RogueAPMac *string `json:"rogueAPMac,omitempty"`
+	RogueAPMac *common.Mac `json:"rogueAPMac,omitempty"`
 
-	RogueMac *string `json:"rogueMac,omitempty"`
+	RogueMac *common.Mac `json:"rogueMac,omitempty"`
 
 	// Ssid
 	// SSID of the rogue AP

@@ -11,9 +11,9 @@ type CreateDevicePolicy struct {
 	// defaultAction of the device policy cofig
 	DefaultAction *string `json:"defaultAction,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type DevicePolicyPorfile struct {
@@ -21,13 +21,13 @@ type DevicePolicyPorfile struct {
 	// defaultAction of the device policy cofig
 	DefaultAction *string `json:"defaultAction,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// identifier of the device policy cofig
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Rule
 	// rule of the device policy cofig
@@ -39,7 +39,7 @@ type DevicePolicyRule struct {
 	// defaultAction of the device policy cofig
 	Action *string `json:"action,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DeviceType
 	// deviceType of the device policy rule
@@ -75,9 +75,9 @@ type ModifyDevicePolicy struct {
 	// defaultAction of the device policy cofig
 	DefaultAction *string `json:"defaultAction,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Rule
 	// rule of the device policy cofig
@@ -99,5 +99,5 @@ type PorfileListType struct {
 	// Identifier of the service
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }

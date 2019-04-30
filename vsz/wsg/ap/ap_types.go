@@ -70,7 +70,7 @@ type ApConfiguration struct {
 
 	ClientAdmissionControl50 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
@@ -78,19 +78,19 @@ type ApConfiguration struct {
 
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	GpsSource *string `json:"gpsSource,omitempty"`
+	GpsSource *common.ApGpsSource `json:"gpsSource,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	LocationAdditionalInfo *string `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *common.LocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
 	Login *Login `json:"login,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty"`
 
 	MeshOptions *Mesh `json:"meshOptions,omitempty"`
 
@@ -98,13 +98,13 @@ type ApConfiguration struct {
 	// Model name of the AP
 	Model *string `json:"model,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *ApName `json:"name,omitempty"`
 
 	Network *Network `json:"network,omitempty"`
 
 	NetworkIpv6 *NetworkIpv6 `json:"networkIpv6,omitempty"`
 
-	ProtectionMode24 *string `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP
@@ -175,13 +175,13 @@ type ApLinemanSummaryListType struct {
 	// State of the AP configuration
 	ConfigState *string `json:"configState,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty"`
 
 	// Name
 	// Name of the AP
@@ -209,7 +209,7 @@ type ApListEntryListType struct {
 	// Identifier of the AP group to which the AP belongs
 	ApGroupID *string `json:"apGroupId,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty"`
 
 	// Name
 	// Name of the AP
@@ -261,7 +261,7 @@ type ApOperationalSummary struct {
 	// Identifier of the control plane to which the AP is currently connected
 	CpID *string `json:"cpId,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DpID
 	// Identifier of the data plane to which the AP is currently connected
@@ -293,15 +293,15 @@ type ApOperationalSummary struct {
 	// Timestamp of the last successful communication with the AP
 	LastSeenTime *int `json:"lastSeenTime,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	LocationAdditionalInfo *string `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *common.LocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty"`
 
 	// ManagementVlan
 	// Management vlan on the AP
@@ -319,7 +319,7 @@ type ApOperationalSummary struct {
 	// Model name of the AP
 	Model *string `json:"model,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *ApName `json:"name,omitempty"`
 
 	// ProvisionMethod
 	// Provisioning method of the AP. Discovered indicates that the AP contacted the controller using
@@ -349,7 +349,7 @@ type ApOperationalSummary struct {
 	// Uptime of the AP since it was last rebooted (unit:second)
 	Uptime *int `json:"uptime,omitempty"`
 
-	Version *string `json:"version,omitempty"`
+	Version *common.FirmwareVersion `json:"version,omitempty"`
 
 	// Wifi24Channel
 	// 2.4GHz radio channel number that the AP is currently using
@@ -394,23 +394,23 @@ type CreateAP struct {
 	// Venue code
 	AwsVenue *string `json:"awsVenue,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	GpsSource *string `json:"gpsSource,omitempty"`
+	GpsSource *common.ApGpsSource `json:"gpsSource,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty"`
 
 	// Model
 	// Model name of the AP
 	Model *string `json:"model,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *ApName `json:"name,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP
@@ -453,9 +453,9 @@ type EventSummary struct {
 }
 
 type Login struct {
-	ApLoginName *string `json:"apLoginName,omitempty"`
+	ApLoginName *common.ApLoginName `json:"apLoginName,omitempty"`
 
-	ApLoginPassword *string `json:"apLoginPassword,omitempty"`
+	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty"`
 }
 
 type Mesh struct {
@@ -465,7 +465,7 @@ type Mesh struct {
 
 	// MeshUplinkEntryList
 	// MAC address of the neighbor AP
-	MeshUplinkEntryList []string `json:"meshUplinkEntryList,omitempty"`
+	MeshUplinkEntryList []common.Mac `json:"meshUplinkEntryList,omitempty"`
 
 	// UplinkSelection
 	// Uplink selection
@@ -503,7 +503,7 @@ type ModifyAP struct {
 
 	ClientAdmissionControl50 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
@@ -511,17 +511,17 @@ type ModifyAP struct {
 
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	GpsSource *string `json:"gpsSource,omitempty"`
+	GpsSource *common.ApGpsSource `json:"gpsSource,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	LocationAdditionalInfo *string `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *common.LocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
 	Login *Login `json:"login,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
 	MeshOptions *Mesh `json:"meshOptions,omitempty"`
 
@@ -529,13 +529,13 @@ type ModifyAP struct {
 	// Model name of the AP
 	Model *string `json:"model,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *ApName `json:"name,omitempty"`
 
 	Network *Network `json:"network,omitempty"`
 
 	NetworkIpv6 *NetworkIpv6 `json:"networkIpv6,omitempty"`
 
-	ProtectionMode24 *string `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP
@@ -584,7 +584,7 @@ type ModifyAP struct {
 type ModifyRogueType struct {
 	// RogueMacList
 	// rogue mac list
-	RogueMacList []string `json:"rogueMacList,omitempty"`
+	RogueMacList []common.Mac `json:"rogueMacList,omitempty"`
 }
 
 type NeighborAPList struct {
@@ -624,7 +624,7 @@ type NeighborAPListType struct {
 	// IP address of the mesh neighbor AP
 	IP *string `json:"ip,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty"`
 
 	// Model
 	// Model of the mesh neighbor AP
@@ -648,41 +648,41 @@ type NeighborAPListType struct {
 }
 
 type Network struct {
-	Gateway *string `json:"gateway,omitempty"`
+	Gateway *common.IPAddress `json:"gateway,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// IPType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically
 	// assigned or kept unchanged.
 	IPType *string `json:"ipType,omitempty"`
 
-	Netmask *string `json:"netmask,omitempty"`
+	Netmask *common.SubNetMask `json:"netmask,omitempty"`
 
-	PrimaryDNS *string `json:"primaryDns,omitempty"`
+	PrimaryDNS *common.IPAddress `json:"primaryDns,omitempty"`
 
-	SecondaryDNS *string `json:"secondaryDns,omitempty"`
+	SecondaryDNS *common.IPAddress `json:"secondaryDns,omitempty"`
 }
 
 type NetworkIpv6 struct {
-	Gateway *string `json:"gateway,omitempty"`
+	Gateway *common.IPAddress `json:"gateway,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// IPType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically
 	// assigned or kept unchanged.
 	IPType *string `json:"ipType,omitempty"`
 
-	PrimaryDNS *string `json:"primaryDns,omitempty"`
+	PrimaryDNS *common.IPAddress `json:"primaryDns,omitempty"`
 
-	SecondaryDNS *string `json:"secondaryDns,omitempty"`
+	SecondaryDNS *common.IPAddress `json:"secondaryDns,omitempty"`
 }
 
 type SwitchoverAP struct {
 	// ApMacList
 	// AP MAC address list
-	ApMacList []string `json:"apMacList,omitempty"`
+	ApMacList []common.Mac `json:"apMacList,omitempty"`
 
 	// ClusterName
 	// Name of destination cluster, Notice: Once user has set ipOrFqdn, this value will be ignored.
@@ -703,7 +703,7 @@ type SwitchoverAP struct {
 }
 
 type Syslog struct {
-	Address *string `json:"address,omitempty"`
+	Address *common.IPAddress `json:"address,omitempty"`
 
 	// Enabled
 	// Indicates whether syslog is enabled or disabled
@@ -729,7 +729,7 @@ type Syslog struct {
 	// Protocol of the syslog server
 	Protocol *string `json:"protocol,omitempty"`
 
-	SecondaryAddress *string `json:"secondaryAddress,omitempty"`
+	SecondaryAddress *common.IPAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server

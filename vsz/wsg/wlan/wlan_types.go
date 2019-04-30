@@ -44,7 +44,7 @@ type CreateGuestAccessWLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -68,7 +68,7 @@ type CreateGuestAccessWLAN struct {
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -76,9 +76,9 @@ type CreateGuestAccessWLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -98,7 +98,7 @@ type CreateGuestAccessWLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -135,7 +135,7 @@ type CreateHotspot20OpenWLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -157,7 +157,7 @@ type CreateHotspot20OpenWLAN struct {
 
 	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -165,9 +165,9 @@ type CreateHotspot20OpenWLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -187,7 +187,7 @@ type CreateHotspot20OpenWLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -228,7 +228,7 @@ type CreateHotspot20WLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -250,7 +250,7 @@ type CreateHotspot20WLAN struct {
 
 	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -258,9 +258,9 @@ type CreateHotspot20WLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -280,7 +280,7 @@ type CreateHotspot20WLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -329,7 +329,7 @@ type CreateHotspotWLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -353,7 +353,7 @@ type CreateHotspotWLAN struct {
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -361,9 +361,9 @@ type CreateHotspotWLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -383,7 +383,7 @@ type CreateHotspotWLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -420,7 +420,7 @@ type CreateStandard80211WLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -444,7 +444,7 @@ type CreateStandard80211WLAN struct {
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -452,9 +452,9 @@ type CreateStandard80211WLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -474,7 +474,7 @@ type CreateStandard80211WLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -519,7 +519,7 @@ type CreateStandardOpenWLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -543,7 +543,7 @@ type CreateStandardOpenWLAN struct {
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -551,9 +551,9 @@ type CreateStandardOpenWLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -573,7 +573,7 @@ type CreateStandardOpenWLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -614,7 +614,7 @@ type CreateWebAuthWLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -638,7 +638,7 @@ type CreateWebAuthWLAN struct {
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -646,9 +646,9 @@ type CreateWebAuthWLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -668,7 +668,7 @@ type CreateWebAuthWLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -705,7 +705,7 @@ type CreateWechatWLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -727,7 +727,7 @@ type CreateWechatWLAN struct {
 
 	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -735,9 +735,9 @@ type CreateWechatWLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -757,7 +757,7 @@ type CreateWechatWLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -798,7 +798,7 @@ type ModifyWLAN struct {
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DevicePolicy *common.GenericRef `json:"devicePolicy,omitempty"`
 
@@ -822,7 +822,7 @@ type ModifyWLAN struct {
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -830,9 +830,9 @@ type ModifyWLAN struct {
 
 	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *WLANNameSSID `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 
@@ -852,7 +852,7 @@ type ModifyWLAN struct {
 
 	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *string `json:"ssid,omitempty"`
+	Ssid *WLANNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WLANVlan `json:"vlan,omitempty"`
 }
@@ -916,7 +916,7 @@ type WLANAdvanced struct {
 	// Indicates whether band balancing is enabled or disabled
 	BandBalancing *string `json:"bandBalancing,omitempty"`
 
-	BssMinRateMbps *string `json:"bssMinRateMbps,omitempty"`
+	BssMinRateMbps *WLANBssMinRateMbps `json:"bssMinRateMbps,omitempty"`
 
 	// ClientFingerprintingEnabled
 	// Indicates whether client fingerprinting is enabled or disabled
@@ -1024,7 +1024,7 @@ type WLANAdvanced struct {
 	// Maximum number of clients per radio
 	MaxClientsPerRadio *int `json:"maxClientsPerRadio,omitempty"`
 
-	MgmtTxRateMbps *string `json:"mgmtTxRateMbps,omitempty"`
+	MgmtTxRateMbps *WLANMgmtTxRateMbps `json:"mgmtTxRateMbps,omitempty"`
 
 	// NdProxyEnabled
 	// Indicates whether ND Proxy is enabled or disabled
@@ -1244,7 +1244,7 @@ type WLANConfiguration struct {
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *string `json:"hessid,omitempty"`
+	Hessid *WLANHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
@@ -1260,7 +1260,7 @@ type WLANConfiguration struct {
 	// Name of the WLAN
 	Name *string `json:"name,omitempty"`
 
-	OperatorRealm *string `json:"operatorRealm,omitempty"`
+	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
 

@@ -7,7 +7,7 @@ import (
 )
 
 type CreateWLANScheduler struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
@@ -17,7 +17,7 @@ type CreateWLANScheduler struct {
 	// Schedules on Monday
 	Mon []string `json:"mon,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Sat
 	// Schedules on Saturday
@@ -41,7 +41,7 @@ type CreateWLANScheduler struct {
 }
 
 type ModifyWLANScheduler struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
@@ -51,7 +51,7 @@ type ModifyWLANScheduler struct {
 	// Schedules on Monday
 	Mon []string `json:"mon,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Sat
 	// Schedules on Saturday
@@ -75,7 +75,7 @@ type ModifyWLANScheduler struct {
 }
 
 type WLANSchedule struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
@@ -89,7 +89,7 @@ type WLANSchedule struct {
 	// Schedules on Monday
 	Mon []string `json:"mon,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Sat
 	// Schedules on Saturday

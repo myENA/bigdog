@@ -203,7 +203,7 @@ type ControlPlaneListType struct {
 	// Model
 	Model *string `json:"model,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// NumOfAps
 	// Total Connected APs
@@ -267,7 +267,7 @@ type DataPlaneList struct {
 }
 
 type DataPlaneListType struct {
-	BladeName *string `json:"bladeName,omitempty"`
+	BladeName *common.NormalName `json:"bladeName,omitempty"`
 
 	// DpStatus
 	// Status
@@ -857,9 +857,9 @@ type ModifySystemTimeSetting struct {
 }
 
 type NorthboundInterface struct {
-	Password *string `json:"password,omitempty"`
+	Password *common.ApLoginPassword `json:"password,omitempty"`
 
-	UserName *string `json:"userName,omitempty"`
+	UserName *common.ApLoginName `json:"userName,omitempty"`
 }
 
 type PortalLang struct {

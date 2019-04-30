@@ -16,7 +16,7 @@ type CreateEthernetPortProfile struct {
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
 	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DHCPRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
@@ -28,7 +28,7 @@ type CreateEthernetPortProfile struct {
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
@@ -60,7 +60,7 @@ type EthernetPortProfile struct {
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
 	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DHCPRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
@@ -76,7 +76,7 @@ type EthernetPortProfile struct {
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
@@ -108,7 +108,7 @@ type ModifyEthernetPortProfile struct {
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
 	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DHCPRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
@@ -120,7 +120,7 @@ type ModifyEthernetPortProfile struct {
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
@@ -154,5 +154,5 @@ type ProfileListType struct {
 	// Identifier of the service
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }

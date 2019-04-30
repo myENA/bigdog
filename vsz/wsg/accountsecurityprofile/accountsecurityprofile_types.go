@@ -11,7 +11,7 @@ type Create struct {
 	// The number of successive failures before a lockout will occur.
 	AccountLockout *int `json:"accountLockout,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DisableInactiveAccounts
 	// A period in a inactive status used to lockout these accounts.
@@ -25,7 +25,7 @@ type Create struct {
 	// The duration for which the account is automatically locked without administrative intervention.
 	LockoutDuration *int `json:"lockoutDuration,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly.
@@ -65,7 +65,7 @@ type GetByID struct {
 type GetByIDResult struct {
 	AccountLockout *int `json:"accountLockout,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty"`
 
@@ -75,7 +75,7 @@ type GetByIDResult struct {
 
 	LockoutDuration *int `json:"lockoutDuration,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	PasswordExpiration *int `json:"passwordExpiration,omitempty"`
 
@@ -103,7 +103,7 @@ type Update struct {
 	// The number of successive failures before a lockout will occur.
 	AccountLockout *int `json:"accountLockout,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DisableInactiveAccounts
 	// A period in a inactive status used to lockout these accounts.
@@ -115,7 +115,7 @@ type Update struct {
 	// The duration for which the account is automatically locked without administrative intervention.
 	LockoutDuration *int `json:"lockoutDuration,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly.

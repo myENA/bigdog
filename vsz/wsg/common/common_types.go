@@ -23,7 +23,7 @@ type Alarm struct {
 	// Alarm description
 	Description *string `json:"description,omitempty"`
 
-	ID *string `json:"id,omitempty"`
+	ID *Mac `json:"id,omitempty"`
 
 	// Severity
 	// Alarm severity
@@ -98,7 +98,7 @@ type ApRadio50 struct {
 	// channel number (channelWidth is 80+80MHz only)
 	SecondaryChannel *int `json:"secondaryChannel,omitempty"`
 
-	TxPower *string `json:"txPower,omitempty"`
+	TxPower *TxPower `json:"txPower,omitempty"`
 }
 
 type ApRebootTimeout struct {
@@ -168,11 +168,11 @@ type Client struct {
 	// Host name
 	HostName *string `json:"hostName,omitempty"`
 
-	IPAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *IPAddress `json:"ipAddress,omitempty"`
 
-	Ipv6Address *string `json:"ipv6Address,omitempty"`
+	Ipv6Address *IPAddress `json:"ipv6Address,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *Mac `json:"mac,omitempty"`
 
 	// OsType
 	// OS type
@@ -272,7 +272,7 @@ type Description string
 type DescriptionTo128 string
 
 type DHCPProfileRef struct {
-	Description *string `json:"description,omitempty"`
+	Description *Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the DHCP Profile
@@ -286,19 +286,19 @@ type DHCPProfileRef struct {
 	// Lease time in minutes of the DHCP Profile
 	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *NormalName `json:"name,omitempty"`
 
-	PoolEndIP *string `json:"poolEndIp,omitempty"`
+	PoolEndIP *IPAddress `json:"poolEndIp,omitempty"`
 
-	PoolStartIP *string `json:"poolStartIp,omitempty"`
+	PoolStartIP *IPAddress `json:"poolStartIp,omitempty"`
 
-	PrimaryDNSIP *string `json:"primaryDnsIp,omitempty"`
+	PrimaryDNSIP *IPAddress `json:"primaryDnsIp,omitempty"`
 
-	SecondaryDNSIP *string `json:"secondaryDnsIp,omitempty"`
+	SecondaryDNSIP *IPAddress `json:"secondaryDnsIp,omitempty"`
 
-	SubnetMask *string `json:"subnetMask,omitempty"`
+	SubnetMask *IPAddress `json:"subnetMask,omitempty"`
 
-	SubnetNetworkIP *string `json:"subnetNetworkIp,omitempty"`
+	SubnetNetworkIP *IPAddress `json:"subnetNetworkIp,omitempty"`
 
 	// VlanID
 	// VLAN ID of the DHCP Profile
@@ -549,7 +549,7 @@ type OverrideSmartMonitor struct {
 }
 
 type PortalCustomization struct {
-	Language *string `json:"language,omitempty"`
+	Language *PortalLanguage `json:"language,omitempty"`
 
 	// Logo
 	// logo
@@ -626,7 +626,7 @@ type QueryCriteria struct {
 }
 
 type QueryCriteriaExtraFiltersType struct {
-	Operator *string `json:"operator,omitempty"`
+	Operator *FilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attributes
@@ -648,7 +648,7 @@ type QueryCriteriaExtraNotFiltersType struct {
 }
 
 type QueryCriteriaFiltersType struct {
-	Operator *string `json:"operator,omitempty"`
+	Operator *FilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Group type
@@ -688,7 +688,7 @@ type Radio24 struct {
 	// Channel width. Zero (0) means Auto.
 	ChannelWidth *int `json:"channelWidth,omitempty"`
 
-	TxPower *string `json:"txPower,omitempty"`
+	TxPower *TxPower `json:"txPower,omitempty"`
 }
 
 type Radio24SuperSet struct {
@@ -712,7 +712,7 @@ type Radio24SuperSet struct {
 	// Channel width. Zero (0) means Auto.
 	ChannelWidth *int `json:"channelWidth,omitempty"`
 
-	TxPower *string `json:"txPower,omitempty"`
+	TxPower *TxPower `json:"txPower,omitempty"`
 }
 
 type Radio50 struct {
@@ -748,7 +748,7 @@ type Radio50 struct {
 	// Secondary channel number for outdoor AP (channelWidth is 80+80MHz only)
 	OutdoorSecondaryChannel *int `json:"outdoorSecondaryChannel,omitempty"`
 
-	TxPower *string `json:"txPower,omitempty"`
+	TxPower *TxPower `json:"txPower,omitempty"`
 }
 
 type Radio50SuperSet struct {
@@ -792,11 +792,11 @@ type Radio50SuperSet struct {
 	// Secondary channel number for outdoor AP (channelWidth is 80+80MHz only)
 	OutdoorSecondaryChannel *int `json:"outdoorSecondaryChannel,omitempty"`
 
-	TxPower *string `json:"txPower,omitempty"`
+	TxPower *TxPower `json:"txPower,omitempty"`
 }
 
 type RadiusServer struct {
-	IP *string `json:"ip,omitempty"`
+	IP *IPAddress `json:"ip,omitempty"`
 
 	// Port
 	// Server port
@@ -947,13 +947,13 @@ type TimeRange struct {
 type TimeUnitStore string
 
 type TrafficClassProfileRef struct {
-	Description *string `json:"description,omitempty"`
+	Description *Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the Traffic Class Profile
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *NormalName `json:"name,omitempty"`
 
 	TrafficClasses []*TrafficClassRef `json:"trafficClasses,omitempty"`
 

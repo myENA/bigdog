@@ -15,7 +15,7 @@ type CreateURLFilteringPolicy struct {
 	// The block category IDs of the URL Filtering policy
 	BlockCategories []int `json:"blockCategories,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy
@@ -26,7 +26,7 @@ type CreateURLFilteringPolicy struct {
 	// The filtering level of the URL Filtering policy
 	FilteringLevel *string `json:"filteringLevel,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// SafeSearchBingDNS
 	// Bing DNS for safe search of the URL Filtering policy
@@ -70,13 +70,13 @@ type ModifyURLFilteringPolicy struct {
 	// The block category IDs of the URL Filtering policy
 	BlockCategories []int `json:"blockCategories,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
 	FilteringLevel *string `json:"filteringLevel,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// SafeSearchBingDNS
 	// Bing DNS for safe search of the URL Filtering policy
@@ -148,7 +148,7 @@ type URLFilteringPolicy struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy
@@ -175,7 +175,7 @@ type URLFilteringPolicy struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// SafeSearchBingDNS
 	// Bing DNS for safe search of the URL Filtering policy

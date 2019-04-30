@@ -7,9 +7,9 @@ import (
 )
 
 type CreateSplitTunnelProfile struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Rules
 	// Destination rule of split tunnel profile
@@ -17,9 +17,9 @@ type CreateSplitTunnelProfile struct {
 }
 
 type ModifySplitTunnelProfile struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Rules
 	// Destination rule of split tunnel profile
@@ -37,13 +37,13 @@ type SplitTunnelIPMaskRule struct {
 }
 
 type SplitTunnelProfile struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DomainID *string `json:"domainId,omitempty"`
 
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Rules
 	// Destination rule of split tunnel profile
@@ -67,7 +67,7 @@ type SplitTunnelProfileList struct {
 type SplitTunnelProfileListType struct {
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type SplitTunnelProfileQuery struct {

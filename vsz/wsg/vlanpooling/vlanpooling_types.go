@@ -11,13 +11,13 @@ type CreateVlanPooling struct {
 	// Algorithm of the VLAN pooling profile
 	Algo *string `json:"algo,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// identifier of the domain
 	DomainID *string `json:"domainId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
@@ -33,13 +33,13 @@ type ModifyVlanPooling struct {
 	// Algorithm of the VLAN pooling profile
 	Algo *string `json:"algo,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// identifier of the domain
 	DomainID *string `json:"domainId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
@@ -51,7 +51,7 @@ type VlanPooling struct {
 	// Algorithm of the VLAN pooling profile
 	Algo *string `json:"algo,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Identifier of the domain which the VLAN pooling profile belongs to
@@ -61,7 +61,7 @@ type VlanPooling struct {
 	// Identifier of the VLAN pooling profile
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
@@ -97,7 +97,7 @@ type VlanPoolingListType struct {
 	// Identifier of the service
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile

@@ -47,15 +47,15 @@ type ApGroupConfiguration struct {
 	// Identifier of the AP group
 	ID *string `json:"id,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	LocationAdditionalInfo *string `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *common.LocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
 	LocationBasedService *common.OverrideGenericRef `json:"locationBasedService,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
 	// Members
 	// Members of the AP group
@@ -65,7 +65,7 @@ type ApGroupConfiguration struct {
 	// Name of the AP group
 	Name *string `json:"name,omitempty"`
 
-	ProtectionMode24 *string `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *common.RecoverySsid `json:"recoverySsid,omitempty"`
 
@@ -105,7 +105,7 @@ type ApGroupList struct {
 }
 
 type ApGroupMember struct {
-	ApMac *string `json:"apMac,omitempty"`
+	ApMac *common.Mac `json:"apMac,omitempty"`
 }
 
 type ApGroupSummary struct {
@@ -142,7 +142,7 @@ type ModifyAPGroup struct {
 
 	ClientAdmissionControl50 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network to wired / wireless client.
@@ -156,19 +156,19 @@ type ModifyAPGroup struct {
 	// Directed multicast from wireless client to network.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	Location *string `json:"location,omitempty"`
+	Location *common.Location `json:"location,omitempty"`
 
-	LocationAdditionalInfo *string `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *common.LocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
 	LocationBasedService *common.OverrideGenericRef `json:"locationBasedService,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
-	ProtectionMode24 *string `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *common.RecoverySsid `json:"recoverySsid,omitempty"`
 

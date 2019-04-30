@@ -73,7 +73,7 @@ type ApplicationPolicyProfile struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the Application Policy
@@ -96,7 +96,7 @@ type ApplicationPolicyProfile struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// TenantID
 	// Tenant Id
@@ -175,18 +175,18 @@ type CreateApplicationPolicyProfile struct {
 	// Send ARC logs from AP to external syslog server
 	AvcLogEnable *bool `json:"avcLogEnable,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the Application Policy
 	// Profile belongs
 	DomainID *string `json:"domainId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type CreateUserDefinedProfile struct {
-	DestIP *string `json:"destIp,omitempty"`
+	DestIP *common.IPAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
@@ -197,9 +197,9 @@ type CreateUserDefinedProfile struct {
 	// belongs
 	DomainID *string `json:"domainId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
-	Netmask *string `json:"netmask,omitempty"`
+	Netmask *common.SubNetMask `json:"netmask,omitempty"`
 
 	// Protocol
 	// Protocol of User Defined Profile
@@ -225,21 +225,21 @@ type ModifyApplicationPolicyProfile struct {
 	// Send ARC logs from AP to external syslog server
 	AvcLogEnable *bool `json:"avcLogEnable,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type ModifyUserDefinedProfile struct {
-	DestIP *string `json:"destIp,omitempty"`
+	DestIP *common.IPAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
 	DestPort *int `json:"destPort,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
-	Netmask *string `json:"netmask,omitempty"`
+	Netmask *common.SubNetMask `json:"netmask,omitempty"`
 
 	// Protocol
 	// Protocol of User Defined Profile
@@ -285,7 +285,7 @@ type UserDefinedProfile struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	DestIP *string `json:"destIp,omitempty"`
+	DestIP *common.IPAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
@@ -312,9 +312,9 @@ type UserDefinedProfile struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
-	Netmask *string `json:"netmask,omitempty"`
+	Netmask *common.SubNetMask `json:"netmask,omitempty"`
 
 	// Protocol
 	// Protocol of User Defined Profile

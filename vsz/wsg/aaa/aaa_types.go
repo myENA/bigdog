@@ -141,21 +141,21 @@ type AuthenticationServerList struct {
 }
 
 type CreateActiveDirectoryServer struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo64 `json:"adminDomainName,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Enable global catalog support
 	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -193,17 +193,17 @@ type CreateActiveDirectoryServer struct {
 	// Windows domain name - Standby Cluster settings
 	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
 
-	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *common.NormalNameAllowBlank `json:"windowsDomainName,omitempty"`
 }
 
 type CreateAuthenticationServer struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Primary *common.RadiusServer `json:"primary,omitempty"`
 
@@ -217,21 +217,21 @@ type CreateAuthenticationServer struct {
 }
 
 type CreateLDAPServer struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *string `json:"baseDomainName,omitempty"`
+	BaseDomainName *common.NormalNameTo64 `json:"baseDomainName,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
-	KeyAttribute *string `json:"keyAttribute,omitempty"`
+	KeyAttribute *common.NormalNameTo64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -241,7 +241,7 @@ type CreateLDAPServer struct {
 	// Port
 	Port *int `json:"port,omitempty"`
 
-	SearchFilter *string `json:"searchFilter,omitempty"`
+	SearchFilter *common.NormalNameTo64 `json:"searchFilter,omitempty"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -305,7 +305,7 @@ type GroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Identity user role UUID
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalNameTo64 `json:"name,omitempty"`
 
 	// UserTrafficProfile
 	// Identity user role
@@ -422,21 +422,21 @@ type LDAPServerList struct {
 }
 
 type ModifyActiveDirectoryServer struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo64 `json:"adminDomainName,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Enable global catalog support
 	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -474,17 +474,17 @@ type ModifyActiveDirectoryServer struct {
 	// Windows domain name - Standby Cluster settings
 	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
 
-	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *common.NormalNameAllowBlank `json:"windowsDomainName,omitempty"`
 }
 
 type ModifyAuthenticationServer struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Primary *common.RadiusServer `json:"primary,omitempty"`
 
@@ -518,25 +518,25 @@ type ModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Identity user role UUID
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalNameTo64 `json:"name,omitempty"`
 }
 
 type ModifyLDAPServer struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *string `json:"baseDomainName,omitempty"`
+	BaseDomainName *common.NormalNameTo64 `json:"baseDomainName,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
-	KeyAttribute *string `json:"keyAttribute,omitempty"`
+	KeyAttribute *common.NormalNameTo64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -546,7 +546,7 @@ type ModifyLDAPServer struct {
 	// Port
 	Port *int `json:"port,omitempty"`
 
-	SearchFilter *string `json:"searchFilter,omitempty"`
+	SearchFilter *common.NormalNameTo64 `json:"searchFilter,omitempty"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings

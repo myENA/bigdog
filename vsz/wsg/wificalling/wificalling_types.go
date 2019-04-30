@@ -7,7 +7,7 @@ import (
 )
 
 type CreateWifiCallingPolicy struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy
@@ -18,7 +18,7 @@ type CreateWifiCallingPolicy struct {
 	// ePDG list of the Wi-Fi calling policy
 	Epdgs []*Epdg `json:"epdgs,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
@@ -42,13 +42,13 @@ type ModifyEntireWifiCallingPolicy struct {
 }
 
 type ModifyWifiCallingPolicy struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
 	Epdgs []*Epdg `json:"epdgs,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
@@ -68,7 +68,7 @@ type WifiCallingPolicy struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy
@@ -95,7 +95,7 @@ type WifiCallingPolicy struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy

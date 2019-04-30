@@ -7,7 +7,7 @@ import (
 )
 
 type ApRuleConfiguration struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
@@ -45,7 +45,7 @@ type ApRuleList struct {
 }
 
 type ApRuleListType struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the AP Registration Rules
@@ -57,7 +57,7 @@ type ApRuleListType struct {
 }
 
 type CreateApRule struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
@@ -81,19 +81,19 @@ type GpsCoordinates struct {
 	// distance
 	Distance *float64 `json:"distance,omitempty"`
 
-	Latitude *float64 `json:"latitude,omitempty"`
+	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	Longitude *float64 `json:"longitude,omitempty"`
+	Longitude *common.Longitude `json:"longitude,omitempty"`
 }
 
 type IPAddressRange struct {
-	FromIP *string `json:"fromIp,omitempty"`
+	FromIP *common.IPAddress `json:"fromIp,omitempty"`
 
-	ToIP *string `json:"toIp,omitempty"`
+	ToIP *common.IPAddress `json:"toIp,omitempty"`
 }
 
 type ModifyApRule struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
@@ -113,7 +113,7 @@ type ModifyApRule struct {
 }
 
 type Subnet struct {
-	NetworkAddress *string `json:"networkAddress,omitempty"`
+	NetworkAddress *common.IPAddress `json:"networkAddress,omitempty"`
 
 	// SubnetMask
 	// subnetMask

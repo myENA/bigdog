@@ -7,9 +7,9 @@ import (
 )
 
 type SpeedFlex struct {
-	ClientIP *string `json:"clientIp,omitempty"`
+	ClientIP *common.IPAddress `json:"clientIp,omitempty"`
 
-	ClientMac *string `json:"clientMac,omitempty"`
+	ClientMac *common.Mac `json:"clientMac,omitempty"`
 
 	// Model
 	// Test model
@@ -19,9 +19,9 @@ type SpeedFlex struct {
 	// Protocol used in the SpeedFlex test
 	Protocol *string `json:"protocol,omitempty"`
 
-	ServerIP *string `json:"serverIp,omitempty"`
+	ServerIP *common.IPAddress `json:"serverIp,omitempty"`
 
-	ServerMac *string `json:"serverMac,omitempty"`
+	ServerMac *common.Mac `json:"serverMac,omitempty"`
 
 	// Syspmtu
 	// Default: 1500

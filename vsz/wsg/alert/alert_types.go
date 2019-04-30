@@ -11,7 +11,7 @@ type AckBulkAlarms struct {
 }
 
 type ClearBulkAlarms struct {
-	Comment *string `json:"comment,omitempty"`
+	Comment *common.NormalNameAllowBlank `json:"comment,omitempty"`
 
 	IDList []string `json:"idList,omitempty"`
 }

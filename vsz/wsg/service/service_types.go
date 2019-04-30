@@ -7,7 +7,7 @@ import (
 )
 
 type ActiveDirectoryService struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo64 `json:"adminDomainName,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
@@ -21,13 +21,13 @@ type ActiveDirectoryService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
@@ -37,7 +37,7 @@ type ActiveDirectoryService struct {
 	// Identifier of the active directory authentication service
 	ID *string `json:"id,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
@@ -59,7 +59,7 @@ type ActiveDirectoryService struct {
 	// Tenant UUID
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -73,13 +73,13 @@ type ActiveDirectoryService struct {
 	// Authentication protocol.
 	Protocol *string `json:"protocol,omitempty"`
 
-	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *common.NormalNameTo64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled for standby cluster
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	StandbyIP *string `json:"standbyIp,omitempty"`
+	StandbyIP *common.IPAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password for standby cluster
@@ -97,7 +97,7 @@ type ActiveDirectoryService struct {
 	// AD over TLS Enabled for standby cluster
 	StandbyTLSEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
+	StandbyWindowsDomainName *common.NormalNameTo64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TLSEnabled
 	// AD over TLS Enabled
@@ -107,7 +107,7 @@ type ActiveDirectoryService struct {
 	// Authentication protocol.
 	Type *string `json:"type,omitempty"`
 
-	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *common.NormalNameTo64 `json:"windowsDomainName,omitempty"`
 }
 
 type ActiveDirectoryServiceList struct {
@@ -135,7 +135,7 @@ type CommonAccountingService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
@@ -161,7 +161,7 @@ type CommonAccountingService struct {
 	// Tenant UUID
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Accounting protocol.
@@ -197,13 +197,13 @@ type CommonAuthenticationService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// ID
 	// Identifier of the authentication service
@@ -229,7 +229,7 @@ type CommonAuthenticationService struct {
 	// Tenant UUID
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
@@ -253,15 +253,15 @@ type CommonAuthenticationServiceList struct {
 }
 
 type CreateActiveDirectoryAuthentication struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo64 `json:"adminDomainName,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
@@ -271,13 +271,13 @@ type CreateActiveDirectoryAuthentication struct {
 	// Identifier of the authentication service
 	ID *string `json:"id,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -287,13 +287,13 @@ type CreateActiveDirectoryAuthentication struct {
 	// Port
 	Port *int `json:"port,omitempty"`
 
-	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *common.NormalNameTo64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled for standby cluster
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	StandbyIP *string `json:"standbyIp,omitempty"`
+	StandbyIP *common.IPAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password for standby cluster
@@ -311,7 +311,7 @@ type CreateActiveDirectoryAuthentication struct {
 	// AD over TLS Enabled for standby cluster
 	StandbyTLSEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
+	StandbyWindowsDomainName *common.NormalNameTo64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TLSEnabled
 	// AD over TLS Enabled
@@ -321,7 +321,7 @@ type CreateActiveDirectoryAuthentication struct {
 	// Authentication protocol.
 	Type *string `json:"type,omitempty"`
 
-	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *common.NormalNameTo64 `json:"windowsDomainName,omitempty"`
 }
 
 type CreateHlrAuthentication struct {
@@ -347,7 +347,7 @@ type CreateHlrAuthentication struct {
 
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DestGtIndicator *string `json:"destGtIndicator,omitempty"`
 
@@ -363,7 +363,7 @@ type CreateHlrAuthentication struct {
 
 	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	GtPointCode *int `json:"gtPointCode,omitempty"`
 
@@ -395,7 +395,7 @@ type CreateHlrAuthentication struct {
 
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	PointCode *int `json:"pointCode,omitempty"`
 
@@ -423,31 +423,31 @@ type CreateHlrAuthentication struct {
 }
 
 type CreateLDAPAuthentication struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *string `json:"baseDomainName,omitempty"`
+	BaseDomainName *common.NormalNameTo64 `json:"baseDomainName,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// ID
 	// Identifier of the authentication service
 	ID *string `json:"id,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
-	KeyAttribute *string `json:"keyAttribute,omitempty"`
+	KeyAttribute *common.NormalNameTo64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -457,15 +457,15 @@ type CreateLDAPAuthentication struct {
 	// Port
 	Port *int `json:"port,omitempty"`
 
-	SearchFilter *string `json:"searchFilter,omitempty"`
+	SearchFilter *common.NormalNameTo64 `json:"searchFilter,omitempty"`
 
-	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *common.NormalNameTo128 `json:"standbyAdminDomainName,omitempty"`
 
-	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
+	StandbyBaseDomainName *common.NormalNameTo64 `json:"standbyBaseDomainName,omitempty"`
 
-	StandbyIP *string `json:"standbyIp,omitempty"`
+	StandbyIP *common.IPAddress `json:"standbyIp,omitempty"`
 
-	StandbyKeyAttribute *string `json:"standbyKeyAttribute,omitempty"`
+	StandbyKeyAttribute *common.NormalNameTo64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -475,7 +475,7 @@ type CreateLDAPAuthentication struct {
 	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	StandbySearchFilter *string `json:"standbySearchFilter,omitempty"`
+	StandbySearchFilter *common.NormalNameTo64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -495,7 +495,7 @@ type CreateLDAPAuthentication struct {
 }
 
 type CreateRadiusAccounting struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
@@ -503,7 +503,7 @@ type CreateRadiusAccounting struct {
 
 	HealthCheckPolicy *common.HealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Primary *common.RadiusServer `json:"primary,omitempty"`
 
@@ -527,13 +527,13 @@ type CreateRadiusAccounting struct {
 }
 
 type CreateRadiusAuthentication struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	HealthCheckPolicy *common.HealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
@@ -549,7 +549,7 @@ type CreateRadiusAuthentication struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Primary *common.RadiusServer `json:"primary,omitempty"`
 
@@ -629,7 +629,7 @@ type GroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Identity user role UUID
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalNameTo64 `json:"name,omitempty"`
 
 	// UserTrafficProfile
 	// Identity user role
@@ -716,7 +716,7 @@ type HlrService struct {
 	// - For HLR Authentiaction server
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DestGtIndicator
 	// - For HLR Authentiaction server
@@ -746,7 +746,7 @@ type HlrService struct {
 	// - For HLR Authentiaction server
 	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GtPointCode
 	// - For HLR Authentiaction server
@@ -808,7 +808,7 @@ type HlrService struct {
 	// Tenant UUID
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PointCode
 	// - For HLR Authentiaction server
@@ -868,9 +868,9 @@ type HlrServiceList struct {
 }
 
 type LDAPService struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *string `json:"baseDomainName,omitempty"`
+	BaseDomainName *common.NormalNameTo64 `json:"baseDomainName,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
@@ -884,21 +884,21 @@ type LDAPService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// ID
 	// Identifier of the LDAP authentication service
 	ID *string `json:"id,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
-	KeyAttribute *string `json:"keyAttribute,omitempty"`
+	KeyAttribute *common.NormalNameTo64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
@@ -920,7 +920,7 @@ type LDAPService struct {
 	// Tenant UUID
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -934,15 +934,15 @@ type LDAPService struct {
 	// Authentication protocol
 	Protocol *string `json:"protocol,omitempty"`
 
-	SearchFilter *string `json:"searchFilter,omitempty"`
+	SearchFilter *common.NormalNameTo64 `json:"searchFilter,omitempty"`
 
-	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *common.NormalNameTo128 `json:"standbyAdminDomainName,omitempty"`
 
-	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
+	StandbyBaseDomainName *common.NormalNameTo64 `json:"standbyBaseDomainName,omitempty"`
 
-	StandbyIP *string `json:"standbyIp,omitempty"`
+	StandbyIP *common.IPAddress `json:"standbyIp,omitempty"`
 
-	StandbyKeyAttribute *string `json:"standbyKeyAttribute,omitempty"`
+	StandbyKeyAttribute *common.NormalNameTo64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -952,7 +952,7 @@ type LDAPService struct {
 	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	StandbySearchFilter *string `json:"standbySearchFilter,omitempty"`
+	StandbySearchFilter *common.NormalNameTo64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1006,15 +1006,15 @@ type MncNdc struct {
 }
 
 type ModifyActiveDirectoryAuthentication struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo64 `json:"adminDomainName,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
@@ -1024,13 +1024,13 @@ type ModifyActiveDirectoryAuthentication struct {
 	// Identifier of the authentication service
 	ID *string `json:"id,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -1040,13 +1040,13 @@ type ModifyActiveDirectoryAuthentication struct {
 	// Port
 	Port *int `json:"port,omitempty"`
 
-	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *common.NormalNameTo64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled standby cluster
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	StandbyIP *string `json:"standbyIp,omitempty"`
+	StandbyIP *common.IPAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password standby cluster
@@ -1064,7 +1064,7 @@ type ModifyActiveDirectoryAuthentication struct {
 	// AD over TLS Enabled standby cluster
 	StandbyTLSEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
+	StandbyWindowsDomainName *common.NormalNameTo64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TLSEnabled
 	// AD over TLS Enabled
@@ -1074,7 +1074,7 @@ type ModifyActiveDirectoryAuthentication struct {
 	// Authentication protocol.
 	Type *string `json:"type,omitempty"`
 
-	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *common.NormalNameTo64 `json:"windowsDomainName,omitempty"`
 }
 
 // ModifyGroupAttrIdentityUserRoleMapping
@@ -1098,7 +1098,7 @@ type ModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Identity user role UUID
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalNameTo64 `json:"name,omitempty"`
 }
 
 type ModifyHlrAuthentication struct {
@@ -1124,7 +1124,7 @@ type ModifyHlrAuthentication struct {
 
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DestGtIndicator *string `json:"destGtIndicator,omitempty"`
 
@@ -1140,7 +1140,7 @@ type ModifyHlrAuthentication struct {
 
 	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	GtPointCode *int `json:"gtPointCode,omitempty"`
 
@@ -1172,7 +1172,7 @@ type ModifyHlrAuthentication struct {
 
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	PointCode *int `json:"pointCode,omitempty"`
 
@@ -1200,31 +1200,31 @@ type ModifyHlrAuthentication struct {
 }
 
 type ModifyLDAPAuthentication struct {
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalNameTo128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *string `json:"baseDomainName,omitempty"`
+	BaseDomainName *common.NormalNameTo64 `json:"baseDomainName,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// ID
 	// Identifier of the authentication service
 	ID *string `json:"id,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
-	KeyAttribute *string `json:"keyAttribute,omitempty"`
+	KeyAttribute *common.NormalNameTo64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -1234,15 +1234,15 @@ type ModifyLDAPAuthentication struct {
 	// Port
 	Port *int `json:"port,omitempty"`
 
-	SearchFilter *string `json:"searchFilter,omitempty"`
+	SearchFilter *common.NormalNameTo64 `json:"searchFilter,omitempty"`
 
-	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *common.NormalNameTo128 `json:"standbyAdminDomainName,omitempty"`
 
-	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
+	StandbyBaseDomainName *common.NormalNameTo64 `json:"standbyBaseDomainName,omitempty"`
 
-	StandbyIP *string `json:"standbyIp,omitempty"`
+	StandbyIP *common.IPAddress `json:"standbyIp,omitempty"`
 
-	StandbyKeyAttribute *string `json:"standbyKeyAttribute,omitempty"`
+	StandbyKeyAttribute *common.NormalNameTo64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -1252,7 +1252,7 @@ type ModifyLDAPAuthentication struct {
 	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	StandbySearchFilter *string `json:"standbySearchFilter,omitempty"`
+	StandbySearchFilter *common.NormalNameTo64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1272,13 +1272,13 @@ type ModifyLDAPAuthentication struct {
 }
 
 type ModifyLocalDbAuthentication struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// ID
 	// Identifier of the authentication service
@@ -1292,7 +1292,7 @@ type ModifyLocalDbAuthentication struct {
 	// Tenant UUID
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
@@ -1304,7 +1304,7 @@ type ModifyLocalDbAuthentication struct {
 }
 
 type ModifyRadiusAccounting struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
@@ -1316,7 +1316,7 @@ type ModifyRadiusAccounting struct {
 	// Identifier of the RADIUS accounting service
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Primary *common.RadiusServer `json:"primary,omitempty"`
 
@@ -1340,13 +1340,13 @@ type ModifyRadiusAccounting struct {
 }
 
 type ModifyRadiusAuthentication struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	HealthCheckPolicy *common.HealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
@@ -1362,7 +1362,7 @@ type ModifyRadiusAuthentication struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Primary *common.RadiusServer `json:"primary,omitempty"`
 
@@ -1394,7 +1394,7 @@ type RadiusAccountingService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
@@ -1422,7 +1422,7 @@ type RadiusAccountingService struct {
 	// Tenant UUID
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Primary *common.RadiusServer `json:"primary,omitempty"`
 
@@ -1470,13 +1470,13 @@ type RadiusAuthenticationService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// Domain Id
 	DomainID *string `json:"domainId,omitempty"`
 
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	HealthCheckPolicy *common.HealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
@@ -1508,7 +1508,7 @@ type RadiusAuthenticationService struct {
 	// Tenant UUID
 	MvnoID *string `json:"mvnoId,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Primary *common.RadiusServer `json:"primary,omitempty"`
 
@@ -1620,7 +1620,7 @@ type SecondaryRadiusServer struct {
 	// Automatic fallback enabled or disabled
 	AutoFallbackDisable *bool `json:"autoFallbackDisable,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// Port
 	// RADIUS server port

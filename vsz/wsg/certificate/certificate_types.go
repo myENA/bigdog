@@ -13,7 +13,7 @@ type Certificate struct {
 	// Data of the certificate
 	Data *string `json:"data,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the certificate
@@ -27,7 +27,7 @@ type Certificate struct {
 	// Intermediate data of the certificate
 	IntermediateData []string `json:"intermediateData,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Passphrase
 	// Key passphrase
@@ -57,13 +57,13 @@ type CertificateList struct {
 }
 
 type CertificateListType struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the certificate
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type CertificatesSigningRequest struct {
@@ -79,7 +79,7 @@ type CertificatesSigningRequest struct {
 	// Country code of the certificates signing request
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// Email
 	// Email of the certificates signing request
@@ -89,7 +89,7 @@ type CertificatesSigningRequest struct {
 	// Identifier of the certificates signing request
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Organization
 	// Organization of the certificates signing request
@@ -117,13 +117,13 @@ type CreateCert struct {
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
 	Data *string `json:"data,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
 	IntermediateData []string `json:"intermediateData,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Passphrase
 	// Key passphrase
@@ -144,17 +144,17 @@ type CreateCSR struct {
 	// City of the certificates signing request
 	City *string `json:"city,omitempty"`
 
-	CommonName *string `json:"commonName,omitempty"`
+	CommonName *common.FQDN `json:"commonName,omitempty"`
 
 	// CountryCode
 	// Country code of the certificates signing request
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Email *string `json:"email,omitempty"`
+	Email *common.Email `json:"email,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Organization
 	// Organization of the certificates signing request
@@ -170,13 +170,13 @@ type CreateCSR struct {
 }
 
 type CreateTrustedCAChain struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
 	InterCertData []string `json:"interCertData,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
@@ -194,13 +194,13 @@ type CsrList struct {
 }
 
 type CsrListType struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the certificates signing request
 	ID *string `json:"id,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type DeleteBulk struct {
@@ -208,7 +208,7 @@ type DeleteBulk struct {
 }
 
 type ModifyTrustedCAChain struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// Information
 	// Information of the certificates
@@ -218,7 +218,7 @@ type ModifyTrustedCAChain struct {
 	// Intermediate data of the trusted CA chain certificates
 	InterCertData []string `json:"interCertData,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
@@ -236,7 +236,7 @@ type ServiceCertificate struct {
 type ServiceCertificates []*ServiceCertificate
 
 type TrustedCAChain struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the trusted CA chain certificates
@@ -246,7 +246,7 @@ type TrustedCAChain struct {
 	// Intermediate data of the trusted CA chain certificates
 	InterCertData []string `json:"interCertData,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
@@ -264,7 +264,7 @@ type TrustedCAChainCertList struct {
 }
 
 type TrustedCAChainCertListType struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the trusted CA chain certificate
@@ -278,11 +278,11 @@ type TrustedCAChainCertListType struct {
 	// Intermediate data of the trusted CA chain certificates
 	InterCertData []string `json:"interCertData,omitempty"`
 
-	ModifiedDateTime *string `json:"modifiedDateTime,omitempty"`
+	ModifiedDateTime *common.NormalNameAllowBlank `json:"modifiedDateTime,omitempty"`
 
-	ModifierUsername *string `json:"modifierUsername,omitempty"`
+	ModifierUsername *common.NormalNameAllowBlank `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates

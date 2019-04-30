@@ -13,7 +13,7 @@ type BasicIndoorMap struct {
 
 	ApGroupID *string `json:"apGroupId,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	DomainID *string `json:"domainId,omitempty"`
 
@@ -27,7 +27,7 @@ type BasicIndoorMap struct {
 
 	Longitude *float64 `json:"longitude,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Orientation *string `json:"orientation,omitempty"`
 
@@ -57,7 +57,7 @@ type IndoorMap struct {
 	// apGroupId
 	ApGroupID *string `json:"apGroupId,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// domainId
@@ -87,7 +87,7 @@ type IndoorMap struct {
 	// longitude
 	Longitude *float64 `json:"longitude,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// Orientation
 	// orientation
@@ -143,7 +143,7 @@ type IndoorMapSummary struct {
 	// apGroupId
 	ApGroupID *string `json:"apGroupId,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// DomainID
 	// domainId
@@ -173,7 +173,7 @@ type IndoorMapSummary struct {
 	// longitude
 	Longitude *float64 `json:"longitude,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	Scale *Scale `json:"scale,omitempty"`
 

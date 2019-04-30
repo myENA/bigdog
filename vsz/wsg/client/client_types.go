@@ -7,9 +7,9 @@ import (
 )
 
 type DeAuthClient struct {
-	ApMac *string `json:"apMac,omitempty"`
+	ApMac *common.Mac `json:"apMac,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty"`
 }
 
 type DeAuthClientList struct {
@@ -17,9 +17,9 @@ type DeAuthClientList struct {
 }
 
 type DisconnectClient struct {
-	ApMac *string `json:"apMac,omitempty"`
+	ApMac *common.Mac `json:"apMac,omitempty"`
 
-	Mac *string `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty"`
 }
 
 type DisconnectClientList struct {

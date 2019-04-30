@@ -7,9 +7,9 @@ import (
 )
 
 type CreatePortalDetectionProfile struct {
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PortalDetectionPatterns
 	// The pattern profiles for portal detection and suppression
@@ -25,7 +25,7 @@ type PortalDetectionPattern struct {
 	// HTTP response body
 	HTTPResponseBody *string `json:"httpResponseBody,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PatternType
 	// Portal detection and suppression pattern type
@@ -49,7 +49,7 @@ type PortalDetectionProfile struct {
 	// Creator name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *string `json:"description,omitempty"`
+	Description *common.Description `json:"description,omitempty"`
 
 	// ID
 	// Identifier of the portal detection and suppression profile
@@ -67,7 +67,7 @@ type PortalDetectionProfile struct {
 	// Modifier name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *string `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty"`
 
 	// PortalDetectionPatterns
 	// The pattern profiles for portal detection and suppression

@@ -454,6 +454,8 @@ type BridgeProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type BridgeService string
+
 type BulkBlockClient struct {
 	BlockClientList []*BulkBlockClientBlockClientListType `json:"blockClientList,omitempty"`
 
@@ -1639,6 +1641,8 @@ type IPAclRules struct {
 	UplinkRateLimitingMbps *float64 `json:"uplinkRateLimitingMbps,omitempty"`
 }
 
+type IPMode string
+
 type IpsecProfile struct {
 	AdvancedOption *AdvancedOptionContent `json:"advancedOption,omitempty"`
 
@@ -2587,6 +2591,8 @@ type ProviderPLMN struct {
 	// MNC
 	Mnc *string `json:"mnc,omitempty"`
 }
+
+type ProviderProvisionProtocal string
 
 type ProviderRealm struct {
 	// EapMethods

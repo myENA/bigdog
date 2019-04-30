@@ -219,6 +219,8 @@ type ApListEntryListType struct {
 	ZoneID *string `json:"zoneId,omitempty"`
 }
 
+type ApName string
+
 type ApOperationalSummary struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.

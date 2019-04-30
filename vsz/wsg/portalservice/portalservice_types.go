@@ -478,6 +478,17 @@ type L2ACL struct {
 	ZoneID *string `json:"zoneId,omitempty"`
 }
 
+// LinkSpeedInKbps
+//
+// Link Speed of the Hotspot 2.0 venue profile
+type LinkSpeedInKbps float64
+
+// MacAddressFormatSetting
+//
+// mac address format of redirection,the format define: 0(aabbccddeeff), 1(AA-BB-CC-DD-EE-FF), 2(AA:BB:CC:DD:EE:FF),
+// 3(AABBCCDDEEFF), 4(aa-bb-cc-dd-ee-ff), 5(aa:bb:cc:dd:ee:ff)
+type MacAddressFormatSetting int
+
 type ModifyGuestAccess struct {
 	Description *string `json:"description,omitempty"`
 

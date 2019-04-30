@@ -27,3 +27,5 @@ type ApInfo struct {
 	// Zone name
 	ZoneName *string `json:"zoneName,omitempty"`
 }
+
+type ApName string

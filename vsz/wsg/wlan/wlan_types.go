@@ -1177,6 +1177,8 @@ type WLANAuthentication struct {
 	ThroughController *bool `json:"throughController,omitempty"`
 }
 
+type WLANBssMinRateMbps string
+
 type WLANConfiguration struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -1355,6 +1357,8 @@ type WLANEncryption struct {
 	Support8021REnabled *bool `json:"support80211rEnabled,omitempty"`
 }
 
+type WLANHESSID string
+
 type WLANList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1374,6 +1378,10 @@ type WLANMACAuth struct {
 	// MAC address format. The default format is 0010a42319c0 and the 802.1X format is 00-10-A4-23-19-C0.
 	MacAuthMacFormat *string `json:"macAuthMacFormat,omitempty"`
 }
+
+type WLANMgmtTxRateMbps string
+
+type WLANNameSSID string
 
 type WLANRadius struct {
 	// CalledStaIDType

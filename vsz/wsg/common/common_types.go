@@ -52,11 +52,20 @@ type Altitude struct {
 	AltitudeValue *int `json:"altitudeValue,omitempty"`
 }
 
+// ApGpsSource
+//
+// GPS Source of the AP
+type ApGpsSource string
+
 type ApLatencyInterval struct {
 	// PingEnabled
 	// AP ping latency enabled
 	PingEnabled *bool `json:"pingEnabled,omitempty"`
 }
+
+type ApLoginName string
+
+type ApLoginPassword string
 
 type ApManagementVlan struct {
 	// ID
@@ -258,6 +267,10 @@ type CreateResultIDName struct {
 	Name *string `json:"name,omitempty"`
 }
 
+type Description string
+
+type DescriptionTo128 string
+
 type DHCPProfileRef struct {
 	Description *string `json:"description,omitempty"`
 
@@ -423,6 +436,14 @@ type DoAssignIPSiteApsType struct {
 	ApServerPrimary *bool `json:"apServerPrimary,omitempty"`
 }
 
+type Email string
+
+type FilterOperator string
+
+type FirmwareVersion string
+
+type FQDN string
+
 type FullTextSearch struct {
 	// Fields
 	// Specific fields to search
@@ -461,7 +482,35 @@ type HealthCheckPolicy struct {
 	ZombiePeriod *int `json:"zombiePeriod,omitempty"`
 }
 
+type HTTPS string
+
 type IDList []string
+
+type IPAddress string
+
+type IPMode string
+
+type LanguageName string
+
+type Latitude float64
+
+type Location string
+
+type LocationAdditionalInfo string
+
+type Longitude float64
+
+type Mac string
+
+type NormalName string
+
+type NormalNameTo64 string
+
+type NormalNameTo128 string
+
+type NormalNameAllowBlank string
+
+type NormalURL string
 
 type OverrideClientAdmissionControl struct {
 	Enabled *bool `json:"enabled,omitempty"`
@@ -518,6 +567,13 @@ type PortalCustomization struct {
 	// Title
 	Title *string `json:"title,omitempty"`
 }
+
+// PortalLanguage
+//
+// Language
+type PortalLanguage string
+
+type ProtectionMode string
 
 type QueryCriteria struct {
 	// Attributes
@@ -769,6 +825,8 @@ type RBACMetadata struct {
 	RBACMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
+type Realm string
+
 type RecoverySsid struct {
 	// RecoverySsidEnabled
 	// recovery ssid enable/disable
@@ -853,6 +911,8 @@ type SNMPUser struct {
 	WriteEnabled *bool `json:"writeEnabled,omitempty"`
 }
 
+type SubNetMask string
+
 type TargetConfig struct {
 	// Address
 	// address of the SNMP Trap
@@ -881,6 +941,11 @@ type TimeRange struct {
 	Start *float64 `json:"start,omitempty"`
 }
 
+// TimeUnitStore
+//
+// time unit
+type TimeUnitStore string
+
 type TrafficClassProfileRef struct {
 	Description *string `json:"description,omitempty"`
 
@@ -906,3 +971,15 @@ type TrafficClassRef struct {
 	// White list of the Traffic Class Profile. The multiple entries need to be separated by comma (,)
 	Whitelists *string `json:"whitelists,omitempty"`
 }
+
+type TxPower string
+
+// WildFQDN
+//
+// Compare with FQDN, it could start with '*.'
+type WildFQDN string
+
+// ZoneTunnelType
+//
+// Tunnel type configuration of the zone. No_Tunneled is for IPv6 mode
+type ZoneTunnelType string

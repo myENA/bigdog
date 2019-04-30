@@ -2,6 +2,8 @@ package common
 
 // API Version: v8_0
 
+type FilterOperator interface{}
+
 type FullTextSearch struct {
 	// Fields
 	// Specific fields to search

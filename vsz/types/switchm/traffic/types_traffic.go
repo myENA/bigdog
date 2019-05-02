@@ -26,6 +26,8 @@ type TopPortErrorQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type TopPortErrorQueryResultListExtraType map[string]interface{}
+
 type TopPortTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top port traffic usage
@@ -49,6 +51,8 @@ type TopPortTrafficUsageQueryResultList struct {
 	// Total of top port traffic usage count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type TopPortTrafficUsageQueryResultListExtraType map[string]interface{}
 
 type TopSwitchPoEUtilizationQueryResultList struct {
 	// Extra
@@ -74,6 +78,8 @@ type TopSwitchPoEUtilizationQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type TopSwitchPoEUtilizationQueryResultListExtraType map[string]interface{}
+
 type TopTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top traffic usage
@@ -97,6 +103,8 @@ type TopTrafficUsageQueryResultList struct {
 	// Total of top traffic usage count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type TopTrafficUsageQueryResultListExtraType map[string]interface{}
 
 type Traffic struct {
 	// Rx
@@ -139,6 +147,8 @@ type TrafficQueryResultList struct {
 	// Total of traffic list count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type TrafficQueryResultListExtraType map[string]interface{}
 
 type TrafficUsage struct {
 	// Id

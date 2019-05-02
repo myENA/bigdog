@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/gdpr"
 )
 
@@ -20,5 +21,8 @@ func (ss *WSGService) WSGGDPRService () *WSGGDPRService {
     serv := new(WSGGDPRService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGGDPRService) AddGdprReport (ctx context.Context) error {
 }
 

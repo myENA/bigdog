@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/zone"
 )
 
@@ -21,5 +21,11 @@ func (ss *WSGService) WSGDiffServService () *WSGDiffServService {
     serv := new(WSGDiffServService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGDiffServService) FindRkszonesDiffservById (ctx context.Context, id string, zoneId string) (zone.DiffServConfiguration, error) {
+}
+
+func (s *WSGDiffServService) FindRkszonesDiffservByZoneId (ctx context.Context, zoneId string) (zone.DiffServList, error) {
 }
 

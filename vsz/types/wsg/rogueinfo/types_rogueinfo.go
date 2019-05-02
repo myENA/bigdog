@@ -72,3 +72,5 @@ type RogueInfoList struct {
 	// Total Rogue APs count in this response.
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type RogueInfoListExtraType map[string]interface{}

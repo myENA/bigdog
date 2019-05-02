@@ -3,7 +3,8 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/tool"
 )
 
 type WSGConnectivityToolsService struct {
@@ -20,5 +21,17 @@ func (ss *WSGService) WSGConnectivityToolsService () *WSGConnectivityToolsServic
     serv := new(WSGConnectivityToolsService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGConnectivityToolsService) AddToolSpeedflex (ctx context.Context) (tool.TestResult, error) {
+}
+
+func (s *WSGConnectivityToolsService) FindToolPing (ctx context.Context) error {
+}
+
+func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid (ctx context.Context, wcid string) (tool.TestResult, error) {
+}
+
+func (s *WSGConnectivityToolsService) FindToolTraceRoute (ctx context.Context) error {
 }
 

@@ -438,6 +438,8 @@ type DoAssignIpSiteApsType struct {
 
 type Email string
 
+type EmptyResult map[string]interface{}
+
 type FilterOperator string
 
 type FirmwareVersion string
@@ -658,6 +660,8 @@ type QueryCriteriaFiltersType struct {
 	// Group ID
 	Value *string `json:"value,omitempty"`
 }
+
+type QueryCriteriaOptionsType map[string]interface{}
 
 // QueryCriteriaSortInfoType
 //

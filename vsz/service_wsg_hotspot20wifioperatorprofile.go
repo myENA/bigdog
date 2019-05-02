@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
@@ -21,5 +22,17 @@ func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService () *WSGHotspot20WiF
     serv := new(WSGHotspot20WiFiOperatorProfileService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCertificateById (ctx context.Context, id string) error {
+}
+
+func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators (ctx context.Context) (profile.Hs20OperatorList, error) {
+}
+
+func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById (ctx context.Context, id string) (profile.Hs20Operator, error) {
+}
+
+func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQueryCriteria (ctx context.Context) (profile.Hs20OperatorList, error) {
 }
 

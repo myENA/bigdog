@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ap"
 )
 
@@ -20,5 +21,14 @@ func (ss *WSGService) WSGAccessPointAPPService () *WSGAccessPointAPPService {
     serv := new(WSGAccessPointAPPService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGAccessPointAPPService) FindApsLineman (ctx context.Context) (ap.ApLinemanSummary, error) {
+}
+
+func (s *WSGAccessPointAPPService) FindApsTotalCount (ctx context.Context) error {
+}
+
+func (s *WSGAccessPointAPPService) FindLinemanWorkflow (ctx context.Context) (json.RawMessage, error) {
 }
 

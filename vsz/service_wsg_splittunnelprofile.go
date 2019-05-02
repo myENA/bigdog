@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/splittunnel"
 )
@@ -21,5 +22,14 @@ func (ss *WSGService) WSGSplitTunnelProfileService () *WSGSplitTunnelProfileServ
     serv := new(WSGSplitTunnelProfileService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById (ctx context.Context, id string, zoneId string) (splittunnel.SplitTunnelProfile, error) {
+}
+
+func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCriteria (ctx context.Context) (splittunnel.SplitTunnelProfileQuery, error) {
+}
+
+func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId (ctx context.Context, zoneId string) (splittunnel.SplitTunnelProfileList, error) {
 }
 

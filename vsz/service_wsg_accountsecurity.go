@@ -3,8 +3,8 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/accountsecurityprofile"
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
 type WSGAccountSecurityService struct {
@@ -21,5 +21,11 @@ func (ss *WSGService) WSGAccountSecurityService () *WSGAccountSecurityService {
     serv := new(WSGAccountSecurityService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGAccountSecurityService) FindAccountSecurity (ctx context.Context) (accountsecurityprofile.ProfileListResult, error) {
+}
+
+func (s *WSGAccountSecurityService) FindAccountSecurityById (ctx context.Context, id string) (accountsecurityprofile.GetByIdResult, error) {
 }
 

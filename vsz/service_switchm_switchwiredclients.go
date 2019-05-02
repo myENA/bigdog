@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/switchmswitch"
 )
@@ -21,5 +22,11 @@ func (ss *SwitchMService) SwitchMSwitchWiredClientsService () *SwitchMSwitchWire
     serv := new(SwitchMSwitchWiredClientsService)
     serv.client = ss.client
     return serv
+}
+
+func (s *SwitchMSwitchWiredClientsService) AddSwitchClients (ctx context.Context) (switchmswitch.ConnectedDevicesQueryList, error) {
+}
+
+func (s *SwitchMSwitchWiredClientsService) AddSwitchClientsAp (ctx context.Context) (switchmswitch.ConnectedAPsQueryList, error) {
 }
 

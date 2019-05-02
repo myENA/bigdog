@@ -54,6 +54,8 @@ type ConnectedAPsQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type ConnectedAPsQueryListExtraType map[string]interface{}
+
 type ConnectedDevice struct {
 	// DomainId
 	// Identifier of the management domain to which the connected device belong
@@ -132,6 +134,8 @@ type ConnectedDevice struct {
 	UnitId *string `json:"unitId,omitempty"`
 }
 
+type ConnectedDeviceSampledInstantType map[string]interface{}
+
 type ConnectedDevicesQueryList struct {
 	// Extra
 	// Any additional response data
@@ -156,6 +160,8 @@ type ConnectedDevicesQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type ConnectedDevicesQueryListExtraType map[string]interface{}
+
 type DeleteSwitchesResultList struct {
 	// Extra
 	// Any additional response data
@@ -179,6 +185,8 @@ type DeleteSwitchesResultList struct {
 	// Total delete switches list count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type DeleteSwitchesResultListExtraType map[string]interface{}
 
 type Firmware struct {
 	// FromVersion
@@ -217,6 +225,8 @@ type FirmwareHistoryQueryResultList struct {
 	// Total firmware history list count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type FirmwareHistoryQueryResultListExtraType map[string]interface{}
 
 type NetworkSwitch struct {
 	// Alarm
@@ -673,6 +683,8 @@ type PortDetailsQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type PortDetailsQueryResultListExtraType map[string]interface{}
+
 // PortDetailsTrafficUsageType
 //
 // Traffic usage information
@@ -774,6 +786,8 @@ type StackMemberQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type StackMemberQueryResultExtraType map[string]interface{}
+
 type SwitchIdList []string
 
 type SwitchPortsSummaryQueryResultList struct {
@@ -799,6 +813,8 @@ type SwitchPortsSummaryQueryResultList struct {
 	// Total switch ports summary list count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type SwitchPortsSummaryQueryResultListExtraType map[string]interface{}
 
 type SwitchQueryResultList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
@@ -846,6 +862,8 @@ type TopSwitchesByFirmwareQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type TopSwitchesByFirmwareQueryResultListExtraType map[string]interface{}
+
 type TopSwitchesByModelQueryResultList struct {
 	// Extra
 	// Any additional response data
@@ -869,3 +887,5 @@ type TopSwitchesByModelQueryResultList struct {
 	// Total top switches by model list count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type TopSwitchesByModelQueryResultListExtraType map[string]interface{}

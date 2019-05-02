@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/registration"
 )
 
@@ -20,5 +21,11 @@ func (ss *SwitchMService) SwitchMSwitchRegistrationRulesService () *SwitchMSwitc
     serv := new(SwitchMSwitchRegistrationRulesService)
     serv.client = ss.client
     return serv
+}
+
+func (s *SwitchMSwitchRegistrationRulesService) FindRegistrationRules (ctx context.Context) (registration.RuleQueryResultList, error) {
+}
+
+func (s *SwitchMSwitchRegistrationRulesService) UpdateRegistrationRulesById (ctx context.Context, id string) (registration.ModifyResult, error) {
 }
 

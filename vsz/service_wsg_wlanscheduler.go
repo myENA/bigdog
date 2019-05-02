@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/wlanscheduler"
 )
 
@@ -21,5 +21,11 @@ func (ss *WSGService) WSGWLANSchedulerService () *WSGWLANSchedulerService {
     serv := new(WSGWLANSchedulerService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById (ctx context.Context, id string, zoneId string) (wlanscheduler.WlanSchedule, error) {
+}
+
+func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId (ctx context.Context, zoneId string) (wlanscheduler.WlanScheduleList, error) {
 }
 

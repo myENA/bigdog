@@ -2,6 +2,11 @@ package vsz
 
 // API Version: v8_0
 
+import (
+	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/system"
+)
+
 type WSGUploadStatisticstoFTPService struct {
     client *Client
 }
@@ -16,5 +21,8 @@ func (ss *WSGService) WSGUploadStatisticstoFTPService () *WSGUploadStatisticstoF
     serv := new(WSGUploadStatisticstoFTPService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp (ctx context.Context) (system.FtpGlobalSetting, error) {
 }
 

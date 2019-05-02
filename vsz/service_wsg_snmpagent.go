@@ -3,7 +3,8 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/system"
 )
 
 type WSGSNMPAgentService struct {
@@ -20,5 +21,8 @@ func (ss *WSGService) WSGSNMPAgentService () *WSGSNMPAgentService {
     serv := new(WSGSNMPAgentService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGSNMPAgentService) FindSystemSnmpAgent (ctx context.Context) (system.SnmpAgentConfiguration, error) {
 }
 

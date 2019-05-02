@@ -102,6 +102,8 @@ type QueryCriteriaFiltersType struct {
 	Value *string `json:"value,omitempty"`
 }
 
+type QueryCriteriaOptionsType map[string]interface{}
+
 // QueryCriteriaSortInfoType
 //
 // About sorting

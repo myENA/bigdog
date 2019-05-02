@@ -3,7 +3,8 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/aaa"
 )
 
 type WSGTestAAAServerService struct {
@@ -20,5 +21,8 @@ func (ss *WSGService) WSGTestAAAServerService () *WSGTestAAAServerService {
     serv := new(WSGTestAAAServerService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGTestAAAServerService) AddSystemAaaTest (ctx context.Context) (aaa.TestAAAServerResult, error) {
 }
 

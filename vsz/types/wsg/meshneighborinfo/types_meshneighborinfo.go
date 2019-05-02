@@ -67,3 +67,5 @@ type MeshNeighborInfoList struct {
 	// MeshNeighborInfos count in this response.
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type MeshNeighborInfoListExtraType map[string]interface{}

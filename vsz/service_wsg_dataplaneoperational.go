@@ -2,6 +2,11 @@ package vsz
 
 // API Version: v8_0
 
+import (
+	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/dp"
+)
+
 type WSGDataPlaneOperationalService struct {
     client *Client
 }
@@ -16,5 +21,8 @@ func (ss *WSGService) WSGDataPlaneOperationalService () *WSGDataPlaneOperational
     serv := new(WSGDataPlaneOperationalService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster (ctx context.Context) error {
 }
 

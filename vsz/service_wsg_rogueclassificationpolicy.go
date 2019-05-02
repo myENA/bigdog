@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
 
@@ -21,5 +21,11 @@ func (ss *WSGService) WSGRogueClassificationPolicyService () *WSGRogueClassifica
     serv := new(WSGRogueClassificationPolicyService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById (ctx context.Context, id string, zoneId string) (profile.RogueApPolicy, error) {
+}
+
+func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId (ctx context.Context, zoneId string) (profile.RogueApPolicyList, error) {
 }
 

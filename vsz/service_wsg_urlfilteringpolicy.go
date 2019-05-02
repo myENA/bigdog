@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/urlfiltering"
 )
@@ -21,5 +22,17 @@ func (ss *WSGService) WSGURLFilteringPolicyService () *WSGURLFilteringPolicyServ
     serv := new(WSGURLFilteringPolicyService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories (ctx context.Context) (urlfiltering.UrlFilteringBlockCategoriesList, error) {
+}
+
+func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria (ctx context.Context) (urlfiltering.UrlFilteringPolicyList, error) {
+}
+
+func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy (ctx context.Context) (urlfiltering.UrlFilteringPolicyList, error) {
+}
+
+func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById (ctx context.Context, id string) (urlfiltering.UrlFilteringPolicy, error) {
 }
 

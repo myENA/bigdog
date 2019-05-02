@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/system"
 )
 
@@ -20,5 +21,17 @@ func (ss *WSGService) WSGControlPlanesService () *WSGControlPlanesService {
     serv := new(WSGControlPlanesService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGControlPlanesService) FindControlPlanes (ctx context.Context) (system.ControlPlaneList, error) {
+}
+
+func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID (ctx context.Context, bladeUUID string) (system.ControlPlaneConfiguration, error) {
+}
+
+func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID (ctx context.Context, bladeUUID string) (system.StaticRouteList, error) {
+}
+
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport (ctx context.Context) error {
 }
 

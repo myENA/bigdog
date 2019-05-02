@@ -20,6 +20,8 @@ type ClientObjectID struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type ClientObjectIDExtraValuesType map[string]interface{}
+
 type CreateResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
 
@@ -37,6 +39,10 @@ type CreateResult struct {
 	// Create result success or not
 	Success *bool `json:"success,omitempty"`
 }
+
+type CreateResultExtraType map[string]interface{}
+
+type CreateResultMetaDataType map[string]interface{}
 
 type DeleteMultipleResult struct {
 	Data *List `json:"data,omitempty"`
@@ -56,6 +62,10 @@ type DeleteMultipleResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type DeleteMultipleResultExtraType map[string]interface{}
+
+type DeleteMultipleResultMetaDataType map[string]interface{}
+
 type DeleteResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
 
@@ -73,6 +83,10 @@ type DeleteResult struct {
 	// Delete result success or not
 	Success *bool `json:"success,omitempty"`
 }
+
+type DeleteResultExtraType map[string]interface{}
+
+type DeleteResultMetaDataType map[string]interface{}
 
 type ErrorObject struct {
 	List []string `json:"list,omitempty"`
@@ -106,6 +120,8 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type ListExtraType map[string]interface{}
+
 type ModifyResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
 
@@ -123,6 +139,10 @@ type ModifyResult struct {
 	// Modify result success or not
 	Success *bool `json:"success,omitempty"`
 }
+
+type ModifyResultExtraType map[string]interface{}
+
+type ModifyResultMetaDataType map[string]interface{}
 
 type RegistrationRule struct {
 	// CreateDatetime
@@ -207,5 +227,9 @@ type RuleQueryResultList struct {
 	// Rule query result success or not
 	Success *bool `json:"success,omitempty"`
 }
+
+type RuleQueryResultListExtraType map[string]interface{}
+
+type RuleQueryResultListMetaDataType map[string]interface{}
 
 type RuleUUIDs []string

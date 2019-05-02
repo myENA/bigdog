@@ -70,6 +70,8 @@ type Job struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type JobCsvDataMapType map[string]string
+
 type JobSchedule struct {
 	// CreatedTimestamp
 	// Created timestamp of job schedule
@@ -102,6 +104,10 @@ type JobScheduleResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type JobScheduleResponseExtraType map[string]interface{}
+
+type JobScheduleResponseMetaDataType map[string]interface{}
+
 type List struct {
 	// Extra
 	// Extra information for job list
@@ -125,3 +131,5 @@ type List struct {
 	// Total list count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type ListExtraType map[string]interface{}

@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/identity"
 )
 
@@ -21,5 +21,14 @@ func (ss *WSGService) WSGIdentitySubscriptionPackageService () *WSGIdentitySubsc
     serv := new(WSGIdentitySubscriptionPackageService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList (ctx context.Context) (identity.SubscriptionPackageList, error) {
+}
+
+func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages (ctx context.Context) (identity.SubscriptionPackageList, error) {
+}
+
+func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById (ctx context.Context, id string) (identity.SubscriptionPackage, error) {
 }
 

@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/wlangroup"
 )
 
@@ -21,5 +21,23 @@ func (ss *WSGService) WSGWLANGroupService () *WSGWLANGroupService {
     serv := new(WSGWLANGroupService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById (ctx context.Context, id string, zoneId string) error {
+}
+
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId (ctx context.Context, id string, memberId string, zoneId string) error {
+}
+
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId (ctx context.Context, id string, memberId string, zoneId string) error {
+}
+
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId (ctx context.Context, id string, memberId string, zoneId string) error {
+}
+
+func (s *WSGWLANGroupService) FindRkszonesWlangroupsById (ctx context.Context, id string, zoneId string) (wlangroup.WlanGroup, error) {
+}
+
+func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId (ctx context.Context, zoneId string) (wlangroup.WlanGroupList, error) {
 }
 

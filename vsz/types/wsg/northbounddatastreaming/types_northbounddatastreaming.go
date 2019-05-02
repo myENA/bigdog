@@ -119,6 +119,12 @@ type NorthboundDataStreamingProfile struct {
 	User *string `json:"user,omitempty"`
 }
 
+type NorthboundDataStreamingProfileList struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	List []*NorthboundDataStreamingProfile `json:"list,omitempty"`
+}
+
 type NorthboundDataStreamingProfileListExtraType struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled

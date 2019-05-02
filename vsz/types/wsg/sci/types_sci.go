@@ -156,6 +156,12 @@ type SciProfile struct {
 	SciUser *string `json:"sciUser,omitempty"`
 }
 
+type SciProfileList struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	List []*SciProfile `json:"list,omitempty"`
+}
+
 type SciProfileListExtraType struct {
 	// SciEnabled
 	// SCI password of the SCI profile for SZ/SCI interface

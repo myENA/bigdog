@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/portalservice"
 )
 
@@ -21,5 +21,17 @@ func (ss *WSGService) WSGGuestAccessService () *WSGGuestAccessService {
     serv := new(WSGGuestAccessService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById (ctx context.Context, id string, zoneId string) error {
+}
+
+func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById (ctx context.Context, id string, zoneId string) error {
+}
+
+func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById (ctx context.Context, id string, zoneId string) (portalservice.GuestAccess, error) {
+}
+
+func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId (ctx context.Context, zoneId string) (portalservice.PortalServiceList, error) {
 }
 

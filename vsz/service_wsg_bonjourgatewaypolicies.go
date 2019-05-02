@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/zone"
 )
 
@@ -21,5 +21,11 @@ func (ss *WSGService) WSGBonjourGatewayPoliciesService () *WSGBonjourGatewayPoli
     serv := new(WSGBonjourGatewayPoliciesService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesById (ctx context.Context, id string, zoneId string) (zone.BonjourGatewayPolicyConfiguration, error) {
+}
+
+func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId (ctx context.Context, zoneId string) (zone.BonjourGatewayPolicyList, error) {
 }
 

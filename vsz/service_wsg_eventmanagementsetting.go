@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/eventmanagement"
 )
 
@@ -20,5 +21,11 @@ func (ss *WSGService) WSGEventManagementSettingService () *WSGEventManagementSet
     serv := new(WSGEventManagementSettingService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneId (ctx context.Context, zoneId string) (eventmanagement.EventEmailSetting, error) {
+}
+
+func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettingsByZoneId (ctx context.Context, zoneId string) (eventmanagement.EventDataResponse, error) {
 }
 

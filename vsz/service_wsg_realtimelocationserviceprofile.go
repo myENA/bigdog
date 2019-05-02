@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
 
@@ -21,5 +21,11 @@ func (ss *WSGService) WSGRealTimeLocationServiceProfileService () *WSGRealTimeLo
     serv := new(WSGRealTimeLocationServiceProfileService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById (ctx context.Context, id string, zoneId string) (profile.CreateRtlsProfile, error) {
+}
+
+func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId (ctx context.Context, zoneId string) (profile.RtlsProfileList, error) {
 }
 

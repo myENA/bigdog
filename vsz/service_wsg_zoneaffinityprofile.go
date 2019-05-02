@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
 
@@ -20,5 +21,11 @@ func (ss *WSGService) WSGZoneAffinityProfileService () *WSGZoneAffinityProfileSe
     serv := new(WSGZoneAffinityProfileService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity (ctx context.Context) (profile.ZoneAffinityProfileList, error) {
+}
+
+func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById (ctx context.Context, id string) (profile.ReturnZoneAffinityProfile, error) {
 }
 

@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
@@ -21,5 +22,20 @@ func (ss *WSGService) WSGHotspot20IdentityProviderProfileService () *WSGHotspot2
     serv := new(WSGHotspot20IdentityProviderProfileService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersAccountingsById (ctx context.Context, id string) error {
+}
+
+func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersOsuById (ctx context.Context, id string) error {
+}
+
+func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identityproviders (ctx context.Context) (profile.Hs20ProviderList, error) {
+}
+
+func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersById (ctx context.Context, id string) (profile.Hs20Provider, error) {
+}
+
+func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersByQueryCriteria (ctx context.Context) (profile.Hs20ProviderList, error) {
 }
 

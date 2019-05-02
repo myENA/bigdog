@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/portalservice"
 )
 
@@ -21,5 +21,11 @@ func (ss *WSGService) WSGHotspot20WLANServiceService () *WSGHotspot20WLANService
     serv := new(WSGHotspot20WLANServiceService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById (ctx context.Context, id string, zoneId string) (portalservice.Hotspot20WlanProfile, error) {
+}
+
+func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId (ctx context.Context, zoneId string) (portalservice.PortalServiceList, error) {
 }
 

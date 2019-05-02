@@ -30,6 +30,8 @@ type FirmwaresQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type FirmwaresQueryResultListExtraType map[string]interface{}
+
 type ScheduleIds struct {
 	// Extra
 	// Extra information for Schedule Ids list
@@ -53,6 +55,8 @@ type ScheduleIds struct {
 	// Total Schedule Ids count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type ScheduleIdsExtraType map[string]interface{}
 
 type SwitchFirmware struct {
 	SwitchModels []*SwitchModel `json:"switchModels,omitempty"`

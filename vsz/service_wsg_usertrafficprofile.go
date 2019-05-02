@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
@@ -21,5 +22,23 @@ func (ss *WSGService) WSGUserTrafficProfileService () *WSGUserTrafficProfileServ
     serv := new(WSGUserTrafficProfileService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById (ctx context.Context, id string) (profile.ProfileCloneResponse, error) {
+}
+
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById (ctx context.Context, id string) error {
+}
+
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById (ctx context.Context, id string) error {
+}
+
+func (s *WSGUserTrafficProfileService) FindProfilesUtp (ctx context.Context) (profile.ProfileList, error) {
+}
+
+func (s *WSGUserTrafficProfileService) FindProfilesUtpById (ctx context.Context, id string) (profile.UserTrafficProfile, error) {
+}
+
+func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria (ctx context.Context) (profile.UserTrafficProfileList, error) {
 }
 

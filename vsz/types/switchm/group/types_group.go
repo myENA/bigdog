@@ -30,6 +30,8 @@ type ClientObjectID struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type ClientObjectIDExtraValuesType map[string]interface{}
+
 type DeleteSwitchGroupResult struct {
 	*AuditId
 }
@@ -60,6 +62,10 @@ type GroupsByIdsQueryResultList struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type GroupsByIdsQueryResultListExtraType map[string]interface{}
+
+type GroupsByIdsQueryResultListMetaDataType map[string]interface{}
+
 type QueryResultList struct {
 	// Extra
 	// Extra information for query result list
@@ -83,6 +89,8 @@ type QueryResultList struct {
 	// Total query result count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type QueryResultListExtraType map[string]interface{}
 
 type SwitchGroup struct {
 	// CreateDatetime
@@ -137,6 +145,8 @@ type SwitchGroup struct {
 type SwitchGroupQueryResult struct {
 	*SwitchGroup
 }
+
+type SwitchGroupSampledInstantType map[string]interface{}
 
 type UpdateSwitchGroup struct {
 	*SwitchGroup

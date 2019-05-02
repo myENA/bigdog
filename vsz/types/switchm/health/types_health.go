@@ -26,6 +26,8 @@ type AggMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type AggMetricsExtraType map[string]interface{}
+
 type Aggs struct {
 	// Id
 	// Identifier of the aggregation value
@@ -63,6 +65,8 @@ type IcxMetrics struct {
 	// Total of ICX Metrics count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
+
+type IcxMetricsExtraType map[string]interface{}
 
 type Metrics struct {
 	// Avg

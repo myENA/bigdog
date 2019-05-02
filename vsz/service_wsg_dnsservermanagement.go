@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
@@ -21,5 +22,17 @@ func (ss *WSGService) WSGDNSServerManagementService () *WSGDNSServerManagementSe
     serv := new(WSGDNSServerManagementService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById (ctx context.Context, id string) (profile.ProfileCloneResponse, error) {
+}
+
+func (s *WSGDNSServerManagementService) FindProfilesDnsserver (ctx context.Context) (profile.DnsServerProfileList, error) {
+}
+
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverById (ctx context.Context, id string) (profile.DnsServerProfile, error) {
+}
+
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria (ctx context.Context) (profile.DnsServerProfileList, error) {
 }
 

@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/administration"
 )
 
@@ -20,5 +21,17 @@ func (ss *WSGService) WSGApplicationLogAndStatusService () *WSGApplicationLogAnd
     serv := new(WSGApplicationLogAndStatusService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID (ctx context.Context, bladeUUID string) (administration.ApplicationLogAndStatusList, error) {
+}
+
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID (ctx context.Context, bladeUUID string) (json.RawMessage, error) {
+}
+
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID (ctx context.Context, bladeUUID string) (json.RawMessage, error) {
+}
+
+func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications (ctx context.Context) error {
 }
 

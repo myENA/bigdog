@@ -86,6 +86,8 @@ type MeshNodeInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type MeshNodeInfoListExtraType map[string]interface{}
+
 type UpdateAPZeroTouch struct {
 	ApMac *string `json:"apMac,omitempty"`
 

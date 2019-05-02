@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/stack"
 )
 
@@ -20,5 +21,8 @@ func (ss *SwitchMService) SwitchMSwitchStackService () *SwitchMSwitchStackServic
     serv := new(SwitchMSwitchStackService)
     serv.client = ss.client
     return serv
+}
+
+func (s *SwitchMSwitchStackService) FindStackMemberBySerialNumber (ctx context.Context, serialNumber string) (stack.List, error) {
 }
 

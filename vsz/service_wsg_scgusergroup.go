@@ -3,7 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/scguser"
 )
 
@@ -21,5 +21,23 @@ func (ss *WSGService) WSGSCGUserGroupService () *WSGSCGUserGroupService {
     serv := new(WSGSCGUserGroupService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGSCGUserGroupService) AddUserGroups (ctx context.Context) (scguser.ScgUserGroupAuditId, error) {
+}
+
+func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria (ctx context.Context) (scguser.ScgUserGroupList, error) {
+}
+
+func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId (ctx context.Context, userGroupId string) (scguser.ScgUserGroup, error) {
+}
+
+func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories (ctx context.Context) (scguser.ScgUserGroupPermissionList, error) {
+}
+
+func (s *WSGSCGUserGroupService) FindUserGroupsRoles (ctx context.Context) (scguser.ScgUserGroupRoleLabelValueList, error) {
+}
+
+func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole (ctx context.Context, role string) (scguser.ScgUserGroupPermissionList, error) {
 }
 

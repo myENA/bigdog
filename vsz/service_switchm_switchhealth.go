@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/health"
 )
@@ -21,5 +22,23 @@ func (ss *SwitchMService) SwitchMSwitchHealthService () *SwitchMSwitchHealthServ
     serv := new(SwitchMSwitchHealthService)
     serv.client = ss.client
     return serv
+}
+
+func (s *SwitchMSwitchHealthService) AddHealthCpuAgg (ctx context.Context) (health.AggMetrics, error) {
+}
+
+func (s *SwitchMSwitchHealthService) AddHealthCpuLine (ctx context.Context) (health.IcxMetrics, error) {
+}
+
+func (s *SwitchMSwitchHealthService) AddHealthMemAgg (ctx context.Context) (health.AggMetrics, error) {
+}
+
+func (s *SwitchMSwitchHealthService) AddHealthMemLine (ctx context.Context) (health.IcxMetrics, error) {
+}
+
+func (s *SwitchMSwitchHealthService) AddHealthStatus (ctx context.Context) (health.Status, error) {
+}
+
+func (s *SwitchMSwitchHealthService) AddHealthStatusAll (ctx context.Context) (health.Status, error) {
 }
 

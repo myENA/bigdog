@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/group"
 )
 
@@ -20,5 +21,14 @@ func (ss *SwitchMService) SwitchMSwitchGroupService () *SwitchMSwitchGroupServic
     serv := new(SwitchMSwitchGroupService)
     serv.client = ss.client
     return serv
+}
+
+func (s *SwitchMSwitchGroupService) AddGroup (ctx context.Context) (group.AuditId, error) {
+}
+
+func (s *SwitchMSwitchGroupService) FindGroupBySwitchGroupId (ctx context.Context, switchGroupId string) (group.SwitchGroupQueryResult, error) {
+}
+
+func (s *SwitchMSwitchGroupService) FindGroupIdsByDomainByDomainId (ctx context.Context, domainId string) (group.GroupsByIdsQueryResultList, error) {
 }
 

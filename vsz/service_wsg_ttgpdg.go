@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
@@ -21,5 +22,20 @@ func (ss *WSGService) WSGTTGPDGService () *WSGTTGPDGService {
     serv := new(WSGTTGPDGService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById (ctx context.Context, id string) error {
+}
+
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById (ctx context.Context, id string) error {
+}
+
+func (s *WSGTTGPDGService) FindProfilesTtgpdg (ctx context.Context) (profile.ProfileList, error) {
+}
+
+func (s *WSGTTGPDGService) FindProfilesTtgpdgById (ctx context.Context, id string) (profile.TtgpdgProfile, error) {
+}
+
+func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria (ctx context.Context) (profile.TtgpdgProfileList, error) {
 }
 

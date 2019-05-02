@@ -3,8 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
-	"github.com/myENA/ruckus-client/vsz/types/wsg/apmodel"
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ethernetport"
 )
 
@@ -22,5 +21,11 @@ func (ss *WSGService) WSGEthernetPortProfileService () *WSGEthernetPortProfileSe
     serv := new(WSGEthernetPortProfileService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById (ctx context.Context, id string, zoneId string) (ethernetport.EthernetPortProfile, error) {
+}
+
+func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId (ctx context.Context, zoneId string) (ethernetport.ProfileList, error) {
 }
 

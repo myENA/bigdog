@@ -3,6 +3,7 @@ package vsz
 // API Version: v8_0
 
 import (
+	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/wificalling"
 )
@@ -21,5 +22,14 @@ func (ss *WSGService) WSGWiFiCallingPolicyService () *WSGWiFiCallingPolicyServic
     serv := new(WSGWiFiCallingPolicyService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria (ctx context.Context) (wificalling.WifiCallingPolicyList, error) {
+}
+
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy (ctx context.Context) (wificalling.WifiCallingPolicyList, error) {
+}
+
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById (ctx context.Context, id string) (wificalling.WifiCallingPolicy, error) {
 }
 

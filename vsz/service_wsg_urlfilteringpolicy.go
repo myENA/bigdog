@@ -8,12 +8,18 @@ import (
 )
 
 type WSGURLFilteringPolicyService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGURLFilteringPolicyService (c *Client) *WSGURLFilteringPolicyService {
+func NewWSGURLFilteringPolicyService (client *Client) *WSGURLFilteringPolicyService {
     s := new(WSGURLFilteringPolicyService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGURLFilteringPolicyService () *WSGURLFilteringPolicyService {
+    serv := new(WSGURLFilteringPolicyService)
+    serv.client = ss.client
+    return serv
 }
 

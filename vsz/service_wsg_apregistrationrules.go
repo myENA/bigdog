@@ -8,12 +8,18 @@ import (
 )
 
 type WSGAPRegistrationRulesService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGAPRegistrationRulesService (c *Client) *WSGAPRegistrationRulesService {
+func NewWSGAPRegistrationRulesService (client *Client) *WSGAPRegistrationRulesService {
     s := new(WSGAPRegistrationRulesService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGAPRegistrationRulesService () *WSGAPRegistrationRulesService {
+    serv := new(WSGAPRegistrationRulesService)
+    serv.client = ss.client
+    return serv
 }
 

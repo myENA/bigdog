@@ -7,12 +7,18 @@ import (
 )
 
 type WSGDPNetworkService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDPNetworkService (c *Client) *WSGDPNetworkService {
+func NewWSGDPNetworkService (client *Client) *WSGDPNetworkService {
     s := new(WSGDPNetworkService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDPNetworkService () *WSGDPNetworkService {
+    serv := new(WSGDPNetworkService)
+    serv.client = ss.client
+    return serv
 }
 

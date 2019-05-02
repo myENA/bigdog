@@ -9,12 +9,18 @@ import (
 )
 
 type WSGEthernetPortProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGEthernetPortProfileService (c *Client) *WSGEthernetPortProfileService {
+func NewWSGEthernetPortProfileService (client *Client) *WSGEthernetPortProfileService {
     s := new(WSGEthernetPortProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGEthernetPortProfileService () *WSGEthernetPortProfileService {
+    serv := new(WSGEthernetPortProfileService)
+    serv.client = ss.client
+    return serv
 }
 

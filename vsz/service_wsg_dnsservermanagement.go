@@ -8,12 +8,18 @@ import (
 )
 
 type WSGDNSServerManagementService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDNSServerManagementService (c *Client) *WSGDNSServerManagementService {
+func NewWSGDNSServerManagementService (client *Client) *WSGDNSServerManagementService {
     s := new(WSGDNSServerManagementService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDNSServerManagementService () *WSGDNSServerManagementService {
+    serv := new(WSGDNSServerManagementService)
+    serv.client = ss.client
+    return serv
 }
 

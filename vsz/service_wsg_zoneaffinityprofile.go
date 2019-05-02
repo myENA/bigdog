@@ -7,12 +7,18 @@ import (
 )
 
 type WSGZoneAffinityProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGZoneAffinityProfileService (c *Client) *WSGZoneAffinityProfileService {
+func NewWSGZoneAffinityProfileService (client *Client) *WSGZoneAffinityProfileService {
     s := new(WSGZoneAffinityProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGZoneAffinityProfileService () *WSGZoneAffinityProfileService {
+    serv := new(WSGZoneAffinityProfileService)
+    serv.client = ss.client
+    return serv
 }
 

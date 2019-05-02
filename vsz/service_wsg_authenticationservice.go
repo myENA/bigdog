@@ -8,12 +8,18 @@ import (
 )
 
 type WSGAuthenticationServiceService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGAuthenticationServiceService (c *Client) *WSGAuthenticationServiceService {
+func NewWSGAuthenticationServiceService (client *Client) *WSGAuthenticationServiceService {
     s := new(WSGAuthenticationServiceService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGAuthenticationServiceService () *WSGAuthenticationServiceService {
+    serv := new(WSGAuthenticationServiceService)
+    serv.client = ss.client
+    return serv
 }
 

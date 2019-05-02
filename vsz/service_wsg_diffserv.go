@@ -8,12 +8,18 @@ import (
 )
 
 type WSGDiffServService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDiffServService (c *Client) *WSGDiffServService {
+func NewWSGDiffServService (client *Client) *WSGDiffServService {
     s := new(WSGDiffServService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDiffServService () *WSGDiffServService {
+    serv := new(WSGDiffServService)
+    serv.client = ss.client
+    return serv
 }
 

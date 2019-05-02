@@ -10,12 +10,18 @@ import (
 )
 
 type WSGAPGroupService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGAPGroupService (c *Client) *WSGAPGroupService {
+func NewWSGAPGroupService (client *Client) *WSGAPGroupService {
     s := new(WSGAPGroupService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGAPGroupService () *WSGAPGroupService {
+    serv := new(WSGAPGroupService)
+    serv.client = ss.client
+    return serv
 }
 

@@ -3,12 +3,18 @@ package vsz
 // API Version: v8_0
 
 type WSGDataPlaneOperationalService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDataPlaneOperationalService (c *Client) *WSGDataPlaneOperationalService {
+func NewWSGDataPlaneOperationalService (client *Client) *WSGDataPlaneOperationalService {
     s := new(WSGDataPlaneOperationalService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDataPlaneOperationalService () *WSGDataPlaneOperationalService {
+    serv := new(WSGDataPlaneOperationalService)
+    serv.client = ss.client
+    return serv
 }
 

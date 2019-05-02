@@ -8,12 +8,18 @@ import (
 )
 
 type WSGCertificateService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGCertificateService (c *Client) *WSGCertificateService {
+func NewWSGCertificateService (client *Client) *WSGCertificateService {
     s := new(WSGCertificateService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGCertificateService () *WSGCertificateService {
+    serv := new(WSGCertificateService)
+    serv.client = ss.client
+    return serv
 }
 

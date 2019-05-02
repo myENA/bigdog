@@ -7,12 +7,18 @@ import (
 )
 
 type WSGDPDHCPNATProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDPDHCPNATProfileService (c *Client) *WSGDPDHCPNATProfileService {
+func NewWSGDPDHCPNATProfileService (client *Client) *WSGDPDHCPNATProfileService {
     s := new(WSGDPDHCPNATProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDPDHCPNATProfileService () *WSGDPDHCPNATProfileService {
+    serv := new(WSGDPDHCPNATProfileService)
+    serv.client = ss.client
+    return serv
 }
 

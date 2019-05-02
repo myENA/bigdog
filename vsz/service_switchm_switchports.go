@@ -8,12 +8,18 @@ import (
 )
 
 type SwitchMSwitchPortsService struct {
-    c *Client
+    client *Client
 }
 
-func NewSwitchMSwitchPortsService (c *Client) *SwitchMSwitchPortsService {
+func NewSwitchMSwitchPortsService (client *Client) *SwitchMSwitchPortsService {
     s := new(SwitchMSwitchPortsService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *SwitchMService) SwitchMSwitchPortsService () *SwitchMSwitchPortsService {
+    serv := new(SwitchMSwitchPortsService)
+    serv.client = ss.client
+    return serv
 }
 

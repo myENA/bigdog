@@ -8,12 +8,18 @@ import (
 )
 
 type WSGAccountingServiceService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGAccountingServiceService (c *Client) *WSGAccountingServiceService {
+func NewWSGAccountingServiceService (client *Client) *WSGAccountingServiceService {
     s := new(WSGAccountingServiceService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGAccountingServiceService () *WSGAccountingServiceService {
+    serv := new(WSGAccountingServiceService)
+    serv.client = ss.client
+    return serv
 }
 

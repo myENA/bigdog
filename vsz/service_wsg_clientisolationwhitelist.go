@@ -8,12 +8,18 @@ import (
 )
 
 type WSGClientIsolationWhitelistService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGClientIsolationWhitelistService (c *Client) *WSGClientIsolationWhitelistService {
+func NewWSGClientIsolationWhitelistService (client *Client) *WSGClientIsolationWhitelistService {
     s := new(WSGClientIsolationWhitelistService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGClientIsolationWhitelistService () *WSGClientIsolationWhitelistService {
+    serv := new(WSGClientIsolationWhitelistService)
+    serv.client = ss.client
+    return serv
 }
 

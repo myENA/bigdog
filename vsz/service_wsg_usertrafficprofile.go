@@ -8,12 +8,18 @@ import (
 )
 
 type WSGUserTrafficProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGUserTrafficProfileService (c *Client) *WSGUserTrafficProfileService {
+func NewWSGUserTrafficProfileService (client *Client) *WSGUserTrafficProfileService {
     s := new(WSGUserTrafficProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGUserTrafficProfileService () *WSGUserTrafficProfileService {
+    serv := new(WSGUserTrafficProfileService)
+    serv.client = ss.client
+    return serv
 }
 

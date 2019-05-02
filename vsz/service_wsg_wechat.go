@@ -8,12 +8,18 @@ import (
 )
 
 type WSGWechatService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGWechatService (c *Client) *WSGWechatService {
+func NewWSGWechatService (client *Client) *WSGWechatService {
     s := new(WSGWechatService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGWechatService () *WSGWechatService {
+    serv := new(WSGWechatService)
+    serv.client = ss.client
+    return serv
 }
 

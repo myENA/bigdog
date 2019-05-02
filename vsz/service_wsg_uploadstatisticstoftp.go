@@ -3,12 +3,18 @@ package vsz
 // API Version: v8_0
 
 type WSGUploadStatisticstoFTPService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGUploadStatisticstoFTPService (c *Client) *WSGUploadStatisticstoFTPService {
+func NewWSGUploadStatisticstoFTPService (client *Client) *WSGUploadStatisticstoFTPService {
     s := new(WSGUploadStatisticstoFTPService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGUploadStatisticstoFTPService () *WSGUploadStatisticstoFTPService {
+    serv := new(WSGUploadStatisticstoFTPService)
+    serv.client = ss.client
+    return serv
 }
 

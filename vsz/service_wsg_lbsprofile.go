@@ -8,12 +8,18 @@ import (
 )
 
 type WSGLBSprofileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGLBSprofileService (c *Client) *WSGLBSprofileService {
+func NewWSGLBSprofileService (client *Client) *WSGLBSprofileService {
     s := new(WSGLBSprofileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGLBSprofileService () *WSGLBSprofileService {
+    serv := new(WSGLBSprofileService)
+    serv.client = ss.client
+    return serv
 }
 

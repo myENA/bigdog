@@ -9,12 +9,18 @@ import (
 )
 
 type WSGClusterManagementService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGClusterManagementService (c *Client) *WSGClusterManagementService {
+func NewWSGClusterManagementService (client *Client) *WSGClusterManagementService {
     s := new(WSGClusterManagementService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGClusterManagementService () *WSGClusterManagementService {
+    serv := new(WSGClusterManagementService)
+    serv.client = ss.client
+    return serv
 }
 

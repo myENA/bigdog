@@ -3,12 +3,18 @@ package vsz
 // API Version: v8_0
 
 type WSGServiceTicketService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGServiceTicketService (c *Client) *WSGServiceTicketService {
+func NewWSGServiceTicketService (client *Client) *WSGServiceTicketService {
     s := new(WSGServiceTicketService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGServiceTicketService () *WSGServiceTicketService {
+    serv := new(WSGServiceTicketService)
+    serv.client = ss.client
+    return serv
 }
 

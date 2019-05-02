@@ -8,12 +8,18 @@ import (
 )
 
 type WSGL2oGREService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGL2oGREService (c *Client) *WSGL2oGREService {
+func NewWSGL2oGREService (client *Client) *WSGL2oGREService {
     s := new(WSGL2oGREService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGL2oGREService () *WSGL2oGREService {
+    serv := new(WSGL2oGREService)
+    serv.client = ss.client
+    return serv
 }
 

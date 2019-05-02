@@ -8,12 +8,18 @@ import (
 )
 
 type WSGBonjourFencingPolicyService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGBonjourFencingPolicyService (c *Client) *WSGBonjourFencingPolicyService {
+func NewWSGBonjourFencingPolicyService (client *Client) *WSGBonjourFencingPolicyService {
     s := new(WSGBonjourFencingPolicyService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGBonjourFencingPolicyService () *WSGBonjourFencingPolicyService {
+    serv := new(WSGBonjourFencingPolicyService)
+    serv.client = ss.client
+    return serv
 }
 

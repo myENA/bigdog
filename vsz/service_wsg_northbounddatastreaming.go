@@ -7,12 +7,18 @@ import (
 )
 
 type WSGNorthboundDataStreamingService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGNorthboundDataStreamingService (c *Client) *WSGNorthboundDataStreamingService {
+func NewWSGNorthboundDataStreamingService (client *Client) *WSGNorthboundDataStreamingService {
     s := new(WSGNorthboundDataStreamingService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGNorthboundDataStreamingService () *WSGNorthboundDataStreamingService {
+    serv := new(WSGNorthboundDataStreamingService)
+    serv.client = ss.client
+    return serv
 }
 

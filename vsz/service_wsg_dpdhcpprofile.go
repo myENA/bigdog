@@ -7,12 +7,18 @@ import (
 )
 
 type WSGDPDHCPProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDPDHCPProfileService (c *Client) *WSGDPDHCPProfileService {
+func NewWSGDPDHCPProfileService (client *Client) *WSGDPDHCPProfileService {
     s := new(WSGDPDHCPProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDPDHCPProfileService () *WSGDPDHCPProfileService {
+    serv := new(WSGDPDHCPProfileService)
+    serv.client = ss.client
+    return serv
 }
 

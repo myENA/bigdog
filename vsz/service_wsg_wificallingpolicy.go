@@ -8,12 +8,18 @@ import (
 )
 
 type WSGWiFiCallingPolicyService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGWiFiCallingPolicyService (c *Client) *WSGWiFiCallingPolicyService {
+func NewWSGWiFiCallingPolicyService (client *Client) *WSGWiFiCallingPolicyService {
     s := new(WSGWiFiCallingPolicyService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGWiFiCallingPolicyService () *WSGWiFiCallingPolicyService {
+    serv := new(WSGWiFiCallingPolicyService)
+    serv.client = ss.client
+    return serv
 }
 

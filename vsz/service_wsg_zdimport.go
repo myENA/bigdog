@@ -8,12 +8,18 @@ import (
 )
 
 type WSGZDImportService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGZDImportService (c *Client) *WSGZDImportService {
+func NewWSGZDImportService (client *Client) *WSGZDImportService {
     s := new(WSGZDImportService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGZDImportService () *WSGZDImportService {
+    serv := new(WSGZDImportService)
+    serv.client = ss.client
+    return serv
 }
 

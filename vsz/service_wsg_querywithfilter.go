@@ -16,12 +16,18 @@ import (
 )
 
 type WSGQueryWithFilterService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGQueryWithFilterService (c *Client) *WSGQueryWithFilterService {
+func NewWSGQueryWithFilterService (client *Client) *WSGQueryWithFilterService {
     s := new(WSGQueryWithFilterService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGQueryWithFilterService () *WSGQueryWithFilterService {
+    serv := new(WSGQueryWithFilterService)
+    serv.client = ss.client
+    return serv
 }
 

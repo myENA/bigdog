@@ -7,12 +7,18 @@ import (
 )
 
 type WSGEventManagementSettingService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGEventManagementSettingService (c *Client) *WSGEventManagementSettingService {
+func NewWSGEventManagementSettingService (client *Client) *WSGEventManagementSettingService {
     s := new(WSGEventManagementSettingService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGEventManagementSettingService () *WSGEventManagementSettingService {
+    serv := new(WSGEventManagementSettingService)
+    serv.client = ss.client
+    return serv
 }
 

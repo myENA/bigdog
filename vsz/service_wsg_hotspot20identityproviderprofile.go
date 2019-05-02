@@ -8,12 +8,18 @@ import (
 )
 
 type WSGHotspot20IdentityProviderProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGHotspot20IdentityProviderProfileService (c *Client) *WSGHotspot20IdentityProviderProfileService {
+func NewWSGHotspot20IdentityProviderProfileService (client *Client) *WSGHotspot20IdentityProviderProfileService {
     s := new(WSGHotspot20IdentityProviderProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGHotspot20IdentityProviderProfileService () *WSGHotspot20IdentityProviderProfileService {
+    serv := new(WSGHotspot20IdentityProviderProfileService)
+    serv.client = ss.client
+    return serv
 }
 

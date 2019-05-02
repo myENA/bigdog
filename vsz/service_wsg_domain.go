@@ -8,12 +8,18 @@ import (
 )
 
 type WSGDomainService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDomainService (c *Client) *WSGDomainService {
+func NewWSGDomainService (client *Client) *WSGDomainService {
     s := new(WSGDomainService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDomainService () *WSGDomainService {
+    serv := new(WSGDomainService)
+    serv.client = ss.client
+    return serv
 }
 

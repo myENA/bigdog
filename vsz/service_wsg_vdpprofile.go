@@ -8,12 +8,18 @@ import (
 )
 
 type WSGVDPProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGVDPProfileService (c *Client) *WSGVDPProfileService {
+func NewWSGVDPProfileService (client *Client) *WSGVDPProfileService {
     s := new(WSGVDPProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGVDPProfileService () *WSGVDPProfileService {
+    serv := new(WSGVDPProfileService)
+    serv.client = ss.client
+    return serv
 }
 

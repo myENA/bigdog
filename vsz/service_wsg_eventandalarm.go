@@ -9,12 +9,18 @@ import (
 )
 
 type WSGEventandAlarmService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGEventandAlarmService (c *Client) *WSGEventandAlarmService {
+func NewWSGEventandAlarmService (client *Client) *WSGEventandAlarmService {
     s := new(WSGEventandAlarmService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGEventandAlarmService () *WSGEventandAlarmService {
+    serv := new(WSGEventandAlarmService)
+    serv.client = ss.client
+    return serv
 }
 

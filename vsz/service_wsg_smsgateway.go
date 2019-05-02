@@ -8,12 +8,18 @@ import (
 )
 
 type WSGSMSGatewayService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGSMSGatewayService (c *Client) *WSGSMSGatewayService {
+func NewWSGSMSGatewayService (client *Client) *WSGSMSGatewayService {
     s := new(WSGSMSGatewayService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGSMSGatewayService () *WSGSMSGatewayService {
+    serv := new(WSGSMSGatewayService)
+    serv.client = ss.client
+    return serv
 }
 

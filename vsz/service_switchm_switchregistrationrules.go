@@ -7,12 +7,18 @@ import (
 )
 
 type SwitchMSwitchRegistrationRulesService struct {
-    c *Client
+    client *Client
 }
 
-func NewSwitchMSwitchRegistrationRulesService (c *Client) *SwitchMSwitchRegistrationRulesService {
+func NewSwitchMSwitchRegistrationRulesService (client *Client) *SwitchMSwitchRegistrationRulesService {
     s := new(SwitchMSwitchRegistrationRulesService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *SwitchMService) SwitchMSwitchRegistrationRulesService () *SwitchMSwitchRegistrationRulesService {
+    serv := new(SwitchMSwitchRegistrationRulesService)
+    serv.client = ss.client
+    return serv
 }
 

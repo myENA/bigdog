@@ -7,12 +7,18 @@ import (
 )
 
 type WSGGlobalreferenceService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGGlobalreferenceService (c *Client) *WSGGlobalreferenceService {
+func NewWSGGlobalreferenceService (client *Client) *WSGGlobalreferenceService {
     s := new(WSGGlobalreferenceService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGGlobalreferenceService () *WSGGlobalreferenceService {
+    serv := new(WSGGlobalreferenceService)
+    serv.client = ss.client
+    return serv
 }
 

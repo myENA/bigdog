@@ -8,12 +8,18 @@ import (
 )
 
 type WSGBlockClientService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGBlockClientService (c *Client) *WSGBlockClientService {
+func NewWSGBlockClientService (client *Client) *WSGBlockClientService {
     s := new(WSGBlockClientService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGBlockClientService () *WSGBlockClientService {
+    serv := new(WSGBlockClientService)
+    serv.client = ss.client
+    return serv
 }
 

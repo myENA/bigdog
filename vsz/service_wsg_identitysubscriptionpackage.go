@@ -8,12 +8,18 @@ import (
 )
 
 type WSGIdentitySubscriptionPackageService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGIdentitySubscriptionPackageService (c *Client) *WSGIdentitySubscriptionPackageService {
+func NewWSGIdentitySubscriptionPackageService (client *Client) *WSGIdentitySubscriptionPackageService {
     s := new(WSGIdentitySubscriptionPackageService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGIdentitySubscriptionPackageService () *WSGIdentitySubscriptionPackageService {
+    serv := new(WSGIdentitySubscriptionPackageService)
+    serv.client = ss.client
+    return serv
 }
 

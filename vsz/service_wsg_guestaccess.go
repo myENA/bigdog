@@ -8,12 +8,18 @@ import (
 )
 
 type WSGGuestAccessService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGGuestAccessService (c *Client) *WSGGuestAccessService {
+func NewWSGGuestAccessService (client *Client) *WSGGuestAccessService {
     s := new(WSGGuestAccessService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGGuestAccessService () *WSGGuestAccessService {
+    serv := new(WSGGuestAccessService)
+    serv.client = ss.client
+    return serv
 }
 

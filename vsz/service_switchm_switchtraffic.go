@@ -8,12 +8,18 @@ import (
 )
 
 type SwitchMSwitchTrafficService struct {
-    c *Client
+    client *Client
 }
 
-func NewSwitchMSwitchTrafficService (c *Client) *SwitchMSwitchTrafficService {
+func NewSwitchMSwitchTrafficService (client *Client) *SwitchMSwitchTrafficService {
     s := new(SwitchMSwitchTrafficService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *SwitchMService) SwitchMSwitchTrafficService () *SwitchMSwitchTrafficService {
+    serv := new(SwitchMSwitchTrafficService)
+    serv.client = ss.client
+    return serv
 }
 

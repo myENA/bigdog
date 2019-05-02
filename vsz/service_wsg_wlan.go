@@ -10,12 +10,18 @@ import (
 )
 
 type WSGWLANService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGWLANService (c *Client) *WSGWLANService {
+func NewWSGWLANService (client *Client) *WSGWLANService {
     s := new(WSGWLANService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGWLANService () *WSGWLANService {
+    serv := new(WSGWLANService)
+    serv.client = ss.client
+    return serv
 }
 

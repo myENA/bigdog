@@ -7,12 +7,18 @@ import (
 )
 
 type WSGAdministrationService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGAdministrationService (c *Client) *WSGAdministrationService {
+func NewWSGAdministrationService (client *Client) *WSGAdministrationService {
     s := new(WSGAdministrationService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGAdministrationService () *WSGAdministrationService {
+    serv := new(WSGAdministrationService)
+    serv.client = ss.client
+    return serv
 }
 

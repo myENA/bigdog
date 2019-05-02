@@ -3,12 +3,18 @@ package vsz
 // API Version: v8_0
 
 type WSGCALEAService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGCALEAService (c *Client) *WSGCALEAService {
+func NewWSGCALEAService (client *Client) *WSGCALEAService {
     s := new(WSGCALEAService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGCALEAService () *WSGCALEAService {
+    serv := new(WSGCALEAService)
+    serv.client = ss.client
+    return serv
 }
 

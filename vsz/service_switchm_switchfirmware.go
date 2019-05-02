@@ -3,12 +3,18 @@ package vsz
 // API Version: v8_0
 
 type SwitchMSwitchFirmwareService struct {
-    c *Client
+    client *Client
 }
 
-func NewSwitchMSwitchFirmwareService (c *Client) *SwitchMSwitchFirmwareService {
+func NewSwitchMSwitchFirmwareService (client *Client) *SwitchMSwitchFirmwareService {
     s := new(SwitchMSwitchFirmwareService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *SwitchMService) SwitchMSwitchFirmwareService () *SwitchMSwitchFirmwareService {
+    serv := new(SwitchMSwitchFirmwareService)
+    serv.client = ss.client
+    return serv
 }
 

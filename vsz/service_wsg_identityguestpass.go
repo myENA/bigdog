@@ -8,12 +8,18 @@ import (
 )
 
 type WSGIdentityGuestPassService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGIdentityGuestPassService (c *Client) *WSGIdentityGuestPassService {
+func NewWSGIdentityGuestPassService (client *Client) *WSGIdentityGuestPassService {
     s := new(WSGIdentityGuestPassService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGIdentityGuestPassService () *WSGIdentityGuestPassService {
+    serv := new(WSGIdentityGuestPassService)
+    serv.client = ss.client
+    return serv
 }
 

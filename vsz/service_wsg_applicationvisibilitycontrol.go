@@ -8,12 +8,18 @@ import (
 )
 
 type WSGApplicationVisibilityControlService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGApplicationVisibilityControlService (c *Client) *WSGApplicationVisibilityControlService {
+func NewWSGApplicationVisibilityControlService (client *Client) *WSGApplicationVisibilityControlService {
     s := new(WSGApplicationVisibilityControlService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGApplicationVisibilityControlService () *WSGApplicationVisibilityControlService {
+    serv := new(WSGApplicationVisibilityControlService)
+    serv.client = ss.client
+    return serv
 }
 

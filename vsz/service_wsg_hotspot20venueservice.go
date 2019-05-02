@@ -8,12 +8,18 @@ import (
 )
 
 type WSGHotspot20VenueServiceService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGHotspot20VenueServiceService (c *Client) *WSGHotspot20VenueServiceService {
+func NewWSGHotspot20VenueServiceService (client *Client) *WSGHotspot20VenueServiceService {
     s := new(WSGHotspot20VenueServiceService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGHotspot20VenueServiceService () *WSGHotspot20VenueServiceService {
+    serv := new(WSGHotspot20VenueServiceService)
+    serv.client = ss.client
+    return serv
 }
 

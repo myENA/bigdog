@@ -7,12 +7,18 @@ import (
 )
 
 type WSGTrafficClassProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGTrafficClassProfileService (c *Client) *WSGTrafficClassProfileService {
+func NewWSGTrafficClassProfileService (client *Client) *WSGTrafficClassProfileService {
     s := new(WSGTrafficClassProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGTrafficClassProfileService () *WSGTrafficClassProfileService {
+    serv := new(WSGTrafficClassProfileService)
+    serv.client = ss.client
+    return serv
 }
 

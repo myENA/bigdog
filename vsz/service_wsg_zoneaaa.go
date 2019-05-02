@@ -8,12 +8,18 @@ import (
 )
 
 type WSGZoneAAAService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGZoneAAAService (c *Client) *WSGZoneAAAService {
+func NewWSGZoneAAAService (client *Client) *WSGZoneAAAService {
     s := new(WSGZoneAAAService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGZoneAAAService () *WSGZoneAAAService {
+    serv := new(WSGZoneAAAService)
+    serv.client = ss.client
+    return serv
 }
 

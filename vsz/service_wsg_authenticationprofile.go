@@ -8,12 +8,18 @@ import (
 )
 
 type WSGAuthenticationProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGAuthenticationProfileService (c *Client) *WSGAuthenticationProfileService {
+func NewWSGAuthenticationProfileService (client *Client) *WSGAuthenticationProfileService {
     s := new(WSGAuthenticationProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGAuthenticationProfileService () *WSGAuthenticationProfileService {
+    serv := new(WSGAuthenticationProfileService)
+    serv.client = ss.client
+    return serv
 }
 

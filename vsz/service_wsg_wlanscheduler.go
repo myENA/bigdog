@@ -8,12 +8,18 @@ import (
 )
 
 type WSGWLANSchedulerService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGWLANSchedulerService (c *Client) *WSGWLANSchedulerService {
+func NewWSGWLANSchedulerService (client *Client) *WSGWLANSchedulerService {
     s := new(WSGWLANSchedulerService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGWLANSchedulerService () *WSGWLANSchedulerService {
+    serv := new(WSGWLANSchedulerService)
+    serv.client = ss.client
+    return serv
 }
 

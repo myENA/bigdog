@@ -8,12 +8,18 @@ import (
 )
 
 type WSGVlanPoolingService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGVlanPoolingService (c *Client) *WSGVlanPoolingService {
+func NewWSGVlanPoolingService (client *Client) *WSGVlanPoolingService {
     s := new(WSGVlanPoolingService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGVlanPoolingService () *WSGVlanPoolingService {
+    serv := new(WSGVlanPoolingService)
+    serv.client = ss.client
+    return serv
 }
 

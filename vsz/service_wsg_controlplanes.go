@@ -7,12 +7,18 @@ import (
 )
 
 type WSGControlPlanesService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGControlPlanesService (c *Client) *WSGControlPlanesService {
+func NewWSGControlPlanesService (client *Client) *WSGControlPlanesService {
     s := new(WSGControlPlanesService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGControlPlanesService () *WSGControlPlanesService {
+    serv := new(WSGControlPlanesService)
+    serv.client = ss.client
+    return serv
 }
 

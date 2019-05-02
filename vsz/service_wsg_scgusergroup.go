@@ -8,12 +8,18 @@ import (
 )
 
 type WSGSCGUserGroupService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGSCGUserGroupService (c *Client) *WSGSCGUserGroupService {
+func NewWSGSCGUserGroupService (client *Client) *WSGSCGUserGroupService {
     s := new(WSGSCGUserGroupService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGSCGUserGroupService () *WSGSCGUserGroupService {
+    serv := new(WSGSCGUserGroupService)
+    serv.client = ss.client
+    return serv
 }
 

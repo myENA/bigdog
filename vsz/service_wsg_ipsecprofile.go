@@ -8,12 +8,18 @@ import (
 )
 
 type WSGIPSECProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGIPSECProfileService (c *Client) *WSGIPSECProfileService {
+func NewWSGIPSECProfileService (client *Client) *WSGIPSECProfileService {
     s := new(WSGIPSECProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGIPSECProfileService () *WSGIPSECProfileService {
+    serv := new(WSGIPSECProfileService)
+    serv.client = ss.client
+    return serv
 }
 

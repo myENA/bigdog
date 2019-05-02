@@ -7,12 +7,18 @@ import (
 )
 
 type WSGConnectivityToolsService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGConnectivityToolsService (c *Client) *WSGConnectivityToolsService {
+func NewWSGConnectivityToolsService (client *Client) *WSGConnectivityToolsService {
     s := new(WSGConnectivityToolsService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGConnectivityToolsService () *WSGConnectivityToolsService {
+    serv := new(WSGConnectivityToolsService)
+    serv.client = ss.client
+    return serv
 }
 

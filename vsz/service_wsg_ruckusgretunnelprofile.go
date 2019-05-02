@@ -8,12 +8,18 @@ import (
 )
 
 type WSGRuckusGRETunnelProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGRuckusGRETunnelProfileService (c *Client) *WSGRuckusGRETunnelProfileService {
+func NewWSGRuckusGRETunnelProfileService (client *Client) *WSGRuckusGRETunnelProfileService {
     s := new(WSGRuckusGRETunnelProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGRuckusGRETunnelProfileService () *WSGRuckusGRETunnelProfileService {
+    serv := new(WSGRuckusGRETunnelProfileService)
+    serv.client = ss.client
+    return serv
 }
 

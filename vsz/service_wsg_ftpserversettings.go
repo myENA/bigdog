@@ -8,12 +8,18 @@ import (
 )
 
 type WSGFtpServerSettingsService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGFtpServerSettingsService (c *Client) *WSGFtpServerSettingsService {
+func NewWSGFtpServerSettingsService (client *Client) *WSGFtpServerSettingsService {
     s := new(WSGFtpServerSettingsService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGFtpServerSettingsService () *WSGFtpServerSettingsService {
+    serv := new(WSGFtpServerSettingsService)
+    serv.client = ss.client
+    return serv
 }
 

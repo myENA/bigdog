@@ -10,12 +10,18 @@ import (
 )
 
 type WSGAccessPointConfigurationService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGAccessPointConfigurationService (c *Client) *WSGAccessPointConfigurationService {
+func NewWSGAccessPointConfigurationService (client *Client) *WSGAccessPointConfigurationService {
     s := new(WSGAccessPointConfigurationService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGAccessPointConfigurationService () *WSGAccessPointConfigurationService {
+    serv := new(WSGAccessPointConfigurationService)
+    serv.client = ss.client
+    return serv
 }
 

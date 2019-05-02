@@ -10,12 +10,18 @@ import (
 )
 
 type WSGRuckusWirelessAPZoneService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGRuckusWirelessAPZoneService (c *Client) *WSGRuckusWirelessAPZoneService {
+func NewWSGRuckusWirelessAPZoneService (client *Client) *WSGRuckusWirelessAPZoneService {
     s := new(WSGRuckusWirelessAPZoneService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGRuckusWirelessAPZoneService () *WSGRuckusWirelessAPZoneService {
+    serv := new(WSGRuckusWirelessAPZoneService)
+    serv.client = ss.client
+    return serv
 }
 

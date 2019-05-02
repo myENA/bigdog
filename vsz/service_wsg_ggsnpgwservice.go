@@ -7,12 +7,18 @@ import (
 )
 
 type WSGGGSNPGWServiceService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGGGSNPGWServiceService (c *Client) *WSGGGSNPGWServiceService {
+func NewWSGGGSNPGWServiceService (client *Client) *WSGGGSNPGWServiceService {
     s := new(WSGGGSNPGWServiceService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGGGSNPGWServiceService () *WSGGGSNPGWServiceService {
+    serv := new(WSGGGSNPGWServiceService)
+    serv.client = ss.client
+    return serv
 }
 

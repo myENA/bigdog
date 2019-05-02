@@ -8,12 +8,18 @@ import (
 )
 
 type WSGBridgeService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGBridgeService (c *Client) *WSGBridgeService {
+func NewWSGBridgeService (client *Client) *WSGBridgeService {
     s := new(WSGBridgeService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGBridgeService () *WSGBridgeService {
+    serv := new(WSGBridgeService)
+    serv.client = ss.client
+    return serv
 }
 

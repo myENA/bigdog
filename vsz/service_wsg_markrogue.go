@@ -7,12 +7,18 @@ import (
 )
 
 type WSGMarkRogueService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGMarkRogueService (c *Client) *WSGMarkRogueService {
+func NewWSGMarkRogueService (client *Client) *WSGMarkRogueService {
     s := new(WSGMarkRogueService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGMarkRogueService () *WSGMarkRogueService {
+    serv := new(WSGMarkRogueService)
+    serv.client = ss.client
+    return serv
 }
 

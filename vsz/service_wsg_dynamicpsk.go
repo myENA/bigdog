@@ -7,12 +7,18 @@ import (
 )
 
 type WSGDynamicPSKService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDynamicPSKService (c *Client) *WSGDynamicPSKService {
+func NewWSGDynamicPSKService (client *Client) *WSGDynamicPSKService {
     s := new(WSGDynamicPSKService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDynamicPSKService () *WSGDynamicPSKService {
+    serv := new(WSGDynamicPSKService)
+    serv.client = ss.client
+    return serv
 }
 

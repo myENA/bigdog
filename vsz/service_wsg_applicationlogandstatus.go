@@ -7,12 +7,18 @@ import (
 )
 
 type WSGApplicationLogAndStatusService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGApplicationLogAndStatusService (c *Client) *WSGApplicationLogAndStatusService {
+func NewWSGApplicationLogAndStatusService (client *Client) *WSGApplicationLogAndStatusService {
     s := new(WSGApplicationLogAndStatusService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGApplicationLogAndStatusService () *WSGApplicationLogAndStatusService {
+    serv := new(WSGApplicationLogAndStatusService)
+    serv.client = ss.client
+    return serv
 }
 

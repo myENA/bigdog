@@ -8,12 +8,18 @@ import (
 )
 
 type WSGDevicePolicyService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDevicePolicyService (c *Client) *WSGDevicePolicyService {
+func NewWSGDevicePolicyService (client *Client) *WSGDevicePolicyService {
     s := new(WSGDevicePolicyService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDevicePolicyService () *WSGDevicePolicyService {
+    serv := new(WSGDevicePolicyService)
+    serv.client = ss.client
+    return serv
 }
 

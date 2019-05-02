@@ -8,12 +8,18 @@ import (
 )
 
 type WSGSplitTunnelProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGSplitTunnelProfileService (c *Client) *WSGSplitTunnelProfileService {
+func NewWSGSplitTunnelProfileService (client *Client) *WSGSplitTunnelProfileService {
     s := new(WSGSplitTunnelProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGSplitTunnelProfileService () *WSGSplitTunnelProfileService {
+    serv := new(WSGSplitTunnelProfileService)
+    serv.client = ss.client
+    return serv
 }
 

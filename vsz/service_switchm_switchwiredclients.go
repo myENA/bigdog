@@ -8,12 +8,18 @@ import (
 )
 
 type SwitchMSwitchWiredClientsService struct {
-    c *Client
+    client *Client
 }
 
-func NewSwitchMSwitchWiredClientsService (c *Client) *SwitchMSwitchWiredClientsService {
+func NewSwitchMSwitchWiredClientsService (client *Client) *SwitchMSwitchWiredClientsService {
     s := new(SwitchMSwitchWiredClientsService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *SwitchMService) SwitchMSwitchWiredClientsService () *SwitchMSwitchWiredClientsService {
+    serv := new(SwitchMSwitchWiredClientsService)
+    serv.client = ss.client
+    return serv
 }
 

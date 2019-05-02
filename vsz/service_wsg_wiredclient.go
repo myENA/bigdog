@@ -9,12 +9,18 @@ import (
 )
 
 type WSGWiredClientService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGWiredClientService (c *Client) *WSGWiredClientService {
+func NewWSGWiredClientService (client *Client) *WSGWiredClientService {
     s := new(WSGWiredClientService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGWiredClientService () *WSGWiredClientService {
+    serv := new(WSGWiredClientService)
+    serv.client = ss.client
+    return serv
 }
 

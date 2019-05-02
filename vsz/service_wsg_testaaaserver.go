@@ -7,12 +7,18 @@ import (
 )
 
 type WSGTestAAAServerService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGTestAAAServerService (c *Client) *WSGTestAAAServerService {
+func NewWSGTestAAAServerService (client *Client) *WSGTestAAAServerService {
     s := new(WSGTestAAAServerService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGTestAAAServerService () *WSGTestAAAServerService {
+    serv := new(WSGTestAAAServerService)
+    serv.client = ss.client
+    return serv
 }
 

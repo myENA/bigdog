@@ -8,12 +8,18 @@ import (
 )
 
 type WSGPortalDetectionandSuppressionProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGPortalDetectionandSuppressionProfileService (c *Client) *WSGPortalDetectionandSuppressionProfileService {
+func NewWSGPortalDetectionandSuppressionProfileService (client *Client) *WSGPortalDetectionandSuppressionProfileService {
     s := new(WSGPortalDetectionandSuppressionProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGPortalDetectionandSuppressionProfileService () *WSGPortalDetectionandSuppressionProfileService {
+    serv := new(WSGPortalDetectionandSuppressionProfileService)
+    serv.client = ss.client
+    return serv
 }
 

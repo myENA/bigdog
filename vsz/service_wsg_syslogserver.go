@@ -7,12 +7,18 @@ import (
 )
 
 type WSGSyslogServerService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGSyslogServerService (c *Client) *WSGSyslogServerService {
+func NewWSGSyslogServerService (client *Client) *WSGSyslogServerService {
     s := new(WSGSyslogServerService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGSyslogServerService () *WSGSyslogServerService {
+    serv := new(WSGSyslogServerService)
+    serv.client = ss.client
+    return serv
 }
 

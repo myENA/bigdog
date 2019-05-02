@@ -8,12 +8,18 @@ import (
 )
 
 type WSGIndoorMapService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGIndoorMapService (c *Client) *WSGIndoorMapService {
+func NewWSGIndoorMapService (client *Client) *WSGIndoorMapService {
     s := new(WSGIndoorMapService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGIndoorMapService () *WSGIndoorMapService {
+    serv := new(WSGIndoorMapService)
+    serv.client = ss.client
+    return serv
 }
 

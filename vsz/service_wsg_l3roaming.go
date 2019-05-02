@@ -7,12 +7,18 @@ import (
 )
 
 type WSGL3RoamingService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGL3RoamingService (c *Client) *WSGL3RoamingService {
+func NewWSGL3RoamingService (client *Client) *WSGL3RoamingService {
     s := new(WSGL3RoamingService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGL3RoamingService () *WSGL3RoamingService {
+    serv := new(WSGL3RoamingService)
+    serv.client = ss.client
+    return serv
 }
 

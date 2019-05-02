@@ -9,12 +9,18 @@ import (
 )
 
 type WSGDHCPService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGDHCPService (c *Client) *WSGDHCPService {
+func NewWSGDHCPService (client *Client) *WSGDHCPService {
     s := new(WSGDHCPService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGDHCPService () *WSGDHCPService {
+    serv := new(WSGDHCPService)
+    serv.client = ss.client
+    return serv
 }
 

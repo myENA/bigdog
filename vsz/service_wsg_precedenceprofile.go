@@ -8,12 +8,18 @@ import (
 )
 
 type WSGPrecedenceProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGPrecedenceProfileService (c *Client) *WSGPrecedenceProfileService {
+func NewWSGPrecedenceProfileService (client *Client) *WSGPrecedenceProfileService {
     s := new(WSGPrecedenceProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGPrecedenceProfileService () *WSGPrecedenceProfileService {
+    serv := new(WSGPrecedenceProfileService)
+    serv.client = ss.client
+    return serv
 }
 

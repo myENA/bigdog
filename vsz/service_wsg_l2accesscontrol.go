@@ -8,12 +8,18 @@ import (
 )
 
 type WSGL2AccessControlService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGL2AccessControlService (c *Client) *WSGL2AccessControlService {
+func NewWSGL2AccessControlService (client *Client) *WSGL2AccessControlService {
     s := new(WSGL2AccessControlService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGL2AccessControlService () *WSGL2AccessControlService {
+    serv := new(WSGL2AccessControlService)
+    serv.client = ss.client
+    return serv
 }
 

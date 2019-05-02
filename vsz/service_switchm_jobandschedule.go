@@ -8,12 +8,18 @@ import (
 )
 
 type SwitchMJobandScheduleService struct {
-    c *Client
+    client *Client
 }
 
-func NewSwitchMJobandScheduleService (c *Client) *SwitchMJobandScheduleService {
+func NewSwitchMJobandScheduleService (client *Client) *SwitchMJobandScheduleService {
     s := new(SwitchMJobandScheduleService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *SwitchMService) SwitchMJobandScheduleService () *SwitchMJobandScheduleService {
+    serv := new(SwitchMJobandScheduleService)
+    serv.client = ss.client
+    return serv
 }
 

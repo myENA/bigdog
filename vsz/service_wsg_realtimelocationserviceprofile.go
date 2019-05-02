@@ -8,12 +8,18 @@ import (
 )
 
 type WSGRealTimeLocationServiceProfileService struct {
-    c *Client
+    client *Client
 }
 
-func NewWSGRealTimeLocationServiceProfileService (c *Client) *WSGRealTimeLocationServiceProfileService {
+func NewWSGRealTimeLocationServiceProfileService (client *Client) *WSGRealTimeLocationServiceProfileService {
     s := new(WSGRealTimeLocationServiceProfileService)
-    s.c = c
+    s.client = client
     return s
+}
+
+func (ss *WSGService) WSGRealTimeLocationServiceProfileService () *WSGRealTimeLocationServiceProfileService {
+    serv := new(WSGRealTimeLocationServiceProfileService)
+    serv.client = ss.client
+    return serv
 }
 

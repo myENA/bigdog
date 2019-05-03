@@ -2,6 +2,10 @@ package firmware
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type AllFirmwaresQueryResultList struct {
 	*FirmwaresQueryResultList
 }
@@ -9,7 +13,7 @@ type AllFirmwaresQueryResultList struct {
 type FirmwaresQueryResultList struct {
 	// Extra
 	// Extra information for Firmware list
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *FirmwaresQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first firmware list returned out of the complete Firmware list
@@ -30,12 +34,33 @@ type FirmwaresQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type FirmwaresQueryResultListExtraType map[string]interface{}
+// FirmwaresQueryResultListExtraType
+//
+// Extra information for Firmware list
+type FirmwaresQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *FirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = FirmwaresQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *FirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type ScheduleIds struct {
 	// Extra
 	// Extra information for Schedule Ids list
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *ScheduleIdsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Schedule Ids returned out of the complete ConfigBackup list
@@ -56,7 +81,28 @@ type ScheduleIds struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type ScheduleIdsExtraType map[string]interface{}
+// ScheduleIdsExtraType
+//
+// Extra information for Schedule Ids list
+type ScheduleIdsExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ScheduleIdsExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type SwitchFirmware struct {
 	SwitchModels []*SwitchModel `json:"switchModels,omitempty"`

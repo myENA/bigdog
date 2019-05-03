@@ -2,6 +2,10 @@ package group
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type AuditId struct {
 	// Id
 	// Audit Id
@@ -15,7 +19,7 @@ type AuditId struct {
 type ClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
-	ExtraValues map[string]interface{} `json:"extraValues,omitempty"`
+	ExtraValues *ClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
 
 	// Id
 	// Identifier of the client
@@ -30,7 +34,28 @@ type ClientObjectID struct {
 	Type *string `json:"type,omitempty"`
 }
 
-type ClientObjectIDExtraValuesType map[string]interface{}
+// ClientObjectIDExtraValuesType
+//
+// Extra values of the client
+type ClientObjectIDExtraValuesType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ClientObjectIDExtraValuesType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type DeleteSwitchGroupResult struct {
 	*AuditId
@@ -51,25 +76,67 @@ type GroupsByIdsQueryResultList struct {
 
 	// Extra
 	// Any additional response
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *GroupsByIdsQueryResultListExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Metadata of query result list
-	MetaData map[string]interface{} `json:"metaData,omitempty"`
+	MetaData *GroupsByIdsQueryResultListMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Query result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-type GroupsByIdsQueryResultListExtraType map[string]interface{}
+// GroupsByIdsQueryResultListExtraType
+//
+// Any additional response
+type GroupsByIdsQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-type GroupsByIdsQueryResultListMetaDataType map[string]interface{}
+func (t *GroupsByIdsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = GroupsByIdsQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *GroupsByIdsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+// GroupsByIdsQueryResultListMetaDataType
+//
+// Metadata of query result list
+type GroupsByIdsQueryResultListMetaDataType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *GroupsByIdsQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = GroupsByIdsQueryResultListMetaDataType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *GroupsByIdsQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type QueryResultList struct {
 	// Extra
 	// Extra information for query result list
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *QueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first query result returned out of the complete query result list
@@ -90,7 +157,28 @@ type QueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type QueryResultListExtraType map[string]interface{}
+// QueryResultListExtraType
+//
+// Extra information for query result list
+type QueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *QueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = QueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *QueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type SwitchGroup struct {
 	// CreateDatetime
@@ -127,7 +215,7 @@ type SwitchGroup struct {
 
 	// SampledInstant
 	// Sampled instant of the switch group
-	SampledInstant map[string]interface{} `json:"sampledInstant,omitempty"`
+	SampledInstant *SwitchGroupSampledInstantType `json:"sampledInstant,omitempty"`
 
 	// SwitchGroupLevelOneId
 	// Level one Id of the switch group
@@ -146,7 +234,28 @@ type SwitchGroupQueryResult struct {
 	*SwitchGroup
 }
 
-type SwitchGroupSampledInstantType map[string]interface{}
+// SwitchGroupSampledInstantType
+//
+// Sampled instant of the switch group
+type SwitchGroupSampledInstantType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchGroupSampledInstantType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = SwitchGroupSampledInstantType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *SwitchGroupSampledInstantType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type UpdateSwitchGroup struct {
 	*SwitchGroup

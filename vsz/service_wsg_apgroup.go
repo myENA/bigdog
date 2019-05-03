@@ -5,6 +5,7 @@ package vsz
 import (
 	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/apgroup"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/zoneapmodel"
 )
 

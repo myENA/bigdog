@@ -2,6 +2,10 @@ package job
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type ErrorObject struct {
 	List []string `json:"list,omitempty"`
 
@@ -19,7 +23,7 @@ type Job struct {
 	// Created timestamp of the job
 	CreatedTimestamp *int `json:"createdTimestamp,omitempty"`
 
-	CsvDataMap map[string]string `json:"csvDataMap,omitempty"`
+	CsvDataMap *JobCsvDataMapType `json:"csvDataMap,omitempty"`
 
 	// DomainId
 	// Identifier of the management domain to which the job belong
@@ -70,7 +74,25 @@ type Job struct {
 	Type *string `json:"type,omitempty"`
 }
 
-type JobCsvDataMapType map[string]string
+type JobCsvDataMapType struct {
+	XAdditionalProperties map[string]string `json:"-"`
+}
+
+func (t *JobCsvDataMapType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]string)
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = JobCsvDataMapType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *JobCsvDataMapType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type JobSchedule struct {
 	// CreatedTimestamp
@@ -93,25 +115,67 @@ type JobScheduleResponse struct {
 
 	// Extra
 	// Extra response of job schedule
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *JobScheduleResponseExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// metaData of job schedule
-	MetaData map[string]interface{} `json:"metaData,omitempty"`
+	MetaData *JobScheduleResponseMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Success response of job schedule
 	Success *bool `json:"success,omitempty"`
 }
 
-type JobScheduleResponseExtraType map[string]interface{}
+// JobScheduleResponseExtraType
+//
+// Extra response of job schedule
+type JobScheduleResponseExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-type JobScheduleResponseMetaDataType map[string]interface{}
+func (t *JobScheduleResponseExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = JobScheduleResponseExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *JobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+// JobScheduleResponseMetaDataType
+//
+// metaData of job schedule
+type JobScheduleResponseMetaDataType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *JobScheduleResponseMetaDataType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = JobScheduleResponseMetaDataType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *JobScheduleResponseMetaDataType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type List struct {
 	// Extra
 	// Extra information for job list
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *ListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first job returned out of the complete job list
@@ -132,4 +196,25 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type ListExtraType map[string]interface{}
+// ListExtraType
+//
+// Extra information for job list
+type ListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}

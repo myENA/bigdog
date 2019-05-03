@@ -2,6 +2,10 @@ package common
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type FilterOperator interface{}
 
 type FullTextSearch struct {
@@ -53,7 +57,7 @@ type QueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options map[string]interface{} `json:"options,omitempty"`
+	Options *QueryCriteriaOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -102,7 +106,28 @@ type QueryCriteriaFiltersType struct {
 	Value *string `json:"value,omitempty"`
 }
 
-type QueryCriteriaOptionsType map[string]interface{}
+// QueryCriteriaOptionsType
+//
+// Specified feature required information
+type QueryCriteriaOptionsType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = QueryCriteriaOptionsType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 // QueryCriteriaSortInfoType
 //

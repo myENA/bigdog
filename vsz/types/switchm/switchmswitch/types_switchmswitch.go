@@ -3,6 +3,7 @@ package switchmswitch
 // API Version: v8_0
 
 import (
+	"encoding/json"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 )
 
@@ -33,7 +34,7 @@ type BarChart struct {
 type ConnectedAPsQueryList struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *ConnectedAPsQueryListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch connected AP returned out of the complete list
@@ -54,7 +55,28 @@ type ConnectedAPsQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type ConnectedAPsQueryListExtraType map[string]interface{}
+// ConnectedAPsQueryListExtraType
+//
+// Any additional response data
+type ConnectedAPsQueryListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ConnectedAPsQueryListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ConnectedAPsQueryListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ConnectedAPsQueryListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type ConnectedDevice struct {
 	// DomainId
@@ -103,7 +125,7 @@ type ConnectedDevice struct {
 
 	// SampledInstant
 	// Sampled instant
-	SampledInstant map[string]interface{} `json:"sampledInstant,omitempty"`
+	SampledInstant *ConnectedDeviceSampledInstantType `json:"sampledInstant,omitempty"`
 
 	// SwitchGroup
 	// Switch group
@@ -134,12 +156,33 @@ type ConnectedDevice struct {
 	UnitId *string `json:"unitId,omitempty"`
 }
 
-type ConnectedDeviceSampledInstantType map[string]interface{}
+// ConnectedDeviceSampledInstantType
+//
+// Sampled instant
+type ConnectedDeviceSampledInstantType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ConnectedDeviceSampledInstantType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ConnectedDeviceSampledInstantType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ConnectedDeviceSampledInstantType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type ConnectedDevicesQueryList struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *ConnectedDevicesQueryListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch connected devices returned out of the complete list
@@ -160,12 +203,33 @@ type ConnectedDevicesQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type ConnectedDevicesQueryListExtraType map[string]interface{}
+// ConnectedDevicesQueryListExtraType
+//
+// Any additional response data
+type ConnectedDevicesQueryListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ConnectedDevicesQueryListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ConnectedDevicesQueryListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ConnectedDevicesQueryListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type DeleteSwitchesResultList struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *DeleteSwitchesResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first delete switches returned out of the complete list
@@ -186,7 +250,28 @@ type DeleteSwitchesResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type DeleteSwitchesResultListExtraType map[string]interface{}
+// DeleteSwitchesResultListExtraType
+//
+// Any additional response data
+type DeleteSwitchesResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *DeleteSwitchesResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = DeleteSwitchesResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *DeleteSwitchesResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type Firmware struct {
 	// FromVersion
@@ -205,7 +290,7 @@ type Firmware struct {
 type FirmwareHistoryQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *FirmwareHistoryQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first firmware history returned out of the complete query list
@@ -226,7 +311,28 @@ type FirmwareHistoryQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type FirmwareHistoryQueryResultListExtraType map[string]interface{}
+// FirmwareHistoryQueryResultListExtraType
+//
+// Any additional response data
+type FirmwareHistoryQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *FirmwareHistoryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = FirmwareHistoryQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *FirmwareHistoryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type NetworkSwitch struct {
 	// Alarm
@@ -662,7 +768,7 @@ type PortDetailsPortErrorType struct {
 type PortDetailsQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *PortDetailsQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch port detail returned out of the complete list
@@ -683,7 +789,28 @@ type PortDetailsQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type PortDetailsQueryResultListExtraType map[string]interface{}
+// PortDetailsQueryResultListExtraType
+//
+// Any additional response data
+type PortDetailsQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *PortDetailsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = PortDetailsQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *PortDetailsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 // PortDetailsTrafficUsageType
 //
@@ -765,7 +892,7 @@ type StackMember struct {
 type StackMemberQueryResult struct {
 	// Extra
 	// Extra information for stack member list
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *StackMemberQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first stack member returned out of the complete stack member list
@@ -786,14 +913,35 @@ type StackMemberQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type StackMemberQueryResultExtraType map[string]interface{}
+// StackMemberQueryResultExtraType
+//
+// Extra information for stack member list
+type StackMemberQueryResultExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *StackMemberQueryResultExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = StackMemberQueryResultExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *StackMemberQueryResultExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type SwitchIdList []string
 
 type SwitchPortsSummaryQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *SwitchPortsSummaryQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch ports summary returned out of the complete list
@@ -814,7 +962,28 @@ type SwitchPortsSummaryQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type SwitchPortsSummaryQueryResultListExtraType map[string]interface{}
+// SwitchPortsSummaryQueryResultListExtraType
+//
+// Any additional response data
+type SwitchPortsSummaryQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchPortsSummaryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = SwitchPortsSummaryQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *SwitchPortsSummaryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type SwitchQueryResultList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
@@ -841,7 +1010,7 @@ type SwitchQueryResultList struct {
 type TopSwitchesByFirmwareQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *TopSwitchesByFirmwareQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top switches by firmware returned out of the complete list
@@ -862,12 +1031,33 @@ type TopSwitchesByFirmwareQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type TopSwitchesByFirmwareQueryResultListExtraType map[string]interface{}
+// TopSwitchesByFirmwareQueryResultListExtraType
+//
+// Any additional response data
+type TopSwitchesByFirmwareQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *TopSwitchesByFirmwareQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = TopSwitchesByFirmwareQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *TopSwitchesByFirmwareQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type TopSwitchesByModelQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *TopSwitchesByModelQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top switches by model returned out of the complete list
@@ -888,4 +1078,25 @@ type TopSwitchesByModelQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type TopSwitchesByModelQueryResultListExtraType map[string]interface{}
+// TopSwitchesByModelQueryResultListExtraType
+//
+// Any additional response data
+type TopSwitchesByModelQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *TopSwitchesByModelQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = TopSwitchesByModelQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *TopSwitchesByModelQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}

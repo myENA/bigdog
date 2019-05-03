@@ -2,6 +2,10 @@ package meshnodeinfo
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type HelperZoneInfo struct {
 	HelperAPZoneId *string `json:"helperAPZoneId,omitempty"`
 
@@ -65,7 +69,7 @@ type MeshNodeInfoArray []*MeshNodeInfo
 type MeshNodeInfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *MeshNodeInfoListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first MeshNodeInfo returned out of the complete Rogue AP list
@@ -86,7 +90,28 @@ type MeshNodeInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type MeshNodeInfoListExtraType map[string]interface{}
+// MeshNodeInfoListExtraType
+//
+// Any additional response data.
+type MeshNodeInfoListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *MeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = MeshNodeInfoListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *MeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type UpdateAPZeroTouch struct {
 	ApMac *string `json:"apMac,omitempty"`

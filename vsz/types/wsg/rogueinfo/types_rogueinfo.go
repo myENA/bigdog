@@ -3,6 +3,7 @@ package rogueinfo
 // API Version: v8_0
 
 import (
+	"encoding/json"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/apinfo"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
@@ -52,7 +53,7 @@ type RogueInfo struct {
 type RogueInfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *RogueInfoListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Rogue AP returned out of the complete Rogue AP list
@@ -73,4 +74,25 @@ type RogueInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type RogueInfoListExtraType map[string]interface{}
+// RogueInfoListExtraType
+//
+// Any additional response data.
+type RogueInfoListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *RogueInfoListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = RogueInfoListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *RogueInfoListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}

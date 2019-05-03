@@ -2,6 +2,10 @@ package sci
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type CreateSciProfile struct {
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
@@ -157,9 +161,46 @@ type SciProfile struct {
 }
 
 type SciProfileList struct {
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *SciProfileListExtraType `json:"extra,omitempty"`
 
 	List []*SciProfile `json:"list,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SciProfileList) UnmarshalJSON(b []byte) error {
+	tmpt := new(SciProfileList)
+	if err := json.Unmarshal(b, tmpt); err != nil {
+		return err
+	}
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	delete(tmp, "extra")
+	delete(tmp, "list")
+	tmpt.XAdditionalProperties = tmp
+	*t = *tmpt
+	return nil
+}
+
+func (t *SciProfileList) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Extra != nil {
+		tmp["extra"] = t.Extra
+	}
+	if t.List != nil {
+		tmp["list"] = t.List
+	}
+	return json.Marshal(tmp)
 }
 
 type SciProfileListExtraType struct {

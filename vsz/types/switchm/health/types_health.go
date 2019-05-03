@@ -2,10 +2,14 @@ package health
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type AggMetrics struct {
 	// Extra
 	// Extra information for Aggregation Metrics
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *AggMetricsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Aggregation Metrics returned out of the complete ICX Metrics list
@@ -26,7 +30,28 @@ type AggMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type AggMetricsExtraType map[string]interface{}
+// AggMetricsExtraType
+//
+// Extra information for Aggregation Metrics
+type AggMetricsExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *AggMetricsExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = AggMetricsExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *AggMetricsExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type Aggs struct {
 	// Id
@@ -45,7 +70,7 @@ type Aggs struct {
 type IcxMetrics struct {
 	// Extra
 	// Extra information for ICX Metrics
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *IcxMetricsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ICX Metrics returned out of the complete ICX Metrics list
@@ -66,7 +91,28 @@ type IcxMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type IcxMetricsExtraType map[string]interface{}
+// IcxMetricsExtraType
+//
+// Extra information for ICX Metrics
+type IcxMetricsExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *IcxMetricsExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = IcxMetricsExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *IcxMetricsExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type Metrics struct {
 	// Avg

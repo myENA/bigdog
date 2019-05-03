@@ -6,6 +6,7 @@ import (
 	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ap"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/appackcapture"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
 type WSGAccessPointOperationalService struct {

@@ -2,10 +2,14 @@ package traffic
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type TopPortErrorQueryResultList struct {
 	// Extra
 	// Extra information for top port error
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *TopPortErrorQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top port error returned out of the complete list
@@ -26,12 +30,33 @@ type TopPortErrorQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type TopPortErrorQueryResultListExtraType map[string]interface{}
+// TopPortErrorQueryResultListExtraType
+//
+// Extra information for top port error
+type TopPortErrorQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *TopPortErrorQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = TopPortErrorQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *TopPortErrorQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type TopPortTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top port traffic usage
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *TopPortTrafficUsageQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top port traffic usage returned out of the complete list
@@ -52,12 +77,33 @@ type TopPortTrafficUsageQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type TopPortTrafficUsageQueryResultListExtraType map[string]interface{}
+// TopPortTrafficUsageQueryResultListExtraType
+//
+// Extra information for top port traffic usage
+type TopPortTrafficUsageQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *TopPortTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = TopPortTrafficUsageQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *TopPortTrafficUsageQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type TopSwitchPoEUtilizationQueryResultList struct {
 	// Extra
 	// Extra information for top PoE utilization
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *TopSwitchPoEUtilizationQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top PoE usage returned out of the complete list
@@ -78,12 +124,33 @@ type TopSwitchPoEUtilizationQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type TopSwitchPoEUtilizationQueryResultListExtraType map[string]interface{}
+// TopSwitchPoEUtilizationQueryResultListExtraType
+//
+// Extra information for top PoE utilization
+type TopSwitchPoEUtilizationQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *TopSwitchPoEUtilizationQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = TopSwitchPoEUtilizationQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *TopSwitchPoEUtilizationQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type TopTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top traffic usage
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *TopTrafficUsageQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top traffic usage returned out of the complete list
@@ -104,7 +171,28 @@ type TopTrafficUsageQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type TopTrafficUsageQueryResultListExtraType map[string]interface{}
+// TopTrafficUsageQueryResultListExtraType
+//
+// Extra information for top traffic usage
+type TopTrafficUsageQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *TopTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = TopTrafficUsageQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *TopTrafficUsageQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type Traffic struct {
 	// Rx
@@ -127,7 +215,7 @@ type Traffic struct {
 type TrafficQueryResultList struct {
 	// Extra
 	// Extra information for traffic list
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *TrafficQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first traffic list returned out of the complete traffic list
@@ -148,7 +236,28 @@ type TrafficQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type TrafficQueryResultListExtraType map[string]interface{}
+// TrafficQueryResultListExtraType
+//
+// Extra information for traffic list
+type TrafficQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *TrafficQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = TrafficQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *TrafficQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type TrafficUsage struct {
 	// Id

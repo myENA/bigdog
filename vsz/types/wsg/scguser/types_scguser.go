@@ -75,7 +75,7 @@ type QueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options map[string]interface{} `json:"options,omitempty"`
+	Options *common.QueryCriteriaOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -313,7 +313,7 @@ type ScgUserGroupPermissionItemsType struct {
 type ScgUserGroupPermissionList struct {
 	// Extra
 	// Any additional response data.
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *ScgUserGroupPermissionListExtraType `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

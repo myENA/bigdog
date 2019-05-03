@@ -2,10 +2,14 @@ package registration
 
 // API Version: v8_0
 
+import (
+	"encoding/json"
+)
+
 type ClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
-	ExtraValues map[string]interface{} `json:"extraValues,omitempty"`
+	ExtraValues *ClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
 
 	// Id
 	// Identifier of the client
@@ -20,7 +24,28 @@ type ClientObjectID struct {
 	Type *string `json:"type,omitempty"`
 }
 
-type ClientObjectIDExtraValuesType map[string]interface{}
+// ClientObjectIDExtraValuesType
+//
+// Extra values of the client
+type ClientObjectIDExtraValuesType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ClientObjectIDExtraValuesType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type CreateResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
@@ -29,20 +54,62 @@ type CreateResult struct {
 
 	// Extra
 	// Any additional response
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *CreateResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule create result
-	MetaData map[string]interface{} `json:"metaData,omitempty"`
+	MetaData *CreateResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Create result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-type CreateResultExtraType map[string]interface{}
+// CreateResultExtraType
+//
+// Any additional response
+type CreateResultExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-type CreateResultMetaDataType map[string]interface{}
+func (t *CreateResultExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = CreateResultExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *CreateResultExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+// CreateResultMetaDataType
+//
+// Matadata of Rule create result
+type CreateResultMetaDataType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *CreateResultMetaDataType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = CreateResultMetaDataType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *CreateResultMetaDataType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type DeleteMultipleResult struct {
 	Data *List `json:"data,omitempty"`
@@ -51,20 +118,62 @@ type DeleteMultipleResult struct {
 
 	// Extra
 	// Any additional response
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *DeleteMultipleResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of delete multiple rules result
-	MetaData map[string]interface{} `json:"metaData,omitempty"`
+	MetaData *DeleteMultipleResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Delete multiple result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-type DeleteMultipleResultExtraType map[string]interface{}
+// DeleteMultipleResultExtraType
+//
+// Any additional response
+type DeleteMultipleResultExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-type DeleteMultipleResultMetaDataType map[string]interface{}
+func (t *DeleteMultipleResultExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = DeleteMultipleResultExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *DeleteMultipleResultExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+// DeleteMultipleResultMetaDataType
+//
+// Matadata of delete multiple rules result
+type DeleteMultipleResultMetaDataType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *DeleteMultipleResultMetaDataType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = DeleteMultipleResultMetaDataType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *DeleteMultipleResultMetaDataType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type DeleteResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
@@ -73,20 +182,62 @@ type DeleteResult struct {
 
 	// Extra
 	// Any additional response
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *DeleteResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule delete result
-	MetaData map[string]interface{} `json:"metaData,omitempty"`
+	MetaData *DeleteResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Delete result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-type DeleteResultExtraType map[string]interface{}
+// DeleteResultExtraType
+//
+// Any additional response
+type DeleteResultExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-type DeleteResultMetaDataType map[string]interface{}
+func (t *DeleteResultExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = DeleteResultExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *DeleteResultExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+// DeleteResultMetaDataType
+//
+// Matadata of Rule delete result
+type DeleteResultMetaDataType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *DeleteResultMetaDataType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = DeleteResultMetaDataType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *DeleteResultMetaDataType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type ErrorObject struct {
 	List []string `json:"list,omitempty"`
@@ -99,7 +250,7 @@ type ErrorObject struct {
 type List struct {
 	// Extra
 	// Any additional response data
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *ListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first registration rule returned out of the complete registration rule list
@@ -120,7 +271,28 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type ListExtraType map[string]interface{}
+// ListExtraType
+//
+// Any additional response data
+type ListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type ModifyResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
@@ -129,20 +301,62 @@ type ModifyResult struct {
 
 	// Extra
 	// Any additional response
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *ModifyResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of rule modify result
-	MetaData map[string]interface{} `json:"metaData,omitempty"`
+	MetaData *ModifyResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Modify result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-type ModifyResultExtraType map[string]interface{}
+// ModifyResultExtraType
+//
+// Any additional response
+type ModifyResultExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-type ModifyResultMetaDataType map[string]interface{}
+func (t *ModifyResultExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ModifyResultExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ModifyResultExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+// ModifyResultMetaDataType
+//
+// Matadata of rule modify result
+type ModifyResultMetaDataType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *ModifyResultMetaDataType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = ModifyResultMetaDataType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *ModifyResultMetaDataType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type RegistrationRule struct {
 	// CreateDatetime
@@ -217,19 +431,61 @@ type RuleQueryResultList struct {
 
 	// Extra
 	// Any additional response
-	Extra interface{} `json:"extra,omitempty"`
+	Extra *RuleQueryResultListExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule query result
-	MetaData map[string]interface{} `json:"metaData,omitempty"`
+	MetaData *RuleQueryResultListMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Rule query result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-type RuleQueryResultListExtraType map[string]interface{}
+// RuleQueryResultListExtraType
+//
+// Any additional response
+type RuleQueryResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-type RuleQueryResultListMetaDataType map[string]interface{}
+func (t *RuleQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = RuleQueryResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *RuleQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+// RuleQueryResultListMetaDataType
+//
+// Matadata of Rule query result
+type RuleQueryResultListMetaDataType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *RuleQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = RuleQueryResultListMetaDataType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *RuleQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
 
 type RuleUUIDs []string

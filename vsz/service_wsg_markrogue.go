@@ -5,6 +5,7 @@ package vsz
 import (
 	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ap"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
 type WSGMarkRogueService struct {

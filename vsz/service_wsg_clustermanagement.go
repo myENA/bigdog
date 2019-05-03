@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"encoding/json"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/administration"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/clusterblade"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/clusterredundancy"

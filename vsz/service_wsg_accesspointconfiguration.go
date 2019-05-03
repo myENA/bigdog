@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"encoding/json"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ap"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/apmodel"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"

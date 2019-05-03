@@ -24,12 +24,12 @@ func (ss *WSGService) WSGRuckusGRETunnelProfileService () *WSGRuckusGRETunnelPro
     return serv
 }
 
-func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre (ctx context.Context) (profile.ProfileList, error) {
+func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById (ctx context.Context, id string) (profile.RuckusGREProfile, error) {
+func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById (ctx context.Context, id string) (*profile.RuckusGREProfile, error) {
 }
 
-func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCriteria (ctx context.Context) (profile.RuckusGREProfileList, error) {
+func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCriteria (ctx context.Context) (*profile.RuckusGREProfileList, error) {
 }
 

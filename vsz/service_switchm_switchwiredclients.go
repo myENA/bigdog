@@ -24,9 +24,9 @@ func (ss *SwitchMService) SwitchMSwitchWiredClientsService () *SwitchMSwitchWire
     return serv
 }
 
-func (s *SwitchMSwitchWiredClientsService) AddSwitchClients (ctx context.Context) (switchmswitch.ConnectedDevicesQueryList, error) {
+func (s *SwitchMSwitchWiredClientsService) AddSwitchClients (ctx context.Context) (*switchmswitch.ConnectedDevicesQueryList, error) {
 }
 
-func (s *SwitchMSwitchWiredClientsService) AddSwitchClientsAp (ctx context.Context) (switchmswitch.ConnectedAPsQueryList, error) {
+func (s *SwitchMSwitchWiredClientsService) AddSwitchClientsAp (ctx context.Context) (*switchmswitch.ConnectedAPsQueryList, error) {
 }
 

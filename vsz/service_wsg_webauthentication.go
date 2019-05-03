@@ -24,12 +24,12 @@ func (ss *WSGService) WSGWebAuthenticationService () *WSGWebAuthenticationServic
     return serv
 }
 
-func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById (ctx context.Context, id string, zoneId string) error {
+func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById (ctx context.Context, id string, zoneId string) (portalservice.WebAuthentication, error) {
+func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById (ctx context.Context, id string, zoneId string) (*portalservice.WebAuthentication, error) {
 }
 
-func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId (ctx context.Context, zoneId string) (portalservice.PortalServiceList, error) {
+func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId (ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
 }
 

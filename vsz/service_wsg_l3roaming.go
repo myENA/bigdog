@@ -24,12 +24,12 @@ func (ss *WSGService) WSGL3RoamingService () *WSGL3RoamingService {
     return serv
 }
 
-func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming (ctx context.Context) (profile.GetL3RoamingConfig, error) {
+func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming (ctx context.Context) (*profile.GetL3RoamingConfig, error) {
 }
 
-func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria (ctx context.Context) (profile.GetL3RoamingConfig, error) {
+func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria (ctx context.Context) (*profile.GetL3RoamingConfig, error) {
 }
 
-func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3RoamingDataPlanes (ctx context.Context) error {
+func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3RoamingDataPlanes (ctx context.Context) (*common.EmptyResult, error) {
 }
 

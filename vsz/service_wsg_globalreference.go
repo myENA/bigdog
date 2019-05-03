@@ -23,9 +23,9 @@ func (ss *WSGService) WSGGlobalreferenceService () *WSGGlobalreferenceService {
     return serv
 }
 
-func (s *WSGGlobalreferenceService) FindGlobalSettingsFriendlyNameLang (ctx context.Context) (system.FriendlyNameLangList, error) {
+func (s *WSGGlobalreferenceService) FindGlobalSettingsFriendlyNameLang (ctx context.Context) (*system.FriendlyNameLangList, error) {
 }
 
-func (s *WSGGlobalreferenceService) FindGlobalSettingsPortalLang (ctx context.Context) (system.PortalLangList, error) {
+func (s *WSGGlobalreferenceService) FindGlobalSettingsPortalLang (ctx context.Context) (*system.PortalLangList, error) {
 }
 

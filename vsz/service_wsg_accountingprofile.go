@@ -24,15 +24,15 @@ func (ss *WSGService) WSGAccountingProfileService () *WSGAccountingProfileServic
     return serv
 }
 
-func (s *WSGAccountingProfileService) AddProfilesAcctCloneById (ctx context.Context, id string) (profile.ProfileCloneResponse, error) {
+func (s *WSGAccountingProfileService) AddProfilesAcctCloneById (ctx context.Context, id string) (*profile.ProfileCloneResponse, error) {
 }
 
-func (s *WSGAccountingProfileService) FindProfilesAcct (ctx context.Context) (profile.AccountingProfileList, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcct (ctx context.Context) (*profile.AccountingProfileList, error) {
 }
 
-func (s *WSGAccountingProfileService) FindProfilesAcctById (ctx context.Context, id string) (profile.AccountingProfile, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcctById (ctx context.Context, id string) (*profile.AccountingProfile, error) {
 }
 
-func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria (ctx context.Context) (profile.AccountingProfileList, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria (ctx context.Context) (*profile.AccountingProfileList, error) {
 }
 

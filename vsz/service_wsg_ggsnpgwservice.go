@@ -24,15 +24,15 @@ func (ss *WSGService) WSGGGSNPGWServiceService () *WSGGGSNPGWServiceService {
     return serv
 }
 
-func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList (ctx context.Context) error {
+func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList (ctx context.Context) error {
+func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGGGSNPGWServiceService) FindServicesGgsn (ctx context.Context) (service.GgsnConfig, error) {
+func (s *WSGGGSNPGWServiceService) FindServicesGgsn (ctx context.Context) (*service.GgsnConfig, error) {
 }
 
-func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings (ctx context.Context) error {
+func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings (ctx context.Context) (*common.EmptyResult, error) {
 }
 

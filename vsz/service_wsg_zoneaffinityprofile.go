@@ -23,9 +23,9 @@ func (ss *WSGService) WSGZoneAffinityProfileService () *WSGZoneAffinityProfileSe
     return serv
 }
 
-func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity (ctx context.Context) (profile.ZoneAffinityProfileList, error) {
+func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity (ctx context.Context) (*profile.ZoneAffinityProfileList, error) {
 }
 
-func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById (ctx context.Context, id string) (profile.ReturnZoneAffinityProfile, error) {
+func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById (ctx context.Context, id string) (*profile.ReturnZoneAffinityProfile, error) {
 }
 

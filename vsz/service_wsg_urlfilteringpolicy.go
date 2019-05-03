@@ -24,15 +24,15 @@ func (ss *WSGService) WSGURLFilteringPolicyService () *WSGURLFilteringPolicyServ
     return serv
 }
 
-func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories (ctx context.Context) (urlfiltering.UrlFilteringBlockCategoriesList, error) {
+func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories (ctx context.Context) (*urlfiltering.UrlFilteringBlockCategoriesList, error) {
 }
 
-func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria (ctx context.Context) (urlfiltering.UrlFilteringPolicyList, error) {
+func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria (ctx context.Context) (*urlfiltering.UrlFilteringPolicyList, error) {
 }
 
-func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy (ctx context.Context) (urlfiltering.UrlFilteringPolicyList, error) {
+func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy (ctx context.Context) (*urlfiltering.UrlFilteringPolicyList, error) {
 }
 
-func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById (ctx context.Context, id string) (urlfiltering.UrlFilteringPolicy, error) {
+func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById (ctx context.Context, id string) (*urlfiltering.UrlFilteringPolicy, error) {
 }
 

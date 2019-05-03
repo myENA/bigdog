@@ -24,15 +24,15 @@ func (ss *WSGService) WSGDNSServerManagementService () *WSGDNSServerManagementSe
     return serv
 }
 
-func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById (ctx context.Context, id string) (profile.ProfileCloneResponse, error) {
+func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById (ctx context.Context, id string) (*profile.ProfileCloneResponse, error) {
 }
 
-func (s *WSGDNSServerManagementService) FindProfilesDnsserver (ctx context.Context) (profile.DnsServerProfileList, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserver (ctx context.Context) (*profile.DnsServerProfileList, error) {
 }
 
-func (s *WSGDNSServerManagementService) FindProfilesDnsserverById (ctx context.Context, id string) (profile.DnsServerProfile, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverById (ctx context.Context, id string) (*profile.DnsServerProfile, error) {
 }
 
-func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria (ctx context.Context) (profile.DnsServerProfileList, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria (ctx context.Context) (*profile.DnsServerProfileList, error) {
 }
 

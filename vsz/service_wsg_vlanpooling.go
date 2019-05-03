@@ -24,12 +24,12 @@ func (ss *WSGService) WSGVlanPoolingService () *WSGVlanPoolingService {
     return serv
 }
 
-func (s *WSGVlanPoolingService) AddVlanpoolings (ctx context.Context) (common.CreateResult, error) {
+func (s *WSGVlanPoolingService) AddVlanpoolings (ctx context.Context) (*common.CreateResult, error) {
 }
 
-func (s *WSGVlanPoolingService) FindVlanpoolingsById (ctx context.Context, id string) (vlanpooling.VlanPooling, error) {
+func (s *WSGVlanPoolingService) FindVlanpoolingsById (ctx context.Context, id string) (*vlanpooling.VlanPooling, error) {
 }
 
-func (s *WSGVlanPoolingService) FindVlanpoolingsByQueryCriteria (ctx context.Context) (vlanpooling.VlanPoolingList, error) {
+func (s *WSGVlanPoolingService) FindVlanpoolingsByQueryCriteria (ctx context.Context) (*vlanpooling.VlanPoolingList, error) {
 }
 

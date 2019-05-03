@@ -24,12 +24,12 @@ func (ss *WSGService) WSGCALEAService () *WSGCALEAService {
     return serv
 }
 
-func (s *WSGCALEAService) AddSystemCaleaMac (ctx context.Context) error {
+func (s *WSGCALEAService) AddSystemCaleaMac (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGCALEAService) FindSystemCaleaCommonSetting (ctx context.Context) (calea.CaleaCommonSettingRsp, error) {
+func (s *WSGCALEAService) FindSystemCaleaCommonSetting (ctx context.Context) (*calea.CaleaCommonSettingRsp, error) {
 }
 
-func (s *WSGCALEAService) FindSystemCaleaMacList (ctx context.Context) (calea.CaleaMacListRsp, error) {
+func (s *WSGCALEAService) FindSystemCaleaMacList (ctx context.Context) (*calea.CaleaMacListRsp, error) {
 }
 

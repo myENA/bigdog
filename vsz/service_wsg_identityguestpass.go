@@ -24,10 +24,10 @@ func (ss *WSGService) WSGIdentityGuestPassService () *WSGIdentityGuestPassServic
     return serv
 }
 
-func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate (ctx context.Context) (common.CreateResult, error) {
+func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate (ctx context.Context) (*common.CreateResult, error) {
 }
 
-func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList (ctx context.Context) (identity.IdentityGuestPassList, error) {
+func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList (ctx context.Context) (*identity.IdentityGuestPassList, error) {
 }
 
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload (ctx context.Context) error {
@@ -36,9 +36,9 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload (ctx context.Co
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon (ctx context.Context) error {
 }
 
-func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId (ctx context.Context, userId string) error {
+func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId (ctx context.Context, userId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGIdentityGuestPassService) FindIdentityGuestpass (ctx context.Context) (identity.IdentityGuestPassList, error) {
+func (s *WSGIdentityGuestPassService) FindIdentityGuestpass (ctx context.Context) (*identity.IdentityGuestPassList, error) {
 }
 

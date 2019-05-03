@@ -36,13 +36,13 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown (ctx context
 func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup (ctx context.Context) error {
 }
 
-func (s *WSGSystemService) FindController (ctx context.Context) (system.ControllerList, error) {
+func (s *WSGSystemService) FindController (ctx context.Context) (*system.ControllerList, error) {
 }
 
 func (s *WSGSystemService) FindControllerStatisticsById (ctx context.Context, id string) (system.StatisticList, error) {
 }
 
-func (s *WSGSystemService) FindSystem (ctx context.Context) (system.SystemSettings, error) {
+func (s *WSGSystemService) FindSystem (ctx context.Context) (*system.SystemSettings, error) {
 }
 
 func (s *WSGSystemService) FindSystemApmodels (ctx context.Context) error {
@@ -51,28 +51,28 @@ func (s *WSGSystemService) FindSystemApmodels (ctx context.Context) error {
 func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion (ctx context.Context, firmwareVersion:.+ string) error {
 }
 
-func (s *WSGSystemService) FindSystemApRoutineConfigInterval (ctx context.Context) (aproutineconfiginterval.ApRoutineConfigIntervalRsp, error) {
+func (s *WSGSystemService) FindSystemApRoutineConfigInterval (ctx context.Context) (*aproutineconfiginterval.ApRoutineConfigIntervalRsp, error) {
 }
 
-func (s *WSGSystemService) FindSystemApRoutineStatusInterval (ctx context.Context) (aproutinestatusinterval.ApRoutineStatusIntervalRsp, error) {
+func (s *WSGSystemService) FindSystemApRoutineStatusInterval (ctx context.Context) (*aproutinestatusinterval.ApRoutineStatusIntervalRsp, error) {
 }
 
-func (s *WSGSystemService) FindSystemByQueryCriteria (ctx context.Context) (system.SystemSettings, error) {
+func (s *WSGSystemService) FindSystemByQueryCriteria (ctx context.Context) (*system.SystemSettings, error) {
 }
 
-func (s *WSGSystemService) FindSystemDevicesSummary (ctx context.Context) (devicecapacity.DevicesSummary, error) {
+func (s *WSGSystemService) FindSystemDevicesSummary (ctx context.Context) (*devicecapacity.DevicesSummary, error) {
 }
 
-func (s *WSGSystemService) FindSystemGatewayAdvanced (ctx context.Context) (system.GatewayAdvanced, error) {
+func (s *WSGSystemService) FindSystemGatewayAdvanced (ctx context.Context) (*system.GatewayAdvanced, error) {
 }
 
-func (s *WSGSystemService) FindSystemInventory (ctx context.Context) (system.InventoryList, error) {
+func (s *WSGSystemService) FindSystemInventory (ctx context.Context) (*system.InventoryList, error) {
 }
 
-func (s *WSGSystemService) FindSystemNbi (ctx context.Context) (system.NorthboundInterface, error) {
+func (s *WSGSystemService) FindSystemNbi (ctx context.Context) (*system.NorthboundInterface, error) {
 }
 
-func (s *WSGSystemService) FindSystemSystemTime (ctx context.Context) (system.SystemTimeSetting, error) {
+func (s *WSGSystemService) FindSystemSystemTime (ctx context.Context) (*system.SystemTimeSetting, error) {
 }
 
 func (s *WSGSystemService) PartialUpdateSystemCaptcha (ctx context.Context) error {

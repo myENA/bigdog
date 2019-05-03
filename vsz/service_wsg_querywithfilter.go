@@ -33,40 +33,40 @@ func (ss *WSGService) WSGQueryWithFilterService () *WSGQueryWithFilterService {
     return serv
 }
 
-func (s *WSGQueryWithFilterService) FindApByQueryCriteria (ctx context.Context) (apquery.ApQueryList, error) {
+func (s *WSGQueryWithFilterService) FindApByQueryCriteria (ctx context.Context) (*apquery.ApQueryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria (ctx context.Context) (wlanquery.ApWlanBssidQueryList, error) {
+func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria (ctx context.Context) (*wlanquery.ApWlanBssidQueryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindClientByQueryCriteria (ctx context.Context) (clientquery.ClientQueryList, error) {
+func (s *WSGQueryWithFilterService) FindClientByQueryCriteria (ctx context.Context) (*clientquery.ClientQueryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria (ctx context.Context) (dpsk.DpskQueryList, error) {
+func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria (ctx context.Context) (*dpsk.DpskQueryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria (ctx context.Context) (indoormap.IndoorMapSummaryList, error) {
+func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria (ctx context.Context) (*indoormap.IndoorMapSummaryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria (ctx context.Context, apMac string) (meshneighborinfo.MeshNeighborInfoList, error) {
+func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria (ctx context.Context, apMac string) (*meshneighborinfo.MeshNeighborInfoList, error) {
 }
 
 func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria (ctx context.Context, apMac string) (meshnodeinfo.MeshNodeInfoArray, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria (ctx context.Context) (meshnodeinfo.MeshNodeInfoList, error) {
+func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria (ctx context.Context) (*meshnodeinfo.MeshNodeInfoList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria (ctx context.Context) (rogueinfo.RogueInfoList, error) {
+func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria (ctx context.Context) (*rogueinfo.RogueInfoList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria (ctx context.Context) (aaaserverquery.AaaServerQueryList, error) {
+func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria (ctx context.Context) (*aaaserverquery.AaaServerQueryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria (ctx context.Context) (aaaserverquery.AaaServerQueryList, error) {
+func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria (ctx context.Context) (*aaaserverquery.AaaServerQueryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria (ctx context.Context) (aaaserverquery.AaaServerQueryList, error) {
+func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria (ctx context.Context) (*aaaserverquery.AaaServerQueryList, error) {
 }
 
 func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria (ctx context.Context) error {
@@ -75,7 +75,7 @@ func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria (ct
 func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria (ctx context.Context) error {
 }
 
-func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria (ctx context.Context) (profile.DhcpProfileList, error) {
+func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria (ctx context.Context) (*profile.DhcpProfileList, error) {
 }
 
 func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria (ctx context.Context) error {
@@ -117,6 +117,6 @@ func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria (ct
 func (s *WSGQueryWithFilterService) FindUserByQueryCriteria (ctx context.Context) error {
 }
 
-func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria (ctx context.Context) (wlanquery.WlanQueryList, error) {
+func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria (ctx context.Context) (*wlanquery.WlanQueryList, error) {
 }
 

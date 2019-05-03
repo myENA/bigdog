@@ -23,9 +23,9 @@ func (ss *WSGService) WSGEventManagementSettingService () *WSGEventManagementSet
     return serv
 }
 
-func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneId (ctx context.Context, zoneId string) (eventmanagement.EventEmailSetting, error) {
+func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneId (ctx context.Context, zoneId string) (*eventmanagement.EventEmailSetting, error) {
 }
 
-func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettingsByZoneId (ctx context.Context, zoneId string) (eventmanagement.EventDataResponse, error) {
+func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettingsByZoneId (ctx context.Context, zoneId string) (*eventmanagement.EventDataResponse, error) {
 }
 

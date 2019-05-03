@@ -24,12 +24,12 @@ func (ss *WSGService) WSGPortalDetectionandSuppressionProfileService () *WSGPort
     return serv
 }
 
-func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesById (ctx context.Context, id string, zoneId string) (portaldetectionprofile.PortalDetectionProfile, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesById (ctx context.Context, id string, zoneId string) (*portaldetectionprofile.PortalDetectionProfile, error) {
 }
 
-func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByQueryCriteria (ctx context.Context) (portaldetectionprofile.PortalDetectionProfileList, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByQueryCriteria (ctx context.Context) (*portaldetectionprofile.PortalDetectionProfileList, error) {
 }
 
-func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByZoneId (ctx context.Context, zoneId string) (portaldetectionprofile.PortalDetectionProfileList, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByZoneId (ctx context.Context, zoneId string) (*portaldetectionprofile.PortalDetectionProfileList, error) {
 }
 

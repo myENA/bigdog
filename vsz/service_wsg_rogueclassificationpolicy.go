@@ -23,9 +23,9 @@ func (ss *WSGService) WSGRogueClassificationPolicyService () *WSGRogueClassifica
     return serv
 }
 
-func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById (ctx context.Context, id string, zoneId string) (profile.RogueApPolicy, error) {
+func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById (ctx context.Context, id string, zoneId string) (*profile.RogueApPolicy, error) {
 }
 
-func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId (ctx context.Context, zoneId string) (profile.RogueApPolicyList, error) {
+func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId (ctx context.Context, zoneId string) (*profile.RogueApPolicyList, error) {
 }
 

@@ -27,15 +27,15 @@ func (ss *WSGService) WSGFtpServerSettingsService () *WSGFtpServerSettingsServic
 func (s *WSGFtpServerSettingsService) AddFtps (ctx context.Context) error {
 }
 
-func (s *WSGFtpServerSettingsService) FindFtpsByFtpId (ctx context.Context, ftpId string) (system.Ftp, error) {
+func (s *WSGFtpServerSettingsService) FindFtpsByFtpId (ctx context.Context, ftpId string) (*system.Ftp, error) {
 }
 
-func (s *WSGFtpServerSettingsService) FindFtpsByQueryCriteria (ctx context.Context) (system.FtpList, error) {
+func (s *WSGFtpServerSettingsService) FindFtpsByQueryCriteria (ctx context.Context) (*system.FtpList, error) {
 }
 
-func (s *WSGFtpServerSettingsService) FindFtpsTest (ctx context.Context) (system.FtpTestResponse, error) {
+func (s *WSGFtpServerSettingsService) FindFtpsTest (ctx context.Context) (*system.FtpTestResponse, error) {
 }
 
-func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId (ctx context.Context, ftpId string) (system.FtpTestResponse, error) {
+func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId (ctx context.Context, ftpId string) (*system.FtpTestResponse, error) {
 }
 

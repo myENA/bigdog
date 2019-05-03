@@ -24,15 +24,15 @@ func (ss *WSGService) WSGIndoorMapService () *WSGIndoorMapService {
     return serv
 }
 
-func (s *WSGIndoorMapService) FindMaps (ctx context.Context) (indoormap.IndoorMapList, error) {
+func (s *WSGIndoorMapService) FindMaps (ctx context.Context) (*indoormap.IndoorMapList, error) {
 }
 
-func (s *WSGIndoorMapService) FindMapsByIndoorMapId (ctx context.Context, indoorMapId string) (indoormap.IndoorMap, error) {
+func (s *WSGIndoorMapService) FindMapsByIndoorMapId (ctx context.Context, indoorMapId string) (*indoormap.IndoorMap, error) {
 }
 
-func (s *WSGIndoorMapService) FindMapsByQueryCriteria (ctx context.Context) (indoormap.IndoorMapList, error) {
+func (s *WSGIndoorMapService) FindMapsByQueryCriteria (ctx context.Context) (*indoormap.IndoorMapList, error) {
 }
 
-func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId (ctx context.Context, indoorMapId string) error {
+func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId (ctx context.Context, indoorMapId string) (*indoormap.IndooMapAuditId, error) {
 }
 

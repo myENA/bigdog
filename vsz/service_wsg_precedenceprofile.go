@@ -24,12 +24,12 @@ func (ss *WSGService) WSGPrecedenceProfileService () *WSGPrecedenceProfileServic
     return serv
 }
 
-func (s *WSGPrecedenceProfileService) FindPrecedence (ctx context.Context) (profile.PrecedenceList, error) {
+func (s *WSGPrecedenceProfileService) FindPrecedence (ctx context.Context) (*profile.PrecedenceList, error) {
 }
 
-func (s *WSGPrecedenceProfileService) FindPrecedenceById (ctx context.Context, id string) (profile.CreatePrecedenceProfile, error) {
+func (s *WSGPrecedenceProfileService) FindPrecedenceById (ctx context.Context, id string) (*profile.CreatePrecedenceProfile, error) {
 }
 
-func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria (ctx context.Context) (profile.PrecedenceList, error) {
+func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria (ctx context.Context) (*profile.PrecedenceList, error) {
 }
 

@@ -23,10 +23,10 @@ func (ss *WSGService) WSGAPRegistrationRulesService () *WSGAPRegistrationRulesSe
     return serv
 }
 
-func (s *WSGAPRegistrationRulesService) FindApRules (ctx context.Context) (aprules.ApRuleList, error) {
+func (s *WSGAPRegistrationRulesService) FindApRules (ctx context.Context) (*aprules.ApRuleList, error) {
 }
 
-func (s *WSGAPRegistrationRulesService) FindApRulesById (ctx context.Context, id string) (aprules.ApRuleConfiguration, error) {
+func (s *WSGAPRegistrationRulesService) FindApRulesById (ctx context.Context, id string) (*aprules.ApRuleConfiguration, error) {
 }
 
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById (ctx context.Context, id string) error {

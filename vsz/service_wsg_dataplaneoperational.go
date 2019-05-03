@@ -23,6 +23,6 @@ func (ss *WSGService) WSGDataPlaneOperationalService () *WSGDataPlaneOperational
     return serv
 }
 
-func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster (ctx context.Context) error {
+func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster (ctx context.Context) (*dp.EmptyResult, error) {
 }
 

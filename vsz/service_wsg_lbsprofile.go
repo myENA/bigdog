@@ -24,12 +24,12 @@ func (ss *WSGService) WSGLBSprofileService () *WSGLBSprofileService {
     return serv
 }
 
-func (s *WSGLBSprofileService) AddProfilesLbs (ctx context.Context) (common.CreateResult, error) {
+func (s *WSGLBSprofileService) AddProfilesLbs (ctx context.Context) (*common.CreateResult, error) {
 }
 
-func (s *WSGLBSprofileService) FindProfilesLbsById (ctx context.Context, id string) (profile.LbsProfile, error) {
+func (s *WSGLBSprofileService) FindProfilesLbsById (ctx context.Context, id string) (*profile.LbsProfile, error) {
 }
 
-func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria (ctx context.Context) (profile.LbsProfileList, error) {
+func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria (ctx context.Context) (*profile.LbsProfileList, error) {
 }
 

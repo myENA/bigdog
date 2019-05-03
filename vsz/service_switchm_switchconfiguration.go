@@ -23,10 +23,10 @@ func (ss *SwitchMService) SwitchMSwitchConfigurationService () *SwitchMSwitchCon
     return serv
 }
 
-func (s *SwitchMSwitchConfigurationService) AddSwitchconfig (ctx context.Context) (configbackup.List, error) {
+func (s *SwitchMSwitchConfigurationService) AddSwitchconfig (ctx context.Context) (*configbackup.List, error) {
 }
 
-func (s *SwitchMSwitchConfigurationService) AddSwitchconfigBackupDiff (ctx context.Context) (configbackup.ConfigBackupDiff, error) {
+func (s *SwitchMSwitchConfigurationService) AddSwitchconfigBackupDiff (ctx context.Context) (*configbackup.ConfigBackupDiff, error) {
 }
 
 func (s *SwitchMSwitchConfigurationService) FindSwitchconfigByConfigId (ctx context.Context, configId string) error {

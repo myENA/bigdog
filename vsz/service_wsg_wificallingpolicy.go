@@ -24,12 +24,12 @@ func (ss *WSGService) WSGWiFiCallingPolicyService () *WSGWiFiCallingPolicyServic
     return serv
 }
 
-func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria (ctx context.Context) (wificalling.WifiCallingPolicyList, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria (ctx context.Context) (*wificalling.WifiCallingPolicyList, error) {
 }
 
-func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy (ctx context.Context) (wificalling.WifiCallingPolicyList, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy (ctx context.Context) (*wificalling.WifiCallingPolicyList, error) {
 }
 
-func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById (ctx context.Context, id string) (wificalling.WifiCallingPolicy, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById (ctx context.Context, id string) (*wificalling.WifiCallingPolicy, error) {
 }
 

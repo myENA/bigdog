@@ -24,12 +24,12 @@ func (ss *WSGService) WSGBridgeService () *WSGBridgeService {
     return serv
 }
 
-func (s *WSGBridgeService) FindProfilesBridge (ctx context.Context) (profile.ProfileList, error) {
+func (s *WSGBridgeService) FindProfilesBridge (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGBridgeService) FindProfilesBridgeById (ctx context.Context, id string) (profile.BridgeProfile, error) {
+func (s *WSGBridgeService) FindProfilesBridgeById (ctx context.Context, id string) (*profile.BridgeProfile, error) {
 }
 
-func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria (ctx context.Context) (profile.BridgeProfileList, error) {
+func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria (ctx context.Context) (*profile.BridgeProfileList, error) {
 }
 

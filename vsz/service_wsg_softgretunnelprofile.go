@@ -24,12 +24,12 @@ func (ss *WSGService) WSGSoftGRETunnelProfileService () *WSGSoftGRETunnelProfile
     return serv
 }
 
-func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre (ctx context.Context) (profile.ProfileList, error) {
+func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById (ctx context.Context, id string) (profile.SoftGREProfile, error) {
+func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById (ctx context.Context, id string) (*profile.SoftGREProfile, error) {
 }
 
-func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteria (ctx context.Context) (profile.SoftGREProfileList, error) {
+func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteria (ctx context.Context) (*profile.SoftGREProfileList, error) {
 }
 

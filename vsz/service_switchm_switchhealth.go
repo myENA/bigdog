@@ -24,21 +24,21 @@ func (ss *SwitchMService) SwitchMSwitchHealthService () *SwitchMSwitchHealthServ
     return serv
 }
 
-func (s *SwitchMSwitchHealthService) AddHealthCpuAgg (ctx context.Context) (health.AggMetrics, error) {
+func (s *SwitchMSwitchHealthService) AddHealthCpuAgg (ctx context.Context) (*health.AggMetrics, error) {
 }
 
-func (s *SwitchMSwitchHealthService) AddHealthCpuLine (ctx context.Context) (health.IcxMetrics, error) {
+func (s *SwitchMSwitchHealthService) AddHealthCpuLine (ctx context.Context) (*health.IcxMetrics, error) {
 }
 
-func (s *SwitchMSwitchHealthService) AddHealthMemAgg (ctx context.Context) (health.AggMetrics, error) {
+func (s *SwitchMSwitchHealthService) AddHealthMemAgg (ctx context.Context) (*health.AggMetrics, error) {
 }
 
-func (s *SwitchMSwitchHealthService) AddHealthMemLine (ctx context.Context) (health.IcxMetrics, error) {
+func (s *SwitchMSwitchHealthService) AddHealthMemLine (ctx context.Context) (*health.IcxMetrics, error) {
 }
 
-func (s *SwitchMSwitchHealthService) AddHealthStatus (ctx context.Context) (health.Status, error) {
+func (s *SwitchMSwitchHealthService) AddHealthStatus (ctx context.Context) (*health.Status, error) {
 }
 
-func (s *SwitchMSwitchHealthService) AddHealthStatusAll (ctx context.Context) (health.Status, error) {
+func (s *SwitchMSwitchHealthService) AddHealthStatusAll (ctx context.Context) (*health.Status, error) {
 }
 

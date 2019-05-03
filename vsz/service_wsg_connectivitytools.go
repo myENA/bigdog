@@ -23,13 +23,13 @@ func (ss *WSGService) WSGConnectivityToolsService () *WSGConnectivityToolsServic
     return serv
 }
 
-func (s *WSGConnectivityToolsService) AddToolSpeedflex (ctx context.Context) (tool.TestResult, error) {
+func (s *WSGConnectivityToolsService) AddToolSpeedflex (ctx context.Context) (*tool.TestResult, error) {
 }
 
 func (s *WSGConnectivityToolsService) FindToolPing (ctx context.Context) error {
 }
 
-func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid (ctx context.Context, wcid string) (tool.TestResult, error) {
+func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid (ctx context.Context, wcid string) (*tool.TestResult, error) {
 }
 
 func (s *WSGConnectivityToolsService) FindToolTraceRoute (ctx context.Context) error {

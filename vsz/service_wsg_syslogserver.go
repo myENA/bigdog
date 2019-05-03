@@ -23,7 +23,7 @@ func (ss *WSGService) WSGSyslogServerService () *WSGSyslogServerService {
     return serv
 }
 
-func (s *WSGSyslogServerService) FindSystemSyslog (ctx context.Context) (syslog.SyslogServerSetting, error) {
+func (s *WSGSyslogServerService) FindSystemSyslog (ctx context.Context) (*syslog.SyslogServerSetting, error) {
 }
 
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer (ctx context.Context) error {

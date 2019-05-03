@@ -27,15 +27,15 @@ func (ss *WSGService) WSGBlockClientService () *WSGBlockClientService {
 func (s *WSGBlockClientService) AddBlockClient (ctx context.Context) (profile.CreateResultList, error) {
 }
 
-func (s *WSGBlockClientService) AddBlockClientByApMacByApMac (ctx context.Context, apMac string) (common.CreateResult, error) {
+func (s *WSGBlockClientService) AddBlockClientByApMacByApMac (ctx context.Context, apMac string) (*common.CreateResult, error) {
 }
 
-func (s *WSGBlockClientService) FindBlockClientById (ctx context.Context, id string) (profile.BlockClient, error) {
+func (s *WSGBlockClientService) FindBlockClientById (ctx context.Context, id string) (*profile.BlockClient, error) {
 }
 
-func (s *WSGBlockClientService) FindBlockClientByQueryCriteria (ctx context.Context) (profile.BlockClientList, error) {
+func (s *WSGBlockClientService) FindBlockClientByQueryCriteria (ctx context.Context) (*profile.BlockClientList, error) {
 }
 
-func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId (ctx context.Context, zoneId string) (profile.BlockClientList, error) {
+func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId (ctx context.Context, zoneId string) (*profile.BlockClientList, error) {
 }
 

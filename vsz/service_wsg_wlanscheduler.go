@@ -23,9 +23,9 @@ func (ss *WSGService) WSGWLANSchedulerService () *WSGWLANSchedulerService {
     return serv
 }
 
-func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById (ctx context.Context, id string, zoneId string) (wlanscheduler.WlanSchedule, error) {
+func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById (ctx context.Context, id string, zoneId string) (*wlanscheduler.WlanSchedule, error) {
 }
 
-func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId (ctx context.Context, zoneId string) (wlanscheduler.WlanScheduleList, error) {
+func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId (ctx context.Context, zoneId string) (*wlanscheduler.WlanScheduleList, error) {
 }
 

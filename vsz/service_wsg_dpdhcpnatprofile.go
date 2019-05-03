@@ -23,9 +23,9 @@ func (ss *WSGService) WSGDPDHCPNATProfileService () *WSGDPDHCPNATProfileService 
     return serv
 }
 
-func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings (ctx context.Context) (dpprofile.DpProfileSettingBOList, error) {
+func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings (ctx context.Context) (*dpprofile.DpProfileSettingBOList, error) {
 }
 
-func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey (ctx context.Context, dpKey string) (dpprofile.DpProfileSettingBO, error) {
+func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey (ctx context.Context, dpKey string) (*dpprofile.DpProfileSettingBO, error) {
 }
 

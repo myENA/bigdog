@@ -23,9 +23,9 @@ func (ss *WSGService) WSGRealTimeLocationServiceProfileService () *WSGRealTimeLo
     return serv
 }
 
-func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById (ctx context.Context, id string, zoneId string) (profile.CreateRtlsProfile, error) {
+func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById (ctx context.Context, id string, zoneId string) (*profile.CreateRtlsProfile, error) {
 }
 
-func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId (ctx context.Context, zoneId string) (profile.RtlsProfileList, error) {
+func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId (ctx context.Context, zoneId string) (*profile.RtlsProfileList, error) {
 }
 

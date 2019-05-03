@@ -24,18 +24,18 @@ func (ss *WSGService) WSGTTGPDGService () *WSGTTGPDGService {
     return serv
 }
 
-func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById (ctx context.Context, id string) error {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById (ctx context.Context, id string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById (ctx context.Context, id string) error {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById (ctx context.Context, id string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGTTGPDGService) FindProfilesTtgpdg (ctx context.Context) (profile.ProfileList, error) {
+func (s *WSGTTGPDGService) FindProfilesTtgpdg (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGTTGPDGService) FindProfilesTtgpdgById (ctx context.Context, id string) (profile.TtgpdgProfile, error) {
+func (s *WSGTTGPDGService) FindProfilesTtgpdgById (ctx context.Context, id string) (*profile.TtgpdgProfile, error) {
 }
 
-func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria (ctx context.Context) (profile.TtgpdgProfileList, error) {
+func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria (ctx context.Context) (*profile.TtgpdgProfileList, error) {
 }
 

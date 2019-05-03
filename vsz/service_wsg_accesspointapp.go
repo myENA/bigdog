@@ -24,7 +24,7 @@ func (ss *WSGService) WSGAccessPointAPPService () *WSGAccessPointAPPService {
     return serv
 }
 
-func (s *WSGAccessPointAPPService) FindApsLineman (ctx context.Context) (ap.ApLinemanSummary, error) {
+func (s *WSGAccessPointAPPService) FindApsLineman (ctx context.Context) (*ap.ApLinemanSummary, error) {
 }
 
 func (s *WSGAccessPointAPPService) FindApsTotalCount (ctx context.Context) error {

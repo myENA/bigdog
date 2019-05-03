@@ -23,12 +23,12 @@ func (ss *WSGService) WSGIdentitySubscriptionPackageService () *WSGIdentitySubsc
     return serv
 }
 
-func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList (ctx context.Context) (identity.SubscriptionPackageList, error) {
+func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList (ctx context.Context) (*identity.SubscriptionPackageList, error) {
 }
 
-func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages (ctx context.Context) (identity.SubscriptionPackageList, error) {
+func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages (ctx context.Context) (*identity.SubscriptionPackageList, error) {
 }
 
-func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById (ctx context.Context, id string) (identity.SubscriptionPackage, error) {
+func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById (ctx context.Context, id string) (*identity.SubscriptionPackage, error) {
 }
 

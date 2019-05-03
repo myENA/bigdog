@@ -23,6 +23,6 @@ func (ss *SwitchMService) SwitchMSwitchStackService () *SwitchMSwitchStackServic
     return serv
 }
 
-func (s *SwitchMSwitchStackService) FindStackMemberBySerialNumber (ctx context.Context, serialNumber string) (stack.List, error) {
+func (s *SwitchMSwitchStackService) FindStackMemberBySerialNumber (ctx context.Context, serialNumber string) (*stack.List, error) {
 }
 

@@ -23,9 +23,9 @@ func (ss *WSGService) WSGDiffServService () *WSGDiffServService {
     return serv
 }
 
-func (s *WSGDiffServService) FindRkszonesDiffservById (ctx context.Context, id string, zoneId string) (zone.DiffServConfiguration, error) {
+func (s *WSGDiffServService) FindRkszonesDiffservById (ctx context.Context, id string, zoneId string) (*zone.DiffServConfiguration, error) {
 }
 
-func (s *WSGDiffServService) FindRkszonesDiffservByZoneId (ctx context.Context, zoneId string) (zone.DiffServList, error) {
+func (s *WSGDiffServService) FindRkszonesDiffservByZoneId (ctx context.Context, zoneId string) (*zone.DiffServList, error) {
 }
 

@@ -23,9 +23,9 @@ func (ss *SwitchMService) SwitchMSwitchRegistrationRulesService () *SwitchMSwitc
     return serv
 }
 
-func (s *SwitchMSwitchRegistrationRulesService) FindRegistrationRules (ctx context.Context) (registration.RuleQueryResultList, error) {
+func (s *SwitchMSwitchRegistrationRulesService) FindRegistrationRules (ctx context.Context) (*registration.RuleQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchRegistrationRulesService) UpdateRegistrationRulesById (ctx context.Context, id string) (registration.ModifyResult, error) {
+func (s *SwitchMSwitchRegistrationRulesService) UpdateRegistrationRulesById (ctx context.Context, id string) (*registration.ModifyResult, error) {
 }
 

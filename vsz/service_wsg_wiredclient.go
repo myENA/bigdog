@@ -25,9 +25,9 @@ func (ss *WSGService) WSGWiredClientService () *WSGWiredClientService {
     return serv
 }
 
-func (s *WSGWiredClientService) AddClientsBulkDeauth (ctx context.Context) error {
+func (s *WSGWiredClientService) AddClientsBulkDeauth (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWiredClientService) FindWiredclientByQueryCriteria (ctx context.Context) (wiredclientquery.ClientQueryList, error) {
+func (s *WSGWiredClientService) FindWiredclientByQueryCriteria (ctx context.Context) (*wiredclientquery.ClientQueryList, error) {
 }
 

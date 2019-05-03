@@ -28,9 +28,9 @@ func (ss *WSGService) WSGFlexiVPNService () *WSGFlexiVPNService {
 func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById (ctx context.Context, id string, zoneId string) error {
 }
 
-func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria (ctx context.Context) (profile.FlexiVpnProfileList, error) {
+func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria (ctx context.Context) (*profile.FlexiVpnProfileList, error) {
 }
 
-func (s *WSGFlexiVPNService) FindSystemFlexiVpnGlobalSetting (ctx context.Context) (flexivpn.FlexiVpnGlobalSetting, error) {
+func (s *WSGFlexiVPNService) FindSystemFlexiVpnGlobalSetting (ctx context.Context) (*flexivpn.FlexiVpnGlobalSetting, error) {
 }
 

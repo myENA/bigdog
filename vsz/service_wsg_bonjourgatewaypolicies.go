@@ -23,9 +23,9 @@ func (ss *WSGService) WSGBonjourGatewayPoliciesService () *WSGBonjourGatewayPoli
     return serv
 }
 
-func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesById (ctx context.Context, id string, zoneId string) (zone.BonjourGatewayPolicyConfiguration, error) {
+func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesById (ctx context.Context, id string, zoneId string) (*zone.BonjourGatewayPolicyConfiguration, error) {
 }
 
-func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId (ctx context.Context, zoneId string) (zone.BonjourGatewayPolicyList, error) {
+func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId (ctx context.Context, zoneId string) (*zone.BonjourGatewayPolicyList, error) {
 }
 

@@ -23,6 +23,6 @@ func (ss *WSGService) WSGUploadStatisticstoFTPService () *WSGUploadStatisticstoF
     return serv
 }
 
-func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp (ctx context.Context) (system.FtpGlobalSetting, error) {
+func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp (ctx context.Context) (*system.FtpGlobalSetting, error) {
 }
 

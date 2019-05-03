@@ -24,7 +24,7 @@ func (ss *WSGService) WSGApplicationLogAndStatusService () *WSGApplicationLogAnd
     return serv
 }
 
-func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID (ctx context.Context, bladeUUID string) (administration.ApplicationLogAndStatusList, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID (ctx context.Context, bladeUUID string) (*administration.ApplicationLogAndStatusList, error) {
 }
 
 func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID (ctx context.Context, bladeUUID string) (json.RawMessage, error) {

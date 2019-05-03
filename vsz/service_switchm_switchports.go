@@ -24,9 +24,9 @@ func (ss *SwitchMService) SwitchMSwitchPortsService () *SwitchMSwitchPortsServic
     return serv
 }
 
-func (s *SwitchMSwitchPortsService) AddSwitchPortsDetails (ctx context.Context) (switchmswitch.PortDetailsQueryResultList, error) {
+func (s *SwitchMSwitchPortsService) AddSwitchPortsDetails (ctx context.Context) (*switchmswitch.PortDetailsQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchPortsService) AddSwitchPortsSummary (ctx context.Context) (switchmswitch.SwitchPortsSummaryQueryResultList, error) {
+func (s *SwitchMSwitchPortsService) AddSwitchPortsSummary (ctx context.Context) (*switchmswitch.SwitchPortsSummaryQueryResultList, error) {
 }
 

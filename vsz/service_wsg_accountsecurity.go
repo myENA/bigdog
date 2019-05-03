@@ -23,9 +23,9 @@ func (ss *WSGService) WSGAccountSecurityService () *WSGAccountSecurityService {
     return serv
 }
 
-func (s *WSGAccountSecurityService) FindAccountSecurity (ctx context.Context) (accountsecurityprofile.ProfileListResult, error) {
+func (s *WSGAccountSecurityService) FindAccountSecurity (ctx context.Context) (*accountsecurityprofile.ProfileListResult, error) {
 }
 
-func (s *WSGAccountSecurityService) FindAccountSecurityById (ctx context.Context, id string) (accountsecurityprofile.GetByIdResult, error) {
+func (s *WSGAccountSecurityService) FindAccountSecurityById (ctx context.Context, id string) (*accountsecurityprofile.GetByIdResult, error) {
 }
 

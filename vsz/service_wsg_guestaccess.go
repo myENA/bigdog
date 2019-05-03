@@ -24,15 +24,15 @@ func (ss *WSGService) WSGGuestAccessService () *WSGGuestAccessService {
     return serv
 }
 
-func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById (ctx context.Context, id string, zoneId string) error {
+func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById (ctx context.Context, id string, zoneId string) error {
+func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById (ctx context.Context, id string, zoneId string) (portalservice.GuestAccess, error) {
+func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById (ctx context.Context, id string, zoneId string) (*portalservice.GuestAccess, error) {
 }
 
-func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId (ctx context.Context, zoneId string) (portalservice.PortalServiceList, error) {
+func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId (ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
 }
 

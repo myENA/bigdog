@@ -23,9 +23,9 @@ func (ss *WSGService) WSGL2AccessControlService () *WSGL2AccessControlService {
     return serv
 }
 
-func (s *WSGL2AccessControlService) FindRkszonesL2ACLById (ctx context.Context, id string, zoneId string) (portalservice.L2ACL, error) {
+func (s *WSGL2AccessControlService) FindRkszonesL2ACLById (ctx context.Context, id string, zoneId string) (*portalservice.L2ACL, error) {
 }
 
-func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId (ctx context.Context, zoneId string) (portalservice.PortalServiceList, error) {
+func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId (ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
 }
 

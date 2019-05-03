@@ -23,6 +23,6 @@ func (ss *WSGService) WSGServiceTicketService () *WSGServiceTicketService {
     return serv
 }
 
-func (s *WSGServiceTicketService) AddServiceTicket (ctx context.Context) (serviceticket.LoginResponse, error) {
+func (s *WSGServiceTicketService) AddServiceTicket (ctx context.Context) (*serviceticket.LoginResponse, error) {
 }
 

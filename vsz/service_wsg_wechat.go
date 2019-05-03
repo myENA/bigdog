@@ -23,9 +23,9 @@ func (ss *WSGService) WSGWechatService () *WSGWechatService {
     return serv
 }
 
-func (s *WSGWechatService) FindRkszonesPortalsWechatById (ctx context.Context, id string, zoneId string) (portalservice.WechatConfiguration, error) {
+func (s *WSGWechatService) FindRkszonesPortalsWechatById (ctx context.Context, id string, zoneId string) (*portalservice.WechatConfiguration, error) {
 }
 
-func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId (ctx context.Context, zoneId string) (portalservice.PortalServiceList, error) {
+func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId (ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
 }
 

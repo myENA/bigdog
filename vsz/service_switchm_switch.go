@@ -24,22 +24,22 @@ func (ss *SwitchMService) SwitchMSwitchService () *SwitchMSwitchService {
     return serv
 }
 
-func (s *SwitchMSwitchService) AddSwitch (ctx context.Context) (switchmswitch.SwitchQueryResultList, error) {
+func (s *SwitchMSwitchService) AddSwitch (ctx context.Context) (*switchmswitch.SwitchQueryResultList, error) {
 }
 
 func (s *SwitchMSwitchService) AddSwitchExportcsv (ctx context.Context) error {
 }
 
-func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch (ctx context.Context) (switchmswitch.SwitchQueryResultList, error) {
+func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch (ctx context.Context) (*switchmswitch.SwitchQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchService) AddSwitchViewDetails (ctx context.Context) (switchmswitch.StackMemberQueryResult, error) {
+func (s *SwitchMSwitchService) AddSwitchViewDetails (ctx context.Context) (*switchmswitch.StackMemberQueryResult, error) {
 }
 
-func (s *SwitchMSwitchService) FindSwitchById (ctx context.Context, id string) (switchmswitch.NetworkSwitch, error) {
+func (s *SwitchMSwitchService) FindSwitchById (ctx context.Context, id string) (*switchmswitch.NetworkSwitch, error) {
 }
 
-func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId (ctx context.Context, switchId string) (switchmswitch.FirmwareHistoryQueryResultList, error) {
+func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId (ctx context.Context, switchId string) (*switchmswitch.FirmwareHistoryQueryResultList, error) {
 }
 
 func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId (ctx context.Context, destinationSwitchGroupId string) error {

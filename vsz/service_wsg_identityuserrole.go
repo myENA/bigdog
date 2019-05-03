@@ -23,12 +23,12 @@ func (ss *WSGService) WSGIdentityUserRoleService () *WSGIdentityUserRoleService 
     return serv
 }
 
-func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList (ctx context.Context) (identity.IdentityList, error) {
+func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList (ctx context.Context) (*identity.IdentityList, error) {
 }
 
-func (s *WSGIdentityUserRoleService) FindIdentityUserrole (ctx context.Context) (identity.IdentityList, error) {
+func (s *WSGIdentityUserRoleService) FindIdentityUserrole (ctx context.Context) (*identity.IdentityList, error) {
 }
 
-func (s *WSGIdentityUserRoleService) FindIdentityUserroleById (ctx context.Context, id string) (identity.IdentityUserRole, error) {
+func (s *WSGIdentityUserRoleService) FindIdentityUserroleById (ctx context.Context, id string) (*identity.IdentityUserRole, error) {
 }
 

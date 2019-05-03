@@ -24,9 +24,9 @@ func (ss *SwitchMService) SwitchMTopReportsService () *SwitchMTopReportsService 
     return serv
 }
 
-func (s *SwitchMTopReportsService) AddSwitchTopByFirmware (ctx context.Context) (switchmswitch.TopSwitchesByFirmwareQueryResultList, error) {
+func (s *SwitchMTopReportsService) AddSwitchTopByFirmware (ctx context.Context) (*switchmswitch.TopSwitchesByFirmwareQueryResultList, error) {
 }
 
-func (s *SwitchMTopReportsService) AddSwitchTopByModel (ctx context.Context) (switchmswitch.TopSwitchesByModelQueryResultList, error) {
+func (s *SwitchMTopReportsService) AddSwitchTopByModel (ctx context.Context) (*switchmswitch.TopSwitchesByModelQueryResultList, error) {
 }
 

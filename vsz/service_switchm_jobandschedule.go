@@ -24,15 +24,15 @@ func (ss *SwitchMService) SwitchMJobandScheduleService () *SwitchMJobandSchedule
     return serv
 }
 
-func (s *SwitchMJobandScheduleService) AddJob (ctx context.Context) (job.List, error) {
+func (s *SwitchMJobandScheduleService) AddJob (ctx context.Context) (*job.List, error) {
 }
 
 func (s *SwitchMJobandScheduleService) DeleteJobSchedule (ctx context.Context) error {
 }
 
-func (s *SwitchMJobandScheduleService) FindJobByJobId (ctx context.Context, jobId string) (job.Job, error) {
+func (s *SwitchMJobandScheduleService) FindJobByJobId (ctx context.Context, jobId string) (*job.Job, error) {
 }
 
-func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId (ctx context.Context, scheduleId string) (job.JobScheduleResponse, error) {
+func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId (ctx context.Context, scheduleId string) (*job.JobScheduleResponse, error) {
 }
 

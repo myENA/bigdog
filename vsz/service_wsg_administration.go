@@ -29,16 +29,16 @@ func (s *WSGAdministrationService) AddRestart (ctx context.Context) error {
 func (s *WSGAdministrationService) AddShutdown (ctx context.Context) error {
 }
 
-func (s *WSGAdministrationService) FindLicenses (ctx context.Context) (administration.LicensesList, error) {
+func (s *WSGAdministrationService) FindLicenses (ctx context.Context) (*administration.LicensesList, error) {
 }
 
-func (s *WSGAdministrationService) FindLicenseServer (ctx context.Context) (administration.LicenseServer, error) {
+func (s *WSGAdministrationService) FindLicenseServer (ctx context.Context) (*administration.LicenseServer, error) {
 }
 
-func (s *WSGAdministrationService) FindLicensesSummary (ctx context.Context) (administration.LicensesSummaryList, error) {
+func (s *WSGAdministrationService) FindLicensesSummary (ctx context.Context) (*administration.LicensesSummaryList, error) {
 }
 
-func (s *WSGAdministrationService) FindLicensesSyncLogs (ctx context.Context) (administration.LicensesSyncLogsList, error) {
+func (s *WSGAdministrationService) FindLicensesSyncLogs (ctx context.Context) (*administration.LicensesSyncLogsList, error) {
 }
 
 func (s *WSGAdministrationService) UpdateLicensesSync (ctx context.Context) error {

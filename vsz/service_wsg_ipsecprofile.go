@@ -24,12 +24,12 @@ func (ss *WSGService) WSGIPSECProfileService () *WSGIPSECProfileService {
     return serv
 }
 
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec (ctx context.Context) (profile.ProfileList, error) {
+func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById (ctx context.Context, id string) (profile.IpsecProfile, error) {
+func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById (ctx context.Context, id string) (*profile.IpsecProfile, error) {
 }
 
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria (ctx context.Context) (profile.IpsecProfileList, error) {
+func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria (ctx context.Context) (*profile.IpsecProfileList, error) {
 }
 

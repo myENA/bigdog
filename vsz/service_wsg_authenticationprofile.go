@@ -24,21 +24,21 @@ func (ss *WSGService) WSGAuthenticationProfileService () *WSGAuthenticationProfi
     return serv
 }
 
-func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById (ctx context.Context, id string) (profile.ProfileCloneResponse, error) {
+func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById (ctx context.Context, id string) (*profile.ProfileCloneResponse, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuth (ctx context.Context) (profile.AuthenticationProfileList, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuth (ctx context.Context) (*profile.AuthenticationProfileList, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList (ctx context.Context) (profile.BaseServiceInfoList, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList (ctx context.Context) (*profile.BaseServiceInfoList, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQueryCriteria (ctx context.Context) (profile.BaseServiceInfoList, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQueryCriteria (ctx context.Context) (*profile.BaseServiceInfoList, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuthById (ctx context.Context, id string) (profile.AuthenticationProfile, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuthById (ctx context.Context, id string) (*profile.AuthenticationProfile, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria (ctx context.Context) (profile.AuthenticationProfileList, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria (ctx context.Context) (*profile.AuthenticationProfileList, error) {
 }
 

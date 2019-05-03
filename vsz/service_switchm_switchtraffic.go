@@ -24,18 +24,18 @@ func (ss *SwitchMService) SwitchMSwitchTrafficService () *SwitchMSwitchTrafficSe
     return serv
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTopPoeutilization (ctx context.Context) (traffic.TopSwitchPoEUtilizationQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTopPoeutilization (ctx context.Context) (*traffic.TopSwitchPoEUtilizationQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTopPorterror (ctx context.Context) (traffic.TopPortErrorQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTopPorterror (ctx context.Context) (*traffic.TopPortErrorQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTopPortusage (ctx context.Context) (traffic.TopPortTrafficUsageQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTopPortusage (ctx context.Context) (*traffic.TopPortTrafficUsageQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTopUsage (ctx context.Context) (traffic.TopTrafficUsageQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTopUsage (ctx context.Context) (*traffic.TopTrafficUsageQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTotalTrend (ctx context.Context) (traffic.TrafficQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTotalTrend (ctx context.Context) (*traffic.TrafficQueryResultList, error) {
 }
 

@@ -26,13 +26,13 @@ func (ss *WSGService) WSGSCIService () *WSGSCIService {
 func (s *WSGSCIService) AddSciSciProfileSciPriority (ctx context.Context) error {
 }
 
-func (s *WSGSCIService) FindSciSciEventCode (ctx context.Context) (sci.SciEventCode, error) {
+func (s *WSGSCIService) FindSciSciEventCode (ctx context.Context) (*sci.SciEventCode, error) {
 }
 
-func (s *WSGSCIService) FindSciSciProfile (ctx context.Context) (sci.SciProfileList, error) {
+func (s *WSGSCIService) FindSciSciProfile (ctx context.Context) (*sci.SciProfileList, error) {
 }
 
-func (s *WSGSCIService) FindSciSciProfileById (ctx context.Context, id string) (sci.SciProfile, error) {
+func (s *WSGSCIService) FindSciSciProfileById (ctx context.Context, id string) (*sci.SciProfile, error) {
 }
 
 func (s *WSGSCIService) PartialUpdateSciSciEnabled (ctx context.Context) error {

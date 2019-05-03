@@ -23,6 +23,6 @@ func (ss *WSGService) WSGTestAAAServerService () *WSGTestAAAServerService {
     return serv
 }
 
-func (s *WSGTestAAAServerService) AddSystemAaaTest (ctx context.Context) (aaa.TestAAAServerResult, error) {
+func (s *WSGTestAAAServerService) AddSystemAaaTest (ctx context.Context) (*aaa.TestAAAServerResult, error) {
 }
 

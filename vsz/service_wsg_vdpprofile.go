@@ -23,10 +23,10 @@ func (ss *WSGService) WSGVDPProfileService () *WSGVDPProfileService {
     return serv
 }
 
-func (s *WSGVDPProfileService) FindProfilesVdp (ctx context.Context) (profile.ProfileList, error) {
+func (s *WSGVDPProfileService) FindProfilesVdp (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGVDPProfileService) FindProfilesVdpById (ctx context.Context, id string) (profile.VdpProfile, error) {
+func (s *WSGVDPProfileService) FindProfilesVdpById (ctx context.Context, id string) (*profile.VdpProfile, error) {
 }
 
 func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById (ctx context.Context, id string) error {

@@ -24,18 +24,18 @@ func (ss *WSGService) WSGClientIsolationWhitelistService () *WSGClientIsolationW
     return serv
 }
 
-func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist (ctx context.Context) error {
+func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById (ctx context.Context, id string) error {
+func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById (ctx context.Context, id string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistById (ctx context.Context, id string, zoneId string) (profile.ClientIsolationWhitelist, error) {
+func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistById (ctx context.Context, id string, zoneId string) (*profile.ClientIsolationWhitelist, error) {
 }
 
-func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId (ctx context.Context, zoneId string) (profile.ClientIsolationWhitelistArray, error) {
+func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId (ctx context.Context, zoneId string) (*profile.ClientIsolationWhitelistArray, error) {
 }
 
-func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria (ctx context.Context) (profile.ClientIsolationWhitelistArray, error) {
+func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria (ctx context.Context) (*profile.ClientIsolationWhitelistArray, error) {
 }
 

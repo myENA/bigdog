@@ -24,15 +24,15 @@ func (ss *WSGService) WSGControlPlanesService () *WSGControlPlanesService {
     return serv
 }
 
-func (s *WSGControlPlanesService) FindControlPlanes (ctx context.Context) (system.ControlPlaneList, error) {
+func (s *WSGControlPlanesService) FindControlPlanes (ctx context.Context) (*system.ControlPlaneList, error) {
 }
 
-func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID (ctx context.Context, bladeUUID string) (system.ControlPlaneConfiguration, error) {
+func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID (ctx context.Context, bladeUUID string) (*system.ControlPlaneConfiguration, error) {
 }
 
-func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID (ctx context.Context, bladeUUID string) (system.StaticRouteList, error) {
+func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID (ctx context.Context, bladeUUID string) (*system.StaticRouteList, error) {
 }
 
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport (ctx context.Context) error {
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport (ctx context.Context) (*common.EmptyResult, error) {
 }
 

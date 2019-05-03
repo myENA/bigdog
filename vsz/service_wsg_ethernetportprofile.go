@@ -23,9 +23,9 @@ func (ss *WSGService) WSGEthernetPortProfileService () *WSGEthernetPortProfileSe
     return serv
 }
 
-func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById (ctx context.Context, id string, zoneId string) (ethernetport.EthernetPortProfile, error) {
+func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById (ctx context.Context, id string, zoneId string) (*ethernetport.EthernetPortProfile, error) {
 }
 
-func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId (ctx context.Context, zoneId string) (ethernetport.ProfileList, error) {
+func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId (ctx context.Context, zoneId string) (*ethernetport.ProfileList, error) {
 }
 

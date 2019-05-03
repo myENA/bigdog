@@ -24,18 +24,18 @@ func (ss *WSGService) WSGHotspotServiceService () *WSGHotspotServiceService {
     return serv
 }
 
-func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId (ctx context.Context, zoneId string) (common.CreateResult, error) {
+func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId (ctx context.Context, zoneId string) (*common.CreateResult, error) {
 }
 
-func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId (ctx context.Context, zoneId string) (common.CreateResult, error) {
+func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId (ctx context.Context, zoneId string) (*common.CreateResult, error) {
 }
 
-func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId (ctx context.Context, zoneId string) (common.CreateResult, error) {
+func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId (ctx context.Context, zoneId string) (*common.CreateResult, error) {
 }
 
-func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById (ctx context.Context, id string, zoneId string) (portalservice.Hotspot, error) {
+func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById (ctx context.Context, id string, zoneId string) (*portalservice.Hotspot, error) {
 }
 
-func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId (ctx context.Context, zoneId string) (portalservice.PortalServiceList, error) {
+func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId (ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
 }
 

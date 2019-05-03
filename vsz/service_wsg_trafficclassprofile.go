@@ -24,12 +24,12 @@ func (ss *WSGService) WSGTrafficClassProfileService () *WSGTrafficClassProfileSe
     return serv
 }
 
-func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById (ctx context.Context, id string, zoneId string) (common.TrafficClassProfileRef, error) {
+func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById (ctx context.Context, id string, zoneId string) (*common.TrafficClassProfileRef, error) {
 }
 
-func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId (ctx context.Context, zoneId string) (profile.TrafficClassProfileList, error) {
+func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId (ctx context.Context, zoneId string) (*profile.TrafficClassProfileList, error) {
 }
 
-func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria (ctx context.Context) (profile.TrafficClassProfileList, error) {
+func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria (ctx context.Context) (*profile.TrafficClassProfileList, error) {
 }
 

@@ -29,6 +29,6 @@ func (s *SwitchMSwitchFirmwareService) AddFirmwareUpload (ctx context.Context) e
 func (s *SwitchMSwitchFirmwareService) DeleteFirmwareByVersion (ctx context.Context, version string) error {
 }
 
-func (s *SwitchMSwitchFirmwareService) FindFirmware (ctx context.Context) (firmware.AllFirmwaresQueryResultList, error) {
+func (s *SwitchMSwitchFirmwareService) FindFirmware (ctx context.Context) (*firmware.AllFirmwaresQueryResultList, error) {
 }
 

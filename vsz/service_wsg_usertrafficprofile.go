@@ -24,21 +24,21 @@ func (ss *WSGService) WSGUserTrafficProfileService () *WSGUserTrafficProfileServ
     return serv
 }
 
-func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById (ctx context.Context, id string) (profile.ProfileCloneResponse, error) {
+func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById (ctx context.Context, id string) (*profile.ProfileCloneResponse, error) {
 }
 
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById (ctx context.Context, id string) error {
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById (ctx context.Context, id string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById (ctx context.Context, id string) error {
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById (ctx context.Context, id string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGUserTrafficProfileService) FindProfilesUtp (ctx context.Context) (profile.ProfileList, error) {
+func (s *WSGUserTrafficProfileService) FindProfilesUtp (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGUserTrafficProfileService) FindProfilesUtpById (ctx context.Context, id string) (profile.UserTrafficProfile, error) {
+func (s *WSGUserTrafficProfileService) FindProfilesUtpById (ctx context.Context, id string) (*profile.UserTrafficProfile, error) {
 }
 
-func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria (ctx context.Context) (profile.UserTrafficProfileList, error) {
+func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria (ctx context.Context) (*profile.UserTrafficProfileList, error) {
 }
 

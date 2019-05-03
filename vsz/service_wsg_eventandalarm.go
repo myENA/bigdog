@@ -27,25 +27,25 @@ func (ss *WSGService) WSGEventandAlarmService () *WSGEventandAlarmService {
     return serv
 }
 
-func (s *WSGEventandAlarmService) AddAlertAlarmList (ctx context.Context) (alarmlist.AlarmQueryResultList, error) {
+func (s *WSGEventandAlarmService) AddAlertAlarmList (ctx context.Context) (*alarmlist.AlarmQueryResultList, error) {
 }
 
-func (s *WSGEventandAlarmService) AddAlertAlarmSummary (ctx context.Context) (alertsummary.AlarmSummary, error) {
+func (s *WSGEventandAlarmService) AddAlertAlarmSummary (ctx context.Context) (*alertsummary.AlarmSummary, error) {
 }
 
-func (s *WSGEventandAlarmService) AddAlertEventList (ctx context.Context) (eventlist.EventQueryResultList, error) {
+func (s *WSGEventandAlarmService) AddAlertEventList (ctx context.Context) (*eventlist.EventQueryResultList, error) {
 }
 
-func (s *WSGEventandAlarmService) AddAlertEventSummary (ctx context.Context) (alertsummary.EventSummary, error) {
+func (s *WSGEventandAlarmService) AddAlertEventSummary (ctx context.Context) (*alertsummary.EventSummary, error) {
 }
 
-func (s *WSGEventandAlarmService) UpdateAlertAlarmAck (ctx context.Context) error {
+func (s *WSGEventandAlarmService) UpdateAlertAlarmAck (ctx context.Context) (*common.EmptyResult, error) {
 }
 
 func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID (ctx context.Context, alarmID string) error {
 }
 
-func (s *WSGEventandAlarmService) UpdateAlertAlarmClear (ctx context.Context) error {
+func (s *WSGEventandAlarmService) UpdateAlertAlarmClear (ctx context.Context) (*common.EmptyResult, error) {
 }
 
 func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID (ctx context.Context, alarmID string) error {

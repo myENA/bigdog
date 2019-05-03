@@ -24,16 +24,16 @@ func (ss *WSGService) WSGNorthboundDataStreamingService () *WSGNorthboundDataStr
     return serv
 }
 
-func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile (ctx context.Context) (common.CreateResult, error) {
+func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile (ctx context.Context) (*common.CreateResult, error) {
 }
 
-func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes (ctx context.Context) (northbounddatastreaming.NorthboundDataStreamingEventCodes, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes (ctx context.Context) (*northbounddatastreaming.NorthboundDataStreamingEventCodes, error) {
 }
 
-func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById (ctx context.Context, id string) (northbounddatastreaming.NorthboundDataStreamingProfile, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById (ctx context.Context, id string) (*northbounddatastreaming.NorthboundDataStreamingProfile, error) {
 }
 
-func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList (ctx context.Context) (northbounddatastreaming.NorthboundDataStreamingProfileList, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList (ctx context.Context) (*northbounddatastreaming.NorthboundDataStreamingProfileList, error) {
 }
 
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings (ctx context.Context) error {

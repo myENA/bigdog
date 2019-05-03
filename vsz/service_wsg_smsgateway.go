@@ -24,9 +24,9 @@ func (ss *WSGService) WSGSMSGatewayService () *WSGSMSGatewayService {
     return serv
 }
 
-func (s *WSGSMSGatewayService) FindSmsGateway (ctx context.Context) (system.Sms, error) {
+func (s *WSGSMSGatewayService) FindSmsGateway (ctx context.Context) (*system.Sms, error) {
 }
 
-func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria (ctx context.Context) (system.SmsList, error) {
+func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria (ctx context.Context) (*system.SmsList, error) {
 }
 

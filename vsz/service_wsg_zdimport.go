@@ -24,15 +24,15 @@ func (ss *WSGService) WSGZDImportService () *WSGZDImportService {
     return serv
 }
 
-func (s *WSGZDImportService) AddZdImportConnectZD (ctx context.Context) error {
+func (s *WSGZDImportService) AddZdImportConnectZD (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGZDImportService) AddZdImportMigrate (ctx context.Context) error {
+func (s *WSGZDImportService) AddZdImportMigrate (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGZDImportService) FindZdImportGetZDAPs (ctx context.Context) (administration.ZdAPList, error) {
+func (s *WSGZDImportService) FindZdImportGetZDAPs (ctx context.Context) (*administration.ZdAPList, error) {
 }
 
-func (s *WSGZDImportService) FindZdImportStatus (ctx context.Context) (administration.ZdImportStatus, error) {
+func (s *WSGZDImportService) FindZdImportStatus (ctx context.Context) (*administration.ZdImportStatus, error) {
 }
 

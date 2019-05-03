@@ -24,12 +24,12 @@ func (ss *WSGService) WSGL2oGREService () *WSGL2oGREService {
     return serv
 }
 
-func (s *WSGL2oGREService) FindProfilesL2ogre (ctx context.Context) (profile.ProfileList, error) {
+func (s *WSGL2oGREService) FindProfilesL2ogre (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGL2oGREService) FindProfilesL2ogreById (ctx context.Context, id string) (profile.LOGREProfile, error) {
+func (s *WSGL2oGREService) FindProfilesL2ogreById (ctx context.Context, id string) (*profile.LOGREProfile, error) {
 }
 
-func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria (ctx context.Context) (profile.LOGREProfileList, error) {
+func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria (ctx context.Context) (*profile.LOGREProfileList, error) {
 }
 

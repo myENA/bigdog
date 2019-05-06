@@ -1,6 +1,6 @@
 package profile
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -143,10 +143,6 @@ type ApnRealm struct {
 }
 
 type AuthenticationProfile struct {
-	// AaaSuppportEnabled
-	// Hosted AAA support enabled or disabled
-	AaaSuppportEnabled *bool `json:"aaaSuppportEnabled,omitempty"`
-
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
@@ -388,6 +384,8 @@ type BonjourFencingRuleMapping struct {
 
 type BonjourFencingService struct {
 	NeighborApMac *string `json:"neighborApMac,omitempty"`
+
+	NeighborApName *string `json:"neighborApName,omitempty"`
 
 	ServiceType *BridgeService `json:"serviceType,omitempty"`
 
@@ -636,10 +634,6 @@ type CreateAccountingProfile struct {
 }
 
 type CreateAuthenticationProfile struct {
-	// AaaSuppportEnabled
-	// Hosted AAA support enabled or disabled
-	AaaSuppportEnabled *bool `json:"aaaSuppportEnabled,omitempty"`
-
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
 	// DomainId
@@ -813,6 +807,10 @@ type CreateIpsecProfile struct {
 	// ServerAddr
 	// server Addr of the ipsec profile
 	ServerAddr *string `json:"serverAddr,omitempty"`
+
+	// TunnelMode
+	// Tunnel mode of IPsec profile
+	TunnelMode *string `json:"tunnelMode,omitempty"`
 }
 
 type CreateLOGREProfile struct {
@@ -1357,10 +1355,6 @@ type GetL3RoamingConfig struct {
 	// DataPlanes
 	// L3 roaming configuration for DPs
 	DataPlanes []*DataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
-
-	// FeatureEnabled
-	// Show if L3 roaming feature is enabled or not
-	FeatureEnabled *int `json:"featureEnabled,omitempty"`
 }
 
 type Hs20FriendlyName struct {
@@ -1717,6 +1711,10 @@ type IpsecProfile struct {
 	// ServerAddr
 	// server Addr of the ipsec profile
 	ServerAddr *string `json:"serverAddr,omitempty"`
+
+	// TunnelMode
+	// Tunnel mode of IPsec profile
+	TunnelMode *string `json:"tunnelMode,omitempty"`
 }
 
 type IpsecProfileList struct {
@@ -1874,10 +1872,6 @@ type ModifyAccountingProfile struct {
 }
 
 type ModifyAuthenticationProfile struct {
-	// AaaSuppportEnabled
-	// Hosted AAA support enabled or disabled
-	AaaSuppportEnabled *bool `json:"aaaSuppportEnabled,omitempty"`
-
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
 	// DomainId
@@ -2716,6 +2710,18 @@ type ReturnZoneAffinityProfile struct {
 	Name *string `json:"name,omitempty"`
 
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
+
+	ZoneAffinityListWithPriority []*ReturnZoneAffinityProfileZoneAffinityListWithPriorityType `json:"zoneAffinityListWithPriority,omitempty"`
+}
+
+type ReturnZoneAffinityProfileZoneAffinityListWithPriorityType struct {
+	// DpId
+	// DP ID
+	DpId *string `json:"dpId,omitempty"`
+
+	// Priority
+	// The priority of DP in zone affinity
+	Priority *float64 `json:"priority,omitempty"`
 }
 
 type RogueApPolicy struct {
@@ -2960,10 +2966,6 @@ type TrafficClassProfileList struct {
 //
 // Hosted AAA server RADIUS settings & PLMN ID settings
 type TtgCommonSetting struct {
-	// InterimAcctInterval
-	// Interim accounting interval (value should be 0 or 600~65536, unit: seconds)
-	InterimAcctInterval *int `json:"interimAcctInterval,omitempty"`
-
 	// MobileCountryCode
 	// Mobile country code
 	MobileCountryCode *string `json:"mobileCountryCode,omitempty"`
@@ -2971,14 +2973,6 @@ type TtgCommonSetting struct {
 	// MobileNetworkCode
 	// Mobile network code
 	MobileNetworkCode *string `json:"mobileNetworkCode,omitempty"`
-
-	// SessionIdleTimeout
-	// Session idle timeout (unit: seconds)
-	SessionIdleTimeout *int `json:"sessionIdleTimeout,omitempty"`
-
-	// SessionTimeout
-	// Session timeout (unit: seconds)
-	SessionTimeout *int `json:"sessionTimeout,omitempty"`
 }
 
 type TtgpdgApnForwardingRealm struct {
@@ -3121,10 +3115,6 @@ type UpdateL3RoamingConfig struct {
 	// DataPlanes
 	// L3 roaming configuration for DPs
 	DataPlanes []*DataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
-
-	// FeatureEnabled
-	// Show if L3 roaming feature is enabled or not
-	FeatureEnabled *int `json:"featureEnabled,omitempty"`
 }
 
 type UpdatePrecedenceProfile struct {

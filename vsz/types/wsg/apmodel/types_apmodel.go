@@ -1,6 +1,6 @@
 package apmodel
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -14,6 +14,8 @@ type ApModel struct {
 	ExternalAntenna50 *ExternalAntenna `json:"externalAntenna50,omitempty"`
 
 	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty"`
+
+	Lacp *LacpSetting `json:"lacp,omitempty"`
 
 	LanPorts []*LanPortSetting `json:"lanPorts,omitempty"`
 
@@ -93,6 +95,8 @@ type CommonAttribute struct {
 
 	MaxWlanNum24G *int `json:"maxWlanNum24G,omitempty"`
 
+	MeshRadioCaps *string `json:"meshRadioCaps,omitempty"`
+
 	NoAvc *bool `json:"noAvc,omitempty"`
 
 	NoMesh *bool `json:"noMesh,omitempty"`
@@ -102,6 +106,8 @@ type CommonAttribute struct {
 	NonVisiblePorts []int `json:"nonVisiblePorts,omitempty"`
 
 	NumOfCores *int `json:"numOfCores,omitempty"`
+
+	PoeModeCaps *string `json:"poeModeCaps,omitempty"`
 
 	Ram *int `json:"ram,omitempty"`
 
@@ -131,6 +137,10 @@ type ExternalAntenna struct {
 
 	Dbi *int `json:"dbi,omitempty"`
 
+	Enabled *bool `json:"enabled,omitempty"`
+}
+
+type LacpSetting struct {
 	Enabled *bool `json:"enabled,omitempty"`
 }
 

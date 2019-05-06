@@ -1,6 +1,6 @@
 package aproutineconfiginterval
 
-// API Version: v8_0
+// API Version: v8_1
 
 type ApRoutineConfigIntervalReq struct {
 	ApRoutineConfigInterval *int `json:"apRoutineConfigInterval,omitempty"`

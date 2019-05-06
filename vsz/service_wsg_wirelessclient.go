@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -24,6 +24,9 @@ func (ss *WSGService) WSGWirelessClientService () *WSGWirelessClientService {
     serv := new(WSGWirelessClientService)
     serv.client = ss.client
     return serv
+}
+
+func (s *WSGWirelessClientService) AddClientsBulkDeauth (ctx context.Context) (*common.EmptyResult, error) {
 }
 
 func (s *WSGWirelessClientService) AddClientsBulkDisconnect (ctx context.Context) (*common.EmptyResult, error) {

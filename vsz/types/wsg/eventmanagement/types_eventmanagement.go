@@ -1,6 +1,6 @@
 package eventmanagement
 
-// API Version: v8_0
+// API Version: v8_1
 
 type EventDataList struct {
 	HasMore *bool `json:"hasMore,omitempty"`

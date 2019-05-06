@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -70,6 +70,9 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac (ctx conte
 }
 
 func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac (ctx context.Context, apMac string) (*common.EmptyResult, error) {
+}
+
+func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac (ctx context.Context, apMac string) (*common.EmptyResult, error) {
 }
 
 func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac (ctx context.Context, apMac string) (*common.EmptyResult, error) {

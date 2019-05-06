@@ -1,6 +1,6 @@
 package wlangroup
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -90,6 +90,10 @@ type WlanMember struct {
 	// Id
 	// Identifier of the WLAN
 	Id *string `json:"id,omitempty"`
+
+	// Name
+	// Name of the WLAN
+	Name *string `json:"name,omitempty"`
 
 	// NasId
 	// NAS-ID

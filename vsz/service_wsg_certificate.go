@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -28,6 +28,12 @@ func (s *WSGCertificateService) FindCertstoreCertificate (ctx context.Context) (
 }
 
 func (s *WSGCertificateService) FindCertstoreCertificateById (ctx context.Context, id string) (*certificate.Certificate, error) {
+}
+
+func (s *WSGCertificateService) FindCertstoreClientCert (ctx context.Context) (*certificate.ClientCertList, error) {
+}
+
+func (s *WSGCertificateService) FindCertstoreClientCertById (ctx context.Context, id string) (*certificate.ClientCert, error) {
 }
 
 func (s *WSGCertificateService) FindCertstoreCsr (ctx context.Context) (*certificate.CsrList, error) {

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -27,6 +27,12 @@ func (s *WSGAdministrationService) AddRestart (ctx context.Context) error {
 }
 
 func (s *WSGAdministrationService) AddShutdown (ctx context.Context) error {
+}
+
+func (s *WSGAdministrationService) FindAdminaaa (ctx context.Context) (*administration.RetrieveAdminAAAServerList, error) {
+}
+
+func (s *WSGAdministrationService) FindAdminaaaById (ctx context.Context, id string) (*administration.RetrieveAdminAAAServer, error) {
 }
 
 func (s *WSGAdministrationService) FindLicenses (ctx context.Context) (*administration.LicensesList, error) {

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"

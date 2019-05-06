@@ -1,6 +1,6 @@
 package group
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"encoding/json"
@@ -57,6 +57,26 @@ func (t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+type CloneConfigByGroup struct {
+	Destination []string `json:"destination,omitempty"`
+
+	// Source
+	// Source
+	Source *string `json:"source,omitempty"`
+}
+
+type CloneConfigBySwitch struct {
+	// Config
+	// Config
+	Config *string `json:"config,omitempty"`
+
+	Destination []string `json:"destination,omitempty"`
+
+	// Source
+	// Source
+	Source *string `json:"source,omitempty"`
+}
+
 type DeleteSwitchGroupResult struct {
 	*AuditId
 }
@@ -67,6 +87,16 @@ type ErrorObject struct {
 	Message *string `json:"message,omitempty"`
 
 	MsgKey *string `json:"msgKey,omitempty"`
+}
+
+type GetConfigBySwitch struct {
+	// Id
+	// ID
+	Id *string `json:"id,omitempty"`
+
+	// Source
+	// Source
+	Source *string `json:"source,omitempty"`
 }
 
 type GroupsByIdsQueryResultList struct {
@@ -196,6 +226,10 @@ type SwitchGroup struct {
 	// DomainId
 	// Identifier of the management domain to which the switch group belong
 	DomainId *string `json:"domainId,omitempty"`
+
+	// Firmware
+	// Firmware of the switch group
+	Firmware *string `json:"firmware,omitempty"`
 
 	// Id
 	// Identifier of the switch group

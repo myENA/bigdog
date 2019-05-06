@@ -1,11 +1,10 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
-	"github.com/myENA/ruckus-client/vsz/types/wsg/flexivpn"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
 
@@ -29,8 +28,5 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById (ctx context
 }
 
 func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria (ctx context.Context) (*profile.FlexiVpnProfileList, error) {
-}
-
-func (s *WSGFlexiVPNService) FindSystemFlexiVpnGlobalSetting (ctx context.Context) (*flexivpn.FlexiVpnGlobalSetting, error) {
 }
 

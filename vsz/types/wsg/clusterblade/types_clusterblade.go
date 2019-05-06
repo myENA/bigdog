@@ -1,6 +1,6 @@
 package clusterblade
 
-// API Version: v8_0
+// API Version: v8_1
 
 type BladeProgress struct {
 	// BladeUUID
@@ -24,42 +24,8 @@ type BladeProgress struct {
 	State *string `json:"state,omitempty"`
 }
 
-type ClusterApPatchOperationProgress struct {
-	// Operation
-	// operation of clusterOperationProgress
-	Operation *string `json:"operation,omitempty"`
-
-	// OverallProgress
-	// overallProgress of clusterOperationProgress
-	OverallProgress *int `json:"overallProgress,omitempty"`
-
-	PreviousOperationRecord *PreviousOperationRecord `json:"previousOperationRecord,omitempty"`
-}
-
 type ClusterOperationProgress struct {
-	// BladeProgresss
-	// bladeProgressMap of clusterOperationProgress
-	BladeProgresss []*BladeProgress `json:"bladeProgresss,omitempty"`
-
-	// ClusterOperationBlockUI
-	// clusterOperationBlockUI of clusterOperationProgress
-	ClusterOperationBlockUI *bool `json:"clusterOperationBlockUI,omitempty"`
-
-	// ClusterOperationDisplayMsg
-	// clusterOperationDisplayMsg of clusterOperationProgress
-	ClusterOperationDisplayMsg *string `json:"clusterOperationDisplayMsg,omitempty"`
-
-	// ClusterSubTaskState
-	// clusterSubTaskState of clusterOperationProgress
-	ClusterSubTaskState *string `json:"clusterSubTaskState,omitempty"`
-
-	// IsSelfBladeRebooting
-	// isSelfBladeRebooting of clusterOperationProgress
-	IsSelfBladeRebooting *bool `json:"isSelfBladeRebooting,omitempty"`
-
-	// Operation
-	// operation of clusterOperationProgress
-	Operation *string `json:"operation,omitempty"`
+	Operation *Operation `json:"operation,omitempty"`
 
 	// OverallProgress
 	// overallProgress of clusterOperationProgress
@@ -126,6 +92,36 @@ type ClusterStatus struct {
 	ClusterStatus *string `json:"clusterStatus,omitempty"`
 }
 
+type ClusterUpgradeProgress struct {
+	// BladeProgresss
+	// bladeProgressMap of clusterOperationProgress
+	BladeProgresss []*BladeProgress `json:"bladeProgresss,omitempty"`
+
+	// ClusterOperationBlockUI
+	// clusterOperationBlockUI of clusterOperationProgress
+	ClusterOperationBlockUI *bool `json:"clusterOperationBlockUI,omitempty"`
+
+	// ClusterOperationDisplayMsg
+	// clusterOperationDisplayMsg of clusterOperationProgress
+	ClusterOperationDisplayMsg *string `json:"clusterOperationDisplayMsg,omitempty"`
+
+	// ClusterSubTaskState
+	// clusterSubTaskState of clusterOperationProgress
+	ClusterSubTaskState *string `json:"clusterSubTaskState,omitempty"`
+
+	// IsSelfBladeRebooting
+	// isSelfBladeRebooting of clusterOperationProgress
+	IsSelfBladeRebooting *bool `json:"isSelfBladeRebooting,omitempty"`
+
+	Operation *Operation `json:"operation,omitempty"`
+
+	// OverallProgress
+	// overallProgress of clusterOperationProgress
+	OverallProgress *int `json:"overallProgress,omitempty"`
+
+	PreviousOperationRecord *PreviousOperationRecord `json:"previousOperationRecord,omitempty"`
+}
+
 type ControlNodeStatus struct {
 	NodeStatusList []*ControlNodeStatusNodeStatusListType `json:"nodeStatusList,omitempty"`
 }
@@ -140,14 +136,14 @@ type ControlNodeStatusNodeStatusListType struct {
 	NodeStatus *string `json:"nodeStatus,omitempty"`
 }
 
+type Operation string
+
 type PreviousOperationRecord struct {
 	// ErrorMsg
 	// errorMsg of previousOperationRecord
 	ErrorMsg *string `json:"errorMsg,omitempty"`
 
-	// Operation
-	// operation of previousOperationRecord
-	Operation *string `json:"operation,omitempty"`
+	Operation *Operation `json:"operation,omitempty"`
 
 	// Success
 	// success of previousOperationRecord

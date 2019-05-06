@@ -1,6 +1,6 @@
 package alarmlist
 
-// API Version: v8_0
+// API Version: v8_1
 
 type AlarmQueryResultList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`

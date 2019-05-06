@@ -1,12 +1,20 @@
 package common
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"encoding/json"
 )
 
-type FilterOperator interface{}
+type BulkDeleteRequest struct {
+	IdList IdList `json:"idList,omitempty"`
+}
+
+type CreateResult struct {
+	Id *string `json:"id,omitempty"`
+}
+
+type FilterOperator string
 
 type FullTextSearch struct {
 	// Fields
@@ -21,6 +29,8 @@ type FullTextSearch struct {
 	// Text or number to search
 	Value *string `json:"value,omitempty"`
 }
+
+type IdList []string
 
 type QueryCriteria struct {
 	// Attributes
@@ -73,7 +83,7 @@ type QueryCriteria struct {
 }
 
 type QueryCriteriaExtraFiltersType struct {
-	Operator FilterOperator `json:"operator,omitempty"`
+	Operator *FilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attributes
@@ -95,7 +105,7 @@ type QueryCriteriaExtraNotFiltersType struct {
 }
 
 type QueryCriteriaFiltersType struct {
-	Operator FilterOperator `json:"operator,omitempty"`
+	Operator *FilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Group type
@@ -189,7 +199,7 @@ type QueryCriteriaSuperSet struct {
 }
 
 type QueryCriteriaSuperSetExtraFiltersType struct {
-	Operator FilterOperator `json:"operator,omitempty"`
+	Operator *FilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attribute
@@ -211,7 +221,7 @@ type QueryCriteriaSuperSetExtraNotFiltersType struct {
 }
 
 type QueryCriteriaSuperSetFiltersType struct {
-	Operator FilterOperator `json:"operator,omitempty"`
+	Operator *FilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Group type

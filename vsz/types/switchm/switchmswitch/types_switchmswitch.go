@@ -1,6 +1,6 @@
 package switchmswitch
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"encoding/json"
@@ -347,6 +347,8 @@ type NetworkSwitch struct {
 	// Identifier of the management domain to which the switch belong
 	DomainId *string `json:"domainId,omitempty"`
 
+	Family *string `json:"family,omitempty"`
+
 	// FirmwareUpdate
 	// Information of firmware update
 	FirmwareUpdate *NetworkSwitchFirmwareUpdateType `json:"firmwareUpdate,omitempty"`
@@ -354,6 +356,10 @@ type NetworkSwitch struct {
 	// FirmwareVersion
 	// Switch firmware version
 	FirmwareVersion *string `json:"firmwareVersion,omitempty"`
+
+	// GroupFirmware
+	// Firmware of switch group
+	GroupFirmware *string `json:"groupFirmware,omitempty"`
 
 	// GroupId
 	// Identifier of switch group
@@ -406,6 +412,10 @@ type NetworkSwitch struct {
 	// NumOfUnits
 	// Count of switch unit
 	NumOfUnits *int `json:"numOfUnits,omitempty"`
+
+	// ParentGroupId
+	// Identifier of parent switch group
+	ParentGroupId *string `json:"parentGroupId,omitempty"`
 
 	// Poe
 	// Information of PoE

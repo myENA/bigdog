@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -68,6 +68,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById (ctx 
 }
 
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
+}
+
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
 }
 
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {

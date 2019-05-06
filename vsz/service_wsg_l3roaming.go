@@ -1,10 +1,9 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
-	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
 
@@ -28,8 +27,5 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming (ctx context.Context) 
 }
 
 func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria (ctx context.Context) (*profile.GetL3RoamingConfig, error) {
-}
-
-func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3RoamingDataPlanes (ctx context.Context) (*common.EmptyResult, error) {
 }
 

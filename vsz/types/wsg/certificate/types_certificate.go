@@ -1,6 +1,6 @@
 package certificate
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -110,6 +110,60 @@ type CertSetting struct {
 	ServiceCertificates []*ServiceCertificate `json:"serviceCertificates,omitempty"`
 }
 
+type ClientCert struct {
+	// Data
+	// Data of the client certificate
+	Data *string `json:"data,omitempty"`
+
+	Description *common.Description `json:"description,omitempty"`
+
+	// Id
+	// Identifier of the client certificate
+	Id *string `json:"id,omitempty"`
+
+	// Information
+	// Information of the client certificate
+	Information *string `json:"information,omitempty"`
+
+	// IntermediateData
+	// Intermediate data of the client certificate
+	IntermediateData []string `json:"intermediateData,omitempty"`
+
+	Name *common.NormalName `json:"name,omitempty"`
+
+	// PrivateKeyData
+	// Private key data of the client certificate
+	PrivateKeyData *string `json:"privateKeyData,omitempty"`
+
+	// PublicKey
+	// Public key data of the client certificate
+	PublicKey *string `json:"publicKey,omitempty"`
+
+	// RootData
+	// Root data of the client certificate
+	RootData *string `json:"rootData,omitempty"`
+}
+
+type ClientCertList struct {
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*ClientCertListType `json:"list,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+type ClientCertListType struct {
+	Description *common.Description `json:"description,omitempty"`
+
+	// Id
+	// Identifier of the client certificate
+	Id *string `json:"id,omitempty"`
+
+	Name *common.NormalName `json:"name,omitempty"`
+}
+
 type CreateCert struct {
 	CertificasSigningRequest *common.GenericRef `json:"certificasSigningRequest,omitempty"`
 
@@ -136,6 +190,28 @@ type CreateCert struct {
 
 	// RootData
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
+	RootData *string `json:"rootData,omitempty"`
+}
+
+type CreateClientCert struct {
+	// Data
+	// The value must be in PEM format which is a Base64 encoded DER client certificate.
+	Data *string `json:"data,omitempty"`
+
+	Description *common.Description `json:"description,omitempty"`
+
+	// IntermediateData
+	// The value must be in PEM format which is a Base64 encoded DER client certificate.
+	IntermediateData []string `json:"intermediateData,omitempty"`
+
+	Name *common.NormalName `json:"name,omitempty"`
+
+	// PrivateKeyData
+	// The value must be in PEM format which is a Base64 encoded DER client certificate.
+	PrivateKeyData *string `json:"privateKeyData,omitempty"`
+
+	// RootData
+	// The value must be in PEM format which is a Base64 encoded DER client certificate.
 	RootData *string `json:"rootData,omitempty"`
 }
 

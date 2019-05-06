@@ -1,6 +1,6 @@
 package clientquery
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -50,6 +50,10 @@ type CreateClientQuery struct {
 	IpAddress *string `json:"ipAddress,omitempty"`
 
 	Ipv6Address *string `json:"ipv6Address,omitempty"`
+
+	MedianRxMCSRate *int `json:"medianRxMCSRate,omitempty"`
+
+	MedianTxMCSRate *int `json:"medianTxMCSRate,omitempty"`
 
 	OsType *string `json:"osType,omitempty"`
 

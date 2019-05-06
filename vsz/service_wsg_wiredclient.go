@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -25,7 +25,10 @@ func (ss *WSGService) WSGWiredClientService () *WSGWiredClientService {
     return serv
 }
 
-func (s *WSGWiredClientService) AddClientsBulkDeauth (ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGWiredClientService) AddWiredClientsBulkDeauth (ctx context.Context) (*common.EmptyResult, error) {
+}
+
+func (s *WSGWiredClientService) AddWiredClientsDeauth (ctx context.Context) (*common.EmptyResult, error) {
 }
 
 func (s *WSGWiredClientService) FindWiredclientByQueryCriteria (ctx context.Context) (*wiredclientquery.ClientQueryList, error) {

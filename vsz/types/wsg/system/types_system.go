@@ -1,6 +1,6 @@
 package system
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -48,6 +48,20 @@ type ApNumberLimitSettingOfZone struct {
 	// ZoneName
 	// Zone Name
 	ZoneName *string `json:"zoneName,omitempty"`
+}
+
+type AuthenticationKey struct {
+	// Key
+	// Authentication Key value
+	Key *string `json:"key,omitempty"`
+
+	// KeyId
+	// Authentication Key ID
+	KeyId *int `json:"keyId,omitempty"`
+
+	// KeyType
+	// Authentication Key Type
+	KeyType *string `json:"keyType,omitempty"`
 }
 
 type CaptchaSetting struct {
@@ -238,6 +252,36 @@ type CpStaticRoute struct {
 	// SubnetMask
 	// Subnet Mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
+}
+
+type CpUserDefinedInterface struct {
+	// Gateway
+	// Gateway
+	Gateway *string `json:"gateway,omitempty"`
+
+	// IpAddress
+	// IP Address
+	IpAddress *string `json:"ipAddress,omitempty"`
+
+	// Name
+	// Name
+	Name *string `json:"name,omitempty"`
+
+	// PhysicalInterface
+	// Physical interface
+	PhysicalInterface *string `json:"physicalInterface,omitempty"`
+
+	// Service
+	// Service
+	Service *string `json:"service,omitempty"`
+
+	// SubnetMask
+	// Subnet Mask
+	SubnetMask *string `json:"subnetMask,omitempty"`
+
+	// Vlan
+	// Vlan
+	Vlan *string `json:"vlan,omitempty"`
 }
 
 type DataPlaneConfiguration struct {
@@ -847,6 +891,8 @@ type ModifySnmpAgent struct {
 }
 
 type ModifySystemTimeSetting struct {
+	AuthenticationKey *AuthenticationKey `json:"authenticationKey,omitempty"`
+
 	// NtpServer
 	// NtpServer address
 	NtpServer *string `json:"ntpServer,omitempty"`
@@ -858,6 +904,10 @@ type ModifySystemTimeSetting struct {
 
 type NorthboundInterface struct {
 	Password *common.ApLoginPassword `json:"password,omitempty"`
+
+	// RadiusAuthType
+	// AuthType of the Radius used in Northbound Interface, the value should be "PAP" or "CHAP".
+	RadiusAuthType *string `json:"radiusAuthType,omitempty"`
 
 	UserName *common.ApLoginName `json:"userName,omitempty"`
 }
@@ -1189,6 +1239,8 @@ type SystemSettings struct {
 }
 
 type SystemTimeSetting struct {
+	AuthenticationKey *AuthenticationKey `json:"authenticationKey,omitempty"`
+
 	// CurrentSystemTimeString
 	// System Time
 	CurrentSystemTimeString *string `json:"currentSystemTimeString,omitempty"`
@@ -1210,4 +1262,10 @@ type UpdateDpMeshTunnelSetting struct {
 	// Encrypted
 	// Data Plane mesh tunnel encrypted.
 	Encrypted *bool `json:"encrypted,omitempty"`
+}
+
+type UserDefinedInterfaceList struct {
+	// UserDefinedInterface
+	// User defined interface for Control Plane
+	UserDefinedInterface []*CpUserDefinedInterface `json:"userDefinedInterface,omitempty"`
 }

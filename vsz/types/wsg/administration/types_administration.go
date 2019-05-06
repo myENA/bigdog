@@ -1,11 +1,25 @@
 package administration
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/clusterblade"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
+
+type ActiveDirectoryServer struct {
+	Ip *common.IpAddress `json:"ip,omitempty"`
+
+	// Port
+	// Port number of Active Directory Server object
+	Port *int `json:"port,omitempty"`
+
+	Realm *common.Realm `json:"realm,omitempty"`
+
+	// WindowsDomainName
+	// Windows Domain Name of Active Directory Server object
+	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
+}
 
 type ApPatchHistory struct {
 	// ApFwVersion
@@ -54,7 +68,7 @@ type ApPatchInfo struct {
 }
 
 type ApPatchStatus struct {
-	ClusterOperationProgress *clusterblade.ClusterApPatchOperationProgress `json:"clusterOperationProgress,omitempty"`
+	ClusterOperationProgress *clusterblade.ClusterOperationProgress `json:"clusterOperationProgress,omitempty"`
 }
 
 type ApplicationLogAndStatus struct {
@@ -179,6 +193,65 @@ type ConfigurationBackupList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type CreateAdminAAAServer struct {
+	ActiveDirectoryServer *ActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
+
+	DefaultRoleMapping *DefaultRoleMapping `json:"defaultRoleMapping,omitempty"`
+
+	LdapServer *LdapServer `json:"ldapServer,omitempty"`
+
+	Name *common.NormalName `json:"name,omitempty"`
+
+	RadiusServer *RadiusServer `json:"radiusServer,omitempty"`
+
+	TacacsServer *TacacsServer `json:"tacacsServer,omitempty"`
+
+	// Type
+	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name
+	// [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	Type *string `json:"type,omitempty"`
+}
+
+type DefaultRoleMapping struct {
+	// DefaultAdmin
+	// DefaultAdmin of DefaultRoleMapping object
+	DefaultAdmin *string `json:"defaultAdmin,omitempty"`
+
+	// DefaultUserGroup
+	// DefaultUserGroup of DefaultRoleMapping object
+	DefaultUserGroup *string `json:"defaultUserGroup,omitempty"`
+}
+
+type LdapServer struct {
+	// AdminDomainName
+	// Admin Domain Name of LDAP Server object
+	AdminDomainName *string `json:"adminDomainName,omitempty"`
+
+	// AdminPassword
+	// Admin password of LDAP Server object
+	AdminPassword *string `json:"adminPassword,omitempty"`
+
+	// BaseDomainName
+	// Base Domain Name of LDAP Server object
+	BaseDomainName *string `json:"baseDomainName,omitempty"`
+
+	Ip *common.IpAddress `json:"ip,omitempty"`
+
+	// KeyAttribute
+	// Key attribute of LDAP Server object
+	KeyAttribute *string `json:"keyAttribute,omitempty"`
+
+	// Port
+	// Port number of LDAP Server object
+	Port *int `json:"port,omitempty"`
+
+	Realm *common.Realm `json:"realm,omitempty"`
+
+	// SearchFilter
+	// Search filter of LDAP Server object
+	SearchFilter *string `json:"searchFilter,omitempty"`
+}
+
 type Licenses struct {
 	// Count
 	// number of licenses
@@ -281,6 +354,25 @@ type ModfiyLicenseServer struct {
 	UseCloud *bool `json:"useCloud,omitempty"`
 }
 
+type ModifyAdminAAAServer struct {
+	ActiveDirectoryServer *ActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
+
+	DefaultRoleMapping *DefaultRoleMapping `json:"defaultRoleMapping,omitempty"`
+
+	LdapServer *LdapServer `json:"ldapServer,omitempty"`
+
+	Name *common.NormalName `json:"name,omitempty"`
+
+	RadiusServer *RadiusServer `json:"radiusServer,omitempty"`
+
+	TacacsServer *TacacsServer `json:"tacacsServer,omitempty"`
+
+	// Type
+	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name
+	// [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	Type *string `json:"type,omitempty"`
+}
+
 type ModifyAutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
@@ -327,6 +419,63 @@ type ModifyScheduleBackup struct {
 	Minute *int `json:"minute,omitempty"`
 }
 
+type RadiusServer struct {
+	Ip *common.IpAddress `json:"ip,omitempty"`
+
+	// Port
+	// Port number of RADIUS Server object
+	Port *int `json:"port,omitempty"`
+
+	Realm *common.Realm `json:"realm,omitempty"`
+
+	SecondaryRadiusServer *SecondaryRadiusServer `json:"secondaryRadiusServer,omitempty"`
+
+	// SharedSecret
+	// Shared secret of RADIUS Server object
+	SharedSecret *string `json:"sharedSecret,omitempty"`
+}
+
+type RetrieveAdminAAAServer struct {
+	ActiveDirectoryServer *ActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
+
+	DefaultRoleMapping *DefaultRoleMapping `json:"defaultRoleMapping,omitempty"`
+
+	// Id
+	// ID of this Admin AAA Server
+	Id *string `json:"id,omitempty"`
+
+	LdapServer *LdapServer `json:"ldapServer,omitempty"`
+
+	Name *common.NormalName `json:"name,omitempty"`
+
+	RadiusServer *RadiusServer `json:"radiusServer,omitempty"`
+
+	TacacsServer *TacacsServer `json:"tacacsServer,omitempty"`
+
+	// Type
+	// Type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is
+	// for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	Type *string `json:"type,omitempty"`
+}
+
+type RetrieveAdminAAAServerList struct {
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*RetrieveAdminAAAServerListType `json:"list,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+type RetrieveAdminAAAServerListType struct {
+	Id *string `json:"id,omitempty"`
+
+	Name *common.NormalName `json:"name,omitempty"`
+
+	Type *string `json:"type,omitempty"`
+}
+
 type ScheduleBackup struct {
 	// DateOfMonth
 	// date of the month
@@ -351,6 +500,44 @@ type ScheduleBackup struct {
 	// Minute
 	// minute
 	Minute *int `json:"minute,omitempty"`
+}
+
+type SecondaryRadiusServer struct {
+	Ip *common.IpAddress `json:"ip,omitempty"`
+
+	// MaxRetries
+	// Max number(how many times) of retries for re-connection to primary
+	MaxRetries *int `json:"maxRetries,omitempty"`
+
+	// Port
+	// Port number of Secondary RADIUS Server object
+	Port *int `json:"port,omitempty"`
+
+	// RequestTimeOut
+	// Request timeout(seconds) value of re-connection to primary
+	RequestTimeOut *int `json:"requestTimeOut,omitempty"`
+
+	// RetryPriInvl
+	// Interval of re-connection to primary(1-60 minute)
+	RetryPriInvl *int `json:"retryPriInvl,omitempty"`
+
+	// SharedSecret
+	// Shared secret of Secondary RADIUS Server object
+	SharedSecret *string `json:"sharedSecret,omitempty"`
+}
+
+type TacacsServer struct {
+	Ip *common.IpAddress `json:"ip,omitempty"`
+
+	// Port
+	// Port number of TACACS+ Server object
+	Port *int `json:"port,omitempty"`
+
+	Service *common.Realm `json:"service,omitempty"`
+
+	// SharedSecret
+	// Shared secret of TACACS+ Server object
+	SharedSecret *string `json:"sharedSecret,omitempty"`
 }
 
 type UpgradeHistoryList struct {
@@ -410,13 +597,13 @@ type UpgradeHistorySummary struct {
 }
 
 type UpgradePatchInfo struct {
-	ClusterOperationProgress *clusterblade.ClusterOperationProgress `json:"clusterOperationProgress,omitempty"`
+	ClusterOperationProgress *clusterblade.ClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 
 	UploadPatchInfo *clusterblade.UploadPatchInfo `json:"uploadPatchInfo,omitempty"`
 }
 
 type UpgradeStatus struct {
-	ClusterOperationProgress *clusterblade.ClusterOperationProgress `json:"clusterOperationProgress,omitempty"`
+	ClusterOperationProgress *clusterblade.ClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 }
 
 type ZdAP struct {

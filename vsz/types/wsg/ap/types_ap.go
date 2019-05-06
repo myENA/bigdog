@@ -1,6 +1,6 @@
 package ap
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/apmodel"
@@ -89,6 +89,10 @@ type ApConfiguration struct {
 	Login *Login `json:"login,omitempty"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
+
+	// LteBandLockChannels
+	// LTE band lock channels options
+	LteBandLockChannels []*common.LteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Mac *common.Mac `json:"mac,omitempty"`
 
@@ -522,6 +526,10 @@ type ModifyAP struct {
 	Login *Login `json:"login,omitempty"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
+
+	// LteBandLockChannels
+	// LTE band lock channels options
+	LteBandLockChannels []*common.LteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	MeshOptions *Mesh `json:"meshOptions,omitempty"`
 

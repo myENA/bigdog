@@ -1,6 +1,6 @@
 package apgroup
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -57,6 +57,10 @@ type ApGroupConfiguration struct {
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
 
+	// LteBandLockChannels
+	// LTE band lock channels options
+	LteBandLockChannels []*common.LteBandLockChannel `json:"lteBandLockChannels,omitempty"`
+
 	// Members
 	// Members of the AP group
 	Members []*ApGroupMember `json:"members,omitempty"`
@@ -106,6 +110,10 @@ type ApGroupList struct {
 
 type ApGroupMember struct {
 	ApMac *common.Mac `json:"apMac,omitempty"`
+
+	// ApSerial
+	// Serial number of member AP
+	ApSerial *string `json:"apSerial,omitempty"`
 }
 
 type ApGroupSummary struct {
@@ -162,6 +170,10 @@ type CreateAPGroup struct {
 	LocationBasedService *common.OverrideGenericRef `json:"locationBasedService,omitempty"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
+
+	// LteBandLockChannels
+	// LTE band lock channels options
+	LteBandLockChannels []*common.LteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -234,6 +246,10 @@ type ModifyAPGroup struct {
 	LocationBasedService *common.OverrideGenericRef `json:"locationBasedService,omitempty"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
+
+	// LteBandLockChannels
+	// LTE band lock channels options
+	LteBandLockChannels []*common.LteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 

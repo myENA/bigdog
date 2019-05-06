@@ -1,6 +1,6 @@
 package common
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"encoding/json"
@@ -359,6 +359,8 @@ type DhcpSiteConfigListRefSiteApsType struct {
 
 	ApServerPrimary *bool `json:"apServerPrimary,omitempty"`
 
+	ApServerType *string `json:"apServerType,omitempty"`
+
 	ApStatus *string `json:"apStatus,omitempty"`
 }
 
@@ -403,6 +405,8 @@ type DhcpSiteConfigRefSiteApsType struct {
 	ApServerIp *string `json:"apServerIp,omitempty"`
 
 	ApServerPrimary *bool `json:"apServerPrimary,omitempty"`
+
+	ApServerType *string `json:"apServerType,omitempty"`
 
 	ApStatus *string `json:"apStatus,omitempty"`
 }
@@ -523,6 +527,24 @@ type Location string
 type LocationAdditionalInfo string
 
 type Longitude float64
+
+type LteBandLockChannel struct {
+	// ChannelG
+	// LTE 3G channels
+	ChannelG *string `json:"channel3g,omitempty"`
+
+	// ChannelG
+	// LTE 4G channels
+	ChannelG *string `json:"channel4g,omitempty"`
+
+	// SimCardId
+	// SIM card ID(Primary:0, Secondary:1)
+	SimCardId *int `json:"simCardId,omitempty"`
+
+	// Type
+	// LTE chipset SKU type
+	Type *string `json:"type,omitempty"`
+}
 
 type Mac string
 
@@ -1186,6 +1208,16 @@ type TrafficClassRef struct {
 }
 
 type TxPower string
+
+type WebAuthenticationPortalCustomization struct {
+	// Logo
+	// Logo encoded with base64, format is "data:image/png;base64,the base64 encoded logo"
+	Logo *string `json:"logo,omitempty"`
+
+	// Title
+	// Title of the custom portal
+	Title *string `json:"title,omitempty"`
+}
 
 // WildFQDN
 //

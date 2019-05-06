@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -25,9 +25,6 @@ func (ss *SwitchMService) SwitchMSwitchService () *SwitchMSwitchService {
 }
 
 func (s *SwitchMSwitchService) AddSwitch (ctx context.Context) (*switchmswitch.SwitchQueryResultList, error) {
-}
-
-func (s *SwitchMSwitchService) AddSwitchExportcsv (ctx context.Context) error {
 }
 
 func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch (ctx context.Context) (*switchmswitch.SwitchQueryResultList, error) {

@@ -1,6 +1,6 @@
 package serviceticket
 
-// API Version: v8_0
+// API Version: v8_1
 
 type LoginRequest struct {
 	// Password

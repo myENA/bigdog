@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -31,6 +31,9 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID (ctx context.Cont
 }
 
 func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID (ctx context.Context, bladeUUID string) (*system.StaticRouteList, error) {
+}
+
+func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID (ctx context.Context, bladeUUID string) (*system.UserDefinedInterfaceList, error) {
 }
 
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport (ctx context.Context) (*common.EmptyResult, error) {

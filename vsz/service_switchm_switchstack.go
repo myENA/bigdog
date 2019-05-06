@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -21,6 +21,12 @@ func (ss *SwitchMService) SwitchMSwitchStackService () *SwitchMSwitchStackServic
     serv := new(SwitchMSwitchStackService)
     serv.client = ss.client
     return serv
+}
+
+func (s *SwitchMSwitchStackService) AddStack (ctx context.Context) (stack.AuditIdList, error) {
+}
+
+func (s *SwitchMSwitchStackService) FindStackBySwitchId (ctx context.Context, switchId string) (*stack.StackConfig, error) {
 }
 
 func (s *SwitchMSwitchStackService) FindStackMemberBySerialNumber (ctx context.Context, serialNumber string) (*stack.List, error) {

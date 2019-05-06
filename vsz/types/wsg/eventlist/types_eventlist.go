@@ -1,6 +1,6 @@
 package eventlist
 
-// API Version: v8_0
+// API Version: v8_1
 
 type EventQueryResultList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`

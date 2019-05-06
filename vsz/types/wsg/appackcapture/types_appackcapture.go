@@ -1,6 +1,6 @@
 package appackcapture
 
-// API Version: v8_0
+// API Version: v8_1
 
 type ApPacketCaptureReq struct {
 	// CaptureInterface

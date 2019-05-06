@@ -1,6 +1,6 @@
 package portalservice
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -144,10 +144,6 @@ type CreateHotspotInternal struct {
 	// HTTPS Redirect is disable or not
 	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
 
-	// InternalNode
-	// Internal Node of the Hotspot
-	InternalNode *string `json:"internalNode,omitempty"`
-
 	Location *PortalLocation `json:"location,omitempty"`
 
 	MacAddressFormat *MacAddressFormatSetting `json:"macAddressFormat,omitempty"`
@@ -156,17 +152,9 @@ type CreateHotspotInternal struct {
 
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
-	// SignatureSigningKey
-	// Signature Signing Key of the Hotspot
-	SignatureSigningKey *string `json:"signatureSigningKey,omitempty"`
-
 	// SmartClientSupport
 	// Smart client support of the Hotspot
 	SmartClientSupport *string `json:"smartClientSupport,omitempty"`
-
-	// TrafficClassProfileId
-	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -239,6 +227,8 @@ type CreateWebAuthentication struct {
 	Name *common.NormalName `json:"name,omitempty"`
 
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
+
+	WebAuthenticationPortalCustomization *common.WebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
 }
 
 type CreateWechat struct {
@@ -642,6 +632,8 @@ type ModifyWebAuthentication struct {
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
+
+	WebAuthenticationPortalCustomization *common.WebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
 }
 
 type ModifyWechat struct {
@@ -738,6 +730,8 @@ type WebAuthentication struct {
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
+
+	WebAuthenticationPortalCustomization *common.WebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone which the web authentication profile belongs to

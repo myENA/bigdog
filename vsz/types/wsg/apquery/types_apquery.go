@@ -1,6 +1,6 @@
 package apquery
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -54,6 +54,8 @@ type CreateApQuery struct {
 	CellularCountry *string `json:"cellularCountry,omitempty"`
 
 	CellularDefaultGateway *string `json:"cellularDefaultGateway,omitempty"`
+
+	CellularGpsHistory []*CreateApQueryCellularGpsHistoryType `json:"cellularGpsHistory,omitempty"`
 
 	CellularICCIDSIM0 *string `json:"cellularICCIDSIM0,omitempty"`
 
@@ -205,6 +207,14 @@ type CreateApQuery struct {
 
 	ManagementVlan *int `json:"managementVlan,omitempty"`
 
+	MedianRxRadioMCSRate24G *int `json:"medianRxRadioMCSRate24G,omitempty"`
+
+	MedianRxRadioMCSRate50G *int `json:"medianRxRadioMCSRate50G,omitempty"`
+
+	MedianTxRadioMCSRate24G *int `json:"medianTxRadioMCSRate24G,omitempty"`
+
+	MedianTxRadioMCSRate50G *int `json:"medianTxRadioMCSRate50G,omitempty"`
+
 	MeshMode *string `json:"meshMode,omitempty"`
 
 	MeshRole *string `json:"meshRole,omitempty"`
@@ -268,6 +278,14 @@ type CreateApQuery struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 
 	ZoneName *string `json:"zoneName,omitempty"`
+}
+
+type CreateApQueryCellularGpsHistoryType struct {
+	Latitude *string `json:"latitude,omitempty"`
+
+	Longitude *string `json:"longitude,omitempty"`
+
+	Timestamp *int `json:"timestamp,omitempty"`
 }
 
 type CreateApQueryIndoorMapXyType struct {

@@ -1,6 +1,8 @@
 package stack
 
-// API Version: v8_0
+// API Version: v8_1
+
+type AuditIdList []*switchmswitch.AuditId
 
 type List struct {
 	// FirstIndex
@@ -295,3 +297,23 @@ type MemberSwitchPortsTypeTrafficUsageType struct {
 	// Tx traffic usage of switch port
 	Tx *int `json:"tx,omitempty"`
 }
+
+type StackConfig struct {
+	// ActiveSwitchId
+	// Switch Id of Active Unit
+	ActiveSwitchId *string `json:"activeSwitchId,omitempty"`
+
+	// IsActiveRole
+	// Switch role is Active, True (Active) or False (Standby or Member)
+	IsActiveRole *bool `json:"isActiveRole,omitempty"`
+
+	// SuggestedId
+	// Suggested switch unit Id in stack, 1 ~ 12
+	SuggestedId *int `json:"suggestedId,omitempty"`
+
+	// SwitchId
+	// Switch Id
+	SwitchId *string `json:"switchId,omitempty"`
+}
+
+type StackConfigList []*StackConfig

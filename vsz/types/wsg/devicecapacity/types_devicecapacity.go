@@ -1,6 +1,6 @@
 package devicecapacity
 
-// API Version: v8_0
+// API Version: v8_1
 
 type DevicesSummary struct {
 	// ApCapacity

@@ -1,6 +1,6 @@
 package wlan
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -157,6 +157,8 @@ type CreateHotspot20OpenWlan struct {
 
 	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
+	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
+
 	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
@@ -190,10 +192,6 @@ type CreateHotspot20OpenWlan struct {
 	Ssid *WlanNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
-}
-
-type CreateHotspot20OSENWlan struct {
-	*CreateHotspot20OpenWlan
 }
 
 type CreateHotspot20Wlan struct {
@@ -283,14 +281,6 @@ type CreateHotspot20Wlan struct {
 	Ssid *WlanNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
-}
-
-type CreateHotspot8021XWlan struct {
-	*CreateHotspotWlan
-}
-
-type CreateHotspotMacWlan struct {
-	*CreateHotspotWlan
 }
 
 type CreateHotspotWlan struct {
@@ -442,8 +432,6 @@ type CreateStandard80211Wlan struct {
 
 	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
-	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
-
 	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
@@ -477,14 +465,6 @@ type CreateStandard80211Wlan struct {
 	Ssid *WlanNameSSID `json:"ssid,omitempty"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
-}
-
-type CreateStandard80211WlanMac struct {
-	*CreateStandard80211Wlan
-}
-
-type CreateStandardMacWlan struct {
-	*CreateStandard80211Wlan
 }
 
 type CreateStandardOpenWlan struct {
@@ -727,6 +707,8 @@ type CreateWechatWlan struct {
 
 	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
+	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
+
 	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
@@ -953,11 +935,37 @@ type WlanAdvanced struct {
 	DgafEnabled *bool `json:"dgafEnabled,omitempty"`
 
 	// Dhcp82Format
-	// DHCP Option 82 format
+	// DHCP Option 82 format. This variable no longer supports from v8_1 and only kept for backward
+	// compatibility.
 	Dhcp82Format *string `json:"dhcp82Format,omitempty"`
 
+	// Dhcp82SubOpt1Format
+	// Subopt-1 format
+	Dhcp82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty"`
+
+	// Dhcp82SubOpt2Format
+	// Subopt-2 format
+	Dhcp82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty"`
+
+	// Dhcp82SubOpt150Format
+	// Subopt-150 with VLAN-Id
+	Dhcp82SubOpt150Format *string `json:"dhcp82SubOpt150Format,omitempty"`
+
+	// Dhcp82SubOpt151AreaName
+	// Subopt-151 Area Name value
+	Dhcp82SubOpt151AreaName *string `json:"dhcp82SubOpt151AreaName,omitempty"`
+
+	// Dhcp82SubOpt151Format
+	// Subopt-151 format
+	Dhcp82SubOpt151Format *string `json:"dhcp82SubOpt151Format,omitempty"`
+
+	// Dhcp82SubOptRadiusFormat
+	// Radius DHCP/NAT option 82 Format
+	Dhcp82SubOptRadiusFormat *string `json:"dhcp82SubOptRadiusFormat,omitempty"`
+
 	// DhcpOption82Enabled
-	// Indicates whether DCHP Option 82 is enabled or disabled
+	// Indicates whether DCHP Option 82 is enabled or disabled. This variable no longer supports from v8_1 and
+	// only kept for backward compatibility.
 	DhcpOption82Enabled *bool `json:"dhcpOption82Enabled,omitempty"`
 
 	// DhcpRequestRateLimit
@@ -976,6 +984,10 @@ type WlanAdvanced struct {
 	// DownlinkRate
 	// SSID Rate Limiting downlink.
 	DownlinkRate *float64 `json:"downlinkRate,omitempty"`
+
+	// DropRandomProbesEnabled
+	// Drop Random Probes enabled.
+	DropRandomProbesEnabled *bool `json:"dropRandomProbesEnabled,omitempty"`
 
 	// DtimInterval
 	// DTIM Interval
@@ -1426,6 +1438,10 @@ type WlanRadius struct {
 	// When Single Accounting Session ID is enabled, APs will maintain one accounting session for client
 	// roaming
 	SingleSessionIdAcctEnabled *bool `json:"singleSessionIdAcctEnabled,omitempty"`
+
+	// VendorSpecificAttributeProfileId
+	// Vendor Specific Attribute Profile ID
+	VendorSpecificAttributeProfileId *string `json:"vendorSpecificAttributeProfileId,omitempty"`
 }
 
 type WlanSchedule struct {

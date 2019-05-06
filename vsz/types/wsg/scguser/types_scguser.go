@@ -1,10 +1,198 @@
 package scguser
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
+
+type CreateScgUser struct {
+	// AccountLockout
+	// The number of successive failures before a lockout will occur. (System default admin ONLY)
+	AccountLockout *int `json:"accountLockout,omitempty"`
+
+	// DomainId
+	// Domain id
+	DomainId *string `json:"domainId,omitempty"`
+
+	// Email
+	// User email
+	Email *string `json:"email,omitempty"`
+
+	// Id
+	// User id
+	Id *string `json:"id,omitempty"`
+
+	// LockoutDuration
+	// The duration for which the account is automatically locked without administrative intervention. (System
+	// default admin ONLY)
+	LockoutDuration *int `json:"lockoutDuration,omitempty"`
+
+	// MinimumPasswordLength
+	// The minimum length of the password for the account. (System default admin ONLY)
+	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty"`
+
+	// NewPassphrase
+	// User login passphrase
+	NewPassphrase *string `json:"newPassphrase,omitempty"`
+
+	// PasswordExpiration
+	// A simple timer that forces the administrator to change their password regularly. (System default admin
+	// ONLY)
+	PasswordExpiration *int `json:"passwordExpiration,omitempty"`
+
+	// PasswordReuse
+	// A validation the prevents reuse of the same password(s). (System default admin ONLY)
+	PasswordReuse *int `json:"passwordReuse,omitempty"`
+
+	// Phone
+	// User phone
+	Phone *string `json:"phone,omitempty"`
+
+	// RealName
+	// User real name
+	RealName *string `json:"realName,omitempty"`
+
+	// SessionIdle
+	// A period of idle used to invalid that session. (System default admin ONLY)
+	SessionIdle *int `json:"sessionIdle,omitempty"`
+
+	// Title
+	// User title
+	Title *string `json:"title,omitempty"`
+
+	// UserName
+	// User name
+	UserName *string `json:"userName,omitempty"`
+}
+
+type GetScgUser struct {
+	AccountLockout *int `json:"accountLockout,omitempty"`
+
+	// CreateDateTime
+	// Timestamp of being created
+	CreateDateTime *int `json:"createDateTime,omitempty"`
+
+	// CreatorId
+	// Creator ID
+	CreatorId *string `json:"creatorId,omitempty"`
+
+	// CreatorUsername
+	// Creator Name
+	CreatorUsername *string `json:"creatorUsername,omitempty"`
+
+	// DomainId
+	// Domain id
+	DomainId *string `json:"domainId,omitempty"`
+
+	// Email
+	// User email
+	Email *string `json:"email,omitempty"`
+
+	// Enabled
+	// User enabled or not
+	Enabled *int `json:"enabled,omitempty"`
+
+	// Id
+	// User id
+	Id *string `json:"id,omitempty"`
+
+	// Locked
+	// User locked or not (0:unlocked/1:locked)
+	Locked *int `json:"locked,omitempty"`
+
+	LockoutDuration *int `json:"lockoutDuration,omitempty"`
+
+	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty"`
+
+	// ModifiedDateTime
+	// Timestamp of being modified
+	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
+
+	// ModifierId
+	// Modifier ID
+	ModifierId *string `json:"modifierId,omitempty"`
+
+	// ModifierUsername
+	// Modifier Name
+	ModifierUsername *string `json:"modifierUsername,omitempty"`
+
+	PasswordExpiration *int `json:"passwordExpiration,omitempty"`
+
+	PasswordReuse *int `json:"passwordReuse,omitempty"`
+
+	// Phone
+	// User phone
+	Phone *string `json:"phone,omitempty"`
+
+	// RealName
+	// User real name
+	RealName *string `json:"realName,omitempty"`
+
+	SessionIdle *int `json:"sessionIdle,omitempty"`
+
+	// TenantUUID
+	// Tenant id
+	TenantUUID *string `json:"tenantUUID,omitempty"`
+
+	// Title
+	// User title
+	Title *string `json:"title,omitempty"`
+
+	// UserName
+	// User name
+	UserName *string `json:"userName,omitempty"`
+}
+
+type ModifyScgUser struct {
+	AccountLockout *int `json:"accountLockout,omitempty"`
+
+	// DomainId
+	// Domain id
+	DomainId *string `json:"domainId,omitempty"`
+
+	// Email
+	// User email
+	Email *string `json:"email,omitempty"`
+
+	// Id
+	// User id
+	Id *string `json:"id,omitempty"`
+
+	LockoutDuration *int `json:"lockoutDuration,omitempty"`
+
+	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty"`
+
+	// NewPassphrase
+	// User new login passphrase
+	NewPassphrase *string `json:"newPassphrase,omitempty"`
+
+	// Passphrase
+	// User login passphrase
+	Passphrase *string `json:"passphrase,omitempty"`
+
+	PasswordExpiration *int `json:"passwordExpiration,omitempty"`
+
+	PasswordReuse *int `json:"passwordReuse,omitempty"`
+
+	// Phone
+	// User phone
+	Phone *string `json:"phone,omitempty"`
+
+	// RealName
+	// User real name
+	RealName *string `json:"realName,omitempty"`
+
+	SessionIdle *int `json:"sessionIdle,omitempty"`
+
+	// Title
+	// User title
+	Title *string `json:"title,omitempty"`
+
+	// UserName
+	// User name
+	UserName *string `json:"userName,omitempty"`
+}
 
 type PatchScgUserGroup struct {
 	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty"`
@@ -37,7 +225,7 @@ type PatchScgUserGroup struct {
 
 	TenantId *string `json:"tenantId,omitempty"`
 
-	Users []*ScgUser `json:"users,omitempty"`
+	Users []*GetScgUser `json:"users,omitempty"`
 }
 
 type QueryCriteria struct {
@@ -102,86 +290,6 @@ type QueryCriteriaFiltersType struct {
 	// Value
 	// DOMAIN ID
 	Value *string `json:"value,omitempty"`
-}
-
-type ScgUser struct {
-	// CompanyName
-	// User company name
-	CompanyName *string `json:"companyName,omitempty"`
-
-	// CreateDateTime
-	// Timestamp of being created
-	CreateDateTime *int `json:"createDateTime,omitempty"`
-
-	// CreatorId
-	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
-
-	// CreatorUsername
-	// Creator Name
-	CreatorUsername *string `json:"creatorUsername,omitempty"`
-
-	// DomainId
-	// Domain id
-	DomainId *string `json:"domainId,omitempty"`
-
-	// Email
-	// User email
-	Email *string `json:"email,omitempty"`
-
-	// Enabled
-	// User enabled or not
-	Enabled *int `json:"enabled,omitempty"`
-
-	// Id
-	// User id
-	Id *string `json:"id,omitempty"`
-
-	// Locked
-	// User locked or not (0:unlocked/1:locked)
-	Locked *int `json:"locked,omitempty"`
-
-	// ModifiedDateTime
-	// Timestamp of being modified
-	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
-
-	// ModifierId
-	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
-
-	// ModifierUsername
-	// Modifier Name
-	ModifierUsername *string `json:"modifierUsername,omitempty"`
-
-	// Passphrase
-	// User login passphrase
-	Passphrase *string `json:"passphrase,omitempty"`
-
-	PasswordExpiration *int `json:"passwordExpiration,omitempty"`
-
-	PasswordReuse *int `json:"passwordReuse,omitempty"`
-
-	// Phone
-	// User phone
-	Phone *string `json:"phone,omitempty"`
-
-	// RealName
-	// User real name
-	RealName *string `json:"realName,omitempty"`
-
-	SessionIdle *int `json:"sessionIdle,omitempty"`
-
-	// TenantUUID
-	// Tenant id
-	TenantUUID *string `json:"tenantUUID,omitempty"`
-
-	// Title
-	// User title
-	Title *string `json:"title,omitempty"`
-
-	// UserName
-	// User name
-	UserName *string `json:"userName,omitempty"`
 }
 
 type ScgUserAuditId struct {
@@ -255,7 +363,7 @@ type ScgUserGroup struct {
 
 	// Users
 	// Users in this user group
-	Users []*ScgUser `json:"users,omitempty"`
+	Users []*GetScgUser `json:"users,omitempty"`
 }
 
 type ScgUserGroupAuditId struct {
@@ -398,7 +506,7 @@ type ScgUserList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*ScgUser `json:"list,omitempty"`
+	List []*GetScgUser `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

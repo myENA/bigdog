@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"context"
@@ -29,6 +29,6 @@ func (s *WSGSCGUserService) AddUsers (ctx context.Context) (*scguser.ScgUserAudi
 func (s *WSGSCGUserService) FindUsersByQueryCriteria (ctx context.Context) (*scguser.ScgUserList, error) {
 }
 
-func (s *WSGSCGUserService) FindUsersByUserId (ctx context.Context, userId string) (*scguser.ScgUser, error) {
+func (s *WSGSCGUserService) FindUsersByUserId (ctx context.Context, userId string) (*scguser.GetScgUser, error) {
 }
 

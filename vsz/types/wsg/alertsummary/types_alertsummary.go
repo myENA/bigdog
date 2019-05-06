@@ -1,6 +1,6 @@
 package alertsummary
 
-// API Version: v8_0
+// API Version: v8_1
 
 type AlarmSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`

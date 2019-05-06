@@ -1,6 +1,6 @@
 package zoneapmodel
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/apmodel"
@@ -15,6 +15,8 @@ type ApModel struct {
 	ExternalAntenna50 *apmodel.ExternalAntenna `json:"externalAntenna50,omitempty"`
 
 	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty"`
+
+	Lacp *apmodel.LacpSetting `json:"lacp,omitempty"`
 
 	LanPorts []*LanPortSetting `json:"lanPorts,omitempty"`
 

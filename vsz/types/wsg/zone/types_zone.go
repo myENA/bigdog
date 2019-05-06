@@ -1,6 +1,6 @@
 package zone
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -228,6 +228,15 @@ type CreateDiffServProfile struct {
 type CreateZone struct {
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
+	// ApHccdEnabled
+	// Historical Connection Failures allows the AP to report historical client connection failures for this
+	// zone.
+	ApHccdEnabled *bool `json:"apHccdEnabled,omitempty"`
+
+	// ApHccdPersist
+	// Allow Historical Connection Failures to be persisted.
+	ApHccdPersist *bool `json:"apHccdPersist,omitempty"`
+
 	ApLatencyInterval *common.ApLatencyInterval `json:"apLatencyInterval,omitempty"`
 
 	ApMgmtVlan *common.ApManagementVlan `json:"apMgmtVlan,omitempty"`
@@ -258,6 +267,10 @@ type CreateZone struct {
 	// 5.8Ghz channels license enabled configuration of the zone.
 	CbandChannelLicenseEnabled *bool `json:"cbandChannelLicenseEnabled,omitempty"`
 
+	// Channel144Enabled
+	// Channel 144 enabled configuration of the zone.
+	Channel144Enabled *bool `json:"channel144Enabled,omitempty"`
+
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
@@ -285,7 +298,7 @@ type CreateZone struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// DfsChannelEnabled
-	// DFS Channel enabled configuration of the zone, only for the US country code .
+	// DFS Channel enabled configuration of the zone, only for the US country code.
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
 	DhcpSiteConfig *common.DhcpSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
@@ -322,6 +335,10 @@ type CreateZone struct {
 	// DoS Protection(Barring UE) threshold of the zone.
 	DosBarringThreshold *int `json:"dosBarringThreshold,omitempty"`
 
+	// EnforcePriorityZoneAffinityEnable
+	// Enforced the priority of Affinity Profile.
+	EnforcePriorityZoneAffinityEnable *bool `json:"enforcePriorityZoneAffinityEnable,omitempty"`
+
 	// HealthCheckSites
 	// Health Check Sites.
 	HealthCheckSites []string `json:"healthCheckSites,omitempty"`
@@ -335,6 +352,8 @@ type CreateZone struct {
 	// IpsecProfiles
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
+
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -353,6 +372,10 @@ type CreateZone struct {
 	Login *ApLogin `json:"login,omitempty"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
+
+	// LteBandLockChannels
+	// LTE band lock channels options
+	LteBandLockChannels []*common.LteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 
@@ -411,6 +434,10 @@ type CreateZone struct {
 	Wifi24 *common.Radio24 `json:"wifi24,omitempty"`
 
 	Wifi50 *common.Radio50 `json:"wifi50,omitempty"`
+
+	// ZoneAffinityProfileId
+	// Zone affinity profile of the zone
+	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
 type CustomizedTimeZone struct {
@@ -558,6 +585,10 @@ type ModifyZone struct {
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
+	ApHccdEnabled *bool `json:"apHccdEnabled,omitempty"`
+
+	ApHccdPersist *bool `json:"apHccdPersist,omitempty"`
+
 	ApLatencyInterval *common.ApLatencyInterval `json:"apLatencyInterval,omitempty"`
 
 	ApMgmtVlan *common.ApManagementVlan `json:"apMgmtVlan,omitempty"`
@@ -591,6 +622,10 @@ type ModifyZone struct {
 	// CbandChannelLicenseEnabled
 	// 5.8Ghz channels license enabled configuration of the zone.
 	CbandChannelLicenseEnabled *bool `json:"cbandChannelLicenseEnabled,omitempty"`
+
+	// Channel144Enabled
+	// Channel 144 enabled configuration of the zone.
+	Channel144Enabled *bool `json:"channel144Enabled,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
@@ -656,6 +691,10 @@ type ModifyZone struct {
 	// DoS Protection(Barring UE) threshold of the zone.
 	DosBarringThreshold *int `json:"dosBarringThreshold,omitempty"`
 
+	// EnforcePriorityZoneAffinityEnable
+	// Enforce the priority of zone affinity
+	EnforcePriorityZoneAffinityEnable *bool `json:"enforcePriorityZoneAffinityEnable,omitempty"`
+
 	// HealthCheckSites
 	// Health Check Sites.
 	HealthCheckSites []string `json:"healthCheckSites,omitempty"`
@@ -669,6 +708,8 @@ type ModifyZone struct {
 	// IpsecProfiles
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
+
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -687,6 +728,10 @@ type ModifyZone struct {
 	Login *ApLogin `json:"login,omitempty"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
+
+	// LteBandLockChannels
+	// LTE band lock channels options
+	LteBandLockChannels []*common.LteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 
@@ -967,6 +1012,10 @@ type ZoneConfiguration struct {
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
+	ApHccdEnabled *bool `json:"apHccdEnabled,omitempty"`
+
+	ApHccdPersist *bool `json:"apHccdPersist,omitempty"`
+
 	ApLatencyInterval *common.ApLatencyInterval `json:"apLatencyInterval,omitempty"`
 
 	ApMgmtVlan *common.ApManagementVlan `json:"apMgmtVlan,omitempty"`
@@ -1000,6 +1049,10 @@ type ZoneConfiguration struct {
 	// CbandChannelLicenseEnabled
 	// 5.8Ghz channels license enabled configuration of the zone.
 	CbandChannelLicenseEnabled *bool `json:"cbandChannelLicenseEnabled,omitempty"`
+
+	// Channel144Enabled
+	// Channel 144 enabled configuration of the zone.
+	Channel144Enabled *bool `json:"channel144Enabled,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
@@ -1065,6 +1118,10 @@ type ZoneConfiguration struct {
 	// DoS Protection(Barring UE) threshold of the zone.
 	DosBarringThreshold *int `json:"dosBarringThreshold,omitempty"`
 
+	// EnforcePriorityZoneAffinityEnable
+	// Enforce the priority of zone affinity
+	EnforcePriorityZoneAffinityEnable *bool `json:"enforcePriorityZoneAffinityEnable,omitempty"`
+
 	// HealthCheckSites
 	// Health Check Sites.
 	HealthCheckSites []string `json:"healthCheckSites,omitempty"`
@@ -1085,6 +1142,8 @@ type ZoneConfiguration struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty"`
+
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
@@ -1102,6 +1161,10 @@ type ZoneConfiguration struct {
 	Login *ApLogin `json:"login,omitempty"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
+
+	// LteBandLockChannels
+	// LTE band lock channels options
+	LteBandLockChannels []*common.LteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 

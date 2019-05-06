@@ -1,6 +1,6 @@
 package accountsecurityprofile
 
-// API Version: v8_0
+// API Version: v8_1
 
 import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
@@ -24,6 +24,8 @@ type Create struct {
 	// LockoutDuration
 	// The duration for which the account is automatically locked without administrative intervention.
 	LockoutDuration *int `json:"lockoutDuration,omitempty"`
+
+	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -75,6 +77,8 @@ type GetByIdResult struct {
 
 	LockoutDuration *int `json:"lockoutDuration,omitempty"`
 
+	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty"`
+
 	Name *common.NormalName `json:"name,omitempty"`
 
 	PasswordExpiration *int `json:"passwordExpiration,omitempty"`
@@ -114,6 +118,8 @@ type Update struct {
 	// LockoutDuration
 	// The duration for which the account is automatically locked without administrative intervention.
 	LockoutDuration *int `json:"lockoutDuration,omitempty"`
+
+	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 

@@ -228,69 +228,7 @@ type PatchScgUserGroup struct {
 	Users []*GetScgUser `json:"users,omitempty"`
 }
 
-type QueryCriteria struct {
-	// Attributes
-	// Get specific columns only
-	Attributes []string `json:"attributes,omitempty"`
-
-	// Criteria
-	// Add backward compatibility for UI framework
-	Criteria *string `json:"criteria,omitempty"`
-
-	// ExpandDomains
-	// Whether to expand domains into sub domains/ zones or not
-	ExpandDomains *bool `json:"expandDomains,omitempty"`
-
-	// ExtraFilters
-	// "AND" condition for multiple filters
-	ExtraFilters []*common.QueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
-
-	// ExtraNotFilters
-	// "NOT" condition for multiple filters
-	ExtraNotFilters []*common.QueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
-
-	ExtraTimeRange *common.TimeRange `json:"extraTimeRange,omitempty"`
-
-	// Filters
-	// Filters used to select specific resource scope
-	Filters []*QueryCriteriaFiltersType `json:"filters,omitempty"`
-
-	FullTextSearch *common.FullTextSearch `json:"fullTextSearch,omitempty"`
-
-	// Limit
-	// Size of one page
-	Limit *int `json:"limit,omitempty"`
-
-	// Options
-	// Specified feature required information
-	Options *common.QueryCriteriaOptionsType `json:"options,omitempty"`
-
-	// Page
-	// Page number to get
-	Page *int `json:"page,omitempty"`
-
-	// Query
-	// Add backward compatibility for UI framework
-	Query *string `json:"query,omitempty"`
-
-	// SortInfo
-	// About sorting
-	SortInfo *common.QueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
-}
-
-type QueryCriteriaFiltersType struct {
-	// Operator
-	// operator
-	Operator *string `json:"operator,omitempty"`
-
-	// Type
-	// Group type
-	Type *string `json:"type,omitempty"`
-
-	// Value
-	// DOMAIN ID
-	Value *string `json:"value,omitempty"`
-}
+type QueryCriteria struct{}
 
 type ScgUserAuditId struct {
 	// Id

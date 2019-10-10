@@ -11,7 +11,7 @@ type ACLConfig struct {
 
 	// AclType
 	// ACL Type
-	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
+	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
 
 	// CreatedTime
 	// The create time of the AccessControl
@@ -39,7 +39,7 @@ type ACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SwitchId
 	// Switch Id
@@ -100,7 +100,7 @@ func (t *ACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 type ACLRule struct {
 	// Action
 	// The action of AccessControl Rule
-	Action *string `json:"action,omitempty" validate:"oneof=PERMIT DENY"`
+	Action *string `json:"action,omitempty" validate:"omitempty,oneof=PERMIT DENY"`
 
 	// DestNetwork
 	// The destination network of AccessControl Rule
@@ -112,7 +112,7 @@ type ACLRule struct {
 
 	// Protocol
 	// The protocol of AccessControl Rule
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=IP TCP UDP"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IP TCP UDP"`
 
 	// Seq
 	// The seq of AccessControl Rule
@@ -132,7 +132,7 @@ type CreateACLConfig struct {
 
 	// AclType
 	// ACL Type
-	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
+	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
 
 	// FamilyId
 	// Family Id
@@ -152,7 +152,7 @@ type CreateACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SwitchId
 	// Switch Id
@@ -184,7 +184,7 @@ type UpdateACLConfig struct {
 
 	// AclType
 	// ACL Type
-	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
+	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -192,5 +192,5 @@ type UpdateACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 }

@@ -444,7 +444,7 @@ type ModifyActiveDirectoryServer struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -544,7 +544,7 @@ type ModifyLDAPServer struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	SearchFilter *common.NormalName2to64 `json:"searchFilter,omitempty"`
 
@@ -597,11 +597,11 @@ type TestAuthenticationServer struct {
 	// AaaType
 	// Authentication/Accounting service protocol. RADIUS for Radius, AD and LDAP. RADIUSAcct for RADIUS
 	// Accounting
-	AaaType *string `json:"aaaType,omitempty" validate:"oneof=RADIUS RADIUSAcct"`
+	AaaType *string `json:"aaaType,omitempty" validate:"omitempty,oneof=RADIUS RADIUSAcct"`
 
 	// AuthProtocol
 	// Authentication protocol
-	AuthProtocol *string `json:"authProtocol,omitempty" validate:"oneof=PAP CHAP"`
+	AuthProtocol *string `json:"authProtocol,omitempty" validate:"omitempty,oneof=PAP CHAP"`
 
 	// Password
 	// Password
@@ -609,7 +609,7 @@ type TestAuthenticationServer struct {
 
 	// ServerType
 	// Radius server type.
-	ServerType *string `json:"serverType,omitempty" validate:"oneof=ADMIN GLOBAL ZONE"`
+	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=ADMIN GLOBAL ZONE"`
 
 	// UserName
 	// User name

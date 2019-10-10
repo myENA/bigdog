@@ -47,15 +47,15 @@ type AaaSettingsAccountingType struct {
 type AaaSettingsAccountingTypeCommandsType struct {
 	// Level
 	// Access level of command
-	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Server1
 	// Primary server type
-	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
 	// Secondary server type
-	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 }
 
 // AaaSettingsAccountingTypeExecType
@@ -64,11 +64,11 @@ type AaaSettingsAccountingTypeCommandsType struct {
 type AaaSettingsAccountingTypeExecType struct {
 	// Server1
 	// Primary server type
-	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
 	// Secondary server type
-	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 }
 
 // AaaSettingsAuthenticationType
@@ -85,15 +85,15 @@ type AaaSettingsAuthenticationType struct {
 
 	// FirstPref
 	// Primary server type
-	FirstPref *string `json:"firstPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
+	FirstPref *string `json:"firstPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// SecondPref
 	// Secondary server type
-	SecondPref *string `json:"secondPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
+	SecondPref *string `json:"secondPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// ThirdPref
 	// Third server type
-	ThirdPref *string `json:"thirdPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
+	ThirdPref *string `json:"thirdPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
 }
 
 // AaaSettingsAuthorizationType
@@ -123,15 +123,15 @@ type AaaSettingsAuthorizationType struct {
 type AaaSettingsAuthorizationTypeCommandsType struct {
 	// Level
 	// Access level of command
-	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Server1
 	// Primary server type
-	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
 	// Secondary server type
-	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 }
 
 // AaaSettingsAuthorizationTypeExecType
@@ -140,11 +140,11 @@ type AaaSettingsAuthorizationTypeCommandsType struct {
 type AaaSettingsAuthorizationTypeExecType struct {
 	// Server1
 	// Primary server type
-	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
 	// Secondary server type
-	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 }
 
 type EmptyResult struct {

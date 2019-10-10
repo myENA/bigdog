@@ -97,11 +97,11 @@ type AdvancedOptionContent struct {
 
 	// EnforceNatt
 	// enforceNatt Enable of the ipsec profile
-	EnforceNatt *string `json:"enforceNatt,omitempty" validate:"oneof=Disabled Enabled"`
+	EnforceNatt *string `json:"enforceNatt,omitempty" validate:"omitempty,oneof=Disabled Enabled"`
 
 	// FailoverMode
 	// mode of the failover
-	FailoverMode *string `json:"failoverMode,omitempty" validate:"oneof=Non_Revertive Revertive"`
+	FailoverMode *string `json:"failoverMode,omitempty" validate:"omitempty,oneof=Non_Revertive Revertive"`
 
 	// FailoverPrimaryCheckInterval
 	// Primary Check Interval of the failover
@@ -117,7 +117,7 @@ type AdvancedOptionContent struct {
 
 	// IpcompEnable
 	// ipcomp Enable of the ipsec profile
-	IpcompEnable *string `json:"ipcompEnable,omitempty" validate:"oneof=Disabled Enabled"`
+	IpcompEnable *string `json:"ipcompEnable,omitempty" validate:"omitempty,oneof=Disabled Enabled"`
 
 	// KeepAliveIntval
 	// keepAliveIntval of the ipsec profile
@@ -389,7 +389,7 @@ type BonjourFencingService struct {
 
 	ServiceType *BridgeService `json:"serviceType,omitempty"`
 
-	SourceType *string `json:"sourceType,omitempty" validate:"oneof=UNKNOWN DIRECT NEIGHBOR"`
+	SourceType *string `json:"sourceType,omitempty" validate:"omitempty,oneof=UNKNOWN DIRECT NEIGHBOR"`
 }
 
 type BonjourFencingStatistic struct {
@@ -592,11 +592,11 @@ type CmProtocolOptionContent struct {
 type CoreNetworkGateway struct {
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
-	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"gte=1,lte=32767"`
+	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"omitempty,gte=1,lte=32767"`
 
 	// KeepAliveRetry
 	// ICMP Keep-Alive Retry
-	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"gte=1,lte=255"`
+	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"omitempty,gte=1,lte=255"`
 
 	// PrimaryGateway
 	// Primary Gateway
@@ -608,11 +608,11 @@ type CoreNetworkGateway struct {
 
 	// TunnelMTU
 	// Gateway path MTU
-	TunnelMTU *string `json:"tunnelMTU,omitempty" validate:"oneof=AUTO MANUAL"`
+	TunnelMTU *string `json:"tunnelMTU,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMTUSize
 	// Manual setting value of Gateway path MTU
-	TunnelMTUSize *int `json:"tunnelMTUSize,omitempty" validate:"gte=850,lte=1500"`
+	TunnelMTUSize *int `json:"tunnelMTUSize,omitempty" validate:"omitempty,gte=850,lte=1500"`
 }
 
 type CreateAccountingProfile struct {
@@ -766,7 +766,7 @@ type CreateIpsecProfile struct {
 
 	// AuthType
 	// authentication type of the ipsec profile
-	AuthType *string `json:"authType,omitempty" validate:"oneof=PresharedKey Certificate"`
+	AuthType *string `json:"authType,omitempty" validate:"omitempty,oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
 
@@ -810,7 +810,7 @@ type CreateIpsecProfile struct {
 
 	// TunnelMode
 	// Tunnel mode of IPsec profile
-	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=SOFT_GRE RUCKUS_GRE"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=SOFT_GRE RUCKUS_GRE"`
 }
 
 type CreateL2oGREProfile struct {
@@ -890,11 +890,11 @@ type CreateRuckusGREProfile struct {
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
-	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"oneof=DISABLE AES128 AES256"`
+	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"omitempty,oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
-	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=GRE GREUDP"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
@@ -902,7 +902,7 @@ type CreateRuckusGREProfile struct {
 
 	// TunnelMtuSize
 	// Tunnel MTU size of RuckusGRE profile
-	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"gte=850,lte=9018"`
+	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
 type CreateSoftGREProfile struct {
@@ -946,7 +946,7 @@ type CreateSoftGREProfile struct {
 
 	// TunnelMtuSize
 	// Tunnel MTU size of SoftGRE profile. IPV4:850-1500, IPV6:1384-1500. Default 1500.
-	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"gte=850,lte=9018"`
+	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
 type CreateTrafficClassProfile struct {
@@ -1032,7 +1032,7 @@ type CreateUserTrafficProfile struct {
 type CreateZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
-	Description *string `json:"description,omitempty" validate:"max=64"`
+	Description *string `json:"description,omitempty" validate:"omitempty,max=64"`
 
 	// Name
 	// Zone affinity profile name
@@ -1058,7 +1058,7 @@ type DataPlaneL3RoamingData struct {
 	// DP name
 	Name *string `json:"name,omitempty"`
 
-	SubCriteriaType *string `json:"subCriteriaType,omitempty" validate:"oneof=VLAN SUBNET"`
+	SubCriteriaType *string `json:"subCriteriaType,omitempty" validate:"omitempty,oneof=VLAN SUBNET"`
 
 	// Value
 	// A list of L3 roaming configuration for this DP
@@ -1092,7 +1092,7 @@ type DhcpOption82 struct {
 
 	// Subopt1Format
 	// Subopt-1 format
-	Subopt1Format *string `json:"subopt1Format,omitempty" validate:"oneof=AP_INFO AP_MAC_hex AP_MAC_hex_ESSID AP_INFO_LOCATION"`
+	Subopt1Format *string `json:"subopt1Format,omitempty" validate:"omitempty,oneof=AP_INFO AP_MAC_hex AP_MAC_hex_ESSID AP_INFO_LOCATION"`
 
 	// Subopt2Enabled
 	// Enable subopt-2
@@ -1100,7 +1100,7 @@ type DhcpOption82 struct {
 
 	// Subopt2Format
 	// Subopt-2 format
-	Subopt2Format *string `json:"subopt2Format,omitempty" validate:"oneof=CLIENT_MAC_hex CLIENT_MAC_hex_ESSID AP_MAC_hex AP_MAC__hex_ESSID"`
+	Subopt2Format *string `json:"subopt2Format,omitempty" validate:"omitempty,oneof=CLIENT_MAC_hex CLIENT_MAC_hex_ESSID AP_MAC_hex AP_MAC__hex_ESSID"`
 
 	// Subopt150Enabled
 	// Subopt-150 with VLAN
@@ -1116,7 +1116,7 @@ type DhcpOption82 struct {
 
 	// Subopt151Format
 	// Subopt-151 format
-	Subopt151Format *string `json:"subopt151Format,omitempty" validate:"oneof=AREA_NAME ESSID"`
+	Subopt151Format *string `json:"subopt151Format,omitempty" validate:"omitempty,oneof=AREA_NAME ESSID"`
 }
 
 type DhcpProfileList struct {
@@ -1276,7 +1276,7 @@ type EspSecurityAssociationContent struct {
 
 	// EspProposalType
 	// espProposal Type of the ipsec profile
-	EspProposalType *string `json:"espProposalType,omitempty" validate:"oneof=Default Specific"`
+	EspProposalType *string `json:"espProposalType,omitempty" validate:"omitempty,oneof=Default Specific"`
 }
 
 type FlexiVpnProfile struct {
@@ -1515,7 +1515,7 @@ type IkeProposal struct {
 
 	// PrfAlg
 	// prfAlg of ikeProposal Specific
-	PrfAlg *string `json:"prfAlg,omitempty" validate:"oneof=UseIntegrityALG PRF_MD5 PRF_SHA1 PRF_AES_CBC PRF_AES_MAC PRF_SHA256 PRF_SHA384 PRF_SHA512"`
+	PrfAlg *string `json:"prfAlg,omitempty" validate:"omitempty,oneof=UseIntegrityALG PRF_MD5 PRF_SHA1 PRF_AES_CBC PRF_AES_MAC PRF_SHA256 PRF_SHA384 PRF_SHA512"`
 }
 
 // IkeSecurityAssociationContent
@@ -1528,17 +1528,17 @@ type IkeSecurityAssociationContent struct {
 
 	// IkeProposalType
 	// ikeProposal Type of the ipsec profile
-	IkeProposalType *string `json:"ikeProposalType,omitempty" validate:"oneof=Default Specific"`
+	IkeProposalType *string `json:"ikeProposalType,omitempty" validate:"omitempty,oneof=Default Specific"`
 }
 
 type IpAclRules struct {
 	// Action
 	// The access of traffic access control.
-	Action *string `json:"action,omitempty" validate:"oneof=ALLOW BLOCK"`
+	Action *string `json:"action,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
 
 	// CustomProtocol
 	// The protocol of traffic access control. Available if the protocol is set to CUSTOM.
-	CustomProtocol *int `json:"customProtocol,omitempty" validate:"gte=1,lte=255"`
+	CustomProtocol *int `json:"customProtocol,omitempty" validate:"omitempty,gte=1,lte=255"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -1564,7 +1564,7 @@ type IpAclRules struct {
 
 	// Direction
 	// The direction of traffic access control.
-	Direction *string `json:"direction,omitempty" validate:"oneof=UPSTREAM"`
+	Direction *string `json:"direction,omitempty" validate:"omitempty,oneof=UPSTREAM"`
 
 	// DownlinkRateLimitingEnabled
 	// Downlink rate limiting enabled
@@ -1600,7 +1600,7 @@ type IpAclRules struct {
 
 	// IpType
 	// IP Type(IPv4 or IPv6).
-	IpType *string `json:"ipType,omitempty" validate:"oneof=IPv4 IPv6"`
+	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=IPv4 IPv6"`
 
 	// Priority
 	// Priority
@@ -1608,7 +1608,7 @@ type IpAclRules struct {
 
 	// Protocol
 	// The protocol of traffic access control.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
 
 	// SourceIp
 	// Subnet network address or ip address of source IP.
@@ -1646,7 +1646,7 @@ type IpsecProfile struct {
 
 	// AuthType
 	// authentication type of the ipsec profile
-	AuthType *string `json:"authType,omitempty" validate:"oneof=PresharedKey Certificate"`
+	AuthType *string `json:"authType,omitempty" validate:"omitempty,oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
 
@@ -1714,7 +1714,7 @@ type IpsecProfile struct {
 
 	// TunnelMode
 	// Tunnel mode of IPsec profile
-	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=SOFT_GRE RUCKUS_GRE"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=SOFT_GRE RUCKUS_GRE"`
 }
 
 type IpsecProfileList struct {
@@ -2017,7 +2017,7 @@ type ModifyIpAclRules struct {
 
 	// CustomProtocol
 	// The protocol of traffic access control. Available if the protocol is set to CUSTOM.
-	CustomProtocol *int `json:"customProtocol,omitempty" validate:"gte=1,lte=255"`
+	CustomProtocol *int `json:"customProtocol,omitempty" validate:"omitempty,gte=1,lte=255"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -2079,7 +2079,7 @@ type ModifyIpAclRules struct {
 
 	// IpType
 	// IP Type(IPv4 or IPv6)
-	IpType *string `json:"ipType,omitempty" validate:"oneof=IPv4 IPv6"`
+	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=IPv4 IPv6"`
 
 	// Priority
 	// Priority
@@ -2087,7 +2087,7 @@ type ModifyIpAclRules struct {
 
 	// Protocol
 	// The protocol of traffic access control.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
 
 	// SourceIp
 	// Subnet network address or ip address of source IP.
@@ -2123,7 +2123,7 @@ type ModifyIpsecProfile struct {
 
 	// AuthType
 	// authentication type of the ipsec profile
-	AuthType *string `json:"authType,omitempty" validate:"oneof=PresharedKey Certificate"`
+	AuthType *string `json:"authType,omitempty" validate:"omitempty,oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
 
@@ -2199,19 +2199,19 @@ type ModifyRuckusGREProfile struct {
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
-	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"oneof=DISABLE AES128 AES256"`
+	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"omitempty,oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
-	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=GRE GREUDP"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"oneof=AUTO MANUAL"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of RuckusGRE profile
-	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"gte=850,lte=9018"`
+	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
 type ModifySoftGREProfile struct {
@@ -2231,11 +2231,11 @@ type ModifySoftGREProfile struct {
 
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
-	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"gte=1,lte=180"`
+	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"omitempty,gte=1,lte=180"`
 
 	// KeepAliveRetry
 	// ICMP Keep-Alive Retry
-	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"gte=2,lte=20"`
+	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"omitempty,gte=2,lte=20"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -2249,11 +2249,11 @@ type ModifySoftGREProfile struct {
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the SoftGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"oneof=AUTO MANUAL"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of SoftGRE profile. IPV4:850-1500, IPV6:1384-1500. Default 1500.
-	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"gte=850,lte=9018"`
+	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
 type ModifyUserTrafficProfile struct {
@@ -2263,7 +2263,7 @@ type ModifyUserTrafficProfile struct {
 
 	// DefaultAction
 	// Default action
-	DefaultAction *string `json:"defaultAction,omitempty" validate:"oneof=BLOCK ALLOW"`
+	DefaultAction *string `json:"defaultAction,omitempty" validate:"omitempty,oneof=BLOCK ALLOW"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -2301,11 +2301,11 @@ type ModifyUserTrafficProfile struct {
 type ModifyZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
-	Description *string `json:"description,omitempty" validate:"max=64"`
+	Description *string `json:"description,omitempty" validate:"omitempty,max=64"`
 
 	// Name
 	// Zone affinity profile name
-	Name *string `json:"name,omitempty" validate:"max=64,min=1"`
+	Name *string `json:"name,omitempty" validate:"omitempty,max=64,min=1"`
 
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
 }
@@ -2441,7 +2441,7 @@ type ProviderAuthentication struct {
 
 	// VlanId
 	// Dynamic vlan ID
-	VlanId *int `json:"vlanId,omitempty" validate:"gte=1,lte=4094"`
+	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4094"`
 }
 
 type ProviderEAPAuthSetting struct {
@@ -2455,11 +2455,11 @@ type ProviderEAPAuthSetting struct {
 
 	// VendorId
 	// EAP auth vendor ID
-	VendorId *int `json:"vendorId,omitempty" validate:"gte=0,lte=16777215"`
+	VendorId *int `json:"vendorId,omitempty" validate:"omitempty,gte=0,lte=16777215"`
 
 	// VendorType
 	// EAP auth vendor type
-	VendorType *int `json:"vendorType,omitempty" validate:"gte=0,lte=4294967295"`
+	VendorType *int `json:"vendorType,omitempty" validate:"omitempty,gte=0,lte=4294967295"`
 }
 
 type ProviderEAPMethod struct {
@@ -2547,7 +2547,7 @@ type ProviderInternalOSUOsuAuthServicesType struct {
 
 	// Expiration
 	// Expiration hour. null mean never expire
-	Expiration *int `json:"expiration,omitempty" validate:"gte=1,lte=175200"`
+	Expiration *int `json:"expiration,omitempty" validate:"omitempty,gte=1,lte=175200"`
 
 	// Id
 	// Identifier of authentication service
@@ -2609,7 +2609,7 @@ type ProviderRealm struct {
 type ProviderSubscriptionDescription struct {
 	// Description
 	// Description of the friendly name
-	Description *string `json:"description,omitempty" validate:"max=64"`
+	Description *string `json:"description,omitempty" validate:"omitempty,max=64"`
 
 	// Icon
 	// The binary data of icon, maximum size 65536
@@ -2628,7 +2628,7 @@ type ProviderSubscriptionDescription struct {
 type RateLimitingPrecedenceItem struct {
 	// Name
 	// Name of rate limiting precedence item
-	Name *string `json:"name,omitempty" validate:"oneof=AAA DEVICE WLANUTP"`
+	Name *string `json:"name,omitempty" validate:"omitempty,oneof=AAA DEVICE WLANUTP"`
 
 	// Priority
 	// Priority
@@ -2645,7 +2645,7 @@ type RealmAuthServiceMapping struct {
 
 	// DynamicVlanId
 	// Dynamic VLAN ID
-	DynamicVlanId *int `json:"dynamicVlanId,omitempty" validate:"gte=2,lte=4094"`
+	DynamicVlanId *int `json:"dynamicVlanId,omitempty" validate:"omitempty,gte=2,lte=4094"`
 
 	HostedAaaEnabled *bool `json:"hostedAaaEnabled,omitempty"`
 
@@ -2707,7 +2707,7 @@ type ReturnZoneAffinityProfile struct {
 
 	// Name
 	// Zone affinity profile name
-	Name *string `json:"name,omitempty" validate:"max=64,min=1"`
+	Name *string `json:"name,omitempty" validate:"omitempty,max=64,min=1"`
 
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
 
@@ -2821,15 +2821,15 @@ type RuckusGREProfile struct {
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
-	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"oneof=DISABLE AES128 AES256"`
+	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"omitempty,oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
-	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=GRE GREUDP"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"oneof=AUTO MANUAL"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of RuckusGRE profile
@@ -2909,7 +2909,7 @@ type SoftGREProfile struct {
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the SoftGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"oneof=AUTO MANUAL"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of SoftGRE profile
@@ -2968,11 +2968,11 @@ type TrafficClassProfileList struct {
 type TtgCommonSetting struct {
 	// MobileCountryCode
 	// Mobile country code
-	MobileCountryCode *string `json:"mobileCountryCode,omitempty" validate:"max=3,min=3"`
+	MobileCountryCode *string `json:"mobileCountryCode,omitempty" validate:"omitempty,max=3,min=3"`
 
 	// MobileNetworkCode
 	// Mobile network code
-	MobileNetworkCode *string `json:"mobileNetworkCode,omitempty" validate:"max=3,min=2"`
+	MobileNetworkCode *string `json:"mobileNetworkCode,omitempty" validate:"omitempty,max=3,min=2"`
 }
 
 type TtgpdgApnForwardingRealm struct {
@@ -2982,11 +2982,11 @@ type TtgpdgApnForwardingRealm struct {
 
 	// ApnType
 	// type of the forwarding policy APN.
-	ApnType *string `json:"apnType,omitempty" validate:"oneof=NI NIOI"`
+	ApnType *string `json:"apnType,omitempty" validate:"omitempty,oneof=NI NIOI"`
 
 	// RouteType
 	// routeType of the forwarding policy APN.
-	RouteType *string `json:"routeType,omitempty" validate:"oneof=GTPv1 GTPv2 PDG"`
+	RouteType *string `json:"routeType,omitempty" validate:"omitempty,oneof=GTPv1 GTPv2 PDG"`
 }
 
 type TtgpdgCommonSetting struct {
@@ -3000,7 +3000,7 @@ type TtgpdgCommonSetting struct {
 
 	// ApnFormat2GGSN
 	// APN format to GGSN of TTG PDG common setting
-	ApnFormat2GGSN *string `json:"apnFormat2GGSN,omitempty" validate:"oneof=DNS String"`
+	ApnFormat2GGSN *string `json:"apnFormat2GGSN,omitempty" validate:"omitempty,oneof=DNS String"`
 
 	// ApnOIInUse
 	// APN-OI of TTG PDG common setting
@@ -3182,7 +3182,7 @@ type UserTrafficProfile struct {
 
 	// DefaultAction
 	// Default action
-	DefaultAction *string `json:"defaultAction,omitempty" validate:"oneof=BLOCK ALLOW"`
+	DefaultAction *string `json:"defaultAction,omitempty" validate:"omitempty,oneof=BLOCK ALLOW"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -3349,7 +3349,7 @@ type VdpProfile struct {
 type VlanPrecedenceItem struct {
 	// Name
 	// Name of the Vlan precedence item
-	Name *string `json:"name,omitempty" validate:"oneof=AAA DEVICE WLAN"`
+	Name *string `json:"name,omitempty" validate:"omitempty,oneof=AAA DEVICE WLAN"`
 
 	// Priority
 	// Priority

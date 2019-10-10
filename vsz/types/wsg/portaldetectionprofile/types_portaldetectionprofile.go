@@ -23,13 +23,13 @@ type PortalDetectionPattern struct {
 
 	// HttpResponseBody
 	// HTTP response body
-	HttpResponseBody *string `json:"httpResponseBody,omitempty" validate:"max=1024"`
+	HttpResponseBody *string `json:"httpResponseBody,omitempty" validate:"omitempty,max=1024"`
 
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PatternType
 	// Portal detection and suppression pattern type
-	PatternType *string `json:"patternType,omitempty" validate:"oneof=USER_AGENT"`
+	PatternType *string `json:"patternType,omitempty" validate:"omitempty,oneof=USER_AGENT"`
 
 	// UserAgentPattern
 	// Portal detection and suppression pattern for user agent
@@ -53,7 +53,7 @@ type PortalDetectionProfile struct {
 
 	// Id
 	// Identifier of the portal detection and suppression profile
-	Id *string `json:"id,omitempty" validate:"max=64"`
+	Id *string `json:"id,omitempty" validate:"omitempty,max=64"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified

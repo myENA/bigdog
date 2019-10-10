@@ -29,7 +29,7 @@ type BasicIndoorMap struct {
 
 	Name *common.NormalName `json:"name" validate:"required"`
 
-	Orientation *string `json:"orientation,omitempty" validate:"oneof=HORIZONTAL VERTICAL"`
+	Orientation *string `json:"orientation,omitempty" validate:"omitempty,oneof=HORIZONTAL VERTICAL"`
 
 	Scale *Scale `json:"scale,omitempty"`
 
@@ -91,7 +91,7 @@ type IndoorMap struct {
 
 	// Orientation
 	// orientation
-	Orientation *string `json:"orientation,omitempty" validate:"oneof=HORIZONTAL VERTICAL"`
+	Orientation *string `json:"orientation,omitempty" validate:"omitempty,oneof=HORIZONTAL VERTICAL"`
 
 	Scale *Scale `json:"scale,omitempty"`
 
@@ -225,5 +225,5 @@ type Scale struct {
 
 	// Unit
 	// unit
-	Unit *string `json:"unit,omitempty" validate:"oneof=MM CM M Foot Yard"`
+	Unit *string `json:"unit,omitempty" validate:"omitempty,oneof=MM CM M Foot Yard"`
 }

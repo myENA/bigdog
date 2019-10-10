@@ -67,7 +67,7 @@ type AvailableTunnelProfile struct {
 
 	// TunnelType
 	// Tunnel Profile Type ("RuckusGRE", "SoftGRE",or "Ipsec")
-	TunnelType *string `json:"tunnelType,omitempty" validate:"oneof=RuckusGRE SoftGRE Ipsec"`
+	TunnelType *string `json:"tunnelType,omitempty" validate:"omitempty,oneof=RuckusGRE SoftGRE Ipsec"`
 }
 
 type AvailableTunnelProfileList struct {
@@ -83,7 +83,7 @@ type AvailableTunnelProfileList struct {
 type BackgroundScanning struct {
 	// FrequencyInSec
 	// Frequency in second
-	FrequencyInSec *int `json:"frequencyInSec,omitempty" validate:"gte=1,lte=65535"`
+	FrequencyInSec *int `json:"frequencyInSec,omitempty" validate:"omitempty,gte=1,lte=65535"`
 }
 
 type BandBalancing struct {
@@ -92,11 +92,11 @@ type BandBalancing struct {
 	// loaded band to balance clients to the other band, PROACTIVE-Uses BASIC functionality and actively
 	// rebalances clients via 802.11v BTM, STRICT-Uses PROACTIVE functionality and forcefully rebalances
 	// clients via 802.11v BTM
-	Mode *string `json:"mode,omitempty" validate:"oneof=BASIC PROACTIVE STRICT"`
+	Mode *string `json:"mode,omitempty" validate:"omitempty,oneof=BASIC PROACTIVE STRICT"`
 
 	// Wifi24Percentage
 	// Percentage of client load on 2.4GHz radio band
-	Wifi24Percentage *int `json:"wifi24Percentage,omitempty" validate:"gte=0,lte=100"`
+	Wifi24Percentage *int `json:"wifi24Percentage,omitempty" validate:"omitempty,gte=0,lte=100"`
 }
 
 type BonjourGatewayPolicyConfiguration struct {
@@ -198,7 +198,7 @@ type BonjourPolicyRuleConfiguration struct {
 type ClientLoadBalancing struct {
 	// AdjacentRadioThreshold
 	// Adjacent radio threshold
-	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty" validate:"gte=1,lte=100"`
+	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty" validate:"omitempty,gte=1,lte=100"`
 }
 
 type CreateBonjourGatewayPolicy struct {
@@ -273,7 +273,7 @@ type CreateZone struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -353,7 +353,7 @@ type CreateZone struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -361,7 +361,7 @@ type CreateZone struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
 
@@ -413,7 +413,7 @@ type CreateZone struct {
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 
@@ -537,7 +537,7 @@ type DownlinkDiffServ struct {
 type MeshConfiguration struct {
 	// MeshRadioIdx
 	// Mesh radio index
-	MeshRadioIdx *string `json:"meshRadioIdx,omitempty" validate:"oneof=Radio24G Radio5G"`
+	MeshRadioIdx *string `json:"meshRadioIdx,omitempty" validate:"omitempty,oneof=Radio24G Radio5G"`
 
 	// Passphrase
 	// Passphrase for the mesh network
@@ -629,7 +629,7 @@ type ModifyZone struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -709,7 +709,7 @@ type ModifyZone struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -717,7 +717,7 @@ type ModifyZone struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
 
@@ -769,7 +769,7 @@ type ModifyZone struct {
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 
@@ -807,17 +807,17 @@ type Rogue struct {
 
 	// ReportType
 	// Report type
-	ReportType *string `json:"reportType,omitempty" validate:"oneof=All Malicious"`
+	ReportType *string `json:"reportType,omitempty" validate:"omitempty,oneof=All Malicious"`
 }
 
 type SnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
-	AuthPassword *string `json:"authPassword,omitempty" validate:"min=8"`
+	AuthPassword *string `json:"authPassword,omitempty" validate:"omitempty,min=8"`
 
 	// AuthProtocol
 	// authProtocol of the SNMP User.
-	AuthProtocol *string `json:"authProtocol,omitempty" validate:"oneof=NONE MD5 SHA"`
+	AuthProtocol *string `json:"authProtocol,omitempty" validate:"omitempty,oneof=NONE MD5 SHA"`
 
 	// NotificationEnabled
 	// notification privilege of the SNMP User
@@ -829,15 +829,15 @@ type SnmpUser struct {
 
 	// NotificationType
 	// type of the notification privilege
-	NotificationType *string `json:"notificationType,omitempty" validate:"oneof=TRAP INFORM"`
+	NotificationType *string `json:"notificationType,omitempty" validate:"omitempty,oneof=TRAP INFORM"`
 
 	// PrivPassword
 	// privPassword of the SNMP User.
-	PrivPassword *string `json:"privPassword,omitempty" validate:"min=8"`
+	PrivPassword *string `json:"privPassword,omitempty" validate:"omitempty,min=8"`
 
 	// PrivProtocol
 	// privProtocol of the SNMP User.
-	PrivProtocol *string `json:"privProtocol,omitempty" validate:"oneof=NONE DES AES"`
+	PrivProtocol *string `json:"privProtocol,omitempty" validate:"omitempty,oneof=NONE DES AES"`
 
 	// ReadEnabled
 	// read privilege of the SNMP User
@@ -865,33 +865,33 @@ type Syslog struct {
 
 	// Facility
 	// Facility of the syslog server
-	Facility *string `json:"facility,omitempty" validate:"oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
+	Facility *string `json:"facility,omitempty" validate:"omitempty,oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
 
 	// FlowLevel
 	// Flow Level of the syslog
-	FlowLevel *string `json:"flowLevel,omitempty" validate:"oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
+	FlowLevel *string `json:"flowLevel,omitempty" validate:"omitempty,oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
 
 	// Port
 	// Port number of the syslog server
-	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// Priority
 	// Priority of the log messages
-	Priority *string `json:"priority,omitempty" validate:"oneof=Emergency Alert Critical Error Warning Notice Info All"`
+	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=Emergency Alert Critical Error Warning Notice Info All"`
 
 	// Protocol
 	// Protocol of the syslog server
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
 
 	SecondaryAddress *common.IpAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
-	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"gte=1,lte=65535"`
+	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// SecondaryProtocol
 	// Secondary Server Protocol of the syslog server
-	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
+	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
 type TimezoneSetting struct {
@@ -971,7 +971,7 @@ type ZoneConfiguration struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -1057,7 +1057,7 @@ type ZoneConfiguration struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -1065,7 +1065,7 @@ type ZoneConfiguration struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
 
@@ -1117,7 +1117,7 @@ type ZoneConfiguration struct {
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 

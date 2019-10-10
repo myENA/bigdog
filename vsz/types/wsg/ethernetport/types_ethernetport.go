@@ -14,17 +14,17 @@ type CreateEthernetPortProfile struct {
 
 	// ArpRequestRateLimit
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
-	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	Description *common.Description `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
-	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
-	GuestVlan *int `json:"guestVlan,omitempty" validate:"gte=1,lte=4094"`
+	GuestVlan *int `json:"guestVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
@@ -42,7 +42,7 @@ type CreateEthernetPortProfile struct {
 
 	// UntagId
 	// VLAN Untag ID of the ethernet port profile
-	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
+	UntagId *int `json:"untagId,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile
@@ -58,17 +58,17 @@ type EthernetPortProfile struct {
 
 	// ArpRequestRateLimit
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
-	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	Description *common.Description `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
-	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
-	GuestVlan *int `json:"guestVlan,omitempty" validate:"gte=1,lte=4094"`
+	GuestVlan *int `json:"guestVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// Id
 	// identifier of the ethernet port profile
@@ -86,11 +86,11 @@ type EthernetPortProfile struct {
 
 	// Type
 	// type of the ethernet port profile
-	Type *string `json:"type,omitempty" validate:"oneof=AccessPort TrunkPort GeneralPort"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AccessPort TrunkPort GeneralPort"`
 
 	// UntagId
 	// VLAN Untag ID of the ethernet port profile
-	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
+	UntagId *int `json:"untagId,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile
@@ -106,17 +106,17 @@ type ModifyEthernetPortProfile struct {
 
 	// ArpRequestRateLimit
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
-	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	Description *common.Description `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
-	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
-	GuestVlan *int `json:"guestVlan,omitempty" validate:"gte=1,lte=4094"`
+	GuestVlan *int `json:"guestVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
@@ -130,7 +130,7 @@ type ModifyEthernetPortProfile struct {
 
 	// UntagId
 	// VLAN Untag ID of the ethernet port profile
-	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
+	UntagId *int `json:"untagId,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile

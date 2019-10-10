@@ -238,7 +238,7 @@ type CreateCSR struct {
 
 	// OrganizationUnit
 	// Organization unit of the certificates signing request
-	OrganizationUnit *string `json:"organizationUnit,omitempty" validate:"max=64"`
+	OrganizationUnit *string `json:"organizationUnit,omitempty" validate:"omitempty,max=64"`
 
 	// State
 	// State of the certificates signing request

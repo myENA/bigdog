@@ -35,7 +35,7 @@ type ApWlanBssidQueryList struct {
 type CreateWlanQuery struct {
 	Alerts *int `json:"alerts,omitempty"`
 
-	ApplicationVisibility *string `json:"applicationVisibility,omitempty" validate:"oneof=Enabled Disabled"`
+	ApplicationVisibility *string `json:"applicationVisibility,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
 
 	AuthMethod *string `json:"authMethod,omitempty"`
 
@@ -47,9 +47,9 @@ type CreateWlanQuery struct {
 
 	DomainName *string `json:"domainName,omitempty"`
 
-	Enability11k *string `json:"enability11k,omitempty" validate:"oneof=Enabled Disabled"`
+	Enability11k *string `json:"enability11k,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
 
-	Enability11r *string `json:"enability11r,omitempty" validate:"oneof=Enabled Disabled"`
+	Enability11r *string `json:"enability11r,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
 
 	EncryptionMethod *string `json:"encryptionMethod,omitempty"`
 
@@ -57,7 +57,7 @@ type CreateWlanQuery struct {
 
 	Ssid *string `json:"ssid,omitempty"`
 
-	Status *string `json:"status,omitempty" validate:"oneof=Online Flagged Offline"`
+	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Online Flagged Offline"`
 
 	TenantDomainName *string `json:"tenantDomainName,omitempty"`
 
@@ -69,7 +69,7 @@ type CreateWlanQuery struct {
 
 	TrafficUplink *int `json:"trafficUplink,omitempty"`
 
-	Tunneled *string `json:"tunneled,omitempty" validate:"oneof=Tunneled APBridged"`
+	Tunneled *string `json:"tunneled,omitempty" validate:"omitempty,oneof=Tunneled APBridged"`
 
 	Utp *string `json:"utp,omitempty"`
 
@@ -81,9 +81,9 @@ type CreateWlanQuery struct {
 
 	WpaVersion *string `json:"wpaVersion,omitempty"`
 
-	ZeroITEnabled *string `json:"zeroITEnabled,omitempty" validate:"oneof=Enabled Disabled"`
+	ZeroITEnabled *string `json:"zeroITEnabled,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
 
-	ZeroITOnboard *string `json:"zeroITOnboard,omitempty" validate:"oneof=Enabled Disabled"`
+	ZeroITOnboard *string `json:"zeroITOnboard,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
 
 	ZoneName *string `json:"zoneName,omitempty"`
 }

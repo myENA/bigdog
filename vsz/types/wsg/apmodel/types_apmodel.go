@@ -47,19 +47,19 @@ type AuthenticatorAAAServer struct {
 }
 
 type CellularSettings struct {
-	DataRoaming *int `json:"dataRoaming,omitempty" validate:"gte=0,lte=1"`
+	DataRoaming *int `json:"dataRoaming,omitempty" validate:"omitempty,gte=0,lte=1"`
 
-	DataRoaming2 *int `json:"dataRoaming2,omitempty" validate:"gte=0,lte=1"`
+	DataRoaming2 *int `json:"dataRoaming2,omitempty" validate:"omitempty,gte=0,lte=1"`
 
-	MobileAPName *string `json:"mobileAPName,omitempty" validate:"max=100"`
+	MobileAPName *string `json:"mobileAPName,omitempty" validate:"omitempty,max=100"`
 
-	MobileAPName2 *string `json:"mobileAPName2,omitempty" validate:"max=100"`
+	MobileAPName2 *string `json:"mobileAPName2,omitempty" validate:"omitempty,max=100"`
 
 	Select3g4g *int `json:"select3g4g" validate:"required,gte=0,lte=2"`
 
 	Select3g4g2 *int `json:"select3g4g2" validate:"required,gte=0,lte=2"`
 
-	SimCardUsage *int `json:"simCardUsage,omitempty" validate:"gte=0,lte=2"`
+	SimCardUsage *int `json:"simCardUsage,omitempty" validate:"omitempty,gte=0,lte=2"`
 
 	WanConnection *int `json:"wanConnection" validate:"required,gte=0,lte=3"`
 
@@ -135,7 +135,7 @@ type CommonAttribute struct {
 type ExternalAntenna struct {
 	ChainMask *string `json:"chainMask,omitempty" validate:"omitempty,oneof=Two Three"`
 
-	Dbi *int `json:"dbi,omitempty" validate:"gte=0,lte=90"`
+	Dbi *int `json:"dbi,omitempty" validate:"omitempty,gte=0,lte=90"`
 
 	Enabled *bool `json:"enabled" validate:"required"`
 }
@@ -173,23 +173,23 @@ type LanPortSetting struct {
 
 	PortName *string `json:"portName" validate:"required,oneof=LAN1 LAN2 LAN3 LAN4 LAN5"`
 
-	VlanUntagId *int `json:"vlanUntagId,omitempty" validate:"gte=0,lte=4094"`
+	VlanUntagId *int `json:"vlanUntagId,omitempty" validate:"omitempty,gte=0,lte=4094"`
 }
 
 type LanPortSupplicant struct {
-	Password *string `json:"password,omitempty" validate:"max=64"`
+	Password *string `json:"password,omitempty" validate:"omitempty,max=64"`
 
 	Type *string `json:"type" validate:"required,oneof=MACAddress Custom"`
 
-	UserName *string `json:"userName,omitempty" validate:"max=64"`
+	UserName *string `json:"userName,omitempty" validate:"omitempty,max=64"`
 }
 
 type LldpSetting struct {
-	AdvertiseIntervalInSec *int `json:"advertiseIntervalInSec,omitempty" validate:"gte=1,lte=300"`
+	AdvertiseIntervalInSec *int `json:"advertiseIntervalInSec,omitempty" validate:"omitempty,gte=1,lte=300"`
 
 	Enabled *bool `json:"enabled" validate:"required"`
 
-	HoldTimeInSec *int `json:"holdTimeInSec,omitempty" validate:"gte=60,lte=1200"`
+	HoldTimeInSec *int `json:"holdTimeInSec,omitempty" validate:"omitempty,gte=60,lte=1200"`
 
 	ManagementIPTLVEnabled *bool `json:"managementIPTLVEnabled,omitempty"`
 }

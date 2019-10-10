@@ -41,7 +41,7 @@ type DeleteDPSKs struct {
 type DeleteExpiredDpskConfig struct {
 	// DeleteExpiredDpsk
 	// Delete expired DPSK interval of the Zone.
-	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
+	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"omitempty,oneof=Never AfterOneDay AfterSixMonths"`
 }
 
 // DpskInfo
@@ -216,7 +216,7 @@ type GetDpskResult struct {
 type ModifyDeleteExpiredDpsk struct {
 	// DeleteExpiredDpsk
 	// Delete expired DPSK interval of the Zone.
-	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
+	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"omitempty,oneof=Never AfterOneDay AfterSixMonths"`
 }
 
 type UpdateDpsk struct {
@@ -232,15 +232,15 @@ type WlanDpskSetting struct {
 
 	// DpskFromType
 	// Type of expiration start from
-	DpskFromType *string `json:"dpskFromType,omitempty" validate:"oneof=CreateTime FirstUse"`
+	DpskFromType *string `json:"dpskFromType,omitempty" validate:"omitempty,oneof=CreateTime FirstUse"`
 
 	// DpskType
 	// Type of DPSK key
-	DpskType *string `json:"dpskType,omitempty" validate:"oneof=Secure KeyboardFriendly NumbersOnly"`
+	DpskType *string `json:"dpskType,omitempty" validate:"omitempty,oneof=Secure KeyboardFriendly NumbersOnly"`
 
 	// Expiration
 	// Expiration of DPSK key
-	Expiration *string `json:"expiration,omitempty" validate:"oneof=Unlimited OneDay TwoDays OneWeek TwoWeeks OneMonth SixMonths OneYear TwoYears"`
+	Expiration *string `json:"expiration,omitempty" validate:"omitempty,oneof=Unlimited OneDay TwoDays OneWeek TwoWeeks OneMonth SixMonths OneYear TwoYears"`
 
 	// Length
 	// Length of DPSK key
@@ -280,9 +280,9 @@ type WlanExternalDpskAuthServiceType struct {
 type WlanExternalDpskEncryptionType struct {
 	// Algorithm
 	// Encryption algorithm. This only applies to WPA2 and WPA mixed mode.
-	Algorithm *string `json:"algorithm,omitempty" validate:"oneof=AES TKIP_AES"`
+	Algorithm *string `json:"algorithm,omitempty" validate:"omitempty,oneof=AES TKIP_AES"`
 
 	// Method
 	// Encryption method
-	Method *string `json:"method,omitempty" validate:"oneof=WPA2 WPA_Mixed None"`
+	Method *string `json:"method,omitempty" validate:"omitempty,oneof=WPA2 WPA_Mixed None"`
 }

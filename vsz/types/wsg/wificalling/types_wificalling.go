@@ -52,7 +52,7 @@ type ModifyWifiCallingPolicy struct {
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
-	Priority *string `json:"priority,omitempty" validate:"oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
+	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 }
 
 type WifiCallingPolicy struct {
@@ -99,7 +99,7 @@ type WifiCallingPolicy struct {
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
-	Priority *string `json:"priority,omitempty" validate:"oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
+	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 
 	// TenantId
 	// Tenant Id

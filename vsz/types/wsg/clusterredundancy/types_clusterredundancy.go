@@ -35,7 +35,7 @@ type ClusterRedundancySettings struct {
 
 	// DayOfWeek
 	// Scheduled day of the week (Active-Active only)
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// Hour
 	// Schedule sync time in daily hour (0-23)
@@ -43,7 +43,7 @@ type ClusterRedundancySettings struct {
 
 	// Interval
 	// Schedule interval (Active-Active only)
-	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY HOURLY"`
+	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY HOURLY"`
 
 	// ManagementEntryList
 	// Management entry list of standby cluster (Active-Standby only)
@@ -91,7 +91,7 @@ type UpdateClusterRedundancy struct {
 
 	// DayOfWeek
 	// Scheduled day of the week (Active-Active only)
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// Hour
 	// Schedule sync time in daily hour (0-23)
@@ -99,7 +99,7 @@ type UpdateClusterRedundancy struct {
 
 	// Interval
 	// Schedule interval (Active-Active only)
-	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY HOURLY"`
+	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY HOURLY"`
 
 	// ManagementEntryList
 	// Management entry list of standby cluster (Active-Standby only)

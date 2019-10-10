@@ -27,7 +27,7 @@ type ApGroupConfiguration struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -143,7 +143,7 @@ type ModifyAPGroup struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 

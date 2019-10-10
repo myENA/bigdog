@@ -21,7 +21,7 @@ type AaaServerQueryList struct {
 type CreateAaaServer struct {
 	AdminDomainName *string `json:"adminDomainName,omitempty"`
 
-	AuthType *string `json:"authType,omitempty" validate:"oneof=WSG WLAN"`
+	AuthType *string `json:"authType,omitempty" validate:"omitempty,oneof=WSG WLAN"`
 
 	CreateOn *int `json:"createOn,omitempty"`
 
@@ -73,7 +73,7 @@ type CreateAaaServer struct {
 
 	TenantUUID *string `json:"tenantUUID,omitempty"`
 
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS AD LDAP RADIUSAcct TACACS"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS AD LDAP RADIUSAcct TACACS"`
 
 	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
 

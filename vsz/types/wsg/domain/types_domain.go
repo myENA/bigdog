@@ -11,7 +11,7 @@ type CreateDomain struct {
 
 	// DomainType
 	// domain type
-	DomainType *string `json:"domainType,omitempty" validate:"oneof=PARTNER MVNO REGULAR"`
+	DomainType *string `json:"domainType,omitempty" validate:"omitempty,oneof=PARTNER MVNO REGULAR"`
 
 	Name *common.NormalName `json:"name" validate:"required"`
 

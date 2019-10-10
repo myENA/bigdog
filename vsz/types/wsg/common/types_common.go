@@ -31,11 +31,11 @@ type Alarm struct {
 
 	// Severity
 	// Alarm severity
-	Severity *string `json:"severity,omitempty" validate:"oneof=Critical Major Minor Warning Informational"`
+	Severity *string `json:"severity,omitempty" validate:"omitempty,oneof=Critical Major Minor Warning Informational"`
 
 	// Status
 	// Alarm status
-	Status *string `json:"status,omitempty" validate:"oneof=Outstanding Acknowledged Cleared"`
+	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Outstanding Acknowledged Cleared"`
 
 	// Time
 	// Time of the alarm
@@ -49,7 +49,7 @@ type Alarm struct {
 type Altitude struct {
 	// AltitudeUnit
 	// altitude unit
-	AltitudeUnit *string `json:"altitudeUnit,omitempty" validate:"oneof=meters floor"`
+	AltitudeUnit *string `json:"altitudeUnit,omitempty" validate:"omitempty,oneof=meters floor"`
 
 	// AltitudeValue
 	// altitude value
@@ -78,7 +78,7 @@ type ApManagementVlan struct {
 
 	// Mode
 	// Vlan Mode of the zone
-	Mode *string `json:"mode,omitempty" validate:"oneof=KEEP USER_DEFINED"`
+	Mode *string `json:"mode,omitempty" validate:"omitempty,oneof=KEEP USER_DEFINED"`
 }
 
 type ApRadio50 struct {
@@ -96,7 +96,7 @@ type ApRadio50 struct {
 
 	// ChannelWidth
 	// channel width, 0 mean Auto, 8080 means 80+80MHz
-	ChannelWidth *int `json:"channelWidth,omitempty" validate:"oneof=0 20 40 80 8080 160"`
+	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40 80 8080 160"`
 
 	// SecondaryChannel
 	// channel number (channelWidth is 80+80MHz only)
@@ -108,21 +108,21 @@ type ApRadio50 struct {
 type ApRebootTimeout struct {
 	// GatewayLossTimeoutInSec
 	// Gateway loss timeout in second
-	GatewayLossTimeoutInSec *int `json:"gatewayLossTimeoutInSec,omitempty" validate:"oneof=0 1800 3600 5400 7200 9000 10800 12600 14400 16200 18000 19800 23400 25200 27000 28800 30600 32400 34200 36000 37800 39600 41400 43200 45000 46800 48600 50400 52200 54000 55800 57600 59400 61200 63000 64800 66600 68400 70200 72000 73800 75600 77400 79200 81000 82800 84600 86400"`
+	GatewayLossTimeoutInSec *int `json:"gatewayLossTimeoutInSec,omitempty" validate:"omitempty,oneof=0 1800 3600 5400 7200 9000 10800 12600 14400 16200 18000 19800 23400 25200 27000 28800 30600 32400 34200 36000 37800 39600 41400 43200 45000 46800 48600 50400 52200 54000 55800 57600 59400 61200 63000 64800 66600 68400 70200 72000 73800 75600 77400 79200 81000 82800 84600 86400"`
 
 	// ServerLossTimeoutInSec
 	// Server loss timeout in second
-	ServerLossTimeoutInSec *int `json:"serverLossTimeoutInSec,omitempty" validate:"oneof=0 7200 14400 21600 28800 36000 43200 50400 57600 64800 72000 79200 86400"`
+	ServerLossTimeoutInSec *int `json:"serverLossTimeoutInSec,omitempty" validate:"omitempty,oneof=0 7200 14400 21600 28800 36000 43200 50400 57600 64800 72000 79200 86400"`
 }
 
 type AutoChannelSelection struct {
 	// ChannelFlyMtbc
 	// ChannelFly MTBC
-	ChannelFlyMtbc *int `json:"channelFlyMtbc,omitempty" validate:"gte=100,lte=1440"`
+	ChannelFlyMtbc *int `json:"channelFlyMtbc,omitempty" validate:"omitempty,gte=100,lte=1440"`
 
 	// ChannelSelectMode
 	// Channel Select Mode
-	ChannelSelectMode *string `json:"channelSelectMode,omitempty" validate:"oneof=None BackgroundScanning ChannelFly"`
+	ChannelSelectMode *string `json:"channelSelectMode,omitempty" validate:"omitempty,oneof=None BackgroundScanning ChannelFly"`
 }
 
 type BaseServiceInfo struct {
@@ -250,15 +250,15 @@ type Client struct {
 type ClientAdmissionControl struct {
 	// MaxRadioLoadPercent
 	// Maximum radio load percentage.
-	MaxRadioLoadPercent *int `json:"maxRadioLoadPercent,omitempty" validate:"gte=50,lte=100"`
+	MaxRadioLoadPercent *int `json:"maxRadioLoadPercent,omitempty" validate:"omitempty,gte=50,lte=100"`
 
 	// MinClientCount
 	// Minimum client count number.
-	MinClientCount *int `json:"minClientCount,omitempty" validate:"gte=0,lte=100"`
+	MinClientCount *int `json:"minClientCount,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	// MinClientThroughputMbps
 	// Minimum client throughput in Mbps.
-	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"gte=0.000000,lte=100.000000"`
+	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"omitempty,gte=0.000000,lte=100.000000"`
 }
 
 type CreateResult struct {
@@ -284,11 +284,11 @@ type DhcpProfileRef struct {
 
 	// LeaseTimeHours
 	// Lease time in hours of the DHCP Profile
-	LeaseTimeHours *int `json:"leaseTimeHours,omitempty" validate:"gte=0,lte=24"`
+	LeaseTimeHours *int `json:"leaseTimeHours,omitempty" validate:"omitempty,gte=0,lte=24"`
 
 	// LeaseTimeMinutes
 	// Lease time in minutes of the DHCP Profile
-	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty" validate:"gte=0,lte=59"`
+	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty" validate:"omitempty,gte=0,lte=59"`
 
 	Name *NormalName `json:"name,omitempty"`
 
@@ -306,7 +306,7 @@ type DhcpProfileRef struct {
 
 	// VlanId
 	// VLAN ID of the DHCP Profile
-	VlanId *int `json:"vlanId,omitempty" validate:"gte=1,lte=4094"`
+	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// ZoneId
 	// Zone Id of DHCP Profile
@@ -334,7 +334,7 @@ type DhcpSiteConfigListRef struct {
 
 	// SiteMode
 	// DHCP Service mode
-	SiteMode *string `json:"siteMode,omitempty" validate:"oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
+	SiteMode *string `json:"siteMode,omitempty" validate:"omitempty,oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
 	SiteProfiles []*DhcpProfileRef `json:"siteProfiles,omitempty"`
 
@@ -361,7 +361,7 @@ type DhcpSiteConfigListRefSiteApsType struct {
 
 	ApServerType *string `json:"apServerType,omitempty"`
 
-	ApStatus *string `json:"apStatus,omitempty" validate:"oneof=Online Offline Flagged"`
+	ApStatus *string `json:"apStatus,omitempty" validate:"omitempty,oneof=Online Offline Flagged"`
 }
 
 type DhcpSiteConfigRef struct {
@@ -385,7 +385,7 @@ type DhcpSiteConfigRef struct {
 
 	// SiteMode
 	// DHCP Service mode
-	SiteMode *string `json:"siteMode,omitempty" validate:"oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
+	SiteMode *string `json:"siteMode,omitempty" validate:"omitempty,oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
@@ -408,7 +408,7 @@ type DhcpSiteConfigRefSiteApsType struct {
 
 	ApServerType *string `json:"apServerType,omitempty"`
 
-	ApStatus *string `json:"apStatus,omitempty" validate:"oneof=Online Offline Flagged"`
+	ApStatus *string `json:"apStatus,omitempty" validate:"omitempty,oneof=Online Offline Flagged"`
 }
 
 type DoAssignIp struct {
@@ -428,7 +428,7 @@ type DoAssignIp struct {
 
 	// SiteMode
 	// DHCP Service mode
-	SiteMode *string `json:"siteMode,omitempty" validate:"oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
+	SiteMode *string `json:"siteMode,omitempty" validate:"omitempty,oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
@@ -479,7 +479,7 @@ type FullTextSearch struct {
 
 	// Type
 	// Search logic operator
-	Type *string `json:"type,omitempty" validate:"oneof=AND OR"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AND OR"`
 
 	// Value
 	// Text or number to search
@@ -563,15 +563,15 @@ type OverrideClientAdmissionControl struct {
 
 	// MaxRadioLoadPercent
 	// Maximum radio load percentage.
-	MaxRadioLoadPercent *int `json:"maxRadioLoadPercent,omitempty" validate:"gte=50,lte=100"`
+	MaxRadioLoadPercent *int `json:"maxRadioLoadPercent,omitempty" validate:"omitempty,gte=50,lte=100"`
 
 	// MinClientCount
 	// Minimum client count number.
-	MinClientCount *int `json:"minClientCount,omitempty" validate:"gte=0,lte=100"`
+	MinClientCount *int `json:"minClientCount,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	// MinClientThroughputMbps
 	// Minimum client throughput in Mbps.
-	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"gte=0.000000,lte=100.000000"`
+	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"omitempty,gte=0.000000,lte=100.000000"`
 }
 
 type OverrideGenericRef struct {
@@ -587,11 +587,11 @@ type OverrideSmartMonitor struct {
 
 	// IntervalInSec
 	// Interval in seconds. This is required if smartMonitor is enabled
-	IntervalInSec *int `json:"intervalInSec,omitempty" validate:"gte=5,lte=60"`
+	IntervalInSec *int `json:"intervalInSec,omitempty" validate:"omitempty,gte=5,lte=60"`
 
 	// RetryThreshold
 	// Retry threshold. This is required if smartMonitor is enabled
-	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"gte=1,lte=10"`
+	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"omitempty,gte=1,lte=10"`
 }
 
 type PortalCustomization struct {
@@ -607,11 +607,11 @@ type PortalCustomization struct {
 
 	// TermsAndConditionsText
 	// Terms and conditions text
-	TermsAndConditionsText *string `json:"termsAndConditionsText,omitempty" validate:"max=3999,min=0"`
+	TermsAndConditionsText *string `json:"termsAndConditionsText,omitempty" validate:"omitempty,max=3999,min=0"`
 
 	// Title
 	// Title
-	Title *string `json:"title,omitempty" validate:"max=63,min=0"`
+	Title *string `json:"title,omitempty" validate:"omitempty,max=63,min=0"`
 }
 
 // PortalLanguage
@@ -652,7 +652,7 @@ type QueryCriteria struct {
 
 	// Limit
 	// Size of one page
-	Limit *int `json:"limit,omitempty" validate:"gte=1"`
+	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
 
 	// Options
 	// Specified feature required information
@@ -660,7 +660,7 @@ type QueryCriteria struct {
 
 	// Page
 	// Page number to get
-	Page *int `json:"page,omitempty" validate:"gte=1"`
+	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
 
 	// Query
 	// Add backward compatibility for UI framework
@@ -732,7 +732,7 @@ func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 //
 // About sorting
 type QueryCriteriaSortInfoType struct {
-	Dir *string `json:"dir,omitempty" validate:"oneof=ASC DESC"`
+	Dir *string `json:"dir,omitempty" validate:"omitempty,oneof=ASC DESC"`
 
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
@@ -754,7 +754,7 @@ type Radio24 struct {
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto.
-	ChannelWidth *int `json:"channelWidth,omitempty" validate:"oneof=0 20 40"`
+	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40"`
 
 	TxPower *TxPower `json:"txPower,omitempty"`
 }
@@ -778,7 +778,7 @@ type Radio24SuperSet struct {
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto.
-	ChannelWidth *int `json:"channelWidth,omitempty" validate:"oneof=0 20 40"`
+	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40"`
 
 	TxPower *TxPower `json:"txPower,omitempty"`
 }
@@ -790,7 +790,7 @@ type Radio50 struct {
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto. 8080 means 80+80MHz
-	ChannelWidth *int `json:"channelWidth,omitempty" validate:"oneof=0 20 40 80 8080 160"`
+	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40 80 8080 160"`
 
 	// IndoorChannel
 	// Channel number for Indoor AP
@@ -834,7 +834,7 @@ type Radio50SuperSet struct {
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto. 8080 means 80+80MHz
-	ChannelWidth *int `json:"channelWidth,omitempty" validate:"oneof=0 20 40 80 8080 160"`
+	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40 80 8080 160"`
 
 	// IndoorChannel
 	// Channel number for Indoor AP
@@ -904,11 +904,11 @@ type RecoverySsid struct {
 type SmartMonitor struct {
 	// IntervalInSec
 	// Interval in seconds. This is required if smartMonitor is enabled
-	IntervalInSec *int `json:"intervalInSec,omitempty" validate:"gte=5,lte=60"`
+	IntervalInSec *int `json:"intervalInSec,omitempty" validate:"omitempty,gte=5,lte=60"`
 
 	// RetryThreshold
 	// Retry threshold. This is required if smartMonitor is enabled
-	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"gte=1,lte=10"`
+	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"omitempty,gte=1,lte=10"`
 }
 
 type SnmpCommunity struct {
@@ -926,7 +926,7 @@ type SnmpCommunity struct {
 
 	// NotificationType
 	// type of the notification privilege
-	NotificationType *string `json:"notificationType,omitempty" validate:"oneof=TRAP INFORM"`
+	NotificationType *string `json:"notificationType,omitempty" validate:"omitempty,oneof=TRAP INFORM"`
 
 	// ReadEnabled
 	// read privilege of the SNMP Coummunity
@@ -940,11 +940,11 @@ type SnmpCommunity struct {
 type SnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
-	AuthPassword *string `json:"authPassword,omitempty" validate:"min=8"`
+	AuthPassword *string `json:"authPassword,omitempty" validate:"omitempty,min=8"`
 
 	// AuthProtocol
 	// authProtocol of the SNMP User.
-	AuthProtocol *string `json:"authProtocol,omitempty" validate:"oneof=MD5 SHA"`
+	AuthProtocol *string `json:"authProtocol,omitempty" validate:"omitempty,oneof=MD5 SHA"`
 
 	// NotificationEnabled
 	// notification privilege of the SNMP User
@@ -956,15 +956,15 @@ type SnmpUser struct {
 
 	// NotificationType
 	// type of the notification privilege
-	NotificationType *string `json:"notificationType,omitempty" validate:"oneof=TRAP INFORM"`
+	NotificationType *string `json:"notificationType,omitempty" validate:"omitempty,oneof=TRAP INFORM"`
 
 	// PrivPassword
 	// privPassword of the SNMP User.
-	PrivPassword *string `json:"privPassword,omitempty" validate:"min=8"`
+	PrivPassword *string `json:"privPassword,omitempty" validate:"omitempty,min=8"`
 
 	// PrivProtocol
 	// privProtocol of the SNMP User.
-	PrivProtocol *string `json:"privProtocol,omitempty" validate:"oneof=DES AES"`
+	PrivProtocol *string `json:"privProtocol,omitempty" validate:"omitempty,oneof=DES AES"`
 
 	// ReadEnabled
 	// read privilege of the SNMP User
@@ -998,7 +998,7 @@ type TimeRange struct {
 
 	// Field
 	// time field for collecting data
-	Field *string `json:"field,omitempty" validate:"oneof=insertionTime"`
+	Field *string `json:"field,omitempty" validate:"omitempty,oneof=insertionTime"`
 
 	// Interval
 	// time interval in second
@@ -1049,7 +1049,7 @@ type WebAuthenticationPortalCustomization struct {
 
 	// Title
 	// Title of the custom portal
-	Title *string `json:"title,omitempty" validate:"max=63,min=0"`
+	Title *string `json:"title,omitempty" validate:"omitempty,max=63,min=0"`
 }
 
 // WildFQDN

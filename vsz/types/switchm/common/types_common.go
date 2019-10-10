@@ -23,7 +23,7 @@ type FullTextSearch struct {
 
 	// Type
 	// Search logic operator
-	Type *string `json:"type,omitempty" validate:"oneof=AND OR"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AND OR"`
 
 	// Value
 	// Text or number to search
@@ -63,7 +63,7 @@ type QueryCriteria struct {
 
 	// Limit
 	// Size of one page
-	Limit *int `json:"limit,omitempty" validate:"gte=1"`
+	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
 
 	// Options
 	// Specified feature required information
@@ -71,7 +71,7 @@ type QueryCriteria struct {
 
 	// Page
 	// Page number to get
-	Page *int `json:"page,omitempty" validate:"gte=1"`
+	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
 
 	// Query
 	// Add backward compatibility for UI framework
@@ -143,7 +143,7 @@ func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 //
 // About sorting
 type QueryCriteriaSortInfoType struct {
-	Dir *string `json:"dir,omitempty" validate:"oneof=ASC DESC"`
+	Dir *string `json:"dir,omitempty" validate:"omitempty,oneof=ASC DESC"`
 
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
@@ -161,7 +161,7 @@ type TimeRange struct {
 
 	// Field
 	// time field for collecting data
-	Field *string `json:"field,omitempty" validate:"oneof=insertionTime"`
+	Field *string `json:"field,omitempty" validate:"omitempty,oneof=insertionTime"`
 
 	// Interval
 	// time interval in second

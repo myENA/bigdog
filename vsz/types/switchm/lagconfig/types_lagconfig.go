@@ -25,7 +25,7 @@ type Create struct {
 
 	// Type
 	// The LAG Types in STATIC or DYNAMIC
-	Type *string `json:"type,omitempty" validate:"oneof=STATIC DYNAMIC"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=STATIC DYNAMIC"`
 }
 
 type CreateResult interface{}
@@ -77,7 +77,7 @@ type LagConfig struct {
 
 	// Type
 	// The LAG Types in STATIC or DYNAMIC
-	Type *string `json:"type,omitempty" validate:"oneof=STATIC DYNAMIC"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=STATIC DYNAMIC"`
 
 	// UpdatedTime
 	// The LAG Types in STATIC or DYNAMIC

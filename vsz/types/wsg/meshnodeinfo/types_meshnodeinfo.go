@@ -120,5 +120,5 @@ type UpdateAPZeroTouch struct {
 
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
-	Status *string `json:"status,omitempty" validate:"oneof=Accept Reject"`
+	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Accept Reject"`
 }

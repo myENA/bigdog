@@ -16,7 +16,7 @@ type CreateGuestAccessWlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -111,7 +111,7 @@ type CreateHotspot20OpenWlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -202,7 +202,7 @@ type CreateHotspot20Wlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -291,7 +291,7 @@ type CreateHotspotWlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -386,7 +386,7 @@ type CreateStandard80211Wlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -475,7 +475,7 @@ type CreateStandardOpenWlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -566,7 +566,7 @@ type CreateWebAuthWlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -661,7 +661,7 @@ type CreateWechatWlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -752,7 +752,7 @@ type ModifyWlan struct {
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE
 	// tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -860,7 +860,7 @@ type WlanAccounting struct {
 
 	// InterimUpdateMin
 	// Interval (in minutes) for sending interim updates
-	InterimUpdateMin *int `json:"interimUpdateMin,omitempty" validate:"gte=0,lte=1440"`
+	InterimUpdateMin *int `json:"interimUpdateMin,omitempty" validate:"omitempty,gte=0,lte=1440"`
 
 	// Name
 	// Accounting service or profile name. At least one ID or name is required in the request.
@@ -880,15 +880,15 @@ type WlanAdvanced struct {
 
 	// ArpRequestRateLimit
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
-	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	// AssocRssiThr
 	// Assoc RSSI threshold.f
-	AssocRssiThr *int `json:"assocRssiThr,omitempty" validate:"gte=-90,lte=-60"`
+	AssocRssiThr *int `json:"assocRssiThr,omitempty" validate:"omitempty,gte=-90,lte=-60"`
 
 	// AuthRssiThr
 	// Auth RSSI threshold.
-	AuthRssiThr *int `json:"authRssiThr,omitempty" validate:"gte=-90,lte=-60"`
+	AuthRssiThr *int `json:"authRssiThr,omitempty" validate:"omitempty,gte=-90,lte=-60"`
 
 	// AvcEnabled
 	// Indicator of whether ARC support is enabled or disabled
@@ -896,7 +896,7 @@ type WlanAdvanced struct {
 
 	// BandBalancing
 	// Indicates whether band balancing is enabled or disabled
-	BandBalancing *string `json:"bandBalancing,omitempty" validate:"oneof=Disabled UseZoneSetting"`
+	BandBalancing *string `json:"bandBalancing,omitempty" validate:"omitempty,oneof=Disabled UseZoneSetting"`
 
 	BssMinRateMbps *WlanBssMinRateMbps `json:"bssMinRateMbps,omitempty"`
 
@@ -906,7 +906,7 @@ type WlanAdvanced struct {
 
 	// ClientIdleTimeoutSec
 	// Client idle timeout in seconds
-	ClientIdleTimeoutSec *int `json:"clientIdleTimeoutSec,omitempty" validate:"gte=60,lte=1000"`
+	ClientIdleTimeoutSec *int `json:"clientIdleTimeoutSec,omitempty" validate:"omitempty,gte=60,lte=1000"`
 
 	// ClientIsolationAutoVrrpEnabled
 	// Indicates whether Automatic support for VRRP of wireless client isolation is enabled or disabled
@@ -937,19 +937,19 @@ type WlanAdvanced struct {
 	// Dhcp82Format
 	// DHCP Option 82 format. This variable no longer supports from v8_1 and only kept for backward
 	// compatibility.
-	Dhcp82Format *string `json:"dhcp82Format,omitempty" validate:"oneof=RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
+	Dhcp82Format *string `json:"dhcp82Format,omitempty" validate:"omitempty,oneof=RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
 
 	// Dhcp82SubOpt1Format
 	// Subopt-1 format
-	Dhcp82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty" validate:"oneof=NONE SUBOPT1_AP_INFO_LOCATION SUBOPT1_AP_INFO SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE SUBOPT1_AP_MAC_hex SUBOPT1_AP_MAC_hex_ESSID SUBOPT1_ESSID"`
+	Dhcp82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty" validate:"omitempty,oneof=NONE SUBOPT1_AP_INFO_LOCATION SUBOPT1_AP_INFO SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE SUBOPT1_AP_MAC_hex SUBOPT1_AP_MAC_hex_ESSID SUBOPT1_ESSID"`
 
 	// Dhcp82SubOpt2Format
 	// Subopt-2 format
-	Dhcp82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty" validate:"oneof=NONE SUBOPT2_CLIENT_MAC SUBOPT2_CLIENT_MAC_hex SUBOPT2_CLIENT_MAC_hex_ESSID SUBOPT2_AP_MAC SUBOPT2_AP_MAC_hex SUBOPT2_AP_MAC_hex_ESSID"`
+	Dhcp82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty" validate:"omitempty,oneof=NONE SUBOPT2_CLIENT_MAC SUBOPT2_CLIENT_MAC_hex SUBOPT2_CLIENT_MAC_hex_ESSID SUBOPT2_AP_MAC SUBOPT2_AP_MAC_hex SUBOPT2_AP_MAC_hex_ESSID"`
 
 	// Dhcp82SubOpt150Format
 	// Subopt-150 with VLAN-Id
-	Dhcp82SubOpt150Format *string `json:"dhcp82SubOpt150Format,omitempty" validate:"oneof=NONE SUBOPT150_VLAN_ID"`
+	Dhcp82SubOpt150Format *string `json:"dhcp82SubOpt150Format,omitempty" validate:"omitempty,oneof=NONE SUBOPT150_VLAN_ID"`
 
 	// Dhcp82SubOpt151AreaName
 	// Subopt-151 Area Name value
@@ -957,11 +957,11 @@ type WlanAdvanced struct {
 
 	// Dhcp82SubOpt151Format
 	// Subopt-151 format
-	Dhcp82SubOpt151Format *string `json:"dhcp82SubOpt151Format,omitempty" validate:"oneof=NONE SUBOPT151_AREA_NAME SUBOPT151_ESSID"`
+	Dhcp82SubOpt151Format *string `json:"dhcp82SubOpt151Format,omitempty" validate:"omitempty,oneof=NONE SUBOPT151_AREA_NAME SUBOPT151_ESSID"`
 
 	// Dhcp82SubOptRadiusFormat
 	// Radius DHCP/NAT option 82 Format
-	Dhcp82SubOptRadiusFormat *string `json:"dhcp82SubOptRadiusFormat,omitempty" validate:"oneof=NONE RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
+	Dhcp82SubOptRadiusFormat *string `json:"dhcp82SubOptRadiusFormat,omitempty" validate:"omitempty,oneof=NONE RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
 
 	// DhcpOption82Enabled
 	// Indicates whether DCHP Option 82 is enabled or disabled. This variable no longer supports from v8_1 and
@@ -970,12 +970,12 @@ type WlanAdvanced struct {
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
-	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	// DirectedThreshold
 	// Directed Threshold Setting, Defines the client count at which an AP will stop converting group
 	// addressed data traffic to unicast.
-	DirectedThreshold *int `json:"directedThreshold,omitempty" validate:"gte=0,lte=128"`
+	DirectedThreshold *int `json:"directedThreshold,omitempty" validate:"omitempty,gte=0,lte=128"`
 
 	// DownlinkEnabled
 	// SSID Rate Limiting downlink enabled.
@@ -991,7 +991,7 @@ type WlanAdvanced struct {
 
 	// DtimInterval
 	// DTIM Interval
-	DtimInterval *int `json:"dtimInterval,omitempty" validate:"gte=1,lte=255"`
+	DtimInterval *int `json:"dtimInterval,omitempty" validate:"omitempty,gte=1,lte=255"`
 
 	EnableRadiusBasedDhcpNat *bool `json:"enableRadiusBasedDhcpNat,omitempty"`
 
@@ -1002,7 +1002,7 @@ type WlanAdvanced struct {
 	// ForceClientDHCPTimeoutSec
 	// Force DHCP disconnects the client if the client does not obtain a valid IP address within the timeout
 	// peroid. To disable force DHCP, set this value to zero (0).
-	ForceClientDHCPTimeoutSec *int `json:"forceClientDHCPTimeoutSec,omitempty" validate:"oneof=0 5 6 7 8 9 10 11 12 13 14 15"`
+	ForceClientDHCPTimeoutSec *int `json:"forceClientDHCPTimeoutSec,omitempty" validate:"omitempty,oneof=0 5 6 7 8 9 10 11 12 13 14 15"`
 
 	// HdOverheadOptimizeEnable
 	// Airtime Decongestion enabled.
@@ -1018,23 +1018,23 @@ type WlanAdvanced struct {
 
 	// JoinAcceptTimeout
 	// Join expire time.
-	JoinAcceptTimeout *int `json:"joinAcceptTimeout,omitempty" validate:"gte=1,lte=300"`
+	JoinAcceptTimeout *int `json:"joinAcceptTimeout,omitempty" validate:"omitempty,gte=1,lte=300"`
 
 	// JoinIgnoreThr
 	// Join wait threshold.
-	JoinIgnoreThr *int `json:"joinIgnoreThr,omitempty" validate:"gte=1,lte=50"`
+	JoinIgnoreThr *int `json:"joinIgnoreThr,omitempty" validate:"omitempty,gte=1,lte=50"`
 
 	// JoinIgnoreTimeout
 	// Join wait time.
-	JoinIgnoreTimeout *int `json:"joinIgnoreTimeout,omitempty" validate:"gte=1,lte=60"`
+	JoinIgnoreTimeout *int `json:"joinIgnoreTimeout,omitempty" validate:"omitempty,gte=1,lte=60"`
 
 	// MaxAllowedRA
 	// Max Allowed RAs
-	MaxAllowedRA *int `json:"maxAllowedRA,omitempty" validate:"gte=1,lte=1440"`
+	MaxAllowedRA *int `json:"maxAllowedRA,omitempty" validate:"omitempty,gte=1,lte=1440"`
 
 	// MaxClientsPerRadio
 	// Maximum number of clients per radio
-	MaxClientsPerRadio *int `json:"maxClientsPerRadio,omitempty" validate:"gte=1,lte=512"`
+	MaxClientsPerRadio *int `json:"maxClientsPerRadio,omitempty" validate:"omitempty,gte=1,lte=512"`
 
 	MgmtTxRateMbps *WlanMgmtTxRateMbps `json:"mgmtTxRateMbps,omitempty"`
 
@@ -1044,7 +1044,7 @@ type WlanAdvanced struct {
 
 	// OceBroadcastProbeResponseDelay
 	// Broadcast probe response delay.
-	OceBroadcastProbeResponseDelay *int `json:"oceBroadcastProbeResponseDelay,omitempty" validate:"gte=8,lte=120"`
+	OceBroadcastProbeResponseDelay *int `json:"oceBroadcastProbeResponseDelay,omitempty" validate:"omitempty,gte=8,lte=120"`
 
 	// OceEnabled
 	// Optimized Connectivity Experience(OCE) enabled.
@@ -1052,7 +1052,7 @@ type WlanAdvanced struct {
 
 	// OceRssiBasedAssociationRejectionThreshold
 	// RSSI-based association rejection threshold.
-	OceRssiBasedAssociationRejectionThreshold *int `json:"oceRssiBasedAssociationRejectionThreshold,omitempty" validate:"gte=-90,lte=-60"`
+	OceRssiBasedAssociationRejectionThreshold *int `json:"oceRssiBasedAssociationRejectionThreshold,omitempty" validate:"omitempty,gte=-90,lte=-60"`
 
 	// OfdmOnlyEnabled
 	// Indicates whether OFDM only is enabled or disabled
@@ -1070,11 +1070,11 @@ type WlanAdvanced struct {
 
 	// Priority
 	// Priority of the WLAN
-	Priority *string `json:"priority,omitempty" validate:"oneof=High Low"`
+	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=High Low"`
 
 	// ProbeRssiThr
 	// Join RSSI threshold.
-	ProbeRssiThr *int `json:"probeRssiThr,omitempty" validate:"gte=-90,lte=-60"`
+	ProbeRssiThr *int `json:"probeRssiThr,omitempty" validate:"omitempty,gte=-90,lte=-60"`
 
 	// ProxyARPEnabled
 	// Indicates whether proxy ARP is enabled or disabled
@@ -1083,7 +1083,7 @@ type WlanAdvanced struct {
 	// RaInterval
 	// A timer that RA proxy runs and once receives unsolicited RA checks against the configured time and
 	// allow/drop RA based on next timeout
-	RaInterval *int `json:"raInterval,omitempty" validate:"gte=1,lte=256"`
+	RaInterval *int `json:"raInterval,omitempty" validate:"omitempty,gte=1,lte=256"`
 
 	// RaProxyEnabled
 	// Indicates whether RA proxy is enabled or disabled
@@ -1204,7 +1204,7 @@ type WlanConfiguration struct {
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, SoftGRE means AP direct SoftGRE tunnel
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
 	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
@@ -1298,7 +1298,7 @@ type WlanConfiguration struct {
 
 	// Type
 	// Type of the WLAN
-	Type *string `json:"type,omitempty" validate:"oneof=Standard_Open Standard_8021X Standard_Mac Hotspot Hotspot_MacByPass Guest WebAuth Hotspot20 Hotspot20_Open Hotspot20_OSEN"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=Standard_Open Standard_8021X Standard_Mac Hotspot Hotspot_MacByPass Guest WebAuth Hotspot20 Hotspot20_Open Hotspot20_OSEN"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 
@@ -1330,11 +1330,11 @@ type WlanDSCPSetting struct {
 
 	// High
 	// DSCP range - high
-	High *int `json:"high,omitempty" validate:"gte=0,lte=255"`
+	High *int `json:"high,omitempty" validate:"omitempty,gte=0,lte=255"`
 
 	// Low
 	// DSCP range - low
-	Low *int `json:"low,omitempty" validate:"gte=0,lte=255"`
+	Low *int `json:"low,omitempty" validate:"omitempty,gte=0,lte=255"`
 
 	// Priority
 	// Priority
@@ -1344,7 +1344,7 @@ type WlanDSCPSetting struct {
 type WlanEncryption struct {
 	// Algorithm
 	// Encryption algorithm. This only applies to WPA2 and WPA mixed mode.
-	Algorithm *string `json:"algorithm,omitempty" validate:"oneof=AES TKIP_AES"`
+	Algorithm *string `json:"algorithm,omitempty" validate:"omitempty,oneof=AES TKIP_AES"`
 
 	// KeyIndex
 	// Key index. This only applies to WEP64 and WEP128.
@@ -1360,11 +1360,11 @@ type WlanEncryption struct {
 
 	// Mfp
 	// Management frame protection. This only applies to WPA2 + AES
-	Mfp *string `json:"mfp,omitempty" validate:"oneof=disabled capable required"`
+	Mfp *string `json:"mfp,omitempty" validate:"omitempty,oneof=disabled capable required"`
 
 	// MobilityDomainId
 	// mobility Domain Id.
-	MobilityDomainId *int `json:"mobilityDomainId,omitempty" validate:"gte=1,lte=65535"`
+	MobilityDomainId *int `json:"mobilityDomainId,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// Passphrase
 	// Passphrase. This only applies to WPA2 and WPA mixed mode.
@@ -1390,11 +1390,11 @@ type WlanList struct {
 type WlanMACAuth struct {
 	// CustomizedPassword
 	// User defined password. When this field is set to an empty string, the MAC address is used as password.
-	CustomizedPassword *string `json:"customizedPassword,omitempty" validate:"max=64"`
+	CustomizedPassword *string `json:"customizedPassword,omitempty" validate:"omitempty,max=64"`
 
 	// MacAuthMacFormat
 	// MAC address format. The default format is 0010a42319c0 and the 802.1X format is 00-10-A4-23-19-C0.
-	MacAuthMacFormat *string `json:"macAuthMacFormat,omitempty" validate:"oneof=Default 802.1X UpperColon Upper LowerDash LowerColon"`
+	MacAuthMacFormat *string `json:"macAuthMacFormat,omitempty" validate:"omitempty,oneof=Default 802.1X UpperColon Upper LowerDash LowerColon"`
 }
 
 type WlanMgmtTxRateMbps string
@@ -1404,35 +1404,35 @@ type WlanNameSSID string
 type WlanRadius struct {
 	// CalledStaIdType
 	// Called station ID type
-	CalledStaIdType *string `json:"calledStaIdType,omitempty" validate:"oneof=AP_MAC NONE WLAN_BSSID"`
+	CalledStaIdType *string `json:"calledStaIdType,omitempty" validate:"omitempty,oneof=AP_MAC NONE WLAN_BSSID"`
 
 	// CustomizedNasId
 	// User defined NAS ID
-	CustomizedNasId *string `json:"customizedNasId,omitempty" validate:"max=64"`
+	CustomizedNasId *string `json:"customizedNasId,omitempty" validate:"omitempty,max=64"`
 
 	// NasIdType
 	// NAS ID type
-	NasIdType *string `json:"nasIdType,omitempty" validate:"oneof=AP_MAC Customized WLAN_BSSID"`
+	NasIdType *string `json:"nasIdType,omitempty" validate:"omitempty,oneof=AP_MAC Customized WLAN_BSSID"`
 
 	// NasIpType
 	// NAS IP type
-	NasIpType *string `json:"nasIpType,omitempty" validate:"oneof=disabled control management userDefined"`
+	NasIpType *string `json:"nasIpType,omitempty" validate:"omitempty,oneof=disabled control management userDefined"`
 
 	// NasIpUserDefined
 	// User-defined NAS IP
-	NasIpUserDefined *string `json:"nasIpUserDefined,omitempty" validate:"max=45"`
+	NasIpUserDefined *string `json:"nasIpUserDefined,omitempty" validate:"omitempty,max=45"`
 
 	// NasMaxRetry
 	// NAS request maximum retry
-	NasMaxRetry *int `json:"nasMaxRetry,omitempty" validate:"gte=2,lte=10"`
+	NasMaxRetry *int `json:"nasMaxRetry,omitempty" validate:"omitempty,gte=2,lte=10"`
 
 	// NasReconnectPrimaryMin
 	// NAS reconnect primary time in minutes
-	NasReconnectPrimaryMin *int `json:"nasReconnectPrimaryMin,omitempty" validate:"gte=1,lte=60"`
+	NasReconnectPrimaryMin *int `json:"nasReconnectPrimaryMin,omitempty" validate:"omitempty,gte=1,lte=60"`
 
 	// NasRequestTimeoutSec
 	// NAS request timeout in seconds
-	NasRequestTimeoutSec *int `json:"nasRequestTimeoutSec,omitempty" validate:"gte=2,lte=20"`
+	NasRequestTimeoutSec *int `json:"nasRequestTimeoutSec,omitempty" validate:"omitempty,gte=2,lte=20"`
 
 	// SingleSessionIdAcctEnabled
 	// When Single Accounting Session ID is enabled, APs will maintain one accounting session for client
@@ -1487,7 +1487,7 @@ type WlanVlan struct {
 
 	// AccessVlan
 	// Access VLAN ID
-	AccessVlan *int `json:"accessVlan,omitempty" validate:"gte=1,lte=4094"`
+	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// CoreQinQEnabled
 	// Indicates whether Q-in-Q is allowed at the core network or not
@@ -1495,7 +1495,7 @@ type WlanVlan struct {
 
 	// CoreSVlan
 	// Core SVLAN ID. This only applies when core Q-in-Q is enabled
-	CoreSVlan *int `json:"coreSVlan,omitempty" validate:"gte=1,lte=4094"`
+	CoreSVlan *int `json:"coreSVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }

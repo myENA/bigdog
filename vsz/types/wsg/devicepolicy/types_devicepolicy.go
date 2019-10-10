@@ -19,7 +19,7 @@ type CreateDevicePolicy struct {
 type DevicePolicyPorfile struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
-	DefaultAction *string `json:"defaultAction,omitempty" validate:"oneof=ALLOW BLOCK"`
+	DefaultAction *string `json:"defaultAction,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -37,13 +37,13 @@ type DevicePolicyPorfile struct {
 type DevicePolicyRule struct {
 	// Action
 	// defaultAction of the device policy cofig
-	Action *string `json:"action,omitempty" validate:"oneof=ALLOW BLOCK"`
+	Action *string `json:"action,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
 
 	Description *common.Description `json:"description,omitempty"`
 
 	// DeviceType
 	// deviceType of the device policy rule
-	DeviceType *string `json:"deviceType,omitempty" validate:"oneof=Windows Android Apple_iOS Mac_OS Linux VoIP Gaming Printers BlackBerry Chrome_OS"`
+	DeviceType *string `json:"deviceType,omitempty" validate:"omitempty,oneof=Windows Android Apple_iOS Mac_OS Linux VoIP Gaming Printers BlackBerry Chrome_OS"`
 
 	// Downlink
 	// downlink rate Limiting of the device policy rule, rate unit is mbps, value must include be 0, 0.10,
@@ -53,7 +53,7 @@ type DevicePolicyRule struct {
 	// 12.50, 12.75, 13.00, 13.25, 13.50, 13.75, 14.00, 14.25, 14.50, 14.75, 15.00, 15.25, 15.50, 15.75,
 	// 16.00, 16.25, 16.50, 16.75, 17.00, 17.25, 17.50, 17.75, 18.00, 18.25, 18.50, 18.75, 19.00, 19.25,
 	// 19.50, 19.75, 20.00
-	Downlink *float64 `json:"downlink,omitempty" validate:"gte=0.000000,lte=20.000000"`
+	Downlink *float64 `json:"downlink,omitempty" validate:"omitempty,gte=0.000000,lte=20.000000"`
 
 	// Uplink
 	// uplink rate Limiting of the device policy rule, rate unit is mbps, value must include be 0, 0.10, 0.25,
@@ -63,17 +63,17 @@ type DevicePolicyRule struct {
 	// 12.75, 13.00, 13.25, 13.50, 13.75, 14.00, 14.25, 14.50, 14.75, 15.00, 15.25, 15.50, 15.75, 16.00,
 	// 16.25, 16.50, 16.75, 17.00, 17.25, 17.50, 17.75, 18.00, 18.25, 18.50, 18.75, 19.00, 19.25, 19.50,
 	// 19.75, 20.00
-	Uplink *float64 `json:"uplink,omitempty" validate:"gte=0.000000,lte=20.000000"`
+	Uplink *float64 `json:"uplink,omitempty" validate:"omitempty,gte=0.000000,lte=20.000000"`
 
 	// Vlan
 	// VLAN Members of the ethernet port profile
-	Vlan *int `json:"vlan,omitempty" validate:"gte=1,lte=4094"`
+	Vlan *int `json:"vlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 }
 
 type ModifyDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
-	DefaultAction *string `json:"defaultAction,omitempty" validate:"oneof=ALLOW BLOCK"`
+	DefaultAction *string `json:"defaultAction,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
 
 	Description *common.Description `json:"description,omitempty"`
 

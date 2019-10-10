@@ -74,7 +74,7 @@ type ModifyUrlFilteringPolicy struct {
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
-	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
+	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"omitempty,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -157,7 +157,7 @@ type UrlFilteringPolicy struct {
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
-	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
+	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"omitempty,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
 	// Id
 	// Identifier of the URL Filtering policy

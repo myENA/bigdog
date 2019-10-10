@@ -281,7 +281,7 @@ type LicenseServer struct {
 
 	// Port
 	// local license server port
-	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=0,lte=65535"`
 
 	// UseCloud
 	// use cloud license server
@@ -333,7 +333,7 @@ type LicensesSyncLogs struct {
 
 	// SyncResult
 	// sync license result
-	SyncResult *string `json:"syncResult,omitempty" validate:"oneof=SUCCESS FAILURE"`
+	SyncResult *string `json:"syncResult,omitempty" validate:"omitempty,oneof=SUCCESS FAILURE"`
 }
 
 type LicensesSyncLogsList struct {
@@ -349,7 +349,7 @@ type LicensesSyncLogsList struct {
 type ModfiyLicenseServer struct {
 	IpAddress *string `json:"ipAddress,omitempty"`
 
-	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=0,lte=65535"`
 
 	UseCloud *bool `json:"useCloud" validate:"required"`
 }
@@ -390,7 +390,7 @@ type ModifyLogLevel struct {
 
 	// LogLevel
 	// Log level.
-	LogLevel *string `json:"logLevel,omitempty" validate:"oneof=DEBUG INFO WARN ERROR"`
+	LogLevel *string `json:"logLevel,omitempty" validate:"omitempty,oneof=DEBUG INFO WARN ERROR"`
 }
 
 type ModifyScheduleBackup struct {
@@ -400,7 +400,7 @@ type ModifyScheduleBackup struct {
 
 	// DayOfWeek
 	// day of the week
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
 	// enable schedule backup
@@ -412,7 +412,7 @@ type ModifyScheduleBackup struct {
 
 	// Interval
 	// schedule interval
-	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY"`
+	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
 	// minute
@@ -455,7 +455,7 @@ type RetrieveAdminAAAServer struct {
 	// Type
 	// Type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is
 	// for TACACS+ (Terminal Access Controller Access-Control System Plus)
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
 }
 
 type RetrieveAdminAAAServerList struct {
@@ -473,7 +473,7 @@ type RetrieveAdminAAAServerListType struct {
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
 }
 
 type ScheduleBackup struct {
@@ -483,7 +483,7 @@ type ScheduleBackup struct {
 
 	// DayOfWeek
 	// day of the week
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
 	// enable schedule backup
@@ -495,7 +495,7 @@ type ScheduleBackup struct {
 
 	// Interval
 	// schedule interval
-	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY"`
+	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
 	// minute

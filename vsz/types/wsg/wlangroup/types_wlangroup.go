@@ -21,11 +21,11 @@ type ModifyWlanGroup struct {
 type ModifyWlanGroupMember struct {
 	// AccessVlan
 	// Access VLAN
-	AccessVlan *int `json:"accessVlan,omitempty" validate:"gte=1,lte=4094"`
+	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// NasId
 	// NAS-ID
-	NasId *string `json:"nasId,omitempty" validate:"max=63"`
+	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }
@@ -85,7 +85,7 @@ type WlanGroupList struct {
 type WlanMember struct {
 	// AccessVlan
 	// Access VLAN
-	AccessVlan *int `json:"accessVlan,omitempty" validate:"gte=1,lte=4094"`
+	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// Id
 	// Identifier of the WLAN
@@ -97,7 +97,7 @@ type WlanMember struct {
 
 	// NasId
 	// NAS-ID
-	NasId *string `json:"nasId,omitempty" validate:"max=63"`
+	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }

@@ -421,7 +421,7 @@ type RegistrationRule struct {
 
 	// Type
 	// Type of the registration rule
-	Type *string `json:"type,omitempty" validate:"oneof=IP_RANGE SUBNET MODEL_NUMBER"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_RANGE SUBNET MODEL_NUMBER"`
 }
 
 type RuleQueryResultList struct {

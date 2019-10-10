@@ -67,11 +67,11 @@ type ActiveDirectoryService struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// Protocol
 	// Authentication protocol.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=AD"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=AD"`
 
 	StandbyAdminDomainName *common.NormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
@@ -87,7 +87,7 @@ type ActiveDirectoryService struct {
 
 	// StandbyPort
 	// Port for standby cluster
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -105,7 +105,7 @@ type ActiveDirectoryService struct {
 
 	// Type
 	// Authentication protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=AD"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AD"`
 
 	WindowsDomainName *common.NormalName2to64 `json:"windowsDomainName,omitempty"`
 }
@@ -165,11 +165,11 @@ type CommonAccountingService struct {
 
 	// Protocol
 	// Accounting protocol.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=RADIUS CGF"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS CGF"`
 
 	// Type
 	// Accounting protocol same as protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS CGF"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS CGF"`
 }
 
 type CommonAccountingServiceList struct {
@@ -233,11 +233,11 @@ type CommonAuthenticationService struct {
 
 	// Protocol
 	// Authentication protocol.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=RADIUS AD LDAP FACEBOOK LINKEDIN GOOGLE GENERICOAUTH SOAP HLR LOCAL_DB GUEST"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS AD LDAP FACEBOOK LINKEDIN GOOGLE GENERICOAUTH SOAP HLR LOCAL_DB GUEST"`
 
 	// Type
 	// Authentication protocol same as protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS AD LDAP FACEBOOK LINKEDIN GOOGLE GENERICOAUTH SOAP HLR LOCAL_DB GUEST"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS AD LDAP FACEBOOK LINKEDIN GOOGLE GENERICOAUTH SOAP HLR LOCAL_DB GUEST"`
 }
 
 type CommonAuthenticationServiceList struct {
@@ -301,7 +301,7 @@ type CreateActiveDirectoryAuthentication struct {
 
 	// StandbyPort
 	// Port for standby cluster
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -319,15 +319,15 @@ type CreateActiveDirectoryAuthentication struct {
 
 	// Type
 	// Authentication protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=AD"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AD"`
 
 	WindowsDomainName *common.NormalName2to64 `json:"windowsDomainName" validate:"required"`
 }
 
 type CreateHlrAuthentication struct {
-	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"oneof=route_on_gt route_on_ssn"`
+	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"omitempty,oneof=route_on_gt route_on_ssn"`
 
-	AuthMapVer *string `json:"authMapVer,omitempty" validate:"oneof=version2 version3"`
+	AuthMapVer *string `json:"authMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
 
 	AuthorizationCachingEnabled *bool `json:"authorizationCachingEnabled,omitempty"`
 
@@ -349,11 +349,11 @@ type CreateHlrAuthentication struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
 
-	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
 
-	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
 
 	DestTransType *int `json:"destTransType,omitempty"`
 
@@ -361,7 +361,7 @@ type CreateHlrAuthentication struct {
 
 	E164Address *string `json:"e164Address,omitempty"`
 
-	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"oneof=version2 version3"`
+	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
 
 	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
@@ -377,7 +377,7 @@ type CreateHlrAuthentication struct {
 
 	Id *string `json:"id,omitempty"`
 
-	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"oneof=international international_spare national national_spare"`
+	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"omitempty,oneof=international international_spare national national_spare"`
 
 	LocalPointCode *int `json:"localPointCode,omitempty"`
 
@@ -399,7 +399,7 @@ type CreateHlrAuthentication struct {
 
 	PointCode *int `json:"pointCode,omitempty"`
 
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=HLR"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=HLR"`
 
 	ReuseEnable *bool `json:"reuseEnable,omitempty"`
 
@@ -411,15 +411,15 @@ type CreateHlrAuthentication struct {
 
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
-	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
 
-	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
 
-	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
 
 	SrcTransType *int `json:"srcTransType,omitempty"`
 
-	Type *string `json:"type,omitempty" validate:"oneof=HLR"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
 }
 
 type CreateLDAPAuthentication struct {
@@ -473,7 +473,7 @@ type CreateLDAPAuthentication struct {
 
 	// StandbyPort
 	// Port - Standby Cluster settings
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	StandbySearchFilter *common.NormalName2to64 `json:"standbySearchFilter,omitempty"`
 
@@ -491,7 +491,7 @@ type CreateLDAPAuthentication struct {
 
 	// Type
 	// Authentication protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=LDAP"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
 }
 
 type CreateRadiusAccounting struct {
@@ -509,7 +509,7 @@ type CreateRadiusAccounting struct {
 
 	// Protocol
 	// Accounting protocol.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=RADIUS"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS"`
 
 	RateLimiting *common.RateLimiting `json:"rateLimiting,omitempty"`
 
@@ -523,7 +523,7 @@ type CreateRadiusAccounting struct {
 
 	// Type
 	// Accounting protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
 type CreateRadiusAuthentication struct {
@@ -565,7 +565,7 @@ type CreateRadiusAuthentication struct {
 
 	// Type
 	// Authentication server type
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
 type DeleteBulkAccountingService struct {
@@ -652,33 +652,33 @@ type GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType struct {
 type GtpSettings struct {
 	// DnsNumberOfRetries
 	// DNS Number of Retries
-	DnsNumberOfRetries *int `json:"dnsNumberOfRetries,omitempty" validate:"gte=1,lte=10"`
+	DnsNumberOfRetries *int `json:"dnsNumberOfRetries,omitempty" validate:"omitempty,gte=1,lte=10"`
 
 	// EchoRequestTimer
 	// Echo Request Timerr
-	EchoRequestTimer *int `json:"echoRequestTimer,omitempty" validate:"gte=60,lte=300"`
+	EchoRequestTimer *int `json:"echoRequestTimer,omitempty" validate:"omitempty,gte=60,lte=300"`
 
 	// NumberOfRetries
 	// Number of Retries
-	NumberOfRetries *int `json:"numberOfRetries,omitempty" validate:"gte=3,lte=6"`
+	NumberOfRetries *int `json:"numberOfRetries,omitempty" validate:"omitempty,gte=3,lte=6"`
 
 	// ResponseTimeout
 	// DNS Response Timeout
-	ResponseTimeout *int `json:"responseTimeout,omitempty" validate:"gte=1,lte=10"`
+	ResponseTimeout *int `json:"responseTimeout,omitempty" validate:"omitempty,gte=1,lte=10"`
 
 	// T3ResponseTimer
 	// Response Timer
-	T3ResponseTimer *int `json:"t3ResponseTimer,omitempty" validate:"gte=2,lte=5"`
+	T3ResponseTimer *int `json:"t3ResponseTimer,omitempty" validate:"omitempty,gte=2,lte=5"`
 }
 
 type HlrService struct {
 	// AddressIndicator
 	// - For HLR Authentiaction server
-	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"oneof=route_on_gt route_on_ssn"`
+	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"omitempty,oneof=route_on_gt route_on_ssn"`
 
 	// AuthMapVer
 	// - For HLR Authentiaction server
-	AuthMapVer *string `json:"authMapVer,omitempty" validate:"oneof=version2 version3"`
+	AuthMapVer *string `json:"authMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
 
 	// AuthorizationCachingEnabled
 	// - For HLR Authentiaction server
@@ -720,15 +720,15 @@ type HlrService struct {
 
 	// DestGtIndicator
 	// - For HLR Authentiaction server
-	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
 
 	// DestNatureOfAddressIndicator
 	// - For HLR Authentiaction server
-	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
 
 	// DestNumberingPlan
 	// - For HLR Authentiaction server
-	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
 
 	// DestTransType
 	// - For HLR Authentiaction server
@@ -744,7 +744,7 @@ type HlrService struct {
 
 	// EapSimMapVer
 	// - For HLR Authentiaction server
-	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"oneof=version2 version3"`
+	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
 
 	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
@@ -774,7 +774,7 @@ type HlrService struct {
 
 	// LocalNetworkIndicator
 	// - For HLR Authentiaction server
-	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"oneof=international international_spare national national_spare"`
+	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"omitempty,oneof=international international_spare national national_spare"`
 
 	// LocalPointCode
 	// - For HLR Authentiaction server
@@ -814,7 +814,7 @@ type HlrService struct {
 	// - For HLR Authentiaction server
 	PointCode *int `json:"pointCode,omitempty"`
 
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=HLR"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=HLR"`
 
 	// ReuseEnable
 	// - For HLR Authentiaction server
@@ -838,21 +838,21 @@ type HlrService struct {
 
 	// SrcGtIndicator
 	// - For HLR Authentiaction server
-	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
 
 	// SrcNatureOfAddressIndicator
 	// - For HLR Authentiaction server
-	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
 
 	// SrcNumberingPlan
 	// - For HLR Authentiaction server
-	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
 
 	// SrcTransType
 	// - For HLR Authentiaction server
 	SrcTransType *int `json:"srcTransType,omitempty"`
 
-	Type *string `json:"type,omitempty" validate:"oneof=HLR"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
 }
 
 type HlrServiceList struct {
@@ -928,11 +928,11 @@ type LDAPService struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// Protocol
 	// Authentication protocol
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=LDAP"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=LDAP"`
 
 	SearchFilter *common.NormalName2to64 `json:"searchFilter,omitempty"`
 
@@ -950,7 +950,7 @@ type LDAPService struct {
 
 	// StandbyPort
 	// Port - Standby Cluster settings
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	StandbySearchFilter *common.NormalName2to64 `json:"standbySearchFilter,omitempty"`
 
@@ -968,7 +968,7 @@ type LDAPService struct {
 
 	// Type
 	// Authentication protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=LDAP"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
 }
 
 type LDAPServiceList struct {
@@ -1038,7 +1038,7 @@ type ModifyActiveDirectoryAuthentication struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	StandbyAdminDomainName *common.NormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
@@ -1054,7 +1054,7 @@ type ModifyActiveDirectoryAuthentication struct {
 
 	// StandbyPort
 	// Port standby cluster
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1072,7 +1072,7 @@ type ModifyActiveDirectoryAuthentication struct {
 
 	// Type
 	// Authentication protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=AD"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AD"`
 
 	WindowsDomainName *common.NormalName2to64 `json:"windowsDomainName,omitempty"`
 }
@@ -1102,9 +1102,9 @@ type ModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 }
 
 type ModifyHlrAuthentication struct {
-	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"oneof=route_on_gt route_on_ssn"`
+	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"omitempty,oneof=route_on_gt route_on_ssn"`
 
-	AuthMapVer *string `json:"authMapVer,omitempty" validate:"oneof=version2 version3"`
+	AuthMapVer *string `json:"authMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
 
 	AuthorizationCachingEnabled *bool `json:"authorizationCachingEnabled,omitempty"`
 
@@ -1126,11 +1126,11 @@ type ModifyHlrAuthentication struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
 
-	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
 
-	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
 
 	DestTransType *int `json:"destTransType,omitempty"`
 
@@ -1138,7 +1138,7 @@ type ModifyHlrAuthentication struct {
 
 	E164Address *string `json:"e164Address,omitempty"`
 
-	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"oneof=version2 version3"`
+	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
 
 	FriendlyName *common.NormalNameAllowBlank `json:"friendlyName,omitempty"`
 
@@ -1154,7 +1154,7 @@ type ModifyHlrAuthentication struct {
 
 	Id *string `json:"id,omitempty"`
 
-	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"oneof=international international_spare national national_spare"`
+	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"omitempty,oneof=international international_spare national national_spare"`
 
 	LocalPointCode *int `json:"localPointCode,omitempty"`
 
@@ -1176,7 +1176,7 @@ type ModifyHlrAuthentication struct {
 
 	PointCode *int `json:"pointCode,omitempty"`
 
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=HLR"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=HLR"`
 
 	ReuseEnable *bool `json:"reuseEnable,omitempty"`
 
@@ -1188,15 +1188,15 @@ type ModifyHlrAuthentication struct {
 
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
-	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
 
-	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
 
-	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
 
 	SrcTransType *int `json:"srcTransType,omitempty"`
 
-	Type *string `json:"type,omitempty" validate:"oneof=HLR"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
 }
 
 type ModifyLDAPAuthentication struct {
@@ -1232,7 +1232,7 @@ type ModifyLDAPAuthentication struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	SearchFilter *common.NormalName2to64 `json:"searchFilter,omitempty"`
 
@@ -1250,7 +1250,7 @@ type ModifyLDAPAuthentication struct {
 
 	// StandbyPort
 	// Port - Standby Cluster settings
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	StandbySearchFilter *common.NormalName2to64 `json:"standbySearchFilter,omitempty"`
 
@@ -1268,7 +1268,7 @@ type ModifyLDAPAuthentication struct {
 
 	// Type
 	// Authentication protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=LDAP"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
 }
 
 type ModifyLocalDbAuthentication struct {
@@ -1296,11 +1296,11 @@ type ModifyLocalDbAuthentication struct {
 
 	// Protocol
 	// Authentication protocol.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=LOCAL_DB"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=LOCAL_DB"`
 
 	// Type
 	// Authentication protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=LOCAL_DB"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LOCAL_DB"`
 }
 
 type ModifyRadiusAccounting struct {
@@ -1322,7 +1322,7 @@ type ModifyRadiusAccounting struct {
 
 	// Protocol
 	// Accounting protocol.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=RADIUS"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS"`
 
 	RateLimiting *common.RateLimiting `json:"rateLimiting,omitempty"`
 
@@ -1336,7 +1336,7 @@ type ModifyRadiusAccounting struct {
 
 	// Type
 	// Accounting protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
 type ModifyRadiusAuthentication struct {
@@ -1378,7 +1378,7 @@ type ModifyRadiusAuthentication struct {
 
 	// Type
 	// Authentication server type
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
 type RadiusAccountingService struct {
@@ -1428,7 +1428,7 @@ type RadiusAccountingService struct {
 
 	// Protocol
 	// Accounting protocol.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=RADIUS"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS"`
 
 	RateLimiting *common.RateLimiting `json:"rateLimiting,omitempty"`
 
@@ -1442,7 +1442,7 @@ type RadiusAccountingService struct {
 
 	// Type
 	// Accounting protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
 type RadiusAccountingServiceList struct {
@@ -1514,7 +1514,7 @@ type RadiusAuthenticationService struct {
 
 	// Protocol
 	// Authentication protocol.
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=RADIUS"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS"`
 
 	RateLimiting *common.RateLimiting `json:"rateLimiting,omitempty"`
 
@@ -1528,7 +1528,7 @@ type RadiusAuthenticationService struct {
 
 	// Type
 	// Authentication protocol.
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
 type RadiusAuthenticationServiceList struct {
@@ -1546,7 +1546,7 @@ type RadiusAuthenticationServiceList struct {
 type SccpGtt struct {
 	// AddressIndicator
 	// - For HLR Authentiaction server
-	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"oneof=route_on_gt route_on_ssn"`
+	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"omitempty,oneof=route_on_gt route_on_ssn"`
 
 	// E164Address
 	// - For HLR Authentiaction server
@@ -1558,7 +1558,7 @@ type SccpGtt struct {
 
 	// GtIndicator
 	// - For HLR Authentiaction server
-	GtIndicator *string `json:"gtIndicator,omitempty" validate:"oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	GtIndicator *string `json:"gtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
 
 	// HasPointCode
 	// Enable Point Code submitted
@@ -1570,11 +1570,11 @@ type SccpGtt struct {
 
 	// NatureOfAddressIndicator
 	// - For HLR Authentiaction server
-	NatureOfAddressIndicator *string `json:"natureOfAddressIndicator,omitempty" validate:"oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	NatureOfAddressIndicator *string `json:"natureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
 
 	// NumberingPlan
 	// - For HLR Authentiaction server
-	NumberingPlan *string `json:"numberingPlan,omitempty" validate:"oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	NumberingPlan *string `json:"numberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
 
 	// PointCode
 	// - For HLR Authentiaction server
@@ -1608,7 +1608,7 @@ type SctpAssociation struct {
 
 	// NodeTermination
 	// Node termination
-	NodeTermination *string `json:"nodeTermination,omitempty" validate:"oneof=active backup both"`
+	NodeTermination *string `json:"nodeTermination,omitempty" validate:"omitempty,oneof=active backup both"`
 
 	// SourcePort
 	// Source port

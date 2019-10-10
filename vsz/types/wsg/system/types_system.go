@@ -61,7 +61,7 @@ type AuthenticationKey struct {
 
 	// KeyType
 	// Authentication Key Type
-	KeyType *string `json:"keyType,omitempty" validate:"oneof=SHA1 MD5"`
+	KeyType *string `json:"keyType,omitempty" validate:"omitempty,oneof=SHA1 MD5"`
 }
 
 type CaptchaSetting struct {
@@ -157,7 +157,7 @@ type ControllerListType struct {
 type ControlPlaneConfiguration struct {
 	// IpMode
 	// IP support version
-	IpMode *string `json:"ipMode,omitempty" validate:"oneof=IPV4 IPV4_IPV6"`
+	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=IPV4 IPV4_IPV6"`
 
 	Ipv4AccessAndCoreSeparation *Ipv4AccessAndCoreSeparation `json:"ipv4AccessAndCoreSeparation,omitempty"`
 
@@ -243,7 +243,7 @@ type CpStaticRoute struct {
 
 	// Metric
 	// Metric
-	Metric *int `json:"metric,omitempty" validate:"gte=0,lte=999"`
+	Metric *int `json:"metric,omitempty" validate:"omitempty,gte=0,lte=999"`
 
 	// NetworkAddress
 	// Network Address
@@ -269,11 +269,11 @@ type CpUserDefinedInterface struct {
 
 	// PhysicalInterface
 	// Physical interface
-	PhysicalInterface *string `json:"physicalInterface,omitempty" validate:"oneof=Control Management Cluster"`
+	PhysicalInterface *string `json:"physicalInterface,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
 
 	// Service
 	// Service
-	Service *string `json:"service,omitempty" validate:"oneof=NotSpecified Hotspot"`
+	Service *string `json:"service,omitempty" validate:"omitempty,oneof=NotSpecified Hotspot"`
 
 	// SubnetMask
 	// Subnet Mask
@@ -285,7 +285,7 @@ type CpUserDefinedInterface struct {
 }
 
 type DataPlaneConfiguration struct {
-	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"oneof=SINGLE ACCESS_AND_CORE"`
+	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"omitempty,oneof=SINGLE ACCESS_AND_CORE"`
 
 	Ipv6PrimaryInterface *Ipv6PrimaryInterface `json:"ipv6PrimaryInterface,omitempty"`
 
@@ -424,11 +424,11 @@ type Ftp struct {
 
 	// FtpPort
 	// Port used by FTP
-	FtpPort *int `json:"ftpPort,omitempty" validate:"gte=21,lte=65535"`
+	FtpPort *int `json:"ftpPort,omitempty" validate:"omitempty,gte=21,lte=65535"`
 
 	// FtpProtocol
 	// Protocol used
-	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"oneof=FTP SFTP"`
+	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"omitempty,oneof=FTP SFTP"`
 
 	// FtpRemoteDirectory
 	// Destination directory used for file upload
@@ -466,7 +466,7 @@ type FtpGlobalSetting struct {
 
 	// FtpInterval
 	// ftpInterval
-	FtpInterval *string `json:"ftpInterval,omitempty" validate:"oneof=Hourly"`
+	FtpInterval *string `json:"ftpInterval,omitempty" validate:"omitempty,oneof=Hourly"`
 }
 
 type FtpList struct {
@@ -516,11 +516,11 @@ type GatewayAdvanced struct {
 
 	// GtpInterfaceType
 	// GTPv2 interface type
-	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"oneof=S2A S5_S8"`
+	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"omitempty,oneof=S2A S5_S8"`
 
 	// GtpNetworkServiceAcessPointIdentifier
 	// GTP network service access point identifier (NSAPI)
-	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"gte=0,lte=5"`
+	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"omitempty,gte=0,lte=5"`
 
 	// ImeiInGtp
 	// Include IMEI IE in GTP messages
@@ -610,7 +610,7 @@ type InventoryListType struct {
 type Ipv4AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
-	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"oneof=Control Management Cluster"`
+	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -632,7 +632,7 @@ type Ipv4ClusterInterface struct {
 
 	// IpMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
+	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
 
 	// SubnetMask
 	// Subnet mask
@@ -650,7 +650,7 @@ type Ipv4ControlInterface struct {
 
 	// IpMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
+	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
 
 	// NatIp
 	// NAT IP
@@ -672,7 +672,7 @@ type Ipv4ManagementInterface struct {
 
 	// IpMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
+	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
 
 	// SubnetMask
 	// Subnet mask
@@ -682,7 +682,7 @@ type Ipv4ManagementInterface struct {
 type Ipv6AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
-	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"oneof=Control Management Cluster"`
+	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -704,7 +704,7 @@ type Ipv6ControlInterface struct {
 
 	// IpMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC AUTO"`
+	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC AUTO"`
 }
 
 type Ipv6ManagementInterface struct {
@@ -718,7 +718,7 @@ type Ipv6ManagementInterface struct {
 
 	// IpMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC AUTO"`
+	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC AUTO"`
 }
 
 type Ipv6PrimaryInterface struct {
@@ -758,15 +758,15 @@ type Lwapp2scgConfiguration struct {
 
 	// PasvMaxPort
 	// pasvMaxPort of the lwapp
-	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"gte=16384,lte=65000"`
+	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
 
 	// PasvMinPort
 	// pasvMinPort of the lwapp
-	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"gte=16384,lte=65000"`
+	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
 
 	// Policy
 	// policy of the lwapp
-	Policy *string `json:"policy,omitempty" validate:"oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
+	Policy *string `json:"policy,omitempty" validate:"omitempty,oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
 type ModifyControlPlane struct {
@@ -824,11 +824,11 @@ type ModifyGatewayAdvanced struct {
 
 	// GtpInterfaceType
 	// GTPv2 interface type
-	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"oneof=S2A S5_S8"`
+	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"omitempty,oneof=S2A S5_S8"`
 
 	// GtpNetworkServiceAcessPointIdentifier
 	// GTP network service access point identifier (NSAPI)
-	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"gte=0,lte=5"`
+	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"omitempty,gte=0,lte=5"`
 
 	// ImeiInGtp
 	// Include IMEI IE in GTP messages
@@ -864,15 +864,15 @@ type ModifyLwapp2scg struct {
 
 	// PasvMaxPort
 	// pasvMaxPort of the lwapp
-	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"gte=16384,lte=65000"`
+	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
 
 	// PasvMinPort
 	// pasvMinPort of the lwapp
-	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"gte=16384,lte=65000"`
+	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
 
 	// Policy
 	// policy of the lwapp
-	Policy *string `json:"policy,omitempty" validate:"oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
+	Policy *string `json:"policy,omitempty" validate:"omitempty,oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
 type ModifySnmpAgent struct {
@@ -907,7 +907,7 @@ type NorthboundInterface struct {
 
 	// RadiusAuthType
 	// AuthType of the Radius used in Northbound Interface, the value should be "PAP" or "CHAP".
-	RadiusAuthType *string `json:"radiusAuthType,omitempty" validate:"oneof=PAP CHAP"`
+	RadiusAuthType *string `json:"radiusAuthType,omitempty" validate:"omitempty,oneof=PAP CHAP"`
 
 	UserName *common.ApLoginName `json:"userName,omitempty"`
 }
@@ -1078,7 +1078,7 @@ type Sms struct {
 
 	// Enabled
 	// Enabled SMS server or not
-	Enabled *int `json:"enabled,omitempty" validate:"oneof=0 1"`
+	Enabled *int `json:"enabled,omitempty" validate:"omitempty,oneof=0 1"`
 
 	// From
 	// From
@@ -1094,7 +1094,7 @@ type Sms struct {
 
 	// ServerType
 	// Server type
-	ServerType *string `json:"serverType,omitempty" validate:"oneof=Twilio"`
+	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=Twilio"`
 }
 
 type SmsList struct {

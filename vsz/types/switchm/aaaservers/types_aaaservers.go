@@ -37,7 +37,7 @@ type AAAServer struct {
 
 	// Level
 	// Access level of AAA server
-	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Name
 	// Name of the AAA server
@@ -49,7 +49,7 @@ type AAAServer struct {
 
 	// Purpose
 	// AAA server purpose
-	Purpose *string `json:"purpose,omitempty" validate:"oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
+	Purpose *string `json:"purpose,omitempty" validate:"omitempty,oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
 
 	// Secret
 	// AAA server secret
@@ -57,7 +57,7 @@ type AAAServer struct {
 
 	// ServerType
 	// The server tpye of the AAA server
-	ServerType *string `json:"serverType,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
+	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// UpdatedTime
 	// The modify time of the AAA server
@@ -138,7 +138,7 @@ type CreateAdminAAAServer struct {
 
 	// Level
 	// Access level of AAA server
-	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Name
 	// Name of the AAA server
@@ -150,7 +150,7 @@ type CreateAdminAAAServer struct {
 
 	// Purpose
 	// AAA server purpose
-	Purpose *string `json:"purpose,omitempty" validate:"oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
+	Purpose *string `json:"purpose,omitempty" validate:"omitempty,oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
 
 	// Secret
 	// AAA server secret
@@ -158,7 +158,7 @@ type CreateAdminAAAServer struct {
 
 	// ServerType
 	// The server tpye of the AAA server
-	ServerType *string `json:"serverType,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
+	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// Username
 	// Username for local user

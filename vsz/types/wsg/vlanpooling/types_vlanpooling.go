@@ -31,7 +31,7 @@ type DeleteBulkVlanPooling struct {
 type ModifyVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
-	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -49,7 +49,7 @@ type ModifyVlanPooling struct {
 type VlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
-	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -83,7 +83,7 @@ type VlanPoolingList struct {
 type VlanPoolingListType struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
-	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
 	// Description
 	// Description of the service

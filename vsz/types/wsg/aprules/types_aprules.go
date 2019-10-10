@@ -31,7 +31,7 @@ type ApRuleConfiguration struct {
 
 	// Type
 	// type of the AP Registration Rules
-	Type *string `json:"type,omitempty" validate:"oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
 type ApRuleList struct {
@@ -109,7 +109,7 @@ type ModifyApRule struct {
 
 	// Type
 	// type of the AP Registration Rules
-	Type *string `json:"type,omitempty" validate:"oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
 type Subnet struct {

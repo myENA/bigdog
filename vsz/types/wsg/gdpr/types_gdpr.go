@@ -13,11 +13,11 @@ type Ftp struct {
 
 	// FtpPort
 	// Port used by FTP
-	FtpPort *int `json:"ftpPort,omitempty" validate:"gte=21,lte=65535"`
+	FtpPort *int `json:"ftpPort,omitempty" validate:"omitempty,gte=21,lte=65535"`
 
 	// FtpProtocol
 	// Protocol used
-	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"oneof=FTP SFTP"`
+	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"omitempty,oneof=FTP SFTP"`
 
 	// FtpRemoteDirectory
 	// Destination directory used for file upload
@@ -31,7 +31,7 @@ type Ftp struct {
 type Report struct {
 	// Action
 	// Request action
-	Action *string `json:"action,omitempty" validate:"oneof=SEARCH DELETE INTERRUPT PROGRESS"`
+	Action *string `json:"action,omitempty" validate:"omitempty,oneof=SEARCH DELETE INTERRUPT PROGRESS"`
 
 	// ClientMac
 	// Client mac

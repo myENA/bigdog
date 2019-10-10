@@ -9,7 +9,7 @@ import (
 type CreateVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
-	Algo *string `json:"algo,omitempty" validate:"required,oneof=MAC_HASH"`
+	Algo *string `json:"algo" validate:"required,oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -17,11 +17,11 @@ type CreateVlanPooling struct {
 	// identifier of the domain
 	DomainId *string `json:"domainId,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
-	Pool *string `json:"pool,omitempty" validate:"required"`
+	Pool *string `json:"pool" validate:"required"`
 }
 
 type DeleteBulkVlanPooling struct {

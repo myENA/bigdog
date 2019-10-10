@@ -67,7 +67,7 @@ type ApGroupConfiguration struct {
 
 	// Name
 	// Name of the AP group
-	Name *string `json:"name,omitempty" validate:"required"`
+	Name *string `json:"name" validate:"required"`
 
 	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 

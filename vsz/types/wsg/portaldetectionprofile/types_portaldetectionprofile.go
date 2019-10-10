@@ -9,7 +9,7 @@ import (
 type CreatePortalDetectionProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PortalDetectionPatterns
 	// The pattern profiles for portal detection and suppression
@@ -19,13 +19,13 @@ type CreatePortalDetectionProfile struct {
 type PortalDetectionPattern struct {
 	// HttpCode
 	// HTTP status codes
-	HttpCode *int `json:"httpCode,omitempty" validate:"required,gte=100,lte=599"`
+	HttpCode *int `json:"httpCode" validate:"required,gte=100,lte=599"`
 
 	// HttpResponseBody
 	// HTTP response body
 	HttpResponseBody *string `json:"httpResponseBody,omitempty" validate:"max=1024"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PatternType
 	// Portal detection and suppression pattern type
@@ -33,7 +33,7 @@ type PortalDetectionPattern struct {
 
 	// UserAgentPattern
 	// Portal detection and suppression pattern for user agent
-	UserAgentPattern *string `json:"userAgentPattern,omitempty" validate:"required,max=256"`
+	UserAgentPattern *string `json:"userAgentPattern" validate:"required,max=256"`
 }
 
 type PortalDetectionProfile struct {

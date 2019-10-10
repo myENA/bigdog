@@ -9,33 +9,33 @@ import (
 type CreateSciProfile struct {
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
-	SciPassword *string `json:"sciPassword,omitempty" validate:"required"`
+	SciPassword *string `json:"sciPassword" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
-	SciProfile *string `json:"sciProfile,omitempty" validate:"required"`
+	SciProfile *string `json:"sciProfile" validate:"required"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
-	SciServerHost *string `json:"sciServerHost,omitempty" validate:"required"`
+	SciServerHost *string `json:"sciServerHost" validate:"required"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
-	SciServerPort *string `json:"sciServerPort,omitempty" validate:"required"`
+	SciServerPort *string `json:"sciServerPort" validate:"required"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
-	SciSystemId *string `json:"sciSystemId,omitempty" validate:"required"`
+	SciSystemId *string `json:"sciSystemId" validate:"required"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
-	SciUser *string `json:"sciUser,omitempty" validate:"required"`
+	SciUser *string `json:"sciUser" validate:"required"`
 }
 
 type DeleteSciProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
-	Id *string `json:"id,omitempty" validate:"required"`
+	Id *string `json:"id" validate:"required"`
 }
 
 type DeleteSciProfileList struct {
@@ -43,13 +43,13 @@ type DeleteSciProfileList struct {
 }
 
 type ModifyEventCode struct {
-	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes,omitempty" validate:"required"`
+	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes" validate:"required"`
 }
 
 type ModifySciEnabled struct {
 	// SciEnabled
 	// Is SZ/SCI interface enabled or disabled
-	SciEnabled *bool `json:"sciEnabled,omitempty" validate:"required"`
+	SciEnabled *bool `json:"sciEnabled" validate:"required"`
 }
 
 type ModifySciPriorityList struct {
@@ -59,15 +59,15 @@ type ModifySciPriorityList struct {
 type ModifySciPriorityListType struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
-	Id *string `json:"id,omitempty" validate:"required"`
+	Id *string `json:"id" validate:"required"`
 
 	// SciPriority
 	// Priority of the SCI profile for SZ/SCI interface
-	SciPriority *int `json:"sciPriority,omitempty" validate:"required"`
+	SciPriority *int `json:"sciPriority" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
-	SciProfile *string `json:"sciProfile,omitempty" validate:"required"`
+	SciProfile *string `json:"sciProfile" validate:"required"`
 }
 
 type ModifySciProfile struct {
@@ -77,27 +77,27 @@ type ModifySciProfile struct {
 
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
-	SciPassword *string `json:"sciPassword,omitempty" validate:"required"`
+	SciPassword *string `json:"sciPassword" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
-	SciProfile *string `json:"sciProfile,omitempty" validate:"required"`
+	SciProfile *string `json:"sciProfile" validate:"required"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
-	SciServerHost *string `json:"sciServerHost,omitempty" validate:"required"`
+	SciServerHost *string `json:"sciServerHost" validate:"required"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
-	SciServerPort *string `json:"sciServerPort,omitempty" validate:"required"`
+	SciServerPort *string `json:"sciServerPort" validate:"required"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
-	SciSystemId *string `json:"sciSystemId,omitempty" validate:"required"`
+	SciSystemId *string `json:"sciSystemId" validate:"required"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
-	SciUser *string `json:"sciUser,omitempty" validate:"required"`
+	SciUser *string `json:"sciUser" validate:"required"`
 }
 
 type SciEventCode struct {

@@ -724,15 +724,15 @@ type Ipv6ManagementInterface struct {
 type Ipv6PrimaryInterface struct {
 	// Gateway
 	// Gateway
-	Gateway *string `json:"gateway,omitempty" validate:"required"`
+	Gateway *string `json:"gateway" validate:"required"`
 
 	// IpAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty" validate:"required"`
+	IpAddress *string `json:"ipAddress" validate:"required"`
 
 	// IpMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"required,oneof=AUTO STATIC"`
+	IpMode *string `json:"ipMode" validate:"required,oneof=AUTO STATIC"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -792,13 +792,13 @@ type ModifyControlPlane struct {
 type ModifyDataPlane struct {
 	// InterfaceMode
 	// Interface mode
-	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"required,oneof=ACCESS_AND_CORE SINGLE"`
+	InterfaceMode *string `json:"interfaceMode" validate:"required,oneof=ACCESS_AND_CORE SINGLE"`
 
-	Ipv6PrimaryInterface *Ipv6PrimaryInterface `json:"ipv6PrimaryInterface,omitempty" validate:"required"`
+	Ipv6PrimaryInterface *Ipv6PrimaryInterface `json:"ipv6PrimaryInterface" validate:"required"`
 
 	KeepConfig *bool `json:"keepConfig,omitempty"`
 
-	PrimaryInterface *PrimaryInterface `json:"primaryInterface,omitempty" validate:"required"`
+	PrimaryInterface *PrimaryInterface `json:"primaryInterface" validate:"required"`
 
 	SecondaryInterface *SecondaryInterface `json:"secondaryInterface,omitempty"`
 
@@ -850,7 +850,7 @@ type ModifyGatewayAdvanced struct {
 type ModifyIpSupportType struct {
 	// IpMode
 	// IP support version
-	IpMode *string `json:"ipMode,omitempty" validate:"required,oneof=IPV4 IPV4_IPV6"`
+	IpMode *string `json:"ipMode" validate:"required,oneof=IPV4 IPV4_IPV6"`
 }
 
 type ModifyLwapp2scg struct {
@@ -879,7 +879,7 @@ type ModifySnmpAgent struct {
 	// SnmpNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message
 	// is sent out.)
-	SnmpNotificationEnabled *bool `json:"snmpNotificationEnabled,omitempty" validate:"required"`
+	SnmpNotificationEnabled *bool `json:"snmpNotificationEnabled" validate:"required"`
 
 	// SnmpV2Agent
 	// Community List of the SNMP V2 Agent.
@@ -992,15 +992,15 @@ type PortStatistic struct {
 type PrimaryInterface struct {
 	// Gateway
 	// Gateway
-	Gateway *string `json:"gateway,omitempty" validate:"required"`
+	Gateway *string `json:"gateway" validate:"required"`
 
 	// IpAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty" validate:"required"`
+	IpAddress *string `json:"ipAddress" validate:"required"`
 
 	// IpMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"required,oneof=DHCP STATIC"`
+	IpMode *string `json:"ipMode" validate:"required,oneof=DHCP STATIC"`
 
 	// NatIp
 	// NAT IP
@@ -1016,7 +1016,7 @@ type PrimaryInterface struct {
 
 	// SubnetMask
 	// Subnet mask
-	SubnetMask *string `json:"subnetMask,omitempty" validate:"required"`
+	SubnetMask *string `json:"subnetMask" validate:"required"`
 
 	// Vlan
 	// Vlan
@@ -1024,21 +1024,21 @@ type PrimaryInterface struct {
 }
 
 type SaveApNumberLimitSettingOfDomain struct {
-	DomainId *string `json:"domainId,omitempty" validate:"required"`
+	DomainId *string `json:"domainId" validate:"required"`
 
-	NumberLimit *float64 `json:"numberLimit,omitempty" validate:"required"`
+	NumberLimit *float64 `json:"numberLimit" validate:"required"`
 
-	Shared *bool `json:"shared,omitempty" validate:"required"`
+	Shared *bool `json:"shared" validate:"required"`
 }
 
 type SaveApNumberLimitSettingOfZone struct {
-	DomainId *string `json:"domainId,omitempty" validate:"required"`
+	DomainId *string `json:"domainId" validate:"required"`
 
-	NumberLimit *float64 `json:"numberLimit,omitempty" validate:"required"`
+	NumberLimit *float64 `json:"numberLimit" validate:"required"`
 
-	Shared *bool `json:"shared,omitempty" validate:"required"`
+	Shared *bool `json:"shared" validate:"required"`
 
-	ZoneId *string `json:"zoneId,omitempty" validate:"required"`
+	ZoneId *string `json:"zoneId" validate:"required"`
 }
 
 type SaveSystemSettings struct {
@@ -1052,11 +1052,11 @@ type SaveSystemSettings struct {
 type SecondaryInterface struct {
 	// IpAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty" validate:"required"`
+	IpAddress *string `json:"ipAddress" validate:"required"`
 
 	// SubnetMask
 	// Subnet mask
-	SubnetMask *string `json:"subnetMask,omitempty" validate:"required"`
+	SubnetMask *string `json:"subnetMask" validate:"required"`
 
 	// Vlan
 	// vlan
@@ -1133,15 +1133,15 @@ type SnmpAgentConfiguration struct {
 type StaticRoute struct {
 	// Gateway
 	// Gateway
-	Gateway *string `json:"gateway,omitempty" validate:"required"`
+	Gateway *string `json:"gateway" validate:"required"`
 
 	// NetworkAddress
 	// Network address
-	NetworkAddress *string `json:"networkAddress,omitempty" validate:"required"`
+	NetworkAddress *string `json:"networkAddress" validate:"required"`
 
 	// SubnetMask
 	// Subnet mask
-	SubnetMask *string `json:"subnetMask,omitempty" validate:"required"`
+	SubnetMask *string `json:"subnetMask" validate:"required"`
 }
 
 type StaticRouteList struct {

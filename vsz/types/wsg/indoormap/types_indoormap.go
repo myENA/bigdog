@@ -13,11 +13,11 @@ type BasicIndoorMap struct {
 
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	Description *common.Description `json:"description,omitempty" validate:"required"`
+	Description *common.Description `json:"description" validate:"required"`
 
 	DomainId *string `json:"domainId,omitempty"`
 
-	GroupType *string `json:"groupType,omitempty" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
+	GroupType *string `json:"groupType" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
 	Id *string `json:"id,omitempty"`
 
@@ -27,7 +27,7 @@ type BasicIndoorMap struct {
 
 	Longitude *float64 `json:"longitude,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	Orientation *string `json:"orientation,omitempty" validate:"oneof=HORIZONTAL VERTICAL"`
 
@@ -57,7 +57,7 @@ type IndoorMap struct {
 	// apGroupId
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	Description *common.Description `json:"description,omitempty" validate:"required"`
+	Description *common.Description `json:"description" validate:"required"`
 
 	// DomainId
 	// domainId
@@ -65,7 +65,7 @@ type IndoorMap struct {
 
 	// GroupType
 	// group Type
-	GroupType *string `json:"groupType,omitempty" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
+	GroupType *string `json:"groupType" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
 	// Id
 	// id
@@ -87,7 +87,7 @@ type IndoorMap struct {
 	// longitude
 	Longitude *float64 `json:"longitude,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Orientation
 	// orientation
@@ -143,7 +143,7 @@ type IndoorMapSummary struct {
 	// apGroupId
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	Description *common.Description `json:"description,omitempty" validate:"required"`
+	Description *common.Description `json:"description" validate:"required"`
 
 	// DomainId
 	// domainId
@@ -151,7 +151,7 @@ type IndoorMapSummary struct {
 
 	// GroupType
 	// group Type
-	GroupType *string `json:"groupType,omitempty" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
+	GroupType *string `json:"groupType" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
 	// Id
 	// id
@@ -173,7 +173,7 @@ type IndoorMapSummary struct {
 	// longitude
 	Longitude *float64 `json:"longitude,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	Scale *Scale `json:"scale,omitempty"`
 

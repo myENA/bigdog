@@ -34,7 +34,7 @@ type CreateScgUser struct {
 
 	// NewPassphrase
 	// User login passphrase
-	NewPassphrase *string `json:"newPassphrase,omitempty" validate:"required"`
+	NewPassphrase *string `json:"newPassphrase" validate:"required"`
 
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly. (System default admin
@@ -63,7 +63,7 @@ type CreateScgUser struct {
 
 	// UserName
 	// User name
-	UserName *string `json:"userName,omitempty" validate:"required"`
+	UserName *string `json:"userName" validate:"required"`
 }
 
 type GetScgUser struct {
@@ -157,7 +157,7 @@ type ModifyScgUser struct {
 
 	// Id
 	// User id
-	Id *string `json:"id,omitempty" validate:"required"`
+	Id *string `json:"id" validate:"required"`
 
 	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"gte=1,lte=1440"`
 
@@ -237,7 +237,7 @@ type ScgUserAuditId struct {
 }
 
 type ScgUserGroup struct {
-	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty" validate:"required"`
+	AccountSecurityProfileId *string `json:"accountSecurityProfileId" validate:"required"`
 
 	AccountSecurityProfileName *string `json:"accountSecurityProfileName,omitempty"`
 
@@ -281,19 +281,19 @@ type ScgUserGroup struct {
 
 	// Name
 	// User group name
-	Name *string `json:"name,omitempty" validate:"required"`
+	Name *string `json:"name" validate:"required"`
 
 	// Permissions
 	// Permission list
-	Permissions []*ScgUserGroupPermissionWithoutDetailItems `json:"permissions,omitempty" validate:"required"`
+	Permissions []*ScgUserGroupPermissionWithoutDetailItems `json:"permissions" validate:"required"`
 
 	// ResourceGroups
 	// Resource group id list
-	ResourceGroups []*ScgUserGroupResourceGroup `json:"resourceGroups,omitempty" validate:"required"`
+	ResourceGroups []*ScgUserGroupResourceGroup `json:"resourceGroups" validate:"required"`
 
 	// Role
 	// User group role
-	Role *string `json:"role,omitempty" validate:"required"`
+	Role *string `json:"role" validate:"required"`
 
 	// TenantId
 	// Tenant Id

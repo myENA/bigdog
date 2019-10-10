@@ -9,7 +9,7 @@ import (
 type CreateWlanGroup struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 }
 
 type ModifyWlanGroup struct {
@@ -65,7 +65,7 @@ type WlanGroup struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// ZoneId
 	// Identifier of the zone to which the WLAN group belongs
@@ -89,7 +89,7 @@ type WlanMember struct {
 
 	// Id
 	// Identifier of the WLAN
-	Id *string `json:"id,omitempty" validate:"required"`
+	Id *string `json:"id" validate:"required"`
 
 	// Name
 	// Name of the WLAN

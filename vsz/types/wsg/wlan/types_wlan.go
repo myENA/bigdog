@@ -22,7 +22,7 @@ type CreateGuestAccessWlan struct {
 
 	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile" validate:"required"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -76,13 +76,13 @@ type CreateGuestAccessWlan struct {
 
 	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
-	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty" validate:"required"`
+	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile" validate:"required"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
@@ -98,7 +98,7 @@ type CreateGuestAccessWlan struct {
 
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
@@ -167,7 +167,7 @@ type CreateHotspot20OpenWlan struct {
 
 	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
@@ -189,7 +189,7 @@ type CreateHotspot20OpenWlan struct {
 
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
@@ -250,13 +250,13 @@ type CreateHotspot20Wlan struct {
 
 	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
-	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty" validate:"required"`
+	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile" validate:"required"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
 	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
@@ -278,7 +278,7 @@ type CreateHotspot20Wlan struct {
 
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
@@ -297,7 +297,7 @@ type CreateHotspotWlan struct {
 
 	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile" validate:"required"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -351,13 +351,13 @@ type CreateHotspotWlan struct {
 
 	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
-	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty" validate:"required"`
+	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile" validate:"required"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
@@ -373,7 +373,7 @@ type CreateHotspotWlan struct {
 
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
@@ -392,7 +392,7 @@ type CreateStandard80211Wlan struct {
 
 	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile" validate:"required"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -440,7 +440,7 @@ type CreateStandard80211Wlan struct {
 
 	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
@@ -462,7 +462,7 @@ type CreateStandard80211Wlan struct {
 
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
@@ -531,7 +531,7 @@ type CreateStandardOpenWlan struct {
 
 	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
@@ -553,7 +553,7 @@ type CreateStandardOpenWlan struct {
 
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
@@ -572,7 +572,7 @@ type CreateWebAuthWlan struct {
 
 	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile" validate:"required"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -626,13 +626,13 @@ type CreateWebAuthWlan struct {
 
 	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
-	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty" validate:"required"`
+	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile" validate:"required"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
@@ -648,7 +648,7 @@ type CreateWebAuthWlan struct {
 
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
@@ -717,13 +717,13 @@ type CreateWechatWlan struct {
 
 	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
-	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty" validate:"required"`
+	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile" validate:"required"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
@@ -739,7 +739,7 @@ type CreateWechatWlan struct {
 
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
@@ -1154,7 +1154,7 @@ type WlanAuthentication struct {
 	// AuthenticationOption
 	// Option of the authentication service or profile, At least one ID or name or authenticationOption is
 	// required in the request. This only applies to hotspot and guest WLANs.
-	AuthenticationOption *string `json:"authenticationOption,omitempty" validate:"oneof=Local DB Guest Always Accept "`
+	AuthenticationOption *string `json:"authenticationOption,omitempty" validate:"omitempty,oneof=Local DB Guest Always Accept"`
 
 	// BackupAuthenticationId
 	// Identifier of the backup authentication service or profile. At least one backupAuthenticationId or
@@ -1172,7 +1172,7 @@ type WlanAuthentication struct {
 	// Option of the backup authentication service or profile, At least one backupAuthenticationId or
 	// backupAuthenticationName or backupAuthenticationOption is required in the request when setting backup
 	// authentication service. This only applies to hotspot WLANs.
-	BackupAuthenticationOption *string `json:"backupAuthenticationOption,omitempty" validate:"oneof=Always Accept "`
+	BackupAuthenticationOption *string `json:"backupAuthenticationOption,omitempty" validate:"omitempty,oneof=Always Accept"`
 
 	// Id
 	// Identifier of the authentication service or profile. At least one ID or name or authenticationOption is
@@ -1318,13 +1318,13 @@ type WlanCoreTunnel struct {
 
 	// Type
 	// Tunnel type
-	Type *string `json:"type,omitempty" validate:"required,oneof=L2oGRE Bridge TTG_PDG"`
+	Type *string `json:"type" validate:"required,oneof=L2oGRE Bridge TTG_PDG"`
 }
 
 type WlanDSCPSetting struct {
 	// Enable
 	// Enabled or disabled
-	Enable *bool `json:"enable,omitempty" validate:"required"`
+	Enable *bool `json:"enable" validate:"required"`
 
 	Excepts []int `json:"excepts,omitempty"`
 
@@ -1338,7 +1338,7 @@ type WlanDSCPSetting struct {
 
 	// Priority
 	// Priority
-	Priority *int `json:"priority,omitempty" validate:"required"`
+	Priority *int `json:"priority" validate:"required"`
 }
 
 type WlanEncryption struct {
@@ -1356,7 +1356,7 @@ type WlanEncryption struct {
 
 	// Method
 	// Encryption method
-	Method *string `json:"method,omitempty" validate:"required,oneof=WPA2 WPA_Mixed WEP_64 WEP_128 None"`
+	Method *string `json:"method" validate:"required,oneof=WPA2 WPA_Mixed WEP_64 WEP_128 None"`
 
 	// Mfp
 	// Management frame protection. This only applies to WPA2 + AES
@@ -1455,7 +1455,7 @@ type WlanSchedule struct {
 
 	// Type
 	// Type of WLAN schedule
-	Type *string `json:"type,omitempty" validate:"required,oneof=AlwaysOn AlwaysOff Customized"`
+	Type *string `json:"type" validate:"required,oneof=AlwaysOn AlwaysOff Customized"`
 }
 
 type WlanSummary struct {

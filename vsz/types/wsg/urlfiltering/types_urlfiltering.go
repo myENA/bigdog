@@ -24,9 +24,9 @@ type CreateUrlFilteringPolicy struct {
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
-	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"required,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
+	FilteringLevel *string `json:"filteringLevel" validate:"required,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// SafeSearchBingDns
 	// Bing DNS for safe search of the URL Filtering policy

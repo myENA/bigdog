@@ -169,7 +169,7 @@ type CreateCert struct {
 
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
-	Data *string `json:"data,omitempty" validate:"required"`
+	Data *string `json:"data" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -177,7 +177,7 @@ type CreateCert struct {
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
 	IntermediateData []string `json:"intermediateData,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Passphrase
 	// Key passphrase
@@ -196,7 +196,7 @@ type CreateCert struct {
 type CreateClientCert struct {
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
-	Data *string `json:"data,omitempty" validate:"required"`
+	Data *string `json:"data" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -204,11 +204,11 @@ type CreateClientCert struct {
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
 	IntermediateData []string `json:"intermediateData,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PrivateKeyData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
-	PrivateKeyData *string `json:"privateKeyData,omitempty" validate:"required"`
+	PrivateKeyData *string `json:"privateKeyData" validate:"required"`
 
 	// RootData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
@@ -218,23 +218,23 @@ type CreateClientCert struct {
 type CreateCSR struct {
 	// City
 	// City of the certificates signing request
-	City *string `json:"city,omitempty" validate:"required,max=128"`
+	City *string `json:"city" validate:"required,max=128"`
 
-	CommonName *common.FQDN `json:"commonName,omitempty" validate:"required"`
+	CommonName *common.FQDN `json:"commonName" validate:"required"`
 
 	// CountryCode
 	// Country code of the certificates signing request
-	CountryCode *string `json:"countryCode,omitempty" validate:"required"`
+	CountryCode *string `json:"countryCode" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	Email *common.Email `json:"email,omitempty" validate:"required"`
+	Email *common.Email `json:"email" validate:"required"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Organization
 	// Organization of the certificates signing request
-	Organization *string `json:"organization,omitempty" validate:"required,max=64"`
+	Organization *string `json:"organization" validate:"required,max=64"`
 
 	// OrganizationUnit
 	// Organization unit of the certificates signing request
@@ -242,7 +242,7 @@ type CreateCSR struct {
 
 	// State
 	// State of the certificates signing request
-	State *string `json:"state,omitempty" validate:"required,max=128"`
+	State *string `json:"state" validate:"required,max=128"`
 }
 
 type CreateTrustedCAChain struct {
@@ -252,11 +252,11 @@ type CreateTrustedCAChain struct {
 	// Intermediate data of the trusted CA chain certificates
 	InterCertData []string `json:"interCertData,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
-	RootCertData *string `json:"rootCertData,omitempty" validate:"required"`
+	RootCertData *string `json:"rootCertData" validate:"required"`
 }
 
 type CsrList struct {
@@ -306,7 +306,7 @@ type ServiceCertificate struct {
 
 	// Service
 	// the service
-	Service *string `json:"service,omitempty" validate:"required,oneof=MANAGEMENT_WEB AP_PORTAL HOTSPOT COMMUNICATOR"`
+	Service *string `json:"service" validate:"required,oneof=MANAGEMENT_WEB AP_PORTAL HOTSPOT COMMUNICATOR"`
 }
 
 type ServiceCertificates []*ServiceCertificate

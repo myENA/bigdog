@@ -31,9 +31,9 @@ type ApFirmwareList struct {
 }
 
 type ApLogin struct {
-	ApLoginName *common.ApLoginName `json:"apLoginName,omitempty" validate:"required"`
+	ApLoginName *common.ApLoginName `json:"apLoginName" validate:"required"`
 
-	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty" validate:"required"`
+	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword" validate:"required"`
 }
 
 type ApSnmpOptions struct {
@@ -147,11 +147,11 @@ type BonjourGatewayPolicySummary struct {
 type BonjourPolicyRule struct {
 	// BridgeService
 	// Bridge service
-	BridgeService *string `json:"bridgeService,omitempty" validate:"required,oneof=AIRDISK AIRPLAY AIRPORT_MANAGEMENT AIRPRINT AIRTUNES APPLE_FILE_SHARING APPLE_MOBILE_DEVICES APPLETV ICLOUD_SYNC ITUNES_REMOTE ITUNES_SHARING OPEN_DIRECTORY_MASTER OPTICAL_DISK_SHARING SCREEN_SHARING SECURE_FILE_SHARING SECURE_SHELL WWW_HTTP WWW_HTTPS WORKGROUP_MANAGER XGRID OTHER"`
+	BridgeService *string `json:"bridgeService" validate:"required,oneof=AIRDISK AIRPLAY AIRPORT_MANAGEMENT AIRPRINT AIRTUNES APPLE_FILE_SHARING APPLE_MOBILE_DEVICES APPLETV ICLOUD_SYNC ITUNES_REMOTE ITUNES_SHARING OPEN_DIRECTORY_MASTER OPTICAL_DISK_SHARING SCREEN_SHARING SECURE_FILE_SHARING SECURE_SHELL WWW_HTTP WWW_HTTPS WORKGROUP_MANAGER XGRID OTHER"`
 
 	// FromVlan
 	// From VLAN
-	FromVlan *int `json:"fromVlan,omitempty" validate:"required,gte=1,lte=4094"`
+	FromVlan *int `json:"fromVlan" validate:"required,gte=1,lte=4094"`
 
 	// Notes
 	// Notes
@@ -163,7 +163,7 @@ type BonjourPolicyRule struct {
 
 	// ToVlan
 	// To VLAN
-	ToVlan *int `json:"toVlan,omitempty" validate:"required,gte=1,lte=4094"`
+	ToVlan *int `json:"toVlan" validate:"required,gte=1,lte=4094"`
 }
 
 // BonjourPolicyRuleConfiguration
@@ -208,7 +208,7 @@ type CreateBonjourGatewayPolicy struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 }
 
 type CreateDiffServProfile struct {
@@ -216,7 +216,7 @@ type CreateDiffServProfile struct {
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PreservedList
 	// Preserved list
@@ -369,7 +369,7 @@ type CreateZone struct {
 
 	LocationBasedService *common.GenericRef `json:"locationBasedService,omitempty"`
 
-	Login *ApLogin `json:"login,omitempty" validate:"required"`
+	Login *ApLogin `json:"login" validate:"required"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
 
@@ -379,7 +379,7 @@ type CreateZone struct {
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	NodeAffinityProfile *common.GenericRef `json:"nodeAffinityProfile,omitempty"`
 
@@ -443,17 +443,17 @@ type CreateZone struct {
 type CustomizedTimeZone struct {
 	// Abbreviation
 	// Time zone abbreviation
-	Abbreviation *string `json:"abbreviation,omitempty" validate:"required"`
+	Abbreviation *string `json:"abbreviation" validate:"required"`
 
 	End *DaylightSavingTime `json:"end,omitempty"`
 
 	// GmtOffset
 	// GMT offset
-	GmtOffset *int `json:"gmtOffset,omitempty" validate:"required,gte=-11,lte=14"`
+	GmtOffset *int `json:"gmtOffset" validate:"required,gte=-11,lte=14"`
 
 	// GmtOffsetMinute
 	// GMT offset minute
-	GmtOffsetMinute *int `json:"gmtOffsetMinute,omitempty" validate:"required,gte=0,lte=59"`
+	GmtOffsetMinute *int `json:"gmtOffsetMinute" validate:"required,gte=0,lte=59"`
 
 	Start *DaylightSavingTime `json:"start,omitempty"`
 }
@@ -461,19 +461,19 @@ type CustomizedTimeZone struct {
 type DaylightSavingTime struct {
 	// Day
 	// Day of the week (0 for Sunday, 1 for Monday, 2 for Tuesday, and so on)
-	Day *int `json:"day,omitempty" validate:"required,oneof=0 1 2 3 4 5 6"`
+	Day *int `json:"day" validate:"required,oneof=0 1 2 3 4 5 6"`
 
 	// Hour
 	// Hour of the day
-	Hour *int `json:"hour,omitempty" validate:"required,gte=0,lte=23"`
+	Hour *int `json:"hour" validate:"required,gte=0,lte=23"`
 
 	// Month
 	// Month when daylight saving time begins
-	Month *int `json:"month,omitempty" validate:"required,oneof=1 2 3 4 5 6 7 8 9 10 11 12"`
+	Month *int `json:"month" validate:"required,oneof=1 2 3 4 5 6 7 8 9 10 11 12"`
 
 	// Week
 	// Week of the month (1 for the first week, 2 for the second week, and so on)
-	Week *int `json:"week,omitempty" validate:"required,oneof=1 2 3 4 5"`
+	Week *int `json:"week" validate:"required,oneof=1 2 3 4 5"`
 }
 
 type DhcpSiteConfigList struct {
@@ -571,7 +571,7 @@ type ModifyDiffServProfile struct {
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PreservedList
 	// Preserved list
@@ -845,7 +845,7 @@ type SnmpUser struct {
 
 	// UserName
 	// name of the SNMP User.
-	UserName *string `json:"userName,omitempty" validate:"required"`
+	UserName *string `json:"userName" validate:"required"`
 
 	// WriteEnabled
 	// write privilege of the SNMP User

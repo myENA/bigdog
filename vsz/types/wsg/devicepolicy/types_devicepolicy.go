@@ -9,11 +9,11 @@ import (
 type CreateDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
-	DefaultAction *string `json:"defaultAction,omitempty" validate:"required,oneof=ALLOW BLOCK"`
+	DefaultAction *string `json:"defaultAction" validate:"required,oneof=ALLOW BLOCK"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 }
 
 type DevicePolicyPorfile struct {

@@ -265,19 +265,19 @@ type CreateActiveDirectoryAuthentication struct {
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
-	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty" validate:"required"`
+	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled" validate:"required"`
 
 	// Id
 	// Identifier of the authentication service
 	Id *string `json:"id,omitempty"`
 
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip" validate:"required"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Password
 	// Admin password
@@ -285,7 +285,7 @@ type CreateActiveDirectoryAuthentication struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
+	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
 	StandbyAdminDomainName *common.NormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
@@ -315,13 +315,13 @@ type CreateActiveDirectoryAuthentication struct {
 
 	// TlsEnabled
 	// AD over TLS Enabled
-	TlsEnabled *bool `json:"tlsEnabled,omitempty" validate:"required"`
+	TlsEnabled *bool `json:"tlsEnabled" validate:"required"`
 
 	// Type
 	// Authentication protocol.
 	Type *string `json:"type,omitempty" validate:"oneof=AD"`
 
-	WindowsDomainName *common.NormalName2to64 `json:"windowsDomainName,omitempty" validate:"required"`
+	WindowsDomainName *common.NormalName2to64 `json:"windowsDomainName" validate:"required"`
 }
 
 type CreateHlrAuthentication struct {
@@ -395,7 +395,7 @@ type CreateHlrAuthentication struct {
 
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	PointCode *int `json:"pointCode,omitempty"`
 
@@ -423,9 +423,9 @@ type CreateHlrAuthentication struct {
 }
 
 type CreateLDAPAuthentication struct {
-	AdminDomainName *common.NormalName2to128 `json:"adminDomainName,omitempty" validate:"required"`
+	AdminDomainName *common.NormalName2to128 `json:"adminDomainName" validate:"required"`
 
-	BaseDomainName *common.NormalName2to64 `json:"baseDomainName,omitempty" validate:"required"`
+	BaseDomainName *common.NormalName2to64 `json:"baseDomainName" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -439,25 +439,25 @@ type CreateLDAPAuthentication struct {
 	// Identifier of the authentication service
 	Id *string `json:"id,omitempty"`
 
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip" validate:"required"`
 
-	KeyAttribute *common.NormalName2to64 `json:"keyAttribute,omitempty" validate:"required"`
+	KeyAttribute *common.NormalName2to64 `json:"keyAttribute" validate:"required"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Password
 	// Admin password
-	Password *string `json:"password,omitempty" validate:"required"`
+	Password *string `json:"password" validate:"required"`
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
+	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
-	SearchFilter *common.NormalName2to64 `json:"searchFilter,omitempty" validate:"required"`
+	SearchFilter *common.NormalName2to64 `json:"searchFilter" validate:"required"`
 
 	StandbyAdminDomainName *common.NormalName2to128 `json:"standbyAdminDomainName,omitempty"`
 
@@ -487,7 +487,7 @@ type CreateLDAPAuthentication struct {
 
 	// TlsEnabled
 	// LDAP over TLS Enabled
-	TlsEnabled *bool `json:"tlsEnabled,omitempty" validate:"required"`
+	TlsEnabled *bool `json:"tlsEnabled" validate:"required"`
 
 	// Type
 	// Authentication protocol.
@@ -503,9 +503,9 @@ type CreateRadiusAccounting struct {
 
 	HealthCheckPolicy *common.HealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
-	Primary *common.RadiusServer `json:"primary,omitempty" validate:"required"`
+	Primary *common.RadiusServer `json:"primary" validate:"required"`
 
 	// Protocol
 	// Accounting protocol.
@@ -549,9 +549,9 @@ type CreateRadiusAuthentication struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
-	Primary *common.RadiusServer `json:"primary,omitempty" validate:"required"`
+	Primary *common.RadiusServer `json:"primary" validate:"required"`
 
 	RateLimiting *common.RateLimiting `json:"rateLimiting,omitempty"`
 
@@ -610,7 +610,7 @@ type GgsnList []*Ggsn
 type GroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
 	// Group attribute
-	GroupAttr *string `json:"groupAttr,omitempty" validate:"required"`
+	GroupAttr *string `json:"groupAttr" validate:"required"`
 
 	// Id
 	// Group attribute mapping UUID
@@ -618,7 +618,7 @@ type GroupAttrIdentityUserRoleMapping struct {
 
 	// UserRole
 	// Identity user role
-	UserRole *GroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole,omitempty" validate:"required"`
+	UserRole *GroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
 // GroupAttrIdentityUserRoleMappingUserRoleType
@@ -1083,11 +1083,11 @@ type ModifyActiveDirectoryAuthentication struct {
 type ModifyGroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
 	// Group attribute
-	GroupAttr *string `json:"groupAttr,omitempty" validate:"required"`
+	GroupAttr *string `json:"groupAttr" validate:"required"`
 
 	// UserRole
 	// Identity user role
-	UserRole *ModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole,omitempty" validate:"required"`
+	UserRole *ModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
 // ModifyGroupAttrIdentityUserRoleMappingUserRoleType
@@ -1618,17 +1618,17 @@ type SctpAssociation struct {
 type SecondaryRadiusServer struct {
 	// AutoFallbackDisable
 	// Automatic fallback enabled or disabled
-	AutoFallbackDisable *bool `json:"autoFallbackDisable,omitempty" validate:"required"`
+	AutoFallbackDisable *bool `json:"autoFallbackDisable" validate:"required"`
 
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip" validate:"required"`
 
 	// Port
 	// RADIUS server port
-	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
+	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
 	// SharedSecret
 	// RADIUS server shared secrect
-	SharedSecret *string `json:"sharedSecret,omitempty" validate:"required"`
+	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
 type TestingConfig struct {

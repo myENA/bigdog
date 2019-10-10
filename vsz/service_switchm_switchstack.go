@@ -5,6 +5,7 @@ package vsz
 import (
 	"context"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/stack"
+	"github.com/myENA/ruckus-client/vsz/types/switchm/switchmswitch"
 )
 
 type SwitchMSwitchStackService struct {

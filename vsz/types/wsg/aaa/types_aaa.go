@@ -147,15 +147,15 @@ type CreateActiveDirectoryServer struct {
 
 	// GlobalCatalogEnabled
 	// Enable global catalog support
-	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty" validate:"required"`
+	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled" validate:"required"`
 
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip" validate:"required"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Password
 	// Admin password
@@ -163,7 +163,7 @@ type CreateActiveDirectoryServer struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
+	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -203,9 +203,9 @@ type CreateAuthenticationServer struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
-	Primary *common.RadiusServer `json:"primary,omitempty" validate:"required"`
+	Primary *common.RadiusServer `json:"primary" validate:"required"`
 
 	Secondary *common.RadiusServer `json:"secondary,omitempty"`
 
@@ -217,31 +217,31 @@ type CreateAuthenticationServer struct {
 }
 
 type CreateLDAPServer struct {
-	AdminDomainName *common.NormalName2to128 `json:"adminDomainName,omitempty" validate:"required"`
+	AdminDomainName *common.NormalName2to128 `json:"adminDomainName" validate:"required"`
 
-	BaseDomainName *common.NormalName2to64 `json:"baseDomainName,omitempty" validate:"required"`
+	BaseDomainName *common.NormalName2to64 `json:"baseDomainName" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip" validate:"required"`
 
-	KeyAttribute *common.NormalName2to64 `json:"keyAttribute,omitempty" validate:"required"`
+	KeyAttribute *common.NormalName2to64 `json:"keyAttribute" validate:"required"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*ModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Password
 	// Admin password
-	Password *string `json:"password,omitempty" validate:"required"`
+	Password *string `json:"password" validate:"required"`
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
+	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
-	SearchFilter *common.NormalName2to64 `json:"searchFilter,omitempty" validate:"required"`
+	SearchFilter *common.NormalName2to64 `json:"searchFilter" validate:"required"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -286,7 +286,7 @@ type DeleteBulkAAAServerList struct {
 type GroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
 	// Group attribute
-	GroupAttr *string `json:"groupAttr,omitempty" validate:"required"`
+	GroupAttr *string `json:"groupAttr" validate:"required"`
 
 	// Id
 	// Group attribute mapping UUID
@@ -294,7 +294,7 @@ type GroupAttrIdentityUserRoleMapping struct {
 
 	// UserRole
 	// Identity user role
-	UserRole *GroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole,omitempty" validate:"required"`
+	UserRole *GroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
 // GroupAttrIdentityUserRoleMappingUserRoleType
@@ -503,11 +503,11 @@ type ModifyAuthenticationServer struct {
 type ModifyGroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
 	// Group attribute
-	GroupAttr *string `json:"groupAttr,omitempty" validate:"required"`
+	GroupAttr *string `json:"groupAttr" validate:"required"`
 
 	// UserRole
 	// Identity user role
-	UserRole *ModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole,omitempty" validate:"required"`
+	UserRole *ModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
 // ModifyGroupAttrIdentityUserRoleMappingUserRoleType
@@ -592,7 +592,7 @@ type TestAAAServerResult struct {
 }
 
 type TestAuthenticationServer struct {
-	AaaServer *common.GenericRef `json:"aaaServer,omitempty" validate:"required"`
+	AaaServer *common.GenericRef `json:"aaaServer" validate:"required"`
 
 	// AaaType
 	// Authentication/Accounting service protocol. RADIUS for Radius, AD and LDAP. RADIUSAcct for RADIUS
@@ -605,7 +605,7 @@ type TestAuthenticationServer struct {
 
 	// Password
 	// Password
-	Password *string `json:"password,omitempty" validate:"required"`
+	Password *string `json:"password" validate:"required"`
 
 	// ServerType
 	// Radius server type.
@@ -613,5 +613,5 @@ type TestAuthenticationServer struct {
 
 	// UserName
 	// User name
-	UserName *string `json:"userName,omitempty" validate:"required"`
+	UserName *string `json:"userName" validate:"required"`
 }

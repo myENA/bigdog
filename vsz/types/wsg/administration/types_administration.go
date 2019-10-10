@@ -8,17 +8,17 @@ import (
 )
 
 type ActiveDirectoryServer struct {
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of Active Directory Server object
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"required"`
 
-	Realm *common.Realm `json:"realm,omitempty"`
+	Realm *common.Realm `json:"realm,omitempty" validate:"required"`
 
 	// WindowsDomainName
 	// Windows Domain Name of Active Directory Server object
-	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *string `json:"windowsDomainName,omitempty" validate:"required"`
 }
 
 type ApPatchHistory struct {
@@ -200,7 +200,7 @@ type CreateAdminAAAServer struct {
 
 	LdapServer *LdapServer `json:"ldapServer,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	RadiusServer *RadiusServer `json:"radiusServer,omitempty"`
 
@@ -209,47 +209,47 @@ type CreateAdminAAAServer struct {
 	// Type
 	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name
 	// [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"required"`
 }
 
 type DefaultRoleMapping struct {
 	// DefaultAdmin
 	// DefaultAdmin of DefaultRoleMapping object
-	DefaultAdmin *string `json:"defaultAdmin,omitempty"`
+	DefaultAdmin *string `json:"defaultAdmin,omitempty" validate:"required"`
 
 	// DefaultUserGroup
 	// DefaultUserGroup of DefaultRoleMapping object
-	DefaultUserGroup *string `json:"defaultUserGroup,omitempty"`
+	DefaultUserGroup *string `json:"defaultUserGroup,omitempty" validate:"required"`
 }
 
 type LdapServer struct {
 	// AdminDomainName
 	// Admin Domain Name of LDAP Server object
-	AdminDomainName *string `json:"adminDomainName,omitempty"`
+	AdminDomainName *string `json:"adminDomainName,omitempty" validate:"required"`
 
 	// AdminPassword
 	// Admin password of LDAP Server object
-	AdminPassword *string `json:"adminPassword,omitempty"`
+	AdminPassword *string `json:"adminPassword,omitempty" validate:"required"`
 
 	// BaseDomainName
 	// Base Domain Name of LDAP Server object
-	BaseDomainName *string `json:"baseDomainName,omitempty"`
+	BaseDomainName *string `json:"baseDomainName,omitempty" validate:"required"`
 
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// KeyAttribute
 	// Key attribute of LDAP Server object
-	KeyAttribute *string `json:"keyAttribute,omitempty"`
+	KeyAttribute *string `json:"keyAttribute,omitempty" validate:"required"`
 
 	// Port
 	// Port number of LDAP Server object
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"required"`
 
-	Realm *common.Realm `json:"realm,omitempty"`
+	Realm *common.Realm `json:"realm,omitempty" validate:"required"`
 
 	// SearchFilter
 	// Search filter of LDAP Server object
-	SearchFilter *string `json:"searchFilter,omitempty"`
+	SearchFilter *string `json:"searchFilter,omitempty" validate:"required"`
 }
 
 type Licenses struct {
@@ -351,7 +351,7 @@ type ModfiyLicenseServer struct {
 
 	Port *int `json:"port,omitempty"`
 
-	UseCloud *bool `json:"useCloud,omitempty"`
+	UseCloud *bool `json:"useCloud,omitempty" validate:"required"`
 }
 
 type ModifyAdminAAAServer struct {
@@ -361,7 +361,7 @@ type ModifyAdminAAAServer struct {
 
 	LdapServer *LdapServer `json:"ldapServer,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	RadiusServer *RadiusServer `json:"radiusServer,omitempty"`
 
@@ -370,7 +370,7 @@ type ModifyAdminAAAServer struct {
 	// Type
 	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name
 	// [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"required"`
 }
 
 type ModifyAutoExportBackup struct {
@@ -420,19 +420,19 @@ type ModifyScheduleBackup struct {
 }
 
 type RadiusServer struct {
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of RADIUS Server object
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"required"`
 
-	Realm *common.Realm `json:"realm,omitempty"`
+	Realm *common.Realm `json:"realm,omitempty" validate:"required"`
 
 	SecondaryRadiusServer *SecondaryRadiusServer `json:"secondaryRadiusServer,omitempty"`
 
 	// SharedSecret
 	// Shared secret of RADIUS Server object
-	SharedSecret *string `json:"sharedSecret,omitempty"`
+	SharedSecret *string `json:"sharedSecret,omitempty" validate:"required"`
 }
 
 type RetrieveAdminAAAServer struct {
@@ -503,41 +503,41 @@ type ScheduleBackup struct {
 }
 
 type SecondaryRadiusServer struct {
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// MaxRetries
 	// Max number(how many times) of retries for re-connection to primary
-	MaxRetries *int `json:"maxRetries,omitempty"`
+	MaxRetries *int `json:"maxRetries,omitempty" validate:"required"`
 
 	// Port
 	// Port number of Secondary RADIUS Server object
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"required"`
 
 	// RequestTimeOut
 	// Request timeout(seconds) value of re-connection to primary
-	RequestTimeOut *int `json:"requestTimeOut,omitempty"`
+	RequestTimeOut *int `json:"requestTimeOut,omitempty" validate:"required"`
 
 	// RetryPriInvl
 	// Interval of re-connection to primary(1-60 minute)
-	RetryPriInvl *int `json:"retryPriInvl,omitempty"`
+	RetryPriInvl *int `json:"retryPriInvl,omitempty" validate:"required"`
 
 	// SharedSecret
 	// Shared secret of Secondary RADIUS Server object
-	SharedSecret *string `json:"sharedSecret,omitempty"`
+	SharedSecret *string `json:"sharedSecret,omitempty" validate:"required"`
 }
 
 type TacacsServer struct {
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of TACACS+ Server object
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"required"`
 
-	Service *common.Realm `json:"service,omitempty"`
+	Service *common.Realm `json:"service,omitempty" validate:"required"`
 
 	// SharedSecret
 	// Shared secret of TACACS+ Server object
-	SharedSecret *string `json:"sharedSecret,omitempty"`
+	SharedSecret *string `json:"sharedSecret,omitempty" validate:"required"`
 }
 
 type UpgradeHistoryList struct {

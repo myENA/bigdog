@@ -16,13 +16,13 @@ type CreateWifiCallingPolicy struct {
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
-	Epdgs []*Epdg `json:"epdgs,omitempty"`
+	Epdgs []*Epdg `json:"epdgs,omitempty" validate:"required"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
-	Priority *string `json:"priority,omitempty"`
+	Priority *string `json:"priority,omitempty" validate:"required"`
 }
 
 type DeleteBulk struct {

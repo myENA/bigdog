@@ -254,7 +254,7 @@ type WlanExternalDpsk struct {
 
 	// Enabled
 	// Enable External DPSK
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty" validate:"required"`
 
 	// Encryption
 	// Encryption of the WLAN relate to external DPSK

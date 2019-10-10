@@ -5,5 +5,5 @@ package flexivpn
 type FlexiVpnSetting struct {
 	// ZoneAffinityId
 	// Zone Affinity ID
-	ZoneAffinityId *string `json:"zoneAffinityId,omitempty"`
+	ZoneAffinityId *string `json:"zoneAffinityId,omitempty" validate:"required"`
 }

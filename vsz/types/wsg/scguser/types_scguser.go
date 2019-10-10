@@ -34,7 +34,7 @@ type CreateScgUser struct {
 
 	// NewPassphrase
 	// User login passphrase
-	NewPassphrase *string `json:"newPassphrase,omitempty"`
+	NewPassphrase *string `json:"newPassphrase,omitempty" validate:"required"`
 
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly. (System default admin
@@ -63,7 +63,7 @@ type CreateScgUser struct {
 
 	// UserName
 	// User name
-	UserName *string `json:"userName,omitempty"`
+	UserName *string `json:"userName,omitempty" validate:"required"`
 }
 
 type GetScgUser struct {
@@ -157,7 +157,7 @@ type ModifyScgUser struct {
 
 	// Id
 	// User id
-	Id *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty" validate:"required"`
 
 	LockoutDuration *int `json:"lockoutDuration,omitempty"`
 
@@ -237,7 +237,7 @@ type ScgUserAuditId struct {
 }
 
 type ScgUserGroup struct {
-	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty"`
+	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty" validate:"required"`
 
 	AccountSecurityProfileName *string `json:"accountSecurityProfileName,omitempty"`
 
@@ -281,19 +281,19 @@ type ScgUserGroup struct {
 
 	// Name
 	// User group name
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty" validate:"required"`
 
 	// Permissions
 	// Permission list
-	Permissions []*ScgUserGroupPermissionWithoutDetailItems `json:"permissions,omitempty"`
+	Permissions []*ScgUserGroupPermissionWithoutDetailItems `json:"permissions,omitempty" validate:"required"`
 
 	// ResourceGroups
 	// Resource group id list
-	ResourceGroups []*ScgUserGroupResourceGroup `json:"resourceGroups,omitempty"`
+	ResourceGroups []*ScgUserGroupResourceGroup `json:"resourceGroups,omitempty" validate:"required"`
 
 	// Role
 	// User group role
-	Role *string `json:"role,omitempty"`
+	Role *string `json:"role,omitempty" validate:"required"`
 
 	// TenantId
 	// Tenant Id

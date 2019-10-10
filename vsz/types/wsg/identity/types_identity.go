@@ -85,13 +85,13 @@ type CreateIdentityGuestPass struct {
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	GuestName *common.NormalName `json:"guestName,omitempty"`
+	GuestName *common.NormalName `json:"guestName,omitempty" validate:"required"`
 
-	MaxDevices *MaxDevices `json:"maxDevices,omitempty"`
+	MaxDevices *MaxDevices `json:"maxDevices,omitempty" validate:"required"`
 
 	// NumberOfPasses
 	// Number of passes
-	NumberOfPasses *int `json:"numberOfPasses,omitempty"`
+	NumberOfPasses *int `json:"numberOfPasses,omitempty" validate:"required"`
 
 	// PassEffectSince
 	// Pass effective since
@@ -101,7 +101,7 @@ type CreateIdentityGuestPass struct {
 	// Expire new guest pass if not used within
 	PassUseDays *int `json:"passUseDays,omitempty"`
 
-	PassValidFor *PassValidFor `json:"passValidFor,omitempty"`
+	PassValidFor *PassValidFor `json:"passValidFor,omitempty" validate:"required"`
 
 	// PassValue
 	// Pass value
@@ -113,9 +113,9 @@ type CreateIdentityGuestPass struct {
 
 	SessionDuration *SessionDuration `json:"sessionDuration,omitempty"`
 
-	Wlan *common.GenericRef `json:"wlan,omitempty"`
+	Wlan *common.GenericRef `json:"wlan,omitempty" validate:"required"`
 
-	Zone *common.GenericRef `json:"zone,omitempty"`
+	Zone *common.GenericRef `json:"zone,omitempty" validate:"required"`
 }
 
 type CreateIdentityUserRole struct {
@@ -125,11 +125,11 @@ type CreateIdentityUserRole struct {
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	MaxDevices *MaxDevices `json:"maxDevices,omitempty"`
+	MaxDevices *MaxDevices `json:"maxDevices,omitempty" validate:"required"`
 
-	Name *common.NormalNameTo64 `json:"name,omitempty"`
+	Name *common.NormalNameTo64 `json:"name,omitempty" validate:"required"`
 
-	UserTrafficProfile *common.GenericRef `json:"userTrafficProfile,omitempty"`
+	UserTrafficProfile *common.GenericRef `json:"userTrafficProfile,omitempty" validate:"required"`
 
 	// VlanId
 	// vlan id
@@ -147,13 +147,13 @@ type CreateSubscriptionPackage struct {
 
 	// ExpirationInterval
 	// Expiration interval
-	ExpirationInterval *string `json:"expirationInterval,omitempty"`
+	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"required"`
 
 	// ExpirationValue
 	// Expiration value
-	ExpirationValue *int `json:"expirationValue,omitempty"`
+	ExpirationValue *int `json:"expirationValue,omitempty" validate:"required"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 }
 
 type CreateUser struct {
@@ -183,19 +183,19 @@ type CreateUser struct {
 
 	// FirstName
 	// First name
-	FirstName *string `json:"firstName,omitempty"`
+	FirstName *string `json:"firstName,omitempty" validate:"required"`
 
 	// IsDisabled
 	// Is Disabled
-	IsDisabled *string `json:"isDisabled,omitempty"`
+	IsDisabled *string `json:"isDisabled,omitempty" validate:"required"`
 
 	// LastName
 	// Last Name
-	LastName *string `json:"lastName,omitempty"`
+	LastName *string `json:"lastName,omitempty" validate:"required"`
 
 	// Password
 	// Password
-	Password *string `json:"password,omitempty"`
+	Password *string `json:"password,omitempty" validate:"required"`
 
 	// Phone
 	// Phone
@@ -213,7 +213,7 @@ type CreateUser struct {
 
 	// UserName
 	// User Name
-	UserName *string `json:"userName,omitempty"`
+	UserName *string `json:"userName,omitempty" validate:"required"`
 
 	// ZipCode
 	// Zip Code
@@ -439,7 +439,7 @@ type ImportIdentityGuestPass struct {
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	MaxDevices *MaxDevices `json:"maxDevices,omitempty"`
+	MaxDevices *MaxDevices `json:"maxDevices,omitempty" validate:"required"`
 
 	// PassEffectSince
 	// Pass effective since
@@ -449,13 +449,13 @@ type ImportIdentityGuestPass struct {
 	// Expire new guest pass if not used within
 	PassUseDays *int `json:"passUseDays,omitempty"`
 
-	PassValidFor *PassValidFor `json:"passValidFor,omitempty"`
+	PassValidFor *PassValidFor `json:"passValidFor,omitempty" validate:"required"`
 
 	SessionDuration *SessionDuration `json:"sessionDuration,omitempty"`
 
-	Wlan *common.GenericRef `json:"wlan,omitempty"`
+	Wlan *common.GenericRef `json:"wlan,omitempty" validate:"required"`
 
-	Zone *common.GenericRef `json:"zone,omitempty"`
+	Zone *common.GenericRef `json:"zone,omitempty" validate:"required"`
 }
 
 type MaxDevices struct {

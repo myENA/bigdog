@@ -31,9 +31,9 @@ type ApFirmwareList struct {
 }
 
 type ApLogin struct {
-	ApLoginName *common.ApLoginName `json:"apLoginName,omitempty"`
+	ApLoginName *common.ApLoginName `json:"apLoginName,omitempty" validate:"required"`
 
-	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty"`
+	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty" validate:"required"`
 }
 
 type ApSnmpOptions struct {
@@ -147,11 +147,11 @@ type BonjourGatewayPolicySummary struct {
 type BonjourPolicyRule struct {
 	// BridgeService
 	// Bridge service
-	BridgeService *string `json:"bridgeService,omitempty"`
+	BridgeService *string `json:"bridgeService,omitempty" validate:"required"`
 
 	// FromVlan
 	// From VLAN
-	FromVlan *int `json:"fromVlan,omitempty"`
+	FromVlan *int `json:"fromVlan,omitempty" validate:"required"`
 
 	// Notes
 	// Notes
@@ -163,7 +163,7 @@ type BonjourPolicyRule struct {
 
 	// ToVlan
 	// To VLAN
-	ToVlan *int `json:"toVlan,omitempty"`
+	ToVlan *int `json:"toVlan,omitempty" validate:"required"`
 }
 
 // BonjourPolicyRuleConfiguration
@@ -208,7 +208,7 @@ type CreateBonjourGatewayPolicy struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 }
 
 type CreateDiffServProfile struct {
@@ -216,7 +216,7 @@ type CreateDiffServProfile struct {
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	// PreservedList
 	// Preserved list
@@ -369,7 +369,7 @@ type CreateZone struct {
 
 	LocationBasedService *common.GenericRef `json:"locationBasedService,omitempty"`
 
-	Login *ApLogin `json:"login,omitempty"`
+	Login *ApLogin `json:"login,omitempty" validate:"required"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
 
@@ -379,7 +379,7 @@ type CreateZone struct {
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	NodeAffinityProfile *common.GenericRef `json:"nodeAffinityProfile,omitempty"`
 
@@ -443,17 +443,17 @@ type CreateZone struct {
 type CustomizedTimeZone struct {
 	// Abbreviation
 	// Time zone abbreviation
-	Abbreviation *string `json:"abbreviation,omitempty"`
+	Abbreviation *string `json:"abbreviation,omitempty" validate:"required"`
 
 	End *DaylightSavingTime `json:"end,omitempty"`
 
 	// GmtOffset
 	// GMT offset
-	GmtOffset *int `json:"gmtOffset,omitempty"`
+	GmtOffset *int `json:"gmtOffset,omitempty" validate:"required"`
 
 	// GmtOffsetMinute
 	// GMT offset minute
-	GmtOffsetMinute *int `json:"gmtOffsetMinute,omitempty"`
+	GmtOffsetMinute *int `json:"gmtOffsetMinute,omitempty" validate:"required"`
 
 	Start *DaylightSavingTime `json:"start,omitempty"`
 }
@@ -461,19 +461,19 @@ type CustomizedTimeZone struct {
 type DaylightSavingTime struct {
 	// Day
 	// Day of the week (0 for Sunday, 1 for Monday, 2 for Tuesday, and so on)
-	Day *int `json:"day,omitempty"`
+	Day *int `json:"day,omitempty" validate:"required"`
 
 	// Hour
 	// Hour of the day
-	Hour *int `json:"hour,omitempty"`
+	Hour *int `json:"hour,omitempty" validate:"required"`
 
 	// Month
 	// Month when daylight saving time begins
-	Month *int `json:"month,omitempty"`
+	Month *int `json:"month,omitempty" validate:"required"`
 
 	// Week
 	// Week of the month (1 for the first week, 2 for the second week, and so on)
-	Week *int `json:"week,omitempty"`
+	Week *int `json:"week,omitempty" validate:"required"`
 }
 
 type DhcpSiteConfigList struct {
@@ -571,7 +571,7 @@ type ModifyDiffServProfile struct {
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	// PreservedList
 	// Preserved list
@@ -845,7 +845,7 @@ type SnmpUser struct {
 
 	// UserName
 	// name of the SNMP User.
-	UserName *string `json:"userName,omitempty"`
+	UserName *string `json:"userName,omitempty" validate:"required"`
 
 	// WriteEnabled
 	// write privilege of the SNMP User

@@ -5,11 +5,11 @@ package serviceticket
 type LoginRequest struct {
 	// Password
 	// Logon password
-	Password *string `json:"password,omitempty"`
+	Password *string `json:"password,omitempty" validate:"required"`
 
 	// Username
 	// Logon user name
-	Username *string `json:"username,omitempty"`
+	Username *string `json:"username,omitempty" validate:"required"`
 }
 
 type LoginResponse struct {

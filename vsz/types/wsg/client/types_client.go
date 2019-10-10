@@ -7,9 +7,9 @@ import (
 )
 
 type DeAuthClient struct {
-	ApMac *common.Mac `json:"apMac,omitempty"`
+	ApMac *common.Mac `json:"apMac,omitempty" validate:"required"`
 
-	Mac *common.Mac `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty" validate:"required"`
 }
 
 type DeAuthClientList struct {
@@ -17,9 +17,9 @@ type DeAuthClientList struct {
 }
 
 type DisconnectClient struct {
-	ApMac *common.Mac `json:"apMac,omitempty"`
+	ApMac *common.Mac `json:"apMac,omitempty" validate:"required"`
 
-	Mac *common.Mac `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty" validate:"required"`
 }
 
 type DisconnectClientList struct {

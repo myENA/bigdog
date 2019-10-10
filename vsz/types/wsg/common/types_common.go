@@ -499,15 +499,15 @@ type HealthCheckPolicy struct {
 
 	// ResponseWindow
 	// Response window
-	ResponseWindow *int `json:"responseWindow,omitempty"`
+	ResponseWindow *int `json:"responseWindow,omitempty" validate:"required"`
 
 	// ReviveInterval
 	// Revive interval
-	ReviveInterval *int `json:"reviveInterval,omitempty"`
+	ReviveInterval *int `json:"reviveInterval,omitempty" validate:"required"`
 
 	// ZombiePeriod
 	// Zombie period
-	ZombiePeriod *int `json:"zombiePeriod,omitempty"`
+	ZombiePeriod *int `json:"zombiePeriod,omitempty" validate:"required"`
 }
 
 type HTTPS string
@@ -595,7 +595,7 @@ type OverrideSmartMonitor struct {
 }
 
 type PortalCustomization struct {
-	Language *PortalLanguage `json:"language,omitempty"`
+	Language *PortalLanguage `json:"language,omitempty" validate:"required"`
 
 	// Logo
 	// logo
@@ -864,29 +864,29 @@ type Radio50SuperSet struct {
 }
 
 type RadiusServer struct {
-	Ip *IpAddress `json:"ip,omitempty"`
+	Ip *IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Server port
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"required"`
 
 	// SharedSecret
 	// Server shared secrect
-	SharedSecret *string `json:"sharedSecret,omitempty"`
+	SharedSecret *string `json:"sharedSecret,omitempty" validate:"required"`
 }
 
 type RateLimiting struct {
 	// MaxOutstandingRequestsPerServer
 	// Maximum outstanding requests (MOR), value should be 0 or between 10 and 4096
-	MaxOutstandingRequestsPerServer *int `json:"maxOutstandingRequestsPerServer,omitempty"`
+	MaxOutstandingRequestsPerServer *int `json:"maxOutstandingRequestsPerServer,omitempty" validate:"required"`
 
 	// SanityTimer
 	// Sanity timer
-	SanityTimer *int `json:"sanityTimer,omitempty"`
+	SanityTimer *int `json:"sanityTimer,omitempty" validate:"required"`
 
 	// Threshold
 	// Threshold, value should be 0 if MOR is 0, or between 10 and 90 if MOR is between 10 and 4096
-	Threshold *int `json:"threshold,omitempty"`
+	Threshold *int `json:"threshold,omitempty" validate:"required"`
 }
 
 type RbacMetadata struct {
@@ -914,7 +914,7 @@ type SmartMonitor struct {
 type SnmpCommunity struct {
 	// CommunityName
 	// name of the SNMP Community.
-	CommunityName *string `json:"communityName,omitempty"`
+	CommunityName *string `json:"communityName,omitempty" validate:"required"`
 
 	// NotificationEnabled
 	// notification privilege of the SNMP Coummunity
@@ -972,7 +972,7 @@ type SnmpUser struct {
 
 	// UserName
 	// name of the SNMP User.
-	UserName *string `json:"userName,omitempty"`
+	UserName *string `json:"userName,omitempty" validate:"required"`
 
 	// WriteEnabled
 	// write privilege of the SNMP User
@@ -984,11 +984,11 @@ type SubNetMask string
 type TargetConfig struct {
 	// Address
 	// address of the SNMP Trap
-	Address *string `json:"address,omitempty"`
+	Address *string `json:"address,omitempty" validate:"required"`
 
 	// Port
 	// port number of the SNMP Trap
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"required"`
 }
 
 type TimeRange struct {
@@ -1045,7 +1045,7 @@ type TxPower string
 type WebAuthenticationPortalCustomization struct {
 	// Logo
 	// Logo encoded with base64, format is "data:image/png;base64,the base64 encoded logo"
-	Logo *string `json:"logo,omitempty"`
+	Logo *string `json:"logo,omitempty" validate:"required"`
 
 	// Title
 	// Title of the custom portal

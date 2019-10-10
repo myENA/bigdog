@@ -165,7 +165,7 @@ type ApplicationRule struct {
 }
 
 type CreateApplicationPolicyProfile struct {
-	ApplicationRules []*ApplicationRule `json:"applicationRules,omitempty"`
+	ApplicationRules []*ApplicationRule `json:"applicationRules,omitempty" validate:"required"`
 
 	// AvcEventEnable
 	// Send ARC logs from AP to SmartZone
@@ -182,7 +182,7 @@ type CreateApplicationPolicyProfile struct {
 	// Profile belongs
 	DomainId *string `json:"domainId,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 }
 
 type CreateUserDefinedProfile struct {
@@ -190,24 +190,24 @@ type CreateUserDefinedProfile struct {
 
 	// DestPort
 	// Destination Port of User Defined Profile
-	DestPort *int `json:"destPort,omitempty"`
+	DestPort *int `json:"destPort,omitempty" validate:"required"`
 
 	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the User Defined Profile
 	// belongs
 	DomainId *string `json:"domainId,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	Netmask *common.SubNetMask `json:"netmask,omitempty"`
 
 	// Protocol
 	// Protocol of User Defined Profile
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"required"`
 
 	// Type
 	// Type of the User Defined Profile
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"required"`
 }
 
 type DeleteBulk struct {

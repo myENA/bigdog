@@ -63,7 +63,7 @@ type CreateApRule struct {
 
 	IpAddressRange *IpAddressRange `json:"ipAddressRange,omitempty"`
 
-	MobilityZone *common.GenericRef `json:"mobilityZone,omitempty"`
+	MobilityZone *common.GenericRef `json:"mobilityZone,omitempty" validate:"required"`
 
 	// ProvisionTag
 	// ProvisionTag of the AP Registration Rules
@@ -73,7 +73,7 @@ type CreateApRule struct {
 
 	// Type
 	// type of the AP Registration Rules
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"required"`
 }
 
 type GpsCoordinates struct {

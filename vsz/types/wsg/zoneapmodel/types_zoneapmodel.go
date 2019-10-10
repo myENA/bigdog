@@ -42,9 +42,9 @@ type ApModel struct {
 }
 
 type LanPortSetting struct {
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty" validate:"required"`
 
 	EthPortProfile *common.GenericRef `json:"ethPortProfile,omitempty"`
 
-	PortName *string `json:"portName,omitempty"`
+	PortName *string `json:"portName,omitempty" validate:"required"`
 }

@@ -5,7 +5,7 @@ package appackcapture
 type ApPacketCaptureReq struct {
 	// CaptureInterface
 	// Capture interface
-	CaptureInterface *string `json:"captureInterface,omitempty"`
+	CaptureInterface *string `json:"captureInterface,omitempty" validate:"required"`
 
 	// HostIp
 	// Wireshark host IP

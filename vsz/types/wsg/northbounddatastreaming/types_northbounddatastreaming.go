@@ -9,27 +9,27 @@ import (
 type CreateNorthboundDataStreamingProfile struct {
 	// Name
 	// Profile name of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty" validate:"required"`
 
 	// Password
 	// Password of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	Password *string `json:"password,omitempty"`
+	Password *string `json:"password,omitempty" validate:"required"`
 
 	// ServerHost
 	// Server host of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	ServerHost *string `json:"serverHost,omitempty"`
+	ServerHost *string `json:"serverHost,omitempty" validate:"required"`
 
 	// ServerPort
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	ServerPort *string `json:"serverPort,omitempty"`
+	ServerPort *string `json:"serverPort,omitempty" validate:"required"`
 
 	// SystemId
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	SystemId *string `json:"systemId,omitempty"`
+	SystemId *string `json:"systemId,omitempty" validate:"required"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	User *string `json:"user,omitempty"`
+	User *string `json:"user,omitempty" validate:"required"`
 }
 
 type EmptyResult struct {
@@ -37,33 +37,33 @@ type EmptyResult struct {
 }
 
 type ModifyNorthboundDataStreamingEventCodes struct {
-	NorthboundDataStreamingAcceptedEventCodes []int `json:"northboundDataStreamingAcceptedEventCodes,omitempty"`
+	NorthboundDataStreamingAcceptedEventCodes []int `json:"northboundDataStreamingAcceptedEventCodes,omitempty" validate:"required"`
 }
 
 type ModifyNorthboundDataStreamingProfile struct {
 	// Name
 	// Profile name of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty" validate:"required"`
 
 	// Password
 	// Password of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	Password *string `json:"password,omitempty"`
+	Password *string `json:"password,omitempty" validate:"required"`
 
 	// ServerHost
 	// Server host of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	ServerHost *string `json:"serverHost,omitempty"`
+	ServerHost *string `json:"serverHost,omitempty" validate:"required"`
 
 	// ServerPort
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	ServerPort *string `json:"serverPort,omitempty"`
+	ServerPort *string `json:"serverPort,omitempty" validate:"required"`
 
 	// SystemId
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	SystemId *string `json:"systemId,omitempty"`
+	SystemId *string `json:"systemId,omitempty" validate:"required"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	User *string `json:"user,omitempty"`
+	User *string `json:"user,omitempty" validate:"required"`
 }
 
 type NorthboundDataStreamingEventCodes struct {
@@ -187,11 +187,11 @@ type NorthboundDataStreamingProfileListExtraType struct {
 type NorthboundDataStreamingSettings struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled
-	NorthboundDataStreamingEnabled *bool `json:"northboundDataStreamingEnabled,omitempty"`
+	NorthboundDataStreamingEnabled *bool `json:"northboundDataStreamingEnabled,omitempty" validate:"required"`
 
 	// StreamingByDomainZoneEnabled
 	// Is Northbound Data Streaming enabled by domain/zone settings
-	StreamingByDomainZoneEnabled *bool `json:"streamingByDomainZoneEnabled,omitempty"`
+	StreamingByDomainZoneEnabled *bool `json:"streamingByDomainZoneEnabled,omitempty" validate:"required"`
 
 	// StreamingDomainIds
 	// Domain Ids for 'streamingByDomainZoneEnabled' settings

@@ -79,7 +79,7 @@ type UpdateClusterRedundancy struct {
 
 	// ClusterRedundancyEnabled
 	// Cluster redundancy enabled
-	ClusterRedundancyEnabled *bool `json:"clusterRedundancyEnabled,omitempty"`
+	ClusterRedundancyEnabled *bool `json:"clusterRedundancyEnabled,omitempty" validate:"required"`
 
 	// ClusterRedundancyType
 	// Cluster redundancy type (Active-Standby, or Active-Active)

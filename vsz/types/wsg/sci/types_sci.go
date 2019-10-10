@@ -9,33 +9,33 @@ import (
 type CreateSciProfile struct {
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
-	SciPassword *string `json:"sciPassword,omitempty"`
+	SciPassword *string `json:"sciPassword,omitempty" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
-	SciProfile *string `json:"sciProfile,omitempty"`
+	SciProfile *string `json:"sciProfile,omitempty" validate:"required"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
-	SciServerHost *string `json:"sciServerHost,omitempty"`
+	SciServerHost *string `json:"sciServerHost,omitempty" validate:"required"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
-	SciServerPort *string `json:"sciServerPort,omitempty"`
+	SciServerPort *string `json:"sciServerPort,omitempty" validate:"required"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
-	SciSystemId *string `json:"sciSystemId,omitempty"`
+	SciSystemId *string `json:"sciSystemId,omitempty" validate:"required"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
-	SciUser *string `json:"sciUser,omitempty"`
+	SciUser *string `json:"sciUser,omitempty" validate:"required"`
 }
 
 type DeleteSciProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
-	Id *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty" validate:"required"`
 }
 
 type DeleteSciProfileList struct {
@@ -43,13 +43,13 @@ type DeleteSciProfileList struct {
 }
 
 type ModifyEventCode struct {
-	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes,omitempty"`
+	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes,omitempty" validate:"required"`
 }
 
 type ModifySciEnabled struct {
 	// SciEnabled
 	// Is SZ/SCI interface enabled or disabled
-	SciEnabled *bool `json:"sciEnabled,omitempty"`
+	SciEnabled *bool `json:"sciEnabled,omitempty" validate:"required"`
 }
 
 type ModifySciPriorityList struct {
@@ -59,15 +59,15 @@ type ModifySciPriorityList struct {
 type ModifySciPriorityListType struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
-	Id *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty" validate:"required"`
 
 	// SciPriority
 	// Priority of the SCI profile for SZ/SCI interface
-	SciPriority *int `json:"sciPriority,omitempty"`
+	SciPriority *int `json:"sciPriority,omitempty" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
-	SciProfile *string `json:"sciProfile,omitempty"`
+	SciProfile *string `json:"sciProfile,omitempty" validate:"required"`
 }
 
 type ModifySciProfile struct {
@@ -77,27 +77,27 @@ type ModifySciProfile struct {
 
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
-	SciPassword *string `json:"sciPassword,omitempty"`
+	SciPassword *string `json:"sciPassword,omitempty" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
-	SciProfile *string `json:"sciProfile,omitempty"`
+	SciProfile *string `json:"sciProfile,omitempty" validate:"required"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
-	SciServerHost *string `json:"sciServerHost,omitempty"`
+	SciServerHost *string `json:"sciServerHost,omitempty" validate:"required"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
-	SciServerPort *string `json:"sciServerPort,omitempty"`
+	SciServerPort *string `json:"sciServerPort,omitempty" validate:"required"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
-	SciSystemId *string `json:"sciSystemId,omitempty"`
+	SciSystemId *string `json:"sciSystemId,omitempty" validate:"required"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
-	SciUser *string `json:"sciUser,omitempty"`
+	SciUser *string `json:"sciUser,omitempty" validate:"required"`
 }
 
 type SciEventCode struct {

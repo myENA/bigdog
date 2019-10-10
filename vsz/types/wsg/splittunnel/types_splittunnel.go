@@ -9,11 +9,11 @@ import (
 type CreateSplitTunnelProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []*SplitTunnelIpMaskRule `json:"rules,omitempty"`
+	Rules []*SplitTunnelIpMaskRule `json:"rules,omitempty" validate:"required"`
 }
 
 type ModifySplitTunnelProfile struct {
@@ -29,11 +29,11 @@ type ModifySplitTunnelProfile struct {
 type SplitTunnelIpMaskRule struct {
 	// DestinationIp
 	// Destination IP of split tunnel profile rule
-	DestinationIp *string `json:"destinationIp,omitempty"`
+	DestinationIp *string `json:"destinationIp,omitempty" validate:"required"`
 
 	// DestinationIpMask
 	// Destination IP mask of split tunnel profile rule
-	DestinationIpMask *string `json:"destinationIpMask,omitempty"`
+	DestinationIpMask *string `json:"destinationIpMask,omitempty" validate:"required"`
 }
 
 type SplitTunnelProfile struct {

@@ -17,7 +17,7 @@ type CreateWlanScheduler struct {
 	// Schedules on Monday
 	Mon []string `json:"mon,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	// Sat
 	// Schedules on Saturday

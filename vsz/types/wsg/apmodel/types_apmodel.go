@@ -41,7 +41,7 @@ type ApModel struct {
 }
 
 type AuthenticatorAAAServer struct {
-	EnableUseSCGasProxy *bool `json:"enableUseSCGasProxy,omitempty"`
+	EnableUseSCGasProxy *bool `json:"enableUseSCGasProxy,omitempty" validate:"required"`
 
 	Server *common.GenericRef `json:"server,omitempty"`
 }
@@ -55,15 +55,15 @@ type CellularSettings struct {
 
 	MobileAPName2 *string `json:"mobileAPName2,omitempty"`
 
-	SelectGG *int `json:"select3g4g,omitempty"`
+	SelectGG *int `json:"select3g4g,omitempty" validate:"required"`
 
-	SelectGG2 *int `json:"select3g4g2,omitempty"`
+	SelectGG2 *int `json:"select3g4g2,omitempty" validate:"required"`
 
 	SimCardUsage *int `json:"simCardUsage,omitempty"`
 
-	WanConnection *int `json:"wanConnection,omitempty"`
+	WanConnection *int `json:"wanConnection,omitempty" validate:"required"`
 
-	WanRecoveryTimer *int `json:"wanRecoveryTimer,omitempty"`
+	WanRecoveryTimer *int `json:"wanRecoveryTimer,omitempty" validate:"required"`
 }
 
 type CommonAttribute struct {
@@ -137,7 +137,7 @@ type ExternalAntenna struct {
 
 	Dbi *int `json:"dbi,omitempty"`
 
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty" validate:"required"`
 }
 
 type LacpSetting struct {
@@ -149,7 +149,7 @@ type LanPort8021X struct {
 
 	Supplicant *LanPortSupplicant `json:"supplicant,omitempty"`
 
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"required"`
 }
 
 type LanPortAuthenticator struct {
@@ -159,11 +159,11 @@ type LanPortAuthenticator struct {
 
 	DisabledAccounting *bool `json:"disabledAccounting,omitempty"`
 
-	MacAuthByPassEnabled *bool `json:"macAuthByPassEnabled,omitempty"`
+	MacAuthByPassEnabled *bool `json:"macAuthByPassEnabled,omitempty" validate:"required"`
 }
 
 type LanPortSetting struct {
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty" validate:"required"`
 
 	EthPortProfile *common.GenericRef `json:"ethPortProfile,omitempty"`
 
@@ -171,7 +171,7 @@ type LanPortSetting struct {
 
 	OverwriteVlanEnabled *bool `json:"overwriteVlanEnabled,omitempty"`
 
-	PortName *string `json:"portName,omitempty"`
+	PortName *string `json:"portName,omitempty" validate:"required"`
 
 	VlanUntagId *int `json:"vlanUntagId,omitempty"`
 }
@@ -179,7 +179,7 @@ type LanPortSetting struct {
 type LanPortSupplicant struct {
 	Password *string `json:"password,omitempty"`
 
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"required"`
 
 	UserName *string `json:"userName,omitempty"`
 }
@@ -187,7 +187,7 @@ type LanPortSupplicant struct {
 type LldpSetting struct {
 	AdvertiseIntervalInSec *int `json:"advertiseIntervalInSec,omitempty"`
 
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty" validate:"required"`
 
 	HoldTimeInSec *int `json:"holdTimeInSec,omitempty"`
 

@@ -17,7 +17,7 @@ type SpeedFlex struct {
 
 	// Protocol
 	// Protocol used in the SpeedFlex test
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"required"`
 
 	ServerIp *common.IpAddress `json:"serverIp,omitempty"`
 
@@ -29,7 +29,7 @@ type SpeedFlex struct {
 
 	// Tool
 	// SpeedFlex tool
-	Tool *string `json:"tool,omitempty"`
+	Tool *string `json:"tool,omitempty" validate:"required"`
 }
 
 type TestResult struct {

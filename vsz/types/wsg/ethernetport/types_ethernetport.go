@@ -28,7 +28,7 @@ type CreateEthernetPortProfile struct {
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
-	Name *common.NormalName `json:"name,omitempty"`
+	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
@@ -38,7 +38,7 @@ type CreateEthernetPortProfile struct {
 
 	// Type
 	// type of the ethernet port profile
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"required"`
 
 	// UntagId
 	// VLAN Untag ID of the ethernet port profile
@@ -48,7 +48,7 @@ type CreateEthernetPortProfile struct {
 	// VLAN Members of the ethernet port profile
 	VlanMembers *string `json:"vlanMembers,omitempty"`
 
-	X8021X *apmodel.LanPort8021X `json:"_8021X,omitempty"`
+	X8021X *apmodel.LanPort8021X `json:"_8021X,omitempty" validate:"required"`
 }
 
 type EthernetPortProfile struct {

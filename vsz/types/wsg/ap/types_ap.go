@@ -408,7 +408,7 @@ type CreateAP struct {
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
 
-	Mac *common.Mac `json:"mac,omitempty"`
+	Mac *common.Mac `json:"mac,omitempty" validate:"required"`
 
 	// Model
 	// Model name of the AP
@@ -427,7 +427,7 @@ type CreateAP struct {
 
 	// ZoneId
 	// Identifier of the zone to which the AP belongs
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty" validate:"required"`
 }
 
 type EventSummary struct {
@@ -457,9 +457,9 @@ type EventSummary struct {
 }
 
 type Login struct {
-	ApLoginName *common.ApLoginName `json:"apLoginName,omitempty"`
+	ApLoginName *common.ApLoginName `json:"apLoginName,omitempty" validate:"required"`
 
-	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty"`
+	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty" validate:"required"`
 }
 
 type Mesh struct {
@@ -715,7 +715,7 @@ type Syslog struct {
 
 	// Enabled
 	// Indicates whether syslog is enabled or disabled
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty" validate:"required"`
 
 	// Facility
 	// Facility of the syslog server

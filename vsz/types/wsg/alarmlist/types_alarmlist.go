@@ -37,7 +37,7 @@ type SingleAlarm struct {
 
 	ClearUser *string `json:"clearUser,omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	InsertionTime *float64 `json:"insertionTime,omitempty"`
 

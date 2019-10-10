@@ -15,9 +15,9 @@ type Certificate struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the certificate
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Information
 	// Information of the certificate
@@ -59,9 +59,9 @@ type CertificateList struct {
 type CertificateListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the certificate
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
@@ -85,9 +85,9 @@ type CertificatesSigningRequest struct {
 	// Email of the certificates signing request
 	Email *string `json:"email,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the certificates signing request
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -117,9 +117,9 @@ type ClientCert struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the client certificate
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Information
 	// Information of the client certificate
@@ -157,9 +157,9 @@ type ClientCertList struct {
 type ClientCertListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the client certificate
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
@@ -218,7 +218,7 @@ type CreateClientCert struct {
 type CreateCSR struct {
 	// City
 	// City of the certificates signing request
-	City *string `json:"city,omitempty" validate:"required"`
+	City *string `json:"city,omitempty" validate:"required,max=128"`
 
 	CommonName *common.FQDN `json:"commonName,omitempty" validate:"required"`
 
@@ -234,15 +234,15 @@ type CreateCSR struct {
 
 	// Organization
 	// Organization of the certificates signing request
-	Organization *string `json:"organization,omitempty" validate:"required"`
+	Organization *string `json:"organization,omitempty" validate:"required,max=64"`
 
 	// OrganizationUnit
 	// Organization unit of the certificates signing request
-	OrganizationUnit *string `json:"organizationUnit,omitempty"`
+	OrganizationUnit *string `json:"organizationUnit,omitempty" validate:"max=64"`
 
 	// State
 	// State of the certificates signing request
-	State *string `json:"state,omitempty" validate:"required"`
+	State *string `json:"state,omitempty" validate:"required,max=128"`
 }
 
 type CreateTrustedCAChain struct {
@@ -272,15 +272,15 @@ type CsrList struct {
 type CsrListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the certificates signing request
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type DeleteBulk struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
 type ModifyTrustedCAChain struct {
@@ -306,7 +306,7 @@ type ServiceCertificate struct {
 
 	// Service
 	// the service
-	Service *string `json:"service,omitempty" validate:"required"`
+	Service *string `json:"service,omitempty" validate:"required,oneof=MANAGEMENT_WEB AP_PORTAL HOTSPOT COMMUNICATOR"`
 }
 
 type ServiceCertificates []*ServiceCertificate
@@ -314,9 +314,9 @@ type ServiceCertificates []*ServiceCertificate
 type TrustedCAChain struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the trusted CA chain certificates
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
@@ -342,9 +342,9 @@ type TrustedCAChainCertList struct {
 type TrustedCAChainCertListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the trusted CA chain certificate
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Information
 	// Information of the certificates

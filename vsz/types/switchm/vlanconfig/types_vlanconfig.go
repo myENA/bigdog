@@ -17,25 +17,25 @@ type CreateVlanConfig struct {
 	// ARP Inspection Enabled
 	EnableArpInspection *bool `json:"enableArpInspection,omitempty"`
 
-	// EnableIpv4DhcpSnooping
+	// EnableIpv4DHCPSnooping
 	// IPv4 DHCP Snooping Enabled
-	EnableIpv4DhcpSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
+	EnableIpv4DHCPSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
 
-	// FamilyId
+	// FamilyID
 	// Family Id
-	FamilyId *string `json:"familyId,omitempty"`
+	FamilyID *string `json:"familyId,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
 	// IgmpSnooping
 	// IGMP Snooping
-	IgmpSnooping *string `json:"igmpSnooping,omitempty"`
+	IgmpSnooping *string `json:"igmpSnooping,omitempty" validate:"oneof=IST_NONE ACTIVE PASSIVE"`
 
-	// Ipv4DhcpSnoopingTrustPort
+	// Ipv4DHCPSnoopingTrustPort
 	// IPv4 DHCP Snooping Trust Port
-	Ipv4DhcpSnoopingTrustPort *string `json:"ipv4DhcpSnoopingTrustPort,omitempty"`
+	Ipv4DHCPSnoopingTrustPort *string `json:"ipv4DhcpSnoopingTrustPort,omitempty"`
 
 	// MulticastVersion
 	// Mutilcast Version
@@ -53,23 +53,23 @@ type CreateVlanConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
-	SpanningTree *string `json:"spanningTree,omitempty"`
+	SpanningTree *string `json:"spanningTree,omitempty" validate:"oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority
 	// Spanning Tree Priority
 	SpanningTreePriority *int `json:"spanningTreePriority,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
-	// VlanId
+	// VlanID
 	// Vlan Id
-	VlanId *int `json:"vlanId,omitempty"`
+	VlanID *int `json:"vlanId,omitempty"`
 }
 
 type EmptyResult struct {
@@ -103,17 +103,17 @@ type UpdateVlanConfig struct {
 	// ARP Inspection Enabled
 	EnableArpInspection *bool `json:"enableArpInspection,omitempty"`
 
-	// EnableIpv4DhcpSnooping
+	// EnableIpv4DHCPSnooping
 	// IPv4 DHCP Snooping Enabled
-	EnableIpv4DhcpSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
+	EnableIpv4DHCPSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
 
 	// IgmpSnooping
 	// IGMP Snooping
-	IgmpSnooping *string `json:"igmpSnooping,omitempty"`
+	IgmpSnooping *string `json:"igmpSnooping,omitempty" validate:"oneof=IST_NONE ACTIVE PASSIVE"`
 
-	// Ipv4DhcpSnoopingTrustPort
+	// Ipv4DHCPSnoopingTrustPort
 	// IPv4 DHCP Snooping Trust Port
-	Ipv4DhcpSnoopingTrustPort *string `json:"ipv4DhcpSnoopingTrustPort,omitempty"`
+	Ipv4DHCPSnoopingTrustPort *string `json:"ipv4DhcpSnoopingTrustPort,omitempty"`
 
 	// MulticastVersion
 	// Mutilcast Version
@@ -131,11 +131,11 @@ type UpdateVlanConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
-	SpanningTree *string `json:"spanningTree,omitempty"`
+	SpanningTree *string `json:"spanningTree,omitempty" validate:"oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority
 	// Spanning Tree Priority
@@ -143,9 +143,9 @@ type UpdateVlanConfig struct {
 }
 
 type VlanArpInspections struct {
-	// Ip
+	// IP
 	// The IP of ArpInspections
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	// Mac
 	// The MAC of ArpInspections
@@ -167,29 +167,29 @@ type VlanConfig struct {
 	// ARP Inspection Enabled
 	EnableArpInspection *bool `json:"enableArpInspection,omitempty"`
 
-	// EnableIpv4DhcpSnooping
+	// EnableIpv4DHCPSnooping
 	// IPv4 DHCP Snooping Enabled
-	EnableIpv4DhcpSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
+	EnableIpv4DHCPSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
 
-	// FamilyId
+	// FamilyID
 	// Family Id
-	FamilyId *string `json:"familyId,omitempty"`
+	FamilyID *string `json:"familyId,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
+	// ID
 	// Id
-	// Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IgmpSnooping
 	// IGMP Snooping
 	IgmpSnooping *string `json:"igmpSnooping,omitempty"`
 
-	// Ipv4DhcpSnoopingTrustPort
+	// Ipv4DHCPSnoopingTrustPort
 	// IPv4 DHCP Snooping Trust Port
-	Ipv4DhcpSnoopingTrustPort *string `json:"ipv4DhcpSnoopingTrustPort,omitempty"`
+	Ipv4DHCPSnoopingTrustPort *string `json:"ipv4DhcpSnoopingTrustPort,omitempty"`
 
 	// MulticastVersion
 	// Mutilcast Version
@@ -207,27 +207,27 @@ type VlanConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
-	SpanningTree *string `json:"spanningTree,omitempty"`
+	SpanningTree *string `json:"spanningTree,omitempty" validate:"oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority
 	// Spanning Tree Priority
 	SpanningTreePriority *int `json:"spanningTreePriority,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
 	// UpdatedTime
 	// The update time of the Vlan Config
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 
-	// VlanId
+	// VlanID
 	// Vlan Id
-	VlanId *int `json:"vlanId,omitempty"`
+	VlanID *int `json:"vlanId,omitempty"`
 }
 
 type VlanConfigQueryResult struct {

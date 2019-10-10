@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMSwitchIPSettingService () *SwitchMSwitchIPSetti
 func (s *SwitchMSwitchIPSettingService) FindIpConfigs (ctx context.Context) (*ipconfig.List, error) {
 }
 
-func (s *SwitchMSwitchIPSettingService) FindIpConfigsById (ctx context.Context, id string) (*ipconfig.IpConfig, error) {
+func (s *SwitchMSwitchIPSettingService) FindIpConfigsById (ctx context.Context, id string) (*ipconfig.IPConfig, error) {
 }
 
 func (s *SwitchMSwitchIPSettingService) FindIpConfigsByQueryCriteria (ctx context.Context) (*ipconfig.List, error) {

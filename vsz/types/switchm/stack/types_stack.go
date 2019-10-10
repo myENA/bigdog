@@ -2,7 +2,7 @@ package stack
 
 // API Version: v8_1
 
-type AuditIdList []*switchmswitch.AuditId
+type AuditIDList []*switchmswitch.AuditID
 
 type List struct {
 	// FirstIndex
@@ -102,9 +102,9 @@ type MemberSwitchPortsType struct {
 	// Connected device information
 	ConnectedDevice *MemberSwitchPortsTypeConnectedDeviceType `json:"connectedDevice,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of switch port
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// InUtilization
 	// In utilization of switch port
@@ -195,13 +195,13 @@ type MemberSwitchPortsType struct {
 //
 // Connected device information
 type MemberSwitchPortsTypeConnectedDeviceType struct {
-	// DomainId
+	// DomainID
 	// Identifier of the management domain to which the connected device belong
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of switch port connected device
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IsRuckusAP
 	// Connected devices is RuckusAP,True or False
@@ -243,29 +243,29 @@ type MemberSwitchPortsTypeConnectedDeviceType struct {
 	// Switch group
 	SwitchGroup *string `json:"switchGroup,omitempty"`
 
-	// SwitchGroupLevelOneId
+	// SwitchGroupLevelOneID
 	// Switch group level one Id
-	SwitchGroupLevelOneId *string `json:"switchGroupLevelOneId,omitempty"`
+	SwitchGroupLevelOneID *string `json:"switchGroupLevelOneId,omitempty"`
 
-	// SwitchGroupLevelTwoId
+	// SwitchGroupLevelTwoID
 	// Switch group level two Id
-	SwitchGroupLevelTwoId *string `json:"switchGroupLevelTwoId,omitempty"`
+	SwitchGroupLevelTwoID *string `json:"switchGroupLevelTwoId,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
 	// SwitchName
 	// Switch name
 	SwitchName *string `json:"switchName,omitempty"`
 
-	// TenantId
+	// TenantID
 	// Tenant Id of stack
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantID *string `json:"tenantId,omitempty"`
 
-	// UnitId
+	// UnitID
 	// Unit Id
-	UnitId *string `json:"unitId,omitempty"`
+	UnitID *string `json:"unitId,omitempty"`
 }
 
 // MemberSwitchPortsTypePoeType
@@ -299,21 +299,21 @@ type MemberSwitchPortsTypeTrafficUsageType struct {
 }
 
 type StackConfig struct {
-	// ActiveSwitchId
+	// ActiveSwitchID
 	// Switch Id of Active Unit
-	ActiveSwitchId *string `json:"activeSwitchId,omitempty"`
+	ActiveSwitchID *string `json:"activeSwitchId,omitempty"`
 
 	// IsActiveRole
 	// Switch role is Active, True (Active) or False (Standby or Member)
 	IsActiveRole *bool `json:"isActiveRole,omitempty"`
 
-	// SuggestedId
+	// SuggestedID
 	// Suggested switch unit Id in stack, 1 ~ 12
-	SuggestedId *int `json:"suggestedId,omitempty"`
+	SuggestedID *int `json:"suggestedId,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 }
 
 type StackConfigList []*StackConfig

@@ -27,9 +27,9 @@ type EventConfig struct {
 	// Description of each Switch custom event config
 	Description *string `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of event config
-	Id *int `json:"id,omitempty"`
+	ID *int `json:"id,omitempty"`
 
 	// Name
 	// Name of each Switch custom event config
@@ -37,7 +37,7 @@ type EventConfig struct {
 
 	// Severity
 	// Severity of each Switch custom event config
-	Severity *string `json:"severity,omitempty"`
+	Severity *string `json:"severity,omitempty" validate:"oneof=Warning Major Critical"`
 
 	// TextPattern
 	// User defined text pattern of each Switch custom event config
@@ -45,11 +45,11 @@ type EventConfig struct {
 
 	// TimeWindow
 	// Detection time woindow of each Switch custom event config
-	TimeWindow *int `json:"timeWindow,omitempty"`
+	TimeWindow *int `json:"timeWindow,omitempty" validate:"oneof=60 120 240 480 720 1440 2880"`
 
 	// Type
 	// Type of each Switch custom event config
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=CPU Memory TextPattern"`
 }
 
 type GetEventConfigList struct {

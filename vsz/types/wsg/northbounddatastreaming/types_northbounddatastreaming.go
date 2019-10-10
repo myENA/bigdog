@@ -23,9 +23,9 @@ type CreateNorthboundDataStreamingProfile struct {
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	ServerPort *string `json:"serverPort,omitempty" validate:"required"`
 
-	// SystemId
+	// SystemID
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	SystemId *string `json:"systemId,omitempty" validate:"required"`
+	SystemID *string `json:"systemId,omitempty" validate:"required"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
@@ -57,9 +57,9 @@ type ModifyNorthboundDataStreamingProfile struct {
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	ServerPort *string `json:"serverPort,omitempty" validate:"required"`
 
-	// SystemId
+	// SystemID
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	SystemId *string `json:"systemId,omitempty" validate:"required"`
+	SystemID *string `json:"systemId,omitempty" validate:"required"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
@@ -94,9 +94,9 @@ type NorthboundDataStreamingEventCodesListType struct {
 }
 
 type NorthboundDataStreamingProfile struct {
-	// Id
+	// ID
 	// UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Profile name of the Northbound Data Streaming profile for Northbound Data Streaming interface
@@ -114,9 +114,9 @@ type NorthboundDataStreamingProfile struct {
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	ServerPort *string `json:"serverPort,omitempty"`
 
-	// SystemId
+	// SystemID
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	SystemId *string `json:"systemId,omitempty"`
+	SystemID *string `json:"systemId,omitempty"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface

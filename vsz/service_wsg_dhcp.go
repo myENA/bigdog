@@ -26,21 +26,21 @@ func (ss *WSGService) WSGDHCPService () *WSGDHCPService {
     return serv
 }
 
-func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac (ctx context.Context, apMac string) (*dhcpmsgstats.DhcpMsgStats, error) {
+func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac (ctx context.Context, apMac string) (*dhcpmsgstats.DHCPMsgStats, error) {
 }
 
-func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac (ctx context.Context, apMac string) (*dhcppools.DhcpPools, error) {
+func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac (ctx context.Context, apMac string) (*dhcppools.DHCPPools, error) {
 }
 
-func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex (ctx context.Context, apMac string, poolIndex string) (*dhcppools.DhcpPoolInfo, error) {
+func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex (ctx context.Context, apMac string, poolIndex string) (*dhcppools.DHCPPoolInfo, error) {
 }
 
-func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById (ctx context.Context, id string, zoneId string) (*common.DhcpProfileRef, error) {
+func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById (ctx context.Context, id string, zoneId string) (*common.DHCPProfileRef, error) {
 }
 
-func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId (ctx context.Context, zoneId string) (*profile.DhcpProfileList, error) {
+func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId (ctx context.Context, zoneId string) (*profile.DHCPProfileList, error) {
 }
 
-func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId (ctx context.Context, zoneId string) (*common.DhcpSiteConfigListRef, error) {
+func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId (ctx context.Context, zoneId string) (*common.DHCPSiteConfigListRef, error) {
 }
 

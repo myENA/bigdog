@@ -41,15 +41,15 @@ type ClusterState struct {
 
 	// ClusterRole
 	// The cluster role of the current controller node
-	ClusterRole *string `json:"clusterRole,omitempty"`
+	ClusterRole *string `json:"clusterRole,omitempty" validate:"oneof=Leader Follower"`
 
 	// ClusterState
 	// cluster state
-	ClusterState *string `json:"clusterState,omitempty"`
+	ClusterState *string `json:"clusterState,omitempty" validate:"oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
 
-	// CurrentNodeId
+	// CurrentNodeID
 	// Identifier of the current controller node
-	CurrentNodeId *string `json:"currentNodeId,omitempty"`
+	CurrentNodeID *string `json:"currentNodeId,omitempty"`
 
 	// CurrentNodeName
 	// The name of the current controller node
@@ -63,11 +63,11 @@ type ClusterState struct {
 type ClusterStateManagementServiceStateListType struct {
 	// ManagementServiceState
 	// management service state
-	ManagementServiceState *string `json:"managementServiceState,omitempty"`
+	ManagementServiceState *string `json:"managementServiceState,omitempty" validate:"oneof=Out_Of_Service In_Service"`
 
-	// NodeId
+	// NodeID
 	// Identifier of the controller node
-	NodeId *string `json:"nodeId,omitempty"`
+	NodeID *string `json:"nodeId,omitempty"`
 
 	// NodeName
 	// node name
@@ -75,21 +75,21 @@ type ClusterStateManagementServiceStateListType struct {
 }
 
 type ClusterStateNodeStateListType struct {
-	// NodeId
+	// NodeID
 	// Identifier of the controller node
-	NodeId *string `json:"nodeId,omitempty"`
+	NodeID *string `json:"nodeId,omitempty"`
 
 	NodeName *string `json:"nodeName,omitempty"`
 
 	// NodeState
 	// node state
-	NodeState *string `json:"nodeState,omitempty"`
+	NodeState *string `json:"nodeState,omitempty" validate:"oneof=Out_Of_Service In_Service"`
 }
 
 type ClusterStatus struct {
 	// ClusterStatus
 	// progress of bladeProgress
-	ClusterStatus *string `json:"clusterStatus,omitempty"`
+	ClusterStatus *string `json:"clusterStatus,omitempty" validate:"oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
 }
 
 type ClusterUpgradeProgress struct {
@@ -107,7 +107,7 @@ type ClusterUpgradeProgress struct {
 
 	// ClusterSubTaskState
 	// clusterSubTaskState of clusterOperationProgress
-	ClusterSubTaskState *string `json:"clusterSubTaskState,omitempty"`
+	ClusterSubTaskState *string `json:"clusterSubTaskState,omitempty" validate:"oneof=None Running Failed Completed"`
 
 	// IsSelfBladeRebooting
 	// isSelfBladeRebooting of clusterOperationProgress
@@ -127,13 +127,13 @@ type ControlNodeStatus struct {
 }
 
 type ControlNodeStatusNodeStatusListType struct {
-	// NodeId
+	// NodeID
 	// Identifier of the controller node
-	NodeId *string `json:"nodeId,omitempty"`
+	NodeID *string `json:"nodeId,omitempty"`
 
 	// NodeStatus
 	// node status
-	NodeStatus *string `json:"nodeStatus,omitempty"`
+	NodeStatus *string `json:"nodeStatus,omitempty" validate:"oneof=Out_Of_Service Bootstrapping Got_WSG_Version WSG_FW_Upgrading Initializing_Database Syncing_Configurations Changing_Configurations Launching_Apps In_Service Shutting_Down_Apps"`
 }
 
 type Operation string

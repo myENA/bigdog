@@ -27,7 +27,7 @@ type ApGroupConfiguration struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -43,9 +43,9 @@ type ApGroupConfiguration struct {
 
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the AP group
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
@@ -89,13 +89,13 @@ type ApGroupConfiguration struct {
 
 	Wifi50 *common.Radio50SuperSet `json:"wifi50,omitempty"`
 
-	WlanGroup24 *common.GenericRef `json:"wlanGroup24,omitempty"`
+	WLANGroup24 *common.GenericRef `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 *common.GenericRef `json:"wlanGroup50,omitempty"`
+	WLANGroup50 *common.GenericRef `json:"wlanGroup50,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone to which the AP group belongs
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type ApGroupList struct {
@@ -117,9 +117,9 @@ type ApGroupMember struct {
 }
 
 type ApGroupSummary struct {
-	// Id
+	// ID
 	// Identifier of the AP group
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Description of the AP group
@@ -143,7 +143,7 @@ type ModifyAPGroup struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -199,7 +199,7 @@ type ModifyAPGroup struct {
 
 	Wifi50 *common.Radio50 `json:"wifi50,omitempty"`
 
-	WlanGroup24 *common.GenericRef `json:"wlanGroup24,omitempty"`
+	WLANGroup24 *common.GenericRef `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 *common.GenericRef `json:"wlanGroup50,omitempty"`
+	WLANGroup50 *common.GenericRef `json:"wlanGroup50,omitempty"`
 }

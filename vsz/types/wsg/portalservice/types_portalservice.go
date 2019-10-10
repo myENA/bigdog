@@ -9,7 +9,7 @@ import (
 type ConnectionCapability struct {
 	// PortNumber
 	// Port number of connection capability
-	PortNumber *float64 `json:"portNumber,omitempty" validate:"required"`
+	PortNumber *float64 `json:"portNumber,omitempty" validate:"required,gte=0.000000,lte=65535.000000"`
 
 	// ProtocolName
 	// Protocol aame of connection capability
@@ -17,11 +17,11 @@ type ConnectionCapability struct {
 
 	// ProtocolNumber
 	// Protocol number of connection capability
-	ProtocolNumber *float64 `json:"protocolNumber,omitempty" validate:"required"`
+	ProtocolNumber *float64 `json:"protocolNumber,omitempty" validate:"required,gte=0.000000,lte=254.000000"`
 
 	// Status
 	// Status of connection capability
-	Status *string `json:"status,omitempty" validate:"required"`
+	Status *string `json:"status,omitempty" validate:"required,oneof=CLOSED OPEN UNKNOWN"`
 }
 
 type CreateGuestAccess struct {
@@ -45,7 +45,7 @@ type CreateHotspot20VenueProfile struct {
 
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
-	Group *string `json:"group,omitempty"`
+	Group *string `json:"group,omitempty" validate:"oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -58,10 +58,10 @@ type CreateHotspot20VenueProfile struct {
 	VenueNames []*VenueName `json:"venueNames,omitempty" validate:"required"`
 }
 
-type CreateHotspot20WlanProfile struct {
+type CreateHotspot20WLANProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
-	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"required"`
+	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"required,oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
 
 	DefaultIdentityProvider *common.GenericRef `json:"defaultIdentityProvider,omitempty" validate:"required"`
 
@@ -77,11 +77,11 @@ type CreateHotspot20WlanProfile struct {
 
 	// Ipv4AddressType
 	// IPv4 address type of the Hotspot 2.0 WLAN profile
-	Ipv4AddressType *string `json:"ipv4AddressType,omitempty" validate:"required"`
+	Ipv4AddressType *string `json:"ipv4AddressType,omitempty" validate:"required,oneof=UNAVAILABLE PUBLIC PORT_RESTRICTED SINGLE_NATED_PRIVATE DOUBLE_NATED_PRIVATE PORT_RESTRICTED_AND_SINGLE_NATED PORT_RESTRICTED_AND_DOUBLE_NATED UNKNOWN"`
 
 	// Ipv6AddressType
 	// IPv6 address type of the Hotspot 2.0 WLAN profile
-	Ipv6AddressType *string `json:"ipv6AddressType,omitempty" validate:"required"`
+	Ipv6AddressType *string `json:"ipv6AddressType,omitempty" validate:"required,oneof=UNAVAILABLE AVAILABLE UNKNOWN"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -91,15 +91,15 @@ type CreateHotspot20WlanProfile struct {
 }
 
 type CreateHotspotExternal struct {
-	// BackupPortalUrl
+	// BackupPortalURL
 	// Backup Portal URL of the Hotspot
-	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
+	BackupPortalURL *string `json:"backupPortalUrl,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// HttpsRedirect
+	// HTTPSRedirect
 	// HTTPS Redirect is disable or not
-	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
+	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
 
 	// InternalNode
 	// Internal Node of the Hotspot
@@ -111,7 +111,7 @@ type CreateHotspotExternal struct {
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	PortalUrl *common.NormalURL `json:"portalUrl,omitempty" validate:"required"`
+	PortalURL *common.NormalURL `json:"portalUrl,omitempty" validate:"required"`
 
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
@@ -121,11 +121,11 @@ type CreateHotspotExternal struct {
 
 	// SmartClientSupport
 	// Smart client support of the Hotspot
-	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"required"`
+	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"required,oneof=None Enabled"`
 
-	// TrafficClassProfileId
+	// TrafficClassProfileID
 	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
+	TrafficClassProfileID *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -140,9 +140,9 @@ type CreateHotspotExternal struct {
 type CreateHotspotInternal struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// HttpsRedirect
+	// HTTPSRedirect
 	// HTTPS Redirect is disable or not
-	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
+	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
 
 	Location *PortalLocation `json:"location,omitempty"`
 
@@ -154,7 +154,7 @@ type CreateHotspotInternal struct {
 
 	// SmartClientSupport
 	// Smart client support of the Hotspot
-	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"required"`
+	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"required,oneof=None Enabled"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -169,9 +169,9 @@ type CreateHotspotInternal struct {
 type CreateHotspotSmartClientOnly struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// HttpsRedirect
+	// HTTPSRedirect
 	// HTTPS Redirect is disable or not
-	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
+	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
 
 	// InternalNode
 	// Internal Node of the Hotspot
@@ -194,9 +194,9 @@ type CreateHotspotSmartClientOnly struct {
 	// application.
 	SmartClientInfo *string `json:"smartClientInfo,omitempty" validate:"required"`
 
-	// TrafficClassProfileId
+	// TrafficClassProfileID
 	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
+	TrafficClassProfileID *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -216,7 +216,7 @@ type CreateL2ACL struct {
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all
 	// stations listed below
-	Restriction *string `json:"restriction,omitempty" validate:"required"`
+	Restriction *string `json:"restriction,omitempty" validate:"required,oneof=ALLOW BLOCK"`
 
 	RuleMacs []common.Mac `json:"ruleMacs,omitempty"`
 }
@@ -232,9 +232,9 @@ type CreateWebAuthentication struct {
 }
 
 type CreateWechat struct {
-	// AuthUrl
+	// AuthURL
 	// Authentication URL of the wechat profile
-	AuthUrl *string `json:"authUrl,omitempty" validate:"required"`
+	AuthURL *string `json:"authUrl,omitempty" validate:"required"`
 
 	// BlackList
 	// Black list of the wechat profile
@@ -252,7 +252,7 @@ type CreateWechat struct {
 
 	// GracePeriod
 	// Grace period of the wechat profile
-	GracePeriod *int `json:"gracePeriod,omitempty"`
+	GracePeriod *int `json:"gracePeriod,omitempty" validate:"gte=1,lte=14399"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -264,7 +264,7 @@ type CreateWechat struct {
 type DefaultConnectionCapability struct {
 	// PortNumber
 	// Port number of connection capability, cannot be modified
-	PortNumber *float64 `json:"portNumber,omitempty" validate:"required"`
+	PortNumber *float64 `json:"portNumber,omitempty" validate:"required,gte=0.000000,lte=65535.000000"`
 
 	// ProtocolName
 	// Protocol aame of connection capability, cannot be modified
@@ -272,29 +272,29 @@ type DefaultConnectionCapability struct {
 
 	// ProtocolNumber
 	// Protocol number of connection capability, cannot be modified
-	ProtocolNumber *float64 `json:"protocolNumber,omitempty" validate:"required"`
+	ProtocolNumber *float64 `json:"protocolNumber,omitempty" validate:"required,gte=0.000000,lte=254.000000"`
 
 	// Status
 	// Status of connection capability
-	Status *string `json:"status,omitempty" validate:"required"`
+	Status *string `json:"status,omitempty" validate:"required,oneof=CLOSED OPEN UNKNOWN"`
 }
 
 type DnatPortMapping struct {
 	// DestPort
 	// Destination port
-	DestPort *int `json:"destPort,omitempty"`
+	DestPort *int `json:"destPort,omitempty" validate:"gte=0,lte=65535"`
 
 	// SourcePort
 	// Source port
-	SourcePort *int `json:"sourcePort,omitempty"`
+	SourcePort *int `json:"sourcePort,omitempty" validate:"gte=0,lte=65535"`
 }
 
 type GuestAccess struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the guest access profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -306,23 +306,23 @@ type GuestAccess struct {
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone which the guest access profile belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type Hotspot struct {
-	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
+	BackupPortalURL *string `json:"backupPortalUrl,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// HttpsRedirect
+	// HTTPSRedirect
 	// HTTPS Redirect is disable or not
-	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
+	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the Hotspot
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// InternalNode
 	// Internal Node of the Hotspot
@@ -338,9 +338,9 @@ type Hotspot struct {
 
 	// PortalType
 	// Portal type of the Hotspot
-	PortalType *string `json:"portalType,omitempty"`
+	PortalType *string `json:"portalType,omitempty" validate:"oneof=Internal External"`
 
-	PortalUrl *common.NormalURL `json:"portalUrl,omitempty"`
+	PortalURL *common.NormalURL `json:"portalUrl,omitempty"`
 
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
@@ -355,11 +355,11 @@ type Hotspot struct {
 
 	// SmartClientSupport
 	// Smart client support of the Hotspot
-	SmartClientSupport *string `json:"smartClientSupport,omitempty"`
+	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"oneof=None Enabled SmartClientOnly"`
 
-	// TrafficClassProfileId
+	// TrafficClassProfileID
 	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
+	TrafficClassProfileID *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -370,9 +370,9 @@ type Hotspot struct {
 	// www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
 	WalledGardens []string `json:"walledGardens,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone which the Hotspot belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type Hotspot20VeuneProfile struct {
@@ -382,11 +382,11 @@ type Hotspot20VeuneProfile struct {
 
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
-	Group *string `json:"group,omitempty"`
+	Group *string `json:"group,omitempty" validate:"oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
 
-	// Id
+	// ID
 	// Identifier of the Hotspot 2.0 venue profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -398,15 +398,15 @@ type Hotspot20VeuneProfile struct {
 
 	VenueNames []*VenueName `json:"venueNames,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone which the Hotspot 2.0 venue profile belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
-type Hotspot20WlanProfile struct {
+type Hotspot20WLANProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
-	AccessNetworkType *string `json:"accessNetworkType,omitempty"`
+	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
 
 	// ConnectionCapabilities
 	// Default connection capabilities of the Hotspot 2.0 WLAN profile
@@ -420,9 +420,9 @@ type Hotspot20WlanProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the Hotspot 2.0 WLAN profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IdentityProviders
 	// Identity providers of the Hotspot 2.0 WLAN profile
@@ -434,11 +434,11 @@ type Hotspot20WlanProfile struct {
 
 	// Ipv4AddressType
 	// IPv4 address type of the v WLAN profile
-	Ipv4AddressType *string `json:"ipv4AddressType,omitempty"`
+	Ipv4AddressType *string `json:"ipv4AddressType,omitempty" validate:"oneof=UNAVAILABLE PUBLIC PORT_RESTRICTED SINGLE_NATED_PRIVATE DOUBLE_NATED_PRIVATE PORT_RESTRICTED_AND_SINGLE_NATED PORT_RESTRICTED_AND_DOUBLE_NATED UNKNOWN"`
 
 	// Ipv6AddressType
 	// IPv6 address type of the Hotspot 2.0 WLAN profile
-	Ipv6AddressType *string `json:"ipv6AddressType,omitempty"`
+	Ipv6AddressType *string `json:"ipv6AddressType,omitempty" validate:"oneof=UNAVAILABLE AVAILABLE UNKNOWN"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -446,30 +446,30 @@ type Hotspot20WlanProfile struct {
 
 	SignupSsid *common.GenericRef `json:"signupSsid,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone which the Hotspot 2.0 WLAN profile belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type L2ACL struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// identifier of the L2 Access Control
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all
 	// stations listed below
-	Restriction *string `json:"restriction,omitempty"`
+	Restriction *string `json:"restriction,omitempty" validate:"oneof=ALLOW BLOCK"`
 
 	RuleMacs []common.Mac `json:"ruleMacs,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// identifier of the zone which the L2 Access Control belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 // LinkSpeedInKbps
@@ -498,13 +498,13 @@ type ModifyGuestAccess struct {
 }
 
 type ModifyHotspot struct {
-	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
+	BackupPortalURL *string `json:"backupPortalUrl,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// HttpsRedirect
+	// HTTPSRedirect
 	// HTTPS Redirect is disable or not
-	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
+	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
 
 	// InternalNode
 	// Internal Node of the Hotspot
@@ -518,7 +518,7 @@ type ModifyHotspot struct {
 
 	PortalCustomization *common.PortalCustomization `json:"portalCustomization,omitempty"`
 
-	PortalUrl *common.NormalURL `json:"portalUrl,omitempty"`
+	PortalURL *common.NormalURL `json:"portalUrl,omitempty"`
 
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
@@ -533,11 +533,11 @@ type ModifyHotspot struct {
 
 	// SmartClientSupport
 	// Smart client support of the Hotspot
-	SmartClientSupport *string `json:"smartClientSupport,omitempty"`
+	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"oneof=None Enabled"`
 
-	// TrafficClassProfileId
+	// TrafficClassProfileID
 	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
+	TrafficClassProfileID *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -556,7 +556,7 @@ type ModifyHotspot20VenueProfile struct {
 
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
-	Group *string `json:"group,omitempty"`
+	Group *string `json:"group,omitempty" validate:"oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -569,10 +569,10 @@ type ModifyHotspot20VenueProfile struct {
 	VenueNames []*VenueName `json:"venueNames,omitempty"`
 }
 
-type ModifyHotspot20WlanProfile struct {
+type ModifyHotspot20WLANProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
-	AccessNetworkType *string `json:"accessNetworkType,omitempty"`
+	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
 
 	// ConnectionCapabilities
 	// Default connection capabilities of the Hotspot 2.0 WLAN profile
@@ -596,11 +596,11 @@ type ModifyHotspot20WlanProfile struct {
 
 	// Ipv4AddressType
 	// IPv4 address type of the Hotspot 2.0 Wlan profile
-	Ipv4AddressType *string `json:"ipv4AddressType,omitempty"`
+	Ipv4AddressType *string `json:"ipv4AddressType,omitempty" validate:"oneof=UNAVAILABLE PUBLIC PORT_RESTRICTED SINGLE_NATED_PRIVATE DOUBLE_NATED_PRIVATE PORT_RESTRICTED_AND_SINGLE_NATED PORT_RESTRICTED_AND_DOUBLE_NATED UNKNOWN"`
 
 	// Ipv6AddressType
 	// IPv6 address type of the Hotspot 2.0 Wlan profile
-	Ipv6AddressType *string `json:"ipv6AddressType,omitempty"`
+	Ipv6AddressType *string `json:"ipv6AddressType,omitempty" validate:"oneof=UNAVAILABLE AVAILABLE UNKNOWN"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -617,7 +617,7 @@ type ModifyL2ACL struct {
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all
 	// stations listed below
-	Restriction *string `json:"restriction,omitempty"`
+	Restriction *string `json:"restriction,omitempty" validate:"oneof=ALLOW BLOCK"`
 
 	RuleMacs []common.Mac `json:"ruleMacs,omitempty"`
 }
@@ -637,9 +637,9 @@ type ModifyWebAuthentication struct {
 }
 
 type ModifyWechat struct {
-	// AuthUrl
+	// AuthURL
 	// Authentication URL of the wechat profile
-	AuthUrl *string `json:"authUrl,omitempty"`
+	AuthURL *string `json:"authUrl,omitempty"`
 
 	// BlackList
 	// Black list of the wechat profile
@@ -657,7 +657,7 @@ type ModifyWechat struct {
 
 	// GracePeriod
 	// Grace period of the wechat profile
-	GracePeriod *int `json:"gracePeriod,omitempty"`
+	GracePeriod *int `json:"gracePeriod,omitempty" validate:"gte=1,lte=14399"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -667,9 +667,9 @@ type ModifyWechat struct {
 }
 
 type PortalLocation struct {
-	// Id
+	// ID
 	// Portal location id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Portal location name
@@ -677,7 +677,7 @@ type PortalLocation struct {
 }
 
 type PortalRedirect struct {
-	Url *common.NormalURL `json:"url,omitempty"`
+	URL *common.NormalURL `json:"url,omitempty"`
 }
 
 type PortalServiceList struct {
@@ -691,9 +691,9 @@ type PortalServiceList struct {
 }
 
 type PortalServiceListType struct {
-	// Id
+	// ID
 	// Identifier of the service
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
@@ -701,11 +701,11 @@ type PortalServiceListType struct {
 type UserSession struct {
 	// GracePeriodInMin
 	// Grace period in minutes
-	GracePeriodInMin *int `json:"gracePeriodInMin,omitempty"`
+	GracePeriodInMin *int `json:"gracePeriodInMin,omitempty" validate:"gte=1,lte=14399"`
 
 	// TimeoutInMin
 	// Time out value in minutes
-	TimeoutInMin *int `json:"timeoutInMin,omitempty"`
+	TimeoutInMin *int `json:"timeoutInMin,omitempty" validate:"gte=2,lte=14400"`
 }
 
 type VenueName struct {
@@ -719,9 +719,9 @@ type VenueName struct {
 type WebAuthentication struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the web authentication profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -733,15 +733,15 @@ type WebAuthentication struct {
 
 	WebAuthenticationPortalCustomization *common.WebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone which the web authentication profile belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type WechatConfiguration struct {
-	// AuthUrl
+	// AuthURL
 	// Authentication URL of the wechat profile
-	AuthUrl *string `json:"authUrl,omitempty"`
+	AuthURL *string `json:"authUrl,omitempty"`
 
 	// BlackList
 	// Black list of the wechat profile
@@ -759,7 +759,7 @@ type WechatConfiguration struct {
 
 	// GracePeriod
 	// Grace period of the wechat profile
-	GracePeriod *int `json:"gracePeriod,omitempty"`
+	GracePeriod *int `json:"gracePeriod,omitempty" validate:"gte=1,lte=14399"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 

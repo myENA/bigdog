@@ -36,13 +36,13 @@ func (ss *WSGService) WSGQueryWithFilterService () *WSGQueryWithFilterService {
 func (s *WSGQueryWithFilterService) FindApByQueryCriteria (ctx context.Context) (*apquery.ApQueryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria (ctx context.Context) (*wlanquery.ApWlanBssidQueryList, error) {
+func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria (ctx context.Context) (*wlanquery.ApWLANBssidQueryList, error) {
 }
 
 func (s *WSGQueryWithFilterService) FindClientByQueryCriteria (ctx context.Context) (*clientquery.ClientQueryList, error) {
 }
 
-func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria (ctx context.Context) (*dpsk.DpskQueryList, error) {
+func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria (ctx context.Context) (*dpsk.DPSKQueryList, error) {
 }
 
 func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria (ctx context.Context) (*indoormap.IndoorMapSummaryList, error) {
@@ -75,7 +75,7 @@ func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria (ct
 func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria (ctx context.Context) error {
 }
 
-func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria (ctx context.Context) (*profile.DhcpProfileList, error) {
+func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria (ctx context.Context) (*profile.DHCPProfileList, error) {
 }
 
 func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria (ctx context.Context) error {
@@ -117,6 +117,6 @@ func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria (ct
 func (s *WSGQueryWithFilterService) FindUserByQueryCriteria (ctx context.Context) error {
 }
 
-func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria (ctx context.Context) (*wlanquery.WlanQueryList, error) {
+func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria (ctx context.Context) (*wlanquery.WLANQueryList, error) {
 }
 

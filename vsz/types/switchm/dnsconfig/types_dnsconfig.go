@@ -6,30 +6,30 @@ import (
 	"encoding/json"
 )
 
-type CreateDnsConfig struct {
-	Dns *DnsConfigObject `json:"dns,omitempty"`
+type CreateDNSConfig struct {
+	DNS *DNSConfigObject `json:"dns,omitempty"`
 
-	// Id
+	// ID
 	// Switch Group Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 }
 
-type DnsConfig struct {
+type DNSConfig struct {
 	// CreatedTime
 	// The create time of the DNS Config
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	Dns *DnsConfigObject `json:"dns,omitempty"`
+	DNS *DNSConfigObject `json:"dns,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the DNS Config
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-type DnsConfigObject struct {
-	// Ip
+type DNSConfigObject struct {
+	// IP
 	// DNS Config IP
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 }
 
 type EmptyResult struct {
@@ -52,6 +52,6 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-type UpdateDnsConfig struct {
-	Dns *DnsConfigObject `json:"dns,omitempty"`
+type UpdateDNSConfig struct {
+	DNS *DNSConfigObject `json:"dns,omitempty"`
 }

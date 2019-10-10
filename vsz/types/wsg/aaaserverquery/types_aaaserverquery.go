@@ -7,7 +7,7 @@ import (
 )
 
 type AaaServerQueryList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -21,7 +21,7 @@ type AaaServerQueryList struct {
 type CreateAaaServer struct {
 	AdminDomainName *string `json:"adminDomainName,omitempty"`
 
-	AuthType *string `json:"authType,omitempty"`
+	AuthType *string `json:"authType,omitempty" validate:"oneof=WSG WLAN"`
 
 	CreateOn *int `json:"createOn,omitempty"`
 
@@ -29,7 +29,7 @@ type CreateAaaServer struct {
 
 	Description *string `json:"description,omitempty"`
 
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	DomainName *string `json:"domainName,omitempty"`
 
@@ -37,9 +37,9 @@ type CreateAaaServer struct {
 
 	GlobalCatalog *bool `json:"globalCatalog,omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	Ipv6 *string `json:"ipv6,omitempty"`
 
@@ -73,7 +73,7 @@ type CreateAaaServer struct {
 
 	TenantUUID *string `json:"tenantUUID,omitempty"`
 
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=RADIUS AD LDAP RADIUSAcct TACACS"`
 
 	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
 

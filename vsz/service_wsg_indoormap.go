@@ -33,6 +33,6 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId (ctx context.Context, indoor
 func (s *WSGIndoorMapService) FindMapsByQueryCriteria (ctx context.Context) (*indoormap.IndoorMapList, error) {
 }
 
-func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId (ctx context.Context, indoorMapId string) (*indoormap.IndooMapAuditId, error) {
+func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId (ctx context.Context, indoorMapId string) (*indoormap.IndooMapAuditID, error) {
 }
 

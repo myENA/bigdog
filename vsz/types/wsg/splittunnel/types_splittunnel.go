@@ -13,7 +13,7 @@ type CreateSplitTunnelProfile struct {
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []*SplitTunnelIpMaskRule `json:"rules,omitempty" validate:"required"`
+	Rules []*SplitTunnelIPMaskRule `json:"rules,omitempty" validate:"required"`
 }
 
 type ModifySplitTunnelProfile struct {
@@ -23,35 +23,35 @@ type ModifySplitTunnelProfile struct {
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []*SplitTunnelIpMaskRule `json:"rules,omitempty"`
+	Rules []*SplitTunnelIPMaskRule `json:"rules,omitempty"`
 }
 
-type SplitTunnelIpMaskRule struct {
-	// DestinationIp
+type SplitTunnelIPMaskRule struct {
+	// DestinationIP
 	// Destination IP of split tunnel profile rule
-	DestinationIp *string `json:"destinationIp,omitempty" validate:"required"`
+	DestinationIP *string `json:"destinationIp,omitempty" validate:"required"`
 
-	// DestinationIpMask
+	// DestinationIPMask
 	// Destination IP mask of split tunnel profile rule
-	DestinationIpMask *string `json:"destinationIpMask,omitempty" validate:"required"`
+	DestinationIPMask *string `json:"destinationIpMask,omitempty" validate:"required"`
 }
 
 type SplitTunnelProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []*SplitTunnelIpMaskRule `json:"rules,omitempty"`
+	Rules []*SplitTunnelIPMaskRule `json:"rules,omitempty"`
 
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantID *string `json:"tenantId,omitempty"`
 
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type SplitTunnelProfileList struct {
@@ -65,13 +65,13 @@ type SplitTunnelProfileList struct {
 }
 
 type SplitTunnelProfileListType struct {
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type SplitTunnelProfileQuery struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

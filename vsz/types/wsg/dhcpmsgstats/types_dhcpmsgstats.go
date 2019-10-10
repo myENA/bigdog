@@ -2,49 +2,49 @@ package dhcpmsgstats
 
 // API Version: v8_1
 
-// DhcpMsgStats
+// DHCPMsgStats
 //
 // DHCP Message Statistic Per AP
-type DhcpMsgStats struct {
+type DHCPMsgStats struct {
 	ApMac *string `json:"apMac,omitempty"`
 
-	// DhcpMsgRecvdStats
+	// DHCPMsgRecvdStats
 	// DHCP Message Received Statistic
-	DhcpMsgRecvdStats *DhcpMsgStatsDhcpMsgRecvdStatsType `json:"dhcpMsgRecvdStats,omitempty"`
+	DHCPMsgRecvdStats *DHCPMsgStatsDHCPMsgRecvdStatsType `json:"dhcpMsgRecvdStats,omitempty"`
 
-	// DhcpMsgSentStats
+	// DHCPMsgSentStats
 	// DHCP Message Sent Statistic
-	DhcpMsgSentStats *DhcpMsgStatsDhcpMsgSentStatsType `json:"dhcpMsgSentStats,omitempty"`
+	DHCPMsgSentStats *DHCPMsgStatsDHCPMsgSentStatsType `json:"dhcpMsgSentStats,omitempty"`
 
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantID *string `json:"tenantId,omitempty"`
 }
 
-// DhcpMsgStatsDhcpMsgRecvdStatsType
+// DHCPMsgStatsDHCPMsgRecvdStatsType
 //
 // DHCP Message Received Statistic
-type DhcpMsgStatsDhcpMsgRecvdStatsType struct {
-	DhcpDecline *int `json:"dhcpDecline,omitempty"`
+type DHCPMsgStatsDHCPMsgRecvdStatsType struct {
+	DHCPDecline *int `json:"dhcpDecline,omitempty"`
 
-	DhcpDiscover *int `json:"dhcpDiscover,omitempty"`
+	DHCPDiscover *int `json:"dhcpDiscover,omitempty"`
 
-	DhcpInform *int `json:"dhcpInform,omitempty"`
+	DHCPInform *int `json:"dhcpInform,omitempty"`
 
-	DhcpRelease *int `json:"dhcpRelease,omitempty"`
+	DHCPRelease *int `json:"dhcpRelease,omitempty"`
 
-	DhcpRequest *int `json:"dhcpRequest,omitempty"`
+	DHCPRequest *int `json:"dhcpRequest,omitempty"`
 }
 
-// DhcpMsgStatsDhcpMsgSentStatsType
+// DHCPMsgStatsDHCPMsgSentStatsType
 //
 // DHCP Message Sent Statistic
-type DhcpMsgStatsDhcpMsgSentStatsType struct {
-	DhcpAck *int `json:"dhcpAck,omitempty"`
+type DHCPMsgStatsDHCPMsgSentStatsType struct {
+	DHCPAck *int `json:"dhcpAck,omitempty"`
 
-	DhcpNak *int `json:"dhcpNak,omitempty"`
+	DHCPNak *int `json:"dhcpNak,omitempty"`
 
-	DhcpOffer *int `json:"dhcpOffer,omitempty"`
+	DHCPOffer *int `json:"dhcpOffer,omitempty"`
 }

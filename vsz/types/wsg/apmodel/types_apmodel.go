@@ -19,13 +19,13 @@ type ApModel struct {
 
 	LanPorts []*LanPortSetting `json:"lanPorts,omitempty"`
 
-	LedMode *string `json:"ledMode,omitempty"`
+	LedMode *string `json:"ledMode,omitempty" validate:"oneof= CableModem AccessPoint CableModem_AccessPoint CableModem_AccessPoint_DEFAULT ActiveSurgeProtector ActiveSurgeProtector_ModemOnline_DEFAULT Off"`
 
 	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty"`
 
 	Lldp *LldpSetting `json:"lldp,omitempty"`
 
-	PoeModeSetting *string `json:"poeModeSetting,omitempty"`
+	PoeModeSetting *string `json:"poeModeSetting,omitempty" validate:"oneof=Auto _802_3af _802_3at _802_3atPlus "`
 
 	PoeOutPortEnabled *bool `json:"poeOutPortEnabled,omitempty"`
 
@@ -35,7 +35,7 @@ type ApModel struct {
 
 	// RadioBand
 	// Band switch between 2.4GHz and 5GHz is provided in single radio AP ZF-7321, ZF-7321-U, and ZF-7441.
-	RadioBand *string `json:"radioBand,omitempty"`
+	RadioBand *string `json:"radioBand,omitempty" validate:"oneof= 2.4GHz 5GHz"`
 
 	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty"`
 }
@@ -47,23 +47,23 @@ type AuthenticatorAAAServer struct {
 }
 
 type CellularSettings struct {
-	DataRoaming *int `json:"dataRoaming,omitempty"`
+	DataRoaming *int `json:"dataRoaming,omitempty" validate:"gte=0,lte=1"`
 
-	DataRoaming2 *int `json:"dataRoaming2,omitempty"`
+	DataRoaming2 *int `json:"dataRoaming2,omitempty" validate:"gte=0,lte=1"`
 
-	MobileAPName *string `json:"mobileAPName,omitempty"`
+	MobileAPName *string `json:"mobileAPName,omitempty" validate:"max=100"`
 
-	MobileAPName2 *string `json:"mobileAPName2,omitempty"`
+	MobileAPName2 *string `json:"mobileAPName2,omitempty" validate:"max=100"`
 
-	SelectGG *int `json:"select3g4g,omitempty" validate:"required"`
+	Select3G4G *int `json:"select3g4g,omitempty" validate:"required,gte=0,lte=2"`
 
-	SelectGG2 *int `json:"select3g4g2,omitempty" validate:"required"`
+	Select3G4G2 *int `json:"select3g4g2,omitempty" validate:"required,gte=0,lte=2"`
 
-	SimCardUsage *int `json:"simCardUsage,omitempty"`
+	SimCardUsage *int `json:"simCardUsage,omitempty" validate:"gte=0,lte=2"`
 
-	WanConnection *int `json:"wanConnection,omitempty" validate:"required"`
+	WanConnection *int `json:"wanConnection,omitempty" validate:"required,gte=0,lte=3"`
 
-	WanRecoveryTimer *int `json:"wanRecoveryTimer,omitempty" validate:"required"`
+	WanRecoveryTimer *int `json:"wanRecoveryTimer,omitempty" validate:"required,gte=10,lte=300"`
 }
 
 type CommonAttribute struct {
@@ -71,7 +71,7 @@ type CommonAttribute struct {
 
 	CapabilityScore *float64 `json:"capabilityScore,omitempty"`
 
-	CpuFrequency *int `json:"cpuFrequency,omitempty"`
+	CPUFrequency *int `json:"cpuFrequency,omitempty"`
 
 	HasCablemodem *bool `json:"hasCablemodem,omitempty"`
 
@@ -91,9 +91,9 @@ type CommonAttribute struct {
 
 	MaxClientsUpper *int `json:"maxClientsUpper,omitempty"`
 
-	MaxWlanNum5G *int `json:"maxWlanNum5G,omitempty"`
+	MaxWLANNum5G *int `json:"maxWlanNum5G,omitempty"`
 
-	MaxWlanNum24G *int `json:"maxWlanNum24G,omitempty"`
+	MaxWLANNum24G *int `json:"maxWlanNum24G,omitempty"`
 
 	MeshRadioCaps *string `json:"meshRadioCaps,omitempty"`
 
@@ -109,9 +109,9 @@ type CommonAttribute struct {
 
 	PoeModeCaps *string `json:"poeModeCaps,omitempty"`
 
-	Ram *int `json:"ram,omitempty"`
+	RAM *int `json:"ram,omitempty"`
 
-	Reserved5GWlanForMesh *int `json:"reserved5GWlanForMesh,omitempty"`
+	Reserved5GWLANForMesh *int `json:"reserved5GWlanForMesh,omitempty"`
 
 	ScalingFactor *int `json:"scalingFactor,omitempty"`
 
@@ -133,9 +133,9 @@ type CommonAttribute struct {
 }
 
 type ExternalAntenna struct {
-	ChainMask *string `json:"chainMask,omitempty"`
+	ChainMask *string `json:"chainMask,omitempty" validate:"oneof= Two Three"`
 
-	Dbi *int `json:"dbi,omitempty"`
+	Dbi *int `json:"dbi,omitempty" validate:"gte=0,lte=90"`
 
 	Enabled *bool `json:"enabled,omitempty" validate:"required"`
 }
@@ -149,7 +149,7 @@ type LanPort8021X struct {
 
 	Supplicant *LanPortSupplicant `json:"supplicant,omitempty"`
 
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=Disable Supplicant PortBasedAuthenticator MACBasedAuthenticator"`
 }
 
 type LanPortAuthenticator struct {
@@ -171,25 +171,25 @@ type LanPortSetting struct {
 
 	OverwriteVlanEnabled *bool `json:"overwriteVlanEnabled,omitempty"`
 
-	PortName *string `json:"portName,omitempty" validate:"required"`
+	PortName *string `json:"portName,omitempty" validate:"required,oneof=LAN1 LAN2 LAN3 LAN4 LAN5"`
 
-	VlanUntagId *int `json:"vlanUntagId,omitempty"`
+	VlanUntagID *int `json:"vlanUntagId,omitempty" validate:"gte=0,lte=4094"`
 }
 
 type LanPortSupplicant struct {
-	Password *string `json:"password,omitempty"`
+	Password *string `json:"password,omitempty" validate:"max=64"`
 
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=MACAddress Custom"`
 
-	UserName *string `json:"userName,omitempty"`
+	UserName *string `json:"userName,omitempty" validate:"max=64"`
 }
 
 type LldpSetting struct {
-	AdvertiseIntervalInSec *int `json:"advertiseIntervalInSec,omitempty"`
+	AdvertiseIntervalInSec *int `json:"advertiseIntervalInSec,omitempty" validate:"gte=1,lte=300"`
 
 	Enabled *bool `json:"enabled,omitempty" validate:"required"`
 
-	HoldTimeInSec *int `json:"holdTimeInSec,omitempty"`
+	HoldTimeInSec *int `json:"holdTimeInSec,omitempty" validate:"gte=60,lte=1200"`
 
 	ManagementIPTLVEnabled *bool `json:"managementIPTLVEnabled,omitempty"`
 }

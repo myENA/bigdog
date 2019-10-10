@@ -8,15 +8,15 @@ import (
 )
 
 type CreateBulk struct {
-	// DhcpSnoopingTrustPortEnabled
+	// DHCPSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
-	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
+	DHCPSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 
 	// IgnoreList
 	// attributes not to overwrite
@@ -40,7 +40,7 @@ type CreateBulk struct {
 
 	// PoeClass
 	// POE Class
-	PoeClass *string `json:"poeClass,omitempty"`
+	PoeClass *string `json:"poeClass,omitempty" validate:"oneof=0 1 2 3 4"`
 
 	// PoeEnabled
 	// POE Enabled
@@ -60,7 +60,7 @@ type CreateBulk struct {
 
 	// PortSpeed
 	// Port Speed
-	PortSpeed *string `json:"portSpeed,omitempty"`
+	PortSpeed *string `json:"portSpeed,omitempty" validate:"oneof=NONE 1G 10G AUTO 10-HALF 10-FULL 100-HALF 100-FULL 1000-FULL 1000-FULL-MASTER 1000-FULL-SLAVE 2500-FULL 2500-FULL-MASTER 2500-FULL-SLAVE 5G-FULL 5G-FULL-MASTER 5G-FULL-SLAVE 10G-FULL 10G-FULL-MASTER 10G-FULL-SLAVE 25G-FULL 40G-FULL 100G-FULL"`
 
 	// RstpAdminEdgePortEnabled
 	// RSTP Admin Edge Port Enabled
@@ -74,9 +74,9 @@ type CreateBulk struct {
 	// STP Root Guard  Enabled
 	StpRootGuardEnabled *bool `json:"stpRootGuardEnabled,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
 	// TaggedVlans
 	// Tagged Vlans
@@ -112,17 +112,17 @@ type PortSettings struct {
 	// The create time of the Port Settings
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// DhcpSnoopingTrustPortEnabled
+	// DHCPSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
-	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
+	DHCPSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
+	// ID
 	// Id
-	// Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
@@ -144,7 +144,7 @@ type PortSettings struct {
 
 	// PoeClass
 	// POE Class
-	PoeClass *string `json:"poeClass,omitempty"`
+	PoeClass *string `json:"poeClass,omitempty" validate:"oneof=0 1 2 3 4"`
 
 	// PoeEnabled
 	// POE Enabled
@@ -168,7 +168,7 @@ type PortSettings struct {
 
 	// PortSpeed
 	// Port Speed
-	PortSpeed *string `json:"portSpeed,omitempty"`
+	PortSpeed *string `json:"portSpeed,omitempty" validate:"oneof=NONE 1G 10G AUTO 10-HALF 10-FULL 100-HALF 100-FULL 1000-FULL 1000-FULL-MASTER 1000-FULL-SLAVE 2500-FULL 2500-FULL-MASTER 2500-FULL-SLAVE 5G-FULL 5G-FULL-MASTER 5G-FULL-SLAVE 10G-FULL 10G-FULL-MASTER 10G-FULL-SLAVE 25G-FULL 40G-FULL 100G-FULL"`
 
 	// RstpAdminEdgePortEnabled
 	// RSTP Admin Edge Port Enabled
@@ -182,9 +182,9 @@ type PortSettings struct {
 	// STP Root Guard  Enabled
 	StpRootGuardEnabled *bool `json:"stpRootGuardEnabled,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
 	// TaggedVlans
 	// Tagged Vlans
@@ -247,9 +247,9 @@ func (t *PortSettingsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 }
 
 type UpdatePortSettings struct {
-	// DhcpSnoopingTrustPortEnabled
+	// DHCPSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
-	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
+	DHCPSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
@@ -269,7 +269,7 @@ type UpdatePortSettings struct {
 
 	// PoeClass
 	// POE Class
-	PoeClass *string `json:"poeClass,omitempty"`
+	PoeClass *string `json:"poeClass,omitempty" validate:"oneof=0 1 2 3 4"`
 
 	// PoeEnabled
 	// POE Enabled
@@ -289,7 +289,7 @@ type UpdatePortSettings struct {
 
 	// PortSpeed
 	// Port Speed
-	PortSpeed *string `json:"portSpeed,omitempty"`
+	PortSpeed *string `json:"portSpeed,omitempty" validate:"oneof=NONE 1G 10G AUTO 10-HALF 10-FULL 100-HALF 100-FULL 1000-FULL 1000-FULL-MASTER 1000-FULL-SLAVE 2500-FULL 2500-FULL-MASTER 2500-FULL-SLAVE 5G-FULL 5G-FULL-MASTER 5G-FULL-SLAVE 10G-FULL 10G-FULL-MASTER 10G-FULL-SLAVE 25G-FULL 40G-FULL 100G-FULL"`
 
 	// RstpAdminEdgePortEnabled
 	// RSTP Admin Edge Port Enabled

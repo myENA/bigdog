@@ -27,6 +27,6 @@ func (ss *SwitchMService) SwitchMSwitchCommonSettingsService () *SwitchMSwitchCo
 func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig (ctx context.Context) (*common.CreateResult, error) {
 }
 
-func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId (ctx context.Context, switchGroupId string) (*dnsconfig.DnsConfig, error) {
+func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId (ctx context.Context, switchGroupId string) (*dnsconfig.DNSConfig, error) {
 }
 

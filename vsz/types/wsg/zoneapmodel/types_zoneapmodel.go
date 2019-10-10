@@ -20,13 +20,13 @@ type ApModel struct {
 
 	LanPorts []*LanPortSetting `json:"lanPorts,omitempty"`
 
-	LedMode *string `json:"ledMode,omitempty"`
+	LedMode *string `json:"ledMode,omitempty" validate:"oneof= CableModem AccessPoint CableModem_AccessPoint CableModem_AccessPoint_DEFAULT ActiveSurgeProtector ActiveSurgeProtector_ModemOnline_DEFAULT Off"`
 
 	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty"`
 
 	Lldp *apmodel.LldpSetting `json:"lldp,omitempty"`
 
-	PoeModeSetting *string `json:"poeModeSetting,omitempty"`
+	PoeModeSetting *string `json:"poeModeSetting,omitempty" validate:"oneof= Auto _802_3af _802_3at _802_3atPlus"`
 
 	PoeOutPortEnabled *bool `json:"poeOutPortEnabled,omitempty"`
 
@@ -36,7 +36,7 @@ type ApModel struct {
 
 	// RadioBand
 	// Band switch between 2.4GHz and 5GHz is provided in single radio AP ZF-7321, ZF-7321-U, and ZF-7441.
-	RadioBand *string `json:"radioBand,omitempty"`
+	RadioBand *string `json:"radioBand,omitempty" validate:"oneof= 2.4GHz 5GHz"`
 
 	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty"`
 }
@@ -46,5 +46,5 @@ type LanPortSetting struct {
 
 	EthPortProfile *common.GenericRef `json:"ethPortProfile,omitempty"`
 
-	PortName *string `json:"portName,omitempty" validate:"required"`
+	PortName *string `json:"portName,omitempty" validate:"required,oneof=LAN1 LAN2 LAN3 LAN4 LAN5"`
 }

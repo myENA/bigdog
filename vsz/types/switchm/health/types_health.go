@@ -54,9 +54,9 @@ func (t *AggMetricsExtraType) MarshalJSON() ([]byte, error) {
 }
 
 type Aggs struct {
-	// Id
+	// ID
 	// Identifier of the aggregation value
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Key
 	// Key of the aggregation value

@@ -11,9 +11,9 @@ type AccountingProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -21,29 +21,29 @@ type AccountingProfile struct {
 
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the accounting profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -53,7 +53,7 @@ type AccountingProfile struct {
 }
 
 type AccountingProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -68,9 +68,9 @@ type AccountingProfileList struct {
 //
 // Accounting service per realm
 type AcctServiceRealmMapping struct {
-	// Id
+	// ID
 	// Accounting service UUID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Accounting service name
@@ -80,16 +80,16 @@ type AcctServiceRealmMapping struct {
 
 	// ServiceType
 	// Accounting service type, NA is NA-Request Rejected
-	ServiceType *string `json:"serviceType,omitempty" validate:"required"`
+	ServiceType *string `json:"serviceType,omitempty" validate:"required,oneof=NA RADIUS CGF"`
 }
 
 // AdvancedOptionContent
 //
 // advanced option Content
 type AdvancedOptionContent struct {
-	// DhcpOpt43Subcode
+	// DHCPOpt43Subcode
 	// dhcpOpt43Subcode of the ipsec profile
-	DhcpOpt43Subcode *float64 `json:"dhcpOpt43Subcode,omitempty"`
+	DHCPOpt43Subcode *float64 `json:"dhcpOpt43Subcode,omitempty"`
 
 	// DpdDelay
 	// dpdDelay of the ipsec profile
@@ -97,11 +97,11 @@ type AdvancedOptionContent struct {
 
 	// EnforceNatt
 	// enforceNatt Enable of the ipsec profile
-	EnforceNatt *string `json:"enforceNatt,omitempty"`
+	EnforceNatt *string `json:"enforceNatt,omitempty" validate:"oneof=Disabled Enabled"`
 
 	// FailoverMode
 	// mode of the failover
-	FailoverMode *string `json:"failoverMode,omitempty"`
+	FailoverMode *string `json:"failoverMode,omitempty" validate:"oneof=Non_Revertive Revertive"`
 
 	// FailoverPrimaryCheckInterval
 	// Primary Check Interval of the failover
@@ -117,7 +117,7 @@ type AdvancedOptionContent struct {
 
 	// IpcompEnable
 	// ipcomp Enable of the ipsec profile
-	IpcompEnable *string `json:"ipcompEnable,omitempty"`
+	IpcompEnable *string `json:"ipcompEnable,omitempty" validate:"oneof=Disabled Enabled"`
 
 	// KeepAliveIntval
 	// keepAliveIntval of the ipsec profile
@@ -147,9 +147,9 @@ type AuthenticationProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -157,9 +157,9 @@ type AuthenticationProfile struct {
 
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// GppSuppportEnabled
 	// 3GPP support enabled or disabled
@@ -169,9 +169,9 @@ type AuthenticationProfile struct {
 	// Hotspot 2.0 support enabled or disabled
 	H20SuppportEnabled *bool `json:"h20SuppportEnabled,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the authentication profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IsContainDirectoryService
 	// Realm based authentication service mappings contains LDAP or AD service type
@@ -181,17 +181,17 @@ type AuthenticationProfile struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -203,7 +203,7 @@ type AuthenticationProfile struct {
 }
 
 type AuthenticationProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -229,9 +229,9 @@ type BlockClient struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -245,17 +245,17 @@ type BlockClient struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Zone Id of the Block Client for clone in System Domain
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type BlockClientList struct {
@@ -271,9 +271,9 @@ type BlockClientList struct {
 type BlockClientListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Mac *common.Mac `json:"mac,omitempty"`
 
@@ -285,9 +285,9 @@ type BlockClientListType struct {
 	// Modifier blocked of the Block Client
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Zone Id of the Block Client for clone in System Domain
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type BonjourFencingPolicy struct {
@@ -303,9 +303,9 @@ type BonjourFencingPolicy struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -313,17 +313,17 @@ type BonjourFencingPolicy struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Bonjour Fencing Policy id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -331,9 +331,9 @@ type BonjourFencingPolicy struct {
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	// ZoneId
+	// ZoneID
 	// Zone Id of The Bonjour Fencing Policy for clone in System Domain
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type BonjourFencingPolicyList struct {
@@ -359,11 +359,11 @@ type BonjourFencingRule struct {
 
 	// DeviceType
 	// Name of the Bonjour Fencing Rule
-	DeviceType *string `json:"deviceType,omitempty" validate:"required"`
+	DeviceType *string `json:"deviceType,omitempty" validate:"required,oneof=Wired Wireless"`
 
 	// FencingRange
 	// The range of AP can take Bonjour work
-	FencingRange *string `json:"fencingRange,omitempty" validate:"required"`
+	FencingRange *string `json:"fencingRange,omitempty" validate:"required,oneof=SameAp OneHopAp"`
 
 	ServiceType *BridgeService `json:"serviceType,omitempty" validate:"required"`
 }
@@ -389,7 +389,7 @@ type BonjourFencingService struct {
 
 	ServiceType *BridgeService `json:"serviceType,omitempty"`
 
-	SourceType *string `json:"sourceType,omitempty"`
+	SourceType *string `json:"sourceType,omitempty" validate:"oneof=UNKNOWN DIRECT NEIGHBOR"`
 }
 
 type BonjourFencingStatistic struct {
@@ -409,9 +409,9 @@ type BridgeProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -419,23 +419,23 @@ type BridgeProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -445,7 +445,7 @@ type BridgeProfile struct {
 }
 
 type BridgeProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -471,15 +471,15 @@ type BulkBlockClientBlockClientListType struct {
 
 	Mac *common.Mac `json:"mac,omitempty" validate:"required"`
 
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type ClientIsolationEntry struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Ip
+	// IP
 	// Client Entry ip
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	Mac *common.Mac `json:"mac,omitempty" validate:"required"`
 }
@@ -493,9 +493,9 @@ type ClientIsolationWhitelist struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -503,17 +503,17 @@ type ClientIsolationWhitelist struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Client Isolation Whitelist id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -525,9 +525,9 @@ type ClientIsolationWhitelist struct {
 	// Client Isolation Whitelist array
 	Whitelist []*ClientIsolationEntry `json:"whitelist,omitempty" validate:"required"`
 
-	// ZoneId
+	// ZoneID
 	// Zone Id of The Bonjour Fencing Policy for clone in System Domain
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type ClientIsolationWhitelistArray struct {
@@ -535,9 +535,9 @@ type ClientIsolationWhitelistArray struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -553,9 +553,9 @@ type ClientIsolationWhitelistArray struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -568,13 +568,13 @@ type ClientIsolationWhitelistArray struct {
 //
 // Certificate Management Protocol Option
 type CmProtocolOptionContent struct {
-	// CmpDhcpOpt43Subcode
+	// CmpDHCPOpt43Subcode
 	// Certificate Management Protocol dhcpOpt43Subcode
-	CmpDhcpOpt43Subcode *float64 `json:"cmpDhcpOpt43Subcode,omitempty" validate:"required"`
+	CmpDHCPOpt43Subcode *float64 `json:"cmpDhcpOpt43Subcode,omitempty" validate:"required"`
 
-	// CmpDhcpOpt43SubcodeRecipient
+	// CmpDHCPOpt43SubcodeRecipient
 	// Certificate Management Protocol dhcpOpt43SubcodeRecipient
-	CmpDhcpOpt43SubcodeRecipient *float64 `json:"cmpDhcpOpt43SubcodeRecipient,omitempty"`
+	CmpDHCPOpt43SubcodeRecipient *float64 `json:"cmpDhcpOpt43SubcodeRecipient,omitempty"`
 
 	// CmpRecipient
 	// Certificate Management Protocol Recipient
@@ -592,11 +592,11 @@ type CmProtocolOptionContent struct {
 type CoreNetworkGateway struct {
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
-	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty"`
+	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"gte=1,lte=32767"`
 
 	// KeepAliveRetry
 	// ICMP Keep-Alive Retry
-	KeepAliveRetry *int `json:"keepAliveRetry,omitempty"`
+	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"gte=1,lte=255"`
 
 	// PrimaryGateway
 	// Primary Gateway
@@ -608,23 +608,23 @@ type CoreNetworkGateway struct {
 
 	// TunnelMTU
 	// Gateway path MTU
-	TunnelMTU *string `json:"tunnelMTU,omitempty"`
+	TunnelMTU *string `json:"tunnelMTU,omitempty" validate:"oneof=AUTO MANUAL"`
 
 	// TunnelMTUSize
 	// Manual setting value of Gateway path MTU
-	TunnelMTUSize *int `json:"tunnelMTUSize,omitempty"`
+	TunnelMTUSize *int `json:"tunnelMTUSize,omitempty" validate:"gte=850,lte=1500"`
 }
 
 type CreateAccountingProfile struct {
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -636,9 +636,9 @@ type CreateAccountingProfile struct {
 type CreateAuthenticationProfile struct {
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// GppSuppportEnabled
 	// 3GPP support enabled or disabled
@@ -648,9 +648,9 @@ type CreateAuthenticationProfile struct {
 	// Hotspot 2.0 support enabled or disabled
 	H20SuppportEnabled *bool `json:"h20SuppportEnabled,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -678,15 +678,15 @@ type CreateBonjourFencingPolicy struct {
 type CreateBridgeProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 }
@@ -705,60 +705,60 @@ type CreateClientIsolationWhitelist struct {
 	Whitelist []*ClientIsolationEntry `json:"whitelist,omitempty" validate:"required"`
 }
 
-type CreateDhcpProfile struct {
+type CreateDHCPProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// LeaseTimeHours
 	// Lease time in hours of the DHCP Profile
-	LeaseTimeHours *int `json:"leaseTimeHours,omitempty" validate:"required"`
+	LeaseTimeHours *int `json:"leaseTimeHours,omitempty" validate:"required,gte=0,lte=24"`
 
 	// LeaseTimeMinutes
 	// Lease time in minutes of the DHCP Profile
-	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty" validate:"required"`
+	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty" validate:"required,gte=0,lte=59"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	PoolEndIp *common.IpAddress `json:"poolEndIp,omitempty" validate:"required"`
+	PoolEndIP *common.IPAddress `json:"poolEndIp,omitempty" validate:"required"`
 
-	PoolStartIp *common.IpAddress `json:"poolStartIp,omitempty" validate:"required"`
+	PoolStartIP *common.IPAddress `json:"poolStartIp,omitempty" validate:"required"`
 
-	PrimaryDnsIp *common.IpAddress `json:"primaryDnsIp,omitempty"`
+	PrimaryDNSIP *common.IPAddress `json:"primaryDnsIp,omitempty"`
 
-	SecondaryDnsIp *common.IpAddress `json:"secondaryDnsIp,omitempty"`
+	SecondaryDNSIP *common.IPAddress `json:"secondaryDnsIp,omitempty"`
 
-	SubnetMask *common.IpAddress `json:"subnetMask,omitempty" validate:"required"`
+	SubnetMask *common.IPAddress `json:"subnetMask,omitempty" validate:"required"`
 
-	SubnetNetworkIp *common.IpAddress `json:"subnetNetworkIp,omitempty" validate:"required"`
+	SubnetNetworkIP *common.IPAddress `json:"subnetNetworkIp,omitempty" validate:"required"`
 
-	// VlanId
+	// VlanID
 	// VLAN ID of the DHCP Profile
-	VlanId *int `json:"vlanId,omitempty" validate:"required"`
+	VlanID *int `json:"vlanId,omitempty" validate:"required,gte=1,lte=4094"`
 }
 
-type CreateDnsServerProfile struct {
+type CreateDNSServerProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	// PrimaryIp
+	// PrimaryIP
 	// Primary ip of DNS server service
-	PrimaryIp *string `json:"primaryIp,omitempty" validate:"required"`
+	PrimaryIP *string `json:"primaryIp,omitempty" validate:"required"`
 
-	// SecondaryIp
+	// SecondaryIP
 	// Secondary ip of DNS server service
-	SecondaryIp *string `json:"secondaryIp,omitempty"`
+	SecondaryIP *string `json:"secondaryIp,omitempty"`
 
-	// TertiaryIp
+	// TertiaryIP
 	// Tertiary ip of DNS server service
-	TertiaryIp *string `json:"tertiaryIp,omitempty"`
+	TertiaryIP *string `json:"tertiaryIp,omitempty"`
 }
 
 type CreateIpsecProfile struct {
@@ -766,15 +766,15 @@ type CreateIpsecProfile struct {
 
 	// AuthType
 	// authentication type of the ipsec profile
-	AuthType *string `json:"authType,omitempty"`
+	AuthType *string `json:"authType,omitempty" validate:"oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the IPSec profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// EspRekeyTime
 	// espRekey Time of the ipsec profile
@@ -784,9 +784,9 @@ type CreateIpsecProfile struct {
 
 	EspSecurityAssociation *EspSecurityAssociationContent `json:"espSecurityAssociation,omitempty"`
 
-	// Id
+	// ID
 	// identifier of the ipsec profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IkeRekeyTime
 	// ikeRekey Time of the ipsec profile
@@ -796,7 +796,7 @@ type CreateIpsecProfile struct {
 
 	IkeSecurityAssociation *IkeSecurityAssociationContent `json:"ikeSecurityAssociation,omitempty"`
 
-	IpMode *IpMode `json:"ipMode,omitempty" validate:"required"`
+	IPMode *IPMode `json:"ipMode,omitempty" validate:"required"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -810,31 +810,31 @@ type CreateIpsecProfile struct {
 
 	// TunnelMode
 	// Tunnel mode of IPsec profile
-	TunnelMode *string `json:"tunnelMode,omitempty"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=SOFT_GRE RUCKUS_GRE"`
 }
 
-type CreateLOGREProfile struct {
+type CreateL2OGREProfile struct {
 	CoreNetworkGateway *CoreNetworkGateway `json:"coreNetworkGateway,omitempty" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 }
 
 type CreatePrecedenceProfile struct {
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -862,13 +862,13 @@ type CreateRtlsProfile struct {
 	// Eekahau Location Service Enabled
 	EkahauEnabled *bool `json:"ekahauEnabled,omitempty" validate:"required"`
 
-	EkahauIp *common.IpAddress `json:"ekahauIp,omitempty"`
+	EkahauIP *common.IPAddress `json:"ekahauIp,omitempty"`
 
 	// EkahauPort
 	// Eekahau Location Server Port
 	EkahauPort *int `json:"ekahauPort,omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// StanleyEnabled
 	// Stanley Location Service Enabled
@@ -878,57 +878,57 @@ type CreateRtlsProfile struct {
 type CreateRuckusGREProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the RuckusGRE profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
-	TunnelEncryption *string `json:"tunnelEncryption,omitempty"`
+	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
-	TunnelMode *string `json:"tunnelMode,omitempty"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"required"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"required,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of RuckusGRE profile
-	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty"`
+	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"gte=850,lte=9018"`
 }
 
 type CreateSoftGREProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the SoftGRE profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// ForceDisassociateClient
 	// Force Disassociate Client
 	ForceDisassociateClient *bool `json:"forceDisassociateClient,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	IpMode *IpMode `json:"ipMode,omitempty"`
+	IPMode *IPMode `json:"ipMode,omitempty"`
 
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
-	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"required"`
+	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"required,gte=1,lte=180"`
 
 	// KeepAliveRetry
 	// ICMP Keep-Alive Retry
-	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"required"`
+	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"required,gte=2,lte=20"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -942,17 +942,17 @@ type CreateSoftGREProfile struct {
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the SoftGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"required"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"required,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of SoftGRE profile. IPV4:850-1500, IPV6:1384-1500. Default 1500.
-	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty"`
+	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"gte=850,lte=9018"`
 }
 
 type CreateTrafficClassProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	Name *common.NormalNameTo64 `json:"name,omitempty" validate:"required"`
+	Name *common.NormalName2To64 `json:"name,omitempty" validate:"required"`
 
 	TrafficClasses []*common.TrafficClassRef `json:"trafficClasses,omitempty" validate:"required"`
 }
@@ -978,65 +978,65 @@ type CreateTtgpdgProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 }
 
 type CreateUserTrafficProfile struct {
-	// AppPolicyId
+	// AppPolicyID
 	// Application Policy UUID (for 5.0 and Earlier Firmware Versions)
-	AppPolicyId *string `json:"appPolicyId,omitempty"`
+	AppPolicyID *string `json:"appPolicyId,omitempty"`
 
 	// DefaultAction
 	// Default action
-	DefaultAction *string `json:"defaultAction,omitempty" validate:"required"`
+	DefaultAction *string `json:"defaultAction,omitempty" validate:"required,oneof=BLOCK ALLOW"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	DownlinkRateLimiting *DownlinkRateLimiting `json:"downlinkRateLimiting,omitempty"`
 
-	// IpAclRules
+	// IPAclRules
 	// Traffic access control list
-	IpAclRules []*IpAclRules `json:"ipAclRules,omitempty"`
+	IPAclRules []*IPAclRules `json:"ipAclRules,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	// QmAppPolicyId
+	// QmAppPolicyID
 	// Application Policy UUID
-	QmAppPolicyId *string `json:"qmAppPolicyId,omitempty"`
+	QmAppPolicyID *string `json:"qmAppPolicyId,omitempty"`
 
 	UplinkRateLimiting *UplinkRateLimiting `json:"uplinkRateLimiting,omitempty"`
 
-	// UrlFilteringPolicyId
+	// URLFilteringPolicyID
 	// URL Filtering Policy UUID
-	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
+	URLFilteringPolicyID *string `json:"urlFilteringPolicyId,omitempty"`
 }
 
 type CreateZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
-	Description *string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty" validate:"max=64"`
 
 	// Name
 	// Zone affinity profile name
-	Name *string `json:"name,omitempty" validate:"required"`
+	Name *string `json:"name,omitempty" validate:"required,max=64,min=1"`
 
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty" validate:"required"`
 }
@@ -1058,7 +1058,7 @@ type DataPlaneL3RoamingData struct {
 	// DP name
 	Name *string `json:"name,omitempty"`
 
-	SubCriteriaType *string `json:"subCriteriaType,omitempty"`
+	SubCriteriaType *string `json:"subCriteriaType,omitempty" validate:"oneof=VLAN SUBNET"`
 
 	// Value
 	// A list of L3 roaming configuration for this DP
@@ -1066,25 +1066,25 @@ type DataPlaneL3RoamingData struct {
 }
 
 type DeleteBulkAccountingProfile struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
 type DeleteBulkAuthenticationProfile struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
 type DeleteBulkPrecedenceProfile struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
 type DeleteBulkUserTrafficProfile struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
-type DhcpOption82 struct {
-	// DhcpOption82Enabled
+type DHCPOption82 struct {
+	// DHCPOption82Enabled
 	// Enable DHCP Option 82
-	DhcpOption82Enabled *bool `json:"dhcpOption82Enabled,omitempty"`
+	DHCPOption82Enabled *bool `json:"dhcpOption82Enabled,omitempty"`
 
 	// Subopt1Enabled
 	// Enable subopt-1
@@ -1092,7 +1092,7 @@ type DhcpOption82 struct {
 
 	// Subopt1Format
 	// Subopt-1 format
-	Subopt1Format *string `json:"subopt1Format,omitempty"`
+	Subopt1Format *string `json:"subopt1Format,omitempty" validate:"oneof=AP_INFO AP_MAC_hex AP_MAC_hex_ESSID AP_INFO_LOCATION"`
 
 	// Subopt2Enabled
 	// Enable subopt-2
@@ -1100,7 +1100,7 @@ type DhcpOption82 struct {
 
 	// Subopt2Format
 	// Subopt-2 format
-	Subopt2Format *string `json:"subopt2Format,omitempty"`
+	Subopt2Format *string `json:"subopt2Format,omitempty" validate:"oneof=CLIENT_MAC_hex CLIENT_MAC_hex_ESSID AP_MAC_hex AP_MAC__hex_ESSID"`
 
 	// Subopt150Enabled
 	// Subopt-150 with VLAN
@@ -1116,17 +1116,17 @@ type DhcpOption82 struct {
 
 	// Subopt151Format
 	// Subopt-151 format
-	Subopt151Format *string `json:"subopt151Format,omitempty"`
+	Subopt151Format *string `json:"subopt151Format,omitempty" validate:"oneof=AREA_NAME ESSID"`
 }
 
-type DhcpProfileList struct {
+type DHCPProfileList struct {
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -1136,15 +1136,15 @@ type DhcpProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*common.DhcpProfileRef `json:"list,omitempty"`
+	List []*common.DHCPProfileRef `json:"list,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -1153,34 +1153,34 @@ type DhcpProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type DhcpRelayNoRelayTunnel struct {
-	DhcpOption82 *DhcpOption82 `json:"dhcpOption82,omitempty"`
+type DHCPRelayNoRelayTunnel struct {
+	DHCPOption82 *DHCPOption82 `json:"dhcpOption82,omitempty"`
 
-	// DhcpRelayEnabled
+	// DHCPRelayEnabled
 	// Enable DHCP Relay
-	DhcpRelayEnabled *bool `json:"dhcpRelayEnabled,omitempty"`
+	DHCPRelayEnabled *bool `json:"dhcpRelayEnabled,omitempty"`
 
-	// DhcpServer1
+	// DHCPServer1
 	// DHCP Server 1
-	DhcpServer1 *string `json:"dhcpServer1,omitempty"`
+	DHCPServer1 *string `json:"dhcpServer1,omitempty"`
 
-	// DhcpServer2
+	// DHCPServer2
 	// DHCP Server 2
-	DhcpServer2 *string `json:"dhcpServer2,omitempty"`
+	DHCPServer2 *string `json:"dhcpServer2,omitempty"`
 
 	// RelayBothEnabled
 	// Send DHCP requests to both servers simultaneously.
 	RelayBothEnabled *bool `json:"relayBothEnabled,omitempty"`
 }
 
-type DnsServerProfile struct {
+type DNSServerProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -1188,53 +1188,53 @@ type DnsServerProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// PrimaryIp
+	// PrimaryIP
 	// Primary ip of DNS server service
-	PrimaryIp *string `json:"primaryIp,omitempty"`
+	PrimaryIP *string `json:"primaryIp,omitempty"`
 
-	// SecondaryIp
+	// SecondaryIP
 	// Secondary ip of DNS server service
-	SecondaryIp *string `json:"secondaryIp,omitempty"`
+	SecondaryIP *string `json:"secondaryIp,omitempty"`
 
-	// TertiaryIp
+	// TertiaryIP
 	// Tertiary ip of DNS server service
-	TertiaryIp *string `json:"tertiaryIp,omitempty"`
+	TertiaryIP *string `json:"tertiaryIp,omitempty"`
 }
 
-type DnsServerProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+type DNSServerProfileList struct {
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*DnsServerProfile `json:"list,omitempty"`
+	List []*DNSServerProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1255,15 +1255,15 @@ type DownlinkRateLimiting struct {
 type EspProposal struct {
 	// AuthAlg
 	// authAlg of espProposal Specific
-	AuthAlg *string `json:"authAlg,omitempty" validate:"required"`
+	AuthAlg *string `json:"authAlg,omitempty" validate:"required,oneof=MD5 SHA1 AESXCBC SHA256 SHA384 SHA512"`
 
 	// DhGroup
 	// dhGroup of espProposal Specific
-	DhGroup *string `json:"dhGroup,omitempty" validate:"required"`
+	DhGroup *string `json:"dhGroup,omitempty" validate:"required,oneof=None Modp768 Modp1024 Modp1536 Modp2048 Modp3072 Modp4096 Modp6144 Modp8192 Ecp384"`
 
 	// EncAlg
 	// encAlg of espProposal Specific
-	EncAlg *string `json:"encAlg,omitempty" validate:"required"`
+	EncAlg *string `json:"encAlg,omitempty" validate:"required,oneof=None ThreeDES AES128 AES192 AES256"`
 }
 
 // EspSecurityAssociationContent
@@ -1276,41 +1276,41 @@ type EspSecurityAssociationContent struct {
 
 	// EspProposalType
 	// espProposal Type of the ipsec profile
-	EspProposalType *string `json:"espProposalType,omitempty"`
+	EspProposalType *string `json:"espProposalType,omitempty" validate:"oneof=Default Specific"`
 }
 
 type FlexiVpnProfile struct {
-	// DestinationZoneAffinityId
+	// DestinationZoneAffinityID
 	// Flexi-VPN Profile ID (Destination)
-	DestinationZoneAffinityId *string `json:"destinationZoneAffinityId,omitempty"`
+	DestinationZoneAffinityID *string `json:"destinationZoneAffinityId,omitempty"`
 
 	// DestinationZoneAffinityName
 	// Flexi-VPN Profile (Destination)
 	DestinationZoneAffinityName *string `json:"destinationZoneAffinityName,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain ID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// SourceZoneAffinityId
+	// SourceZoneAffinityID
 	// Zone Affinity Profile ID (Source)
-	SourceZoneAffinityId *string `json:"sourceZoneAffinityId,omitempty"`
+	SourceZoneAffinityID *string `json:"sourceZoneAffinityId,omitempty"`
 
 	// SourceZoneAffinityName
 	// Zone Affinity Profile (Source)
 	SourceZoneAffinityName *string `json:"sourceZoneAffinityName,omitempty"`
 
-	// WlanId
+	// WLANID
 	// Wlan ID
-	WlanId *string `json:"wlanId,omitempty"`
+	WLANID *string `json:"wlanId,omitempty"`
 
-	// WlanName
+	// WLANName
 	// Wlan name
-	WlanName *string `json:"wlanName,omitempty"`
+	WLANName *string `json:"wlanName,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Zone ID
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 
 	// ZoneName
 	// Zone name
@@ -1322,9 +1322,9 @@ type FlexiVpnProfileList struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -1340,9 +1340,9 @@ type FlexiVpnProfileList struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -1362,7 +1362,7 @@ type Hs20FriendlyName struct {
 
 	// Name
 	// Name of the friendly name
-	Name *string `json:"name,omitempty" validate:"required"`
+	Name *string `json:"name,omitempty" validate:"required,max=32,min=2"`
 }
 
 type Hs20Operator struct {
@@ -1372,9 +1372,9 @@ type Hs20Operator struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -1382,9 +1382,9 @@ type Hs20Operator struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// DomainNames
 	// Domain names
@@ -1394,17 +1394,17 @@ type Hs20Operator struct {
 	// Friendly names
 	FriendlyNames []*Hs20FriendlyName `json:"friendlyNames,omitempty" validate:"required"`
 
-	// Id
+	// ID
 	// Identifier of the profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -1414,7 +1414,7 @@ type Hs20Operator struct {
 }
 
 type Hs20OperatorList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1438,9 +1438,9 @@ type Hs20Provider struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -1448,25 +1448,25 @@ type Hs20Provider struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// HomeOis
 	// Home OIs
 	HomeOis []*ProviderHomeOIs `json:"homeOis,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the Hotspot 2.0 identity provider profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -1486,7 +1486,7 @@ type Hs20Provider struct {
 }
 
 type Hs20ProviderList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1503,19 +1503,19 @@ type Hs20ProviderList struct {
 type IkeProposal struct {
 	// AuthAlg
 	// authAlg of ikeProposal Specific
-	AuthAlg *string `json:"authAlg,omitempty" validate:"required"`
+	AuthAlg *string `json:"authAlg,omitempty" validate:"required,oneof=MD5 SHA1 AESXCBC SHA256 SHA384 SHA512"`
 
 	// DhGroup
 	// dhGroup of ikeProposal Specific
-	DhGroup *string `json:"dhGroup,omitempty" validate:"required"`
+	DhGroup *string `json:"dhGroup,omitempty" validate:"required,oneof=Modp768 Modp1024 Modp1536 Modp2048 Modp3072 Modp4096 Modp6144 Modp8192 Ecp384"`
 
 	// EncAlg
 	// encAlg of ikeProposal Specific
-	EncAlg *string `json:"encAlg,omitempty" validate:"required"`
+	EncAlg *string `json:"encAlg,omitempty" validate:"required,oneof=ThreeDES AES128 AES192 AES256"`
 
 	// PrfAlg
 	// prfAlg of ikeProposal Specific
-	PrfAlg *string `json:"prfAlg,omitempty"`
+	PrfAlg *string `json:"prfAlg,omitempty" validate:"oneof=UseIntegrityALG PRF_MD5 PRF_SHA1 PRF_AES_CBC PRF_AES_MAC PRF_SHA256 PRF_SHA384 PRF_SHA512"`
 }
 
 // IkeSecurityAssociationContent
@@ -1528,31 +1528,31 @@ type IkeSecurityAssociationContent struct {
 
 	// IkeProposalType
 	// ikeProposal Type of the ipsec profile
-	IkeProposalType *string `json:"ikeProposalType,omitempty"`
+	IkeProposalType *string `json:"ikeProposalType,omitempty" validate:"oneof=Default Specific"`
 }
 
-type IpAclRules struct {
+type IPAclRules struct {
 	// Action
 	// The access of traffic access control.
-	Action *string `json:"action,omitempty"`
+	Action *string `json:"action,omitempty" validate:"oneof=ALLOW BLOCK"`
 
 	// CustomProtocol
 	// The protocol of traffic access control. Available if the protocol is set to CUSTOM.
-	CustomProtocol *int `json:"customProtocol,omitempty"`
+	CustomProtocol *int `json:"customProtocol,omitempty" validate:"gte=1,lte=255"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DestinationIp
+	// DestinationIP
 	// Subnet network address or ip address of destination IP.
-	DestinationIp *string `json:"destinationIp,omitempty"`
+	DestinationIP *string `json:"destinationIp,omitempty"`
 
-	// DestinationIpMask
+	// DestinationIPMask
 	// Subnet mask of destination IP
-	DestinationIpMask *string `json:"destinationIpMask,omitempty"`
+	DestinationIPMask *string `json:"destinationIpMask,omitempty"`
 
-	// DestinationIpV6
+	// DestinationIPV6
 	// Destination IPv6 Address.
-	DestinationIpV6 *string `json:"destinationIpV6,omitempty"`
+	DestinationIPV6 *string `json:"destinationIpV6,omitempty"`
 
 	// DestinationMaxPort
 	// The maxinum port of destination port range.
@@ -1564,7 +1564,7 @@ type IpAclRules struct {
 
 	// Direction
 	// The direction of traffic access control.
-	Direction *string `json:"direction,omitempty"`
+	Direction *string `json:"direction,omitempty" validate:"oneof=UPSTREAM"`
 
 	// DownlinkRateLimitingEnabled
 	// Downlink rate limiting enabled
@@ -1574,9 +1574,9 @@ type IpAclRules struct {
 	// Downlink rate limiting
 	DownlinkRateLimitingMbps *float64 `json:"downlinkRateLimitingMbps,omitempty"`
 
-	// EnableDestinationIpSubnet
+	// EnableDestinationIPSubnet
 	// Destination IP subnet enabled or disabled
-	EnableDestinationIpSubnet *bool `json:"enableDestinationIpSubnet,omitempty"`
+	EnableDestinationIPSubnet *bool `json:"enableDestinationIpSubnet,omitempty"`
 
 	// EnableDestinationPortRange
 	// Destincation port range enabled or disabled
@@ -1586,9 +1586,9 @@ type IpAclRules struct {
 	// Enable Destination IPv6 prefix.
 	EnableDestinationV6Prefix *bool `json:"enableDestinationV6Prefix,omitempty"`
 
-	// EnableSourceIpSubnet
+	// EnableSourceIPSubnet
 	// Source IP subnet enabled or disabled
-	EnableSourceIpSubnet *bool `json:"enableSourceIpSubnet,omitempty"`
+	EnableSourceIPSubnet *bool `json:"enableSourceIpSubnet,omitempty"`
 
 	// EnableSourcePortRange
 	// Source port range enabled or disabled
@@ -1598,9 +1598,9 @@ type IpAclRules struct {
 	// Enable Source IPv6 prefix.
 	EnableSourceV6Prefix *bool `json:"enableSourceV6Prefix,omitempty"`
 
-	// IpType
+	// IPType
 	// IP Type(IPv4 or IPv6).
-	IpType *string `json:"ipType,omitempty"`
+	IPType *string `json:"ipType,omitempty" validate:"oneof=IPv4 IPv6"`
 
 	// Priority
 	// Priority
@@ -1608,19 +1608,19 @@ type IpAclRules struct {
 
 	// Protocol
 	// The protocol of traffic access control.
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
 
-	// SourceIp
+	// SourceIP
 	// Subnet network address or ip address of source IP.
-	SourceIp *string `json:"sourceIp,omitempty"`
+	SourceIP *string `json:"sourceIp,omitempty"`
 
-	// SourceIpMask
+	// SourceIPMask
 	// Subnet mask of source IP
-	SourceIpMask *string `json:"sourceIpMask,omitempty"`
+	SourceIPMask *string `json:"sourceIpMask,omitempty"`
 
-	// SourceIpV6
+	// SourceIPV6
 	// Source IPv6 Address.
-	SourceIpV6 *string `json:"sourceIpV6,omitempty"`
+	SourceIPV6 *string `json:"sourceIpV6,omitempty"`
 
 	// SourceMaxPort
 	// The maxinum port of source port range.
@@ -1639,14 +1639,14 @@ type IpAclRules struct {
 	UplinkRateLimitingMbps *float64 `json:"uplinkRateLimitingMbps,omitempty"`
 }
 
-type IpMode string
+type IPMode string
 
 type IpsecProfile struct {
 	AdvancedOption *AdvancedOptionContent `json:"advancedOption,omitempty"`
 
 	// AuthType
 	// authentication type of the ipsec profile
-	AuthType *string `json:"authType,omitempty"`
+	AuthType *string `json:"authType,omitempty" validate:"oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
 
@@ -1654,9 +1654,9 @@ type IpsecProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -1664,9 +1664,9 @@ type IpsecProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the IPSec profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// EspRekeyTime
 	// espRekey Time of the ipsec profile
@@ -1676,9 +1676,9 @@ type IpsecProfile struct {
 
 	EspSecurityAssociation *EspSecurityAssociationContent `json:"espSecurityAssociation,omitempty"`
 
-	// Id
+	// ID
 	// identifier of the ipsec profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IkeRekeyTime
 	// ikeRekey Time of the ipsec profile
@@ -1688,15 +1688,15 @@ type IpsecProfile struct {
 
 	IkeSecurityAssociation *IkeSecurityAssociationContent `json:"ikeSecurityAssociation,omitempty"`
 
-	IpMode *IpMode `json:"ipMode,omitempty"`
+	IPMode *IPMode `json:"ipMode,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -1714,11 +1714,11 @@ type IpsecProfile struct {
 
 	// TunnelMode
 	// Tunnel mode of IPsec profile
-	TunnelMode *string `json:"tunnelMode,omitempty"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=SOFT_GRE RUCKUS_GRE"`
 }
 
 type IpsecProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1729,16 +1729,16 @@ type IpsecProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type LOGREProfile struct {
+type L2OGREProfile struct {
 	CoreNetworkGateway *CoreNetworkGateway `json:"coreNetworkGateway,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -1746,23 +1746,23 @@ type LOGREProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -1771,14 +1771,14 @@ type LOGREProfile struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
-type LOGREProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+type L2OGREProfileList struct {
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*LOGREProfile `json:"list,omitempty"`
+	List []*L2OGREProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1788,9 +1788,9 @@ type LbsProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -1798,21 +1798,21 @@ type LbsProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -1828,9 +1828,9 @@ type LbsProfile struct {
 	// LBS port
 	Port *int `json:"port,omitempty"`
 
-	// Url
+	// URL
 	// LBS url
-	Url *string `json:"url,omitempty"`
+	URL *string `json:"url,omitempty"`
 
 	// Venue
 	// Venue
@@ -1838,7 +1838,7 @@ type LbsProfile struct {
 }
 
 type LbsProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1852,17 +1852,17 @@ type LbsProfileList struct {
 type ModifyAccountingProfile struct {
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// ID of Accounting Profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1874,9 +1874,9 @@ type ModifyAccountingProfile struct {
 type ModifyAuthenticationProfile struct {
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// GppSuppportEnabled
 	// 3GPP support enabled or disabled
@@ -1886,13 +1886,13 @@ type ModifyAuthenticationProfile struct {
 	// Hotspot 2.0 support enabled or disabled
 	H20SuppportEnabled *bool `json:"h20SuppportEnabled,omitempty"`
 
-	// Id
+	// ID
 	// ID of Accounting Profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -1926,15 +1926,15 @@ type ModifyBonjourFencingPolicy struct {
 type ModifyBridgeProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
@@ -1953,34 +1953,34 @@ type ModifyClientIsolationWhitelist struct {
 	Whitelist []*ClientIsolationEntry `json:"whitelist,omitempty"`
 }
 
-type ModifyDnsServerProfile struct {
+type ModifyDNSServerProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// PrimaryIp
+	// PrimaryIP
 	// Primary ip of DNS server service
-	PrimaryIp *string `json:"primaryIp,omitempty"`
+	PrimaryIP *string `json:"primaryIp,omitempty"`
 
-	// SecondaryIp
+	// SecondaryIP
 	// Secondary ip of DNS server service
-	SecondaryIp *string `json:"secondaryIp,omitempty"`
+	SecondaryIP *string `json:"secondaryIp,omitempty"`
 
-	// TertiaryIp
+	// TertiaryIP
 	// Tertiary ip of DNS server service
-	TertiaryIp *string `json:"tertiaryIp,omitempty"`
+	TertiaryIP *string `json:"tertiaryIp,omitempty"`
 }
 
 type ModifyHS20Operator struct {
@@ -1988,9 +1988,9 @@ type ModifyHS20Operator struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// DomainNames
 	// Domain names
@@ -2000,38 +2000,38 @@ type ModifyHS20Operator struct {
 	// Friendly names
 	FriendlyNames []*Hs20FriendlyName `json:"friendlyNames,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
-// ModifyIpAclRules
+// ModifyIPAclRules
 //
 // Traffic access control list
-type ModifyIpAclRules struct {
+type ModifyIPAclRules struct {
 	// Action
 	// The access of traffic access control.
-	Action *string `json:"action,omitempty" validate:"required"`
+	Action *string `json:"action,omitempty" validate:"required,oneof=ALLOW BLOCK"`
 
 	// CustomProtocol
 	// The protocol of traffic access control. Available if the protocol is set to CUSTOM.
-	CustomProtocol *int `json:"customProtocol,omitempty"`
+	CustomProtocol *int `json:"customProtocol,omitempty" validate:"gte=1,lte=255"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DestinationIp
+	// DestinationIP
 	// Subnet network address or ip address of destination IP.
-	DestinationIp *string `json:"destinationIp,omitempty"`
+	DestinationIP *string `json:"destinationIp,omitempty"`
 
-	// DestinationIpMask
+	// DestinationIPMask
 	// Subnet mask of destination IP
-	DestinationIpMask *string `json:"destinationIpMask,omitempty"`
+	DestinationIPMask *string `json:"destinationIpMask,omitempty"`
 
-	// DestinationIpV6
+	// DestinationIPV6
 	// Destination IPv6 Address.
-	DestinationIpV6 *string `json:"destinationIpV6,omitempty"`
+	DestinationIPV6 *string `json:"destinationIpV6,omitempty"`
 
 	// DestinationMaxPort
 	// The maxinum port of destination port range.
@@ -2043,7 +2043,7 @@ type ModifyIpAclRules struct {
 
 	// Direction
 	// The direction of traffic access control.
-	Direction *string `json:"direction,omitempty" validate:"required"`
+	Direction *string `json:"direction,omitempty" validate:"required,oneof=UPSTREAM"`
 
 	// DownlinkRateLimitingEnabled
 	// Downlink rate limiting enabled
@@ -2053,9 +2053,9 @@ type ModifyIpAclRules struct {
 	// Downlink rate limiting
 	DownlinkRateLimitingMbps *float64 `json:"downlinkRateLimitingMbps,omitempty"`
 
-	// EnableDestinationIpSubnet
+	// EnableDestinationIPSubnet
 	// Destination IP subnet enabled or disabled
-	EnableDestinationIpSubnet *bool `json:"enableDestinationIpSubnet,omitempty"`
+	EnableDestinationIPSubnet *bool `json:"enableDestinationIpSubnet,omitempty"`
 
 	// EnableDestinationPortRange
 	// Destincation port range enabled or disabled
@@ -2065,9 +2065,9 @@ type ModifyIpAclRules struct {
 	// Enable Destination IPv6 prefix.
 	EnableDestinationV6Prefix *bool `json:"enableDestinationV6Prefix,omitempty"`
 
-	// EnableSourceIpSubnet
+	// EnableSourceIPSubnet
 	// Source IP subnet enabled or disabled
-	EnableSourceIpSubnet *bool `json:"enableSourceIpSubnet,omitempty"`
+	EnableSourceIPSubnet *bool `json:"enableSourceIpSubnet,omitempty"`
 
 	// EnableSourcePortRange
 	// Source port range enabled or disabled
@@ -2077,9 +2077,9 @@ type ModifyIpAclRules struct {
 	// Enable Source IPv6 prefix.
 	EnableSourceV6Prefix *bool `json:"enableSourceV6Prefix,omitempty"`
 
-	// IpType
+	// IPType
 	// IP Type(IPv4 or IPv6)
-	IpType *string `json:"ipType,omitempty"`
+	IPType *string `json:"ipType,omitempty" validate:"oneof=IPv4 IPv6"`
 
 	// Priority
 	// Priority
@@ -2087,19 +2087,19 @@ type ModifyIpAclRules struct {
 
 	// Protocol
 	// The protocol of traffic access control.
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
 
-	// SourceIp
+	// SourceIP
 	// Subnet network address or ip address of source IP.
-	SourceIp *string `json:"sourceIp,omitempty"`
+	SourceIP *string `json:"sourceIp,omitempty"`
 
-	// SourceIpMask
+	// SourceIPMask
 	// Subnet mask of source IP
-	SourceIpMask *string `json:"sourceIpMask,omitempty"`
+	SourceIPMask *string `json:"sourceIpMask,omitempty"`
 
-	// SourceIpV6
+	// SourceIPV6
 	// Source IPv6 Address.
-	SourceIpV6 *string `json:"sourceIpV6,omitempty"`
+	SourceIPV6 *string `json:"sourceIpV6,omitempty"`
 
 	// SourceMaxPort
 	// The maxinum port of source port range.
@@ -2123,15 +2123,15 @@ type ModifyIpsecProfile struct {
 
 	// AuthType
 	// authentication type of the ipsec profile
-	AuthType *string `json:"authType,omitempty"`
+	AuthType *string `json:"authType,omitempty" validate:"oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the IPSec profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// EspRekeyTime
 	// espRekey Time of the ipsec profile
@@ -2141,9 +2141,9 @@ type ModifyIpsecProfile struct {
 
 	EspSecurityAssociation *EspSecurityAssociationContent `json:"espSecurityAssociation,omitempty"`
 
-	// Id
+	// ID
 	// identifier of the ipsec profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IkeRekeyTime
 	// ikeRekey Time of the ipsec profile
@@ -2153,7 +2153,7 @@ type ModifyIpsecProfile struct {
 
 	IkeSecurityAssociation *IkeSecurityAssociationContent `json:"ikeSecurityAssociation,omitempty"`
 
-	IpMode *IpMode `json:"ipMode,omitempty"`
+	IPMode *IPMode `json:"ipMode,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -2166,20 +2166,20 @@ type ModifyIpsecProfile struct {
 	ServerAddr *string `json:"serverAddr,omitempty"`
 }
 
-type ModifyLOGREProfile struct {
+type ModifyL2OGREProfile struct {
 	CoreNetworkGateway *CoreNetworkGateway `json:"coreNetworkGateway,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
@@ -2187,55 +2187,55 @@ type ModifyLOGREProfile struct {
 type ModifyRuckusGREProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the RuckusGRE profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
-	TunnelEncryption *string `json:"tunnelEncryption,omitempty"`
+	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
-	TunnelMode *string `json:"tunnelMode,omitempty"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of RuckusGRE profile
-	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty"`
+	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"gte=850,lte=9018"`
 }
 
 type ModifySoftGREProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the SoftGRE profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// ForceDisassociateClient
 	// Force Disassociate Client
 	ForceDisassociateClient *bool `json:"forceDisassociateClient,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
-	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty"`
+	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"gte=1,lte=180"`
 
 	// KeepAliveRetry
 	// ICMP Keep-Alive Retry
-	KeepAliveRetry *int `json:"keepAliveRetry,omitempty"`
+	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"gte=2,lte=20"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -2249,69 +2249,69 @@ type ModifySoftGREProfile struct {
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the SoftGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of SoftGRE profile. IPV4:850-1500, IPV6:1384-1500. Default 1500.
-	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty"`
+	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"gte=850,lte=9018"`
 }
 
 type ModifyUserTrafficProfile struct {
-	// AppPolicyId
+	// AppPolicyID
 	// Application Policy UUID (for 5.0 and Earlier Firmware Versions)
-	AppPolicyId *string `json:"appPolicyId,omitempty"`
+	AppPolicyID *string `json:"appPolicyId,omitempty"`
 
 	// DefaultAction
 	// Default action
-	DefaultAction *string `json:"defaultAction,omitempty"`
+	DefaultAction *string `json:"defaultAction,omitempty" validate:"oneof=BLOCK ALLOW"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	DownlinkRateLimiting *DownlinkRateLimiting `json:"downlinkRateLimiting,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the user traffic profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// IpAclRules
+	// IPAclRules
 	// Traffic access control list
-	IpAclRules []*ModifyIpAclRules `json:"ipAclRules,omitempty"`
+	IPAclRules []*ModifyIPAclRules `json:"ipAclRules,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// QmAppPolicyId
+	// QmAppPolicyID
 	// Application Policy UUID
-	QmAppPolicyId *string `json:"qmAppPolicyId,omitempty"`
+	QmAppPolicyID *string `json:"qmAppPolicyId,omitempty"`
 
 	UplinkRateLimiting *UplinkRateLimiting `json:"uplinkRateLimiting,omitempty"`
 
-	// UrlFilteringPolicyId
+	// URLFilteringPolicyID
 	// URL Filtering Policy UUID
-	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
+	URLFilteringPolicyID *string `json:"urlFilteringPolicyId,omitempty"`
 }
 
 type ModifyZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
-	Description *string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty" validate:"max=64"`
 
 	// Name
 	// Zone affinity profile name
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty" validate:"max=64,min=1"`
 
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
 }
 
 type PrecedenceList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2323,13 +2323,13 @@ type PrecedenceList struct {
 }
 
 type PrecedenceListType struct {
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -2343,17 +2343,17 @@ type PrecedenceListType struct {
 }
 
 type ProfileCloneRequest struct {
-	// NewId
+	// NewID
 	// name for new profile
-	NewId *string `json:"newId,omitempty"`
+	NewID *string `json:"newId,omitempty"`
 
 	// NewName
 	// Id for new profile
 	NewName *string `json:"newName,omitempty"`
 
-	// OldId
+	// OldID
 	// original name
-	OldId *string `json:"oldId,omitempty"`
+	OldID *string `json:"oldId,omitempty"`
 
 	// OldName
 	// original name
@@ -2369,15 +2369,15 @@ type ProfileList struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2389,9 +2389,9 @@ type ProfileList struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -2401,17 +2401,17 @@ type ProfileList struct {
 }
 
 type ProfileListType struct {
-	// Id
+	// ID
 	// Identifier of the profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type ProviderAccounting struct {
-	// Id
+	// ID
 	// Accounting id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Accounting name
@@ -2421,13 +2421,13 @@ type ProviderAccounting struct {
 
 	// ServiceType
 	// Accounting service type
-	ServiceType *string `json:"serviceType,omitempty" validate:"required"`
+	ServiceType *string `json:"serviceType,omitempty" validate:"required,oneof=NA RADIUS CGF"`
 }
 
 type ProviderAuthentication struct {
-	// Id
+	// ID
 	// Authentication id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Authentication name
@@ -2437,29 +2437,29 @@ type ProviderAuthentication struct {
 
 	// ServiceType
 	// Authentication service type
-	ServiceType *string `json:"serviceType,omitempty" validate:"required"`
+	ServiceType *string `json:"serviceType,omitempty" validate:"required,oneof=NA LOCAL_DB RADIUS GUEST"`
 
-	// VlanId
+	// VlanID
 	// Dynamic vlan ID
-	VlanId *int `json:"vlanId,omitempty"`
+	VlanID *int `json:"vlanId,omitempty" validate:"gte=1,lte=4094"`
 }
 
 type ProviderEAPAuthSetting struct {
 	// Info
 	// EAP auth info
-	Info *string `json:"info,omitempty" validate:"required"`
+	Info *string `json:"info,omitempty" validate:"required,oneof=Expanded Non Inner Expanded_Inner Credential Tunneled"`
 
 	// Type
 	// EAP auth type
 	Type *string `json:"type,omitempty"`
 
-	// VendorId
+	// VendorID
 	// EAP auth vendor ID
-	VendorId *int `json:"vendorId,omitempty"`
+	VendorID *int `json:"vendorId,omitempty" validate:"gte=0,lte=16777215"`
 
 	// VendorType
 	// EAP auth vendor type
-	VendorType *int `json:"vendorType,omitempty"`
+	VendorType *int `json:"vendorType,omitempty" validate:"gte=0,lte=4294967295"`
 }
 
 type ProviderEAPMethod struct {
@@ -2469,7 +2469,7 @@ type ProviderEAPMethod struct {
 
 	// Type
 	// EAP method type
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=NA MD5 EAP_TLS EAP_Cisco EAP_SIM EAP_TTLS EAP_AKA PEAP EAP_MSCHAP_V2 EAP_AKAs Reserved"`
 }
 
 type ProviderExternalOSU struct {
@@ -2481,7 +2481,7 @@ type ProviderExternalOSU struct {
 	// Online signup NAI realm, it should be one of realm as defined in Hotspot 2.0 identity provider
 	OsuNaiRealm *string `json:"osuNaiRealm,omitempty" validate:"required"`
 
-	OsuServiceUrl *common.HTTPS `json:"osuServiceUrl,omitempty" validate:"required"`
+	OsuServiceURL *common.HTTPS `json:"osuServiceUrl,omitempty" validate:"required"`
 
 	// ProvisioningProtocals
 	// Provisioning protocal
@@ -2499,7 +2499,7 @@ type ProviderExternalOSU struct {
 type ProviderHomeOIs struct {
 	// Name
 	// Name of the home OI
-	Name *string `json:"name,omitempty" validate:"required"`
+	Name *string `json:"name,omitempty" validate:"required,max=255"`
 
 	// Oi
 	// Orgnization ID(3Hex or 5Hex)
@@ -2521,7 +2521,7 @@ type ProviderInternalOSU struct {
 
 	// ProvisioningFormat
 	// Provisioning format
-	ProvisioningFormat *string `json:"provisioningFormat,omitempty" validate:"required"`
+	ProvisioningFormat *string `json:"provisioningFormat,omitempty" validate:"required,oneof=R1_R2_ZEROIT R2_ZEROIT"`
 
 	// ProvisioningProtocals
 	// Provisioning protocal
@@ -2529,7 +2529,7 @@ type ProviderInternalOSU struct {
 
 	// ProvisioningUpdateType
 	// Provisioning update at
-	ProvisioningUpdateType *string `json:"provisioningUpdateType,omitempty" validate:"required"`
+	ProvisioningUpdateType *string `json:"provisioningUpdateType,omitempty" validate:"required,oneof=ALWAYS KNOWN_ROAM_PARTNERS NEVER"`
 
 	// SubscriptionDescriptions
 	// Subscription descriptions
@@ -2543,15 +2543,15 @@ type ProviderInternalOSU struct {
 type ProviderInternalOSUOsuAuthServicesType struct {
 	// CredentialType
 	// Authentication credential type
-	CredentialType *string `json:"credentialType,omitempty" validate:"required"`
+	CredentialType *string `json:"credentialType,omitempty" validate:"required,oneof=LOCAL REMOTE"`
 
 	// Expiration
 	// Expiration hour. null mean never expire
-	Expiration *int `json:"expiration,omitempty"`
+	Expiration *int `json:"expiration,omitempty" validate:"gte=1,lte=175200"`
 
-	// Id
+	// ID
 	// Identifier of authentication service
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Authentication service name
@@ -2561,13 +2561,13 @@ type ProviderInternalOSUOsuAuthServicesType struct {
 }
 
 type ProviderInternalOSUOsuPortalType struct {
-	ExternalUrl *common.HTTPS `json:"externalUrl,omitempty"`
+	ExternalURL *common.HTTPS `json:"externalUrl,omitempty"`
 
 	InternalOSUPortal *common.GenericRef `json:"internalOSUPortal,omitempty"`
 
 	// Type
 	// Portal type
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=Internal External"`
 }
 
 type ProviderOnlineSignup struct {
@@ -2577,7 +2577,7 @@ type ProviderOnlineSignup struct {
 
 	// Type
 	// Online singup type
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=Internal External"`
 }
 
 type ProviderPLMN struct {
@@ -2599,17 +2599,17 @@ type ProviderRealm struct {
 
 	// Encoding
 	// Encoding
-	Encoding *string `json:"encoding,omitempty" validate:"required"`
+	Encoding *string `json:"encoding,omitempty" validate:"required,oneof=RFC4282 UTF8"`
 
 	// Name
 	// Name of realm
-	Name *string `json:"name,omitempty" validate:"required"`
+	Name *string `json:"name,omitempty" validate:"required,max=243,min=2"`
 }
 
 type ProviderSubscriptionDescription struct {
 	// Description
 	// Description of the friendly name
-	Description *string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty" validate:"max=64"`
 
 	// Icon
 	// The binary data of icon, maximum size 65536
@@ -2619,7 +2619,7 @@ type ProviderSubscriptionDescription struct {
 
 	// Name
 	// Name of the friendly name
-	Name *string `json:"name,omitempty" validate:"required"`
+	Name *string `json:"name,omitempty" validate:"required,max=252,min=2"`
 }
 
 // RateLimitingPrecedenceItem
@@ -2628,7 +2628,7 @@ type ProviderSubscriptionDescription struct {
 type RateLimitingPrecedenceItem struct {
 	// Name
 	// Name of rate limiting precedence item
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty" validate:"oneof=AAA DEVICE WLANUTP"`
 
 	// Priority
 	// Priority
@@ -2641,17 +2641,17 @@ type RateLimitingPrecedenceItem struct {
 type RealmAuthServiceMapping struct {
 	// AuthorizationMethod
 	// Authorization method
-	AuthorizationMethod *string `json:"authorizationMethod,omitempty" validate:"required"`
+	AuthorizationMethod *string `json:"authorizationMethod,omitempty" validate:"required,oneof=NonGPPCallFlow GPPCallFlow UpdateGPRSLocation RestoreData NoAutz"`
 
-	// DynamicVlanId
+	// DynamicVlanID
 	// Dynamic VLAN ID
-	DynamicVlanId *int `json:"dynamicVlanId,omitempty"`
+	DynamicVlanID *int `json:"dynamicVlanId,omitempty" validate:"gte=2,lte=4094"`
 
 	HostedAaaEnabled *bool `json:"hostedAaaEnabled,omitempty"`
 
-	// Id
+	// ID
 	// Authentication service UUID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Authentication service name
@@ -2661,7 +2661,7 @@ type RealmAuthServiceMapping struct {
 
 	// ServiceType
 	// Authentication service type, NA is NA-Request Rejected
-	ServiceType *string `json:"serviceType,omitempty" validate:"required"`
+	ServiceType *string `json:"serviceType,omitempty" validate:"required,oneof=NA RADIUS LOCAL_DB HLR AD LDAP"`
 }
 
 type ReturnZoneAffinityProfile struct {
@@ -2673,9 +2673,9 @@ type ReturnZoneAffinityProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -2685,9 +2685,9 @@ type ReturnZoneAffinityProfile struct {
 	// The description of the profile
 	Description *string `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Zone affinity profile key
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IsDpVersionConsistent
 	// True if all DPs are the same version
@@ -2697,9 +2697,9 @@ type ReturnZoneAffinityProfile struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -2707,7 +2707,7 @@ type ReturnZoneAffinityProfile struct {
 
 	// Name
 	// Zone affinity profile name
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty" validate:"max=64,min=1"`
 
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
 
@@ -2715,9 +2715,9 @@ type ReturnZoneAffinityProfile struct {
 }
 
 type ReturnZoneAffinityProfileZoneAffinityListWithPriorityType struct {
-	// DpId
+	// DpID
 	// DP ID
-	DpId *string `json:"dpId,omitempty"`
+	DpID *string `json:"dpId,omitempty"`
 
 	// Priority
 	// The priority of DP in zone affinity
@@ -2727,17 +2727,17 @@ type ReturnZoneAffinityProfileZoneAffinityListWithPriorityType struct {
 type RogueApPolicy struct {
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
@@ -2745,7 +2745,7 @@ type RogueApPolicy struct {
 
 	Rules []*RogueApRuleList `json:"rules,omitempty"`
 
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type RogueApPolicyList struct {
@@ -2759,19 +2759,19 @@ type RogueApPolicyList struct {
 }
 
 type RogueApRuleList struct {
-	Classification *string `json:"classification,omitempty" validate:"required"`
+	Classification *string `json:"classification,omitempty" validate:"required,oneof=Ignore Known Rogue Malicious"`
 
 	Name *common.NormalNameAllowBlank `json:"name,omitempty" validate:"required"`
 
 	Priority *int `json:"priority,omitempty" validate:"required"`
 
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=AdhocRule SsidSpoofingRule MacSpoofingRule SameNetworkRule CustomSsidRule CustomRssiRule CustomMacOuiRule"`
 
 	Value interface{} `json:"value,omitempty"`
 }
 
 type RtlsProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2787,9 +2787,9 @@ type RuckusGREProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -2797,21 +2797,21 @@ type RuckusGREProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the RuckusGRE profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -2821,15 +2821,15 @@ type RuckusGREProfile struct {
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
-	TunnelEncryption *string `json:"tunnelEncryption,omitempty"`
+	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
-	TunnelMode *string `json:"tunnelMode,omitempty"`
+	TunnelMode *string `json:"tunnelMode,omitempty" validate:"oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of RuckusGRE profile
@@ -2837,7 +2837,7 @@ type RuckusGREProfile struct {
 }
 
 type RuckusGREProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2853,9 +2853,9 @@ type SoftGREProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -2863,19 +2863,19 @@ type SoftGREProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain id of the SoftGRE profile
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// ForceDisassociateClient
 	// Force Disassociate Client
 	ForceDisassociateClient *bool `json:"forceDisassociateClient,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	IpMode *IpMode `json:"ipMode,omitempty"`
+	IPMode *IPMode `json:"ipMode,omitempty"`
 
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
@@ -2889,9 +2889,9 @@ type SoftGREProfile struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -2909,7 +2909,7 @@ type SoftGREProfile struct {
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the SoftGRE profile
-	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty"`
+	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of SoftGRE profile
@@ -2917,7 +2917,7 @@ type SoftGREProfile struct {
 }
 
 type SoftGREProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2933,9 +2933,9 @@ type TrafficClassProfileList struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -2951,9 +2951,9 @@ type TrafficClassProfileList struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -2968,11 +2968,11 @@ type TrafficClassProfileList struct {
 type TtgCommonSetting struct {
 	// MobileCountryCode
 	// Mobile country code
-	MobileCountryCode *string `json:"mobileCountryCode,omitempty"`
+	MobileCountryCode *string `json:"mobileCountryCode,omitempty" validate:"max=3,min=3"`
 
 	// MobileNetworkCode
 	// Mobile network code
-	MobileNetworkCode *string `json:"mobileNetworkCode,omitempty"`
+	MobileNetworkCode *string `json:"mobileNetworkCode,omitempty" validate:"max=3,min=2"`
 }
 
 type TtgpdgApnForwardingRealm struct {
@@ -2982,11 +2982,11 @@ type TtgpdgApnForwardingRealm struct {
 
 	// ApnType
 	// type of the forwarding policy APN.
-	ApnType *string `json:"apnType,omitempty"`
+	ApnType *string `json:"apnType,omitempty" validate:"oneof=NI NIOI"`
 
 	// RouteType
 	// routeType of the forwarding policy APN.
-	RouteType *string `json:"routeType,omitempty"`
+	RouteType *string `json:"routeType,omitempty" validate:"oneof=GTPv1 GTPv2 PDG"`
 }
 
 type TtgpdgCommonSetting struct {
@@ -3000,7 +3000,7 @@ type TtgpdgCommonSetting struct {
 
 	// ApnFormat2GGSN
 	// APN format to GGSN of TTG PDG common setting
-	ApnFormat2GGSN *string `json:"apnFormat2GGSN,omitempty"`
+	ApnFormat2GGSN *string `json:"apnFormat2GGSN,omitempty" validate:"oneof=DNS String"`
 
 	// ApnOIInUse
 	// APN-OI of TTG PDG common setting
@@ -3026,9 +3026,9 @@ type TtgpdgProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -3044,23 +3044,23 @@ type TtgpdgProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Profile Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -3090,17 +3090,17 @@ type TtgpdgProfileConfiguration struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	DhcpRelay *DhcpRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
+	DHCPRelay *DHCPRelayNoRelayTunnel `json:"dhcpRelay,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
 type TtgpdgProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -3118,9 +3118,9 @@ type UpdateL3RoamingConfig struct {
 }
 
 type UpdatePrecedenceProfile struct {
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -3144,11 +3144,11 @@ type UpdateRogueApPolicy struct {
 type UpdateRtlsProfile struct {
 	EkahauEnabled *bool `json:"ekahauEnabled,omitempty"`
 
-	EkahauIp *common.IpAddress `json:"ekahauIp,omitempty"`
+	EkahauIP *common.IPAddress `json:"ekahauIp,omitempty"`
 
 	EkahauPort *int `json:"ekahauPort,omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	StanleyEnabled *bool `json:"stanleyEnabled,omitempty"`
 }
@@ -3164,17 +3164,17 @@ type UplinkRateLimiting struct {
 }
 
 type UserTrafficProfile struct {
-	// AppPolicyId
+	// AppPolicyID
 	// Application Policy UUID (for 5.0 and Earlier Firmware Versions)
-	AppPolicyId *string `json:"appPolicyId,omitempty"`
+	AppPolicyID *string `json:"appPolicyId,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -3182,23 +3182,23 @@ type UserTrafficProfile struct {
 
 	// DefaultAction
 	// Default action
-	DefaultAction *string `json:"defaultAction,omitempty"`
+	DefaultAction *string `json:"defaultAction,omitempty" validate:"oneof=BLOCK ALLOW"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain UUID
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	DownlinkRateLimiting *DownlinkRateLimiting `json:"downlinkRateLimiting,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the user traffic profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// IpAclRules
+	// IPAclRules
 	// Traffic access control list
-	IpAclRules []*IpAclRules `json:"ipAclRules,omitempty"`
+	IPAclRules []*IPAclRules `json:"ipAclRules,omitempty"`
 
 	// IsFactoryDefault
 	// Whether the UTP is factory default or not
@@ -3208,33 +3208,33 @@ type UserTrafficProfile struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// QmAppPolicyId
+	// QmAppPolicyID
 	// Application Policy UUID
-	QmAppPolicyId *string `json:"qmAppPolicyId,omitempty"`
+	QmAppPolicyID *string `json:"qmAppPolicyId,omitempty"`
 
 	UplinkRateLimiting *UplinkRateLimiting `json:"uplinkRateLimiting,omitempty"`
 
-	// UrlFilteringPolicyId
+	// URLFilteringPolicyID
 	// URL Filtering Policy UUID
-	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
+	URLFilteringPolicyID *string `json:"urlFilteringPolicyId,omitempty"`
 }
 
 type UserTrafficProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -3250,9 +3250,9 @@ type VdpProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -3262,17 +3262,17 @@ type VdpProfile struct {
 	// data vlan
 	DataVlan *int `json:"dataVlan,omitempty"`
 
-	// ExtIp
+	// ExtIP
 	// external ip
-	ExtIp *string `json:"extIp,omitempty"`
+	ExtIP *string `json:"extIp,omitempty"`
 
 	// FwVersion
 	// Firmware version
 	FwVersion *string `json:"fwVersion,omitempty"`
 
-	// Ip
 	// IP
-	Ip *string `json:"ip,omitempty"`
+	// IP
+	IP *string `json:"ip,omitempty"`
 
 	// Ipv6
 	// IPv6
@@ -3294,13 +3294,13 @@ type VdpProfile struct {
 	// managed by
 	ManagedBy *string `json:"managedBy,omitempty"`
 
-	// MgmtExtIp
+	// MgmtExtIP
 	// management external ip
-	MgmtExtIp *string `json:"mgmtExtIp,omitempty"`
+	MgmtExtIP *string `json:"mgmtExtIp,omitempty"`
 
-	// MgmtIp
+	// MgmtIP
 	// management ip
-	MgmtIp *string `json:"mgmtIp,omitempty"`
+	MgmtIP *string `json:"mgmtIp,omitempty"`
 
 	// MgmtVlan
 	// management vlan
@@ -3314,9 +3314,9 @@ type VdpProfile struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -3349,7 +3349,7 @@ type VdpProfile struct {
 type VlanPrecedenceItem struct {
 	// Name
 	// Name of the Vlan precedence item
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty" validate:"oneof=AAA DEVICE WLAN"`
 
 	// Priority
 	// Priority

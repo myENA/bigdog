@@ -7,11 +7,11 @@ import (
 )
 
 type AckBulkAlarms struct {
-	IdList []string `json:"idList,omitempty"`
+	IDList []string `json:"idList,omitempty"`
 }
 
 type ClearBulkAlarms struct {
 	Comment *common.NormalNameAllowBlank `json:"comment,omitempty"`
 
-	IdList []string `json:"idList,omitempty"`
+	IDList []string `json:"idList,omitempty"`
 }

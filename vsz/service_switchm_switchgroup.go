@@ -23,7 +23,7 @@ func (ss *SwitchMService) SwitchMSwitchGroupService () *SwitchMSwitchGroupServic
     return serv
 }
 
-func (s *SwitchMSwitchGroupService) AddGroup (ctx context.Context) (*group.AuditId, error) {
+func (s *SwitchMSwitchGroupService) AddGroup (ctx context.Context) (*group.AuditID, error) {
 }
 
 func (s *SwitchMSwitchGroupService) FindGroupBySwitchGroupId (ctx context.Context, switchGroupId string) (*group.SwitchGroupQueryResult, error) {

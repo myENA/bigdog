@@ -9,13 +9,13 @@ import (
 type CreateVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
-	Algo *string `json:"algo,omitempty" validate:"required"`
+	Algo *string `json:"algo,omitempty" validate:"required,oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// identifier of the domain
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -25,19 +25,19 @@ type CreateVlanPooling struct {
 }
 
 type DeleteBulkVlanPooling struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
 type ModifyVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
-	Algo *string `json:"algo,omitempty"`
+	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// identifier of the domain
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -49,17 +49,17 @@ type ModifyVlanPooling struct {
 type VlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
-	Algo *string `json:"algo,omitempty"`
+	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the domain which the VLAN pooling profile belongs to
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the VLAN pooling profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -69,7 +69,7 @@ type VlanPooling struct {
 }
 
 type VlanPoolingList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -83,19 +83,19 @@ type VlanPoolingList struct {
 type VlanPoolingListType struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
-	Algo *string `json:"algo,omitempty"`
+	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
 
 	// Description
 	// Description of the service
 	Description *string `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// identifier of the domain
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the service
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 

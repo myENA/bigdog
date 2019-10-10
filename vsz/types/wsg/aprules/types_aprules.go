@@ -11,11 +11,11 @@ type ApRuleConfiguration struct {
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the AP Registration Rules
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	IpAddressRange *IpAddressRange `json:"ipAddressRange,omitempty"`
+	IPAddressRange *IPAddressRange `json:"ipAddressRange,omitempty"`
 
 	MobilityZone *common.GenericRef `json:"mobilityZone,omitempty"`
 
@@ -31,7 +31,7 @@ type ApRuleConfiguration struct {
 
 	// Type
 	// type of the AP Registration Rules
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
 type ApRuleList struct {
@@ -47,9 +47,9 @@ type ApRuleList struct {
 type ApRuleListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the AP Registration Rules
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Priority
 	// priority of the AP Registration Rules
@@ -61,7 +61,7 @@ type CreateApRule struct {
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
-	IpAddressRange *IpAddressRange `json:"ipAddressRange,omitempty"`
+	IPAddressRange *IPAddressRange `json:"ipAddressRange,omitempty"`
 
 	MobilityZone *common.GenericRef `json:"mobilityZone,omitempty" validate:"required"`
 
@@ -73,7 +73,7 @@ type CreateApRule struct {
 
 	// Type
 	// type of the AP Registration Rules
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
 type GpsCoordinates struct {
@@ -86,10 +86,10 @@ type GpsCoordinates struct {
 	Longitude *common.Longitude `json:"longitude,omitempty"`
 }
 
-type IpAddressRange struct {
-	FromIp *common.IpAddress `json:"fromIp,omitempty"`
+type IPAddressRange struct {
+	FromIP *common.IPAddress `json:"fromIp,omitempty"`
 
-	ToIp *common.IpAddress `json:"toIp,omitempty"`
+	ToIP *common.IPAddress `json:"toIp,omitempty"`
 }
 
 type ModifyApRule struct {
@@ -97,7 +97,7 @@ type ModifyApRule struct {
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
-	IpAddressRange *IpAddressRange `json:"ipAddressRange,omitempty"`
+	IPAddressRange *IPAddressRange `json:"ipAddressRange,omitempty"`
 
 	MobilityZone *common.GenericRef `json:"mobilityZone,omitempty"`
 
@@ -109,11 +109,11 @@ type ModifyApRule struct {
 
 	// Type
 	// type of the AP Registration Rules
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
 type Subnet struct {
-	NetworkAddress *common.IpAddress `json:"networkAddress,omitempty"`
+	NetworkAddress *common.IPAddress `json:"networkAddress,omitempty"`
 
 	// SubnetMask
 	// subnetMask

@@ -7,9 +7,9 @@ import (
 )
 
 type AppCategory struct {
-	// Id
+	// ID
 	// Identifier of the Application Category
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the Application Category
@@ -27,13 +27,13 @@ type AppCategoryList struct {
 }
 
 type Application struct {
-	// AppId
+	// AppID
 	// Identifier of the Application
-	AppId *string `json:"appId,omitempty"`
+	AppID *string `json:"appId,omitempty"`
 
-	// CatId
+	// CatID
 	// Identifier of the Application Category
-	CatId *string `json:"catId,omitempty"`
+	CatID *string `json:"catId,omitempty"`
 
 	// Name
 	// Name of the Application
@@ -65,9 +65,9 @@ type ApplicationPolicyProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -75,22 +75,22 @@ type ApplicationPolicyProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the Application Policy
 	// Profile belongs
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the Application Policy Profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -98,13 +98,13 @@ type ApplicationPolicyProfile struct {
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// TenantId
+	// TenantID
 	// Tenant Id
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantID *string `json:"tenantId,omitempty"`
 }
 
 type ApplicationPolicyProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -116,22 +116,22 @@ type ApplicationPolicyProfileList struct {
 }
 
 type ApplicationRule struct {
-	// AppId
+	// AppID
 	// Identifier of the Application from Signature Package
-	AppId *string `json:"appId,omitempty"`
+	AppID *string `json:"appId,omitempty"`
 
 	// ApplicationType
 	// Type of the application when ruleType
-	ApplicationType *string `json:"applicationType,omitempty"`
+	ApplicationType *string `json:"applicationType,omitempty" validate:"oneof=SIGNATURE USER_DEFINED"`
 
 	// AppName
 	// Name of the Application from Signature Package
 	AppName *string `json:"appName,omitempty"`
 
-	// CatId
+	// CatID
 	// Identifier of the Application Category from Signature Package (If applicationType is UserDefind, the
 	// catId is 32768)
-	CatId *string `json:"catId,omitempty"`
+	CatID *string `json:"catId,omitempty"`
 
 	// CatName
 	// Name of the Application Category from Signature Package
@@ -139,7 +139,7 @@ type ApplicationRule struct {
 
 	// ClassificationType
 	// QoS downlink classification type
-	ClassificationType *string `json:"classificationType,omitempty"`
+	ClassificationType *string `json:"classificationType,omitempty" validate:"oneof=VOICE VIDEO BEST_EFFORT BACKGROUND"`
 
 	// Downlink
 	// Downlink rate limiting (unit: Kbps)
@@ -147,17 +147,17 @@ type ApplicationRule struct {
 
 	// MarkingPriority
 	// QoS uplink marking priority
-	MarkingPriority *string `json:"markingPriority,omitempty"`
+	MarkingPriority *string `json:"markingPriority,omitempty" validate:"oneof=IEEE802_1p DSCP BOTH"`
 
 	// MarkingType
 	// QoS uplink marking type
-	MarkingType *string `json:"markingType,omitempty"`
+	MarkingType *string `json:"markingType,omitempty" validate:"oneof=VOICE VIDEO BEST_EFFORT BACKGROUND"`
 
 	Priority *int `json:"priority,omitempty"`
 
 	// RuleType
 	// Type of the application rule
-	RuleType *string `json:"ruleType,omitempty"`
+	RuleType *string `json:"ruleType,omitempty" validate:"oneof=DENY QOS RATE_LIMITING"`
 
 	// Uplink
 	// Uplink rate limiting (unit: Kbps)
@@ -177,25 +177,25 @@ type CreateApplicationPolicyProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the Application Policy
 	// Profile belongs
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 }
 
 type CreateUserDefinedProfile struct {
-	DestIp *common.IpAddress `json:"destIp,omitempty"`
+	DestIP *common.IPAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
-	DestPort *int `json:"destPort,omitempty" validate:"required"`
+	DestPort *int `json:"destPort,omitempty" validate:"required,gte=1,lte=65535"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the User Defined Profile
 	// belongs
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -203,15 +203,15 @@ type CreateUserDefinedProfile struct {
 
 	// Protocol
 	// Protocol of User Defined Profile
-	Protocol *string `json:"protocol,omitempty" validate:"required"`
+	Protocol *string `json:"protocol,omitempty" validate:"required,oneof=TCP UDP"`
 
 	// Type
 	// Type of the User Defined Profile
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
 type DeleteBulk struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
 type ModifyApplicationPolicyProfile struct {
@@ -231,11 +231,11 @@ type ModifyApplicationPolicyProfile struct {
 }
 
 type ModifyUserDefinedProfile struct {
-	DestIp *common.IpAddress `json:"destIp,omitempty"`
+	DestIP *common.IPAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
-	DestPort *int `json:"destPort,omitempty"`
+	DestPort *int `json:"destPort,omitempty" validate:"gte=1,lte=65535"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -243,11 +243,11 @@ type ModifyUserDefinedProfile struct {
 
 	// Protocol
 	// Protocol of User Defined Profile
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP"`
 
 	// Type
 	// Type of the User Defined Profile
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
 type SignaturePackage struct {
@@ -255,9 +255,9 @@ type SignaturePackage struct {
 	// Name of the Signature Package
 	FileName *string `json:"fileName,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the Signature Package
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Size
 	// Size of the Signature Package
@@ -269,44 +269,44 @@ type SignaturePackage struct {
 }
 
 type UserDefinedProfile struct {
-	// AppId
+	// AppID
 	// AppId for Application Policy's User defined rule type
-	AppId *int `json:"appId,omitempty"`
+	AppID *int `json:"appId,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	DestIp *common.IpAddress `json:"destIp,omitempty"`
+	DestIP *common.IPAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
-	DestPort *int `json:"destPort,omitempty"`
+	DestPort *int `json:"destPort,omitempty" validate:"gte=1,lte=65535"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the System (root) domain or partner managed domain to which the User Defined Profile
 	// belongs
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the User Defined Profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -318,19 +318,19 @@ type UserDefinedProfile struct {
 
 	// Protocol
 	// Protocol of User Defined Profile
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP"`
 
-	// TenantId
+	// TenantID
 	// Tenant Id
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantID *string `json:"tenantId,omitempty"`
 
 	// Type
 	// Type of the User Defined Profile
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
 type UserDefinedProfileList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

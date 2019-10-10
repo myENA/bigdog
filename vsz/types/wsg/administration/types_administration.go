@@ -8,11 +8,11 @@ import (
 )
 
 type ActiveDirectoryServer struct {
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of Active Directory Server object
-	Port *int `json:"port,omitempty" validate:"required"`
+	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
 
 	Realm *common.Realm `json:"realm,omitempty" validate:"required"`
 
@@ -138,17 +138,17 @@ type BackupFile struct {
 	// file size of the backup file
 	FileSize *float64 `json:"fileSize,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of system configuration backup file.
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Md5
 	// file md5 of the backup file
 	Md5 *string `json:"md5,omitempty"`
 
-	// ScgVersion
+	// SCGVersion
 	// SCG version of the configuration backup file.
-	ScgVersion *string `json:"scgVersion,omitempty"`
+	SCGVersion *string `json:"scgVersion,omitempty"`
 
 	// Type
 	// type of the configuration backup file
@@ -174,9 +174,9 @@ type ClusterBackupSummary struct {
 	// filesize of the cluster backup file.
 	Filesize *float64 `json:"filesize,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of cluster backup file.
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Version
 	// the patch version of the cluster backup file.
@@ -209,7 +209,7 @@ type CreateAdminAAAServer struct {
 	// Type
 	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name
 	// [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=RADIUS TACACS AD LDAP"`
 }
 
 type DefaultRoleMapping struct {
@@ -235,7 +235,7 @@ type LdapServer struct {
 	// Base Domain Name of LDAP Server object
 	BaseDomainName *string `json:"baseDomainName,omitempty" validate:"required"`
 
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
 
 	// KeyAttribute
 	// Key attribute of LDAP Server object
@@ -243,7 +243,7 @@ type LdapServer struct {
 
 	// Port
 	// Port number of LDAP Server object
-	Port *int `json:"port,omitempty" validate:"required"`
+	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
 
 	Realm *common.Realm `json:"realm,omitempty" validate:"required"`
 
@@ -275,13 +275,13 @@ type Licenses struct {
 }
 
 type LicenseServer struct {
-	// IpAddress
+	// IPAddress
 	// local license server IP address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
 	// Port
 	// local license server port
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
 
 	// UseCloud
 	// use cloud license server
@@ -333,7 +333,7 @@ type LicensesSyncLogs struct {
 
 	// SyncResult
 	// sync license result
-	SyncResult *string `json:"syncResult,omitempty"`
+	SyncResult *string `json:"syncResult,omitempty" validate:"oneof=SUCCESS FAILURE"`
 }
 
 type LicensesSyncLogsList struct {
@@ -347,9 +347,9 @@ type LicensesSyncLogsList struct {
 }
 
 type ModfiyLicenseServer struct {
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
 
 	UseCloud *bool `json:"useCloud,omitempty" validate:"required"`
 }
@@ -370,7 +370,7 @@ type ModifyAdminAAAServer struct {
 	// Type
 	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name
 	// [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=RADIUS TACACS AD LDAP"`
 }
 
 type ModifyAutoExportBackup struct {
@@ -390,7 +390,7 @@ type ModifyLogLevel struct {
 
 	// LogLevel
 	// Log level.
-	LogLevel *string `json:"logLevel,omitempty"`
+	LogLevel *string `json:"logLevel,omitempty" validate:"oneof=DEBUG INFO WARN ERROR"`
 }
 
 type ModifyScheduleBackup struct {
@@ -400,7 +400,7 @@ type ModifyScheduleBackup struct {
 
 	// DayOfWeek
 	// day of the week
-	DayOfWeek *string `json:"dayOfWeek,omitempty"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
 	// enable schedule backup
@@ -412,7 +412,7 @@ type ModifyScheduleBackup struct {
 
 	// Interval
 	// schedule interval
-	Interval *string `json:"interval,omitempty"`
+	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
 	// minute
@@ -420,11 +420,11 @@ type ModifyScheduleBackup struct {
 }
 
 type RadiusServer struct {
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of RADIUS Server object
-	Port *int `json:"port,omitempty" validate:"required"`
+	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
 
 	Realm *common.Realm `json:"realm,omitempty" validate:"required"`
 
@@ -440,9 +440,9 @@ type RetrieveAdminAAAServer struct {
 
 	DefaultRoleMapping *DefaultRoleMapping `json:"defaultRoleMapping,omitempty"`
 
-	// Id
+	// ID
 	// ID of this Admin AAA Server
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	LdapServer *LdapServer `json:"ldapServer,omitempty"`
 
@@ -455,7 +455,7 @@ type RetrieveAdminAAAServer struct {
 	// Type
 	// Type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is
 	// for TACACS+ (Terminal Access Controller Access-Control System Plus)
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
 }
 
 type RetrieveAdminAAAServerList struct {
@@ -469,11 +469,11 @@ type RetrieveAdminAAAServerList struct {
 }
 
 type RetrieveAdminAAAServerListType struct {
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
 }
 
 type ScheduleBackup struct {
@@ -483,7 +483,7 @@ type ScheduleBackup struct {
 
 	// DayOfWeek
 	// day of the week
-	DayOfWeek *string `json:"dayOfWeek,omitempty"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
 	// enable schedule backup
@@ -495,7 +495,7 @@ type ScheduleBackup struct {
 
 	// Interval
 	// schedule interval
-	Interval *string `json:"interval,omitempty"`
+	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
 	// minute
@@ -503,23 +503,23 @@ type ScheduleBackup struct {
 }
 
 type SecondaryRadiusServer struct {
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
 
 	// MaxRetries
 	// Max number(how many times) of retries for re-connection to primary
-	MaxRetries *int `json:"maxRetries,omitempty" validate:"required"`
+	MaxRetries *int `json:"maxRetries,omitempty" validate:"required,gte=2,lte=10"`
 
 	// Port
 	// Port number of Secondary RADIUS Server object
-	Port *int `json:"port,omitempty" validate:"required"`
+	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
 
 	// RequestTimeOut
 	// Request timeout(seconds) value of re-connection to primary
-	RequestTimeOut *int `json:"requestTimeOut,omitempty" validate:"required"`
+	RequestTimeOut *int `json:"requestTimeOut,omitempty" validate:"required,gte=2,lte=20"`
 
 	// RetryPriInvl
 	// Interval of re-connection to primary(1-60 minute)
-	RetryPriInvl *int `json:"retryPriInvl,omitempty" validate:"required"`
+	RetryPriInvl *int `json:"retryPriInvl,omitempty" validate:"required,gte=1,lte=60"`
 
 	// SharedSecret
 	// Shared secret of Secondary RADIUS Server object
@@ -527,11 +527,11 @@ type SecondaryRadiusServer struct {
 }
 
 type TacacsServer struct {
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of TACACS+ Server object
-	Port *int `json:"port,omitempty" validate:"required"`
+	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
 
 	Service *common.Realm `json:"service,omitempty" validate:"required"`
 
@@ -617,7 +617,7 @@ type ZdAP struct {
 }
 
 type ZdAPList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -633,9 +633,9 @@ type ZdImport struct {
 	// List of AP MAC
 	ApMacList []string `json:"apMacList,omitempty"`
 
-	// Ip
+	// IP
 	// ZD IP address
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	// Password
 	// ZD password

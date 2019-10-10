@@ -19,21 +19,21 @@ type ActiveDirectory struct {
 	// Enable global catalog support
 	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the active directory server
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// Ip
+	// IP
 	// IP address
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*GroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the active directory server
@@ -55,9 +55,9 @@ type ActiveDirectory struct {
 	// Enable global catalog support - Standby Cluster settings
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
+	// StandbyIP
 	// IP address - Standby Cluster settings
-	StandbyIp *string `json:"standbyIp,omitempty"`
+	StandbyIP *string `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -79,9 +79,9 @@ type ActiveDirectory struct {
 	// Windows domain name
 	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone which the active directory server belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type ActiveDirectoryList struct {
@@ -99,17 +99,17 @@ type AuthenticationServer struct {
 	// Description of the RADIUS server
 	Description *string `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the RADIUS server
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
 	Mappings []*GroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the RADIUS server
@@ -125,9 +125,9 @@ type AuthenticationServer struct {
 	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone which the RADIUS server belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type AuthenticationServerList struct {
@@ -141,7 +141,7 @@ type AuthenticationServerList struct {
 }
 
 type CreateActiveDirectoryServer struct {
-	AdminDomainName *common.NormalNameTo64 `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalName2To64 `json:"adminDomainName,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -149,7 +149,7 @@ type CreateActiveDirectoryServer struct {
 	// Enable global catalog support
 	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty" validate:"required"`
 
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
@@ -163,7 +163,7 @@ type CreateActiveDirectoryServer struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"required"`
+	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -173,9 +173,9 @@ type CreateActiveDirectoryServer struct {
 	// Enable global catalog support - Standby Cluster settings
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
+	// StandbyIP
 	// IP address - Standby Cluster settings
-	StandbyIp *string `json:"standbyIp,omitempty"`
+	StandbyIP *string `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -217,15 +217,15 @@ type CreateAuthenticationServer struct {
 }
 
 type CreateLDAPServer struct {
-	AdminDomainName *common.NormalNameTo128 `json:"adminDomainName,omitempty" validate:"required"`
+	AdminDomainName *common.NormalName2To128 `json:"adminDomainName,omitempty" validate:"required"`
 
-	BaseDomainName *common.NormalNameTo64 `json:"baseDomainName,omitempty" validate:"required"`
+	BaseDomainName *common.NormalName2To64 `json:"baseDomainName,omitempty" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
+	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
 
-	KeyAttribute *common.NormalNameTo64 `json:"keyAttribute,omitempty" validate:"required"`
+	KeyAttribute *common.NormalName2To64 `json:"keyAttribute,omitempty" validate:"required"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
@@ -239,9 +239,9 @@ type CreateLDAPServer struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty" validate:"required"`
+	Port *int `json:"port,omitempty" validate:"required,gte=1,lte=65535"`
 
-	SearchFilter *common.NormalNameTo64 `json:"searchFilter,omitempty" validate:"required"`
+	SearchFilter *common.NormalName2To64 `json:"searchFilter,omitempty" validate:"required"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -251,9 +251,9 @@ type CreateLDAPServer struct {
 	// Base domain name - Standby Cluster settings
 	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
+	// StandbyIP
 	// IP address - Standby Cluster settings
-	StandbyIp *string `json:"standbyIp,omitempty"`
+	StandbyIP *string `json:"standbyIp,omitempty"`
 
 	// StandbyKeyAttribute
 	// Key attribute - Standby Cluster settings
@@ -288,9 +288,9 @@ type GroupAttrIdentityUserRoleMapping struct {
 	// Group attribute
 	GroupAttr *string `json:"groupAttr,omitempty" validate:"required"`
 
-	// Id
+	// ID
 	// Group attribute mapping UUID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// UserRole
 	// Identity user role
@@ -301,11 +301,11 @@ type GroupAttrIdentityUserRoleMapping struct {
 //
 // Identity user role
 type GroupAttrIdentityUserRoleMappingUserRoleType struct {
-	// Id
+	// ID
 	// Identity user role UUID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	Name *common.NormalNameTo64 `json:"name,omitempty"`
+	Name *common.NormalName2To64 `json:"name,omitempty"`
 
 	// UserTrafficProfile
 	// Identity user role
@@ -316,9 +316,9 @@ type GroupAttrIdentityUserRoleMappingUserRoleType struct {
 //
 // Identity user role
 type GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType struct {
-	// Id
+	// ID
 	// User traffic profile UUID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// User traffic profile name
@@ -338,13 +338,13 @@ type LDAPServer struct {
 	// Description of the LDAP server
 	Description *string `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the LDAP server
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// Ip
+	// IP
 	// IP address
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	// KeyAttribute
 	// Key attribute
@@ -354,9 +354,9 @@ type LDAPServer struct {
 	// Group attribute and user traffic profile mapping
 	Mappings []*GroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// MvnoId
+	// MVNOID
 	// Tenant UUID
-	MvnoId *string `json:"mvnoId,omitempty"`
+	MVNOID *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the LDAP server
@@ -382,9 +382,9 @@ type LDAPServer struct {
 	// Base domain name - Standby Cluster settings
 	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
+	// StandbyIP
 	// IP address - Standby Cluster settings
-	StandbyIp *string `json:"standbyIp,omitempty"`
+	StandbyIP *string `json:"standbyIp,omitempty"`
 
 	// StandbyKeyAttribute
 	// Key attribute - Standby Cluster settings
@@ -406,9 +406,9 @@ type LDAPServer struct {
 	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone which the LDAP server belongs to
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type LDAPServerList struct {
@@ -422,7 +422,7 @@ type LDAPServerList struct {
 }
 
 type ModifyActiveDirectoryServer struct {
-	AdminDomainName *common.NormalNameTo64 `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalName2To64 `json:"adminDomainName,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
@@ -430,7 +430,7 @@ type ModifyActiveDirectoryServer struct {
 	// Enable global catalog support
 	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty"`
 
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
@@ -444,7 +444,7 @@ type ModifyActiveDirectoryServer struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -454,9 +454,9 @@ type ModifyActiveDirectoryServer struct {
 	// Enable global catalog support - Standby Cluster settings
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
+	// StandbyIP
 	// IP address - Standby Cluster settings
-	StandbyIp *string `json:"standbyIp,omitempty"`
+	StandbyIP *string `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -514,23 +514,23 @@ type ModifyGroupAttrIdentityUserRoleMapping struct {
 //
 // Identity user role
 type ModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
-	// Id
+	// ID
 	// Identity user role UUID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	Name *common.NormalNameTo64 `json:"name,omitempty"`
+	Name *common.NormalName2To64 `json:"name,omitempty"`
 }
 
 type ModifyLDAPServer struct {
-	AdminDomainName *common.NormalNameTo128 `json:"adminDomainName,omitempty"`
+	AdminDomainName *common.NormalName2To128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *common.NormalNameTo64 `json:"baseDomainName,omitempty"`
+	BaseDomainName *common.NormalName2To64 `json:"baseDomainName,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
-	KeyAttribute *common.NormalNameTo64 `json:"keyAttribute,omitempty"`
+	KeyAttribute *common.NormalName2To64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
@@ -544,9 +544,9 @@ type ModifyLDAPServer struct {
 
 	// Port
 	// Port
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
-	SearchFilter *common.NormalNameTo64 `json:"searchFilter,omitempty"`
+	SearchFilter *common.NormalName2To64 `json:"searchFilter,omitempty"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -556,9 +556,9 @@ type ModifyLDAPServer struct {
 	// Base domain name - Standby Cluster settings
 	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
+	// StandbyIP
 	// IP address - Standby Cluster settings
-	StandbyIp *string `json:"standbyIp,omitempty"`
+	StandbyIP *string `json:"standbyIp,omitempty"`
 
 	// StandbyKeyAttribute
 	// Key attribute - Standby Cluster settings
@@ -597,11 +597,11 @@ type TestAuthenticationServer struct {
 	// AaaType
 	// Authentication/Accounting service protocol. RADIUS for Radius, AD and LDAP. RADIUSAcct for RADIUS
 	// Accounting
-	AaaType *string `json:"aaaType,omitempty"`
+	AaaType *string `json:"aaaType,omitempty" validate:"oneof=RADIUS RADIUSAcct"`
 
 	// AuthProtocol
 	// Authentication protocol
-	AuthProtocol *string `json:"authProtocol,omitempty"`
+	AuthProtocol *string `json:"authProtocol,omitempty" validate:"oneof=PAP CHAP"`
 
 	// Password
 	// Password
@@ -609,7 +609,7 @@ type TestAuthenticationServer struct {
 
 	// ServerType
 	// Radius server type.
-	ServerType *string `json:"serverType,omitempty"`
+	ServerType *string `json:"serverType,omitempty" validate:"oneof=ADMIN GLOBAL ZONE"`
 
 	// UserName
 	// User name

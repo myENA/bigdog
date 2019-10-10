@@ -23,27 +23,27 @@ type ConfigurationHistoryQueryResult struct {
 type DeployLog struct {
 	// ConfigType
 	// Config Type
-	ConfigType *string `json:"configType,omitempty"`
+	ConfigType *string `json:"configType,omitempty" validate:"oneof=PROVISIONING GLOBAL COMMON MODEL SWITCH_SETTINGS PORT_SETTINGS"`
 
 	// DeployScope
 	// Deploy Scope
-	DeployScope *string `json:"deployScope,omitempty"`
+	DeployScope *string `json:"deployScope,omitempty" validate:"oneof=PROVISION GROUP PORT SWITCH"`
 
 	// DeployStatus
 	// Deploy Status
-	DeployStatus *string `json:"deployStatus,omitempty"`
+	DeployStatus *string `json:"deployStatus,omitempty" validate:"oneof=PENDING STARTED END"`
 
 	// EndTime
 	// Deploy End Time
 	EndTime *int `json:"endTime,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Switch Group ID
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
-	// Id
 	// ID
-	Id *string `json:"id,omitempty"`
+	// ID
+	ID *string `json:"id,omitempty"`
 
 	// ModelFamily
 	// Switch Model Family
@@ -63,9 +63,9 @@ type DeployLog struct {
 	// Switch ID
 	SwitchIds *string `json:"switchIds,omitempty"`
 
-	// TransactionId
+	// TransactionID
 	// Deploy Transaction ID
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionID *string `json:"transactionId,omitempty"`
 
 	// Yang
 	// YANG Model

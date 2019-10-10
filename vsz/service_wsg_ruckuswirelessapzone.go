@@ -26,7 +26,7 @@ func (ss *WSGService) WSGRuckusWirelessAPZoneService () *WSGRuckusWirelessAPZone
     return serv
 }
 
-func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId (ctx context.Context, zoneId string) (*common.DhcpSiteConfigListRef, error) {
+func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId (ctx context.Context, zoneId string) (*common.DHCPSiteConfigListRef, error) {
 }
 
 func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDual (ctx context.Context) (*common.CreateResult, error) {
@@ -110,6 +110,6 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesById (ctx context.Context, 
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById (ctx context.Context, id string) (*zone.MeshConfiguration, error) {
 }
 
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria (ctx context.Context) (*zone.DhcpSiteConfigList, error) {
+func (s *WSGRuckusWirelessAPZoneService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria (ctx context.Context) (*zone.DHCPSiteConfigList, error) {
 }
 

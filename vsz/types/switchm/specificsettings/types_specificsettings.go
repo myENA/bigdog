@@ -21,11 +21,11 @@ type DHCPOption struct {
 }
 
 type DHCPServer struct {
-	// DefaultRouterIp
+	// DefaultRouterIP
 	// Default Router Ip
-	DefaultRouterIp *string `json:"defaultRouterIp,omitempty"`
+	DefaultRouterIP *string `json:"defaultRouterIp,omitempty"`
 
-	DhcpOptions []*DHCPOption `json:"dhcpOptions,omitempty"`
+	DHCPOptions []*DHCPOption `json:"dhcpOptions,omitempty"`
 
 	// ExcludedEnd
 	// Excluded range end
@@ -76,14 +76,14 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-type IdList struct {
+type IDList struct {
 	// Hostname
 	// Hostname
 	Hostname *string `json:"hostname,omitempty"`
 
+	// ID
 	// Id
-	// Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 }
 
 type SpecificSettings struct {
@@ -91,19 +91,19 @@ type SpecificSettings struct {
 	// The create time of the Specific Settings
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// DhcpServerEnabled
+	// DHCPServerEnabled
 	// DHCP server enabled
-	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
+	DHCPServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*DHCPServer `json:"dhcpServers,omitempty"`
+	DHCPServers []*DHCPServer `json:"dhcpServers,omitempty"`
 
 	// Hostname
 	// Hostname
 	Hostname *string `json:"hostname,omitempty"`
 
+	// ID
 	// Id
-	// Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// IgmpSnooping
 	// IGMP snopping
@@ -131,7 +131,7 @@ type SpecificSettingsAllResult struct {
 	// Indicator of whether there are more Specific Settings after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*IdList `json:"list,omitempty"`
+	List []*IDList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Specific Settings count
@@ -166,11 +166,11 @@ func (t *SpecificSettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
 }
 
 type UpdateSpecificSettings struct {
-	// DhcpServerEnabled
+	// DHCPServerEnabled
 	// DHCP server enabled
-	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
+	DHCPServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*DHCPServer `json:"dhcpServers,omitempty"`
+	DHCPServers []*DHCPServer `json:"dhcpServers,omitempty"`
 
 	// Hostname
 	// Hostname

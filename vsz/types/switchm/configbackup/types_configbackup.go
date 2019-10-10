@@ -13,9 +13,9 @@ type Cfgbk struct {
 	// Failure reason of the config backup and config restore
 	FailureReason *string `json:"failureReason,omitempty"`
 
-	// Id
+	// ID
 	// the identifier of the config backup
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// the name of the config backup
@@ -51,9 +51,9 @@ type ConfigBackupContent struct {
 	// Content of the ConfigBackup
 	Config *string `json:"config,omitempty"`
 
-	// Id
+	// ID
 	// the identifier of the ConfigBackup Content
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the ConfigBackup Content
@@ -67,17 +67,17 @@ type ConfigBackupDiff struct {
 }
 
 type ConfigBackupDiffInput struct {
-	// ConfigBackupId1
+	// ConfigBackupID1
 	// The first config backup id of diff input
-	ConfigBackupId1 *string `json:"configBackupId1,omitempty"`
+	ConfigBackupID1 *string `json:"configBackupId1,omitempty"`
 
-	// ConfigBackupId2
+	// ConfigBackupID2
 	// The second config backup id of diff input
-	ConfigBackupId2 *string `json:"configBackupId2,omitempty"`
+	ConfigBackupID2 *string `json:"configBackupId2,omitempty"`
 }
 
 type CreateBackupResultList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of first index in current page
@@ -99,17 +99,17 @@ type CreateBackupResultList struct {
 }
 
 type CreateBackupResultListType struct {
-	// ConfigBackupId
+	// ConfigBackupID
 	// Identifier of config backup
-	ConfigBackupId *string `json:"configBackupId,omitempty"`
+	ConfigBackupID *string `json:"configBackupId,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Identifier of switch
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 }
 
 type List struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ConfigBackup returned out of the complete ConfigBackup list

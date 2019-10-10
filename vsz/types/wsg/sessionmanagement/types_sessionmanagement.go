@@ -15,13 +15,13 @@ type RuckusSession struct {
 	// The last access URI
 	LastAccessURI *string `json:"lastAccessURI,omitempty"`
 
-	// SessionId
+	// SessionID
 	// The user session ID
-	SessionId *string `json:"sessionId,omitempty"`
+	SessionID *string `json:"sessionId,omitempty"`
 
-	// SourceIp
+	// SourceIP
 	// The source IP address
-	SourceIp *string `json:"sourceIp,omitempty"`
+	SourceIP *string `json:"sourceIp,omitempty"`
 
 	// UserName
 	// Logon user name

@@ -7,7 +7,7 @@ import (
 )
 
 type ApQueryList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -29,7 +29,7 @@ type CreateApQuery struct {
 
 	Alerts *int `json:"alerts,omitempty"`
 
-	ApGroupId *string `json:"apGroupId,omitempty"`
+	ApGroupID *string `json:"apGroupId,omitempty"`
 
 	ApGroupName *string `json:"apGroupName,omitempty"`
 
@@ -93,9 +93,9 @@ type CreateApQuery struct {
 
 	Channel24G *string `json:"channel24G,omitempty"`
 
-	Channel2GValue *int `json:"channel24gValue,omitempty"`
+	Channel24GValue *int `json:"channel24gValue,omitempty"`
 
-	Channel5GValue *int `json:"channel50gValue,omitempty"`
+	Channel50GValue *int `json:"channel50gValue,omitempty"`
 
 	ConfigOverride *bool `json:"configOverride,omitempty"`
 
@@ -105,7 +105,7 @@ type CreateApQuery struct {
 
 	ConnectionStatus *string `json:"connectionStatus,omitempty"`
 
-	ControlBladeId *string `json:"controlBladeId,omitempty"`
+	ControlBladeID *string `json:"controlBladeId,omitempty"`
 
 	ControlBladeName *string `json:"controlBladeName,omitempty"`
 
@@ -119,11 +119,11 @@ type CreateApQuery struct {
 
 	DeviceName *string `json:"deviceName,omitempty"`
 
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	DomainName *string `json:"domainName,omitempty"`
 
-	DpIp *string `json:"dpIp,omitempty"`
+	DpIP *string `json:"dpIp,omitempty"`
 
 	Eirp24G *int `json:"eirp24G,omitempty"`
 
@@ -131,7 +131,7 @@ type CreateApQuery struct {
 
 	EnabledBonjourGateway *bool `json:"enabledBonjourGateway,omitempty"`
 
-	ExtIp *string `json:"extIp,omitempty"`
+	ExtIP *string `json:"extIp,omitempty"`
 
 	ExtPort *string `json:"extPort,omitempty"`
 
@@ -139,7 +139,7 @@ type CreateApQuery struct {
 
 	FirmwareVersion *string `json:"firmwareVersion,omitempty"`
 
-	IndoorMapId *string `json:"indoorMapId,omitempty"`
+	IndoorMapID *string `json:"indoorMapId,omitempty"`
 
 	IndoorMapLocation *string `json:"indoorMapLocation,omitempty"`
 
@@ -147,7 +147,7 @@ type CreateApQuery struct {
 
 	IndoorMapXy *CreateApQueryIndoorMapXyType `json:"indoorMapXy,omitempty"`
 
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	IpsecRxBytes *int `json:"ipsecRxBytes,omitempty"`
 
@@ -167,7 +167,7 @@ type CreateApQuery struct {
 
 	IpsecTxPkts *int `json:"ipsecTxPkts,omitempty"`
 
-	IpType *string `json:"ipType,omitempty"`
+	IPType *string `json:"ipType,omitempty"`
 
 	Ipv6Address *string `json:"ipv6Address,omitempty"`
 
@@ -249,7 +249,7 @@ type CreateApQuery struct {
 
 	Serial *string `json:"serial,omitempty"`
 
-	Status *string `json:"status,omitempty"`
+	Status *string `json:"status,omitempty" validate:"oneof=Online Offline Flagged"`
 
 	SupportFips *bool `json:"supportFips,omitempty"`
 
@@ -263,19 +263,19 @@ type CreateApQuery struct {
 
 	Uptime *int `json:"uptime,omitempty"`
 
-	WlanGroup24Id *string `json:"wlanGroup24Id,omitempty"`
+	WLANGroup24ID *string `json:"wlanGroup24Id,omitempty"`
 
-	WlanGroup24Name *string `json:"wlanGroup24Name,omitempty"`
+	WLANGroup24Name *string `json:"wlanGroup24Name,omitempty"`
 
-	WlanGroup50Id *string `json:"wlanGroup50Id,omitempty"`
+	WLANGroup50ID *string `json:"wlanGroup50Id,omitempty"`
 
-	WlanGroup50Name *string `json:"wlanGroup50Name,omitempty"`
+	WLANGroup50Name *string `json:"wlanGroup50Name,omitempty"`
 
 	ZoneAffinityProfileName *string `json:"zoneAffinityProfileName,omitempty"`
 
 	ZoneFirmwareVersion *string `json:"zoneFirmwareVersion,omitempty"`
 
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 
 	ZoneName *string `json:"zoneName,omitempty"`
 }

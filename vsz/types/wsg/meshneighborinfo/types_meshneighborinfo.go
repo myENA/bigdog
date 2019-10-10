@@ -35,9 +35,9 @@ type MeshNeighborInfo struct {
 	// The external IP of the neighbor AP
 	ExternalIPAddress *string `json:"externalIPAddress,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// The IP of the neighbor AP
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
 	// Rssi
 	// The RSSI of the neighbor AP

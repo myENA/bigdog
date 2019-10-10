@@ -23,9 +23,9 @@ type CreateSciProfile struct {
 	// SCI server port of the SCI profile for SZ/SCI interface
 	SciServerPort *string `json:"sciServerPort,omitempty" validate:"required"`
 
-	// SciSystemId
+	// SciSystemID
 	// SCI system UUID of the SCI profile for SZ/SCI interface
-	SciSystemId *string `json:"sciSystemId,omitempty" validate:"required"`
+	SciSystemID *string `json:"sciSystemId,omitempty" validate:"required"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
@@ -33,9 +33,9 @@ type CreateSciProfile struct {
 }
 
 type DeleteSciProfile struct {
-	// Id
+	// ID
 	// UUID of the SCI profile for SZ/SCI interface
-	Id *string `json:"id,omitempty" validate:"required"`
+	ID *string `json:"id,omitempty" validate:"required"`
 }
 
 type DeleteSciProfileList struct {
@@ -57,9 +57,9 @@ type ModifySciPriorityList struct {
 }
 
 type ModifySciPriorityListType struct {
-	// Id
+	// ID
 	// UUID of the SCI profile for SZ/SCI interface
-	Id *string `json:"id,omitempty" validate:"required"`
+	ID *string `json:"id,omitempty" validate:"required"`
 
 	// SciPriority
 	// Priority of the SCI profile for SZ/SCI interface
@@ -71,9 +71,9 @@ type ModifySciPriorityListType struct {
 }
 
 type ModifySciProfile struct {
-	// Id
+	// ID
 	// UUID of the SCI profile for SZ/SCI interface
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
@@ -91,9 +91,9 @@ type ModifySciProfile struct {
 	// SCI server port of the SCI profile for SZ/SCI interface
 	SciServerPort *string `json:"sciServerPort,omitempty" validate:"required"`
 
-	// SciSystemId
+	// SciSystemID
 	// SCI system UUID of the SCI profile for SZ/SCI interface
-	SciSystemId *string `json:"sciSystemId,omitempty" validate:"required"`
+	SciSystemID *string `json:"sciSystemId,omitempty" validate:"required"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
@@ -127,9 +127,9 @@ type SciEventCodeListType struct {
 }
 
 type SciProfile struct {
-	// Id
+	// ID
 	// UUID of the SCI profile for SZ/SCI interface
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
@@ -151,9 +151,9 @@ type SciProfile struct {
 	// SCI server port of the SCI profile for SZ/SCI interface
 	SciServerPort *string `json:"sciServerPort,omitempty"`
 
-	// SciSystemId
+	// SciSystemID
 	// SCI system UUID of the SCI profile for SZ/SCI interface
-	SciSystemId *string `json:"sciSystemId,omitempty"`
+	SciSystemID *string `json:"sciSystemId,omitempty"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface

@@ -11,23 +11,23 @@ type ACLConfig struct {
 
 	// AclType
 	// ACL Type
-	AclType *string `json:"aclType,omitempty"`
+	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
 
 	// CreatedTime
 	// The create time of the AccessControl
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// FamilyId
+	// FamilyID
 	// Family Id
-	FamilyId *string `json:"familyId,omitempty"`
+	FamilyID *string `json:"familyId,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Switch Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
+	// ID
 	// Id
-	// Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// ACL Name/ID
@@ -39,11 +39,11 @@ type ACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the AccessControl
@@ -100,7 +100,7 @@ func (t *ACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 type ACLRule struct {
 	// Action
 	// The action of AccessControl Rule
-	Action *string `json:"action,omitempty"`
+	Action *string `json:"action,omitempty" validate:"oneof=PERMIT DENY"`
 
 	// DestNetwork
 	// The destination network of AccessControl Rule
@@ -112,7 +112,7 @@ type ACLRule struct {
 
 	// Protocol
 	// The protocol of AccessControl Rule
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=IP TCP UDP"`
 
 	// Seq
 	// The seq of AccessControl Rule
@@ -132,15 +132,15 @@ type CreateACLConfig struct {
 
 	// AclType
 	// ACL Type
-	AclType *string `json:"aclType,omitempty"`
+	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
 
-	// FamilyId
+	// FamilyID
 	// Family Id
-	FamilyId *string `json:"familyId,omitempty"`
+	FamilyID *string `json:"familyId,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Switch Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
 	// Name
 	// ACL Name/ID
@@ -152,11 +152,11 @@ type CreateACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 }
 
 type EmptyResult struct {
@@ -184,7 +184,7 @@ type UpdateACLConfig struct {
 
 	// AclType
 	// ACL Type
-	AclType *string `json:"aclType,omitempty"`
+	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -192,5 +192,5 @@ type UpdateACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 }

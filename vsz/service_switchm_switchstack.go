@@ -23,7 +23,7 @@ func (ss *SwitchMService) SwitchMSwitchStackService () *SwitchMSwitchStackServic
     return serv
 }
 
-func (s *SwitchMSwitchStackService) AddStack (ctx context.Context) (stack.AuditIdList, error) {
+func (s *SwitchMSwitchStackService) AddStack (ctx context.Context) (stack.AuditIDList, error) {
 }
 
 func (s *SwitchMSwitchStackService) FindStackBySwitchId (ctx context.Context, switchId string) (*stack.StackConfig, error) {

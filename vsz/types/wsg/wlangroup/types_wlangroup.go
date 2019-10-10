@@ -6,38 +6,38 @@ import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
-type CreateWlanGroup struct {
+type CreateWLANGroup struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 }
 
-type ModifyWlanGroup struct {
+type ModifyWLANGroup struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
-type ModifyWlanGroupMember struct {
+type ModifyWLANGroupMember struct {
 	// AccessVlan
 	// Access VLAN
-	AccessVlan *int `json:"accessVlan,omitempty"`
+	AccessVlan *int `json:"accessVlan,omitempty" validate:"gte=1,lte=4094"`
 
-	// NasId
+	// NasID
 	// NAS-ID
-	NasId *string `json:"nasId,omitempty"`
+	NasID *string `json:"nasId,omitempty" validate:"max=63"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }
 
-type WlanGroup struct {
+type WLANGroup struct {
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator ID
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -45,21 +45,21 @@ type WlanGroup struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the WLAN group
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Members
 	// Members of the WLAN group
-	Members []*WlanMember `json:"members,omitempty"`
+	Members []*WLANMember `json:"members,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
+	// ModifierID
 	// Modifier ID
-	ModifierId *string `json:"modifierId,omitempty"`
+	ModifierID *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -67,37 +67,37 @@ type WlanGroup struct {
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone to which the WLAN group belongs
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
-type WlanGroupList struct {
+type WLANGroupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WlanGroup `json:"list,omitempty"`
+	List []*WLANGroup `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type WlanMember struct {
+type WLANMember struct {
 	// AccessVlan
 	// Access VLAN
-	AccessVlan *int `json:"accessVlan,omitempty"`
+	AccessVlan *int `json:"accessVlan,omitempty" validate:"gte=1,lte=4094"`
 
-	// Id
+	// ID
 	// Identifier of the WLAN
-	Id *string `json:"id,omitempty" validate:"required"`
+	ID *string `json:"id,omitempty" validate:"required"`
 
 	// Name
 	// Name of the WLAN
 	Name *string `json:"name,omitempty"`
 
-	// NasId
+	// NasID
 	// NAS-ID
-	NasId *string `json:"nasId,omitempty"`
+	NasID *string `json:"nasId,omitempty" validate:"max=63"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }

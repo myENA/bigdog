@@ -43,17 +43,17 @@ type HistoricalClient struct {
 	// Hostname of the client
 	Hostname *string `json:"hostname,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// Client IP address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
 	// Ipv6Address
 	// Client IPv6 address
 	Ipv6Address *string `json:"ipv6Address,omitempty"`
 
-	// MvnoName
+	// MVNOName
 	// MVNO name of the client
-	MvnoName *string `json:"mvnoName,omitempty"`
+	MVNOName *string `json:"mvnoName,omitempty"`
 
 	// OsType
 	// OS type of the client
@@ -97,7 +97,7 @@ type HistoricalClient struct {
 }
 
 type HistoricalClientList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

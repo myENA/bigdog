@@ -7,11 +7,11 @@ import (
 )
 
 type BulkDeleteRequest struct {
-	IdList IdList `json:"idList,omitempty"`
+	IDList IDList `json:"idList,omitempty"`
 }
 
 type CreateResult struct {
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 }
 
 type FilterOperator string
@@ -23,14 +23,14 @@ type FullTextSearch struct {
 
 	// Type
 	// Search logic operator
-	Type *string `json:"type,omitempty"`
+	Type *string `json:"type,omitempty" validate:"oneof=AND OR"`
 
 	// Value
 	// Text or number to search
 	Value *string `json:"value,omitempty"`
 }
 
-type IdList []string
+type IDList []string
 
 type QueryCriteria struct {
 	// Attributes
@@ -63,7 +63,7 @@ type QueryCriteria struct {
 
 	// Limit
 	// Size of one page
-	Limit *int `json:"limit,omitempty"`
+	Limit *int `json:"limit,omitempty" validate:"gte=1"`
 
 	// Options
 	// Specified feature required information
@@ -71,7 +71,7 @@ type QueryCriteria struct {
 
 	// Page
 	// Page number to get
-	Page *int `json:"page,omitempty"`
+	Page *int `json:"page,omitempty" validate:"gte=1"`
 
 	// Query
 	// Add backward compatibility for UI framework
@@ -143,15 +143,15 @@ func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 //
 // About sorting
 type QueryCriteriaSortInfoType struct {
-	Dir *string `json:"dir,omitempty"`
+	Dir *string `json:"dir,omitempty" validate:"oneof=ASC DESC"`
 
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
 
 type QueryCriteriaSuperSet struct{}
 
-type RbacMetadata struct {
-	RbacMetadata []string `json:"rbacMetadata,omitempty"`
+type RBACMetadata struct {
+	RBACMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
 type TimeRange struct {
@@ -161,7 +161,7 @@ type TimeRange struct {
 
 	// Field
 	// time field for collecting data
-	Field *string `json:"field,omitempty"`
+	Field *string `json:"field,omitempty" validate:"oneof=insertionTime"`
 
 	// Interval
 	// time interval in second

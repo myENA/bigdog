@@ -23,7 +23,7 @@ func (ss *WSGService) WSGHotspot20WLANServiceService () *WSGHotspot20WLANService
     return serv
 }
 
-func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById (ctx context.Context, id string, zoneId string) (*portalservice.Hotspot20WlanProfile, error) {
+func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById (ctx context.Context, id string, zoneId string) (*portalservice.Hotspot20WLANProfile, error) {
 }
 
 func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId (ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {

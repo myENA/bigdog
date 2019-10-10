@@ -31,15 +31,15 @@ type DeployLogItem struct {
 
 	// DispatchStatus
 	// Status of Deployment
-	DispatchStatus *string `json:"dispatchStatus,omitempty"`
+	DispatchStatus *string `json:"dispatchStatus,omitempty" validate:"oneof=PENDING IN_PROGRESS SUCCESS FAILED"`
 
 	// EndTime
 	// Deployment end datetime
 	EndTime *int `json:"endTime,omitempty"`
 
-	// Id
+	// ID
 	// Switch Deployment History Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// SerialNumber
 	// Serical Number of Switch
@@ -49,17 +49,17 @@ type DeployLogItem struct {
 	// Deployment begin datetime
 	StartTime *int `json:"startTime,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
 	// SwitchName
 	// Switch Name
 	SwitchName *string `json:"switchName,omitempty"`
 
-	// TransactionId
+	// TransactionID
 	// Transaction Id of depolyment
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionID *string `json:"transactionId,omitempty"`
 }
 
 // DeployLogItemDispatchFailedReasonType

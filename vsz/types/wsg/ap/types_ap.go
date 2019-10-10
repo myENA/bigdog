@@ -44,11 +44,11 @@ type AlarmSummary struct {
 type ApConfiguration struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
-	AdministrativeState *string `json:"administrativeState,omitempty"`
+	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
-	ApGroupId *string `json:"apGroupId,omitempty"`
+	ApGroupID *string `json:"apGroupId,omitempty"`
 
 	ApMgmtVlan *common.ApManagementVlan `json:"apMgmtVlan,omitempty"`
 
@@ -64,7 +64,7 @@ type ApConfiguration struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -139,21 +139,21 @@ type ApConfiguration struct {
 
 	Wifi50 *common.ApRadio50 `json:"wifi50,omitempty"`
 
-	WlanGroup24 *WlanGroup `json:"wlanGroup24,omitempty"`
+	WLANGroup24 *WLANGroup `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 *WlanGroup `json:"wlanGroup50,omitempty"`
+	WLANGroup50 *WLANGroup `json:"wlanGroup50,omitempty"`
 
-	// WlanService24Enabled
+	// WLANService24Enabled
 	// WLAN service enabled or disabled on 2.4GHz radio
-	WlanService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
+	WLANService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
 
-	// WlanService50Enabled
+	// WLANService50Enabled
 	// WLAN service enabled or disabled on 5GHz radio
-	WlanService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
+	WLANService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the AP group to which the AP belongs
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type ApLinemanSummary struct {
@@ -177,7 +177,7 @@ type ApLinemanSummaryListType struct {
 
 	// ConfigState
 	// State of the AP configuration
-	ConfigState *string `json:"configState,omitempty"`
+	ConfigState *string `json:"configState,omitempty" validate:"oneof=newConfig fwApplied fwDownloaded fwFailed configApplied completed configFailed"`
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
@@ -209,9 +209,9 @@ type ApListEntry struct {
 }
 
 type ApListEntryListType struct {
-	// ApGroupId
+	// ApGroupID
 	// Identifier of the AP group to which the AP belongs
-	ApGroupId *string `json:"apGroupId,omitempty"`
+	ApGroupID *string `json:"apGroupId,omitempty"`
 
 	Mac *common.Mac `json:"mac,omitempty"`
 
@@ -223,9 +223,9 @@ type ApListEntryListType struct {
 	// Serial Number
 	Serial *string `json:"serial,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone to which the AP belongs
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type ApName string
@@ -233,13 +233,13 @@ type ApName string
 type ApOperationalSummary struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
-	AdministrativeState *string `json:"administrativeState,omitempty"`
+	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
-	// ApGroupId
+	// ApGroupID
 	// Identifier of the AP group to which the AP belongs
-	ApGroupId *string `json:"apGroupId,omitempty"`
+	ApGroupID *string `json:"apGroupId,omitempty"`
 
 	// ApprovedTime
 	// Timestamp when the AP was approved by the controller
@@ -251,7 +251,7 @@ type ApOperationalSummary struct {
 
 	// ConfigState
 	// State of the AP configuration.
-	ConfigState *string `json:"configState,omitempty"`
+	ConfigState *string `json:"configState,omitempty" validate:"oneof=completed configApplied configFailed fwApplied fwDownloaded fwFailed newConfig"`
 
 	// ConnectionState
 	// Connection state of the AP (value: 'Discovery','Connect','Rebooting','Disconnect','Provisioned')
@@ -261,32 +261,32 @@ type ApOperationalSummary struct {
 	// Country code of the AP
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	// CpId
+	// CpID
 	// Identifier of the control plane to which the AP is currently connected
-	CpId *string `json:"cpId,omitempty"`
+	CpID *string `json:"cpId,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DpId
+	// DpID
 	// Identifier of the data plane to which the AP is currently connected
-	DpId *string `json:"dpId,omitempty"`
+	DpID *string `json:"dpId,omitempty"`
 
-	// ExternalIp
+	// ExternalIP
 	// External IP address of the AP. This is only applicable when the AP is behind a NAT server.
-	ExternalIp *string `json:"externalIp,omitempty"`
+	ExternalIP *string `json:"externalIp,omitempty"`
 
 	// ExternalPort
 	// External port number of the AP. This is only applicable when the AP is behind a NAT server.
 	ExternalPort *int `json:"externalPort,omitempty"`
 
-	// Ip
+	// IP
 	// IP address of the AP
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
-	// IpType
+	// IPType
 	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically
 	// assigned or kept unchanged.
-	IpType *string `json:"ipType,omitempty"`
+	IPType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
 	// IsCriticalAP
 	// Indicates critical APs. Critical AP are APs that were tagged by the controller based on predefined
@@ -317,7 +317,7 @@ type ApOperationalSummary struct {
 
 	// MeshRole
 	// Mesh role of the AP
-	MeshRole *string `json:"meshRole,omitempty"`
+	MeshRole *string `json:"meshRole,omitempty" validate:"oneof=Disabled Down Map Root Undefined eMap"`
 
 	// Model
 	// Model name of the AP
@@ -330,7 +330,7 @@ type ApOperationalSummary struct {
 	// discovery and the AP did not have pre-existing record on the controller. Preprovision indicates that
 	// the AP was provisioned to the controller before AP made the first contact. Swap indicates that the AP
 	// was provisioned to be a replacement of an existing AP.
-	ProvisionMethod *string `json:"provisionMethod,omitempty"`
+	ProvisionMethod *string `json:"provisionMethod,omitempty" validate:"oneof=Discovered Preprovision Swap"`
 
 	// ProvisionStage
 	// Provisioning stage of the AP. This indicates the stage at which the AP is at in the provisioning
@@ -363,9 +363,9 @@ type ApOperationalSummary struct {
 	// 5GHZ radio channel number that the AP is currently using
 	Wifi50Channel *string `json:"wifi50Channel,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone to which the AP belongs
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type ClientList struct {
@@ -387,12 +387,12 @@ type ClientList struct {
 type CreateAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
-	AdministrativeState *string `json:"administrativeState,omitempty"`
+	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
-	// ApGroupId
+	// ApGroupID
 	// Identifier of the AP group to which the AP belongs. If the AP belongs to the default AP group, this
 	// property is not needed.
-	ApGroupId *string `json:"apGroupId,omitempty"`
+	ApGroupID *string `json:"apGroupId,omitempty"`
 
 	// AwsVenue
 	// Venue code
@@ -425,9 +425,9 @@ type CreateAP struct {
 	// Serial number of the AP
 	Serial *string `json:"serial,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone to which the AP belongs
-	ZoneId *string `json:"zoneId,omitempty" validate:"required"`
+	ZoneID *string `json:"zoneId,omitempty" validate:"required"`
 }
 
 type EventSummary struct {
@@ -465,7 +465,7 @@ type Login struct {
 type Mesh struct {
 	// MeshMode
 	// mesh mode
-	MeshMode *string `json:"meshMode,omitempty"`
+	MeshMode *string `json:"meshMode,omitempty" validate:"oneof=AUTO ROOT_AP MESH_AP DISABLE"`
 
 	// MeshUplinkEntryList
 	// MAC address of the neighbor AP
@@ -473,19 +473,19 @@ type Mesh struct {
 
 	// UplinkSelection
 	// Uplink selection
-	UplinkSelection *string `json:"uplinkSelection,omitempty"`
+	UplinkSelection *string `json:"uplinkSelection,omitempty" validate:"oneof=SMART MANUAL"`
 }
 
 type ModifyAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
-	AdministrativeState *string `json:"administrativeState,omitempty"`
+	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
-	// ApGroupId
+	// ApGroupID
 	// Identifier of the AP group to which the AP belongs
-	ApGroupId *string `json:"apGroupId,omitempty"`
+	ApGroupID *string `json:"apGroupId,omitempty"`
 
 	ApMgmtVlan *common.ApManagementVlan `json:"apMgmtVlan,omitempty"`
 
@@ -501,7 +501,7 @@ type ModifyAP struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -572,21 +572,21 @@ type ModifyAP struct {
 
 	Wifi50 *common.ApRadio50 `json:"wifi50,omitempty"`
 
-	WlanGroup24 *WlanGroup `json:"wlanGroup24,omitempty"`
+	WLANGroup24 *WLANGroup `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 *WlanGroup `json:"wlanGroup50,omitempty"`
+	WLANGroup50 *WLANGroup `json:"wlanGroup50,omitempty"`
 
-	// WlanService24Enabled
+	// WLANService24Enabled
 	// WLAN service enabled or disabled on 2.4GHz radio
-	WlanService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
+	WLANService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
 
-	// WlanService50Enabled
+	// WLANService50Enabled
 	// WLAN service enabled or disabled on 5GHz radio
-	WlanService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
+	WLANService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone to which the AP belongs
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type ModifyRogueType struct {
@@ -620,17 +620,17 @@ type NeighborAPListType struct {
 	// Connection state of the mesh neighbor AP
 	ConnectionState *string `json:"connectionState,omitempty"`
 
-	// ExternalIp
+	// ExternalIP
 	// External IP of the mesh neighbor AP
-	ExternalIp *string `json:"externalIp,omitempty"`
+	ExternalIP *string `json:"externalIp,omitempty"`
 
 	// ExternalPort
 	// External port of the mesh neighbor AP
 	ExternalPort *string `json:"externalPort,omitempty"`
 
-	// Ip
+	// IP
 	// IP address of the mesh neighbor AP
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	Mac *common.Mac `json:"mac,omitempty"`
 
@@ -656,35 +656,35 @@ type NeighborAPListType struct {
 }
 
 type Network struct {
-	Gateway *common.IpAddress `json:"gateway,omitempty"`
+	Gateway *common.IPAddress `json:"gateway,omitempty"`
 
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
-	// IpType
+	// IPType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically
 	// assigned or kept unchanged.
-	IpType *string `json:"ipType,omitempty"`
+	IPType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
 	Netmask *common.SubNetMask `json:"netmask,omitempty"`
 
-	PrimaryDns *common.IpAddress `json:"primaryDns,omitempty"`
+	PrimaryDNS *common.IPAddress `json:"primaryDns,omitempty"`
 
-	SecondaryDns *common.IpAddress `json:"secondaryDns,omitempty"`
+	SecondaryDNS *common.IPAddress `json:"secondaryDns,omitempty"`
 }
 
 type NetworkIpv6 struct {
-	Gateway *common.IpAddress `json:"gateway,omitempty"`
+	Gateway *common.IPAddress `json:"gateway,omitempty"`
 
-	Ip *common.IpAddress `json:"ip,omitempty"`
+	IP *common.IPAddress `json:"ip,omitempty"`
 
-	// IpType
+	// IPType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically
 	// assigned or kept unchanged.
-	IpType *string `json:"ipType,omitempty"`
+	IPType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
-	PrimaryDns *common.IpAddress `json:"primaryDns,omitempty"`
+	PrimaryDNS *common.IPAddress `json:"primaryDns,omitempty"`
 
-	SecondaryDns *common.IpAddress `json:"secondaryDns,omitempty"`
+	SecondaryDNS *common.IPAddress `json:"secondaryDns,omitempty"`
 }
 
 type SwitchoverAP struct {
@@ -700,18 +700,18 @@ type SwitchoverAP struct {
 	// Flag to delete AP record after switchover cluster. Default value is false.
 	DeleteRecord *bool `json:"deleteRecord,omitempty"`
 
-	// IpOrFqdn
+	// IPOrFQDN
 	// IP or FQDN address of destination cluster, Notice: Once this value been set, clusterName will be
 	// ignored.
-	IpOrFqdn *string `json:"ipOrFqdn,omitempty"`
+	IPOrFQDN *string `json:"ipOrFqdn,omitempty"`
 
-	// ZoneIdList
+	// ZoneIDList
 	// Zone ID list for which APs attached to will be switchovered.
-	ZoneIdList []string `json:"zoneIdList,omitempty"`
+	ZoneIDList []string `json:"zoneIdList,omitempty"`
 }
 
 type Syslog struct {
-	Address *common.IpAddress `json:"address,omitempty"`
+	Address *common.IPAddress `json:"address,omitempty"`
 
 	// Enabled
 	// Indicates whether syslog is enabled or disabled
@@ -719,39 +719,39 @@ type Syslog struct {
 
 	// Facility
 	// Facility of the syslog server
-	Facility *string `json:"facility,omitempty"`
+	Facility *string `json:"facility,omitempty" validate:"oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
 
 	// FlowLevel
 	// Flow Level of the syslog
-	FlowLevel *string `json:"flowLevel,omitempty"`
+	FlowLevel *string `json:"flowLevel,omitempty" validate:"oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
 
 	// Port
 	// Port number of the syslog server
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
 	// Priority
 	// Priority of the log messages
-	Priority *string `json:"priority,omitempty"`
+	Priority *string `json:"priority,omitempty" validate:"oneof=Emergency Alert Critical Error Warning Notice Info All"`
 
 	// Protocol
 	// Protocol of the syslog server
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 
-	SecondaryAddress *common.IpAddress `json:"secondaryAddress,omitempty"`
+	SecondaryAddress *common.IPAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
-	SecondaryPort *int `json:"secondaryPort,omitempty"`
+	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"gte=1,lte=65535"`
 
 	// SecondaryProtocol
 	// Secondary Server Protocol of the syslog server
-	SecondaryProtocol *string `json:"secondaryProtocol,omitempty"`
+	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
-type WlanGroup struct {
-	// Id
+type WLANGroup struct {
+	// ID
 	// Identifier of the WLAN group
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the WLAN group

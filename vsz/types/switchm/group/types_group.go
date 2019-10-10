@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 )
 
-type AuditId struct {
-	// Id
+type AuditID struct {
+	// ID
 	// Audit Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Audit name
@@ -21,9 +21,9 @@ type ClientObjectID struct {
 	// Extra values of the client
 	ExtraValues *ClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the client
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Label
 	// Label of the client
@@ -78,7 +78,7 @@ type CloneConfigBySwitch struct {
 }
 
 type DeleteSwitchGroupResult struct {
-	*AuditId
+	*AuditID
 }
 
 type ErrorObject struct {
@@ -90,9 +90,9 @@ type ErrorObject struct {
 }
 
 type GetConfigBySwitch struct {
-	// Id
 	// ID
-	Id *string `json:"id,omitempty"`
+	// ID
+	ID *string `json:"id,omitempty"`
 
 	// Source
 	// Source
@@ -215,25 +215,25 @@ type SwitchGroup struct {
 	// Create datetime of the switch group
 	CreateDatetime *int `json:"createDatetime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// Creator Id of the switch group
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// Description
 	// Description of the switch group
 	Description *string `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the management domain to which the switch group belong
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// Firmware
 	// Firmware of the switch group
 	Firmware *string `json:"firmware,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the switch group
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// LevelOne
 	// Level one  of the switch group
@@ -251,17 +251,17 @@ type SwitchGroup struct {
 	// Sampled instant of the switch group
 	SampledInstant *SwitchGroupSampledInstantType `json:"sampledInstant,omitempty"`
 
-	// SwitchGroupLevelOneId
+	// SwitchGroupLevelOneID
 	// Level one Id of the switch group
-	SwitchGroupLevelOneId *string `json:"switchGroupLevelOneId,omitempty"`
+	SwitchGroupLevelOneID *string `json:"switchGroupLevelOneId,omitempty"`
 
-	// SwitchGroupLevelTwoId
+	// SwitchGroupLevelTwoID
 	// Level two Id of the switch group
-	SwitchGroupLevelTwoId *string `json:"switchGroupLevelTwoId,omitempty"`
+	SwitchGroupLevelTwoID *string `json:"switchGroupLevelTwoId,omitempty"`
 
-	// TenantId
+	// TenantID
 	// Tenant Id of the switch group
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantID *string `json:"tenantId,omitempty"`
 }
 
 type SwitchGroupQueryResult struct {
@@ -296,5 +296,5 @@ type UpdateSwitchGroup struct {
 }
 
 type UpdateSwitchGroupResult struct {
-	*AuditId
+	*AuditID
 }

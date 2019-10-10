@@ -11,17 +11,17 @@ type CreateStaticRoute struct {
 	// Admin Distance
 	AdminDistance *int `json:"adminDistance,omitempty"`
 
-	// DestinationIp
+	// DestinationIP
 	// Destination IP
-	DestinationIp *string `json:"destinationIp,omitempty"`
+	DestinationIP *string `json:"destinationIp,omitempty"`
 
-	// FamilyId
+	// FamilyID
 	// Family Id
-	FamilyId *string `json:"familyId,omitempty"`
+	FamilyID *string `json:"familyId,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Switch Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
 	// NextHop
 	// Next Hop
@@ -33,11 +33,11 @@ type CreateStaticRoute struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 }
 
 type EmptyResult struct {
@@ -69,21 +69,21 @@ type StaticRoute struct {
 	// The create time of the Static Route
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// DestinationIp
+	// DestinationIP
 	// Destination IP
-	DestinationIp *string `json:"destinationIp,omitempty"`
+	DestinationIP *string `json:"destinationIp,omitempty"`
 
-	// FamilyId
+	// FamilyID
 	// Family Id
-	FamilyId *string `json:"familyId,omitempty"`
+	FamilyID *string `json:"familyId,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Switch Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
-	// Id
+	// ID
 	// Static Route Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// NextHop
 	// Next Hop
@@ -95,11 +95,11 @@ type StaticRoute struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the Static Route
@@ -158,9 +158,9 @@ type UpdateStaticRoute struct {
 	// Admin Distance
 	AdminDistance *int `json:"adminDistance,omitempty"`
 
-	// DestinationIp
+	// DestinationIP
 	// Destination IP
-	DestinationIp *string `json:"destinationIp,omitempty"`
+	DestinationIP *string `json:"destinationIp,omitempty"`
 
 	// NextHop
 	// Next Hop
@@ -172,5 +172,5 @@ type UpdateStaticRoute struct {
 
 	// PushTimeType
 	// Puch Config Type
-	PushTimeType *string `json:"pushTimeType,omitempty"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 }

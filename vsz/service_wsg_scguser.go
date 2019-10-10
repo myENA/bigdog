@@ -23,12 +23,12 @@ func (ss *WSGService) WSGSCGUserService () *WSGSCGUserService {
     return serv
 }
 
-func (s *WSGSCGUserService) AddUsers (ctx context.Context) (*scguser.ScgUserAuditId, error) {
+func (s *WSGSCGUserService) AddUsers (ctx context.Context) (*scguser.SCGUserAuditID, error) {
 }
 
-func (s *WSGSCGUserService) FindUsersByQueryCriteria (ctx context.Context) (*scguser.ScgUserList, error) {
+func (s *WSGSCGUserService) FindUsersByQueryCriteria (ctx context.Context) (*scguser.SCGUserList, error) {
 }
 
-func (s *WSGSCGUserService) FindUsersByUserId (ctx context.Context, userId string) (*scguser.GetScgUser, error) {
+func (s *WSGSCGUserService) FindUsersByUserId (ctx context.Context, userId string) (*scguser.GetSCGUser, error) {
 }
 

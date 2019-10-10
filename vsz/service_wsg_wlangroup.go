@@ -36,9 +36,9 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId (ct
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId (ctx context.Context, id string, memberId string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWLANGroupService) FindRkszonesWlangroupsById (ctx context.Context, id string, zoneId string) (*wlangroup.WlanGroup, error) {
+func (s *WSGWLANGroupService) FindRkszonesWlangroupsById (ctx context.Context, id string, zoneId string) (*wlangroup.WLANGroup, error) {
 }
 
-func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId (ctx context.Context, zoneId string) (*wlangroup.WlanGroupList, error) {
+func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId (ctx context.Context, zoneId string) (*wlangroup.WLANGroupList, error) {
 }
 

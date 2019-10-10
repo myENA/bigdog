@@ -260,9 +260,9 @@ func (t *TrafficQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 }
 
 type TrafficUsage struct {
-	// Id
+	// ID
 	// Identifier of the Traffic Usage
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Key
 	// Interface of the Traffic Usage

@@ -78,9 +78,9 @@ func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById (ctx context.Co
 func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWLANService) FindRkszonesWlansById (ctx context.Context, id string, zoneId string) (*wlan.WlanConfiguration, error) {
+func (s *WSGWLANService) FindRkszonesWlansById (ctx context.Context, id string, zoneId string) (*wlan.WLANConfiguration, error) {
 }
 
-func (s *WSGWLANService) FindRkszonesWlansByZoneId (ctx context.Context, zoneId string) (*wlan.WlanList, error) {
+func (s *WSGWLANService) FindRkszonesWlansByZoneId (ctx context.Context, zoneId string) (*wlan.WLANList, error) {
 }
 

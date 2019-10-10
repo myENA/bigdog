@@ -10,7 +10,7 @@ import (
 type CreateResult interface{}
 
 type DeleteBulk struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
 type EmptyResult struct {
@@ -40,19 +40,19 @@ type Get struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the vendor specific attribute profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Zone Id
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
 type List struct {
@@ -74,9 +74,9 @@ type List struct {
 }
 
 type ListType struct {
-	// Id
+	// ID
 	// Identifier of the vendor specific attribute profile
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
@@ -92,7 +92,7 @@ type Persist struct {
 }
 
 type QueryCriteriaResult struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -104,23 +104,23 @@ type QueryCriteriaResult struct {
 }
 
 type VendorSpecificAttribute struct {
-	// KeyId
+	// KeyID
 	// Key ID of vendor specific attribute
-	KeyId *int `json:"keyId,omitempty" validate:"required"`
+	KeyID *int `json:"keyId,omitempty" validate:"required"`
 
 	// SupportedRadiusProtocol
 	// The radius protocol to which this given vendor specific attribute will attach
-	SupportedRadiusProtocol *string `json:"supportedRadiusProtocol,omitempty" validate:"required"`
+	SupportedRadiusProtocol *string `json:"supportedRadiusProtocol,omitempty" validate:"required,oneof=ACCOUNTING AUTHENTICATION BOTH_AUTHENTICATION_AND_ACCOUNTING"`
 
 	// Type
 	// Type of vendor specific attribute
-	Type *string `json:"type,omitempty" validate:"required"`
+	Type *string `json:"type,omitempty" validate:"required,oneof=INTEGER STRING"`
 
 	// Value
 	// Value of vendor specific attribute
 	Value *string `json:"value,omitempty" validate:"required"`
 
-	// VendorId
+	// VendorID
 	// Vendor ID of vendor specific attribute
-	VendorId *int `json:"vendorId,omitempty" validate:"required"`
+	VendorID *int `json:"vendorId,omitempty" validate:"required"`
 }

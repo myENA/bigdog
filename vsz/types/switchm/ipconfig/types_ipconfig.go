@@ -7,21 +7,21 @@ import (
 )
 
 type Create struct {
-	// DhcpRelayAgent
+	// DHCPRelayAgent
 	// DHCP Relay IP Address
-	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
+	DHCPRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Switch Group Id
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
 	InAclConfigUUID *string `json:"inAclConfigUUID,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP Address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
 	// OspfArea
 	// OSPF IP Address
@@ -43,9 +43,9 @@ type Create struct {
 	// Subnet mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch Id
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 }
 
 type CreateResult interface{}
@@ -70,22 +70,22 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-type IpConfig struct {
+type IPConfig struct {
 	// CreatedTime
 	// Config Created Time
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// DhcpRelayAgent
+	// DHCPRelayAgent
 	// DHCP Replay IP Address
-	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
+	DHCPRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
 
-	// GroupId
+	// GroupID
 	// Switch Group ID
-	GroupId *string `json:"groupId,omitempty"`
+	GroupID *string `json:"groupId,omitempty"`
 
-	// Id
+	// ID
 	// Config ID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	InAclConfigName *string `json:"inAclConfigName,omitempty"`
 
@@ -93,9 +93,9 @@ type IpConfig struct {
 	// Ingress ACL Config UUID
 	InAclConfigUUID *string `json:"inAclConfigUUID,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP Address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
 	// OspfArea
 	// OSPF IP Address
@@ -119,9 +119,9 @@ type IpConfig struct {
 	// Subnet mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	// SwitchId
+	// SwitchID
 	// Switch ID
-	SwitchId *string `json:"switchId,omitempty"`
+	SwitchID *string `json:"switchId,omitempty"`
 
 	// SwitchName
 	// Switch Name
@@ -147,7 +147,7 @@ type List struct {
 
 	// List
 	// The list of configs in this response
-	List []*IpConfig `json:"list,omitempty"`
+	List []*IPConfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response
@@ -155,17 +155,17 @@ type List struct {
 }
 
 type Modify struct {
-	// DhcpRelayAgent
+	// DHCPRelayAgent
 	// DHCP Relay IP Address
-	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
+	DHCPRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
 	InAclConfigUUID *string `json:"inAclConfigUUID,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP Address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
 	// OspfArea
 	// OSPF IP Address

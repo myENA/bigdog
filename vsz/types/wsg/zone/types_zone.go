@@ -36,18 +36,18 @@ type ApLogin struct {
 	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty" validate:"required"`
 }
 
-type ApSnmpOptions struct {
-	// ApSnmpEnabled
+type ApSNMPOptions struct {
+	// ApSNMPEnabled
 	// Enable AP SNMP
-	ApSnmpEnabled *bool `json:"apSnmpEnabled,omitempty"`
+	ApSNMPEnabled *bool `json:"apSnmpEnabled,omitempty"`
 
-	// SnmpV2Agent
+	// SNMPV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []*common.SnmpCommunity `json:"snmpV2Agent,omitempty"`
+	SNMPV2Agent []*common.SNMPCommunity `json:"snmpV2Agent,omitempty"`
 
-	// SnmpV3Agent
+	// SNMPV3Agent
 	// User List of the SNMP V3 Agent.
-	SnmpV3Agent []*SnmpUser `json:"snmpV3Agent,omitempty"`
+	SNMPV3Agent []*SNMPUser `json:"snmpV3Agent,omitempty"`
 }
 
 type AvailableTunnelProfile struct {
@@ -55,11 +55,11 @@ type AvailableTunnelProfile struct {
 	// Enable AAA affinity (Soft GRE only)
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
-	// Id
+	// ID
 	// Tunnel Profile ID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	IpMode *common.IpMode `json:"ipMode,omitempty"`
+	IPMode *common.IPMode `json:"ipMode,omitempty"`
 
 	// Name
 	// Tunnel Profile Name
@@ -67,7 +67,7 @@ type AvailableTunnelProfile struct {
 
 	// TunnelType
 	// Tunnel Profile Type ("RuckusGRE", "SoftGRE",or "Ipsec")
-	TunnelType *string `json:"tunnelType,omitempty"`
+	TunnelType *string `json:"tunnelType,omitempty" validate:"oneof=RuckusGRE SoftGRE Ipsec"`
 }
 
 type AvailableTunnelProfileList struct {
@@ -83,7 +83,7 @@ type AvailableTunnelProfileList struct {
 type BackgroundScanning struct {
 	// FrequencyInSec
 	// Frequency in second
-	FrequencyInSec *int `json:"frequencyInSec,omitempty"`
+	FrequencyInSec *int `json:"frequencyInSec,omitempty" validate:"gte=1,lte=65535"`
 }
 
 type BandBalancing struct {
@@ -92,11 +92,11 @@ type BandBalancing struct {
 	// loaded band to balance clients to the other band, PROACTIVE-Uses BASIC functionality and actively
 	// rebalances clients via 802.11v BTM, STRICT-Uses PROACTIVE functionality and forcefully rebalances
 	// clients via 802.11v BTM
-	Mode *string `json:"mode,omitempty"`
+	Mode *string `json:"mode,omitempty" validate:"oneof=BASIC PROACTIVE STRICT"`
 
 	// Wifi24Percentage
 	// Percentage of client load on 2.4GHz radio band
-	Wifi24Percentage *int `json:"wifi24Percentage,omitempty"`
+	Wifi24Percentage *int `json:"wifi24Percentage,omitempty" validate:"gte=0,lte=100"`
 }
 
 type BonjourGatewayPolicyConfiguration struct {
@@ -124,9 +124,9 @@ type BonjourGatewayPolicySummary struct {
 	// Description of the bonjour gateway policy
 	Description *string `json:"description,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the bonjour gateway policy
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// LastModifiedBy
 	// Last modified user of the bonjour gateway policy
@@ -147,11 +147,11 @@ type BonjourGatewayPolicySummary struct {
 type BonjourPolicyRule struct {
 	// BridgeService
 	// Bridge service
-	BridgeService *string `json:"bridgeService,omitempty" validate:"required"`
+	BridgeService *string `json:"bridgeService,omitempty" validate:"required,oneof=AIRDISK AIRPLAY AIRPORT_MANAGEMENT AIRPRINT AIRTUNES APPLE_FILE_SHARING APPLE_MOBILE_DEVICES APPLETV ICLOUD_SYNC ITUNES_REMOTE ITUNES_SHARING OPEN_DIRECTORY_MASTER OPTICAL_DISK_SHARING SCREEN_SHARING SECURE_FILE_SHARING SECURE_SHELL WWW_HTTP WWW_HTTPS WORKGROUP_MANAGER XGRID OTHER"`
 
 	// FromVlan
 	// From VLAN
-	FromVlan *int `json:"fromVlan,omitempty" validate:"required"`
+	FromVlan *int `json:"fromVlan,omitempty" validate:"required,gte=1,lte=4094"`
 
 	// Notes
 	// Notes
@@ -163,7 +163,7 @@ type BonjourPolicyRule struct {
 
 	// ToVlan
 	// To VLAN
-	ToVlan *int `json:"toVlan,omitempty" validate:"required"`
+	ToVlan *int `json:"toVlan,omitempty" validate:"required,gte=1,lte=4094"`
 }
 
 // BonjourPolicyRuleConfiguration
@@ -198,7 +198,7 @@ type BonjourPolicyRuleConfiguration struct {
 type ClientLoadBalancing struct {
 	// AdjacentRadioThreshold
 	// Adjacent radio threshold
-	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty"`
+	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty" validate:"gte=1,lte=100"`
 }
 
 type CreateBonjourGatewayPolicy struct {
@@ -273,7 +273,7 @@ type CreateZone struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -301,7 +301,7 @@ type CreateZone struct {
 	// DFS Channel enabled configuration of the zone, only for the US country code.
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DhcpSiteConfig *common.DhcpSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
+	DHCPSiteConfig *common.DHCPSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -315,9 +315,9 @@ type CreateZone struct {
 	// Directed multicast from wireless client.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the management domain to which the zone belongs
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// DosBarringCheckPeriod
 	// DoS Protection(Barring UE) check period of the zone.
@@ -353,7 +353,7 @@ type CreateZone struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -361,7 +361,7 @@ type CreateZone struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
 
@@ -407,13 +407,13 @@ type CreateZone struct {
 
 	SmartMonitor *common.SmartMonitor `json:"smartMonitor,omitempty"`
 
-	SnmpAgent *ApSnmpOptions `json:"snmpAgent,omitempty"`
+	SNMPAgent *ApSNMPOptions `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty"`
+	SSHTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 
@@ -435,9 +435,9 @@ type CreateZone struct {
 
 	Wifi50 *common.Radio50 `json:"wifi50,omitempty"`
 
-	// ZoneAffinityProfileId
+	// ZoneAffinityProfileID
 	// Zone affinity profile of the zone
-	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
+	ZoneAffinityProfileID *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
 type CustomizedTimeZone struct {
@@ -449,11 +449,11 @@ type CustomizedTimeZone struct {
 
 	// GmtOffset
 	// GMT offset
-	GmtOffset *int `json:"gmtOffset,omitempty" validate:"required"`
+	GmtOffset *int `json:"gmtOffset,omitempty" validate:"required,gte=-11,lte=14"`
 
 	// GmtOffsetMinute
 	// GMT offset minute
-	GmtOffsetMinute *int `json:"gmtOffsetMinute,omitempty" validate:"required"`
+	GmtOffsetMinute *int `json:"gmtOffsetMinute,omitempty" validate:"required,gte=0,lte=59"`
 
 	Start *DaylightSavingTime `json:"start,omitempty"`
 }
@@ -461,27 +461,27 @@ type CustomizedTimeZone struct {
 type DaylightSavingTime struct {
 	// Day
 	// Day of the week (0 for Sunday, 1 for Monday, 2 for Tuesday, and so on)
-	Day *int `json:"day,omitempty" validate:"required"`
+	Day *int `json:"day,omitempty" validate:"required,oneof=0 1 2 3 4 5 6"`
 
 	// Hour
 	// Hour of the day
-	Hour *int `json:"hour,omitempty" validate:"required"`
+	Hour *int `json:"hour,omitempty" validate:"required,gte=0,lte=23"`
 
 	// Month
 	// Month when daylight saving time begins
-	Month *int `json:"month,omitempty" validate:"required"`
+	Month *int `json:"month,omitempty" validate:"required,oneof=1 2 3 4 5 6 7 8 9 10 11 12"`
 
 	// Week
 	// Week of the month (1 for the first week, 2 for the second week, and so on)
-	Week *int `json:"week,omitempty" validate:"required"`
+	Week *int `json:"week,omitempty" validate:"required,oneof=1 2 3 4 5"`
 }
 
-type DhcpSiteConfigList struct {
+type DHCPSiteConfigList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*common.DhcpSiteConfigListRef `json:"list,omitempty"`
+	List []*common.DHCPSiteConfigListRef `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -491,9 +491,9 @@ type DiffServConfiguration struct {
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the zone
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -515,9 +515,9 @@ type DiffServList struct {
 }
 
 type DiffServSummary struct {
-	// Id
+	// ID
 	// Identifier of the diff serv
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the diff serv
@@ -537,7 +537,7 @@ type DownlinkDiffServ struct {
 type MeshConfiguration struct {
 	// MeshRadioIdx
 	// Mesh radio index
-	MeshRadioIdx *string `json:"meshRadioIdx,omitempty"`
+	MeshRadioIdx *string `json:"meshRadioIdx,omitempty" validate:"oneof=Radio24G Radio5G"`
 
 	// Passphrase
 	// Passphrase for the mesh network
@@ -629,7 +629,7 @@ type ModifyZone struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -657,7 +657,7 @@ type ModifyZone struct {
 	// DFS Channel enabled configuration of the zone, only for the US country code .
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DhcpSiteConfig *common.DhcpSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
+	DHCPSiteConfig *common.DHCPSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -671,9 +671,9 @@ type ModifyZone struct {
 	// Directed multicast from wireless client.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the management domain to which the zone belongs
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// DosBarringCheckPeriod
 	// DoS Protection(Barring UE) check period of the zone.
@@ -709,7 +709,7 @@ type ModifyZone struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -717,7 +717,7 @@ type ModifyZone struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
 
@@ -763,13 +763,13 @@ type ModifyZone struct {
 
 	SmartMonitor *common.SmartMonitor `json:"smartMonitor,omitempty"`
 
-	SnmpAgent *ApSnmpOptions `json:"snmpAgent,omitempty"`
+	SNMPAgent *ApSNMPOptions `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty"`
+	SSHTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 
@@ -789,9 +789,9 @@ type ModifyZone struct {
 
 	Wifi50 *common.Radio50 `json:"wifi50,omitempty"`
 
-	// ZoneAffinityProfileId
+	// ZoneAffinityProfileID
 	// zone affinity profile Id
-	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
+	ZoneAffinityProfileID *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
 type QueryCriteria struct{}
@@ -807,17 +807,17 @@ type Rogue struct {
 
 	// ReportType
 	// Report type
-	ReportType *string `json:"reportType,omitempty"`
+	ReportType *string `json:"reportType,omitempty" validate:"oneof=All Malicious"`
 }
 
-type SnmpUser struct {
+type SNMPUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
-	AuthPassword *string `json:"authPassword,omitempty"`
+	AuthPassword *string `json:"authPassword,omitempty" validate:"min=8"`
 
 	// AuthProtocol
 	// authProtocol of the SNMP User.
-	AuthProtocol *string `json:"authProtocol,omitempty"`
+	AuthProtocol *string `json:"authProtocol,omitempty" validate:"oneof=NONE MD5 SHA"`
 
 	// NotificationEnabled
 	// notification privilege of the SNMP User
@@ -829,15 +829,15 @@ type SnmpUser struct {
 
 	// NotificationType
 	// type of the notification privilege
-	NotificationType *string `json:"notificationType,omitempty"`
+	NotificationType *string `json:"notificationType,omitempty" validate:"oneof=TRAP INFORM"`
 
 	// PrivPassword
 	// privPassword of the SNMP User.
-	PrivPassword *string `json:"privPassword,omitempty"`
+	PrivPassword *string `json:"privPassword,omitempty" validate:"min=8"`
 
 	// PrivProtocol
 	// privProtocol of the SNMP User.
-	PrivProtocol *string `json:"privProtocol,omitempty"`
+	PrivProtocol *string `json:"privProtocol,omitempty" validate:"oneof=NONE DES AES"`
 
 	// ReadEnabled
 	// read privilege of the SNMP User
@@ -855,43 +855,43 @@ type SnmpUser struct {
 type SoftGreRef struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 }
 
 type Syslog struct {
-	Address *common.IpAddress `json:"address,omitempty"`
+	Address *common.IPAddress `json:"address,omitempty"`
 
 	// Facility
 	// Facility of the syslog server
-	Facility *string `json:"facility,omitempty"`
+	Facility *string `json:"facility,omitempty" validate:"oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
 
 	// FlowLevel
 	// Flow Level of the syslog
-	FlowLevel *string `json:"flowLevel,omitempty"`
+	FlowLevel *string `json:"flowLevel,omitempty" validate:"oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
 
 	// Port
 	// Port number of the syslog server
-	Port *int `json:"port,omitempty"`
+	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
 	// Priority
 	// Priority of the log messages
-	Priority *string `json:"priority,omitempty"`
+	Priority *string `json:"priority,omitempty" validate:"oneof=Emergency Alert Critical Error Warning Notice Info All"`
 
 	// Protocol
 	// Protocol of the syslog server
-	Protocol *string `json:"protocol,omitempty"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 
-	SecondaryAddress *common.IpAddress `json:"secondaryAddress,omitempty"`
+	SecondaryAddress *common.IPAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
-	SecondaryPort *int `json:"secondaryPort,omitempty"`
+	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"gte=1,lte=65535"`
 
 	// SecondaryProtocol
 	// Secondary Server Protocol of the syslog server
-	SecondaryProtocol *string `json:"secondaryProtocol,omitempty"`
+	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
 type TimezoneSetting struct {
@@ -971,7 +971,7 @@ type ZoneConfiguration struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -999,7 +999,7 @@ type ZoneConfiguration struct {
 	// DFS Channel enabled configuration of the zone, only for the US country code .
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DhcpSiteConfig *common.DhcpSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
+	DHCPSiteConfig *common.DHCPSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -1013,9 +1013,9 @@ type ZoneConfiguration struct {
 	// Directed multicast from wireless client.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Identifier of the management domain to which the zone belongs
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// DosBarringCheckPeriod
 	// DoS Protection(Barring UE) check period of the zone.
@@ -1045,11 +1045,11 @@ type ZoneConfiguration struct {
 	// Enabled Health Check Sites.
 	HealthCheckSitesEnabled *bool `json:"healthCheckSitesEnabled,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the zone
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	IpMode *common.IpMode `json:"ipMode,omitempty"`
+	IPMode *common.IPMode `json:"ipMode,omitempty"`
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
@@ -1057,7 +1057,7 @@ type ZoneConfiguration struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -1065,7 +1065,7 @@ type ZoneConfiguration struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
 
@@ -1111,13 +1111,13 @@ type ZoneConfiguration struct {
 
 	SmartMonitor *common.SmartMonitor `json:"smartMonitor,omitempty"`
 
-	SnmpAgent *ApSnmpOptions `json:"snmpAgent,omitempty"`
+	SNMPAgent *ApSNMPOptions `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty"`
+	SSHTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 
@@ -1139,9 +1139,9 @@ type ZoneConfiguration struct {
 
 	Wifi50 *common.Radio50SuperSet `json:"wifi50,omitempty"`
 
-	// ZoneAffinityProfileId
+	// ZoneAffinityProfileID
 	// zone affinity profile Id
-	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
+	ZoneAffinityProfileID *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
 type ZoneList struct {
@@ -1155,9 +1155,9 @@ type ZoneList struct {
 }
 
 type ZoneSummary struct {
-	// Id
+	// ID
 	// Identifier of the zone
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the zone

@@ -19,25 +19,25 @@ type AAAServer struct {
 	// The create time of the AAA server
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// CreatorId
+	// CreatorID
 	// AAA server creator Id
-	CreatorId *string `json:"creatorId,omitempty"`
+	CreatorID *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// AAA server creator name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Id
+	// ID
 	// AAA server ID
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// Ip
+	// IP
 	// AAA server IP address
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	// Level
 	// Access level of AAA server
-	Level *string `json:"level,omitempty"`
+	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Name
 	// Name of the AAA server
@@ -49,7 +49,7 @@ type AAAServer struct {
 
 	// Purpose
 	// AAA server purpose
-	Purpose *string `json:"purpose,omitempty"`
+	Purpose *string `json:"purpose,omitempty" validate:"oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
 
 	// Secret
 	// AAA server secret
@@ -57,15 +57,15 @@ type AAAServer struct {
 
 	// ServerType
 	// The server tpye of the AAA server
-	ServerType *string `json:"serverType,omitempty"`
+	ServerType *string `json:"serverType,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// UpdatedTime
 	// The modify time of the AAA server
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 
-	// UpdaterId
+	// UpdaterID
 	// AAA server updater Id
-	UpdaterId *string `json:"updaterId,omitempty"`
+	UpdaterID *string `json:"updaterId,omitempty"`
 
 	// UpdaterUsername
 	// AAA server updater name
@@ -132,13 +132,13 @@ type CreateAdminAAAServer struct {
 	// AAA server authentication port
 	AuthPort *int `json:"authPort,omitempty"`
 
-	// Ip
+	// IP
 	// AAA server IP address
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	// Level
 	// Access level of AAA server
-	Level *string `json:"level,omitempty"`
+	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Name
 	// Name of the AAA server
@@ -150,7 +150,7 @@ type CreateAdminAAAServer struct {
 
 	// Purpose
 	// AAA server purpose
-	Purpose *string `json:"purpose,omitempty"`
+	Purpose *string `json:"purpose,omitempty" validate:"oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
 
 	// Secret
 	// AAA server secret
@@ -158,7 +158,7 @@ type CreateAdminAAAServer struct {
 
 	// ServerType
 	// The server tpye of the AAA server
-	ServerType *string `json:"serverType,omitempty"`
+	ServerType *string `json:"serverType,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// Username
 	// Username for local user

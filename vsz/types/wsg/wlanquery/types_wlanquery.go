@@ -6,16 +6,16 @@ import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
-type ApWlanBssid struct {
+type ApWLANBssid struct {
 	ApMac *string `json:"apMac,omitempty"`
 
 	DeviceName *string `json:"deviceName,omitempty"`
 
-	WlanBssids []*WlanBssid `json:"wlanBssids,omitempty"`
+	WLANBssids []*WLANBssid `json:"wlanBssids,omitempty"`
 }
 
-type ApWlanBssidQueryList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+type ApWLANBssidQueryList struct {
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of first index in current page
@@ -25,17 +25,17 @@ type ApWlanBssidQueryList struct {
 	// Has more data or not
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*ApWlanBssid `json:"list,omitempty"`
+	List []*ApWLANBssid `json:"list,omitempty"`
 
 	// TotalCount
 	// Total matched AP count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type CreateWlanQuery struct {
+type CreateWLANQuery struct {
 	Alerts *int `json:"alerts,omitempty"`
 
-	ApplicationVisibility *string `json:"applicationVisibility,omitempty"`
+	ApplicationVisibility *string `json:"applicationVisibility,omitempty" validate:"oneof=Enabled Disabled"`
 
 	AuthMethod *string `json:"authMethod,omitempty"`
 
@@ -47,9 +47,9 @@ type CreateWlanQuery struct {
 
 	DomainName *string `json:"domainName,omitempty"`
 
-	Enability1K *string `json:"enability11k,omitempty"`
+	Enability11K *string `json:"enability11k,omitempty" validate:"oneof=Enabled Disabled"`
 
-	Enability1R *string `json:"enability11r,omitempty"`
+	Enability11R *string `json:"enability11r,omitempty" validate:"oneof=Enabled Disabled"`
 
 	EncryptionMethod *string `json:"encryptionMethod,omitempty"`
 
@@ -57,11 +57,11 @@ type CreateWlanQuery struct {
 
 	Ssid *string `json:"ssid,omitempty"`
 
-	Status *string `json:"status,omitempty"`
+	Status *string `json:"status,omitempty" validate:"oneof=Online Flagged Offline"`
 
 	TenantDomainName *string `json:"tenantDomainName,omitempty"`
 
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantID *string `json:"tenantId,omitempty"`
 
 	Traffic *int `json:"traffic,omitempty"`
 
@@ -69,7 +69,7 @@ type CreateWlanQuery struct {
 
 	TrafficUplink *int `json:"trafficUplink,omitempty"`
 
-	Tunneled *string `json:"tunneled,omitempty"`
+	Tunneled *string `json:"tunneled,omitempty" validate:"oneof=Tunneled APBridged"`
 
 	Utp *string `json:"utp,omitempty"`
 
@@ -77,35 +77,35 @@ type CreateWlanQuery struct {
 
 	WepEncryptionStrength *int `json:"wepEncryptionStrength,omitempty"`
 
-	WlanId *string `json:"wlanId,omitempty"`
+	WLANID *string `json:"wlanId,omitempty"`
 
 	WpaVersion *string `json:"wpaVersion,omitempty"`
 
-	ZeroITEnabled *string `json:"zeroITEnabled,omitempty"`
+	ZeroITEnabled *string `json:"zeroITEnabled,omitempty" validate:"oneof=Enabled Disabled"`
 
-	ZeroITOnboard *string `json:"zeroITOnboard,omitempty"`
+	ZeroITOnboard *string `json:"zeroITOnboard,omitempty" validate:"oneof=Enabled Disabled"`
 
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-type WlanBssid struct {
+type WLANBssid struct {
 	Bssid *string `json:"bssid,omitempty"`
 
-	RadioId *int `json:"radioId,omitempty"`
+	RadioID *int `json:"radioId,omitempty"`
 
-	WlanId *int `json:"wlanId,omitempty"`
+	WLANID *int `json:"wlanId,omitempty"`
 
-	WlanName *string `json:"wlanName,omitempty"`
+	WLANName *string `json:"wlanName,omitempty"`
 }
 
-type WlanQueryList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+type WLANQueryList struct {
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*CreateWlanQuery `json:"list,omitempty"`
+	List []*CreateWLANQuery `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

@@ -7,9 +7,9 @@ import (
 )
 
 type ApNumberLimitSettingOfDomain struct {
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// DomainName
 	// Domain Name
@@ -25,9 +25,9 @@ type ApNumberLimitSettingOfDomain struct {
 }
 
 type ApNumberLimitSettingOfZone struct {
-	// DomainId
+	// DomainID
 	// Admin Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// DomainName
 	// Admin Domain Name
@@ -41,9 +41,9 @@ type ApNumberLimitSettingOfZone struct {
 	// Share mode
 	Shared *bool `json:"shared,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Zone Id
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 
 	// ZoneName
 	// Zone Name
@@ -55,13 +55,13 @@ type AuthenticationKey struct {
 	// Authentication Key value
 	Key *string `json:"key,omitempty"`
 
-	// KeyId
+	// KeyID
 	// Authentication Key ID
-	KeyId *int `json:"keyId,omitempty"`
+	KeyID *int `json:"keyId,omitempty"`
 
 	// KeyType
 	// Authentication Key Type
-	KeyType *string `json:"keyType,omitempty"`
+	KeyType *string `json:"keyType,omitempty" validate:"oneof=SHA1 MD5"`
 }
 
 type CaptchaSetting struct {
@@ -85,9 +85,9 @@ type ControllerListType struct {
 	// AP version
 	ApVersion *string `json:"apVersion,omitempty"`
 
-	// ClusterIp
+	// ClusterIP
 	// Cluster IP
-	ClusterIp *string `json:"clusterIp,omitempty"`
+	ClusterIP *string `json:"clusterIp,omitempty"`
 
 	// ClusterIpv6
 	// Cluster IPv6
@@ -97,17 +97,17 @@ type ControllerListType struct {
 	// Indicator the role of the controller
 	ClusterRole *string `json:"clusterRole,omitempty"`
 
-	// ControlIp
+	// ControlIP
 	// Control IP
-	ControlIp *string `json:"controlIp,omitempty"`
+	ControlIP *string `json:"controlIp,omitempty"`
 
 	// ControlIpv6
 	// Control IPv6
 	ControlIpv6 *string `json:"controlIpv6,omitempty"`
 
-	// ControlNatIp
+	// ControlNatIP
 	// Control NAT IP address settings
-	ControlNatIp *string `json:"controlNatIp,omitempty"`
+	ControlNatIP *string `json:"controlNatIp,omitempty"`
 
 	// Description
 	// Description of the controller
@@ -117,17 +117,17 @@ type ControllerListType struct {
 	// Host name of the controller
 	HostName *string `json:"hostName,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the controller
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Mac
 	// MAC address of the controller
 	Mac *string `json:"mac,omitempty"`
 
-	// ManagementIp
+	// ManagementIP
 	// Management IP
-	ManagementIp *string `json:"managementIp,omitempty"`
+	ManagementIP *string `json:"managementIp,omitempty"`
 
 	// ManagementIpv6
 	// Management IPv6
@@ -155,9 +155,9 @@ type ControllerListType struct {
 }
 
 type ControlPlaneConfiguration struct {
-	// IpMode
+	// IPMode
 	// IP support version
-	IpMode *string `json:"ipMode,omitempty"`
+	IPMode *string `json:"ipMode,omitempty" validate:"oneof=IPV4 IPV4_IPV6"`
 
 	Ipv4AccessAndCoreSeparation *Ipv4AccessAndCoreSeparation `json:"ipv4AccessAndCoreSeparation,omitempty"`
 
@@ -185,17 +185,17 @@ type ControlPlaneList struct {
 }
 
 type ControlPlaneListType struct {
-	// ClusterIp
+	// ClusterIP
 	// Cluster IP
-	ClusterIp *string `json:"clusterIp,omitempty"`
+	ClusterIP *string `json:"clusterIp,omitempty"`
 
 	// ClusterRole
 	// Cluster Role
 	ClusterRole *string `json:"clusterRole,omitempty"`
 
-	// ControlIp
+	// ControlIP
 	// Control IP
-	ControlIp *string `json:"controlIp,omitempty"`
+	ControlIP *string `json:"controlIp,omitempty"`
 
 	// Description
 	// Description
@@ -205,13 +205,13 @@ type ControlPlaneListType struct {
 	// Firmware
 	Firmware *string `json:"firmware,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the control plane
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// ManagementIp
+	// ManagementIP
 	// Management IP
-	ManagementIp *string `json:"managementIp,omitempty"`
+	ManagementIP *string `json:"managementIp,omitempty"`
 
 	// Model
 	// Model
@@ -243,7 +243,7 @@ type CpStaticRoute struct {
 
 	// Metric
 	// Metric
-	Metric *int `json:"metric,omitempty"`
+	Metric *int `json:"metric,omitempty" validate:"gte=0,lte=999"`
 
 	// NetworkAddress
 	// Network Address
@@ -259,9 +259,9 @@ type CpUserDefinedInterface struct {
 	// Gateway
 	Gateway *string `json:"gateway,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP Address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
 	// Name
 	// Name
@@ -269,11 +269,11 @@ type CpUserDefinedInterface struct {
 
 	// PhysicalInterface
 	// Physical interface
-	PhysicalInterface *string `json:"physicalInterface,omitempty"`
+	PhysicalInterface *string `json:"physicalInterface,omitempty" validate:"oneof=Control Management Cluster"`
 
 	// Service
 	// Service
-	Service *string `json:"service,omitempty"`
+	Service *string `json:"service,omitempty" validate:"oneof=NotSpecified Hotspot"`
 
 	// SubnetMask
 	// Subnet Mask
@@ -285,7 +285,7 @@ type CpUserDefinedInterface struct {
 }
 
 type DataPlaneConfiguration struct {
-	InterfaceMode *string `json:"interfaceMode,omitempty"`
+	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"oneof=SINGLE ACCESS_AND_CORE"`
 
 	Ipv6PrimaryInterface *Ipv6PrimaryInterface `json:"ipv6PrimaryInterface,omitempty"`
 
@@ -325,13 +325,13 @@ type DataPlaneListType struct {
 	// # of Ruckus GRE Tunnels
 	GreTunnels *string `json:"greTunnels,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the data plane
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
-	// Ip
+	// IP
 	// IP address
-	Ip *string `json:"ip,omitempty"`
+	IP *string `json:"ip,omitempty"`
 
 	// Ipv6
 	// IP address of ipv6
@@ -367,7 +367,7 @@ type DataPlaneListType struct {
 }
 
 type DeleteBulkFtp struct {
-	IdList common.IdList `json:"idList,omitempty"`
+	IDList common.IDList `json:"idList,omitempty"`
 }
 
 type FriendlyNameLang struct {
@@ -406,9 +406,9 @@ type Ftp struct {
 	// creator id
 	CreatorUUID *string `json:"creatorUUID,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// FtpHost
 	// IP/DN of FTP
@@ -424,11 +424,11 @@ type Ftp struct {
 
 	// FtpPort
 	// Port used by FTP
-	FtpPort *int `json:"ftpPort,omitempty"`
+	FtpPort *int `json:"ftpPort,omitempty" validate:"gte=21,lte=65535"`
 
 	// FtpProtocol
 	// Protocol used
-	FtpProtocol *string `json:"ftpProtocol,omitempty"`
+	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"oneof=FTP SFTP"`
 
 	// FtpRemoteDirectory
 	// Destination directory used for file upload
@@ -438,9 +438,9 @@ type Ftp struct {
 	// Username for login
 	FtpUserName *string `json:"ftpUserName,omitempty"`
 
-	// Id
+	// ID
 	// FTP Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// LastModifiedBy
 	// last modified user
@@ -450,9 +450,9 @@ type Ftp struct {
 	// last modified time
 	LastModifiedOn *int `json:"lastModifiedOn,omitempty"`
 
-	// TenantId
+	// TenantID
 	// Tenant Id
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantID *string `json:"tenantId,omitempty"`
 }
 
 type FtpGlobalSetting struct {
@@ -460,17 +460,17 @@ type FtpGlobalSetting struct {
 	// enable logging to remote syslog server
 	Enabled *bool `json:"enabled,omitempty"`
 
-	// FtpId
+	// FtpID
 	// Identifier of the FTP Server
-	FtpId *string `json:"ftpId,omitempty"`
+	FtpID *string `json:"ftpId,omitempty"`
 
 	// FtpInterval
 	// ftpInterval
-	FtpInterval *string `json:"ftpInterval,omitempty"`
+	FtpInterval *string `json:"ftpInterval,omitempty" validate:"oneof=Hourly"`
 }
 
 type FtpList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first FTP returned out of the complete FTP list
@@ -516,23 +516,23 @@ type GatewayAdvanced struct {
 
 	// GtpInterfaceType
 	// GTPv2 interface type
-	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty"`
+	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"oneof=S2A S5_S8"`
 
 	// GtpNetworkServiceAcessPointIdentifier
 	// GTP network service access point identifier (NSAPI)
-	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty"`
+	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"gte=0,lte=5"`
 
 	// ImeiInGtp
 	// Include IMEI IE in GTP messages
 	ImeiInGtp *bool `json:"imeiInGtp,omitempty"`
 
-	// ScgRaiInGtpV2
+	// SCGRaiInGtpV2
 	// Include SCG-RAI in GTPv2 messages
-	ScgRaiInGtpV2 *bool `json:"scgRaiInGtpV2,omitempty"`
+	SCGRaiInGtpV2 *bool `json:"scgRaiInGtpV2,omitempty"`
 
-	// ScgSaiInGtpV2
+	// SCGSaiInGtpV2
 	// Include SCG-SAI in GTPv2 messages
-	ScgSaiInGtpV2 *bool `json:"scgSaiInGtpV2,omitempty"`
+	SCGSaiInGtpV2 *bool `json:"scgSaiInGtpV2,omitempty"`
 
 	// TaiInGtpV2
 	// Include TAI in GTPv2 messages
@@ -602,7 +602,7 @@ type InventoryListType struct {
 
 	TotalAPs *int `json:"totalAPs,omitempty"`
 
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 
 	ZoneName *string `json:"zoneName,omitempty"`
 }
@@ -610,7 +610,7 @@ type InventoryListType struct {
 type Ipv4AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
-	DefaultGateway *string `json:"defaultGateway,omitempty"`
+	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"oneof=Control Management Cluster"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -626,13 +626,13 @@ type Ipv4ClusterInterface struct {
 	// Gateway
 	Gateway *string `json:"gateway,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
-	// IpMode
+	// IPMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty"`
+	IPMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
 
 	// SubnetMask
 	// Subnet mask
@@ -644,17 +644,17 @@ type Ipv4ControlInterface struct {
 	// Gateway
 	Gateway *string `json:"gateway,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
-	// IpMode
+	// IPMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty"`
+	IPMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
 
-	// NatIp
+	// NatIP
 	// NAT IP
-	NatIp *string `json:"natIp,omitempty"`
+	NatIP *string `json:"natIp,omitempty"`
 
 	// SubnetMask
 	// Subnet mask
@@ -666,13 +666,13 @@ type Ipv4ManagementInterface struct {
 	// Gateway
 	Gateway *string `json:"gateway,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
-	// IpMode
+	// IPMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty"`
+	IPMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
 
 	// SubnetMask
 	// Subnet mask
@@ -682,7 +682,7 @@ type Ipv4ManagementInterface struct {
 type Ipv6AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
-	DefaultGateway *string `json:"defaultGateway,omitempty"`
+	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"oneof=Control Management Cluster"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -698,13 +698,13 @@ type Ipv6ControlInterface struct {
 	// Gateway
 	Gateway *string `json:"gateway,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
-	// IpMode
+	// IPMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty"`
+	IPMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC AUTO"`
 }
 
 type Ipv6ManagementInterface struct {
@@ -712,13 +712,13 @@ type Ipv6ManagementInterface struct {
 	// Gateway
 	Gateway *string `json:"gateway,omitempty"`
 
-	// IpAddress
+	// IPAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 
-	// IpMode
+	// IPMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty"`
+	IPMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC AUTO"`
 }
 
 type Ipv6PrimaryInterface struct {
@@ -726,13 +726,13 @@ type Ipv6PrimaryInterface struct {
 	// Gateway
 	Gateway *string `json:"gateway,omitempty" validate:"required"`
 
-	// IpAddress
+	// IPAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty" validate:"required"`
+	IPAddress *string `json:"ipAddress,omitempty" validate:"required"`
 
-	// IpMode
+	// IPMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"required"`
+	IPMode *string `json:"ipMode,omitempty" validate:"required,oneof=AUTO STATIC"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -743,7 +743,7 @@ type Ipv6PrimaryInterface struct {
 	SecondaryDNSServer *string `json:"secondaryDNSServer,omitempty"`
 }
 
-type LwappScgConfiguration struct {
+type LWAPP2SCGConfiguration struct {
 	// Acl
 	// acl  of the lwapp
 	Acl *string `json:"acl,omitempty"`
@@ -752,21 +752,21 @@ type LwappScgConfiguration struct {
 	// accessPoint List  of the lwapp
 	ApList []string `json:"apList,omitempty"`
 
-	// NatIpTranslation
+	// NatIPTranslation
 	// natIpTranslation of the lwapp
-	NatIpTranslation *bool `json:"natIpTranslation,omitempty"`
+	NatIPTranslation *bool `json:"natIpTranslation,omitempty"`
 
 	// PasvMaxPort
 	// pasvMaxPort of the lwapp
-	PasvMaxPort *int `json:"pasvMaxPort,omitempty"`
+	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"gte=16384,lte=65000"`
 
 	// PasvMinPort
 	// pasvMinPort of the lwapp
-	PasvMinPort *int `json:"pasvMinPort,omitempty"`
+	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"gte=16384,lte=65000"`
 
 	// Policy
 	// policy of the lwapp
-	Policy *string `json:"policy,omitempty"`
+	Policy *string `json:"policy,omitempty" validate:"oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
 type ModifyControlPlane struct {
@@ -792,7 +792,7 @@ type ModifyControlPlane struct {
 type ModifyDataPlane struct {
 	// InterfaceMode
 	// Interface mode
-	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"required"`
+	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"required,oneof=ACCESS_AND_CORE SINGLE"`
 
 	Ipv6PrimaryInterface *Ipv6PrimaryInterface `json:"ipv6PrimaryInterface,omitempty" validate:"required"`
 
@@ -824,70 +824,70 @@ type ModifyGatewayAdvanced struct {
 
 	// GtpInterfaceType
 	// GTPv2 interface type
-	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty"`
+	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"oneof=S2A S5_S8"`
 
 	// GtpNetworkServiceAcessPointIdentifier
 	// GTP network service access point identifier (NSAPI)
-	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty"`
+	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"gte=0,lte=5"`
 
 	// ImeiInGtp
 	// Include IMEI IE in GTP messages
 	ImeiInGtp *bool `json:"imeiInGtp,omitempty"`
 
-	// ScgRaiInGtpV2
+	// SCGRaiInGtpV2
 	// Include SCG-RAI in GTPv2 messages
-	ScgRaiInGtpV2 *bool `json:"scgRaiInGtpV2,omitempty"`
+	SCGRaiInGtpV2 *bool `json:"scgRaiInGtpV2,omitempty"`
 
-	// ScgSaiInGtpV2
+	// SCGSaiInGtpV2
 	// Include SCG-SAI in GTPv2 messages
-	ScgSaiInGtpV2 *bool `json:"scgSaiInGtpV2,omitempty"`
+	SCGSaiInGtpV2 *bool `json:"scgSaiInGtpV2,omitempty"`
 
 	// TaiInGtpV2
 	// Include TAI in GTPv2 messages
 	TaiInGtpV2 *bool `json:"taiInGtpV2,omitempty"`
 }
 
-type ModifyIpSupportType struct {
-	// IpMode
+type ModifyIPSupportType struct {
+	// IPMode
 	// IP support version
-	IpMode *string `json:"ipMode,omitempty" validate:"required"`
+	IPMode *string `json:"ipMode,omitempty" validate:"required,oneof=IPV4 IPV4_IPV6"`
 }
 
-type ModifyLwappScg struct {
+type ModifyLWAPP2SCG struct {
 	// ApList
 	// accessPoint List  of the lwapp
 	ApList []string `json:"apList,omitempty"`
 
-	// NatIpTranslation
+	// NatIPTranslation
 	// natIpTranslation of the lwapp
-	NatIpTranslation *bool `json:"natIpTranslation,omitempty"`
+	NatIPTranslation *bool `json:"natIpTranslation,omitempty"`
 
 	// PasvMaxPort
 	// pasvMaxPort of the lwapp
-	PasvMaxPort *int `json:"pasvMaxPort,omitempty"`
+	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"gte=16384,lte=65000"`
 
 	// PasvMinPort
 	// pasvMinPort of the lwapp
-	PasvMinPort *int `json:"pasvMinPort,omitempty"`
+	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"gte=16384,lte=65000"`
 
 	// Policy
 	// policy of the lwapp
-	Policy *string `json:"policy,omitempty"`
+	Policy *string `json:"policy,omitempty" validate:"oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
-type ModifySnmpAgent struct {
-	// SnmpNotificationEnabled
+type ModifySNMPAgent struct {
+	// SNMPNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message
 	// is sent out.)
-	SnmpNotificationEnabled *bool `json:"snmpNotificationEnabled,omitempty" validate:"required"`
+	SNMPNotificationEnabled *bool `json:"snmpNotificationEnabled,omitempty" validate:"required"`
 
-	// SnmpV2Agent
+	// SNMPV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []*common.SnmpCommunity `json:"snmpV2Agent,omitempty"`
+	SNMPV2Agent []*common.SNMPCommunity `json:"snmpV2Agent,omitempty"`
 
-	// SnmpV3Agent
+	// SNMPV3Agent
 	// User List of the SNMP V2 Agent.
-	SnmpV3Agent []*common.SnmpUser `json:"snmpV3Agent,omitempty"`
+	SNMPV3Agent []*common.SNMPUser `json:"snmpV3Agent,omitempty"`
 }
 
 type ModifySystemTimeSetting struct {
@@ -907,7 +907,7 @@ type NorthboundInterface struct {
 
 	// RadiusAuthType
 	// AuthType of the Radius used in Northbound Interface, the value should be "PAP" or "CHAP".
-	RadiusAuthType *string `json:"radiusAuthType,omitempty"`
+	RadiusAuthType *string `json:"radiusAuthType,omitempty" validate:"oneof=PAP CHAP"`
 
 	UserName *common.ApLoginName `json:"userName,omitempty"`
 }
@@ -994,17 +994,17 @@ type PrimaryInterface struct {
 	// Gateway
 	Gateway *string `json:"gateway,omitempty" validate:"required"`
 
-	// IpAddress
+	// IPAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty" validate:"required"`
+	IPAddress *string `json:"ipAddress,omitempty" validate:"required"`
 
-	// IpMode
+	// IPMode
 	// IP mode
-	IpMode *string `json:"ipMode,omitempty" validate:"required"`
+	IPMode *string `json:"ipMode,omitempty" validate:"required,oneof=DHCP STATIC"`
 
-	// NatIp
+	// NatIP
 	// NAT IP
-	NatIp *string `json:"natIp,omitempty"`
+	NatIP *string `json:"natIp,omitempty"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -1024,7 +1024,7 @@ type PrimaryInterface struct {
 }
 
 type SaveApNumberLimitSettingOfDomain struct {
-	DomainId *string `json:"domainId,omitempty" validate:"required"`
+	DomainID *string `json:"domainId,omitempty" validate:"required"`
 
 	NumberLimit *float64 `json:"numberLimit,omitempty" validate:"required"`
 
@@ -1032,13 +1032,13 @@ type SaveApNumberLimitSettingOfDomain struct {
 }
 
 type SaveApNumberLimitSettingOfZone struct {
-	DomainId *string `json:"domainId,omitempty" validate:"required"`
+	DomainID *string `json:"domainId,omitempty" validate:"required"`
 
 	NumberLimit *float64 `json:"numberLimit,omitempty" validate:"required"`
 
 	Shared *bool `json:"shared,omitempty" validate:"required"`
 
-	ZoneId *string `json:"zoneId,omitempty" validate:"required"`
+	ZoneID *string `json:"zoneId,omitempty" validate:"required"`
 }
 
 type SaveSystemSettings struct {
@@ -1050,9 +1050,9 @@ type SaveSystemSettings struct {
 }
 
 type SecondaryInterface struct {
-	// IpAddress
+	// IPAddress
 	// IP address
-	IpAddress *string `json:"ipAddress,omitempty" validate:"required"`
+	IPAddress *string `json:"ipAddress,omitempty" validate:"required"`
 
 	// SubnetMask
 	// Subnet mask
@@ -1072,21 +1072,21 @@ type Sms struct {
 	// Auth Token
 	AuthToken *string `json:"authToken,omitempty"`
 
-	// DomainId
+	// DomainID
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	DomainID *string `json:"domainId,omitempty"`
 
 	// Enabled
 	// Enabled SMS server or not
-	Enabled *int `json:"enabled,omitempty"`
+	Enabled *int `json:"enabled,omitempty" validate:"oneof=0 1"`
 
 	// From
 	// From
 	From *string `json:"from,omitempty"`
 
-	// Id
+	// ID
 	// SMS Id
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// ServerName
 	// Server Name
@@ -1094,11 +1094,11 @@ type Sms struct {
 
 	// ServerType
 	// Server type
-	ServerType *string `json:"serverType,omitempty"`
+	ServerType *string `json:"serverType,omitempty" validate:"oneof=Twilio"`
 }
 
 type SmsList struct {
-	Extra *common.RbacMetadata `json:"extra,omitempty"`
+	Extra *common.RBACMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first SMS gateway returned out of the complete SMS gateway list
@@ -1115,19 +1115,19 @@ type SmsList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type SnmpAgentConfiguration struct {
-	// SnmpNotificationEnabled
+type SNMPAgentConfiguration struct {
+	// SNMPNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message
 	// is sent out.)
-	SnmpNotificationEnabled *bool `json:"snmpNotificationEnabled,omitempty"`
+	SNMPNotificationEnabled *bool `json:"snmpNotificationEnabled,omitempty"`
 
-	// SnmpV2Agent
+	// SNMPV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []*common.SnmpCommunity `json:"snmpV2Agent,omitempty"`
+	SNMPV2Agent []*common.SNMPCommunity `json:"snmpV2Agent,omitempty"`
 
-	// SnmpV3Agent
+	// SNMPV3Agent
 	// User List of the SNMP V2 Agent.
-	SnmpV3Agent []*common.SnmpUser `json:"snmpV3Agent,omitempty"`
+	SNMPV3Agent []*common.SNMPUser `json:"snmpV3Agent,omitempty"`
 }
 
 type StaticRoute struct {
@@ -1157,7 +1157,7 @@ type StatisticListType struct {
 
 	Control *PortStatistic `json:"control,omitempty"`
 
-	Cpu *StatisticListTypeCpuType `json:"cpu,omitempty"`
+	CPU *StatisticListTypeCPUType `json:"cpu,omitempty"`
 
 	Disk *StatisticListTypeDiskType `json:"disk,omitempty"`
 
@@ -1182,7 +1182,7 @@ type StatisticListType struct {
 	Timestamp *float64 `json:"timestamp,omitempty"`
 }
 
-type StatisticListTypeCpuType struct {
+type StatisticListTypeCPUType struct {
 	// MaxPercent
 	// maxPercent
 	MaxPercent *float64 `json:"maxPercent,omitempty"`

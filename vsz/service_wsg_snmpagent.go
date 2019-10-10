@@ -23,6 +23,6 @@ func (ss *WSGService) WSGSNMPAgentService () *WSGSNMPAgentService {
     return serv
 }
 
-func (s *WSGSNMPAgentService) FindSystemSnmpAgent (ctx context.Context) (*system.SnmpAgentConfiguration, error) {
+func (s *WSGSNMPAgentService) FindSystemSnmpAgent (ctx context.Context) (*system.SNMPAgentConfiguration, error) {
 }
 

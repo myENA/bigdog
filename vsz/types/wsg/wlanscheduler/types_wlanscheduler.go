@@ -6,7 +6,7 @@ import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
-type CreateWlanScheduler struct {
+type CreateWLANScheduler struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// Fri
@@ -40,7 +40,7 @@ type CreateWlanScheduler struct {
 	Wed []string `json:"wed,omitempty"`
 }
 
-type ModifyWlanScheduler struct {
+type ModifyWLANScheduler struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// Fri
@@ -74,16 +74,16 @@ type ModifyWlanScheduler struct {
 	Wed []string `json:"wed,omitempty"`
 }
 
-type WlanSchedule struct {
+type WLANSchedule struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
 	Fri []string `json:"fri,omitempty"`
 
-	// Id
+	// ID
 	// Identifier of the WLAN schedule
-	Id *string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 
 	// Mon
 	// Schedules on Monday
@@ -111,17 +111,17 @@ type WlanSchedule struct {
 	// Schedules on Wednesday
 	Wed []string `json:"wed,omitempty"`
 
-	// ZoneId
+	// ZoneID
 	// Identifier of the zone to which the WLAN schedule belongs
-	ZoneId *string `json:"zoneId,omitempty"`
+	ZoneID *string `json:"zoneId,omitempty"`
 }
 
-type WlanScheduleList struct {
+type WLANScheduleList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WlanSchedule `json:"list,omitempty"`
+	List []*WLANSchedule `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

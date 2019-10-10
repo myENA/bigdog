@@ -41,25 +41,25 @@ type GetResult struct {
 	// Rekey time unit of Internet Key Exchange
 	IkeRekeyTimeUnit *string `json:"ikeRekeyTimeUnit,omitempty"`
 
-	// IpSecEnabled
+	// IPSecEnabled
 	// Enable System IPSec
-	IpSecEnabled *bool `json:"ipSecEnabled,omitempty"`
+	IPSecEnabled *bool `json:"ipSecEnabled,omitempty"`
 
 	OcspEnabled *bool `json:"ocspEnabled,omitempty"`
 
-	OcspServerUri *string `json:"ocspServerUri,omitempty"`
+	OcspServerURI *string `json:"ocspServerUri,omitempty"`
 
 	// PreSharedKey
 	// Pre-shared key
 	PreSharedKey *string `json:"preSharedKey,omitempty"`
 
-	// RemoteId
+	// RemoteID
 	// The IP of IPSec receiver
-	RemoteId *string `json:"remoteId,omitempty"`
+	RemoteID *string `json:"remoteId,omitempty"`
 
-	// ScgCertId
+	// SCGCertID
 	// SCG client certification id.
-	ScgCertId *string `json:"scgCertId,omitempty"`
+	SCGCertID *string `json:"scgCertId,omitempty"`
 
 	// SecurityGateway
 	// Security gateway IP
@@ -69,7 +69,7 @@ type GetResult struct {
 	// Subnet Mask of security gateway
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
+	TrustChainProfileID *string `json:"trustChainProfileId,omitempty"`
 }
 
 type Proposal struct {
@@ -121,25 +121,25 @@ type Update struct {
 	// Rekey time unit of Internet Key Exchange
 	IkeRekeyTimeUnit *string `json:"ikeRekeyTimeUnit,omitempty"`
 
-	// IpSecEnabled
+	// IPSecEnabled
 	// Enable System IPSec
-	IpSecEnabled *bool `json:"ipSecEnabled,omitempty" validate:"required"`
+	IPSecEnabled *bool `json:"ipSecEnabled,omitempty" validate:"required"`
 
 	OcspEnabled *bool `json:"ocspEnabled,omitempty"`
 
-	OcspServerUri *string `json:"ocspServerUri,omitempty"`
+	OcspServerURI *string `json:"ocspServerUri,omitempty"`
 
 	// PreSharedKey
 	// Pre-shared key
 	PreSharedKey *string `json:"preSharedKey,omitempty"`
 
-	// RemoteId
+	// RemoteID
 	// The IP of IPSec receiver
-	RemoteId *string `json:"remoteId,omitempty"`
+	RemoteID *string `json:"remoteId,omitempty"`
 
-	// ScgCertId
+	// SCGCertID
 	// SCG client certification id.
-	ScgCertId *string `json:"scgCertId,omitempty"`
+	SCGCertID *string `json:"scgCertId,omitempty"`
 
 	// SecurityGateway
 	// Security gateway IP
@@ -149,5 +149,5 @@ type Update struct {
 	// Subnet Mask of security gateway
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
+	TrustChainProfileID *string `json:"trustChainProfileId,omitempty"`
 }

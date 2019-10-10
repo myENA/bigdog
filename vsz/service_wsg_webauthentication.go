@@ -9,27 +9,26 @@ import (
 )
 
 type WSGWebAuthenticationService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGWebAuthenticationService (client *Client) *WSGWebAuthenticationService {
-    s := new(WSGWebAuthenticationService)
-    s.client = client
-    return s
+func NewWSGWebAuthenticationService(client *Client) *WSGWebAuthenticationService {
+	s := new(WSGWebAuthenticationService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGWebAuthenticationService () *WSGWebAuthenticationService {
-    serv := new(WSGWebAuthenticationService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGWebAuthenticationService() *WSGWebAuthenticationService {
+	serv := new(WSGWebAuthenticationService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
+func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById (ctx context.Context, id string, zoneId string) (*portalservice.WebAuthentication, error) {
+func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string) (*portalservice.WebAuthentication, error) {
 }
 
-func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId (ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
+func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
 }
-

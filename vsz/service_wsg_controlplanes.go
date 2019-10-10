@@ -9,33 +9,32 @@ import (
 )
 
 type WSGControlPlanesService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGControlPlanesService (client *Client) *WSGControlPlanesService {
-    s := new(WSGControlPlanesService)
-    s.client = client
-    return s
+func NewWSGControlPlanesService(client *Client) *WSGControlPlanesService {
+	s := new(WSGControlPlanesService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGControlPlanesService () *WSGControlPlanesService {
-    serv := new(WSGControlPlanesService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
+	serv := new(WSGControlPlanesService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGControlPlanesService) FindControlPlanes (ctx context.Context) (*system.ControlPlaneList, error) {
+func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*system.ControlPlaneList, error) {
 }
 
-func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID (ctx context.Context, bladeUUID string) (*system.ControlPlaneConfiguration, error) {
+func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Context, bladeUUID string) (*system.ControlPlaneConfiguration, error) {
 }
 
-func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID (ctx context.Context, bladeUUID string) (*system.StaticRouteList, error) {
+func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) (*system.StaticRouteList, error) {
 }
 
-func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID (ctx context.Context, bladeUUID string) (*system.UserDefinedInterfaceList, error) {
+func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) (*system.UserDefinedInterfaceList, error) {
 }
 
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport (ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context) (*common.EmptyResult, error) {
 }
-

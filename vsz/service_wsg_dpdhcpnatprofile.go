@@ -8,24 +8,23 @@ import (
 )
 
 type WSGDPDHCPNATProfileService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGDPDHCPNATProfileService (client *Client) *WSGDPDHCPNATProfileService {
-    s := new(WSGDPDHCPNATProfileService)
-    s.client = client
-    return s
+func NewWSGDPDHCPNATProfileService(client *Client) *WSGDPDHCPNATProfileService {
+	s := new(WSGDPDHCPNATProfileService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGDPDHCPNATProfileService () *WSGDPDHCPNATProfileService {
-    serv := new(WSGDPDHCPNATProfileService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGDPDHCPNATProfileService() *WSGDPDHCPNATProfileService {
+	serv := new(WSGDPDHCPNATProfileService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings (ctx context.Context) (*dpprofile.DpProfileSettingBOList, error) {
+func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) (*dpprofile.DpProfileSettingBOList, error) {
 }
 
-func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey (ctx context.Context, dpKey string) (*dpprofile.DpProfileSettingBO, error) {
+func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Context, dpKey string) (*dpprofile.DpProfileSettingBO, error) {
 }
-

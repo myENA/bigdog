@@ -8,21 +8,20 @@ import (
 )
 
 type WSGSessionManagementService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGSessionManagementService (client *Client) *WSGSessionManagementService {
-    s := new(WSGSessionManagementService)
-    s.client = client
-    return s
+func NewWSGSessionManagementService(client *Client) *WSGSessionManagementService {
+	s := new(WSGSessionManagementService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGSessionManagementService () *WSGSessionManagementService {
-    serv := new(WSGSessionManagementService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGSessionManagementService() *WSGSessionManagementService {
+	serv := new(WSGSessionManagementService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGSessionManagementService) FindSessionManagement (ctx context.Context) (*sessionmanagement.RuckusSessions, error) {
+func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context) (*sessionmanagement.RuckusSessions, error) {
 }
-

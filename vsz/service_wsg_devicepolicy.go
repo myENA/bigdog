@@ -8,24 +8,23 @@ import (
 )
 
 type WSGDevicePolicyService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGDevicePolicyService (client *Client) *WSGDevicePolicyService {
-    s := new(WSGDevicePolicyService)
-    s.client = client
-    return s
+func NewWSGDevicePolicyService(client *Client) *WSGDevicePolicyService {
+	s := new(WSGDevicePolicyService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGDevicePolicyService () *WSGDevicePolicyService {
-    serv := new(WSGDevicePolicyService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGDevicePolicyService() *WSGDevicePolicyService {
+	serv := new(WSGDevicePolicyService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById (ctx context.Context, id string, zoneId string) (*devicepolicy.DevicePolicyPorfile, error) {
+func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string) (*devicepolicy.DevicePolicyPorfile, error) {
 }
 
-func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId (ctx context.Context, zoneId string) (*devicepolicy.PorfileList, error) {
+func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, zoneId string) (*devicepolicy.PorfileList, error) {
 }
-

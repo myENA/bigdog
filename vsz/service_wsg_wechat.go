@@ -8,24 +8,23 @@ import (
 )
 
 type WSGWechatService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGWechatService (client *Client) *WSGWechatService {
-    s := new(WSGWechatService)
-    s.client = client
-    return s
+func NewWSGWechatService(client *Client) *WSGWechatService {
+	s := new(WSGWechatService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGWechatService () *WSGWechatService {
-    serv := new(WSGWechatService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGWechatService() *WSGWechatService {
+	serv := new(WSGWechatService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGWechatService) FindRkszonesPortalsWechatById (ctx context.Context, id string, zoneId string) (*portalservice.WechatConfiguration, error) {
+func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, id string, zoneId string) (*portalservice.WechatConfiguration, error) {
 }
 
-func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId (ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
+func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context, zoneId string) (*portalservice.PortalServiceList, error) {
 }
-

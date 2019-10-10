@@ -9,27 +9,26 @@ import (
 )
 
 type WSGCALEAService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGCALEAService (client *Client) *WSGCALEAService {
-    s := new(WSGCALEAService)
-    s.client = client
-    return s
+func NewWSGCALEAService(client *Client) *WSGCALEAService {
+	s := new(WSGCALEAService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGCALEAService () *WSGCALEAService {
-    serv := new(WSGCALEAService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGCALEAService() *WSGCALEAService {
+	serv := new(WSGCALEAService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGCALEAService) AddSystemCaleaMac (ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGCALEAService) FindSystemCaleaCommonSetting (ctx context.Context) (*calea.CaleaCommonSettingRsp, error) {
+func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*calea.CaleaCommonSettingRsp, error) {
 }
 
-func (s *WSGCALEAService) FindSystemCaleaMacList (ctx context.Context) (*calea.CaleaMacListRsp, error) {
+func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context) (*calea.CaleaMacListRsp, error) {
 }
-

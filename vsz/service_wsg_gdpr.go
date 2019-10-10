@@ -8,21 +8,20 @@ import (
 )
 
 type WSGGDPRService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGGDPRService (client *Client) *WSGGDPRService {
-    s := new(WSGGDPRService)
-    s.client = client
-    return s
+func NewWSGGDPRService(client *Client) *WSGGDPRService {
+	s := new(WSGGDPRService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGGDPRService () *WSGGDPRService {
-    serv := new(WSGGDPRService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGGDPRService() *WSGGDPRService {
+	serv := new(WSGGDPRService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGGDPRService) AddGdprReport (ctx context.Context) error {
+func (s *WSGGDPRService) AddGdprReport(ctx context.Context) error {
 }
-

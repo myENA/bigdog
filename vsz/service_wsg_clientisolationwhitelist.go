@@ -9,33 +9,32 @@ import (
 )
 
 type WSGClientIsolationWhitelistService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGClientIsolationWhitelistService (client *Client) *WSGClientIsolationWhitelistService {
-    s := new(WSGClientIsolationWhitelistService)
-    s.client = client
-    return s
+func NewWSGClientIsolationWhitelistService(client *Client) *WSGClientIsolationWhitelistService {
+	s := new(WSGClientIsolationWhitelistService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGClientIsolationWhitelistService () *WSGClientIsolationWhitelistService {
-    serv := new(WSGClientIsolationWhitelistService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGClientIsolationWhitelistService() *WSGClientIsolationWhitelistService {
+	serv := new(WSGClientIsolationWhitelistService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist (ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist(ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById (ctx context.Context, id string) (*common.EmptyResult, error) {
+func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById(ctx context.Context, id string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistById (ctx context.Context, id string, zoneId string) (*profile.ClientIsolationWhitelist, error) {
+func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistById(ctx context.Context, id string, zoneId string) (*profile.ClientIsolationWhitelist, error) {
 }
 
-func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId (ctx context.Context, zoneId string) (*profile.ClientIsolationWhitelistArray, error) {
+func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, zoneId string) (*profile.ClientIsolationWhitelistArray, error) {
 }
 
-func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria (ctx context.Context) (*profile.ClientIsolationWhitelistArray, error) {
+func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria(ctx context.Context) (*profile.ClientIsolationWhitelistArray, error) {
 }
-

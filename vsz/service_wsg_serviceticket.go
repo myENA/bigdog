@@ -8,21 +8,20 @@ import (
 )
 
 type WSGServiceTicketService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGServiceTicketService (client *Client) *WSGServiceTicketService {
-    s := new(WSGServiceTicketService)
-    s.client = client
-    return s
+func NewWSGServiceTicketService(client *Client) *WSGServiceTicketService {
+	s := new(WSGServiceTicketService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGServiceTicketService () *WSGServiceTicketService {
-    serv := new(WSGServiceTicketService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGServiceTicketService() *WSGServiceTicketService {
+	serv := new(WSGServiceTicketService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGServiceTicketService) AddServiceTicket (ctx context.Context) (*serviceticket.LoginResponse, error) {
+func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context) (*serviceticket.LoginResponse, error) {
 }
-

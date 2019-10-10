@@ -8,21 +8,20 @@ import (
 )
 
 type WSGUploadStatisticstoFTPService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGUploadStatisticstoFTPService (client *Client) *WSGUploadStatisticstoFTPService {
-    s := new(WSGUploadStatisticstoFTPService)
-    s.client = client
-    return s
+func NewWSGUploadStatisticstoFTPService(client *Client) *WSGUploadStatisticstoFTPService {
+	s := new(WSGUploadStatisticstoFTPService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGUploadStatisticstoFTPService () *WSGUploadStatisticstoFTPService {
-    serv := new(WSGUploadStatisticstoFTPService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGUploadStatisticstoFTPService() *WSGUploadStatisticstoFTPService {
+	serv := new(WSGUploadStatisticstoFTPService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp (ctx context.Context) (*system.FtpGlobalSetting, error) {
+func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context.Context) (*system.FtpGlobalSetting, error) {
 }
-

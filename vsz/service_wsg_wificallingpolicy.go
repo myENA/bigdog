@@ -9,27 +9,26 @@ import (
 )
 
 type WSGWiFiCallingPolicyService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGWiFiCallingPolicyService (client *Client) *WSGWiFiCallingPolicyService {
-    s := new(WSGWiFiCallingPolicyService)
-    s.client = client
-    return s
+func NewWSGWiFiCallingPolicyService(client *Client) *WSGWiFiCallingPolicyService {
+	s := new(WSGWiFiCallingPolicyService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGWiFiCallingPolicyService () *WSGWiFiCallingPolicyService {
-    serv := new(WSGWiFiCallingPolicyService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGWiFiCallingPolicyService() *WSGWiFiCallingPolicyService {
+	serv := new(WSGWiFiCallingPolicyService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria (ctx context.Context) (*wificalling.WifiCallingPolicyList, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context.Context) (*wificalling.WifiCallingPolicyList, error) {
 }
 
-func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy (ctx context.Context) (*wificalling.WifiCallingPolicyList, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx context.Context) (*wificalling.WifiCallingPolicyList, error) {
 }
 
-func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById (ctx context.Context, id string) (*wificalling.WifiCallingPolicy, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx context.Context, id string) (*wificalling.WifiCallingPolicy, error) {
 }
-

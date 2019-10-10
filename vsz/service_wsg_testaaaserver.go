@@ -8,21 +8,20 @@ import (
 )
 
 type WSGTestAAAServerService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGTestAAAServerService (client *Client) *WSGTestAAAServerService {
-    s := new(WSGTestAAAServerService)
-    s.client = client
-    return s
+func NewWSGTestAAAServerService(client *Client) *WSGTestAAAServerService {
+	s := new(WSGTestAAAServerService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGTestAAAServerService () *WSGTestAAAServerService {
-    serv := new(WSGTestAAAServerService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
+	serv := new(WSGTestAAAServerService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGTestAAAServerService) AddSystemAaaTest (ctx context.Context) (*aaa.TestAAAServerResult, error) {
+func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context) (*aaa.TestAAAServerResult, error) {
 }
-

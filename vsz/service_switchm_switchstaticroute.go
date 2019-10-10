@@ -9,27 +9,26 @@ import (
 )
 
 type SwitchMSwitchStaticRouteService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchStaticRouteService (client *Client) *SwitchMSwitchStaticRouteService {
-    s := new(SwitchMSwitchStaticRouteService)
-    s.client = client
-    return s
+func NewSwitchMSwitchStaticRouteService(client *Client) *SwitchMSwitchStaticRouteService {
+	s := new(SwitchMSwitchStaticRouteService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchStaticRouteService () *SwitchMSwitchStaticRouteService {
-    serv := new(SwitchMSwitchStaticRouteService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchStaticRouteService() *SwitchMSwitchStaticRouteService {
+	serv := new(SwitchMSwitchStaticRouteService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchStaticRouteService) AddStaticRoutes (ctx context.Context) (*common.CreateResult, error) {
+func (s *SwitchMSwitchStaticRouteService) AddStaticRoutes(ctx context.Context) (*common.CreateResult, error) {
 }
 
-func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesById (ctx context.Context, id string) (*staticroute.StaticRoute, error) {
+func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesById(ctx context.Context, id string) (*staticroute.StaticRoute, error) {
 }
 
-func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesByQueryCriteria (ctx context.Context) (*staticroute.StaticRoutesQueryResult, error) {
+func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.Context) (*staticroute.StaticRoutesQueryResult, error) {
 }
-

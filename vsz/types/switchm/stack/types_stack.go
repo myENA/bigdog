@@ -2,6 +2,10 @@ package stack
 
 // API Version: v8_1
 
+import (
+	"github.com/myENA/ruckus-client/vsz/types/switchm/switchmswitch"
+)
+
 type AuditIdList []*switchmswitch.AuditId
 
 type List struct {

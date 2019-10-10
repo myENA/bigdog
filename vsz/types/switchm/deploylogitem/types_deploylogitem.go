@@ -37,9 +37,9 @@ type DeployLogItem struct {
 	// Deployment end datetime
 	EndTime *int `json:"endTime,omitempty"`
 
-	// ID
+	// Id
 	// Switch Deployment History Id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// SerialNumber
 	// Serical Number of Switch
@@ -49,17 +49,17 @@ type DeployLogItem struct {
 	// Deployment begin datetime
 	StartTime *int `json:"startTime,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// SwitchName
 	// Switch Name
 	SwitchName *string `json:"switchName,omitempty"`
 
-	// TransactionID
+	// TransactionId
 	// Transaction Id of depolyment
-	TransactionID *string `json:"transactionId,omitempty"`
+	TransactionId *string `json:"transactionId,omitempty"`
 }
 
 // DeployLogItemDispatchFailedReasonType

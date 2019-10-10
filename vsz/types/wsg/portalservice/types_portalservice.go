@@ -58,7 +58,7 @@ type CreateHotspot20VenueProfile struct {
 	VenueNames []*VenueName `json:"venueNames,omitempty" validate:"required"`
 }
 
-type CreateHotspot20WLANProfile struct {
+type CreateHotspot20WlanProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
 	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"required,oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
@@ -91,15 +91,15 @@ type CreateHotspot20WLANProfile struct {
 }
 
 type CreateHotspotExternal struct {
-	// BackupPortalURL
+	// BackupPortalUrl
 	// Backup Portal URL of the Hotspot
-	BackupPortalURL *string `json:"backupPortalUrl,omitempty"`
+	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// HTTPSRedirect
+	// HttpsRedirect
 	// HTTPS Redirect is disable or not
-	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
+	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
 
 	// InternalNode
 	// Internal Node of the Hotspot
@@ -111,7 +111,7 @@ type CreateHotspotExternal struct {
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	PortalURL *common.NormalURL `json:"portalUrl,omitempty" validate:"required"`
+	PortalUrl *common.NormalURL `json:"portalUrl,omitempty" validate:"required"`
 
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
@@ -123,9 +123,9 @@ type CreateHotspotExternal struct {
 	// Smart client support of the Hotspot
 	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"required,oneof=None Enabled"`
 
-	// TrafficClassProfileID
+	// TrafficClassProfileId
 	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileID *string `json:"trafficClassProfileId,omitempty"`
+	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -140,9 +140,9 @@ type CreateHotspotExternal struct {
 type CreateHotspotInternal struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// HTTPSRedirect
+	// HttpsRedirect
 	// HTTPS Redirect is disable or not
-	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
+	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
 
 	Location *PortalLocation `json:"location,omitempty"`
 
@@ -169,9 +169,9 @@ type CreateHotspotInternal struct {
 type CreateHotspotSmartClientOnly struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// HTTPSRedirect
+	// HttpsRedirect
 	// HTTPS Redirect is disable or not
-	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
+	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
 
 	// InternalNode
 	// Internal Node of the Hotspot
@@ -194,9 +194,9 @@ type CreateHotspotSmartClientOnly struct {
 	// application.
 	SmartClientInfo *string `json:"smartClientInfo,omitempty" validate:"required"`
 
-	// TrafficClassProfileID
+	// TrafficClassProfileId
 	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileID *string `json:"trafficClassProfileId,omitempty"`
+	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -232,9 +232,9 @@ type CreateWebAuthentication struct {
 }
 
 type CreateWechat struct {
-	// AuthURL
+	// AuthUrl
 	// Authentication URL of the wechat profile
-	AuthURL *string `json:"authUrl,omitempty" validate:"required"`
+	AuthUrl *string `json:"authUrl,omitempty" validate:"required"`
 
 	// BlackList
 	// Black list of the wechat profile
@@ -292,9 +292,9 @@ type DnatPortMapping struct {
 type GuestAccess struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the guest access profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -306,23 +306,23 @@ type GuestAccess struct {
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone which the guest access profile belongs to
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type Hotspot struct {
-	BackupPortalURL *string `json:"backupPortalUrl,omitempty"`
+	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// HTTPSRedirect
+	// HttpsRedirect
 	// HTTPS Redirect is disable or not
-	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
+	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the Hotspot
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// InternalNode
 	// Internal Node of the Hotspot
@@ -340,7 +340,7 @@ type Hotspot struct {
 	// Portal type of the Hotspot
 	PortalType *string `json:"portalType,omitempty" validate:"oneof=Internal External"`
 
-	PortalURL *common.NormalURL `json:"portalUrl,omitempty"`
+	PortalUrl *common.NormalURL `json:"portalUrl,omitempty"`
 
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
@@ -357,9 +357,9 @@ type Hotspot struct {
 	// Smart client support of the Hotspot
 	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"oneof=None Enabled SmartClientOnly"`
 
-	// TrafficClassProfileID
+	// TrafficClassProfileId
 	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileID *string `json:"trafficClassProfileId,omitempty"`
+	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -370,9 +370,9 @@ type Hotspot struct {
 	// www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
 	WalledGardens []string `json:"walledGardens,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone which the Hotspot belongs to
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type Hotspot20VeuneProfile struct {
@@ -384,9 +384,9 @@ type Hotspot20VeuneProfile struct {
 	// Category group of the Hotspot 2.0 venue profile
 	Group *string `json:"group,omitempty" validate:"oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
 
-	// ID
+	// Id
 	// Identifier of the Hotspot 2.0 venue profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -398,12 +398,12 @@ type Hotspot20VeuneProfile struct {
 
 	VenueNames []*VenueName `json:"venueNames,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone which the Hotspot 2.0 venue profile belongs to
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-type Hotspot20WLANProfile struct {
+type Hotspot20WlanProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
 	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
@@ -420,9 +420,9 @@ type Hotspot20WLANProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the Hotspot 2.0 WLAN profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// IdentityProviders
 	// Identity providers of the Hotspot 2.0 WLAN profile
@@ -446,17 +446,17 @@ type Hotspot20WLANProfile struct {
 
 	SignupSsid *common.GenericRef `json:"signupSsid,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone which the Hotspot 2.0 WLAN profile belongs to
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type L2ACL struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// identifier of the L2 Access Control
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -467,9 +467,9 @@ type L2ACL struct {
 
 	RuleMacs []common.Mac `json:"ruleMacs,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// identifier of the zone which the L2 Access Control belongs to
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 // LinkSpeedInKbps
@@ -498,13 +498,13 @@ type ModifyGuestAccess struct {
 }
 
 type ModifyHotspot struct {
-	BackupPortalURL *string `json:"backupPortalUrl,omitempty"`
+	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// HTTPSRedirect
+	// HttpsRedirect
 	// HTTPS Redirect is disable or not
-	HTTPSRedirect *bool `json:"httpsRedirect,omitempty"`
+	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
 
 	// InternalNode
 	// Internal Node of the Hotspot
@@ -518,7 +518,7 @@ type ModifyHotspot struct {
 
 	PortalCustomization *common.PortalCustomization `json:"portalCustomization,omitempty"`
 
-	PortalURL *common.NormalURL `json:"portalUrl,omitempty"`
+	PortalUrl *common.NormalURL `json:"portalUrl,omitempty"`
 
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
@@ -535,9 +535,9 @@ type ModifyHotspot struct {
 	// Smart client support of the Hotspot
 	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"oneof=None Enabled"`
 
-	// TrafficClassProfileID
+	// TrafficClassProfileId
 	// Traffic Class Profile of the Hotspot
-	TrafficClassProfileID *string `json:"trafficClassProfileId,omitempty"`
+	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
 
@@ -569,7 +569,7 @@ type ModifyHotspot20VenueProfile struct {
 	VenueNames []*VenueName `json:"venueNames,omitempty"`
 }
 
-type ModifyHotspot20WLANProfile struct {
+type ModifyHotspot20WlanProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
 	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
@@ -637,9 +637,9 @@ type ModifyWebAuthentication struct {
 }
 
 type ModifyWechat struct {
-	// AuthURL
+	// AuthUrl
 	// Authentication URL of the wechat profile
-	AuthURL *string `json:"authUrl,omitempty"`
+	AuthUrl *string `json:"authUrl,omitempty"`
 
 	// BlackList
 	// Black list of the wechat profile
@@ -667,9 +667,9 @@ type ModifyWechat struct {
 }
 
 type PortalLocation struct {
-	// ID
+	// Id
 	// Portal location id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Portal location name
@@ -677,7 +677,7 @@ type PortalLocation struct {
 }
 
 type PortalRedirect struct {
-	URL *common.NormalURL `json:"url,omitempty"`
+	Url *common.NormalURL `json:"url,omitempty"`
 }
 
 type PortalServiceList struct {
@@ -691,9 +691,9 @@ type PortalServiceList struct {
 }
 
 type PortalServiceListType struct {
-	// ID
+	// Id
 	// Identifier of the service
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
@@ -719,9 +719,9 @@ type VenueName struct {
 type WebAuthentication struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the web authentication profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -733,15 +733,15 @@ type WebAuthentication struct {
 
 	WebAuthenticationPortalCustomization *common.WebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone which the web authentication profile belongs to
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type WechatConfiguration struct {
-	// AuthURL
+	// AuthUrl
 	// Authentication URL of the wechat profile
-	AuthURL *string `json:"authUrl,omitempty"`
+	AuthUrl *string `json:"authUrl,omitempty"`
 
 	// BlackList
 	// Black list of the wechat profile

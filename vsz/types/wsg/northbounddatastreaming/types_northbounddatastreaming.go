@@ -23,9 +23,9 @@ type CreateNorthboundDataStreamingProfile struct {
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	ServerPort *string `json:"serverPort,omitempty" validate:"required"`
 
-	// SystemID
+	// SystemId
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	SystemID *string `json:"systemId,omitempty" validate:"required"`
+	SystemId *string `json:"systemId,omitempty" validate:"required"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
@@ -33,7 +33,7 @@ type CreateNorthboundDataStreamingProfile struct {
 }
 
 type EmptyResult struct {
-	NorthboundDataStreamingEmptyResult *string `json:"northboundDataStreaming_emptyResult,omitempty"`
+	NorthboundDataStreamingemptyResult *string `json:"northboundDataStreaming_emptyResult,omitempty"`
 }
 
 type ModifyNorthboundDataStreamingEventCodes struct {
@@ -57,9 +57,9 @@ type ModifyNorthboundDataStreamingProfile struct {
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	ServerPort *string `json:"serverPort,omitempty" validate:"required"`
 
-	// SystemID
+	// SystemId
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	SystemID *string `json:"systemId,omitempty" validate:"required"`
+	SystemId *string `json:"systemId,omitempty" validate:"required"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
@@ -94,9 +94,9 @@ type NorthboundDataStreamingEventCodesListType struct {
 }
 
 type NorthboundDataStreamingProfile struct {
-	// ID
+	// Id
 	// UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Profile name of the Northbound Data Streaming profile for Northbound Data Streaming interface
@@ -114,9 +114,9 @@ type NorthboundDataStreamingProfile struct {
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	ServerPort *string `json:"serverPort,omitempty"`
 
-	// SystemID
+	// SystemId
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
-	SystemID *string `json:"systemId,omitempty"`
+	SystemId *string `json:"systemId,omitempty"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface

@@ -24,7 +24,7 @@ func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
 	return serv
 }
 
-func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*system.LWAPP2SCGConfiguration, error) {
+func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*system.Lwapp2scgConfiguration, error) {
 }
 
 func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context) (*common.EmptyResult, error) {

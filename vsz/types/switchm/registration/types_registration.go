@@ -11,9 +11,9 @@ type ClientObjectID struct {
 	// Extra values of the client
 	ExtraValues *ClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the client
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Label
 	// Label of the client
@@ -363,9 +363,9 @@ type RegistrationRule struct {
 	// Create datetime of the registration rule
 	CreateDatetime *int `json:"createDatetime,omitempty"`
 
-	// CreatorID
+	// CreatorId
 	// Creator Id of the registration rule
-	CreatorID *string `json:"creatorId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorName
 	// Creator name of the registration rule
@@ -379,21 +379,21 @@ type RegistrationRule struct {
 	// Switch group name of the registration rule
 	GroupName *string `json:"groupName,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the registration rule
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	// IPFrom
+	// IpFrom
 	// Start IP range of the registration rule
-	IPFrom *string `json:"ipFrom,omitempty"`
+	IpFrom *string `json:"ipFrom,omitempty"`
 
-	// IPRange
+	// IpRange
 	// IP range of the registration rule
-	IPRange *string `json:"ipRange,omitempty"`
+	IpRange *string `json:"ipRange,omitempty"`
 
-	// IPTo
+	// IpTo
 	// End IP range of the registration rule
-	IPTo *string `json:"ipTo,omitempty"`
+	IpTo *string `json:"ipTo,omitempty"`
 
 	// Label
 	// Lable of the registration rule
@@ -415,9 +415,9 @@ type RegistrationRule struct {
 	// Subnet mask of the registration rule
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	// SwitchGroupID
+	// SwitchGroupId
 	// Switch group Id of the registration rule
-	SwitchGroupID *string `json:"switchGroupId,omitempty"`
+	SwitchGroupId *string `json:"switchGroupId,omitempty"`
 
 	// Type
 	// Type of the registration rule

@@ -55,9 +55,9 @@ type CellularSettings struct {
 
 	MobileAPName2 *string `json:"mobileAPName2,omitempty" validate:"max=100"`
 
-	Select3G4G *int `json:"select3g4g,omitempty" validate:"required,gte=0,lte=2"`
+	Select3g4g *int `json:"select3g4g,omitempty" validate:"required,gte=0,lte=2"`
 
-	Select3G4G2 *int `json:"select3g4g2,omitempty" validate:"required,gte=0,lte=2"`
+	Select3g4g2 *int `json:"select3g4g2,omitempty" validate:"required,gte=0,lte=2"`
 
 	SimCardUsage *int `json:"simCardUsage,omitempty" validate:"gte=0,lte=2"`
 
@@ -71,7 +71,7 @@ type CommonAttribute struct {
 
 	CapabilityScore *float64 `json:"capabilityScore,omitempty"`
 
-	CPUFrequency *int `json:"cpuFrequency,omitempty"`
+	CpuFrequency *int `json:"cpuFrequency,omitempty"`
 
 	HasCablemodem *bool `json:"hasCablemodem,omitempty"`
 
@@ -91,9 +91,9 @@ type CommonAttribute struct {
 
 	MaxClientsUpper *int `json:"maxClientsUpper,omitempty"`
 
-	MaxWLANNum5G *int `json:"maxWlanNum5G,omitempty"`
+	MaxWlanNum5G *int `json:"maxWlanNum5G,omitempty"`
 
-	MaxWLANNum24G *int `json:"maxWlanNum24G,omitempty"`
+	MaxWlanNum24G *int `json:"maxWlanNum24G,omitempty"`
 
 	MeshRadioCaps *string `json:"meshRadioCaps,omitempty"`
 
@@ -109,9 +109,9 @@ type CommonAttribute struct {
 
 	PoeModeCaps *string `json:"poeModeCaps,omitempty"`
 
-	RAM *int `json:"ram,omitempty"`
+	Ram *int `json:"ram,omitempty"`
 
-	Reserved5GWLANForMesh *int `json:"reserved5GWlanForMesh,omitempty"`
+	Reserved5GWlanForMesh *int `json:"reserved5GWlanForMesh,omitempty"`
 
 	ScalingFactor *int `json:"scalingFactor,omitempty"`
 
@@ -173,7 +173,7 @@ type LanPortSetting struct {
 
 	PortName *string `json:"portName,omitempty" validate:"required,oneof=LAN1 LAN2 LAN3 LAN4 LAN5"`
 
-	VlanUntagID *int `json:"vlanUntagId,omitempty" validate:"gte=0,lte=4094"`
+	VlanUntagId *int `json:"vlanUntagId,omitempty" validate:"gte=0,lte=4094"`
 }
 
 type LanPortSupplicant struct {

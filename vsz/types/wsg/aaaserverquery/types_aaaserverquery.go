@@ -7,7 +7,7 @@ import (
 )
 
 type AaaServerQueryList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -29,7 +29,7 @@ type CreateAaaServer struct {
 
 	Description *string `json:"description,omitempty"`
 
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	DomainName *string `json:"domainName,omitempty"`
 
@@ -37,9 +37,9 @@ type CreateAaaServer struct {
 
 	GlobalCatalog *bool `json:"globalCatalog,omitempty"`
 
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
 	Ipv6 *string `json:"ipv6,omitempty"`
 

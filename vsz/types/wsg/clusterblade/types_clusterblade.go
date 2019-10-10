@@ -47,9 +47,9 @@ type ClusterState struct {
 	// cluster state
 	ClusterState *string `json:"clusterState,omitempty" validate:"oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
 
-	// CurrentNodeID
+	// CurrentNodeId
 	// Identifier of the current controller node
-	CurrentNodeID *string `json:"currentNodeId,omitempty"`
+	CurrentNodeId *string `json:"currentNodeId,omitempty"`
 
 	// CurrentNodeName
 	// The name of the current controller node
@@ -65,9 +65,9 @@ type ClusterStateManagementServiceStateListType struct {
 	// management service state
 	ManagementServiceState *string `json:"managementServiceState,omitempty" validate:"oneof=Out_Of_Service In_Service"`
 
-	// NodeID
+	// NodeId
 	// Identifier of the controller node
-	NodeID *string `json:"nodeId,omitempty"`
+	NodeId *string `json:"nodeId,omitempty"`
 
 	// NodeName
 	// node name
@@ -75,9 +75,9 @@ type ClusterStateManagementServiceStateListType struct {
 }
 
 type ClusterStateNodeStateListType struct {
-	// NodeID
+	// NodeId
 	// Identifier of the controller node
-	NodeID *string `json:"nodeId,omitempty"`
+	NodeId *string `json:"nodeId,omitempty"`
 
 	NodeName *string `json:"nodeName,omitempty"`
 
@@ -127,9 +127,9 @@ type ControlNodeStatus struct {
 }
 
 type ControlNodeStatusNodeStatusListType struct {
-	// NodeID
+	// NodeId
 	// Identifier of the controller node
-	NodeID *string `json:"nodeId,omitempty"`
+	NodeId *string `json:"nodeId,omitempty"`
 
 	// NodeStatus
 	// node status

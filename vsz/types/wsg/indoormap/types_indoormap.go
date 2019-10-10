@@ -11,15 +11,15 @@ type AccessPointList []*IndoorMapAp
 type BasicIndoorMap struct {
 	Address *string `json:"address,omitempty"`
 
-	ApGroupID *string `json:"apGroupId,omitempty"`
+	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	Description *common.Description `json:"description,omitempty" validate:"required"`
 
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	GroupType *string `json:"groupType,omitempty" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	ImageFileName *string `json:"imageFileName,omitempty"`
 
@@ -33,15 +33,15 @@ type BasicIndoorMap struct {
 
 	Scale *Scale `json:"scale,omitempty"`
 
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-type IndooMapAuditID struct {
-	// ID
+type IndooMapAuditId struct {
+	// Id
 	// the identifier of the indoor map
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// the name of the indoor map
@@ -53,23 +53,23 @@ type IndoorMap struct {
 	// address
 	Address *string `json:"address,omitempty"`
 
-	// ApGroupID
+	// ApGroupId
 	// apGroupId
-	ApGroupID *string `json:"apGroupId,omitempty"`
+	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	Description *common.Description `json:"description,omitempty" validate:"required"`
 
-	// DomainID
+	// DomainId
 	// domainId
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// GroupType
 	// group Type
 	GroupType *string `json:"groupType,omitempty" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
-	// ID
+	// Id
 	// id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// ImageData
 	// imageData
@@ -95,13 +95,13 @@ type IndoorMap struct {
 
 	Scale *Scale `json:"scale,omitempty"`
 
-	// TenantID
+	// TenantId
 	// tenantId
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// zoneId
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type IndoorMapAp struct {
@@ -113,7 +113,7 @@ type IndoorMapAp struct {
 }
 
 type IndoorMapList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first indoorMapList returned out of the complete indoor maps list
@@ -139,23 +139,23 @@ type IndoorMapSummary struct {
 	// AP count in this indoor map
 	ApCount *float64 `json:"apCount,omitempty"`
 
-	// ApGroupID
+	// ApGroupId
 	// apGroupId
-	ApGroupID *string `json:"apGroupId,omitempty"`
+	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	Description *common.Description `json:"description,omitempty" validate:"required"`
 
-	// DomainID
+	// DomainId
 	// domainId
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// GroupType
 	// group Type
 	GroupType *string `json:"groupType,omitempty" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
-	// ID
+	// Id
 	// id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// ImageFileName
 	// imageFileName
@@ -177,17 +177,17 @@ type IndoorMapSummary struct {
 
 	Scale *Scale `json:"scale,omitempty"`
 
-	// TenantID
+	// TenantId
 	// tenantId
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// zoneId
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type IndoorMapSummaryList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first indoorMapList returned out of the complete indoor maps list

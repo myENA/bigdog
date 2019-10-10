@@ -15,9 +15,9 @@ type CreateDomain struct {
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	// ParentDomainID
+	// ParentDomainId
 	// parent domain id
-	ParentDomainID *string `json:"parentDomainId,omitempty"`
+	ParentDomainId *string `json:"parentDomainId,omitempty"`
 
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
@@ -45,15 +45,15 @@ type DomainConfiguration struct {
 	// domain type
 	DomainType *string `json:"domainType,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the domain
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// ParentDomainID
+	// ParentDomainId
 	// Parent Domain Id
-	ParentDomainID *string `json:"parentDomainId,omitempty"`
+	ParentDomainId *string `json:"parentDomainId,omitempty"`
 
 	// SubDomainCount
 	// # of Subdomains
@@ -85,9 +85,9 @@ type ModifyDomain struct {
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// ParentDomainID
+	// ParentDomainId
 	// parent domain id
-	ParentDomainID *string `json:"parentDomainId,omitempty"`
+	ParentDomainId *string `json:"parentDomainId,omitempty"`
 
 	// ZeroTouchStatus
 	// Zero Touch enable/disable

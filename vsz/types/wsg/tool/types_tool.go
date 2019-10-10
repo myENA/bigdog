@@ -7,7 +7,7 @@ import (
 )
 
 type SpeedFlex struct {
-	ClientIP *common.IPAddress `json:"clientIp,omitempty"`
+	ClientIp *common.IpAddress `json:"clientIp,omitempty"`
 
 	ClientMac *common.Mac `json:"clientMac,omitempty"`
 
@@ -19,7 +19,7 @@ type SpeedFlex struct {
 	// Protocol used in the SpeedFlex test
 	Protocol *string `json:"protocol,omitempty" validate:"required,oneof=UDP TCP"`
 
-	ServerIP *common.IPAddress `json:"serverIp,omitempty"`
+	ServerIp *common.IpAddress `json:"serverIp,omitempty"`
 
 	ServerMac *common.Mac `json:"serverMac,omitempty"`
 
@@ -49,9 +49,9 @@ type TestResult struct {
 	// Packet loss
 	PacketLoss *int `json:"packetLoss,omitempty"`
 
-	// ResultID
+	// ResultId
 	// Result ID
-	ResultID *int `json:"resultId,omitempty"`
+	ResultId *int `json:"resultId,omitempty"`
 
 	// Uplink
 	// Uplink

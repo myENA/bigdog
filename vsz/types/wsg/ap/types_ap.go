@@ -48,7 +48,7 @@ type ApConfiguration struct {
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
-	ApGroupID *string `json:"apGroupId,omitempty"`
+	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	ApMgmtVlan *common.ApManagementVlan `json:"apMgmtVlan,omitempty"`
 
@@ -139,21 +139,21 @@ type ApConfiguration struct {
 
 	Wifi50 *common.ApRadio50 `json:"wifi50,omitempty"`
 
-	WLANGroup24 *WLANGroup `json:"wlanGroup24,omitempty"`
+	WlanGroup24 *WlanGroup `json:"wlanGroup24,omitempty"`
 
-	WLANGroup50 *WLANGroup `json:"wlanGroup50,omitempty"`
+	WlanGroup50 *WlanGroup `json:"wlanGroup50,omitempty"`
 
-	// WLANService24Enabled
+	// WlanService24Enabled
 	// WLAN service enabled or disabled on 2.4GHz radio
-	WLANService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
+	WlanService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
 
-	// WLANService50Enabled
+	// WlanService50Enabled
 	// WLAN service enabled or disabled on 5GHz radio
-	WLANService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
+	WlanService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the AP group to which the AP belongs
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type ApLinemanSummary struct {
@@ -209,9 +209,9 @@ type ApListEntry struct {
 }
 
 type ApListEntryListType struct {
-	// ApGroupID
+	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
-	ApGroupID *string `json:"apGroupId,omitempty"`
+	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	Mac *common.Mac `json:"mac,omitempty"`
 
@@ -223,9 +223,9 @@ type ApListEntryListType struct {
 	// Serial Number
 	Serial *string `json:"serial,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone to which the AP belongs
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type ApName string
@@ -237,9 +237,9 @@ type ApOperationalSummary struct {
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
-	// ApGroupID
+	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
-	ApGroupID *string `json:"apGroupId,omitempty"`
+	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	// ApprovedTime
 	// Timestamp when the AP was approved by the controller
@@ -261,32 +261,32 @@ type ApOperationalSummary struct {
 	// Country code of the AP
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	// CpID
+	// CpId
 	// Identifier of the control plane to which the AP is currently connected
-	CpID *string `json:"cpId,omitempty"`
+	CpId *string `json:"cpId,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DpID
+	// DpId
 	// Identifier of the data plane to which the AP is currently connected
-	DpID *string `json:"dpId,omitempty"`
+	DpId *string `json:"dpId,omitempty"`
 
-	// ExternalIP
+	// ExternalIp
 	// External IP address of the AP. This is only applicable when the AP is behind a NAT server.
-	ExternalIP *string `json:"externalIp,omitempty"`
+	ExternalIp *string `json:"externalIp,omitempty"`
 
 	// ExternalPort
 	// External port number of the AP. This is only applicable when the AP is behind a NAT server.
 	ExternalPort *int `json:"externalPort,omitempty"`
 
-	// IP
+	// Ip
 	// IP address of the AP
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
-	// IPType
+	// IpType
 	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically
 	// assigned or kept unchanged.
-	IPType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
+	IpType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
 	// IsCriticalAP
 	// Indicates critical APs. Critical AP are APs that were tagged by the controller based on predefined
@@ -363,9 +363,9 @@ type ApOperationalSummary struct {
 	// 5GHZ radio channel number that the AP is currently using
 	Wifi50Channel *string `json:"wifi50Channel,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone to which the AP belongs
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type ClientList struct {
@@ -389,10 +389,10 @@ type CreateAP struct {
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
-	// ApGroupID
+	// ApGroupId
 	// Identifier of the AP group to which the AP belongs. If the AP belongs to the default AP group, this
 	// property is not needed.
-	ApGroupID *string `json:"apGroupId,omitempty"`
+	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	// AwsVenue
 	// Venue code
@@ -425,9 +425,9 @@ type CreateAP struct {
 	// Serial number of the AP
 	Serial *string `json:"serial,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone to which the AP belongs
-	ZoneID *string `json:"zoneId,omitempty" validate:"required"`
+	ZoneId *string `json:"zoneId,omitempty" validate:"required"`
 }
 
 type EventSummary struct {
@@ -483,9 +483,9 @@ type ModifyAP struct {
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
-	// ApGroupID
+	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
-	ApGroupID *string `json:"apGroupId,omitempty"`
+	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	ApMgmtVlan *common.ApManagementVlan `json:"apMgmtVlan,omitempty"`
 
@@ -572,21 +572,21 @@ type ModifyAP struct {
 
 	Wifi50 *common.ApRadio50 `json:"wifi50,omitempty"`
 
-	WLANGroup24 *WLANGroup `json:"wlanGroup24,omitempty"`
+	WlanGroup24 *WlanGroup `json:"wlanGroup24,omitempty"`
 
-	WLANGroup50 *WLANGroup `json:"wlanGroup50,omitempty"`
+	WlanGroup50 *WlanGroup `json:"wlanGroup50,omitempty"`
 
-	// WLANService24Enabled
+	// WlanService24Enabled
 	// WLAN service enabled or disabled on 2.4GHz radio
-	WLANService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
+	WlanService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
 
-	// WLANService50Enabled
+	// WlanService50Enabled
 	// WLAN service enabled or disabled on 5GHz radio
-	WLANService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
+	WlanService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone to which the AP belongs
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type ModifyRogueType struct {
@@ -620,17 +620,17 @@ type NeighborAPListType struct {
 	// Connection state of the mesh neighbor AP
 	ConnectionState *string `json:"connectionState,omitempty"`
 
-	// ExternalIP
+	// ExternalIp
 	// External IP of the mesh neighbor AP
-	ExternalIP *string `json:"externalIp,omitempty"`
+	ExternalIp *string `json:"externalIp,omitempty"`
 
 	// ExternalPort
 	// External port of the mesh neighbor AP
 	ExternalPort *string `json:"externalPort,omitempty"`
 
-	// IP
+	// Ip
 	// IP address of the mesh neighbor AP
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
 	Mac *common.Mac `json:"mac,omitempty"`
 
@@ -656,35 +656,35 @@ type NeighborAPListType struct {
 }
 
 type Network struct {
-	Gateway *common.IPAddress `json:"gateway,omitempty"`
+	Gateway *common.IpAddress `json:"gateway,omitempty"`
 
-	IP *common.IPAddress `json:"ip,omitempty"`
+	Ip *common.IpAddress `json:"ip,omitempty"`
 
-	// IPType
+	// IpType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically
 	// assigned or kept unchanged.
-	IPType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
+	IpType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
 	Netmask *common.SubNetMask `json:"netmask,omitempty"`
 
-	PrimaryDNS *common.IPAddress `json:"primaryDns,omitempty"`
+	PrimaryDns *common.IpAddress `json:"primaryDns,omitempty"`
 
-	SecondaryDNS *common.IPAddress `json:"secondaryDns,omitempty"`
+	SecondaryDns *common.IpAddress `json:"secondaryDns,omitempty"`
 }
 
 type NetworkIpv6 struct {
-	Gateway *common.IPAddress `json:"gateway,omitempty"`
+	Gateway *common.IpAddress `json:"gateway,omitempty"`
 
-	IP *common.IPAddress `json:"ip,omitempty"`
+	Ip *common.IpAddress `json:"ip,omitempty"`
 
-	// IPType
+	// IpType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically
 	// assigned or kept unchanged.
-	IPType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
+	IpType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
-	PrimaryDNS *common.IPAddress `json:"primaryDns,omitempty"`
+	PrimaryDns *common.IpAddress `json:"primaryDns,omitempty"`
 
-	SecondaryDNS *common.IPAddress `json:"secondaryDns,omitempty"`
+	SecondaryDns *common.IpAddress `json:"secondaryDns,omitempty"`
 }
 
 type SwitchoverAP struct {
@@ -700,18 +700,18 @@ type SwitchoverAP struct {
 	// Flag to delete AP record after switchover cluster. Default value is false.
 	DeleteRecord *bool `json:"deleteRecord,omitempty"`
 
-	// IPOrFQDN
+	// IpOrFqdn
 	// IP or FQDN address of destination cluster, Notice: Once this value been set, clusterName will be
 	// ignored.
-	IPOrFQDN *string `json:"ipOrFqdn,omitempty"`
+	IpOrFqdn *string `json:"ipOrFqdn,omitempty"`
 
-	// ZoneIDList
+	// ZoneIdList
 	// Zone ID list for which APs attached to will be switchovered.
-	ZoneIDList []string `json:"zoneIdList,omitempty"`
+	ZoneIdList []string `json:"zoneIdList,omitempty"`
 }
 
 type Syslog struct {
-	Address *common.IPAddress `json:"address,omitempty"`
+	Address *common.IpAddress `json:"address,omitempty"`
 
 	// Enabled
 	// Indicates whether syslog is enabled or disabled
@@ -737,7 +737,7 @@ type Syslog struct {
 	// Protocol of the syslog server
 	Protocol *string `json:"protocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 
-	SecondaryAddress *common.IPAddress `json:"secondaryAddress,omitempty"`
+	SecondaryAddress *common.IpAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
@@ -748,10 +748,10 @@ type Syslog struct {
 	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
-type WLANGroup struct {
-	// ID
+type WlanGroup struct {
+	// Id
 	// Identifier of the WLAN group
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the WLAN group

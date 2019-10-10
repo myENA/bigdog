@@ -8,15 +8,15 @@ import (
 )
 
 type CreateBulk struct {
-	// DHCPSnoopingTrustPortEnabled
+	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
-	DHCPSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
+	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Group Id
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
-	IDList common.IDList `json:"idList,omitempty"`
+	IdList common.IdList `json:"idList,omitempty"`
 
 	// IgnoreList
 	// attributes not to overwrite
@@ -74,9 +74,9 @@ type CreateBulk struct {
 	// STP Root Guard  Enabled
 	StpRootGuardEnabled *bool `json:"stpRootGuardEnabled,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// TaggedVlans
 	// Tagged Vlans
@@ -112,17 +112,17 @@ type PortSettings struct {
 	// The create time of the Port Settings
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// DHCPSnoopingTrustPortEnabled
+	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
-	DHCPSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
+	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Group Id
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
-	// ID
 	// Id
-	ID *string `json:"id,omitempty"`
+	// Id
+	Id *string `json:"id,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
@@ -182,9 +182,9 @@ type PortSettings struct {
 	// STP Root Guard  Enabled
 	StpRootGuardEnabled *bool `json:"stpRootGuardEnabled,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// TaggedVlans
 	// Tagged Vlans
@@ -247,9 +247,9 @@ func (t *PortSettingsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 }
 
 type UpdatePortSettings struct {
-	// DHCPSnoopingTrustPortEnabled
+	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
-	DHCPSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
+	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID

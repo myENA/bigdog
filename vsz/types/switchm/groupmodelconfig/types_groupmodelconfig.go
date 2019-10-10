@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 )
 
-type GroupConfigAuditID struct {
-	// ID
+type GroupConfigAuditId struct {
+	// Id
 	// The identifier of the Group Model Config
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// The name of the Group Model Config
@@ -21,13 +21,13 @@ type GroupModelConfig struct {
 	// The create time of the Group Model Config
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// FamilyID
+	// FamilyId
 	// Family Id
-	FamilyID *string `json:"familyId,omitempty"`
+	FamilyId *string `json:"familyId,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Group Id
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
 	// HasAclConfig
 	// Indicates if there is any ACLConfig in the Group Model Config
@@ -49,9 +49,9 @@ type GroupModelConfig struct {
 	// Indicates if there is any VlanConfig in the Group Model Config
 	HasVlanConfig *bool `json:"hasVlanConfig,omitempty"`
 
-	// ID
 	// Id
-	ID *string `json:"id,omitempty"`
+	// Id
+	Id *string `json:"id,omitempty"`
 
 	// UpdatedTime
 	// The update time of the Group Model Config
@@ -106,7 +106,7 @@ func (t *GroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
 }
 
 type SelectedIds struct {
-	SelectedIDList []string `json:"selectedIdList,omitempty"`
+	SelectedIdList []string `json:"selectedIdList,omitempty"`
 }
 
 type UpdateGroupConfigResultList struct {
@@ -122,7 +122,7 @@ type UpdateGroupConfigResultList struct {
 	// Indicator of whether there are more updated Group Model Configs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*GroupConfigAuditID `json:"list,omitempty"`
+	List []*GroupConfigAuditId `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total updated Group Model Configs count

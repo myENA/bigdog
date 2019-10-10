@@ -8,7 +8,7 @@ import (
 )
 
 type ActiveDirectoryServer struct {
-	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of Active Directory Server object
@@ -138,17 +138,17 @@ type BackupFile struct {
 	// file size of the backup file
 	FileSize *float64 `json:"fileSize,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of system configuration backup file.
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Md5
 	// file md5 of the backup file
 	Md5 *string `json:"md5,omitempty"`
 
-	// SCGVersion
+	// ScgVersion
 	// SCG version of the configuration backup file.
-	SCGVersion *string `json:"scgVersion,omitempty"`
+	ScgVersion *string `json:"scgVersion,omitempty"`
 
 	// Type
 	// type of the configuration backup file
@@ -174,9 +174,9 @@ type ClusterBackupSummary struct {
 	// filesize of the cluster backup file.
 	Filesize *float64 `json:"filesize,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of cluster backup file.
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Version
 	// the patch version of the cluster backup file.
@@ -235,7 +235,7 @@ type LdapServer struct {
 	// Base Domain Name of LDAP Server object
 	BaseDomainName *string `json:"baseDomainName,omitempty" validate:"required"`
 
-	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// KeyAttribute
 	// Key attribute of LDAP Server object
@@ -275,9 +275,9 @@ type Licenses struct {
 }
 
 type LicenseServer struct {
-	// IPAddress
+	// IpAddress
 	// local license server IP address
-	IPAddress *string `json:"ipAddress,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
 
 	// Port
 	// local license server port
@@ -347,7 +347,7 @@ type LicensesSyncLogsList struct {
 }
 
 type ModfiyLicenseServer struct {
-	IPAddress *string `json:"ipAddress,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
 
 	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
 
@@ -420,7 +420,7 @@ type ModifyScheduleBackup struct {
 }
 
 type RadiusServer struct {
-	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of RADIUS Server object
@@ -440,9 +440,9 @@ type RetrieveAdminAAAServer struct {
 
 	DefaultRoleMapping *DefaultRoleMapping `json:"defaultRoleMapping,omitempty"`
 
-	// ID
+	// Id
 	// ID of this Admin AAA Server
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	LdapServer *LdapServer `json:"ldapServer,omitempty"`
 
@@ -469,7 +469,7 @@ type RetrieveAdminAAAServerList struct {
 }
 
 type RetrieveAdminAAAServerListType struct {
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -503,7 +503,7 @@ type ScheduleBackup struct {
 }
 
 type SecondaryRadiusServer struct {
-	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// MaxRetries
 	// Max number(how many times) of retries for re-connection to primary
@@ -527,7 +527,7 @@ type SecondaryRadiusServer struct {
 }
 
 type TacacsServer struct {
-	IP *common.IPAddress `json:"ip,omitempty" validate:"required"`
+	Ip *common.IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Port number of TACACS+ Server object
@@ -617,7 +617,7 @@ type ZdAP struct {
 }
 
 type ZdAPList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -633,9 +633,9 @@ type ZdImport struct {
 	// List of AP MAC
 	ApMacList []string `json:"apMacList,omitempty"`
 
-	// IP
+	// Ip
 	// ZD IP address
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
 	// Password
 	// ZD password

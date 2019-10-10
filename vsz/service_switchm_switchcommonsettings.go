@@ -9,24 +9,23 @@ import (
 )
 
 type SwitchMSwitchCommonSettingsService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchCommonSettingsService (client *Client) *SwitchMSwitchCommonSettingsService {
-    s := new(SwitchMSwitchCommonSettingsService)
-    s.client = client
-    return s
+func NewSwitchMSwitchCommonSettingsService(client *Client) *SwitchMSwitchCommonSettingsService {
+	s := new(SwitchMSwitchCommonSettingsService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchCommonSettingsService () *SwitchMSwitchCommonSettingsService {
-    serv := new(SwitchMSwitchCommonSettingsService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchCommonSettingsService() *SwitchMSwitchCommonSettingsService {
+	serv := new(SwitchMSwitchCommonSettingsService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig (ctx context.Context) (*common.CreateResult, error) {
+func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig(ctx context.Context) (*common.CreateResult, error) {
 }
 
-func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId (ctx context.Context, switchGroupId string) (*dnsconfig.DNSConfig, error) {
+func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) (*dnsconfig.DnsConfig, error) {
 }
-

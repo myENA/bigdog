@@ -63,9 +63,9 @@ type ClusterRedundancySettings struct {
 }
 
 type ManagementEntry struct {
-	// IP
+	// Ip
 	// Management IP
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
 	// Port
 	// Management port

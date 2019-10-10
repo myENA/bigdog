@@ -6,22 +6,22 @@ import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
-type CreateSCGUser struct {
+type CreateScgUser struct {
 	// AccountLockout
 	// The number of successive failures before a lockout will occur. (System default admin ONLY)
 	AccountLockout *int `json:"accountLockout,omitempty" validate:"gte=1,lte=100"`
 
-	// DomainID
+	// DomainId
 	// Domain id
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// Email
 	// User email
 	Email *string `json:"email,omitempty"`
 
-	// ID
+	// Id
 	// User id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// LockoutDuration
 	// The duration for which the account is automatically locked without administrative intervention. (System
@@ -66,24 +66,24 @@ type CreateSCGUser struct {
 	UserName *string `json:"userName,omitempty" validate:"required"`
 }
 
-type GetSCGUser struct {
+type GetScgUser struct {
 	AccountLockout *int `json:"accountLockout,omitempty" validate:"gte=1,lte=100"`
 
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorID
+	// CreatorId
 	// Creator ID
-	CreatorID *string `json:"creatorId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Domain id
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// Email
 	// User email
@@ -93,9 +93,9 @@ type GetSCGUser struct {
 	// User enabled or not
 	Enabled *int `json:"enabled,omitempty" validate:"oneof=0 1"`
 
-	// ID
+	// Id
 	// User id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Locked
 	// User locked or not (0:unlocked/1:locked)
@@ -109,9 +109,9 @@ type GetSCGUser struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierID
+	// ModifierId
 	// Modifier ID
-	ModifierID *string `json:"modifierId,omitempty"`
+	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -144,20 +144,20 @@ type GetSCGUser struct {
 	UserName *string `json:"userName,omitempty"`
 }
 
-type ModifySCGUser struct {
+type ModifyScgUser struct {
 	AccountLockout *int `json:"accountLockout,omitempty" validate:"gte=1,lte=100"`
 
-	// DomainID
+	// DomainId
 	// Domain id
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// Email
 	// User email
 	Email *string `json:"email,omitempty"`
 
-	// ID
+	// Id
 	// User id
-	ID *string `json:"id,omitempty" validate:"required"`
+	Id *string `json:"id,omitempty" validate:"required"`
 
 	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"gte=1,lte=1440"`
 
@@ -194,50 +194,50 @@ type ModifySCGUser struct {
 	UserName *string `json:"userName,omitempty"`
 }
 
-type PatchSCGUserGroup struct {
-	AccountSecurityProfileID *string `json:"accountSecurityProfileId,omitempty"`
+type PatchScgUserGroup struct {
+	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty"`
 
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	CreatorID *string `json:"creatorId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
 
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
 	Description *string `json:"description,omitempty"`
 
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	ModifierID *string `json:"modifierId,omitempty"`
+	ModifierId *string `json:"modifierId,omitempty"`
 
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 
-	Permissions []*SCGUserGroupPermissionWithoutDetailItems `json:"permissions,omitempty"`
+	Permissions []*ScgUserGroupPermissionWithoutDetailItems `json:"permissions,omitempty"`
 
-	ResourceGroups []*SCGUserGroupResourceGroup `json:"resourceGroups,omitempty"`
+	ResourceGroups []*ScgUserGroupResourceGroup `json:"resourceGroups,omitempty"`
 
 	Role *string `json:"role,omitempty"`
 
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
-	Users []*GetSCGUser `json:"users,omitempty"`
+	Users []*GetScgUser `json:"users,omitempty"`
 }
 
 type QueryCriteria struct{}
 
-type SCGUserAuditID struct {
-	// ID
+type ScgUserAuditId struct {
+	// Id
 	// the identifier of the SCG user
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 }
 
-type SCGUserGroup struct {
-	AccountSecurityProfileID *string `json:"accountSecurityProfileId,omitempty" validate:"required"`
+type ScgUserGroup struct {
+	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty" validate:"required"`
 
 	AccountSecurityProfileName *string `json:"accountSecurityProfileName,omitempty"`
 
@@ -245,9 +245,9 @@ type SCGUserGroup struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorID
+	// CreatorId
 	// Creator ID
-	CreatorID *string `json:"creatorId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -257,13 +257,13 @@ type SCGUserGroup struct {
 	// User group description
 	Description *string `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Domain Id
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	// ID
+	// Id
 	// User group Id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	IsFactoryDefault *bool `json:"isFactoryDefault,omitempty"`
 
@@ -271,9 +271,9 @@ type SCGUserGroup struct {
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierID
+	// ModifierId
 	// Modifier ID
-	ModifierID *string `json:"modifierId,omitempty"`
+	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -285,44 +285,44 @@ type SCGUserGroup struct {
 
 	// Permissions
 	// Permission list
-	Permissions []*SCGUserGroupPermissionWithoutDetailItems `json:"permissions,omitempty" validate:"required"`
+	Permissions []*ScgUserGroupPermissionWithoutDetailItems `json:"permissions,omitempty" validate:"required"`
 
 	// ResourceGroups
 	// Resource group id list
-	ResourceGroups []*SCGUserGroupResourceGroup `json:"resourceGroups,omitempty" validate:"required"`
+	ResourceGroups []*ScgUserGroupResourceGroup `json:"resourceGroups,omitempty" validate:"required"`
 
 	// Role
 	// User group role
 	Role *string `json:"role,omitempty" validate:"required"`
 
-	// TenantID
+	// TenantId
 	// Tenant Id
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
 	// Users
 	// Users in this user group
-	Users []*GetSCGUser `json:"users,omitempty"`
+	Users []*GetScgUser `json:"users,omitempty"`
 }
 
-type SCGUserGroupAuditID struct {
-	// ID
+type ScgUserGroupAuditId struct {
+	// Id
 	// the identifier of the SCG user group
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 }
 
-type SCGUserGroupList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+type ScgUserGroupList struct {
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SCGUserGroup `json:"list,omitempty"`
+	List []*ScgUserGroup `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type SCGUserGroupPermission struct {
+type ScgUserGroupPermission struct {
 	// Access
 	// Access level
 	Access *string `json:"access,omitempty" validate:"oneof=READ MODIFY FULL_ACCESS"`
@@ -337,7 +337,7 @@ type SCGUserGroupPermission struct {
 
 	// Items
 	// Resource items
-	Items []*SCGUserGroupPermissionItemsType `json:"items,omitempty"`
+	Items []*ScgUserGroupPermissionItemsType `json:"items,omitempty"`
 
 	// ItemsDescription
 	// Descriptions of Resource items
@@ -348,7 +348,7 @@ type SCGUserGroupPermission struct {
 	Resource *string `json:"resource,omitempty"`
 }
 
-type SCGUserGroupPermissionItemsType struct {
+type ScgUserGroupPermissionItemsType struct {
 	Access *string `json:"access,omitempty" validate:"oneof=NA READ MODIFY FULL_ACCESS"`
 
 	Display *string `json:"display,omitempty"`
@@ -356,24 +356,24 @@ type SCGUserGroupPermissionItemsType struct {
 	Resource *string `json:"resource,omitempty"`
 }
 
-type SCGUserGroupPermissionList struct {
+type ScgUserGroupPermissionList struct {
 	// Extra
 	// Any additional response data.
-	Extra *SCGUserGroupPermissionListExtraType `json:"extra,omitempty"`
+	Extra *ScgUserGroupPermissionListExtraType `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SCGUserGroupPermission `json:"list,omitempty"`
+	List []*ScgUserGroupPermission `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-// SCGUserGroupPermissionListExtraType
+// ScgUserGroupPermissionListExtraType
 //
 // Any additional response data.
-type SCGUserGroupPermissionListExtraType struct {
+type ScgUserGroupPermissionListExtraType struct {
 	// IsSuperAdmin
 	// whether or not current user is a 'Super Admin' that possesses all 6 permission categories with
 	// 'FULL_ACCESS'
@@ -385,7 +385,7 @@ type SCGUserGroupPermissionListExtraType struct {
 	IsSuperAdminOfDomain *bool `json:"isSuperAdminOfDomain,omitempty"`
 }
 
-type SCGUserGroupPermissionWithoutDetailItems struct {
+type ScgUserGroupPermissionWithoutDetailItems struct {
 	// Access
 	// Access level
 	Access *string `json:"access,omitempty" validate:"oneof=READ MODIFY FULL_ACCESS"`
@@ -403,10 +403,10 @@ type SCGUserGroupPermissionWithoutDetailItems struct {
 	Resource *string `json:"resource,omitempty"`
 }
 
-type SCGUserGroupResourceGroup struct {
-	// ID
+type ScgUserGroupResourceGroup struct {
+	// Id
 	// the identifier of the SCG resource group
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// the name of the SCG resource group
@@ -417,7 +417,7 @@ type SCGUserGroupResourceGroup struct {
 	Type *string `json:"type,omitempty" validate:"oneof=DOMAIN ZONE APGROUP"`
 }
 
-type SCGUserGroupRoleLabelValue struct {
+type ScgUserGroupRoleLabelValue struct {
 	// Label
 	// Role display name
 	Label *string `json:"label,omitempty"`
@@ -427,24 +427,24 @@ type SCGUserGroupRoleLabelValue struct {
 	Value *string `json:"value,omitempty"`
 }
 
-type SCGUserGroupRoleLabelValueList struct {
+type ScgUserGroupRoleLabelValueList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SCGUserGroupRoleLabelValue `json:"list,omitempty"`
+	List []*ScgUserGroupRoleLabelValue `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type SCGUserList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+type ScgUserList struct {
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*GetSCGUser `json:"list,omitempty"`
+	List []*GetScgUser `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

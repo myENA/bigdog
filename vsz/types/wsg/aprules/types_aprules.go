@@ -11,11 +11,11 @@ type ApRuleConfiguration struct {
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the AP Registration Rules
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	IPAddressRange *IPAddressRange `json:"ipAddressRange,omitempty"`
+	IpAddressRange *IpAddressRange `json:"ipAddressRange,omitempty"`
 
 	MobilityZone *common.GenericRef `json:"mobilityZone,omitempty"`
 
@@ -47,9 +47,9 @@ type ApRuleList struct {
 type ApRuleListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the AP Registration Rules
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Priority
 	// priority of the AP Registration Rules
@@ -61,7 +61,7 @@ type CreateApRule struct {
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
-	IPAddressRange *IPAddressRange `json:"ipAddressRange,omitempty"`
+	IpAddressRange *IpAddressRange `json:"ipAddressRange,omitempty"`
 
 	MobilityZone *common.GenericRef `json:"mobilityZone,omitempty" validate:"required"`
 
@@ -86,10 +86,10 @@ type GpsCoordinates struct {
 	Longitude *common.Longitude `json:"longitude,omitempty"`
 }
 
-type IPAddressRange struct {
-	FromIP *common.IPAddress `json:"fromIp,omitempty"`
+type IpAddressRange struct {
+	FromIp *common.IpAddress `json:"fromIp,omitempty"`
 
-	ToIP *common.IPAddress `json:"toIp,omitempty"`
+	ToIp *common.IpAddress `json:"toIp,omitempty"`
 }
 
 type ModifyApRule struct {
@@ -97,7 +97,7 @@ type ModifyApRule struct {
 
 	GpsCoordinates *GpsCoordinates `json:"gpsCoordinates,omitempty"`
 
-	IPAddressRange *IPAddressRange `json:"ipAddressRange,omitempty"`
+	IpAddressRange *IpAddressRange `json:"ipAddressRange,omitempty"`
 
 	MobilityZone *common.GenericRef `json:"mobilityZone,omitempty"`
 
@@ -113,7 +113,7 @@ type ModifyApRule struct {
 }
 
 type Subnet struct {
-	NetworkAddress *common.IPAddress `json:"networkAddress,omitempty"`
+	NetworkAddress *common.IpAddress `json:"networkAddress,omitempty"`
 
 	// SubnetMask
 	// subnetMask

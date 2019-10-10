@@ -7,11 +7,11 @@ import (
 )
 
 type BulkDeleteRequest struct {
-	IDList IDList `json:"idList,omitempty"`
+	IdList IdList `json:"idList,omitempty"`
 }
 
 type CreateResult struct {
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 }
 
 type FilterOperator string
@@ -30,7 +30,7 @@ type FullTextSearch struct {
 	Value *string `json:"value,omitempty"`
 }
 
-type IDList []string
+type IdList []string
 
 type QueryCriteria struct {
 	// Attributes
@@ -150,8 +150,8 @@ type QueryCriteriaSortInfoType struct {
 
 type QueryCriteriaSuperSet struct{}
 
-type RBACMetadata struct {
-	RBACMetadata []string `json:"rbacMetadata,omitempty"`
+type RbacMetadata struct {
+	RbacMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
 type TimeRange struct {

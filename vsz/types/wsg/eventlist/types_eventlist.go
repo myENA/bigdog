@@ -23,7 +23,7 @@ type SingleEvent struct {
 
 	EventType *string `json:"eventType,omitempty"`
 
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	InsertionTime *float64 `json:"insertionTime,omitempty"`
 

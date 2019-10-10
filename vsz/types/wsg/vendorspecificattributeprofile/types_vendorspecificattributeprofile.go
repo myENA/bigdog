@@ -10,7 +10,7 @@ import (
 type CreateResult interface{}
 
 type DeleteBulk struct {
-	IDList common.IDList `json:"idList,omitempty"`
+	IdList common.IdList `json:"idList,omitempty"`
 }
 
 type EmptyResult struct {
@@ -40,19 +40,19 @@ type Get struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Domain Id
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the vendor specific attribute profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Zone Id
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type List struct {
@@ -74,9 +74,9 @@ type List struct {
 }
 
 type ListType struct {
-	// ID
+	// Id
 	// Identifier of the vendor specific attribute profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
@@ -92,7 +92,7 @@ type Persist struct {
 }
 
 type QueryCriteriaResult struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -104,9 +104,9 @@ type QueryCriteriaResult struct {
 }
 
 type VendorSpecificAttribute struct {
-	// KeyID
+	// KeyId
 	// Key ID of vendor specific attribute
-	KeyID *int `json:"keyId,omitempty" validate:"required"`
+	KeyId *int `json:"keyId,omitempty" validate:"required"`
 
 	// SupportedRadiusProtocol
 	// The radius protocol to which this given vendor specific attribute will attach
@@ -120,7 +120,7 @@ type VendorSpecificAttribute struct {
 	// Value of vendor specific attribute
 	Value *string `json:"value,omitempty" validate:"required"`
 
-	// VendorID
+	// VendorId
 	// Vendor ID of vendor specific attribute
-	VendorID *int `json:"vendorId,omitempty" validate:"required"`
+	VendorId *int `json:"vendorId,omitempty" validate:"required"`
 }

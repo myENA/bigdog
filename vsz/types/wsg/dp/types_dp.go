@@ -3,7 +3,7 @@ package dp
 // API Version: v8_1
 
 type EmptyResult struct {
-	DpEmptyResult *string `json:"dp_emptyResult,omitempty"`
+	DpemptyResult *string `json:"dp_emptyResult,omitempty"`
 }
 
 type SwitchoverDp struct {
@@ -15,12 +15,12 @@ type SwitchoverDp struct {
 	// Flag to delete DP record after switchover cluster. Default value is false.
 	DeleteRecord *bool `json:"deleteRecord,omitempty"`
 
-	// DpIDList
+	// DpIdList
 	// DP ID list
-	DpIDList []string `json:"dpIdList,omitempty"`
+	DpIdList []string `json:"dpIdList,omitempty"`
 
-	// IPOrFQDN
+	// IpOrFqdn
 	// IP or FQDN address of destination cluster, Notice: System will take ipOrFqdn as 1st priority, and
 	// clusterName as 2nd.
-	IPOrFQDN *string `json:"ipOrFqdn,omitempty"`
+	IpOrFqdn *string `json:"ipOrFqdn,omitempty"`
 }

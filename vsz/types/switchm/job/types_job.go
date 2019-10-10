@@ -25,49 +25,49 @@ type Job struct {
 
 	CsvDataMap *JobCsvDataMapType `json:"csvDataMap,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the management domain to which the job belong
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// FailureReason
 	// Failure reason of the job
 	FailureReason *string `json:"failureReason,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the job
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// ModifiedTimestamp
 	// Modified timestamp of the job
 	ModifiedTimestamp *int `json:"modifiedTimestamp,omitempty"`
 
-	// ScheduleID
+	// ScheduleId
 	// Schedule Id of the job
-	ScheduleID *string `json:"scheduleId,omitempty"`
+	ScheduleId *string `json:"scheduleId,omitempty"`
 
 	// Status
 	// Status of the job
 	Status *string `json:"status,omitempty"`
 
-	// StickyNodeID
+	// StickyNodeId
 	// Sticky node Id of the job
-	StickyNodeID *string `json:"stickyNodeId,omitempty"`
+	StickyNodeId *string `json:"stickyNodeId,omitempty"`
 
-	// SwitchGroupLevelOneID
+	// SwitchGroupLevelOneId
 	// Switch group level one Id of the job
-	SwitchGroupLevelOneID *string `json:"switchGroupLevelOneId,omitempty"`
+	SwitchGroupLevelOneId *string `json:"switchGroupLevelOneId,omitempty"`
 
-	// SwitchGroupLevelTwoID
+	// SwitchGroupLevelTwoId
 	// Switch group level two Id of the job
-	SwitchGroupLevelTwoID *string `json:"switchGroupLevelTwoId,omitempty"`
+	SwitchGroupLevelTwoId *string `json:"switchGroupLevelTwoId,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id of the job
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
-	// TenantID
+	// TenantId
 	// Tenant Id of the job
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
 	// Type
 	// Type of the job
@@ -99,9 +99,9 @@ type JobSchedule struct {
 	// Created timestamp of job schedule
 	CreatedTimestamp *int `json:"createdTimestamp,omitempty"`
 
-	// JobID
+	// JobId
 	// Job Id of job schedule
-	JobID []string `json:"jobId,omitempty"`
+	JobId []string `json:"jobId,omitempty"`
 
 	// TriggerValue
 	// Trigger value of job schedule

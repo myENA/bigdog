@@ -27,7 +27,7 @@ type Alarm struct {
 	// Alarm description
 	Description *string `json:"description,omitempty"`
 
-	ID *Mac `json:"id,omitempty"`
+	Id *Mac `json:"id,omitempty"`
 
 	// Severity
 	// Alarm severity
@@ -72,9 +72,9 @@ type ApLoginName string
 type ApLoginPassword string
 
 type ApManagementVlan struct {
-	// ID
+	// Id
 	// Vlan id of the zone
-	ID *int `json:"id,omitempty"`
+	Id *int `json:"id,omitempty"`
 
 	// Mode
 	// Vlan Mode of the zone
@@ -126,13 +126,13 @@ type AutoChannelSelection struct {
 }
 
 type BaseServiceInfo struct {
-	// ID
+	// Id
 	// ID of service
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	// ServiceID
+	// ServiceId
 	// ID of service
-	ServiceID *string `json:"serviceId,omitempty"`
+	ServiceId *string `json:"serviceId,omitempty"`
 
 	// ServiceName
 	// Name of service
@@ -144,7 +144,7 @@ type BaseServiceInfo struct {
 }
 
 type BulkDeleteRequest struct {
-	IDList IDList `json:"idList,omitempty"`
+	IdList IdList `json:"idList,omitempty"`
 }
 
 type Client struct {
@@ -172,9 +172,9 @@ type Client struct {
 	// Host name
 	HostName *string `json:"hostName,omitempty"`
 
-	IPAddress *IPAddress `json:"ipAddress,omitempty"`
+	IpAddress *IpAddress `json:"ipAddress,omitempty"`
 
-	Ipv6Address *IPAddress `json:"ipv6Address,omitempty"`
+	Ipv6Address *IpAddress `json:"ipv6Address,omitempty"`
 
 	Mac *Mac `json:"mac,omitempty"`
 
@@ -182,9 +182,9 @@ type Client struct {
 	// OS type
 	OsType *string `json:"osType,omitempty"`
 
-	// RadioID
+	// RadioId
 	// Radio inditifier
-	RadioID *string `json:"radioId,omitempty"`
+	RadioId *string `json:"radioId,omitempty"`
 
 	// RadioMode
 	// Radio mode
@@ -242,9 +242,9 @@ type Client struct {
 	// VLAN id
 	Vlan *string `json:"vlan,omitempty"`
 
-	// WLANID
+	// WlanId
 	// WLAN inditifier
-	WLANID *string `json:"wlanId,omitempty"`
+	WlanId *string `json:"wlanId,omitempty"`
 }
 
 type ClientAdmissionControl struct {
@@ -262,11 +262,11 @@ type ClientAdmissionControl struct {
 }
 
 type CreateResult struct {
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 }
 
-type CreateResultIDName struct {
-	ID *string `json:"id,omitempty"`
+type CreateResultIdName struct {
+	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 }
@@ -275,12 +275,12 @@ type Description string
 
 type DescriptionTo128 string
 
-type DHCPProfileRef struct {
+type DhcpProfileRef struct {
 	Description *Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the DHCP Profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// LeaseTimeHours
 	// Lease time in hours of the DHCP Profile
@@ -292,41 +292,41 @@ type DHCPProfileRef struct {
 
 	Name *NormalName `json:"name,omitempty"`
 
-	PoolEndIP *IPAddress `json:"poolEndIp,omitempty"`
+	PoolEndIp *IpAddress `json:"poolEndIp,omitempty"`
 
-	PoolStartIP *IPAddress `json:"poolStartIp,omitempty"`
+	PoolStartIp *IpAddress `json:"poolStartIp,omitempty"`
 
-	PrimaryDNSIP *IPAddress `json:"primaryDnsIp,omitempty"`
+	PrimaryDnsIp *IpAddress `json:"primaryDnsIp,omitempty"`
 
-	SecondaryDNSIP *IPAddress `json:"secondaryDnsIp,omitempty"`
+	SecondaryDnsIp *IpAddress `json:"secondaryDnsIp,omitempty"`
 
-	SubnetMask *IPAddress `json:"subnetMask,omitempty"`
+	SubnetMask *IpAddress `json:"subnetMask,omitempty"`
 
-	SubnetNetworkIP *IPAddress `json:"subnetNetworkIp,omitempty"`
+	SubnetNetworkIp *IpAddress `json:"subnetNetworkIp,omitempty"`
 
-	// VlanID
+	// VlanId
 	// VLAN ID of the DHCP Profile
-	VlanID *int `json:"vlanId,omitempty" validate:"gte=1,lte=4094"`
+	VlanId *int `json:"vlanId,omitempty" validate:"gte=1,lte=4094"`
 
-	// ZoneID
+	// ZoneId
 	// Zone Id of DHCP Profile
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-type DHCPSiteConfigListRef struct {
-	// DWPDEnabled
+type DhcpSiteConfigListRef struct {
+	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
-	DWPDEnabled *bool `json:"dwpdEnabled,omitempty"`
+	DwpdEnabled *bool `json:"dwpdEnabled,omitempty"`
 
-	Eth0ProfileID *int `json:"eth0ProfileId,omitempty"`
+	Eth0ProfileId *int `json:"eth0ProfileId,omitempty"`
 
-	Eth1ProfileID *int `json:"eth1ProfileId,omitempty"`
+	Eth1ProfileId *int `json:"eth1ProfileId,omitempty"`
 
 	// ManualSelect
 	// DHCP Service AP Selection Mode
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*DHCPSiteConfigListRefSiteApsType `json:"siteAps,omitempty"`
+	SiteAps []*DhcpSiteConfigListRefSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -336,18 +336,18 @@ type DHCPSiteConfigListRef struct {
 	// DHCP Service mode
 	SiteMode *string `json:"siteMode,omitempty" validate:"oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
-	SiteProfiles []*DHCPProfileRef `json:"siteProfiles,omitempty"`
+	SiteProfiles []*DhcpProfileRef `json:"siteProfiles,omitempty"`
 
 	// ZoneName
 	// DHCP Service Zone Name
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-// DHCPSiteConfigListRefSiteApsType
+// DhcpSiteConfigListRefSiteApsType
 //
 // DHCP Site selected APs
-type DHCPSiteConfigListRefSiteApsType struct {
-	ApGatewayIP *string `json:"apGatewayIp,omitempty"`
+type DhcpSiteConfigListRefSiteApsType struct {
+	ApGatewayIp *string `json:"apGatewayIp,omitempty"`
 
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -355,7 +355,7 @@ type DHCPSiteConfigListRefSiteApsType struct {
 
 	ApServerEnabled *bool `json:"apServerEnabled,omitempty"`
 
-	ApServerIP *string `json:"apServerIp,omitempty"`
+	ApServerIp *string `json:"apServerIp,omitempty"`
 
 	ApServerPrimary *bool `json:"apServerPrimary,omitempty"`
 
@@ -364,20 +364,20 @@ type DHCPSiteConfigListRefSiteApsType struct {
 	ApStatus *string `json:"apStatus,omitempty" validate:"oneof=Online Offline Flagged"`
 }
 
-type DHCPSiteConfigRef struct {
-	// DWPDEnabled
+type DhcpSiteConfigRef struct {
+	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
-	DWPDEnabled *bool `json:"dwpdEnabled,omitempty"`
+	DwpdEnabled *bool `json:"dwpdEnabled,omitempty"`
 
-	Eth0ProfileID *int `json:"eth0ProfileId,omitempty"`
+	Eth0ProfileId *int `json:"eth0ProfileId,omitempty"`
 
-	Eth1ProfileID *int `json:"eth1ProfileId,omitempty"`
+	Eth1ProfileId *int `json:"eth1ProfileId,omitempty"`
 
 	// ManualSelect
 	// DHCP Service AP Selection Mode. This value is effective when the siteMode is EnableOnMultipleAPs.
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*DHCPSiteConfigRefSiteApsType `json:"siteAps,omitempty"`
+	SiteAps []*DhcpSiteConfigRefSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -390,11 +390,11 @@ type DHCPSiteConfigRef struct {
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
 
-// DHCPSiteConfigRefSiteApsType
+// DhcpSiteConfigRefSiteApsType
 //
 // DHCP Site selected APs. The content is effective when the siteMode is EnableOnMultipleAPs.
-type DHCPSiteConfigRefSiteApsType struct {
-	ApGatewayIP *string `json:"apGatewayIp,omitempty"`
+type DhcpSiteConfigRefSiteApsType struct {
+	ApGatewayIp *string `json:"apGatewayIp,omitempty"`
 
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -402,7 +402,7 @@ type DHCPSiteConfigRefSiteApsType struct {
 
 	ApServerEnabled *bool `json:"apServerEnabled,omitempty"`
 
-	ApServerIP *string `json:"apServerIp,omitempty"`
+	ApServerIp *string `json:"apServerIp,omitempty"`
 
 	ApServerPrimary *bool `json:"apServerPrimary,omitempty"`
 
@@ -411,16 +411,16 @@ type DHCPSiteConfigRefSiteApsType struct {
 	ApStatus *string `json:"apStatus,omitempty" validate:"oneof=Online Offline Flagged"`
 }
 
-type DoAssignIP struct {
-	// DWPDEnabled
+type DoAssignIp struct {
+	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
-	DWPDEnabled *bool `json:"dwpdEnabled,omitempty"`
+	DwpdEnabled *bool `json:"dwpdEnabled,omitempty"`
 
 	// ManualSelect
 	// DHCP Service AP Selection Mode. This value is effective when the siteMode is EnableOnMultipleAPs.
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*DoAssignIPSiteApsType `json:"siteAps,omitempty"`
+	SiteAps []*DoAssignIpSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -433,10 +433,10 @@ type DoAssignIP struct {
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
 
-// DoAssignIPSiteApsType
+// DoAssignIpSiteApsType
 //
 // DHCP Site selected APs. The content is effective when the siteMode is EnableOnMultipleAPs.
-type DoAssignIPSiteApsType struct {
+type DoAssignIpSiteApsType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
 	ApServerEnabled *bool `json:"apServerEnabled,omitempty"`
@@ -487,7 +487,7 @@ type FullTextSearch struct {
 }
 
 type GenericRef struct {
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 }
@@ -512,11 +512,11 @@ type HealthCheckPolicy struct {
 
 type HTTPS string
 
-type IDList []string
+type IdList []string
 
-type IPAddress string
+type IpAddress string
 
-type IPMode string
+type IpMode string
 
 type LanguageName string
 
@@ -529,17 +529,17 @@ type LocationAdditionalInfo string
 type Longitude float64
 
 type LteBandLockChannel struct {
-	// Channel3G
+	// Channel3g
 	// LTE 3G channels
-	Channel3G *string `json:"channel3g,omitempty"`
+	Channel3g *string `json:"channel3g,omitempty"`
 
-	// Channel4G
+	// Channel4g
 	// LTE 4G channels
-	Channel4G *string `json:"channel4g,omitempty"`
+	Channel4g *string `json:"channel4g,omitempty"`
 
-	// SimCardID
+	// SimCardId
 	// SIM card ID(Primary:0, Secondary:1)
-	SimCardID *int `json:"simCardId,omitempty"`
+	SimCardId *int `json:"simCardId,omitempty"`
 
 	// Type
 	// LTE chipset SKU type
@@ -550,9 +550,9 @@ type Mac string
 
 type NormalName string
 
-type NormalName2To64 string
+type NormalName2to64 string
 
-type NormalName2To128 string
+type NormalName2to128 string
 
 type NormalNameAllowBlank string
 
@@ -577,7 +577,7 @@ type OverrideClientAdmissionControl struct {
 type OverrideGenericRef struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 }
@@ -864,7 +864,7 @@ type Radio50SuperSet struct {
 }
 
 type RadiusServer struct {
-	IP *IPAddress `json:"ip,omitempty" validate:"required"`
+	Ip *IpAddress `json:"ip,omitempty" validate:"required"`
 
 	// Port
 	// Server port
@@ -889,8 +889,8 @@ type RateLimiting struct {
 	Threshold *int `json:"threshold,omitempty" validate:"required"`
 }
 
-type RBACMetadata struct {
-	RBACMetadata []string `json:"rbacMetadata,omitempty"`
+type RbacMetadata struct {
+	RbacMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
 type Realm string
@@ -911,7 +911,7 @@ type SmartMonitor struct {
 	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"gte=1,lte=10"`
 }
 
-type SNMPCommunity struct {
+type SnmpCommunity struct {
 	// CommunityName
 	// name of the SNMP Community.
 	CommunityName *string `json:"communityName,omitempty" validate:"required"`
@@ -937,7 +937,7 @@ type SNMPCommunity struct {
 	WriteEnabled *bool `json:"writeEnabled,omitempty"`
 }
 
-type SNMPUser struct {
+type SnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
 	AuthPassword *string `json:"authPassword,omitempty" validate:"min=8"`
@@ -1017,23 +1017,23 @@ type TimeUnitStore string
 type TrafficClassProfileRef struct {
 	Description *Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the Traffic Class Profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *NormalName `json:"name,omitempty"`
 
 	TrafficClasses []*TrafficClassRef `json:"trafficClasses,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Zone Id of Traffic Class Profile
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type TrafficClassRef struct {
-	// ID
+	// Id
 	// Identifier of the Traffic Class
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Whitelists
 	// White list of the Traffic Class Profile. The multiple entries need to be separated by comma (,)

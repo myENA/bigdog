@@ -9,10 +9,10 @@ import (
 type CreateWifiCallingPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy
 	// belongs
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
@@ -26,15 +26,15 @@ type CreateWifiCallingPolicy struct {
 }
 
 type DeleteBulk struct {
-	IDList common.IDList `json:"idList,omitempty"`
+	IdList common.IdList `json:"idList,omitempty"`
 }
 
 type Epdg struct {
-	// FQDN
+	// Fqdn
 	// Fully qualified domain name of ePDG
-	FQDN *string `json:"fqdn,omitempty"`
+	Fqdn *string `json:"fqdn,omitempty"`
 
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 }
 
 type ModifyEntireWifiCallingPolicy struct {
@@ -60,9 +60,9 @@ type WifiCallingPolicy struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorID
+	// CreatorId
 	// Creator ID
-	CreatorID *string `json:"creatorId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -70,26 +70,26 @@ type WifiCallingPolicy struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy
 	// belongs
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
 	Epdgs []*Epdg `json:"epdgs,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the Wi-Fi calling policy
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierID
+	// ModifierId
 	// Modifier ID
-	ModifierID *string `json:"modifierId,omitempty"`
+	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -101,13 +101,13 @@ type WifiCallingPolicy struct {
 	// QoS priority of the Wi-Fi calling policy
 	Priority *string `json:"priority,omitempty" validate:"oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 
-	// TenantID
+	// TenantId
 	// Tenant Id
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 }
 
 type WifiCallingPolicyList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

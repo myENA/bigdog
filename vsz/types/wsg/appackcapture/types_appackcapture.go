@@ -7,9 +7,9 @@ type ApPacketCaptureReq struct {
 	// Capture interface
 	CaptureInterface *string `json:"captureInterface,omitempty" validate:"required,oneof=RADIO24 RADIO50 ETH0 ETH1 ETH2 ETH3 ETH4 ETH5 ETH6 ETH7"`
 
-	// HostIP
+	// HostIp
 	// Wireshark host IP
-	HostIP *string `json:"hostIp,omitempty"`
+	HostIp *string `json:"hostIp,omitempty"`
 
 	// IncludedFrameTypes
 	// Frame type filter
@@ -37,9 +37,9 @@ type ApPacketCaptureRes struct {
 	// Capture state
 	CaptureState *string `json:"captureState,omitempty"`
 
-	// HostIP
+	// HostIp
 	// Wireshark host IP
-	HostIP *string `json:"hostIp,omitempty"`
+	HostIp *string `json:"hostIp,omitempty"`
 
 	// IncludedFrameTypes
 	// Frame type filter

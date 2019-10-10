@@ -11,17 +11,17 @@ type CreateStaticRoute struct {
 	// Admin Distance
 	AdminDistance *int `json:"adminDistance,omitempty"`
 
-	// DestinationIP
+	// DestinationIp
 	// Destination IP
-	DestinationIP *string `json:"destinationIp,omitempty"`
+	DestinationIp *string `json:"destinationIp,omitempty"`
 
-	// FamilyID
+	// FamilyId
 	// Family Id
-	FamilyID *string `json:"familyId,omitempty"`
+	FamilyId *string `json:"familyId,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Switch Group Id
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
 	// NextHop
 	// Next Hop
@@ -35,9 +35,9 @@ type CreateStaticRoute struct {
 	// Puch Config Type
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 }
 
 type EmptyResult struct {
@@ -69,21 +69,21 @@ type StaticRoute struct {
 	// The create time of the Static Route
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// DestinationIP
+	// DestinationIp
 	// Destination IP
-	DestinationIP *string `json:"destinationIp,omitempty"`
+	DestinationIp *string `json:"destinationIp,omitempty"`
 
-	// FamilyID
+	// FamilyId
 	// Family Id
-	FamilyID *string `json:"familyId,omitempty"`
+	FamilyId *string `json:"familyId,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Switch Group Id
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
-	// ID
+	// Id
 	// Static Route Id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// NextHop
 	// Next Hop
@@ -97,9 +97,9 @@ type StaticRoute struct {
 	// Puch Config Type
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the Static Route
@@ -158,9 +158,9 @@ type UpdateStaticRoute struct {
 	// Admin Distance
 	AdminDistance *int `json:"adminDistance,omitempty"`
 
-	// DestinationIP
+	// DestinationIp
 	// Destination IP
-	DestinationIP *string `json:"destinationIp,omitempty"`
+	DestinationIp *string `json:"destinationIp,omitempty"`
 
 	// NextHop
 	// Next Hop

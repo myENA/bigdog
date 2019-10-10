@@ -2,11 +2,11 @@ package dhcppools
 
 // API Version: v8_1
 
-// DHCPClientInfo
+// DhcpClientInfo
 //
 // DHCP Pool Client Information List
-type DHCPClientInfo struct {
-	ClientIP *string `json:"clientIp,omitempty"`
+type DhcpClientInfo struct {
+	ClientIp *string `json:"clientIp,omitempty"`
 
 	ClientMac *string `json:"clientMac,omitempty"`
 
@@ -19,56 +19,56 @@ type DHCPClientInfo struct {
 	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty"`
 }
 
-// DHCPPoolInfo
+// DhcpPoolInfo
 //
 // DHCP Pool Information List
-type DHCPPoolInfo struct {
-	ApIP *string `json:"apIp,omitempty"`
+type DhcpPoolInfo struct {
+	ApIp *string `json:"apIp,omitempty"`
 
-	AvailableIPCount *int `json:"availableIpCount,omitempty"`
+	AvailableIpCount *int `json:"availableIpCount,omitempty"`
 
-	ClientInfoList *DHCPPoolInfoClientInfoListType `json:"clientInfoList,omitempty"`
+	ClientInfoList *DhcpPoolInfoClientInfoListType `json:"clientInfoList,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 
-	PoolEndIP *string `json:"poolEndIp,omitempty"`
+	PoolEndIp *string `json:"poolEndIp,omitempty"`
 
 	PoolIndex *int `json:"poolIndex,omitempty"`
 
-	PoolStartIP *string `json:"poolStartIp,omitempty"`
+	PoolStartIp *string `json:"poolStartIp,omitempty"`
 
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	TotalIPCount *int `json:"totalIpCount,omitempty"`
+	TotalIpCount *int `json:"totalIpCount,omitempty"`
 
-	UsedIPCount *int `json:"usedIpCount,omitempty"`
+	UsedIpCount *int `json:"usedIpCount,omitempty"`
 
-	VlanID *int `json:"vlanId,omitempty"`
+	VlanId *int `json:"vlanId,omitempty"`
 }
 
-type DHCPPoolInfoClientInfoListType struct {
+type DhcpPoolInfoClientInfoListType struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*DHCPClientInfo `json:"list,omitempty"`
+	List []*DhcpClientInfo `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-// DHCPPools
+// DhcpPools
 //
 // DHCP Pools Usage Per AP
-type DHCPPools struct {
+type DhcpPools struct {
 	ApMac *string `json:"apMac,omitempty"`
 
 	DomainEntity *string `json:"domainEntity,omitempty"`
 
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	PoolInfoList []*DHCPPoolInfo `json:"poolInfoList,omitempty"`
+	PoolInfoList []*DhcpPoolInfo `json:"poolInfoList,omitempty"`
 
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 }

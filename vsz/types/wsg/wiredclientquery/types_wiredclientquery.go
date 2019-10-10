@@ -7,7 +7,7 @@ import (
 )
 
 type ClientQueryList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -33,7 +33,7 @@ type CreateClientQuery struct {
 
 	Hostname *string `json:"hostname,omitempty"`
 
-	IPAddress *string `json:"ipAddress,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
 
 	Ipv6Address *string `json:"ipv6Address,omitempty"`
 
@@ -61,5 +61,5 @@ type CreateClientQuery struct {
 
 	Vlan *int `json:"vlan,omitempty"`
 
-	WLANType *string `json:"wlanType,omitempty"`
+	WlanType *string `json:"wlanType,omitempty"`
 }

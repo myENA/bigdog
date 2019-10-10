@@ -7,21 +7,21 @@ import (
 )
 
 type Create struct {
-	// DHCPRelayAgent
+	// DhcpRelayAgent
 	// DHCP Replay IP Address
-	DHCPRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
+	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Switch Group ID
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
 	InAclConfigUUID *string `json:"inAclConfigUUID,omitempty"`
 
-	// IPAddress
+	// IpAddress
 	// IP Address
-	IPAddress *string `json:"ipAddress,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
 
 	// Name
 	// name
@@ -39,17 +39,17 @@ type Create struct {
 	// Subnet Mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch ID
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
-	// VeID
+	// VeId
 	// VE Id
-	VeID *int `json:"veId,omitempty"`
+	VeId *int `json:"veId,omitempty"`
 
-	// VlanID
+	// VlanId
 	// VLAN ID
-	VlanID *int `json:"vlanId,omitempty"`
+	VlanId *int `json:"vlanId,omitempty"`
 }
 
 type CreateResult interface{}
@@ -93,17 +93,17 @@ type List struct {
 }
 
 type Modify struct {
-	// DHCPRelayAgent
+	// DhcpRelayAgent
 	// DHCP Replay IP Address
-	DHCPRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
+	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
 	InAclConfigUUID *string `json:"inAclConfigUUID,omitempty"`
 
-	// IPAddress
+	// IpAddress
 	// IP Address
-	IPAddress *string `json:"ipAddress,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
 
 	// Name
 	// name
@@ -121,13 +121,13 @@ type Modify struct {
 	// Subnet Mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch ID
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
-	// VlanID
+	// VlanId
 	// VLAN ID
-	VlanID *int `json:"vlanId,omitempty"`
+	VlanId *int `json:"vlanId,omitempty"`
 }
 
 type VeConfig struct {
@@ -135,17 +135,17 @@ type VeConfig struct {
 	// Created Time
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// DHCPRelayAgent
+	// DhcpRelayAgent
 	// DHCP Replay IP Address
-	DHCPRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
+	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Switch Group ID
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
+	// Id
 	// ID
-	// ID
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	InAclConfigName *string `json:"inAclConfigName,omitempty"`
 
@@ -153,9 +153,9 @@ type VeConfig struct {
 	// Ingress ACL Config UUID
 	InAclConfigUUID *string `json:"inAclConfigUUID,omitempty"`
 
-	// IPAddress
+	// IpAddress
 	// IP Address
-	IPAddress *string `json:"ipAddress,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
 
 	// Name
 	// name
@@ -175,9 +175,9 @@ type VeConfig struct {
 	// Subnet Mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch ID
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// SwitchName
 	// Switch Name
@@ -191,11 +191,11 @@ type VeConfig struct {
 	// Updated Time
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 
-	// VeID
+	// VeId
 	// VE Id
-	VeID *int `json:"veId,omitempty"`
+	VeId *int `json:"veId,omitempty"`
 
-	// VlanID
+	// VlanId
 	// VLAN ID
-	VlanID *int `json:"vlanId,omitempty"`
+	VlanId *int `json:"vlanId,omitempty"`
 }

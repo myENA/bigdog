@@ -13,9 +13,9 @@ type Cfgbk struct {
 	// Failure reason of the config backup and config restore
 	FailureReason *string `json:"failureReason,omitempty"`
 
-	// ID
+	// Id
 	// the identifier of the config backup
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// the name of the config backup
@@ -51,9 +51,9 @@ type ConfigBackupContent struct {
 	// Content of the ConfigBackup
 	Config *string `json:"config,omitempty"`
 
-	// ID
+	// Id
 	// the identifier of the ConfigBackup Content
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the ConfigBackup Content
@@ -67,17 +67,17 @@ type ConfigBackupDiff struct {
 }
 
 type ConfigBackupDiffInput struct {
-	// ConfigBackupID1
+	// ConfigBackupId1
 	// The first config backup id of diff input
-	ConfigBackupID1 *string `json:"configBackupId1,omitempty"`
+	ConfigBackupId1 *string `json:"configBackupId1,omitempty"`
 
-	// ConfigBackupID2
+	// ConfigBackupId2
 	// The second config backup id of diff input
-	ConfigBackupID2 *string `json:"configBackupId2,omitempty"`
+	ConfigBackupId2 *string `json:"configBackupId2,omitempty"`
 }
 
 type CreateBackupResultList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of first index in current page
@@ -99,17 +99,17 @@ type CreateBackupResultList struct {
 }
 
 type CreateBackupResultListType struct {
-	// ConfigBackupID
+	// ConfigBackupId
 	// Identifier of config backup
-	ConfigBackupID *string `json:"configBackupId,omitempty"`
+	ConfigBackupId *string `json:"configBackupId,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Identifier of switch
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 }
 
 type List struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ConfigBackup returned out of the complete ConfigBackup list
@@ -131,7 +131,7 @@ type List struct {
 }
 
 type QueryCriteria struct {
-	ConfigBackupQueryCriteria *string `json:"configBackup_queryCriteria,omitempty"`
+	ConfigBackupqueryCriteria *string `json:"configBackup_queryCriteria,omitempty"`
 }
 
 type SwitchIds []string

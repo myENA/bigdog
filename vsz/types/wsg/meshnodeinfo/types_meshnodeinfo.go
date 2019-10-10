@@ -7,7 +7,7 @@ import (
 )
 
 type HelperZoneInfo struct {
-	HelperAPZoneID *string `json:"helperAPZoneId,omitempty"`
+	HelperAPZoneId *string `json:"helperAPZoneId,omitempty"`
 
 	HelperAPZoneName *string `json:"helperAPZoneName,omitempty"`
 }
@@ -51,9 +51,9 @@ type MeshNodeInfo struct {
 	// The hop count of this mesh AP
 	Hops *int `json:"hops,omitempty"`
 
-	// IPAddress
+	// IpAddress
 	// The IP of the mesh AP
-	IPAddress *int `json:"ipAddress,omitempty"`
+	IpAddress *int `json:"ipAddress,omitempty"`
 
 	// MeshRole
 	// The Role of the mesh AP
@@ -116,7 +116,7 @@ func (t *MeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
 type UpdateAPZeroTouch struct {
 	ApMac *string `json:"apMac,omitempty"`
 
-	HelperZoneID *string `json:"helperZoneId,omitempty"`
+	HelperZoneId *string `json:"helperZoneId,omitempty"`
 
 	SerialNumber *string `json:"serialNumber,omitempty"`
 

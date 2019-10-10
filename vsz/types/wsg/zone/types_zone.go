@@ -36,18 +36,18 @@ type ApLogin struct {
 	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword,omitempty" validate:"required"`
 }
 
-type ApSNMPOptions struct {
-	// ApSNMPEnabled
+type ApSnmpOptions struct {
+	// ApSnmpEnabled
 	// Enable AP SNMP
-	ApSNMPEnabled *bool `json:"apSnmpEnabled,omitempty"`
+	ApSnmpEnabled *bool `json:"apSnmpEnabled,omitempty"`
 
-	// SNMPV2Agent
+	// SnmpV2Agent
 	// Community List of the SNMP V2 Agent.
-	SNMPV2Agent []*common.SNMPCommunity `json:"snmpV2Agent,omitempty"`
+	SnmpV2Agent []*common.SnmpCommunity `json:"snmpV2Agent,omitempty"`
 
-	// SNMPV3Agent
+	// SnmpV3Agent
 	// User List of the SNMP V3 Agent.
-	SNMPV3Agent []*SNMPUser `json:"snmpV3Agent,omitempty"`
+	SnmpV3Agent []*SnmpUser `json:"snmpV3Agent,omitempty"`
 }
 
 type AvailableTunnelProfile struct {
@@ -55,11 +55,11 @@ type AvailableTunnelProfile struct {
 	// Enable AAA affinity (Soft GRE only)
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
-	// ID
+	// Id
 	// Tunnel Profile ID
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	IPMode *common.IPMode `json:"ipMode,omitempty"`
+	IpMode *common.IpMode `json:"ipMode,omitempty"`
 
 	// Name
 	// Tunnel Profile Name
@@ -124,9 +124,9 @@ type BonjourGatewayPolicySummary struct {
 	// Description of the bonjour gateway policy
 	Description *string `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the bonjour gateway policy
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// LastModifiedBy
 	// Last modified user of the bonjour gateway policy
@@ -301,7 +301,7 @@ type CreateZone struct {
 	// DFS Channel enabled configuration of the zone, only for the US country code.
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DHCPSiteConfig *common.DHCPSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
+	DhcpSiteConfig *common.DhcpSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -315,9 +315,9 @@ type CreateZone struct {
 	// Directed multicast from wireless client.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the management domain to which the zone belongs
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// DosBarringCheckPeriod
 	// DoS Protection(Barring UE) check period of the zone.
@@ -407,13 +407,13 @@ type CreateZone struct {
 
 	SmartMonitor *common.SmartMonitor `json:"smartMonitor,omitempty"`
 
-	SNMPAgent *ApSNMPOptions `json:"snmpAgent,omitempty"`
+	SnmpAgent *ApSnmpOptions `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SSHTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 
@@ -435,9 +435,9 @@ type CreateZone struct {
 
 	Wifi50 *common.Radio50 `json:"wifi50,omitempty"`
 
-	// ZoneAffinityProfileID
+	// ZoneAffinityProfileId
 	// Zone affinity profile of the zone
-	ZoneAffinityProfileID *string `json:"zoneAffinityProfileId,omitempty"`
+	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
 type CustomizedTimeZone struct {
@@ -476,12 +476,12 @@ type DaylightSavingTime struct {
 	Week *int `json:"week,omitempty" validate:"required,oneof=1 2 3 4 5"`
 }
 
-type DHCPSiteConfigList struct {
+type DhcpSiteConfigList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*common.DHCPSiteConfigListRef `json:"list,omitempty"`
+	List []*common.DhcpSiteConfigListRef `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -491,9 +491,9 @@ type DiffServConfiguration struct {
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the zone
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -515,9 +515,9 @@ type DiffServList struct {
 }
 
 type DiffServSummary struct {
-	// ID
+	// Id
 	// Identifier of the diff serv
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the diff serv
@@ -657,7 +657,7 @@ type ModifyZone struct {
 	// DFS Channel enabled configuration of the zone, only for the US country code .
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DHCPSiteConfig *common.DHCPSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
+	DhcpSiteConfig *common.DhcpSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -671,9 +671,9 @@ type ModifyZone struct {
 	// Directed multicast from wireless client.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the management domain to which the zone belongs
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// DosBarringCheckPeriod
 	// DoS Protection(Barring UE) check period of the zone.
@@ -763,13 +763,13 @@ type ModifyZone struct {
 
 	SmartMonitor *common.SmartMonitor `json:"smartMonitor,omitempty"`
 
-	SNMPAgent *ApSNMPOptions `json:"snmpAgent,omitempty"`
+	SnmpAgent *ApSnmpOptions `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SSHTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 
@@ -789,9 +789,9 @@ type ModifyZone struct {
 
 	Wifi50 *common.Radio50 `json:"wifi50,omitempty"`
 
-	// ZoneAffinityProfileID
+	// ZoneAffinityProfileId
 	// zone affinity profile Id
-	ZoneAffinityProfileID *string `json:"zoneAffinityProfileId,omitempty"`
+	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
 type QueryCriteria struct{}
@@ -810,7 +810,7 @@ type Rogue struct {
 	ReportType *string `json:"reportType,omitempty" validate:"oneof=All Malicious"`
 }
 
-type SNMPUser struct {
+type SnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
 	AuthPassword *string `json:"authPassword,omitempty" validate:"min=8"`
@@ -855,13 +855,13 @@ type SNMPUser struct {
 type SoftGreRef struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 }
 
 type Syslog struct {
-	Address *common.IPAddress `json:"address,omitempty"`
+	Address *common.IpAddress `json:"address,omitempty"`
 
 	// Facility
 	// Facility of the syslog server
@@ -883,7 +883,7 @@ type Syslog struct {
 	// Protocol of the syslog server
 	Protocol *string `json:"protocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 
-	SecondaryAddress *common.IPAddress `json:"secondaryAddress,omitempty"`
+	SecondaryAddress *common.IpAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
@@ -999,7 +999,7 @@ type ZoneConfiguration struct {
 	// DFS Channel enabled configuration of the zone, only for the US country code .
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DHCPSiteConfig *common.DHCPSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
+	DhcpSiteConfig *common.DhcpSiteConfigRef `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -1013,9 +1013,9 @@ type ZoneConfiguration struct {
 	// Directed multicast from wireless client.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the management domain to which the zone belongs
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// DosBarringCheckPeriod
 	// DoS Protection(Barring UE) check period of the zone.
@@ -1045,11 +1045,11 @@ type ZoneConfiguration struct {
 	// Enabled Health Check Sites.
 	HealthCheckSitesEnabled *bool `json:"healthCheckSitesEnabled,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the zone
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	IPMode *common.IPMode `json:"ipMode,omitempty"`
+	IpMode *common.IpMode `json:"ipMode,omitempty"`
 
 	IpsecProfile *common.GenericRef `json:"ipsecProfile,omitempty"`
 
@@ -1111,13 +1111,13 @@ type ZoneConfiguration struct {
 
 	SmartMonitor *common.SmartMonitor `json:"smartMonitor,omitempty"`
 
-	SNMPAgent *ApSNMPOptions `json:"snmpAgent,omitempty"`
+	SnmpAgent *ApSnmpOptions `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
-	SSHTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
 
@@ -1139,9 +1139,9 @@ type ZoneConfiguration struct {
 
 	Wifi50 *common.Radio50SuperSet `json:"wifi50,omitempty"`
 
-	// ZoneAffinityProfileID
+	// ZoneAffinityProfileId
 	// zone affinity profile Id
-	ZoneAffinityProfileID *string `json:"zoneAffinityProfileId,omitempty"`
+	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
 type ZoneList struct {
@@ -1155,9 +1155,9 @@ type ZoneList struct {
 }
 
 type ZoneSummary struct {
-	// ID
+	// Id
 	// Identifier of the zone
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the zone

@@ -23,9 +23,9 @@ type DevicePolicyPorfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// identifier of the device policy cofig
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -95,9 +95,9 @@ type PorfileList struct {
 }
 
 type PorfileListType struct {
-	// ID
+	// Id
 	// Identifier of the service
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 }

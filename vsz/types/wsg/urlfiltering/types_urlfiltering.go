@@ -6,7 +6,7 @@ import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
-type CreateURLFilteringPolicy struct {
+type CreateUrlFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
 	Blacklist []string `json:"blacklist,omitempty"`
@@ -17,10 +17,10 @@ type CreateURLFilteringPolicy struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy
 	// belongs
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
@@ -28,25 +28,25 @@ type CreateURLFilteringPolicy struct {
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
-	// SafeSearchBingDNS
+	// SafeSearchBingDns
 	// Bing DNS for safe search of the URL Filtering policy
-	SafeSearchBingDNS *string `json:"safeSearchBingDns,omitempty"`
+	SafeSearchBingDns *string `json:"safeSearchBingDns,omitempty"`
 
 	// SafeSearchBingEnabled
 	// Enable Bing safe search of the URL Filtering policy
 	SafeSearchBingEnabled *bool `json:"safeSearchBingEnabled,omitempty"`
 
-	// SafeSearchGoogleDNS
+	// SafeSearchGoogleDns
 	// Google DNS for safe search of the URL Filtering policy
-	SafeSearchGoogleDNS *string `json:"safeSearchGoogleDns,omitempty"`
+	SafeSearchGoogleDns *string `json:"safeSearchGoogleDns,omitempty"`
 
 	// SafeSearchGoogleEnabled
 	// Enable Google safe search of the URL Filtering policy
 	SafeSearchGoogleEnabled *bool `json:"safeSearchGoogleEnabled,omitempty"`
 
-	// SafeSearchYouTubeDNS
+	// SafeSearchYouTubeDns
 	// YouTube DNS for safe search of the URL Filtering policy
-	SafeSearchYouTubeDNS *string `json:"safeSearchYouTubeDns,omitempty"`
+	SafeSearchYouTubeDns *string `json:"safeSearchYouTubeDns,omitempty"`
 
 	// SafeSearchYouTubeEnabled
 	// Enable YouTube safe search of the URL Filtering policy
@@ -58,10 +58,10 @@ type CreateURLFilteringPolicy struct {
 }
 
 type DeleteBulk struct {
-	IDList common.IDList `json:"idList,omitempty"`
+	IdList common.IdList `json:"idList,omitempty"`
 }
 
-type ModifyURLFilteringPolicy struct {
+type ModifyUrlFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
 	Blacklist []string `json:"blacklist,omitempty"`
@@ -78,25 +78,25 @@ type ModifyURLFilteringPolicy struct {
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// SafeSearchBingDNS
+	// SafeSearchBingDns
 	// Bing DNS for safe search of the URL Filtering policy
-	SafeSearchBingDNS *string `json:"safeSearchBingDns,omitempty"`
+	SafeSearchBingDns *string `json:"safeSearchBingDns,omitempty"`
 
 	// SafeSearchBingEnabled
 	// Enable Bing safe search of the URL Filtering policy
 	SafeSearchBingEnabled *bool `json:"safeSearchBingEnabled,omitempty"`
 
-	// SafeSearchGoogleDNS
+	// SafeSearchGoogleDns
 	// Google DNS for safe search of the URL Filtering policy
-	SafeSearchGoogleDNS *string `json:"safeSearchGoogleDns,omitempty"`
+	SafeSearchGoogleDns *string `json:"safeSearchGoogleDns,omitempty"`
 
 	// SafeSearchGoogleEnabled
 	// Enable Google safe search of the URL Filtering policy
 	SafeSearchGoogleEnabled *bool `json:"safeSearchGoogleEnabled,omitempty"`
 
-	// SafeSearchYouTubeDNS
+	// SafeSearchYouTubeDns
 	// YouTube DNS for safe search of the URL Filtering policy
-	SafeSearchYouTubeDNS *string `json:"safeSearchYouTubeDns,omitempty"`
+	SafeSearchYouTubeDns *string `json:"safeSearchYouTubeDns,omitempty"`
 
 	// SafeSearchYouTubeEnabled
 	// Enable YouTube safe search of the URL Filtering policy
@@ -107,27 +107,27 @@ type ModifyURLFilteringPolicy struct {
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
-type URLFilteringBlockCategoriesList struct {
+type UrlFilteringBlockCategoriesList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*URLFilteringBlockCategory `json:"list,omitempty"`
+	List []*UrlFilteringBlockCategory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type URLFilteringBlockCategory struct {
-	// ID
+type UrlFilteringBlockCategory struct {
+	// Id
 	// Identifier of the URL Filtering Category
-	ID *int `json:"id,omitempty"`
+	Id *int `json:"id,omitempty"`
 
 	// Name
 	// name of the URL Filtering Category
 	Name *string `json:"name,omitempty"`
 }
 
-type URLFilteringPolicy struct {
+type UrlFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
 	Blacklist []string `json:"blacklist,omitempty"`
@@ -140,9 +140,9 @@ type URLFilteringPolicy struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorID
+	// CreatorId
 	// Creator ID
-	CreatorID *string `json:"creatorId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
@@ -150,26 +150,26 @@ type URLFilteringPolicy struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy
 	// belongs
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
 	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
-	// ID
+	// Id
 	// Identifier of the URL Filtering policy
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierID
+	// ModifierId
 	// Modifier ID
-	ModifierID *string `json:"modifierId,omitempty"`
+	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
@@ -177,47 +177,47 @@ type URLFilteringPolicy struct {
 
 	Name *common.NormalName `json:"name,omitempty"`
 
-	// SafeSearchBingDNS
+	// SafeSearchBingDns
 	// Bing DNS for safe search of the URL Filtering policy
-	SafeSearchBingDNS *string `json:"safeSearchBingDns,omitempty"`
+	SafeSearchBingDns *string `json:"safeSearchBingDns,omitempty"`
 
 	// SafeSearchBingEnabled
 	// Enable Bing safe search of the URL Filtering policy
 	SafeSearchBingEnabled *bool `json:"safeSearchBingEnabled,omitempty"`
 
-	// SafeSearchGoogleDNS
+	// SafeSearchGoogleDns
 	// Google DNS for safe search of the URL Filtering policy
-	SafeSearchGoogleDNS *string `json:"safeSearchGoogleDns,omitempty"`
+	SafeSearchGoogleDns *string `json:"safeSearchGoogleDns,omitempty"`
 
 	// SafeSearchGoogleEnabled
 	// Enable Google safe search of the URL Filtering policy
 	SafeSearchGoogleEnabled *bool `json:"safeSearchGoogleEnabled,omitempty"`
 
-	// SafeSearchYouTubeDNS
+	// SafeSearchYouTubeDns
 	// YouTube DNS for safe search of the URL Filtering policy
-	SafeSearchYouTubeDNS *string `json:"safeSearchYouTubeDns,omitempty"`
+	SafeSearchYouTubeDns *string `json:"safeSearchYouTubeDns,omitempty"`
 
 	// SafeSearchYouTubeEnabled
 	// Enable YouTube safe search of the URL Filtering policy
 	SafeSearchYouTubeEnabled *bool `json:"safeSearchYouTubeEnabled,omitempty"`
 
-	// TenantID
+	// TenantId
 	// Tenant Id
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
 	// Whitelist
 	// The whitelist of the URL Filtering policy
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
-type URLFilteringPolicyList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+type UrlFilteringPolicyList struct {
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*URLFilteringPolicy `json:"list,omitempty"`
+	List []*UrlFilteringPolicy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

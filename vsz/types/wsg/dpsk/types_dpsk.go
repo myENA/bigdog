@@ -11,9 +11,9 @@ type BatchGenUnbound struct {
 	// Amount of generate unbound DPSK
 	Amount *int `json:"amount,omitempty"`
 
-	// GroupDPSK
+	// GroupDpsk
 	// Using group DPSK or not
-	GroupDPSK *bool `json:"groupDpsk,omitempty"`
+	GroupDpsk *bool `json:"groupDpsk,omitempty"`
 
 	PassphraseList []string `json:"passphraseList,omitempty"`
 
@@ -21,35 +21,35 @@ type BatchGenUnbound struct {
 	// User Name of DPSK
 	UserName *string `json:"userName,omitempty"`
 
-	// UserRoleID
+	// UserRoleId
 	// Identity User Role ID of DPSK
-	UserRoleID *string `json:"userRoleId,omitempty"`
+	UserRoleId *string `json:"userRoleId,omitempty"`
 
-	// VlanID
+	// VlanId
 	// VLAN ID of DPSK
-	VlanID *int `json:"vlanId,omitempty"`
+	VlanId *int `json:"vlanId,omitempty"`
 }
 
-type DeleteDPSKResult struct {
+type DeleteDpskResult struct {
 	ResultCount *int `json:"resultCount,omitempty"`
 }
 
 type DeleteDPSKs struct {
-	IDList []string `json:"idList,omitempty"`
+	IdList []string `json:"idList,omitempty"`
 }
 
-type DeleteExpiredDPSKConfig struct {
-	// DeleteExpiredDPSK
+type DeleteExpiredDpskConfig struct {
+	// DeleteExpiredDpsk
 	// Delete expired DPSK interval of the Zone.
-	DeleteExpiredDPSK *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
+	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
 }
 
-// DPSKInfo
+// DpskInfo
 //
 // Information list of DPSK
-type DPSKInfo []*DPSKInfoType
+type DpskInfo []*DpskInfoType
 
-type DPSKInfoType struct {
+type DpskInfoType struct {
 	// CreationDateTime
 	// Creationd date/time of DPSK
 	CreationDateTime *float64 `json:"creationDateTime,omitempty"`
@@ -58,13 +58,13 @@ type DPSKInfoType struct {
 	// Expiration date/time of DPSK
 	ExpirationDateTime *string `json:"expirationDateTime,omitempty"`
 
-	// GroupDPSK
+	// GroupDpsk
 	// Is a Group DPSK or not
-	GroupDPSK *bool `json:"groupDpsk,omitempty"`
+	GroupDpsk *bool `json:"groupDpsk,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of DPSK
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// MacAddress
 	// Mac address of DPSK
@@ -78,21 +78,21 @@ type DPSKInfoType struct {
 	// User Name of DPSK
 	UserName *string `json:"userName,omitempty"`
 
-	// UserRoleID
+	// UserRoleId
 	// Identity User Role ID of DPSK
-	UserRoleID *string `json:"userRoleId,omitempty"`
+	UserRoleId *string `json:"userRoleId,omitempty"`
 
-	// VlanID
+	// VlanId
 	// VLAN ID of DPSK
-	VlanID *int `json:"vlanId,omitempty"`
+	VlanId *int `json:"vlanId,omitempty"`
 
-	// WLANID
+	// WlanId
 	// WLAN ID of DPSK
-	WLANID *string `json:"wlanId,omitempty"`
+	WlanId *string `json:"wlanId,omitempty"`
 }
 
-type DPSKQueryList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+type DpskQueryList struct {
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -100,19 +100,19 @@ type DPSKQueryList struct {
 
 	// List
 	// Information list of DPSK
-	List []*DPSKQueryListType `json:"list,omitempty"`
+	List []*DpskQueryListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type DPSKQueryListType struct {
+type DpskQueryListType struct {
 	// CreateDateTime
 	// Creationd time of DPSK
 	CreateDateTime *float64 `json:"createDateTime,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Domain ID of DPSK
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// ExpirationStartTime
 	// Expiration start time of DPSK (Unit: Seconds)
@@ -134,13 +134,13 @@ type DPSKQueryListType struct {
 	// Identifier of DPSK
 	Key *string `json:"key,omitempty"`
 
-	// TenantID
+	// TenantId
 	// Tenant ID of DPSK
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
-	// TTL
+	// Ttl
 	// Time To Live of DPSK (Unit: Seconds)
-	TTL *float64 `json:"ttl,omitempty"`
+	Ttl *float64 `json:"ttl,omitempty"`
 
 	// UeMac
 	// Mac address of DPSK
@@ -150,24 +150,24 @@ type DPSKQueryListType struct {
 	// User Name of DPSK
 	UserName *string `json:"userName,omitempty"`
 
-	// UserRoleID
+	// UserRoleId
 	// Identity User Role ID of DPSK
-	UserRoleID *string `json:"userRoleId,omitempty"`
+	UserRoleId *string `json:"userRoleId,omitempty"`
 
-	// VlanID
+	// VlanId
 	// VLAN ID of DPSK
-	VlanID *int `json:"vlanId,omitempty"`
+	VlanId *int `json:"vlanId,omitempty"`
 
-	// WLANID
+	// WlanId
 	// WLAN ID of DPSK
-	WLANID *string `json:"wlanId,omitempty"`
+	WlanId *string `json:"wlanId,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Zone ID of DPSK
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-type GetDPSKEnabledWlans struct {
+type GetDpskEnabledWlans struct {
 	// FirstIndex
 	// Index of the first DPSK enabled WLAN returned out of the complete WLAN list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -176,67 +176,67 @@ type GetDPSKEnabledWlans struct {
 	// Indicates whether there are more DPSK enabled WLANs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*GetDPSKEnabledWlansListType `json:"list,omitempty"`
+	List []*GetDpskEnabledWlansListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total DPSK enabled WLAN count of the zone
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type GetDPSKEnabledWlansListType struct {
+type GetDpskEnabledWlansListType struct {
 	// Ssid
 	// SSID of the DPSK enabled WLAN
 	Ssid *string `json:"ssid,omitempty"`
 
-	// WLANID
+	// WlanId
 	// Identifier of the DPSK enabled WLAN
-	WLANID *string `json:"wlanId,omitempty"`
+	WlanId *string `json:"wlanId,omitempty"`
 
-	// WLANName
+	// WlanName
 	// Name of the the DPSK enabled WLAN
-	WLANName *string `json:"wlanName,omitempty"`
+	WlanName *string `json:"wlanName,omitempty"`
 }
 
-type GetDPSKInfoList struct {
+type GetDpskInfoList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List DPSKInfo `json:"list,omitempty"`
+	List DpskInfo `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type GetDPSKResult struct {
-	DPSKInfoList DPSKInfo `json:"dpskInfoList,omitempty"`
+type GetDpskResult struct {
+	DpskInfoList DpskInfo `json:"dpskInfoList,omitempty"`
 
 	ResultCount *int `json:"resultCount,omitempty"`
 }
 
-type ModifyDeleteExpiredDPSK struct {
-	// DeleteExpiredDPSK
+type ModifyDeleteExpiredDpsk struct {
+	// DeleteExpiredDpsk
 	// Delete expired DPSK interval of the Zone.
-	DeleteExpiredDPSK *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
+	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
 }
 
-type UpdateDPSK struct {
+type UpdateDpsk struct {
 	// UserName
 	// User Name of DPSK
 	UserName *string `json:"userName,omitempty"`
 }
 
-type WLANDPSKSetting struct {
-	// DPSKEnabled
+type WlanDpskSetting struct {
+	// DpskEnabled
 	// DPSK enabled
-	DPSKEnabled *bool `json:"dpskEnabled,omitempty"`
+	DpskEnabled *bool `json:"dpskEnabled,omitempty"`
 
-	// DPSKFromType
+	// DpskFromType
 	// Type of expiration start from
-	DPSKFromType *string `json:"dpskFromType,omitempty" validate:"oneof=CreateTime FirstUse"`
+	DpskFromType *string `json:"dpskFromType,omitempty" validate:"oneof=CreateTime FirstUse"`
 
-	// DPSKType
+	// DpskType
 	// Type of DPSK key
-	DPSKType *string `json:"dpskType,omitempty" validate:"oneof=Secure KeyboardFriendly NumbersOnly"`
+	DpskType *string `json:"dpskType,omitempty" validate:"oneof=Secure KeyboardFriendly NumbersOnly"`
 
 	// Expiration
 	// Expiration of DPSK key
@@ -247,10 +247,10 @@ type WLANDPSKSetting struct {
 	Length *int `json:"length,omitempty"`
 }
 
-type WLANExternalDPSK struct {
+type WlanExternalDpsk struct {
 	// AuthService
 	// Autentication of the WLAN relate to external DPSK
-	AuthService *WLANExternalDPSKAuthServiceType `json:"authService,omitempty"`
+	AuthService *WlanExternalDpskAuthServiceType `json:"authService,omitempty"`
 
 	// Enabled
 	// Enable External DPSK
@@ -258,26 +258,26 @@ type WLANExternalDPSK struct {
 
 	// Encryption
 	// Encryption of the WLAN relate to external DPSK
-	Encryption *WLANExternalDPSKEncryptionType `json:"encryption,omitempty"`
+	Encryption *WlanExternalDpskEncryptionType `json:"encryption,omitempty"`
 }
 
-// WLANExternalDPSKAuthServiceType
+// WlanExternalDpskAuthServiceType
 //
 // Autentication of the WLAN relate to external DPSK
-type WLANExternalDPSKAuthServiceType struct {
-	// ID
+type WlanExternalDpskAuthServiceType struct {
+	// Id
 	// Identifier of the authentication service. At least one ID or name is required in the request.
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the authentication service. At least one ID or name is required in the request.
 	Name *string `json:"name,omitempty"`
 }
 
-// WLANExternalDPSKEncryptionType
+// WlanExternalDpskEncryptionType
 //
 // Encryption of the WLAN relate to external DPSK
-type WLANExternalDPSKEncryptionType struct {
+type WlanExternalDpskEncryptionType struct {
 	// Algorithm
 	// Encryption algorithm. This only applies to WPA2 and WPA mixed mode.
 	Algorithm *string `json:"algorithm,omitempty" validate:"oneof=AES TKIP_AES"`

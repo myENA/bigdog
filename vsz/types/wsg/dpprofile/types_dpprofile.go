@@ -7,10 +7,10 @@ import (
 )
 
 type BulkDelete struct {
-	IDList common.IDList `json:"idList,omitempty"`
+	IdList common.IdList `json:"idList,omitempty"`
 }
 
-type DpDHCPProfileBasicBO struct {
+type DpDhcpProfileBasicBO struct {
 	// DefaultLeaseTime
 	// defaultLeaseTime
 	DefaultLeaseTime *int `json:"defaultLeaseTime,omitempty"`
@@ -23,34 +23,34 @@ type DpDHCPProfileBasicBO struct {
 	// domainName
 	DomainName *string `json:"domainName,omitempty"`
 
-	// PrimaryDNSServer
+	// PrimaryDnsServer
 	// primaryDnsServer
-	PrimaryDNSServer *string `json:"primaryDnsServer,omitempty"`
+	PrimaryDnsServer *string `json:"primaryDnsServer,omitempty"`
 
-	// ProfileID
+	// ProfileId
 	// profileId
-	ProfileID *string `json:"profileId,omitempty"`
+	ProfileId *string `json:"profileId,omitempty"`
 
 	// ProfileName
 	// profileName
 	ProfileName *string `json:"profileName,omitempty"`
 
-	// SecondaryDNSServer
+	// SecondaryDnsServer
 	// secondaryDnsServer
-	SecondaryDNSServer *string `json:"secondaryDnsServer,omitempty"`
+	SecondaryDnsServer *string `json:"secondaryDnsServer,omitempty"`
 }
 
-type DpDHCPProfileBasicBOList struct {
+type DpDhcpProfileBasicBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*DpDHCPProfileBasicBO `json:"list,omitempty"`
+	List []*DpDhcpProfileBasicBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type DpDHCPProfileHostBO struct {
+type DpDhcpProfileHostBO struct {
 	// BroadcastAddress
 	// broadcastAddress
 	BroadcastAddress *string `json:"broadcastAddress,omitempty"`
@@ -59,9 +59,9 @@ type DpDHCPProfileHostBO struct {
 	// description
 	Description *string `json:"description,omitempty"`
 
-	// DNSServers
+	// DnsServers
 	// dnsServers
-	DNSServers []string `json:"dnsServers,omitempty"`
+	DnsServers []string `json:"dnsServers,omitempty"`
 
 	// DomainName
 	// domainName
@@ -75,9 +75,9 @@ type DpDHCPProfileHostBO struct {
 	// hardwareEthernet
 	HardwareEthernet *string `json:"hardwareEthernet,omitempty"`
 
-	// HostID
+	// HostId
 	// hostId
-	HostID *string `json:"hostId,omitempty"`
+	HostId *string `json:"hostId,omitempty"`
 
 	// HostName
 	// hostName
@@ -91,26 +91,26 @@ type DpDHCPProfileHostBO struct {
 	// name
 	Name *string `json:"name,omitempty"`
 
-	// ProfileID
+	// ProfileId
 	// profileId
-	ProfileID *string `json:"profileId,omitempty"`
+	ProfileId *string `json:"profileId,omitempty"`
 
 	// Routers
 	// routers
 	Routers []string `json:"routers,omitempty"`
 }
 
-type DpDHCPProfileHostBOList struct {
+type DpDhcpProfileHostBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*DpDHCPProfileHostBO `json:"list,omitempty"`
+	List []*DpDhcpProfileHostBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type DpDHCPProfileOptionBO struct {
+type DpDhcpProfileOptionBO struct {
 	// CodeNumber
 	// codeNumber
 	CodeNumber *int `json:"codeNumber,omitempty"`
@@ -128,13 +128,13 @@ type DpDHCPProfileOptionBO struct {
 	Value *string `json:"value,omitempty"`
 }
 
-type DpDHCPProfileOptionInstance struct {
+type DpDhcpProfileOptionInstance struct {
 	FunctionName *string `json:"functionName,omitempty"`
 
 	Value *string `json:"value,omitempty"`
 }
 
-type DpDHCPProfileOptionSpaceApplyToBO struct {
+type DpDhcpProfileOptionSpaceApplyToBO struct {
 	// AppliedPoolNames
 	// appliedPoolNames
 	AppliedPoolNames []string `json:"appliedPoolNames,omitempty"`
@@ -149,22 +149,22 @@ type DpDHCPProfileOptionSpaceApplyToBO struct {
 
 	// Options
 	// options
-	Options []*DpDHCPProfileOptionBO `json:"options,omitempty"`
+	Options []*DpDhcpProfileOptionBO `json:"options,omitempty"`
 
-	SpaceID *string `json:"spaceId,omitempty"`
+	SpaceId *string `json:"spaceId,omitempty"`
 }
 
-type DpDHCPProfileOptionSpaceApplyToBOList struct {
+type DpDhcpProfileOptionSpaceApplyToBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*DpDHCPProfileOptionSpaceApplyToBO `json:"list,omitempty"`
+	List []*DpDhcpProfileOptionSpaceApplyToBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type DpDHCPProfileOptionSpaceBO struct {
+type DpDhcpProfileOptionSpaceBO struct {
 	// Description
 	// description
 	Description *string `json:"description,omitempty"`
@@ -175,24 +175,24 @@ type DpDHCPProfileOptionSpaceBO struct {
 
 	// Options
 	// options
-	Options []*DpDHCPProfileOptionBO `json:"options,omitempty"`
+	Options []*DpDhcpProfileOptionBO `json:"options,omitempty"`
 
-	// SpaceID
+	// SpaceId
 	// spaceId
-	SpaceID *string `json:"spaceId,omitempty"`
+	SpaceId *string `json:"spaceId,omitempty"`
 }
 
-type DpDHCPProfileOptionSpaceInstance struct {
+type DpDhcpProfileOptionSpaceInstance struct {
 	Description *string `json:"description,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 
-	Options []*DpDHCPProfileOptionInstance `json:"options,omitempty"`
+	Options []*DpDhcpProfileOptionInstance `json:"options,omitempty"`
 
-	SpaceID *string `json:"spaceId,omitempty"`
+	SpaceId *string `json:"spaceId,omitempty"`
 }
 
-type DpDHCPProfilePoolBO struct {
+type DpDhcpProfilePoolBO struct {
 	// BroadcastAddress
 	// broadcastAddress
 	BroadcastAddress *string `json:"broadcastAddress,omitempty"`
@@ -213,13 +213,13 @@ type DpDHCPProfilePoolBO struct {
 	// hostName
 	HostName *string `json:"hostName,omitempty"`
 
-	// IP
+	// Ip
 	// ip
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
-	// IPRange
+	// IpRange
 	// ipRange
-	IPRange *string `json:"ipRange,omitempty"`
+	IpRange *string `json:"ipRange,omitempty"`
 
 	// LeaseTime
 	// leaseTime
@@ -229,33 +229,33 @@ type DpDHCPProfilePoolBO struct {
 	// netMask
 	NetMask *string `json:"netMask,omitempty"`
 
-	// PoolID
+	// PoolId
 	// poolId
-	PoolID *string `json:"poolId,omitempty"`
+	PoolId *string `json:"poolId,omitempty"`
 
 	// PoolName
 	// poolName
 	PoolName *string `json:"poolName,omitempty"`
 
-	// PrimaryDNSServer
+	// PrimaryDnsServer
 	// primaryDnsServer
-	PrimaryDNSServer *string `json:"primaryDnsServer,omitempty"`
+	PrimaryDnsServer *string `json:"primaryDnsServer,omitempty"`
 
 	// PrimaryRouter
 	// primaryRouter
 	PrimaryRouter *string `json:"primaryRouter,omitempty"`
 
-	// ProfileID
+	// ProfileId
 	// profileId
-	ProfileID *string `json:"profileId,omitempty"`
+	ProfileId *string `json:"profileId,omitempty"`
 
 	// QinqVlanRanges
 	// qinqVlanRanges
-	QinqVlanRanges []*DpDHCPProfileQinqVlanRangeBO `json:"qinqVlanRanges,omitempty"`
+	QinqVlanRanges []*DpDhcpProfileQinqVlanRangeBO `json:"qinqVlanRanges,omitempty"`
 
-	// SecondaryDNSServer
+	// SecondaryDnsServer
 	// secondaryDnsServer
-	SecondaryDNSServer *string `json:"secondaryDnsServer,omitempty"`
+	SecondaryDnsServer *string `json:"secondaryDnsServer,omitempty"`
 
 	// SecondaryRouter
 	// secondaryRouter
@@ -263,24 +263,24 @@ type DpDHCPProfilePoolBO struct {
 
 	// SubOptionSpaces
 	// subOptionSpaces
-	SubOptionSpaces []*DpDHCPProfileOptionSpaceInstance `json:"subOptionSpaces,omitempty"`
+	SubOptionSpaces []*DpDhcpProfileOptionSpaceInstance `json:"subOptionSpaces,omitempty"`
 
 	// VlanRange
 	// vlanRange
 	VlanRange *string `json:"vlanRange,omitempty"`
 }
 
-type DpDHCPProfilePoolBOList struct {
+type DpDhcpProfilePoolBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*DpDHCPProfilePoolBO `json:"list,omitempty"`
+	List []*DpDhcpProfilePoolBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type DpDHCPProfileQinqVlanRangeBO struct {
+type DpDhcpProfileQinqVlanRangeBO struct {
 	// Cvlan
 	// cvlan
 	Cvlan *string `json:"cvlan,omitempty"`
@@ -299,19 +299,19 @@ type DpNatProfileBasicBO struct {
 	// description
 	Description *string `json:"description,omitempty"`
 
-	NatPublicSubnetID *DpNatProfilePublicSubnetIDBO `json:"natPublicSubnetId,omitempty"`
+	NatPublicSubnetId *DpNatProfilePublicSubnetIdBO `json:"natPublicSubnetId,omitempty"`
 
-	// NatPublicVlanID
+	// NatPublicVlanId
 	// natPublicVlanId
-	NatPublicVlanID *int `json:"natPublicVlanId,omitempty"`
+	NatPublicVlanId *int `json:"natPublicVlanId,omitempty"`
 
 	// PrimaryNatDefaultRouteGateway
 	// primaryNatDefaultRouteGateway
 	PrimaryNatDefaultRouteGateway *string `json:"primaryNatDefaultRouteGateway,omitempty"`
 
-	// ProfileID
+	// ProfileId
 	// profileId
-	ProfileID *string `json:"profileId,omitempty"`
+	ProfileId *string `json:"profileId,omitempty"`
 
 	// ProfileName
 	// profileName
@@ -341,9 +341,9 @@ type DpNatProfilePoolBO struct {
 	// natPortRange
 	NatPortRange *string `json:"natPortRange,omitempty"`
 
-	// PoolID
+	// PoolId
 	// poolId
-	PoolID *string `json:"poolId,omitempty"`
+	PoolId *string `json:"poolId,omitempty"`
 
 	// PoolName
 	// poolName
@@ -357,9 +357,9 @@ type DpNatProfilePoolBO struct {
 	// privateVlanRange
 	PrivateVlanRange []string `json:"privateVlanRange,omitempty"`
 
-	// ProfileID
+	// ProfileId
 	// profileId
-	ProfileID *string `json:"profileId,omitempty"`
+	ProfileId *string `json:"profileId,omitempty"`
 
 	// PublicAddressRange
 	// publicAddressRange
@@ -394,10 +394,10 @@ type DpNatProfilePrivateQinqVlanRangeBO struct {
 	Svlan *string `json:"svlan,omitempty"`
 }
 
-type DpNatProfilePublicSubnetIDBO struct {
-	// IP
+type DpNatProfilePublicSubnetIdBO struct {
+	// Ip
 	// ip
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
 	// PrefixLength
 	// prefixLength
@@ -409,13 +409,13 @@ type DpProfileSettingBO struct {
 	// description
 	Description *string `json:"description,omitempty"`
 
-	// DHCPProfileID
+	// DhcpProfileId
 	// dhcpProfileId
-	DHCPProfileID *string `json:"dhcpProfileId,omitempty"`
+	DhcpProfileId *string `json:"dhcpProfileId,omitempty"`
 
-	// DHCPProfileName
+	// DhcpProfileName
 	// dhcpProfileName
-	DHCPProfileName *string `json:"dhcpProfileName,omitempty"`
+	DhcpProfileName *string `json:"dhcpProfileName,omitempty"`
 
 	// DpKey
 	// dpKey
@@ -429,9 +429,9 @@ type DpProfileSettingBO struct {
 	// dpVersion
 	DpVersion *string `json:"dpVersion,omitempty"`
 
-	// NatProfileID
+	// NatProfileId
 	// natProfileId
-	NatProfileID *string `json:"natProfileId,omitempty"`
+	NatProfileId *string `json:"natProfileId,omitempty"`
 
 	// NatProfileName
 	// natProfileName

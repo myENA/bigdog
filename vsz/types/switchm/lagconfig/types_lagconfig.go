@@ -7,9 +7,9 @@ import (
 )
 
 type Create struct {
-	// GroupID
+	// GroupId
 	// Switch Group Id
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
 	// Name
 	// The Name of LAG Config
@@ -19,9 +19,9 @@ type Create struct {
 	// The Switch ports would like to join together
 	Ports []string `json:"ports,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// Type
 	// The LAG Types in STATIC or DYNAMIC
@@ -55,13 +55,13 @@ type LagConfig struct {
 	// The LAG Types in STATIC or DYNAMIC
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// GroupID
+	// GroupId
 	// The ID of  Switch Group
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
-	// ID
+	// Id
 	// The ID of LAG Config
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// The Name of LAG Config
@@ -71,9 +71,9 @@ type LagConfig struct {
 	// The Switch ports would like to join together
 	Ports []string `json:"ports,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// The ID of Switch
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// Type
 	// The LAG Types in STATIC or DYNAMIC

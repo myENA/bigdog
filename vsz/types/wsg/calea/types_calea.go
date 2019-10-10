@@ -3,23 +3,23 @@ package calea
 // API Version: v8_1
 
 type CaleaCommonSettingRq struct {
-	// CaleaServerIP
+	// CaleaServerIp
 	// CARLEA Server IP
-	CaleaServerIP *string `json:"caleaServerIp,omitempty"`
+	CaleaServerIp *string `json:"caleaServerIp,omitempty"`
 
-	// DcIP
+	// Dcip
 	// DP IP in Data Center
-	DcIP *string `json:"dc_ip,omitempty"`
+	Dcip *string `json:"dc_ip,omitempty"`
 }
 
 type CaleaCommonSettingRsp struct {
-	// CaleaServerIP
+	// CaleaServerIp
 	// CARLEA Server IP
-	CaleaServerIP *string `json:"caleaServerIp,omitempty"`
+	CaleaServerIp *string `json:"caleaServerIp,omitempty"`
 
-	// DcIP
+	// Dcip
 	// DP IP in Data Center
-	DcIP *string `json:"dc_ip,omitempty"`
+	Dcip *string `json:"dc_ip,omitempty"`
 }
 
 type CaleaMacListRq struct {

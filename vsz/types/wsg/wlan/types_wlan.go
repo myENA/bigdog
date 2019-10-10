@@ -8,7 +8,7 @@ import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/flexivpn"
 )
 
-type CreateGuestAccessWLAN struct {
+type CreateGuestAccessWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -18,11 +18,11 @@ type CreateGuestAccessWLAN struct {
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -40,7 +40,7 @@ type CreateGuestAccessWLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -50,60 +50,60 @@ type CreateGuestAccessWLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty" validate:"required"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type CreateHotspot20OpenWLAN struct {
+type CreateHotspot20OpenWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -113,11 +113,11 @@ type CreateHotspot20OpenWLAN struct {
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -131,7 +131,7 @@ type CreateHotspot20OpenWLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -141,60 +141,60 @@ type CreateHotspot20OpenWLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type CreateHotspot20WLAN struct {
+type CreateHotspot20Wlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -204,11 +204,11 @@ type CreateHotspot20WLAN struct {
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -222,7 +222,7 @@ type CreateHotspot20WLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -232,58 +232,58 @@ type CreateHotspot20WLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty" validate:"required"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type CreateHotspotWLAN struct {
+type CreateHotspotWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -293,11 +293,11 @@ type CreateHotspotWLAN struct {
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -315,7 +315,7 @@ type CreateHotspotWLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -325,60 +325,60 @@ type CreateHotspotWLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty" validate:"required"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type CreateStandard80211WLAN struct {
+type CreateStandard80211Wlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -388,11 +388,11 @@ type CreateStandard80211WLAN struct {
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -406,7 +406,7 @@ type CreateStandard80211WLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -416,58 +416,58 @@ type CreateStandard80211WLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type CreateStandardOpenWLAN struct {
+type CreateStandardOpenWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -477,11 +477,11 @@ type CreateStandardOpenWLAN struct {
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -495,7 +495,7 @@ type CreateStandardOpenWLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -505,60 +505,60 @@ type CreateStandardOpenWLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type CreateWebAuthWLAN struct {
+type CreateWebAuthWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -568,11 +568,11 @@ type CreateWebAuthWLAN struct {
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty" validate:"required"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -590,7 +590,7 @@ type CreateWebAuthWLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -600,60 +600,60 @@ type CreateWebAuthWLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty" validate:"required"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type CreateWechatWLAN struct {
+type CreateWechatWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -663,11 +663,11 @@ type CreateWechatWLAN struct {
 	// data plane, and SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -681,7 +681,7 @@ type CreateWechatWLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -691,60 +691,60 @@ type CreateWechatWLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty" validate:"required"`
+	Name *WlanNameSSID `json:"name,omitempty" validate:"required"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty" validate:"required"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty" validate:"required"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty" validate:"required"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type ModifyWLAN struct {
+type ModifyWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -754,11 +754,11 @@ type ModifyWLAN struct {
 	// tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -776,7 +776,7 @@ type ModifyWLAN struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -786,77 +786,77 @@ type ModifyWLAN struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
-	ExternalDPSK *dpsk.WLANExternalDPSK `json:"externalDpsk,omitempty"`
+	ExternalDpsk *dpsk.WlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
-	Name *WLANNameSSID `json:"name,omitempty"`
+	Name *WlanNameSSID `json:"name,omitempty"`
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
-	Ssid *WLANNameSSID `json:"ssid,omitempty"`
+	Ssid *WlanNameSSID `json:"ssid,omitempty"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
-type WLANAccounting struct {
+type WlanAccounting struct {
 	// AccountingDelayEnabled
 	// Indicates whether accounting delay time is enabled
 	AccountingDelayEnabled *bool `json:"accountingDelayEnabled,omitempty"`
 
-	// BackupAccountingID
+	// BackupAccountingId
 	// Backup accounting service or profile ID. At least one backupAccountingId or backupAccountingName is
 	// required in the request when setting backup accounting service.
-	BackupAccountingID *string `json:"backupAccountingId,omitempty"`
+	BackupAccountingId *string `json:"backupAccountingId,omitempty"`
 
 	// BackupAccountingName
 	// Backup accounting service or profile name. At least one backupAccountingId or backupAccountingName is
 	// required in the request when setting backup accounting service.
 	BackupAccountingName *string `json:"backupAccountingName,omitempty"`
 
-	// ID
+	// Id
 	// Accounting service or profile ID. At least one ID or name is required in the request.
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// InterimUpdateMin
 	// Interval (in minutes) for sending interim updates
@@ -873,7 +873,7 @@ type WLANAccounting struct {
 	ThroughController *bool `json:"throughController,omitempty"`
 }
 
-type WLANAdvanced struct {
+type WlanAdvanced struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
 	AntiSpoofingEnabled *bool `json:"antiSpoofingEnabled,omitempty"`
@@ -898,7 +898,7 @@ type WLANAdvanced struct {
 	// Indicates whether band balancing is enabled or disabled
 	BandBalancing *string `json:"bandBalancing,omitempty" validate:"oneof=Disabled UseZoneSetting"`
 
-	BssMinRateMbps *WLANBssMinRateMbps `json:"bssMinRateMbps,omitempty"`
+	BssMinRateMbps *WlanBssMinRateMbps `json:"bssMinRateMbps,omitempty"`
 
 	// ClientFingerprintingEnabled
 	// Indicates whether client fingerprinting is enabled or disabled
@@ -934,43 +934,43 @@ type WLANAdvanced struct {
 	// Indicates whether dgaf is enabled or disabled
 	DgafEnabled *bool `json:"dgafEnabled,omitempty"`
 
-	// DHCP82Format
+	// Dhcp82Format
 	// DHCP Option 82 format. This variable no longer supports from v8_1 and only kept for backward
 	// compatibility.
-	DHCP82Format *string `json:"dhcp82Format,omitempty" validate:"oneof=RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
+	Dhcp82Format *string `json:"dhcp82Format,omitempty" validate:"oneof=RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
 
-	// DHCP82SubOpt1Format
+	// Dhcp82SubOpt1Format
 	// Subopt-1 format
-	DHCP82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty" validate:"oneof=NONE SUBOPT1_AP_INFO_LOCATION SUBOPT1_AP_INFO SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE SUBOPT1_AP_MAC_hex SUBOPT1_AP_MAC_hex_ESSID SUBOPT1_ESSID"`
+	Dhcp82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty" validate:"oneof=NONE SUBOPT1_AP_INFO_LOCATION SUBOPT1_AP_INFO SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE SUBOPT1_AP_MAC_hex SUBOPT1_AP_MAC_hex_ESSID SUBOPT1_ESSID"`
 
-	// DHCP82SubOpt2Format
+	// Dhcp82SubOpt2Format
 	// Subopt-2 format
-	DHCP82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty" validate:"oneof=NONE SUBOPT2_CLIENT_MAC SUBOPT2_CLIENT_MAC_hex SUBOPT2_CLIENT_MAC_hex_ESSID SUBOPT2_AP_MAC SUBOPT2_AP_MAC_hex SUBOPT2_AP_MAC_hex_ESSID"`
+	Dhcp82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty" validate:"oneof=NONE SUBOPT2_CLIENT_MAC SUBOPT2_CLIENT_MAC_hex SUBOPT2_CLIENT_MAC_hex_ESSID SUBOPT2_AP_MAC SUBOPT2_AP_MAC_hex SUBOPT2_AP_MAC_hex_ESSID"`
 
-	// DHCP82SubOpt150Format
+	// Dhcp82SubOpt150Format
 	// Subopt-150 with VLAN-Id
-	DHCP82SubOpt150Format *string `json:"dhcp82SubOpt150Format,omitempty" validate:"oneof=NONE SUBOPT150_VLAN_ID"`
+	Dhcp82SubOpt150Format *string `json:"dhcp82SubOpt150Format,omitempty" validate:"oneof=NONE SUBOPT150_VLAN_ID"`
 
-	// DHCP82SubOpt151AreaName
+	// Dhcp82SubOpt151AreaName
 	// Subopt-151 Area Name value
-	DHCP82SubOpt151AreaName *string `json:"dhcp82SubOpt151AreaName,omitempty"`
+	Dhcp82SubOpt151AreaName *string `json:"dhcp82SubOpt151AreaName,omitempty"`
 
-	// DHCP82SubOpt151Format
+	// Dhcp82SubOpt151Format
 	// Subopt-151 format
-	DHCP82SubOpt151Format *string `json:"dhcp82SubOpt151Format,omitempty" validate:"oneof=NONE SUBOPT151_AREA_NAME SUBOPT151_ESSID"`
+	Dhcp82SubOpt151Format *string `json:"dhcp82SubOpt151Format,omitempty" validate:"oneof=NONE SUBOPT151_AREA_NAME SUBOPT151_ESSID"`
 
-	// DHCP82SubOptRadiusFormat
+	// Dhcp82SubOptRadiusFormat
 	// Radius DHCP/NAT option 82 Format
-	DHCP82SubOptRadiusFormat *string `json:"dhcp82SubOptRadiusFormat,omitempty" validate:"oneof=NONE RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
+	Dhcp82SubOptRadiusFormat *string `json:"dhcp82SubOptRadiusFormat,omitempty" validate:"oneof=NONE RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
 
-	// DHCPOption82Enabled
+	// DhcpOption82Enabled
 	// Indicates whether DCHP Option 82 is enabled or disabled. This variable no longer supports from v8_1 and
 	// only kept for backward compatibility.
-	DHCPOption82Enabled *bool `json:"dhcpOption82Enabled,omitempty"`
+	DhcpOption82Enabled *bool `json:"dhcpOption82Enabled,omitempty"`
 
-	// DHCPRequestRateLimit
+	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
-	DHCPRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
 
 	// DirectedThreshold
 	// Directed Threshold Setting, Defines the client count at which an AP will stop converting group
@@ -993,7 +993,7 @@ type WLANAdvanced struct {
 	// DTIM Interval
 	DtimInterval *int `json:"dtimInterval,omitempty" validate:"gte=1,lte=255"`
 
-	EnableRadiusBasedDHCPNat *bool `json:"enableRadiusBasedDhcpNat,omitempty"`
+	EnableRadiusBasedDhcpNat *bool `json:"enableRadiusBasedDhcpNat,omitempty"`
 
 	// FlowLogEnabled
 	// Flow log enabled.
@@ -1036,7 +1036,7 @@ type WLANAdvanced struct {
 	// Maximum number of clients per radio
 	MaxClientsPerRadio *int `json:"maxClientsPerRadio,omitempty" validate:"gte=1,lte=512"`
 
-	MgmtTxRateMbps *WLANMgmtTxRateMbps `json:"mgmtTxRateMbps,omitempty"`
+	MgmtTxRateMbps *WlanMgmtTxRateMbps `json:"mgmtTxRateMbps,omitempty"`
 
 	// NdProxyEnabled
 	// Indicates whether ND Proxy is enabled or disabled
@@ -1105,13 +1105,13 @@ type WLANAdvanced struct {
 	// Indicates whether RS/RA Guard is enabled or disabled
 	RsraGuardEnabled *bool `json:"rsraGuardEnabled,omitempty"`
 
-	// Support80211DEnabled
+	// Support80211dEnabled
 	// Indicates whether support for 802.11d is enabled or disabled
-	Support80211DEnabled *bool `json:"support80211dEnabled,omitempty"`
+	Support80211dEnabled *bool `json:"support80211dEnabled,omitempty"`
 
-	// Support80211KEnabled
+	// Support80211kEnabled
 	// Indicates whether support for 802.11k is enabled or disabled
-	Support80211KEnabled *bool `json:"support80211kEnabled,omitempty"`
+	Support80211kEnabled *bool `json:"support80211kEnabled,omitempty"`
 
 	// SuppressNsEnabled
 	// Indicates whether supperssNS is enabled or disabled
@@ -1133,13 +1133,13 @@ type WLANAdvanced struct {
 	// SSID Rate Limiting uplink.
 	UplinkRate *float64 `json:"uplinkRate,omitempty"`
 
-	// URLFilteringPolicyEnabled
+	// UrlFilteringPolicyEnabled
 	// Indicator of whether URL Filtering is enabled or disabled
-	URLFilteringPolicyEnabled *bool `json:"urlFilteringPolicyEnabled,omitempty"`
+	UrlFilteringPolicyEnabled *bool `json:"urlFilteringPolicyEnabled,omitempty"`
 
-	// URLFilteringPolicyID
+	// UrlFilteringPolicyId
 	// The URL Filtering policy ID.
-	URLFilteringPolicyID *string `json:"urlFilteringPolicyId,omitempty"`
+	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
 
 	// WifiCallingPolicyEnabled
 	// Indicator of whether Wi-Fi Calling is enabled or disabled
@@ -1150,17 +1150,17 @@ type WLANAdvanced struct {
 	WifiCallingPolicyIds []string `json:"wifiCallingPolicyIds,omitempty"`
 }
 
-type WLANAuthentication struct {
+type WlanAuthentication struct {
 	// AuthenticationOption
 	// Option of the authentication service or profile, At least one ID or name or authenticationOption is
 	// required in the request. This only applies to hotspot and guest WLANs.
 	AuthenticationOption *string `json:"authenticationOption,omitempty" validate:"oneof=Local DB Guest Always Accept "`
 
-	// BackupAuthenticationID
+	// BackupAuthenticationId
 	// Identifier of the backup authentication service or profile. At least one backupAuthenticationId or
 	// backupAuthenticationName or backupAuthenticationOption is required in the request when setting backup
 	// authentication service.
-	BackupAuthenticationID *string `json:"backupAuthenticationId,omitempty"`
+	BackupAuthenticationId *string `json:"backupAuthenticationId,omitempty"`
 
 	// BackupAuthenticationName
 	// Name of the backup authentication service or profile. At least one backupAuthenticationId or
@@ -1174,10 +1174,10 @@ type WLANAuthentication struct {
 	// authentication service. This only applies to hotspot WLANs.
 	BackupAuthenticationOption *string `json:"backupAuthenticationOption,omitempty" validate:"oneof=Always Accept "`
 
-	// ID
+	// Id
 	// Identifier of the authentication service or profile. At least one ID or name or authenticationOption is
 	// required in the request.
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// LocationDeliveryEnabled
 	// RFC5580 location delivery support
@@ -1195,9 +1195,9 @@ type WLANAuthentication struct {
 	ThroughController *bool `json:"throughController,omitempty"`
 }
 
-type WLANBssMinRateMbps string
+type WlanBssMinRateMbps string
 
-type WLANConfiguration struct {
+type WlanConfiguration struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
 	AccessTunnelProfile *common.GenericRef `json:"accessTunnelProfile,omitempty"`
@@ -1206,11 +1206,11 @@ type WLANConfiguration struct {
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, SoftGRE means AP direct SoftGRE tunnel
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
 
-	AccountingServiceOrProfile *WLANAccounting `json:"accountingServiceOrProfile,omitempty"`
+	AccountingServiceOrProfile *WlanAccounting `json:"accountingServiceOrProfile,omitempty"`
 
-	AdvancedOptions *WLANAdvanced `json:"advancedOptions,omitempty"`
+	AdvancedOptions *WlanAdvanced `json:"advancedOptions,omitempty"`
 
-	AuthServiceOrProfile *WLANAuthentication `json:"authServiceOrProfile,omitempty"`
+	AuthServiceOrProfile *WlanAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable
@@ -1228,7 +1228,7 @@ type WLANConfiguration struct {
 	// DP CALEA Server Enabled
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
-	CoreTunnelProfile *WLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
+	CoreTunnelProfile *WlanCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
 	DefaultUserTrafficProfile *common.GenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
@@ -1240,33 +1240,33 @@ type WLANConfiguration struct {
 
 	DiffServProfile *common.GenericRef `json:"diffServProfile,omitempty"`
 
-	DNSServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
+	DnsServerProfile *common.GenericRef `json:"dnsServerProfile,omitempty"`
 
-	DPSK *dpsk.WLANDPSKSetting `json:"dpsk,omitempty"`
+	Dpsk *dpsk.WlanDpskSetting `json:"dpsk,omitempty"`
 
-	// DpTunnelDHCPEnabled
+	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
-	DpTunnelDHCPEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
+	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
-	Encryption *WLANEncryption `json:"encryption,omitempty"`
+	Encryption *WlanEncryption `json:"encryption,omitempty"`
 
 	FlexiVpnProfile *flexivpn.FlexiVpnSetting `json:"flexiVpnProfile,omitempty"`
 
-	Hessid *WLANHESSID `json:"hessid,omitempty"`
+	Hessid *WlanHESSID `json:"hessid,omitempty"`
 
 	Hotspot20Profile *common.GenericRef `json:"hotspot20Profile,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the WLAN
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	L2ACL *common.GenericRef `json:"l2ACL,omitempty"`
 
-	MacAuth *WLANMACAuth `json:"macAuth,omitempty"`
+	MacAuth *WlanMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Name of the WLAN
@@ -1274,23 +1274,23 @@ type WLANConfiguration struct {
 
 	OperatorRealm *common.Realm `json:"operatorRealm,omitempty"`
 
-	PortalDetectionProfileID *string `json:"portalDetectionProfileId,omitempty"`
+	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	PortalServiceProfile *common.GenericRef `json:"portalServiceProfile,omitempty"`
 
-	// PrecedenceProfileID
+	// PrecedenceProfileId
 	// Precedence profile of the WLAN
-	PrecedenceProfileID *string `json:"precedenceProfileId,omitempty"`
+	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WLANDSCPSetting `json:"qosMaps,omitempty"`
+	QosMaps []*WlanDSCPSetting `json:"qosMaps,omitempty"`
 
-	RadiusOptions *WLANRadius `json:"radiusOptions,omitempty"`
+	RadiusOptions *WlanRadius `json:"radiusOptions,omitempty"`
 
-	Schedule *WLANSchedule `json:"schedule,omitempty"`
+	Schedule *WlanSchedule `json:"schedule,omitempty"`
 
-	SplitTunnelProfileID *string `json:"splitTunnelProfileId,omitempty"`
+	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// SSID of the WLAN
@@ -1300,17 +1300,17 @@ type WLANConfiguration struct {
 	// Type of the WLAN
 	Type *string `json:"type,omitempty" validate:"oneof=Standard_Open Standard_8021X Standard_Mac Hotspot Hotspot_MacByPass Guest WebAuth Hotspot20 Hotspot20_Open Hotspot20_OSEN"`
 
-	Vlan *WLANVlan `json:"vlan,omitempty"`
+	Vlan *WlanVlan `json:"vlan,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Identifier of the zone to which the WLAN belongs
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-type WLANCoreTunnel struct {
-	// ID
+type WlanCoreTunnel struct {
+	// Id
 	// Identifier of the forwarding profile. At least one ID or name is required in the request.
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the forwarding profile. At least one ID or name is required in the request.
@@ -1321,7 +1321,7 @@ type WLANCoreTunnel struct {
 	Type *string `json:"type,omitempty" validate:"required,oneof=L2oGRE Bridge TTG_PDG"`
 }
 
-type WLANDSCPSetting struct {
+type WlanDSCPSetting struct {
 	// Enable
 	// Enabled or disabled
 	Enable *bool `json:"enable,omitempty" validate:"required"`
@@ -1341,7 +1341,7 @@ type WLANDSCPSetting struct {
 	Priority *int `json:"priority,omitempty" validate:"required"`
 }
 
-type WLANEncryption struct {
+type WlanEncryption struct {
 	// Algorithm
 	// Encryption algorithm. This only applies to WPA2 and WPA mixed mode.
 	Algorithm *string `json:"algorithm,omitempty" validate:"oneof=AES TKIP_AES"`
@@ -1362,32 +1362,32 @@ type WLANEncryption struct {
 	// Management frame protection. This only applies to WPA2 + AES
 	Mfp *string `json:"mfp,omitempty" validate:"oneof=disabled capable required"`
 
-	// MobilityDomainID
+	// MobilityDomainId
 	// mobility Domain Id.
-	MobilityDomainID *int `json:"mobilityDomainId,omitempty" validate:"gte=1,lte=65535"`
+	MobilityDomainId *int `json:"mobilityDomainId,omitempty" validate:"gte=1,lte=65535"`
 
 	// Passphrase
 	// Passphrase. This only applies to WPA2 and WPA mixed mode.
 	Passphrase *string `json:"passphrase,omitempty"`
 
-	// Support80211REnabled
+	// Support80211rEnabled
 	// Enable 802.11r Fast BSS Transition, fast Romaing.
-	Support80211REnabled *bool `json:"support80211rEnabled,omitempty"`
+	Support80211rEnabled *bool `json:"support80211rEnabled,omitempty"`
 }
 
-type WLANHESSID string
+type WlanHESSID string
 
-type WLANList struct {
+type WlanList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WLANSummary `json:"list,omitempty"`
+	List []*WlanSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-type WLANMACAuth struct {
+type WlanMACAuth struct {
 	// CustomizedPassword
 	// User defined password. When this field is set to an empty string, the MAC address is used as password.
 	CustomizedPassword *string `json:"customizedPassword,omitempty" validate:"max=64"`
@@ -1397,30 +1397,30 @@ type WLANMACAuth struct {
 	MacAuthMacFormat *string `json:"macAuthMacFormat,omitempty" validate:"oneof=Default 802.1X UpperColon Upper LowerDash LowerColon"`
 }
 
-type WLANMgmtTxRateMbps string
+type WlanMgmtTxRateMbps string
 
-type WLANNameSSID string
+type WlanNameSSID string
 
-type WLANRadius struct {
-	// CalledStaIDType
+type WlanRadius struct {
+	// CalledStaIdType
 	// Called station ID type
-	CalledStaIDType *string `json:"calledStaIdType,omitempty" validate:"oneof=AP_MAC NONE WLAN_BSSID"`
+	CalledStaIdType *string `json:"calledStaIdType,omitempty" validate:"oneof=AP_MAC NONE WLAN_BSSID"`
 
-	// CustomizedNasID
+	// CustomizedNasId
 	// User defined NAS ID
-	CustomizedNasID *string `json:"customizedNasId,omitempty" validate:"max=64"`
+	CustomizedNasId *string `json:"customizedNasId,omitempty" validate:"max=64"`
 
-	// NasIDType
+	// NasIdType
 	// NAS ID type
-	NasIDType *string `json:"nasIdType,omitempty" validate:"oneof=AP_MAC Customized WLAN_BSSID"`
+	NasIdType *string `json:"nasIdType,omitempty" validate:"oneof=AP_MAC Customized WLAN_BSSID"`
 
-	// NasIPType
+	// NasIpType
 	// NAS IP type
-	NasIPType *string `json:"nasIpType,omitempty" validate:"oneof=disabled control management userDefined"`
+	NasIpType *string `json:"nasIpType,omitempty" validate:"oneof=disabled control management userDefined"`
 
-	// NasIPUserDefined
+	// NasIpUserDefined
 	// User-defined NAS IP
-	NasIPUserDefined *string `json:"nasIpUserDefined,omitempty" validate:"max=45"`
+	NasIpUserDefined *string `json:"nasIpUserDefined,omitempty" validate:"max=45"`
 
 	// NasMaxRetry
 	// NAS request maximum retry
@@ -1434,20 +1434,20 @@ type WLANRadius struct {
 	// NAS request timeout in seconds
 	NasRequestTimeoutSec *int `json:"nasRequestTimeoutSec,omitempty" validate:"gte=2,lte=20"`
 
-	// SingleSessionIDAcctEnabled
+	// SingleSessionIdAcctEnabled
 	// When Single Accounting Session ID is enabled, APs will maintain one accounting session for client
 	// roaming
-	SingleSessionIDAcctEnabled *bool `json:"singleSessionIdAcctEnabled,omitempty"`
+	SingleSessionIdAcctEnabled *bool `json:"singleSessionIdAcctEnabled,omitempty"`
 
-	// VendorSpecificAttributeProfileID
+	// VendorSpecificAttributeProfileId
 	// Vendor Specific Attribute Profile ID
-	VendorSpecificAttributeProfileID *string `json:"vendorSpecificAttributeProfileId,omitempty"`
+	VendorSpecificAttributeProfileId *string `json:"vendorSpecificAttributeProfileId,omitempty"`
 }
 
-type WLANSchedule struct {
-	// ID
+type WlanSchedule struct {
+	// Id
 	// Identifier of the schedule profile. At least one ID or name is required in the request.
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the schedule profile. At least one ID or name is required in the request.
@@ -1458,14 +1458,14 @@ type WLANSchedule struct {
 	Type *string `json:"type,omitempty" validate:"required,oneof=AlwaysOn AlwaysOff Customized"`
 }
 
-type WLANSummary struct {
-	// ID
+type WlanSummary struct {
+	// Id
 	// Identifier of the WLAN
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	// MVNOID
+	// MvnoId
 	// Tenant UUID
-	MVNOID *string `json:"mvnoId,omitempty"`
+	MvnoId *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the WLAN
@@ -1475,12 +1475,12 @@ type WLANSummary struct {
 	// SSID of the WLAN
 	Ssid *string `json:"ssid,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Zone ID
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-type WLANVlan struct {
+type WlanVlan struct {
 	// AaaVlanOverride
 	// Indicates whether the AAA VLAN settings can be overriden or not
 	AaaVlanOverride *bool `json:"aaaVlanOverride,omitempty"`

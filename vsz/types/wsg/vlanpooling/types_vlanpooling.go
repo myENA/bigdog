@@ -13,9 +13,9 @@ type CreateVlanPooling struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// identifier of the domain
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -25,7 +25,7 @@ type CreateVlanPooling struct {
 }
 
 type DeleteBulkVlanPooling struct {
-	IDList common.IDList `json:"idList,omitempty"`
+	IdList common.IdList `json:"idList,omitempty"`
 }
 
 type ModifyVlanPooling struct {
@@ -35,9 +35,9 @@ type ModifyVlanPooling struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// identifier of the domain
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -53,13 +53,13 @@ type VlanPooling struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the domain which the VLAN pooling profile belongs to
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the VLAN pooling profile
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
@@ -69,7 +69,7 @@ type VlanPooling struct {
 }
 
 type VlanPoolingList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -89,13 +89,13 @@ type VlanPoolingListType struct {
 	// Description of the service
 	Description *string `json:"description,omitempty"`
 
-	// DomainID
+	// DomainId
 	// identifier of the domain
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the service
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 

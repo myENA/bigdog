@@ -17,13 +17,13 @@ type CreatePortalDetectionProfile struct {
 }
 
 type PortalDetectionPattern struct {
-	// HTTPCode
+	// HttpCode
 	// HTTP status codes
-	HTTPCode *int `json:"httpCode,omitempty" validate:"required,gte=100,lte=599"`
+	HttpCode *int `json:"httpCode,omitempty" validate:"required,gte=100,lte=599"`
 
-	// HTTPResponseBody
+	// HttpResponseBody
 	// HTTP response body
-	HTTPResponseBody *string `json:"httpResponseBody,omitempty" validate:"max=1024"`
+	HttpResponseBody *string `json:"httpResponseBody,omitempty" validate:"max=1024"`
 
 	Name *common.NormalName `json:"name,omitempty" validate:"required"`
 
@@ -41,9 +41,9 @@ type PortalDetectionProfile struct {
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorID
+	// CreatorId
 	// Creator ID
-	CreatorID *string `json:"creatorId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator name
@@ -51,17 +51,17 @@ type PortalDetectionProfile struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of the portal detection and suppression profile
-	ID *string `json:"id,omitempty" validate:"max=64"`
+	Id *string `json:"id,omitempty" validate:"max=64"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierID
+	// ModifierId
 	// Modifier ID
-	ModifierID *string `json:"modifierId,omitempty"`
+	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier name
@@ -73,13 +73,13 @@ type PortalDetectionProfile struct {
 	// The pattern profiles for portal detection and suppression
 	PortalDetectionPatterns []*PortalDetectionPattern `json:"portalDetectionPatterns,omitempty"`
 
-	// ZoneID
+	// ZoneId
 	// Zone ID
-	ZoneID *string `json:"zoneId,omitempty"`
+	ZoneId *string `json:"zoneId,omitempty"`
 }
 
 type PortalDetectionProfileList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

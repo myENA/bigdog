@@ -37,13 +37,13 @@ type DeployLog struct {
 	// Deploy End Time
 	EndTime *int `json:"endTime,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Switch Group ID
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
+	// Id
 	// ID
-	// ID
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// ModelFamily
 	// Switch Model Family
@@ -63,9 +63,9 @@ type DeployLog struct {
 	// Switch ID
 	SwitchIds *string `json:"switchIds,omitempty"`
 
-	// TransactionID
+	// TransactionId
 	// Deploy Transaction ID
-	TransactionID *string `json:"transactionId,omitempty"`
+	TransactionId *string `json:"transactionId,omitempty"`
 
 	// Yang
 	// YANG Model

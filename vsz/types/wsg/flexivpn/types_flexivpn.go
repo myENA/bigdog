@@ -3,7 +3,7 @@ package flexivpn
 // API Version: v8_1
 
 type FlexiVpnSetting struct {
-	// ZoneAffinityID
+	// ZoneAffinityId
 	// Zone Affinity ID
-	ZoneAffinityID *string `json:"zoneAffinityId,omitempty" validate:"required"`
+	ZoneAffinityId *string `json:"zoneAffinityId,omitempty" validate:"required"`
 }

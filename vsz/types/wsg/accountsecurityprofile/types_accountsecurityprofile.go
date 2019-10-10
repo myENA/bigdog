@@ -17,9 +17,9 @@ type Create struct {
 	// A period in a inactive status used to lockout these accounts.
 	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty" validate:"gte=1,lte=1000"`
 
-	// DomainID
+	// DomainId
 	// Domain id
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// LockoutDuration
 	// The duration for which the account is automatically locked without administrative intervention.
@@ -47,33 +47,33 @@ type Create struct {
 }
 
 type Delete struct {
-	// ID
+	// Id
 	// Profile id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 }
 
 type DeleteList struct {
-	IDList common.IDList `json:"idList,omitempty"`
+	IdList common.IdList `json:"idList,omitempty"`
 }
 
-type GetByID struct {
-	// ID
+type GetById struct {
+	// Id
 	// Profile id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 }
 
-type GetByIDResult struct {
+type GetByIdResult struct {
 	AccountLockout *int `json:"accountLockout,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
 
 	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty"`
 
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	LockoutDuration *int `json:"lockoutDuration,omitempty"`
 
@@ -87,7 +87,7 @@ type GetByIDResult struct {
 
 	SessionIdle *int `json:"sessionIdle,omitempty"`
 
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
@@ -97,7 +97,7 @@ type ProfileListResult struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*GetByID `json:"list,omitempty"`
+	List []*GetById `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -113,7 +113,7 @@ type Update struct {
 	// A period in a inactive status used to lockout these accounts.
 	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty" validate:"gte=1,lte=1000"`
 
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// LockoutDuration
 	// The duration for which the account is automatically locked without administrative intervention.

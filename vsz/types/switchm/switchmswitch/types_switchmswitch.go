@@ -7,10 +7,10 @@ import (
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 )
 
-type AuditID struct {
-	// ID
+type AuditId struct {
+	// Id
 	// Audit Id
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Audit name
@@ -18,9 +18,9 @@ type AuditID struct {
 }
 
 type BarChart struct {
-	// ID
+	// Id
 	// Identifier of the barchart
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// Key
 	// Key of the barchart
@@ -79,13 +79,13 @@ func (t *ConnectedAPsQueryListExtraType) MarshalJSON() ([]byte, error) {
 }
 
 type ConnectedDevice struct {
-	// DomainID
+	// DomainId
 	// Identifier of the management domain to which the connected device belong
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of connected device
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// IsRuckusAP
 	// Remote connected device is Ruckus AP, True or False.
@@ -131,29 +131,29 @@ type ConnectedDevice struct {
 	// Switch group
 	SwitchGroup *string `json:"switchGroup,omitempty"`
 
-	// SwitchGroupLevelOneID
+	// SwitchGroupLevelOneId
 	// Switch group level one Id
-	SwitchGroupLevelOneID *string `json:"switchGroupLevelOneId,omitempty"`
+	SwitchGroupLevelOneId *string `json:"switchGroupLevelOneId,omitempty"`
 
-	// SwitchGroupLevelTwoID
+	// SwitchGroupLevelTwoId
 	// Switch group level two Id
-	SwitchGroupLevelTwoID *string `json:"switchGroupLevelTwoId,omitempty"`
+	SwitchGroupLevelTwoId *string `json:"switchGroupLevelTwoId,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// SwitchName
 	// Switch name
 	SwitchName *string `json:"switchName,omitempty"`
 
-	// TenantID
+	// TenantId
 	// Tenant Id
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
-	// UnitID
+	// UnitId
 	// Unit Id
-	UnitID *string `json:"unitId,omitempty"`
+	UnitId *string `json:"unitId,omitempty"`
 }
 
 // ConnectedDeviceSampledInstantType
@@ -239,7 +239,7 @@ type DeleteSwitchesResultList struct {
 	// Indicator of whether there are more delete switches after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*AuditID `json:"list,omitempty"`
+	List []*AuditId `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Delete switches list count
@@ -343,9 +343,9 @@ type NetworkSwitch struct {
 	// Default gateway of switch
 	DefaultGateway *string `json:"defaultGateway,omitempty"`
 
-	// DomainID
+	// DomainId
 	// Identifier of the management domain to which the switch belong
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	Family *string `json:"family,omitempty"`
 
@@ -361,25 +361,25 @@ type NetworkSwitch struct {
 	// Firmware of switch group
 	GroupFirmware *string `json:"groupFirmware,omitempty"`
 
-	// GroupID
+	// GroupId
 	// Identifier of switch group
-	GroupID *string `json:"groupId,omitempty"`
+	GroupId *string `json:"groupId,omitempty"`
 
 	// GroupName
 	// Name of switch group
 	GroupName *string `json:"groupName,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of switch
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	// IPAddress
+	// IpAddress
 	// switch IP address
-	IPAddress *string `json:"ipAddress,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
 
-	// IPAddressType
+	// IpAddressType
 	// IP address type
-	IPAddressType *string `json:"ipAddressType,omitempty"`
+	IpAddressType *string `json:"ipAddressType,omitempty"`
 
 	// LastBackupStatus
 	// Last config backup status of switch
@@ -413,9 +413,9 @@ type NetworkSwitch struct {
 	// Count of switch unit
 	NumOfUnits *int `json:"numOfUnits,omitempty"`
 
-	// ParentGroupID
+	// ParentGroupId
 	// Identifier of parent switch group
-	ParentGroupID *string `json:"parentGroupId,omitempty"`
+	ParentGroupId *string `json:"parentGroupId,omitempty"`
 
 	// Poe
 	// Information of PoE
@@ -437,9 +437,9 @@ type NetworkSwitch struct {
 	// SWitch serial number
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
-	// StackID
+	// StackId
 	// Stack Id
-	StackID *string `json:"stackId,omitempty"`
+	StackId *string `json:"stackId,omitempty"`
 
 	// Status
 	// Status of switch, Ex: ONLINE, OFFLINE
@@ -466,9 +466,9 @@ type NetworkSwitchFirmwareUpdateType struct {
 	// Scheduled time of firmware update
 	ScheduledTime *string `json:"scheduledTime,omitempty"`
 
-	// ScheduleID
+	// ScheduleId
 	// Schedule Id of firmware update
-	ScheduleID *string `json:"scheduleId,omitempty"`
+	ScheduleId *string `json:"scheduleId,omitempty"`
 
 	// Status
 	// Status of firmware update
@@ -538,9 +538,9 @@ type PortDetails struct {
 	// Connected device information
 	ConnectedDevice *PortDetailsConnectedDeviceType `json:"connectedDevice,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of switch port
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// InUtilization
 	// Switch port traffic in utilization
@@ -643,13 +643,13 @@ type PortDetails struct {
 //
 // Connected device information
 type PortDetailsConnectedDeviceType struct {
-	// DomainID
+	// DomainId
 	// Identifier of the management domain to which the connected device belong
-	DomainID *string `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of connected device
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
 	// IsRuckusAP
 	// Connected devices is RuckusAP,True or False
@@ -691,29 +691,29 @@ type PortDetailsConnectedDeviceType struct {
 	// Switch group
 	SwitchGroup *string `json:"switchGroup,omitempty"`
 
-	// SwitchGroupLevelOneID
+	// SwitchGroupLevelOneId
 	// Switch group level one Id
-	SwitchGroupLevelOneID *string `json:"switchGroupLevelOneId,omitempty"`
+	SwitchGroupLevelOneId *string `json:"switchGroupLevelOneId,omitempty"`
 
-	// SwitchGroupLevelTwoID
+	// SwitchGroupLevelTwoId
 	// Switch group level two Id
-	SwitchGroupLevelTwoID *string `json:"switchGroupLevelTwoId,omitempty"`
+	SwitchGroupLevelTwoId *string `json:"switchGroupLevelTwoId,omitempty"`
 
-	// SwitchID
+	// SwitchId
 	// Switch Id
-	SwitchID *string `json:"switchId,omitempty"`
+	SwitchId *string `json:"switchId,omitempty"`
 
 	// SwitchName
 	// Switch name
 	SwitchName *string `json:"switchName,omitempty"`
 
-	// TenantID
+	// TenantId
 	// Tenant Id
-	TenantID *string `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
-	// UnitID
+	// UnitId
 	// Unit Id
-	UnitID *string `json:"unitId,omitempty"`
+	UnitId *string `json:"unitId,omitempty"`
 }
 
 // PortDetailsPacketsType
@@ -946,7 +946,7 @@ func (t *StackMemberQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-type SwitchIDList []string
+type SwitchIdList []string
 
 type SwitchPortsSummaryQueryResultList struct {
 	// Extra
@@ -996,7 +996,7 @@ func (t *SwitchPortsSummaryQueryResultListExtraType) MarshalJSON() ([]byte, erro
 }
 
 type SwitchQueryResultList struct {
-	Extra *common.RBACMetadata `json:"extra,omitempty"`
+	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first registration rule returned out of the complete registration rule list

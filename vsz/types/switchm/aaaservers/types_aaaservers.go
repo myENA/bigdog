@@ -19,21 +19,21 @@ type AAAServer struct {
 	// The create time of the AAA server
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	// CreatorID
+	// CreatorId
 	// AAA server creator Id
-	CreatorID *string `json:"creatorId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// AAA server creator name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// ID
+	// Id
 	// AAA server ID
-	ID *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 
-	// IP
+	// Ip
 	// AAA server IP address
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
 	// Level
 	// Access level of AAA server
@@ -63,9 +63,9 @@ type AAAServer struct {
 	// The modify time of the AAA server
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 
-	// UpdaterID
+	// UpdaterId
 	// AAA server updater Id
-	UpdaterID *string `json:"updaterId,omitempty"`
+	UpdaterId *string `json:"updaterId,omitempty"`
 
 	// UpdaterUsername
 	// AAA server updater name
@@ -132,9 +132,9 @@ type CreateAdminAAAServer struct {
 	// AAA server authentication port
 	AuthPort *int `json:"authPort,omitempty"`
 
-	// IP
+	// Ip
 	// AAA server IP address
-	IP *string `json:"ip,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 
 	// Level
 	// Access level of AAA server

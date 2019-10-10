@@ -27,9 +27,9 @@ type EventConfig struct {
 	// Description of each Switch custom event config
 	Description *string `json:"description,omitempty"`
 
-	// ID
+	// Id
 	// Identifier of event config
-	ID *int `json:"id,omitempty"`
+	Id *int `json:"id,omitempty"`
 
 	// Name
 	// Name of each Switch custom event config

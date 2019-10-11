@@ -19,7 +19,7 @@ func NewAlarmQueryResultList() *AlarmQueryResultList {
 	return alarmQueryResultListType
 }
 
-func NewDefaultAlarmQueryResultList() *AlarmQueryResultList {
+func NewAlarmQueryResultListWithDefaults() *AlarmQueryResultList {
 	alarmQueryResultListType := new(AlarmQueryResultList)
 	return alarmQueryResultListType
 }
@@ -59,7 +59,7 @@ func NewSingleAlarm() *SingleAlarm {
 	return singleAlarmType
 }
 
-func NewDefaultSingleAlarm() *SingleAlarm {
+func NewSingleAlarmWithDefaults() *SingleAlarm {
 	singleAlarmType := new(SingleAlarm)
 	return singleAlarmType
 }

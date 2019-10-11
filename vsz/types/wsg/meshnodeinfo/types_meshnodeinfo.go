@@ -17,7 +17,7 @@ func NewHelperZoneInfo() *HelperZoneInfo {
 	return helperZoneInfoType
 }
 
-func NewDefaultHelperZoneInfo() *HelperZoneInfo {
+func NewHelperZoneInfoWithDefaults() *HelperZoneInfo {
 	helperZoneInfoType := new(HelperZoneInfo)
 	return helperZoneInfoType
 }
@@ -79,7 +79,7 @@ func NewMeshNodeInfo() *MeshNodeInfo {
 	return meshNodeInfoType
 }
 
-func NewDefaultMeshNodeInfo() *MeshNodeInfo {
+func NewMeshNodeInfoWithDefaults() *MeshNodeInfo {
 	meshNodeInfoType := new(MeshNodeInfo)
 	return meshNodeInfoType
 }
@@ -91,7 +91,7 @@ func NewMeshNodeInfoArray() *MeshNodeInfoArray {
 	return &meshNodeInfoArrayType
 }
 
-func NewDefaultMeshNodeInfoArray() *MeshNodeInfoArray {
+func NewMeshNodeInfoArrayWithDefaults() *MeshNodeInfoArray {
 	meshNodeInfoArrayType := make(MeshNodeInfoArray, 0)
 	return &meshNodeInfoArrayType
 }
@@ -125,7 +125,7 @@ func NewMeshNodeInfoList() *MeshNodeInfoList {
 	return meshNodeInfoListType
 }
 
-func NewDefaultMeshNodeInfoList() *MeshNodeInfoList {
+func NewMeshNodeInfoListWithDefaults() *MeshNodeInfoList {
 	meshNodeInfoListType := new(MeshNodeInfoList)
 	return meshNodeInfoListType
 }
@@ -158,7 +158,7 @@ func NewMeshNodeInfoListExtraType() *MeshNodeInfoListExtraType {
 	return meshNodeInfoListExtraTypeType
 }
 
-func NewDefaultMeshNodeInfoListExtraType() *MeshNodeInfoListExtraType {
+func NewMeshNodeInfoListExtraTypeWithDefaults() *MeshNodeInfoListExtraType {
 	meshNodeInfoListExtraTypeType := new(MeshNodeInfoListExtraType)
 	return meshNodeInfoListExtraTypeType
 }
@@ -182,7 +182,7 @@ func NewUpdateAPZeroTouch() *UpdateAPZeroTouch {
 	return updateAPZeroTouchType
 }
 
-func NewDefaultUpdateAPZeroTouch() *UpdateAPZeroTouch {
+func NewUpdateAPZeroTouchWithDefaults() *UpdateAPZeroTouch {
 	updateAPZeroTouchType := new(UpdateAPZeroTouch)
 	return updateAPZeroTouchType
 }

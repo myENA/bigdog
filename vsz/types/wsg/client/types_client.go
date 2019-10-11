@@ -23,7 +23,7 @@ func NewDeAuthClient() *DeAuthClient {
 	return deAuthClientType
 }
 
-func NewDefaultDeAuthClient() *DeAuthClient {
+func NewDeAuthClientWithDefaults() *DeAuthClient {
 	deAuthClientType := new(DeAuthClient)
 	return deAuthClientType
 }
@@ -37,7 +37,7 @@ func NewDeAuthClientList() *DeAuthClientList {
 	return deAuthClientListType
 }
 
-func NewDefaultDeAuthClientList() *DeAuthClientList {
+func NewDeAuthClientListWithDefaults() *DeAuthClientList {
 	deAuthClientListType := new(DeAuthClientList)
 	return deAuthClientListType
 }
@@ -59,7 +59,7 @@ func NewDisconnectClient() *DisconnectClient {
 	return disconnectClientType
 }
 
-func NewDefaultDisconnectClient() *DisconnectClient {
+func NewDisconnectClientWithDefaults() *DisconnectClient {
 	disconnectClientType := new(DisconnectClient)
 	return disconnectClientType
 }
@@ -73,7 +73,7 @@ func NewDisconnectClientList() *DisconnectClientList {
 	return disconnectClientListType
 }
 
-func NewDefaultDisconnectClientList() *DisconnectClientList {
+func NewDisconnectClientListWithDefaults() *DisconnectClientList {
 	disconnectClientListType := new(DisconnectClientList)
 	return disconnectClientListType
 }
@@ -153,7 +153,7 @@ func NewHistoricalClient() *HistoricalClient {
 	return historicalClientType
 }
 
-func NewDefaultHistoricalClient() *HistoricalClient {
+func NewHistoricalClientWithDefaults() *HistoricalClient {
 	historicalClientType := new(HistoricalClient)
 	return historicalClientType
 }
@@ -175,7 +175,7 @@ func NewHistoricalClientList() *HistoricalClientList {
 	return historicalClientListType
 }
 
-func NewDefaultHistoricalClientList() *HistoricalClientList {
+func NewHistoricalClientListWithDefaults() *HistoricalClientList {
 	historicalClientListType := new(HistoricalClientList)
 	return historicalClientListType
 }

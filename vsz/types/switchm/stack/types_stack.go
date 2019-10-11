@@ -13,7 +13,7 @@ func NewAuditIdList() *AuditIdList {
 	return &auditIdListType
 }
 
-func NewDefaultAuditIdList() *AuditIdList {
+func NewAuditIdListWithDefaults() *AuditIdList {
 	auditIdListType := make(AuditIdList, 0)
 	return &auditIdListType
 }
@@ -45,7 +45,7 @@ func NewList() *List {
 	return listType
 }
 
-func NewDefaultList() *List {
+func NewListWithDefaults() *List {
 	listType := new(List)
 	return listType
 }
@@ -93,7 +93,7 @@ func NewMember() *Member {
 	return memberType
 }
 
-func NewDefaultMember() *Member {
+func NewMemberWithDefaults() *Member {
 	memberType := new(Member)
 	return memberType
 }
@@ -132,7 +132,7 @@ func NewMemberPortStatusType() *MemberPortStatusType {
 	return memberPortStatusTypeType
 }
 
-func NewDefaultMemberPortStatusType() *MemberPortStatusType {
+func NewMemberPortStatusTypeWithDefaults() *MemberPortStatusType {
 	memberPortStatusTypeType := new(MemberPortStatusType)
 	return memberPortStatusTypeType
 }
@@ -240,7 +240,7 @@ func NewMemberSwitchPortsType() *MemberSwitchPortsType {
 	return memberSwitchPortsTypeType
 }
 
-func NewDefaultMemberSwitchPortsType() *MemberSwitchPortsType {
+func NewMemberSwitchPortsTypeWithDefaults() *MemberSwitchPortsType {
 	memberSwitchPortsTypeType := new(MemberSwitchPortsType)
 	return memberSwitchPortsTypeType
 }
@@ -327,7 +327,7 @@ func NewMemberSwitchPortsTypeConnectedDeviceType() *MemberSwitchPortsTypeConnect
 	return memberSwitchPortsTypeConnectedDeviceTypeType
 }
 
-func NewDefaultMemberSwitchPortsTypeConnectedDeviceType() *MemberSwitchPortsTypeConnectedDeviceType {
+func NewMemberSwitchPortsTypeConnectedDeviceTypeWithDefaults() *MemberSwitchPortsTypeConnectedDeviceType {
 	memberSwitchPortsTypeConnectedDeviceTypeType := new(MemberSwitchPortsTypeConnectedDeviceType)
 	return memberSwitchPortsTypeConnectedDeviceTypeType
 }
@@ -354,7 +354,7 @@ func NewMemberSwitchPortsTypePoeType() *MemberSwitchPortsTypePoeType {
 	return memberSwitchPortsTypePoeTypeType
 }
 
-func NewDefaultMemberSwitchPortsTypePoeType() *MemberSwitchPortsTypePoeType {
+func NewMemberSwitchPortsTypePoeTypeWithDefaults() *MemberSwitchPortsTypePoeType {
 	memberSwitchPortsTypePoeTypeType := new(MemberSwitchPortsTypePoeType)
 	return memberSwitchPortsTypePoeTypeType
 }
@@ -377,7 +377,7 @@ func NewMemberSwitchPortsTypeTrafficUsageType() *MemberSwitchPortsTypeTrafficUsa
 	return memberSwitchPortsTypeTrafficUsageTypeType
 }
 
-func NewDefaultMemberSwitchPortsTypeTrafficUsageType() *MemberSwitchPortsTypeTrafficUsageType {
+func NewMemberSwitchPortsTypeTrafficUsageTypeWithDefaults() *MemberSwitchPortsTypeTrafficUsageType {
 	memberSwitchPortsTypeTrafficUsageTypeType := new(MemberSwitchPortsTypeTrafficUsageType)
 	return memberSwitchPortsTypeTrafficUsageTypeType
 }
@@ -405,7 +405,7 @@ func NewStackConfig() *StackConfig {
 	return stackConfigType
 }
 
-func NewDefaultStackConfig() *StackConfig {
+func NewStackConfigWithDefaults() *StackConfig {
 	stackConfigType := new(StackConfig)
 	return stackConfigType
 }
@@ -417,7 +417,7 @@ func NewStackConfigList() *StackConfigList {
 	return &stackConfigListType
 }
 
-func NewDefaultStackConfigList() *StackConfigList {
+func NewStackConfigListWithDefaults() *StackConfigList {
 	stackConfigListType := make(StackConfigList, 0)
 	return &stackConfigListType
 }

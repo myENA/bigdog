@@ -122,7 +122,7 @@ func NewCreateGuestAccessWlan() *CreateGuestAccessWlan {
 	return createGuestAccessWlanType
 }
 
-func NewDefaultCreateGuestAccessWlan() *CreateGuestAccessWlan {
+func NewCreateGuestAccessWlanWithDefaults() *CreateGuestAccessWlan {
 	createGuestAccessWlanType := new(CreateGuestAccessWlan)
 	bypassCNAField := false
 	createGuestAccessWlanType.BypassCNA = &bypassCNAField
@@ -233,7 +233,7 @@ func NewCreateHotspot20OpenWlan() *CreateHotspot20OpenWlan {
 	return createHotspot20OpenWlanType
 }
 
-func NewDefaultCreateHotspot20OpenWlan() *CreateHotspot20OpenWlan {
+func NewCreateHotspot20OpenWlanWithDefaults() *CreateHotspot20OpenWlan {
 	createHotspot20OpenWlanType := new(CreateHotspot20OpenWlan)
 	return createHotspot20OpenWlanType
 }
@@ -343,7 +343,7 @@ func NewCreateHotspot20Wlan() *CreateHotspot20Wlan {
 	return createHotspot20WlanType
 }
 
-func NewDefaultCreateHotspot20Wlan() *CreateHotspot20Wlan {
+func NewCreateHotspot20WlanWithDefaults() *CreateHotspot20Wlan {
 	createHotspot20WlanType := new(CreateHotspot20Wlan)
 	return createHotspot20WlanType
 }
@@ -462,7 +462,7 @@ func NewCreateHotspotWlan() *CreateHotspotWlan {
 	return createHotspotWlanType
 }
 
-func NewDefaultCreateHotspotWlan() *CreateHotspotWlan {
+func NewCreateHotspotWlanWithDefaults() *CreateHotspotWlan {
 	createHotspotWlanType := new(CreateHotspotWlan)
 	bypassCNAField := false
 	createHotspotWlanType.BypassCNA = &bypassCNAField
@@ -574,7 +574,7 @@ func NewCreateStandard80211Wlan() *CreateStandard80211Wlan {
 	return createStandard80211WlanType
 }
 
-func NewDefaultCreateStandard80211Wlan() *CreateStandard80211Wlan {
+func NewCreateStandard80211WlanWithDefaults() *CreateStandard80211Wlan {
 	createStandard80211WlanType := new(CreateStandard80211Wlan)
 	return createStandard80211WlanType
 }
@@ -684,7 +684,7 @@ func NewCreateStandardOpenWlan() *CreateStandardOpenWlan {
 	return createStandardOpenWlanType
 }
 
-func NewDefaultCreateStandardOpenWlan() *CreateStandardOpenWlan {
+func NewCreateStandardOpenWlanWithDefaults() *CreateStandardOpenWlan {
 	createStandardOpenWlanType := new(CreateStandardOpenWlan)
 	accessTunnelTypeField := `APLBO`
 	createStandardOpenWlanType.AccessTunnelType = &accessTunnelTypeField
@@ -805,7 +805,7 @@ func NewCreateWebAuthWlan() *CreateWebAuthWlan {
 	return createWebAuthWlanType
 }
 
-func NewDefaultCreateWebAuthWlan() *CreateWebAuthWlan {
+func NewCreateWebAuthWlanWithDefaults() *CreateWebAuthWlan {
 	createWebAuthWlanType := new(CreateWebAuthWlan)
 	bypassCNAField := false
 	createWebAuthWlanType.BypassCNA = &bypassCNAField
@@ -919,7 +919,7 @@ func NewCreateWechatWlan() *CreateWechatWlan {
 	return createWechatWlanType
 }
 
-func NewDefaultCreateWechatWlan() *CreateWechatWlan {
+func NewCreateWechatWlanWithDefaults() *CreateWechatWlan {
 	createWechatWlanType := new(CreateWechatWlan)
 	return createWechatWlanType
 }
@@ -1026,7 +1026,7 @@ func NewModifyWlan() *ModifyWlan {
 	return modifyWlanType
 }
 
-func NewDefaultModifyWlan() *ModifyWlan {
+func NewModifyWlanWithDefaults() *ModifyWlan {
 	modifyWlanType := new(ModifyWlan)
 	return modifyWlanType
 }
@@ -1072,7 +1072,7 @@ func NewWlanAccounting() *WlanAccounting {
 	return wlanAccountingType
 }
 
-func NewDefaultWlanAccounting() *WlanAccounting {
+func NewWlanAccountingWithDefaults() *WlanAccounting {
 	wlanAccountingType := new(WlanAccounting)
 	return wlanAccountingType
 }
@@ -1458,7 +1458,7 @@ func NewWlanAdvanced() *WlanAdvanced {
 	return wlanAdvancedType
 }
 
-func NewDefaultWlanAdvanced() *WlanAdvanced {
+func NewWlanAdvancedWithDefaults() *WlanAdvanced {
 	wlanAdvancedType := new(WlanAdvanced)
 	antiSpoofingEnabledField := false
 	wlanAdvancedType.AntiSpoofingEnabled = &antiSpoofingEnabledField
@@ -1604,7 +1604,7 @@ func NewWlanAuthentication() *WlanAuthentication {
 	return wlanAuthenticationType
 }
 
-func NewDefaultWlanAuthentication() *WlanAuthentication {
+func NewWlanAuthenticationWithDefaults() *WlanAuthentication {
 	wlanAuthenticationType := new(WlanAuthentication)
 	return wlanAuthenticationType
 }
@@ -1616,7 +1616,7 @@ func NewWlanBssMinRateMbps() *WlanBssMinRateMbps {
 	return wlanBssMinRateMbpsType
 }
 
-func NewDefaultWlanBssMinRateMbps() *WlanBssMinRateMbps {
+func NewWlanBssMinRateMbpsWithDefaults() *WlanBssMinRateMbps {
 	wlanBssMinRateMbpsType := new(WlanBssMinRateMbps)
 	*wlanBssMinRateMbpsType = `Disable`
 	return wlanBssMinRateMbpsType
@@ -1743,7 +1743,7 @@ func NewWlanConfiguration() *WlanConfiguration {
 	return wlanConfigurationType
 }
 
-func NewDefaultWlanConfiguration() *WlanConfiguration {
+func NewWlanConfigurationWithDefaults() *WlanConfiguration {
 	wlanConfigurationType := new(WlanConfiguration)
 	return wlanConfigurationType
 }
@@ -1770,7 +1770,7 @@ func NewWlanCoreTunnel() *WlanCoreTunnel {
 	return wlanCoreTunnelType
 }
 
-func NewDefaultWlanCoreTunnel() *WlanCoreTunnel {
+func NewWlanCoreTunnelWithDefaults() *WlanCoreTunnel {
 	wlanCoreTunnelType := new(WlanCoreTunnel)
 	return wlanCoreTunnelType
 }
@@ -1812,7 +1812,7 @@ func NewWlanDSCPSetting() *WlanDSCPSetting {
 	return wlanDSCPSettingType
 }
 
-func NewDefaultWlanDSCPSetting() *WlanDSCPSetting {
+func NewWlanDSCPSettingWithDefaults() *WlanDSCPSetting {
 	wlanDSCPSettingType := new(WlanDSCPSetting)
 	return wlanDSCPSettingType
 }
@@ -1870,7 +1870,7 @@ func NewWlanEncryption() *WlanEncryption {
 	return wlanEncryptionType
 }
 
-func NewDefaultWlanEncryption() *WlanEncryption {
+func NewWlanEncryptionWithDefaults() *WlanEncryption {
 	wlanEncryptionType := new(WlanEncryption)
 	methodField := `None`
 	wlanEncryptionType.Method = &methodField
@@ -1884,7 +1884,7 @@ func NewWlanHESSID() *WlanHESSID {
 	return wlanHESSIDType
 }
 
-func NewDefaultWlanHESSID() *WlanHESSID {
+func NewWlanHESSIDWithDefaults() *WlanHESSID {
 	wlanHESSIDType := new(WlanHESSID)
 	return wlanHESSIDType
 }
@@ -1904,7 +1904,7 @@ func NewWlanList() *WlanList {
 	return wlanListType
 }
 
-func NewDefaultWlanList() *WlanList {
+func NewWlanListWithDefaults() *WlanList {
 	wlanListType := new(WlanList)
 	return wlanListType
 }
@@ -1930,7 +1930,7 @@ func NewWlanMACAuth() *WlanMACAuth {
 	return wlanMACAuthType
 }
 
-func NewDefaultWlanMACAuth() *WlanMACAuth {
+func NewWlanMACAuthWithDefaults() *WlanMACAuth {
 	wlanMACAuthType := new(WlanMACAuth)
 	return wlanMACAuthType
 }
@@ -1942,7 +1942,7 @@ func NewWlanMgmtTxRateMbps() *WlanMgmtTxRateMbps {
 	return wlanMgmtTxRateMbpsType
 }
 
-func NewDefaultWlanMgmtTxRateMbps() *WlanMgmtTxRateMbps {
+func NewWlanMgmtTxRateMbpsWithDefaults() *WlanMgmtTxRateMbps {
 	wlanMgmtTxRateMbpsType := new(WlanMgmtTxRateMbps)
 	*wlanMgmtTxRateMbpsType = `2 mbps`
 	return wlanMgmtTxRateMbpsType
@@ -1955,7 +1955,7 @@ func NewWlanNameSSID() *WlanNameSSID {
 	return wlanNameSSIDType
 }
 
-func NewDefaultWlanNameSSID() *WlanNameSSID {
+func NewWlanNameSSIDWithDefaults() *WlanNameSSID {
 	wlanNameSSIDType := new(WlanNameSSID)
 	return wlanNameSSIDType
 }
@@ -2040,7 +2040,7 @@ func NewWlanRadius() *WlanRadius {
 	return wlanRadiusType
 }
 
-func NewDefaultWlanRadius() *WlanRadius {
+func NewWlanRadiusWithDefaults() *WlanRadius {
 	wlanRadiusType := new(WlanRadius)
 	calledStaIdTypeField := `WLAN_BSSID`
 	wlanRadiusType.CalledStaIdType = &calledStaIdTypeField
@@ -2082,7 +2082,7 @@ func NewWlanSchedule() *WlanSchedule {
 	return wlanScheduleType
 }
 
-func NewDefaultWlanSchedule() *WlanSchedule {
+func NewWlanScheduleWithDefaults() *WlanSchedule {
 	wlanScheduleType := new(WlanSchedule)
 	typeField := `AlwaysOn`
 	wlanScheduleType.Type = &typeField
@@ -2116,7 +2116,7 @@ func NewWlanSummary() *WlanSummary {
 	return wlanSummaryType
 }
 
-func NewDefaultWlanSummary() *WlanSummary {
+func NewWlanSummaryWithDefaults() *WlanSummary {
 	wlanSummaryType := new(WlanSummary)
 	return wlanSummaryType
 }
@@ -2155,7 +2155,7 @@ func NewWlanVlan() *WlanVlan {
 	return wlanVlanType
 }
 
-func NewDefaultWlanVlan() *WlanVlan {
+func NewWlanVlanWithDefaults() *WlanVlan {
 	wlanVlanType := new(WlanVlan)
 	accessVlanField := 1
 	wlanVlanType.AccessVlan = &accessVlanField

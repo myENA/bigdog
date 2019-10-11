@@ -25,7 +25,7 @@ func NewDHCPOption() *DHCPOption {
 	return dHCPOptionType
 }
 
-func NewDefaultDHCPOption() *DHCPOption {
+func NewDHCPOptionWithDefaults() *DHCPOption {
 	dHCPOptionType := new(DHCPOption)
 	return dHCPOptionType
 }
@@ -71,7 +71,7 @@ func NewDHCPServer() *DHCPServer {
 	return dHCPServerType
 }
 
-func NewDefaultDHCPServer() *DHCPServer {
+func NewDHCPServerWithDefaults() *DHCPServer {
 	dHCPServerType := new(DHCPServer)
 	return dHCPServerType
 }
@@ -101,7 +101,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -121,7 +121,7 @@ func NewIdList() *IdList {
 	return idListType
 }
 
-func NewDefaultIdList() *IdList {
+func NewIdListWithDefaults() *IdList {
 	idListType := new(IdList)
 	return idListType
 }
@@ -163,7 +163,7 @@ func NewSpecificSettings() *SpecificSettings {
 	return specificSettingsType
 }
 
-func NewDefaultSpecificSettings() *SpecificSettings {
+func NewSpecificSettingsWithDefaults() *SpecificSettings {
 	specificSettingsType := new(SpecificSettings)
 	return specificSettingsType
 }
@@ -197,7 +197,7 @@ func NewSpecificSettingsAllResult() *SpecificSettingsAllResult {
 	return specificSettingsAllResultType
 }
 
-func NewDefaultSpecificSettingsAllResult() *SpecificSettingsAllResult {
+func NewSpecificSettingsAllResultWithDefaults() *SpecificSettingsAllResult {
 	specificSettingsAllResultType := new(SpecificSettingsAllResult)
 	return specificSettingsAllResultType
 }
@@ -230,7 +230,7 @@ func NewSpecificSettingsAllResultExtraType() *SpecificSettingsAllResultExtraType
 	return specificSettingsAllResultExtraTypeType
 }
 
-func NewDefaultSpecificSettingsAllResultExtraType() *SpecificSettingsAllResultExtraType {
+func NewSpecificSettingsAllResultExtraTypeWithDefaults() *SpecificSettingsAllResultExtraType {
 	specificSettingsAllResultExtraTypeType := new(SpecificSettingsAllResultExtraType)
 	return specificSettingsAllResultExtraTypeType
 }
@@ -260,7 +260,7 @@ func NewUpdateSpecificSettings() *UpdateSpecificSettings {
 	return updateSpecificSettingsType
 }
 
-func NewDefaultUpdateSpecificSettings() *UpdateSpecificSettings {
+func NewUpdateSpecificSettingsWithDefaults() *UpdateSpecificSettings {
 	updateSpecificSettingsType := new(UpdateSpecificSettings)
 	return updateSpecificSettingsType
 }

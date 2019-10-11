@@ -27,7 +27,7 @@ func NewCreateDevicePolicy() *CreateDevicePolicy {
 	return createDevicePolicyType
 }
 
-func NewDefaultCreateDevicePolicy() *CreateDevicePolicy {
+func NewCreateDevicePolicyWithDefaults() *CreateDevicePolicy {
 	createDevicePolicyType := new(CreateDevicePolicy)
 	return createDevicePolicyType
 }
@@ -58,7 +58,7 @@ func NewDevicePolicyPorfile() *DevicePolicyPorfile {
 	return devicePolicyPorfileType
 }
 
-func NewDefaultDevicePolicyPorfile() *DevicePolicyPorfile {
+func NewDevicePolicyPorfileWithDefaults() *DevicePolicyPorfile {
 	devicePolicyPorfileType := new(DevicePolicyPorfile)
 	return devicePolicyPorfileType
 }
@@ -110,7 +110,7 @@ func NewDevicePolicyRule() *DevicePolicyRule {
 	return devicePolicyRuleType
 }
 
-func NewDefaultDevicePolicyRule() *DevicePolicyRule {
+func NewDevicePolicyRuleWithDefaults() *DevicePolicyRule {
 	devicePolicyRuleType := new(DevicePolicyRule)
 	return devicePolicyRuleType
 }
@@ -137,7 +137,7 @@ func NewModifyDevicePolicy() *ModifyDevicePolicy {
 	return modifyDevicePolicyType
 }
 
-func NewDefaultModifyDevicePolicy() *ModifyDevicePolicy {
+func NewModifyDevicePolicyWithDefaults() *ModifyDevicePolicy {
 	modifyDevicePolicyType := new(ModifyDevicePolicy)
 	return modifyDevicePolicyType
 }
@@ -157,7 +157,7 @@ func NewPorfileList() *PorfileList {
 	return porfileListType
 }
 
-func NewDefaultPorfileList() *PorfileList {
+func NewPorfileListWithDefaults() *PorfileList {
 	porfileListType := new(PorfileList)
 	return porfileListType
 }
@@ -175,7 +175,7 @@ func NewPorfileListType() *PorfileListType {
 	return porfileListTypeType
 }
 
-func NewDefaultPorfileListType() *PorfileListType {
+func NewPorfileListTypeWithDefaults() *PorfileListType {
 	porfileListTypeType := new(PorfileListType)
 	return porfileListTypeType
 }

@@ -29,7 +29,7 @@ func NewBladeProgress() *BladeProgress {
 	return bladeProgressType
 }
 
-func NewDefaultBladeProgress() *BladeProgress {
+func NewBladeProgressWithDefaults() *BladeProgress {
 	bladeProgressType := new(BladeProgress)
 	return bladeProgressType
 }
@@ -49,7 +49,7 @@ func NewClusterOperationProgress() *ClusterOperationProgress {
 	return clusterOperationProgressType
 }
 
-func NewDefaultClusterOperationProgress() *ClusterOperationProgress {
+func NewClusterOperationProgressWithDefaults() *ClusterOperationProgress {
 	clusterOperationProgressType := new(ClusterOperationProgress)
 	return clusterOperationProgressType
 }
@@ -91,7 +91,7 @@ func NewClusterState() *ClusterState {
 	return clusterStateType
 }
 
-func NewDefaultClusterState() *ClusterState {
+func NewClusterStateWithDefaults() *ClusterState {
 	clusterStateType := new(ClusterState)
 	return clusterStateType
 }
@@ -118,7 +118,7 @@ func NewClusterStateManagementServiceStateListType() *ClusterStateManagementServ
 	return clusterStateManagementServiceStateListTypeType
 }
 
-func NewDefaultClusterStateManagementServiceStateListType() *ClusterStateManagementServiceStateListType {
+func NewClusterStateManagementServiceStateListTypeWithDefaults() *ClusterStateManagementServiceStateListType {
 	clusterStateManagementServiceStateListTypeType := new(ClusterStateManagementServiceStateListType)
 	return clusterStateManagementServiceStateListTypeType
 }
@@ -143,7 +143,7 @@ func NewClusterStateNodeStateListType() *ClusterStateNodeStateListType {
 	return clusterStateNodeStateListTypeType
 }
 
-func NewDefaultClusterStateNodeStateListType() *ClusterStateNodeStateListType {
+func NewClusterStateNodeStateListTypeWithDefaults() *ClusterStateNodeStateListType {
 	clusterStateNodeStateListTypeType := new(ClusterStateNodeStateListType)
 	return clusterStateNodeStateListTypeType
 }
@@ -162,7 +162,7 @@ func NewClusterStatus() *ClusterStatus {
 	return clusterStatusType
 }
 
-func NewDefaultClusterStatus() *ClusterStatus {
+func NewClusterStatusWithDefaults() *ClusterStatus {
 	clusterStatusType := new(ClusterStatus)
 	return clusterStatusType
 }
@@ -205,7 +205,7 @@ func NewClusterUpgradeProgress() *ClusterUpgradeProgress {
 	return clusterUpgradeProgressType
 }
 
-func NewDefaultClusterUpgradeProgress() *ClusterUpgradeProgress {
+func NewClusterUpgradeProgressWithDefaults() *ClusterUpgradeProgress {
 	clusterUpgradeProgressType := new(ClusterUpgradeProgress)
 	return clusterUpgradeProgressType
 }
@@ -219,7 +219,7 @@ func NewControlNodeStatus() *ControlNodeStatus {
 	return controlNodeStatusType
 }
 
-func NewDefaultControlNodeStatus() *ControlNodeStatus {
+func NewControlNodeStatusWithDefaults() *ControlNodeStatus {
 	controlNodeStatusType := new(ControlNodeStatus)
 	return controlNodeStatusType
 }
@@ -242,7 +242,7 @@ func NewControlNodeStatusNodeStatusListType() *ControlNodeStatusNodeStatusListTy
 	return controlNodeStatusNodeStatusListTypeType
 }
 
-func NewDefaultControlNodeStatusNodeStatusListType() *ControlNodeStatusNodeStatusListType {
+func NewControlNodeStatusNodeStatusListTypeWithDefaults() *ControlNodeStatusNodeStatusListType {
 	controlNodeStatusNodeStatusListTypeType := new(ControlNodeStatusNodeStatusListType)
 	return controlNodeStatusNodeStatusListTypeType
 }
@@ -254,7 +254,7 @@ func NewOperation() *Operation {
 	return operationType
 }
 
-func NewDefaultOperation() *Operation {
+func NewOperationWithDefaults() *Operation {
 	operationType := new(Operation)
 	return operationType
 }
@@ -276,7 +276,7 @@ func NewPreviousOperationRecord() *PreviousOperationRecord {
 	return previousOperationRecordType
 }
 
-func NewDefaultPreviousOperationRecord() *PreviousOperationRecord {
+func NewPreviousOperationRecordWithDefaults() *PreviousOperationRecord {
 	previousOperationRecordType := new(PreviousOperationRecord)
 	return previousOperationRecordType
 }
@@ -320,7 +320,7 @@ func NewUploadPatchInfo() *UploadPatchInfo {
 	return uploadPatchInfoType
 }
 
-func NewDefaultUploadPatchInfo() *UploadPatchInfo {
+func NewUploadPatchInfoWithDefaults() *UploadPatchInfo {
 	uploadPatchInfoType := new(UploadPatchInfo)
 	return uploadPatchInfoType
 }

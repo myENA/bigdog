@@ -28,7 +28,7 @@ func NewDhcpMsgStats() *DhcpMsgStats {
 	return dhcpMsgStatsType
 }
 
-func NewDefaultDhcpMsgStats() *DhcpMsgStats {
+func NewDhcpMsgStatsWithDefaults() *DhcpMsgStats {
 	dhcpMsgStatsType := new(DhcpMsgStats)
 	return dhcpMsgStatsType
 }
@@ -53,7 +53,7 @@ func NewDhcpMsgStatsDhcpMsgRecvdStatsType() *DhcpMsgStatsDhcpMsgRecvdStatsType {
 	return dhcpMsgStatsDhcpMsgRecvdStatsTypeType
 }
 
-func NewDefaultDhcpMsgStatsDhcpMsgRecvdStatsType() *DhcpMsgStatsDhcpMsgRecvdStatsType {
+func NewDhcpMsgStatsDhcpMsgRecvdStatsTypeWithDefaults() *DhcpMsgStatsDhcpMsgRecvdStatsType {
 	dhcpMsgStatsDhcpMsgRecvdStatsTypeType := new(DhcpMsgStatsDhcpMsgRecvdStatsType)
 	return dhcpMsgStatsDhcpMsgRecvdStatsTypeType
 }
@@ -74,7 +74,7 @@ func NewDhcpMsgStatsDhcpMsgSentStatsType() *DhcpMsgStatsDhcpMsgSentStatsType {
 	return dhcpMsgStatsDhcpMsgSentStatsTypeType
 }
 
-func NewDefaultDhcpMsgStatsDhcpMsgSentStatsType() *DhcpMsgStatsDhcpMsgSentStatsType {
+func NewDhcpMsgStatsDhcpMsgSentStatsTypeWithDefaults() *DhcpMsgStatsDhcpMsgSentStatsType {
 	dhcpMsgStatsDhcpMsgSentStatsTypeType := new(DhcpMsgStatsDhcpMsgSentStatsType)
 	return dhcpMsgStatsDhcpMsgSentStatsTypeType
 }

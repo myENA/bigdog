@@ -19,7 +19,7 @@ func NewCreateDnsConfig() *CreateDnsConfig {
 	return createDnsConfigType
 }
 
-func NewDefaultCreateDnsConfig() *CreateDnsConfig {
+func NewCreateDnsConfigWithDefaults() *CreateDnsConfig {
 	createDnsConfigType := new(CreateDnsConfig)
 	return createDnsConfigType
 }
@@ -41,7 +41,7 @@ func NewDnsConfig() *DnsConfig {
 	return dnsConfigType
 }
 
-func NewDefaultDnsConfig() *DnsConfig {
+func NewDnsConfigWithDefaults() *DnsConfig {
 	dnsConfigType := new(DnsConfig)
 	return dnsConfigType
 }
@@ -57,7 +57,7 @@ func NewDnsConfigObject() *DnsConfigObject {
 	return dnsConfigObjectType
 }
 
-func NewDefaultDnsConfigObject() *DnsConfigObject {
+func NewDnsConfigObjectWithDefaults() *DnsConfigObject {
 	dnsConfigObjectType := new(DnsConfigObject)
 	return dnsConfigObjectType
 }
@@ -87,7 +87,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -101,7 +101,7 @@ func NewUpdateDnsConfig() *UpdateDnsConfig {
 	return updateDnsConfigType
 }
 
-func NewDefaultUpdateDnsConfig() *UpdateDnsConfig {
+func NewUpdateDnsConfigWithDefaults() *UpdateDnsConfig {
 	updateDnsConfigType := new(UpdateDnsConfig)
 	return updateDnsConfigType
 }

@@ -11,7 +11,7 @@ func NewApRoutineStatusIntervalRsp() *ApRoutineStatusIntervalRsp {
 	return apRoutineStatusIntervalRspType
 }
 
-func NewDefaultApRoutineStatusIntervalRsp() *ApRoutineStatusIntervalRsp {
+func NewApRoutineStatusIntervalRspWithDefaults() *ApRoutineStatusIntervalRsp {
 	apRoutineStatusIntervalRspType := new(ApRoutineStatusIntervalRsp)
 	return apRoutineStatusIntervalRspType
 }

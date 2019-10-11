@@ -61,7 +61,7 @@ func NewACLConfig() *ACLConfig {
 	return aCLConfigType
 }
 
-func NewDefaultACLConfig() *ACLConfig {
+func NewACLConfigWithDefaults() *ACLConfig {
 	aCLConfigType := new(ACLConfig)
 	return aCLConfigType
 }
@@ -95,7 +95,7 @@ func NewACLConfigsQueryResult() *ACLConfigsQueryResult {
 	return aCLConfigsQueryResultType
 }
 
-func NewDefaultACLConfigsQueryResult() *ACLConfigsQueryResult {
+func NewACLConfigsQueryResultWithDefaults() *ACLConfigsQueryResult {
 	aCLConfigsQueryResultType := new(ACLConfigsQueryResult)
 	return aCLConfigsQueryResultType
 }
@@ -128,7 +128,7 @@ func NewACLConfigsQueryResultExtraType() *ACLConfigsQueryResultExtraType {
 	return aCLConfigsQueryResultExtraTypeType
 }
 
-func NewDefaultACLConfigsQueryResultExtraType() *ACLConfigsQueryResultExtraType {
+func NewACLConfigsQueryResultExtraTypeWithDefaults() *ACLConfigsQueryResultExtraType {
 	aCLConfigsQueryResultExtraTypeType := new(ACLConfigsQueryResultExtraType)
 	return aCLConfigsQueryResultExtraTypeType
 }
@@ -174,7 +174,7 @@ func NewACLRule() *ACLRule {
 	return aCLRuleType
 }
 
-func NewDefaultACLRule() *ACLRule {
+func NewACLRuleWithDefaults() *ACLRule {
 	aCLRuleType := new(ACLRule)
 	return aCLRuleType
 }
@@ -222,7 +222,7 @@ func NewCreateACLConfig() *CreateACLConfig {
 	return createACLConfigType
 }
 
-func NewDefaultCreateACLConfig() *CreateACLConfig {
+func NewCreateACLConfigWithDefaults() *CreateACLConfig {
 	createACLConfigType := new(CreateACLConfig)
 	return createACLConfigType
 }
@@ -252,7 +252,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -284,7 +284,7 @@ func NewUpdateACLConfig() *UpdateACLConfig {
 	return updateACLConfigType
 }
 
-func NewDefaultUpdateACLConfig() *UpdateACLConfig {
+func NewUpdateACLConfigWithDefaults() *UpdateACLConfig {
 	updateACLConfigType := new(UpdateACLConfig)
 	return updateACLConfigType
 }

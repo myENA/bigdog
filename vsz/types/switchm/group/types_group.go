@@ -21,7 +21,7 @@ func NewAuditId() *AuditId {
 	return auditIdType
 }
 
-func NewDefaultAuditId() *AuditId {
+func NewAuditIdWithDefaults() *AuditId {
 	auditIdType := new(AuditId)
 	return auditIdType
 }
@@ -49,7 +49,7 @@ func NewClientObjectID() *ClientObjectID {
 	return clientObjectIDType
 }
 
-func NewDefaultClientObjectID() *ClientObjectID {
+func NewClientObjectIDWithDefaults() *ClientObjectID {
 	clientObjectIDType := new(ClientObjectID)
 	return clientObjectIDType
 }
@@ -82,7 +82,7 @@ func NewClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
 	return clientObjectIDExtraValuesTypeType
 }
 
-func NewDefaultClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
+func NewClientObjectIDExtraValuesTypeWithDefaults() *ClientObjectIDExtraValuesType {
 	clientObjectIDExtraValuesTypeType := new(ClientObjectIDExtraValuesType)
 	return clientObjectIDExtraValuesTypeType
 }
@@ -100,7 +100,7 @@ func NewCloneConfigByGroup() *CloneConfigByGroup {
 	return cloneConfigByGroupType
 }
 
-func NewDefaultCloneConfigByGroup() *CloneConfigByGroup {
+func NewCloneConfigByGroupWithDefaults() *CloneConfigByGroup {
 	cloneConfigByGroupType := new(CloneConfigByGroup)
 	return cloneConfigByGroupType
 }
@@ -122,7 +122,7 @@ func NewCloneConfigBySwitch() *CloneConfigBySwitch {
 	return cloneConfigBySwitchType
 }
 
-func NewDefaultCloneConfigBySwitch() *CloneConfigBySwitch {
+func NewCloneConfigBySwitchWithDefaults() *CloneConfigBySwitch {
 	cloneConfigBySwitchType := new(CloneConfigBySwitch)
 	return cloneConfigBySwitchType
 }
@@ -144,7 +144,7 @@ func NewErrorObject() *ErrorObject {
 	return errorObjectType
 }
 
-func NewDefaultErrorObject() *ErrorObject {
+func NewErrorObjectWithDefaults() *ErrorObject {
 	errorObjectType := new(ErrorObject)
 	return errorObjectType
 }
@@ -164,7 +164,7 @@ func NewGetConfigBySwitch() *GetConfigBySwitch {
 	return getConfigBySwitchType
 }
 
-func NewDefaultGetConfigBySwitch() *GetConfigBySwitch {
+func NewGetConfigBySwitchWithDefaults() *GetConfigBySwitch {
 	getConfigBySwitchType := new(GetConfigBySwitch)
 	return getConfigBySwitchType
 }
@@ -192,7 +192,7 @@ func NewGroupsByIdsQueryResultList() *GroupsByIdsQueryResultList {
 	return groupsByIdsQueryResultListType
 }
 
-func NewDefaultGroupsByIdsQueryResultList() *GroupsByIdsQueryResultList {
+func NewGroupsByIdsQueryResultListWithDefaults() *GroupsByIdsQueryResultList {
 	groupsByIdsQueryResultListType := new(GroupsByIdsQueryResultList)
 	return groupsByIdsQueryResultListType
 }
@@ -225,7 +225,7 @@ func NewGroupsByIdsQueryResultListExtraType() *GroupsByIdsQueryResultListExtraTy
 	return groupsByIdsQueryResultListExtraTypeType
 }
 
-func NewDefaultGroupsByIdsQueryResultListExtraType() *GroupsByIdsQueryResultListExtraType {
+func NewGroupsByIdsQueryResultListExtraTypeWithDefaults() *GroupsByIdsQueryResultListExtraType {
 	groupsByIdsQueryResultListExtraTypeType := new(GroupsByIdsQueryResultListExtraType)
 	return groupsByIdsQueryResultListExtraTypeType
 }
@@ -258,7 +258,7 @@ func NewGroupsByIdsQueryResultListMetaDataType() *GroupsByIdsQueryResultListMeta
 	return groupsByIdsQueryResultListMetaDataTypeType
 }
 
-func NewDefaultGroupsByIdsQueryResultListMetaDataType() *GroupsByIdsQueryResultListMetaDataType {
+func NewGroupsByIdsQueryResultListMetaDataTypeWithDefaults() *GroupsByIdsQueryResultListMetaDataType {
 	groupsByIdsQueryResultListMetaDataTypeType := new(GroupsByIdsQueryResultListMetaDataType)
 	return groupsByIdsQueryResultListMetaDataTypeType
 }
@@ -292,7 +292,7 @@ func NewQueryResultList() *QueryResultList {
 	return queryResultListType
 }
 
-func NewDefaultQueryResultList() *QueryResultList {
+func NewQueryResultListWithDefaults() *QueryResultList {
 	queryResultListType := new(QueryResultList)
 	return queryResultListType
 }
@@ -325,7 +325,7 @@ func NewQueryResultListExtraType() *QueryResultListExtraType {
 	return queryResultListExtraTypeType
 }
 
-func NewDefaultQueryResultListExtraType() *QueryResultListExtraType {
+func NewQueryResultListExtraTypeWithDefaults() *QueryResultListExtraType {
 	queryResultListExtraTypeType := new(QueryResultListExtraType)
 	return queryResultListExtraTypeType
 }
@@ -389,7 +389,7 @@ func NewSwitchGroup() *SwitchGroup {
 	return switchGroupType
 }
 
-func NewDefaultSwitchGroup() *SwitchGroup {
+func NewSwitchGroupWithDefaults() *SwitchGroup {
 	switchGroupType := new(SwitchGroup)
 	return switchGroupType
 }
@@ -426,7 +426,7 @@ func NewSwitchGroupSampledInstantType() *SwitchGroupSampledInstantType {
 	return switchGroupSampledInstantTypeType
 }
 
-func NewDefaultSwitchGroupSampledInstantType() *SwitchGroupSampledInstantType {
+func NewSwitchGroupSampledInstantTypeWithDefaults() *SwitchGroupSampledInstantType {
 	switchGroupSampledInstantTypeType := new(SwitchGroupSampledInstantType)
 	return switchGroupSampledInstantTypeType
 }

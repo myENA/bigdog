@@ -77,7 +77,7 @@ func NewGetResult() *GetResult {
 	return getResultType
 }
 
-func NewDefaultGetResult() *GetResult {
+func NewGetResultWithDefaults() *GetResult {
 	getResultType := new(GetResult)
 	return getResultType
 }
@@ -101,7 +101,7 @@ func NewProposal() *Proposal {
 	return proposalType
 }
 
-func NewDefaultProposal() *Proposal {
+func NewProposalWithDefaults() *Proposal {
 	proposalType := new(Proposal)
 	return proposalType
 }
@@ -183,7 +183,7 @@ func NewUpdate() *Update {
 	return updateType
 }
 
-func NewDefaultUpdate() *Update {
+func NewUpdateWithDefaults() *Update {
 	updateType := new(Update)
 	return updateType
 }

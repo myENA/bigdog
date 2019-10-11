@@ -29,7 +29,7 @@ func NewClientObjectID() *ClientObjectID {
 	return clientObjectIDType
 }
 
-func NewDefaultClientObjectID() *ClientObjectID {
+func NewClientObjectIDWithDefaults() *ClientObjectID {
 	clientObjectIDType := new(ClientObjectID)
 	return clientObjectIDType
 }
@@ -62,7 +62,7 @@ func NewClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
 	return clientObjectIDExtraValuesTypeType
 }
 
-func NewDefaultClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
+func NewClientObjectIDExtraValuesTypeWithDefaults() *ClientObjectIDExtraValuesType {
 	clientObjectIDExtraValuesTypeType := new(ClientObjectIDExtraValuesType)
 	return clientObjectIDExtraValuesTypeType
 }
@@ -90,7 +90,7 @@ func NewCreateResult() *CreateResult {
 	return createResultType
 }
 
-func NewDefaultCreateResult() *CreateResult {
+func NewCreateResultWithDefaults() *CreateResult {
 	createResultType := new(CreateResult)
 	return createResultType
 }
@@ -123,7 +123,7 @@ func NewCreateResultExtraType() *CreateResultExtraType {
 	return createResultExtraTypeType
 }
 
-func NewDefaultCreateResultExtraType() *CreateResultExtraType {
+func NewCreateResultExtraTypeWithDefaults() *CreateResultExtraType {
 	createResultExtraTypeType := new(CreateResultExtraType)
 	return createResultExtraTypeType
 }
@@ -156,7 +156,7 @@ func NewCreateResultMetaDataType() *CreateResultMetaDataType {
 	return createResultMetaDataTypeType
 }
 
-func NewDefaultCreateResultMetaDataType() *CreateResultMetaDataType {
+func NewCreateResultMetaDataTypeWithDefaults() *CreateResultMetaDataType {
 	createResultMetaDataTypeType := new(CreateResultMetaDataType)
 	return createResultMetaDataTypeType
 }
@@ -184,7 +184,7 @@ func NewDeleteMultipleResult() *DeleteMultipleResult {
 	return deleteMultipleResultType
 }
 
-func NewDefaultDeleteMultipleResult() *DeleteMultipleResult {
+func NewDeleteMultipleResultWithDefaults() *DeleteMultipleResult {
 	deleteMultipleResultType := new(DeleteMultipleResult)
 	return deleteMultipleResultType
 }
@@ -217,7 +217,7 @@ func NewDeleteMultipleResultExtraType() *DeleteMultipleResultExtraType {
 	return deleteMultipleResultExtraTypeType
 }
 
-func NewDefaultDeleteMultipleResultExtraType() *DeleteMultipleResultExtraType {
+func NewDeleteMultipleResultExtraTypeWithDefaults() *DeleteMultipleResultExtraType {
 	deleteMultipleResultExtraTypeType := new(DeleteMultipleResultExtraType)
 	return deleteMultipleResultExtraTypeType
 }
@@ -250,7 +250,7 @@ func NewDeleteMultipleResultMetaDataType() *DeleteMultipleResultMetaDataType {
 	return deleteMultipleResultMetaDataTypeType
 }
 
-func NewDefaultDeleteMultipleResultMetaDataType() *DeleteMultipleResultMetaDataType {
+func NewDeleteMultipleResultMetaDataTypeWithDefaults() *DeleteMultipleResultMetaDataType {
 	deleteMultipleResultMetaDataTypeType := new(DeleteMultipleResultMetaDataType)
 	return deleteMultipleResultMetaDataTypeType
 }
@@ -278,7 +278,7 @@ func NewDeleteResult() *DeleteResult {
 	return deleteResultType
 }
 
-func NewDefaultDeleteResult() *DeleteResult {
+func NewDeleteResultWithDefaults() *DeleteResult {
 	deleteResultType := new(DeleteResult)
 	return deleteResultType
 }
@@ -311,7 +311,7 @@ func NewDeleteResultExtraType() *DeleteResultExtraType {
 	return deleteResultExtraTypeType
 }
 
-func NewDefaultDeleteResultExtraType() *DeleteResultExtraType {
+func NewDeleteResultExtraTypeWithDefaults() *DeleteResultExtraType {
 	deleteResultExtraTypeType := new(DeleteResultExtraType)
 	return deleteResultExtraTypeType
 }
@@ -344,7 +344,7 @@ func NewDeleteResultMetaDataType() *DeleteResultMetaDataType {
 	return deleteResultMetaDataTypeType
 }
 
-func NewDefaultDeleteResultMetaDataType() *DeleteResultMetaDataType {
+func NewDeleteResultMetaDataTypeWithDefaults() *DeleteResultMetaDataType {
 	deleteResultMetaDataTypeType := new(DeleteResultMetaDataType)
 	return deleteResultMetaDataTypeType
 }
@@ -362,7 +362,7 @@ func NewErrorObject() *ErrorObject {
 	return errorObjectType
 }
 
-func NewDefaultErrorObject() *ErrorObject {
+func NewErrorObjectWithDefaults() *ErrorObject {
 	errorObjectType := new(ErrorObject)
 	return errorObjectType
 }
@@ -396,7 +396,7 @@ func NewList() *List {
 	return listType
 }
 
-func NewDefaultList() *List {
+func NewListWithDefaults() *List {
 	listType := new(List)
 	return listType
 }
@@ -429,7 +429,7 @@ func NewListExtraType() *ListExtraType {
 	return listExtraTypeType
 }
 
-func NewDefaultListExtraType() *ListExtraType {
+func NewListExtraTypeWithDefaults() *ListExtraType {
 	listExtraTypeType := new(ListExtraType)
 	return listExtraTypeType
 }
@@ -457,7 +457,7 @@ func NewModifyResult() *ModifyResult {
 	return modifyResultType
 }
 
-func NewDefaultModifyResult() *ModifyResult {
+func NewModifyResultWithDefaults() *ModifyResult {
 	modifyResultType := new(ModifyResult)
 	return modifyResultType
 }
@@ -490,7 +490,7 @@ func NewModifyResultExtraType() *ModifyResultExtraType {
 	return modifyResultExtraTypeType
 }
 
-func NewDefaultModifyResultExtraType() *ModifyResultExtraType {
+func NewModifyResultExtraTypeWithDefaults() *ModifyResultExtraType {
 	modifyResultExtraTypeType := new(ModifyResultExtraType)
 	return modifyResultExtraTypeType
 }
@@ -523,7 +523,7 @@ func NewModifyResultMetaDataType() *ModifyResultMetaDataType {
 	return modifyResultMetaDataTypeType
 }
 
-func NewDefaultModifyResultMetaDataType() *ModifyResultMetaDataType {
+func NewModifyResultMetaDataTypeWithDefaults() *ModifyResultMetaDataType {
 	modifyResultMetaDataTypeType := new(ModifyResultMetaDataType)
 	return modifyResultMetaDataTypeType
 }
@@ -602,7 +602,7 @@ func NewRegistrationRule() *RegistrationRule {
 	return registrationRuleType
 }
 
-func NewDefaultRegistrationRule() *RegistrationRule {
+func NewRegistrationRuleWithDefaults() *RegistrationRule {
 	registrationRuleType := new(RegistrationRule)
 	return registrationRuleType
 }
@@ -630,7 +630,7 @@ func NewRuleQueryResultList() *RuleQueryResultList {
 	return ruleQueryResultListType
 }
 
-func NewDefaultRuleQueryResultList() *RuleQueryResultList {
+func NewRuleQueryResultListWithDefaults() *RuleQueryResultList {
 	ruleQueryResultListType := new(RuleQueryResultList)
 	return ruleQueryResultListType
 }
@@ -663,7 +663,7 @@ func NewRuleQueryResultListExtraType() *RuleQueryResultListExtraType {
 	return ruleQueryResultListExtraTypeType
 }
 
-func NewDefaultRuleQueryResultListExtraType() *RuleQueryResultListExtraType {
+func NewRuleQueryResultListExtraTypeWithDefaults() *RuleQueryResultListExtraType {
 	ruleQueryResultListExtraTypeType := new(RuleQueryResultListExtraType)
 	return ruleQueryResultListExtraTypeType
 }
@@ -696,7 +696,7 @@ func NewRuleQueryResultListMetaDataType() *RuleQueryResultListMetaDataType {
 	return ruleQueryResultListMetaDataTypeType
 }
 
-func NewDefaultRuleQueryResultListMetaDataType() *RuleQueryResultListMetaDataType {
+func NewRuleQueryResultListMetaDataTypeWithDefaults() *RuleQueryResultListMetaDataType {
 	ruleQueryResultListMetaDataTypeType := new(RuleQueryResultListMetaDataType)
 	return ruleQueryResultListMetaDataTypeType
 }
@@ -708,7 +708,7 @@ func NewRuleUUIDs() *RuleUUIDs {
 	return &ruleUUIDsType
 }
 
-func NewDefaultRuleUUIDs() *RuleUUIDs {
+func NewRuleUUIDsWithDefaults() *RuleUUIDs {
 	ruleUUIDsType := make(RuleUUIDs, 0)
 	return &ruleUUIDsType
 }

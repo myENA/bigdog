@@ -48,7 +48,7 @@ func NewCreateWlanScheduler() *CreateWlanScheduler {
 	return createWlanSchedulerType
 }
 
-func NewDefaultCreateWlanScheduler() *CreateWlanScheduler {
+func NewCreateWlanSchedulerWithDefaults() *CreateWlanScheduler {
 	createWlanSchedulerType := new(CreateWlanScheduler)
 	return createWlanSchedulerType
 }
@@ -92,7 +92,7 @@ func NewModifyWlanScheduler() *ModifyWlanScheduler {
 	return modifyWlanSchedulerType
 }
 
-func NewDefaultModifyWlanScheduler() *ModifyWlanScheduler {
+func NewModifyWlanSchedulerWithDefaults() *ModifyWlanScheduler {
 	modifyWlanSchedulerType := new(ModifyWlanScheduler)
 	return modifyWlanSchedulerType
 }
@@ -144,7 +144,7 @@ func NewWlanSchedule() *WlanSchedule {
 	return wlanScheduleType
 }
 
-func NewDefaultWlanSchedule() *WlanSchedule {
+func NewWlanScheduleWithDefaults() *WlanSchedule {
 	wlanScheduleType := new(WlanSchedule)
 	return wlanScheduleType
 }
@@ -164,7 +164,7 @@ func NewWlanScheduleList() *WlanScheduleList {
 	return wlanScheduleListType
 }
 
-func NewDefaultWlanScheduleList() *WlanScheduleList {
+func NewWlanScheduleListWithDefaults() *WlanScheduleList {
 	wlanScheduleListType := new(WlanScheduleList)
 	return wlanScheduleListType
 }

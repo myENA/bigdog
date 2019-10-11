@@ -131,7 +131,7 @@ func NewActiveDirectoryService() *ActiveDirectoryService {
 	return activeDirectoryServiceType
 }
 
-func NewDefaultActiveDirectoryService() *ActiveDirectoryService {
+func NewActiveDirectoryServiceWithDefaults() *ActiveDirectoryService {
 	activeDirectoryServiceType := new(ActiveDirectoryService)
 	portField := 389
 	activeDirectoryServiceType.Port = &portField
@@ -157,7 +157,7 @@ func NewActiveDirectoryServiceList() *ActiveDirectoryServiceList {
 	return activeDirectoryServiceListType
 }
 
-func NewDefaultActiveDirectoryServiceList() *ActiveDirectoryServiceList {
+func NewActiveDirectoryServiceListWithDefaults() *ActiveDirectoryServiceList {
 	activeDirectoryServiceListType := new(ActiveDirectoryServiceList)
 	return activeDirectoryServiceListType
 }
@@ -223,7 +223,7 @@ func NewCommonAccountingService() *CommonAccountingService {
 	return commonAccountingServiceType
 }
 
-func NewDefaultCommonAccountingService() *CommonAccountingService {
+func NewCommonAccountingServiceWithDefaults() *CommonAccountingService {
 	commonAccountingServiceType := new(CommonAccountingService)
 	return commonAccountingServiceType
 }
@@ -245,7 +245,7 @@ func NewCommonAccountingServiceList() *CommonAccountingServiceList {
 	return commonAccountingServiceListType
 }
 
-func NewDefaultCommonAccountingServiceList() *CommonAccountingServiceList {
+func NewCommonAccountingServiceListWithDefaults() *CommonAccountingServiceList {
 	commonAccountingServiceListType := new(CommonAccountingServiceList)
 	return commonAccountingServiceListType
 }
@@ -317,7 +317,7 @@ func NewCommonAuthenticationService() *CommonAuthenticationService {
 	return commonAuthenticationServiceType
 }
 
-func NewDefaultCommonAuthenticationService() *CommonAuthenticationService {
+func NewCommonAuthenticationServiceWithDefaults() *CommonAuthenticationService {
 	commonAuthenticationServiceType := new(CommonAuthenticationService)
 	return commonAuthenticationServiceType
 }
@@ -339,7 +339,7 @@ func NewCommonAuthenticationServiceList() *CommonAuthenticationServiceList {
 	return commonAuthenticationServiceListType
 }
 
-func NewDefaultCommonAuthenticationServiceList() *CommonAuthenticationServiceList {
+func NewCommonAuthenticationServiceListWithDefaults() *CommonAuthenticationServiceList {
 	commonAuthenticationServiceListType := new(CommonAuthenticationServiceList)
 	return commonAuthenticationServiceListType
 }
@@ -447,7 +447,7 @@ func NewCreateActiveDirectoryAuthentication() *CreateActiveDirectoryAuthenticati
 	return createActiveDirectoryAuthenticationType
 }
 
-func NewDefaultCreateActiveDirectoryAuthentication() *CreateActiveDirectoryAuthentication {
+func NewCreateActiveDirectoryAuthenticationWithDefaults() *CreateActiveDirectoryAuthentication {
 	createActiveDirectoryAuthenticationType := new(CreateActiveDirectoryAuthentication)
 	portField := 389
 	createActiveDirectoryAuthenticationType.Port = &portField
@@ -612,7 +612,7 @@ func NewCreateHlrAuthentication() *CreateHlrAuthentication {
 	return createHlrAuthenticationType
 }
 
-func NewDefaultCreateHlrAuthentication() *CreateHlrAuthentication {
+func NewCreateHlrAuthenticationWithDefaults() *CreateHlrAuthentication {
 	createHlrAuthenticationType := new(CreateHlrAuthentication)
 	return createHlrAuthenticationType
 }
@@ -729,7 +729,7 @@ func NewCreateLDAPAuthentication() *CreateLDAPAuthentication {
 	return createLDAPAuthenticationType
 }
 
-func NewDefaultCreateLDAPAuthentication() *CreateLDAPAuthentication {
+func NewCreateLDAPAuthenticationWithDefaults() *CreateLDAPAuthentication {
 	createLDAPAuthenticationType := new(CreateLDAPAuthentication)
 	portField := 389
 	createLDAPAuthenticationType.Port = &portField
@@ -789,7 +789,7 @@ func NewCreateRadiusAccounting() *CreateRadiusAccounting {
 	return createRadiusAccountingType
 }
 
-func NewDefaultCreateRadiusAccounting() *CreateRadiusAccounting {
+func NewCreateRadiusAccountingWithDefaults() *CreateRadiusAccounting {
 	createRadiusAccountingType := new(CreateRadiusAccounting)
 	standbyServerEnabledField := false
 	createRadiusAccountingType.StandbyServerEnabled = &standbyServerEnabledField
@@ -853,7 +853,7 @@ func NewCreateRadiusAuthentication() *CreateRadiusAuthentication {
 	return createRadiusAuthenticationType
 }
 
-func NewDefaultCreateRadiusAuthentication() *CreateRadiusAuthentication {
+func NewCreateRadiusAuthenticationWithDefaults() *CreateRadiusAuthentication {
 	createRadiusAuthenticationType := new(CreateRadiusAuthentication)
 	locationDeliveryEnabledField := false
 	createRadiusAuthenticationType.LocationDeliveryEnabled = &locationDeliveryEnabledField
@@ -873,7 +873,7 @@ func NewDeleteBulkAccountingService() *DeleteBulkAccountingService {
 	return deleteBulkAccountingServiceType
 }
 
-func NewDefaultDeleteBulkAccountingService() *DeleteBulkAccountingService {
+func NewDeleteBulkAccountingServiceWithDefaults() *DeleteBulkAccountingService {
 	deleteBulkAccountingServiceType := new(DeleteBulkAccountingService)
 	return deleteBulkAccountingServiceType
 }
@@ -887,7 +887,7 @@ func NewDeleteBulkAuthenticationService() *DeleteBulkAuthenticationService {
 	return deleteBulkAuthenticationServiceType
 }
 
-func NewDefaultDeleteBulkAuthenticationService() *DeleteBulkAuthenticationService {
+func NewDeleteBulkAuthenticationServiceWithDefaults() *DeleteBulkAuthenticationService {
 	deleteBulkAuthenticationServiceType := new(DeleteBulkAuthenticationService)
 	return deleteBulkAuthenticationServiceType
 }
@@ -903,7 +903,7 @@ func NewDnsServer() *DnsServer {
 	return dnsServerType
 }
 
-func NewDefaultDnsServer() *DnsServer {
+func NewDnsServerWithDefaults() *DnsServer {
 	dnsServerType := new(DnsServer)
 	return dnsServerType
 }
@@ -915,7 +915,7 @@ func NewDnsServerList() *DnsServerList {
 	return &dnsServerListType
 }
 
-func NewDefaultDnsServerList() *DnsServerList {
+func NewDnsServerListWithDefaults() *DnsServerList {
 	dnsServerListType := make(DnsServerList, 0)
 	return &dnsServerListType
 }
@@ -935,7 +935,7 @@ func NewGgsn() *Ggsn {
 	return ggsnType
 }
 
-func NewDefaultGgsn() *Ggsn {
+func NewGgsnWithDefaults() *Ggsn {
 	ggsnType := new(Ggsn)
 	return ggsnType
 }
@@ -953,7 +953,7 @@ func NewGgsnConfig() *GgsnConfig {
 	return ggsnConfigType
 }
 
-func NewDefaultGgsnConfig() *GgsnConfig {
+func NewGgsnConfigWithDefaults() *GgsnConfig {
 	ggsnConfigType := new(GgsnConfig)
 	return ggsnConfigType
 }
@@ -965,7 +965,7 @@ func NewGgsnList() *GgsnList {
 	return &ggsnListType
 }
 
-func NewDefaultGgsnList() *GgsnList {
+func NewGgsnListWithDefaults() *GgsnList {
 	ggsnListType := make(GgsnList, 0)
 	return &ggsnListType
 }
@@ -996,7 +996,7 @@ func NewGroupAttrIdentityUserRoleMapping() *GroupAttrIdentityUserRoleMapping {
 	return groupAttrIdentityUserRoleMappingType
 }
 
-func NewDefaultGroupAttrIdentityUserRoleMapping() *GroupAttrIdentityUserRoleMapping {
+func NewGroupAttrIdentityUserRoleMappingWithDefaults() *GroupAttrIdentityUserRoleMapping {
 	groupAttrIdentityUserRoleMappingType := new(GroupAttrIdentityUserRoleMapping)
 	return groupAttrIdentityUserRoleMappingType
 }
@@ -1021,7 +1021,7 @@ func NewGroupAttrIdentityUserRoleMappingUserRoleType() *GroupAttrIdentityUserRol
 	return groupAttrIdentityUserRoleMappingUserRoleTypeType
 }
 
-func NewDefaultGroupAttrIdentityUserRoleMappingUserRoleType() *GroupAttrIdentityUserRoleMappingUserRoleType {
+func NewGroupAttrIdentityUserRoleMappingUserRoleTypeWithDefaults() *GroupAttrIdentityUserRoleMappingUserRoleType {
 	groupAttrIdentityUserRoleMappingUserRoleTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleType)
 	return groupAttrIdentityUserRoleMappingUserRoleTypeType
 }
@@ -1044,7 +1044,7 @@ func NewGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *Gr
 	return groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType
 }
 
-func NewDefaultGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
+func NewGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeWithDefaults() *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
 	groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType)
 	return groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType
 }
@@ -1096,7 +1096,7 @@ func NewGtpSettings() *GtpSettings {
 	return gtpSettingsType
 }
 
-func NewDefaultGtpSettings() *GtpSettings {
+func NewGtpSettingsWithDefaults() *GtpSettings {
 	gtpSettingsType := new(GtpSettings)
 	return gtpSettingsType
 }
@@ -1328,7 +1328,7 @@ func NewHlrService() *HlrService {
 	return hlrServiceType
 }
 
-func NewDefaultHlrService() *HlrService {
+func NewHlrServiceWithDefaults() *HlrService {
 	hlrServiceType := new(HlrService)
 	return hlrServiceType
 }
@@ -1350,7 +1350,7 @@ func NewHlrServiceList() *HlrServiceList {
 	return hlrServiceListType
 }
 
-func NewDefaultHlrServiceList() *HlrServiceList {
+func NewHlrServiceListWithDefaults() *HlrServiceList {
 	hlrServiceListType := new(HlrServiceList)
 	return hlrServiceListType
 }
@@ -1480,7 +1480,7 @@ func NewLDAPService() *LDAPService {
 	return lDAPServiceType
 }
 
-func NewDefaultLDAPService() *LDAPService {
+func NewLDAPServiceWithDefaults() *LDAPService {
 	lDAPServiceType := new(LDAPService)
 	portField := 389
 	lDAPServiceType.Port = &portField
@@ -1506,7 +1506,7 @@ func NewLDAPServiceList() *LDAPServiceList {
 	return lDAPServiceListType
 }
 
-func NewDefaultLDAPServiceList() *LDAPServiceList {
+func NewLDAPServiceListWithDefaults() *LDAPServiceList {
 	lDAPServiceListType := new(LDAPServiceList)
 	return lDAPServiceListType
 }
@@ -1538,7 +1538,7 @@ func NewMncNdc() *MncNdc {
 	return mncNdcType
 }
 
-func NewDefaultMncNdc() *MncNdc {
+func NewMncNdcWithDefaults() *MncNdc {
 	mncNdcType := new(MncNdc)
 	return mncNdcType
 }
@@ -1633,7 +1633,7 @@ func NewModifyActiveDirectoryAuthentication() *ModifyActiveDirectoryAuthenticati
 	return modifyActiveDirectoryAuthenticationType
 }
 
-func NewDefaultModifyActiveDirectoryAuthentication() *ModifyActiveDirectoryAuthentication {
+func NewModifyActiveDirectoryAuthenticationWithDefaults() *ModifyActiveDirectoryAuthentication {
 	modifyActiveDirectoryAuthenticationType := new(ModifyActiveDirectoryAuthentication)
 	portField := 389
 	modifyActiveDirectoryAuthenticationType.Port = &portField
@@ -1664,7 +1664,7 @@ func NewModifyGroupAttrIdentityUserRoleMapping() *ModifyGroupAttrIdentityUserRol
 	return modifyGroupAttrIdentityUserRoleMappingType
 }
 
-func NewDefaultModifyGroupAttrIdentityUserRoleMapping() *ModifyGroupAttrIdentityUserRoleMapping {
+func NewModifyGroupAttrIdentityUserRoleMappingWithDefaults() *ModifyGroupAttrIdentityUserRoleMapping {
 	modifyGroupAttrIdentityUserRoleMappingType := new(ModifyGroupAttrIdentityUserRoleMapping)
 	return modifyGroupAttrIdentityUserRoleMappingType
 }
@@ -1685,7 +1685,7 @@ func NewModifyGroupAttrIdentityUserRoleMappingUserRoleType() *ModifyGroupAttrIde
 	return modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType
 }
 
-func NewDefaultModifyGroupAttrIdentityUserRoleMappingUserRoleType() *ModifyGroupAttrIdentityUserRoleMappingUserRoleType {
+func NewModifyGroupAttrIdentityUserRoleMappingUserRoleTypeWithDefaults() *ModifyGroupAttrIdentityUserRoleMappingUserRoleType {
 	modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType := new(ModifyGroupAttrIdentityUserRoleMappingUserRoleType)
 	return modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType
 }
@@ -1841,7 +1841,7 @@ func NewModifyHlrAuthentication() *ModifyHlrAuthentication {
 	return modifyHlrAuthenticationType
 }
 
-func NewDefaultModifyHlrAuthentication() *ModifyHlrAuthentication {
+func NewModifyHlrAuthenticationWithDefaults() *ModifyHlrAuthentication {
 	modifyHlrAuthenticationType := new(ModifyHlrAuthentication)
 	return modifyHlrAuthenticationType
 }
@@ -1936,7 +1936,7 @@ func NewModifyLDAPAuthentication() *ModifyLDAPAuthentication {
 	return modifyLDAPAuthenticationType
 }
 
-func NewDefaultModifyLDAPAuthentication() *ModifyLDAPAuthentication {
+func NewModifyLDAPAuthenticationWithDefaults() *ModifyLDAPAuthentication {
 	modifyLDAPAuthenticationType := new(ModifyLDAPAuthentication)
 	portField := 389
 	modifyLDAPAuthenticationType.Port = &portField
@@ -1988,7 +1988,7 @@ func NewModifyLocalDbAuthentication() *ModifyLocalDbAuthentication {
 	return modifyLocalDbAuthenticationType
 }
 
-func NewDefaultModifyLocalDbAuthentication() *ModifyLocalDbAuthentication {
+func NewModifyLocalDbAuthenticationWithDefaults() *ModifyLocalDbAuthentication {
 	modifyLocalDbAuthenticationType := new(ModifyLocalDbAuthentication)
 	return modifyLocalDbAuthenticationType
 }
@@ -2040,7 +2040,7 @@ func NewModifyRadiusAccounting() *ModifyRadiusAccounting {
 	return modifyRadiusAccountingType
 }
 
-func NewDefaultModifyRadiusAccounting() *ModifyRadiusAccounting {
+func NewModifyRadiusAccountingWithDefaults() *ModifyRadiusAccounting {
 	modifyRadiusAccountingType := new(ModifyRadiusAccounting)
 	return modifyRadiusAccountingType
 }
@@ -2095,7 +2095,7 @@ func NewModifyRadiusAuthentication() *ModifyRadiusAuthentication {
 	return modifyRadiusAuthenticationType
 }
 
-func NewDefaultModifyRadiusAuthentication() *ModifyRadiusAuthentication {
+func NewModifyRadiusAuthenticationWithDefaults() *ModifyRadiusAuthentication {
 	modifyRadiusAuthenticationType := new(ModifyRadiusAuthentication)
 	locationDeliveryEnabledField := false
 	modifyRadiusAuthenticationType.LocationDeliveryEnabled = &locationDeliveryEnabledField
@@ -2177,7 +2177,7 @@ func NewRadiusAccountingService() *RadiusAccountingService {
 	return radiusAccountingServiceType
 }
 
-func NewDefaultRadiusAccountingService() *RadiusAccountingService {
+func NewRadiusAccountingServiceWithDefaults() *RadiusAccountingService {
 	radiusAccountingServiceType := new(RadiusAccountingService)
 	return radiusAccountingServiceType
 }
@@ -2199,7 +2199,7 @@ func NewRadiusAccountingServiceList() *RadiusAccountingServiceList {
 	return radiusAccountingServiceListType
 }
 
-func NewDefaultRadiusAccountingServiceList() *RadiusAccountingServiceList {
+func NewRadiusAccountingServiceListWithDefaults() *RadiusAccountingServiceList {
 	radiusAccountingServiceListType := new(RadiusAccountingServiceList)
 	return radiusAccountingServiceListType
 }
@@ -2289,7 +2289,7 @@ func NewRadiusAuthenticationService() *RadiusAuthenticationService {
 	return radiusAuthenticationServiceType
 }
 
-func NewDefaultRadiusAuthenticationService() *RadiusAuthenticationService {
+func NewRadiusAuthenticationServiceWithDefaults() *RadiusAuthenticationService {
 	radiusAuthenticationServiceType := new(RadiusAuthenticationService)
 	locationDeliveryEnabledField := false
 	radiusAuthenticationServiceType.LocationDeliveryEnabled = &locationDeliveryEnabledField
@@ -2313,7 +2313,7 @@ func NewRadiusAuthenticationServiceList() *RadiusAuthenticationServiceList {
 	return radiusAuthenticationServiceListType
 }
 
-func NewDefaultRadiusAuthenticationServiceList() *RadiusAuthenticationServiceList {
+func NewRadiusAuthenticationServiceListWithDefaults() *RadiusAuthenticationServiceList {
 	radiusAuthenticationServiceListType := new(RadiusAuthenticationServiceList)
 	return radiusAuthenticationServiceListType
 }
@@ -2377,7 +2377,7 @@ func NewSccpGtt() *SccpGtt {
 	return sccpGttType
 }
 
-func NewDefaultSccpGtt() *SccpGtt {
+func NewSccpGttWithDefaults() *SccpGtt {
 	sccpGttType := new(SccpGtt)
 	return sccpGttType
 }
@@ -2420,7 +2420,7 @@ func NewSctpAssociation() *SctpAssociation {
 	return sctpAssociationType
 }
 
-func NewDefaultSctpAssociation() *SctpAssociation {
+func NewSctpAssociationWithDefaults() *SctpAssociation {
 	sctpAssociationType := new(SctpAssociation)
 	return sctpAssociationType
 }
@@ -2458,7 +2458,7 @@ func NewSecondaryRadiusServer() *SecondaryRadiusServer {
 	return secondaryRadiusServerType
 }
 
-func NewDefaultSecondaryRadiusServer() *SecondaryRadiusServer {
+func NewSecondaryRadiusServerWithDefaults() *SecondaryRadiusServer {
 	secondaryRadiusServerType := new(SecondaryRadiusServer)
 	portField := 1812
 	secondaryRadiusServerType.Port = &portField
@@ -2478,7 +2478,7 @@ func NewTestingConfig() *TestingConfig {
 	return testingConfigType
 }
 
-func NewDefaultTestingConfig() *TestingConfig {
+func NewTestingConfigWithDefaults() *TestingConfig {
 	testingConfigType := new(TestingConfig)
 	return testingConfigType
 }
@@ -2504,7 +2504,7 @@ func NewTestingConfigLoginRequestType() *TestingConfigLoginRequestType {
 	return testingConfigLoginRequestTypeType
 }
 
-func NewDefaultTestingConfigLoginRequestType() *TestingConfigLoginRequestType {
+func NewTestingConfigLoginRequestTypeWithDefaults() *TestingConfigLoginRequestType {
 	testingConfigLoginRequestTypeType := new(TestingConfigLoginRequestType)
 	return testingConfigLoginRequestTypeType
 }

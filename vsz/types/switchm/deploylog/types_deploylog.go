@@ -25,7 +25,7 @@ func NewConfigurationHistoryQueryResult() *ConfigurationHistoryQueryResult {
 	return configurationHistoryQueryResultType
 }
 
-func NewDefaultConfigurationHistoryQueryResult() *ConfigurationHistoryQueryResult {
+func NewConfigurationHistoryQueryResultWithDefaults() *ConfigurationHistoryQueryResult {
 	configurationHistoryQueryResultType := new(ConfigurationHistoryQueryResult)
 	return configurationHistoryQueryResultType
 }
@@ -96,7 +96,7 @@ func NewDeployLog() *DeployLog {
 	return deployLogType
 }
 
-func NewDefaultDeployLog() *DeployLog {
+func NewDeployLogWithDefaults() *DeployLog {
 	deployLogType := new(DeployLog)
 	return deployLogType
 }
@@ -124,7 +124,7 @@ func NewDeployLogStatusSummary() *DeployLogStatusSummary {
 	return deployLogStatusSummaryType
 }
 
-func NewDefaultDeployLogStatusSummary() *DeployLogStatusSummary {
+func NewDeployLogStatusSummaryWithDefaults() *DeployLogStatusSummary {
 	deployLogStatusSummaryType := new(DeployLogStatusSummary)
 	return deployLogStatusSummaryType
 }

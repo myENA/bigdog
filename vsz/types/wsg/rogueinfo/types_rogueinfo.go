@@ -55,7 +55,7 @@ func NewRogueInfo() *RogueInfo {
 	return rogueInfoType
 }
 
-func NewDefaultRogueInfo() *RogueInfo {
+func NewRogueInfoWithDefaults() *RogueInfo {
 	rogueInfoType := new(RogueInfo)
 	return rogueInfoType
 }
@@ -89,7 +89,7 @@ func NewRogueInfoList() *RogueInfoList {
 	return rogueInfoListType
 }
 
-func NewDefaultRogueInfoList() *RogueInfoList {
+func NewRogueInfoListWithDefaults() *RogueInfoList {
 	rogueInfoListType := new(RogueInfoList)
 	return rogueInfoListType
 }
@@ -122,7 +122,7 @@ func NewRogueInfoListExtraType() *RogueInfoListExtraType {
 	return rogueInfoListExtraTypeType
 }
 
-func NewDefaultRogueInfoListExtraType() *RogueInfoListExtraType {
+func NewRogueInfoListExtraTypeWithDefaults() *RogueInfoListExtraType {
 	rogueInfoListExtraTypeType := new(RogueInfoListExtraType)
 	return rogueInfoListExtraTypeType
 }

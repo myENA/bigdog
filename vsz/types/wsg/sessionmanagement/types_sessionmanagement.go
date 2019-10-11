@@ -37,7 +37,7 @@ func NewRuckusSession() *RuckusSession {
 	return ruckusSessionType
 }
 
-func NewDefaultRuckusSession() *RuckusSession {
+func NewRuckusSessionWithDefaults() *RuckusSession {
 	ruckusSessionType := new(RuckusSession)
 	return ruckusSessionType
 }
@@ -57,7 +57,7 @@ func NewRuckusSessions() *RuckusSessions {
 	return ruckusSessionsType
 }
 
-func NewDefaultRuckusSessions() *RuckusSessions {
+func NewRuckusSessionsWithDefaults() *RuckusSessions {
 	ruckusSessionsType := new(RuckusSessions)
 	return ruckusSessionsType
 }

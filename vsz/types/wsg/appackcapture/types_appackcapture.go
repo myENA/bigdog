@@ -28,7 +28,7 @@ func NewApPacketCaptureReq() *ApPacketCaptureReq {
 	return apPacketCaptureReqType
 }
 
-func NewDefaultApPacketCaptureReq() *ApPacketCaptureReq {
+func NewApPacketCaptureReqWithDefaults() *ApPacketCaptureReq {
 	apPacketCaptureReqType := new(ApPacketCaptureReq)
 	return apPacketCaptureReqType
 }
@@ -74,7 +74,7 @@ func NewApPacketCaptureRes() *ApPacketCaptureRes {
 	return apPacketCaptureResType
 }
 
-func NewDefaultApPacketCaptureRes() *ApPacketCaptureRes {
+func NewApPacketCaptureResWithDefaults() *ApPacketCaptureRes {
 	apPacketCaptureResType := new(ApPacketCaptureRes)
 	return apPacketCaptureResType
 }

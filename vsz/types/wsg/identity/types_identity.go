@@ -21,7 +21,7 @@ func NewAaaServer() *AaaServer {
 	return aaaServerType
 }
 
-func NewDefaultAaaServer() *AaaServer {
+func NewAaaServerWithDefaults() *AaaServer {
 	aaaServerType := new(AaaServer)
 	return aaaServerType
 }
@@ -41,7 +41,7 @@ func NewAaaServerList() *AaaServerList {
 	return aaaServerListType
 }
 
-func NewDefaultAaaServerList() *AaaServerList {
+func NewAaaServerListWithDefaults() *AaaServerList {
 	aaaServerListType := new(AaaServerList)
 	return aaaServerListType
 }
@@ -81,7 +81,7 @@ func NewAuthenticationServerConfig() *AuthenticationServerConfig {
 	return authenticationServerConfigType
 }
 
-func NewDefaultAuthenticationServerConfig() *AuthenticationServerConfig {
+func NewAuthenticationServerConfigWithDefaults() *AuthenticationServerConfig {
 	authenticationServerConfigType := new(AuthenticationServerConfig)
 	return authenticationServerConfigType
 }
@@ -101,7 +101,7 @@ func NewCountryList() *CountryList {
 	return countryListType
 }
 
-func NewDefaultCountryList() *CountryList {
+func NewCountryListWithDefaults() *CountryList {
 	countryListType := new(CountryList)
 	return countryListType
 }
@@ -121,7 +121,7 @@ func NewCountrySummary() *CountrySummary {
 	return countrySummaryType
 }
 
-func NewDefaultCountrySummary() *CountrySummary {
+func NewCountrySummaryWithDefaults() *CountrySummary {
 	countrySummaryType := new(CountrySummary)
 	return countrySummaryType
 }
@@ -193,7 +193,7 @@ func NewCreateIdentityGuestPass() *CreateIdentityGuestPass {
 	return createIdentityGuestPassType
 }
 
-func NewDefaultCreateIdentityGuestPass() *CreateIdentityGuestPass {
+func NewCreateIdentityGuestPassWithDefaults() *CreateIdentityGuestPass {
 	createIdentityGuestPassType := new(CreateIdentityGuestPass)
 	return createIdentityGuestPassType
 }
@@ -236,7 +236,7 @@ func NewCreateIdentityUserRole() *CreateIdentityUserRole {
 	return createIdentityUserRoleType
 }
 
-func NewDefaultCreateIdentityUserRole() *CreateIdentityUserRole {
+func NewCreateIdentityUserRoleWithDefaults() *CreateIdentityUserRole {
 	createIdentityUserRoleType := new(CreateIdentityUserRole)
 	return createIdentityUserRoleType
 }
@@ -272,7 +272,7 @@ func NewCreateSubscriptionPackage() *CreateSubscriptionPackage {
 	return createSubscriptionPackageType
 }
 
-func NewDefaultCreateSubscriptionPackage() *CreateSubscriptionPackage {
+func NewCreateSubscriptionPackageWithDefaults() *CreateSubscriptionPackage {
 	createSubscriptionPackageType := new(CreateSubscriptionPackage)
 	return createSubscriptionPackageType
 }
@@ -357,7 +357,7 @@ func NewCreateUser() *CreateUser {
 	return createUserType
 }
 
-func NewDefaultCreateUser() *CreateUser {
+func NewCreateUserWithDefaults() *CreateUser {
 	createUserType := new(CreateUser)
 	return createUserType
 }
@@ -371,7 +371,7 @@ func NewDeleteBulk() *DeleteBulk {
 	return deleteBulkType
 }
 
-func NewDefaultDeleteBulk() *DeleteBulk {
+func NewDeleteBulkWithDefaults() *DeleteBulk {
 	deleteBulkType := new(DeleteBulk)
 	return deleteBulkType
 }
@@ -446,7 +446,7 @@ func NewIdentityGuestPassConfiguration() *IdentityGuestPassConfiguration {
 	return identityGuestPassConfigurationType
 }
 
-func NewDefaultIdentityGuestPassConfiguration() *IdentityGuestPassConfiguration {
+func NewIdentityGuestPassConfigurationWithDefaults() *IdentityGuestPassConfiguration {
 	identityGuestPassConfigurationType := new(IdentityGuestPassConfiguration)
 	return identityGuestPassConfigurationType
 }
@@ -468,7 +468,7 @@ func NewIdentityGuestPassList() *IdentityGuestPassList {
 	return identityGuestPassListType
 }
 
-func NewDefaultIdentityGuestPassList() *IdentityGuestPassList {
+func NewIdentityGuestPassListWithDefaults() *IdentityGuestPassList {
 	identityGuestPassListType := new(IdentityGuestPassList)
 	return identityGuestPassListType
 }
@@ -490,7 +490,7 @@ func NewIdentityList() *IdentityList {
 	return identityListType
 }
 
-func NewDefaultIdentityList() *IdentityList {
+func NewIdentityListWithDefaults() *IdentityList {
 	identityListType := new(IdentityList)
 	return identityListType
 }
@@ -548,7 +548,7 @@ func NewIdentityListType() *IdentityListType {
 	return identityListTypeType
 }
 
-func NewDefaultIdentityListType() *IdentityListType {
+func NewIdentityListTypeWithDefaults() *IdentityListType {
 	identityListTypeType := new(IdentityListType)
 	return identityListTypeType
 }
@@ -602,7 +602,7 @@ func NewIdentityUserRole() *IdentityUserRole {
 	return identityUserRoleType
 }
 
-func NewDefaultIdentityUserRole() *IdentityUserRole {
+func NewIdentityUserRoleWithDefaults() *IdentityUserRole {
 	identityUserRoleType := new(IdentityUserRole)
 	return identityUserRoleType
 }
@@ -644,7 +644,7 @@ func NewIdentityUserSummary() *IdentityUserSummary {
 	return identityUserSummaryType
 }
 
-func NewDefaultIdentityUserSummary() *IdentityUserSummary {
+func NewIdentityUserSummaryWithDefaults() *IdentityUserSummary {
 	identityUserSummaryType := new(IdentityUserSummary)
 	return identityUserSummaryType
 }
@@ -693,7 +693,7 @@ func NewImportIdentityGuestPass() *ImportIdentityGuestPass {
 	return importIdentityGuestPassType
 }
 
-func NewDefaultImportIdentityGuestPass() *ImportIdentityGuestPass {
+func NewImportIdentityGuestPassWithDefaults() *ImportIdentityGuestPass {
 	importIdentityGuestPassType := new(ImportIdentityGuestPass)
 	return importIdentityGuestPassType
 }
@@ -722,7 +722,7 @@ func NewMaxDevices() *MaxDevices {
 	return maxDevicesType
 }
 
-func NewDefaultMaxDevices() *MaxDevices {
+func NewMaxDevicesWithDefaults() *MaxDevices {
 	maxDevicesType := new(MaxDevices)
 	maxDevicesAllowedField := `LIMITED`
 	maxDevicesType.MaxDevicesAllowed = &maxDevicesAllowedField
@@ -764,7 +764,7 @@ func NewModifyIdentityUserRole() *ModifyIdentityUserRole {
 	return modifyIdentityUserRoleType
 }
 
-func NewDefaultModifyIdentityUserRole() *ModifyIdentityUserRole {
+func NewModifyIdentityUserRoleWithDefaults() *ModifyIdentityUserRole {
 	modifyIdentityUserRoleType := new(ModifyIdentityUserRole)
 	return modifyIdentityUserRoleType
 }
@@ -799,7 +799,7 @@ func NewModifySubscriptionPackage() *ModifySubscriptionPackage {
 	return modifySubscriptionPackageType
 }
 
-func NewDefaultModifySubscriptionPackage() *ModifySubscriptionPackage {
+func NewModifySubscriptionPackageWithDefaults() *ModifySubscriptionPackage {
 	modifySubscriptionPackageType := new(ModifySubscriptionPackage)
 	return modifySubscriptionPackageType
 }
@@ -876,7 +876,7 @@ func NewModifyUser() *ModifyUser {
 	return modifyUserType
 }
 
-func NewDefaultModifyUser() *ModifyUser {
+func NewModifyUserWithDefaults() *ModifyUser {
 	modifyUserType := new(ModifyUser)
 	return modifyUserType
 }
@@ -894,7 +894,7 @@ func NewPackageConfiguration() *PackageConfiguration {
 	return packageConfigurationType
 }
 
-func NewDefaultPackageConfiguration() *PackageConfiguration {
+func NewPackageConfigurationWithDefaults() *PackageConfiguration {
 	packageConfigurationType := new(PackageConfiguration)
 	return packageConfigurationType
 }
@@ -914,7 +914,7 @@ func NewPackageList() *PackageList {
 	return packageListType
 }
 
-func NewDefaultPackageList() *PackageList {
+func NewPackageListWithDefaults() *PackageList {
 	packageListType := new(PackageList)
 	return packageListType
 }
@@ -934,7 +934,7 @@ func NewPassValidFor() *PassValidFor {
 	return passValidForType
 }
 
-func NewDefaultPassValidFor() *PassValidFor {
+func NewPassValidForWithDefaults() *PassValidFor {
 	passValidForType := new(PassValidFor)
 	return passValidForType
 }
@@ -946,7 +946,7 @@ func NewQueryCriteria() *QueryCriteria {
 	return queryCriteriaType
 }
 
-func NewDefaultQueryCriteria() *QueryCriteria {
+func NewQueryCriteriaWithDefaults() *QueryCriteria {
 	queryCriteriaType := new(QueryCriteria)
 	return queryCriteriaType
 }
@@ -968,7 +968,7 @@ func NewSessionDuration() *SessionDuration {
 	return sessionDurationType
 }
 
-func NewDefaultSessionDuration() *SessionDuration {
+func NewSessionDurationWithDefaults() *SessionDuration {
 	sessionDurationType := new(SessionDuration)
 	return sessionDurationType
 }
@@ -1023,7 +1023,7 @@ func NewSubscriptionPackage() *SubscriptionPackage {
 	return subscriptionPackageType
 }
 
-func NewDefaultSubscriptionPackage() *SubscriptionPackage {
+func NewSubscriptionPackageWithDefaults() *SubscriptionPackage {
 	subscriptionPackageType := new(SubscriptionPackage)
 	return subscriptionPackageType
 }
@@ -1045,7 +1045,7 @@ func NewSubscriptionPackageList() *SubscriptionPackageList {
 	return subscriptionPackageListType
 }
 
-func NewDefaultSubscriptionPackageList() *SubscriptionPackageList {
+func NewSubscriptionPackageListWithDefaults() *SubscriptionPackageList {
 	subscriptionPackageListType := new(SubscriptionPackageList)
 	return subscriptionPackageListType
 }
@@ -1080,7 +1080,7 @@ func NewSubscriptionPackageListType() *SubscriptionPackageListType {
 	return subscriptionPackageListTypeType
 }
 
-func NewDefaultSubscriptionPackageListType() *SubscriptionPackageListType {
+func NewSubscriptionPackageListTypeWithDefaults() *SubscriptionPackageListType {
 	subscriptionPackageListTypeType := new(SubscriptionPackageListType)
 	return subscriptionPackageListTypeType
 }
@@ -1235,7 +1235,7 @@ func NewUserConfiguration() *UserConfiguration {
 	return userConfigurationType
 }
 
-func NewDefaultUserConfiguration() *UserConfiguration {
+func NewUserConfigurationWithDefaults() *UserConfiguration {
 	userConfigurationType := new(UserConfiguration)
 	return userConfigurationType
 }
@@ -1336,7 +1336,7 @@ func NewUserConfigurationCredentialsGuestPassDtoType() *UserConfigurationCredent
 	return userConfigurationCredentialsGuestPassDtoTypeType
 }
 
-func NewDefaultUserConfigurationCredentialsGuestPassDtoType() *UserConfigurationCredentialsGuestPassDtoType {
+func NewUserConfigurationCredentialsGuestPassDtoTypeWithDefaults() *UserConfigurationCredentialsGuestPassDtoType {
 	userConfigurationCredentialsGuestPassDtoTypeType := new(UserConfigurationCredentialsGuestPassDtoType)
 	return userConfigurationCredentialsGuestPassDtoTypeType
 }
@@ -1358,7 +1358,7 @@ func NewUserList() *UserList {
 	return userListType
 }
 
-func NewDefaultUserList() *UserList {
+func NewUserListWithDefaults() *UserList {
 	userListType := new(UserList)
 	return userListType
 }
@@ -1411,7 +1411,7 @@ func NewUsernamePasswordCredentialsImplDto() *UsernamePasswordCredentialsImplDto
 	return usernamePasswordCredentialsImplDtoType
 }
 
-func NewDefaultUsernamePasswordCredentialsImplDto() *UsernamePasswordCredentialsImplDto {
+func NewUsernamePasswordCredentialsImplDtoWithDefaults() *UsernamePasswordCredentialsImplDto {
 	usernamePasswordCredentialsImplDtoType := new(UsernamePasswordCredentialsImplDto)
 	return usernamePasswordCredentialsImplDtoType
 }

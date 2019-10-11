@@ -23,7 +23,7 @@ func NewApQueryList() *ApQueryList {
 	return apQueryListType
 }
 
-func NewDefaultApQueryList() *ApQueryList {
+func NewApQueryListWithDefaults() *ApQueryList {
 	apQueryListType := new(ApQueryList)
 	return apQueryListType
 }
@@ -299,7 +299,7 @@ func NewCreateApQuery() *CreateApQuery {
 	return createApQueryType
 }
 
-func NewDefaultCreateApQuery() *CreateApQuery {
+func NewCreateApQueryWithDefaults() *CreateApQuery {
 	createApQueryType := new(CreateApQuery)
 	return createApQueryType
 }
@@ -317,7 +317,7 @@ func NewCreateApQueryCellularGpsHistoryType() *CreateApQueryCellularGpsHistoryTy
 	return createApQueryCellularGpsHistoryTypeType
 }
 
-func NewDefaultCreateApQueryCellularGpsHistoryType() *CreateApQueryCellularGpsHistoryType {
+func NewCreateApQueryCellularGpsHistoryTypeWithDefaults() *CreateApQueryCellularGpsHistoryType {
 	createApQueryCellularGpsHistoryTypeType := new(CreateApQueryCellularGpsHistoryType)
 	return createApQueryCellularGpsHistoryTypeType
 }
@@ -333,7 +333,7 @@ func NewCreateApQueryIndoorMapXyType() *CreateApQueryIndoorMapXyType {
 	return createApQueryIndoorMapXyTypeType
 }
 
-func NewDefaultCreateApQueryIndoorMapXyType() *CreateApQueryIndoorMapXyType {
+func NewCreateApQueryIndoorMapXyTypeWithDefaults() *CreateApQueryIndoorMapXyType {
 	createApQueryIndoorMapXyTypeType := new(CreateApQueryIndoorMapXyType)
 	return createApQueryIndoorMapXyTypeType
 }

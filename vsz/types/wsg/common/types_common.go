@@ -57,7 +57,7 @@ func NewAlarm() *Alarm {
 	return alarmType
 }
 
-func NewDefaultAlarm() *Alarm {
+func NewAlarmWithDefaults() *Alarm {
 	alarmType := new(Alarm)
 	return alarmType
 }
@@ -81,7 +81,7 @@ func NewAltitude() *Altitude {
 	return altitudeType
 }
 
-func NewDefaultAltitude() *Altitude {
+func NewAltitudeWithDefaults() *Altitude {
 	altitudeType := new(Altitude)
 	altitudeUnitField := `meters`
 	altitudeType.AltitudeUnit = &altitudeUnitField
@@ -101,7 +101,7 @@ func NewApGpsSource() *ApGpsSource {
 	return apGpsSourceType
 }
 
-func NewDefaultApGpsSource() *ApGpsSource {
+func NewApGpsSourceWithDefaults() *ApGpsSource {
 	apGpsSourceType := new(ApGpsSource)
 	return apGpsSourceType
 }
@@ -117,7 +117,7 @@ func NewApLatencyInterval() *ApLatencyInterval {
 	return apLatencyIntervalType
 }
 
-func NewDefaultApLatencyInterval() *ApLatencyInterval {
+func NewApLatencyIntervalWithDefaults() *ApLatencyInterval {
 	apLatencyIntervalType := new(ApLatencyInterval)
 	pingEnabledField := false
 	apLatencyIntervalType.PingEnabled = &pingEnabledField
@@ -131,7 +131,7 @@ func NewApLoginName() *ApLoginName {
 	return apLoginNameType
 }
 
-func NewDefaultApLoginName() *ApLoginName {
+func NewApLoginNameWithDefaults() *ApLoginName {
 	apLoginNameType := new(ApLoginName)
 	return apLoginNameType
 }
@@ -143,7 +143,7 @@ func NewApLoginPassword() *ApLoginPassword {
 	return apLoginPasswordType
 }
 
-func NewDefaultApLoginPassword() *ApLoginPassword {
+func NewApLoginPasswordWithDefaults() *ApLoginPassword {
 	apLoginPasswordType := new(ApLoginPassword)
 	return apLoginPasswordType
 }
@@ -167,7 +167,7 @@ func NewApManagementVlan() *ApManagementVlan {
 	return apManagementVlanType
 }
 
-func NewDefaultApManagementVlan() *ApManagementVlan {
+func NewApManagementVlanWithDefaults() *ApManagementVlan {
 	apManagementVlanType := new(ApManagementVlan)
 	idField := 1
 	apManagementVlanType.Id = &idField
@@ -208,7 +208,7 @@ func NewApRadio50() *ApRadio50 {
 	return apRadio50Type
 }
 
-func NewDefaultApRadio50() *ApRadio50 {
+func NewApRadio50WithDefaults() *ApRadio50 {
 	apRadio50Type := new(ApRadio50)
 	return apRadio50Type
 }
@@ -236,7 +236,7 @@ func NewApRebootTimeout() *ApRebootTimeout {
 	return apRebootTimeoutType
 }
 
-func NewDefaultApRebootTimeout() *ApRebootTimeout {
+func NewApRebootTimeoutWithDefaults() *ApRebootTimeout {
 	apRebootTimeoutType := new(ApRebootTimeout)
 	gatewayLossTimeoutInSecField := 1800
 	apRebootTimeoutType.GatewayLossTimeoutInSec = &gatewayLossTimeoutInSecField
@@ -269,7 +269,7 @@ func NewAutoChannelSelection() *AutoChannelSelection {
 	return autoChannelSelectionType
 }
 
-func NewDefaultAutoChannelSelection() *AutoChannelSelection {
+func NewAutoChannelSelectionWithDefaults() *AutoChannelSelection {
 	autoChannelSelectionType := new(AutoChannelSelection)
 	channelFlyMtbcField := 480
 	autoChannelSelectionType.ChannelFlyMtbc = &channelFlyMtbcField
@@ -301,7 +301,7 @@ func NewBaseServiceInfo() *BaseServiceInfo {
 	return baseServiceInfoType
 }
 
-func NewDefaultBaseServiceInfo() *BaseServiceInfo {
+func NewBaseServiceInfoWithDefaults() *BaseServiceInfo {
 	baseServiceInfoType := new(BaseServiceInfo)
 	return baseServiceInfoType
 }
@@ -315,7 +315,7 @@ func NewBulkDeleteRequest() *BulkDeleteRequest {
 	return bulkDeleteRequestType
 }
 
-func NewDefaultBulkDeleteRequest() *BulkDeleteRequest {
+func NewBulkDeleteRequestWithDefaults() *BulkDeleteRequest {
 	bulkDeleteRequestType := new(BulkDeleteRequest)
 	return bulkDeleteRequestType
 }
@@ -425,7 +425,7 @@ func NewClient() *Client {
 	return clientType
 }
 
-func NewDefaultClient() *Client {
+func NewClientWithDefaults() *Client {
 	clientType := new(Client)
 	return clientType
 }
@@ -464,7 +464,7 @@ func NewClientAdmissionControl() *ClientAdmissionControl {
 	return clientAdmissionControlType
 }
 
-func NewDefaultClientAdmissionControl() *ClientAdmissionControl {
+func NewClientAdmissionControlWithDefaults() *ClientAdmissionControl {
 	clientAdmissionControlType := new(ClientAdmissionControl)
 	maxRadioLoadPercentField := 75
 	clientAdmissionControlType.MaxRadioLoadPercent = &maxRadioLoadPercentField
@@ -484,7 +484,7 @@ func NewCreateResult() *CreateResult {
 	return createResultType
 }
 
-func NewDefaultCreateResult() *CreateResult {
+func NewCreateResultWithDefaults() *CreateResult {
 	createResultType := new(CreateResult)
 	return createResultType
 }
@@ -500,7 +500,7 @@ func NewCreateResultIdName() *CreateResultIdName {
 	return createResultIdNameType
 }
 
-func NewDefaultCreateResultIdName() *CreateResultIdName {
+func NewCreateResultIdNameWithDefaults() *CreateResultIdName {
 	createResultIdNameType := new(CreateResultIdName)
 	return createResultIdNameType
 }
@@ -512,7 +512,7 @@ func NewDescription() *Description {
 	return descriptionType
 }
 
-func NewDefaultDescription() *Description {
+func NewDescriptionWithDefaults() *Description {
 	descriptionType := new(Description)
 	return descriptionType
 }
@@ -524,7 +524,7 @@ func NewDescriptionTo128() *DescriptionTo128 {
 	return descriptionTo128Type
 }
 
-func NewDefaultDescriptionTo128() *DescriptionTo128 {
+func NewDescriptionTo128WithDefaults() *DescriptionTo128 {
 	descriptionTo128Type := new(DescriptionTo128)
 	return descriptionTo128Type
 }
@@ -584,7 +584,7 @@ func NewDhcpProfileRef() *DhcpProfileRef {
 	return dhcpProfileRefType
 }
 
-func NewDefaultDhcpProfileRef() *DhcpProfileRef {
+func NewDhcpProfileRefWithDefaults() *DhcpProfileRef {
 	dhcpProfileRefType := new(DhcpProfileRef)
 	return dhcpProfileRefType
 }
@@ -627,7 +627,7 @@ func NewDhcpSiteConfigListRef() *DhcpSiteConfigListRef {
 	return dhcpSiteConfigListRefType
 }
 
-func NewDefaultDhcpSiteConfigListRef() *DhcpSiteConfigListRef {
+func NewDhcpSiteConfigListRefWithDefaults() *DhcpSiteConfigListRef {
 	dhcpSiteConfigListRefType := new(DhcpSiteConfigListRef)
 	return dhcpSiteConfigListRefType
 }
@@ -662,7 +662,7 @@ func NewDhcpSiteConfigListRefSiteApsType() *DhcpSiteConfigListRefSiteApsType {
 	return dhcpSiteConfigListRefSiteApsTypeType
 }
 
-func NewDefaultDhcpSiteConfigListRefSiteApsType() *DhcpSiteConfigListRefSiteApsType {
+func NewDhcpSiteConfigListRefSiteApsTypeWithDefaults() *DhcpSiteConfigListRefSiteApsType {
 	dhcpSiteConfigListRefSiteApsTypeType := new(DhcpSiteConfigListRefSiteApsType)
 	return dhcpSiteConfigListRefSiteApsTypeType
 }
@@ -701,7 +701,7 @@ func NewDhcpSiteConfigRef() *DhcpSiteConfigRef {
 	return dhcpSiteConfigRefType
 }
 
-func NewDefaultDhcpSiteConfigRef() *DhcpSiteConfigRef {
+func NewDhcpSiteConfigRefWithDefaults() *DhcpSiteConfigRef {
 	dhcpSiteConfigRefType := new(DhcpSiteConfigRef)
 	return dhcpSiteConfigRefType
 }
@@ -736,7 +736,7 @@ func NewDhcpSiteConfigRefSiteApsType() *DhcpSiteConfigRefSiteApsType {
 	return dhcpSiteConfigRefSiteApsTypeType
 }
 
-func NewDefaultDhcpSiteConfigRefSiteApsType() *DhcpSiteConfigRefSiteApsType {
+func NewDhcpSiteConfigRefSiteApsTypeWithDefaults() *DhcpSiteConfigRefSiteApsType {
 	dhcpSiteConfigRefSiteApsTypeType := new(DhcpSiteConfigRefSiteApsType)
 	return dhcpSiteConfigRefSiteApsTypeType
 }
@@ -771,7 +771,7 @@ func NewDoAssignIp() *DoAssignIp {
 	return doAssignIpType
 }
 
-func NewDefaultDoAssignIp() *DoAssignIp {
+func NewDoAssignIpWithDefaults() *DoAssignIp {
 	doAssignIpType := new(DoAssignIp)
 	return doAssignIpType
 }
@@ -792,7 +792,7 @@ func NewDoAssignIpSiteApsType() *DoAssignIpSiteApsType {
 	return doAssignIpSiteApsTypeType
 }
 
-func NewDefaultDoAssignIpSiteApsType() *DoAssignIpSiteApsType {
+func NewDoAssignIpSiteApsTypeWithDefaults() *DoAssignIpSiteApsType {
 	doAssignIpSiteApsTypeType := new(DoAssignIpSiteApsType)
 	return doAssignIpSiteApsTypeType
 }
@@ -804,7 +804,7 @@ func NewEmail() *Email {
 	return emailType
 }
 
-func NewDefaultEmail() *Email {
+func NewEmailWithDefaults() *Email {
 	emailType := new(Email)
 	return emailType
 }
@@ -834,7 +834,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -846,7 +846,7 @@ func NewFilterOperator() *FilterOperator {
 	return filterOperatorType
 }
 
-func NewDefaultFilterOperator() *FilterOperator {
+func NewFilterOperatorWithDefaults() *FilterOperator {
 	filterOperatorType := new(FilterOperator)
 	return filterOperatorType
 }
@@ -858,7 +858,7 @@ func NewFirmwareVersion() *FirmwareVersion {
 	return firmwareVersionType
 }
 
-func NewDefaultFirmwareVersion() *FirmwareVersion {
+func NewFirmwareVersionWithDefaults() *FirmwareVersion {
 	firmwareVersionType := new(FirmwareVersion)
 	return firmwareVersionType
 }
@@ -870,7 +870,7 @@ func NewFQDN() *FQDN {
 	return fQDNType
 }
 
-func NewDefaultFQDN() *FQDN {
+func NewFQDNWithDefaults() *FQDN {
 	fQDNType := new(FQDN)
 	return fQDNType
 }
@@ -897,7 +897,7 @@ func NewFullTextSearch() *FullTextSearch {
 	return fullTextSearchType
 }
 
-func NewDefaultFullTextSearch() *FullTextSearch {
+func NewFullTextSearchWithDefaults() *FullTextSearch {
 	fullTextSearchType := new(FullTextSearch)
 	return fullTextSearchType
 }
@@ -913,7 +913,7 @@ func NewGenericRef() *GenericRef {
 	return genericRefType
 }
 
-func NewDefaultGenericRef() *GenericRef {
+func NewGenericRefWithDefaults() *GenericRef {
 	genericRefType := new(GenericRef)
 	return genericRefType
 }
@@ -956,7 +956,7 @@ func NewHealthCheckPolicy() *HealthCheckPolicy {
 	return healthCheckPolicyType
 }
 
-func NewDefaultHealthCheckPolicy() *HealthCheckPolicy {
+func NewHealthCheckPolicyWithDefaults() *HealthCheckPolicy {
 	healthCheckPolicyType := new(HealthCheckPolicy)
 	responseFailField := false
 	healthCheckPolicyType.ResponseFail = &responseFailField
@@ -976,7 +976,7 @@ func NewHTTPS() *HTTPS {
 	return hTTPSType
 }
 
-func NewDefaultHTTPS() *HTTPS {
+func NewHTTPSWithDefaults() *HTTPS {
 	hTTPSType := new(HTTPS)
 	return hTTPSType
 }
@@ -988,7 +988,7 @@ func NewIdList() *IdList {
 	return &idListType
 }
 
-func NewDefaultIdList() *IdList {
+func NewIdListWithDefaults() *IdList {
 	idListType := make(IdList, 0)
 	return &idListType
 }
@@ -1000,7 +1000,7 @@ func NewIpAddress() *IpAddress {
 	return ipAddressType
 }
 
-func NewDefaultIpAddress() *IpAddress {
+func NewIpAddressWithDefaults() *IpAddress {
 	ipAddressType := new(IpAddress)
 	return ipAddressType
 }
@@ -1012,7 +1012,7 @@ func NewIpMode() *IpMode {
 	return ipModeType
 }
 
-func NewDefaultIpMode() *IpMode {
+func NewIpModeWithDefaults() *IpMode {
 	ipModeType := new(IpMode)
 	return ipModeType
 }
@@ -1024,7 +1024,7 @@ func NewLanguageName() *LanguageName {
 	return languageNameType
 }
 
-func NewDefaultLanguageName() *LanguageName {
+func NewLanguageNameWithDefaults() *LanguageName {
 	languageNameType := new(LanguageName)
 	return languageNameType
 }
@@ -1036,7 +1036,7 @@ func NewLatitude() *Latitude {
 	return latitudeType
 }
 
-func NewDefaultLatitude() *Latitude {
+func NewLatitudeWithDefaults() *Latitude {
 	latitudeType := new(Latitude)
 	return latitudeType
 }
@@ -1048,7 +1048,7 @@ func NewLocation() *Location {
 	return locationType
 }
 
-func NewDefaultLocation() *Location {
+func NewLocationWithDefaults() *Location {
 	locationType := new(Location)
 	return locationType
 }
@@ -1060,7 +1060,7 @@ func NewLocationAdditionalInfo() *LocationAdditionalInfo {
 	return locationAdditionalInfoType
 }
 
-func NewDefaultLocationAdditionalInfo() *LocationAdditionalInfo {
+func NewLocationAdditionalInfoWithDefaults() *LocationAdditionalInfo {
 	locationAdditionalInfoType := new(LocationAdditionalInfo)
 	return locationAdditionalInfoType
 }
@@ -1072,7 +1072,7 @@ func NewLongitude() *Longitude {
 	return longitudeType
 }
 
-func NewDefaultLongitude() *Longitude {
+func NewLongitudeWithDefaults() *Longitude {
 	longitudeType := new(Longitude)
 	return longitudeType
 }
@@ -1100,7 +1100,7 @@ func NewLteBandLockChannel() *LteBandLockChannel {
 	return lteBandLockChannelType
 }
 
-func NewDefaultLteBandLockChannel() *LteBandLockChannel {
+func NewLteBandLockChannelWithDefaults() *LteBandLockChannel {
 	lteBandLockChannelType := new(LteBandLockChannel)
 	return lteBandLockChannelType
 }
@@ -1112,7 +1112,7 @@ func NewMac() *Mac {
 	return macType
 }
 
-func NewDefaultMac() *Mac {
+func NewMacWithDefaults() *Mac {
 	macType := new(Mac)
 	return macType
 }
@@ -1124,7 +1124,7 @@ func NewNormalName() *NormalName {
 	return normalNameType
 }
 
-func NewDefaultNormalName() *NormalName {
+func NewNormalNameWithDefaults() *NormalName {
 	normalNameType := new(NormalName)
 	return normalNameType
 }
@@ -1136,7 +1136,7 @@ func NewNormalName2to64() *NormalName2to64 {
 	return normalName2to64Type
 }
 
-func NewDefaultNormalName2to64() *NormalName2to64 {
+func NewNormalName2to64WithDefaults() *NormalName2to64 {
 	normalName2to64Type := new(NormalName2to64)
 	return normalName2to64Type
 }
@@ -1148,7 +1148,7 @@ func NewNormalName2to128() *NormalName2to128 {
 	return normalName2to128Type
 }
 
-func NewDefaultNormalName2to128() *NormalName2to128 {
+func NewNormalName2to128WithDefaults() *NormalName2to128 {
 	normalName2to128Type := new(NormalName2to128)
 	return normalName2to128Type
 }
@@ -1160,7 +1160,7 @@ func NewNormalNameAllowBlank() *NormalNameAllowBlank {
 	return normalNameAllowBlankType
 }
 
-func NewDefaultNormalNameAllowBlank() *NormalNameAllowBlank {
+func NewNormalNameAllowBlankWithDefaults() *NormalNameAllowBlank {
 	normalNameAllowBlankType := new(NormalNameAllowBlank)
 	return normalNameAllowBlankType
 }
@@ -1172,7 +1172,7 @@ func NewNormalURL() *NormalURL {
 	return normalURLType
 }
 
-func NewDefaultNormalURL() *NormalURL {
+func NewNormalURLWithDefaults() *NormalURL {
 	normalURLType := new(NormalURL)
 	return normalURLType
 }
@@ -1213,7 +1213,7 @@ func NewOverrideClientAdmissionControl() *OverrideClientAdmissionControl {
 	return overrideClientAdmissionControlType
 }
 
-func NewDefaultOverrideClientAdmissionControl() *OverrideClientAdmissionControl {
+func NewOverrideClientAdmissionControlWithDefaults() *OverrideClientAdmissionControl {
 	overrideClientAdmissionControlType := new(OverrideClientAdmissionControl)
 	maxRadioLoadPercentField := 75
 	overrideClientAdmissionControlType.MaxRadioLoadPercent = &maxRadioLoadPercentField
@@ -1237,7 +1237,7 @@ func NewOverrideGenericRef() *OverrideGenericRef {
 	return overrideGenericRefType
 }
 
-func NewDefaultOverrideGenericRef() *OverrideGenericRef {
+func NewOverrideGenericRefWithDefaults() *OverrideGenericRef {
 	overrideGenericRefType := new(OverrideGenericRef)
 	return overrideGenericRefType
 }
@@ -1269,7 +1269,7 @@ func NewOverrideSmartMonitor() *OverrideSmartMonitor {
 	return overrideSmartMonitorType
 }
 
-func NewDefaultOverrideSmartMonitor() *OverrideSmartMonitor {
+func NewOverrideSmartMonitorWithDefaults() *OverrideSmartMonitor {
 	overrideSmartMonitorType := new(OverrideSmartMonitor)
 	intervalInSecField := 10
 	overrideSmartMonitorType.IntervalInSec = &intervalInSecField
@@ -1322,7 +1322,7 @@ func NewPortalCustomization() *PortalCustomization {
 	return portalCustomizationType
 }
 
-func NewDefaultPortalCustomization() *PortalCustomization {
+func NewPortalCustomizationWithDefaults() *PortalCustomization {
 	portalCustomizationType := new(PortalCustomization)
 	termsAndConditionsRequiredField := false
 	portalCustomizationType.TermsAndConditionsRequired = &termsAndConditionsRequiredField
@@ -1352,7 +1352,7 @@ func NewPortalLanguage() *PortalLanguage {
 	return portalLanguageType
 }
 
-func NewDefaultPortalLanguage() *PortalLanguage {
+func NewPortalLanguageWithDefaults() *PortalLanguage {
 	portalLanguageType := new(PortalLanguage)
 	*portalLanguageType = `en_US`
 	return portalLanguageType
@@ -1365,7 +1365,7 @@ func NewProtectionMode() *ProtectionMode {
 	return protectionModeType
 }
 
-func NewDefaultProtectionMode() *ProtectionMode {
+func NewProtectionModeWithDefaults() *ProtectionMode {
 	protectionModeType := new(ProtectionMode)
 	*protectionModeType = `RTS_CTS`
 	return protectionModeType
@@ -1432,7 +1432,7 @@ func NewQueryCriteria() *QueryCriteria {
 	return queryCriteriaType
 }
 
-func NewDefaultQueryCriteria() *QueryCriteria {
+func NewQueryCriteriaWithDefaults() *QueryCriteria {
 	queryCriteriaType := new(QueryCriteria)
 	return queryCriteriaType
 }
@@ -1454,7 +1454,7 @@ func NewQueryCriteriaExtraFiltersType() *QueryCriteriaExtraFiltersType {
 	return queryCriteriaExtraFiltersTypeType
 }
 
-func NewDefaultQueryCriteriaExtraFiltersType() *QueryCriteriaExtraFiltersType {
+func NewQueryCriteriaExtraFiltersTypeWithDefaults() *QueryCriteriaExtraFiltersType {
 	queryCriteriaExtraFiltersTypeType := new(QueryCriteriaExtraFiltersType)
 	return queryCriteriaExtraFiltersTypeType
 }
@@ -1474,7 +1474,7 @@ func NewQueryCriteriaExtraNotFiltersType() *QueryCriteriaExtraNotFiltersType {
 	return queryCriteriaExtraNotFiltersTypeType
 }
 
-func NewDefaultQueryCriteriaExtraNotFiltersType() *QueryCriteriaExtraNotFiltersType {
+func NewQueryCriteriaExtraNotFiltersTypeWithDefaults() *QueryCriteriaExtraNotFiltersType {
 	queryCriteriaExtraNotFiltersTypeType := new(QueryCriteriaExtraNotFiltersType)
 	return queryCriteriaExtraNotFiltersTypeType
 }
@@ -1496,7 +1496,7 @@ func NewQueryCriteriaFiltersType() *QueryCriteriaFiltersType {
 	return queryCriteriaFiltersTypeType
 }
 
-func NewDefaultQueryCriteriaFiltersType() *QueryCriteriaFiltersType {
+func NewQueryCriteriaFiltersTypeWithDefaults() *QueryCriteriaFiltersType {
 	queryCriteriaFiltersTypeType := new(QueryCriteriaFiltersType)
 	return queryCriteriaFiltersTypeType
 }
@@ -1529,7 +1529,7 @@ func NewQueryCriteriaOptionsType() *QueryCriteriaOptionsType {
 	return queryCriteriaOptionsTypeType
 }
 
-func NewDefaultQueryCriteriaOptionsType() *QueryCriteriaOptionsType {
+func NewQueryCriteriaOptionsTypeWithDefaults() *QueryCriteriaOptionsType {
 	queryCriteriaOptionsTypeType := new(QueryCriteriaOptionsType)
 	return queryCriteriaOptionsTypeType
 }
@@ -1552,7 +1552,7 @@ func NewQueryCriteriaSortInfoType() *QueryCriteriaSortInfoType {
 	return queryCriteriaSortInfoTypeType
 }
 
-func NewDefaultQueryCriteriaSortInfoType() *QueryCriteriaSortInfoType {
+func NewQueryCriteriaSortInfoTypeWithDefaults() *QueryCriteriaSortInfoType {
 	queryCriteriaSortInfoTypeType := new(QueryCriteriaSortInfoType)
 	return queryCriteriaSortInfoTypeType
 }
@@ -1564,7 +1564,7 @@ func NewQueryCriteriaSuperSet() *QueryCriteriaSuperSet {
 	return queryCriteriaSuperSetType
 }
 
-func NewDefaultQueryCriteriaSuperSet() *QueryCriteriaSuperSet {
+func NewQueryCriteriaSuperSetWithDefaults() *QueryCriteriaSuperSet {
 	queryCriteriaSuperSetType := new(QueryCriteriaSuperSet)
 	return queryCriteriaSuperSetType
 }
@@ -1598,7 +1598,7 @@ func NewRadio24() *Radio24 {
 	return radio24Type
 }
 
-func NewDefaultRadio24() *Radio24 {
+func NewRadio24WithDefaults() *Radio24 {
 	radio24Type := new(Radio24)
 	channelWidthField := 0
 	radio24Type.ChannelWidth = &channelWidthField
@@ -1637,7 +1637,7 @@ func NewRadio24SuperSet() *Radio24SuperSet {
 	return radio24SuperSetType
 }
 
-func NewDefaultRadio24SuperSet() *Radio24SuperSet {
+func NewRadio24SuperSetWithDefaults() *Radio24SuperSet {
 	radio24SuperSetType := new(Radio24SuperSet)
 	return radio24SuperSetType
 }
@@ -1687,7 +1687,7 @@ func NewRadio50() *Radio50 {
 	return radio50Type
 }
 
-func NewDefaultRadio50() *Radio50 {
+func NewRadio50WithDefaults() *Radio50 {
 	radio50Type := new(Radio50)
 	channelWidthField := 0
 	radio50Type.ChannelWidth = &channelWidthField
@@ -1746,7 +1746,7 @@ func NewRadio50SuperSet() *Radio50SuperSet {
 	return radio50SuperSetType
 }
 
-func NewDefaultRadio50SuperSet() *Radio50SuperSet {
+func NewRadio50SuperSetWithDefaults() *Radio50SuperSet {
 	radio50SuperSetType := new(Radio50SuperSet)
 	return radio50SuperSetType
 }
@@ -1777,7 +1777,7 @@ func NewRadiusServer() *RadiusServer {
 	return radiusServerType
 }
 
-func NewDefaultRadiusServer() *RadiusServer {
+func NewRadiusServerWithDefaults() *RadiusServer {
 	radiusServerType := new(RadiusServer)
 	return radiusServerType
 }
@@ -1812,7 +1812,7 @@ func NewRateLimiting() *RateLimiting {
 	return rateLimitingType
 }
 
-func NewDefaultRateLimiting() *RateLimiting {
+func NewRateLimitingWithDefaults() *RateLimiting {
 	rateLimitingType := new(RateLimiting)
 	maxOutstandingRequestsPerServerField := 0
 	rateLimitingType.MaxOutstandingRequestsPerServer = &maxOutstandingRequestsPerServerField
@@ -1832,7 +1832,7 @@ func NewRbacMetadata() *RbacMetadata {
 	return rbacMetadataType
 }
 
-func NewDefaultRbacMetadata() *RbacMetadata {
+func NewRbacMetadataWithDefaults() *RbacMetadata {
 	rbacMetadataType := new(RbacMetadata)
 	return rbacMetadataType
 }
@@ -1844,7 +1844,7 @@ func NewRealm() *Realm {
 	return realmType
 }
 
-func NewDefaultRealm() *Realm {
+func NewRealmWithDefaults() *Realm {
 	realmType := new(Realm)
 	return realmType
 }
@@ -1860,7 +1860,7 @@ func NewRecoverySsid() *RecoverySsid {
 	return recoverySsidType
 }
 
-func NewDefaultRecoverySsid() *RecoverySsid {
+func NewRecoverySsidWithDefaults() *RecoverySsid {
 	recoverySsidType := new(RecoverySsid)
 	return recoverySsidType
 }
@@ -1890,7 +1890,7 @@ func NewSmartMonitor() *SmartMonitor {
 	return smartMonitorType
 }
 
-func NewDefaultSmartMonitor() *SmartMonitor {
+func NewSmartMonitorWithDefaults() *SmartMonitor {
 	smartMonitorType := new(SmartMonitor)
 	intervalInSecField := 10
 	smartMonitorType.IntervalInSec = &intervalInSecField
@@ -1935,7 +1935,7 @@ func NewSnmpCommunity() *SnmpCommunity {
 	return snmpCommunityType
 }
 
-func NewDefaultSnmpCommunity() *SnmpCommunity {
+func NewSnmpCommunityWithDefaults() *SnmpCommunity {
 	snmpCommunityType := new(SnmpCommunity)
 	return snmpCommunityType
 }
@@ -2004,7 +2004,7 @@ func NewSnmpUser() *SnmpUser {
 	return snmpUserType
 }
 
-func NewDefaultSnmpUser() *SnmpUser {
+func NewSnmpUserWithDefaults() *SnmpUser {
 	snmpUserType := new(SnmpUser)
 	return snmpUserType
 }
@@ -2016,7 +2016,7 @@ func NewSubNetMask() *SubNetMask {
 	return subNetMaskType
 }
 
-func NewDefaultSubNetMask() *SubNetMask {
+func NewSubNetMaskWithDefaults() *SubNetMask {
 	subNetMaskType := new(SubNetMask)
 	return subNetMaskType
 }
@@ -2042,7 +2042,7 @@ func NewTargetConfig() *TargetConfig {
 	return targetConfigType
 }
 
-func NewDefaultTargetConfig() *TargetConfig {
+func NewTargetConfigWithDefaults() *TargetConfig {
 	targetConfigType := new(TargetConfig)
 	return targetConfigType
 }
@@ -2073,7 +2073,7 @@ func NewTimeRange() *TimeRange {
 	return timeRangeType
 }
 
-func NewDefaultTimeRange() *TimeRange {
+func NewTimeRangeWithDefaults() *TimeRange {
 	timeRangeType := new(TimeRange)
 	return timeRangeType
 }
@@ -2091,7 +2091,7 @@ func NewTimeUnitStore() *TimeUnitStore {
 	return timeUnitStoreType
 }
 
-func NewDefaultTimeUnitStore() *TimeUnitStore {
+func NewTimeUnitStoreWithDefaults() *TimeUnitStore {
 	timeUnitStoreType := new(TimeUnitStore)
 	return timeUnitStoreType
 }
@@ -2117,7 +2117,7 @@ func NewTrafficClassProfileRef() *TrafficClassProfileRef {
 	return trafficClassProfileRefType
 }
 
-func NewDefaultTrafficClassProfileRef() *TrafficClassProfileRef {
+func NewTrafficClassProfileRefWithDefaults() *TrafficClassProfileRef {
 	trafficClassProfileRefType := new(TrafficClassProfileRef)
 	return trafficClassProfileRefType
 }
@@ -2137,7 +2137,7 @@ func NewTrafficClassRef() *TrafficClassRef {
 	return trafficClassRefType
 }
 
-func NewDefaultTrafficClassRef() *TrafficClassRef {
+func NewTrafficClassRefWithDefaults() *TrafficClassRef {
 	trafficClassRefType := new(TrafficClassRef)
 	return trafficClassRefType
 }
@@ -2149,7 +2149,7 @@ func NewTxPower() *TxPower {
 	return txPowerType
 }
 
-func NewDefaultTxPower() *TxPower {
+func NewTxPowerWithDefaults() *TxPower {
 	txPowerType := new(TxPower)
 	*txPowerType = `Full`
 	return txPowerType
@@ -2176,7 +2176,7 @@ func NewWebAuthenticationPortalCustomization() *WebAuthenticationPortalCustomiza
 	return webAuthenticationPortalCustomizationType
 }
 
-func NewDefaultWebAuthenticationPortalCustomization() *WebAuthenticationPortalCustomization {
+func NewWebAuthenticationPortalCustomizationWithDefaults() *WebAuthenticationPortalCustomization {
 	webAuthenticationPortalCustomizationType := new(WebAuthenticationPortalCustomization)
 	return webAuthenticationPortalCustomizationType
 }
@@ -2191,7 +2191,7 @@ func NewWildFQDN() *WildFQDN {
 	return wildFQDNType
 }
 
-func NewDefaultWildFQDN() *WildFQDN {
+func NewWildFQDNWithDefaults() *WildFQDN {
 	wildFQDNType := new(WildFQDN)
 	return wildFQDNType
 }
@@ -2210,7 +2210,7 @@ func NewZoneTunnelType() *ZoneTunnelType {
 	return zoneTunnelTypeType
 }
 
-func NewDefaultZoneTunnelType() *ZoneTunnelType {
+func NewZoneTunnelTypeWithDefaults() *ZoneTunnelType {
 	zoneTunnelTypeType := new(ZoneTunnelType)
 	*zoneTunnelTypeType = `RuckusGRE`
 	return zoneTunnelTypeType

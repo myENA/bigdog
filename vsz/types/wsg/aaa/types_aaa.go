@@ -89,7 +89,7 @@ func NewActiveDirectory() *ActiveDirectory {
 	return activeDirectoryType
 }
 
-func NewDefaultActiveDirectory() *ActiveDirectory {
+func NewActiveDirectoryWithDefaults() *ActiveDirectory {
 	activeDirectoryType := new(ActiveDirectory)
 	return activeDirectoryType
 }
@@ -109,7 +109,7 @@ func NewActiveDirectoryList() *ActiveDirectoryList {
 	return activeDirectoryListType
 }
 
-func NewDefaultActiveDirectoryList() *ActiveDirectoryList {
+func NewActiveDirectoryListWithDefaults() *ActiveDirectoryList {
 	activeDirectoryListType := new(ActiveDirectoryList)
 	return activeDirectoryListType
 }
@@ -155,7 +155,7 @@ func NewAuthenticationServer() *AuthenticationServer {
 	return authenticationServerType
 }
 
-func NewDefaultAuthenticationServer() *AuthenticationServer {
+func NewAuthenticationServerWithDefaults() *AuthenticationServer {
 	authenticationServerType := new(AuthenticationServer)
 	return authenticationServerType
 }
@@ -175,7 +175,7 @@ func NewAuthenticationServerList() *AuthenticationServerList {
 	return authenticationServerListType
 }
 
-func NewDefaultAuthenticationServerList() *AuthenticationServerList {
+func NewAuthenticationServerListWithDefaults() *AuthenticationServerList {
 	authenticationServerListType := new(AuthenticationServerList)
 	return authenticationServerListType
 }
@@ -254,7 +254,7 @@ func NewCreateActiveDirectoryServer() *CreateActiveDirectoryServer {
 	return createActiveDirectoryServerType
 }
 
-func NewDefaultCreateActiveDirectoryServer() *CreateActiveDirectoryServer {
+func NewCreateActiveDirectoryServerWithDefaults() *CreateActiveDirectoryServer {
 	createActiveDirectoryServerType := new(CreateActiveDirectoryServer)
 	portField := 389
 	createActiveDirectoryServerType.Port = &portField
@@ -294,7 +294,7 @@ func NewCreateAuthenticationServer() *CreateAuthenticationServer {
 	return createAuthenticationServerType
 }
 
-func NewDefaultCreateAuthenticationServer() *CreateAuthenticationServer {
+func NewCreateAuthenticationServerWithDefaults() *CreateAuthenticationServer {
 	createAuthenticationServerType := new(CreateAuthenticationServer)
 	standbyServerEnabledField := false
 	createAuthenticationServerType.StandbyServerEnabled = &standbyServerEnabledField
@@ -391,7 +391,7 @@ func NewCreateLDAPServer() *CreateLDAPServer {
 	return createLDAPServerType
 }
 
-func NewDefaultCreateLDAPServer() *CreateLDAPServer {
+func NewCreateLDAPServerWithDefaults() *CreateLDAPServer {
 	createLDAPServerType := new(CreateLDAPServer)
 	portField := 389
 	createLDAPServerType.Port = &portField
@@ -409,7 +409,7 @@ func NewDeleteBulkAAAServerList() *DeleteBulkAAAServerList {
 	return deleteBulkAAAServerListType
 }
 
-func NewDefaultDeleteBulkAAAServerList() *DeleteBulkAAAServerList {
+func NewDeleteBulkAAAServerListWithDefaults() *DeleteBulkAAAServerList {
 	deleteBulkAAAServerListType := new(DeleteBulkAAAServerList)
 	return deleteBulkAAAServerListType
 }
@@ -440,7 +440,7 @@ func NewGroupAttrIdentityUserRoleMapping() *GroupAttrIdentityUserRoleMapping {
 	return groupAttrIdentityUserRoleMappingType
 }
 
-func NewDefaultGroupAttrIdentityUserRoleMapping() *GroupAttrIdentityUserRoleMapping {
+func NewGroupAttrIdentityUserRoleMappingWithDefaults() *GroupAttrIdentityUserRoleMapping {
 	groupAttrIdentityUserRoleMappingType := new(GroupAttrIdentityUserRoleMapping)
 	return groupAttrIdentityUserRoleMappingType
 }
@@ -465,7 +465,7 @@ func NewGroupAttrIdentityUserRoleMappingUserRoleType() *GroupAttrIdentityUserRol
 	return groupAttrIdentityUserRoleMappingUserRoleTypeType
 }
 
-func NewDefaultGroupAttrIdentityUserRoleMappingUserRoleType() *GroupAttrIdentityUserRoleMappingUserRoleType {
+func NewGroupAttrIdentityUserRoleMappingUserRoleTypeWithDefaults() *GroupAttrIdentityUserRoleMappingUserRoleType {
 	groupAttrIdentityUserRoleMappingUserRoleTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleType)
 	return groupAttrIdentityUserRoleMappingUserRoleTypeType
 }
@@ -488,7 +488,7 @@ func NewGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *Gr
 	return groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType
 }
 
-func NewDefaultGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
+func NewGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeWithDefaults() *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
 	groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType)
 	return groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType
 }
@@ -584,7 +584,7 @@ func NewLDAPServer() *LDAPServer {
 	return lDAPServerType
 }
 
-func NewDefaultLDAPServer() *LDAPServer {
+func NewLDAPServerWithDefaults() *LDAPServer {
 	lDAPServerType := new(LDAPServer)
 	return lDAPServerType
 }
@@ -604,7 +604,7 @@ func NewLDAPServerList() *LDAPServerList {
 	return lDAPServerListType
 }
 
-func NewDefaultLDAPServerList() *LDAPServerList {
+func NewLDAPServerListWithDefaults() *LDAPServerList {
 	lDAPServerListType := new(LDAPServerList)
 	return lDAPServerListType
 }
@@ -675,7 +675,7 @@ func NewModifyActiveDirectoryServer() *ModifyActiveDirectoryServer {
 	return modifyActiveDirectoryServerType
 }
 
-func NewDefaultModifyActiveDirectoryServer() *ModifyActiveDirectoryServer {
+func NewModifyActiveDirectoryServerWithDefaults() *ModifyActiveDirectoryServer {
 	modifyActiveDirectoryServerType := new(ModifyActiveDirectoryServer)
 	portField := 389
 	modifyActiveDirectoryServerType.Port = &portField
@@ -707,7 +707,7 @@ func NewModifyAuthenticationServer() *ModifyAuthenticationServer {
 	return modifyAuthenticationServerType
 }
 
-func NewDefaultModifyAuthenticationServer() *ModifyAuthenticationServer {
+func NewModifyAuthenticationServerWithDefaults() *ModifyAuthenticationServer {
 	modifyAuthenticationServerType := new(ModifyAuthenticationServer)
 	return modifyAuthenticationServerType
 }
@@ -734,7 +734,7 @@ func NewModifyGroupAttrIdentityUserRoleMapping() *ModifyGroupAttrIdentityUserRol
 	return modifyGroupAttrIdentityUserRoleMappingType
 }
 
-func NewDefaultModifyGroupAttrIdentityUserRoleMapping() *ModifyGroupAttrIdentityUserRoleMapping {
+func NewModifyGroupAttrIdentityUserRoleMappingWithDefaults() *ModifyGroupAttrIdentityUserRoleMapping {
 	modifyGroupAttrIdentityUserRoleMappingType := new(ModifyGroupAttrIdentityUserRoleMapping)
 	return modifyGroupAttrIdentityUserRoleMappingType
 }
@@ -755,7 +755,7 @@ func NewModifyGroupAttrIdentityUserRoleMappingUserRoleType() *ModifyGroupAttrIde
 	return modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType
 }
 
-func NewDefaultModifyGroupAttrIdentityUserRoleMappingUserRoleType() *ModifyGroupAttrIdentityUserRoleMappingUserRoleType {
+func NewModifyGroupAttrIdentityUserRoleMappingUserRoleTypeWithDefaults() *ModifyGroupAttrIdentityUserRoleMappingUserRoleType {
 	modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType := new(ModifyGroupAttrIdentityUserRoleMappingUserRoleType)
 	return modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType
 }
@@ -830,7 +830,7 @@ func NewModifyLDAPServer() *ModifyLDAPServer {
 	return modifyLDAPServerType
 }
 
-func NewDefaultModifyLDAPServer() *ModifyLDAPServer {
+func NewModifyLDAPServerWithDefaults() *ModifyLDAPServer {
 	modifyLDAPServerType := new(ModifyLDAPServer)
 	portField := 389
 	modifyLDAPServerType.Port = &portField
@@ -852,7 +852,7 @@ func NewTestAAAServerResult() *TestAAAServerResult {
 	return testAAAServerResultType
 }
 
-func NewDefaultTestAAAServerResult() *TestAAAServerResult {
+func NewTestAAAServerResultWithDefaults() *TestAAAServerResult {
 	testAAAServerResultType := new(TestAAAServerResult)
 	return testAAAServerResultType
 }
@@ -903,7 +903,7 @@ func NewTestAuthenticationServer() *TestAuthenticationServer {
 	return testAuthenticationServerType
 }
 
-func NewDefaultTestAuthenticationServer() *TestAuthenticationServer {
+func NewTestAuthenticationServerWithDefaults() *TestAuthenticationServer {
 	testAuthenticationServerType := new(TestAuthenticationServer)
 	authProtocolField := `PAP`
 	testAuthenticationServerType.AuthProtocol = &authProtocolField

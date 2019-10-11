@@ -90,7 +90,7 @@ func NewAAAServer() *AAAServer {
 	return aAAServerType
 }
 
-func NewDefaultAAAServer() *AAAServer {
+func NewAAAServerWithDefaults() *AAAServer {
 	aAAServerType := new(AAAServer)
 	return aAAServerType
 }
@@ -124,7 +124,7 @@ func NewAaaServersQueryResult() *AaaServersQueryResult {
 	return aaaServersQueryResultType
 }
 
-func NewDefaultAaaServersQueryResult() *AaaServersQueryResult {
+func NewAaaServersQueryResultWithDefaults() *AaaServersQueryResult {
 	aaaServersQueryResultType := new(AaaServersQueryResult)
 	return aaaServersQueryResultType
 }
@@ -157,7 +157,7 @@ func NewAaaServersQueryResultExtraType() *AaaServersQueryResultExtraType {
 	return aaaServersQueryResultExtraTypeType
 }
 
-func NewDefaultAaaServersQueryResultExtraType() *AaaServersQueryResultExtraType {
+func NewAaaServersQueryResultExtraTypeWithDefaults() *AaaServersQueryResultExtraType {
 	aaaServersQueryResultExtraTypeType := new(AaaServersQueryResultExtraType)
 	return aaaServersQueryResultExtraTypeType
 }
@@ -218,7 +218,7 @@ func NewCreateAdminAAAServer() *CreateAdminAAAServer {
 	return createAdminAAAServerType
 }
 
-func NewDefaultCreateAdminAAAServer() *CreateAdminAAAServer {
+func NewCreateAdminAAAServerWithDefaults() *CreateAdminAAAServer {
 	createAdminAAAServerType := new(CreateAdminAAAServer)
 	return createAdminAAAServerType
 }
@@ -248,7 +248,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }

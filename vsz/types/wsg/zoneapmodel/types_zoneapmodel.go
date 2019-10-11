@@ -57,7 +57,7 @@ func NewApModel() *ApModel {
 	return apModelType
 }
 
-func NewDefaultApModel() *ApModel {
+func NewApModelWithDefaults() *ApModel {
 	apModelType := new(ApModel)
 	poeTxChainField := 2
 	apModelType.PoeTxChain = &poeTxChainField
@@ -84,7 +84,7 @@ func NewLanPortSetting() *LanPortSetting {
 	return lanPortSettingType
 }
 
-func NewDefaultLanPortSetting() *LanPortSetting {
+func NewLanPortSettingWithDefaults() *LanPortSetting {
 	lanPortSettingType := new(LanPortSetting)
 	return lanPortSettingType
 }

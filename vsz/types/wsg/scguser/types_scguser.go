@@ -97,7 +97,7 @@ func NewCreateScgUser() *CreateScgUser {
 	return createScgUserType
 }
 
-func NewDefaultCreateScgUser() *CreateScgUser {
+func NewCreateScgUserWithDefaults() *CreateScgUser {
 	createScgUserType := new(CreateScgUser)
 	return createScgUserType
 }
@@ -221,7 +221,7 @@ func NewGetScgUser() *GetScgUser {
 	return getScgUserType
 }
 
-func NewDefaultGetScgUser() *GetScgUser {
+func NewGetScgUserWithDefaults() *GetScgUser {
 	getScgUserType := new(GetScgUser)
 	return getScgUserType
 }
@@ -313,7 +313,7 @@ func NewModifyScgUser() *ModifyScgUser {
 	return modifyScgUserType
 }
 
-func NewDefaultModifyScgUser() *ModifyScgUser {
+func NewModifyScgUserWithDefaults() *ModifyScgUser {
 	modifyScgUserType := new(ModifyScgUser)
 	return modifyScgUserType
 }
@@ -357,7 +357,7 @@ func NewPatchScgUserGroup() *PatchScgUserGroup {
 	return patchScgUserGroupType
 }
 
-func NewDefaultPatchScgUserGroup() *PatchScgUserGroup {
+func NewPatchScgUserGroupWithDefaults() *PatchScgUserGroup {
 	patchScgUserGroupType := new(PatchScgUserGroup)
 	return patchScgUserGroupType
 }
@@ -369,7 +369,7 @@ func NewQueryCriteria() *QueryCriteria {
 	return queryCriteriaType
 }
 
-func NewDefaultQueryCriteria() *QueryCriteria {
+func NewQueryCriteriaWithDefaults() *QueryCriteria {
 	queryCriteriaType := new(QueryCriteria)
 	return queryCriteriaType
 }
@@ -385,7 +385,7 @@ func NewScgUserAuditId() *ScgUserAuditId {
 	return scgUserAuditIdType
 }
 
-func NewDefaultScgUserAuditId() *ScgUserAuditId {
+func NewScgUserAuditIdWithDefaults() *ScgUserAuditId {
 	scgUserAuditIdType := new(ScgUserAuditId)
 	return scgUserAuditIdType
 }
@@ -474,7 +474,7 @@ func NewScgUserGroup() *ScgUserGroup {
 	return scgUserGroupType
 }
 
-func NewDefaultScgUserGroup() *ScgUserGroup {
+func NewScgUserGroupWithDefaults() *ScgUserGroup {
 	scgUserGroupType := new(ScgUserGroup)
 	return scgUserGroupType
 }
@@ -490,7 +490,7 @@ func NewScgUserGroupAuditId() *ScgUserGroupAuditId {
 	return scgUserGroupAuditIdType
 }
 
-func NewDefaultScgUserGroupAuditId() *ScgUserGroupAuditId {
+func NewScgUserGroupAuditIdWithDefaults() *ScgUserGroupAuditId {
 	scgUserGroupAuditIdType := new(ScgUserGroupAuditId)
 	return scgUserGroupAuditIdType
 }
@@ -512,7 +512,7 @@ func NewScgUserGroupList() *ScgUserGroupList {
 	return scgUserGroupListType
 }
 
-func NewDefaultScgUserGroupList() *ScgUserGroupList {
+func NewScgUserGroupListWithDefaults() *ScgUserGroupList {
 	scgUserGroupListType := new(ScgUserGroupList)
 	return scgUserGroupListType
 }
@@ -551,7 +551,7 @@ func NewScgUserGroupPermission() *ScgUserGroupPermission {
 	return scgUserGroupPermissionType
 }
 
-func NewDefaultScgUserGroupPermission() *ScgUserGroupPermission {
+func NewScgUserGroupPermissionWithDefaults() *ScgUserGroupPermission {
 	scgUserGroupPermissionType := new(ScgUserGroupPermission)
 	return scgUserGroupPermissionType
 }
@@ -573,7 +573,7 @@ func NewScgUserGroupPermissionItemsType() *ScgUserGroupPermissionItemsType {
 	return scgUserGroupPermissionItemsTypeType
 }
 
-func NewDefaultScgUserGroupPermissionItemsType() *ScgUserGroupPermissionItemsType {
+func NewScgUserGroupPermissionItemsTypeWithDefaults() *ScgUserGroupPermissionItemsType {
 	scgUserGroupPermissionItemsTypeType := new(ScgUserGroupPermissionItemsType)
 	return scgUserGroupPermissionItemsTypeType
 }
@@ -597,7 +597,7 @@ func NewScgUserGroupPermissionList() *ScgUserGroupPermissionList {
 	return scgUserGroupPermissionListType
 }
 
-func NewDefaultScgUserGroupPermissionList() *ScgUserGroupPermissionList {
+func NewScgUserGroupPermissionListWithDefaults() *ScgUserGroupPermissionList {
 	scgUserGroupPermissionListType := new(ScgUserGroupPermissionList)
 	return scgUserGroupPermissionListType
 }
@@ -620,7 +620,7 @@ func NewScgUserGroupPermissionListExtraType() *ScgUserGroupPermissionListExtraTy
 	return scgUserGroupPermissionListExtraTypeType
 }
 
-func NewDefaultScgUserGroupPermissionListExtraType() *ScgUserGroupPermissionListExtraType {
+func NewScgUserGroupPermissionListExtraTypeWithDefaults() *ScgUserGroupPermissionListExtraType {
 	scgUserGroupPermissionListExtraTypeType := new(ScgUserGroupPermissionListExtraType)
 	return scgUserGroupPermissionListExtraTypeType
 }
@@ -651,7 +651,7 @@ func NewScgUserGroupPermissionWithoutDetailItems() *ScgUserGroupPermissionWithou
 	return scgUserGroupPermissionWithoutDetailItemsType
 }
 
-func NewDefaultScgUserGroupPermissionWithoutDetailItems() *ScgUserGroupPermissionWithoutDetailItems {
+func NewScgUserGroupPermissionWithoutDetailItemsWithDefaults() *ScgUserGroupPermissionWithoutDetailItems {
 	scgUserGroupPermissionWithoutDetailItemsType := new(ScgUserGroupPermissionWithoutDetailItems)
 	return scgUserGroupPermissionWithoutDetailItemsType
 }
@@ -678,7 +678,7 @@ func NewScgUserGroupResourceGroup() *ScgUserGroupResourceGroup {
 	return scgUserGroupResourceGroupType
 }
 
-func NewDefaultScgUserGroupResourceGroup() *ScgUserGroupResourceGroup {
+func NewScgUserGroupResourceGroupWithDefaults() *ScgUserGroupResourceGroup {
 	scgUserGroupResourceGroupType := new(ScgUserGroupResourceGroup)
 	return scgUserGroupResourceGroupType
 }
@@ -698,7 +698,7 @@ func NewScgUserGroupRoleLabelValue() *ScgUserGroupRoleLabelValue {
 	return scgUserGroupRoleLabelValueType
 }
 
-func NewDefaultScgUserGroupRoleLabelValue() *ScgUserGroupRoleLabelValue {
+func NewScgUserGroupRoleLabelValueWithDefaults() *ScgUserGroupRoleLabelValue {
 	scgUserGroupRoleLabelValueType := new(ScgUserGroupRoleLabelValue)
 	return scgUserGroupRoleLabelValueType
 }
@@ -718,7 +718,7 @@ func NewScgUserGroupRoleLabelValueList() *ScgUserGroupRoleLabelValueList {
 	return scgUserGroupRoleLabelValueListType
 }
 
-func NewDefaultScgUserGroupRoleLabelValueList() *ScgUserGroupRoleLabelValueList {
+func NewScgUserGroupRoleLabelValueListWithDefaults() *ScgUserGroupRoleLabelValueList {
 	scgUserGroupRoleLabelValueListType := new(ScgUserGroupRoleLabelValueList)
 	return scgUserGroupRoleLabelValueListType
 }
@@ -740,7 +740,7 @@ func NewScgUserList() *ScgUserList {
 	return scgUserListType
 }
 
-func NewDefaultScgUserList() *ScgUserList {
+func NewScgUserListWithDefaults() *ScgUserList {
 	scgUserListType := new(ScgUserList)
 	return scgUserListType
 }

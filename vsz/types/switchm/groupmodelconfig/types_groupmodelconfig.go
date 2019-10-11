@@ -21,7 +21,7 @@ func NewGroupConfigAuditId() *GroupConfigAuditId {
 	return groupConfigAuditIdType
 }
 
-func NewDefaultGroupConfigAuditId() *GroupConfigAuditId {
+func NewGroupConfigAuditIdWithDefaults() *GroupConfigAuditId {
 	groupConfigAuditIdType := new(GroupConfigAuditId)
 	return groupConfigAuditIdType
 }
@@ -73,7 +73,7 @@ func NewGroupModelConfig() *GroupModelConfig {
 	return groupModelConfigType
 }
 
-func NewDefaultGroupModelConfig() *GroupModelConfig {
+func NewGroupModelConfigWithDefaults() *GroupModelConfig {
 	groupModelConfigType := new(GroupModelConfig)
 	return groupModelConfigType
 }
@@ -107,7 +107,7 @@ func NewGroupModelConfigQueryResult() *GroupModelConfigQueryResult {
 	return groupModelConfigQueryResultType
 }
 
-func NewDefaultGroupModelConfigQueryResult() *GroupModelConfigQueryResult {
+func NewGroupModelConfigQueryResultWithDefaults() *GroupModelConfigQueryResult {
 	groupModelConfigQueryResultType := new(GroupModelConfigQueryResult)
 	return groupModelConfigQueryResultType
 }
@@ -140,7 +140,7 @@ func NewGroupModelConfigQueryResultExtraType() *GroupModelConfigQueryResultExtra
 	return groupModelConfigQueryResultExtraTypeType
 }
 
-func NewDefaultGroupModelConfigQueryResultExtraType() *GroupModelConfigQueryResultExtraType {
+func NewGroupModelConfigQueryResultExtraTypeWithDefaults() *GroupModelConfigQueryResultExtraType {
 	groupModelConfigQueryResultExtraTypeType := new(GroupModelConfigQueryResultExtraType)
 	return groupModelConfigQueryResultExtraTypeType
 }
@@ -154,7 +154,7 @@ func NewSelectedIds() *SelectedIds {
 	return selectedIdsType
 }
 
-func NewDefaultSelectedIds() *SelectedIds {
+func NewSelectedIdsWithDefaults() *SelectedIds {
 	selectedIdsType := new(SelectedIds)
 	return selectedIdsType
 }
@@ -188,7 +188,7 @@ func NewUpdateGroupConfigResultList() *UpdateGroupConfigResultList {
 	return updateGroupConfigResultListType
 }
 
-func NewDefaultUpdateGroupConfigResultList() *UpdateGroupConfigResultList {
+func NewUpdateGroupConfigResultListWithDefaults() *UpdateGroupConfigResultList {
 	updateGroupConfigResultListType := new(UpdateGroupConfigResultList)
 	return updateGroupConfigResultListType
 }
@@ -221,7 +221,7 @@ func NewUpdateGroupConfigResultListExtraType() *UpdateGroupConfigResultListExtra
 	return updateGroupConfigResultListExtraTypeType
 }
 
-func NewDefaultUpdateGroupConfigResultListExtraType() *UpdateGroupConfigResultListExtraType {
+func NewUpdateGroupConfigResultListExtraTypeWithDefaults() *UpdateGroupConfigResultListExtraType {
 	updateGroupConfigResultListExtraTypeType := new(UpdateGroupConfigResultListExtraType)
 	return updateGroupConfigResultListExtraTypeType
 }

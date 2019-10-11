@@ -63,7 +63,7 @@ func NewModifySyslogSettings() *ModifySyslogSettings {
 	return modifySyslogSettingsType
 }
 
-func NewDefaultModifySyslogSettings() *ModifySyslogSettings {
+func NewModifySyslogSettingsWithDefaults() *ModifySyslogSettings {
 	modifySyslogSettingsType := new(ModifySyslogSettings)
 	eventFilterSeverityField := `Debug`
 	modifySyslogSettingsType.EventFilterSeverity = &eventFilterSeverityField
@@ -92,7 +92,7 @@ func NewPrimaryServer() *PrimaryServer {
 	return primaryServerType
 }
 
-func NewDefaultPrimaryServer() *PrimaryServer {
+func NewPrimaryServerWithDefaults() *PrimaryServer {
 	primaryServerType := new(PrimaryServer)
 	return primaryServerType
 }
@@ -146,7 +146,7 @@ func NewPriority() *Priority {
 	return priorityType
 }
 
-func NewDefaultPriority() *Priority {
+func NewPriorityWithDefaults() *Priority {
 	priorityType := new(Priority)
 	return priorityType
 }
@@ -180,7 +180,7 @@ func NewSecondaryServer() *SecondaryServer {
 	return secondaryServerType
 }
 
-func NewDefaultSecondaryServer() *SecondaryServer {
+func NewSecondaryServerWithDefaults() *SecondaryServer {
 	secondaryServerType := new(SecondaryServer)
 	return secondaryServerType
 }
@@ -245,7 +245,7 @@ func NewSyslogServerSetting() *SyslogServerSetting {
 	return syslogServerSettingType
 }
 
-func NewDefaultSyslogServerSetting() *SyslogServerSetting {
+func NewSyslogServerSettingWithDefaults() *SyslogServerSetting {
 	syslogServerSettingType := new(SyslogServerSetting)
 	return syslogServerSettingType
 }

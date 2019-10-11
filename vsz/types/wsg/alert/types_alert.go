@@ -15,7 +15,7 @@ func NewAckBulkAlarms() *AckBulkAlarms {
 	return ackBulkAlarmsType
 }
 
-func NewDefaultAckBulkAlarms() *AckBulkAlarms {
+func NewAckBulkAlarmsWithDefaults() *AckBulkAlarms {
 	ackBulkAlarmsType := new(AckBulkAlarms)
 	return ackBulkAlarmsType
 }
@@ -31,7 +31,7 @@ func NewClearBulkAlarms() *ClearBulkAlarms {
 	return clearBulkAlarmsType
 }
 
-func NewDefaultClearBulkAlarms() *ClearBulkAlarms {
+func NewClearBulkAlarmsWithDefaults() *ClearBulkAlarms {
 	clearBulkAlarmsType := new(ClearBulkAlarms)
 	return clearBulkAlarmsType
 }

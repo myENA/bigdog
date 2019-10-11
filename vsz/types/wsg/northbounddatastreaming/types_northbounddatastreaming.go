@@ -49,7 +49,7 @@ func NewCreateNorthboundDataStreamingProfile() *CreateNorthboundDataStreamingPro
 	return createNorthboundDataStreamingProfileType
 }
 
-func NewDefaultCreateNorthboundDataStreamingProfile() *CreateNorthboundDataStreamingProfile {
+func NewCreateNorthboundDataStreamingProfileWithDefaults() *CreateNorthboundDataStreamingProfile {
 	createNorthboundDataStreamingProfileType := new(CreateNorthboundDataStreamingProfile)
 	return createNorthboundDataStreamingProfileType
 }
@@ -63,7 +63,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -80,7 +80,7 @@ func NewModifyNorthboundDataStreamingEventCodes() *ModifyNorthboundDataStreaming
 	return modifyNorthboundDataStreamingEventCodesType
 }
 
-func NewDefaultModifyNorthboundDataStreamingEventCodes() *ModifyNorthboundDataStreamingEventCodes {
+func NewModifyNorthboundDataStreamingEventCodesWithDefaults() *ModifyNorthboundDataStreamingEventCodes {
 	modifyNorthboundDataStreamingEventCodesType := new(ModifyNorthboundDataStreamingEventCodes)
 	return modifyNorthboundDataStreamingEventCodesType
 }
@@ -128,7 +128,7 @@ func NewModifyNorthboundDataStreamingProfile() *ModifyNorthboundDataStreamingPro
 	return modifyNorthboundDataStreamingProfileType
 }
 
-func NewDefaultModifyNorthboundDataStreamingProfile() *ModifyNorthboundDataStreamingProfile {
+func NewModifyNorthboundDataStreamingProfileWithDefaults() *ModifyNorthboundDataStreamingProfile {
 	modifyNorthboundDataStreamingProfileType := new(ModifyNorthboundDataStreamingProfile)
 	return modifyNorthboundDataStreamingProfileType
 }
@@ -154,7 +154,7 @@ func NewNorthboundDataStreamingEventCodes() *NorthboundDataStreamingEventCodes {
 	return northboundDataStreamingEventCodesType
 }
 
-func NewDefaultNorthboundDataStreamingEventCodes() *NorthboundDataStreamingEventCodes {
+func NewNorthboundDataStreamingEventCodesWithDefaults() *NorthboundDataStreamingEventCodes {
 	northboundDataStreamingEventCodesType := new(NorthboundDataStreamingEventCodes)
 	return northboundDataStreamingEventCodesType
 }
@@ -174,7 +174,7 @@ func NewNorthboundDataStreamingEventCodesListType() *NorthboundDataStreamingEven
 	return northboundDataStreamingEventCodesListTypeType
 }
 
-func NewDefaultNorthboundDataStreamingEventCodesListType() *NorthboundDataStreamingEventCodesListType {
+func NewNorthboundDataStreamingEventCodesListTypeWithDefaults() *NorthboundDataStreamingEventCodesListType {
 	northboundDataStreamingEventCodesListTypeType := new(NorthboundDataStreamingEventCodesListType)
 	return northboundDataStreamingEventCodesListTypeType
 }
@@ -214,7 +214,7 @@ func NewNorthboundDataStreamingProfile() *NorthboundDataStreamingProfile {
 	return northboundDataStreamingProfileType
 }
 
-func NewDefaultNorthboundDataStreamingProfile() *NorthboundDataStreamingProfile {
+func NewNorthboundDataStreamingProfileWithDefaults() *NorthboundDataStreamingProfile {
 	northboundDataStreamingProfileType := new(NorthboundDataStreamingProfile)
 	return northboundDataStreamingProfileType
 }
@@ -267,7 +267,7 @@ func NewNorthboundDataStreamingProfileList() *NorthboundDataStreamingProfileList
 	return northboundDataStreamingProfileListType
 }
 
-func NewDefaultNorthboundDataStreamingProfileList() *NorthboundDataStreamingProfileList {
+func NewNorthboundDataStreamingProfileListWithDefaults() *NorthboundDataStreamingProfileList {
 	northboundDataStreamingProfileListType := new(NorthboundDataStreamingProfileList)
 	return northboundDataStreamingProfileListType
 }
@@ -295,7 +295,7 @@ func NewNorthboundDataStreamingProfileListExtraType() *NorthboundDataStreamingPr
 	return northboundDataStreamingProfileListExtraTypeType
 }
 
-func NewDefaultNorthboundDataStreamingProfileListExtraType() *NorthboundDataStreamingProfileListExtraType {
+func NewNorthboundDataStreamingProfileListExtraTypeWithDefaults() *NorthboundDataStreamingProfileListExtraType {
 	northboundDataStreamingProfileListExtraTypeType := new(NorthboundDataStreamingProfileListExtraType)
 	return northboundDataStreamingProfileListExtraTypeType
 }
@@ -327,7 +327,7 @@ func NewNorthboundDataStreamingSettings() *NorthboundDataStreamingSettings {
 	return northboundDataStreamingSettingsType
 }
 
-func NewDefaultNorthboundDataStreamingSettings() *NorthboundDataStreamingSettings {
+func NewNorthboundDataStreamingSettingsWithDefaults() *NorthboundDataStreamingSettings {
 	northboundDataStreamingSettingsType := new(NorthboundDataStreamingSettings)
 	return northboundDataStreamingSettingsType
 }

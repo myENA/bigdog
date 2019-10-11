@@ -57,7 +57,7 @@ func NewDevicesSummary() *DevicesSummary {
 	return devicesSummaryType
 }
 
-func NewDefaultDevicesSummary() *DevicesSummary {
+func NewDevicesSummaryWithDefaults() *DevicesSummary {
 	devicesSummaryType := new(DevicesSummary)
 	return devicesSummaryType
 }

@@ -17,7 +17,7 @@ func NewEventDataList() *EventDataList {
 	return eventDataListType
 }
 
-func NewDefaultEventDataList() *EventDataList {
+func NewEventDataListWithDefaults() *EventDataList {
 	eventDataListType := new(EventDataList)
 	return eventDataListType
 }
@@ -43,7 +43,7 @@ func NewEventDataResponse() *EventDataResponse {
 	return eventDataResponseType
 }
 
-func NewDefaultEventDataResponse() *EventDataResponse {
+func NewEventDataResponseWithDefaults() *EventDataResponse {
 	eventDataResponseType := new(EventDataResponse)
 	return eventDataResponseType
 }
@@ -63,7 +63,7 @@ func NewEventEmailSetting() *EventEmailSetting {
 	return eventEmailSettingType
 }
 
-func NewDefaultEventEmailSetting() *EventEmailSetting {
+func NewEventEmailSettingWithDefaults() *EventEmailSetting {
 	eventEmailSettingType := new(EventEmailSetting)
 	return eventEmailSettingType
 }
@@ -75,7 +75,7 @@ func NewEventSettingList() *EventSettingList {
 	return &eventSettingListType
 }
 
-func NewDefaultEventSettingList() *EventSettingList {
+func NewEventSettingListWithDefaults() *EventSettingList {
 	eventSettingListType := make(EventSettingList, 0)
 	return &eventSettingListType
 }
@@ -127,7 +127,7 @@ func NewSingleEventSetting() *SingleEventSetting {
 	return singleEventSettingType
 }
 
-func NewDefaultSingleEventSetting() *SingleEventSetting {
+func NewSingleEventSettingWithDefaults() *SingleEventSetting {
 	singleEventSettingType := new(SingleEventSetting)
 	return singleEventSettingType
 }

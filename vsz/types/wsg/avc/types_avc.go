@@ -21,7 +21,7 @@ func NewAppCategory() *AppCategory {
 	return appCategoryType
 }
 
-func NewDefaultAppCategory() *AppCategory {
+func NewAppCategoryWithDefaults() *AppCategory {
 	appCategoryType := new(AppCategory)
 	return appCategoryType
 }
@@ -41,7 +41,7 @@ func NewAppCategoryList() *AppCategoryList {
 	return appCategoryListType
 }
 
-func NewDefaultAppCategoryList() *AppCategoryList {
+func NewAppCategoryListWithDefaults() *AppCategoryList {
 	appCategoryListType := new(AppCategoryList)
 	return appCategoryListType
 }
@@ -65,7 +65,7 @@ func NewApplication() *Application {
 	return applicationType
 }
 
-func NewDefaultApplication() *Application {
+func NewApplicationWithDefaults() *Application {
 	applicationType := new(Application)
 	return applicationType
 }
@@ -85,7 +85,7 @@ func NewApplicationList() *ApplicationList {
 	return applicationListType
 }
 
-func NewDefaultApplicationList() *ApplicationList {
+func NewApplicationListWithDefaults() *ApplicationList {
 	applicationListType := new(ApplicationList)
 	return applicationListType
 }
@@ -147,7 +147,7 @@ func NewApplicationPolicyProfile() *ApplicationPolicyProfile {
 	return applicationPolicyProfileType
 }
 
-func NewDefaultApplicationPolicyProfile() *ApplicationPolicyProfile {
+func NewApplicationPolicyProfileWithDefaults() *ApplicationPolicyProfile {
 	applicationPolicyProfileType := new(ApplicationPolicyProfile)
 	return applicationPolicyProfileType
 }
@@ -169,7 +169,7 @@ func NewApplicationPolicyProfileList() *ApplicationPolicyProfileList {
 	return applicationPolicyProfileListType
 }
 
-func NewDefaultApplicationPolicyProfileList() *ApplicationPolicyProfileList {
+func NewApplicationPolicyProfileListWithDefaults() *ApplicationPolicyProfileList {
 	applicationPolicyProfileListType := new(ApplicationPolicyProfileList)
 	return applicationPolicyProfileListType
 }
@@ -242,7 +242,7 @@ func NewApplicationRule() *ApplicationRule {
 	return applicationRuleType
 }
 
-func NewDefaultApplicationRule() *ApplicationRule {
+func NewApplicationRuleWithDefaults() *ApplicationRule {
 	applicationRuleType := new(ApplicationRule)
 	return applicationRuleType
 }
@@ -278,7 +278,7 @@ func NewCreateApplicationPolicyProfile() *CreateApplicationPolicyProfile {
 	return createApplicationPolicyProfileType
 }
 
-func NewDefaultCreateApplicationPolicyProfile() *CreateApplicationPolicyProfile {
+func NewCreateApplicationPolicyProfileWithDefaults() *CreateApplicationPolicyProfile {
 	createApplicationPolicyProfileType := new(CreateApplicationPolicyProfile)
 	return createApplicationPolicyProfileType
 }
@@ -325,7 +325,7 @@ func NewCreateUserDefinedProfile() *CreateUserDefinedProfile {
 	return createUserDefinedProfileType
 }
 
-func NewDefaultCreateUserDefinedProfile() *CreateUserDefinedProfile {
+func NewCreateUserDefinedProfileWithDefaults() *CreateUserDefinedProfile {
 	createUserDefinedProfileType := new(CreateUserDefinedProfile)
 	return createUserDefinedProfileType
 }
@@ -339,7 +339,7 @@ func NewDeleteBulk() *DeleteBulk {
 	return deleteBulkType
 }
 
-func NewDefaultDeleteBulk() *DeleteBulk {
+func NewDeleteBulkWithDefaults() *DeleteBulk {
 	deleteBulkType := new(DeleteBulk)
 	return deleteBulkType
 }
@@ -365,7 +365,7 @@ func NewModifyApplicationPolicyProfile() *ModifyApplicationPolicyProfile {
 	return modifyApplicationPolicyProfileType
 }
 
-func NewDefaultModifyApplicationPolicyProfile() *ModifyApplicationPolicyProfile {
+func NewModifyApplicationPolicyProfileWithDefaults() *ModifyApplicationPolicyProfile {
 	modifyApplicationPolicyProfileType := new(ModifyApplicationPolicyProfile)
 	return modifyApplicationPolicyProfileType
 }
@@ -405,7 +405,7 @@ func NewModifyUserDefinedProfile() *ModifyUserDefinedProfile {
 	return modifyUserDefinedProfileType
 }
 
-func NewDefaultModifyUserDefinedProfile() *ModifyUserDefinedProfile {
+func NewModifyUserDefinedProfileWithDefaults() *ModifyUserDefinedProfile {
 	modifyUserDefinedProfileType := new(ModifyUserDefinedProfile)
 	return modifyUserDefinedProfileType
 }
@@ -433,7 +433,7 @@ func NewSignaturePackage() *SignaturePackage {
 	return signaturePackageType
 }
 
-func NewDefaultSignaturePackage() *SignaturePackage {
+func NewSignaturePackageWithDefaults() *SignaturePackage {
 	signaturePackageType := new(SignaturePackage)
 	return signaturePackageType
 }
@@ -513,7 +513,7 @@ func NewUserDefinedProfile() *UserDefinedProfile {
 	return userDefinedProfileType
 }
 
-func NewDefaultUserDefinedProfile() *UserDefinedProfile {
+func NewUserDefinedProfileWithDefaults() *UserDefinedProfile {
 	userDefinedProfileType := new(UserDefinedProfile)
 	return userDefinedProfileType
 }
@@ -535,7 +535,7 @@ func NewUserDefinedProfileList() *UserDefinedProfileList {
 	return userDefinedProfileListType
 }
 
-func NewDefaultUserDefinedProfileList() *UserDefinedProfileList {
+func NewUserDefinedProfileListWithDefaults() *UserDefinedProfileList {
 	userDefinedProfileListType := new(UserDefinedProfileList)
 	return userDefinedProfileListType
 }

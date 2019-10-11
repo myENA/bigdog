@@ -21,7 +21,7 @@ func NewLoginRequest() *LoginRequest {
 	return loginRequestType
 }
 
-func NewDefaultLoginRequest() *LoginRequest {
+func NewLoginRequestWithDefaults() *LoginRequest {
 	loginRequestType := new(LoginRequest)
 	return loginRequestType
 }
@@ -39,7 +39,7 @@ func NewLoginResponse() *LoginResponse {
 	return loginResponseType
 }
 
-func NewDefaultLoginResponse() *LoginResponse {
+func NewLoginResponseWithDefaults() *LoginResponse {
 	loginResponseType := new(LoginResponse)
 	return loginResponseType
 }

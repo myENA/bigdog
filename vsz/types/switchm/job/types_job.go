@@ -19,7 +19,7 @@ func NewErrorObject() *ErrorObject {
 	return errorObjectType
 }
 
-func NewDefaultErrorObject() *ErrorObject {
+func NewErrorObjectWithDefaults() *ErrorObject {
 	errorObjectType := new(ErrorObject)
 	return errorObjectType
 }
@@ -89,7 +89,7 @@ func NewJob() *Job {
 	return jobType
 }
 
-func NewDefaultJob() *Job {
+func NewJobWithDefaults() *Job {
 	jobType := new(Job)
 	return jobType
 }
@@ -119,7 +119,7 @@ func NewJobCsvDataMapType() *JobCsvDataMapType {
 	return jobCsvDataMapTypeType
 }
 
-func NewDefaultJobCsvDataMapType() *JobCsvDataMapType {
+func NewJobCsvDataMapTypeWithDefaults() *JobCsvDataMapType {
 	jobCsvDataMapTypeType := new(JobCsvDataMapType)
 	return jobCsvDataMapTypeType
 }
@@ -143,7 +143,7 @@ func NewJobSchedule() *JobSchedule {
 	return jobScheduleType
 }
 
-func NewDefaultJobSchedule() *JobSchedule {
+func NewJobScheduleWithDefaults() *JobSchedule {
 	jobScheduleType := new(JobSchedule)
 	return jobScheduleType
 }
@@ -171,7 +171,7 @@ func NewJobScheduleResponse() *JobScheduleResponse {
 	return jobScheduleResponseType
 }
 
-func NewDefaultJobScheduleResponse() *JobScheduleResponse {
+func NewJobScheduleResponseWithDefaults() *JobScheduleResponse {
 	jobScheduleResponseType := new(JobScheduleResponse)
 	return jobScheduleResponseType
 }
@@ -204,7 +204,7 @@ func NewJobScheduleResponseExtraType() *JobScheduleResponseExtraType {
 	return jobScheduleResponseExtraTypeType
 }
 
-func NewDefaultJobScheduleResponseExtraType() *JobScheduleResponseExtraType {
+func NewJobScheduleResponseExtraTypeWithDefaults() *JobScheduleResponseExtraType {
 	jobScheduleResponseExtraTypeType := new(JobScheduleResponseExtraType)
 	return jobScheduleResponseExtraTypeType
 }
@@ -237,7 +237,7 @@ func NewJobScheduleResponseMetaDataType() *JobScheduleResponseMetaDataType {
 	return jobScheduleResponseMetaDataTypeType
 }
 
-func NewDefaultJobScheduleResponseMetaDataType() *JobScheduleResponseMetaDataType {
+func NewJobScheduleResponseMetaDataTypeWithDefaults() *JobScheduleResponseMetaDataType {
 	jobScheduleResponseMetaDataTypeType := new(JobScheduleResponseMetaDataType)
 	return jobScheduleResponseMetaDataTypeType
 }
@@ -271,7 +271,7 @@ func NewList() *List {
 	return listType
 }
 
-func NewDefaultList() *List {
+func NewListWithDefaults() *List {
 	listType := new(List)
 	return listType
 }
@@ -304,7 +304,7 @@ func NewListExtraType() *ListExtraType {
 	return listExtraTypeType
 }
 
-func NewDefaultListExtraType() *ListExtraType {
+func NewListExtraTypeWithDefaults() *ListExtraType {
 	listExtraTypeType := new(ListExtraType)
 	return listExtraTypeType
 }

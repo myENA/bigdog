@@ -56,7 +56,7 @@ func NewApModel() *ApModel {
 	return apModelType
 }
 
-func NewDefaultApModel() *ApModel {
+func NewApModelWithDefaults() *ApModel {
 	apModelType := new(ApModel)
 	poeTxChainField := 2
 	apModelType.PoeTxChain = &poeTxChainField
@@ -77,7 +77,7 @@ func NewAuthenticatorAAAServer() *AuthenticatorAAAServer {
 	return authenticatorAAAServerType
 }
 
-func NewDefaultAuthenticatorAAAServer() *AuthenticatorAAAServer {
+func NewAuthenticatorAAAServerWithDefaults() *AuthenticatorAAAServer {
 	authenticatorAAAServerType := new(AuthenticatorAAAServer)
 	return authenticatorAAAServerType
 }
@@ -150,7 +150,7 @@ func NewCellularSettings() *CellularSettings {
 	return cellularSettingsType
 }
 
-func NewDefaultCellularSettings() *CellularSettings {
+func NewCellularSettingsWithDefaults() *CellularSettings {
 	cellularSettingsType := new(CellularSettings)
 	return cellularSettingsType
 }
@@ -226,7 +226,7 @@ func NewCommonAttribute() *CommonAttribute {
 	return commonAttributeType
 }
 
-func NewDefaultCommonAttribute() *CommonAttribute {
+func NewCommonAttributeWithDefaults() *CommonAttribute {
 	commonAttributeType := new(CommonAttribute)
 	return commonAttributeType
 }
@@ -256,7 +256,7 @@ func NewExternalAntenna() *ExternalAntenna {
 	return externalAntennaType
 }
 
-func NewDefaultExternalAntenna() *ExternalAntenna {
+func NewExternalAntennaWithDefaults() *ExternalAntenna {
 	externalAntennaType := new(ExternalAntenna)
 	return externalAntennaType
 }
@@ -270,7 +270,7 @@ func NewLacpSetting() *LacpSetting {
 	return lacpSettingType
 }
 
-func NewDefaultLacpSetting() *LacpSetting {
+func NewLacpSettingWithDefaults() *LacpSetting {
 	lacpSettingType := new(LacpSetting)
 	enabledField := false
 	lacpSettingType.Enabled = &enabledField
@@ -294,7 +294,7 @@ func NewLanPort8021X() *LanPort8021X {
 	return lanPort8021XType
 }
 
-func NewDefaultLanPort8021X() *LanPort8021X {
+func NewLanPort8021XWithDefaults() *LanPort8021X {
 	lanPort8021XType := new(LanPort8021X)
 	return lanPort8021XType
 }
@@ -317,7 +317,7 @@ func NewLanPortAuthenticator() *LanPortAuthenticator {
 	return lanPortAuthenticatorType
 }
 
-func NewDefaultLanPortAuthenticator() *LanPortAuthenticator {
+func NewLanPortAuthenticatorWithDefaults() *LanPortAuthenticator {
 	lanPortAuthenticatorType := new(LanPortAuthenticator)
 	return lanPortAuthenticatorType
 }
@@ -353,7 +353,7 @@ func NewLanPortSetting() *LanPortSetting {
 	return lanPortSettingType
 }
 
-func NewDefaultLanPortSetting() *LanPortSetting {
+func NewLanPortSettingWithDefaults() *LanPortSetting {
 	lanPortSettingType := new(LanPortSetting)
 	return lanPortSettingType
 }
@@ -383,7 +383,7 @@ func NewLanPortSupplicant() *LanPortSupplicant {
 	return lanPortSupplicantType
 }
 
-func NewDefaultLanPortSupplicant() *LanPortSupplicant {
+func NewLanPortSupplicantWithDefaults() *LanPortSupplicant {
 	lanPortSupplicantType := new(LanPortSupplicant)
 	return lanPortSupplicantType
 }
@@ -417,7 +417,7 @@ func NewLldpSetting() *LldpSetting {
 	return lldpSettingType
 }
 
-func NewDefaultLldpSetting() *LldpSetting {
+func NewLldpSettingWithDefaults() *LldpSetting {
 	lldpSettingType := new(LldpSetting)
 	enabledField := false
 	lldpSettingType.Enabled = &enabledField

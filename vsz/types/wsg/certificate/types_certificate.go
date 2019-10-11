@@ -51,7 +51,7 @@ func NewCertificate() *Certificate {
 	return certificateType
 }
 
-func NewDefaultCertificate() *Certificate {
+func NewCertificateWithDefaults() *Certificate {
 	certificateType := new(Certificate)
 	return certificateType
 }
@@ -71,7 +71,7 @@ func NewCertificateList() *CertificateList {
 	return certificateListType
 }
 
-func NewDefaultCertificateList() *CertificateList {
+func NewCertificateListWithDefaults() *CertificateList {
 	certificateListType := new(CertificateList)
 	return certificateListType
 }
@@ -91,7 +91,7 @@ func NewCertificateListType() *CertificateListType {
 	return certificateListTypeType
 }
 
-func NewDefaultCertificateListType() *CertificateListType {
+func NewCertificateListTypeWithDefaults() *CertificateListType {
 	certificateListTypeType := new(CertificateListType)
 	return certificateListTypeType
 }
@@ -139,7 +139,7 @@ func NewCertificatesSigningRequest() *CertificatesSigningRequest {
 	return certificatesSigningRequestType
 }
 
-func NewDefaultCertificatesSigningRequest() *CertificatesSigningRequest {
+func NewCertificatesSigningRequestWithDefaults() *CertificatesSigningRequest {
 	certificatesSigningRequestType := new(CertificatesSigningRequest)
 	return certificatesSigningRequestType
 }
@@ -155,7 +155,7 @@ func NewCertSetting() *CertSetting {
 	return certSettingType
 }
 
-func NewDefaultCertSetting() *CertSetting {
+func NewCertSettingWithDefaults() *CertSetting {
 	certSettingType := new(CertSetting)
 	return certSettingType
 }
@@ -199,7 +199,7 @@ func NewClientCert() *ClientCert {
 	return clientCertType
 }
 
-func NewDefaultClientCert() *ClientCert {
+func NewClientCertWithDefaults() *ClientCert {
 	clientCertType := new(ClientCert)
 	return clientCertType
 }
@@ -219,7 +219,7 @@ func NewClientCertList() *ClientCertList {
 	return clientCertListType
 }
 
-func NewDefaultClientCertList() *ClientCertList {
+func NewClientCertListWithDefaults() *ClientCertList {
 	clientCertListType := new(ClientCertList)
 	return clientCertListType
 }
@@ -239,7 +239,7 @@ func NewClientCertListType() *ClientCertListType {
 	return clientCertListTypeType
 }
 
-func NewDefaultClientCertListType() *ClientCertListType {
+func NewClientCertListTypeWithDefaults() *ClientCertListType {
 	clientCertListTypeType := new(ClientCertListType)
 	return clientCertListTypeType
 }
@@ -282,7 +282,7 @@ func NewCreateCert() *CreateCert {
 	return createCertType
 }
 
-func NewDefaultCreateCert() *CreateCert {
+func NewCreateCertWithDefaults() *CreateCert {
 	createCertType := new(CreateCert)
 	return createCertType
 }
@@ -321,7 +321,7 @@ func NewCreateClientCert() *CreateClientCert {
 	return createClientCertType
 }
 
-func NewDefaultCreateClientCert() *CreateClientCert {
+func NewCreateClientCertWithDefaults() *CreateClientCert {
 	createClientCertType := new(CreateClientCert)
 	return createClientCertType
 }
@@ -384,7 +384,7 @@ func NewCreateCSR() *CreateCSR {
 	return createCSRType
 }
 
-func NewDefaultCreateCSR() *CreateCSR {
+func NewCreateCSRWithDefaults() *CreateCSR {
 	createCSRType := new(CreateCSR)
 	return createCSRType
 }
@@ -413,7 +413,7 @@ func NewCreateTrustedCAChain() *CreateTrustedCAChain {
 	return createTrustedCAChainType
 }
 
-func NewDefaultCreateTrustedCAChain() *CreateTrustedCAChain {
+func NewCreateTrustedCAChainWithDefaults() *CreateTrustedCAChain {
 	createTrustedCAChainType := new(CreateTrustedCAChain)
 	return createTrustedCAChainType
 }
@@ -433,7 +433,7 @@ func NewCsrList() *CsrList {
 	return csrListType
 }
 
-func NewDefaultCsrList() *CsrList {
+func NewCsrListWithDefaults() *CsrList {
 	csrListType := new(CsrList)
 	return csrListType
 }
@@ -453,7 +453,7 @@ func NewCsrListType() *CsrListType {
 	return csrListTypeType
 }
 
-func NewDefaultCsrListType() *CsrListType {
+func NewCsrListTypeWithDefaults() *CsrListType {
 	csrListTypeType := new(CsrListType)
 	return csrListTypeType
 }
@@ -467,7 +467,7 @@ func NewDeleteBulk() *DeleteBulk {
 	return deleteBulkType
 }
 
-func NewDefaultDeleteBulk() *DeleteBulk {
+func NewDeleteBulkWithDefaults() *DeleteBulk {
 	deleteBulkType := new(DeleteBulk)
 	return deleteBulkType
 }
@@ -495,7 +495,7 @@ func NewModifyTrustedCAChain() *ModifyTrustedCAChain {
 	return modifyTrustedCAChainType
 }
 
-func NewDefaultModifyTrustedCAChain() *ModifyTrustedCAChain {
+func NewModifyTrustedCAChainWithDefaults() *ModifyTrustedCAChain {
 	modifyTrustedCAChainType := new(ModifyTrustedCAChain)
 	return modifyTrustedCAChainType
 }
@@ -516,7 +516,7 @@ func NewServiceCertificate() *ServiceCertificate {
 	return serviceCertificateType
 }
 
-func NewDefaultServiceCertificate() *ServiceCertificate {
+func NewServiceCertificateWithDefaults() *ServiceCertificate {
 	serviceCertificateType := new(ServiceCertificate)
 	return serviceCertificateType
 }
@@ -528,7 +528,7 @@ func NewServiceCertificates() *ServiceCertificates {
 	return &serviceCertificatesType
 }
 
-func NewDefaultServiceCertificates() *ServiceCertificates {
+func NewServiceCertificatesWithDefaults() *ServiceCertificates {
 	serviceCertificatesType := make(ServiceCertificates, 0)
 	return &serviceCertificatesType
 }
@@ -556,7 +556,7 @@ func NewTrustedCAChain() *TrustedCAChain {
 	return trustedCAChainType
 }
 
-func NewDefaultTrustedCAChain() *TrustedCAChain {
+func NewTrustedCAChainWithDefaults() *TrustedCAChain {
 	trustedCAChainType := new(TrustedCAChain)
 	return trustedCAChainType
 }
@@ -576,7 +576,7 @@ func NewTrustedCAChainCertList() *TrustedCAChainCertList {
 	return trustedCAChainCertListType
 }
 
-func NewDefaultTrustedCAChainCertList() *TrustedCAChainCertList {
+func NewTrustedCAChainCertListWithDefaults() *TrustedCAChainCertList {
 	trustedCAChainCertListType := new(TrustedCAChainCertList)
 	return trustedCAChainCertListType
 }
@@ -612,7 +612,7 @@ func NewTrustedCAChainCertListType() *TrustedCAChainCertListType {
 	return trustedCAChainCertListTypeType
 }
 
-func NewDefaultTrustedCAChainCertListType() *TrustedCAChainCertListType {
+func NewTrustedCAChainCertListTypeWithDefaults() *TrustedCAChainCertListType {
 	trustedCAChainCertListTypeType := new(TrustedCAChainCertListType)
 	return trustedCAChainCertListTypeType
 }

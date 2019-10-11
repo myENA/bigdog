@@ -15,7 +15,7 @@ func NewBulkDelete() *BulkDelete {
 	return bulkDeleteType
 }
 
-func NewDefaultBulkDelete() *BulkDelete {
+func NewBulkDeleteWithDefaults() *BulkDelete {
 	bulkDeleteType := new(BulkDelete)
 	return bulkDeleteType
 }
@@ -55,7 +55,7 @@ func NewDpDhcpProfileBasicBO() *DpDhcpProfileBasicBO {
 	return dpDhcpProfileBasicBOType
 }
 
-func NewDefaultDpDhcpProfileBasicBO() *DpDhcpProfileBasicBO {
+func NewDpDhcpProfileBasicBOWithDefaults() *DpDhcpProfileBasicBO {
 	dpDhcpProfileBasicBOType := new(DpDhcpProfileBasicBO)
 	return dpDhcpProfileBasicBOType
 }
@@ -75,7 +75,7 @@ func NewDpDhcpProfileBasicBOList() *DpDhcpProfileBasicBOList {
 	return dpDhcpProfileBasicBOListType
 }
 
-func NewDefaultDpDhcpProfileBasicBOList() *DpDhcpProfileBasicBOList {
+func NewDpDhcpProfileBasicBOListWithDefaults() *DpDhcpProfileBasicBOList {
 	dpDhcpProfileBasicBOListType := new(DpDhcpProfileBasicBOList)
 	return dpDhcpProfileBasicBOListType
 }
@@ -135,7 +135,7 @@ func NewDpDhcpProfileHostBO() *DpDhcpProfileHostBO {
 	return dpDhcpProfileHostBOType
 }
 
-func NewDefaultDpDhcpProfileHostBO() *DpDhcpProfileHostBO {
+func NewDpDhcpProfileHostBOWithDefaults() *DpDhcpProfileHostBO {
 	dpDhcpProfileHostBOType := new(DpDhcpProfileHostBO)
 	return dpDhcpProfileHostBOType
 }
@@ -155,7 +155,7 @@ func NewDpDhcpProfileHostBOList() *DpDhcpProfileHostBOList {
 	return dpDhcpProfileHostBOListType
 }
 
-func NewDefaultDpDhcpProfileHostBOList() *DpDhcpProfileHostBOList {
+func NewDpDhcpProfileHostBOListWithDefaults() *DpDhcpProfileHostBOList {
 	dpDhcpProfileHostBOListType := new(DpDhcpProfileHostBOList)
 	return dpDhcpProfileHostBOListType
 }
@@ -183,7 +183,7 @@ func NewDpDhcpProfileOptionBO() *DpDhcpProfileOptionBO {
 	return dpDhcpProfileOptionBOType
 }
 
-func NewDefaultDpDhcpProfileOptionBO() *DpDhcpProfileOptionBO {
+func NewDpDhcpProfileOptionBOWithDefaults() *DpDhcpProfileOptionBO {
 	dpDhcpProfileOptionBOType := new(DpDhcpProfileOptionBO)
 	return dpDhcpProfileOptionBOType
 }
@@ -199,7 +199,7 @@ func NewDpDhcpProfileOptionInstance() *DpDhcpProfileOptionInstance {
 	return dpDhcpProfileOptionInstanceType
 }
 
-func NewDefaultDpDhcpProfileOptionInstance() *DpDhcpProfileOptionInstance {
+func NewDpDhcpProfileOptionInstanceWithDefaults() *DpDhcpProfileOptionInstance {
 	dpDhcpProfileOptionInstanceType := new(DpDhcpProfileOptionInstance)
 	return dpDhcpProfileOptionInstanceType
 }
@@ -229,7 +229,7 @@ func NewDpDhcpProfileOptionSpaceApplyToBO() *DpDhcpProfileOptionSpaceApplyToBO {
 	return dpDhcpProfileOptionSpaceApplyToBOType
 }
 
-func NewDefaultDpDhcpProfileOptionSpaceApplyToBO() *DpDhcpProfileOptionSpaceApplyToBO {
+func NewDpDhcpProfileOptionSpaceApplyToBOWithDefaults() *DpDhcpProfileOptionSpaceApplyToBO {
 	dpDhcpProfileOptionSpaceApplyToBOType := new(DpDhcpProfileOptionSpaceApplyToBO)
 	return dpDhcpProfileOptionSpaceApplyToBOType
 }
@@ -249,7 +249,7 @@ func NewDpDhcpProfileOptionSpaceApplyToBOList() *DpDhcpProfileOptionSpaceApplyTo
 	return dpDhcpProfileOptionSpaceApplyToBOListType
 }
 
-func NewDefaultDpDhcpProfileOptionSpaceApplyToBOList() *DpDhcpProfileOptionSpaceApplyToBOList {
+func NewDpDhcpProfileOptionSpaceApplyToBOListWithDefaults() *DpDhcpProfileOptionSpaceApplyToBOList {
 	dpDhcpProfileOptionSpaceApplyToBOListType := new(DpDhcpProfileOptionSpaceApplyToBOList)
 	return dpDhcpProfileOptionSpaceApplyToBOListType
 }
@@ -277,7 +277,7 @@ func NewDpDhcpProfileOptionSpaceBO() *DpDhcpProfileOptionSpaceBO {
 	return dpDhcpProfileOptionSpaceBOType
 }
 
-func NewDefaultDpDhcpProfileOptionSpaceBO() *DpDhcpProfileOptionSpaceBO {
+func NewDpDhcpProfileOptionSpaceBOWithDefaults() *DpDhcpProfileOptionSpaceBO {
 	dpDhcpProfileOptionSpaceBOType := new(DpDhcpProfileOptionSpaceBO)
 	return dpDhcpProfileOptionSpaceBOType
 }
@@ -297,7 +297,7 @@ func NewDpDhcpProfileOptionSpaceInstance() *DpDhcpProfileOptionSpaceInstance {
 	return dpDhcpProfileOptionSpaceInstanceType
 }
 
-func NewDefaultDpDhcpProfileOptionSpaceInstance() *DpDhcpProfileOptionSpaceInstance {
+func NewDpDhcpProfileOptionSpaceInstanceWithDefaults() *DpDhcpProfileOptionSpaceInstance {
 	dpDhcpProfileOptionSpaceInstanceType := new(DpDhcpProfileOptionSpaceInstance)
 	return dpDhcpProfileOptionSpaceInstanceType
 }
@@ -385,7 +385,7 @@ func NewDpDhcpProfilePoolBO() *DpDhcpProfilePoolBO {
 	return dpDhcpProfilePoolBOType
 }
 
-func NewDefaultDpDhcpProfilePoolBO() *DpDhcpProfilePoolBO {
+func NewDpDhcpProfilePoolBOWithDefaults() *DpDhcpProfilePoolBO {
 	dpDhcpProfilePoolBOType := new(DpDhcpProfilePoolBO)
 	return dpDhcpProfilePoolBOType
 }
@@ -405,7 +405,7 @@ func NewDpDhcpProfilePoolBOList() *DpDhcpProfilePoolBOList {
 	return dpDhcpProfilePoolBOListType
 }
 
-func NewDefaultDpDhcpProfilePoolBOList() *DpDhcpProfilePoolBOList {
+func NewDpDhcpProfilePoolBOListWithDefaults() *DpDhcpProfilePoolBOList {
 	dpDhcpProfilePoolBOListType := new(DpDhcpProfilePoolBOList)
 	return dpDhcpProfilePoolBOListType
 }
@@ -425,7 +425,7 @@ func NewDpDhcpProfileQinqVlanRangeBO() *DpDhcpProfileQinqVlanRangeBO {
 	return dpDhcpProfileQinqVlanRangeBOType
 }
 
-func NewDefaultDpDhcpProfileQinqVlanRangeBO() *DpDhcpProfileQinqVlanRangeBO {
+func NewDpDhcpProfileQinqVlanRangeBOWithDefaults() *DpDhcpProfileQinqVlanRangeBO {
 	dpDhcpProfileQinqVlanRangeBOType := new(DpDhcpProfileQinqVlanRangeBO)
 	return dpDhcpProfileQinqVlanRangeBOType
 }
@@ -467,7 +467,7 @@ func NewDpNatProfileBasicBO() *DpNatProfileBasicBO {
 	return dpNatProfileBasicBOType
 }
 
-func NewDefaultDpNatProfileBasicBO() *DpNatProfileBasicBO {
+func NewDpNatProfileBasicBOWithDefaults() *DpNatProfileBasicBO {
 	dpNatProfileBasicBOType := new(DpNatProfileBasicBO)
 	return dpNatProfileBasicBOType
 }
@@ -487,7 +487,7 @@ func NewDpNatProfileBasicBOList() *DpNatProfileBasicBOList {
 	return dpNatProfileBasicBOListType
 }
 
-func NewDefaultDpNatProfileBasicBOList() *DpNatProfileBasicBOList {
+func NewDpNatProfileBasicBOListWithDefaults() *DpNatProfileBasicBOList {
 	dpNatProfileBasicBOListType := new(DpNatProfileBasicBOList)
 	return dpNatProfileBasicBOListType
 }
@@ -539,7 +539,7 @@ func NewDpNatProfilePoolBO() *DpNatProfilePoolBO {
 	return dpNatProfilePoolBOType
 }
 
-func NewDefaultDpNatProfilePoolBO() *DpNatProfilePoolBO {
+func NewDpNatProfilePoolBOWithDefaults() *DpNatProfilePoolBO {
 	dpNatProfilePoolBOType := new(DpNatProfilePoolBO)
 	return dpNatProfilePoolBOType
 }
@@ -559,7 +559,7 @@ func NewDpNatProfilePoolBOList() *DpNatProfilePoolBOList {
 	return dpNatProfilePoolBOListType
 }
 
-func NewDefaultDpNatProfilePoolBOList() *DpNatProfilePoolBOList {
+func NewDpNatProfilePoolBOListWithDefaults() *DpNatProfilePoolBOList {
 	dpNatProfilePoolBOListType := new(DpNatProfilePoolBOList)
 	return dpNatProfilePoolBOListType
 }
@@ -579,7 +579,7 @@ func NewDpNatProfilePrivateQinqVlanRangeBO() *DpNatProfilePrivateQinqVlanRangeBO
 	return dpNatProfilePrivateQinqVlanRangeBOType
 }
 
-func NewDefaultDpNatProfilePrivateQinqVlanRangeBO() *DpNatProfilePrivateQinqVlanRangeBO {
+func NewDpNatProfilePrivateQinqVlanRangeBOWithDefaults() *DpNatProfilePrivateQinqVlanRangeBO {
 	dpNatProfilePrivateQinqVlanRangeBOType := new(DpNatProfilePrivateQinqVlanRangeBO)
 	return dpNatProfilePrivateQinqVlanRangeBOType
 }
@@ -599,7 +599,7 @@ func NewDpNatProfilePublicSubnetIdBO() *DpNatProfilePublicSubnetIdBO {
 	return dpNatProfilePublicSubnetIdBOType
 }
 
-func NewDefaultDpNatProfilePublicSubnetIdBO() *DpNatProfilePublicSubnetIdBO {
+func NewDpNatProfilePublicSubnetIdBOWithDefaults() *DpNatProfilePublicSubnetIdBO {
 	dpNatProfilePublicSubnetIdBOType := new(DpNatProfilePublicSubnetIdBO)
 	return dpNatProfilePublicSubnetIdBOType
 }
@@ -643,7 +643,7 @@ func NewDpProfileSettingBO() *DpProfileSettingBO {
 	return dpProfileSettingBOType
 }
 
-func NewDefaultDpProfileSettingBO() *DpProfileSettingBO {
+func NewDpProfileSettingBOWithDefaults() *DpProfileSettingBO {
 	dpProfileSettingBOType := new(DpProfileSettingBO)
 	return dpProfileSettingBOType
 }
@@ -663,7 +663,7 @@ func NewDpProfileSettingBOList() *DpProfileSettingBOList {
 	return dpProfileSettingBOListType
 }
 
-func NewDefaultDpProfileSettingBOList() *DpProfileSettingBOList {
+func NewDpProfileSettingBOListWithDefaults() *DpProfileSettingBOList {
 	dpProfileSettingBOListType := new(DpProfileSettingBOList)
 	return dpProfileSettingBOListType
 }

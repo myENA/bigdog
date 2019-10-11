@@ -35,7 +35,7 @@ func NewAggMetrics() *AggMetrics {
 	return aggMetricsType
 }
 
-func NewDefaultAggMetrics() *AggMetrics {
+func NewAggMetricsWithDefaults() *AggMetrics {
 	aggMetricsType := new(AggMetrics)
 	return aggMetricsType
 }
@@ -68,7 +68,7 @@ func NewAggMetricsExtraType() *AggMetricsExtraType {
 	return aggMetricsExtraTypeType
 }
 
-func NewDefaultAggMetricsExtraType() *AggMetricsExtraType {
+func NewAggMetricsExtraTypeWithDefaults() *AggMetricsExtraType {
 	aggMetricsExtraTypeType := new(AggMetricsExtraType)
 	return aggMetricsExtraTypeType
 }
@@ -92,7 +92,7 @@ func NewAggs() *Aggs {
 	return aggsType
 }
 
-func NewDefaultAggs() *Aggs {
+func NewAggsWithDefaults() *Aggs {
 	aggsType := new(Aggs)
 	return aggsType
 }
@@ -126,7 +126,7 @@ func NewIcxMetrics() *IcxMetrics {
 	return icxMetricsType
 }
 
-func NewDefaultIcxMetrics() *IcxMetrics {
+func NewIcxMetricsWithDefaults() *IcxMetrics {
 	icxMetricsType := new(IcxMetrics)
 	return icxMetricsType
 }
@@ -159,7 +159,7 @@ func NewIcxMetricsExtraType() *IcxMetricsExtraType {
 	return icxMetricsExtraTypeType
 }
 
-func NewDefaultIcxMetricsExtraType() *IcxMetricsExtraType {
+func NewIcxMetricsExtraTypeWithDefaults() *IcxMetricsExtraType {
 	icxMetricsExtraTypeType := new(IcxMetricsExtraType)
 	return icxMetricsExtraTypeType
 }
@@ -187,7 +187,7 @@ func NewMetrics() *Metrics {
 	return metricsType
 }
 
-func NewDefaultMetrics() *Metrics {
+func NewMetricsWithDefaults() *Metrics {
 	metricsType := new(Metrics)
 	return metricsType
 }
@@ -223,7 +223,7 @@ func NewStatus() *Status {
 	return statusType
 }
 
-func NewDefaultStatus() *Status {
+func NewStatusWithDefaults() *Status {
 	statusType := new(Status)
 	return statusType
 }
@@ -247,7 +247,7 @@ func NewStatusFanType() *StatusFanType {
 	return statusFanTypeType
 }
 
-func NewDefaultStatusFanType() *StatusFanType {
+func NewStatusFanTypeWithDefaults() *StatusFanType {
 	statusFanTypeType := new(StatusFanType)
 	return statusFanTypeType
 }
@@ -271,7 +271,7 @@ func NewStatusPowerSupplyType() *StatusPowerSupplyType {
 	return statusPowerSupplyTypeType
 }
 
-func NewDefaultStatusPowerSupplyType() *StatusPowerSupplyType {
+func NewStatusPowerSupplyTypeWithDefaults() *StatusPowerSupplyType {
 	statusPowerSupplyTypeType := new(StatusPowerSupplyType)
 	return statusPowerSupplyTypeType
 }
@@ -291,7 +291,7 @@ func NewStatusTemperatureType() *StatusTemperatureType {
 	return statusTemperatureTypeType
 }
 
-func NewDefaultStatusTemperatureType() *StatusTemperatureType {
+func NewStatusTemperatureTypeWithDefaults() *StatusTemperatureType {
 	statusTemperatureTypeType := new(StatusTemperatureType)
 	return statusTemperatureTypeType
 }

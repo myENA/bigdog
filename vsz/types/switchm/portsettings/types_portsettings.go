@@ -98,7 +98,7 @@ func NewCreateBulk() *CreateBulk {
 	return createBulkType
 }
 
-func NewDefaultCreateBulk() *CreateBulk {
+func NewCreateBulkWithDefaults() *CreateBulk {
 	createBulkType := new(CreateBulk)
 	return createBulkType
 }
@@ -128,7 +128,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -236,7 +236,7 @@ func NewPortSettings() *PortSettings {
 	return portSettingsType
 }
 
-func NewDefaultPortSettings() *PortSettings {
+func NewPortSettingsWithDefaults() *PortSettings {
 	portSettingsType := new(PortSettings)
 	return portSettingsType
 }
@@ -270,7 +270,7 @@ func NewPortSettingsQueryResult() *PortSettingsQueryResult {
 	return portSettingsQueryResultType
 }
 
-func NewDefaultPortSettingsQueryResult() *PortSettingsQueryResult {
+func NewPortSettingsQueryResultWithDefaults() *PortSettingsQueryResult {
 	portSettingsQueryResultType := new(PortSettingsQueryResult)
 	return portSettingsQueryResultType
 }
@@ -303,7 +303,7 @@ func NewPortSettingsQueryResultExtraType() *PortSettingsQueryResultExtraType {
 	return portSettingsQueryResultExtraTypeType
 }
 
-func NewDefaultPortSettingsQueryResultExtraType() *PortSettingsQueryResultExtraType {
+func NewPortSettingsQueryResultExtraTypeWithDefaults() *PortSettingsQueryResultExtraType {
 	portSettingsQueryResultExtraTypeType := new(PortSettingsQueryResultExtraType)
 	return portSettingsQueryResultExtraTypeType
 }
@@ -385,7 +385,7 @@ func NewUpdatePortSettings() *UpdatePortSettings {
 	return updatePortSettingsType
 }
 
-func NewDefaultUpdatePortSettings() *UpdatePortSettings {
+func NewUpdatePortSettingsWithDefaults() *UpdatePortSettings {
 	updatePortSettingsType := new(UpdatePortSettings)
 	return updatePortSettingsType
 }

@@ -57,7 +57,7 @@ func NewAccountingProfile() *AccountingProfile {
 	return accountingProfileType
 }
 
-func NewDefaultAccountingProfile() *AccountingProfile {
+func NewAccountingProfileWithDefaults() *AccountingProfile {
 	accountingProfileType := new(AccountingProfile)
 	return accountingProfileType
 }
@@ -79,7 +79,7 @@ func NewAccountingProfileList() *AccountingProfileList {
 	return accountingProfileListType
 }
 
-func NewDefaultAccountingProfileList() *AccountingProfileList {
+func NewAccountingProfileListWithDefaults() *AccountingProfileList {
 	accountingProfileListType := new(AccountingProfileList)
 	return accountingProfileListType
 }
@@ -114,7 +114,7 @@ func NewAcctServiceRealmMapping() *AcctServiceRealmMapping {
 	return acctServiceRealmMappingType
 }
 
-func NewDefaultAcctServiceRealmMapping() *AcctServiceRealmMapping {
+func NewAcctServiceRealmMappingWithDefaults() *AcctServiceRealmMapping {
 	acctServiceRealmMappingType := new(AcctServiceRealmMapping)
 	return acctServiceRealmMappingType
 }
@@ -182,7 +182,7 @@ func NewAdvancedOptionContent() *AdvancedOptionContent {
 	return advancedOptionContentType
 }
 
-func NewDefaultAdvancedOptionContent() *AdvancedOptionContent {
+func NewAdvancedOptionContentWithDefaults() *AdvancedOptionContent {
 	advancedOptionContentType := new(AdvancedOptionContent)
 	return advancedOptionContentType
 }
@@ -202,7 +202,7 @@ func NewApnRealm() *ApnRealm {
 	return apnRealmType
 }
 
-func NewDefaultApnRealm() *ApnRealm {
+func NewApnRealmWithDefaults() *ApnRealm {
 	apnRealmType := new(ApnRealm)
 	return apnRealmType
 }
@@ -272,7 +272,7 @@ func NewAuthenticationProfile() *AuthenticationProfile {
 	return authenticationProfileType
 }
 
-func NewDefaultAuthenticationProfile() *AuthenticationProfile {
+func NewAuthenticationProfileWithDefaults() *AuthenticationProfile {
 	authenticationProfileType := new(AuthenticationProfile)
 	return authenticationProfileType
 }
@@ -294,7 +294,7 @@ func NewAuthenticationProfileList() *AuthenticationProfileList {
 	return authenticationProfileListType
 }
 
-func NewDefaultAuthenticationProfileList() *AuthenticationProfileList {
+func NewAuthenticationProfileListWithDefaults() *AuthenticationProfileList {
 	authenticationProfileListType := new(AuthenticationProfileList)
 	return authenticationProfileListType
 }
@@ -314,7 +314,7 @@ func NewBaseServiceInfoList() *BaseServiceInfoList {
 	return baseServiceInfoListType
 }
 
-func NewDefaultBaseServiceInfoList() *BaseServiceInfoList {
+func NewBaseServiceInfoListWithDefaults() *BaseServiceInfoList {
 	baseServiceInfoListType := new(BaseServiceInfoList)
 	return baseServiceInfoListType
 }
@@ -361,7 +361,7 @@ func NewBlockClient() *BlockClient {
 	return blockClientType
 }
 
-func NewDefaultBlockClient() *BlockClient {
+func NewBlockClientWithDefaults() *BlockClient {
 	blockClientType := new(BlockClient)
 	return blockClientType
 }
@@ -381,7 +381,7 @@ func NewBlockClientList() *BlockClientList {
 	return blockClientListType
 }
 
-func NewDefaultBlockClientList() *BlockClientList {
+func NewBlockClientListWithDefaults() *BlockClientList {
 	blockClientListType := new(BlockClientList)
 	return blockClientListType
 }
@@ -413,7 +413,7 @@ func NewBlockClientListType() *BlockClientListType {
 	return blockClientListTypeType
 }
 
-func NewDefaultBlockClientListType() *BlockClientListType {
+func NewBlockClientListTypeWithDefaults() *BlockClientListType {
 	blockClientListTypeType := new(BlockClientListType)
 	return blockClientListTypeType
 }
@@ -474,7 +474,7 @@ func NewBonjourFencingPolicy() *BonjourFencingPolicy {
 	return bonjourFencingPolicyType
 }
 
-func NewDefaultBonjourFencingPolicy() *BonjourFencingPolicy {
+func NewBonjourFencingPolicyWithDefaults() *BonjourFencingPolicy {
 	bonjourFencingPolicyType := new(BonjourFencingPolicy)
 	return bonjourFencingPolicyType
 }
@@ -494,7 +494,7 @@ func NewBonjourFencingPolicyList() *BonjourFencingPolicyList {
 	return bonjourFencingPolicyListType
 }
 
-func NewDefaultBonjourFencingPolicyList() *BonjourFencingPolicyList {
+func NewBonjourFencingPolicyListWithDefaults() *BonjourFencingPolicyList {
 	bonjourFencingPolicyListType := new(BonjourFencingPolicyList)
 	return bonjourFencingPolicyListType
 }
@@ -535,7 +535,7 @@ func NewBonjourFencingRule() *BonjourFencingRule {
 	return bonjourFencingRuleType
 }
 
-func NewDefaultBonjourFencingRule() *BonjourFencingRule {
+func NewBonjourFencingRuleWithDefaults() *BonjourFencingRule {
 	bonjourFencingRuleType := new(BonjourFencingRule)
 	return bonjourFencingRuleType
 }
@@ -549,7 +549,7 @@ func NewBonjourFencingRuleDeviceMac() *BonjourFencingRuleDeviceMac {
 	return bonjourFencingRuleDeviceMacType
 }
 
-func NewDefaultBonjourFencingRuleDeviceMac() *BonjourFencingRuleDeviceMac {
+func NewBonjourFencingRuleDeviceMacWithDefaults() *BonjourFencingRuleDeviceMac {
 	bonjourFencingRuleDeviceMacType := new(BonjourFencingRuleDeviceMac)
 	return bonjourFencingRuleDeviceMacType
 }
@@ -569,7 +569,7 @@ func NewBonjourFencingRuleMapping() *BonjourFencingRuleMapping {
 	return bonjourFencingRuleMappingType
 }
 
-func NewDefaultBonjourFencingRuleMapping() *BonjourFencingRuleMapping {
+func NewBonjourFencingRuleMappingWithDefaults() *BonjourFencingRuleMapping {
 	bonjourFencingRuleMappingType := new(BonjourFencingRuleMapping)
 	return bonjourFencingRuleMappingType
 }
@@ -593,7 +593,7 @@ func NewBonjourFencingService() *BonjourFencingService {
 	return bonjourFencingServiceType
 }
 
-func NewDefaultBonjourFencingService() *BonjourFencingService {
+func NewBonjourFencingServiceWithDefaults() *BonjourFencingService {
 	bonjourFencingServiceType := new(BonjourFencingService)
 	return bonjourFencingServiceType
 }
@@ -615,7 +615,7 @@ func NewBonjourFencingStatistic() *BonjourFencingStatistic {
 	return bonjourFencingStatisticType
 }
 
-func NewDefaultBonjourFencingStatistic() *BonjourFencingStatistic {
+func NewBonjourFencingStatisticWithDefaults() *BonjourFencingStatistic {
 	bonjourFencingStatisticType := new(BonjourFencingStatistic)
 	return bonjourFencingStatisticType
 }
@@ -665,7 +665,7 @@ func NewBridgeProfile() *BridgeProfile {
 	return bridgeProfileType
 }
 
-func NewDefaultBridgeProfile() *BridgeProfile {
+func NewBridgeProfileWithDefaults() *BridgeProfile {
 	bridgeProfileType := new(BridgeProfile)
 	return bridgeProfileType
 }
@@ -687,7 +687,7 @@ func NewBridgeProfileList() *BridgeProfileList {
 	return bridgeProfileListType
 }
 
-func NewDefaultBridgeProfileList() *BridgeProfileList {
+func NewBridgeProfileListWithDefaults() *BridgeProfileList {
 	bridgeProfileListType := new(BridgeProfileList)
 	return bridgeProfileListType
 }
@@ -699,7 +699,7 @@ func NewBridgeService() *BridgeService {
 	return bridgeServiceType
 }
 
-func NewDefaultBridgeService() *BridgeService {
+func NewBridgeServiceWithDefaults() *BridgeService {
 	bridgeServiceType := new(BridgeService)
 	return bridgeServiceType
 }
@@ -715,7 +715,7 @@ func NewBulkBlockClient() *BulkBlockClient {
 	return bulkBlockClientType
 }
 
-func NewDefaultBulkBlockClient() *BulkBlockClient {
+func NewBulkBlockClientWithDefaults() *BulkBlockClient {
 	bulkBlockClientType := new(BulkBlockClient)
 	return bulkBlockClientType
 }
@@ -741,7 +741,7 @@ func NewBulkBlockClientBlockClientListType() *BulkBlockClientBlockClientListType
 	return bulkBlockClientBlockClientListTypeType
 }
 
-func NewDefaultBulkBlockClientBlockClientListType() *BulkBlockClientBlockClientListType {
+func NewBulkBlockClientBlockClientListTypeWithDefaults() *BulkBlockClientBlockClientListType {
 	bulkBlockClientBlockClientListTypeType := new(BulkBlockClientBlockClientListType)
 	return bulkBlockClientBlockClientListTypeType
 }
@@ -764,7 +764,7 @@ func NewClientIsolationEntry() *ClientIsolationEntry {
 	return clientIsolationEntryType
 }
 
-func NewDefaultClientIsolationEntry() *ClientIsolationEntry {
+func NewClientIsolationEntryWithDefaults() *ClientIsolationEntry {
 	clientIsolationEntryType := new(ClientIsolationEntry)
 	return clientIsolationEntryType
 }
@@ -827,7 +827,7 @@ func NewClientIsolationWhitelist() *ClientIsolationWhitelist {
 	return clientIsolationWhitelistType
 }
 
-func NewDefaultClientIsolationWhitelist() *ClientIsolationWhitelist {
+func NewClientIsolationWhitelistWithDefaults() *ClientIsolationWhitelist {
 	clientIsolationWhitelistType := new(ClientIsolationWhitelist)
 	return clientIsolationWhitelistType
 }
@@ -871,7 +871,7 @@ func NewClientIsolationWhitelistArray() *ClientIsolationWhitelistArray {
 	return clientIsolationWhitelistArrayType
 }
 
-func NewDefaultClientIsolationWhitelistArray() *ClientIsolationWhitelistArray {
+func NewClientIsolationWhitelistArrayWithDefaults() *ClientIsolationWhitelistArray {
 	clientIsolationWhitelistArrayType := new(ClientIsolationWhitelistArray)
 	return clientIsolationWhitelistArrayType
 }
@@ -908,7 +908,7 @@ func NewCmProtocolOptionContent() *CmProtocolOptionContent {
 	return cmProtocolOptionContentType
 }
 
-func NewDefaultCmProtocolOptionContent() *CmProtocolOptionContent {
+func NewCmProtocolOptionContentWithDefaults() *CmProtocolOptionContent {
 	cmProtocolOptionContentType := new(CmProtocolOptionContent)
 	return cmProtocolOptionContentType
 }
@@ -962,7 +962,7 @@ func NewCoreNetworkGateway() *CoreNetworkGateway {
 	return coreNetworkGatewayType
 }
 
-func NewDefaultCoreNetworkGateway() *CoreNetworkGateway {
+func NewCoreNetworkGatewayWithDefaults() *CoreNetworkGateway {
 	coreNetworkGatewayType := new(CoreNetworkGateway)
 	keepAlivePeriodField := 10
 	coreNetworkGatewayType.KeepAlivePeriod = &keepAlivePeriodField
@@ -999,7 +999,7 @@ func NewCreateAccountingProfile() *CreateAccountingProfile {
 	return createAccountingProfileType
 }
 
-func NewDefaultCreateAccountingProfile() *CreateAccountingProfile {
+func NewCreateAccountingProfileWithDefaults() *CreateAccountingProfile {
 	createAccountingProfileType := new(CreateAccountingProfile)
 	return createAccountingProfileType
 }
@@ -1043,7 +1043,7 @@ func NewCreateAuthenticationProfile() *CreateAuthenticationProfile {
 	return createAuthenticationProfileType
 }
 
-func NewDefaultCreateAuthenticationProfile() *CreateAuthenticationProfile {
+func NewCreateAuthenticationProfileWithDefaults() *CreateAuthenticationProfile {
 	createAuthenticationProfileType := new(CreateAuthenticationProfile)
 	gppSuppportEnabledField := false
 	createAuthenticationProfileType.GppSuppportEnabled = &gppSuppportEnabledField
@@ -1074,7 +1074,7 @@ func NewCreateBonjourFencingPolicy() *CreateBonjourFencingPolicy {
 	return createBonjourFencingPolicyType
 }
 
-func NewDefaultCreateBonjourFencingPolicy() *CreateBonjourFencingPolicy {
+func NewCreateBonjourFencingPolicyWithDefaults() *CreateBonjourFencingPolicy {
 	createBonjourFencingPolicyType := new(CreateBonjourFencingPolicy)
 	return createBonjourFencingPolicyType
 }
@@ -1103,7 +1103,7 @@ func NewCreateBridgeProfile() *CreateBridgeProfile {
 	return createBridgeProfileType
 }
 
-func NewDefaultCreateBridgeProfile() *CreateBridgeProfile {
+func NewCreateBridgeProfileWithDefaults() *CreateBridgeProfile {
 	createBridgeProfileType := new(CreateBridgeProfile)
 	return createBridgeProfileType
 }
@@ -1134,7 +1134,7 @@ func NewCreateClientIsolationWhitelist() *CreateClientIsolationWhitelist {
 	return createClientIsolationWhitelistType
 }
 
-func NewDefaultCreateClientIsolationWhitelist() *CreateClientIsolationWhitelist {
+func NewCreateClientIsolationWhitelistWithDefaults() *CreateClientIsolationWhitelist {
 	createClientIsolationWhitelistType := new(CreateClientIsolationWhitelist)
 	return createClientIsolationWhitelistType
 }
@@ -1201,7 +1201,7 @@ func NewCreateDhcpProfile() *CreateDhcpProfile {
 	return createDhcpProfileType
 }
 
-func NewDefaultCreateDhcpProfile() *CreateDhcpProfile {
+func NewCreateDhcpProfileWithDefaults() *CreateDhcpProfile {
 	createDhcpProfileType := new(CreateDhcpProfile)
 	return createDhcpProfileType
 }
@@ -1242,7 +1242,7 @@ func NewCreateDnsServerProfile() *CreateDnsServerProfile {
 	return createDnsServerProfileType
 }
 
-func NewDefaultCreateDnsServerProfile() *CreateDnsServerProfile {
+func NewCreateDnsServerProfileWithDefaults() *CreateDnsServerProfile {
 	createDnsServerProfileType := new(CreateDnsServerProfile)
 	return createDnsServerProfileType
 }
@@ -1320,7 +1320,7 @@ func NewCreateIpsecProfile() *CreateIpsecProfile {
 	return createIpsecProfileType
 }
 
-func NewDefaultCreateIpsecProfile() *CreateIpsecProfile {
+func NewCreateIpsecProfileWithDefaults() *CreateIpsecProfile {
 	createIpsecProfileType := new(CreateIpsecProfile)
 	return createIpsecProfileType
 }
@@ -1354,7 +1354,7 @@ func NewCreateL2oGREProfile() *CreateL2oGREProfile {
 	return createL2oGREProfileType
 }
 
-func NewDefaultCreateL2oGREProfile() *CreateL2oGREProfile {
+func NewCreateL2oGREProfileWithDefaults() *CreateL2oGREProfile {
 	createL2oGREProfileType := new(CreateL2oGREProfile)
 	return createL2oGREProfileType
 }
@@ -1380,7 +1380,7 @@ func NewCreatePrecedenceProfile() *CreatePrecedenceProfile {
 	return createPrecedenceProfileType
 }
 
-func NewDefaultCreatePrecedenceProfile() *CreatePrecedenceProfile {
+func NewCreatePrecedenceProfileWithDefaults() *CreatePrecedenceProfile {
 	createPrecedenceProfileType := new(CreatePrecedenceProfile)
 	return createPrecedenceProfileType
 }
@@ -1392,7 +1392,7 @@ func NewCreateResultList() *CreateResultList {
 	return &createResultListType
 }
 
-func NewDefaultCreateResultList() *CreateResultList {
+func NewCreateResultListWithDefaults() *CreateResultList {
 	createResultListType := make(CreateResultList, 0)
 	return &createResultListType
 }
@@ -1416,7 +1416,7 @@ func NewCreateRogueApPolicy() *CreateRogueApPolicy {
 	return createRogueApPolicyType
 }
 
-func NewDefaultCreateRogueApPolicy() *CreateRogueApPolicy {
+func NewCreateRogueApPolicyWithDefaults() *CreateRogueApPolicy {
 	createRogueApPolicyType := new(CreateRogueApPolicy)
 	return createRogueApPolicyType
 }
@@ -1448,7 +1448,7 @@ func NewCreateRtlsProfile() *CreateRtlsProfile {
 	return createRtlsProfileType
 }
 
-func NewDefaultCreateRtlsProfile() *CreateRtlsProfile {
+func NewCreateRtlsProfileWithDefaults() *CreateRtlsProfile {
 	createRtlsProfileType := new(CreateRtlsProfile)
 	return createRtlsProfileType
 }
@@ -1505,7 +1505,7 @@ func NewCreateRuckusGREProfile() *CreateRuckusGREProfile {
 	return createRuckusGREProfileType
 }
 
-func NewDefaultCreateRuckusGREProfile() *CreateRuckusGREProfile {
+func NewCreateRuckusGREProfileWithDefaults() *CreateRuckusGREProfile {
 	createRuckusGREProfileType := new(CreateRuckusGREProfile)
 	tunnelMtuSizeField := 1500
 	createRuckusGREProfileType.TunnelMtuSize = &tunnelMtuSizeField
@@ -1582,7 +1582,7 @@ func NewCreateSoftGREProfile() *CreateSoftGREProfile {
 	return createSoftGREProfileType
 }
 
-func NewDefaultCreateSoftGREProfile() *CreateSoftGREProfile {
+func NewCreateSoftGREProfileWithDefaults() *CreateSoftGREProfile {
 	createSoftGREProfileType := new(CreateSoftGREProfile)
 	tunnelMtuSizeField := 1500
 	createSoftGREProfileType.TunnelMtuSize = &tunnelMtuSizeField
@@ -1608,7 +1608,7 @@ func NewCreateTrafficClassProfile() *CreateTrafficClassProfile {
 	return createTrafficClassProfileType
 }
 
-func NewDefaultCreateTrafficClassProfile() *CreateTrafficClassProfile {
+func NewCreateTrafficClassProfileWithDefaults() *CreateTrafficClassProfile {
 	createTrafficClassProfileType := new(CreateTrafficClassProfile)
 	return createTrafficClassProfileType
 }
@@ -1664,7 +1664,7 @@ func NewCreateTtgpdgProfile() *CreateTtgpdgProfile {
 	return createTtgpdgProfileType
 }
 
-func NewDefaultCreateTtgpdgProfile() *CreateTtgpdgProfile {
+func NewCreateTtgpdgProfileWithDefaults() *CreateTtgpdgProfile {
 	createTtgpdgProfileType := new(CreateTtgpdgProfile)
 	return createTtgpdgProfileType
 }
@@ -1719,7 +1719,7 @@ func NewCreateUserTrafficProfile() *CreateUserTrafficProfile {
 	return createUserTrafficProfileType
 }
 
-func NewDefaultCreateUserTrafficProfile() *CreateUserTrafficProfile {
+func NewCreateUserTrafficProfileWithDefaults() *CreateUserTrafficProfile {
 	createUserTrafficProfileType := new(CreateUserTrafficProfile)
 	defaultActionField := `ALLOW`
 	createUserTrafficProfileType.DefaultAction = &defaultActionField
@@ -1753,7 +1753,7 @@ func NewCreateZoneAffinityProfile() *CreateZoneAffinityProfile {
 	return createZoneAffinityProfileType
 }
 
-func NewDefaultCreateZoneAffinityProfile() *CreateZoneAffinityProfile {
+func NewCreateZoneAffinityProfileWithDefaults() *CreateZoneAffinityProfile {
 	createZoneAffinityProfileType := new(CreateZoneAffinityProfile)
 	return createZoneAffinityProfileType
 }
@@ -1797,7 +1797,7 @@ func NewDataPlaneL3RoamingData() *DataPlaneL3RoamingData {
 	return dataPlaneL3RoamingDataType
 }
 
-func NewDefaultDataPlaneL3RoamingData() *DataPlaneL3RoamingData {
+func NewDataPlaneL3RoamingDataWithDefaults() *DataPlaneL3RoamingData {
 	dataPlaneL3RoamingDataType := new(DataPlaneL3RoamingData)
 	return dataPlaneL3RoamingDataType
 }
@@ -1811,7 +1811,7 @@ func NewDeleteBulkAccountingProfile() *DeleteBulkAccountingProfile {
 	return deleteBulkAccountingProfileType
 }
 
-func NewDefaultDeleteBulkAccountingProfile() *DeleteBulkAccountingProfile {
+func NewDeleteBulkAccountingProfileWithDefaults() *DeleteBulkAccountingProfile {
 	deleteBulkAccountingProfileType := new(DeleteBulkAccountingProfile)
 	return deleteBulkAccountingProfileType
 }
@@ -1825,7 +1825,7 @@ func NewDeleteBulkAuthenticationProfile() *DeleteBulkAuthenticationProfile {
 	return deleteBulkAuthenticationProfileType
 }
 
-func NewDefaultDeleteBulkAuthenticationProfile() *DeleteBulkAuthenticationProfile {
+func NewDeleteBulkAuthenticationProfileWithDefaults() *DeleteBulkAuthenticationProfile {
 	deleteBulkAuthenticationProfileType := new(DeleteBulkAuthenticationProfile)
 	return deleteBulkAuthenticationProfileType
 }
@@ -1839,7 +1839,7 @@ func NewDeleteBulkPrecedenceProfile() *DeleteBulkPrecedenceProfile {
 	return deleteBulkPrecedenceProfileType
 }
 
-func NewDefaultDeleteBulkPrecedenceProfile() *DeleteBulkPrecedenceProfile {
+func NewDeleteBulkPrecedenceProfileWithDefaults() *DeleteBulkPrecedenceProfile {
 	deleteBulkPrecedenceProfileType := new(DeleteBulkPrecedenceProfile)
 	return deleteBulkPrecedenceProfileType
 }
@@ -1853,7 +1853,7 @@ func NewDeleteBulkUserTrafficProfile() *DeleteBulkUserTrafficProfile {
 	return deleteBulkUserTrafficProfileType
 }
 
-func NewDefaultDeleteBulkUserTrafficProfile() *DeleteBulkUserTrafficProfile {
+func NewDeleteBulkUserTrafficProfileWithDefaults() *DeleteBulkUserTrafficProfile {
 	deleteBulkUserTrafficProfileType := new(DeleteBulkUserTrafficProfile)
 	return deleteBulkUserTrafficProfileType
 }
@@ -1910,7 +1910,7 @@ func NewDhcpOption82() *DhcpOption82 {
 	return dhcpOption82Type
 }
 
-func NewDefaultDhcpOption82() *DhcpOption82 {
+func NewDhcpOption82WithDefaults() *DhcpOption82 {
 	dhcpOption82Type := new(DhcpOption82)
 	return dhcpOption82Type
 }
@@ -1954,7 +1954,7 @@ func NewDhcpProfileList() *DhcpProfileList {
 	return dhcpProfileListType
 }
 
-func NewDefaultDhcpProfileList() *DhcpProfileList {
+func NewDhcpProfileListWithDefaults() *DhcpProfileList {
 	dhcpProfileListType := new(DhcpProfileList)
 	return dhcpProfileListType
 }
@@ -1984,7 +1984,7 @@ func NewDhcpRelayNoRelayTunnel() *DhcpRelayNoRelayTunnel {
 	return dhcpRelayNoRelayTunnelType
 }
 
-func NewDefaultDhcpRelayNoRelayTunnel() *DhcpRelayNoRelayTunnel {
+func NewDhcpRelayNoRelayTunnelWithDefaults() *DhcpRelayNoRelayTunnel {
 	dhcpRelayNoRelayTunnelType := new(DhcpRelayNoRelayTunnel)
 	return dhcpRelayNoRelayTunnelType
 }
@@ -2048,7 +2048,7 @@ func NewDnsServerProfile() *DnsServerProfile {
 	return dnsServerProfileType
 }
 
-func NewDefaultDnsServerProfile() *DnsServerProfile {
+func NewDnsServerProfileWithDefaults() *DnsServerProfile {
 	dnsServerProfileType := new(DnsServerProfile)
 	return dnsServerProfileType
 }
@@ -2070,7 +2070,7 @@ func NewDnsServerProfileList() *DnsServerProfileList {
 	return dnsServerProfileListType
 }
 
-func NewDefaultDnsServerProfileList() *DnsServerProfileList {
+func NewDnsServerProfileListWithDefaults() *DnsServerProfileList {
 	dnsServerProfileListType := new(DnsServerProfileList)
 	return dnsServerProfileListType
 }
@@ -2090,7 +2090,7 @@ func NewDownlinkRateLimiting() *DownlinkRateLimiting {
 	return downlinkRateLimitingType
 }
 
-func NewDefaultDownlinkRateLimiting() *DownlinkRateLimiting {
+func NewDownlinkRateLimitingWithDefaults() *DownlinkRateLimiting {
 	downlinkRateLimitingType := new(DownlinkRateLimiting)
 	downlinkRateLimitingEnabledField := false
 	downlinkRateLimitingType.DownlinkRateLimitingEnabled = &downlinkRateLimitingEnabledField
@@ -2128,7 +2128,7 @@ func NewEspProposal() *EspProposal {
 	return espProposalType
 }
 
-func NewDefaultEspProposal() *EspProposal {
+func NewEspProposalWithDefaults() *EspProposal {
 	espProposalType := new(EspProposal)
 	return espProposalType
 }
@@ -2154,7 +2154,7 @@ func NewEspSecurityAssociationContent() *EspSecurityAssociationContent {
 	return espSecurityAssociationContentType
 }
 
-func NewDefaultEspSecurityAssociationContent() *EspSecurityAssociationContent {
+func NewEspSecurityAssociationContentWithDefaults() *EspSecurityAssociationContent {
 	espSecurityAssociationContentType := new(EspSecurityAssociationContent)
 	return espSecurityAssociationContentType
 }
@@ -2202,7 +2202,7 @@ func NewFlexiVpnProfile() *FlexiVpnProfile {
 	return flexiVpnProfileType
 }
 
-func NewDefaultFlexiVpnProfile() *FlexiVpnProfile {
+func NewFlexiVpnProfileWithDefaults() *FlexiVpnProfile {
 	flexiVpnProfileType := new(FlexiVpnProfile)
 	return flexiVpnProfileType
 }
@@ -2246,7 +2246,7 @@ func NewFlexiVpnProfileList() *FlexiVpnProfileList {
 	return flexiVpnProfileListType
 }
 
-func NewDefaultFlexiVpnProfileList() *FlexiVpnProfileList {
+func NewFlexiVpnProfileListWithDefaults() *FlexiVpnProfileList {
 	flexiVpnProfileListType := new(FlexiVpnProfileList)
 	return flexiVpnProfileListType
 }
@@ -2262,7 +2262,7 @@ func NewGetL3RoamingConfig() *GetL3RoamingConfig {
 	return getL3RoamingConfigType
 }
 
-func NewDefaultGetL3RoamingConfig() *GetL3RoamingConfig {
+func NewGetL3RoamingConfigWithDefaults() *GetL3RoamingConfig {
 	getL3RoamingConfigType := new(GetL3RoamingConfig)
 	return getL3RoamingConfigType
 }
@@ -2287,7 +2287,7 @@ func NewHs20FriendlyName() *Hs20FriendlyName {
 	return hs20FriendlyNameType
 }
 
-func NewDefaultHs20FriendlyName() *Hs20FriendlyName {
+func NewHs20FriendlyNameWithDefaults() *Hs20FriendlyName {
 	hs20FriendlyNameType := new(Hs20FriendlyName)
 	return hs20FriendlyNameType
 }
@@ -2352,7 +2352,7 @@ func NewHs20Operator() *Hs20Operator {
 	return hs20OperatorType
 }
 
-func NewDefaultHs20Operator() *Hs20Operator {
+func NewHs20OperatorWithDefaults() *Hs20Operator {
 	hs20OperatorType := new(Hs20Operator)
 	return hs20OperatorType
 }
@@ -2374,7 +2374,7 @@ func NewHs20OperatorList() *Hs20OperatorList {
 	return hs20OperatorListType
 }
 
-func NewDefaultHs20OperatorList() *Hs20OperatorList {
+func NewHs20OperatorListWithDefaults() *Hs20OperatorList {
 	hs20OperatorListType := new(Hs20OperatorList)
 	return hs20OperatorListType
 }
@@ -2444,7 +2444,7 @@ func NewHs20Provider() *Hs20Provider {
 	return hs20ProviderType
 }
 
-func NewDefaultHs20Provider() *Hs20Provider {
+func NewHs20ProviderWithDefaults() *Hs20Provider {
 	hs20ProviderType := new(Hs20Provider)
 	return hs20ProviderType
 }
@@ -2466,7 +2466,7 @@ func NewHs20ProviderList() *Hs20ProviderList {
 	return hs20ProviderListType
 }
 
-func NewDefaultHs20ProviderList() *Hs20ProviderList {
+func NewHs20ProviderListWithDefaults() *Hs20ProviderList {
 	hs20ProviderListType := new(Hs20ProviderList)
 	return hs20ProviderListType
 }
@@ -2509,7 +2509,7 @@ func NewIkeProposal() *IkeProposal {
 	return ikeProposalType
 }
 
-func NewDefaultIkeProposal() *IkeProposal {
+func NewIkeProposalWithDefaults() *IkeProposal {
 	ikeProposalType := new(IkeProposal)
 	return ikeProposalType
 }
@@ -2535,7 +2535,7 @@ func NewIkeSecurityAssociationContent() *IkeSecurityAssociationContent {
 	return ikeSecurityAssociationContentType
 }
 
-func NewDefaultIkeSecurityAssociationContent() *IkeSecurityAssociationContent {
+func NewIkeSecurityAssociationContentWithDefaults() *IkeSecurityAssociationContent {
 	ikeSecurityAssociationContentType := new(IkeSecurityAssociationContent)
 	return ikeSecurityAssociationContentType
 }
@@ -2672,7 +2672,7 @@ func NewIpAclRules() *IpAclRules {
 	return ipAclRulesType
 }
 
-func NewDefaultIpAclRules() *IpAclRules {
+func NewIpAclRulesWithDefaults() *IpAclRules {
 	ipAclRulesType := new(IpAclRules)
 	actionField := `ALLOW`
 	ipAclRulesType.Action = &actionField
@@ -2690,7 +2690,7 @@ func NewIpMode() *IpMode {
 	return ipModeType
 }
 
-func NewDefaultIpMode() *IpMode {
+func NewIpModeWithDefaults() *IpMode {
 	ipModeType := new(IpMode)
 	return ipModeType
 }
@@ -2782,7 +2782,7 @@ func NewIpsecProfile() *IpsecProfile {
 	return ipsecProfileType
 }
 
-func NewDefaultIpsecProfile() *IpsecProfile {
+func NewIpsecProfileWithDefaults() *IpsecProfile {
 	ipsecProfileType := new(IpsecProfile)
 	return ipsecProfileType
 }
@@ -2804,7 +2804,7 @@ func NewIpsecProfileList() *IpsecProfileList {
 	return ipsecProfileListType
 }
 
-func NewDefaultIpsecProfileList() *IpsecProfileList {
+func NewIpsecProfileListWithDefaults() *IpsecProfileList {
 	ipsecProfileListType := new(IpsecProfileList)
 	return ipsecProfileListType
 }
@@ -2856,7 +2856,7 @@ func NewL2oGREProfile() *L2oGREProfile {
 	return l2oGREProfileType
 }
 
-func NewDefaultL2oGREProfile() *L2oGREProfile {
+func NewL2oGREProfileWithDefaults() *L2oGREProfile {
 	l2oGREProfileType := new(L2oGREProfile)
 	return l2oGREProfileType
 }
@@ -2878,7 +2878,7 @@ func NewL2oGREProfileList() *L2oGREProfileList {
 	return l2oGREProfileListType
 }
 
-func NewDefaultL2oGREProfileList() *L2oGREProfileList {
+func NewL2oGREProfileListWithDefaults() *L2oGREProfileList {
 	l2oGREProfileListType := new(L2oGREProfileList)
 	return l2oGREProfileListType
 }
@@ -2942,7 +2942,7 @@ func NewLbsProfile() *LbsProfile {
 	return lbsProfileType
 }
 
-func NewDefaultLbsProfile() *LbsProfile {
+func NewLbsProfileWithDefaults() *LbsProfile {
 	lbsProfileType := new(LbsProfile)
 	return lbsProfileType
 }
@@ -2964,7 +2964,7 @@ func NewLbsProfileList() *LbsProfileList {
 	return lbsProfileListType
 }
 
-func NewDefaultLbsProfileList() *LbsProfileList {
+func NewLbsProfileListWithDefaults() *LbsProfileList {
 	lbsProfileListType := new(LbsProfileList)
 	return lbsProfileListType
 }
@@ -2996,7 +2996,7 @@ func NewModifyAccountingProfile() *ModifyAccountingProfile {
 	return modifyAccountingProfileType
 }
 
-func NewDefaultModifyAccountingProfile() *ModifyAccountingProfile {
+func NewModifyAccountingProfileWithDefaults() *ModifyAccountingProfile {
 	modifyAccountingProfileType := new(ModifyAccountingProfile)
 	return modifyAccountingProfileType
 }
@@ -3038,7 +3038,7 @@ func NewModifyAuthenticationProfile() *ModifyAuthenticationProfile {
 	return modifyAuthenticationProfileType
 }
 
-func NewDefaultModifyAuthenticationProfile() *ModifyAuthenticationProfile {
+func NewModifyAuthenticationProfileWithDefaults() *ModifyAuthenticationProfile {
 	modifyAuthenticationProfileType := new(ModifyAuthenticationProfile)
 	gppSuppportEnabledField := false
 	modifyAuthenticationProfileType.GppSuppportEnabled = &gppSuppportEnabledField
@@ -3056,7 +3056,7 @@ func NewModifyBlockClient() *ModifyBlockClient {
 	return modifyBlockClientType
 }
 
-func NewDefaultModifyBlockClient() *ModifyBlockClient {
+func NewModifyBlockClientWithDefaults() *ModifyBlockClient {
 	modifyBlockClientType := new(ModifyBlockClient)
 	return modifyBlockClientType
 }
@@ -3080,7 +3080,7 @@ func NewModifyBonjourFencingPolicy() *ModifyBonjourFencingPolicy {
 	return modifyBonjourFencingPolicyType
 }
 
-func NewDefaultModifyBonjourFencingPolicy() *ModifyBonjourFencingPolicy {
+func NewModifyBonjourFencingPolicyWithDefaults() *ModifyBonjourFencingPolicy {
 	modifyBonjourFencingPolicyType := new(ModifyBonjourFencingPolicy)
 	return modifyBonjourFencingPolicyType
 }
@@ -3106,7 +3106,7 @@ func NewModifyBridgeProfile() *ModifyBridgeProfile {
 	return modifyBridgeProfileType
 }
 
-func NewDefaultModifyBridgeProfile() *ModifyBridgeProfile {
+func NewModifyBridgeProfileWithDefaults() *ModifyBridgeProfile {
 	modifyBridgeProfileType := new(ModifyBridgeProfile)
 	return modifyBridgeProfileType
 }
@@ -3130,7 +3130,7 @@ func NewModifyClientIsolationWhitelist() *ModifyClientIsolationWhitelist {
 	return modifyClientIsolationWhitelistType
 }
 
-func NewDefaultModifyClientIsolationWhitelist() *ModifyClientIsolationWhitelist {
+func NewModifyClientIsolationWhitelistWithDefaults() *ModifyClientIsolationWhitelist {
 	modifyClientIsolationWhitelistType := new(ModifyClientIsolationWhitelist)
 	return modifyClientIsolationWhitelistType
 }
@@ -3170,7 +3170,7 @@ func NewModifyDnsServerProfile() *ModifyDnsServerProfile {
 	return modifyDnsServerProfileType
 }
 
-func NewDefaultModifyDnsServerProfile() *ModifyDnsServerProfile {
+func NewModifyDnsServerProfileWithDefaults() *ModifyDnsServerProfile {
 	modifyDnsServerProfileType := new(ModifyDnsServerProfile)
 	return modifyDnsServerProfileType
 }
@@ -3204,7 +3204,7 @@ func NewModifyHS20Operator() *ModifyHS20Operator {
 	return modifyHS20OperatorType
 }
 
-func NewDefaultModifyHS20Operator() *ModifyHS20Operator {
+func NewModifyHS20OperatorWithDefaults() *ModifyHS20Operator {
 	modifyHS20OperatorType := new(ModifyHS20Operator)
 	return modifyHS20OperatorType
 }
@@ -3344,7 +3344,7 @@ func NewModifyIpAclRules() *ModifyIpAclRules {
 	return modifyIpAclRulesType
 }
 
-func NewDefaultModifyIpAclRules() *ModifyIpAclRules {
+func NewModifyIpAclRulesWithDefaults() *ModifyIpAclRules {
 	modifyIpAclRulesType := new(ModifyIpAclRules)
 	actionField := `ALLOW`
 	modifyIpAclRulesType.Action = &actionField
@@ -3411,7 +3411,7 @@ func NewModifyIpsecProfile() *ModifyIpsecProfile {
 	return modifyIpsecProfileType
 }
 
-func NewDefaultModifyIpsecProfile() *ModifyIpsecProfile {
+func NewModifyIpsecProfileWithDefaults() *ModifyIpsecProfile {
 	modifyIpsecProfileType := new(ModifyIpsecProfile)
 	return modifyIpsecProfileType
 }
@@ -3439,7 +3439,7 @@ func NewModifyL2oGREProfile() *ModifyL2oGREProfile {
 	return modifyL2oGREProfileType
 }
 
-func NewDefaultModifyL2oGREProfile() *ModifyL2oGREProfile {
+func NewModifyL2oGREProfileWithDefaults() *ModifyL2oGREProfile {
 	modifyL2oGREProfileType := new(ModifyL2oGREProfile)
 	return modifyL2oGREProfileType
 }
@@ -3493,7 +3493,7 @@ func NewModifyRuckusGREProfile() *ModifyRuckusGREProfile {
 	return modifyRuckusGREProfileType
 }
 
-func NewDefaultModifyRuckusGREProfile() *ModifyRuckusGREProfile {
+func NewModifyRuckusGREProfileWithDefaults() *ModifyRuckusGREProfile {
 	modifyRuckusGREProfileType := new(ModifyRuckusGREProfile)
 	tunnelMtuSizeField := 1500
 	modifyRuckusGREProfileType.TunnelMtuSize = &tunnelMtuSizeField
@@ -3565,7 +3565,7 @@ func NewModifySoftGREProfile() *ModifySoftGREProfile {
 	return modifySoftGREProfileType
 }
 
-func NewDefaultModifySoftGREProfile() *ModifySoftGREProfile {
+func NewModifySoftGREProfileWithDefaults() *ModifySoftGREProfile {
 	modifySoftGREProfileType := new(ModifySoftGREProfile)
 	keepAlivePeriodField := 10
 	modifySoftGREProfileType.KeepAlivePeriod = &keepAlivePeriodField
@@ -3627,7 +3627,7 @@ func NewModifyUserTrafficProfile() *ModifyUserTrafficProfile {
 	return modifyUserTrafficProfileType
 }
 
-func NewDefaultModifyUserTrafficProfile() *ModifyUserTrafficProfile {
+func NewModifyUserTrafficProfileWithDefaults() *ModifyUserTrafficProfile {
 	modifyUserTrafficProfileType := new(ModifyUserTrafficProfile)
 	defaultActionField := `ALLOW`
 	modifyUserTrafficProfileType.DefaultAction = &defaultActionField
@@ -3658,7 +3658,7 @@ func NewModifyZoneAffinityProfile() *ModifyZoneAffinityProfile {
 	return modifyZoneAffinityProfileType
 }
 
-func NewDefaultModifyZoneAffinityProfile() *ModifyZoneAffinityProfile {
+func NewModifyZoneAffinityProfileWithDefaults() *ModifyZoneAffinityProfile {
 	modifyZoneAffinityProfileType := new(ModifyZoneAffinityProfile)
 	return modifyZoneAffinityProfileType
 }
@@ -3680,7 +3680,7 @@ func NewPrecedenceList() *PrecedenceList {
 	return precedenceListType
 }
 
-func NewDefaultPrecedenceList() *PrecedenceList {
+func NewPrecedenceListWithDefaults() *PrecedenceList {
 	precedenceListType := new(PrecedenceList)
 	return precedenceListType
 }
@@ -3710,7 +3710,7 @@ func NewPrecedenceListType() *PrecedenceListType {
 	return precedenceListTypeType
 }
 
-func NewDefaultPrecedenceListType() *PrecedenceListType {
+func NewPrecedenceListTypeWithDefaults() *PrecedenceListType {
 	precedenceListTypeType := new(PrecedenceListType)
 	return precedenceListTypeType
 }
@@ -3738,7 +3738,7 @@ func NewProfileCloneRequest() *ProfileCloneRequest {
 	return profileCloneRequestType
 }
 
-func NewDefaultProfileCloneRequest() *ProfileCloneRequest {
+func NewProfileCloneRequestWithDefaults() *ProfileCloneRequest {
 	profileCloneRequestType := new(ProfileCloneRequest)
 	return profileCloneRequestType
 }
@@ -3788,7 +3788,7 @@ func NewProfileList() *ProfileList {
 	return profileListType
 }
 
-func NewDefaultProfileList() *ProfileList {
+func NewProfileListWithDefaults() *ProfileList {
 	profileListType := new(ProfileList)
 	return profileListType
 }
@@ -3806,7 +3806,7 @@ func NewProfileListType() *ProfileListType {
 	return profileListTypeType
 }
 
-func NewDefaultProfileListType() *ProfileListType {
+func NewProfileListTypeWithDefaults() *ProfileListType {
 	profileListTypeType := new(ProfileListType)
 	return profileListTypeType
 }
@@ -3838,7 +3838,7 @@ func NewProviderAccounting() *ProviderAccounting {
 	return providerAccountingType
 }
 
-func NewDefaultProviderAccounting() *ProviderAccounting {
+func NewProviderAccountingWithDefaults() *ProviderAccounting {
 	providerAccountingType := new(ProviderAccounting)
 	return providerAccountingType
 }
@@ -3878,7 +3878,7 @@ func NewProviderAuthentication() *ProviderAuthentication {
 	return providerAuthenticationType
 }
 
-func NewDefaultProviderAuthentication() *ProviderAuthentication {
+func NewProviderAuthenticationWithDefaults() *ProviderAuthentication {
 	providerAuthenticationType := new(ProviderAuthentication)
 	return providerAuthenticationType
 }
@@ -3917,7 +3917,7 @@ func NewProviderEAPAuthSetting() *ProviderEAPAuthSetting {
 	return providerEAPAuthSettingType
 }
 
-func NewDefaultProviderEAPAuthSetting() *ProviderEAPAuthSetting {
+func NewProviderEAPAuthSettingWithDefaults() *ProviderEAPAuthSetting {
 	providerEAPAuthSettingType := new(ProviderEAPAuthSetting)
 	return providerEAPAuthSettingType
 }
@@ -3940,7 +3940,7 @@ func NewProviderEAPMethod() *ProviderEAPMethod {
 	return providerEAPMethodType
 }
 
-func NewDefaultProviderEAPMethod() *ProviderEAPMethod {
+func NewProviderEAPMethodWithDefaults() *ProviderEAPMethod {
 	providerEAPMethodType := new(ProviderEAPMethod)
 	return providerEAPMethodType
 }
@@ -3985,7 +3985,7 @@ func NewProviderExternalOSU() *ProviderExternalOSU {
 	return providerExternalOSUType
 }
 
-func NewDefaultProviderExternalOSU() *ProviderExternalOSU {
+func NewProviderExternalOSUWithDefaults() *ProviderExternalOSU {
 	providerExternalOSUType := new(ProviderExternalOSU)
 	return providerExternalOSUType
 }
@@ -4010,7 +4010,7 @@ func NewProviderHomeOIs() *ProviderHomeOIs {
 	return providerHomeOIsType
 }
 
-func NewDefaultProviderHomeOIs() *ProviderHomeOIs {
+func NewProviderHomeOIsWithDefaults() *ProviderHomeOIs {
 	providerHomeOIsType := new(ProviderHomeOIs)
 	return providerHomeOIsType
 }
@@ -4074,7 +4074,7 @@ func NewProviderInternalOSU() *ProviderInternalOSU {
 	return providerInternalOSUType
 }
 
-func NewDefaultProviderInternalOSU() *ProviderInternalOSU {
+func NewProviderInternalOSUWithDefaults() *ProviderInternalOSU {
 	providerInternalOSUType := new(ProviderInternalOSU)
 	return providerInternalOSUType
 }
@@ -4114,7 +4114,7 @@ func NewProviderInternalOSUOsuAuthServicesType() *ProviderInternalOSUOsuAuthServ
 	return providerInternalOSUOsuAuthServicesTypeType
 }
 
-func NewDefaultProviderInternalOSUOsuAuthServicesType() *ProviderInternalOSUOsuAuthServicesType {
+func NewProviderInternalOSUOsuAuthServicesTypeWithDefaults() *ProviderInternalOSUOsuAuthServicesType {
 	providerInternalOSUOsuAuthServicesTypeType := new(ProviderInternalOSUOsuAuthServicesType)
 	return providerInternalOSUOsuAuthServicesTypeType
 }
@@ -4137,7 +4137,7 @@ func NewProviderInternalOSUOsuPortalType() *ProviderInternalOSUOsuPortalType {
 	return providerInternalOSUOsuPortalTypeType
 }
 
-func NewDefaultProviderInternalOSUOsuPortalType() *ProviderInternalOSUOsuPortalType {
+func NewProviderInternalOSUOsuPortalTypeWithDefaults() *ProviderInternalOSUOsuPortalType {
 	providerInternalOSUOsuPortalTypeType := new(ProviderInternalOSUOsuPortalType)
 	return providerInternalOSUOsuPortalTypeType
 }
@@ -4160,7 +4160,7 @@ func NewProviderOnlineSignup() *ProviderOnlineSignup {
 	return providerOnlineSignupType
 }
 
-func NewDefaultProviderOnlineSignup() *ProviderOnlineSignup {
+func NewProviderOnlineSignupWithDefaults() *ProviderOnlineSignup {
 	providerOnlineSignupType := new(ProviderOnlineSignup)
 	return providerOnlineSignupType
 }
@@ -4184,7 +4184,7 @@ func NewProviderPLMN() *ProviderPLMN {
 	return providerPLMNType
 }
 
-func NewDefaultProviderPLMN() *ProviderPLMN {
+func NewProviderPLMNWithDefaults() *ProviderPLMN {
 	providerPLMNType := new(ProviderPLMN)
 	return providerPLMNType
 }
@@ -4196,7 +4196,7 @@ func NewProviderProvisionProtocal() *ProviderProvisionProtocal {
 	return providerProvisionProtocalType
 }
 
-func NewDefaultProviderProvisionProtocal() *ProviderProvisionProtocal {
+func NewProviderProvisionProtocalWithDefaults() *ProviderProvisionProtocal {
 	providerProvisionProtocalType := new(ProviderProvisionProtocal)
 	return providerProvisionProtocalType
 }
@@ -4229,7 +4229,7 @@ func NewProviderRealm() *ProviderRealm {
 	return providerRealmType
 }
 
-func NewDefaultProviderRealm() *ProviderRealm {
+func NewProviderRealmWithDefaults() *ProviderRealm {
 	providerRealmType := new(ProviderRealm)
 	return providerRealmType
 }
@@ -4265,7 +4265,7 @@ func NewProviderSubscriptionDescription() *ProviderSubscriptionDescription {
 	return providerSubscriptionDescriptionType
 }
 
-func NewDefaultProviderSubscriptionDescription() *ProviderSubscriptionDescription {
+func NewProviderSubscriptionDescriptionWithDefaults() *ProviderSubscriptionDescription {
 	providerSubscriptionDescriptionType := new(ProviderSubscriptionDescription)
 	return providerSubscriptionDescriptionType
 }
@@ -4291,7 +4291,7 @@ func NewRateLimitingPrecedenceItem() *RateLimitingPrecedenceItem {
 	return rateLimitingPrecedenceItemType
 }
 
-func NewDefaultRateLimitingPrecedenceItem() *RateLimitingPrecedenceItem {
+func NewRateLimitingPrecedenceItemWithDefaults() *RateLimitingPrecedenceItem {
 	rateLimitingPrecedenceItemType := new(RateLimitingPrecedenceItem)
 	return rateLimitingPrecedenceItemType
 }
@@ -4343,7 +4343,7 @@ func NewRealmAuthServiceMapping() *RealmAuthServiceMapping {
 	return realmAuthServiceMappingType
 }
 
-func NewDefaultRealmAuthServiceMapping() *RealmAuthServiceMapping {
+func NewRealmAuthServiceMappingWithDefaults() *RealmAuthServiceMapping {
 	realmAuthServiceMappingType := new(RealmAuthServiceMapping)
 	return realmAuthServiceMappingType
 }
@@ -4407,7 +4407,7 @@ func NewReturnZoneAffinityProfile() *ReturnZoneAffinityProfile {
 	return returnZoneAffinityProfileType
 }
 
-func NewDefaultReturnZoneAffinityProfile() *ReturnZoneAffinityProfile {
+func NewReturnZoneAffinityProfileWithDefaults() *ReturnZoneAffinityProfile {
 	returnZoneAffinityProfileType := new(ReturnZoneAffinityProfile)
 	return returnZoneAffinityProfileType
 }
@@ -4427,7 +4427,7 @@ func NewReturnZoneAffinityProfileZoneAffinityListWithPriorityType() *ReturnZoneA
 	return returnZoneAffinityProfileZoneAffinityListWithPriorityTypeType
 }
 
-func NewDefaultReturnZoneAffinityProfileZoneAffinityListWithPriorityType() *ReturnZoneAffinityProfileZoneAffinityListWithPriorityType {
+func NewReturnZoneAffinityProfileZoneAffinityListWithPriorityTypeWithDefaults() *ReturnZoneAffinityProfileZoneAffinityListWithPriorityType {
 	returnZoneAffinityProfileZoneAffinityListWithPriorityTypeType := new(ReturnZoneAffinityProfileZoneAffinityListWithPriorityType)
 	return returnZoneAffinityProfileZoneAffinityListWithPriorityTypeType
 }
@@ -4461,7 +4461,7 @@ func NewRogueApPolicy() *RogueApPolicy {
 	return rogueApPolicyType
 }
 
-func NewDefaultRogueApPolicy() *RogueApPolicy {
+func NewRogueApPolicyWithDefaults() *RogueApPolicy {
 	rogueApPolicyType := new(RogueApPolicy)
 	return rogueApPolicyType
 }
@@ -4481,7 +4481,7 @@ func NewRogueApPolicyList() *RogueApPolicyList {
 	return rogueApPolicyListType
 }
 
-func NewDefaultRogueApPolicyList() *RogueApPolicyList {
+func NewRogueApPolicyListWithDefaults() *RogueApPolicyList {
 	rogueApPolicyListType := new(RogueApPolicyList)
 	return rogueApPolicyListType
 }
@@ -4517,7 +4517,7 @@ func NewRogueApRuleList() *RogueApRuleList {
 	return rogueApRuleListType
 }
 
-func NewDefaultRogueApRuleList() *RogueApRuleList {
+func NewRogueApRuleListWithDefaults() *RogueApRuleList {
 	rogueApRuleListType := new(RogueApRuleList)
 	return rogueApRuleListType
 }
@@ -4539,7 +4539,7 @@ func NewRtlsProfileList() *RtlsProfileList {
 	return rtlsProfileListType
 }
 
-func NewDefaultRtlsProfileList() *RtlsProfileList {
+func NewRtlsProfileListWithDefaults() *RtlsProfileList {
 	rtlsProfileListType := new(RtlsProfileList)
 	return rtlsProfileListType
 }
@@ -4612,7 +4612,7 @@ func NewRuckusGREProfile() *RuckusGREProfile {
 	return ruckusGREProfileType
 }
 
-func NewDefaultRuckusGREProfile() *RuckusGREProfile {
+func NewRuckusGREProfileWithDefaults() *RuckusGREProfile {
 	ruckusGREProfileType := new(RuckusGREProfile)
 	return ruckusGREProfileType
 }
@@ -4634,7 +4634,7 @@ func NewRuckusGREProfileList() *RuckusGREProfileList {
 	return ruckusGREProfileListType
 }
 
-func NewDefaultRuckusGREProfileList() *RuckusGREProfileList {
+func NewRuckusGREProfileListWithDefaults() *RuckusGREProfileList {
 	ruckusGREProfileListType := new(RuckusGREProfileList)
 	return ruckusGREProfileListType
 }
@@ -4715,7 +4715,7 @@ func NewSoftGREProfile() *SoftGREProfile {
 	return softGREProfileType
 }
 
-func NewDefaultSoftGREProfile() *SoftGREProfile {
+func NewSoftGREProfileWithDefaults() *SoftGREProfile {
 	softGREProfileType := new(SoftGREProfile)
 	return softGREProfileType
 }
@@ -4737,7 +4737,7 @@ func NewSoftGREProfileList() *SoftGREProfileList {
 	return softGREProfileListType
 }
 
-func NewDefaultSoftGREProfileList() *SoftGREProfileList {
+func NewSoftGREProfileListWithDefaults() *SoftGREProfileList {
 	softGREProfileListType := new(SoftGREProfileList)
 	return softGREProfileListType
 }
@@ -4781,7 +4781,7 @@ func NewTrafficClassProfileList() *TrafficClassProfileList {
 	return trafficClassProfileListType
 }
 
-func NewDefaultTrafficClassProfileList() *TrafficClassProfileList {
+func NewTrafficClassProfileListWithDefaults() *TrafficClassProfileList {
 	trafficClassProfileListType := new(TrafficClassProfileList)
 	return trafficClassProfileListType
 }
@@ -4812,7 +4812,7 @@ func NewTtgCommonSetting() *TtgCommonSetting {
 	return ttgCommonSettingType
 }
 
-func NewDefaultTtgCommonSetting() *TtgCommonSetting {
+func NewTtgCommonSettingWithDefaults() *TtgCommonSetting {
 	ttgCommonSettingType := new(TtgCommonSetting)
 	return ttgCommonSettingType
 }
@@ -4842,7 +4842,7 @@ func NewTtgpdgApnForwardingRealm() *TtgpdgApnForwardingRealm {
 	return ttgpdgApnForwardingRealmType
 }
 
-func NewDefaultTtgpdgApnForwardingRealm() *TtgpdgApnForwardingRealm {
+func NewTtgpdgApnForwardingRealmWithDefaults() *TtgpdgApnForwardingRealm {
 	ttgpdgApnForwardingRealmType := new(TtgpdgApnForwardingRealm)
 	return ttgpdgApnForwardingRealmType
 }
@@ -4877,7 +4877,7 @@ func NewTtgpdgCommonSetting() *TtgpdgCommonSetting {
 	return ttgpdgCommonSettingType
 }
 
-func NewDefaultTtgpdgCommonSetting() *TtgpdgCommonSetting {
+func NewTtgpdgCommonSettingWithDefaults() *TtgpdgCommonSetting {
 	ttgpdgCommonSettingType := new(TtgpdgCommonSetting)
 	return ttgpdgCommonSettingType
 }
@@ -4945,7 +4945,7 @@ func NewTtgpdgProfile() *TtgpdgProfile {
 	return ttgpdgProfileType
 }
 
-func NewDefaultTtgpdgProfile() *TtgpdgProfile {
+func NewTtgpdgProfileWithDefaults() *TtgpdgProfile {
 	ttgpdgProfileType := new(TtgpdgProfile)
 	return ttgpdgProfileType
 }
@@ -4985,7 +4985,7 @@ func NewTtgpdgProfileConfiguration() *TtgpdgProfileConfiguration {
 	return ttgpdgProfileConfigurationType
 }
 
-func NewDefaultTtgpdgProfileConfiguration() *TtgpdgProfileConfiguration {
+func NewTtgpdgProfileConfigurationWithDefaults() *TtgpdgProfileConfiguration {
 	ttgpdgProfileConfigurationType := new(TtgpdgProfileConfiguration)
 	return ttgpdgProfileConfigurationType
 }
@@ -5007,7 +5007,7 @@ func NewTtgpdgProfileList() *TtgpdgProfileList {
 	return ttgpdgProfileListType
 }
 
-func NewDefaultTtgpdgProfileList() *TtgpdgProfileList {
+func NewTtgpdgProfileListWithDefaults() *TtgpdgProfileList {
 	ttgpdgProfileListType := new(TtgpdgProfileList)
 	return ttgpdgProfileListType
 }
@@ -5023,7 +5023,7 @@ func NewUpdateL3RoamingConfig() *UpdateL3RoamingConfig {
 	return updateL3RoamingConfigType
 }
 
-func NewDefaultUpdateL3RoamingConfig() *UpdateL3RoamingConfig {
+func NewUpdateL3RoamingConfigWithDefaults() *UpdateL3RoamingConfig {
 	updateL3RoamingConfigType := new(UpdateL3RoamingConfig)
 	return updateL3RoamingConfigType
 }
@@ -5049,7 +5049,7 @@ func NewUpdatePrecedenceProfile() *UpdatePrecedenceProfile {
 	return updatePrecedenceProfileType
 }
 
-func NewDefaultUpdatePrecedenceProfile() *UpdatePrecedenceProfile {
+func NewUpdatePrecedenceProfileWithDefaults() *UpdatePrecedenceProfile {
 	updatePrecedenceProfileType := new(UpdatePrecedenceProfile)
 	return updatePrecedenceProfileType
 }
@@ -5067,7 +5067,7 @@ func NewUpdateRogueApPolicy() *UpdateRogueApPolicy {
 	return updateRogueApPolicyType
 }
 
-func NewDefaultUpdateRogueApPolicy() *UpdateRogueApPolicy {
+func NewUpdateRogueApPolicyWithDefaults() *UpdateRogueApPolicy {
 	updateRogueApPolicyType := new(UpdateRogueApPolicy)
 	return updateRogueApPolicyType
 }
@@ -5089,7 +5089,7 @@ func NewUpdateRtlsProfile() *UpdateRtlsProfile {
 	return updateRtlsProfileType
 }
 
-func NewDefaultUpdateRtlsProfile() *UpdateRtlsProfile {
+func NewUpdateRtlsProfileWithDefaults() *UpdateRtlsProfile {
 	updateRtlsProfileType := new(UpdateRtlsProfile)
 	return updateRtlsProfileType
 }
@@ -5109,7 +5109,7 @@ func NewUplinkRateLimiting() *UplinkRateLimiting {
 	return uplinkRateLimitingType
 }
 
-func NewDefaultUplinkRateLimiting() *UplinkRateLimiting {
+func NewUplinkRateLimitingWithDefaults() *UplinkRateLimiting {
 	uplinkRateLimitingType := new(UplinkRateLimiting)
 	uplinkRateLimitingEnabledField := false
 	uplinkRateLimitingType.UplinkRateLimitingEnabled = &uplinkRateLimitingEnabledField
@@ -5195,7 +5195,7 @@ func NewUserTrafficProfile() *UserTrafficProfile {
 	return userTrafficProfileType
 }
 
-func NewDefaultUserTrafficProfile() *UserTrafficProfile {
+func NewUserTrafficProfileWithDefaults() *UserTrafficProfile {
 	userTrafficProfileType := new(UserTrafficProfile)
 	defaultActionField := `ALLOW`
 	userTrafficProfileType.DefaultAction = &defaultActionField
@@ -5219,7 +5219,7 @@ func NewUserTrafficProfileList() *UserTrafficProfileList {
 	return userTrafficProfileListType
 }
 
-func NewDefaultUserTrafficProfileList() *UserTrafficProfileList {
+func NewUserTrafficProfileListWithDefaults() *UserTrafficProfileList {
 	userTrafficProfileListType := new(UserTrafficProfileList)
 	return userTrafficProfileListType
 }
@@ -5327,7 +5327,7 @@ func NewVdpProfile() *VdpProfile {
 	return vdpProfileType
 }
 
-func NewDefaultVdpProfile() *VdpProfile {
+func NewVdpProfileWithDefaults() *VdpProfile {
 	vdpProfileType := new(VdpProfile)
 	return vdpProfileType
 }
@@ -5353,7 +5353,7 @@ func NewVlanPrecedenceItem() *VlanPrecedenceItem {
 	return vlanPrecedenceItemType
 }
 
-func NewDefaultVlanPrecedenceItem() *VlanPrecedenceItem {
+func NewVlanPrecedenceItemWithDefaults() *VlanPrecedenceItem {
 	vlanPrecedenceItemType := new(VlanPrecedenceItem)
 	return vlanPrecedenceItemType
 }
@@ -5367,7 +5367,7 @@ func NewZoneAffinityProfileList() *ZoneAffinityProfileList {
 	return zoneAffinityProfileListType
 }
 
-func NewDefaultZoneAffinityProfileList() *ZoneAffinityProfileList {
+func NewZoneAffinityProfileListWithDefaults() *ZoneAffinityProfileList {
 	zoneAffinityProfileListType := new(ZoneAffinityProfileList)
 	return zoneAffinityProfileListType
 }

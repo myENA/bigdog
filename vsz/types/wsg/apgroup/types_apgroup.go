@@ -17,7 +17,7 @@ func NewAddMembers() *AddMembers {
 	return addMembersType
 }
 
-func NewDefaultAddMembers() *AddMembers {
+func NewAddMembersWithDefaults() *AddMembers {
 	addMembersType := new(AddMembers)
 	return addMembersType
 }
@@ -120,7 +120,7 @@ func NewApGroupConfiguration() *ApGroupConfiguration {
 	return apGroupConfigurationType
 }
 
-func NewDefaultApGroupConfiguration() *ApGroupConfiguration {
+func NewApGroupConfigurationWithDefaults() *ApGroupConfiguration {
 	apGroupConfigurationType := new(ApGroupConfiguration)
 	channelEvaluationIntervalField := 600
 	apGroupConfigurationType.ChannelEvaluationInterval = &channelEvaluationIntervalField
@@ -142,7 +142,7 @@ func NewApGroupList() *ApGroupList {
 	return apGroupListType
 }
 
-func NewDefaultApGroupList() *ApGroupList {
+func NewApGroupListWithDefaults() *ApGroupList {
 	apGroupListType := new(ApGroupList)
 	return apGroupListType
 }
@@ -160,7 +160,7 @@ func NewApGroupMember() *ApGroupMember {
 	return apGroupMemberType
 }
 
-func NewDefaultApGroupMember() *ApGroupMember {
+func NewApGroupMemberWithDefaults() *ApGroupMember {
 	apGroupMemberType := new(ApGroupMember)
 	return apGroupMemberType
 }
@@ -180,7 +180,7 @@ func NewApGroupSummary() *ApGroupSummary {
 	return apGroupSummaryType
 }
 
-func NewDefaultApGroupSummary() *ApGroupSummary {
+func NewApGroupSummaryWithDefaults() *ApGroupSummary {
 	apGroupSummaryType := new(ApGroupSummary)
 	return apGroupSummaryType
 }
@@ -192,7 +192,7 @@ func NewCreateAPGroup() *CreateAPGroup {
 	return createAPGroupType
 }
 
-func NewDefaultCreateAPGroup() *CreateAPGroup {
+func NewCreateAPGroupWithDefaults() *CreateAPGroup {
 	createAPGroupType := new(CreateAPGroup)
 	return createAPGroupType
 }
@@ -283,7 +283,7 @@ func NewModifyAPGroup() *ModifyAPGroup {
 	return modifyAPGroupType
 }
 
-func NewDefaultModifyAPGroup() *ModifyAPGroup {
+func NewModifyAPGroupWithDefaults() *ModifyAPGroup {
 	modifyAPGroupType := new(ModifyAPGroup)
 	channelEvaluationIntervalField := 600
 	modifyAPGroupType.ChannelEvaluationInterval = &channelEvaluationIntervalField

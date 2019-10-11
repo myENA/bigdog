@@ -23,7 +23,7 @@ func NewClientQueryList() *ClientQueryList {
 	return clientQueryListType
 }
 
-func NewDefaultClientQueryList() *ClientQueryList {
+func NewClientQueryListWithDefaults() *ClientQueryList {
 	clientQueryListType := new(ClientQueryList)
 	return clientQueryListType
 }
@@ -79,7 +79,7 @@ func NewCreateClientQuery() *CreateClientQuery {
 	return createClientQueryType
 }
 
-func NewDefaultCreateClientQuery() *CreateClientQuery {
+func NewCreateClientQueryWithDefaults() *CreateClientQuery {
 	createClientQueryType := new(CreateClientQuery)
 	return createClientQueryType
 }

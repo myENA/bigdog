@@ -19,7 +19,7 @@ func NewApWlanBssid() *ApWlanBssid {
 	return apWlanBssidType
 }
 
-func NewDefaultApWlanBssid() *ApWlanBssid {
+func NewApWlanBssidWithDefaults() *ApWlanBssid {
 	apWlanBssidType := new(ApWlanBssid)
 	return apWlanBssidType
 }
@@ -47,7 +47,7 @@ func NewApWlanBssidQueryList() *ApWlanBssidQueryList {
 	return apWlanBssidQueryListType
 }
 
-func NewDefaultApWlanBssidQueryList() *ApWlanBssidQueryList {
+func NewApWlanBssidQueryListWithDefaults() *ApWlanBssidQueryList {
 	apWlanBssidQueryListType := new(ApWlanBssidQueryList)
 	return apWlanBssidQueryListType
 }
@@ -141,7 +141,7 @@ func NewCreateWlanQuery() *CreateWlanQuery {
 	return createWlanQueryType
 }
 
-func NewDefaultCreateWlanQuery() *CreateWlanQuery {
+func NewCreateWlanQueryWithDefaults() *CreateWlanQuery {
 	createWlanQueryType := new(CreateWlanQuery)
 	return createWlanQueryType
 }
@@ -161,7 +161,7 @@ func NewWlanBssid() *WlanBssid {
 	return wlanBssidType
 }
 
-func NewDefaultWlanBssid() *WlanBssid {
+func NewWlanBssidWithDefaults() *WlanBssid {
 	wlanBssidType := new(WlanBssid)
 	return wlanBssidType
 }
@@ -183,7 +183,7 @@ func NewWlanQueryList() *WlanQueryList {
 	return wlanQueryListType
 }
 
-func NewDefaultWlanQueryList() *WlanQueryList {
+func NewWlanQueryListWithDefaults() *WlanQueryList {
 	wlanQueryListType := new(WlanQueryList)
 	return wlanQueryListType
 }

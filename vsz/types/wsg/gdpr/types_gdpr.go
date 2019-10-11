@@ -40,7 +40,7 @@ func NewFtp() *Ftp {
 	return ftpType
 }
 
-func NewDefaultFtp() *Ftp {
+func NewFtpWithDefaults() *Ftp {
 	ftpType := new(Ftp)
 	return ftpType
 }
@@ -65,7 +65,7 @@ func NewReport() *Report {
 	return reportType
 }
 
-func NewDefaultReport() *Report {
+func NewReportWithDefaults() *Report {
 	reportType := new(Report)
 	return reportType
 }

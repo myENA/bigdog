@@ -49,7 +49,7 @@ func NewCreateSciProfile() *CreateSciProfile {
 	return createSciProfileType
 }
 
-func NewDefaultCreateSciProfile() *CreateSciProfile {
+func NewCreateSciProfileWithDefaults() *CreateSciProfile {
 	createSciProfileType := new(CreateSciProfile)
 	return createSciProfileType
 }
@@ -67,7 +67,7 @@ func NewDeleteSciProfile() *DeleteSciProfile {
 	return deleteSciProfileType
 }
 
-func NewDefaultDeleteSciProfile() *DeleteSciProfile {
+func NewDeleteSciProfileWithDefaults() *DeleteSciProfile {
 	deleteSciProfileType := new(DeleteSciProfile)
 	return deleteSciProfileType
 }
@@ -81,7 +81,7 @@ func NewDeleteSciProfileList() *DeleteSciProfileList {
 	return deleteSciProfileListType
 }
 
-func NewDefaultDeleteSciProfileList() *DeleteSciProfileList {
+func NewDeleteSciProfileListWithDefaults() *DeleteSciProfileList {
 	deleteSciProfileListType := new(DeleteSciProfileList)
 	return deleteSciProfileListType
 }
@@ -98,7 +98,7 @@ func NewModifyEventCode() *ModifyEventCode {
 	return modifyEventCodeType
 }
 
-func NewDefaultModifyEventCode() *ModifyEventCode {
+func NewModifyEventCodeWithDefaults() *ModifyEventCode {
 	modifyEventCodeType := new(ModifyEventCode)
 	return modifyEventCodeType
 }
@@ -116,7 +116,7 @@ func NewModifySciEnabled() *ModifySciEnabled {
 	return modifySciEnabledType
 }
 
-func NewDefaultModifySciEnabled() *ModifySciEnabled {
+func NewModifySciEnabledWithDefaults() *ModifySciEnabled {
 	modifySciEnabledType := new(ModifySciEnabled)
 	return modifySciEnabledType
 }
@@ -130,7 +130,7 @@ func NewModifySciPriorityList() *ModifySciPriorityList {
 	return modifySciPriorityListType
 }
 
-func NewDefaultModifySciPriorityList() *ModifySciPriorityList {
+func NewModifySciPriorityListWithDefaults() *ModifySciPriorityList {
 	modifySciPriorityListType := new(ModifySciPriorityList)
 	return modifySciPriorityListType
 }
@@ -160,7 +160,7 @@ func NewModifySciPriorityListType() *ModifySciPriorityListType {
 	return modifySciPriorityListTypeType
 }
 
-func NewDefaultModifySciPriorityListType() *ModifySciPriorityListType {
+func NewModifySciPriorityListTypeWithDefaults() *ModifySciPriorityListType {
 	modifySciPriorityListTypeType := new(ModifySciPriorityListType)
 	return modifySciPriorityListTypeType
 }
@@ -212,7 +212,7 @@ func NewModifySciProfile() *ModifySciProfile {
 	return modifySciProfileType
 }
 
-func NewDefaultModifySciProfile() *ModifySciProfile {
+func NewModifySciProfileWithDefaults() *ModifySciProfile {
 	modifySciProfileType := new(ModifySciProfile)
 	return modifySciProfileType
 }
@@ -238,7 +238,7 @@ func NewSciEventCode() *SciEventCode {
 	return sciEventCodeType
 }
 
-func NewDefaultSciEventCode() *SciEventCode {
+func NewSciEventCodeWithDefaults() *SciEventCode {
 	sciEventCodeType := new(SciEventCode)
 	return sciEventCodeType
 }
@@ -258,7 +258,7 @@ func NewSciEventCodeListType() *SciEventCodeListType {
 	return sciEventCodeListTypeType
 }
 
-func NewDefaultSciEventCodeListType() *SciEventCodeListType {
+func NewSciEventCodeListTypeWithDefaults() *SciEventCodeListType {
 	sciEventCodeListTypeType := new(SciEventCodeListType)
 	return sciEventCodeListTypeType
 }
@@ -302,7 +302,7 @@ func NewSciProfile() *SciProfile {
 	return sciProfileType
 }
 
-func NewDefaultSciProfile() *SciProfile {
+func NewSciProfileWithDefaults() *SciProfile {
 	sciProfileType := new(SciProfile)
 	return sciProfileType
 }
@@ -355,7 +355,7 @@ func NewSciProfileList() *SciProfileList {
 	return sciProfileListType
 }
 
-func NewDefaultSciProfileList() *SciProfileList {
+func NewSciProfileListWithDefaults() *SciProfileList {
 	sciProfileListType := new(SciProfileList)
 	return sciProfileListType
 }
@@ -371,7 +371,7 @@ func NewSciProfileListExtraType() *SciProfileListExtraType {
 	return sciProfileListExtraTypeType
 }
 
-func NewDefaultSciProfileListExtraType() *SciProfileListExtraType {
+func NewSciProfileListExtraTypeWithDefaults() *SciProfileListExtraType {
 	sciProfileListExtraTypeType := new(SciProfileListExtraType)
 	return sciProfileListExtraTypeType
 }

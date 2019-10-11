@@ -57,7 +57,7 @@ func NewCreate() *Create {
 	return createType
 }
 
-func NewDefaultCreate() *Create {
+func NewCreateWithDefaults() *Create {
 	createType := new(Create)
 	return createType
 }
@@ -69,7 +69,7 @@ func NewCreateResult() *CreateResult {
 	return createResultType
 }
 
-func NewDefaultCreateResult() *CreateResult {
+func NewCreateResultWithDefaults() *CreateResult {
 	createResultType := new(CreateResult)
 	return createResultType
 }
@@ -99,7 +99,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -127,7 +127,7 @@ func NewList() *List {
 	return listType
 }
 
-func NewDefaultList() *List {
+func NewListWithDefaults() *List {
 	listType := new(List)
 	return listType
 }
@@ -175,7 +175,7 @@ func NewModify() *Modify {
 	return modifyType
 }
 
-func NewDefaultModify() *Modify {
+func NewModifyWithDefaults() *Modify {
 	modifyType := new(Modify)
 	return modifyType
 }
@@ -255,7 +255,7 @@ func NewVeConfig() *VeConfig {
 	return veConfigType
 }
 
-func NewDefaultVeConfig() *VeConfig {
+func NewVeConfigWithDefaults() *VeConfig {
 	veConfigType := new(VeConfig)
 	return veConfigType
 }

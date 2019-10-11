@@ -13,7 +13,7 @@ func NewAccessPointList() *AccessPointList {
 	return &accessPointListType
 }
 
-func NewDefaultAccessPointList() *AccessPointList {
+func NewAccessPointListWithDefaults() *AccessPointList {
 	accessPointListType := make(AccessPointList, 0)
 	return &accessPointListType
 }
@@ -67,7 +67,7 @@ func NewBasicIndoorMap() *BasicIndoorMap {
 	return basicIndoorMapType
 }
 
-func NewDefaultBasicIndoorMap() *BasicIndoorMap {
+func NewBasicIndoorMapWithDefaults() *BasicIndoorMap {
 	basicIndoorMapType := new(BasicIndoorMap)
 	return basicIndoorMapType
 }
@@ -87,7 +87,7 @@ func NewIndooMapAuditId() *IndooMapAuditId {
 	return indooMapAuditIdType
 }
 
-func NewDefaultIndooMapAuditId() *IndooMapAuditId {
+func NewIndooMapAuditIdWithDefaults() *IndooMapAuditId {
 	indooMapAuditIdType := new(IndooMapAuditId)
 	return indooMapAuditIdType
 }
@@ -165,7 +165,7 @@ func NewIndoorMap() *IndoorMap {
 	return indoorMapType
 }
 
-func NewDefaultIndoorMap() *IndoorMap {
+func NewIndoorMapWithDefaults() *IndoorMap {
 	indoorMapType := new(IndoorMap)
 	return indoorMapType
 }
@@ -183,7 +183,7 @@ func NewIndoorMapAp() *IndoorMapAp {
 	return indoorMapApType
 }
 
-func NewDefaultIndoorMapAp() *IndoorMapAp {
+func NewIndoorMapApWithDefaults() *IndoorMapAp {
 	indoorMapApType := new(IndoorMapAp)
 	return indoorMapApType
 }
@@ -211,7 +211,7 @@ func NewIndoorMapList() *IndoorMapList {
 	return indoorMapListType
 }
 
-func NewDefaultIndoorMapList() *IndoorMapList {
+func NewIndoorMapListWithDefaults() *IndoorMapList {
 	indoorMapListType := new(IndoorMapList)
 	return indoorMapListType
 }
@@ -286,7 +286,7 @@ func NewIndoorMapSummary() *IndoorMapSummary {
 	return indoorMapSummaryType
 }
 
-func NewDefaultIndoorMapSummary() *IndoorMapSummary {
+func NewIndoorMapSummaryWithDefaults() *IndoorMapSummary {
 	indoorMapSummaryType := new(IndoorMapSummary)
 	return indoorMapSummaryType
 }
@@ -314,7 +314,7 @@ func NewIndoorMapSummaryList() *IndoorMapSummaryList {
 	return indoorMapSummaryListType
 }
 
-func NewDefaultIndoorMapSummaryList() *IndoorMapSummaryList {
+func NewIndoorMapSummaryListWithDefaults() *IndoorMapSummaryList {
 	indoorMapSummaryListType := new(IndoorMapSummaryList)
 	return indoorMapSummaryListType
 }
@@ -334,7 +334,7 @@ func NewIndoorMapXy() *IndoorMapXy {
 	return indoorMapXyType
 }
 
-func NewDefaultIndoorMapXy() *IndoorMapXy {
+func NewIndoorMapXyWithDefaults() *IndoorMapXy {
 	indoorMapXyType := new(IndoorMapXy)
 	return indoorMapXyType
 }
@@ -361,7 +361,7 @@ func NewScale() *Scale {
 	return scaleType
 }
 
-func NewDefaultScale() *Scale {
+func NewScaleWithDefaults() *Scale {
 	scaleType := new(Scale)
 	return scaleType
 }

@@ -15,7 +15,7 @@ func NewBulkDeleteRequest() *BulkDeleteRequest {
 	return bulkDeleteRequestType
 }
 
-func NewDefaultBulkDeleteRequest() *BulkDeleteRequest {
+func NewBulkDeleteRequestWithDefaults() *BulkDeleteRequest {
 	bulkDeleteRequestType := new(BulkDeleteRequest)
 	return bulkDeleteRequestType
 }
@@ -29,7 +29,7 @@ func NewCreateResult() *CreateResult {
 	return createResultType
 }
 
-func NewDefaultCreateResult() *CreateResult {
+func NewCreateResultWithDefaults() *CreateResult {
 	createResultType := new(CreateResult)
 	return createResultType
 }
@@ -41,7 +41,7 @@ func NewFilterOperator() *FilterOperator {
 	return filterOperatorType
 }
 
-func NewDefaultFilterOperator() *FilterOperator {
+func NewFilterOperatorWithDefaults() *FilterOperator {
 	filterOperatorType := new(FilterOperator)
 	return filterOperatorType
 }
@@ -68,7 +68,7 @@ func NewFullTextSearch() *FullTextSearch {
 	return fullTextSearchType
 }
 
-func NewDefaultFullTextSearch() *FullTextSearch {
+func NewFullTextSearchWithDefaults() *FullTextSearch {
 	fullTextSearchType := new(FullTextSearch)
 	return fullTextSearchType
 }
@@ -80,7 +80,7 @@ func NewIdList() *IdList {
 	return &idListType
 }
 
-func NewDefaultIdList() *IdList {
+func NewIdListWithDefaults() *IdList {
 	idListType := make(IdList, 0)
 	return &idListType
 }
@@ -146,7 +146,7 @@ func NewQueryCriteria() *QueryCriteria {
 	return queryCriteriaType
 }
 
-func NewDefaultQueryCriteria() *QueryCriteria {
+func NewQueryCriteriaWithDefaults() *QueryCriteria {
 	queryCriteriaType := new(QueryCriteria)
 	return queryCriteriaType
 }
@@ -168,7 +168,7 @@ func NewQueryCriteriaExtraFiltersType() *QueryCriteriaExtraFiltersType {
 	return queryCriteriaExtraFiltersTypeType
 }
 
-func NewDefaultQueryCriteriaExtraFiltersType() *QueryCriteriaExtraFiltersType {
+func NewQueryCriteriaExtraFiltersTypeWithDefaults() *QueryCriteriaExtraFiltersType {
 	queryCriteriaExtraFiltersTypeType := new(QueryCriteriaExtraFiltersType)
 	return queryCriteriaExtraFiltersTypeType
 }
@@ -188,7 +188,7 @@ func NewQueryCriteriaExtraNotFiltersType() *QueryCriteriaExtraNotFiltersType {
 	return queryCriteriaExtraNotFiltersTypeType
 }
 
-func NewDefaultQueryCriteriaExtraNotFiltersType() *QueryCriteriaExtraNotFiltersType {
+func NewQueryCriteriaExtraNotFiltersTypeWithDefaults() *QueryCriteriaExtraNotFiltersType {
 	queryCriteriaExtraNotFiltersTypeType := new(QueryCriteriaExtraNotFiltersType)
 	return queryCriteriaExtraNotFiltersTypeType
 }
@@ -210,7 +210,7 @@ func NewQueryCriteriaFiltersType() *QueryCriteriaFiltersType {
 	return queryCriteriaFiltersTypeType
 }
 
-func NewDefaultQueryCriteriaFiltersType() *QueryCriteriaFiltersType {
+func NewQueryCriteriaFiltersTypeWithDefaults() *QueryCriteriaFiltersType {
 	queryCriteriaFiltersTypeType := new(QueryCriteriaFiltersType)
 	return queryCriteriaFiltersTypeType
 }
@@ -243,7 +243,7 @@ func NewQueryCriteriaOptionsType() *QueryCriteriaOptionsType {
 	return queryCriteriaOptionsTypeType
 }
 
-func NewDefaultQueryCriteriaOptionsType() *QueryCriteriaOptionsType {
+func NewQueryCriteriaOptionsTypeWithDefaults() *QueryCriteriaOptionsType {
 	queryCriteriaOptionsTypeType := new(QueryCriteriaOptionsType)
 	return queryCriteriaOptionsTypeType
 }
@@ -266,7 +266,7 @@ func NewQueryCriteriaSortInfoType() *QueryCriteriaSortInfoType {
 	return queryCriteriaSortInfoTypeType
 }
 
-func NewDefaultQueryCriteriaSortInfoType() *QueryCriteriaSortInfoType {
+func NewQueryCriteriaSortInfoTypeWithDefaults() *QueryCriteriaSortInfoType {
 	queryCriteriaSortInfoTypeType := new(QueryCriteriaSortInfoType)
 	return queryCriteriaSortInfoTypeType
 }
@@ -278,7 +278,7 @@ func NewQueryCriteriaSuperSet() *QueryCriteriaSuperSet {
 	return queryCriteriaSuperSetType
 }
 
-func NewDefaultQueryCriteriaSuperSet() *QueryCriteriaSuperSet {
+func NewQueryCriteriaSuperSetWithDefaults() *QueryCriteriaSuperSet {
 	queryCriteriaSuperSetType := new(QueryCriteriaSuperSet)
 	return queryCriteriaSuperSetType
 }
@@ -292,7 +292,7 @@ func NewRbacMetadata() *RbacMetadata {
 	return rbacMetadataType
 }
 
-func NewDefaultRbacMetadata() *RbacMetadata {
+func NewRbacMetadataWithDefaults() *RbacMetadata {
 	rbacMetadataType := new(RbacMetadata)
 	return rbacMetadataType
 }
@@ -323,7 +323,7 @@ func NewTimeRange() *TimeRange {
 	return timeRangeType
 }
 
-func NewDefaultTimeRange() *TimeRange {
+func NewTimeRangeWithDefaults() *TimeRange {
 	timeRangeType := new(TimeRange)
 	return timeRangeType
 }

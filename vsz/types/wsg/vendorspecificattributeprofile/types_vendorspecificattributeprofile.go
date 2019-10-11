@@ -14,7 +14,7 @@ func NewCreateResult() *CreateResult {
 	return createResultType
 }
 
-func NewDefaultCreateResult() *CreateResult {
+func NewCreateResultWithDefaults() *CreateResult {
 	createResultType := new(CreateResult)
 	return createResultType
 }
@@ -28,7 +28,7 @@ func NewDeleteBulk() *DeleteBulk {
 	return deleteBulkType
 }
 
-func NewDefaultDeleteBulk() *DeleteBulk {
+func NewDeleteBulkWithDefaults() *DeleteBulk {
 	deleteBulkType := new(DeleteBulk)
 	return deleteBulkType
 }
@@ -58,7 +58,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -90,7 +90,7 @@ func NewGet() *Get {
 	return getType
 }
 
-func NewDefaultGet() *Get {
+func NewGetWithDefaults() *Get {
 	getType := new(Get)
 	return getType
 }
@@ -118,7 +118,7 @@ func NewList() *List {
 	return listType
 }
 
-func NewDefaultList() *List {
+func NewListWithDefaults() *List {
 	listType := new(List)
 	return listType
 }
@@ -136,7 +136,7 @@ func NewListType() *ListType {
 	return listTypeType
 }
 
-func NewDefaultListType() *ListType {
+func NewListTypeWithDefaults() *ListType {
 	listTypeType := new(ListType)
 	return listTypeType
 }
@@ -161,7 +161,7 @@ func NewPersist() *Persist {
 	return persistType
 }
 
-func NewDefaultPersist() *Persist {
+func NewPersistWithDefaults() *Persist {
 	persistType := new(Persist)
 	return persistType
 }
@@ -183,7 +183,7 @@ func NewQueryCriteriaResult() *QueryCriteriaResult {
 	return queryCriteriaResultType
 }
 
-func NewDefaultQueryCriteriaResult() *QueryCriteriaResult {
+func NewQueryCriteriaResultWithDefaults() *QueryCriteriaResult {
 	queryCriteriaResultType := new(QueryCriteriaResult)
 	return queryCriteriaResultType
 }
@@ -227,7 +227,7 @@ func NewVendorSpecificAttribute() *VendorSpecificAttribute {
 	return vendorSpecificAttributeType
 }
 
-func NewDefaultVendorSpecificAttribute() *VendorSpecificAttribute {
+func NewVendorSpecificAttributeWithDefaults() *VendorSpecificAttribute {
 	vendorSpecificAttributeType := new(VendorSpecificAttribute)
 	return vendorSpecificAttributeType
 }

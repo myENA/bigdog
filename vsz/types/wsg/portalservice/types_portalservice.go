@@ -42,7 +42,7 @@ func NewConnectionCapability() *ConnectionCapability {
 	return connectionCapabilityType
 }
 
-func NewDefaultConnectionCapability() *ConnectionCapability {
+func NewConnectionCapabilityWithDefaults() *ConnectionCapability {
 	connectionCapabilityType := new(ConnectionCapability)
 	return connectionCapabilityType
 }
@@ -75,7 +75,7 @@ func NewCreateGuestAccess() *CreateGuestAccess {
 	return createGuestAccessType
 }
 
-func NewDefaultCreateGuestAccess() *CreateGuestAccess {
+func NewCreateGuestAccessWithDefaults() *CreateGuestAccess {
 	createGuestAccessType := new(CreateGuestAccess)
 	return createGuestAccessType
 }
@@ -114,7 +114,7 @@ func NewCreateHotspot20VenueProfile() *CreateHotspot20VenueProfile {
 	return createHotspot20VenueProfileType
 }
 
-func NewDefaultCreateHotspot20VenueProfile() *CreateHotspot20VenueProfile {
+func NewCreateHotspot20VenueProfileWithDefaults() *CreateHotspot20VenueProfile {
 	createHotspot20VenueProfileType := new(CreateHotspot20VenueProfile)
 	return createHotspot20VenueProfileType
 }
@@ -176,7 +176,7 @@ func NewCreateHotspot20WlanProfile() *CreateHotspot20WlanProfile {
 	return createHotspot20WlanProfileType
 }
 
-func NewDefaultCreateHotspot20WlanProfile() *CreateHotspot20WlanProfile {
+func NewCreateHotspot20WlanProfileWithDefaults() *CreateHotspot20WlanProfile {
 	createHotspot20WlanProfileType := new(CreateHotspot20WlanProfile)
 	return createHotspot20WlanProfileType
 }
@@ -242,7 +242,7 @@ func NewCreateHotspotExternal() *CreateHotspotExternal {
 	return createHotspotExternalType
 }
 
-func NewDefaultCreateHotspotExternal() *CreateHotspotExternal {
+func NewCreateHotspotExternalWithDefaults() *CreateHotspotExternal {
 	createHotspotExternalType := new(CreateHotspotExternal)
 	httpsRedirectField := true
 	createHotspotExternalType.HttpsRedirect = &httpsRedirectField
@@ -289,7 +289,7 @@ func NewCreateHotspotInternal() *CreateHotspotInternal {
 	return createHotspotInternalType
 }
 
-func NewDefaultCreateHotspotInternal() *CreateHotspotInternal {
+func NewCreateHotspotInternalWithDefaults() *CreateHotspotInternal {
 	createHotspotInternalType := new(CreateHotspotInternal)
 	httpsRedirectField := true
 	createHotspotInternalType.HttpsRedirect = &httpsRedirectField
@@ -347,7 +347,7 @@ func NewCreateHotspotSmartClientOnly() *CreateHotspotSmartClientOnly {
 	return createHotspotSmartClientOnlyType
 }
 
-func NewDefaultCreateHotspotSmartClientOnly() *CreateHotspotSmartClientOnly {
+func NewCreateHotspotSmartClientOnlyWithDefaults() *CreateHotspotSmartClientOnly {
 	createHotspotSmartClientOnlyType := new(CreateHotspotSmartClientOnly)
 	httpsRedirectField := true
 	createHotspotSmartClientOnlyType.HttpsRedirect = &httpsRedirectField
@@ -377,7 +377,7 @@ func NewCreateL2ACL() *CreateL2ACL {
 	return createL2ACLType
 }
 
-func NewDefaultCreateL2ACL() *CreateL2ACL {
+func NewCreateL2ACLWithDefaults() *CreateL2ACL {
 	createL2ACLType := new(CreateL2ACL)
 	return createL2ACLType
 }
@@ -400,7 +400,7 @@ func NewCreateWebAuthentication() *CreateWebAuthentication {
 	return createWebAuthenticationType
 }
 
-func NewDefaultCreateWebAuthentication() *CreateWebAuthentication {
+func NewCreateWebAuthenticationWithDefaults() *CreateWebAuthentication {
 	createWebAuthenticationType := new(CreateWebAuthentication)
 	return createWebAuthenticationType
 }
@@ -456,7 +456,7 @@ func NewCreateWechat() *CreateWechat {
 	return createWechatType
 }
 
-func NewDefaultCreateWechat() *CreateWechat {
+func NewCreateWechatWithDefaults() *CreateWechat {
 	createWechatType := new(CreateWechat)
 	gracePeriodField := 60
 	createWechatType.GracePeriod = &gracePeriodField
@@ -499,7 +499,7 @@ func NewDefaultConnectionCapability() *DefaultConnectionCapability {
 	return defaultConnectionCapabilityType
 }
 
-func NewDefaultDefaultConnectionCapability() *DefaultConnectionCapability {
+func NewDefaultConnectionCapabilityWithDefaults() *DefaultConnectionCapability {
 	defaultConnectionCapabilityType := new(DefaultConnectionCapability)
 	return defaultConnectionCapabilityType
 }
@@ -527,7 +527,7 @@ func NewDnatPortMapping() *DnatPortMapping {
 	return dnatPortMappingType
 }
 
-func NewDefaultDnatPortMapping() *DnatPortMapping {
+func NewDnatPortMappingWithDefaults() *DnatPortMapping {
 	dnatPortMappingType := new(DnatPortMapping)
 	return dnatPortMappingType
 }
@@ -559,7 +559,7 @@ func NewGuestAccess() *GuestAccess {
 	return guestAccessType
 }
 
-func NewDefaultGuestAccess() *GuestAccess {
+func NewGuestAccessWithDefaults() *GuestAccess {
 	guestAccessType := new(GuestAccess)
 	return guestAccessType
 }
@@ -635,7 +635,7 @@ func NewHotspot() *Hotspot {
 	return hotspotType
 }
 
-func NewDefaultHotspot() *Hotspot {
+func NewHotspotWithDefaults() *Hotspot {
 	hotspotType := new(Hotspot)
 	httpsRedirectField := true
 	hotspotType.HttpsRedirect = &httpsRedirectField
@@ -678,7 +678,7 @@ func NewHotspot20VeuneProfile() *Hotspot20VeuneProfile {
 	return hotspot20VeuneProfileType
 }
 
-func NewDefaultHotspot20VeuneProfile() *Hotspot20VeuneProfile {
+func NewHotspot20VeuneProfileWithDefaults() *Hotspot20VeuneProfile {
 	hotspot20VeuneProfileType := new(Hotspot20VeuneProfile)
 	return hotspot20VeuneProfileType
 }
@@ -745,7 +745,7 @@ func NewHotspot20WlanProfile() *Hotspot20WlanProfile {
 	return hotspot20WlanProfileType
 }
 
-func NewDefaultHotspot20WlanProfile() *Hotspot20WlanProfile {
+func NewHotspot20WlanProfileWithDefaults() *Hotspot20WlanProfile {
 	hotspot20WlanProfileType := new(Hotspot20WlanProfile)
 	return hotspot20WlanProfileType
 }
@@ -778,7 +778,7 @@ func NewL2ACL() *L2ACL {
 	return l2ACLType
 }
 
-func NewDefaultL2ACL() *L2ACL {
+func NewL2ACLWithDefaults() *L2ACL {
 	l2ACLType := new(L2ACL)
 	return l2ACLType
 }
@@ -797,7 +797,7 @@ func NewLinkSpeedInKbps() *LinkSpeedInKbps {
 	return linkSpeedInKbpsType
 }
 
-func NewDefaultLinkSpeedInKbps() *LinkSpeedInKbps {
+func NewLinkSpeedInKbpsWithDefaults() *LinkSpeedInKbps {
 	linkSpeedInKbpsType := new(LinkSpeedInKbps)
 	return linkSpeedInKbpsType
 }
@@ -817,7 +817,7 @@ func NewMacAddressFormatSetting() *MacAddressFormatSetting {
 	return macAddressFormatSettingType
 }
 
-func NewDefaultMacAddressFormatSetting() *MacAddressFormatSetting {
+func NewMacAddressFormatSettingWithDefaults() *MacAddressFormatSetting {
 	macAddressFormatSettingType := new(MacAddressFormatSetting)
 	*macAddressFormatSettingType = 2
 	return macAddressFormatSettingType
@@ -842,7 +842,7 @@ func NewModifyGuestAccess() *ModifyGuestAccess {
 	return modifyGuestAccessType
 }
 
-func NewDefaultModifyGuestAccess() *ModifyGuestAccess {
+func NewModifyGuestAccessWithDefaults() *ModifyGuestAccess {
 	modifyGuestAccessType := new(ModifyGuestAccess)
 	return modifyGuestAccessType
 }
@@ -903,7 +903,7 @@ func NewModifyHotspot() *ModifyHotspot {
 	return modifyHotspotType
 }
 
-func NewDefaultModifyHotspot() *ModifyHotspot {
+func NewModifyHotspotWithDefaults() *ModifyHotspot {
 	modifyHotspotType := new(ModifyHotspot)
 	httpsRedirectField := true
 	modifyHotspotType.HttpsRedirect = &httpsRedirectField
@@ -938,7 +938,7 @@ func NewModifyHotspot20VenueProfile() *ModifyHotspot20VenueProfile {
 	return modifyHotspot20VenueProfileType
 }
 
-func NewDefaultModifyHotspot20VenueProfile() *ModifyHotspot20VenueProfile {
+func NewModifyHotspot20VenueProfileWithDefaults() *ModifyHotspot20VenueProfile {
 	modifyHotspot20VenueProfileType := new(ModifyHotspot20VenueProfile)
 	return modifyHotspot20VenueProfileType
 }
@@ -997,7 +997,7 @@ func NewModifyHotspot20WlanProfile() *ModifyHotspot20WlanProfile {
 	return modifyHotspot20WlanProfileType
 }
 
-func NewDefaultModifyHotspot20WlanProfile() *ModifyHotspot20WlanProfile {
+func NewModifyHotspot20WlanProfileWithDefaults() *ModifyHotspot20WlanProfile {
 	modifyHotspot20WlanProfileType := new(ModifyHotspot20WlanProfile)
 	return modifyHotspot20WlanProfileType
 }
@@ -1022,7 +1022,7 @@ func NewModifyL2ACL() *ModifyL2ACL {
 	return modifyL2ACLType
 }
 
-func NewDefaultModifyL2ACL() *ModifyL2ACL {
+func NewModifyL2ACLWithDefaults() *ModifyL2ACL {
 	modifyL2ACLType := new(ModifyL2ACL)
 	return modifyL2ACLType
 }
@@ -1046,7 +1046,7 @@ func NewModifyWebAuthentication() *ModifyWebAuthentication {
 	return modifyWebAuthenticationType
 }
 
-func NewDefaultModifyWebAuthentication() *ModifyWebAuthentication {
+func NewModifyWebAuthenticationWithDefaults() *ModifyWebAuthentication {
 	modifyWebAuthenticationType := new(ModifyWebAuthentication)
 	return modifyWebAuthenticationType
 }
@@ -1091,7 +1091,7 @@ func NewModifyWechat() *ModifyWechat {
 	return modifyWechatType
 }
 
-func NewDefaultModifyWechat() *ModifyWechat {
+func NewModifyWechatWithDefaults() *ModifyWechat {
 	modifyWechatType := new(ModifyWechat)
 	gracePeriodField := 60
 	modifyWechatType.GracePeriod = &gracePeriodField
@@ -1113,7 +1113,7 @@ func NewPortalLocation() *PortalLocation {
 	return portalLocationType
 }
 
-func NewDefaultPortalLocation() *PortalLocation {
+func NewPortalLocationWithDefaults() *PortalLocation {
 	portalLocationType := new(PortalLocation)
 	return portalLocationType
 }
@@ -1127,7 +1127,7 @@ func NewPortalRedirect() *PortalRedirect {
 	return portalRedirectType
 }
 
-func NewDefaultPortalRedirect() *PortalRedirect {
+func NewPortalRedirectWithDefaults() *PortalRedirect {
 	portalRedirectType := new(PortalRedirect)
 	return portalRedirectType
 }
@@ -1147,7 +1147,7 @@ func NewPortalServiceList() *PortalServiceList {
 	return portalServiceListType
 }
 
-func NewDefaultPortalServiceList() *PortalServiceList {
+func NewPortalServiceListWithDefaults() *PortalServiceList {
 	portalServiceListType := new(PortalServiceList)
 	return portalServiceListType
 }
@@ -1165,7 +1165,7 @@ func NewPortalServiceListType() *PortalServiceListType {
 	return portalServiceListTypeType
 }
 
-func NewDefaultPortalServiceListType() *PortalServiceListType {
+func NewPortalServiceListTypeWithDefaults() *PortalServiceListType {
 	portalServiceListTypeType := new(PortalServiceListType)
 	return portalServiceListTypeType
 }
@@ -1195,7 +1195,7 @@ func NewUserSession() *UserSession {
 	return userSessionType
 }
 
-func NewDefaultUserSession() *UserSession {
+func NewUserSessionWithDefaults() *UserSession {
 	userSessionType := new(UserSession)
 	gracePeriodInMinField := 60
 	userSessionType.GracePeriodInMin = &gracePeriodInMinField
@@ -1222,7 +1222,7 @@ func NewVenueName() *VenueName {
 	return venueNameType
 }
 
-func NewDefaultVenueName() *VenueName {
+func NewVenueNameWithDefaults() *VenueName {
 	venueNameType := new(VenueName)
 	return venueNameType
 }
@@ -1254,7 +1254,7 @@ func NewWebAuthentication() *WebAuthentication {
 	return webAuthenticationType
 }
 
-func NewDefaultWebAuthentication() *WebAuthentication {
+func NewWebAuthenticationWithDefaults() *WebAuthentication {
 	webAuthenticationType := new(WebAuthentication)
 	return webAuthenticationType
 }
@@ -1299,7 +1299,7 @@ func NewWechatConfiguration() *WechatConfiguration {
 	return wechatConfigurationType
 }
 
-func NewDefaultWechatConfiguration() *WechatConfiguration {
+func NewWechatConfigurationWithDefaults() *WechatConfiguration {
 	wechatConfigurationType := new(WechatConfiguration)
 	gracePeriodField := 60
 	wechatConfigurationType.GracePeriod = &gracePeriodField

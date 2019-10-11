@@ -38,7 +38,7 @@ func NewActiveDirectoryServer() *ActiveDirectoryServer {
 	return activeDirectoryServerType
 }
 
-func NewDefaultActiveDirectoryServer() *ActiveDirectoryServer {
+func NewActiveDirectoryServerWithDefaults() *ActiveDirectoryServer {
 	activeDirectoryServerType := new(ActiveDirectoryServer)
 	return activeDirectoryServerType
 }
@@ -66,7 +66,7 @@ func NewApPatchHistory() *ApPatchHistory {
 	return apPatchHistoryType
 }
 
-func NewDefaultApPatchHistory() *ApPatchHistory {
+func NewApPatchHistoryWithDefaults() *ApPatchHistory {
 	apPatchHistoryType := new(ApPatchHistory)
 	return apPatchHistoryType
 }
@@ -86,7 +86,7 @@ func NewApPatchHistoryList() *ApPatchHistoryList {
 	return apPatchHistoryListType
 }
 
-func NewDefaultApPatchHistoryList() *ApPatchHistoryList {
+func NewApPatchHistoryListWithDefaults() *ApPatchHistoryList {
 	apPatchHistoryListType := new(ApPatchHistoryList)
 	return apPatchHistoryListType
 }
@@ -114,7 +114,7 @@ func NewApPatchInfo() *ApPatchInfo {
 	return apPatchInfoType
 }
 
-func NewDefaultApPatchInfo() *ApPatchInfo {
+func NewApPatchInfoWithDefaults() *ApPatchInfo {
 	apPatchInfoType := new(ApPatchInfo)
 	return apPatchInfoType
 }
@@ -128,7 +128,7 @@ func NewApPatchStatus() *ApPatchStatus {
 	return apPatchStatusType
 }
 
-func NewDefaultApPatchStatus() *ApPatchStatus {
+func NewApPatchStatusWithDefaults() *ApPatchStatus {
 	apPatchStatusType := new(ApPatchStatus)
 	return apPatchStatusType
 }
@@ -160,7 +160,7 @@ func NewApplicationLogAndStatus() *ApplicationLogAndStatus {
 	return applicationLogAndStatusType
 }
 
-func NewDefaultApplicationLogAndStatus() *ApplicationLogAndStatus {
+func NewApplicationLogAndStatusWithDefaults() *ApplicationLogAndStatus {
 	applicationLogAndStatusType := new(ApplicationLogAndStatus)
 	return applicationLogAndStatusType
 }
@@ -180,7 +180,7 @@ func NewApplicationLogAndStatusList() *ApplicationLogAndStatusList {
 	return applicationLogAndStatusListType
 }
 
-func NewDefaultApplicationLogAndStatusList() *ApplicationLogAndStatusList {
+func NewApplicationLogAndStatusListWithDefaults() *ApplicationLogAndStatusList {
 	applicationLogAndStatusListType := new(ApplicationLogAndStatusList)
 	return applicationLogAndStatusListType
 }
@@ -200,7 +200,7 @@ func NewAutoExportBackup() *AutoExportBackup {
 	return autoExportBackupType
 }
 
-func NewDefaultAutoExportBackup() *AutoExportBackup {
+func NewAutoExportBackupWithDefaults() *AutoExportBackup {
 	autoExportBackupType := new(AutoExportBackup)
 	return autoExportBackupType
 }
@@ -252,7 +252,7 @@ func NewBackupFile() *BackupFile {
 	return backupFileType
 }
 
-func NewDefaultBackupFile() *BackupFile {
+func NewBackupFileWithDefaults() *BackupFile {
 	backupFileType := new(BackupFile)
 	return backupFileType
 }
@@ -272,7 +272,7 @@ func NewClusterBackupList() *ClusterBackupList {
 	return clusterBackupListType
 }
 
-func NewDefaultClusterBackupList() *ClusterBackupList {
+func NewClusterBackupListWithDefaults() *ClusterBackupList {
 	clusterBackupListType := new(ClusterBackupList)
 	return clusterBackupListType
 }
@@ -300,7 +300,7 @@ func NewClusterBackupSummary() *ClusterBackupSummary {
 	return clusterBackupSummaryType
 }
 
-func NewDefaultClusterBackupSummary() *ClusterBackupSummary {
+func NewClusterBackupSummaryWithDefaults() *ClusterBackupSummary {
 	clusterBackupSummaryType := new(ClusterBackupSummary)
 	return clusterBackupSummaryType
 }
@@ -320,7 +320,7 @@ func NewConfigurationBackupList() *ConfigurationBackupList {
 	return configurationBackupListType
 }
 
-func NewDefaultConfigurationBackupList() *ConfigurationBackupList {
+func NewConfigurationBackupListWithDefaults() *ConfigurationBackupList {
 	configurationBackupListType := new(ConfigurationBackupList)
 	return configurationBackupListType
 }
@@ -354,7 +354,7 @@ func NewCreateAdminAAAServer() *CreateAdminAAAServer {
 	return createAdminAAAServerType
 }
 
-func NewDefaultCreateAdminAAAServer() *CreateAdminAAAServer {
+func NewCreateAdminAAAServerWithDefaults() *CreateAdminAAAServer {
 	createAdminAAAServerType := new(CreateAdminAAAServer)
 	return createAdminAAAServerType
 }
@@ -378,7 +378,7 @@ func NewDefaultRoleMapping() *DefaultRoleMapping {
 	return defaultRoleMappingType
 }
 
-func NewDefaultDefaultRoleMapping() *DefaultRoleMapping {
+func NewDefaultRoleMappingWithDefaults() *DefaultRoleMapping {
 	defaultRoleMappingType := new(DefaultRoleMapping)
 	return defaultRoleMappingType
 }
@@ -438,7 +438,7 @@ func NewLdapServer() *LdapServer {
 	return ldapServerType
 }
 
-func NewDefaultLdapServer() *LdapServer {
+func NewLdapServerWithDefaults() *LdapServer {
 	ldapServerType := new(LdapServer)
 	return ldapServerType
 }
@@ -470,7 +470,7 @@ func NewLicenses() *Licenses {
 	return licensesType
 }
 
-func NewDefaultLicenses() *Licenses {
+func NewLicensesWithDefaults() *Licenses {
 	licensesType := new(Licenses)
 	return licensesType
 }
@@ -498,7 +498,7 @@ func NewLicenseServer() *LicenseServer {
 	return licenseServerType
 }
 
-func NewDefaultLicenseServer() *LicenseServer {
+func NewLicenseServerWithDefaults() *LicenseServer {
 	licenseServerType := new(LicenseServer)
 	return licenseServerType
 }
@@ -518,7 +518,7 @@ func NewLicensesList() *LicensesList {
 	return licensesListType
 }
 
-func NewDefaultLicensesList() *LicensesList {
+func NewLicensesListWithDefaults() *LicensesList {
 	licensesListType := new(LicensesList)
 	return licensesListType
 }
@@ -536,7 +536,7 @@ func NewLicensesSummary() *LicensesSummary {
 	return licensesSummaryType
 }
 
-func NewDefaultLicensesSummary() *LicensesSummary {
+func NewLicensesSummaryWithDefaults() *LicensesSummary {
 	licensesSummaryType := new(LicensesSummary)
 	return licensesSummaryType
 }
@@ -556,7 +556,7 @@ func NewLicensesSummaryCapacityControlLicenseCountType() *LicensesSummaryCapacit
 	return licensesSummaryCapacityControlLicenseCountTypeType
 }
 
-func NewDefaultLicensesSummaryCapacityControlLicenseCountType() *LicensesSummaryCapacityControlLicenseCountType {
+func NewLicensesSummaryCapacityControlLicenseCountTypeWithDefaults() *LicensesSummaryCapacityControlLicenseCountType {
 	licensesSummaryCapacityControlLicenseCountTypeType := new(LicensesSummaryCapacityControlLicenseCountType)
 	return licensesSummaryCapacityControlLicenseCountTypeType
 }
@@ -576,7 +576,7 @@ func NewLicensesSummaryList() *LicensesSummaryList {
 	return licensesSummaryListType
 }
 
-func NewDefaultLicensesSummaryList() *LicensesSummaryList {
+func NewLicensesSummaryListWithDefaults() *LicensesSummaryList {
 	licensesSummaryListType := new(LicensesSummaryList)
 	return licensesSummaryListType
 }
@@ -599,7 +599,7 @@ func NewLicensesSyncLogs() *LicensesSyncLogs {
 	return licensesSyncLogsType
 }
 
-func NewDefaultLicensesSyncLogs() *LicensesSyncLogs {
+func NewLicensesSyncLogsWithDefaults() *LicensesSyncLogs {
 	licensesSyncLogsType := new(LicensesSyncLogs)
 	return licensesSyncLogsType
 }
@@ -619,7 +619,7 @@ func NewLicensesSyncLogsList() *LicensesSyncLogsList {
 	return licensesSyncLogsListType
 }
 
-func NewDefaultLicensesSyncLogsList() *LicensesSyncLogsList {
+func NewLicensesSyncLogsListWithDefaults() *LicensesSyncLogsList {
 	licensesSyncLogsListType := new(LicensesSyncLogsList)
 	return licensesSyncLogsListType
 }
@@ -645,7 +645,7 @@ func NewModfiyLicenseServer() *ModfiyLicenseServer {
 	return modfiyLicenseServerType
 }
 
-func NewDefaultModfiyLicenseServer() *ModfiyLicenseServer {
+func NewModfiyLicenseServerWithDefaults() *ModfiyLicenseServer {
 	modfiyLicenseServerType := new(ModfiyLicenseServer)
 	return modfiyLicenseServerType
 }
@@ -679,7 +679,7 @@ func NewModifyAdminAAAServer() *ModifyAdminAAAServer {
 	return modifyAdminAAAServerType
 }
 
-func NewDefaultModifyAdminAAAServer() *ModifyAdminAAAServer {
+func NewModifyAdminAAAServerWithDefaults() *ModifyAdminAAAServer {
 	modifyAdminAAAServerType := new(ModifyAdminAAAServer)
 	return modifyAdminAAAServerType
 }
@@ -699,7 +699,7 @@ func NewModifyAutoExportBackup() *ModifyAutoExportBackup {
 	return modifyAutoExportBackupType
 }
 
-func NewDefaultModifyAutoExportBackup() *ModifyAutoExportBackup {
+func NewModifyAutoExportBackupWithDefaults() *ModifyAutoExportBackup {
 	modifyAutoExportBackupType := new(ModifyAutoExportBackup)
 	enableAutoExportBackupField := false
 	modifyAutoExportBackupType.EnableAutoExportBackup = &enableAutoExportBackupField
@@ -724,7 +724,7 @@ func NewModifyLogLevel() *ModifyLogLevel {
 	return modifyLogLevelType
 }
 
-func NewDefaultModifyLogLevel() *ModifyLogLevel {
+func NewModifyLogLevelWithDefaults() *ModifyLogLevel {
 	modifyLogLevelType := new(ModifyLogLevel)
 	return modifyLogLevelType
 }
@@ -766,7 +766,7 @@ func NewModifyScheduleBackup() *ModifyScheduleBackup {
 	return modifyScheduleBackupType
 }
 
-func NewDefaultModifyScheduleBackup() *ModifyScheduleBackup {
+func NewModifyScheduleBackupWithDefaults() *ModifyScheduleBackup {
 	modifyScheduleBackupType := new(ModifyScheduleBackup)
 	enableScheduleBackupField := false
 	modifyScheduleBackupType.EnableScheduleBackup = &enableScheduleBackupField
@@ -810,7 +810,7 @@ func NewRadiusServer() *RadiusServer {
 	return radiusServerType
 }
 
-func NewDefaultRadiusServer() *RadiusServer {
+func NewRadiusServerWithDefaults() *RadiusServer {
 	radiusServerType := new(RadiusServer)
 	return radiusServerType
 }
@@ -845,7 +845,7 @@ func NewRetrieveAdminAAAServer() *RetrieveAdminAAAServer {
 	return retrieveAdminAAAServerType
 }
 
-func NewDefaultRetrieveAdminAAAServer() *RetrieveAdminAAAServer {
+func NewRetrieveAdminAAAServerWithDefaults() *RetrieveAdminAAAServer {
 	retrieveAdminAAAServerType := new(RetrieveAdminAAAServer)
 	return retrieveAdminAAAServerType
 }
@@ -865,7 +865,7 @@ func NewRetrieveAdminAAAServerList() *RetrieveAdminAAAServerList {
 	return retrieveAdminAAAServerListType
 }
 
-func NewDefaultRetrieveAdminAAAServerList() *RetrieveAdminAAAServerList {
+func NewRetrieveAdminAAAServerListWithDefaults() *RetrieveAdminAAAServerList {
 	retrieveAdminAAAServerListType := new(RetrieveAdminAAAServerList)
 	return retrieveAdminAAAServerListType
 }
@@ -887,7 +887,7 @@ func NewRetrieveAdminAAAServerListType() *RetrieveAdminAAAServerListType {
 	return retrieveAdminAAAServerListTypeType
 }
 
-func NewDefaultRetrieveAdminAAAServerListType() *RetrieveAdminAAAServerListType {
+func NewRetrieveAdminAAAServerListTypeWithDefaults() *RetrieveAdminAAAServerListType {
 	retrieveAdminAAAServerListTypeType := new(RetrieveAdminAAAServerListType)
 	return retrieveAdminAAAServerListTypeType
 }
@@ -929,7 +929,7 @@ func NewScheduleBackup() *ScheduleBackup {
 	return scheduleBackupType
 }
 
-func NewDefaultScheduleBackup() *ScheduleBackup {
+func NewScheduleBackupWithDefaults() *ScheduleBackup {
 	scheduleBackupType := new(ScheduleBackup)
 	return scheduleBackupType
 }
@@ -987,7 +987,7 @@ func NewSecondaryRadiusServer() *SecondaryRadiusServer {
 	return secondaryRadiusServerType
 }
 
-func NewDefaultSecondaryRadiusServer() *SecondaryRadiusServer {
+func NewSecondaryRadiusServerWithDefaults() *SecondaryRadiusServer {
 	secondaryRadiusServerType := new(SecondaryRadiusServer)
 	maxRetriesField := 2
 	secondaryRadiusServerType.MaxRetries = &maxRetriesField
@@ -1029,7 +1029,7 @@ func NewTacacsServer() *TacacsServer {
 	return tacacsServerType
 }
 
-func NewDefaultTacacsServer() *TacacsServer {
+func NewTacacsServerWithDefaults() *TacacsServer {
 	tacacsServerType := new(TacacsServer)
 	return tacacsServerType
 }
@@ -1049,7 +1049,7 @@ func NewUpgradeHistoryList() *UpgradeHistoryList {
 	return upgradeHistoryListType
 }
 
-func NewDefaultUpgradeHistoryList() *UpgradeHistoryList {
+func NewUpgradeHistoryListWithDefaults() *UpgradeHistoryList {
 	upgradeHistoryListType := new(UpgradeHistoryList)
 	return upgradeHistoryListType
 }
@@ -1105,7 +1105,7 @@ func NewUpgradeHistorySummary() *UpgradeHistorySummary {
 	return upgradeHistorySummaryType
 }
 
-func NewDefaultUpgradeHistorySummary() *UpgradeHistorySummary {
+func NewUpgradeHistorySummaryWithDefaults() *UpgradeHistorySummary {
 	upgradeHistorySummaryType := new(UpgradeHistorySummary)
 	return upgradeHistorySummaryType
 }
@@ -1121,7 +1121,7 @@ func NewUpgradePatchInfo() *UpgradePatchInfo {
 	return upgradePatchInfoType
 }
 
-func NewDefaultUpgradePatchInfo() *UpgradePatchInfo {
+func NewUpgradePatchInfoWithDefaults() *UpgradePatchInfo {
 	upgradePatchInfoType := new(UpgradePatchInfo)
 	return upgradePatchInfoType
 }
@@ -1135,7 +1135,7 @@ func NewUpgradeStatus() *UpgradeStatus {
 	return upgradeStatusType
 }
 
-func NewDefaultUpgradeStatus() *UpgradeStatus {
+func NewUpgradeStatusWithDefaults() *UpgradeStatus {
 	upgradeStatusType := new(UpgradeStatus)
 	return upgradeStatusType
 }
@@ -1155,7 +1155,7 @@ func NewZdAP() *ZdAP {
 	return zdAPType
 }
 
-func NewDefaultZdAP() *ZdAP {
+func NewZdAPWithDefaults() *ZdAP {
 	zdAPType := new(ZdAP)
 	return zdAPType
 }
@@ -1177,7 +1177,7 @@ func NewZdAPList() *ZdAPList {
 	return zdAPListType
 }
 
-func NewDefaultZdAPList() *ZdAPList {
+func NewZdAPListWithDefaults() *ZdAPList {
 	zdAPListType := new(ZdAPList)
 	return zdAPListType
 }
@@ -1205,7 +1205,7 @@ func NewZdImport() *ZdImport {
 	return zdImportType
 }
 
-func NewDefaultZdImport() *ZdImport {
+func NewZdImportWithDefaults() *ZdImport {
 	zdImportType := new(ZdImport)
 	return zdImportType
 }
@@ -1233,7 +1233,7 @@ func NewZdImportStatus() *ZdImportStatus {
 	return zdImportStatusType
 }
 
-func NewDefaultZdImportStatus() *ZdImportStatus {
+func NewZdImportStatusWithDefaults() *ZdImportStatus {
 	zdImportStatusType := new(ZdImportStatus)
 	return zdImportStatusType
 }

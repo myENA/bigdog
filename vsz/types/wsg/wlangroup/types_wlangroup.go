@@ -20,7 +20,7 @@ func NewCreateWlanGroup() *CreateWlanGroup {
 	return createWlanGroupType
 }
 
-func NewDefaultCreateWlanGroup() *CreateWlanGroup {
+func NewCreateWlanGroupWithDefaults() *CreateWlanGroup {
 	createWlanGroupType := new(CreateWlanGroup)
 	return createWlanGroupType
 }
@@ -36,7 +36,7 @@ func NewModifyWlanGroup() *ModifyWlanGroup {
 	return modifyWlanGroupType
 }
 
-func NewDefaultModifyWlanGroup() *ModifyWlanGroup {
+func NewModifyWlanGroupWithDefaults() *ModifyWlanGroup {
 	modifyWlanGroupType := new(ModifyWlanGroup)
 	return modifyWlanGroupType
 }
@@ -65,7 +65,7 @@ func NewModifyWlanGroupMember() *ModifyWlanGroupMember {
 	return modifyWlanGroupMemberType
 }
 
-func NewDefaultModifyWlanGroupMember() *ModifyWlanGroupMember {
+func NewModifyWlanGroupMemberWithDefaults() *ModifyWlanGroupMember {
 	modifyWlanGroupMemberType := new(ModifyWlanGroupMember)
 	return modifyWlanGroupMemberType
 }
@@ -120,7 +120,7 @@ func NewWlanGroup() *WlanGroup {
 	return wlanGroupType
 }
 
-func NewDefaultWlanGroup() *WlanGroup {
+func NewWlanGroupWithDefaults() *WlanGroup {
 	wlanGroupType := new(WlanGroup)
 	return wlanGroupType
 }
@@ -140,7 +140,7 @@ func NewWlanGroupList() *WlanGroupList {
 	return wlanGroupListType
 }
 
-func NewDefaultWlanGroupList() *WlanGroupList {
+func NewWlanGroupListWithDefaults() *WlanGroupList {
 	wlanGroupListType := new(WlanGroupList)
 	return wlanGroupListType
 }
@@ -179,7 +179,7 @@ func NewWlanMember() *WlanMember {
 	return wlanMemberType
 }
 
-func NewDefaultWlanMember() *WlanMember {
+func NewWlanMemberWithDefaults() *WlanMember {
 	wlanMemberType := new(WlanMember)
 	return wlanMemberType
 }

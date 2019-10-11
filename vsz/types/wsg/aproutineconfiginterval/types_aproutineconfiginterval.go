@@ -11,7 +11,7 @@ func NewApRoutineConfigIntervalReq() *ApRoutineConfigIntervalReq {
 	return apRoutineConfigIntervalReqType
 }
 
-func NewDefaultApRoutineConfigIntervalReq() *ApRoutineConfigIntervalReq {
+func NewApRoutineConfigIntervalReqWithDefaults() *ApRoutineConfigIntervalReq {
 	apRoutineConfigIntervalReqType := new(ApRoutineConfigIntervalReq)
 	return apRoutineConfigIntervalReqType
 }
@@ -29,7 +29,7 @@ func NewApRoutineConfigIntervalRsp() *ApRoutineConfigIntervalRsp {
 	return apRoutineConfigIntervalRspType
 }
 
-func NewDefaultApRoutineConfigIntervalRsp() *ApRoutineConfigIntervalRsp {
+func NewApRoutineConfigIntervalRspWithDefaults() *ApRoutineConfigIntervalRsp {
 	apRoutineConfigIntervalRspType := new(ApRoutineConfigIntervalRsp)
 	return apRoutineConfigIntervalRspType
 }

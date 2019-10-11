@@ -48,7 +48,7 @@ func NewCreateStaticRoute() *CreateStaticRoute {
 	return createStaticRouteType
 }
 
-func NewDefaultCreateStaticRoute() *CreateStaticRoute {
+func NewCreateStaticRouteWithDefaults() *CreateStaticRoute {
 	createStaticRouteType := new(CreateStaticRoute)
 	return createStaticRouteType
 }
@@ -78,7 +78,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -137,7 +137,7 @@ func NewStaticRoute() *StaticRoute {
 	return staticRouteType
 }
 
-func NewDefaultStaticRoute() *StaticRoute {
+func NewStaticRouteWithDefaults() *StaticRoute {
 	staticRouteType := new(StaticRoute)
 	return staticRouteType
 }
@@ -171,7 +171,7 @@ func NewStaticRoutesQueryResult() *StaticRoutesQueryResult {
 	return staticRoutesQueryResultType
 }
 
-func NewDefaultStaticRoutesQueryResult() *StaticRoutesQueryResult {
+func NewStaticRoutesQueryResultWithDefaults() *StaticRoutesQueryResult {
 	staticRoutesQueryResultType := new(StaticRoutesQueryResult)
 	return staticRoutesQueryResultType
 }
@@ -204,7 +204,7 @@ func NewStaticRoutesQueryResultExtraType() *StaticRoutesQueryResultExtraType {
 	return staticRoutesQueryResultExtraTypeType
 }
 
-func NewDefaultStaticRoutesQueryResultExtraType() *StaticRoutesQueryResultExtraType {
+func NewStaticRoutesQueryResultExtraTypeWithDefaults() *StaticRoutesQueryResultExtraType {
 	staticRoutesQueryResultExtraTypeType := new(StaticRoutesQueryResultExtraType)
 	return staticRoutesQueryResultExtraTypeType
 }
@@ -239,7 +239,7 @@ func NewUpdateStaticRoute() *UpdateStaticRoute {
 	return updateStaticRouteType
 }
 
-func NewDefaultUpdateStaticRoute() *UpdateStaticRoute {
+func NewUpdateStaticRouteWithDefaults() *UpdateStaticRoute {
 	updateStaticRouteType := new(UpdateStaticRoute)
 	return updateStaticRouteType
 }

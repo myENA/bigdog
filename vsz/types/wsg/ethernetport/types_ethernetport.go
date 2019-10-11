@@ -84,7 +84,7 @@ func NewCreateEthernetPortProfile() *CreateEthernetPortProfile {
 	return createEthernetPortProfileType
 }
 
-func NewDefaultCreateEthernetPortProfile() *CreateEthernetPortProfile {
+func NewCreateEthernetPortProfileWithDefaults() *CreateEthernetPortProfile {
 	createEthernetPortProfileType := new(CreateEthernetPortProfile)
 	antiSpoofingEnabledField := false
 	createEthernetPortProfileType.AntiSpoofingEnabled = &antiSpoofingEnabledField
@@ -170,7 +170,7 @@ func NewEthernetPortProfile() *EthernetPortProfile {
 	return ethernetPortProfileType
 }
 
-func NewDefaultEthernetPortProfile() *EthernetPortProfile {
+func NewEthernetPortProfileWithDefaults() *EthernetPortProfile {
 	ethernetPortProfileType := new(EthernetPortProfile)
 	return ethernetPortProfileType
 }
@@ -238,7 +238,7 @@ func NewModifyEthernetPortProfile() *ModifyEthernetPortProfile {
 	return modifyEthernetPortProfileType
 }
 
-func NewDefaultModifyEthernetPortProfile() *ModifyEthernetPortProfile {
+func NewModifyEthernetPortProfileWithDefaults() *ModifyEthernetPortProfile {
 	modifyEthernetPortProfileType := new(ModifyEthernetPortProfile)
 	arpRequestRateLimitField := 15
 	modifyEthernetPortProfileType.ArpRequestRateLimit = &arpRequestRateLimitField
@@ -260,7 +260,7 @@ func NewProfileList() *ProfileList {
 	return profileListType
 }
 
-func NewDefaultProfileList() *ProfileList {
+func NewProfileListWithDefaults() *ProfileList {
 	profileListType := new(ProfileList)
 	return profileListType
 }
@@ -278,7 +278,7 @@ func NewProfileListType() *ProfileListType {
 	return profileListTypeType
 }
 
-func NewDefaultProfileListType() *ProfileListType {
+func NewProfileListTypeWithDefaults() *ProfileListType {
 	profileListTypeType := new(ProfileListType)
 	return profileListTypeType
 }

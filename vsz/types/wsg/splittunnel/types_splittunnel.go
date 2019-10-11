@@ -26,7 +26,7 @@ func NewCreateSplitTunnelProfile() *CreateSplitTunnelProfile {
 	return createSplitTunnelProfileType
 }
 
-func NewDefaultCreateSplitTunnelProfile() *CreateSplitTunnelProfile {
+func NewCreateSplitTunnelProfileWithDefaults() *CreateSplitTunnelProfile {
 	createSplitTunnelProfileType := new(CreateSplitTunnelProfile)
 	return createSplitTunnelProfileType
 }
@@ -46,7 +46,7 @@ func NewModifySplitTunnelProfile() *ModifySplitTunnelProfile {
 	return modifySplitTunnelProfileType
 }
 
-func NewDefaultModifySplitTunnelProfile() *ModifySplitTunnelProfile {
+func NewModifySplitTunnelProfileWithDefaults() *ModifySplitTunnelProfile {
 	modifySplitTunnelProfileType := new(ModifySplitTunnelProfile)
 	return modifySplitTunnelProfileType
 }
@@ -70,7 +70,7 @@ func NewSplitTunnelIpMaskRule() *SplitTunnelIpMaskRule {
 	return splitTunnelIpMaskRuleType
 }
 
-func NewDefaultSplitTunnelIpMaskRule() *SplitTunnelIpMaskRule {
+func NewSplitTunnelIpMaskRuleWithDefaults() *SplitTunnelIpMaskRule {
 	splitTunnelIpMaskRuleType := new(SplitTunnelIpMaskRule)
 	return splitTunnelIpMaskRuleType
 }
@@ -98,7 +98,7 @@ func NewSplitTunnelProfile() *SplitTunnelProfile {
 	return splitTunnelProfileType
 }
 
-func NewDefaultSplitTunnelProfile() *SplitTunnelProfile {
+func NewSplitTunnelProfileWithDefaults() *SplitTunnelProfile {
 	splitTunnelProfileType := new(SplitTunnelProfile)
 	return splitTunnelProfileType
 }
@@ -118,7 +118,7 @@ func NewSplitTunnelProfileList() *SplitTunnelProfileList {
 	return splitTunnelProfileListType
 }
 
-func NewDefaultSplitTunnelProfileList() *SplitTunnelProfileList {
+func NewSplitTunnelProfileListWithDefaults() *SplitTunnelProfileList {
 	splitTunnelProfileListType := new(SplitTunnelProfileList)
 	return splitTunnelProfileListType
 }
@@ -134,7 +134,7 @@ func NewSplitTunnelProfileListType() *SplitTunnelProfileListType {
 	return splitTunnelProfileListTypeType
 }
 
-func NewDefaultSplitTunnelProfileListType() *SplitTunnelProfileListType {
+func NewSplitTunnelProfileListTypeWithDefaults() *SplitTunnelProfileListType {
 	splitTunnelProfileListTypeType := new(SplitTunnelProfileListType)
 	return splitTunnelProfileListTypeType
 }
@@ -156,7 +156,7 @@ func NewSplitTunnelProfileQuery() *SplitTunnelProfileQuery {
 	return splitTunnelProfileQueryType
 }
 
-func NewDefaultSplitTunnelProfileQuery() *SplitTunnelProfileQuery {
+func NewSplitTunnelProfileQueryWithDefaults() *SplitTunnelProfileQuery {
 	splitTunnelProfileQueryType := new(SplitTunnelProfileQuery)
 	return splitTunnelProfileQueryType
 }

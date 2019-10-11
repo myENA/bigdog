@@ -67,7 +67,7 @@ func NewCreateUrlFilteringPolicy() *CreateUrlFilteringPolicy {
 	return createUrlFilteringPolicyType
 }
 
-func NewDefaultCreateUrlFilteringPolicy() *CreateUrlFilteringPolicy {
+func NewCreateUrlFilteringPolicyWithDefaults() *CreateUrlFilteringPolicy {
 	createUrlFilteringPolicyType := new(CreateUrlFilteringPolicy)
 	return createUrlFilteringPolicyType
 }
@@ -81,7 +81,7 @@ func NewDeleteBulk() *DeleteBulk {
 	return deleteBulkType
 }
 
-func NewDefaultDeleteBulk() *DeleteBulk {
+func NewDeleteBulkWithDefaults() *DeleteBulk {
 	deleteBulkType := new(DeleteBulk)
 	return deleteBulkType
 }
@@ -140,7 +140,7 @@ func NewModifyUrlFilteringPolicy() *ModifyUrlFilteringPolicy {
 	return modifyUrlFilteringPolicyType
 }
 
-func NewDefaultModifyUrlFilteringPolicy() *ModifyUrlFilteringPolicy {
+func NewModifyUrlFilteringPolicyWithDefaults() *ModifyUrlFilteringPolicy {
 	modifyUrlFilteringPolicyType := new(ModifyUrlFilteringPolicy)
 	return modifyUrlFilteringPolicyType
 }
@@ -160,7 +160,7 @@ func NewUrlFilteringBlockCategoriesList() *UrlFilteringBlockCategoriesList {
 	return urlFilteringBlockCategoriesListType
 }
 
-func NewDefaultUrlFilteringBlockCategoriesList() *UrlFilteringBlockCategoriesList {
+func NewUrlFilteringBlockCategoriesListWithDefaults() *UrlFilteringBlockCategoriesList {
 	urlFilteringBlockCategoriesListType := new(UrlFilteringBlockCategoriesList)
 	return urlFilteringBlockCategoriesListType
 }
@@ -180,7 +180,7 @@ func NewUrlFilteringBlockCategory() *UrlFilteringBlockCategory {
 	return urlFilteringBlockCategoryType
 }
 
-func NewDefaultUrlFilteringBlockCategory() *UrlFilteringBlockCategory {
+func NewUrlFilteringBlockCategoryWithDefaults() *UrlFilteringBlockCategory {
 	urlFilteringBlockCategoryType := new(UrlFilteringBlockCategory)
 	return urlFilteringBlockCategoryType
 }
@@ -275,7 +275,7 @@ func NewUrlFilteringPolicy() *UrlFilteringPolicy {
 	return urlFilteringPolicyType
 }
 
-func NewDefaultUrlFilteringPolicy() *UrlFilteringPolicy {
+func NewUrlFilteringPolicyWithDefaults() *UrlFilteringPolicy {
 	urlFilteringPolicyType := new(UrlFilteringPolicy)
 	return urlFilteringPolicyType
 }
@@ -297,7 +297,7 @@ func NewUrlFilteringPolicyList() *UrlFilteringPolicyList {
 	return urlFilteringPolicyListType
 }
 
-func NewDefaultUrlFilteringPolicyList() *UrlFilteringPolicyList {
+func NewUrlFilteringPolicyListWithDefaults() *UrlFilteringPolicyList {
 	urlFilteringPolicyListType := new(UrlFilteringPolicyList)
 	return urlFilteringPolicyListType
 }

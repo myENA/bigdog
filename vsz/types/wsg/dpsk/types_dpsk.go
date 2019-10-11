@@ -35,7 +35,7 @@ func NewBatchGenUnbound() *BatchGenUnbound {
 	return batchGenUnboundType
 }
 
-func NewDefaultBatchGenUnbound() *BatchGenUnbound {
+func NewBatchGenUnboundWithDefaults() *BatchGenUnbound {
 	batchGenUnboundType := new(BatchGenUnbound)
 	return batchGenUnboundType
 }
@@ -49,7 +49,7 @@ func NewDeleteDpskResult() *DeleteDpskResult {
 	return deleteDpskResultType
 }
 
-func NewDefaultDeleteDpskResult() *DeleteDpskResult {
+func NewDeleteDpskResultWithDefaults() *DeleteDpskResult {
 	deleteDpskResultType := new(DeleteDpskResult)
 	return deleteDpskResultType
 }
@@ -63,7 +63,7 @@ func NewDeleteDPSKs() *DeleteDPSKs {
 	return deleteDPSKsType
 }
 
-func NewDefaultDeleteDPSKs() *DeleteDPSKs {
+func NewDeleteDPSKsWithDefaults() *DeleteDPSKs {
 	deleteDPSKsType := new(DeleteDPSKs)
 	return deleteDPSKsType
 }
@@ -82,7 +82,7 @@ func NewDeleteExpiredDpskConfig() *DeleteExpiredDpskConfig {
 	return deleteExpiredDpskConfigType
 }
 
-func NewDefaultDeleteExpiredDpskConfig() *DeleteExpiredDpskConfig {
+func NewDeleteExpiredDpskConfigWithDefaults() *DeleteExpiredDpskConfig {
 	deleteExpiredDpskConfigType := new(DeleteExpiredDpskConfig)
 	return deleteExpiredDpskConfigType
 }
@@ -97,7 +97,7 @@ func NewDpskInfo() *DpskInfo {
 	return &dpskInfoType
 }
 
-func NewDefaultDpskInfo() *DpskInfo {
+func NewDpskInfoWithDefaults() *DpskInfo {
 	dpskInfoType := make(DpskInfo, 0)
 	return &dpskInfoType
 }
@@ -149,7 +149,7 @@ func NewDpskInfoType() *DpskInfoType {
 	return dpskInfoTypeType
 }
 
-func NewDefaultDpskInfoType() *DpskInfoType {
+func NewDpskInfoTypeWithDefaults() *DpskInfoType {
 	dpskInfoTypeType := new(DpskInfoType)
 	return dpskInfoTypeType
 }
@@ -173,7 +173,7 @@ func NewDpskQueryList() *DpskQueryList {
 	return dpskQueryListType
 }
 
-func NewDefaultDpskQueryList() *DpskQueryList {
+func NewDpskQueryListWithDefaults() *DpskQueryList {
 	dpskQueryListType := new(DpskQueryList)
 	return dpskQueryListType
 }
@@ -245,7 +245,7 @@ func NewDpskQueryListType() *DpskQueryListType {
 	return dpskQueryListTypeType
 }
 
-func NewDefaultDpskQueryListType() *DpskQueryListType {
+func NewDpskQueryListTypeWithDefaults() *DpskQueryListType {
 	dpskQueryListTypeType := new(DpskQueryListType)
 	return dpskQueryListTypeType
 }
@@ -271,7 +271,7 @@ func NewGetDpskEnabledWlans() *GetDpskEnabledWlans {
 	return getDpskEnabledWlansType
 }
 
-func NewDefaultGetDpskEnabledWlans() *GetDpskEnabledWlans {
+func NewGetDpskEnabledWlansWithDefaults() *GetDpskEnabledWlans {
 	getDpskEnabledWlansType := new(GetDpskEnabledWlans)
 	return getDpskEnabledWlansType
 }
@@ -295,7 +295,7 @@ func NewGetDpskEnabledWlansListType() *GetDpskEnabledWlansListType {
 	return getDpskEnabledWlansListTypeType
 }
 
-func NewDefaultGetDpskEnabledWlansListType() *GetDpskEnabledWlansListType {
+func NewGetDpskEnabledWlansListTypeWithDefaults() *GetDpskEnabledWlansListType {
 	getDpskEnabledWlansListTypeType := new(GetDpskEnabledWlansListType)
 	return getDpskEnabledWlansListTypeType
 }
@@ -315,7 +315,7 @@ func NewGetDpskInfoList() *GetDpskInfoList {
 	return getDpskInfoListType
 }
 
-func NewDefaultGetDpskInfoList() *GetDpskInfoList {
+func NewGetDpskInfoListWithDefaults() *GetDpskInfoList {
 	getDpskInfoListType := new(GetDpskInfoList)
 	return getDpskInfoListType
 }
@@ -331,7 +331,7 @@ func NewGetDpskResult() *GetDpskResult {
 	return getDpskResultType
 }
 
-func NewDefaultGetDpskResult() *GetDpskResult {
+func NewGetDpskResultWithDefaults() *GetDpskResult {
 	getDpskResultType := new(GetDpskResult)
 	return getDpskResultType
 }
@@ -350,7 +350,7 @@ func NewModifyDeleteExpiredDpsk() *ModifyDeleteExpiredDpsk {
 	return modifyDeleteExpiredDpskType
 }
 
-func NewDefaultModifyDeleteExpiredDpsk() *ModifyDeleteExpiredDpsk {
+func NewModifyDeleteExpiredDpskWithDefaults() *ModifyDeleteExpiredDpsk {
 	modifyDeleteExpiredDpskType := new(ModifyDeleteExpiredDpsk)
 	return modifyDeleteExpiredDpskType
 }
@@ -366,7 +366,7 @@ func NewUpdateDpsk() *UpdateDpsk {
 	return updateDpskType
 }
 
-func NewDefaultUpdateDpsk() *UpdateDpsk {
+func NewUpdateDpskWithDefaults() *UpdateDpsk {
 	updateDpskType := new(UpdateDpsk)
 	return updateDpskType
 }
@@ -410,7 +410,7 @@ func NewWlanDpskSetting() *WlanDpskSetting {
 	return wlanDpskSettingType
 }
 
-func NewDefaultWlanDpskSetting() *WlanDpskSetting {
+func NewWlanDpskSettingWithDefaults() *WlanDpskSetting {
 	wlanDpskSettingType := new(WlanDpskSetting)
 	dpskEnabledField := false
 	wlanDpskSettingType.DpskEnabled = &dpskEnabledField
@@ -447,7 +447,7 @@ func NewWlanExternalDpsk() *WlanExternalDpsk {
 	return wlanExternalDpskType
 }
 
-func NewDefaultWlanExternalDpsk() *WlanExternalDpsk {
+func NewWlanExternalDpskWithDefaults() *WlanExternalDpsk {
 	wlanExternalDpskType := new(WlanExternalDpsk)
 	enabledField := false
 	wlanExternalDpskType.Enabled = &enabledField
@@ -472,7 +472,7 @@ func NewWlanExternalDpskAuthServiceType() *WlanExternalDpskAuthServiceType {
 	return wlanExternalDpskAuthServiceTypeType
 }
 
-func NewDefaultWlanExternalDpskAuthServiceType() *WlanExternalDpskAuthServiceType {
+func NewWlanExternalDpskAuthServiceTypeWithDefaults() *WlanExternalDpskAuthServiceType {
 	wlanExternalDpskAuthServiceTypeType := new(WlanExternalDpskAuthServiceType)
 	return wlanExternalDpskAuthServiceTypeType
 }
@@ -501,7 +501,7 @@ func NewWlanExternalDpskEncryptionType() *WlanExternalDpskEncryptionType {
 	return wlanExternalDpskEncryptionTypeType
 }
 
-func NewDefaultWlanExternalDpskEncryptionType() *WlanExternalDpskEncryptionType {
+func NewWlanExternalDpskEncryptionTypeWithDefaults() *WlanExternalDpskEncryptionType {
 	wlanExternalDpskEncryptionTypeType := new(WlanExternalDpskEncryptionType)
 	return wlanExternalDpskEncryptionTypeType
 }

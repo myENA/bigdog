@@ -24,7 +24,7 @@ func NewDhcpClientInfo() *DhcpClientInfo {
 	return dhcpClientInfoType
 }
 
-func NewDefaultDhcpClientInfo() *DhcpClientInfo {
+func NewDhcpClientInfoWithDefaults() *DhcpClientInfo {
 	dhcpClientInfoType := new(DhcpClientInfo)
 	return dhcpClientInfoType
 }
@@ -61,7 +61,7 @@ func NewDhcpPoolInfo() *DhcpPoolInfo {
 	return dhcpPoolInfoType
 }
 
-func NewDefaultDhcpPoolInfo() *DhcpPoolInfo {
+func NewDhcpPoolInfoWithDefaults() *DhcpPoolInfo {
 	dhcpPoolInfoType := new(DhcpPoolInfo)
 	return dhcpPoolInfoType
 }
@@ -81,7 +81,7 @@ func NewDhcpPoolInfoClientInfoListType() *DhcpPoolInfoClientInfoListType {
 	return dhcpPoolInfoClientInfoListTypeType
 }
 
-func NewDefaultDhcpPoolInfoClientInfoListType() *DhcpPoolInfoClientInfoListType {
+func NewDhcpPoolInfoClientInfoListTypeWithDefaults() *DhcpPoolInfoClientInfoListType {
 	dhcpPoolInfoClientInfoListTypeType := new(DhcpPoolInfoClientInfoListType)
 	return dhcpPoolInfoClientInfoListTypeType
 }
@@ -108,7 +108,7 @@ func NewDhcpPools() *DhcpPools {
 	return dhcpPoolsType
 }
 
-func NewDefaultDhcpPools() *DhcpPools {
+func NewDhcpPoolsWithDefaults() *DhcpPools {
 	dhcpPoolsType := new(DhcpPools)
 	return dhcpPoolsType
 }

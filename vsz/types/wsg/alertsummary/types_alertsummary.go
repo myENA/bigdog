@@ -17,7 +17,7 @@ func NewAlarmSummary() *AlarmSummary {
 	return alarmSummaryType
 }
 
-func NewDefaultAlarmSummary() *AlarmSummary {
+func NewAlarmSummaryWithDefaults() *AlarmSummary {
 	alarmSummaryType := new(AlarmSummary)
 	return alarmSummaryType
 }
@@ -41,7 +41,7 @@ func NewEventSummary() *EventSummary {
 	return eventSummaryType
 }
 
-func NewDefaultEventSummary() *EventSummary {
+func NewEventSummaryWithDefaults() *EventSummary {
 	eventSummaryType := new(EventSummary)
 	return eventSummaryType
 }

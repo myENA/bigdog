@@ -29,7 +29,7 @@ func NewApNumberLimitSettingOfDomain() *ApNumberLimitSettingOfDomain {
 	return apNumberLimitSettingOfDomainType
 }
 
-func NewDefaultApNumberLimitSettingOfDomain() *ApNumberLimitSettingOfDomain {
+func NewApNumberLimitSettingOfDomainWithDefaults() *ApNumberLimitSettingOfDomain {
 	apNumberLimitSettingOfDomainType := new(ApNumberLimitSettingOfDomain)
 	return apNumberLimitSettingOfDomainType
 }
@@ -65,7 +65,7 @@ func NewApNumberLimitSettingOfZone() *ApNumberLimitSettingOfZone {
 	return apNumberLimitSettingOfZoneType
 }
 
-func NewDefaultApNumberLimitSettingOfZone() *ApNumberLimitSettingOfZone {
+func NewApNumberLimitSettingOfZoneWithDefaults() *ApNumberLimitSettingOfZone {
 	apNumberLimitSettingOfZoneType := new(ApNumberLimitSettingOfZone)
 	return apNumberLimitSettingOfZoneType
 }
@@ -92,7 +92,7 @@ func NewAuthenticationKey() *AuthenticationKey {
 	return authenticationKeyType
 }
 
-func NewDefaultAuthenticationKey() *AuthenticationKey {
+func NewAuthenticationKeyWithDefaults() *AuthenticationKey {
 	authenticationKeyType := new(AuthenticationKey)
 	return authenticationKeyType
 }
@@ -108,7 +108,7 @@ func NewCaptchaSetting() *CaptchaSetting {
 	return captchaSettingType
 }
 
-func NewDefaultCaptchaSetting() *CaptchaSetting {
+func NewCaptchaSettingWithDefaults() *CaptchaSetting {
 	captchaSettingType := new(CaptchaSetting)
 	return captchaSettingType
 }
@@ -128,7 +128,7 @@ func NewControllerList() *ControllerList {
 	return controllerListType
 }
 
-func NewDefaultControllerList() *ControllerList {
+func NewControllerListWithDefaults() *ControllerList {
 	controllerListType := new(ControllerList)
 	return controllerListType
 }
@@ -212,7 +212,7 @@ func NewControllerListType() *ControllerListType {
 	return controllerListTypeType
 }
 
-func NewDefaultControllerListType() *ControllerListType {
+func NewControllerListTypeWithDefaults() *ControllerListType {
 	controllerListTypeType := new(ControllerListType)
 	return controllerListTypeType
 }
@@ -245,7 +245,7 @@ func NewControlPlaneConfiguration() *ControlPlaneConfiguration {
 	return controlPlaneConfigurationType
 }
 
-func NewDefaultControlPlaneConfiguration() *ControlPlaneConfiguration {
+func NewControlPlaneConfigurationWithDefaults() *ControlPlaneConfiguration {
 	controlPlaneConfigurationType := new(ControlPlaneConfiguration)
 	return controlPlaneConfigurationType
 }
@@ -265,7 +265,7 @@ func NewControlPlaneList() *ControlPlaneList {
 	return controlPlaneListType
 }
 
-func NewDefaultControlPlaneList() *ControlPlaneList {
+func NewControlPlaneListWithDefaults() *ControlPlaneList {
 	controlPlaneListType := new(ControlPlaneList)
 	return controlPlaneListType
 }
@@ -323,7 +323,7 @@ func NewControlPlaneListType() *ControlPlaneListType {
 	return controlPlaneListTypeType
 }
 
-func NewDefaultControlPlaneListType() *ControlPlaneListType {
+func NewControlPlaneListTypeWithDefaults() *ControlPlaneListType {
 	controlPlaneListTypeType := new(ControlPlaneListType)
 	return controlPlaneListTypeType
 }
@@ -359,7 +359,7 @@ func NewCpStaticRoute() *CpStaticRoute {
 	return cpStaticRouteType
 }
 
-func NewDefaultCpStaticRoute() *CpStaticRoute {
+func NewCpStaticRouteWithDefaults() *CpStaticRoute {
 	cpStaticRouteType := new(CpStaticRoute)
 	return cpStaticRouteType
 }
@@ -405,7 +405,7 @@ func NewCpUserDefinedInterface() *CpUserDefinedInterface {
 	return cpUserDefinedInterfaceType
 }
 
-func NewDefaultCpUserDefinedInterface() *CpUserDefinedInterface {
+func NewCpUserDefinedInterfaceWithDefaults() *CpUserDefinedInterface {
 	cpUserDefinedInterfaceType := new(CpUserDefinedInterface)
 	return cpUserDefinedInterfaceType
 }
@@ -435,7 +435,7 @@ func NewDataPlaneConfiguration() *DataPlaneConfiguration {
 	return dataPlaneConfigurationType
 }
 
-func NewDefaultDataPlaneConfiguration() *DataPlaneConfiguration {
+func NewDataPlaneConfigurationWithDefaults() *DataPlaneConfiguration {
 	dataPlaneConfigurationType := new(DataPlaneConfiguration)
 	return dataPlaneConfigurationType
 }
@@ -455,7 +455,7 @@ func NewDataPlaneList() *DataPlaneList {
 	return dataPlaneListType
 }
 
-func NewDefaultDataPlaneList() *DataPlaneList {
+func NewDataPlaneListWithDefaults() *DataPlaneList {
 	dataPlaneListType := new(DataPlaneList)
 	return dataPlaneListType
 }
@@ -521,7 +521,7 @@ func NewDataPlaneListType() *DataPlaneListType {
 	return dataPlaneListTypeType
 }
 
-func NewDefaultDataPlaneListType() *DataPlaneListType {
+func NewDataPlaneListTypeWithDefaults() *DataPlaneListType {
 	dataPlaneListTypeType := new(DataPlaneListType)
 	return dataPlaneListTypeType
 }
@@ -535,7 +535,7 @@ func NewDeleteBulkFtp() *DeleteBulkFtp {
 	return deleteBulkFtpType
 }
 
-func NewDefaultDeleteBulkFtp() *DeleteBulkFtp {
+func NewDeleteBulkFtpWithDefaults() *DeleteBulkFtp {
 	deleteBulkFtpType := new(DeleteBulkFtp)
 	return deleteBulkFtpType
 }
@@ -555,7 +555,7 @@ func NewFriendlyNameLang() *FriendlyNameLang {
 	return friendlyNameLangType
 }
 
-func NewDefaultFriendlyNameLang() *FriendlyNameLang {
+func NewFriendlyNameLangWithDefaults() *FriendlyNameLang {
 	friendlyNameLangType := new(FriendlyNameLang)
 	return friendlyNameLangType
 }
@@ -581,7 +581,7 @@ func NewFriendlyNameLangList() *FriendlyNameLangList {
 	return friendlyNameLangListType
 }
 
-func NewDefaultFriendlyNameLangList() *FriendlyNameLangList {
+func NewFriendlyNameLangListWithDefaults() *FriendlyNameLangList {
 	friendlyNameLangListType := new(FriendlyNameLangList)
 	return friendlyNameLangListType
 }
@@ -656,7 +656,7 @@ func NewFtp() *Ftp {
 	return ftpType
 }
 
-func NewDefaultFtp() *Ftp {
+func NewFtpWithDefaults() *Ftp {
 	ftpType := new(Ftp)
 	return ftpType
 }
@@ -683,7 +683,7 @@ func NewFtpGlobalSetting() *FtpGlobalSetting {
 	return ftpGlobalSettingType
 }
 
-func NewDefaultFtpGlobalSetting() *FtpGlobalSetting {
+func NewFtpGlobalSettingWithDefaults() *FtpGlobalSetting {
 	ftpGlobalSettingType := new(FtpGlobalSetting)
 	return ftpGlobalSettingType
 }
@@ -711,7 +711,7 @@ func NewFtpList() *FtpList {
 	return ftpListType
 }
 
-func NewDefaultFtpList() *FtpList {
+func NewFtpListWithDefaults() *FtpList {
 	ftpListType := new(FtpList)
 	return ftpListType
 }
@@ -739,7 +739,7 @@ func NewFtpTestResponse() *FtpTestResponse {
 	return ftpTestResponseType
 }
 
-func NewDefaultFtpTestResponse() *FtpTestResponse {
+func NewFtpTestResponseWithDefaults() *FtpTestResponse {
 	ftpTestResponseType := new(FtpTestResponse)
 	return ftpTestResponseType
 }
@@ -790,7 +790,7 @@ func NewGatewayAdvanced() *GatewayAdvanced {
 	return gatewayAdvancedType
 }
 
-func NewDefaultGatewayAdvanced() *GatewayAdvanced {
+func NewGatewayAdvancedWithDefaults() *GatewayAdvanced {
 	gatewayAdvancedType := new(GatewayAdvanced)
 	return gatewayAdvancedType
 }
@@ -806,7 +806,7 @@ func NewGetDataPlaneMeshTunnelSetting() *GetDataPlaneMeshTunnelSetting {
 	return getDataPlaneMeshTunnelSettingType
 }
 
-func NewDefaultGetDataPlaneMeshTunnelSetting() *GetDataPlaneMeshTunnelSetting {
+func NewGetDataPlaneMeshTunnelSettingWithDefaults() *GetDataPlaneMeshTunnelSetting {
 	getDataPlaneMeshTunnelSettingType := new(GetDataPlaneMeshTunnelSetting)
 	return getDataPlaneMeshTunnelSettingType
 }
@@ -826,7 +826,7 @@ func NewInventoryList() *InventoryList {
 	return inventoryListType
 }
 
-func NewDefaultInventoryList() *InventoryList {
+func NewInventoryListWithDefaults() *InventoryList {
 	inventoryListType := new(InventoryList)
 	return inventoryListType
 }
@@ -888,7 +888,7 @@ func NewInventoryListType() *InventoryListType {
 	return inventoryListTypeType
 }
 
-func NewDefaultInventoryListType() *InventoryListType {
+func NewInventoryListTypeWithDefaults() *InventoryListType {
 	inventoryListTypeType := new(InventoryListType)
 	return inventoryListTypeType
 }
@@ -915,7 +915,7 @@ func NewIpv4AccessAndCoreSeparation() *Ipv4AccessAndCoreSeparation {
 	return ipv4AccessAndCoreSeparationType
 }
 
-func NewDefaultIpv4AccessAndCoreSeparation() *Ipv4AccessAndCoreSeparation {
+func NewIpv4AccessAndCoreSeparationWithDefaults() *Ipv4AccessAndCoreSeparation {
 	ipv4AccessAndCoreSeparationType := new(Ipv4AccessAndCoreSeparation)
 	return ipv4AccessAndCoreSeparationType
 }
@@ -946,7 +946,7 @@ func NewIpv4ClusterInterface() *Ipv4ClusterInterface {
 	return ipv4ClusterInterfaceType
 }
 
-func NewDefaultIpv4ClusterInterface() *Ipv4ClusterInterface {
+func NewIpv4ClusterInterfaceWithDefaults() *Ipv4ClusterInterface {
 	ipv4ClusterInterfaceType := new(Ipv4ClusterInterface)
 	return ipv4ClusterInterfaceType
 }
@@ -981,7 +981,7 @@ func NewIpv4ControlInterface() *Ipv4ControlInterface {
 	return ipv4ControlInterfaceType
 }
 
-func NewDefaultIpv4ControlInterface() *Ipv4ControlInterface {
+func NewIpv4ControlInterfaceWithDefaults() *Ipv4ControlInterface {
 	ipv4ControlInterfaceType := new(Ipv4ControlInterface)
 	return ipv4ControlInterfaceType
 }
@@ -1012,7 +1012,7 @@ func NewIpv4ManagementInterface() *Ipv4ManagementInterface {
 	return ipv4ManagementInterfaceType
 }
 
-func NewDefaultIpv4ManagementInterface() *Ipv4ManagementInterface {
+func NewIpv4ManagementInterfaceWithDefaults() *Ipv4ManagementInterface {
 	ipv4ManagementInterfaceType := new(Ipv4ManagementInterface)
 	return ipv4ManagementInterfaceType
 }
@@ -1039,7 +1039,7 @@ func NewIpv6AccessAndCoreSeparation() *Ipv6AccessAndCoreSeparation {
 	return ipv6AccessAndCoreSeparationType
 }
 
-func NewDefaultIpv6AccessAndCoreSeparation() *Ipv6AccessAndCoreSeparation {
+func NewIpv6AccessAndCoreSeparationWithDefaults() *Ipv6AccessAndCoreSeparation {
 	ipv6AccessAndCoreSeparationType := new(Ipv6AccessAndCoreSeparation)
 	return ipv6AccessAndCoreSeparationType
 }
@@ -1066,7 +1066,7 @@ func NewIpv6ControlInterface() *Ipv6ControlInterface {
 	return ipv6ControlInterfaceType
 }
 
-func NewDefaultIpv6ControlInterface() *Ipv6ControlInterface {
+func NewIpv6ControlInterfaceWithDefaults() *Ipv6ControlInterface {
 	ipv6ControlInterfaceType := new(Ipv6ControlInterface)
 	return ipv6ControlInterfaceType
 }
@@ -1093,7 +1093,7 @@ func NewIpv6ManagementInterface() *Ipv6ManagementInterface {
 	return ipv6ManagementInterfaceType
 }
 
-func NewDefaultIpv6ManagementInterface() *Ipv6ManagementInterface {
+func NewIpv6ManagementInterfaceWithDefaults() *Ipv6ManagementInterface {
 	ipv6ManagementInterfaceType := new(Ipv6ManagementInterface)
 	return ipv6ManagementInterfaceType
 }
@@ -1132,7 +1132,7 @@ func NewIpv6PrimaryInterface() *Ipv6PrimaryInterface {
 	return ipv6PrimaryInterfaceType
 }
 
-func NewDefaultIpv6PrimaryInterface() *Ipv6PrimaryInterface {
+func NewIpv6PrimaryInterfaceWithDefaults() *Ipv6PrimaryInterface {
 	ipv6PrimaryInterfaceType := new(Ipv6PrimaryInterface)
 	return ipv6PrimaryInterfaceType
 }
@@ -1179,7 +1179,7 @@ func NewLwapp2scgConfiguration() *Lwapp2scgConfiguration {
 	return lwapp2scgConfigurationType
 }
 
-func NewDefaultLwapp2scgConfiguration() *Lwapp2scgConfiguration {
+func NewLwapp2scgConfigurationWithDefaults() *Lwapp2scgConfiguration {
 	lwapp2scgConfigurationType := new(Lwapp2scgConfiguration)
 	return lwapp2scgConfigurationType
 }
@@ -1209,7 +1209,7 @@ func NewModifyControlPlane() *ModifyControlPlane {
 	return modifyControlPlaneType
 }
 
-func NewDefaultModifyControlPlane() *ModifyControlPlane {
+func NewModifyControlPlaneWithDefaults() *ModifyControlPlane {
 	modifyControlPlaneType := new(ModifyControlPlane)
 	return modifyControlPlaneType
 }
@@ -1246,7 +1246,7 @@ func NewModifyDataPlane() *ModifyDataPlane {
 	return modifyDataPlaneType
 }
 
-func NewDefaultModifyDataPlane() *ModifyDataPlane {
+func NewModifyDataPlaneWithDefaults() *ModifyDataPlane {
 	modifyDataPlaneType := new(ModifyDataPlane)
 	return modifyDataPlaneType
 }
@@ -1262,7 +1262,7 @@ func NewModifyDataPlaneState() *ModifyDataPlaneState {
 	return modifyDataPlaneStateType
 }
 
-func NewDefaultModifyDataPlaneState() *ModifyDataPlaneState {
+func NewModifyDataPlaneStateWithDefaults() *ModifyDataPlaneState {
 	modifyDataPlaneStateType := new(ModifyDataPlaneState)
 	return modifyDataPlaneStateType
 }
@@ -1313,7 +1313,7 @@ func NewModifyGatewayAdvanced() *ModifyGatewayAdvanced {
 	return modifyGatewayAdvancedType
 }
 
-func NewDefaultModifyGatewayAdvanced() *ModifyGatewayAdvanced {
+func NewModifyGatewayAdvancedWithDefaults() *ModifyGatewayAdvanced {
 	modifyGatewayAdvancedType := new(ModifyGatewayAdvanced)
 	return modifyGatewayAdvancedType
 }
@@ -1332,7 +1332,7 @@ func NewModifyIpSupportType() *ModifyIpSupportType {
 	return modifyIpSupportTypeType
 }
 
-func NewDefaultModifyIpSupportType() *ModifyIpSupportType {
+func NewModifyIpSupportTypeWithDefaults() *ModifyIpSupportType {
 	modifyIpSupportTypeType := new(ModifyIpSupportType)
 	return modifyIpSupportTypeType
 }
@@ -1375,7 +1375,7 @@ func NewModifyLwapp2scg() *ModifyLwapp2scg {
 	return modifyLwapp2scgType
 }
 
-func NewDefaultModifyLwapp2scg() *ModifyLwapp2scg {
+func NewModifyLwapp2scgWithDefaults() *ModifyLwapp2scg {
 	modifyLwapp2scgType := new(ModifyLwapp2scg)
 	return modifyLwapp2scgType
 }
@@ -1401,7 +1401,7 @@ func NewModifySnmpAgent() *ModifySnmpAgent {
 	return modifySnmpAgentType
 }
 
-func NewDefaultModifySnmpAgent() *ModifySnmpAgent {
+func NewModifySnmpAgentWithDefaults() *ModifySnmpAgent {
 	modifySnmpAgentType := new(ModifySnmpAgent)
 	return modifySnmpAgentType
 }
@@ -1423,7 +1423,7 @@ func NewModifySystemTimeSetting() *ModifySystemTimeSetting {
 	return modifySystemTimeSettingType
 }
 
-func NewDefaultModifySystemTimeSetting() *ModifySystemTimeSetting {
+func NewModifySystemTimeSettingWithDefaults() *ModifySystemTimeSetting {
 	modifySystemTimeSettingType := new(ModifySystemTimeSetting)
 	return modifySystemTimeSettingType
 }
@@ -1446,7 +1446,7 @@ func NewNorthboundInterface() *NorthboundInterface {
 	return northboundInterfaceType
 }
 
-func NewDefaultNorthboundInterface() *NorthboundInterface {
+func NewNorthboundInterfaceWithDefaults() *NorthboundInterface {
 	northboundInterfaceType := new(NorthboundInterface)
 	return northboundInterfaceType
 }
@@ -1466,7 +1466,7 @@ func NewPortalLang() *PortalLang {
 	return portalLangType
 }
 
-func NewDefaultPortalLang() *PortalLang {
+func NewPortalLangWithDefaults() *PortalLang {
 	portalLangType := new(PortalLang)
 	return portalLangType
 }
@@ -1492,7 +1492,7 @@ func NewPortalLangList() *PortalLangList {
 	return portalLangListType
 }
 
-func NewDefaultPortalLangList() *PortalLangList {
+func NewPortalLangListWithDefaults() *PortalLangList {
 	portalLangListType := new(PortalLangList)
 	return portalLangListType
 }
@@ -1552,7 +1552,7 @@ func NewPortStatistic() *PortStatistic {
 	return portStatisticType
 }
 
-func NewDefaultPortStatistic() *PortStatistic {
+func NewPortStatisticWithDefaults() *PortStatistic {
 	portStatisticType := new(PortStatistic)
 	return portStatisticType
 }
@@ -1605,7 +1605,7 @@ func NewPrimaryInterface() *PrimaryInterface {
 	return primaryInterfaceType
 }
 
-func NewDefaultPrimaryInterface() *PrimaryInterface {
+func NewPrimaryInterfaceWithDefaults() *PrimaryInterface {
 	primaryInterfaceType := new(PrimaryInterface)
 	return primaryInterfaceType
 }
@@ -1632,7 +1632,7 @@ func NewSaveApNumberLimitSettingOfDomain() *SaveApNumberLimitSettingOfDomain {
 	return saveApNumberLimitSettingOfDomainType
 }
 
-func NewDefaultSaveApNumberLimitSettingOfDomain() *SaveApNumberLimitSettingOfDomain {
+func NewSaveApNumberLimitSettingOfDomainWithDefaults() *SaveApNumberLimitSettingOfDomain {
 	saveApNumberLimitSettingOfDomainType := new(SaveApNumberLimitSettingOfDomain)
 	return saveApNumberLimitSettingOfDomainType
 }
@@ -1664,7 +1664,7 @@ func NewSaveApNumberLimitSettingOfZone() *SaveApNumberLimitSettingOfZone {
 	return saveApNumberLimitSettingOfZoneType
 }
 
-func NewDefaultSaveApNumberLimitSettingOfZone() *SaveApNumberLimitSettingOfZone {
+func NewSaveApNumberLimitSettingOfZoneWithDefaults() *SaveApNumberLimitSettingOfZone {
 	saveApNumberLimitSettingOfZoneType := new(SaveApNumberLimitSettingOfZone)
 	return saveApNumberLimitSettingOfZoneType
 }
@@ -1682,7 +1682,7 @@ func NewSaveSystemSettings() *SaveSystemSettings {
 	return saveSystemSettingsType
 }
 
-func NewDefaultSaveSystemSettings() *SaveSystemSettings {
+func NewSaveSystemSettingsWithDefaults() *SaveSystemSettings {
 	saveSystemSettingsType := new(SaveSystemSettings)
 	return saveSystemSettingsType
 }
@@ -1710,7 +1710,7 @@ func NewSecondaryInterface() *SecondaryInterface {
 	return secondaryInterfaceType
 }
 
-func NewDefaultSecondaryInterface() *SecondaryInterface {
+func NewSecondaryInterfaceWithDefaults() *SecondaryInterface {
 	secondaryInterfaceType := new(SecondaryInterface)
 	return secondaryInterfaceType
 }
@@ -1760,7 +1760,7 @@ func NewSms() *Sms {
 	return smsType
 }
 
-func NewDefaultSms() *Sms {
+func NewSmsWithDefaults() *Sms {
 	smsType := new(Sms)
 	return smsType
 }
@@ -1788,7 +1788,7 @@ func NewSmsList() *SmsList {
 	return smsListType
 }
 
-func NewDefaultSmsList() *SmsList {
+func NewSmsListWithDefaults() *SmsList {
 	smsListType := new(SmsList)
 	return smsListType
 }
@@ -1812,7 +1812,7 @@ func NewSnmpAgentConfiguration() *SnmpAgentConfiguration {
 	return snmpAgentConfigurationType
 }
 
-func NewDefaultSnmpAgentConfiguration() *SnmpAgentConfiguration {
+func NewSnmpAgentConfigurationWithDefaults() *SnmpAgentConfiguration {
 	snmpAgentConfigurationType := new(SnmpAgentConfiguration)
 	return snmpAgentConfigurationType
 }
@@ -1842,7 +1842,7 @@ func NewStaticRoute() *StaticRoute {
 	return staticRouteType
 }
 
-func NewDefaultStaticRoute() *StaticRoute {
+func NewStaticRouteWithDefaults() *StaticRoute {
 	staticRouteType := new(StaticRoute)
 	return staticRouteType
 }
@@ -1858,7 +1858,7 @@ func NewStaticRouteList() *StaticRouteList {
 	return staticRouteListType
 }
 
-func NewDefaultStaticRouteList() *StaticRouteList {
+func NewStaticRouteListWithDefaults() *StaticRouteList {
 	staticRouteListType := new(StaticRouteList)
 	return staticRouteListType
 }
@@ -1870,7 +1870,7 @@ func NewStatisticList() *StatisticList {
 	return &statisticListType
 }
 
-func NewDefaultStatisticList() *StatisticList {
+func NewStatisticListWithDefaults() *StatisticList {
 	statisticListType := make(StatisticList, 0)
 	return &statisticListType
 }
@@ -1910,7 +1910,7 @@ func NewStatisticListType() *StatisticListType {
 	return statisticListTypeType
 }
 
-func NewDefaultStatisticListType() *StatisticListType {
+func NewStatisticListTypeWithDefaults() *StatisticListType {
 	statisticListTypeType := new(StatisticListType)
 	return statisticListTypeType
 }
@@ -1934,7 +1934,7 @@ func NewStatisticListTypeCpuType() *StatisticListTypeCpuType {
 	return statisticListTypeCpuTypeType
 }
 
-func NewDefaultStatisticListTypeCpuType() *StatisticListTypeCpuType {
+func NewStatisticListTypeCpuTypeWithDefaults() *StatisticListTypeCpuType {
 	statisticListTypeCpuTypeType := new(StatisticListTypeCpuType)
 	return statisticListTypeCpuTypeType
 }
@@ -1962,7 +1962,7 @@ func NewStatisticListTypeDiskType() *StatisticListTypeDiskType {
 	return statisticListTypeDiskTypeType
 }
 
-func NewDefaultStatisticListTypeDiskType() *StatisticListTypeDiskType {
+func NewStatisticListTypeDiskTypeWithDefaults() *StatisticListTypeDiskType {
 	statisticListTypeDiskTypeType := new(StatisticListTypeDiskType)
 	return statisticListTypeDiskTypeType
 }
@@ -1986,7 +1986,7 @@ func NewStatisticListTypeMemoryType() *StatisticListTypeMemoryType {
 	return statisticListTypeMemoryTypeType
 }
 
-func NewDefaultStatisticListTypeMemoryType() *StatisticListTypeMemoryType {
+func NewStatisticListTypeMemoryTypeWithDefaults() *StatisticListTypeMemoryType {
 	statisticListTypeMemoryTypeType := new(StatisticListTypeMemoryType)
 	return statisticListTypeMemoryTypeType
 }
@@ -2006,7 +2006,7 @@ func NewSystemSettings() *SystemSettings {
 	return systemSettingsType
 }
 
-func NewDefaultSystemSettings() *SystemSettings {
+func NewSystemSettingsWithDefaults() *SystemSettings {
 	systemSettingsType := new(SystemSettings)
 	return systemSettingsType
 }
@@ -2036,7 +2036,7 @@ func NewSystemTimeSetting() *SystemTimeSetting {
 	return systemTimeSettingType
 }
 
-func NewDefaultSystemTimeSetting() *SystemTimeSetting {
+func NewSystemTimeSettingWithDefaults() *SystemTimeSetting {
 	systemTimeSettingType := new(SystemTimeSetting)
 	return systemTimeSettingType
 }
@@ -2052,7 +2052,7 @@ func NewUpdateDpMeshTunnelSetting() *UpdateDpMeshTunnelSetting {
 	return updateDpMeshTunnelSettingType
 }
 
-func NewDefaultUpdateDpMeshTunnelSetting() *UpdateDpMeshTunnelSetting {
+func NewUpdateDpMeshTunnelSettingWithDefaults() *UpdateDpMeshTunnelSetting {
 	updateDpMeshTunnelSettingType := new(UpdateDpMeshTunnelSetting)
 	return updateDpMeshTunnelSettingType
 }
@@ -2068,7 +2068,7 @@ func NewUserDefinedInterfaceList() *UserDefinedInterfaceList {
 	return userDefinedInterfaceListType
 }
 
-func NewDefaultUserDefinedInterfaceList() *UserDefinedInterfaceList {
+func NewUserDefinedInterfaceListWithDefaults() *UserDefinedInterfaceList {
 	userDefinedInterfaceListType := new(UserDefinedInterfaceList)
 	return userDefinedInterfaceListType
 }

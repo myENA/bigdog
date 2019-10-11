@@ -15,7 +15,7 @@ func NewFlexiVpnSetting() *FlexiVpnSetting {
 	return flexiVpnSettingType
 }
 
-func NewDefaultFlexiVpnSetting() *FlexiVpnSetting {
+func NewFlexiVpnSettingWithDefaults() *FlexiVpnSetting {
 	flexiVpnSettingType := new(FlexiVpnSetting)
 	return flexiVpnSettingType
 }

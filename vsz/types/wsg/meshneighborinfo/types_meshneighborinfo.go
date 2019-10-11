@@ -53,7 +53,7 @@ func NewMeshNeighborInfo() *MeshNeighborInfo {
 	return meshNeighborInfoType
 }
 
-func NewDefaultMeshNeighborInfo() *MeshNeighborInfo {
+func NewMeshNeighborInfoWithDefaults() *MeshNeighborInfo {
 	meshNeighborInfoType := new(MeshNeighborInfo)
 	return meshNeighborInfoType
 }
@@ -87,7 +87,7 @@ func NewMeshNeighborInfoList() *MeshNeighborInfoList {
 	return meshNeighborInfoListType
 }
 
-func NewDefaultMeshNeighborInfoList() *MeshNeighborInfoList {
+func NewMeshNeighborInfoListWithDefaults() *MeshNeighborInfoList {
 	meshNeighborInfoListType := new(MeshNeighborInfoList)
 	return meshNeighborInfoListType
 }
@@ -120,7 +120,7 @@ func NewMeshNeighborInfoListExtraType() *MeshNeighborInfoListExtraType {
 	return meshNeighborInfoListExtraTypeType
 }
 
-func NewDefaultMeshNeighborInfoListExtraType() *MeshNeighborInfoListExtraType {
+func NewMeshNeighborInfoListExtraTypeWithDefaults() *MeshNeighborInfoListExtraType {
 	meshNeighborInfoListExtraTypeType := new(MeshNeighborInfoListExtraType)
 	return meshNeighborInfoListExtraTypeType
 }

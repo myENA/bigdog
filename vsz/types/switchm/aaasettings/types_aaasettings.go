@@ -25,7 +25,7 @@ func NewAaaSettings() *AaaSettings {
 	return aaaSettingsType
 }
 
-func NewDefaultAaaSettings() *AaaSettings {
+func NewAaaSettingsWithDefaults() *AaaSettings {
 	aaaSettingsType := new(AaaSettings)
 	return aaaSettingsType
 }
@@ -56,7 +56,7 @@ func NewAaaSettingsAccountingType() *AaaSettingsAccountingType {
 	return aaaSettingsAccountingTypeType
 }
 
-func NewDefaultAaaSettingsAccountingType() *AaaSettingsAccountingType {
+func NewAaaSettingsAccountingTypeWithDefaults() *AaaSettingsAccountingType {
 	aaaSettingsAccountingTypeType := new(AaaSettingsAccountingType)
 	return aaaSettingsAccountingTypeType
 }
@@ -92,7 +92,7 @@ func NewAaaSettingsAccountingTypeCommandsType() *AaaSettingsAccountingTypeComman
 	return aaaSettingsAccountingTypeCommandsTypeType
 }
 
-func NewDefaultAaaSettingsAccountingTypeCommandsType() *AaaSettingsAccountingTypeCommandsType {
+func NewAaaSettingsAccountingTypeCommandsTypeWithDefaults() *AaaSettingsAccountingTypeCommandsType {
 	aaaSettingsAccountingTypeCommandsTypeType := new(AaaSettingsAccountingTypeCommandsType)
 	return aaaSettingsAccountingTypeCommandsTypeType
 }
@@ -121,7 +121,7 @@ func NewAaaSettingsAccountingTypeExecType() *AaaSettingsAccountingTypeExecType {
 	return aaaSettingsAccountingTypeExecTypeType
 }
 
-func NewDefaultAaaSettingsAccountingTypeExecType() *AaaSettingsAccountingTypeExecType {
+func NewAaaSettingsAccountingTypeExecTypeWithDefaults() *AaaSettingsAccountingTypeExecType {
 	aaaSettingsAccountingTypeExecTypeType := new(AaaSettingsAccountingTypeExecType)
 	return aaaSettingsAccountingTypeExecTypeType
 }
@@ -165,7 +165,7 @@ func NewAaaSettingsAuthenticationType() *AaaSettingsAuthenticationType {
 	return aaaSettingsAuthenticationTypeType
 }
 
-func NewDefaultAaaSettingsAuthenticationType() *AaaSettingsAuthenticationType {
+func NewAaaSettingsAuthenticationTypeWithDefaults() *AaaSettingsAuthenticationType {
 	aaaSettingsAuthenticationTypeType := new(AaaSettingsAuthenticationType)
 	return aaaSettingsAuthenticationTypeType
 }
@@ -196,7 +196,7 @@ func NewAaaSettingsAuthorizationType() *AaaSettingsAuthorizationType {
 	return aaaSettingsAuthorizationTypeType
 }
 
-func NewDefaultAaaSettingsAuthorizationType() *AaaSettingsAuthorizationType {
+func NewAaaSettingsAuthorizationTypeWithDefaults() *AaaSettingsAuthorizationType {
 	aaaSettingsAuthorizationTypeType := new(AaaSettingsAuthorizationType)
 	return aaaSettingsAuthorizationTypeType
 }
@@ -232,7 +232,7 @@ func NewAaaSettingsAuthorizationTypeCommandsType() *AaaSettingsAuthorizationType
 	return aaaSettingsAuthorizationTypeCommandsTypeType
 }
 
-func NewDefaultAaaSettingsAuthorizationTypeCommandsType() *AaaSettingsAuthorizationTypeCommandsType {
+func NewAaaSettingsAuthorizationTypeCommandsTypeWithDefaults() *AaaSettingsAuthorizationTypeCommandsType {
 	aaaSettingsAuthorizationTypeCommandsTypeType := new(AaaSettingsAuthorizationTypeCommandsType)
 	return aaaSettingsAuthorizationTypeCommandsTypeType
 }
@@ -261,7 +261,7 @@ func NewAaaSettingsAuthorizationTypeExecType() *AaaSettingsAuthorizationTypeExec
 	return aaaSettingsAuthorizationTypeExecTypeType
 }
 
-func NewDefaultAaaSettingsAuthorizationTypeExecType() *AaaSettingsAuthorizationTypeExecType {
+func NewAaaSettingsAuthorizationTypeExecTypeWithDefaults() *AaaSettingsAuthorizationTypeExecType {
 	aaaSettingsAuthorizationTypeExecTypeType := new(AaaSettingsAuthorizationTypeExecType)
 	return aaaSettingsAuthorizationTypeExecTypeType
 }
@@ -291,7 +291,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }

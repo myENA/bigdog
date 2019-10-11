@@ -37,7 +37,7 @@ func NewCreateWifiCallingPolicy() *CreateWifiCallingPolicy {
 	return createWifiCallingPolicyType
 }
 
-func NewDefaultCreateWifiCallingPolicy() *CreateWifiCallingPolicy {
+func NewCreateWifiCallingPolicyWithDefaults() *CreateWifiCallingPolicy {
 	createWifiCallingPolicyType := new(CreateWifiCallingPolicy)
 	return createWifiCallingPolicyType
 }
@@ -51,7 +51,7 @@ func NewDeleteBulk() *DeleteBulk {
 	return deleteBulkType
 }
 
-func NewDefaultDeleteBulk() *DeleteBulk {
+func NewDeleteBulkWithDefaults() *DeleteBulk {
 	deleteBulkType := new(DeleteBulk)
 	return deleteBulkType
 }
@@ -69,7 +69,7 @@ func NewEpdg() *Epdg {
 	return epdgType
 }
 
-func NewDefaultEpdg() *Epdg {
+func NewEpdgWithDefaults() *Epdg {
 	epdgType := new(Epdg)
 	return epdgType
 }
@@ -100,7 +100,7 @@ func NewModifyWifiCallingPolicy() *ModifyWifiCallingPolicy {
 	return modifyWifiCallingPolicyType
 }
 
-func NewDefaultModifyWifiCallingPolicy() *ModifyWifiCallingPolicy {
+func NewModifyWifiCallingPolicyWithDefaults() *ModifyWifiCallingPolicy {
 	modifyWifiCallingPolicyType := new(ModifyWifiCallingPolicy)
 	return modifyWifiCallingPolicyType
 }
@@ -163,7 +163,7 @@ func NewWifiCallingPolicy() *WifiCallingPolicy {
 	return wifiCallingPolicyType
 }
 
-func NewDefaultWifiCallingPolicy() *WifiCallingPolicy {
+func NewWifiCallingPolicyWithDefaults() *WifiCallingPolicy {
 	wifiCallingPolicyType := new(WifiCallingPolicy)
 	return wifiCallingPolicyType
 }
@@ -185,7 +185,7 @@ func NewWifiCallingPolicyList() *WifiCallingPolicyList {
 	return wifiCallingPolicyListType
 }
 
-func NewDefaultWifiCallingPolicyList() *WifiCallingPolicyList {
+func NewWifiCallingPolicyListWithDefaults() *WifiCallingPolicyList {
 	wifiCallingPolicyListType := new(WifiCallingPolicyList)
 	return wifiCallingPolicyListType
 }

@@ -37,7 +37,7 @@ func NewApInfo() *ApInfo {
 	return apInfoType
 }
 
-func NewDefaultApInfo() *ApInfo {
+func NewApInfoWithDefaults() *ApInfo {
 	apInfoType := new(ApInfo)
 	return apInfoType
 }
@@ -49,7 +49,7 @@ func NewApName() *ApName {
 	return apNameType
 }
 
-func NewDefaultApName() *ApName {
+func NewApNameWithDefaults() *ApName {
 	apNameType := new(ApName)
 	return apNameType
 }

@@ -38,7 +38,7 @@ func NewCreateVlanPooling() *CreateVlanPooling {
 	return createVlanPoolingType
 }
 
-func NewDefaultCreateVlanPooling() *CreateVlanPooling {
+func NewCreateVlanPoolingWithDefaults() *CreateVlanPooling {
 	createVlanPoolingType := new(CreateVlanPooling)
 	algoField := `MAC_HASH`
 	createVlanPoolingType.Algo = &algoField
@@ -54,7 +54,7 @@ func NewDeleteBulkVlanPooling() *DeleteBulkVlanPooling {
 	return deleteBulkVlanPoolingType
 }
 
-func NewDefaultDeleteBulkVlanPooling() *DeleteBulkVlanPooling {
+func NewDeleteBulkVlanPoolingWithDefaults() *DeleteBulkVlanPooling {
 	deleteBulkVlanPoolingType := new(DeleteBulkVlanPooling)
 	return deleteBulkVlanPoolingType
 }
@@ -85,7 +85,7 @@ func NewModifyVlanPooling() *ModifyVlanPooling {
 	return modifyVlanPoolingType
 }
 
-func NewDefaultModifyVlanPooling() *ModifyVlanPooling {
+func NewModifyVlanPoolingWithDefaults() *ModifyVlanPooling {
 	modifyVlanPoolingType := new(ModifyVlanPooling)
 	return modifyVlanPoolingType
 }
@@ -120,7 +120,7 @@ func NewVlanPooling() *VlanPooling {
 	return vlanPoolingType
 }
 
-func NewDefaultVlanPooling() *VlanPooling {
+func NewVlanPoolingWithDefaults() *VlanPooling {
 	vlanPoolingType := new(VlanPooling)
 	return vlanPoolingType
 }
@@ -142,7 +142,7 @@ func NewVlanPoolingList() *VlanPoolingList {
 	return vlanPoolingListType
 }
 
-func NewDefaultVlanPoolingList() *VlanPoolingList {
+func NewVlanPoolingListWithDefaults() *VlanPoolingList {
 	vlanPoolingListType := new(VlanPoolingList)
 	return vlanPoolingListType
 }
@@ -180,7 +180,7 @@ func NewVlanPoolingListType() *VlanPoolingListType {
 	return vlanPoolingListTypeType
 }
 
-func NewDefaultVlanPoolingListType() *VlanPoolingListType {
+func NewVlanPoolingListTypeWithDefaults() *VlanPoolingListType {
 	vlanPoolingListTypeType := new(VlanPoolingListType)
 	algoField := `MAC_HASH`
 	vlanPoolingListTypeType.Algo = &algoField

@@ -42,7 +42,7 @@ func NewApRuleConfiguration() *ApRuleConfiguration {
 	return apRuleConfigurationType
 }
 
-func NewDefaultApRuleConfiguration() *ApRuleConfiguration {
+func NewApRuleConfigurationWithDefaults() *ApRuleConfiguration {
 	apRuleConfigurationType := new(ApRuleConfiguration)
 	return apRuleConfigurationType
 }
@@ -62,7 +62,7 @@ func NewApRuleList() *ApRuleList {
 	return apRuleListType
 }
 
-func NewDefaultApRuleList() *ApRuleList {
+func NewApRuleListWithDefaults() *ApRuleList {
 	apRuleListType := new(ApRuleList)
 	return apRuleListType
 }
@@ -84,7 +84,7 @@ func NewApRuleListType() *ApRuleListType {
 	return apRuleListTypeType
 }
 
-func NewDefaultApRuleListType() *ApRuleListType {
+func NewApRuleListTypeWithDefaults() *ApRuleListType {
 	apRuleListTypeType := new(ApRuleListType)
 	return apRuleListTypeType
 }
@@ -120,7 +120,7 @@ func NewCreateApRule() *CreateApRule {
 	return createApRuleType
 }
 
-func NewDefaultCreateApRule() *CreateApRule {
+func NewCreateApRuleWithDefaults() *CreateApRule {
 	createApRuleType := new(CreateApRule)
 	return createApRuleType
 }
@@ -140,7 +140,7 @@ func NewGpsCoordinates() *GpsCoordinates {
 	return gpsCoordinatesType
 }
 
-func NewDefaultGpsCoordinates() *GpsCoordinates {
+func NewGpsCoordinatesWithDefaults() *GpsCoordinates {
 	gpsCoordinatesType := new(GpsCoordinates)
 	return gpsCoordinatesType
 }
@@ -156,7 +156,7 @@ func NewIpAddressRange() *IpAddressRange {
 	return ipAddressRangeType
 }
 
-func NewDefaultIpAddressRange() *IpAddressRange {
+func NewIpAddressRangeWithDefaults() *IpAddressRange {
 	ipAddressRangeType := new(IpAddressRange)
 	return ipAddressRangeType
 }
@@ -189,7 +189,7 @@ func NewModifyApRule() *ModifyApRule {
 	return modifyApRuleType
 }
 
-func NewDefaultModifyApRule() *ModifyApRule {
+func NewModifyApRuleWithDefaults() *ModifyApRule {
 	modifyApRuleType := new(ModifyApRule)
 	return modifyApRuleType
 }
@@ -207,7 +207,7 @@ func NewSubnet() *Subnet {
 	return subnetType
 }
 
-func NewDefaultSubnet() *Subnet {
+func NewSubnetWithDefaults() *Subnet {
 	subnetType := new(Subnet)
 	return subnetType
 }

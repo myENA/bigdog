@@ -25,7 +25,7 @@ func NewApFirmware() *ApFirmware {
 	return apFirmwareType
 }
 
-func NewDefaultApFirmware() *ApFirmware {
+func NewApFirmwareWithDefaults() *ApFirmware {
 	apFirmwareType := new(ApFirmware)
 	return apFirmwareType
 }
@@ -45,7 +45,7 @@ func NewApFirmwareList() *ApFirmwareList {
 	return apFirmwareListType
 }
 
-func NewDefaultApFirmwareList() *ApFirmwareList {
+func NewApFirmwareListWithDefaults() *ApFirmwareList {
 	apFirmwareListType := new(ApFirmwareList)
 	return apFirmwareListType
 }
@@ -67,7 +67,7 @@ func NewApLogin() *ApLogin {
 	return apLoginType
 }
 
-func NewDefaultApLogin() *ApLogin {
+func NewApLoginWithDefaults() *ApLogin {
 	apLoginType := new(ApLogin)
 	return apLoginType
 }
@@ -91,7 +91,7 @@ func NewApSnmpOptions() *ApSnmpOptions {
 	return apSnmpOptionsType
 }
 
-func NewDefaultApSnmpOptions() *ApSnmpOptions {
+func NewApSnmpOptionsWithDefaults() *ApSnmpOptions {
 	apSnmpOptionsType := new(ApSnmpOptions)
 	return apSnmpOptionsType
 }
@@ -124,7 +124,7 @@ func NewAvailableTunnelProfile() *AvailableTunnelProfile {
 	return availableTunnelProfileType
 }
 
-func NewDefaultAvailableTunnelProfile() *AvailableTunnelProfile {
+func NewAvailableTunnelProfileWithDefaults() *AvailableTunnelProfile {
 	availableTunnelProfileType := new(AvailableTunnelProfile)
 	return availableTunnelProfileType
 }
@@ -144,7 +144,7 @@ func NewAvailableTunnelProfileList() *AvailableTunnelProfileList {
 	return availableTunnelProfileListType
 }
 
-func NewDefaultAvailableTunnelProfileList() *AvailableTunnelProfileList {
+func NewAvailableTunnelProfileListWithDefaults() *AvailableTunnelProfileList {
 	availableTunnelProfileListType := new(AvailableTunnelProfileList)
 	return availableTunnelProfileListType
 }
@@ -165,7 +165,7 @@ func NewBackgroundScanning() *BackgroundScanning {
 	return backgroundScanningType
 }
 
-func NewDefaultBackgroundScanning() *BackgroundScanning {
+func NewBackgroundScanningWithDefaults() *BackgroundScanning {
 	backgroundScanningType := new(BackgroundScanning)
 	frequencyInSecField := 20
 	backgroundScanningType.FrequencyInSec = &frequencyInSecField
@@ -196,7 +196,7 @@ func NewBandBalancing() *BandBalancing {
 	return bandBalancingType
 }
 
-func NewDefaultBandBalancing() *BandBalancing {
+func NewBandBalancingWithDefaults() *BandBalancing {
 	bandBalancingType := new(BandBalancing)
 	modeField := `BASIC`
 	bandBalancingType.Mode = &modeField
@@ -220,7 +220,7 @@ func NewBonjourGatewayPolicyConfiguration() *BonjourGatewayPolicyConfiguration {
 	return bonjourGatewayPolicyConfigurationType
 }
 
-func NewDefaultBonjourGatewayPolicyConfiguration() *BonjourGatewayPolicyConfiguration {
+func NewBonjourGatewayPolicyConfigurationWithDefaults() *BonjourGatewayPolicyConfiguration {
 	bonjourGatewayPolicyConfigurationType := new(BonjourGatewayPolicyConfiguration)
 	return bonjourGatewayPolicyConfigurationType
 }
@@ -240,7 +240,7 @@ func NewBonjourGatewayPolicyList() *BonjourGatewayPolicyList {
 	return bonjourGatewayPolicyListType
 }
 
-func NewDefaultBonjourGatewayPolicyList() *BonjourGatewayPolicyList {
+func NewBonjourGatewayPolicyListWithDefaults() *BonjourGatewayPolicyList {
 	bonjourGatewayPolicyListType := new(BonjourGatewayPolicyList)
 	return bonjourGatewayPolicyListType
 }
@@ -272,7 +272,7 @@ func NewBonjourGatewayPolicySummary() *BonjourGatewayPolicySummary {
 	return bonjourGatewayPolicySummaryType
 }
 
-func NewDefaultBonjourGatewayPolicySummary() *BonjourGatewayPolicySummary {
+func NewBonjourGatewayPolicySummaryWithDefaults() *BonjourGatewayPolicySummary {
 	bonjourGatewayPolicySummaryType := new(BonjourGatewayPolicySummary)
 	return bonjourGatewayPolicySummaryType
 }
@@ -318,7 +318,7 @@ func NewBonjourPolicyRule() *BonjourPolicyRule {
 	return bonjourPolicyRuleType
 }
 
-func NewDefaultBonjourPolicyRule() *BonjourPolicyRule {
+func NewBonjourPolicyRuleWithDefaults() *BonjourPolicyRule {
 	bonjourPolicyRuleType := new(BonjourPolicyRule)
 	return bonjourPolicyRuleType
 }
@@ -357,7 +357,7 @@ func NewBonjourPolicyRuleConfiguration() *BonjourPolicyRuleConfiguration {
 	return bonjourPolicyRuleConfigurationType
 }
 
-func NewDefaultBonjourPolicyRuleConfiguration() *BonjourPolicyRuleConfiguration {
+func NewBonjourPolicyRuleConfigurationWithDefaults() *BonjourPolicyRuleConfiguration {
 	bonjourPolicyRuleConfigurationType := new(BonjourPolicyRuleConfiguration)
 	return bonjourPolicyRuleConfigurationType
 }
@@ -377,7 +377,7 @@ func NewClientLoadBalancing() *ClientLoadBalancing {
 	return clientLoadBalancingType
 }
 
-func NewDefaultClientLoadBalancing() *ClientLoadBalancing {
+func NewClientLoadBalancingWithDefaults() *ClientLoadBalancing {
 	clientLoadBalancingType := new(ClientLoadBalancing)
 	return clientLoadBalancingType
 }
@@ -400,7 +400,7 @@ func NewCreateBonjourGatewayPolicy() *CreateBonjourGatewayPolicy {
 	return createBonjourGatewayPolicyType
 }
 
-func NewDefaultCreateBonjourGatewayPolicy() *CreateBonjourGatewayPolicy {
+func NewCreateBonjourGatewayPolicyWithDefaults() *CreateBonjourGatewayPolicy {
 	createBonjourGatewayPolicyType := new(CreateBonjourGatewayPolicy)
 	return createBonjourGatewayPolicyType
 }
@@ -427,7 +427,7 @@ func NewCreateDiffServProfile() *CreateDiffServProfile {
 	return createDiffServProfileType
 }
 
-func NewDefaultCreateDiffServProfile() *CreateDiffServProfile {
+func NewCreateDiffServProfileWithDefaults() *CreateDiffServProfile {
 	createDiffServProfileType := new(CreateDiffServProfile)
 	return createDiffServProfileType
 }
@@ -676,7 +676,7 @@ func NewCreateZone() *CreateZone {
 	return createZoneType
 }
 
-func NewDefaultCreateZone() *CreateZone {
+func NewCreateZoneWithDefaults() *CreateZone {
 	createZoneType := new(CreateZone)
 	apHccdEnabledField := false
 	createZoneType.ApHccdEnabled = &apHccdEnabledField
@@ -752,7 +752,7 @@ func NewCustomizedTimeZone() *CustomizedTimeZone {
 	return customizedTimeZoneType
 }
 
-func NewDefaultCustomizedTimeZone() *CustomizedTimeZone {
+func NewCustomizedTimeZoneWithDefaults() *CustomizedTimeZone {
 	customizedTimeZoneType := new(CustomizedTimeZone)
 	return customizedTimeZoneType
 }
@@ -793,7 +793,7 @@ func NewDaylightSavingTime() *DaylightSavingTime {
 	return daylightSavingTimeType
 }
 
-func NewDefaultDaylightSavingTime() *DaylightSavingTime {
+func NewDaylightSavingTimeWithDefaults() *DaylightSavingTime {
 	daylightSavingTimeType := new(DaylightSavingTime)
 	return daylightSavingTimeType
 }
@@ -813,7 +813,7 @@ func NewDhcpSiteConfigList() *DhcpSiteConfigList {
 	return dhcpSiteConfigListType
 }
 
-func NewDefaultDhcpSiteConfigList() *DhcpSiteConfigList {
+func NewDhcpSiteConfigListWithDefaults() *DhcpSiteConfigList {
 	dhcpSiteConfigListType := new(DhcpSiteConfigList)
 	return dhcpSiteConfigListType
 }
@@ -841,7 +841,7 @@ func NewDiffServConfiguration() *DiffServConfiguration {
 	return diffServConfigurationType
 }
 
-func NewDefaultDiffServConfiguration() *DiffServConfiguration {
+func NewDiffServConfigurationWithDefaults() *DiffServConfiguration {
 	diffServConfigurationType := new(DiffServConfiguration)
 	return diffServConfigurationType
 }
@@ -861,7 +861,7 @@ func NewDiffServList() *DiffServList {
 	return diffServListType
 }
 
-func NewDefaultDiffServList() *DiffServList {
+func NewDiffServListWithDefaults() *DiffServList {
 	diffServListType := new(DiffServList)
 	return diffServListType
 }
@@ -881,7 +881,7 @@ func NewDiffServSummary() *DiffServSummary {
 	return diffServSummaryType
 }
 
-func NewDefaultDiffServSummary() *DiffServSummary {
+func NewDiffServSummaryWithDefaults() *DiffServSummary {
 	diffServSummaryType := new(DiffServSummary)
 	return diffServSummaryType
 }
@@ -901,7 +901,7 @@ func NewDownlinkDiffServ() *DownlinkDiffServ {
 	return downlinkDiffServType
 }
 
-func NewDefaultDownlinkDiffServ() *DownlinkDiffServ {
+func NewDownlinkDiffServWithDefaults() *DownlinkDiffServ {
 	downlinkDiffServType := new(DownlinkDiffServ)
 	return downlinkDiffServType
 }
@@ -931,7 +931,7 @@ func NewMeshConfiguration() *MeshConfiguration {
 	return meshConfigurationType
 }
 
-func NewDefaultMeshConfiguration() *MeshConfiguration {
+func NewMeshConfigurationWithDefaults() *MeshConfiguration {
 	meshConfigurationType := new(MeshConfiguration)
 	meshRadioIdxField := `Radio5G`
 	meshConfigurationType.MeshRadioIdx = &meshRadioIdxField
@@ -949,7 +949,7 @@ func NewModfiyApFirmware() *ModfiyApFirmware {
 	return modfiyApFirmwareType
 }
 
-func NewDefaultModfiyApFirmware() *ModfiyApFirmware {
+func NewModfiyApFirmwareWithDefaults() *ModfiyApFirmware {
 	modfiyApFirmwareType := new(ModfiyApFirmware)
 	return modfiyApFirmwareType
 }
@@ -969,7 +969,7 @@ func NewModifyBonjourGatewayPolicy() *ModifyBonjourGatewayPolicy {
 	return modifyBonjourGatewayPolicyType
 }
 
-func NewDefaultModifyBonjourGatewayPolicy() *ModifyBonjourGatewayPolicy {
+func NewModifyBonjourGatewayPolicyWithDefaults() *ModifyBonjourGatewayPolicy {
 	modifyBonjourGatewayPolicyType := new(ModifyBonjourGatewayPolicy)
 	return modifyBonjourGatewayPolicyType
 }
@@ -996,7 +996,7 @@ func NewModifyDiffServProfile() *ModifyDiffServProfile {
 	return modifyDiffServProfileType
 }
 
-func NewDefaultModifyDiffServProfile() *ModifyDiffServProfile {
+func NewModifyDiffServProfileWithDefaults() *ModifyDiffServProfile {
 	modifyDiffServProfileType := new(ModifyDiffServProfile)
 	return modifyDiffServProfileType
 }
@@ -1238,7 +1238,7 @@ func NewModifyZone() *ModifyZone {
 	return modifyZoneType
 }
 
-func NewDefaultModifyZone() *ModifyZone {
+func NewModifyZoneWithDefaults() *ModifyZone {
 	modifyZoneType := new(ModifyZone)
 	apHccdEnabledField := false
 	modifyZoneType.ApHccdEnabled = &apHccdEnabledField
@@ -1260,7 +1260,7 @@ func NewQueryCriteria() *QueryCriteria {
 	return queryCriteriaType
 }
 
-func NewDefaultQueryCriteria() *QueryCriteria {
+func NewQueryCriteriaWithDefaults() *QueryCriteria {
 	queryCriteriaType := new(QueryCriteria)
 	return queryCriteriaType
 }
@@ -1287,7 +1287,7 @@ func NewRogue() *Rogue {
 	return rogueType
 }
 
-func NewDefaultRogue() *Rogue {
+func NewRogueWithDefaults() *Rogue {
 	rogueType := new(Rogue)
 	return rogueType
 }
@@ -1356,7 +1356,7 @@ func NewSnmpUser() *SnmpUser {
 	return snmpUserType
 }
 
-func NewDefaultSnmpUser() *SnmpUser {
+func NewSnmpUserWithDefaults() *SnmpUser {
 	snmpUserType := new(SnmpUser)
 	return snmpUserType
 }
@@ -1374,7 +1374,7 @@ func NewSoftGreRef() *SoftGreRef {
 	return softGreRefType
 }
 
-func NewDefaultSoftGreRef() *SoftGreRef {
+func NewSoftGreRefWithDefaults() *SoftGreRef {
 	softGreRefType := new(SoftGreRef)
 	return softGreRefType
 }
@@ -1448,7 +1448,7 @@ func NewSyslog() *Syslog {
 	return syslogType
 }
 
-func NewDefaultSyslog() *Syslog {
+func NewSyslogWithDefaults() *Syslog {
 	syslogType := new(Syslog)
 	facilityField := `Keep_Original`
 	syslogType.Facility = &facilityField
@@ -1480,7 +1480,7 @@ func NewTimezoneSetting() *TimezoneSetting {
 	return timezoneSettingType
 }
 
-func NewDefaultTimezoneSetting() *TimezoneSetting {
+func NewTimezoneSettingWithDefaults() *TimezoneSetting {
 	timezoneSettingType := new(TimezoneSetting)
 	return timezoneSettingType
 }
@@ -1500,7 +1500,7 @@ func NewUnsupportedApModel() *UnsupportedApModel {
 	return unsupportedApModelType
 }
 
-func NewDefaultUnsupportedApModel() *UnsupportedApModel {
+func NewUnsupportedApModelWithDefaults() *UnsupportedApModel {
 	unsupportedApModelType := new(UnsupportedApModel)
 	return unsupportedApModelType
 }
@@ -1520,7 +1520,7 @@ func NewUplinkDiffServ() *UplinkDiffServ {
 	return uplinkDiffServType
 }
 
-func NewDefaultUplinkDiffServ() *UplinkDiffServ {
+func NewUplinkDiffServWithDefaults() *UplinkDiffServ {
 	uplinkDiffServType := new(UplinkDiffServ)
 	return uplinkDiffServType
 }
@@ -1770,7 +1770,7 @@ func NewZoneConfiguration() *ZoneConfiguration {
 	return zoneConfigurationType
 }
 
-func NewDefaultZoneConfiguration() *ZoneConfiguration {
+func NewZoneConfigurationWithDefaults() *ZoneConfiguration {
 	zoneConfigurationType := new(ZoneConfiguration)
 	apHccdEnabledField := false
 	zoneConfigurationType.ApHccdEnabled = &apHccdEnabledField
@@ -1800,7 +1800,7 @@ func NewZoneList() *ZoneList {
 	return zoneListType
 }
 
-func NewDefaultZoneList() *ZoneList {
+func NewZoneListWithDefaults() *ZoneList {
 	zoneListType := new(ZoneList)
 	return zoneListType
 }
@@ -1824,7 +1824,7 @@ func NewZoneSummary() *ZoneSummary {
 	return zoneSummaryType
 }
 
-func NewDefaultZoneSummary() *ZoneSummary {
+func NewZoneSummaryWithDefaults() *ZoneSummary {
 	zoneSummaryType := new(ZoneSummary)
 	return zoneSummaryType
 }

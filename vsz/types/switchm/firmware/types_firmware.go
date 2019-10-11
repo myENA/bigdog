@@ -39,7 +39,7 @@ func NewFirmwaresQueryResultList() *FirmwaresQueryResultList {
 	return firmwaresQueryResultListType
 }
 
-func NewDefaultFirmwaresQueryResultList() *FirmwaresQueryResultList {
+func NewFirmwaresQueryResultListWithDefaults() *FirmwaresQueryResultList {
 	firmwaresQueryResultListType := new(FirmwaresQueryResultList)
 	return firmwaresQueryResultListType
 }
@@ -72,7 +72,7 @@ func NewFirmwaresQueryResultListExtraType() *FirmwaresQueryResultListExtraType {
 	return firmwaresQueryResultListExtraTypeType
 }
 
-func NewDefaultFirmwaresQueryResultListExtraType() *FirmwaresQueryResultListExtraType {
+func NewFirmwaresQueryResultListExtraTypeWithDefaults() *FirmwaresQueryResultListExtraType {
 	firmwaresQueryResultListExtraTypeType := new(FirmwaresQueryResultListExtraType)
 	return firmwaresQueryResultListExtraTypeType
 }
@@ -106,7 +106,7 @@ func NewScheduleIds() *ScheduleIds {
 	return scheduleIdsType
 }
 
-func NewDefaultScheduleIds() *ScheduleIds {
+func NewScheduleIdsWithDefaults() *ScheduleIds {
 	scheduleIdsType := new(ScheduleIds)
 	return scheduleIdsType
 }
@@ -139,7 +139,7 @@ func NewScheduleIdsExtraType() *ScheduleIdsExtraType {
 	return scheduleIdsExtraTypeType
 }
 
-func NewDefaultScheduleIdsExtraType() *ScheduleIdsExtraType {
+func NewScheduleIdsExtraTypeWithDefaults() *ScheduleIdsExtraType {
 	scheduleIdsExtraTypeType := new(ScheduleIdsExtraType)
 	return scheduleIdsExtraTypeType
 }
@@ -157,7 +157,7 @@ func NewSwitchFirmware() *SwitchFirmware {
 	return switchFirmwareType
 }
 
-func NewDefaultSwitchFirmware() *SwitchFirmware {
+func NewSwitchFirmwareWithDefaults() *SwitchFirmware {
 	switchFirmwareType := new(SwitchFirmware)
 	return switchFirmwareType
 }
@@ -177,7 +177,7 @@ func NewSwitchModel() *SwitchModel {
 	return switchModelType
 }
 
-func NewDefaultSwitchModel() *SwitchModel {
+func NewSwitchModelWithDefaults() *SwitchModel {
 	switchModelType := new(SwitchModel)
 	return switchModelType
 }

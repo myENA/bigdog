@@ -19,7 +19,7 @@ func NewEventQueryResultList() *EventQueryResultList {
 	return eventQueryResultListType
 }
 
-func NewDefaultEventQueryResultList() *EventQueryResultList {
+func NewEventQueryResultListWithDefaults() *EventQueryResultList {
 	eventQueryResultListType := new(EventQueryResultList)
 	return eventQueryResultListType
 }
@@ -45,7 +45,7 @@ func NewSingleEvent() *SingleEvent {
 	return singleEventType
 }
 
-func NewDefaultSingleEvent() *SingleEvent {
+func NewSingleEventWithDefaults() *SingleEvent {
 	singleEventType := new(SingleEvent)
 	return singleEventType
 }

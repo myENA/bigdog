@@ -13,7 +13,7 @@ func NewBackupIds() *BackupIds {
 	return &backupIdsType
 }
 
-func NewDefaultBackupIds() *BackupIds {
+func NewBackupIdsWithDefaults() *BackupIds {
 	backupIdsType := make(BackupIds, 0)
 	return &backupIdsType
 }
@@ -61,7 +61,7 @@ func NewCfgbk() *Cfgbk {
 	return cfgbkType
 }
 
-func NewDefaultCfgbk() *Cfgbk {
+func NewCfgbkWithDefaults() *Cfgbk {
 	cfgbkType := new(Cfgbk)
 	return cfgbkType
 }
@@ -85,7 +85,7 @@ func NewConfigBackupContent() *ConfigBackupContent {
 	return configBackupContentType
 }
 
-func NewDefaultConfigBackupContent() *ConfigBackupContent {
+func NewConfigBackupContentWithDefaults() *ConfigBackupContent {
 	configBackupContentType := new(ConfigBackupContent)
 	return configBackupContentType
 }
@@ -101,7 +101,7 @@ func NewConfigBackupDiff() *ConfigBackupDiff {
 	return configBackupDiffType
 }
 
-func NewDefaultConfigBackupDiff() *ConfigBackupDiff {
+func NewConfigBackupDiffWithDefaults() *ConfigBackupDiff {
 	configBackupDiffType := new(ConfigBackupDiff)
 	return configBackupDiffType
 }
@@ -121,7 +121,7 @@ func NewConfigBackupDiffInput() *ConfigBackupDiffInput {
 	return configBackupDiffInputType
 }
 
-func NewDefaultConfigBackupDiffInput() *ConfigBackupDiffInput {
+func NewConfigBackupDiffInputWithDefaults() *ConfigBackupDiffInput {
 	configBackupDiffInputType := new(ConfigBackupDiffInput)
 	return configBackupDiffInputType
 }
@@ -153,7 +153,7 @@ func NewCreateBackupResultList() *CreateBackupResultList {
 	return createBackupResultListType
 }
 
-func NewDefaultCreateBackupResultList() *CreateBackupResultList {
+func NewCreateBackupResultListWithDefaults() *CreateBackupResultList {
 	createBackupResultListType := new(CreateBackupResultList)
 	return createBackupResultListType
 }
@@ -173,7 +173,7 @@ func NewCreateBackupResultListType() *CreateBackupResultListType {
 	return createBackupResultListTypeType
 }
 
-func NewDefaultCreateBackupResultListType() *CreateBackupResultListType {
+func NewCreateBackupResultListTypeWithDefaults() *CreateBackupResultListType {
 	createBackupResultListTypeType := new(CreateBackupResultListType)
 	return createBackupResultListTypeType
 }
@@ -205,7 +205,7 @@ func NewList() *List {
 	return listType
 }
 
-func NewDefaultList() *List {
+func NewListWithDefaults() *List {
 	listType := new(List)
 	return listType
 }
@@ -219,7 +219,7 @@ func NewQueryCriteria() *QueryCriteria {
 	return queryCriteriaType
 }
 
-func NewDefaultQueryCriteria() *QueryCriteria {
+func NewQueryCriteriaWithDefaults() *QueryCriteria {
 	queryCriteriaType := new(QueryCriteria)
 	return queryCriteriaType
 }
@@ -231,7 +231,7 @@ func NewSwitchIds() *SwitchIds {
 	return &switchIdsType
 }
 
-func NewDefaultSwitchIds() *SwitchIds {
+func NewSwitchIdsWithDefaults() *SwitchIds {
 	switchIdsType := make(SwitchIds, 0)
 	return &switchIdsType
 }

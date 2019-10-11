@@ -11,7 +11,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -39,7 +39,7 @@ func NewSwitchoverDp() *SwitchoverDp {
 	return switchoverDpType
 }
 
-func NewDefaultSwitchoverDp() *SwitchoverDp {
+func NewSwitchoverDpWithDefaults() *SwitchoverDp {
 	switchoverDpType := new(SwitchoverDp)
 	return switchoverDpType
 }

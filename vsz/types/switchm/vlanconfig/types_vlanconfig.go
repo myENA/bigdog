@@ -86,7 +86,7 @@ func NewCreateVlanConfig() *CreateVlanConfig {
 	return createVlanConfigType
 }
 
-func NewDefaultCreateVlanConfig() *CreateVlanConfig {
+func NewCreateVlanConfigWithDefaults() *CreateVlanConfig {
 	createVlanConfigType := new(CreateVlanConfig)
 	return createVlanConfigType
 }
@@ -116,7 +116,7 @@ func NewEmptyResult() *EmptyResult {
 	return emptyResultType
 }
 
-func NewDefaultEmptyResult() *EmptyResult {
+func NewEmptyResultWithDefaults() *EmptyResult {
 	emptyResultType := new(EmptyResult)
 	return emptyResultType
 }
@@ -185,7 +185,7 @@ func NewUpdateVlanConfig() *UpdateVlanConfig {
 	return updateVlanConfigType
 }
 
-func NewDefaultUpdateVlanConfig() *UpdateVlanConfig {
+func NewUpdateVlanConfigWithDefaults() *UpdateVlanConfig {
 	updateVlanConfigType := new(UpdateVlanConfig)
 	return updateVlanConfigType
 }
@@ -205,7 +205,7 @@ func NewVlanArpInspections() *VlanArpInspections {
 	return vlanArpInspectionsType
 }
 
-func NewDefaultVlanArpInspections() *VlanArpInspections {
+func NewVlanArpInspectionsWithDefaults() *VlanArpInspections {
 	vlanArpInspectionsType := new(VlanArpInspections)
 	return vlanArpInspectionsType
 }
@@ -299,7 +299,7 @@ func NewVlanConfig() *VlanConfig {
 	return vlanConfigType
 }
 
-func NewDefaultVlanConfig() *VlanConfig {
+func NewVlanConfigWithDefaults() *VlanConfig {
 	vlanConfigType := new(VlanConfig)
 	return vlanConfigType
 }
@@ -333,7 +333,7 @@ func NewVlanConfigQueryResult() *VlanConfigQueryResult {
 	return vlanConfigQueryResultType
 }
 
-func NewDefaultVlanConfigQueryResult() *VlanConfigQueryResult {
+func NewVlanConfigQueryResultWithDefaults() *VlanConfigQueryResult {
 	vlanConfigQueryResultType := new(VlanConfigQueryResult)
 	return vlanConfigQueryResultType
 }
@@ -366,7 +366,7 @@ func NewVlanConfigQueryResultExtraType() *VlanConfigQueryResultExtraType {
 	return vlanConfigQueryResultExtraTypeType
 }
 
-func NewDefaultVlanConfigQueryResultExtraType() *VlanConfigQueryResultExtraType {
+func NewVlanConfigQueryResultExtraTypeWithDefaults() *VlanConfigQueryResultExtraType {
 	vlanConfigQueryResultExtraTypeType := new(VlanConfigQueryResultExtraType)
 	return vlanConfigQueryResultExtraTypeType
 }
@@ -390,7 +390,7 @@ func NewVlanPorts() *VlanPorts {
 	return vlanPortsType
 }
 
-func NewDefaultVlanPorts() *VlanPorts {
+func NewVlanPortsWithDefaults() *VlanPorts {
 	vlanPortsType := new(VlanPorts)
 	return vlanPortsType
 }

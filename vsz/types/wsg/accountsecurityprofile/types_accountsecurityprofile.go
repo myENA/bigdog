@@ -80,7 +80,7 @@ func NewCreate() *Create {
 	return createType
 }
 
-func NewDefaultCreate() *Create {
+func NewCreateWithDefaults() *Create {
 	createType := new(Create)
 	return createType
 }
@@ -96,7 +96,7 @@ func NewDelete() *Delete {
 	return deleteType
 }
 
-func NewDefaultDelete() *Delete {
+func NewDeleteWithDefaults() *Delete {
 	deleteType := new(Delete)
 	return deleteType
 }
@@ -110,7 +110,7 @@ func NewDeleteList() *DeleteList {
 	return deleteListType
 }
 
-func NewDefaultDeleteList() *DeleteList {
+func NewDeleteListWithDefaults() *DeleteList {
 	deleteListType := new(DeleteList)
 	return deleteListType
 }
@@ -128,7 +128,7 @@ func NewGetById() *GetById {
 	return getByIdType
 }
 
-func NewDefaultGetById() *GetById {
+func NewGetByIdWithDefaults() *GetById {
 	getByIdType := new(GetById)
 	return getByIdType
 }
@@ -171,7 +171,7 @@ func NewGetByIdResult() *GetByIdResult {
 	return getByIdResultType
 }
 
-func NewDefaultGetByIdResult() *GetByIdResult {
+func NewGetByIdResultWithDefaults() *GetByIdResult {
 	getByIdResultType := new(GetByIdResult)
 	return getByIdResultType
 }
@@ -191,7 +191,7 @@ func NewProfileListResult() *ProfileListResult {
 	return profileListResultType
 }
 
-func NewDefaultProfileListResult() *ProfileListResult {
+func NewProfileListResultWithDefaults() *ProfileListResult {
 	profileListResultType := new(ProfileListResult)
 	return profileListResultType
 }
@@ -268,7 +268,7 @@ func NewUpdate() *Update {
 	return updateType
 }
 
-func NewDefaultUpdate() *Update {
+func NewUpdateWithDefaults() *Update {
 	updateType := new(Update)
 	return updateType
 }

@@ -17,7 +17,7 @@ func NewCaleaCommonSettingRq() *CaleaCommonSettingRq {
 	return caleaCommonSettingRqType
 }
 
-func NewDefaultCaleaCommonSettingRq() *CaleaCommonSettingRq {
+func NewCaleaCommonSettingRqWithDefaults() *CaleaCommonSettingRq {
 	caleaCommonSettingRqType := new(CaleaCommonSettingRq)
 	return caleaCommonSettingRqType
 }
@@ -37,7 +37,7 @@ func NewCaleaCommonSettingRsp() *CaleaCommonSettingRsp {
 	return caleaCommonSettingRspType
 }
 
-func NewDefaultCaleaCommonSettingRsp() *CaleaCommonSettingRsp {
+func NewCaleaCommonSettingRspWithDefaults() *CaleaCommonSettingRsp {
 	caleaCommonSettingRspType := new(CaleaCommonSettingRsp)
 	return caleaCommonSettingRspType
 }
@@ -51,7 +51,7 @@ func NewCaleaMacListRq() *CaleaMacListRq {
 	return caleaMacListRqType
 }
 
-func NewDefaultCaleaMacListRq() *CaleaMacListRq {
+func NewCaleaMacListRqWithDefaults() *CaleaMacListRq {
 	caleaMacListRqType := new(CaleaMacListRq)
 	return caleaMacListRqType
 }
@@ -71,7 +71,7 @@ func NewCaleaMacListRsp() *CaleaMacListRsp {
 	return caleaMacListRspType
 }
 
-func NewDefaultCaleaMacListRsp() *CaleaMacListRsp {
+func NewCaleaMacListRspWithDefaults() *CaleaMacListRsp {
 	caleaMacListRspType := new(CaleaMacListRsp)
 	return caleaMacListRspType
 }

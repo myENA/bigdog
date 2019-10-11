@@ -21,7 +21,7 @@ func NewActiveCluster() *ActiveCluster {
 	return activeClusterType
 }
 
-func NewDefaultActiveCluster() *ActiveCluster {
+func NewActiveClusterWithDefaults() *ActiveCluster {
 	activeClusterType := new(ActiveCluster)
 	return activeClusterType
 }
@@ -83,7 +83,7 @@ func NewClusterRedundancySettings() *ClusterRedundancySettings {
 	return clusterRedundancySettingsType
 }
 
-func NewDefaultClusterRedundancySettings() *ClusterRedundancySettings {
+func NewClusterRedundancySettingsWithDefaults() *ClusterRedundancySettings {
 	clusterRedundancySettingsType := new(ClusterRedundancySettings)
 	return clusterRedundancySettingsType
 }
@@ -103,7 +103,7 @@ func NewManagementEntry() *ManagementEntry {
 	return managementEntryType
 }
 
-func NewDefaultManagementEntry() *ManagementEntry {
+func NewManagementEntryWithDefaults() *ManagementEntry {
 	managementEntryType := new(ManagementEntry)
 	return managementEntryType
 }
@@ -167,7 +167,7 @@ func NewUpdateClusterRedundancy() *UpdateClusterRedundancy {
 	return updateClusterRedundancyType
 }
 
-func NewDefaultUpdateClusterRedundancy() *UpdateClusterRedundancy {
+func NewUpdateClusterRedundancyWithDefaults() *UpdateClusterRedundancy {
 	updateClusterRedundancyType := new(UpdateClusterRedundancy)
 	return updateClusterRedundancyType
 }

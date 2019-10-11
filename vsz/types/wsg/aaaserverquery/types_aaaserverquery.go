@@ -23,7 +23,7 @@ func NewAaaServerQueryList() *AaaServerQueryList {
 	return aaaServerQueryListType
 }
 
-func NewDefaultAaaServerQueryList() *AaaServerQueryList {
+func NewAaaServerQueryListWithDefaults() *AaaServerQueryList {
 	aaaServerQueryListType := new(AaaServerQueryList)
 	return aaaServerQueryListType
 }
@@ -103,7 +103,7 @@ func NewCreateAaaServer() *CreateAaaServer {
 	return createAaaServerType
 }
 
-func NewDefaultCreateAaaServer() *CreateAaaServer {
+func NewCreateAaaServerWithDefaults() *CreateAaaServer {
 	createAaaServerType := new(CreateAaaServer)
 	return createAaaServerType
 }

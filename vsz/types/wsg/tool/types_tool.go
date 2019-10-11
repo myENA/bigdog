@@ -46,7 +46,7 @@ func NewSpeedFlex() *SpeedFlex {
 	return speedFlexType
 }
 
-func NewDefaultSpeedFlex() *SpeedFlex {
+func NewSpeedFlexWithDefaults() *SpeedFlex {
 	speedFlexType := new(SpeedFlex)
 	return speedFlexType
 }
@@ -84,7 +84,7 @@ func NewTestResult() *TestResult {
 	return testResultType
 }
 
-func NewDefaultTestResult() *TestResult {
+func NewTestResultWithDefaults() *TestResult {
 	testResultType := new(TestResult)
 	return testResultType
 }

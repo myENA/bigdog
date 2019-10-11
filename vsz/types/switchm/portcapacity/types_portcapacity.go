@@ -17,7 +17,7 @@ func NewCapacities() *Capacities {
 	return capacitiesType
 }
 
-func NewDefaultCapacities() *Capacities {
+func NewCapacitiesWithDefaults() *Capacities {
 	capacitiesType := new(Capacities)
 	return capacitiesType
 }
@@ -51,7 +51,7 @@ func NewResult() *Result {
 	return resultType
 }
 
-func NewDefaultResult() *Result {
+func NewResultWithDefaults() *Result {
 	resultType := new(Result)
 	return resultType
 }
@@ -84,7 +84,7 @@ func NewResultExtraType() *ResultExtraType {
 	return resultExtraTypeType
 }
 
-func NewDefaultResultExtraType() *ResultExtraType {
+func NewResultExtraTypeWithDefaults() *ResultExtraType {
 	resultExtraTypeType := new(ResultExtraType)
 	return resultExtraTypeType
 }

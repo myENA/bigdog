@@ -35,7 +35,7 @@ func NewTopPortErrorQueryResultList() *TopPortErrorQueryResultList {
 	return topPortErrorQueryResultListType
 }
 
-func NewDefaultTopPortErrorQueryResultList() *TopPortErrorQueryResultList {
+func NewTopPortErrorQueryResultListWithDefaults() *TopPortErrorQueryResultList {
 	topPortErrorQueryResultListType := new(TopPortErrorQueryResultList)
 	return topPortErrorQueryResultListType
 }
@@ -68,7 +68,7 @@ func NewTopPortErrorQueryResultListExtraType() *TopPortErrorQueryResultListExtra
 	return topPortErrorQueryResultListExtraTypeType
 }
 
-func NewDefaultTopPortErrorQueryResultListExtraType() *TopPortErrorQueryResultListExtraType {
+func NewTopPortErrorQueryResultListExtraTypeWithDefaults() *TopPortErrorQueryResultListExtraType {
 	topPortErrorQueryResultListExtraTypeType := new(TopPortErrorQueryResultListExtraType)
 	return topPortErrorQueryResultListExtraTypeType
 }
@@ -102,7 +102,7 @@ func NewTopPortTrafficUsageQueryResultList() *TopPortTrafficUsageQueryResultList
 	return topPortTrafficUsageQueryResultListType
 }
 
-func NewDefaultTopPortTrafficUsageQueryResultList() *TopPortTrafficUsageQueryResultList {
+func NewTopPortTrafficUsageQueryResultListWithDefaults() *TopPortTrafficUsageQueryResultList {
 	topPortTrafficUsageQueryResultListType := new(TopPortTrafficUsageQueryResultList)
 	return topPortTrafficUsageQueryResultListType
 }
@@ -135,7 +135,7 @@ func NewTopPortTrafficUsageQueryResultListExtraType() *TopPortTrafficUsageQueryR
 	return topPortTrafficUsageQueryResultListExtraTypeType
 }
 
-func NewDefaultTopPortTrafficUsageQueryResultListExtraType() *TopPortTrafficUsageQueryResultListExtraType {
+func NewTopPortTrafficUsageQueryResultListExtraTypeWithDefaults() *TopPortTrafficUsageQueryResultListExtraType {
 	topPortTrafficUsageQueryResultListExtraTypeType := new(TopPortTrafficUsageQueryResultListExtraType)
 	return topPortTrafficUsageQueryResultListExtraTypeType
 }
@@ -169,7 +169,7 @@ func NewTopSwitchPoEUtilizationQueryResultList() *TopSwitchPoEUtilizationQueryRe
 	return topSwitchPoEUtilizationQueryResultListType
 }
 
-func NewDefaultTopSwitchPoEUtilizationQueryResultList() *TopSwitchPoEUtilizationQueryResultList {
+func NewTopSwitchPoEUtilizationQueryResultListWithDefaults() *TopSwitchPoEUtilizationQueryResultList {
 	topSwitchPoEUtilizationQueryResultListType := new(TopSwitchPoEUtilizationQueryResultList)
 	return topSwitchPoEUtilizationQueryResultListType
 }
@@ -202,7 +202,7 @@ func NewTopSwitchPoEUtilizationQueryResultListExtraType() *TopSwitchPoEUtilizati
 	return topSwitchPoEUtilizationQueryResultListExtraTypeType
 }
 
-func NewDefaultTopSwitchPoEUtilizationQueryResultListExtraType() *TopSwitchPoEUtilizationQueryResultListExtraType {
+func NewTopSwitchPoEUtilizationQueryResultListExtraTypeWithDefaults() *TopSwitchPoEUtilizationQueryResultListExtraType {
 	topSwitchPoEUtilizationQueryResultListExtraTypeType := new(TopSwitchPoEUtilizationQueryResultListExtraType)
 	return topSwitchPoEUtilizationQueryResultListExtraTypeType
 }
@@ -236,7 +236,7 @@ func NewTopTrafficUsageQueryResultList() *TopTrafficUsageQueryResultList {
 	return topTrafficUsageQueryResultListType
 }
 
-func NewDefaultTopTrafficUsageQueryResultList() *TopTrafficUsageQueryResultList {
+func NewTopTrafficUsageQueryResultListWithDefaults() *TopTrafficUsageQueryResultList {
 	topTrafficUsageQueryResultListType := new(TopTrafficUsageQueryResultList)
 	return topTrafficUsageQueryResultListType
 }
@@ -269,7 +269,7 @@ func NewTopTrafficUsageQueryResultListExtraType() *TopTrafficUsageQueryResultLis
 	return topTrafficUsageQueryResultListExtraTypeType
 }
 
-func NewDefaultTopTrafficUsageQueryResultListExtraType() *TopTrafficUsageQueryResultListExtraType {
+func NewTopTrafficUsageQueryResultListExtraTypeWithDefaults() *TopTrafficUsageQueryResultListExtraType {
 	topTrafficUsageQueryResultListExtraTypeType := new(TopTrafficUsageQueryResultListExtraType)
 	return topTrafficUsageQueryResultListExtraTypeType
 }
@@ -297,7 +297,7 @@ func NewTraffic() *Traffic {
 	return trafficType
 }
 
-func NewDefaultTraffic() *Traffic {
+func NewTrafficWithDefaults() *Traffic {
 	trafficType := new(Traffic)
 	return trafficType
 }
@@ -331,7 +331,7 @@ func NewTrafficQueryResultList() *TrafficQueryResultList {
 	return trafficQueryResultListType
 }
 
-func NewDefaultTrafficQueryResultList() *TrafficQueryResultList {
+func NewTrafficQueryResultListWithDefaults() *TrafficQueryResultList {
 	trafficQueryResultListType := new(TrafficQueryResultList)
 	return trafficQueryResultListType
 }
@@ -364,7 +364,7 @@ func NewTrafficQueryResultListExtraType() *TrafficQueryResultListExtraType {
 	return trafficQueryResultListExtraTypeType
 }
 
-func NewDefaultTrafficQueryResultListExtraType() *TrafficQueryResultListExtraType {
+func NewTrafficQueryResultListExtraTypeWithDefaults() *TrafficQueryResultListExtraType {
 	trafficQueryResultListExtraTypeType := new(TrafficQueryResultListExtraType)
 	return trafficQueryResultListExtraTypeType
 }
@@ -388,7 +388,7 @@ func NewTrafficUsage() *TrafficUsage {
 	return trafficUsageType
 }
 
-func NewDefaultTrafficUsage() *TrafficUsage {
+func NewTrafficUsageWithDefaults() *TrafficUsage {
 	trafficUsageType := new(TrafficUsage)
 	return trafficUsageType
 }

@@ -28,7 +28,7 @@ func NewAlarmList() *AlarmList {
 	return alarmListType
 }
 
-func NewDefaultAlarmList() *AlarmList {
+func NewAlarmListWithDefaults() *AlarmList {
 	alarmListType := new(AlarmList)
 	return alarmListType
 }
@@ -56,7 +56,7 @@ func NewAlarmSummary() *AlarmSummary {
 	return alarmSummaryType
 }
 
-func NewDefaultAlarmSummary() *AlarmSummary {
+func NewAlarmSummaryWithDefaults() *AlarmSummary {
 	alarmSummaryType := new(AlarmSummary)
 	return alarmSummaryType
 }
@@ -189,7 +189,7 @@ func NewApConfiguration() *ApConfiguration {
 	return apConfigurationType
 }
 
-func NewDefaultApConfiguration() *ApConfiguration {
+func NewApConfigurationWithDefaults() *ApConfiguration {
 	apConfigurationType := new(ApConfiguration)
 	administrativeStateField := `Unlocked`
 	apConfigurationType.AdministrativeState = &administrativeStateField
@@ -219,7 +219,7 @@ func NewApLinemanSummary() *ApLinemanSummary {
 	return apLinemanSummaryType
 }
 
-func NewDefaultApLinemanSummary() *ApLinemanSummary {
+func NewApLinemanSummaryWithDefaults() *ApLinemanSummary {
 	apLinemanSummaryType := new(ApLinemanSummary)
 	return apLinemanSummaryType
 }
@@ -252,7 +252,7 @@ func NewApLinemanSummaryListType() *ApLinemanSummaryListType {
 	return apLinemanSummaryListTypeType
 }
 
-func NewDefaultApLinemanSummaryListType() *ApLinemanSummaryListType {
+func NewApLinemanSummaryListTypeWithDefaults() *ApLinemanSummaryListType {
 	apLinemanSummaryListTypeType := new(ApLinemanSummaryListType)
 	return apLinemanSummaryListTypeType
 }
@@ -278,7 +278,7 @@ func NewApListEntry() *ApListEntry {
 	return apListEntryType
 }
 
-func NewDefaultApListEntry() *ApListEntry {
+func NewApListEntryWithDefaults() *ApListEntry {
 	apListEntryType := new(ApListEntry)
 	return apListEntryType
 }
@@ -308,7 +308,7 @@ func NewApListEntryListType() *ApListEntryListType {
 	return apListEntryListTypeType
 }
 
-func NewDefaultApListEntryListType() *ApListEntryListType {
+func NewApListEntryListTypeWithDefaults() *ApListEntryListType {
 	apListEntryListTypeType := new(ApListEntryListType)
 	return apListEntryListTypeType
 }
@@ -320,7 +320,7 @@ func NewApName() *ApName {
 	return apNameType
 }
 
-func NewDefaultApName() *ApName {
+func NewApNameWithDefaults() *ApName {
 	apNameType := new(ApName)
 	return apNameType
 }
@@ -473,7 +473,7 @@ func NewApOperationalSummary() *ApOperationalSummary {
 	return apOperationalSummaryType
 }
 
-func NewDefaultApOperationalSummary() *ApOperationalSummary {
+func NewApOperationalSummaryWithDefaults() *ApOperationalSummary {
 	apOperationalSummaryType := new(ApOperationalSummary)
 	return apOperationalSummaryType
 }
@@ -499,7 +499,7 @@ func NewClientList() *ClientList {
 	return clientListType
 }
 
-func NewDefaultClientList() *ClientList {
+func NewClientListWithDefaults() *ClientList {
 	clientListType := new(ClientList)
 	return clientListType
 }
@@ -562,7 +562,7 @@ func NewCreateAP() *CreateAP {
 	return createAPType
 }
 
-func NewDefaultCreateAP() *CreateAP {
+func NewCreateAPWithDefaults() *CreateAP {
 	createAPType := new(CreateAP)
 	administrativeStateField := `Unlocked`
 	createAPType.AdministrativeState = &administrativeStateField
@@ -600,7 +600,7 @@ func NewEventSummary() *EventSummary {
 	return eventSummaryType
 }
 
-func NewDefaultEventSummary() *EventSummary {
+func NewEventSummaryWithDefaults() *EventSummary {
 	eventSummaryType := new(EventSummary)
 	return eventSummaryType
 }
@@ -622,7 +622,7 @@ func NewLogin() *Login {
 	return loginType
 }
 
-func NewDefaultLogin() *Login {
+func NewLoginWithDefaults() *Login {
 	loginType := new(Login)
 	return loginType
 }
@@ -652,7 +652,7 @@ func NewMesh() *Mesh {
 	return meshType
 }
 
-func NewDefaultMesh() *Mesh {
+func NewMeshWithDefaults() *Mesh {
 	meshType := new(Mesh)
 	return meshType
 }
@@ -782,7 +782,7 @@ func NewModifyAP() *ModifyAP {
 	return modifyAPType
 }
 
-func NewDefaultModifyAP() *ModifyAP {
+func NewModifyAPWithDefaults() *ModifyAP {
 	modifyAPType := new(ModifyAP)
 	channelEvaluationIntervalField := 600
 	modifyAPType.ChannelEvaluationInterval = &channelEvaluationIntervalField
@@ -800,7 +800,7 @@ func NewModifyRogueType() *ModifyRogueType {
 	return modifyRogueTypeType
 }
 
-func NewDefaultModifyRogueType() *ModifyRogueType {
+func NewModifyRogueTypeWithDefaults() *ModifyRogueType {
 	modifyRogueTypeType := new(ModifyRogueType)
 	return modifyRogueTypeType
 }
@@ -826,7 +826,7 @@ func NewNeighborAPList() *NeighborAPList {
 	return neighborAPListType
 }
 
-func NewDefaultNeighborAPList() *NeighborAPList {
+func NewNeighborAPListWithDefaults() *NeighborAPList {
 	neighborAPListType := new(NeighborAPList)
 	return neighborAPListType
 }
@@ -880,7 +880,7 @@ func NewNeighborAPListType() *NeighborAPListType {
 	return neighborAPListTypeType
 }
 
-func NewDefaultNeighborAPListType() *NeighborAPListType {
+func NewNeighborAPListTypeWithDefaults() *NeighborAPListType {
 	neighborAPListTypeType := new(NeighborAPListType)
 	return neighborAPListTypeType
 }
@@ -909,7 +909,7 @@ func NewNetwork() *Network {
 	return networkType
 }
 
-func NewDefaultNetwork() *Network {
+func NewNetworkWithDefaults() *Network {
 	networkType := new(Network)
 	return networkType
 }
@@ -936,7 +936,7 @@ func NewNetworkIpv6() *NetworkIpv6 {
 	return networkIpv6Type
 }
 
-func NewDefaultNetworkIpv6() *NetworkIpv6 {
+func NewNetworkIpv6WithDefaults() *NetworkIpv6 {
 	networkIpv6Type := new(NetworkIpv6)
 	return networkIpv6Type
 }
@@ -968,7 +968,7 @@ func NewSwitchoverAP() *SwitchoverAP {
 	return switchoverAPType
 }
 
-func NewDefaultSwitchoverAP() *SwitchoverAP {
+func NewSwitchoverAPWithDefaults() *SwitchoverAP {
 	switchoverAPType := new(SwitchoverAP)
 	return switchoverAPType
 }
@@ -1048,7 +1048,7 @@ func NewSyslog() *Syslog {
 	return syslogType
 }
 
-func NewDefaultSyslog() *Syslog {
+func NewSyslogWithDefaults() *Syslog {
 	syslogType := new(Syslog)
 	facilityField := `Keep_Original`
 	syslogType.Facility = &facilityField
@@ -1082,7 +1082,7 @@ func NewWlanGroup() *WlanGroup {
 	return wlanGroupType
 }
 
-func NewDefaultWlanGroup() *WlanGroup {
+func NewWlanGroupWithDefaults() *WlanGroup {
 	wlanGroupType := new(WlanGroup)
 	return wlanGroupType
 }

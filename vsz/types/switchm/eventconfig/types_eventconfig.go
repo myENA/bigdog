@@ -66,7 +66,7 @@ func NewEventConfig() *EventConfig {
 	return eventConfigType
 }
 
-func NewDefaultEventConfig() *EventConfig {
+func NewEventConfigWithDefaults() *EventConfig {
 	eventConfigType := new(EventConfig)
 	return eventConfigType
 }
@@ -100,7 +100,7 @@ func NewGetEventConfigList() *GetEventConfigList {
 	return getEventConfigListType
 }
 
-func NewDefaultGetEventConfigList() *GetEventConfigList {
+func NewGetEventConfigListWithDefaults() *GetEventConfigList {
 	getEventConfigListType := new(GetEventConfigList)
 	return getEventConfigListType
 }
@@ -133,7 +133,7 @@ func NewGetEventConfigListExtraType() *GetEventConfigListExtraType {
 	return getEventConfigListExtraTypeType
 }
 
-func NewDefaultGetEventConfigListExtraType() *GetEventConfigListExtraType {
+func NewGetEventConfigListExtraTypeWithDefaults() *GetEventConfigListExtraType {
 	getEventConfigListExtraTypeType := new(GetEventConfigListExtraType)
 	return getEventConfigListExtraTypeType
 }
@@ -165,7 +165,7 @@ func NewQueryResponse() *QueryResponse {
 	return queryResponseType
 }
 
-func NewDefaultQueryResponse() *QueryResponse {
+func NewQueryResponseWithDefaults() *QueryResponse {
 	queryResponseType := new(QueryResponse)
 	return queryResponseType
 }
@@ -198,7 +198,7 @@ func NewQueryResponseDataType() *QueryResponseDataType {
 	return queryResponseDataTypeType
 }
 
-func NewDefaultQueryResponseDataType() *QueryResponseDataType {
+func NewQueryResponseDataTypeWithDefaults() *QueryResponseDataType {
 	queryResponseDataTypeType := new(QueryResponseDataType)
 	return queryResponseDataTypeType
 }
@@ -231,7 +231,7 @@ func NewQueryResponseErrorType() *QueryResponseErrorType {
 	return queryResponseErrorTypeType
 }
 
-func NewDefaultQueryResponseErrorType() *QueryResponseErrorType {
+func NewQueryResponseErrorTypeWithDefaults() *QueryResponseErrorType {
 	queryResponseErrorTypeType := new(QueryResponseErrorType)
 	return queryResponseErrorTypeType
 }
@@ -264,7 +264,7 @@ func NewQueryResponseExtraType() *QueryResponseExtraType {
 	return queryResponseExtraTypeType
 }
 
-func NewDefaultQueryResponseExtraType() *QueryResponseExtraType {
+func NewQueryResponseExtraTypeWithDefaults() *QueryResponseExtraType {
 	queryResponseExtraTypeType := new(QueryResponseExtraType)
 	return queryResponseExtraTypeType
 }
@@ -297,7 +297,7 @@ func NewQueryResponseMetaDataType() *QueryResponseMetaDataType {
 	return queryResponseMetaDataTypeType
 }
 
-func NewDefaultQueryResponseMetaDataType() *QueryResponseMetaDataType {
+func NewQueryResponseMetaDataTypeWithDefaults() *QueryResponseMetaDataType {
 	queryResponseMetaDataTypeType := new(QueryResponseMetaDataType)
 	return queryResponseMetaDataTypeType
 }

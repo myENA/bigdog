@@ -34,7 +34,7 @@ func NewCreateDomain() *CreateDomain {
 	return createDomainType
 }
 
-func NewDefaultCreateDomain() *CreateDomain {
+func NewCreateDomainWithDefaults() *CreateDomain {
 	createDomainType := new(CreateDomain)
 	domainTypeField := `REGULAR`
 	createDomainType.DomainType = &domainTypeField
@@ -92,7 +92,7 @@ func NewDomainConfiguration() *DomainConfiguration {
 	return domainConfigurationType
 }
 
-func NewDefaultDomainConfiguration() *DomainConfiguration {
+func NewDomainConfigurationWithDefaults() *DomainConfiguration {
 	domainConfigurationType := new(DomainConfiguration)
 	return domainConfigurationType
 }
@@ -112,7 +112,7 @@ func NewDomainList() *DomainList {
 	return domainListType
 }
 
-func NewDefaultDomainList() *DomainList {
+func NewDomainListWithDefaults() *DomainList {
 	domainListType := new(DomainList)
 	return domainListType
 }
@@ -140,7 +140,7 @@ func NewModifyDomain() *ModifyDomain {
 	return modifyDomainType
 }
 
-func NewDefaultModifyDomain() *ModifyDomain {
+func NewModifyDomainWithDefaults() *ModifyDomain {
 	modifyDomainType := new(ModifyDomain)
 	return modifyDomainType
 }

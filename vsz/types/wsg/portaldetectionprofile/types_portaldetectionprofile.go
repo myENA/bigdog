@@ -24,7 +24,7 @@ func NewCreatePortalDetectionProfile() *CreatePortalDetectionProfile {
 	return createPortalDetectionProfileType
 }
 
-func NewDefaultCreatePortalDetectionProfile() *CreatePortalDetectionProfile {
+func NewCreatePortalDetectionProfileWithDefaults() *CreatePortalDetectionProfile {
 	createPortalDetectionProfileType := new(CreatePortalDetectionProfile)
 	return createPortalDetectionProfileType
 }
@@ -70,7 +70,7 @@ func NewPortalDetectionPattern() *PortalDetectionPattern {
 	return portalDetectionPatternType
 }
 
-func NewDefaultPortalDetectionPattern() *PortalDetectionPattern {
+func NewPortalDetectionPatternWithDefaults() *PortalDetectionPattern {
 	portalDetectionPatternType := new(PortalDetectionPattern)
 	return portalDetectionPatternType
 }
@@ -125,7 +125,7 @@ func NewPortalDetectionProfile() *PortalDetectionProfile {
 	return portalDetectionProfileType
 }
 
-func NewDefaultPortalDetectionProfile() *PortalDetectionProfile {
+func NewPortalDetectionProfileWithDefaults() *PortalDetectionProfile {
 	portalDetectionProfileType := new(PortalDetectionProfile)
 	return portalDetectionProfileType
 }
@@ -147,7 +147,7 @@ func NewPortalDetectionProfileList() *PortalDetectionProfileList {
 	return portalDetectionProfileListType
 }
 
-func NewDefaultPortalDetectionProfileList() *PortalDetectionProfileList {
+func NewPortalDetectionProfileListWithDefaults() *PortalDetectionProfileList {
 	portalDetectionProfileListType := new(PortalDetectionProfileList)
 	return portalDetectionProfileListType
 }

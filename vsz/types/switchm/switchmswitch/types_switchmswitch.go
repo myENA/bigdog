@@ -22,7 +22,7 @@ func NewAuditId() *AuditId {
 	return auditIdType
 }
 
-func NewDefaultAuditId() *AuditId {
+func NewAuditIdWithDefaults() *AuditId {
 	auditIdType := new(AuditId)
 	return auditIdType
 }
@@ -46,7 +46,7 @@ func NewBarChart() *BarChart {
 	return barChartType
 }
 
-func NewDefaultBarChart() *BarChart {
+func NewBarChartWithDefaults() *BarChart {
 	barChartType := new(BarChart)
 	return barChartType
 }
@@ -80,7 +80,7 @@ func NewConnectedAPsQueryList() *ConnectedAPsQueryList {
 	return connectedAPsQueryListType
 }
 
-func NewDefaultConnectedAPsQueryList() *ConnectedAPsQueryList {
+func NewConnectedAPsQueryListWithDefaults() *ConnectedAPsQueryList {
 	connectedAPsQueryListType := new(ConnectedAPsQueryList)
 	return connectedAPsQueryListType
 }
@@ -113,7 +113,7 @@ func NewConnectedAPsQueryListExtraType() *ConnectedAPsQueryListExtraType {
 	return connectedAPsQueryListExtraTypeType
 }
 
-func NewDefaultConnectedAPsQueryListExtraType() *ConnectedAPsQueryListExtraType {
+func NewConnectedAPsQueryListExtraTypeWithDefaults() *ConnectedAPsQueryListExtraType {
 	connectedAPsQueryListExtraTypeType := new(ConnectedAPsQueryListExtraType)
 	return connectedAPsQueryListExtraTypeType
 }
@@ -201,7 +201,7 @@ func NewConnectedDevice() *ConnectedDevice {
 	return connectedDeviceType
 }
 
-func NewDefaultConnectedDevice() *ConnectedDevice {
+func NewConnectedDeviceWithDefaults() *ConnectedDevice {
 	connectedDeviceType := new(ConnectedDevice)
 	return connectedDeviceType
 }
@@ -234,7 +234,7 @@ func NewConnectedDeviceSampledInstantType() *ConnectedDeviceSampledInstantType {
 	return connectedDeviceSampledInstantTypeType
 }
 
-func NewDefaultConnectedDeviceSampledInstantType() *ConnectedDeviceSampledInstantType {
+func NewConnectedDeviceSampledInstantTypeWithDefaults() *ConnectedDeviceSampledInstantType {
 	connectedDeviceSampledInstantTypeType := new(ConnectedDeviceSampledInstantType)
 	return connectedDeviceSampledInstantTypeType
 }
@@ -268,7 +268,7 @@ func NewConnectedDevicesQueryList() *ConnectedDevicesQueryList {
 	return connectedDevicesQueryListType
 }
 
-func NewDefaultConnectedDevicesQueryList() *ConnectedDevicesQueryList {
+func NewConnectedDevicesQueryListWithDefaults() *ConnectedDevicesQueryList {
 	connectedDevicesQueryListType := new(ConnectedDevicesQueryList)
 	return connectedDevicesQueryListType
 }
@@ -301,7 +301,7 @@ func NewConnectedDevicesQueryListExtraType() *ConnectedDevicesQueryListExtraType
 	return connectedDevicesQueryListExtraTypeType
 }
 
-func NewDefaultConnectedDevicesQueryListExtraType() *ConnectedDevicesQueryListExtraType {
+func NewConnectedDevicesQueryListExtraTypeWithDefaults() *ConnectedDevicesQueryListExtraType {
 	connectedDevicesQueryListExtraTypeType := new(ConnectedDevicesQueryListExtraType)
 	return connectedDevicesQueryListExtraTypeType
 }
@@ -335,7 +335,7 @@ func NewDeleteSwitchesResultList() *DeleteSwitchesResultList {
 	return deleteSwitchesResultListType
 }
 
-func NewDefaultDeleteSwitchesResultList() *DeleteSwitchesResultList {
+func NewDeleteSwitchesResultListWithDefaults() *DeleteSwitchesResultList {
 	deleteSwitchesResultListType := new(DeleteSwitchesResultList)
 	return deleteSwitchesResultListType
 }
@@ -368,7 +368,7 @@ func NewDeleteSwitchesResultListExtraType() *DeleteSwitchesResultListExtraType {
 	return deleteSwitchesResultListExtraTypeType
 }
 
-func NewDefaultDeleteSwitchesResultListExtraType() *DeleteSwitchesResultListExtraType {
+func NewDeleteSwitchesResultListExtraTypeWithDefaults() *DeleteSwitchesResultListExtraType {
 	deleteSwitchesResultListExtraTypeType := new(DeleteSwitchesResultListExtraType)
 	return deleteSwitchesResultListExtraTypeType
 }
@@ -392,7 +392,7 @@ func NewFirmware() *Firmware {
 	return firmwareType
 }
 
-func NewDefaultFirmware() *Firmware {
+func NewFirmwareWithDefaults() *Firmware {
 	firmwareType := new(Firmware)
 	return firmwareType
 }
@@ -426,7 +426,7 @@ func NewFirmwareHistoryQueryResultList() *FirmwareHistoryQueryResultList {
 	return firmwareHistoryQueryResultListType
 }
 
-func NewDefaultFirmwareHistoryQueryResultList() *FirmwareHistoryQueryResultList {
+func NewFirmwareHistoryQueryResultListWithDefaults() *FirmwareHistoryQueryResultList {
 	firmwareHistoryQueryResultListType := new(FirmwareHistoryQueryResultList)
 	return firmwareHistoryQueryResultListType
 }
@@ -459,7 +459,7 @@ func NewFirmwareHistoryQueryResultListExtraType() *FirmwareHistoryQueryResultLis
 	return firmwareHistoryQueryResultListExtraTypeType
 }
 
-func NewDefaultFirmwareHistoryQueryResultListExtraType() *FirmwareHistoryQueryResultListExtraType {
+func NewFirmwareHistoryQueryResultListExtraTypeWithDefaults() *FirmwareHistoryQueryResultListExtraType {
 	firmwareHistoryQueryResultListExtraTypeType := new(FirmwareHistoryQueryResultListExtraType)
 	return firmwareHistoryQueryResultListExtraTypeType
 }
@@ -595,7 +595,7 @@ func NewNetworkSwitch() *NetworkSwitch {
 	return networkSwitchType
 }
 
-func NewDefaultNetworkSwitch() *NetworkSwitch {
+func NewNetworkSwitchWithDefaults() *NetworkSwitch {
 	networkSwitchType := new(NetworkSwitch)
 	return networkSwitchType
 }
@@ -630,7 +630,7 @@ func NewNetworkSwitchFirmwareUpdateType() *NetworkSwitchFirmwareUpdateType {
 	return networkSwitchFirmwareUpdateTypeType
 }
 
-func NewDefaultNetworkSwitchFirmwareUpdateType() *NetworkSwitchFirmwareUpdateType {
+func NewNetworkSwitchFirmwareUpdateTypeWithDefaults() *NetworkSwitchFirmwareUpdateType {
 	networkSwitchFirmwareUpdateTypeType := new(NetworkSwitchFirmwareUpdateType)
 	return networkSwitchFirmwareUpdateTypeType
 }
@@ -657,7 +657,7 @@ func NewNetworkSwitchPoeType() *NetworkSwitchPoeType {
 	return networkSwitchPoeTypeType
 }
 
-func NewDefaultNetworkSwitchPoeType() *NetworkSwitchPoeType {
+func NewNetworkSwitchPoeTypeWithDefaults() *NetworkSwitchPoeType {
 	networkSwitchPoeTypeType := new(NetworkSwitchPoeType)
 	return networkSwitchPoeTypeType
 }
@@ -700,7 +700,7 @@ func NewNetworkSwitchPortStatusType() *NetworkSwitchPortStatusType {
 	return networkSwitchPortStatusTypeType
 }
 
-func NewDefaultNetworkSwitchPortStatusType() *NetworkSwitchPortStatusType {
+func NewNetworkSwitchPortStatusTypeWithDefaults() *NetworkSwitchPortStatusType {
 	networkSwitchPortStatusTypeType := new(NetworkSwitchPortStatusType)
 	return networkSwitchPortStatusTypeType
 }
@@ -820,7 +820,7 @@ func NewPortDetails() *PortDetails {
 	return portDetailsType
 }
 
-func NewDefaultPortDetails() *PortDetails {
+func NewPortDetailsWithDefaults() *PortDetails {
 	portDetailsType := new(PortDetails)
 	return portDetailsType
 }
@@ -907,7 +907,7 @@ func NewPortDetailsConnectedDeviceType() *PortDetailsConnectedDeviceType {
 	return portDetailsConnectedDeviceTypeType
 }
 
-func NewDefaultPortDetailsConnectedDeviceType() *PortDetailsConnectedDeviceType {
+func NewPortDetailsConnectedDeviceTypeWithDefaults() *PortDetailsConnectedDeviceType {
 	portDetailsConnectedDeviceTypeType := new(PortDetailsConnectedDeviceType)
 	return portDetailsConnectedDeviceTypeType
 }
@@ -938,7 +938,7 @@ func NewPortDetailsPacketsType() *PortDetailsPacketsType {
 	return portDetailsPacketsTypeType
 }
 
-func NewDefaultPortDetailsPacketsType() *PortDetailsPacketsType {
+func NewPortDetailsPacketsTypeWithDefaults() *PortDetailsPacketsType {
 	portDetailsPacketsTypeType := new(PortDetailsPacketsType)
 	return portDetailsPacketsTypeType
 }
@@ -965,7 +965,7 @@ func NewPortDetailsPoeType() *PortDetailsPoeType {
 	return portDetailsPoeTypeType
 }
 
-func NewDefaultPortDetailsPoeType() *PortDetailsPoeType {
+func NewPortDetailsPoeTypeWithDefaults() *PortDetailsPoeType {
 	portDetailsPoeTypeType := new(PortDetailsPoeType)
 	return portDetailsPoeTypeType
 }
@@ -996,7 +996,7 @@ func NewPortDetailsPortErrorType() *PortDetailsPortErrorType {
 	return portDetailsPortErrorTypeType
 }
 
-func NewDefaultPortDetailsPortErrorType() *PortDetailsPortErrorType {
+func NewPortDetailsPortErrorTypeWithDefaults() *PortDetailsPortErrorType {
 	portDetailsPortErrorTypeType := new(PortDetailsPortErrorType)
 	return portDetailsPortErrorTypeType
 }
@@ -1030,7 +1030,7 @@ func NewPortDetailsQueryResultList() *PortDetailsQueryResultList {
 	return portDetailsQueryResultListType
 }
 
-func NewDefaultPortDetailsQueryResultList() *PortDetailsQueryResultList {
+func NewPortDetailsQueryResultListWithDefaults() *PortDetailsQueryResultList {
 	portDetailsQueryResultListType := new(PortDetailsQueryResultList)
 	return portDetailsQueryResultListType
 }
@@ -1063,7 +1063,7 @@ func NewPortDetailsQueryResultListExtraType() *PortDetailsQueryResultListExtraTy
 	return portDetailsQueryResultListExtraTypeType
 }
 
-func NewDefaultPortDetailsQueryResultListExtraType() *PortDetailsQueryResultListExtraType {
+func NewPortDetailsQueryResultListExtraTypeWithDefaults() *PortDetailsQueryResultListExtraType {
 	portDetailsQueryResultListExtraTypeType := new(PortDetailsQueryResultListExtraType)
 	return portDetailsQueryResultListExtraTypeType
 }
@@ -1086,7 +1086,7 @@ func NewPortDetailsTrafficUsageType() *PortDetailsTrafficUsageType {
 	return portDetailsTrafficUsageTypeType
 }
 
-func NewDefaultPortDetailsTrafficUsageType() *PortDetailsTrafficUsageType {
+func NewPortDetailsTrafficUsageTypeWithDefaults() *PortDetailsTrafficUsageType {
 	portDetailsTrafficUsageTypeType := new(PortDetailsTrafficUsageType)
 	return portDetailsTrafficUsageTypeType
 }
@@ -1126,7 +1126,7 @@ func NewPortStatus() *PortStatus {
 	return portStatusType
 }
 
-func NewDefaultPortStatus() *PortStatus {
+func NewPortStatusWithDefaults() *PortStatus {
 	portStatusType := new(PortStatus)
 	return portStatusType
 }
@@ -1170,7 +1170,7 @@ func NewStackMember() *StackMember {
 	return stackMemberType
 }
 
-func NewDefaultStackMember() *StackMember {
+func NewStackMemberWithDefaults() *StackMember {
 	stackMemberType := new(StackMember)
 	return stackMemberType
 }
@@ -1204,7 +1204,7 @@ func NewStackMemberQueryResult() *StackMemberQueryResult {
 	return stackMemberQueryResultType
 }
 
-func NewDefaultStackMemberQueryResult() *StackMemberQueryResult {
+func NewStackMemberQueryResultWithDefaults() *StackMemberQueryResult {
 	stackMemberQueryResultType := new(StackMemberQueryResult)
 	return stackMemberQueryResultType
 }
@@ -1237,7 +1237,7 @@ func NewStackMemberQueryResultExtraType() *StackMemberQueryResultExtraType {
 	return stackMemberQueryResultExtraTypeType
 }
 
-func NewDefaultStackMemberQueryResultExtraType() *StackMemberQueryResultExtraType {
+func NewStackMemberQueryResultExtraTypeWithDefaults() *StackMemberQueryResultExtraType {
 	stackMemberQueryResultExtraTypeType := new(StackMemberQueryResultExtraType)
 	return stackMemberQueryResultExtraTypeType
 }
@@ -1249,7 +1249,7 @@ func NewSwitchIdList() *SwitchIdList {
 	return &switchIdListType
 }
 
-func NewDefaultSwitchIdList() *SwitchIdList {
+func NewSwitchIdListWithDefaults() *SwitchIdList {
 	switchIdListType := make(SwitchIdList, 0)
 	return &switchIdListType
 }
@@ -1283,7 +1283,7 @@ func NewSwitchPortsSummaryQueryResultList() *SwitchPortsSummaryQueryResultList {
 	return switchPortsSummaryQueryResultListType
 }
 
-func NewDefaultSwitchPortsSummaryQueryResultList() *SwitchPortsSummaryQueryResultList {
+func NewSwitchPortsSummaryQueryResultListWithDefaults() *SwitchPortsSummaryQueryResultList {
 	switchPortsSummaryQueryResultListType := new(SwitchPortsSummaryQueryResultList)
 	return switchPortsSummaryQueryResultListType
 }
@@ -1316,7 +1316,7 @@ func NewSwitchPortsSummaryQueryResultListExtraType() *SwitchPortsSummaryQueryRes
 	return switchPortsSummaryQueryResultListExtraTypeType
 }
 
-func NewDefaultSwitchPortsSummaryQueryResultListExtraType() *SwitchPortsSummaryQueryResultListExtraType {
+func NewSwitchPortsSummaryQueryResultListExtraTypeWithDefaults() *SwitchPortsSummaryQueryResultListExtraType {
 	switchPortsSummaryQueryResultListExtraTypeType := new(SwitchPortsSummaryQueryResultListExtraType)
 	return switchPortsSummaryQueryResultListExtraTypeType
 }
@@ -1348,7 +1348,7 @@ func NewSwitchQueryResultList() *SwitchQueryResultList {
 	return switchQueryResultListType
 }
 
-func NewDefaultSwitchQueryResultList() *SwitchQueryResultList {
+func NewSwitchQueryResultListWithDefaults() *SwitchQueryResultList {
 	switchQueryResultListType := new(SwitchQueryResultList)
 	return switchQueryResultListType
 }
@@ -1382,7 +1382,7 @@ func NewTopSwitchesByFirmwareQueryResultList() *TopSwitchesByFirmwareQueryResult
 	return topSwitchesByFirmwareQueryResultListType
 }
 
-func NewDefaultTopSwitchesByFirmwareQueryResultList() *TopSwitchesByFirmwareQueryResultList {
+func NewTopSwitchesByFirmwareQueryResultListWithDefaults() *TopSwitchesByFirmwareQueryResultList {
 	topSwitchesByFirmwareQueryResultListType := new(TopSwitchesByFirmwareQueryResultList)
 	return topSwitchesByFirmwareQueryResultListType
 }
@@ -1415,7 +1415,7 @@ func NewTopSwitchesByFirmwareQueryResultListExtraType() *TopSwitchesByFirmwareQu
 	return topSwitchesByFirmwareQueryResultListExtraTypeType
 }
 
-func NewDefaultTopSwitchesByFirmwareQueryResultListExtraType() *TopSwitchesByFirmwareQueryResultListExtraType {
+func NewTopSwitchesByFirmwareQueryResultListExtraTypeWithDefaults() *TopSwitchesByFirmwareQueryResultListExtraType {
 	topSwitchesByFirmwareQueryResultListExtraTypeType := new(TopSwitchesByFirmwareQueryResultListExtraType)
 	return topSwitchesByFirmwareQueryResultListExtraTypeType
 }
@@ -1449,7 +1449,7 @@ func NewTopSwitchesByModelQueryResultList() *TopSwitchesByModelQueryResultList {
 	return topSwitchesByModelQueryResultListType
 }
 
-func NewDefaultTopSwitchesByModelQueryResultList() *TopSwitchesByModelQueryResultList {
+func NewTopSwitchesByModelQueryResultListWithDefaults() *TopSwitchesByModelQueryResultList {
 	topSwitchesByModelQueryResultListType := new(TopSwitchesByModelQueryResultList)
 	return topSwitchesByModelQueryResultListType
 }
@@ -1482,7 +1482,7 @@ func NewTopSwitchesByModelQueryResultListExtraType() *TopSwitchesByModelQueryRes
 	return topSwitchesByModelQueryResultListExtraTypeType
 }
 
-func NewDefaultTopSwitchesByModelQueryResultListExtraType() *TopSwitchesByModelQueryResultListExtraType {
+func NewTopSwitchesByModelQueryResultListExtraTypeWithDefaults() *TopSwitchesByModelQueryResultListExtraType {
 	topSwitchesByModelQueryResultListExtraTypeType := new(TopSwitchesByModelQueryResultListExtraType)
 	return topSwitchesByModelQueryResultListExtraTypeType
 }

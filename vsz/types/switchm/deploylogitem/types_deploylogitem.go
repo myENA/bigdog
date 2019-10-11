@@ -25,7 +25,7 @@ func NewConfigurationHistoryDetailQueryResult() *ConfigurationHistoryDetailQuery
 	return configurationHistoryDetailQueryResultType
 }
 
-func NewDefaultConfigurationHistoryDetailQueryResult() *ConfigurationHistoryDetailQueryResult {
+func NewConfigurationHistoryDetailQueryResultWithDefaults() *ConfigurationHistoryDetailQueryResult {
 	configurationHistoryDetailQueryResultType := new(ConfigurationHistoryDetailQueryResult)
 	return configurationHistoryDetailQueryResultType
 }
@@ -80,7 +80,7 @@ func NewDeployLogItem() *DeployLogItem {
 	return deployLogItemType
 }
 
-func NewDefaultDeployLogItem() *DeployLogItem {
+func NewDeployLogItemWithDefaults() *DeployLogItem {
 	deployLogItemType := new(DeployLogItem)
 	return deployLogItemType
 }
@@ -103,7 +103,7 @@ func NewDeployLogItemDispatchFailedReasonType() *DeployLogItemDispatchFailedReas
 	return deployLogItemDispatchFailedReasonTypeType
 }
 
-func NewDefaultDeployLogItemDispatchFailedReasonType() *DeployLogItemDispatchFailedReasonType {
+func NewDeployLogItemDispatchFailedReasonTypeWithDefaults() *DeployLogItemDispatchFailedReasonType {
 	deployLogItemDispatchFailedReasonTypeType := new(DeployLogItemDispatchFailedReasonType)
 	return deployLogItemDispatchFailedReasonTypeType
 }

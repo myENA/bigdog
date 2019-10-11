@@ -610,8 +610,6 @@ type L2ACL struct {
 //    - nullable
 //    - min:0.000000
 //    - max:4294967295.000000
-//    - min:0.000000
-//    - max:4294967295.000000
 type LinkSpeedInKbps float64
 
 // MacAddressFormatSetting
@@ -619,9 +617,6 @@ type LinkSpeedInKbps float64
 // mac address format of redirection,the format define: 0(aabbccddeeff), 1(AA-BB-CC-DD-EE-FF), 2(AA:BB:CC:DD:EE:FF), 3(AABBCCDDEEFF), 4(aa-bb-cc-dd-ee-ff), 5(aa:bb:cc:dd:ee:ff)
 // Constraints:
 //    - nullable
-//    - default:2
-//    - min:0
-//    - max:5
 //    - default:2
 //    - min:0
 //    - max:5

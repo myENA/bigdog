@@ -40,8 +40,6 @@ type EventConfig struct {
 	// Constraints:
 	//    - nullable
 	//    - oneof:[Warning,Major,Critical]
-	//    - oneof:[Warning,Major,Critical]
-	//    - oneof:[Warning,Major,Critical]
 	Severity *string `json:"severity,omitempty" validate:"omitempty,oneof=Warning Major Critical"`
 
 	// TextPattern
@@ -53,16 +51,12 @@ type EventConfig struct {
 	// Constraints:
 	//    - nullable
 	//    - oneof:[60,120,240,480,720,1440,2880]
-	//    - oneof:[60,120,240,480,720,1440,2880]
-	//    - oneof:[60,120,240,480,720,1440,2880]
 	TimeWindow *int `json:"timeWindow,omitempty" validate:"omitempty,oneof=60 120 240 480 720 1440 2880"`
 
 	// Type
 	// Type of each Switch custom event config
 	// Constraints:
 	//    - nullable
-	//    - oneof:[CPU,Memory,TextPattern]
-	//    - oneof:[CPU,Memory,TextPattern]
 	//    - oneof:[CPU,Memory,TextPattern]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=CPU Memory TextPattern"`
 }

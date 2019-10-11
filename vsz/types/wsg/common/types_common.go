@@ -72,7 +72,6 @@ type Altitude struct {
 // Constraints:
 //    - nullable
 //    - oneof:[GPS,MANUAL]
-//    - oneof:[GPS,MANUAL]
 type ApGpsSource string
 
 type ApLatencyInterval struct {
@@ -765,8 +764,6 @@ type PortalCustomization struct {
 //    - nullable
 //    - default:'en_US'
 //    - oneof:[en_US,zh_TW,zh_CN,nl_NL,fr_FR,de_DE,ja_JP,es_ES,se_SE,ar_SA,cz_CZ,da_DK,tr_TR,pt_BR]
-//    - default:'en_US'
-//    - oneof:[en_US,zh_TW,zh_CN,nl_NL,fr_FR,de_DE,ja_JP,es_ES,se_SE,ar_SA,cz_CZ,da_DK,tr_TR,pt_BR]
 type PortalLanguage string
 
 type ProtectionMode string
@@ -1250,7 +1247,6 @@ type TimeRange struct {
 // Constraints:
 //    - nullable
 //    - oneof:[second,minute,hour,day]
-//    - oneof:[second,minute,hour,day]
 type TimeUnitStore string
 
 type TrafficClassProfileRef struct {
@@ -1307,8 +1303,6 @@ type WildFQDN string
 // Tunnel type configuration of the zone. No_Tunneled is for IPv6 mode
 // Constraints:
 //    - nullable
-//    - default:'RuckusGRE'
-//    - oneof:[No_Tunneled,RuckusGRE,SoftGRE,SoftGREIpsec]
 //    - default:'RuckusGRE'
 //    - oneof:[No_Tunneled,RuckusGRE,SoftGRE,SoftGREIpsec]
 type ZoneTunnelType string

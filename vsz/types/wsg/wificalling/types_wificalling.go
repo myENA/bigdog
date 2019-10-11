@@ -62,7 +62,6 @@ type ModifyWifiCallingPolicy struct {
 	// Constraints:
 	//    - nullable
 	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
-	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
 	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 }
 

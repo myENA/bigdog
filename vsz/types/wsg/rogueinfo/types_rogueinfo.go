@@ -50,6 +50,16 @@ type RogueInfo struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewRogueInfo() *RogueInfo {
+	rogueInfoType := new(RogueInfo)
+	return rogueInfoType
+}
+
+func NewDefaultRogueInfo() *RogueInfo {
+	rogueInfoType := new(RogueInfo)
+	return rogueInfoType
+}
+
 type RogueInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -74,6 +84,16 @@ type RogueInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewRogueInfoList() *RogueInfoList {
+	rogueInfoListType := new(RogueInfoList)
+	return rogueInfoListType
+}
+
+func NewDefaultRogueInfoList() *RogueInfoList {
+	rogueInfoListType := new(RogueInfoList)
+	return rogueInfoListType
+}
+
 // RogueInfoListExtraType
 //
 // Any additional response data.
@@ -95,4 +115,14 @@ func (t *RogueInfoListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewRogueInfoListExtraType() *RogueInfoListExtraType {
+	rogueInfoListExtraTypeType := new(RogueInfoListExtraType)
+	return rogueInfoListExtraTypeType
+}
+
+func NewDefaultRogueInfoListExtraType() *RogueInfoListExtraType {
+	rogueInfoListExtraTypeType := new(RogueInfoListExtraType)
+	return rogueInfoListExtraTypeType
 }

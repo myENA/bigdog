@@ -21,6 +21,16 @@ type CreateSplitTunnelProfile struct {
 	Rules []*SplitTunnelIpMaskRule `json:"rules" validate:"required"`
 }
 
+func NewCreateSplitTunnelProfile() *CreateSplitTunnelProfile {
+	createSplitTunnelProfileType := new(CreateSplitTunnelProfile)
+	return createSplitTunnelProfileType
+}
+
+func NewDefaultCreateSplitTunnelProfile() *CreateSplitTunnelProfile {
+	createSplitTunnelProfileType := new(CreateSplitTunnelProfile)
+	return createSplitTunnelProfileType
+}
+
 type ModifySplitTunnelProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -29,6 +39,16 @@ type ModifySplitTunnelProfile struct {
 	// Rules
 	// Destination rule of split tunnel profile
 	Rules []*SplitTunnelIpMaskRule `json:"rules,omitempty"`
+}
+
+func NewModifySplitTunnelProfile() *ModifySplitTunnelProfile {
+	modifySplitTunnelProfileType := new(ModifySplitTunnelProfile)
+	return modifySplitTunnelProfileType
+}
+
+func NewDefaultModifySplitTunnelProfile() *ModifySplitTunnelProfile {
+	modifySplitTunnelProfileType := new(ModifySplitTunnelProfile)
+	return modifySplitTunnelProfileType
 }
 
 type SplitTunnelIpMaskRule struct {
@@ -43,6 +63,16 @@ type SplitTunnelIpMaskRule struct {
 	// Constraints:
 	//    - required
 	DestinationIpMask *string `json:"destinationIpMask" validate:"required"`
+}
+
+func NewSplitTunnelIpMaskRule() *SplitTunnelIpMaskRule {
+	splitTunnelIpMaskRuleType := new(SplitTunnelIpMaskRule)
+	return splitTunnelIpMaskRuleType
+}
+
+func NewDefaultSplitTunnelIpMaskRule() *SplitTunnelIpMaskRule {
+	splitTunnelIpMaskRuleType := new(SplitTunnelIpMaskRule)
+	return splitTunnelIpMaskRuleType
 }
 
 type SplitTunnelProfile struct {
@@ -63,6 +93,16 @@ type SplitTunnelProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewSplitTunnelProfile() *SplitTunnelProfile {
+	splitTunnelProfileType := new(SplitTunnelProfile)
+	return splitTunnelProfileType
+}
+
+func NewDefaultSplitTunnelProfile() *SplitTunnelProfile {
+	splitTunnelProfileType := new(SplitTunnelProfile)
+	return splitTunnelProfileType
+}
+
 type SplitTunnelProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -73,10 +113,30 @@ type SplitTunnelProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSplitTunnelProfileList() *SplitTunnelProfileList {
+	splitTunnelProfileListType := new(SplitTunnelProfileList)
+	return splitTunnelProfileListType
+}
+
+func NewDefaultSplitTunnelProfileList() *SplitTunnelProfileList {
+	splitTunnelProfileListType := new(SplitTunnelProfileList)
+	return splitTunnelProfileListType
+}
+
 type SplitTunnelProfileListType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewSplitTunnelProfileListType() *SplitTunnelProfileListType {
+	splitTunnelProfileListTypeType := new(SplitTunnelProfileListType)
+	return splitTunnelProfileListTypeType
+}
+
+func NewDefaultSplitTunnelProfileListType() *SplitTunnelProfileListType {
+	splitTunnelProfileListTypeType := new(SplitTunnelProfileListType)
+	return splitTunnelProfileListTypeType
 }
 
 type SplitTunnelProfileQuery struct {
@@ -89,4 +149,14 @@ type SplitTunnelProfileQuery struct {
 	List []*SplitTunnelProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSplitTunnelProfileQuery() *SplitTunnelProfileQuery {
+	splitTunnelProfileQueryType := new(SplitTunnelProfileQuery)
+	return splitTunnelProfileQueryType
+}
+
+func NewDefaultSplitTunnelProfileQuery() *SplitTunnelProfileQuery {
+	splitTunnelProfileQueryType := new(SplitTunnelProfileQuery)
+	return splitTunnelProfileQueryType
 }

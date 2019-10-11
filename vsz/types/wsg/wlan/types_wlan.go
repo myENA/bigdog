@@ -117,6 +117,18 @@ type CreateGuestAccessWlan struct {
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
+func NewCreateGuestAccessWlan() *CreateGuestAccessWlan {
+	createGuestAccessWlanType := new(CreateGuestAccessWlan)
+	return createGuestAccessWlanType
+}
+
+func NewDefaultCreateGuestAccessWlan() *CreateGuestAccessWlan {
+	createGuestAccessWlanType := new(CreateGuestAccessWlan)
+	bypassCNAField := false
+	createGuestAccessWlanType.BypassCNA = &bypassCNAField
+	return createGuestAccessWlanType
+}
+
 type CreateHotspot20OpenWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -214,6 +226,16 @@ type CreateHotspot20OpenWlan struct {
 	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
+}
+
+func NewCreateHotspot20OpenWlan() *CreateHotspot20OpenWlan {
+	createHotspot20OpenWlanType := new(CreateHotspot20OpenWlan)
+	return createHotspot20OpenWlanType
+}
+
+func NewDefaultCreateHotspot20OpenWlan() *CreateHotspot20OpenWlan {
+	createHotspot20OpenWlanType := new(CreateHotspot20OpenWlan)
+	return createHotspot20OpenWlanType
 }
 
 type CreateHotspot20Wlan struct {
@@ -314,6 +336,16 @@ type CreateHotspot20Wlan struct {
 	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
+}
+
+func NewCreateHotspot20Wlan() *CreateHotspot20Wlan {
+	createHotspot20WlanType := new(CreateHotspot20Wlan)
+	return createHotspot20WlanType
+}
+
+func NewDefaultCreateHotspot20Wlan() *CreateHotspot20Wlan {
+	createHotspot20WlanType := new(CreateHotspot20Wlan)
+	return createHotspot20WlanType
 }
 
 type CreateHotspotWlan struct {
@@ -425,6 +457,18 @@ type CreateHotspotWlan struct {
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
+func NewCreateHotspotWlan() *CreateHotspotWlan {
+	createHotspotWlanType := new(CreateHotspotWlan)
+	return createHotspotWlanType
+}
+
+func NewDefaultCreateHotspotWlan() *CreateHotspotWlan {
+	createHotspotWlanType := new(CreateHotspotWlan)
+	bypassCNAField := false
+	createHotspotWlanType.BypassCNA = &bypassCNAField
+	return createHotspotWlanType
+}
+
 type CreateStandard80211Wlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -525,6 +569,16 @@ type CreateStandard80211Wlan struct {
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
+func NewCreateStandard80211Wlan() *CreateStandard80211Wlan {
+	createStandard80211WlanType := new(CreateStandard80211Wlan)
+	return createStandard80211WlanType
+}
+
+func NewDefaultCreateStandard80211Wlan() *CreateStandard80211Wlan {
+	createStandard80211WlanType := new(CreateStandard80211Wlan)
+	return createStandard80211WlanType
+}
+
 type CreateStandardOpenWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -623,6 +677,18 @@ type CreateStandardOpenWlan struct {
 	Ssid *WlanNameSSID `json:"ssid" validate:"required"`
 
 	Vlan *WlanVlan `json:"vlan,omitempty"`
+}
+
+func NewCreateStandardOpenWlan() *CreateStandardOpenWlan {
+	createStandardOpenWlanType := new(CreateStandardOpenWlan)
+	return createStandardOpenWlanType
+}
+
+func NewDefaultCreateStandardOpenWlan() *CreateStandardOpenWlan {
+	createStandardOpenWlanType := new(CreateStandardOpenWlan)
+	accessTunnelTypeField := `APLBO`
+	createStandardOpenWlanType.AccessTunnelType = &accessTunnelTypeField
+	return createStandardOpenWlanType
 }
 
 type CreateWebAuthWlan struct {
@@ -734,6 +800,18 @@ type CreateWebAuthWlan struct {
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
+func NewCreateWebAuthWlan() *CreateWebAuthWlan {
+	createWebAuthWlanType := new(CreateWebAuthWlan)
+	return createWebAuthWlanType
+}
+
+func NewDefaultCreateWebAuthWlan() *CreateWebAuthWlan {
+	createWebAuthWlanType := new(CreateWebAuthWlan)
+	bypassCNAField := false
+	createWebAuthWlanType.BypassCNA = &bypassCNAField
+	return createWebAuthWlanType
+}
+
 type CreateWechatWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -836,6 +914,16 @@ type CreateWechatWlan struct {
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
+func NewCreateWechatWlan() *CreateWechatWlan {
+	createWechatWlanType := new(CreateWechatWlan)
+	return createWechatWlanType
+}
+
+func NewDefaultCreateWechatWlan() *CreateWechatWlan {
+	createWechatWlanType := new(CreateWechatWlan)
+	return createWechatWlanType
+}
+
 type ModifyWlan struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -933,6 +1021,16 @@ type ModifyWlan struct {
 	Vlan *WlanVlan `json:"vlan,omitempty"`
 }
 
+func NewModifyWlan() *ModifyWlan {
+	modifyWlanType := new(ModifyWlan)
+	return modifyWlanType
+}
+
+func NewDefaultModifyWlan() *ModifyWlan {
+	modifyWlanType := new(ModifyWlan)
+	return modifyWlanType
+}
+
 type WlanAccounting struct {
 	// AccountingDelayEnabled
 	// Indicates whether accounting delay time is enabled
@@ -967,6 +1065,16 @@ type WlanAccounting struct {
 	// ThroughController
 	// Indicates whether accounting messages were sent through the controller
 	ThroughController *bool `json:"throughController,omitempty"`
+}
+
+func NewWlanAccounting() *WlanAccounting {
+	wlanAccountingType := new(WlanAccounting)
+	return wlanAccountingType
+}
+
+func NewDefaultWlanAccounting() *WlanAccounting {
+	wlanAccountingType := new(WlanAccounting)
+	return wlanAccountingType
 }
 
 type WlanAdvanced struct {
@@ -1345,6 +1453,110 @@ type WlanAdvanced struct {
 	WifiCallingPolicyIds []string `json:"wifiCallingPolicyIds,omitempty"`
 }
 
+func NewWlanAdvanced() *WlanAdvanced {
+	wlanAdvancedType := new(WlanAdvanced)
+	return wlanAdvancedType
+}
+
+func NewDefaultWlanAdvanced() *WlanAdvanced {
+	wlanAdvancedType := new(WlanAdvanced)
+	antiSpoofingEnabledField := false
+	wlanAdvancedType.AntiSpoofingEnabled = &antiSpoofingEnabledField
+	avcEnabledField := false
+	wlanAdvancedType.AvcEnabled = &avcEnabledField
+	bandBalancingField := `UseZoneSetting`
+	wlanAdvancedType.BandBalancing = &bandBalancingField
+	clientFingerprintingEnabledField := false
+	wlanAdvancedType.ClientFingerprintingEnabled = &clientFingerprintingEnabledField
+	clientIdleTimeoutSecField := 120
+	wlanAdvancedType.ClientIdleTimeoutSec = &clientIdleTimeoutSecField
+	clientIsolationAutoVrrpEnabledField := false
+	wlanAdvancedType.ClientIsolationAutoVrrpEnabled = &clientIsolationAutoVrrpEnabledField
+	clientIsolationEnabledField := false
+	wlanAdvancedType.ClientIsolationEnabled = &clientIsolationEnabledField
+	clientIsolationUnicastEnabledField := false
+	wlanAdvancedType.ClientIsolationUnicastEnabled = &clientIsolationUnicastEnabledField
+	clientLoadBalancingEnabledField := false
+	wlanAdvancedType.ClientLoadBalancingEnabled = &clientLoadBalancingEnabledField
+	dhcpOption82EnabledField := false
+	wlanAdvancedType.DhcpOption82Enabled = &dhcpOption82EnabledField
+	directedThresholdField := 5
+	wlanAdvancedType.DirectedThreshold = &directedThresholdField
+	downlinkEnabledField := false
+	wlanAdvancedType.DownlinkEnabled = &downlinkEnabledField
+	downlinkRateField := 0.000000
+	wlanAdvancedType.DownlinkRate = &downlinkRateField
+	dropRandomProbesEnabledField := false
+	wlanAdvancedType.DropRandomProbesEnabled = &dropRandomProbesEnabledField
+	dtimIntervalField := 1
+	wlanAdvancedType.DtimInterval = &dtimIntervalField
+	enableRadiusBasedDhcpNatField := false
+	wlanAdvancedType.EnableRadiusBasedDhcpNat = &enableRadiusBasedDhcpNatField
+	flowLogEnabledField := false
+	wlanAdvancedType.FlowLogEnabled = &flowLogEnabledField
+	forceClientDHCPTimeoutSecField := 0
+	wlanAdvancedType.ForceClientDHCPTimeoutSec = &forceClientDHCPTimeoutSecField
+	hdOverheadOptimizeEnableField := false
+	wlanAdvancedType.HdOverheadOptimizeEnable = &hdOverheadOptimizeEnableField
+	hideSsidEnabledField := false
+	wlanAdvancedType.HideSsidEnabled = &hideSsidEnabledField
+	hs20OnboardingField := false
+	wlanAdvancedType.Hs20Onboarding = &hs20OnboardingField
+	joinAcceptTimeoutField := 300
+	wlanAdvancedType.JoinAcceptTimeout = &joinAcceptTimeoutField
+	joinIgnoreThrField := 10
+	wlanAdvancedType.JoinIgnoreThr = &joinIgnoreThrField
+	joinIgnoreTimeoutField := 30
+	wlanAdvancedType.JoinIgnoreTimeout = &joinIgnoreTimeoutField
+	maxAllowedRAField := 10
+	wlanAdvancedType.MaxAllowedRA = &maxAllowedRAField
+	maxClientsPerRadioField := 100
+	wlanAdvancedType.MaxClientsPerRadio = &maxClientsPerRadioField
+	ndProxyEnabledField := false
+	wlanAdvancedType.NdProxyEnabled = &ndProxyEnabledField
+	oceBroadcastProbeResponseDelayField := 15
+	wlanAdvancedType.OceBroadcastProbeResponseDelay = &oceBroadcastProbeResponseDelayField
+	oceEnabledField := false
+	wlanAdvancedType.OceEnabled = &oceEnabledField
+	oceRssiBasedAssociationRejectionThresholdField := -75
+	wlanAdvancedType.OceRssiBasedAssociationRejectionThreshold = &oceRssiBasedAssociationRejectionThresholdField
+	ofdmOnlyEnabledField := false
+	wlanAdvancedType.OfdmOnlyEnabled = &ofdmOnlyEnabledField
+	priorityField := `High`
+	wlanAdvancedType.Priority = &priorityField
+	probeRssiThrField := -85
+	wlanAdvancedType.ProbeRssiThr = &probeRssiThrField
+	proxyARPEnabledField := false
+	wlanAdvancedType.ProxyARPEnabled = &proxyARPEnabledField
+	raIntervalField := 10
+	wlanAdvancedType.RaInterval = &raIntervalField
+	raProxyEnabledField := false
+	wlanAdvancedType.RaProxyEnabled = &raProxyEnabledField
+	raThrottlingEnabledField := false
+	wlanAdvancedType.RaThrottlingEnabled = &raThrottlingEnabledField
+	rsraGuardEnabledField := false
+	wlanAdvancedType.RsraGuardEnabled = &rsraGuardEnabledField
+	support80211dEnabledField := false
+	wlanAdvancedType.Support80211dEnabled = &support80211dEnabledField
+	support80211kEnabledField := false
+	wlanAdvancedType.Support80211kEnabled = &support80211kEnabledField
+	suppressNsEnabledField := false
+	wlanAdvancedType.SuppressNsEnabled = &suppressNsEnabledField
+	transientClientMgmtEnableField := false
+	wlanAdvancedType.TransientClientMgmtEnable = &transientClientMgmtEnableField
+	unauthClientStatsEnabledField := false
+	wlanAdvancedType.UnauthClientStatsEnabled = &unauthClientStatsEnabledField
+	uplinkEnabledField := false
+	wlanAdvancedType.UplinkEnabled = &uplinkEnabledField
+	uplinkRateField := 0.000000
+	wlanAdvancedType.UplinkRate = &uplinkRateField
+	urlFilteringPolicyEnabledField := false
+	wlanAdvancedType.UrlFilteringPolicyEnabled = &urlFilteringPolicyEnabledField
+	wifiCallingPolicyEnabledField := false
+	wlanAdvancedType.WifiCallingPolicyEnabled = &wifiCallingPolicyEnabledField
+	return wlanAdvancedType
+}
+
 type WlanAuthentication struct {
 	// AuthenticationOption
 	// Option of the authentication service or profile, At least one ID or name or authenticationOption is required in the request. This only applies to hotspot and guest WLANs.
@@ -1387,7 +1599,28 @@ type WlanAuthentication struct {
 	ThroughController *bool `json:"throughController,omitempty"`
 }
 
+func NewWlanAuthentication() *WlanAuthentication {
+	wlanAuthenticationType := new(WlanAuthentication)
+	return wlanAuthenticationType
+}
+
+func NewDefaultWlanAuthentication() *WlanAuthentication {
+	wlanAuthenticationType := new(WlanAuthentication)
+	return wlanAuthenticationType
+}
+
 type WlanBssMinRateMbps string
+
+func NewWlanBssMinRateMbps() *WlanBssMinRateMbps {
+	wlanBssMinRateMbpsType := new(WlanBssMinRateMbps)
+	return wlanBssMinRateMbpsType
+}
+
+func NewDefaultWlanBssMinRateMbps() *WlanBssMinRateMbps {
+	wlanBssMinRateMbpsType := new(WlanBssMinRateMbps)
+	*wlanBssMinRateMbpsType = `Disable`
+	return wlanBssMinRateMbpsType
+}
 
 type WlanConfiguration struct {
 	AccessIpsecProfile *common.GenericRef `json:"accessIpsecProfile,omitempty"`
@@ -1505,6 +1738,16 @@ type WlanConfiguration struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWlanConfiguration() *WlanConfiguration {
+	wlanConfigurationType := new(WlanConfiguration)
+	return wlanConfigurationType
+}
+
+func NewDefaultWlanConfiguration() *WlanConfiguration {
+	wlanConfigurationType := new(WlanConfiguration)
+	return wlanConfigurationType
+}
+
 type WlanCoreTunnel struct {
 	// Id
 	// Identifier of the forwarding profile. At least one ID or name is required in the request.
@@ -1520,6 +1763,16 @@ type WlanCoreTunnel struct {
 	//    - required
 	//    - oneof:[L2oGRE,Bridge,TTG_PDG]
 	Type *string `json:"type" validate:"required,oneof=L2oGRE Bridge TTG_PDG"`
+}
+
+func NewWlanCoreTunnel() *WlanCoreTunnel {
+	wlanCoreTunnelType := new(WlanCoreTunnel)
+	return wlanCoreTunnelType
+}
+
+func NewDefaultWlanCoreTunnel() *WlanCoreTunnel {
+	wlanCoreTunnelType := new(WlanCoreTunnel)
+	return wlanCoreTunnelType
 }
 
 type WlanDSCPSetting struct {
@@ -1552,6 +1805,16 @@ type WlanDSCPSetting struct {
 	// Constraints:
 	//    - required
 	Priority *int `json:"priority" validate:"required"`
+}
+
+func NewWlanDSCPSetting() *WlanDSCPSetting {
+	wlanDSCPSettingType := new(WlanDSCPSetting)
+	return wlanDSCPSettingType
+}
+
+func NewDefaultWlanDSCPSetting() *WlanDSCPSetting {
+	wlanDSCPSettingType := new(WlanDSCPSetting)
+	return wlanDSCPSettingType
 }
 
 type WlanEncryption struct {
@@ -1602,7 +1865,29 @@ type WlanEncryption struct {
 	Support80211rEnabled *bool `json:"support80211rEnabled,omitempty"`
 }
 
+func NewWlanEncryption() *WlanEncryption {
+	wlanEncryptionType := new(WlanEncryption)
+	return wlanEncryptionType
+}
+
+func NewDefaultWlanEncryption() *WlanEncryption {
+	wlanEncryptionType := new(WlanEncryption)
+	methodField := `None`
+	wlanEncryptionType.Method = &methodField
+	return wlanEncryptionType
+}
+
 type WlanHESSID string
+
+func NewWlanHESSID() *WlanHESSID {
+	wlanHESSIDType := new(WlanHESSID)
+	return wlanHESSIDType
+}
+
+func NewDefaultWlanHESSID() *WlanHESSID {
+	wlanHESSIDType := new(WlanHESSID)
+	return wlanHESSIDType
+}
 
 type WlanList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -1612,6 +1897,16 @@ type WlanList struct {
 	List []*WlanSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWlanList() *WlanList {
+	wlanListType := new(WlanList)
+	return wlanListType
+}
+
+func NewDefaultWlanList() *WlanList {
+	wlanListType := new(WlanList)
+	return wlanListType
 }
 
 type WlanMACAuth struct {
@@ -1630,9 +1925,40 @@ type WlanMACAuth struct {
 	MacAuthMacFormat *string `json:"macAuthMacFormat,omitempty" validate:"omitempty,oneof=Default 802.1X UpperColon Upper LowerDash LowerColon"`
 }
 
+func NewWlanMACAuth() *WlanMACAuth {
+	wlanMACAuthType := new(WlanMACAuth)
+	return wlanMACAuthType
+}
+
+func NewDefaultWlanMACAuth() *WlanMACAuth {
+	wlanMACAuthType := new(WlanMACAuth)
+	return wlanMACAuthType
+}
+
 type WlanMgmtTxRateMbps string
 
+func NewWlanMgmtTxRateMbps() *WlanMgmtTxRateMbps {
+	wlanMgmtTxRateMbpsType := new(WlanMgmtTxRateMbps)
+	return wlanMgmtTxRateMbpsType
+}
+
+func NewDefaultWlanMgmtTxRateMbps() *WlanMgmtTxRateMbps {
+	wlanMgmtTxRateMbpsType := new(WlanMgmtTxRateMbps)
+	*wlanMgmtTxRateMbpsType = `2 mbps`
+	return wlanMgmtTxRateMbpsType
+}
+
 type WlanNameSSID string
+
+func NewWlanNameSSID() *WlanNameSSID {
+	wlanNameSSIDType := new(WlanNameSSID)
+	return wlanNameSSIDType
+}
+
+func NewDefaultWlanNameSSID() *WlanNameSSID {
+	wlanNameSSIDType := new(WlanNameSSID)
+	return wlanNameSSIDType
+}
 
 type WlanRadius struct {
 	// CalledStaIdType
@@ -1709,6 +2035,30 @@ type WlanRadius struct {
 	VendorSpecificAttributeProfileId *string `json:"vendorSpecificAttributeProfileId,omitempty"`
 }
 
+func NewWlanRadius() *WlanRadius {
+	wlanRadiusType := new(WlanRadius)
+	return wlanRadiusType
+}
+
+func NewDefaultWlanRadius() *WlanRadius {
+	wlanRadiusType := new(WlanRadius)
+	calledStaIdTypeField := `WLAN_BSSID`
+	wlanRadiusType.CalledStaIdType = &calledStaIdTypeField
+	nasIdTypeField := `WLAN_BSSID`
+	wlanRadiusType.NasIdType = &nasIdTypeField
+	nasIpTypeField := `disabled`
+	wlanRadiusType.NasIpType = &nasIpTypeField
+	nasMaxRetryField := 2
+	wlanRadiusType.NasMaxRetry = &nasMaxRetryField
+	nasReconnectPrimaryMinField := 5
+	wlanRadiusType.NasReconnectPrimaryMin = &nasReconnectPrimaryMinField
+	nasRequestTimeoutSecField := 3
+	wlanRadiusType.NasRequestTimeoutSec = &nasRequestTimeoutSecField
+	singleSessionIdAcctEnabledField := false
+	wlanRadiusType.SingleSessionIdAcctEnabled = &singleSessionIdAcctEnabledField
+	return wlanRadiusType
+}
+
 type WlanSchedule struct {
 	// Id
 	// Identifier of the schedule profile. At least one ID or name is required in the request.
@@ -1725,6 +2075,18 @@ type WlanSchedule struct {
 	//    - default:'AlwaysOn'
 	//    - oneof:[AlwaysOn,AlwaysOff,Customized]
 	Type *string `json:"type" validate:"required,oneof=AlwaysOn AlwaysOff Customized"`
+}
+
+func NewWlanSchedule() *WlanSchedule {
+	wlanScheduleType := new(WlanSchedule)
+	return wlanScheduleType
+}
+
+func NewDefaultWlanSchedule() *WlanSchedule {
+	wlanScheduleType := new(WlanSchedule)
+	typeField := `AlwaysOn`
+	wlanScheduleType.Type = &typeField
+	return wlanScheduleType
 }
 
 type WlanSummary struct {
@@ -1747,6 +2109,16 @@ type WlanSummary struct {
 	// ZoneId
 	// Zone ID
 	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewWlanSummary() *WlanSummary {
+	wlanSummaryType := new(WlanSummary)
+	return wlanSummaryType
+}
+
+func NewDefaultWlanSummary() *WlanSummary {
+	wlanSummaryType := new(WlanSummary)
+	return wlanSummaryType
 }
 
 type WlanVlan struct {
@@ -1776,4 +2148,16 @@ type WlanVlan struct {
 	CoreSVlan *int `json:"coreSVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
+}
+
+func NewWlanVlan() *WlanVlan {
+	wlanVlanType := new(WlanVlan)
+	return wlanVlanType
+}
+
+func NewDefaultWlanVlan() *WlanVlan {
+	wlanVlanType := new(WlanVlan)
+	accessVlanField := 1
+	wlanVlanType.AccessVlan = &accessVlanField
+	return wlanVlanType
 }

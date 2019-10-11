@@ -14,6 +14,16 @@ type CreateDnsConfig struct {
 	Id *string `json:"id,omitempty"`
 }
 
+func NewCreateDnsConfig() *CreateDnsConfig {
+	createDnsConfigType := new(CreateDnsConfig)
+	return createDnsConfigType
+}
+
+func NewDefaultCreateDnsConfig() *CreateDnsConfig {
+	createDnsConfigType := new(CreateDnsConfig)
+	return createDnsConfigType
+}
+
 type DnsConfig struct {
 	// CreatedTime
 	// The create time of the DNS Config
@@ -26,10 +36,30 @@ type DnsConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewDnsConfig() *DnsConfig {
+	dnsConfigType := new(DnsConfig)
+	return dnsConfigType
+}
+
+func NewDefaultDnsConfig() *DnsConfig {
+	dnsConfigType := new(DnsConfig)
+	return dnsConfigType
+}
+
 type DnsConfigObject struct {
 	// Ip
 	// DNS Config IP
 	Ip *string `json:"ip,omitempty"`
+}
+
+func NewDnsConfigObject() *DnsConfigObject {
+	dnsConfigObjectType := new(DnsConfigObject)
+	return dnsConfigObjectType
+}
+
+func NewDefaultDnsConfigObject() *DnsConfigObject {
+	dnsConfigObjectType := new(DnsConfigObject)
+	return dnsConfigObjectType
 }
 
 type EmptyResult struct {
@@ -52,6 +82,26 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
 type UpdateDnsConfig struct {
 	Dns *DnsConfigObject `json:"dns,omitempty"`
+}
+
+func NewUpdateDnsConfig() *UpdateDnsConfig {
+	updateDnsConfigType := new(UpdateDnsConfig)
+	return updateDnsConfigType
+}
+
+func NewDefaultUpdateDnsConfig() *UpdateDnsConfig {
+	updateDnsConfigType := new(UpdateDnsConfig)
+	return updateDnsConfigType
 }

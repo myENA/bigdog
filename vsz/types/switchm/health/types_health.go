@@ -30,6 +30,16 @@ type AggMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewAggMetrics() *AggMetrics {
+	aggMetricsType := new(AggMetrics)
+	return aggMetricsType
+}
+
+func NewDefaultAggMetrics() *AggMetrics {
+	aggMetricsType := new(AggMetrics)
+	return aggMetricsType
+}
+
 // AggMetricsExtraType
 //
 // Extra information for Aggregation Metrics
@@ -53,6 +63,16 @@ func (t *AggMetricsExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewAggMetricsExtraType() *AggMetricsExtraType {
+	aggMetricsExtraTypeType := new(AggMetricsExtraType)
+	return aggMetricsExtraTypeType
+}
+
+func NewDefaultAggMetricsExtraType() *AggMetricsExtraType {
+	aggMetricsExtraTypeType := new(AggMetricsExtraType)
+	return aggMetricsExtraTypeType
+}
+
 type Aggs struct {
 	// Id
 	// Identifier of the aggregation value
@@ -65,6 +85,16 @@ type Aggs struct {
 	// Value
 	// Metrics of the aggregation value
 	Value *float64 `json:"value,omitempty"`
+}
+
+func NewAggs() *Aggs {
+	aggsType := new(Aggs)
+	return aggsType
+}
+
+func NewDefaultAggs() *Aggs {
+	aggsType := new(Aggs)
+	return aggsType
 }
 
 type IcxMetrics struct {
@@ -91,6 +121,16 @@ type IcxMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewIcxMetrics() *IcxMetrics {
+	icxMetricsType := new(IcxMetrics)
+	return icxMetricsType
+}
+
+func NewDefaultIcxMetrics() *IcxMetrics {
+	icxMetricsType := new(IcxMetrics)
+	return icxMetricsType
+}
+
 // IcxMetricsExtraType
 //
 // Extra information for ICX Metrics
@@ -114,6 +154,16 @@ func (t *IcxMetricsExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewIcxMetricsExtraType() *IcxMetricsExtraType {
+	icxMetricsExtraTypeType := new(IcxMetricsExtraType)
+	return icxMetricsExtraTypeType
+}
+
+func NewDefaultIcxMetricsExtraType() *IcxMetricsExtraType {
+	icxMetricsExtraTypeType := new(IcxMetricsExtraType)
+	return icxMetricsExtraTypeType
+}
+
 type Metrics struct {
 	// Avg
 	// Average metrics
@@ -130,6 +180,16 @@ type Metrics struct {
 	// Timestamp
 	// Timestamp
 	Timestamp *string `json:"timestamp,omitempty"`
+}
+
+func NewMetrics() *Metrics {
+	metricsType := new(Metrics)
+	return metricsType
+}
+
+func NewDefaultMetrics() *Metrics {
+	metricsType := new(Metrics)
+	return metricsType
 }
 
 type Status struct {
@@ -158,6 +218,16 @@ type Status struct {
 	Temperature []*StatusTemperatureType `json:"temperature,omitempty"`
 }
 
+func NewStatus() *Status {
+	statusType := new(Status)
+	return statusType
+}
+
+func NewDefaultStatus() *Status {
+	statusType := new(Status)
+	return statusType
+}
+
 type StatusFanType struct {
 	// SlotNumber
 	// Fan slot number
@@ -170,6 +240,16 @@ type StatusFanType struct {
 	// Type
 	// Fan type
 	Type *string `json:"type,omitempty"`
+}
+
+func NewStatusFanType() *StatusFanType {
+	statusFanTypeType := new(StatusFanType)
+	return statusFanTypeType
+}
+
+func NewDefaultStatusFanType() *StatusFanType {
+	statusFanTypeType := new(StatusFanType)
+	return statusFanTypeType
 }
 
 type StatusPowerSupplyType struct {
@@ -186,6 +266,16 @@ type StatusPowerSupplyType struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewStatusPowerSupplyType() *StatusPowerSupplyType {
+	statusPowerSupplyTypeType := new(StatusPowerSupplyType)
+	return statusPowerSupplyTypeType
+}
+
+func NewDefaultStatusPowerSupplyType() *StatusPowerSupplyType {
+	statusPowerSupplyTypeType := new(StatusPowerSupplyType)
+	return statusPowerSupplyTypeType
+}
+
 type StatusTemperatureType struct {
 	// SlotNumber
 	// Solt number
@@ -194,4 +284,14 @@ type StatusTemperatureType struct {
 	// TemperatureValue
 	// Slot temperature
 	TemperatureValue *float64 `json:"temperatureValue,omitempty"`
+}
+
+func NewStatusTemperatureType() *StatusTemperatureType {
+	statusTemperatureTypeType := new(StatusTemperatureType)
+	return statusTemperatureTypeType
+}
+
+func NewDefaultStatusTemperatureType() *StatusTemperatureType {
+	statusTemperatureTypeType := new(StatusTemperatureType)
+	return statusTemperatureTypeType
 }

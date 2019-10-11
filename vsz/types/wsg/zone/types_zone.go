@@ -20,6 +20,16 @@ type ApFirmware struct {
 	UnsupportedApModelSummary []*UnsupportedApModel `json:"unsupportedApModelSummary,omitempty"`
 }
 
+func NewApFirmware() *ApFirmware {
+	apFirmwareType := new(ApFirmware)
+	return apFirmwareType
+}
+
+func NewDefaultApFirmware() *ApFirmware {
+	apFirmwareType := new(ApFirmware)
+	return apFirmwareType
+}
+
 type ApFirmwareList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -28,6 +38,16 @@ type ApFirmwareList struct {
 	List []*ApFirmware `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewApFirmwareList() *ApFirmwareList {
+	apFirmwareListType := new(ApFirmwareList)
+	return apFirmwareListType
+}
+
+func NewDefaultApFirmwareList() *ApFirmwareList {
+	apFirmwareListType := new(ApFirmwareList)
+	return apFirmwareListType
 }
 
 type ApLogin struct {
@@ -42,6 +62,16 @@ type ApLogin struct {
 	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword" validate:"required"`
 }
 
+func NewApLogin() *ApLogin {
+	apLoginType := new(ApLogin)
+	return apLoginType
+}
+
+func NewDefaultApLogin() *ApLogin {
+	apLoginType := new(ApLogin)
+	return apLoginType
+}
+
 type ApSnmpOptions struct {
 	// ApSnmpEnabled
 	// Enable AP SNMP
@@ -54,6 +84,16 @@ type ApSnmpOptions struct {
 	// SnmpV3Agent
 	// User List of the SNMP V3 Agent.
 	SnmpV3Agent []*SnmpUser `json:"snmpV3Agent,omitempty"`
+}
+
+func NewApSnmpOptions() *ApSnmpOptions {
+	apSnmpOptionsType := new(ApSnmpOptions)
+	return apSnmpOptionsType
+}
+
+func NewDefaultApSnmpOptions() *ApSnmpOptions {
+	apSnmpOptionsType := new(ApSnmpOptions)
+	return apSnmpOptionsType
 }
 
 type AvailableTunnelProfile struct {
@@ -79,6 +119,16 @@ type AvailableTunnelProfile struct {
 	TunnelType *string `json:"tunnelType,omitempty" validate:"omitempty,oneof=RuckusGRE SoftGRE Ipsec"`
 }
 
+func NewAvailableTunnelProfile() *AvailableTunnelProfile {
+	availableTunnelProfileType := new(AvailableTunnelProfile)
+	return availableTunnelProfileType
+}
+
+func NewDefaultAvailableTunnelProfile() *AvailableTunnelProfile {
+	availableTunnelProfileType := new(AvailableTunnelProfile)
+	return availableTunnelProfileType
+}
+
 type AvailableTunnelProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -87,6 +137,16 @@ type AvailableTunnelProfileList struct {
 	List []*AvailableTunnelProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewAvailableTunnelProfileList() *AvailableTunnelProfileList {
+	availableTunnelProfileListType := new(AvailableTunnelProfileList)
+	return availableTunnelProfileListType
+}
+
+func NewDefaultAvailableTunnelProfileList() *AvailableTunnelProfileList {
+	availableTunnelProfileListType := new(AvailableTunnelProfileList)
+	return availableTunnelProfileListType
 }
 
 type BackgroundScanning struct {
@@ -98,6 +158,18 @@ type BackgroundScanning struct {
 	//    - min:1
 	//    - max:65535
 	FrequencyInSec *int `json:"frequencyInSec,omitempty" validate:"omitempty,gte=1,lte=65535"`
+}
+
+func NewBackgroundScanning() *BackgroundScanning {
+	backgroundScanningType := new(BackgroundScanning)
+	return backgroundScanningType
+}
+
+func NewDefaultBackgroundScanning() *BackgroundScanning {
+	backgroundScanningType := new(BackgroundScanning)
+	frequencyInSecField := 20
+	backgroundScanningType.FrequencyInSec = &frequencyInSecField
+	return backgroundScanningType
 }
 
 type BandBalancing struct {
@@ -119,6 +191,20 @@ type BandBalancing struct {
 	Wifi24Percentage *int `json:"wifi24Percentage,omitempty" validate:"omitempty,gte=0,lte=100"`
 }
 
+func NewBandBalancing() *BandBalancing {
+	bandBalancingType := new(BandBalancing)
+	return bandBalancingType
+}
+
+func NewDefaultBandBalancing() *BandBalancing {
+	bandBalancingType := new(BandBalancing)
+	modeField := `BASIC`
+	bandBalancingType.Mode = &modeField
+	wifi24PercentageField := 25
+	bandBalancingType.Wifi24Percentage = &wifi24PercentageField
+	return bandBalancingType
+}
+
 type BonjourGatewayPolicyConfiguration struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
@@ -129,6 +215,16 @@ type BonjourGatewayPolicyConfiguration struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
+func NewBonjourGatewayPolicyConfiguration() *BonjourGatewayPolicyConfiguration {
+	bonjourGatewayPolicyConfigurationType := new(BonjourGatewayPolicyConfiguration)
+	return bonjourGatewayPolicyConfigurationType
+}
+
+func NewDefaultBonjourGatewayPolicyConfiguration() *BonjourGatewayPolicyConfiguration {
+	bonjourGatewayPolicyConfigurationType := new(BonjourGatewayPolicyConfiguration)
+	return bonjourGatewayPolicyConfigurationType
+}
+
 type BonjourGatewayPolicyList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -137,6 +233,16 @@ type BonjourGatewayPolicyList struct {
 	List []*BonjourGatewayPolicySummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewBonjourGatewayPolicyList() *BonjourGatewayPolicyList {
+	bonjourGatewayPolicyListType := new(BonjourGatewayPolicyList)
+	return bonjourGatewayPolicyListType
+}
+
+func NewDefaultBonjourGatewayPolicyList() *BonjourGatewayPolicyList {
+	bonjourGatewayPolicyListType := new(BonjourGatewayPolicyList)
+	return bonjourGatewayPolicyListType
 }
 
 type BonjourGatewayPolicySummary struct {
@@ -159,6 +265,16 @@ type BonjourGatewayPolicySummary struct {
 	// Name
 	// Name of the bonjour gateway policy
 	Name *string `json:"name,omitempty"`
+}
+
+func NewBonjourGatewayPolicySummary() *BonjourGatewayPolicySummary {
+	bonjourGatewayPolicySummaryType := new(BonjourGatewayPolicySummary)
+	return bonjourGatewayPolicySummaryType
+}
+
+func NewDefaultBonjourGatewayPolicySummary() *BonjourGatewayPolicySummary {
+	bonjourGatewayPolicySummaryType := new(BonjourGatewayPolicySummary)
+	return bonjourGatewayPolicySummaryType
 }
 
 // BonjourPolicyRule
@@ -197,6 +313,16 @@ type BonjourPolicyRule struct {
 	ToVlan *int `json:"toVlan" validate:"required,gte=1,lte=4094"`
 }
 
+func NewBonjourPolicyRule() *BonjourPolicyRule {
+	bonjourPolicyRuleType := new(BonjourPolicyRule)
+	return bonjourPolicyRuleType
+}
+
+func NewDefaultBonjourPolicyRule() *BonjourPolicyRule {
+	bonjourPolicyRuleType := new(BonjourPolicyRule)
+	return bonjourPolicyRuleType
+}
+
 // BonjourPolicyRuleConfiguration
 //
 // Bonjour policy rule
@@ -226,6 +352,16 @@ type BonjourPolicyRuleConfiguration struct {
 	ToVlan *int `json:"toVlan,omitempty"`
 }
 
+func NewBonjourPolicyRuleConfiguration() *BonjourPolicyRuleConfiguration {
+	bonjourPolicyRuleConfigurationType := new(BonjourPolicyRuleConfiguration)
+	return bonjourPolicyRuleConfigurationType
+}
+
+func NewDefaultBonjourPolicyRuleConfiguration() *BonjourPolicyRuleConfiguration {
+	bonjourPolicyRuleConfigurationType := new(BonjourPolicyRuleConfiguration)
+	return bonjourPolicyRuleConfigurationType
+}
+
 type ClientLoadBalancing struct {
 	// AdjacentRadioThreshold
 	// Adjacent radio threshold
@@ -234,6 +370,16 @@ type ClientLoadBalancing struct {
 	//    - min:1
 	//    - max:100
 	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty" validate:"omitempty,gte=1,lte=100"`
+}
+
+func NewClientLoadBalancing() *ClientLoadBalancing {
+	clientLoadBalancingType := new(ClientLoadBalancing)
+	return clientLoadBalancingType
+}
+
+func NewDefaultClientLoadBalancing() *ClientLoadBalancing {
+	clientLoadBalancingType := new(ClientLoadBalancing)
+	return clientLoadBalancingType
 }
 
 type CreateBonjourGatewayPolicy struct {
@@ -247,6 +393,16 @@ type CreateBonjourGatewayPolicy struct {
 	// Constraints:
 	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
+}
+
+func NewCreateBonjourGatewayPolicy() *CreateBonjourGatewayPolicy {
+	createBonjourGatewayPolicyType := new(CreateBonjourGatewayPolicy)
+	return createBonjourGatewayPolicyType
+}
+
+func NewDefaultCreateBonjourGatewayPolicy() *CreateBonjourGatewayPolicy {
+	createBonjourGatewayPolicyType := new(CreateBonjourGatewayPolicy)
+	return createBonjourGatewayPolicyType
 }
 
 type CreateDiffServProfile struct {
@@ -264,6 +420,16 @@ type CreateDiffServProfile struct {
 	PreservedList []string `json:"preservedList,omitempty"`
 
 	UplinkDiffServ *UplinkDiffServ `json:"uplinkDiffServ,omitempty"`
+}
+
+func NewCreateDiffServProfile() *CreateDiffServProfile {
+	createDiffServProfileType := new(CreateDiffServProfile)
+	return createDiffServProfileType
+}
+
+func NewDefaultCreateDiffServProfile() *CreateDiffServProfile {
+	createDiffServProfileType := new(CreateDiffServProfile)
+	return createDiffServProfileType
 }
 
 type CreateZone struct {
@@ -505,6 +671,54 @@ type CreateZone struct {
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
+func NewCreateZone() *CreateZone {
+	createZoneType := new(CreateZone)
+	return createZoneType
+}
+
+func NewDefaultCreateZone() *CreateZone {
+	createZoneType := new(CreateZone)
+	apHccdEnabledField := false
+	createZoneType.ApHccdEnabled = &apHccdEnabledField
+	apHccdPersistField := false
+	createZoneType.ApHccdPersist = &apHccdPersistField
+	cbandChannelEnabledField := false
+	createZoneType.CbandChannelEnabled = &cbandChannelEnabledField
+	cbandChannelLicenseEnabledField := false
+	createZoneType.CbandChannelLicenseEnabled = &cbandChannelLicenseEnabledField
+	channel144EnabledField := false
+	createZoneType.Channel144Enabled = &channel144EnabledField
+	channelEvaluationIntervalField := 600
+	createZoneType.ChannelEvaluationInterval = &channelEvaluationIntervalField
+	channelModeEnabledField := false
+	createZoneType.ChannelModeEnabled = &channelModeEnabledField
+	clusterRedundancyEnabledField := false
+	createZoneType.ClusterRedundancyEnabled = &clusterRedundancyEnabledField
+	dfsChannelEnabledField := false
+	createZoneType.DfsChannelEnabled = &dfsChannelEnabledField
+	directedMulticastFromNetworkEnabledField := false
+	createZoneType.DirectedMulticastFromNetworkEnabled = &directedMulticastFromNetworkEnabledField
+	directedMulticastFromWiredClientEnabledField := false
+	createZoneType.DirectedMulticastFromWiredClientEnabled = &directedMulticastFromWiredClientEnabledField
+	directedMulticastFromWirelessClientEnabledField := false
+	createZoneType.DirectedMulticastFromWirelessClientEnabled = &directedMulticastFromWirelessClientEnabledField
+	dosBarringCheckPeriodField := 30
+	createZoneType.DosBarringCheckPeriod = &dosBarringCheckPeriodField
+	dosBarringPeriodField := 60
+	createZoneType.DosBarringPeriod = &dosBarringPeriodField
+	dosBarringThresholdField := 5
+	createZoneType.DosBarringThreshold = &dosBarringThresholdField
+	healthCheckSitesEnabledField := false
+	createZoneType.HealthCheckSitesEnabled = &healthCheckSitesEnabledField
+	loadBalancingMethodField := `BASED_ON_CLIENT_COUNT`
+	createZoneType.LoadBalancingMethod = &loadBalancingMethodField
+	rogueApJammingDetectionField := false
+	createZoneType.RogueApJammingDetection = &rogueApJammingDetectionField
+	sshTunnelEncryptionField := `AES128`
+	createZoneType.SshTunnelEncryption = &sshTunnelEncryptionField
+	return createZoneType
+}
+
 type CustomizedTimeZone struct {
 	// Abbreviation
 	// Time zone abbreviation
@@ -531,6 +745,16 @@ type CustomizedTimeZone struct {
 	GmtOffsetMinute *int `json:"gmtOffsetMinute" validate:"required,gte=0,lte=59"`
 
 	Start *DaylightSavingTime `json:"start,omitempty"`
+}
+
+func NewCustomizedTimeZone() *CustomizedTimeZone {
+	customizedTimeZoneType := new(CustomizedTimeZone)
+	return customizedTimeZoneType
+}
+
+func NewDefaultCustomizedTimeZone() *CustomizedTimeZone {
+	customizedTimeZoneType := new(CustomizedTimeZone)
+	return customizedTimeZoneType
 }
 
 type DaylightSavingTime struct {
@@ -564,6 +788,16 @@ type DaylightSavingTime struct {
 	Week *int `json:"week" validate:"required,oneof=1 2 3 4 5"`
 }
 
+func NewDaylightSavingTime() *DaylightSavingTime {
+	daylightSavingTimeType := new(DaylightSavingTime)
+	return daylightSavingTimeType
+}
+
+func NewDefaultDaylightSavingTime() *DaylightSavingTime {
+	daylightSavingTimeType := new(DaylightSavingTime)
+	return daylightSavingTimeType
+}
+
 type DhcpSiteConfigList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -572,6 +806,16 @@ type DhcpSiteConfigList struct {
 	List []*common.DhcpSiteConfigListRef `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewDhcpSiteConfigList() *DhcpSiteConfigList {
+	dhcpSiteConfigListType := new(DhcpSiteConfigList)
+	return dhcpSiteConfigListType
+}
+
+func NewDefaultDhcpSiteConfigList() *DhcpSiteConfigList {
+	dhcpSiteConfigListType := new(DhcpSiteConfigList)
+	return dhcpSiteConfigListType
 }
 
 type DiffServConfiguration struct {
@@ -592,6 +836,16 @@ type DiffServConfiguration struct {
 	UplinkDiffServ *UplinkDiffServ `json:"uplinkDiffServ,omitempty"`
 }
 
+func NewDiffServConfiguration() *DiffServConfiguration {
+	diffServConfigurationType := new(DiffServConfiguration)
+	return diffServConfigurationType
+}
+
+func NewDefaultDiffServConfiguration() *DiffServConfiguration {
+	diffServConfigurationType := new(DiffServConfiguration)
+	return diffServConfigurationType
+}
+
 type DiffServList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -600,6 +854,16 @@ type DiffServList struct {
 	List []*DiffServSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewDiffServList() *DiffServList {
+	diffServListType := new(DiffServList)
+	return diffServListType
+}
+
+func NewDefaultDiffServList() *DiffServList {
+	diffServListType := new(DiffServList)
+	return diffServListType
 }
 
 type DiffServSummary struct {
@@ -612,6 +876,16 @@ type DiffServSummary struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewDiffServSummary() *DiffServSummary {
+	diffServSummaryType := new(DiffServSummary)
+	return diffServSummaryType
+}
+
+func NewDefaultDiffServSummary() *DiffServSummary {
+	diffServSummaryType := new(DiffServSummary)
+	return diffServSummaryType
+}
+
 type DownlinkDiffServ struct {
 	// Downlink
 	// Downlink
@@ -620,6 +894,16 @@ type DownlinkDiffServ struct {
 	// DownlinkEnable
 	// Downlink enable
 	DownlinkEnable *bool `json:"downlinkEnable,omitempty"`
+}
+
+func NewDownlinkDiffServ() *DownlinkDiffServ {
+	downlinkDiffServType := new(DownlinkDiffServ)
+	return downlinkDiffServType
+}
+
+func NewDefaultDownlinkDiffServ() *DownlinkDiffServ {
+	downlinkDiffServType := new(DownlinkDiffServ)
+	return downlinkDiffServType
 }
 
 type MeshConfiguration struct {
@@ -642,10 +926,32 @@ type MeshConfiguration struct {
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
 
+func NewMeshConfiguration() *MeshConfiguration {
+	meshConfigurationType := new(MeshConfiguration)
+	return meshConfigurationType
+}
+
+func NewDefaultMeshConfiguration() *MeshConfiguration {
+	meshConfigurationType := new(MeshConfiguration)
+	meshRadioIdxField := `Radio5G`
+	meshConfigurationType.MeshRadioIdx = &meshRadioIdxField
+	return meshConfigurationType
+}
+
 type ModfiyApFirmware struct {
 	// FirmwareVersion
 	// new version of the AP firmare
 	FirmwareVersion *string `json:"firmwareVersion,omitempty"`
+}
+
+func NewModfiyApFirmware() *ModfiyApFirmware {
+	modfiyApFirmwareType := new(ModfiyApFirmware)
+	return modfiyApFirmwareType
+}
+
+func NewDefaultModfiyApFirmware() *ModfiyApFirmware {
+	modfiyApFirmwareType := new(ModfiyApFirmware)
+	return modfiyApFirmwareType
 }
 
 type ModifyBonjourGatewayPolicy struct {
@@ -656,6 +962,16 @@ type ModifyBonjourGatewayPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewModifyBonjourGatewayPolicy() *ModifyBonjourGatewayPolicy {
+	modifyBonjourGatewayPolicyType := new(ModifyBonjourGatewayPolicy)
+	return modifyBonjourGatewayPolicyType
+}
+
+func NewDefaultModifyBonjourGatewayPolicy() *ModifyBonjourGatewayPolicy {
+	modifyBonjourGatewayPolicyType := new(ModifyBonjourGatewayPolicy)
+	return modifyBonjourGatewayPolicyType
 }
 
 type ModifyDiffServProfile struct {
@@ -673,6 +989,16 @@ type ModifyDiffServProfile struct {
 	PreservedList []string `json:"preservedList,omitempty"`
 
 	UplinkDiffServ *UplinkDiffServ `json:"uplinkDiffServ,omitempty"`
+}
+
+func NewModifyDiffServProfile() *ModifyDiffServProfile {
+	modifyDiffServProfileType := new(ModifyDiffServProfile)
+	return modifyDiffServProfileType
+}
+
+func NewDefaultModifyDiffServProfile() *ModifyDiffServProfile {
+	modifyDiffServProfileType := new(ModifyDiffServProfile)
+	return modifyDiffServProfileType
 }
 
 type ModifyZone struct {
@@ -907,7 +1233,37 @@ type ModifyZone struct {
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
+func NewModifyZone() *ModifyZone {
+	modifyZoneType := new(ModifyZone)
+	return modifyZoneType
+}
+
+func NewDefaultModifyZone() *ModifyZone {
+	modifyZoneType := new(ModifyZone)
+	apHccdEnabledField := false
+	modifyZoneType.ApHccdEnabled = &apHccdEnabledField
+	apHccdPersistField := false
+	modifyZoneType.ApHccdPersist = &apHccdPersistField
+	channelEvaluationIntervalField := 600
+	modifyZoneType.ChannelEvaluationInterval = &channelEvaluationIntervalField
+	healthCheckSitesEnabledField := false
+	modifyZoneType.HealthCheckSitesEnabled = &healthCheckSitesEnabledField
+	loadBalancingMethodField := `BASED_ON_CLIENT_COUNT`
+	modifyZoneType.LoadBalancingMethod = &loadBalancingMethodField
+	return modifyZoneType
+}
+
 type QueryCriteria struct{}
+
+func NewQueryCriteria() *QueryCriteria {
+	queryCriteriaType := new(QueryCriteria)
+	return queryCriteriaType
+}
+
+func NewDefaultQueryCriteria() *QueryCriteria {
+	queryCriteriaType := new(QueryCriteria)
+	return queryCriteriaType
+}
 
 type Rogue struct {
 	// MaliciousTypes
@@ -924,6 +1280,16 @@ type Rogue struct {
 	//    - nullable
 	//    - oneof:[All,Malicious]
 	ReportType *string `json:"reportType,omitempty" validate:"omitempty,oneof=All Malicious"`
+}
+
+func NewRogue() *Rogue {
+	rogueType := new(Rogue)
+	return rogueType
+}
+
+func NewDefaultRogue() *Rogue {
+	rogueType := new(Rogue)
+	return rogueType
 }
 
 type SnmpUser struct {
@@ -985,12 +1351,32 @@ type SnmpUser struct {
 	WriteEnabled *bool `json:"writeEnabled,omitempty"`
 }
 
+func NewSnmpUser() *SnmpUser {
+	snmpUserType := new(SnmpUser)
+	return snmpUserType
+}
+
+func NewDefaultSnmpUser() *SnmpUser {
+	snmpUserType := new(SnmpUser)
+	return snmpUserType
+}
+
 type SoftGreRef struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
+}
+
+func NewSoftGreRef() *SoftGreRef {
+	softGreRefType := new(SoftGreRef)
+	return softGreRefType
+}
+
+func NewDefaultSoftGreRef() *SoftGreRef {
+	softGreRefType := new(SoftGreRef)
+	return softGreRefType
 }
 
 type Syslog struct {
@@ -1057,12 +1443,46 @@ type Syslog struct {
 	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
+func NewSyslog() *Syslog {
+	syslogType := new(Syslog)
+	return syslogType
+}
+
+func NewDefaultSyslog() *Syslog {
+	syslogType := new(Syslog)
+	facilityField := `Keep_Original`
+	syslogType.Facility = &facilityField
+	flowLevelField := `GENERAL_LOGS`
+	syslogType.FlowLevel = &flowLevelField
+	portField := 514
+	syslogType.Port = &portField
+	priorityField := `Error`
+	syslogType.Priority = &priorityField
+	protocolField := `IPPROTO_TCP`
+	syslogType.Protocol = &protocolField
+	secondaryPortField := 514
+	syslogType.SecondaryPort = &secondaryPortField
+	secondaryProtocolField := `IPPROTO_TCP`
+	syslogType.SecondaryProtocol = &secondaryProtocolField
+	return syslogType
+}
+
 type TimezoneSetting struct {
 	CustomizedTimezone *CustomizedTimeZone `json:"customizedTimezone,omitempty"`
 
 	// SystemTimezone
 	// System defined time zone, please refer to the “Overview > Time Zone” list
 	SystemTimezone *string `json:"systemTimezone,omitempty"`
+}
+
+func NewTimezoneSetting() *TimezoneSetting {
+	timezoneSettingType := new(TimezoneSetting)
+	return timezoneSettingType
+}
+
+func NewDefaultTimezoneSetting() *TimezoneSetting {
+	timezoneSettingType := new(TimezoneSetting)
+	return timezoneSettingType
 }
 
 type UnsupportedApModel struct {
@@ -1075,6 +1495,16 @@ type UnsupportedApModel struct {
 	Model *string `json:"model,omitempty"`
 }
 
+func NewUnsupportedApModel() *UnsupportedApModel {
+	unsupportedApModelType := new(UnsupportedApModel)
+	return unsupportedApModelType
+}
+
+func NewDefaultUnsupportedApModel() *UnsupportedApModel {
+	unsupportedApModelType := new(UnsupportedApModel)
+	return unsupportedApModelType
+}
+
 type UplinkDiffServ struct {
 	// Uplink
 	// Uplink
@@ -1083,6 +1513,16 @@ type UplinkDiffServ struct {
 	// UplinkEnable
 	// Uplink enable
 	UplinkEnable *bool `json:"uplinkEnable,omitempty"`
+}
+
+func NewUplinkDiffServ() *UplinkDiffServ {
+	uplinkDiffServType := new(UplinkDiffServ)
+	return uplinkDiffServType
+}
+
+func NewDefaultUplinkDiffServ() *UplinkDiffServ {
+	uplinkDiffServType := new(UplinkDiffServ)
+	return uplinkDiffServType
 }
 
 type ZoneConfiguration struct {
@@ -1325,6 +1765,26 @@ type ZoneConfiguration struct {
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
+func NewZoneConfiguration() *ZoneConfiguration {
+	zoneConfigurationType := new(ZoneConfiguration)
+	return zoneConfigurationType
+}
+
+func NewDefaultZoneConfiguration() *ZoneConfiguration {
+	zoneConfigurationType := new(ZoneConfiguration)
+	apHccdEnabledField := false
+	zoneConfigurationType.ApHccdEnabled = &apHccdEnabledField
+	apHccdPersistField := false
+	zoneConfigurationType.ApHccdPersist = &apHccdPersistField
+	channelEvaluationIntervalField := 600
+	zoneConfigurationType.ChannelEvaluationInterval = &channelEvaluationIntervalField
+	healthCheckSitesEnabledField := false
+	zoneConfigurationType.HealthCheckSitesEnabled = &healthCheckSitesEnabledField
+	loadBalancingMethodField := `BASED_ON_CLIENT_COUNT`
+	zoneConfigurationType.LoadBalancingMethod = &loadBalancingMethodField
+	return zoneConfigurationType
+}
+
 type ZoneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1333,6 +1793,16 @@ type ZoneList struct {
 	List []*ZoneSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewZoneList() *ZoneList {
+	zoneListType := new(ZoneList)
+	return zoneListType
+}
+
+func NewDefaultZoneList() *ZoneList {
+	zoneListType := new(ZoneList)
+	return zoneListType
 }
 
 type ZoneSummary struct {
@@ -1347,4 +1817,14 @@ type ZoneSummary struct {
 	// ServiceName
 	// Name of the zone
 	ServiceName *string `json:"serviceName,omitempty"`
+}
+
+func NewZoneSummary() *ZoneSummary {
+	zoneSummaryType := new(ZoneSummary)
+	return zoneSummaryType
+}
+
+func NewDefaultZoneSummary() *ZoneSummary {
+	zoneSummaryType := new(ZoneSummary)
+	return zoneSummaryType
 }

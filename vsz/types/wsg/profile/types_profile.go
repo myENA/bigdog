@@ -52,6 +52,16 @@ type AccountingProfile struct {
 	RealmMappings []*AcctServiceRealmMapping `json:"realmMappings,omitempty"`
 }
 
+func NewAccountingProfile() *AccountingProfile {
+	accountingProfileType := new(AccountingProfile)
+	return accountingProfileType
+}
+
+func NewDefaultAccountingProfile() *AccountingProfile {
+	accountingProfileType := new(AccountingProfile)
+	return accountingProfileType
+}
+
 type AccountingProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -62,6 +72,16 @@ type AccountingProfileList struct {
 	List []*AccountingProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewAccountingProfileList() *AccountingProfileList {
+	accountingProfileListType := new(AccountingProfileList)
+	return accountingProfileListType
+}
+
+func NewDefaultAccountingProfileList() *AccountingProfileList {
+	accountingProfileListType := new(AccountingProfileList)
+	return accountingProfileListType
 }
 
 // AcctServiceRealmMapping
@@ -87,6 +107,16 @@ type AcctServiceRealmMapping struct {
 	//    - required
 	//    - oneof:[NA,RADIUS,CGF]
 	ServiceType *string `json:"serviceType" validate:"required,oneof=NA RADIUS CGF"`
+}
+
+func NewAcctServiceRealmMapping() *AcctServiceRealmMapping {
+	acctServiceRealmMappingType := new(AcctServiceRealmMapping)
+	return acctServiceRealmMappingType
+}
+
+func NewDefaultAcctServiceRealmMapping() *AcctServiceRealmMapping {
+	acctServiceRealmMappingType := new(AcctServiceRealmMapping)
+	return acctServiceRealmMappingType
 }
 
 // AdvancedOptionContent
@@ -147,6 +177,16 @@ type AdvancedOptionContent struct {
 	RetryLimit *float64 `json:"retryLimit,omitempty"`
 }
 
+func NewAdvancedOptionContent() *AdvancedOptionContent {
+	advancedOptionContentType := new(AdvancedOptionContent)
+	return advancedOptionContentType
+}
+
+func NewDefaultAdvancedOptionContent() *AdvancedOptionContent {
+	advancedOptionContentType := new(AdvancedOptionContent)
+	return advancedOptionContentType
+}
+
 type ApnRealm struct {
 	// DefaultAPN
 	// name of the apnForwardingPolicys.
@@ -155,6 +195,16 @@ type ApnRealm struct {
 	// Realm
 	// name of the apnRealm.
 	Realm *string `json:"realm,omitempty"`
+}
+
+func NewApnRealm() *ApnRealm {
+	apnRealmType := new(ApnRealm)
+	return apnRealmType
+}
+
+func NewDefaultApnRealm() *ApnRealm {
+	apnRealmType := new(ApnRealm)
+	return apnRealmType
 }
 
 type AuthenticationProfile struct {
@@ -217,6 +267,16 @@ type AuthenticationProfile struct {
 	TtgCommonSetting *TtgCommonSetting `json:"ttgCommonSetting,omitempty"`
 }
 
+func NewAuthenticationProfile() *AuthenticationProfile {
+	authenticationProfileType := new(AuthenticationProfile)
+	return authenticationProfileType
+}
+
+func NewDefaultAuthenticationProfile() *AuthenticationProfile {
+	authenticationProfileType := new(AuthenticationProfile)
+	return authenticationProfileType
+}
+
 type AuthenticationProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -229,6 +289,16 @@ type AuthenticationProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewAuthenticationProfileList() *AuthenticationProfileList {
+	authenticationProfileListType := new(AuthenticationProfileList)
+	return authenticationProfileListType
+}
+
+func NewDefaultAuthenticationProfileList() *AuthenticationProfileList {
+	authenticationProfileListType := new(AuthenticationProfileList)
+	return authenticationProfileListType
+}
+
 type BaseServiceInfoList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -237,6 +307,16 @@ type BaseServiceInfoList struct {
 	List []*common.BaseServiceInfo `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewBaseServiceInfoList() *BaseServiceInfoList {
+	baseServiceInfoListType := new(BaseServiceInfoList)
+	return baseServiceInfoListType
+}
+
+func NewDefaultBaseServiceInfoList() *BaseServiceInfoList {
+	baseServiceInfoListType := new(BaseServiceInfoList)
+	return baseServiceInfoListType
 }
 
 type BlockClient struct {
@@ -276,6 +356,16 @@ type BlockClient struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewBlockClient() *BlockClient {
+	blockClientType := new(BlockClient)
+	return blockClientType
+}
+
+func NewDefaultBlockClient() *BlockClient {
+	blockClientType := new(BlockClient)
+	return blockClientType
+}
+
 type BlockClientList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -284,6 +374,16 @@ type BlockClientList struct {
 	List []*BlockClientListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewBlockClientList() *BlockClientList {
+	blockClientListType := new(BlockClientList)
+	return blockClientListType
+}
+
+func NewDefaultBlockClientList() *BlockClientList {
+	blockClientListType := new(BlockClientList)
+	return blockClientListType
 }
 
 type BlockClientListType struct {
@@ -306,6 +406,16 @@ type BlockClientListType struct {
 	// ZoneId
 	// Zone Id of the Block Client for clone in System Domain
 	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewBlockClientListType() *BlockClientListType {
+	blockClientListTypeType := new(BlockClientListType)
+	return blockClientListTypeType
+}
+
+func NewDefaultBlockClientListType() *BlockClientListType {
+	blockClientListTypeType := new(BlockClientListType)
+	return blockClientListTypeType
 }
 
 type BonjourFencingPolicy struct {
@@ -359,6 +469,16 @@ type BonjourFencingPolicy struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewBonjourFencingPolicy() *BonjourFencingPolicy {
+	bonjourFencingPolicyType := new(BonjourFencingPolicy)
+	return bonjourFencingPolicyType
+}
+
+func NewDefaultBonjourFencingPolicy() *BonjourFencingPolicy {
+	bonjourFencingPolicyType := new(BonjourFencingPolicy)
+	return bonjourFencingPolicyType
+}
+
 type BonjourFencingPolicyList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -367,6 +487,16 @@ type BonjourFencingPolicyList struct {
 	List []*BonjourFencingPolicy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewBonjourFencingPolicyList() *BonjourFencingPolicyList {
+	bonjourFencingPolicyListType := new(BonjourFencingPolicyList)
+	return bonjourFencingPolicyListType
+}
+
+func NewDefaultBonjourFencingPolicyList() *BonjourFencingPolicyList {
+	bonjourFencingPolicyListType := new(BonjourFencingPolicyList)
+	return bonjourFencingPolicyListType
 }
 
 type BonjourFencingRule struct {
@@ -400,8 +530,28 @@ type BonjourFencingRule struct {
 	ServiceType *BridgeService `json:"serviceType" validate:"required"`
 }
 
+func NewBonjourFencingRule() *BonjourFencingRule {
+	bonjourFencingRuleType := new(BonjourFencingRule)
+	return bonjourFencingRuleType
+}
+
+func NewDefaultBonjourFencingRule() *BonjourFencingRule {
+	bonjourFencingRuleType := new(BonjourFencingRule)
+	return bonjourFencingRuleType
+}
+
 type BonjourFencingRuleDeviceMac struct {
 	Mac *common.Mac `json:"mac,omitempty"`
+}
+
+func NewBonjourFencingRuleDeviceMac() *BonjourFencingRuleDeviceMac {
+	bonjourFencingRuleDeviceMacType := new(BonjourFencingRuleDeviceMac)
+	return bonjourFencingRuleDeviceMacType
+}
+
+func NewDefaultBonjourFencingRuleDeviceMac() *BonjourFencingRuleDeviceMac {
+	bonjourFencingRuleDeviceMacType := new(BonjourFencingRuleDeviceMac)
+	return bonjourFencingRuleDeviceMacType
 }
 
 type BonjourFencingRuleMapping struct {
@@ -412,6 +562,16 @@ type BonjourFencingRuleMapping struct {
 	CustomStringList []string `json:"customStringList,omitempty"`
 
 	ServiceType *BridgeService `json:"serviceType,omitempty"`
+}
+
+func NewBonjourFencingRuleMapping() *BonjourFencingRuleMapping {
+	bonjourFencingRuleMappingType := new(BonjourFencingRuleMapping)
+	return bonjourFencingRuleMappingType
+}
+
+func NewDefaultBonjourFencingRuleMapping() *BonjourFencingRuleMapping {
+	bonjourFencingRuleMappingType := new(BonjourFencingRuleMapping)
+	return bonjourFencingRuleMappingType
 }
 
 type BonjourFencingService struct {
@@ -428,6 +588,16 @@ type BonjourFencingService struct {
 	SourceType *string `json:"sourceType,omitempty" validate:"omitempty,oneof=UNKNOWN DIRECT NEIGHBOR"`
 }
 
+func NewBonjourFencingService() *BonjourFencingService {
+	bonjourFencingServiceType := new(BonjourFencingService)
+	return bonjourFencingServiceType
+}
+
+func NewDefaultBonjourFencingService() *BonjourFencingService {
+	bonjourFencingServiceType := new(BonjourFencingService)
+	return bonjourFencingServiceType
+}
+
 type BonjourFencingStatistic struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -438,6 +608,16 @@ type BonjourFencingStatistic struct {
 	ForwardedPackets *int `json:"forwardedPackets,omitempty"`
 
 	ServiceList []*BonjourFencingService `json:"serviceList,omitempty"`
+}
+
+func NewBonjourFencingStatistic() *BonjourFencingStatistic {
+	bonjourFencingStatisticType := new(BonjourFencingStatistic)
+	return bonjourFencingStatisticType
+}
+
+func NewDefaultBonjourFencingStatistic() *BonjourFencingStatistic {
+	bonjourFencingStatisticType := new(BonjourFencingStatistic)
+	return bonjourFencingStatisticType
 }
 
 type BridgeProfile struct {
@@ -480,6 +660,16 @@ type BridgeProfile struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
+func NewBridgeProfile() *BridgeProfile {
+	bridgeProfileType := new(BridgeProfile)
+	return bridgeProfileType
+}
+
+func NewDefaultBridgeProfile() *BridgeProfile {
+	bridgeProfileType := new(BridgeProfile)
+	return bridgeProfileType
+}
+
 type BridgeProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -492,12 +682,42 @@ type BridgeProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewBridgeProfileList() *BridgeProfileList {
+	bridgeProfileListType := new(BridgeProfileList)
+	return bridgeProfileListType
+}
+
+func NewDefaultBridgeProfileList() *BridgeProfileList {
+	bridgeProfileListType := new(BridgeProfileList)
+	return bridgeProfileListType
+}
+
 type BridgeService string
+
+func NewBridgeService() *BridgeService {
+	bridgeServiceType := new(BridgeService)
+	return bridgeServiceType
+}
+
+func NewDefaultBridgeService() *BridgeService {
+	bridgeServiceType := new(BridgeService)
+	return bridgeServiceType
+}
 
 type BulkBlockClient struct {
 	BlockClientList []*BulkBlockClientBlockClientListType `json:"blockClientList,omitempty"`
 
 	Description *common.Description `json:"description,omitempty"`
+}
+
+func NewBulkBlockClient() *BulkBlockClient {
+	bulkBlockClientType := new(BulkBlockClient)
+	return bulkBlockClientType
+}
+
+func NewDefaultBulkBlockClient() *BulkBlockClient {
+	bulkBlockClientType := new(BulkBlockClient)
+	return bulkBlockClientType
 }
 
 type BulkBlockClientBlockClientListType struct {
@@ -516,6 +736,16 @@ type BulkBlockClientBlockClientListType struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewBulkBlockClientBlockClientListType() *BulkBlockClientBlockClientListType {
+	bulkBlockClientBlockClientListTypeType := new(BulkBlockClientBlockClientListType)
+	return bulkBlockClientBlockClientListTypeType
+}
+
+func NewDefaultBulkBlockClientBlockClientListType() *BulkBlockClientBlockClientListType {
+	bulkBlockClientBlockClientListTypeType := new(BulkBlockClientBlockClientListType)
+	return bulkBlockClientBlockClientListTypeType
+}
+
 type ClientIsolationEntry struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -527,6 +757,16 @@ type ClientIsolationEntry struct {
 	// Constraints:
 	//    - required
 	Mac *common.Mac `json:"mac" validate:"required"`
+}
+
+func NewClientIsolationEntry() *ClientIsolationEntry {
+	clientIsolationEntryType := new(ClientIsolationEntry)
+	return clientIsolationEntryType
+}
+
+func NewDefaultClientIsolationEntry() *ClientIsolationEntry {
+	clientIsolationEntryType := new(ClientIsolationEntry)
+	return clientIsolationEntryType
 }
 
 type ClientIsolationWhitelist struct {
@@ -582,6 +822,16 @@ type ClientIsolationWhitelist struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewClientIsolationWhitelist() *ClientIsolationWhitelist {
+	clientIsolationWhitelistType := new(ClientIsolationWhitelist)
+	return clientIsolationWhitelistType
+}
+
+func NewDefaultClientIsolationWhitelist() *ClientIsolationWhitelist {
+	clientIsolationWhitelistType := new(ClientIsolationWhitelist)
+	return clientIsolationWhitelistType
+}
+
 type ClientIsolationWhitelistArray struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -616,6 +866,16 @@ type ClientIsolationWhitelistArray struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewClientIsolationWhitelistArray() *ClientIsolationWhitelistArray {
+	clientIsolationWhitelistArrayType := new(ClientIsolationWhitelistArray)
+	return clientIsolationWhitelistArrayType
+}
+
+func NewDefaultClientIsolationWhitelistArray() *ClientIsolationWhitelistArray {
+	clientIsolationWhitelistArrayType := new(ClientIsolationWhitelistArray)
+	return clientIsolationWhitelistArrayType
+}
+
 // CmProtocolOptionContent
 //
 // Certificate Management Protocol Option
@@ -641,6 +901,16 @@ type CmProtocolOptionContent struct {
 	// CmpServerPath
 	// Certificate Management Protocol Server Path
 	CmpServerPath *string `json:"cmpServerPath,omitempty"`
+}
+
+func NewCmProtocolOptionContent() *CmProtocolOptionContent {
+	cmProtocolOptionContentType := new(CmProtocolOptionContent)
+	return cmProtocolOptionContentType
+}
+
+func NewDefaultCmProtocolOptionContent() *CmProtocolOptionContent {
+	cmProtocolOptionContentType := new(CmProtocolOptionContent)
+	return cmProtocolOptionContentType
 }
 
 type CoreNetworkGateway struct {
@@ -687,6 +957,22 @@ type CoreNetworkGateway struct {
 	TunnelMTUSize *int `json:"tunnelMTUSize,omitempty" validate:"omitempty,gte=850,lte=1500"`
 }
 
+func NewCoreNetworkGateway() *CoreNetworkGateway {
+	coreNetworkGatewayType := new(CoreNetworkGateway)
+	return coreNetworkGatewayType
+}
+
+func NewDefaultCoreNetworkGateway() *CoreNetworkGateway {
+	coreNetworkGatewayType := new(CoreNetworkGateway)
+	keepAlivePeriodField := 10
+	coreNetworkGatewayType.KeepAlivePeriod = &keepAlivePeriodField
+	keepAliveRetryField := 3
+	coreNetworkGatewayType.KeepAliveRetry = &keepAliveRetryField
+	tunnelMTUSizeField := 1500
+	coreNetworkGatewayType.TunnelMTUSize = &tunnelMTUSizeField
+	return coreNetworkGatewayType
+}
+
 type CreateAccountingProfile struct {
 	Description *common.DescriptionTo128 `json:"description,omitempty"`
 
@@ -706,6 +992,16 @@ type CreateAccountingProfile struct {
 	// RealmMappings
 	// Accounting service per realm
 	RealmMappings []*AcctServiceRealmMapping `json:"realmMappings,omitempty"`
+}
+
+func NewCreateAccountingProfile() *CreateAccountingProfile {
+	createAccountingProfileType := new(CreateAccountingProfile)
+	return createAccountingProfileType
+}
+
+func NewDefaultCreateAccountingProfile() *CreateAccountingProfile {
+	createAccountingProfileType := new(CreateAccountingProfile)
+	return createAccountingProfileType
 }
 
 type CreateAuthenticationProfile struct {
@@ -742,6 +1038,18 @@ type CreateAuthenticationProfile struct {
 	TtgCommonSetting *TtgCommonSetting `json:"ttgCommonSetting,omitempty"`
 }
 
+func NewCreateAuthenticationProfile() *CreateAuthenticationProfile {
+	createAuthenticationProfileType := new(CreateAuthenticationProfile)
+	return createAuthenticationProfileType
+}
+
+func NewDefaultCreateAuthenticationProfile() *CreateAuthenticationProfile {
+	createAuthenticationProfileType := new(CreateAuthenticationProfile)
+	gppSuppportEnabledField := false
+	createAuthenticationProfileType.GppSuppportEnabled = &gppSuppportEnabledField
+	return createAuthenticationProfileType
+}
+
 type CreateBonjourFencingPolicy struct {
 	// BonjourFencingRuleList
 	// Bonjour Fencing Rule List
@@ -759,6 +1067,16 @@ type CreateBonjourFencingPolicy struct {
 	// Constraints:
 	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
+}
+
+func NewCreateBonjourFencingPolicy() *CreateBonjourFencingPolicy {
+	createBonjourFencingPolicyType := new(CreateBonjourFencingPolicy)
+	return createBonjourFencingPolicyType
+}
+
+func NewDefaultCreateBonjourFencingPolicy() *CreateBonjourFencingPolicy {
+	createBonjourFencingPolicyType := new(CreateBonjourFencingPolicy)
+	return createBonjourFencingPolicyType
 }
 
 type CreateBridgeProfile struct {
@@ -780,6 +1098,16 @@ type CreateBridgeProfile struct {
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
+func NewCreateBridgeProfile() *CreateBridgeProfile {
+	createBridgeProfileType := new(CreateBridgeProfile)
+	return createBridgeProfileType
+}
+
+func NewDefaultCreateBridgeProfile() *CreateBridgeProfile {
+	createBridgeProfileType := new(CreateBridgeProfile)
+	return createBridgeProfileType
+}
+
 type CreateClientIsolationWhitelist struct {
 	// ClientIsolationAutoEnabled
 	// Client Isolation Auto Enable
@@ -799,6 +1127,16 @@ type CreateClientIsolationWhitelist struct {
 	// Constraints:
 	//    - required
 	Whitelist []*ClientIsolationEntry `json:"whitelist" validate:"required"`
+}
+
+func NewCreateClientIsolationWhitelist() *CreateClientIsolationWhitelist {
+	createClientIsolationWhitelistType := new(CreateClientIsolationWhitelist)
+	return createClientIsolationWhitelistType
+}
+
+func NewDefaultCreateClientIsolationWhitelist() *CreateClientIsolationWhitelist {
+	createClientIsolationWhitelistType := new(CreateClientIsolationWhitelist)
+	return createClientIsolationWhitelistType
 }
 
 type CreateDhcpProfile struct {
@@ -858,6 +1196,16 @@ type CreateDhcpProfile struct {
 	VlanId *int `json:"vlanId" validate:"required,gte=1,lte=4094"`
 }
 
+func NewCreateDhcpProfile() *CreateDhcpProfile {
+	createDhcpProfileType := new(CreateDhcpProfile)
+	return createDhcpProfileType
+}
+
+func NewDefaultCreateDhcpProfile() *CreateDhcpProfile {
+	createDhcpProfileType := new(CreateDhcpProfile)
+	return createDhcpProfileType
+}
+
 type CreateDnsServerProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -887,6 +1235,16 @@ type CreateDnsServerProfile struct {
 	// TertiaryIp
 	// Tertiary ip of DNS server service
 	TertiaryIp *string `json:"tertiaryIp,omitempty"`
+}
+
+func NewCreateDnsServerProfile() *CreateDnsServerProfile {
+	createDnsServerProfileType := new(CreateDnsServerProfile)
+	return createDnsServerProfileType
+}
+
+func NewDefaultCreateDnsServerProfile() *CreateDnsServerProfile {
+	createDnsServerProfileType := new(CreateDnsServerProfile)
+	return createDnsServerProfileType
 }
 
 type CreateIpsecProfile struct {
@@ -957,6 +1315,16 @@ type CreateIpsecProfile struct {
 	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=SOFT_GRE RUCKUS_GRE"`
 }
 
+func NewCreateIpsecProfile() *CreateIpsecProfile {
+	createIpsecProfileType := new(CreateIpsecProfile)
+	return createIpsecProfileType
+}
+
+func NewDefaultCreateIpsecProfile() *CreateIpsecProfile {
+	createIpsecProfileType := new(CreateIpsecProfile)
+	return createIpsecProfileType
+}
+
 type CreateL2oGREProfile struct {
 	// CoreNetworkGateway
 	// Constraints:
@@ -981,6 +1349,16 @@ type CreateL2oGREProfile struct {
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
+func NewCreateL2oGREProfile() *CreateL2oGREProfile {
+	createL2oGREProfileType := new(CreateL2oGREProfile)
+	return createL2oGREProfileType
+}
+
+func NewDefaultCreateL2oGREProfile() *CreateL2oGREProfile {
+	createL2oGREProfileType := new(CreateL2oGREProfile)
+	return createL2oGREProfileType
+}
+
 type CreatePrecedenceProfile struct {
 	// DomainId
 	// Domain UUID
@@ -997,7 +1375,27 @@ type CreatePrecedenceProfile struct {
 	VlanPrecedence []*VlanPrecedenceItem `json:"vlanPrecedence,omitempty"`
 }
 
+func NewCreatePrecedenceProfile() *CreatePrecedenceProfile {
+	createPrecedenceProfileType := new(CreatePrecedenceProfile)
+	return createPrecedenceProfileType
+}
+
+func NewDefaultCreatePrecedenceProfile() *CreatePrecedenceProfile {
+	createPrecedenceProfileType := new(CreatePrecedenceProfile)
+	return createPrecedenceProfileType
+}
+
 type CreateResultList []*common.CreateResult
+
+func NewCreateResultList() *CreateResultList {
+	createResultListType := make(CreateResultList, 0)
+	return &createResultListType
+}
+
+func NewDefaultCreateResultList() *CreateResultList {
+	createResultListType := make(CreateResultList, 0)
+	return &createResultListType
+}
 
 type CreateRogueApPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
@@ -1011,6 +1409,16 @@ type CreateRogueApPolicy struct {
 	// Constraints:
 	//    - required
 	Rules []*RogueApRuleList `json:"rules" validate:"required"`
+}
+
+func NewCreateRogueApPolicy() *CreateRogueApPolicy {
+	createRogueApPolicyType := new(CreateRogueApPolicy)
+	return createRogueApPolicyType
+}
+
+func NewDefaultCreateRogueApPolicy() *CreateRogueApPolicy {
+	createRogueApPolicyType := new(CreateRogueApPolicy)
+	return createRogueApPolicyType
 }
 
 type CreateRtlsProfile struct {
@@ -1033,6 +1441,16 @@ type CreateRtlsProfile struct {
 	// Constraints:
 	//    - required
 	StanleyEnabled *bool `json:"stanleyEnabled" validate:"required"`
+}
+
+func NewCreateRtlsProfile() *CreateRtlsProfile {
+	createRtlsProfileType := new(CreateRtlsProfile)
+	return createRtlsProfileType
+}
+
+func NewDefaultCreateRtlsProfile() *CreateRtlsProfile {
+	createRtlsProfileType := new(CreateRtlsProfile)
+	return createRtlsProfileType
 }
 
 type CreateRuckusGREProfile struct {
@@ -1080,6 +1498,18 @@ type CreateRuckusGREProfile struct {
 	//    - min:850
 	//    - max:9018
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
+}
+
+func NewCreateRuckusGREProfile() *CreateRuckusGREProfile {
+	createRuckusGREProfileType := new(CreateRuckusGREProfile)
+	return createRuckusGREProfileType
+}
+
+func NewDefaultCreateRuckusGREProfile() *CreateRuckusGREProfile {
+	createRuckusGREProfileType := new(CreateRuckusGREProfile)
+	tunnelMtuSizeField := 1500
+	createRuckusGREProfileType.TunnelMtuSize = &tunnelMtuSizeField
+	return createRuckusGREProfileType
 }
 
 type CreateSoftGREProfile struct {
@@ -1147,6 +1577,18 @@ type CreateSoftGREProfile struct {
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
+func NewCreateSoftGREProfile() *CreateSoftGREProfile {
+	createSoftGREProfileType := new(CreateSoftGREProfile)
+	return createSoftGREProfileType
+}
+
+func NewDefaultCreateSoftGREProfile() *CreateSoftGREProfile {
+	createSoftGREProfileType := new(CreateSoftGREProfile)
+	tunnelMtuSizeField := 1500
+	createSoftGREProfileType.TunnelMtuSize = &tunnelMtuSizeField
+	return createSoftGREProfileType
+}
+
 type CreateTrafficClassProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -1159,6 +1601,16 @@ type CreateTrafficClassProfile struct {
 	// Constraints:
 	//    - required
 	TrafficClasses []*common.TrafficClassRef `json:"trafficClasses" validate:"required"`
+}
+
+func NewCreateTrafficClassProfile() *CreateTrafficClassProfile {
+	createTrafficClassProfileType := new(CreateTrafficClassProfile)
+	return createTrafficClassProfileType
+}
+
+func NewDefaultCreateTrafficClassProfile() *CreateTrafficClassProfile {
+	createTrafficClassProfileType := new(CreateTrafficClassProfile)
+	return createTrafficClassProfileType
 }
 
 type CreateTtgpdgProfile struct {
@@ -1207,6 +1659,16 @@ type CreateTtgpdgProfile struct {
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
+func NewCreateTtgpdgProfile() *CreateTtgpdgProfile {
+	createTtgpdgProfileType := new(CreateTtgpdgProfile)
+	return createTtgpdgProfileType
+}
+
+func NewDefaultCreateTtgpdgProfile() *CreateTtgpdgProfile {
+	createTtgpdgProfileType := new(CreateTtgpdgProfile)
+	return createTtgpdgProfileType
+}
+
 type CreateUserTrafficProfile struct {
 	// AppPolicyId
 	// Application Policy UUID (for 5.0 and Earlier Firmware Versions)
@@ -1252,6 +1714,18 @@ type CreateUserTrafficProfile struct {
 	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
 }
 
+func NewCreateUserTrafficProfile() *CreateUserTrafficProfile {
+	createUserTrafficProfileType := new(CreateUserTrafficProfile)
+	return createUserTrafficProfileType
+}
+
+func NewDefaultCreateUserTrafficProfile() *CreateUserTrafficProfile {
+	createUserTrafficProfileType := new(CreateUserTrafficProfile)
+	defaultActionField := `ALLOW`
+	createUserTrafficProfileType.DefaultAction = &defaultActionField
+	return createUserTrafficProfileType
+}
+
 type CreateZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
@@ -1272,6 +1746,16 @@ type CreateZoneAffinityProfile struct {
 	// Constraints:
 	//    - required
 	ZoneAffinityList []string `json:"zoneAffinityList" validate:"required"`
+}
+
+func NewCreateZoneAffinityProfile() *CreateZoneAffinityProfile {
+	createZoneAffinityProfileType := new(CreateZoneAffinityProfile)
+	return createZoneAffinityProfileType
+}
+
+func NewDefaultCreateZoneAffinityProfile() *CreateZoneAffinityProfile {
+	createZoneAffinityProfileType := new(CreateZoneAffinityProfile)
+	return createZoneAffinityProfileType
 }
 
 type DataPlaneL3RoamingData struct {
@@ -1308,20 +1792,70 @@ type DataPlaneL3RoamingData struct {
 	Value *string `json:"value" validate:"required"`
 }
 
+func NewDataPlaneL3RoamingData() *DataPlaneL3RoamingData {
+	dataPlaneL3RoamingDataType := new(DataPlaneL3RoamingData)
+	return dataPlaneL3RoamingDataType
+}
+
+func NewDefaultDataPlaneL3RoamingData() *DataPlaneL3RoamingData {
+	dataPlaneL3RoamingDataType := new(DataPlaneL3RoamingData)
+	return dataPlaneL3RoamingDataType
+}
+
 type DeleteBulkAccountingProfile struct {
 	IdList common.IdList `json:"idList,omitempty"`
+}
+
+func NewDeleteBulkAccountingProfile() *DeleteBulkAccountingProfile {
+	deleteBulkAccountingProfileType := new(DeleteBulkAccountingProfile)
+	return deleteBulkAccountingProfileType
+}
+
+func NewDefaultDeleteBulkAccountingProfile() *DeleteBulkAccountingProfile {
+	deleteBulkAccountingProfileType := new(DeleteBulkAccountingProfile)
+	return deleteBulkAccountingProfileType
 }
 
 type DeleteBulkAuthenticationProfile struct {
 	IdList common.IdList `json:"idList,omitempty"`
 }
 
+func NewDeleteBulkAuthenticationProfile() *DeleteBulkAuthenticationProfile {
+	deleteBulkAuthenticationProfileType := new(DeleteBulkAuthenticationProfile)
+	return deleteBulkAuthenticationProfileType
+}
+
+func NewDefaultDeleteBulkAuthenticationProfile() *DeleteBulkAuthenticationProfile {
+	deleteBulkAuthenticationProfileType := new(DeleteBulkAuthenticationProfile)
+	return deleteBulkAuthenticationProfileType
+}
+
 type DeleteBulkPrecedenceProfile struct {
 	IdList common.IdList `json:"idList,omitempty"`
 }
 
+func NewDeleteBulkPrecedenceProfile() *DeleteBulkPrecedenceProfile {
+	deleteBulkPrecedenceProfileType := new(DeleteBulkPrecedenceProfile)
+	return deleteBulkPrecedenceProfileType
+}
+
+func NewDefaultDeleteBulkPrecedenceProfile() *DeleteBulkPrecedenceProfile {
+	deleteBulkPrecedenceProfileType := new(DeleteBulkPrecedenceProfile)
+	return deleteBulkPrecedenceProfileType
+}
+
 type DeleteBulkUserTrafficProfile struct {
 	IdList common.IdList `json:"idList,omitempty"`
+}
+
+func NewDeleteBulkUserTrafficProfile() *DeleteBulkUserTrafficProfile {
+	deleteBulkUserTrafficProfileType := new(DeleteBulkUserTrafficProfile)
+	return deleteBulkUserTrafficProfileType
+}
+
+func NewDefaultDeleteBulkUserTrafficProfile() *DeleteBulkUserTrafficProfile {
+	deleteBulkUserTrafficProfileType := new(DeleteBulkUserTrafficProfile)
+	return deleteBulkUserTrafficProfileType
 }
 
 type DhcpOption82 struct {
@@ -1371,6 +1905,16 @@ type DhcpOption82 struct {
 	Subopt151Format *string `json:"subopt151Format,omitempty" validate:"omitempty,oneof=AREA_NAME ESSID"`
 }
 
+func NewDhcpOption82() *DhcpOption82 {
+	dhcpOption82Type := new(DhcpOption82)
+	return dhcpOption82Type
+}
+
+func NewDefaultDhcpOption82() *DhcpOption82 {
+	dhcpOption82Type := new(DhcpOption82)
+	return dhcpOption82Type
+}
+
 type DhcpProfileList struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -1405,6 +1949,16 @@ type DhcpProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewDhcpProfileList() *DhcpProfileList {
+	dhcpProfileListType := new(DhcpProfileList)
+	return dhcpProfileListType
+}
+
+func NewDefaultDhcpProfileList() *DhcpProfileList {
+	dhcpProfileListType := new(DhcpProfileList)
+	return dhcpProfileListType
+}
+
 type DhcpRelayNoRelayTunnel struct {
 	DhcpOption82 *DhcpOption82 `json:"dhcpOption82,omitempty"`
 
@@ -1423,6 +1977,16 @@ type DhcpRelayNoRelayTunnel struct {
 	// RelayBothEnabled
 	// Send DHCP requests to both servers simultaneously.
 	RelayBothEnabled *bool `json:"relayBothEnabled,omitempty"`
+}
+
+func NewDhcpRelayNoRelayTunnel() *DhcpRelayNoRelayTunnel {
+	dhcpRelayNoRelayTunnelType := new(DhcpRelayNoRelayTunnel)
+	return dhcpRelayNoRelayTunnelType
+}
+
+func NewDefaultDhcpRelayNoRelayTunnel() *DhcpRelayNoRelayTunnel {
+	dhcpRelayNoRelayTunnelType := new(DhcpRelayNoRelayTunnel)
+	return dhcpRelayNoRelayTunnelType
 }
 
 type DnsServerProfile struct {
@@ -1479,6 +2043,16 @@ type DnsServerProfile struct {
 	TertiaryIp *string `json:"tertiaryIp,omitempty"`
 }
 
+func NewDnsServerProfile() *DnsServerProfile {
+	dnsServerProfileType := new(DnsServerProfile)
+	return dnsServerProfileType
+}
+
+func NewDefaultDnsServerProfile() *DnsServerProfile {
+	dnsServerProfileType := new(DnsServerProfile)
+	return dnsServerProfileType
+}
+
 type DnsServerProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1491,6 +2065,16 @@ type DnsServerProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewDnsServerProfileList() *DnsServerProfileList {
+	dnsServerProfileListType := new(DnsServerProfileList)
+	return dnsServerProfileListType
+}
+
+func NewDefaultDnsServerProfileList() *DnsServerProfileList {
+	dnsServerProfileListType := new(DnsServerProfileList)
+	return dnsServerProfileListType
+}
+
 type DownlinkRateLimiting struct {
 	// DownlinkRateLimitingBps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
@@ -1499,6 +2083,18 @@ type DownlinkRateLimiting struct {
 	// DownlinkRateLimitingEnabled
 	// Downlink rate limiting enabled or disabled
 	DownlinkRateLimitingEnabled *bool `json:"downlinkRateLimitingEnabled,omitempty"`
+}
+
+func NewDownlinkRateLimiting() *DownlinkRateLimiting {
+	downlinkRateLimitingType := new(DownlinkRateLimiting)
+	return downlinkRateLimitingType
+}
+
+func NewDefaultDownlinkRateLimiting() *DownlinkRateLimiting {
+	downlinkRateLimitingType := new(DownlinkRateLimiting)
+	downlinkRateLimitingEnabledField := false
+	downlinkRateLimitingType.DownlinkRateLimitingEnabled = &downlinkRateLimitingEnabledField
+	return downlinkRateLimitingType
 }
 
 // EspProposal
@@ -1527,6 +2123,16 @@ type EspProposal struct {
 	EncAlg *string `json:"encAlg" validate:"required,oneof=None ThreeDES AES128 AES192 AES256"`
 }
 
+func NewEspProposal() *EspProposal {
+	espProposalType := new(EspProposal)
+	return espProposalType
+}
+
+func NewDefaultEspProposal() *EspProposal {
+	espProposalType := new(EspProposal)
+	return espProposalType
+}
+
 // EspSecurityAssociationContent
 //
 // espProposal Security Association Content
@@ -1541,6 +2147,16 @@ type EspSecurityAssociationContent struct {
 	//    - nullable
 	//    - oneof:[Default,Specific]
 	EspProposalType *string `json:"espProposalType,omitempty" validate:"omitempty,oneof=Default Specific"`
+}
+
+func NewEspSecurityAssociationContent() *EspSecurityAssociationContent {
+	espSecurityAssociationContentType := new(EspSecurityAssociationContent)
+	return espSecurityAssociationContentType
+}
+
+func NewDefaultEspSecurityAssociationContent() *EspSecurityAssociationContent {
+	espSecurityAssociationContentType := new(EspSecurityAssociationContent)
+	return espSecurityAssociationContentType
 }
 
 type FlexiVpnProfile struct {
@@ -1581,6 +2197,16 @@ type FlexiVpnProfile struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewFlexiVpnProfile() *FlexiVpnProfile {
+	flexiVpnProfileType := new(FlexiVpnProfile)
+	return flexiVpnProfileType
+}
+
+func NewDefaultFlexiVpnProfile() *FlexiVpnProfile {
+	flexiVpnProfileType := new(FlexiVpnProfile)
+	return flexiVpnProfileType
+}
+
 type FlexiVpnProfileList struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -1615,10 +2241,30 @@ type FlexiVpnProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewFlexiVpnProfileList() *FlexiVpnProfileList {
+	flexiVpnProfileListType := new(FlexiVpnProfileList)
+	return flexiVpnProfileListType
+}
+
+func NewDefaultFlexiVpnProfileList() *FlexiVpnProfileList {
+	flexiVpnProfileListType := new(FlexiVpnProfileList)
+	return flexiVpnProfileListType
+}
+
 type GetL3RoamingConfig struct {
 	// DataPlanes
 	// L3 roaming configuration for DPs
 	DataPlanes []*DataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
+}
+
+func NewGetL3RoamingConfig() *GetL3RoamingConfig {
+	getL3RoamingConfigType := new(GetL3RoamingConfig)
+	return getL3RoamingConfigType
+}
+
+func NewDefaultGetL3RoamingConfig() *GetL3RoamingConfig {
+	getL3RoamingConfigType := new(GetL3RoamingConfig)
+	return getL3RoamingConfigType
 }
 
 type Hs20FriendlyName struct {
@@ -1634,6 +2280,16 @@ type Hs20FriendlyName struct {
 	//    - max:32
 	//    - min:2
 	Name *string `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewHs20FriendlyName() *Hs20FriendlyName {
+	hs20FriendlyNameType := new(Hs20FriendlyName)
+	return hs20FriendlyNameType
+}
+
+func NewDefaultHs20FriendlyName() *Hs20FriendlyName {
+	hs20FriendlyNameType := new(Hs20FriendlyName)
+	return hs20FriendlyNameType
 }
 
 type Hs20Operator struct {
@@ -1691,6 +2347,16 @@ type Hs20Operator struct {
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
+func NewHs20Operator() *Hs20Operator {
+	hs20OperatorType := new(Hs20Operator)
+	return hs20OperatorType
+}
+
+func NewDefaultHs20Operator() *Hs20Operator {
+	hs20OperatorType := new(Hs20Operator)
+	return hs20OperatorType
+}
+
 type Hs20OperatorList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1701,6 +2367,16 @@ type Hs20OperatorList struct {
 	List []*Hs20Operator `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewHs20OperatorList() *Hs20OperatorList {
+	hs20OperatorListType := new(Hs20OperatorList)
+	return hs20OperatorListType
+}
+
+func NewDefaultHs20OperatorList() *Hs20OperatorList {
+	hs20OperatorListType := new(Hs20OperatorList)
+	return hs20OperatorListType
 }
 
 type Hs20Provider struct {
@@ -1763,6 +2439,16 @@ type Hs20Provider struct {
 	Realms []*ProviderRealm `json:"realms,omitempty"`
 }
 
+func NewHs20Provider() *Hs20Provider {
+	hs20ProviderType := new(Hs20Provider)
+	return hs20ProviderType
+}
+
+func NewDefaultHs20Provider() *Hs20Provider {
+	hs20ProviderType := new(Hs20Provider)
+	return hs20ProviderType
+}
+
 type Hs20ProviderList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1773,6 +2459,16 @@ type Hs20ProviderList struct {
 	List []*Hs20Provider `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewHs20ProviderList() *Hs20ProviderList {
+	hs20ProviderListType := new(Hs20ProviderList)
+	return hs20ProviderListType
+}
+
+func NewDefaultHs20ProviderList() *Hs20ProviderList {
+	hs20ProviderListType := new(Hs20ProviderList)
+	return hs20ProviderListType
 }
 
 // IkeProposal
@@ -1808,6 +2504,16 @@ type IkeProposal struct {
 	PrfAlg *string `json:"prfAlg,omitempty" validate:"omitempty,oneof=UseIntegrityALG PRF_MD5 PRF_SHA1 PRF_AES_CBC PRF_AES_MAC PRF_SHA256 PRF_SHA384 PRF_SHA512"`
 }
 
+func NewIkeProposal() *IkeProposal {
+	ikeProposalType := new(IkeProposal)
+	return ikeProposalType
+}
+
+func NewDefaultIkeProposal() *IkeProposal {
+	ikeProposalType := new(IkeProposal)
+	return ikeProposalType
+}
+
 // IkeSecurityAssociationContent
 //
 // ikeProposal Security Association Content
@@ -1822,6 +2528,16 @@ type IkeSecurityAssociationContent struct {
 	//    - nullable
 	//    - oneof:[Default,Specific]
 	IkeProposalType *string `json:"ikeProposalType,omitempty" validate:"omitempty,oneof=Default Specific"`
+}
+
+func NewIkeSecurityAssociationContent() *IkeSecurityAssociationContent {
+	ikeSecurityAssociationContentType := new(IkeSecurityAssociationContent)
+	return ikeSecurityAssociationContentType
+}
+
+func NewDefaultIkeSecurityAssociationContent() *IkeSecurityAssociationContent {
+	ikeSecurityAssociationContentType := new(IkeSecurityAssociationContent)
+	return ikeSecurityAssociationContentType
 }
 
 type IpAclRules struct {
@@ -1951,7 +2667,33 @@ type IpAclRules struct {
 	UplinkRateLimitingMbps *float64 `json:"uplinkRateLimitingMbps,omitempty"`
 }
 
+func NewIpAclRules() *IpAclRules {
+	ipAclRulesType := new(IpAclRules)
+	return ipAclRulesType
+}
+
+func NewDefaultIpAclRules() *IpAclRules {
+	ipAclRulesType := new(IpAclRules)
+	actionField := `ALLOW`
+	ipAclRulesType.Action = &actionField
+	directionField := `UPSTREAM`
+	ipAclRulesType.Direction = &directionField
+	ipTypeField := `IPv4`
+	ipAclRulesType.IpType = &ipTypeField
+	return ipAclRulesType
+}
+
 type IpMode string
+
+func NewIpMode() *IpMode {
+	ipModeType := new(IpMode)
+	return ipModeType
+}
+
+func NewDefaultIpMode() *IpMode {
+	ipModeType := new(IpMode)
+	return ipModeType
+}
 
 type IpsecProfile struct {
 	AdvancedOption *AdvancedOptionContent `json:"advancedOption,omitempty"`
@@ -2035,6 +2777,16 @@ type IpsecProfile struct {
 	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=SOFT_GRE RUCKUS_GRE"`
 }
 
+func NewIpsecProfile() *IpsecProfile {
+	ipsecProfileType := new(IpsecProfile)
+	return ipsecProfileType
+}
+
+func NewDefaultIpsecProfile() *IpsecProfile {
+	ipsecProfileType := new(IpsecProfile)
+	return ipsecProfileType
+}
+
 type IpsecProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -2045,6 +2797,16 @@ type IpsecProfileList struct {
 	List []*IpsecProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewIpsecProfileList() *IpsecProfileList {
+	ipsecProfileListType := new(IpsecProfileList)
+	return ipsecProfileListType
+}
+
+func NewDefaultIpsecProfileList() *IpsecProfileList {
+	ipsecProfileListType := new(IpsecProfileList)
+	return ipsecProfileListType
 }
 
 type L2oGREProfile struct {
@@ -2089,6 +2851,16 @@ type L2oGREProfile struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
+func NewL2oGREProfile() *L2oGREProfile {
+	l2oGREProfileType := new(L2oGREProfile)
+	return l2oGREProfileType
+}
+
+func NewDefaultL2oGREProfile() *L2oGREProfile {
+	l2oGREProfileType := new(L2oGREProfile)
+	return l2oGREProfileType
+}
+
 type L2oGREProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -2099,6 +2871,16 @@ type L2oGREProfileList struct {
 	List []*L2oGREProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewL2oGREProfileList() *L2oGREProfileList {
+	l2oGREProfileListType := new(L2oGREProfileList)
+	return l2oGREProfileListType
+}
+
+func NewDefaultL2oGREProfileList() *L2oGREProfileList {
+	l2oGREProfileListType := new(L2oGREProfileList)
+	return l2oGREProfileListType
 }
 
 type LbsProfile struct {
@@ -2155,6 +2937,16 @@ type LbsProfile struct {
 	Venue *string `json:"venue,omitempty"`
 }
 
+func NewLbsProfile() *LbsProfile {
+	lbsProfileType := new(LbsProfile)
+	return lbsProfileType
+}
+
+func NewDefaultLbsProfile() *LbsProfile {
+	lbsProfileType := new(LbsProfile)
+	return lbsProfileType
+}
+
 type LbsProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -2165,6 +2957,16 @@ type LbsProfileList struct {
 	List []*LbsProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewLbsProfileList() *LbsProfileList {
+	lbsProfileListType := new(LbsProfileList)
+	return lbsProfileListType
+}
+
+func NewDefaultLbsProfileList() *LbsProfileList {
+	lbsProfileListType := new(LbsProfileList)
+	return lbsProfileListType
 }
 
 type ModifyAccountingProfile struct {
@@ -2187,6 +2989,16 @@ type ModifyAccountingProfile struct {
 	// RealmMappings
 	// Accounting service per realm
 	RealmMappings []*AcctServiceRealmMapping `json:"realmMappings,omitempty"`
+}
+
+func NewModifyAccountingProfile() *ModifyAccountingProfile {
+	modifyAccountingProfileType := new(ModifyAccountingProfile)
+	return modifyAccountingProfileType
+}
+
+func NewDefaultModifyAccountingProfile() *ModifyAccountingProfile {
+	modifyAccountingProfileType := new(ModifyAccountingProfile)
+	return modifyAccountingProfileType
 }
 
 type ModifyAuthenticationProfile struct {
@@ -2221,10 +3033,32 @@ type ModifyAuthenticationProfile struct {
 	TtgCommonSetting *TtgCommonSetting `json:"ttgCommonSetting,omitempty"`
 }
 
+func NewModifyAuthenticationProfile() *ModifyAuthenticationProfile {
+	modifyAuthenticationProfileType := new(ModifyAuthenticationProfile)
+	return modifyAuthenticationProfileType
+}
+
+func NewDefaultModifyAuthenticationProfile() *ModifyAuthenticationProfile {
+	modifyAuthenticationProfileType := new(ModifyAuthenticationProfile)
+	gppSuppportEnabledField := false
+	modifyAuthenticationProfileType.GppSuppportEnabled = &gppSuppportEnabledField
+	return modifyAuthenticationProfileType
+}
+
 type ModifyBlockClient struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	Mac *common.Mac `json:"mac,omitempty"`
+}
+
+func NewModifyBlockClient() *ModifyBlockClient {
+	modifyBlockClientType := new(ModifyBlockClient)
+	return modifyBlockClientType
+}
+
+func NewDefaultModifyBlockClient() *ModifyBlockClient {
+	modifyBlockClientType := new(ModifyBlockClient)
+	return modifyBlockClientType
 }
 
 type ModifyBonjourFencingPolicy struct {
@@ -2239,6 +3073,16 @@ type ModifyBonjourFencingPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewModifyBonjourFencingPolicy() *ModifyBonjourFencingPolicy {
+	modifyBonjourFencingPolicyType := new(ModifyBonjourFencingPolicy)
+	return modifyBonjourFencingPolicyType
+}
+
+func NewDefaultModifyBonjourFencingPolicy() *ModifyBonjourFencingPolicy {
+	modifyBonjourFencingPolicyType := new(ModifyBonjourFencingPolicy)
+	return modifyBonjourFencingPolicyType
 }
 
 type ModifyBridgeProfile struct {
@@ -2257,6 +3101,16 @@ type ModifyBridgeProfile struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
+func NewModifyBridgeProfile() *ModifyBridgeProfile {
+	modifyBridgeProfileType := new(ModifyBridgeProfile)
+	return modifyBridgeProfileType
+}
+
+func NewDefaultModifyBridgeProfile() *ModifyBridgeProfile {
+	modifyBridgeProfileType := new(ModifyBridgeProfile)
+	return modifyBridgeProfileType
+}
+
 type ModifyClientIsolationWhitelist struct {
 	// ClientIsolationAutoEnabled
 	// Client Isolation Auto Enable
@@ -2269,6 +3123,16 @@ type ModifyClientIsolationWhitelist struct {
 	// Whitelist
 	// Client Isolation Whitelist array
 	Whitelist []*ClientIsolationEntry `json:"whitelist,omitempty"`
+}
+
+func NewModifyClientIsolationWhitelist() *ModifyClientIsolationWhitelist {
+	modifyClientIsolationWhitelistType := new(ModifyClientIsolationWhitelist)
+	return modifyClientIsolationWhitelistType
+}
+
+func NewDefaultModifyClientIsolationWhitelist() *ModifyClientIsolationWhitelist {
+	modifyClientIsolationWhitelistType := new(ModifyClientIsolationWhitelist)
+	return modifyClientIsolationWhitelistType
 }
 
 type ModifyDnsServerProfile struct {
@@ -2301,6 +3165,16 @@ type ModifyDnsServerProfile struct {
 	TertiaryIp *string `json:"tertiaryIp,omitempty"`
 }
 
+func NewModifyDnsServerProfile() *ModifyDnsServerProfile {
+	modifyDnsServerProfileType := new(ModifyDnsServerProfile)
+	return modifyDnsServerProfileType
+}
+
+func NewDefaultModifyDnsServerProfile() *ModifyDnsServerProfile {
+	modifyDnsServerProfileType := new(ModifyDnsServerProfile)
+	return modifyDnsServerProfileType
+}
+
 type ModifyHS20Operator struct {
 	Certificate *common.GenericRef `json:"certificate,omitempty"`
 
@@ -2323,6 +3197,16 @@ type ModifyHS20Operator struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewModifyHS20Operator() *ModifyHS20Operator {
+	modifyHS20OperatorType := new(ModifyHS20Operator)
+	return modifyHS20OperatorType
+}
+
+func NewDefaultModifyHS20Operator() *ModifyHS20Operator {
+	modifyHS20OperatorType := new(ModifyHS20Operator)
+	return modifyHS20OperatorType
 }
 
 // ModifyIpAclRules
@@ -2455,6 +3339,22 @@ type ModifyIpAclRules struct {
 	UplinkRateLimitingMbps *float64 `json:"uplinkRateLimitingMbps,omitempty"`
 }
 
+func NewModifyIpAclRules() *ModifyIpAclRules {
+	modifyIpAclRulesType := new(ModifyIpAclRules)
+	return modifyIpAclRulesType
+}
+
+func NewDefaultModifyIpAclRules() *ModifyIpAclRules {
+	modifyIpAclRulesType := new(ModifyIpAclRules)
+	actionField := `ALLOW`
+	modifyIpAclRulesType.Action = &actionField
+	directionField := `UPSTREAM`
+	modifyIpAclRulesType.Direction = &directionField
+	ipTypeField := `IPv4`
+	modifyIpAclRulesType.IpType = &ipTypeField
+	return modifyIpAclRulesType
+}
+
 type ModifyIpsecProfile struct {
 	AdvancedOption *AdvancedOptionContent `json:"advancedOption,omitempty"`
 
@@ -2506,6 +3406,16 @@ type ModifyIpsecProfile struct {
 	ServerAddr *string `json:"serverAddr,omitempty"`
 }
 
+func NewModifyIpsecProfile() *ModifyIpsecProfile {
+	modifyIpsecProfileType := new(ModifyIpsecProfile)
+	return modifyIpsecProfileType
+}
+
+func NewDefaultModifyIpsecProfile() *ModifyIpsecProfile {
+	modifyIpsecProfileType := new(ModifyIpsecProfile)
+	return modifyIpsecProfileType
+}
+
 type ModifyL2oGREProfile struct {
 	CoreNetworkGateway *CoreNetworkGateway `json:"coreNetworkGateway,omitempty"`
 
@@ -2522,6 +3432,16 @@ type ModifyL2oGREProfile struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewModifyL2oGREProfile() *ModifyL2oGREProfile {
+	modifyL2oGREProfileType := new(ModifyL2oGREProfile)
+	return modifyL2oGREProfileType
+}
+
+func NewDefaultModifyL2oGREProfile() *ModifyL2oGREProfile {
+	modifyL2oGREProfileType := new(ModifyL2oGREProfile)
+	return modifyL2oGREProfileType
 }
 
 type ModifyRuckusGREProfile struct {
@@ -2566,6 +3486,18 @@ type ModifyRuckusGREProfile struct {
 	//    - min:850
 	//    - max:9018
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
+}
+
+func NewModifyRuckusGREProfile() *ModifyRuckusGREProfile {
+	modifyRuckusGREProfileType := new(ModifyRuckusGREProfile)
+	return modifyRuckusGREProfileType
+}
+
+func NewDefaultModifyRuckusGREProfile() *ModifyRuckusGREProfile {
+	modifyRuckusGREProfileType := new(ModifyRuckusGREProfile)
+	tunnelMtuSizeField := 1500
+	modifyRuckusGREProfileType.TunnelMtuSize = &tunnelMtuSizeField
+	return modifyRuckusGREProfileType
 }
 
 type ModifySoftGREProfile struct {
@@ -2628,6 +3560,22 @@ type ModifySoftGREProfile struct {
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
+func NewModifySoftGREProfile() *ModifySoftGREProfile {
+	modifySoftGREProfileType := new(ModifySoftGREProfile)
+	return modifySoftGREProfileType
+}
+
+func NewDefaultModifySoftGREProfile() *ModifySoftGREProfile {
+	modifySoftGREProfileType := new(ModifySoftGREProfile)
+	keepAlivePeriodField := 10
+	modifySoftGREProfileType.KeepAlivePeriod = &keepAlivePeriodField
+	keepAliveRetryField := 5
+	modifySoftGREProfileType.KeepAliveRetry = &keepAliveRetryField
+	tunnelMtuSizeField := 1500
+	modifySoftGREProfileType.TunnelMtuSize = &tunnelMtuSizeField
+	return modifySoftGREProfileType
+}
+
 type ModifyUserTrafficProfile struct {
 	// AppPolicyId
 	// Application Policy UUID (for 5.0 and Earlier Firmware Versions)
@@ -2674,6 +3622,18 @@ type ModifyUserTrafficProfile struct {
 	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
 }
 
+func NewModifyUserTrafficProfile() *ModifyUserTrafficProfile {
+	modifyUserTrafficProfileType := new(ModifyUserTrafficProfile)
+	return modifyUserTrafficProfileType
+}
+
+func NewDefaultModifyUserTrafficProfile() *ModifyUserTrafficProfile {
+	modifyUserTrafficProfileType := new(ModifyUserTrafficProfile)
+	defaultActionField := `ALLOW`
+	modifyUserTrafficProfileType.DefaultAction = &defaultActionField
+	return modifyUserTrafficProfileType
+}
+
 type ModifyZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
@@ -2693,6 +3653,16 @@ type ModifyZoneAffinityProfile struct {
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
 }
 
+func NewModifyZoneAffinityProfile() *ModifyZoneAffinityProfile {
+	modifyZoneAffinityProfileType := new(ModifyZoneAffinityProfile)
+	return modifyZoneAffinityProfileType
+}
+
+func NewDefaultModifyZoneAffinityProfile() *ModifyZoneAffinityProfile {
+	modifyZoneAffinityProfileType := new(ModifyZoneAffinityProfile)
+	return modifyZoneAffinityProfileType
+}
+
 type PrecedenceList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -2703,6 +3673,16 @@ type PrecedenceList struct {
 	List []*PrecedenceListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewPrecedenceList() *PrecedenceList {
+	precedenceListType := new(PrecedenceList)
+	return precedenceListType
+}
+
+func NewDefaultPrecedenceList() *PrecedenceList {
+	precedenceListType := new(PrecedenceList)
+	return precedenceListType
 }
 
 type PrecedenceListType struct {
@@ -2725,6 +3705,16 @@ type PrecedenceListType struct {
 	VlanPrecedence []*VlanPrecedenceItem `json:"vlanPrecedence,omitempty"`
 }
 
+func NewPrecedenceListType() *PrecedenceListType {
+	precedenceListTypeType := new(PrecedenceListType)
+	return precedenceListTypeType
+}
+
+func NewDefaultPrecedenceListType() *PrecedenceListType {
+	precedenceListTypeType := new(PrecedenceListType)
+	return precedenceListTypeType
+}
+
 type ProfileCloneRequest struct {
 	// NewId
 	// name for new profile
@@ -2741,6 +3731,16 @@ type ProfileCloneRequest struct {
 	// OldName
 	// original name
 	OldName *string `json:"oldName,omitempty"`
+}
+
+func NewProfileCloneRequest() *ProfileCloneRequest {
+	profileCloneRequestType := new(ProfileCloneRequest)
+	return profileCloneRequestType
+}
+
+func NewDefaultProfileCloneRequest() *ProfileCloneRequest {
+	profileCloneRequestType := new(ProfileCloneRequest)
+	return profileCloneRequestType
 }
 
 type ProfileCloneResponse struct {
@@ -2783,12 +3783,32 @@ type ProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewProfileList() *ProfileList {
+	profileListType := new(ProfileList)
+	return profileListType
+}
+
+func NewDefaultProfileList() *ProfileList {
+	profileListType := new(ProfileList)
+	return profileListType
+}
+
 type ProfileListType struct {
 	// Id
 	// Identifier of the profile
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewProfileListType() *ProfileListType {
+	profileListTypeType := new(ProfileListType)
+	return profileListTypeType
+}
+
+func NewDefaultProfileListType() *ProfileListType {
+	profileListTypeType := new(ProfileListType)
+	return profileListTypeType
 }
 
 type ProviderAccounting struct {
@@ -2811,6 +3831,16 @@ type ProviderAccounting struct {
 	//    - required
 	//    - oneof:[NA,RADIUS,CGF]
 	ServiceType *string `json:"serviceType" validate:"required,oneof=NA RADIUS CGF"`
+}
+
+func NewProviderAccounting() *ProviderAccounting {
+	providerAccountingType := new(ProviderAccounting)
+	return providerAccountingType
+}
+
+func NewDefaultProviderAccounting() *ProviderAccounting {
+	providerAccountingType := new(ProviderAccounting)
+	return providerAccountingType
 }
 
 type ProviderAuthentication struct {
@@ -2843,6 +3873,16 @@ type ProviderAuthentication struct {
 	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4094"`
 }
 
+func NewProviderAuthentication() *ProviderAuthentication {
+	providerAuthenticationType := new(ProviderAuthentication)
+	return providerAuthenticationType
+}
+
+func NewDefaultProviderAuthentication() *ProviderAuthentication {
+	providerAuthenticationType := new(ProviderAuthentication)
+	return providerAuthenticationType
+}
+
 type ProviderEAPAuthSetting struct {
 	// Info
 	// EAP auth info
@@ -2872,6 +3912,16 @@ type ProviderEAPAuthSetting struct {
 	VendorType *int `json:"vendorType,omitempty" validate:"omitempty,gte=0,lte=4294967295"`
 }
 
+func NewProviderEAPAuthSetting() *ProviderEAPAuthSetting {
+	providerEAPAuthSettingType := new(ProviderEAPAuthSetting)
+	return providerEAPAuthSettingType
+}
+
+func NewDefaultProviderEAPAuthSetting() *ProviderEAPAuthSetting {
+	providerEAPAuthSettingType := new(ProviderEAPAuthSetting)
+	return providerEAPAuthSettingType
+}
+
 type ProviderEAPMethod struct {
 	// AuthSettings
 	// EAP method auth settings
@@ -2883,6 +3933,16 @@ type ProviderEAPMethod struct {
 	//    - required
 	//    - oneof:[NA,MD5,EAP_TLS,EAP_Cisco,EAP_SIM,EAP_TTLS,EAP_AKA,PEAP,EAP_MSCHAP_V2,EAP_AKAs,Reserved]
 	Type *string `json:"type" validate:"required,oneof=NA MD5 EAP_TLS EAP_Cisco EAP_SIM EAP_TTLS EAP_AKA PEAP EAP_MSCHAP_V2 EAP_AKAs Reserved"`
+}
+
+func NewProviderEAPMethod() *ProviderEAPMethod {
+	providerEAPMethodType := new(ProviderEAPMethod)
+	return providerEAPMethodType
+}
+
+func NewDefaultProviderEAPMethod() *ProviderEAPMethod {
+	providerEAPMethodType := new(ProviderEAPMethod)
+	return providerEAPMethodType
 }
 
 type ProviderExternalOSU struct {
@@ -2920,6 +3980,16 @@ type ProviderExternalOSU struct {
 	WhitelistedDomains []common.WildFQDN `json:"whitelistedDomains,omitempty"`
 }
 
+func NewProviderExternalOSU() *ProviderExternalOSU {
+	providerExternalOSUType := new(ProviderExternalOSU)
+	return providerExternalOSUType
+}
+
+func NewDefaultProviderExternalOSU() *ProviderExternalOSU {
+	providerExternalOSUType := new(ProviderExternalOSU)
+	return providerExternalOSUType
+}
+
 type ProviderHomeOIs struct {
 	// Name
 	// Name of the home OI
@@ -2933,6 +4003,16 @@ type ProviderHomeOIs struct {
 	// Constraints:
 	//    - required
 	Oi *string `json:"oi" validate:"required"`
+}
+
+func NewProviderHomeOIs() *ProviderHomeOIs {
+	providerHomeOIsType := new(ProviderHomeOIs)
+	return providerHomeOIsType
+}
+
+func NewDefaultProviderHomeOIs() *ProviderHomeOIs {
+	providerHomeOIsType := new(ProviderHomeOIs)
+	return providerHomeOIsType
 }
 
 type ProviderInternalOSU struct {
@@ -2989,6 +4069,16 @@ type ProviderInternalOSU struct {
 	WhitelistedDomains []common.WildFQDN `json:"whitelistedDomains,omitempty"`
 }
 
+func NewProviderInternalOSU() *ProviderInternalOSU {
+	providerInternalOSUType := new(ProviderInternalOSU)
+	return providerInternalOSUType
+}
+
+func NewDefaultProviderInternalOSU() *ProviderInternalOSU {
+	providerInternalOSUType := new(ProviderInternalOSU)
+	return providerInternalOSUType
+}
+
 type ProviderInternalOSUOsuAuthServicesType struct {
 	// CredentialType
 	// Authentication credential type
@@ -3019,6 +4109,16 @@ type ProviderInternalOSUOsuAuthServicesType struct {
 	Realm *common.Realm `json:"realm" validate:"required"`
 }
 
+func NewProviderInternalOSUOsuAuthServicesType() *ProviderInternalOSUOsuAuthServicesType {
+	providerInternalOSUOsuAuthServicesTypeType := new(ProviderInternalOSUOsuAuthServicesType)
+	return providerInternalOSUOsuAuthServicesTypeType
+}
+
+func NewDefaultProviderInternalOSUOsuAuthServicesType() *ProviderInternalOSUOsuAuthServicesType {
+	providerInternalOSUOsuAuthServicesTypeType := new(ProviderInternalOSUOsuAuthServicesType)
+	return providerInternalOSUOsuAuthServicesTypeType
+}
+
 type ProviderInternalOSUOsuPortalType struct {
 	ExternalUrl *common.HTTPS `json:"externalUrl,omitempty"`
 
@@ -3032,6 +4132,16 @@ type ProviderInternalOSUOsuPortalType struct {
 	Type *string `json:"type" validate:"required,oneof=Internal External"`
 }
 
+func NewProviderInternalOSUOsuPortalType() *ProviderInternalOSUOsuPortalType {
+	providerInternalOSUOsuPortalTypeType := new(ProviderInternalOSUOsuPortalType)
+	return providerInternalOSUOsuPortalTypeType
+}
+
+func NewDefaultProviderInternalOSUOsuPortalType() *ProviderInternalOSUOsuPortalType {
+	providerInternalOSUOsuPortalTypeType := new(ProviderInternalOSUOsuPortalType)
+	return providerInternalOSUOsuPortalTypeType
+}
+
 type ProviderOnlineSignup struct {
 	ExternalOSU *ProviderExternalOSU `json:"externalOSU,omitempty"`
 
@@ -3043,6 +4153,16 @@ type ProviderOnlineSignup struct {
 	//    - required
 	//    - oneof:[Internal,External]
 	Type *string `json:"type" validate:"required,oneof=Internal External"`
+}
+
+func NewProviderOnlineSignup() *ProviderOnlineSignup {
+	providerOnlineSignupType := new(ProviderOnlineSignup)
+	return providerOnlineSignupType
+}
+
+func NewDefaultProviderOnlineSignup() *ProviderOnlineSignup {
+	providerOnlineSignupType := new(ProviderOnlineSignup)
+	return providerOnlineSignupType
 }
 
 type ProviderPLMN struct {
@@ -3059,7 +4179,27 @@ type ProviderPLMN struct {
 	Mnc *string `json:"mnc" validate:"required"`
 }
 
+func NewProviderPLMN() *ProviderPLMN {
+	providerPLMNType := new(ProviderPLMN)
+	return providerPLMNType
+}
+
+func NewDefaultProviderPLMN() *ProviderPLMN {
+	providerPLMNType := new(ProviderPLMN)
+	return providerPLMNType
+}
+
 type ProviderProvisionProtocal string
+
+func NewProviderProvisionProtocal() *ProviderProvisionProtocal {
+	providerProvisionProtocalType := new(ProviderProvisionProtocal)
+	return providerProvisionProtocalType
+}
+
+func NewDefaultProviderProvisionProtocal() *ProviderProvisionProtocal {
+	providerProvisionProtocalType := new(ProviderProvisionProtocal)
+	return providerProvisionProtocalType
+}
 
 type ProviderRealm struct {
 	// EapMethods
@@ -3082,6 +4222,16 @@ type ProviderRealm struct {
 	//    - max:243
 	//    - min:2
 	Name *string `json:"name" validate:"required,max=243,min=2"`
+}
+
+func NewProviderRealm() *ProviderRealm {
+	providerRealmType := new(ProviderRealm)
+	return providerRealmType
+}
+
+func NewDefaultProviderRealm() *ProviderRealm {
+	providerRealmType := new(ProviderRealm)
+	return providerRealmType
 }
 
 type ProviderSubscriptionDescription struct {
@@ -3110,6 +4260,16 @@ type ProviderSubscriptionDescription struct {
 	Name *string `json:"name" validate:"required,max=252,min=2"`
 }
 
+func NewProviderSubscriptionDescription() *ProviderSubscriptionDescription {
+	providerSubscriptionDescriptionType := new(ProviderSubscriptionDescription)
+	return providerSubscriptionDescriptionType
+}
+
+func NewDefaultProviderSubscriptionDescription() *ProviderSubscriptionDescription {
+	providerSubscriptionDescriptionType := new(ProviderSubscriptionDescription)
+	return providerSubscriptionDescriptionType
+}
+
 // RateLimitingPrecedenceItem
 //
 // Rate limiting precedence item
@@ -3124,6 +4284,16 @@ type RateLimitingPrecedenceItem struct {
 	// Priority
 	// Priority
 	Priority *int `json:"priority,omitempty"`
+}
+
+func NewRateLimitingPrecedenceItem() *RateLimitingPrecedenceItem {
+	rateLimitingPrecedenceItemType := new(RateLimitingPrecedenceItem)
+	return rateLimitingPrecedenceItemType
+}
+
+func NewDefaultRateLimitingPrecedenceItem() *RateLimitingPrecedenceItem {
+	rateLimitingPrecedenceItemType := new(RateLimitingPrecedenceItem)
+	return rateLimitingPrecedenceItemType
 }
 
 // RealmAuthServiceMapping
@@ -3166,6 +4336,16 @@ type RealmAuthServiceMapping struct {
 	//    - required
 	//    - oneof:[NA,RADIUS,LOCAL_DB,HLR,AD,LDAP]
 	ServiceType *string `json:"serviceType" validate:"required,oneof=NA RADIUS LOCAL_DB HLR AD LDAP"`
+}
+
+func NewRealmAuthServiceMapping() *RealmAuthServiceMapping {
+	realmAuthServiceMappingType := new(RealmAuthServiceMapping)
+	return realmAuthServiceMappingType
+}
+
+func NewDefaultRealmAuthServiceMapping() *RealmAuthServiceMapping {
+	realmAuthServiceMappingType := new(RealmAuthServiceMapping)
+	return realmAuthServiceMappingType
 }
 
 type ReturnZoneAffinityProfile struct {
@@ -3222,6 +4402,16 @@ type ReturnZoneAffinityProfile struct {
 	ZoneAffinityListWithPriority []*ReturnZoneAffinityProfileZoneAffinityListWithPriorityType `json:"zoneAffinityListWithPriority,omitempty"`
 }
 
+func NewReturnZoneAffinityProfile() *ReturnZoneAffinityProfile {
+	returnZoneAffinityProfileType := new(ReturnZoneAffinityProfile)
+	return returnZoneAffinityProfileType
+}
+
+func NewDefaultReturnZoneAffinityProfile() *ReturnZoneAffinityProfile {
+	returnZoneAffinityProfileType := new(ReturnZoneAffinityProfile)
+	return returnZoneAffinityProfileType
+}
+
 type ReturnZoneAffinityProfileZoneAffinityListWithPriorityType struct {
 	// DpId
 	// DP ID
@@ -3230,6 +4420,16 @@ type ReturnZoneAffinityProfileZoneAffinityListWithPriorityType struct {
 	// Priority
 	// The priority of DP in zone affinity
 	Priority *float64 `json:"priority,omitempty"`
+}
+
+func NewReturnZoneAffinityProfileZoneAffinityListWithPriorityType() *ReturnZoneAffinityProfileZoneAffinityListWithPriorityType {
+	returnZoneAffinityProfileZoneAffinityListWithPriorityTypeType := new(ReturnZoneAffinityProfileZoneAffinityListWithPriorityType)
+	return returnZoneAffinityProfileZoneAffinityListWithPriorityTypeType
+}
+
+func NewDefaultReturnZoneAffinityProfileZoneAffinityListWithPriorityType() *ReturnZoneAffinityProfileZoneAffinityListWithPriorityType {
+	returnZoneAffinityProfileZoneAffinityListWithPriorityTypeType := new(ReturnZoneAffinityProfileZoneAffinityListWithPriorityType)
+	return returnZoneAffinityProfileZoneAffinityListWithPriorityTypeType
 }
 
 type RogueApPolicy struct {
@@ -3256,6 +4456,16 @@ type RogueApPolicy struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewRogueApPolicy() *RogueApPolicy {
+	rogueApPolicyType := new(RogueApPolicy)
+	return rogueApPolicyType
+}
+
+func NewDefaultRogueApPolicy() *RogueApPolicy {
+	rogueApPolicyType := new(RogueApPolicy)
+	return rogueApPolicyType
+}
+
 type RogueApPolicyList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -3264,6 +4474,16 @@ type RogueApPolicyList struct {
 	List []*RogueApPolicy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewRogueApPolicyList() *RogueApPolicyList {
+	rogueApPolicyListType := new(RogueApPolicyList)
+	return rogueApPolicyListType
+}
+
+func NewDefaultRogueApPolicyList() *RogueApPolicyList {
+	rogueApPolicyListType := new(RogueApPolicyList)
+	return rogueApPolicyListType
 }
 
 type RogueApRuleList struct {
@@ -3292,6 +4512,16 @@ type RogueApRuleList struct {
 	Value interface{} `json:"value,omitempty"`
 }
 
+func NewRogueApRuleList() *RogueApRuleList {
+	rogueApRuleListType := new(RogueApRuleList)
+	return rogueApRuleListType
+}
+
+func NewDefaultRogueApRuleList() *RogueApRuleList {
+	rogueApRuleListType := new(RogueApRuleList)
+	return rogueApRuleListType
+}
+
 type RtlsProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -3302,6 +4532,16 @@ type RtlsProfileList struct {
 	List []*CreateRtlsProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewRtlsProfileList() *RtlsProfileList {
+	rtlsProfileListType := new(RtlsProfileList)
+	return rtlsProfileListType
+}
+
+func NewDefaultRtlsProfileList() *RtlsProfileList {
+	rtlsProfileListType := new(RtlsProfileList)
+	return rtlsProfileListType
 }
 
 type RuckusGREProfile struct {
@@ -3367,6 +4607,16 @@ type RuckusGREProfile struct {
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty"`
 }
 
+func NewRuckusGREProfile() *RuckusGREProfile {
+	ruckusGREProfileType := new(RuckusGREProfile)
+	return ruckusGREProfileType
+}
+
+func NewDefaultRuckusGREProfile() *RuckusGREProfile {
+	ruckusGREProfileType := new(RuckusGREProfile)
+	return ruckusGREProfileType
+}
+
 type RuckusGREProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -3377,6 +4627,16 @@ type RuckusGREProfileList struct {
 	List []*RuckusGREProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewRuckusGREProfileList() *RuckusGREProfileList {
+	ruckusGREProfileListType := new(RuckusGREProfileList)
+	return ruckusGREProfileListType
+}
+
+func NewDefaultRuckusGREProfileList() *RuckusGREProfileList {
+	ruckusGREProfileListType := new(RuckusGREProfileList)
+	return ruckusGREProfileListType
 }
 
 type SoftGREProfile struct {
@@ -3450,6 +4710,16 @@ type SoftGREProfile struct {
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty"`
 }
 
+func NewSoftGREProfile() *SoftGREProfile {
+	softGREProfileType := new(SoftGREProfile)
+	return softGREProfileType
+}
+
+func NewDefaultSoftGREProfile() *SoftGREProfile {
+	softGREProfileType := new(SoftGREProfile)
+	return softGREProfileType
+}
+
 type SoftGREProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -3460,6 +4730,16 @@ type SoftGREProfileList struct {
 	List []*SoftGREProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSoftGREProfileList() *SoftGREProfileList {
+	softGREProfileListType := new(SoftGREProfileList)
+	return softGREProfileListType
+}
+
+func NewDefaultSoftGREProfileList() *SoftGREProfileList {
+	softGREProfileListType := new(SoftGREProfileList)
+	return softGREProfileListType
 }
 
 type TrafficClassProfileList struct {
@@ -3496,6 +4776,16 @@ type TrafficClassProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewTrafficClassProfileList() *TrafficClassProfileList {
+	trafficClassProfileListType := new(TrafficClassProfileList)
+	return trafficClassProfileListType
+}
+
+func NewDefaultTrafficClassProfileList() *TrafficClassProfileList {
+	trafficClassProfileListType := new(TrafficClassProfileList)
+	return trafficClassProfileListType
+}
+
 // TtgCommonSetting
 //
 // Hosted AAA server RADIUS settings & PLMN ID settings
@@ -3517,6 +4807,16 @@ type TtgCommonSetting struct {
 	MobileNetworkCode *string `json:"mobileNetworkCode,omitempty" validate:"omitempty,max=3,min=2"`
 }
 
+func NewTtgCommonSetting() *TtgCommonSetting {
+	ttgCommonSettingType := new(TtgCommonSetting)
+	return ttgCommonSettingType
+}
+
+func NewDefaultTtgCommonSetting() *TtgCommonSetting {
+	ttgCommonSettingType := new(TtgCommonSetting)
+	return ttgCommonSettingType
+}
+
 type TtgpdgApnForwardingRealm struct {
 	// Apn
 	// the forwarding policy APN, if apnType is NIOI, APN Example : internet-v4.mnc111.mcc222.gprs
@@ -3535,6 +4835,16 @@ type TtgpdgApnForwardingRealm struct {
 	//    - nullable
 	//    - oneof:[GTPv1,GTPv2,PDG]
 	RouteType *string `json:"routeType,omitempty" validate:"omitempty,oneof=GTPv1 GTPv2 PDG"`
+}
+
+func NewTtgpdgApnForwardingRealm() *TtgpdgApnForwardingRealm {
+	ttgpdgApnForwardingRealmType := new(TtgpdgApnForwardingRealm)
+	return ttgpdgApnForwardingRealmType
+}
+
+func NewDefaultTtgpdgApnForwardingRealm() *TtgpdgApnForwardingRealm {
+	ttgpdgApnForwardingRealmType := new(TtgpdgApnForwardingRealm)
+	return ttgpdgApnForwardingRealmType
 }
 
 type TtgpdgCommonSetting struct {
@@ -3560,6 +4870,16 @@ type TtgpdgCommonSetting struct {
 	// PdgUeIdleTimeout
 	// PDG UE session idle timeout(secs) of TTG PDG common setting
 	PdgUeIdleTimeout *int `json:"pdgUeIdleTimeout,omitempty"`
+}
+
+func NewTtgpdgCommonSetting() *TtgpdgCommonSetting {
+	ttgpdgCommonSettingType := new(TtgpdgCommonSetting)
+	return ttgpdgCommonSettingType
+}
+
+func NewDefaultTtgpdgCommonSetting() *TtgpdgCommonSetting {
+	ttgpdgCommonSettingType := new(TtgpdgCommonSetting)
+	return ttgpdgCommonSettingType
 }
 
 type TtgpdgProfile struct {
@@ -3620,6 +4940,16 @@ type TtgpdgProfile struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
+func NewTtgpdgProfile() *TtgpdgProfile {
+	ttgpdgProfileType := new(TtgpdgProfile)
+	return ttgpdgProfileType
+}
+
+func NewDefaultTtgpdgProfile() *TtgpdgProfile {
+	ttgpdgProfileType := new(TtgpdgProfile)
+	return ttgpdgProfileType
+}
+
 type TtgpdgProfileConfiguration struct {
 	// ApnForwardingRealms
 	// List of the APN Forwarding Policy Per Realm
@@ -3650,6 +4980,16 @@ type TtgpdgProfileConfiguration struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
+func NewTtgpdgProfileConfiguration() *TtgpdgProfileConfiguration {
+	ttgpdgProfileConfigurationType := new(TtgpdgProfileConfiguration)
+	return ttgpdgProfileConfigurationType
+}
+
+func NewDefaultTtgpdgProfileConfiguration() *TtgpdgProfileConfiguration {
+	ttgpdgProfileConfigurationType := new(TtgpdgProfileConfiguration)
+	return ttgpdgProfileConfigurationType
+}
+
 type TtgpdgProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -3662,10 +5002,30 @@ type TtgpdgProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewTtgpdgProfileList() *TtgpdgProfileList {
+	ttgpdgProfileListType := new(TtgpdgProfileList)
+	return ttgpdgProfileListType
+}
+
+func NewDefaultTtgpdgProfileList() *TtgpdgProfileList {
+	ttgpdgProfileListType := new(TtgpdgProfileList)
+	return ttgpdgProfileListType
+}
+
 type UpdateL3RoamingConfig struct {
 	// DataPlanes
 	// L3 roaming configuration for DPs
 	DataPlanes []*DataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
+}
+
+func NewUpdateL3RoamingConfig() *UpdateL3RoamingConfig {
+	updateL3RoamingConfigType := new(UpdateL3RoamingConfig)
+	return updateL3RoamingConfigType
+}
+
+func NewDefaultUpdateL3RoamingConfig() *UpdateL3RoamingConfig {
+	updateL3RoamingConfigType := new(UpdateL3RoamingConfig)
+	return updateL3RoamingConfigType
 }
 
 type UpdatePrecedenceProfile struct {
@@ -3684,12 +5044,32 @@ type UpdatePrecedenceProfile struct {
 	VlanPrecedence []*VlanPrecedenceItem `json:"vlanPrecedence,omitempty"`
 }
 
+func NewUpdatePrecedenceProfile() *UpdatePrecedenceProfile {
+	updatePrecedenceProfileType := new(UpdatePrecedenceProfile)
+	return updatePrecedenceProfileType
+}
+
+func NewDefaultUpdatePrecedenceProfile() *UpdatePrecedenceProfile {
+	updatePrecedenceProfileType := new(UpdatePrecedenceProfile)
+	return updatePrecedenceProfileType
+}
+
 type UpdateRogueApPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
 
 	Rules []*RogueApRuleList `json:"rules,omitempty"`
+}
+
+func NewUpdateRogueApPolicy() *UpdateRogueApPolicy {
+	updateRogueApPolicyType := new(UpdateRogueApPolicy)
+	return updateRogueApPolicyType
+}
+
+func NewDefaultUpdateRogueApPolicy() *UpdateRogueApPolicy {
+	updateRogueApPolicyType := new(UpdateRogueApPolicy)
+	return updateRogueApPolicyType
 }
 
 type UpdateRtlsProfile struct {
@@ -3704,6 +5084,16 @@ type UpdateRtlsProfile struct {
 	StanleyEnabled *bool `json:"stanleyEnabled,omitempty"`
 }
 
+func NewUpdateRtlsProfile() *UpdateRtlsProfile {
+	updateRtlsProfileType := new(UpdateRtlsProfile)
+	return updateRtlsProfileType
+}
+
+func NewDefaultUpdateRtlsProfile() *UpdateRtlsProfile {
+	updateRtlsProfileType := new(UpdateRtlsProfile)
+	return updateRtlsProfileType
+}
+
 type UplinkRateLimiting struct {
 	// UplinkRateLimitingBps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
@@ -3712,6 +5102,18 @@ type UplinkRateLimiting struct {
 	// UplinkRateLimitingEnabled
 	// Uplink rate limiting enabled or disabled
 	UplinkRateLimitingEnabled *bool `json:"uplinkRateLimitingEnabled,omitempty"`
+}
+
+func NewUplinkRateLimiting() *UplinkRateLimiting {
+	uplinkRateLimitingType := new(UplinkRateLimiting)
+	return uplinkRateLimitingType
+}
+
+func NewDefaultUplinkRateLimiting() *UplinkRateLimiting {
+	uplinkRateLimitingType := new(UplinkRateLimiting)
+	uplinkRateLimitingEnabledField := false
+	uplinkRateLimitingType.UplinkRateLimitingEnabled = &uplinkRateLimitingEnabledField
+	return uplinkRateLimitingType
 }
 
 type UserTrafficProfile struct {
@@ -3788,6 +5190,18 @@ type UserTrafficProfile struct {
 	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
 }
 
+func NewUserTrafficProfile() *UserTrafficProfile {
+	userTrafficProfileType := new(UserTrafficProfile)
+	return userTrafficProfileType
+}
+
+func NewDefaultUserTrafficProfile() *UserTrafficProfile {
+	userTrafficProfileType := new(UserTrafficProfile)
+	defaultActionField := `ALLOW`
+	userTrafficProfileType.DefaultAction = &defaultActionField
+	return userTrafficProfileType
+}
+
 type UserTrafficProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -3798,6 +5212,16 @@ type UserTrafficProfileList struct {
 	List []*UserTrafficProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewUserTrafficProfileList() *UserTrafficProfileList {
+	userTrafficProfileListType := new(UserTrafficProfileList)
+	return userTrafficProfileListType
+}
+
+func NewDefaultUserTrafficProfileList() *UserTrafficProfileList {
+	userTrafficProfileListType := new(UserTrafficProfileList)
+	return userTrafficProfileListType
 }
 
 type VdpProfile struct {
@@ -3898,6 +5322,16 @@ type VdpProfile struct {
 	Uptime *string `json:"uptime,omitempty"`
 }
 
+func NewVdpProfile() *VdpProfile {
+	vdpProfileType := new(VdpProfile)
+	return vdpProfileType
+}
+
+func NewDefaultVdpProfile() *VdpProfile {
+	vdpProfileType := new(VdpProfile)
+	return vdpProfileType
+}
+
 // VlanPrecedenceItem
 //
 // Vlan precedence item
@@ -3914,6 +5348,26 @@ type VlanPrecedenceItem struct {
 	Priority *int `json:"priority,omitempty"`
 }
 
+func NewVlanPrecedenceItem() *VlanPrecedenceItem {
+	vlanPrecedenceItemType := new(VlanPrecedenceItem)
+	return vlanPrecedenceItemType
+}
+
+func NewDefaultVlanPrecedenceItem() *VlanPrecedenceItem {
+	vlanPrecedenceItemType := new(VlanPrecedenceItem)
+	return vlanPrecedenceItemType
+}
+
 type ZoneAffinityProfileList struct {
 	List []*ReturnZoneAffinityProfile `json:"list,omitempty"`
+}
+
+func NewZoneAffinityProfileList() *ZoneAffinityProfileList {
+	zoneAffinityProfileListType := new(ZoneAffinityProfileList)
+	return zoneAffinityProfileListType
+}
+
+func NewDefaultZoneAffinityProfileList() *ZoneAffinityProfileList {
+	zoneAffinityProfileListType := new(ZoneAffinityProfileList)
+	return zoneAffinityProfileListType
 }

@@ -31,7 +31,27 @@ type Create struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=STATIC DYNAMIC"`
 }
 
+func NewCreate() *Create {
+	createType := new(Create)
+	return createType
+}
+
+func NewDefaultCreate() *Create {
+	createType := new(Create)
+	return createType
+}
+
 type CreateResult interface{}
+
+func NewCreateResult() *CreateResult {
+	createResultType := new(CreateResult)
+	return createResultType
+}
+
+func NewDefaultCreateResult() *CreateResult {
+	createResultType := new(CreateResult)
+	return createResultType
+}
 
 type EmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -51,6 +71,16 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
 }
 
 type LagConfig struct {
@@ -90,6 +120,16 @@ type LagConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewLagConfig() *LagConfig {
+	lagConfigType := new(LagConfig)
+	return lagConfigType
+}
+
+func NewDefaultLagConfig() *LagConfig {
+	lagConfigType := new(LagConfig)
+	return lagConfigType
+}
+
 type List struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -108,6 +148,16 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewList() *List {
+	listType := new(List)
+	return listType
+}
+
+func NewDefaultList() *List {
+	listType := new(List)
+	return listType
+}
+
 type Modify struct {
 	// Name
 	// The Name of LAG Config
@@ -116,4 +166,14 @@ type Modify struct {
 	// Ports
 	// The Switch ports would like to join together
 	Ports []string `json:"ports,omitempty"`
+}
+
+func NewModify() *Modify {
+	modifyType := new(Modify)
+	return modifyType
+}
+
+func NewDefaultModify() *Modify {
+	modifyType := new(Modify)
+	return modifyType
 }

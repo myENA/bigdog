@@ -48,6 +48,16 @@ type MeshNeighborInfo struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewMeshNeighborInfo() *MeshNeighborInfo {
+	meshNeighborInfoType := new(MeshNeighborInfo)
+	return meshNeighborInfoType
+}
+
+func NewDefaultMeshNeighborInfo() *MeshNeighborInfo {
+	meshNeighborInfoType := new(MeshNeighborInfo)
+	return meshNeighborInfoType
+}
+
 type MeshNeighborInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -72,6 +82,16 @@ type MeshNeighborInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewMeshNeighborInfoList() *MeshNeighborInfoList {
+	meshNeighborInfoListType := new(MeshNeighborInfoList)
+	return meshNeighborInfoListType
+}
+
+func NewDefaultMeshNeighborInfoList() *MeshNeighborInfoList {
+	meshNeighborInfoListType := new(MeshNeighborInfoList)
+	return meshNeighborInfoListType
+}
+
 // MeshNeighborInfoListExtraType
 //
 // Any additional response data.
@@ -93,4 +113,14 @@ func (t *MeshNeighborInfoListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewMeshNeighborInfoListExtraType() *MeshNeighborInfoListExtraType {
+	meshNeighborInfoListExtraTypeType := new(MeshNeighborInfoListExtraType)
+	return meshNeighborInfoListExtraTypeType
+}
+
+func NewDefaultMeshNeighborInfoListExtraType() *MeshNeighborInfoListExtraType {
+	meshNeighborInfoListExtraTypeType := new(MeshNeighborInfoListExtraType)
+	return meshNeighborInfoListExtraTypeType
 }

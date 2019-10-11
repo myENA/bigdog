@@ -52,7 +52,27 @@ type Create struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+func NewCreate() *Create {
+	createType := new(Create)
+	return createType
+}
+
+func NewDefaultCreate() *Create {
+	createType := new(Create)
+	return createType
+}
+
 type CreateResult interface{}
+
+func NewCreateResult() *CreateResult {
+	createResultType := new(CreateResult)
+	return createResultType
+}
+
+func NewDefaultCreateResult() *CreateResult {
+	createResultType := new(CreateResult)
+	return createResultType
+}
 
 type EmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -74,6 +94,16 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
 type List struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -90,6 +120,16 @@ type List struct {
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewList() *List {
+	listType := new(List)
+	return listType
+}
+
+func NewDefaultList() *List {
+	listType := new(List)
+	return listType
 }
 
 type Modify struct {
@@ -128,6 +168,16 @@ type Modify struct {
 	// VlanId
 	// VLAN ID
 	VlanId *int `json:"vlanId,omitempty"`
+}
+
+func NewModify() *Modify {
+	modifyType := new(Modify)
+	return modifyType
+}
+
+func NewDefaultModify() *Modify {
+	modifyType := new(Modify)
+	return modifyType
 }
 
 type VeConfig struct {
@@ -198,4 +248,14 @@ type VeConfig struct {
 	// VlanId
 	// VLAN ID
 	VlanId *int `json:"vlanId,omitempty"`
+}
+
+func NewVeConfig() *VeConfig {
+	veConfigType := new(VeConfig)
+	return veConfigType
+}
+
+func NewDefaultVeConfig() *VeConfig {
+	veConfigType := new(VeConfig)
+	return veConfigType
 }

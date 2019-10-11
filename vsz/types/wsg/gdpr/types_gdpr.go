@@ -35,6 +35,16 @@ type Ftp struct {
 	FtpUserName *string `json:"ftpUserName,omitempty"`
 }
 
+func NewFtp() *Ftp {
+	ftpType := new(Ftp)
+	return ftpType
+}
+
+func NewDefaultFtp() *Ftp {
+	ftpType := new(Ftp)
+	return ftpType
+}
+
 type Report struct {
 	// Action
 	// Request action
@@ -48,4 +58,14 @@ type Report struct {
 	ClientMac *string `json:"clientMac,omitempty"`
 
 	Ftp *Ftp `json:"ftp,omitempty"`
+}
+
+func NewReport() *Report {
+	reportType := new(Report)
+	return reportType
+}
+
+func NewDefaultReport() *Report {
+	reportType := new(Report)
+	return reportType
 }

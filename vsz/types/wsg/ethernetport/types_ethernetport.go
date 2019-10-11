@@ -79,6 +79,24 @@ type CreateEthernetPortProfile struct {
 	X8021X *apmodel.LanPort8021X `json:"_8021X" validate:"required"`
 }
 
+func NewCreateEthernetPortProfile() *CreateEthernetPortProfile {
+	createEthernetPortProfileType := new(CreateEthernetPortProfile)
+	return createEthernetPortProfileType
+}
+
+func NewDefaultCreateEthernetPortProfile() *CreateEthernetPortProfile {
+	createEthernetPortProfileType := new(CreateEthernetPortProfile)
+	antiSpoofingEnabledField := false
+	createEthernetPortProfileType.AntiSpoofingEnabled = &antiSpoofingEnabledField
+	tunnelEnabledField := false
+	createEthernetPortProfileType.TunnelEnabled = &tunnelEnabledField
+	typeField := `TrunkPort`
+	createEthernetPortProfileType.Type = &typeField
+	untagIdField := 1
+	createEthernetPortProfileType.UntagId = &untagIdField
+	return createEthernetPortProfileType
+}
+
 type EthernetPortProfile struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
@@ -147,6 +165,16 @@ type EthernetPortProfile struct {
 	X8021X *apmodel.LanPort8021X `json:"_8021X,omitempty"`
 }
 
+func NewEthernetPortProfile() *EthernetPortProfile {
+	ethernetPortProfileType := new(EthernetPortProfile)
+	return ethernetPortProfileType
+}
+
+func NewDefaultEthernetPortProfile() *EthernetPortProfile {
+	ethernetPortProfileType := new(EthernetPortProfile)
+	return ethernetPortProfileType
+}
+
 type ModifyEthernetPortProfile struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
@@ -205,6 +233,18 @@ type ModifyEthernetPortProfile struct {
 	X8021X *apmodel.LanPort8021X `json:"_8021X,omitempty"`
 }
 
+func NewModifyEthernetPortProfile() *ModifyEthernetPortProfile {
+	modifyEthernetPortProfileType := new(ModifyEthernetPortProfile)
+	return modifyEthernetPortProfileType
+}
+
+func NewDefaultModifyEthernetPortProfile() *ModifyEthernetPortProfile {
+	modifyEthernetPortProfileType := new(ModifyEthernetPortProfile)
+	arpRequestRateLimitField := 15
+	modifyEthernetPortProfileType.ArpRequestRateLimit = &arpRequestRateLimitField
+	return modifyEthernetPortProfileType
+}
+
 type ProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -215,10 +255,30 @@ type ProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewProfileList() *ProfileList {
+	profileListType := new(ProfileList)
+	return profileListType
+}
+
+func NewDefaultProfileList() *ProfileList {
+	profileListType := new(ProfileList)
+	return profileListType
+}
+
 type ProfileListType struct {
 	// Id
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewProfileListType() *ProfileListType {
+	profileListTypeType := new(ProfileListType)
+	return profileListTypeType
+}
+
+func NewDefaultProfileListType() *ProfileListType {
+	profileListTypeType := new(ProfileListType)
+	return profileListTypeType
 }

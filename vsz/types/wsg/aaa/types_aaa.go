@@ -84,6 +84,16 @@ type ActiveDirectory struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewActiveDirectory() *ActiveDirectory {
+	activeDirectoryType := new(ActiveDirectory)
+	return activeDirectoryType
+}
+
+func NewDefaultActiveDirectory() *ActiveDirectory {
+	activeDirectoryType := new(ActiveDirectory)
+	return activeDirectoryType
+}
+
 type ActiveDirectoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -92,6 +102,16 @@ type ActiveDirectoryList struct {
 	List []*ActiveDirectory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewActiveDirectoryList() *ActiveDirectoryList {
+	activeDirectoryListType := new(ActiveDirectoryList)
+	return activeDirectoryListType
+}
+
+func NewDefaultActiveDirectoryList() *ActiveDirectoryList {
+	activeDirectoryListType := new(ActiveDirectoryList)
+	return activeDirectoryListType
 }
 
 type AuthenticationServer struct {
@@ -130,6 +150,16 @@ type AuthenticationServer struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewAuthenticationServer() *AuthenticationServer {
+	authenticationServerType := new(AuthenticationServer)
+	return authenticationServerType
+}
+
+func NewDefaultAuthenticationServer() *AuthenticationServer {
+	authenticationServerType := new(AuthenticationServer)
+	return authenticationServerType
+}
+
 type AuthenticationServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -138,6 +168,16 @@ type AuthenticationServerList struct {
 	List []*AuthenticationServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewAuthenticationServerList() *AuthenticationServerList {
+	authenticationServerListType := new(AuthenticationServerList)
+	return authenticationServerListType
+}
+
+func NewDefaultAuthenticationServerList() *AuthenticationServerList {
+	authenticationServerListType := new(AuthenticationServerList)
+	return authenticationServerListType
 }
 
 type CreateActiveDirectoryServer struct {
@@ -209,6 +249,20 @@ type CreateActiveDirectoryServer struct {
 	WindowsDomainName *common.NormalNameAllowBlank `json:"windowsDomainName,omitempty"`
 }
 
+func NewCreateActiveDirectoryServer() *CreateActiveDirectoryServer {
+	createActiveDirectoryServerType := new(CreateActiveDirectoryServer)
+	return createActiveDirectoryServerType
+}
+
+func NewDefaultCreateActiveDirectoryServer() *CreateActiveDirectoryServer {
+	createActiveDirectoryServerType := new(CreateActiveDirectoryServer)
+	portField := 389
+	createActiveDirectoryServerType.Port = &portField
+	standbyServerEnabledField := false
+	createActiveDirectoryServerType.StandbyServerEnabled = &standbyServerEnabledField
+	return createActiveDirectoryServerType
+}
+
 type CreateAuthenticationServer struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -233,6 +287,18 @@ type CreateAuthenticationServer struct {
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
+}
+
+func NewCreateAuthenticationServer() *CreateAuthenticationServer {
+	createAuthenticationServerType := new(CreateAuthenticationServer)
+	return createAuthenticationServerType
+}
+
+func NewDefaultCreateAuthenticationServer() *CreateAuthenticationServer {
+	createAuthenticationServerType := new(CreateAuthenticationServer)
+	standbyServerEnabledField := false
+	createAuthenticationServerType.StandbyServerEnabled = &standbyServerEnabledField
+	return createAuthenticationServerType
 }
 
 type CreateLDAPServer struct {
@@ -320,8 +386,32 @@ type CreateLDAPServer struct {
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
+func NewCreateLDAPServer() *CreateLDAPServer {
+	createLDAPServerType := new(CreateLDAPServer)
+	return createLDAPServerType
+}
+
+func NewDefaultCreateLDAPServer() *CreateLDAPServer {
+	createLDAPServerType := new(CreateLDAPServer)
+	portField := 389
+	createLDAPServerType.Port = &portField
+	standbyServerEnabledField := false
+	createLDAPServerType.StandbyServerEnabled = &standbyServerEnabledField
+	return createLDAPServerType
+}
+
 type DeleteBulkAAAServerList struct {
 	AaadeleteBulkAAAServerList *string `json:"aaa_deleteBulkAAAServerList,omitempty"`
+}
+
+func NewDeleteBulkAAAServerList() *DeleteBulkAAAServerList {
+	deleteBulkAAAServerListType := new(DeleteBulkAAAServerList)
+	return deleteBulkAAAServerListType
+}
+
+func NewDefaultDeleteBulkAAAServerList() *DeleteBulkAAAServerList {
+	deleteBulkAAAServerListType := new(DeleteBulkAAAServerList)
+	return deleteBulkAAAServerListType
 }
 
 // GroupAttrIdentityUserRoleMapping
@@ -345,6 +435,16 @@ type GroupAttrIdentityUserRoleMapping struct {
 	UserRole *GroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
+func NewGroupAttrIdentityUserRoleMapping() *GroupAttrIdentityUserRoleMapping {
+	groupAttrIdentityUserRoleMappingType := new(GroupAttrIdentityUserRoleMapping)
+	return groupAttrIdentityUserRoleMappingType
+}
+
+func NewDefaultGroupAttrIdentityUserRoleMapping() *GroupAttrIdentityUserRoleMapping {
+	groupAttrIdentityUserRoleMappingType := new(GroupAttrIdentityUserRoleMapping)
+	return groupAttrIdentityUserRoleMappingType
+}
+
 // GroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
@@ -360,6 +460,16 @@ type GroupAttrIdentityUserRoleMappingUserRoleType struct {
 	UserTrafficProfile *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType `json:"userTrafficProfile,omitempty"`
 }
 
+func NewGroupAttrIdentityUserRoleMappingUserRoleType() *GroupAttrIdentityUserRoleMappingUserRoleType {
+	groupAttrIdentityUserRoleMappingUserRoleTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleType)
+	return groupAttrIdentityUserRoleMappingUserRoleTypeType
+}
+
+func NewDefaultGroupAttrIdentityUserRoleMappingUserRoleType() *GroupAttrIdentityUserRoleMappingUserRoleType {
+	groupAttrIdentityUserRoleMappingUserRoleTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleType)
+	return groupAttrIdentityUserRoleMappingUserRoleTypeType
+}
+
 // GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
 //
 // Identity user role
@@ -371,6 +481,16 @@ type GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType struct {
 	// Name
 	// User traffic profile name
 	Name *string `json:"name,omitempty"`
+}
+
+func NewGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
+	groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType)
+	return groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType
+}
+
+func NewDefaultGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
+	groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType)
+	return groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType
 }
 
 type LDAPServer struct {
@@ -459,6 +579,16 @@ type LDAPServer struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewLDAPServer() *LDAPServer {
+	lDAPServerType := new(LDAPServer)
+	return lDAPServerType
+}
+
+func NewDefaultLDAPServer() *LDAPServer {
+	lDAPServerType := new(LDAPServer)
+	return lDAPServerType
+}
+
 type LDAPServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -467,6 +597,16 @@ type LDAPServerList struct {
 	List []*LDAPServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewLDAPServerList() *LDAPServerList {
+	lDAPServerListType := new(LDAPServerList)
+	return lDAPServerListType
+}
+
+func NewDefaultLDAPServerList() *LDAPServerList {
+	lDAPServerListType := new(LDAPServerList)
+	return lDAPServerListType
 }
 
 type ModifyActiveDirectoryServer struct {
@@ -530,6 +670,18 @@ type ModifyActiveDirectoryServer struct {
 	WindowsDomainName *common.NormalNameAllowBlank `json:"windowsDomainName,omitempty"`
 }
 
+func NewModifyActiveDirectoryServer() *ModifyActiveDirectoryServer {
+	modifyActiveDirectoryServerType := new(ModifyActiveDirectoryServer)
+	return modifyActiveDirectoryServerType
+}
+
+func NewDefaultModifyActiveDirectoryServer() *ModifyActiveDirectoryServer {
+	modifyActiveDirectoryServerType := new(ModifyActiveDirectoryServer)
+	portField := 389
+	modifyActiveDirectoryServerType.Port = &portField
+	return modifyActiveDirectoryServerType
+}
+
 type ModifyAuthenticationServer struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -550,6 +702,16 @@ type ModifyAuthenticationServer struct {
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
+func NewModifyAuthenticationServer() *ModifyAuthenticationServer {
+	modifyAuthenticationServerType := new(ModifyAuthenticationServer)
+	return modifyAuthenticationServerType
+}
+
+func NewDefaultModifyAuthenticationServer() *ModifyAuthenticationServer {
+	modifyAuthenticationServerType := new(ModifyAuthenticationServer)
+	return modifyAuthenticationServerType
+}
+
 // ModifyGroupAttrIdentityUserRoleMapping
 //
 // User traffic profile mapping
@@ -567,6 +729,16 @@ type ModifyGroupAttrIdentityUserRoleMapping struct {
 	UserRole *ModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
+func NewModifyGroupAttrIdentityUserRoleMapping() *ModifyGroupAttrIdentityUserRoleMapping {
+	modifyGroupAttrIdentityUserRoleMappingType := new(ModifyGroupAttrIdentityUserRoleMapping)
+	return modifyGroupAttrIdentityUserRoleMappingType
+}
+
+func NewDefaultModifyGroupAttrIdentityUserRoleMapping() *ModifyGroupAttrIdentityUserRoleMapping {
+	modifyGroupAttrIdentityUserRoleMappingType := new(ModifyGroupAttrIdentityUserRoleMapping)
+	return modifyGroupAttrIdentityUserRoleMappingType
+}
+
 // ModifyGroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
@@ -576,6 +748,16 @@ type ModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName2to64 `json:"name,omitempty"`
+}
+
+func NewModifyGroupAttrIdentityUserRoleMappingUserRoleType() *ModifyGroupAttrIdentityUserRoleMappingUserRoleType {
+	modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType := new(ModifyGroupAttrIdentityUserRoleMappingUserRoleType)
+	return modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType
+}
+
+func NewDefaultModifyGroupAttrIdentityUserRoleMappingUserRoleType() *ModifyGroupAttrIdentityUserRoleMappingUserRoleType {
+	modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType := new(ModifyGroupAttrIdentityUserRoleMappingUserRoleType)
+	return modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType
 }
 
 type ModifyLDAPServer struct {
@@ -643,6 +825,18 @@ type ModifyLDAPServer struct {
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
+func NewModifyLDAPServer() *ModifyLDAPServer {
+	modifyLDAPServerType := new(ModifyLDAPServer)
+	return modifyLDAPServerType
+}
+
+func NewDefaultModifyLDAPServer() *ModifyLDAPServer {
+	modifyLDAPServerType := new(ModifyLDAPServer)
+	portField := 389
+	modifyLDAPServerType.Port = &portField
+	return modifyLDAPServerType
+}
+
 type TestAAAServerResult struct {
 	// PrimaryServer
 	// Primary server test result
@@ -651,6 +845,16 @@ type TestAAAServerResult struct {
 	// SecondaryServer
 	// Secondary server test result
 	SecondaryServer *string `json:"secondaryServer,omitempty"`
+}
+
+func NewTestAAAServerResult() *TestAAAServerResult {
+	testAAAServerResultType := new(TestAAAServerResult)
+	return testAAAServerResultType
+}
+
+func NewDefaultTestAAAServerResult() *TestAAAServerResult {
+	testAAAServerResultType := new(TestAAAServerResult)
+	return testAAAServerResultType
 }
 
 type TestAuthenticationServer struct {
@@ -692,4 +896,16 @@ type TestAuthenticationServer struct {
 	// Constraints:
 	//    - required
 	UserName *string `json:"userName" validate:"required"`
+}
+
+func NewTestAuthenticationServer() *TestAuthenticationServer {
+	testAuthenticationServerType := new(TestAuthenticationServer)
+	return testAuthenticationServerType
+}
+
+func NewDefaultTestAuthenticationServer() *TestAuthenticationServer {
+	testAuthenticationServerType := new(TestAuthenticationServer)
+	authProtocolField := `PAP`
+	testAuthenticationServerType.AuthProtocol = &authProtocolField
+	return testAuthenticationServerType
 }

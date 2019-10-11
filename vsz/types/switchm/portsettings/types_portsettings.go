@@ -93,6 +93,16 @@ type CreateBulk struct {
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
 }
 
+func NewCreateBulk() *CreateBulk {
+	createBulkType := new(CreateBulk)
+	return createBulkType
+}
+
+func NewDefaultCreateBulk() *CreateBulk {
+	createBulkType := new(CreateBulk)
+	return createBulkType
+}
+
 type EmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -111,6 +121,16 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
 }
 
 type PortSettings struct {
@@ -211,6 +231,16 @@ type PortSettings struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewPortSettings() *PortSettings {
+	portSettingsType := new(PortSettings)
+	return portSettingsType
+}
+
+func NewDefaultPortSettings() *PortSettings {
+	portSettingsType := new(PortSettings)
+	return portSettingsType
+}
+
 type PortSettingsQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -235,6 +265,16 @@ type PortSettingsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewPortSettingsQueryResult() *PortSettingsQueryResult {
+	portSettingsQueryResultType := new(PortSettingsQueryResult)
+	return portSettingsQueryResultType
+}
+
+func NewDefaultPortSettingsQueryResult() *PortSettingsQueryResult {
+	portSettingsQueryResultType := new(PortSettingsQueryResult)
+	return portSettingsQueryResultType
+}
+
 // PortSettingsQueryResultExtraType
 //
 // Any additional response data
@@ -256,6 +296,16 @@ func (t *PortSettingsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewPortSettingsQueryResultExtraType() *PortSettingsQueryResultExtraType {
+	portSettingsQueryResultExtraTypeType := new(PortSettingsQueryResultExtraType)
+	return portSettingsQueryResultExtraTypeType
+}
+
+func NewDefaultPortSettingsQueryResultExtraType() *PortSettingsQueryResultExtraType {
+	portSettingsQueryResultExtraTypeType := new(PortSettingsQueryResultExtraType)
+	return portSettingsQueryResultExtraTypeType
 }
 
 type UpdatePortSettings struct {
@@ -328,4 +378,14 @@ type UpdatePortSettings struct {
 	// UntaggedVlans
 	// Untagged vlans
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
+}
+
+func NewUpdatePortSettings() *UpdatePortSettings {
+	updatePortSettingsType := new(UpdatePortSettings)
+	return updatePortSettingsType
+}
+
+func NewDefaultUpdatePortSettings() *UpdatePortSettings {
+	updatePortSettingsType := new(UpdatePortSettings)
+	return updatePortSettingsType
 }

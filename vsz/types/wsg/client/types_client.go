@@ -18,8 +18,28 @@ type DeAuthClient struct {
 	Mac *common.Mac `json:"mac" validate:"required"`
 }
 
+func NewDeAuthClient() *DeAuthClient {
+	deAuthClientType := new(DeAuthClient)
+	return deAuthClientType
+}
+
+func NewDefaultDeAuthClient() *DeAuthClient {
+	deAuthClientType := new(DeAuthClient)
+	return deAuthClientType
+}
+
 type DeAuthClientList struct {
 	ClientList []*DeAuthClient `json:"clientList,omitempty"`
+}
+
+func NewDeAuthClientList() *DeAuthClientList {
+	deAuthClientListType := new(DeAuthClientList)
+	return deAuthClientListType
+}
+
+func NewDefaultDeAuthClientList() *DeAuthClientList {
+	deAuthClientListType := new(DeAuthClientList)
+	return deAuthClientListType
 }
 
 type DisconnectClient struct {
@@ -34,8 +54,28 @@ type DisconnectClient struct {
 	Mac *common.Mac `json:"mac" validate:"required"`
 }
 
+func NewDisconnectClient() *DisconnectClient {
+	disconnectClientType := new(DisconnectClient)
+	return disconnectClientType
+}
+
+func NewDefaultDisconnectClient() *DisconnectClient {
+	disconnectClientType := new(DisconnectClient)
+	return disconnectClientType
+}
+
 type DisconnectClientList struct {
 	ClientList []*DisconnectClient `json:"clientList,omitempty"`
+}
+
+func NewDisconnectClientList() *DisconnectClientList {
+	disconnectClientListType := new(DisconnectClientList)
+	return disconnectClientListType
+}
+
+func NewDefaultDisconnectClientList() *DisconnectClientList {
+	disconnectClientListType := new(DisconnectClientList)
+	return disconnectClientListType
 }
 
 type HistoricalClient struct {
@@ -108,6 +148,16 @@ type HistoricalClient struct {
 	TxFrames *int `json:"txFrames,omitempty"`
 }
 
+func NewHistoricalClient() *HistoricalClient {
+	historicalClientType := new(HistoricalClient)
+	return historicalClientType
+}
+
+func NewDefaultHistoricalClient() *HistoricalClient {
+	historicalClientType := new(HistoricalClient)
+	return historicalClientType
+}
+
 type HistoricalClientList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -118,4 +168,14 @@ type HistoricalClientList struct {
 	List []*HistoricalClient `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewHistoricalClientList() *HistoricalClientList {
+	historicalClientListType := new(HistoricalClientList)
+	return historicalClientListType
+}
+
+func NewDefaultHistoricalClientList() *HistoricalClientList {
+	historicalClientListType := new(HistoricalClientList)
+	return historicalClientListType
 }

@@ -16,6 +16,16 @@ type AaaServer struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewAaaServer() *AaaServer {
+	aaaServerType := new(AaaServer)
+	return aaaServerType
+}
+
+func NewDefaultAaaServer() *AaaServer {
+	aaaServerType := new(AaaServer)
+	return aaaServerType
+}
+
 type AaaServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -24,6 +34,16 @@ type AaaServerList struct {
 	List []*AaaServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewAaaServerList() *AaaServerList {
+	aaaServerListType := new(AaaServerList)
+	return aaaServerListType
+}
+
+func NewDefaultAaaServerList() *AaaServerList {
+	aaaServerListType := new(AaaServerList)
+	return aaaServerListType
 }
 
 type AuthenticationServerConfig struct {
@@ -56,6 +76,16 @@ type AuthenticationServerConfig struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewAuthenticationServerConfig() *AuthenticationServerConfig {
+	authenticationServerConfigType := new(AuthenticationServerConfig)
+	return authenticationServerConfigType
+}
+
+func NewDefaultAuthenticationServerConfig() *AuthenticationServerConfig {
+	authenticationServerConfigType := new(AuthenticationServerConfig)
+	return authenticationServerConfigType
+}
+
 type CountryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -66,6 +96,16 @@ type CountryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewCountryList() *CountryList {
+	countryListType := new(CountryList)
+	return countryListType
+}
+
+func NewDefaultCountryList() *CountryList {
+	countryListType := new(CountryList)
+	return countryListType
+}
+
 type CountrySummary struct {
 	// CountryName
 	// Full name of country
@@ -74,6 +114,16 @@ type CountrySummary struct {
 	// CountryShortName
 	// Short name of country
 	CountryShortName *string `json:"countryShortName,omitempty"`
+}
+
+func NewCountrySummary() *CountrySummary {
+	countrySummaryType := new(CountrySummary)
+	return countrySummaryType
+}
+
+func NewDefaultCountrySummary() *CountrySummary {
+	countrySummaryType := new(CountrySummary)
+	return countrySummaryType
 }
 
 type CreateIdentityGuestPass struct {
@@ -138,6 +188,16 @@ type CreateIdentityGuestPass struct {
 	Zone *common.GenericRef `json:"zone" validate:"required"`
 }
 
+func NewCreateIdentityGuestPass() *CreateIdentityGuestPass {
+	createIdentityGuestPassType := new(CreateIdentityGuestPass)
+	return createIdentityGuestPassType
+}
+
+func NewDefaultCreateIdentityGuestPass() *CreateIdentityGuestPass {
+	createIdentityGuestPassType := new(CreateIdentityGuestPass)
+	return createIdentityGuestPassType
+}
+
 type CreateIdentityUserRole struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -171,6 +231,16 @@ type CreateIdentityUserRole struct {
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }
 
+func NewCreateIdentityUserRole() *CreateIdentityUserRole {
+	createIdentityUserRoleType := new(CreateIdentityUserRole)
+	return createIdentityUserRoleType
+}
+
+func NewDefaultCreateIdentityUserRole() *CreateIdentityUserRole {
+	createIdentityUserRoleType := new(CreateIdentityUserRole)
+	return createIdentityUserRoleType
+}
+
 type CreateSubscriptionPackage struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -195,6 +265,16 @@ type CreateSubscriptionPackage struct {
 	// Constraints:
 	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
+}
+
+func NewCreateSubscriptionPackage() *CreateSubscriptionPackage {
+	createSubscriptionPackageType := new(CreateSubscriptionPackage)
+	return createSubscriptionPackageType
+}
+
+func NewDefaultCreateSubscriptionPackage() *CreateSubscriptionPackage {
+	createSubscriptionPackageType := new(CreateSubscriptionPackage)
+	return createSubscriptionPackageType
 }
 
 type CreateUser struct {
@@ -272,8 +352,28 @@ type CreateUser struct {
 	ZipCode *string `json:"zipCode,omitempty"`
 }
 
+func NewCreateUser() *CreateUser {
+	createUserType := new(CreateUser)
+	return createUserType
+}
+
+func NewDefaultCreateUser() *CreateUser {
+	createUserType := new(CreateUser)
+	return createUserType
+}
+
 type DeleteBulk struct {
 	IdList common.IdList `json:"idList,omitempty"`
+}
+
+func NewDeleteBulk() *DeleteBulk {
+	deleteBulkType := new(DeleteBulk)
+	return deleteBulkType
+}
+
+func NewDefaultDeleteBulk() *DeleteBulk {
+	deleteBulkType := new(DeleteBulk)
+	return deleteBulkType
 }
 
 type IdentityGuestPassConfiguration struct {
@@ -341,6 +441,16 @@ type IdentityGuestPassConfiguration struct {
 	Zone *common.GenericRef `json:"zone,omitempty"`
 }
 
+func NewIdentityGuestPassConfiguration() *IdentityGuestPassConfiguration {
+	identityGuestPassConfigurationType := new(IdentityGuestPassConfiguration)
+	return identityGuestPassConfigurationType
+}
+
+func NewDefaultIdentityGuestPassConfiguration() *IdentityGuestPassConfiguration {
+	identityGuestPassConfigurationType := new(IdentityGuestPassConfiguration)
+	return identityGuestPassConfigurationType
+}
+
 type IdentityGuestPassList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -353,6 +463,16 @@ type IdentityGuestPassList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewIdentityGuestPassList() *IdentityGuestPassList {
+	identityGuestPassListType := new(IdentityGuestPassList)
+	return identityGuestPassListType
+}
+
+func NewDefaultIdentityGuestPassList() *IdentityGuestPassList {
+	identityGuestPassListType := new(IdentityGuestPassList)
+	return identityGuestPassListType
+}
+
 type IdentityList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -363,6 +483,16 @@ type IdentityList struct {
 	List []*IdentityListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewIdentityList() *IdentityList {
+	identityListType := new(IdentityList)
+	return identityListType
+}
+
+func NewDefaultIdentityList() *IdentityList {
+	identityListType := new(IdentityList)
+	return identityListType
 }
 
 type IdentityListType struct {
@@ -413,6 +543,16 @@ type IdentityListType struct {
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }
 
+func NewIdentityListType() *IdentityListType {
+	identityListTypeType := new(IdentityListType)
+	return identityListTypeType
+}
+
+func NewDefaultIdentityListType() *IdentityListType {
+	identityListTypeType := new(IdentityListType)
+	return identityListTypeType
+}
+
 type IdentityUserRole struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -457,6 +597,16 @@ type IdentityUserRole struct {
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }
 
+func NewIdentityUserRole() *IdentityUserRole {
+	identityUserRoleType := new(IdentityUserRole)
+	return identityUserRoleType
+}
+
+func NewDefaultIdentityUserRole() *IdentityUserRole {
+	identityUserRoleType := new(IdentityUserRole)
+	return identityUserRoleType
+}
+
 type IdentityUserSummary struct {
 	// CreatedOn
 	// Created on
@@ -487,6 +637,16 @@ type IdentityUserSummary struct {
 	// UserType
 	// User Type
 	UserType *string `json:"userType,omitempty"`
+}
+
+func NewIdentityUserSummary() *IdentityUserSummary {
+	identityUserSummaryType := new(IdentityUserSummary)
+	return identityUserSummaryType
+}
+
+func NewDefaultIdentityUserSummary() *IdentityUserSummary {
+	identityUserSummaryType := new(IdentityUserSummary)
+	return identityUserSummaryType
 }
 
 type ImportIdentityGuestPass struct {
@@ -528,6 +688,16 @@ type ImportIdentityGuestPass struct {
 	Zone *common.GenericRef `json:"zone" validate:"required"`
 }
 
+func NewImportIdentityGuestPass() *ImportIdentityGuestPass {
+	importIdentityGuestPassType := new(ImportIdentityGuestPass)
+	return importIdentityGuestPassType
+}
+
+func NewDefaultImportIdentityGuestPass() *ImportIdentityGuestPass {
+	importIdentityGuestPassType := new(ImportIdentityGuestPass)
+	return importIdentityGuestPassType
+}
+
 type MaxDevices struct {
 	// MaxDevicesAllowed
 	// Max devices allowed
@@ -545,6 +715,20 @@ type MaxDevices struct {
 	//    - min:1
 	//    - max:10
 	MaxDevicesNumber *int `json:"maxDevicesNumber,omitempty" validate:"omitempty,gte=1,lte=10"`
+}
+
+func NewMaxDevices() *MaxDevices {
+	maxDevicesType := new(MaxDevices)
+	return maxDevicesType
+}
+
+func NewDefaultMaxDevices() *MaxDevices {
+	maxDevicesType := new(MaxDevices)
+	maxDevicesAllowedField := `LIMITED`
+	maxDevicesType.MaxDevicesAllowed = &maxDevicesAllowedField
+	maxDevicesNumberField := 3
+	maxDevicesType.MaxDevicesNumber = &maxDevicesNumberField
+	return maxDevicesType
 }
 
 type ModifyIdentityUserRole struct {
@@ -575,6 +759,16 @@ type ModifyIdentityUserRole struct {
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }
 
+func NewModifyIdentityUserRole() *ModifyIdentityUserRole {
+	modifyIdentityUserRoleType := new(ModifyIdentityUserRole)
+	return modifyIdentityUserRoleType
+}
+
+func NewDefaultModifyIdentityUserRole() *ModifyIdentityUserRole {
+	modifyIdentityUserRoleType := new(ModifyIdentityUserRole)
+	return modifyIdentityUserRoleType
+}
+
 type ModifySubscriptionPackage struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -598,6 +792,16 @@ type ModifySubscriptionPackage struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewModifySubscriptionPackage() *ModifySubscriptionPackage {
+	modifySubscriptionPackageType := new(ModifySubscriptionPackage)
+	return modifySubscriptionPackageType
+}
+
+func NewDefaultModifySubscriptionPackage() *ModifySubscriptionPackage {
+	modifySubscriptionPackageType := new(ModifySubscriptionPackage)
+	return modifySubscriptionPackageType
 }
 
 type ModifyUser struct {
@@ -667,12 +871,32 @@ type ModifyUser struct {
 	ZipCode *string `json:"zipCode,omitempty"`
 }
 
+func NewModifyUser() *ModifyUser {
+	modifyUserType := new(ModifyUser)
+	return modifyUserType
+}
+
+func NewDefaultModifyUser() *ModifyUser {
+	modifyUserType := new(ModifyUser)
+	return modifyUserType
+}
+
 type PackageConfiguration struct {
 	// PackageExpiration
 	// Package expiration interval and value
 	PackageExpiration *string `json:"packageExpiration,omitempty"`
 
 	SubscriberPackage *common.GenericRef `json:"subscriberPackage,omitempty"`
+}
+
+func NewPackageConfiguration() *PackageConfiguration {
+	packageConfigurationType := new(PackageConfiguration)
+	return packageConfigurationType
+}
+
+func NewDefaultPackageConfiguration() *PackageConfiguration {
+	packageConfigurationType := new(PackageConfiguration)
+	return packageConfigurationType
 }
 
 type PackageList struct {
@@ -685,6 +909,16 @@ type PackageList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewPackageList() *PackageList {
+	packageListType := new(PackageList)
+	return packageListType
+}
+
+func NewDefaultPackageList() *PackageList {
+	packageListType := new(PackageList)
+	return packageListType
+}
+
 type PassValidFor struct {
 	// ExpirationUnit
 	// Constraints:
@@ -695,7 +929,27 @@ type PassValidFor struct {
 	ExpirationValue *int `json:"expirationValue,omitempty"`
 }
 
+func NewPassValidFor() *PassValidFor {
+	passValidForType := new(PassValidFor)
+	return passValidForType
+}
+
+func NewDefaultPassValidFor() *PassValidFor {
+	passValidForType := new(PassValidFor)
+	return passValidForType
+}
+
 type QueryCriteria struct{}
+
+func NewQueryCriteria() *QueryCriteria {
+	queryCriteriaType := new(QueryCriteria)
+	return queryCriteriaType
+}
+
+func NewDefaultQueryCriteria() *QueryCriteria {
+	queryCriteriaType := new(QueryCriteria)
+	return queryCriteriaType
+}
 
 type SessionDuration struct {
 	RequireLoginAgain *bool `json:"requireLoginAgain,omitempty"`
@@ -707,6 +961,16 @@ type SessionDuration struct {
 	SessionUnit *string `json:"sessionUnit,omitempty" validate:"omitempty,oneof=MIN HOUR DAY WEEK"`
 
 	SessionValue *int `json:"sessionValue,omitempty"`
+}
+
+func NewSessionDuration() *SessionDuration {
+	sessionDurationType := new(SessionDuration)
+	return sessionDurationType
+}
+
+func NewDefaultSessionDuration() *SessionDuration {
+	sessionDurationType := new(SessionDuration)
+	return sessionDurationType
 }
 
 type SubscriptionPackage struct {
@@ -754,6 +1018,16 @@ type SubscriptionPackage struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
+func NewSubscriptionPackage() *SubscriptionPackage {
+	subscriptionPackageType := new(SubscriptionPackage)
+	return subscriptionPackageType
+}
+
+func NewDefaultSubscriptionPackage() *SubscriptionPackage {
+	subscriptionPackageType := new(SubscriptionPackage)
+	return subscriptionPackageType
+}
+
 type SubscriptionPackageList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -764,6 +1038,16 @@ type SubscriptionPackageList struct {
 	List []*SubscriptionPackageListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSubscriptionPackageList() *SubscriptionPackageList {
+	subscriptionPackageListType := new(SubscriptionPackageList)
+	return subscriptionPackageListType
+}
+
+func NewDefaultSubscriptionPackageList() *SubscriptionPackageList {
+	subscriptionPackageListType := new(SubscriptionPackageList)
+	return subscriptionPackageListType
 }
 
 type SubscriptionPackageListType struct {
@@ -789,6 +1073,16 @@ type SubscriptionPackageListType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewSubscriptionPackageListType() *SubscriptionPackageListType {
+	subscriptionPackageListTypeType := new(SubscriptionPackageListType)
+	return subscriptionPackageListTypeType
+}
+
+func NewDefaultSubscriptionPackageListType() *SubscriptionPackageListType {
+	subscriptionPackageListTypeType := new(SubscriptionPackageListType)
+	return subscriptionPackageListTypeType
 }
 
 type UserConfiguration struct {
@@ -936,6 +1230,16 @@ type UserConfiguration struct {
 	ZipCode *string `json:"zipCode,omitempty" validate:"omitempty,max=32,min=2"`
 }
 
+func NewUserConfiguration() *UserConfiguration {
+	userConfigurationType := new(UserConfiguration)
+	return userConfigurationType
+}
+
+func NewDefaultUserConfiguration() *UserConfiguration {
+	userConfigurationType := new(UserConfiguration)
+	return userConfigurationType
+}
+
 type UserConfigurationCredentialsGuestPassDtoType struct {
 	// AuthenticationMethod
 	// Authentication method of credential
@@ -1027,6 +1331,16 @@ type UserConfigurationCredentialsGuestPassDtoType struct {
 	WlanName *string `json:"wlanName,omitempty"`
 }
 
+func NewUserConfigurationCredentialsGuestPassDtoType() *UserConfigurationCredentialsGuestPassDtoType {
+	userConfigurationCredentialsGuestPassDtoTypeType := new(UserConfigurationCredentialsGuestPassDtoType)
+	return userConfigurationCredentialsGuestPassDtoTypeType
+}
+
+func NewDefaultUserConfigurationCredentialsGuestPassDtoType() *UserConfigurationCredentialsGuestPassDtoType {
+	userConfigurationCredentialsGuestPassDtoTypeType := new(UserConfigurationCredentialsGuestPassDtoType)
+	return userConfigurationCredentialsGuestPassDtoTypeType
+}
+
 type UserList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1037,6 +1351,16 @@ type UserList struct {
 	List []*IdentityUserSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewUserList() *UserList {
+	userListType := new(UserList)
+	return userListType
+}
+
+func NewDefaultUserList() *UserList {
+	userListType := new(UserList)
+	return userListType
 }
 
 type UsernamePasswordCredentialsImplDto struct {
@@ -1080,4 +1404,14 @@ type UsernamePasswordCredentialsImplDto struct {
 	// ServiceProviderId
 	// Service Provider Id
 	ServiceProviderId *string `json:"serviceProviderId,omitempty"`
+}
+
+func NewUsernamePasswordCredentialsImplDto() *UsernamePasswordCredentialsImplDto {
+	usernamePasswordCredentialsImplDtoType := new(UsernamePasswordCredentialsImplDto)
+	return usernamePasswordCredentialsImplDtoType
+}
+
+func NewDefaultUsernamePasswordCredentialsImplDto() *UsernamePasswordCredentialsImplDto {
+	usernamePasswordCredentialsImplDtoType := new(UsernamePasswordCredentialsImplDto)
+	return usernamePasswordCredentialsImplDtoType
 }

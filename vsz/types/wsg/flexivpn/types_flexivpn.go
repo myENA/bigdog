@@ -9,3 +9,13 @@ type FlexiVpnSetting struct {
 	//    - required
 	ZoneAffinityId *string `json:"zoneAffinityId" validate:"required"`
 }
+
+func NewFlexiVpnSetting() *FlexiVpnSetting {
+	flexiVpnSettingType := new(FlexiVpnSetting)
+	return flexiVpnSettingType
+}
+
+func NewDefaultFlexiVpnSetting() *FlexiVpnSetting {
+	flexiVpnSettingType := new(FlexiVpnSetting)
+	return flexiVpnSettingType
+}

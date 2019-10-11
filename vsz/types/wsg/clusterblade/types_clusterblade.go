@@ -24,6 +24,16 @@ type BladeProgress struct {
 	State *string `json:"state,omitempty"`
 }
 
+func NewBladeProgress() *BladeProgress {
+	bladeProgressType := new(BladeProgress)
+	return bladeProgressType
+}
+
+func NewDefaultBladeProgress() *BladeProgress {
+	bladeProgressType := new(BladeProgress)
+	return bladeProgressType
+}
+
 type ClusterOperationProgress struct {
 	Operation *Operation `json:"operation,omitempty"`
 
@@ -32,6 +42,16 @@ type ClusterOperationProgress struct {
 	OverallProgress *int `json:"overallProgress,omitempty"`
 
 	PreviousOperationRecord *PreviousOperationRecord `json:"previousOperationRecord,omitempty"`
+}
+
+func NewClusterOperationProgress() *ClusterOperationProgress {
+	clusterOperationProgressType := new(ClusterOperationProgress)
+	return clusterOperationProgressType
+}
+
+func NewDefaultClusterOperationProgress() *ClusterOperationProgress {
+	clusterOperationProgressType := new(ClusterOperationProgress)
+	return clusterOperationProgressType
 }
 
 type ClusterState struct {
@@ -66,6 +86,16 @@ type ClusterState struct {
 	NodeStateList []*ClusterStateNodeStateListType `json:"nodeStateList,omitempty"`
 }
 
+func NewClusterState() *ClusterState {
+	clusterStateType := new(ClusterState)
+	return clusterStateType
+}
+
+func NewDefaultClusterState() *ClusterState {
+	clusterStateType := new(ClusterState)
+	return clusterStateType
+}
+
 type ClusterStateManagementServiceStateListType struct {
 	// ManagementServiceState
 	// management service state
@@ -83,6 +113,16 @@ type ClusterStateManagementServiceStateListType struct {
 	NodeName *string `json:"nodeName,omitempty"`
 }
 
+func NewClusterStateManagementServiceStateListType() *ClusterStateManagementServiceStateListType {
+	clusterStateManagementServiceStateListTypeType := new(ClusterStateManagementServiceStateListType)
+	return clusterStateManagementServiceStateListTypeType
+}
+
+func NewDefaultClusterStateManagementServiceStateListType() *ClusterStateManagementServiceStateListType {
+	clusterStateManagementServiceStateListTypeType := new(ClusterStateManagementServiceStateListType)
+	return clusterStateManagementServiceStateListTypeType
+}
+
 type ClusterStateNodeStateListType struct {
 	// NodeId
 	// Identifier of the controller node
@@ -98,6 +138,16 @@ type ClusterStateNodeStateListType struct {
 	NodeState *string `json:"nodeState,omitempty" validate:"omitempty,oneof=Out_Of_Service In_Service"`
 }
 
+func NewClusterStateNodeStateListType() *ClusterStateNodeStateListType {
+	clusterStateNodeStateListTypeType := new(ClusterStateNodeStateListType)
+	return clusterStateNodeStateListTypeType
+}
+
+func NewDefaultClusterStateNodeStateListType() *ClusterStateNodeStateListType {
+	clusterStateNodeStateListTypeType := new(ClusterStateNodeStateListType)
+	return clusterStateNodeStateListTypeType
+}
+
 type ClusterStatus struct {
 	// ClusterStatus
 	// progress of bladeProgress
@@ -105,6 +155,16 @@ type ClusterStatus struct {
 	//    - nullable
 	//    - oneof:[In_Service,Out_Of_Service,Maintenance,Read_Only,NetworkPartitionSuspected]
 	ClusterStatus *string `json:"clusterStatus,omitempty" validate:"omitempty,oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
+}
+
+func NewClusterStatus() *ClusterStatus {
+	clusterStatusType := new(ClusterStatus)
+	return clusterStatusType
+}
+
+func NewDefaultClusterStatus() *ClusterStatus {
+	clusterStatusType := new(ClusterStatus)
+	return clusterStatusType
 }
 
 type ClusterUpgradeProgress struct {
@@ -140,8 +200,28 @@ type ClusterUpgradeProgress struct {
 	PreviousOperationRecord *PreviousOperationRecord `json:"previousOperationRecord,omitempty"`
 }
 
+func NewClusterUpgradeProgress() *ClusterUpgradeProgress {
+	clusterUpgradeProgressType := new(ClusterUpgradeProgress)
+	return clusterUpgradeProgressType
+}
+
+func NewDefaultClusterUpgradeProgress() *ClusterUpgradeProgress {
+	clusterUpgradeProgressType := new(ClusterUpgradeProgress)
+	return clusterUpgradeProgressType
+}
+
 type ControlNodeStatus struct {
 	NodeStatusList []*ControlNodeStatusNodeStatusListType `json:"nodeStatusList,omitempty"`
+}
+
+func NewControlNodeStatus() *ControlNodeStatus {
+	controlNodeStatusType := new(ControlNodeStatus)
+	return controlNodeStatusType
+}
+
+func NewDefaultControlNodeStatus() *ControlNodeStatus {
+	controlNodeStatusType := new(ControlNodeStatus)
+	return controlNodeStatusType
 }
 
 type ControlNodeStatusNodeStatusListType struct {
@@ -157,7 +237,27 @@ type ControlNodeStatusNodeStatusListType struct {
 	NodeStatus *string `json:"nodeStatus,omitempty" validate:"omitempty,oneof=Out_Of_Service Bootstrapping Got_WSG_Version WSG_FW_Upgrading Initializing_Database Syncing_Configurations Changing_Configurations Launching_Apps In_Service Shutting_Down_Apps"`
 }
 
+func NewControlNodeStatusNodeStatusListType() *ControlNodeStatusNodeStatusListType {
+	controlNodeStatusNodeStatusListTypeType := new(ControlNodeStatusNodeStatusListType)
+	return controlNodeStatusNodeStatusListTypeType
+}
+
+func NewDefaultControlNodeStatusNodeStatusListType() *ControlNodeStatusNodeStatusListType {
+	controlNodeStatusNodeStatusListTypeType := new(ControlNodeStatusNodeStatusListType)
+	return controlNodeStatusNodeStatusListTypeType
+}
+
 type Operation string
+
+func NewOperation() *Operation {
+	operationType := new(Operation)
+	return operationType
+}
+
+func NewDefaultOperation() *Operation {
+	operationType := new(Operation)
+	return operationType
+}
 
 type PreviousOperationRecord struct {
 	// ErrorMsg
@@ -169,6 +269,16 @@ type PreviousOperationRecord struct {
 	// Success
 	// success of previousOperationRecord
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewPreviousOperationRecord() *PreviousOperationRecord {
+	previousOperationRecordType := new(PreviousOperationRecord)
+	return previousOperationRecordType
+}
+
+func NewDefaultPreviousOperationRecord() *PreviousOperationRecord {
+	previousOperationRecordType := new(PreviousOperationRecord)
+	return previousOperationRecordType
 }
 
 type UploadPatchInfo struct {
@@ -203,4 +313,14 @@ type UploadPatchInfo struct {
 	// Version
 	// version of uploadPatchInfo
 	Version *string `json:"version,omitempty"`
+}
+
+func NewUploadPatchInfo() *UploadPatchInfo {
+	uploadPatchInfoType := new(UploadPatchInfo)
+	return uploadPatchInfoType
+}
+
+func NewDefaultUploadPatchInfo() *UploadPatchInfo {
+	uploadPatchInfoType := new(UploadPatchInfo)
+	return uploadPatchInfoType
 }

@@ -92,6 +92,16 @@ type CreateScgUser struct {
 	UserName *string `json:"userName" validate:"required"`
 }
 
+func NewCreateScgUser() *CreateScgUser {
+	createScgUserType := new(CreateScgUser)
+	return createScgUserType
+}
+
+func NewDefaultCreateScgUser() *CreateScgUser {
+	createScgUserType := new(CreateScgUser)
+	return createScgUserType
+}
+
 type GetScgUser struct {
 	// AccountLockout
 	// Constraints:
@@ -206,6 +216,16 @@ type GetScgUser struct {
 	UserName *string `json:"userName,omitempty"`
 }
 
+func NewGetScgUser() *GetScgUser {
+	getScgUserType := new(GetScgUser)
+	return getScgUserType
+}
+
+func NewDefaultGetScgUser() *GetScgUser {
+	getScgUserType := new(GetScgUser)
+	return getScgUserType
+}
+
 type ModifyScgUser struct {
 	// AccountLockout
 	// Constraints:
@@ -288,6 +308,16 @@ type ModifyScgUser struct {
 	UserName *string `json:"userName,omitempty"`
 }
 
+func NewModifyScgUser() *ModifyScgUser {
+	modifyScgUserType := new(ModifyScgUser)
+	return modifyScgUserType
+}
+
+func NewDefaultModifyScgUser() *ModifyScgUser {
+	modifyScgUserType := new(ModifyScgUser)
+	return modifyScgUserType
+}
+
 type PatchScgUserGroup struct {
 	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty"`
 
@@ -322,12 +352,42 @@ type PatchScgUserGroup struct {
 	Users []*GetScgUser `json:"users,omitempty"`
 }
 
+func NewPatchScgUserGroup() *PatchScgUserGroup {
+	patchScgUserGroupType := new(PatchScgUserGroup)
+	return patchScgUserGroupType
+}
+
+func NewDefaultPatchScgUserGroup() *PatchScgUserGroup {
+	patchScgUserGroupType := new(PatchScgUserGroup)
+	return patchScgUserGroupType
+}
+
 type QueryCriteria struct{}
+
+func NewQueryCriteria() *QueryCriteria {
+	queryCriteriaType := new(QueryCriteria)
+	return queryCriteriaType
+}
+
+func NewDefaultQueryCriteria() *QueryCriteria {
+	queryCriteriaType := new(QueryCriteria)
+	return queryCriteriaType
+}
 
 type ScgUserAuditId struct {
 	// Id
 	// the identifier of the SCG user
 	Id *string `json:"id,omitempty"`
+}
+
+func NewScgUserAuditId() *ScgUserAuditId {
+	scgUserAuditIdType := new(ScgUserAuditId)
+	return scgUserAuditIdType
+}
+
+func NewDefaultScgUserAuditId() *ScgUserAuditId {
+	scgUserAuditIdType := new(ScgUserAuditId)
+	return scgUserAuditIdType
 }
 
 type ScgUserGroup struct {
@@ -409,10 +469,30 @@ type ScgUserGroup struct {
 	Users []*GetScgUser `json:"users,omitempty"`
 }
 
+func NewScgUserGroup() *ScgUserGroup {
+	scgUserGroupType := new(ScgUserGroup)
+	return scgUserGroupType
+}
+
+func NewDefaultScgUserGroup() *ScgUserGroup {
+	scgUserGroupType := new(ScgUserGroup)
+	return scgUserGroupType
+}
+
 type ScgUserGroupAuditId struct {
 	// Id
 	// the identifier of the SCG user group
 	Id *string `json:"id,omitempty"`
+}
+
+func NewScgUserGroupAuditId() *ScgUserGroupAuditId {
+	scgUserGroupAuditIdType := new(ScgUserGroupAuditId)
+	return scgUserGroupAuditIdType
+}
+
+func NewDefaultScgUserGroupAuditId() *ScgUserGroupAuditId {
+	scgUserGroupAuditIdType := new(ScgUserGroupAuditId)
+	return scgUserGroupAuditIdType
 }
 
 type ScgUserGroupList struct {
@@ -425,6 +505,16 @@ type ScgUserGroupList struct {
 	List []*ScgUserGroup `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewScgUserGroupList() *ScgUserGroupList {
+	scgUserGroupListType := new(ScgUserGroupList)
+	return scgUserGroupListType
+}
+
+func NewDefaultScgUserGroupList() *ScgUserGroupList {
+	scgUserGroupListType := new(ScgUserGroupList)
+	return scgUserGroupListType
 }
 
 type ScgUserGroupPermission struct {
@@ -456,6 +546,16 @@ type ScgUserGroupPermission struct {
 	Resource *string `json:"resource,omitempty"`
 }
 
+func NewScgUserGroupPermission() *ScgUserGroupPermission {
+	scgUserGroupPermissionType := new(ScgUserGroupPermission)
+	return scgUserGroupPermissionType
+}
+
+func NewDefaultScgUserGroupPermission() *ScgUserGroupPermission {
+	scgUserGroupPermissionType := new(ScgUserGroupPermission)
+	return scgUserGroupPermissionType
+}
+
 type ScgUserGroupPermissionItemsType struct {
 	// Access
 	// Constraints:
@@ -466,6 +566,16 @@ type ScgUserGroupPermissionItemsType struct {
 	Display *string `json:"display,omitempty"`
 
 	Resource *string `json:"resource,omitempty"`
+}
+
+func NewScgUserGroupPermissionItemsType() *ScgUserGroupPermissionItemsType {
+	scgUserGroupPermissionItemsTypeType := new(ScgUserGroupPermissionItemsType)
+	return scgUserGroupPermissionItemsTypeType
+}
+
+func NewDefaultScgUserGroupPermissionItemsType() *ScgUserGroupPermissionItemsType {
+	scgUserGroupPermissionItemsTypeType := new(ScgUserGroupPermissionItemsType)
+	return scgUserGroupPermissionItemsTypeType
 }
 
 type ScgUserGroupPermissionList struct {
@@ -482,6 +592,16 @@ type ScgUserGroupPermissionList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewScgUserGroupPermissionList() *ScgUserGroupPermissionList {
+	scgUserGroupPermissionListType := new(ScgUserGroupPermissionList)
+	return scgUserGroupPermissionListType
+}
+
+func NewDefaultScgUserGroupPermissionList() *ScgUserGroupPermissionList {
+	scgUserGroupPermissionListType := new(ScgUserGroupPermissionList)
+	return scgUserGroupPermissionListType
+}
+
 // ScgUserGroupPermissionListExtraType
 //
 // Any additional response data.
@@ -493,6 +613,16 @@ type ScgUserGroupPermissionListExtraType struct {
 	// IsSuperAdminOfDomain
 	// whether or not current user is a 'Super Admin of Partner Domain' that possesses all 6 permission categories with 'FULL_ACCESS'
 	IsSuperAdminOfDomain *bool `json:"isSuperAdminOfDomain,omitempty"`
+}
+
+func NewScgUserGroupPermissionListExtraType() *ScgUserGroupPermissionListExtraType {
+	scgUserGroupPermissionListExtraTypeType := new(ScgUserGroupPermissionListExtraType)
+	return scgUserGroupPermissionListExtraTypeType
+}
+
+func NewDefaultScgUserGroupPermissionListExtraType() *ScgUserGroupPermissionListExtraType {
+	scgUserGroupPermissionListExtraTypeType := new(ScgUserGroupPermissionListExtraType)
+	return scgUserGroupPermissionListExtraTypeType
 }
 
 type ScgUserGroupPermissionWithoutDetailItems struct {
@@ -516,6 +646,16 @@ type ScgUserGroupPermissionWithoutDetailItems struct {
 	Resource *string `json:"resource,omitempty"`
 }
 
+func NewScgUserGroupPermissionWithoutDetailItems() *ScgUserGroupPermissionWithoutDetailItems {
+	scgUserGroupPermissionWithoutDetailItemsType := new(ScgUserGroupPermissionWithoutDetailItems)
+	return scgUserGroupPermissionWithoutDetailItemsType
+}
+
+func NewDefaultScgUserGroupPermissionWithoutDetailItems() *ScgUserGroupPermissionWithoutDetailItems {
+	scgUserGroupPermissionWithoutDetailItemsType := new(ScgUserGroupPermissionWithoutDetailItems)
+	return scgUserGroupPermissionWithoutDetailItemsType
+}
+
 type ScgUserGroupResourceGroup struct {
 	// Id
 	// the identifier of the SCG resource group
@@ -533,6 +673,16 @@ type ScgUserGroupResourceGroup struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=DOMAIN ZONE APGROUP"`
 }
 
+func NewScgUserGroupResourceGroup() *ScgUserGroupResourceGroup {
+	scgUserGroupResourceGroupType := new(ScgUserGroupResourceGroup)
+	return scgUserGroupResourceGroupType
+}
+
+func NewDefaultScgUserGroupResourceGroup() *ScgUserGroupResourceGroup {
+	scgUserGroupResourceGroupType := new(ScgUserGroupResourceGroup)
+	return scgUserGroupResourceGroupType
+}
+
 type ScgUserGroupRoleLabelValue struct {
 	// Label
 	// Role display name
@@ -541,6 +691,16 @@ type ScgUserGroupRoleLabelValue struct {
 	// Value
 	// Role value
 	Value *string `json:"value,omitempty"`
+}
+
+func NewScgUserGroupRoleLabelValue() *ScgUserGroupRoleLabelValue {
+	scgUserGroupRoleLabelValueType := new(ScgUserGroupRoleLabelValue)
+	return scgUserGroupRoleLabelValueType
+}
+
+func NewDefaultScgUserGroupRoleLabelValue() *ScgUserGroupRoleLabelValue {
+	scgUserGroupRoleLabelValueType := new(ScgUserGroupRoleLabelValue)
+	return scgUserGroupRoleLabelValueType
 }
 
 type ScgUserGroupRoleLabelValueList struct {
@@ -553,6 +713,16 @@ type ScgUserGroupRoleLabelValueList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewScgUserGroupRoleLabelValueList() *ScgUserGroupRoleLabelValueList {
+	scgUserGroupRoleLabelValueListType := new(ScgUserGroupRoleLabelValueList)
+	return scgUserGroupRoleLabelValueListType
+}
+
+func NewDefaultScgUserGroupRoleLabelValueList() *ScgUserGroupRoleLabelValueList {
+	scgUserGroupRoleLabelValueListType := new(ScgUserGroupRoleLabelValueList)
+	return scgUserGroupRoleLabelValueListType
+}
+
 type ScgUserList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -563,4 +733,14 @@ type ScgUserList struct {
 	List []*GetScgUser `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewScgUserList() *ScgUserList {
+	scgUserListType := new(ScgUserList)
+	return scgUserListType
+}
+
+func NewDefaultScgUserList() *ScgUserList {
+	scgUserListType := new(ScgUserList)
+	return scgUserListType
 }

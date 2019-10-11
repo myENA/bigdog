@@ -44,6 +44,16 @@ type CreateSciProfile struct {
 	SciUser *string `json:"sciUser" validate:"required"`
 }
 
+func NewCreateSciProfile() *CreateSciProfile {
+	createSciProfileType := new(CreateSciProfile)
+	return createSciProfileType
+}
+
+func NewDefaultCreateSciProfile() *CreateSciProfile {
+	createSciProfileType := new(CreateSciProfile)
+	return createSciProfileType
+}
+
 type DeleteSciProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
@@ -52,8 +62,28 @@ type DeleteSciProfile struct {
 	Id *string `json:"id" validate:"required"`
 }
 
+func NewDeleteSciProfile() *DeleteSciProfile {
+	deleteSciProfileType := new(DeleteSciProfile)
+	return deleteSciProfileType
+}
+
+func NewDefaultDeleteSciProfile() *DeleteSciProfile {
+	deleteSciProfileType := new(DeleteSciProfile)
+	return deleteSciProfileType
+}
+
 type DeleteSciProfileList struct {
 	List []*DeleteSciProfile `json:"list,omitempty"`
+}
+
+func NewDeleteSciProfileList() *DeleteSciProfileList {
+	deleteSciProfileListType := new(DeleteSciProfileList)
+	return deleteSciProfileListType
+}
+
+func NewDefaultDeleteSciProfileList() *DeleteSciProfileList {
+	deleteSciProfileListType := new(DeleteSciProfileList)
+	return deleteSciProfileListType
 }
 
 type ModifyEventCode struct {
@@ -61,6 +91,16 @@ type ModifyEventCode struct {
 	// Constraints:
 	//    - required
 	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes" validate:"required"`
+}
+
+func NewModifyEventCode() *ModifyEventCode {
+	modifyEventCodeType := new(ModifyEventCode)
+	return modifyEventCodeType
+}
+
+func NewDefaultModifyEventCode() *ModifyEventCode {
+	modifyEventCodeType := new(ModifyEventCode)
+	return modifyEventCodeType
 }
 
 type ModifySciEnabled struct {
@@ -71,8 +111,28 @@ type ModifySciEnabled struct {
 	SciEnabled *bool `json:"sciEnabled" validate:"required"`
 }
 
+func NewModifySciEnabled() *ModifySciEnabled {
+	modifySciEnabledType := new(ModifySciEnabled)
+	return modifySciEnabledType
+}
+
+func NewDefaultModifySciEnabled() *ModifySciEnabled {
+	modifySciEnabledType := new(ModifySciEnabled)
+	return modifySciEnabledType
+}
+
 type ModifySciPriorityList struct {
 	List []*ModifySciPriorityListType `json:"list,omitempty"`
+}
+
+func NewModifySciPriorityList() *ModifySciPriorityList {
+	modifySciPriorityListType := new(ModifySciPriorityList)
+	return modifySciPriorityListType
+}
+
+func NewDefaultModifySciPriorityList() *ModifySciPriorityList {
+	modifySciPriorityListType := new(ModifySciPriorityList)
+	return modifySciPriorityListType
 }
 
 type ModifySciPriorityListType struct {
@@ -93,6 +153,16 @@ type ModifySciPriorityListType struct {
 	// Constraints:
 	//    - required
 	SciProfile *string `json:"sciProfile" validate:"required"`
+}
+
+func NewModifySciPriorityListType() *ModifySciPriorityListType {
+	modifySciPriorityListTypeType := new(ModifySciPriorityListType)
+	return modifySciPriorityListTypeType
+}
+
+func NewDefaultModifySciPriorityListType() *ModifySciPriorityListType {
+	modifySciPriorityListTypeType := new(ModifySciPriorityListType)
+	return modifySciPriorityListTypeType
 }
 
 type ModifySciProfile struct {
@@ -137,6 +207,16 @@ type ModifySciProfile struct {
 	SciUser *string `json:"sciUser" validate:"required"`
 }
 
+func NewModifySciProfile() *ModifySciProfile {
+	modifySciProfileType := new(ModifySciProfile)
+	return modifySciProfileType
+}
+
+func NewDefaultModifySciProfile() *ModifySciProfile {
+	modifySciProfileType := new(ModifySciProfile)
+	return modifySciProfileType
+}
+
 type SciEventCode struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
@@ -153,6 +233,16 @@ type SciEventCode struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSciEventCode() *SciEventCode {
+	sciEventCodeType := new(SciEventCode)
+	return sciEventCodeType
+}
+
+func NewDefaultSciEventCode() *SciEventCode {
+	sciEventCodeType := new(SciEventCode)
+	return sciEventCodeType
+}
+
 type SciEventCodeListType struct {
 	// Code
 	// SCI accepted event code
@@ -161,6 +251,16 @@ type SciEventCodeListType struct {
 	// Type
 	// SCI accepted event type
 	Type *string `json:"type,omitempty"`
+}
+
+func NewSciEventCodeListType() *SciEventCodeListType {
+	sciEventCodeListTypeType := new(SciEventCodeListType)
+	return sciEventCodeListTypeType
+}
+
+func NewDefaultSciEventCodeListType() *SciEventCodeListType {
+	sciEventCodeListTypeType := new(SciEventCodeListType)
+	return sciEventCodeListTypeType
 }
 
 type SciProfile struct {
@@ -195,6 +295,16 @@ type SciProfile struct {
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
 	SciUser *string `json:"sciUser,omitempty"`
+}
+
+func NewSciProfile() *SciProfile {
+	sciProfileType := new(SciProfile)
+	return sciProfileType
+}
+
+func NewDefaultSciProfile() *SciProfile {
+	sciProfileType := new(SciProfile)
+	return sciProfileType
 }
 
 type SciProfileList struct {
@@ -240,8 +350,28 @@ func (t *SciProfileList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
+func NewSciProfileList() *SciProfileList {
+	sciProfileListType := new(SciProfileList)
+	return sciProfileListType
+}
+
+func NewDefaultSciProfileList() *SciProfileList {
+	sciProfileListType := new(SciProfileList)
+	return sciProfileListType
+}
+
 type SciProfileListExtraType struct {
 	// SciEnabled
 	// SCI password of the SCI profile for SZ/SCI interface
 	SciEnabled *bool `json:"sciEnabled,omitempty"`
+}
+
+func NewSciProfileListExtraType() *SciProfileListExtraType {
+	sciProfileListExtraTypeType := new(SciProfileListExtraType)
+	return sciProfileListExtraTypeType
+}
+
+func NewDefaultSciProfileListExtraType() *SciProfileListExtraType {
+	sciProfileListExtraTypeType := new(SciProfileListExtraType)
+	return sciProfileListExtraTypeType
 }

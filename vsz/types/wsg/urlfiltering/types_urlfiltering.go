@@ -62,8 +62,28 @@ type CreateUrlFilteringPolicy struct {
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
+func NewCreateUrlFilteringPolicy() *CreateUrlFilteringPolicy {
+	createUrlFilteringPolicyType := new(CreateUrlFilteringPolicy)
+	return createUrlFilteringPolicyType
+}
+
+func NewDefaultCreateUrlFilteringPolicy() *CreateUrlFilteringPolicy {
+	createUrlFilteringPolicyType := new(CreateUrlFilteringPolicy)
+	return createUrlFilteringPolicyType
+}
+
 type DeleteBulk struct {
 	IdList common.IdList `json:"idList,omitempty"`
+}
+
+func NewDeleteBulk() *DeleteBulk {
+	deleteBulkType := new(DeleteBulk)
+	return deleteBulkType
+}
+
+func NewDefaultDeleteBulk() *DeleteBulk {
+	deleteBulkType := new(DeleteBulk)
+	return deleteBulkType
 }
 
 type ModifyUrlFilteringPolicy struct {
@@ -115,6 +135,16 @@ type ModifyUrlFilteringPolicy struct {
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
+func NewModifyUrlFilteringPolicy() *ModifyUrlFilteringPolicy {
+	modifyUrlFilteringPolicyType := new(ModifyUrlFilteringPolicy)
+	return modifyUrlFilteringPolicyType
+}
+
+func NewDefaultModifyUrlFilteringPolicy() *ModifyUrlFilteringPolicy {
+	modifyUrlFilteringPolicyType := new(ModifyUrlFilteringPolicy)
+	return modifyUrlFilteringPolicyType
+}
+
 type UrlFilteringBlockCategoriesList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -125,6 +155,16 @@ type UrlFilteringBlockCategoriesList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewUrlFilteringBlockCategoriesList() *UrlFilteringBlockCategoriesList {
+	urlFilteringBlockCategoriesListType := new(UrlFilteringBlockCategoriesList)
+	return urlFilteringBlockCategoriesListType
+}
+
+func NewDefaultUrlFilteringBlockCategoriesList() *UrlFilteringBlockCategoriesList {
+	urlFilteringBlockCategoriesListType := new(UrlFilteringBlockCategoriesList)
+	return urlFilteringBlockCategoriesListType
+}
+
 type UrlFilteringBlockCategory struct {
 	// Id
 	// Identifier of the URL Filtering Category
@@ -133,6 +173,16 @@ type UrlFilteringBlockCategory struct {
 	// Name
 	// name of the URL Filtering Category
 	Name *string `json:"name,omitempty"`
+}
+
+func NewUrlFilteringBlockCategory() *UrlFilteringBlockCategory {
+	urlFilteringBlockCategoryType := new(UrlFilteringBlockCategory)
+	return urlFilteringBlockCategoryType
+}
+
+func NewDefaultUrlFilteringBlockCategory() *UrlFilteringBlockCategory {
+	urlFilteringBlockCategoryType := new(UrlFilteringBlockCategory)
+	return urlFilteringBlockCategoryType
 }
 
 type UrlFilteringPolicy struct {
@@ -220,6 +270,16 @@ type UrlFilteringPolicy struct {
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
+func NewUrlFilteringPolicy() *UrlFilteringPolicy {
+	urlFilteringPolicyType := new(UrlFilteringPolicy)
+	return urlFilteringPolicyType
+}
+
+func NewDefaultUrlFilteringPolicy() *UrlFilteringPolicy {
+	urlFilteringPolicyType := new(UrlFilteringPolicy)
+	return urlFilteringPolicyType
+}
+
 type UrlFilteringPolicyList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -230,4 +290,14 @@ type UrlFilteringPolicyList struct {
 	List []*UrlFilteringPolicy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewUrlFilteringPolicyList() *UrlFilteringPolicyList {
+	urlFilteringPolicyListType := new(UrlFilteringPolicyList)
+	return urlFilteringPolicyListType
+}
+
+func NewDefaultUrlFilteringPolicyList() *UrlFilteringPolicyList {
+	urlFilteringPolicyListType := new(UrlFilteringPolicyList)
+	return urlFilteringPolicyListType
 }

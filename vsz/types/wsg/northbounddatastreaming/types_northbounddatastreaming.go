@@ -44,8 +44,28 @@ type CreateNorthboundDataStreamingProfile struct {
 	User *string `json:"user" validate:"required"`
 }
 
+func NewCreateNorthboundDataStreamingProfile() *CreateNorthboundDataStreamingProfile {
+	createNorthboundDataStreamingProfileType := new(CreateNorthboundDataStreamingProfile)
+	return createNorthboundDataStreamingProfileType
+}
+
+func NewDefaultCreateNorthboundDataStreamingProfile() *CreateNorthboundDataStreamingProfile {
+	createNorthboundDataStreamingProfileType := new(CreateNorthboundDataStreamingProfile)
+	return createNorthboundDataStreamingProfileType
+}
+
 type EmptyResult struct {
 	NorthboundDataStreamingemptyResult *string `json:"northboundDataStreaming_emptyResult,omitempty"`
+}
+
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
 }
 
 type ModifyNorthboundDataStreamingEventCodes struct {
@@ -53,6 +73,16 @@ type ModifyNorthboundDataStreamingEventCodes struct {
 	// Constraints:
 	//    - required
 	NorthboundDataStreamingAcceptedEventCodes []int `json:"northboundDataStreamingAcceptedEventCodes" validate:"required"`
+}
+
+func NewModifyNorthboundDataStreamingEventCodes() *ModifyNorthboundDataStreamingEventCodes {
+	modifyNorthboundDataStreamingEventCodesType := new(ModifyNorthboundDataStreamingEventCodes)
+	return modifyNorthboundDataStreamingEventCodesType
+}
+
+func NewDefaultModifyNorthboundDataStreamingEventCodes() *ModifyNorthboundDataStreamingEventCodes {
+	modifyNorthboundDataStreamingEventCodesType := new(ModifyNorthboundDataStreamingEventCodes)
+	return modifyNorthboundDataStreamingEventCodesType
 }
 
 type ModifyNorthboundDataStreamingProfile struct {
@@ -93,6 +123,16 @@ type ModifyNorthboundDataStreamingProfile struct {
 	User *string `json:"user" validate:"required"`
 }
 
+func NewModifyNorthboundDataStreamingProfile() *ModifyNorthboundDataStreamingProfile {
+	modifyNorthboundDataStreamingProfileType := new(ModifyNorthboundDataStreamingProfile)
+	return modifyNorthboundDataStreamingProfileType
+}
+
+func NewDefaultModifyNorthboundDataStreamingProfile() *ModifyNorthboundDataStreamingProfile {
+	modifyNorthboundDataStreamingProfileType := new(ModifyNorthboundDataStreamingProfile)
+	return modifyNorthboundDataStreamingProfileType
+}
+
 type NorthboundDataStreamingEventCodes struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
@@ -109,6 +149,16 @@ type NorthboundDataStreamingEventCodes struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewNorthboundDataStreamingEventCodes() *NorthboundDataStreamingEventCodes {
+	northboundDataStreamingEventCodesType := new(NorthboundDataStreamingEventCodes)
+	return northboundDataStreamingEventCodesType
+}
+
+func NewDefaultNorthboundDataStreamingEventCodes() *NorthboundDataStreamingEventCodes {
+	northboundDataStreamingEventCodesType := new(NorthboundDataStreamingEventCodes)
+	return northboundDataStreamingEventCodesType
+}
+
 type NorthboundDataStreamingEventCodesListType struct {
 	// Code
 	// Northbound Data Streaming accepted event code
@@ -117,6 +167,16 @@ type NorthboundDataStreamingEventCodesListType struct {
 	// Type
 	// Northbound Data Streaming accepted event type
 	Type *string `json:"type,omitempty"`
+}
+
+func NewNorthboundDataStreamingEventCodesListType() *NorthboundDataStreamingEventCodesListType {
+	northboundDataStreamingEventCodesListTypeType := new(NorthboundDataStreamingEventCodesListType)
+	return northboundDataStreamingEventCodesListTypeType
+}
+
+func NewDefaultNorthboundDataStreamingEventCodesListType() *NorthboundDataStreamingEventCodesListType {
+	northboundDataStreamingEventCodesListTypeType := new(NorthboundDataStreamingEventCodesListType)
+	return northboundDataStreamingEventCodesListTypeType
 }
 
 type NorthboundDataStreamingProfile struct {
@@ -147,6 +207,16 @@ type NorthboundDataStreamingProfile struct {
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	User *string `json:"user,omitempty"`
+}
+
+func NewNorthboundDataStreamingProfile() *NorthboundDataStreamingProfile {
+	northboundDataStreamingProfileType := new(NorthboundDataStreamingProfile)
+	return northboundDataStreamingProfileType
+}
+
+func NewDefaultNorthboundDataStreamingProfile() *NorthboundDataStreamingProfile {
+	northboundDataStreamingProfileType := new(NorthboundDataStreamingProfile)
+	return northboundDataStreamingProfileType
 }
 
 type NorthboundDataStreamingProfileList struct {
@@ -192,6 +262,16 @@ func (t *NorthboundDataStreamingProfileList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
+func NewNorthboundDataStreamingProfileList() *NorthboundDataStreamingProfileList {
+	northboundDataStreamingProfileListType := new(NorthboundDataStreamingProfileList)
+	return northboundDataStreamingProfileListType
+}
+
+func NewDefaultNorthboundDataStreamingProfileList() *NorthboundDataStreamingProfileList {
+	northboundDataStreamingProfileListType := new(NorthboundDataStreamingProfileList)
+	return northboundDataStreamingProfileListType
+}
+
 type NorthboundDataStreamingProfileListExtraType struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled
@@ -208,6 +288,16 @@ type NorthboundDataStreamingProfileListExtraType struct {
 	// StreamingZoneIds
 	// Zone Ids for 'streamingByDomainZoneEnabled' settings
 	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
+}
+
+func NewNorthboundDataStreamingProfileListExtraType() *NorthboundDataStreamingProfileListExtraType {
+	northboundDataStreamingProfileListExtraTypeType := new(NorthboundDataStreamingProfileListExtraType)
+	return northboundDataStreamingProfileListExtraTypeType
+}
+
+func NewDefaultNorthboundDataStreamingProfileListExtraType() *NorthboundDataStreamingProfileListExtraType {
+	northboundDataStreamingProfileListExtraTypeType := new(NorthboundDataStreamingProfileListExtraType)
+	return northboundDataStreamingProfileListExtraTypeType
 }
 
 type NorthboundDataStreamingSettings struct {
@@ -230,4 +320,14 @@ type NorthboundDataStreamingSettings struct {
 	// StreamingZoneIds
 	// Zone Ids for 'streamingByDomainZoneEnabled' settings
 	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
+}
+
+func NewNorthboundDataStreamingSettings() *NorthboundDataStreamingSettings {
+	northboundDataStreamingSettingsType := new(NorthboundDataStreamingSettings)
+	return northboundDataStreamingSettingsType
+}
+
+func NewDefaultNorthboundDataStreamingSettings() *NorthboundDataStreamingSettings {
+	northboundDataStreamingSettingsType := new(NorthboundDataStreamingSettings)
+	return northboundDataStreamingSettingsType
 }

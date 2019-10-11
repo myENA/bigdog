@@ -14,6 +14,16 @@ type AlarmQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewAlarmQueryResultList() *AlarmQueryResultList {
+	alarmQueryResultListType := new(AlarmQueryResultList)
+	return alarmQueryResultListType
+}
+
+func NewDefaultAlarmQueryResultList() *AlarmQueryResultList {
+	alarmQueryResultListType := new(AlarmQueryResultList)
+	return alarmQueryResultListType
+}
+
 type SingleAlarm struct {
 	Acknowledged *string `json:"acknowledged,omitempty"`
 
@@ -42,4 +52,14 @@ type SingleAlarm struct {
 	InsertionTime *float64 `json:"insertionTime,omitempty"`
 
 	Severity *string `json:"severity,omitempty"`
+}
+
+func NewSingleAlarm() *SingleAlarm {
+	singleAlarmType := new(SingleAlarm)
+	return singleAlarmType
+}
+
+func NewDefaultSingleAlarm() *SingleAlarm {
+	singleAlarmType := new(SingleAlarm)
+	return singleAlarmType
 }

@@ -58,6 +58,18 @@ type ModifySyslogSettings struct {
 	SecondaryServer *SecondaryServer `json:"secondaryServer,omitempty"`
 }
 
+func NewModifySyslogSettings() *ModifySyslogSettings {
+	modifySyslogSettingsType := new(ModifySyslogSettings)
+	return modifySyslogSettingsType
+}
+
+func NewDefaultModifySyslogSettings() *ModifySyslogSettings {
+	modifySyslogSettingsType := new(ModifySyslogSettings)
+	eventFilterSeverityField := `Debug`
+	modifySyslogSettingsType.EventFilterSeverity = &eventFilterSeverityField
+	return modifySyslogSettingsType
+}
+
 type PrimaryServer struct {
 	// Host
 	// address of the syslog server.
@@ -73,6 +85,16 @@ type PrimaryServer struct {
 	//    - nullable
 	//    - oneof:[UDP,TCP]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=UDP TCP"`
+}
+
+func NewPrimaryServer() *PrimaryServer {
+	primaryServerType := new(PrimaryServer)
+	return primaryServerType
+}
+
+func NewDefaultPrimaryServer() *PrimaryServer {
+	primaryServerType := new(PrimaryServer)
+	return primaryServerType
 }
 
 type Priority struct {
@@ -119,6 +141,16 @@ type Priority struct {
 	Warning *string `json:"warning,omitempty" validate:"omitempty,oneof=ERROR WARN INFO DEBUG"`
 }
 
+func NewPriority() *Priority {
+	priorityType := new(Priority)
+	return priorityType
+}
+
+func NewDefaultPriority() *Priority {
+	priorityType := new(Priority)
+	return priorityType
+}
+
 type SecondaryServer struct {
 	// Host
 	// address of the syslog server.
@@ -141,6 +173,16 @@ type SecondaryServer struct {
 	//    - nullable
 	//    - oneof:[active_active,primary_backup]
 	RedundancyMode *string `json:"redundancyMode,omitempty" validate:"omitempty,oneof=active_active primary_backup"`
+}
+
+func NewSecondaryServer() *SecondaryServer {
+	secondaryServerType := new(SecondaryServer)
+	return secondaryServerType
+}
+
+func NewDefaultSecondaryServer() *SecondaryServer {
+	secondaryServerType := new(SecondaryServer)
+	return secondaryServerType
 }
 
 type SyslogServerSetting struct {
@@ -196,4 +238,14 @@ type SyslogServerSetting struct {
 	Priority *Priority `json:"priority,omitempty"`
 
 	SecondaryServer *SecondaryServer `json:"secondaryServer,omitempty"`
+}
+
+func NewSyslogServerSetting() *SyslogServerSetting {
+	syslogServerSettingType := new(SyslogServerSetting)
+	return syslogServerSettingType
+}
+
+func NewDefaultSyslogServerSetting() *SyslogServerSetting {
+	syslogServerSettingType := new(SyslogServerSetting)
+	return syslogServerSettingType
 }

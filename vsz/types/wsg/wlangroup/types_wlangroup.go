@@ -15,10 +15,30 @@ type CreateWlanGroup struct {
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
+func NewCreateWlanGroup() *CreateWlanGroup {
+	createWlanGroupType := new(CreateWlanGroup)
+	return createWlanGroupType
+}
+
+func NewDefaultCreateWlanGroup() *CreateWlanGroup {
+	createWlanGroupType := new(CreateWlanGroup)
+	return createWlanGroupType
+}
+
 type ModifyWlanGroup struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewModifyWlanGroup() *ModifyWlanGroup {
+	modifyWlanGroupType := new(ModifyWlanGroup)
+	return modifyWlanGroupType
+}
+
+func NewDefaultModifyWlanGroup() *ModifyWlanGroup {
+	modifyWlanGroupType := new(ModifyWlanGroup)
+	return modifyWlanGroupType
 }
 
 type ModifyWlanGroupMember struct {
@@ -38,6 +58,16 @@ type ModifyWlanGroupMember struct {
 	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
+}
+
+func NewModifyWlanGroupMember() *ModifyWlanGroupMember {
+	modifyWlanGroupMemberType := new(ModifyWlanGroupMember)
+	return modifyWlanGroupMemberType
+}
+
+func NewDefaultModifyWlanGroupMember() *ModifyWlanGroupMember {
+	modifyWlanGroupMemberType := new(ModifyWlanGroupMember)
+	return modifyWlanGroupMemberType
 }
 
 type WlanGroup struct {
@@ -85,6 +115,16 @@ type WlanGroup struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWlanGroup() *WlanGroup {
+	wlanGroupType := new(WlanGroup)
+	return wlanGroupType
+}
+
+func NewDefaultWlanGroup() *WlanGroup {
+	wlanGroupType := new(WlanGroup)
+	return wlanGroupType
+}
+
 type WlanGroupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -93,6 +133,16 @@ type WlanGroupList struct {
 	List []*WlanGroup `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWlanGroupList() *WlanGroupList {
+	wlanGroupListType := new(WlanGroupList)
+	return wlanGroupListType
+}
+
+func NewDefaultWlanGroupList() *WlanGroupList {
+	wlanGroupListType := new(WlanGroupList)
+	return wlanGroupListType
 }
 
 type WlanMember struct {
@@ -122,4 +172,14 @@ type WlanMember struct {
 	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
+}
+
+func NewWlanMember() *WlanMember {
+	wlanMemberType := new(WlanMember)
+	return wlanMemberType
+}
+
+func NewDefaultWlanMember() *WlanMember {
+	wlanMemberType := new(WlanMember)
+	return wlanMemberType
 }

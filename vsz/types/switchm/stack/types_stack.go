@@ -8,6 +8,16 @@ import (
 
 type AuditIdList []*switchmswitch.AuditId
 
+func NewAuditIdList() *AuditIdList {
+	auditIdListType := make(AuditIdList, 0)
+	return &auditIdListType
+}
+
+func NewDefaultAuditIdList() *AuditIdList {
+	auditIdListType := make(AuditIdList, 0)
+	return &auditIdListType
+}
+
 type List struct {
 	// FirstIndex
 	// Index of the first stack returned out of the complete stack list
@@ -28,6 +38,16 @@ type List struct {
 	// TotalCount
 	// Total Stack count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewList() *List {
+	listType := new(List)
+	return listType
+}
+
+func NewDefaultList() *List {
+	listType := new(List)
+	return listType
 }
 
 type Member struct {
@@ -68,6 +88,16 @@ type Member struct {
 	SwitchUnit *string `json:"switchUnit,omitempty"`
 }
 
+func NewMember() *Member {
+	memberType := new(Member)
+	return memberType
+}
+
+func NewDefaultMember() *Member {
+	memberType := new(Member)
+	return memberType
+}
+
 // MemberPortStatusType
 //
 // Port status Information
@@ -95,6 +125,16 @@ type MemberPortStatusType struct {
 	// Warning
 	// Count for port status is warring of stack
 	Warning *int `json:"warning,omitempty"`
+}
+
+func NewMemberPortStatusType() *MemberPortStatusType {
+	memberPortStatusTypeType := new(MemberPortStatusType)
+	return memberPortStatusTypeType
+}
+
+func NewDefaultMemberPortStatusType() *MemberPortStatusType {
+	memberPortStatusTypeType := new(MemberPortStatusType)
+	return memberPortStatusTypeType
 }
 
 type MemberSwitchPortsType struct {
@@ -195,6 +235,16 @@ type MemberSwitchPortsType struct {
 	Vlans *string `json:"vlans,omitempty"`
 }
 
+func NewMemberSwitchPortsType() *MemberSwitchPortsType {
+	memberSwitchPortsTypeType := new(MemberSwitchPortsType)
+	return memberSwitchPortsTypeType
+}
+
+func NewDefaultMemberSwitchPortsType() *MemberSwitchPortsType {
+	memberSwitchPortsTypeType := new(MemberSwitchPortsType)
+	return memberSwitchPortsTypeType
+}
+
 // MemberSwitchPortsTypeConnectedDeviceType
 //
 // Connected device information
@@ -272,6 +322,16 @@ type MemberSwitchPortsTypeConnectedDeviceType struct {
 	UnitId *string `json:"unitId,omitempty"`
 }
 
+func NewMemberSwitchPortsTypeConnectedDeviceType() *MemberSwitchPortsTypeConnectedDeviceType {
+	memberSwitchPortsTypeConnectedDeviceTypeType := new(MemberSwitchPortsTypeConnectedDeviceType)
+	return memberSwitchPortsTypeConnectedDeviceTypeType
+}
+
+func NewDefaultMemberSwitchPortsTypeConnectedDeviceType() *MemberSwitchPortsTypeConnectedDeviceType {
+	memberSwitchPortsTypeConnectedDeviceTypeType := new(MemberSwitchPortsTypeConnectedDeviceType)
+	return memberSwitchPortsTypeConnectedDeviceTypeType
+}
+
 // MemberSwitchPortsTypePoeType
 //
 // POE information of switch port
@@ -289,6 +349,16 @@ type MemberSwitchPortsTypePoeType struct {
 	Total *int `json:"total,omitempty"`
 }
 
+func NewMemberSwitchPortsTypePoeType() *MemberSwitchPortsTypePoeType {
+	memberSwitchPortsTypePoeTypeType := new(MemberSwitchPortsTypePoeType)
+	return memberSwitchPortsTypePoeTypeType
+}
+
+func NewDefaultMemberSwitchPortsTypePoeType() *MemberSwitchPortsTypePoeType {
+	memberSwitchPortsTypePoeTypeType := new(MemberSwitchPortsTypePoeType)
+	return memberSwitchPortsTypePoeTypeType
+}
+
 // MemberSwitchPortsTypeTrafficUsageType
 //
 // Traffic usage information
@@ -300,6 +370,16 @@ type MemberSwitchPortsTypeTrafficUsageType struct {
 	// Tx
 	// Tx traffic usage of switch port
 	Tx *int `json:"tx,omitempty"`
+}
+
+func NewMemberSwitchPortsTypeTrafficUsageType() *MemberSwitchPortsTypeTrafficUsageType {
+	memberSwitchPortsTypeTrafficUsageTypeType := new(MemberSwitchPortsTypeTrafficUsageType)
+	return memberSwitchPortsTypeTrafficUsageTypeType
+}
+
+func NewDefaultMemberSwitchPortsTypeTrafficUsageType() *MemberSwitchPortsTypeTrafficUsageType {
+	memberSwitchPortsTypeTrafficUsageTypeType := new(MemberSwitchPortsTypeTrafficUsageType)
+	return memberSwitchPortsTypeTrafficUsageTypeType
 }
 
 type StackConfig struct {
@@ -320,4 +400,24 @@ type StackConfig struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+func NewStackConfig() *StackConfig {
+	stackConfigType := new(StackConfig)
+	return stackConfigType
+}
+
+func NewDefaultStackConfig() *StackConfig {
+	stackConfigType := new(StackConfig)
+	return stackConfigType
+}
+
 type StackConfigList []*StackConfig
+
+func NewStackConfigList() *StackConfigList {
+	stackConfigListType := make(StackConfigList, 0)
+	return &stackConfigListType
+}
+
+func NewDefaultStackConfigList() *StackConfigList {
+	stackConfigListType := make(StackConfigList, 0)
+	return &stackConfigListType
+}

@@ -14,6 +14,16 @@ type ErrorObject struct {
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
+func NewErrorObject() *ErrorObject {
+	errorObjectType := new(ErrorObject)
+	return errorObjectType
+}
+
+func NewDefaultErrorObject() *ErrorObject {
+	errorObjectType := new(ErrorObject)
+	return errorObjectType
+}
+
 type Job struct {
 	// Action
 	// Action of the job
@@ -74,6 +84,16 @@ type Job struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewJob() *Job {
+	jobType := new(Job)
+	return jobType
+}
+
+func NewDefaultJob() *Job {
+	jobType := new(Job)
+	return jobType
+}
+
 type JobCsvDataMapType struct {
 	XAdditionalProperties map[string]string `json:"-"`
 }
@@ -94,6 +114,16 @@ func (t *JobCsvDataMapType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewJobCsvDataMapType() *JobCsvDataMapType {
+	jobCsvDataMapTypeType := new(JobCsvDataMapType)
+	return jobCsvDataMapTypeType
+}
+
+func NewDefaultJobCsvDataMapType() *JobCsvDataMapType {
+	jobCsvDataMapTypeType := new(JobCsvDataMapType)
+	return jobCsvDataMapTypeType
+}
+
 type JobSchedule struct {
 	// CreatedTimestamp
 	// Created timestamp of job schedule
@@ -106,6 +136,16 @@ type JobSchedule struct {
 	// TriggerValue
 	// Trigger value of job schedule
 	TriggerValue *string `json:"triggerValue,omitempty"`
+}
+
+func NewJobSchedule() *JobSchedule {
+	jobScheduleType := new(JobSchedule)
+	return jobScheduleType
+}
+
+func NewDefaultJobSchedule() *JobSchedule {
+	jobScheduleType := new(JobSchedule)
+	return jobScheduleType
 }
 
 type JobScheduleResponse struct {
@@ -124,6 +164,16 @@ type JobScheduleResponse struct {
 	// Success
 	// Success response of job schedule
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewJobScheduleResponse() *JobScheduleResponse {
+	jobScheduleResponseType := new(JobScheduleResponse)
+	return jobScheduleResponseType
+}
+
+func NewDefaultJobScheduleResponse() *JobScheduleResponse {
+	jobScheduleResponseType := new(JobScheduleResponse)
+	return jobScheduleResponseType
 }
 
 // JobScheduleResponseExtraType
@@ -149,6 +199,16 @@ func (t *JobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewJobScheduleResponseExtraType() *JobScheduleResponseExtraType {
+	jobScheduleResponseExtraTypeType := new(JobScheduleResponseExtraType)
+	return jobScheduleResponseExtraTypeType
+}
+
+func NewDefaultJobScheduleResponseExtraType() *JobScheduleResponseExtraType {
+	jobScheduleResponseExtraTypeType := new(JobScheduleResponseExtraType)
+	return jobScheduleResponseExtraTypeType
+}
+
 // JobScheduleResponseMetaDataType
 //
 // metaData of job schedule
@@ -170,6 +230,16 @@ func (t *JobScheduleResponseMetaDataType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewJobScheduleResponseMetaDataType() *JobScheduleResponseMetaDataType {
+	jobScheduleResponseMetaDataTypeType := new(JobScheduleResponseMetaDataType)
+	return jobScheduleResponseMetaDataTypeType
+}
+
+func NewDefaultJobScheduleResponseMetaDataType() *JobScheduleResponseMetaDataType {
+	jobScheduleResponseMetaDataTypeType := new(JobScheduleResponseMetaDataType)
+	return jobScheduleResponseMetaDataTypeType
 }
 
 type List struct {
@@ -196,6 +266,16 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewList() *List {
+	listType := new(List)
+	return listType
+}
+
+func NewDefaultList() *List {
+	listType := new(List)
+	return listType
+}
+
 // ListExtraType
 //
 // Extra information for job list
@@ -217,4 +297,14 @@ func (t *ListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewListExtraType() *ListExtraType {
+	listExtraTypeType := new(ListExtraType)
+	return listExtraTypeType
+}
+
+func NewDefaultListExtraType() *ListExtraType {
+	listExtraTypeType := new(ListExtraType)
+	return listExtraTypeType
 }

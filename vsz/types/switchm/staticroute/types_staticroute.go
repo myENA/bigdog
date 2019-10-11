@@ -43,6 +43,16 @@ type CreateStaticRoute struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+func NewCreateStaticRoute() *CreateStaticRoute {
+	createStaticRouteType := new(CreateStaticRoute)
+	return createStaticRouteType
+}
+
+func NewDefaultCreateStaticRoute() *CreateStaticRoute {
+	createStaticRouteType := new(CreateStaticRoute)
+	return createStaticRouteType
+}
+
 type EmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -61,6 +71,16 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
 }
 
 type StaticRoute struct {
@@ -112,6 +132,16 @@ type StaticRoute struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewStaticRoute() *StaticRoute {
+	staticRouteType := new(StaticRoute)
+	return staticRouteType
+}
+
+func NewDefaultStaticRoute() *StaticRoute {
+	staticRouteType := new(StaticRoute)
+	return staticRouteType
+}
+
 type StaticRoutesQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -134,6 +164,16 @@ type StaticRoutesQueryResult struct {
 	// TotalCount
 	// Total Static Route Servers count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewStaticRoutesQueryResult() *StaticRoutesQueryResult {
+	staticRoutesQueryResultType := new(StaticRoutesQueryResult)
+	return staticRoutesQueryResultType
+}
+
+func NewDefaultStaticRoutesQueryResult() *StaticRoutesQueryResult {
+	staticRoutesQueryResultType := new(StaticRoutesQueryResult)
+	return staticRoutesQueryResultType
 }
 
 // StaticRoutesQueryResultExtraType
@@ -159,6 +199,16 @@ func (t *StaticRoutesQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewStaticRoutesQueryResultExtraType() *StaticRoutesQueryResultExtraType {
+	staticRoutesQueryResultExtraTypeType := new(StaticRoutesQueryResultExtraType)
+	return staticRoutesQueryResultExtraTypeType
+}
+
+func NewDefaultStaticRoutesQueryResultExtraType() *StaticRoutesQueryResultExtraType {
+	staticRoutesQueryResultExtraTypeType := new(StaticRoutesQueryResultExtraType)
+	return staticRoutesQueryResultExtraTypeType
+}
+
 type UpdateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
@@ -182,4 +232,14 @@ type UpdateStaticRoute struct {
 	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
+}
+
+func NewUpdateStaticRoute() *UpdateStaticRoute {
+	updateStaticRouteType := new(UpdateStaticRoute)
+	return updateStaticRouteType
+}
+
+func NewDefaultUpdateStaticRoute() *UpdateStaticRoute {
+	updateStaticRouteType := new(UpdateStaticRoute)
+	return updateStaticRouteType
 }

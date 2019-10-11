@@ -51,3 +51,13 @@ type DevicesSummary struct {
 	// total connected switches in the cluster.
 	TotalSwitches *int `json:"totalSwitches,omitempty"`
 }
+
+func NewDevicesSummary() *DevicesSummary {
+	devicesSummaryType := new(DevicesSummary)
+	return devicesSummaryType
+}
+
+func NewDefaultDevicesSummary() *DevicesSummary {
+	devicesSummaryType := new(DevicesSummary)
+	return devicesSummaryType
+}

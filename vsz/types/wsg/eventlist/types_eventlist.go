@@ -14,6 +14,16 @@ type EventQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewEventQueryResultList() *EventQueryResultList {
+	eventQueryResultListType := new(EventQueryResultList)
+	return eventQueryResultListType
+}
+
+func NewDefaultEventQueryResultList() *EventQueryResultList {
+	eventQueryResultListType := new(EventQueryResultList)
+	return eventQueryResultListType
+}
+
 type SingleEvent struct {
 	Activity *string `json:"activity,omitempty"`
 
@@ -28,4 +38,14 @@ type SingleEvent struct {
 	InsertionTime *float64 `json:"insertionTime,omitempty"`
 
 	Severity *string `json:"severity,omitempty"`
+}
+
+func NewSingleEvent() *SingleEvent {
+	singleEventType := new(SingleEvent)
+	return singleEventType
+}
+
+func NewDefaultSingleEvent() *SingleEvent {
+	singleEventType := new(SingleEvent)
+	return singleEventType
 }

@@ -85,6 +85,16 @@ type AAAServer struct {
 	Username *string `json:"username,omitempty"`
 }
 
+func NewAAAServer() *AAAServer {
+	aAAServerType := new(AAAServer)
+	return aAAServerType
+}
+
+func NewDefaultAAAServer() *AAAServer {
+	aAAServerType := new(AAAServer)
+	return aAAServerType
+}
+
 type AaaServersQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -109,6 +119,16 @@ type AaaServersQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewAaaServersQueryResult() *AaaServersQueryResult {
+	aaaServersQueryResultType := new(AaaServersQueryResult)
+	return aaaServersQueryResultType
+}
+
+func NewDefaultAaaServersQueryResult() *AaaServersQueryResult {
+	aaaServersQueryResultType := new(AaaServersQueryResult)
+	return aaaServersQueryResultType
+}
+
 // AaaServersQueryResultExtraType
 //
 // Any additional response data
@@ -130,6 +150,16 @@ func (t *AaaServersQueryResultExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewAaaServersQueryResultExtraType() *AaaServersQueryResultExtraType {
+	aaaServersQueryResultExtraTypeType := new(AaaServersQueryResultExtraType)
+	return aaaServersQueryResultExtraTypeType
+}
+
+func NewDefaultAaaServersQueryResultExtraType() *AaaServersQueryResultExtraType {
+	aaaServersQueryResultExtraTypeType := new(AaaServersQueryResultExtraType)
+	return aaaServersQueryResultExtraTypeType
 }
 
 type CreateAdminAAAServer struct {
@@ -183,6 +213,16 @@ type CreateAdminAAAServer struct {
 	Username *string `json:"username,omitempty"`
 }
 
+func NewCreateAdminAAAServer() *CreateAdminAAAServer {
+	createAdminAAAServerType := new(CreateAdminAAAServer)
+	return createAdminAAAServerType
+}
+
+func NewDefaultCreateAdminAAAServer() *CreateAdminAAAServer {
+	createAdminAAAServerType := new(CreateAdminAAAServer)
+	return createAdminAAAServerType
+}
+
 type EmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -201,4 +241,14 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
 }

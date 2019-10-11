@@ -8,6 +8,16 @@ import (
 
 type AccessPointList []*IndoorMapAp
 
+func NewAccessPointList() *AccessPointList {
+	accessPointListType := make(AccessPointList, 0)
+	return &accessPointListType
+}
+
+func NewDefaultAccessPointList() *AccessPointList {
+	accessPointListType := make(AccessPointList, 0)
+	return &accessPointListType
+}
+
 type BasicIndoorMap struct {
 	Address *string `json:"address,omitempty"`
 
@@ -52,6 +62,16 @@ type BasicIndoorMap struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewBasicIndoorMap() *BasicIndoorMap {
+	basicIndoorMapType := new(BasicIndoorMap)
+	return basicIndoorMapType
+}
+
+func NewDefaultBasicIndoorMap() *BasicIndoorMap {
+	basicIndoorMapType := new(BasicIndoorMap)
+	return basicIndoorMapType
+}
+
 type IndooMapAuditId struct {
 	// Id
 	// the identifier of the indoor map
@@ -60,6 +80,16 @@ type IndooMapAuditId struct {
 	// Name
 	// the name of the indoor map
 	Name *string `json:"name,omitempty"`
+}
+
+func NewIndooMapAuditId() *IndooMapAuditId {
+	indooMapAuditIdType := new(IndooMapAuditId)
+	return indooMapAuditIdType
+}
+
+func NewDefaultIndooMapAuditId() *IndooMapAuditId {
+	indooMapAuditIdType := new(IndooMapAuditId)
+	return indooMapAuditIdType
 }
 
 type IndoorMap struct {
@@ -130,12 +160,32 @@ type IndoorMap struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewIndoorMap() *IndoorMap {
+	indoorMapType := new(IndoorMap)
+	return indoorMapType
+}
+
+func NewDefaultIndoorMap() *IndoorMap {
+	indoorMapType := new(IndoorMap)
+	return indoorMapType
+}
+
 type IndoorMapAp struct {
 	IndoorMapXy *IndoorMapXy `json:"indoorMapXy,omitempty"`
 
 	// Mac
 	// the identifier of the create object
 	Mac *string `json:"mac,omitempty"`
+}
+
+func NewIndoorMapAp() *IndoorMapAp {
+	indoorMapApType := new(IndoorMapAp)
+	return indoorMapApType
+}
+
+func NewDefaultIndoorMapAp() *IndoorMapAp {
+	indoorMapApType := new(IndoorMapAp)
+	return indoorMapApType
 }
 
 type IndoorMapList struct {
@@ -154,6 +204,16 @@ type IndoorMapList struct {
 	// TotalCount
 	// Total indoor maps count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewIndoorMapList() *IndoorMapList {
+	indoorMapListType := new(IndoorMapList)
+	return indoorMapListType
+}
+
+func NewDefaultIndoorMapList() *IndoorMapList {
+	indoorMapListType := new(IndoorMapList)
+	return indoorMapListType
 }
 
 type IndoorMapSummary struct {
@@ -221,6 +281,16 @@ type IndoorMapSummary struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewIndoorMapSummary() *IndoorMapSummary {
+	indoorMapSummaryType := new(IndoorMapSummary)
+	return indoorMapSummaryType
+}
+
+func NewDefaultIndoorMapSummary() *IndoorMapSummary {
+	indoorMapSummaryType := new(IndoorMapSummary)
+	return indoorMapSummaryType
+}
+
 type IndoorMapSummaryList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -239,6 +309,16 @@ type IndoorMapSummaryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewIndoorMapSummaryList() *IndoorMapSummaryList {
+	indoorMapSummaryListType := new(IndoorMapSummaryList)
+	return indoorMapSummaryListType
+}
+
+func NewDefaultIndoorMapSummaryList() *IndoorMapSummaryList {
+	indoorMapSummaryListType := new(IndoorMapSummaryList)
+	return indoorMapSummaryListType
+}
+
 type IndoorMapXy struct {
 	// X
 	// x
@@ -247,6 +327,16 @@ type IndoorMapXy struct {
 	// Y
 	// y
 	Y *float64 `json:"y,omitempty"`
+}
+
+func NewIndoorMapXy() *IndoorMapXy {
+	indoorMapXyType := new(IndoorMapXy)
+	return indoorMapXyType
+}
+
+func NewDefaultIndoorMapXy() *IndoorMapXy {
+	indoorMapXyType := new(IndoorMapXy)
+	return indoorMapXyType
 }
 
 type Scale struct {
@@ -264,4 +354,14 @@ type Scale struct {
 	//    - nullable
 	//    - oneof:[MM,CM,M,Foot,Yard]
 	Unit *string `json:"unit,omitempty" validate:"omitempty,oneof=MM CM M Foot Yard"`
+}
+
+func NewScale() *Scale {
+	scaleType := new(Scale)
+	return scaleType
+}
+
+func NewDefaultScale() *Scale {
+	scaleType := new(Scale)
+	return scaleType
 }

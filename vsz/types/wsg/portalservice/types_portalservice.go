@@ -37,6 +37,16 @@ type ConnectionCapability struct {
 	Status *string `json:"status" validate:"required,oneof=CLOSED OPEN UNKNOWN"`
 }
 
+func NewConnectionCapability() *ConnectionCapability {
+	connectionCapabilityType := new(ConnectionCapability)
+	return connectionCapabilityType
+}
+
+func NewDefaultConnectionCapability() *ConnectionCapability {
+	connectionCapabilityType := new(ConnectionCapability)
+	return connectionCapabilityType
+}
+
 type CreateGuestAccess struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -58,6 +68,16 @@ type CreateGuestAccess struct {
 	// Constraints:
 	//    - required
 	UserSession *UserSession `json:"userSession" validate:"required"`
+}
+
+func NewCreateGuestAccess() *CreateGuestAccess {
+	createGuestAccessType := new(CreateGuestAccess)
+	return createGuestAccessType
+}
+
+func NewDefaultCreateGuestAccess() *CreateGuestAccess {
+	createGuestAccessType := new(CreateGuestAccess)
+	return createGuestAccessType
 }
 
 type CreateHotspot20VenueProfile struct {
@@ -87,6 +107,16 @@ type CreateHotspot20VenueProfile struct {
 	// Constraints:
 	//    - required
 	VenueNames []*VenueName `json:"venueNames" validate:"required"`
+}
+
+func NewCreateHotspot20VenueProfile() *CreateHotspot20VenueProfile {
+	createHotspot20VenueProfileType := new(CreateHotspot20VenueProfile)
+	return createHotspot20VenueProfileType
+}
+
+func NewDefaultCreateHotspot20VenueProfile() *CreateHotspot20VenueProfile {
+	createHotspot20VenueProfileType := new(CreateHotspot20VenueProfile)
+	return createHotspot20VenueProfileType
 }
 
 type CreateHotspot20WlanProfile struct {
@@ -139,6 +169,16 @@ type CreateHotspot20WlanProfile struct {
 	Operator *common.GenericRef `json:"operator" validate:"required"`
 
 	SignupSsid *common.GenericRef `json:"signupSsid,omitempty"`
+}
+
+func NewCreateHotspot20WlanProfile() *CreateHotspot20WlanProfile {
+	createHotspot20WlanProfileType := new(CreateHotspot20WlanProfile)
+	return createHotspot20WlanProfileType
+}
+
+func NewDefaultCreateHotspot20WlanProfile() *CreateHotspot20WlanProfile {
+	createHotspot20WlanProfileType := new(CreateHotspot20WlanProfile)
+	return createHotspot20WlanProfileType
 }
 
 type CreateHotspotExternal struct {
@@ -197,6 +237,18 @@ type CreateHotspotExternal struct {
 	WalledGardens []string `json:"walledGardens,omitempty"`
 }
 
+func NewCreateHotspotExternal() *CreateHotspotExternal {
+	createHotspotExternalType := new(CreateHotspotExternal)
+	return createHotspotExternalType
+}
+
+func NewDefaultCreateHotspotExternal() *CreateHotspotExternal {
+	createHotspotExternalType := new(CreateHotspotExternal)
+	httpsRedirectField := true
+	createHotspotExternalType.HttpsRedirect = &httpsRedirectField
+	return createHotspotExternalType
+}
+
 type CreateHotspotInternal struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -230,6 +282,18 @@ type CreateHotspotInternal struct {
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
 	WalledGardens []string `json:"walledGardens,omitempty"`
+}
+
+func NewCreateHotspotInternal() *CreateHotspotInternal {
+	createHotspotInternalType := new(CreateHotspotInternal)
+	return createHotspotInternalType
+}
+
+func NewDefaultCreateHotspotInternal() *CreateHotspotInternal {
+	createHotspotInternalType := new(CreateHotspotInternal)
+	httpsRedirectField := true
+	createHotspotInternalType.HttpsRedirect = &httpsRedirectField
+	return createHotspotInternalType
 }
 
 type CreateHotspotSmartClientOnly struct {
@@ -278,6 +342,18 @@ type CreateHotspotSmartClientOnly struct {
 	WalledGardens []string `json:"walledGardens,omitempty"`
 }
 
+func NewCreateHotspotSmartClientOnly() *CreateHotspotSmartClientOnly {
+	createHotspotSmartClientOnlyType := new(CreateHotspotSmartClientOnly)
+	return createHotspotSmartClientOnlyType
+}
+
+func NewDefaultCreateHotspotSmartClientOnly() *CreateHotspotSmartClientOnly {
+	createHotspotSmartClientOnlyType := new(CreateHotspotSmartClientOnly)
+	httpsRedirectField := true
+	createHotspotSmartClientOnlyType.HttpsRedirect = &httpsRedirectField
+	return createHotspotSmartClientOnlyType
+}
+
 type CreateL2ACL struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -296,6 +372,16 @@ type CreateL2ACL struct {
 	RuleMacs []common.Mac `json:"ruleMacs,omitempty"`
 }
 
+func NewCreateL2ACL() *CreateL2ACL {
+	createL2ACLType := new(CreateL2ACL)
+	return createL2ACLType
+}
+
+func NewDefaultCreateL2ACL() *CreateL2ACL {
+	createL2ACLType := new(CreateL2ACL)
+	return createL2ACLType
+}
+
 type CreateWebAuthentication struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -307,6 +393,16 @@ type CreateWebAuthentication struct {
 	Redirect *PortalRedirect `json:"redirect,omitempty"`
 
 	WebAuthenticationPortalCustomization *common.WebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
+}
+
+func NewCreateWebAuthentication() *CreateWebAuthentication {
+	createWebAuthenticationType := new(CreateWebAuthentication)
+	return createWebAuthenticationType
+}
+
+func NewDefaultCreateWebAuthentication() *CreateWebAuthentication {
+	createWebAuthenticationType := new(CreateWebAuthentication)
+	return createWebAuthenticationType
 }
 
 type CreateWechat struct {
@@ -355,6 +451,18 @@ type CreateWechat struct {
 	WhiteList []string `json:"whiteList" validate:"required"`
 }
 
+func NewCreateWechat() *CreateWechat {
+	createWechatType := new(CreateWechat)
+	return createWechatType
+}
+
+func NewDefaultCreateWechat() *CreateWechat {
+	createWechatType := new(CreateWechat)
+	gracePeriodField := 60
+	createWechatType.GracePeriod = &gracePeriodField
+	return createWechatType
+}
+
 type DefaultConnectionCapability struct {
 	// PortNumber
 	// Port number of connection capability, cannot be modified
@@ -386,6 +494,16 @@ type DefaultConnectionCapability struct {
 	Status *string `json:"status" validate:"required,oneof=CLOSED OPEN UNKNOWN"`
 }
 
+func NewDefaultConnectionCapability() *DefaultConnectionCapability {
+	defaultConnectionCapabilityType := new(DefaultConnectionCapability)
+	return defaultConnectionCapabilityType
+}
+
+func NewDefaultDefaultConnectionCapability() *DefaultConnectionCapability {
+	defaultConnectionCapabilityType := new(DefaultConnectionCapability)
+	return defaultConnectionCapabilityType
+}
+
 type DnatPortMapping struct {
 	// DestPort
 	// Destination port
@@ -402,6 +520,16 @@ type DnatPortMapping struct {
 	//    - min:0
 	//    - max:65535
 	SourcePort *int `json:"sourcePort,omitempty" validate:"omitempty,gte=0,lte=65535"`
+}
+
+func NewDnatPortMapping() *DnatPortMapping {
+	dnatPortMappingType := new(DnatPortMapping)
+	return dnatPortMappingType
+}
+
+func NewDefaultDnatPortMapping() *DnatPortMapping {
+	dnatPortMappingType := new(DnatPortMapping)
+	return dnatPortMappingType
 }
 
 type GuestAccess struct {
@@ -424,6 +552,16 @@ type GuestAccess struct {
 	// ZoneId
 	// Identifier of the zone which the guest access profile belongs to
 	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewGuestAccess() *GuestAccess {
+	guestAccessType := new(GuestAccess)
+	return guestAccessType
+}
+
+func NewDefaultGuestAccess() *GuestAccess {
+	guestAccessType := new(GuestAccess)
+	return guestAccessType
 }
 
 type Hotspot struct {
@@ -492,6 +630,18 @@ type Hotspot struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewHotspot() *Hotspot {
+	hotspotType := new(Hotspot)
+	return hotspotType
+}
+
+func NewDefaultHotspot() *Hotspot {
+	hotspotType := new(Hotspot)
+	httpsRedirectField := true
+	hotspotType.HttpsRedirect = &httpsRedirectField
+	return hotspotType
+}
+
 type Hotspot20VeuneProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -521,6 +671,16 @@ type Hotspot20VeuneProfile struct {
 	// ZoneId
 	// Identifier of the zone which the Hotspot 2.0 venue profile belongs to
 	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewHotspot20VeuneProfile() *Hotspot20VeuneProfile {
+	hotspot20VeuneProfileType := new(Hotspot20VeuneProfile)
+	return hotspot20VeuneProfileType
+}
+
+func NewDefaultHotspot20VeuneProfile() *Hotspot20VeuneProfile {
+	hotspot20VeuneProfileType := new(Hotspot20VeuneProfile)
+	return hotspot20VeuneProfileType
 }
 
 type Hotspot20WlanProfile struct {
@@ -580,6 +740,16 @@ type Hotspot20WlanProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewHotspot20WlanProfile() *Hotspot20WlanProfile {
+	hotspot20WlanProfileType := new(Hotspot20WlanProfile)
+	return hotspot20WlanProfileType
+}
+
+func NewDefaultHotspot20WlanProfile() *Hotspot20WlanProfile {
+	hotspot20WlanProfileType := new(Hotspot20WlanProfile)
+	return hotspot20WlanProfileType
+}
+
 type L2ACL struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -603,6 +773,16 @@ type L2ACL struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewL2ACL() *L2ACL {
+	l2ACLType := new(L2ACL)
+	return l2ACLType
+}
+
+func NewDefaultL2ACL() *L2ACL {
+	l2ACLType := new(L2ACL)
+	return l2ACLType
+}
+
 // LinkSpeedInKbps
 //
 // Link Speed of the Hotspot 2.0 venue profile
@@ -611,6 +791,16 @@ type L2ACL struct {
 //    - min:0.000000
 //    - max:4294967295.000000
 type LinkSpeedInKbps float64
+
+func NewLinkSpeedInKbps() *LinkSpeedInKbps {
+	linkSpeedInKbpsType := new(LinkSpeedInKbps)
+	return linkSpeedInKbpsType
+}
+
+func NewDefaultLinkSpeedInKbps() *LinkSpeedInKbps {
+	linkSpeedInKbpsType := new(LinkSpeedInKbps)
+	return linkSpeedInKbpsType
+}
 
 // MacAddressFormatSetting
 //
@@ -621,6 +811,17 @@ type LinkSpeedInKbps float64
 //    - min:0
 //    - max:5
 type MacAddressFormatSetting int
+
+func NewMacAddressFormatSetting() *MacAddressFormatSetting {
+	macAddressFormatSettingType := new(MacAddressFormatSetting)
+	return macAddressFormatSettingType
+}
+
+func NewDefaultMacAddressFormatSetting() *MacAddressFormatSetting {
+	macAddressFormatSettingType := new(MacAddressFormatSetting)
+	*macAddressFormatSettingType = 2
+	return macAddressFormatSettingType
+}
 
 type ModifyGuestAccess struct {
 	Description *common.Description `json:"description,omitempty"`
@@ -634,6 +835,16 @@ type ModifyGuestAccess struct {
 	SmsGateway *common.GenericRef `json:"smsGateway,omitempty"`
 
 	UserSession *UserSession `json:"userSession,omitempty"`
+}
+
+func NewModifyGuestAccess() *ModifyGuestAccess {
+	modifyGuestAccessType := new(ModifyGuestAccess)
+	return modifyGuestAccessType
+}
+
+func NewDefaultModifyGuestAccess() *ModifyGuestAccess {
+	modifyGuestAccessType := new(ModifyGuestAccess)
+	return modifyGuestAccessType
 }
 
 type ModifyHotspot struct {
@@ -687,6 +898,18 @@ type ModifyHotspot struct {
 	WalledGardens []string `json:"walledGardens,omitempty"`
 }
 
+func NewModifyHotspot() *ModifyHotspot {
+	modifyHotspotType := new(ModifyHotspot)
+	return modifyHotspotType
+}
+
+func NewDefaultModifyHotspot() *ModifyHotspot {
+	modifyHotspotType := new(ModifyHotspot)
+	httpsRedirectField := true
+	modifyHotspotType.HttpsRedirect = &httpsRedirectField
+	return modifyHotspotType
+}
+
 type ModifyHotspot20VenueProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -708,6 +931,16 @@ type ModifyHotspot20VenueProfile struct {
 	UplinkSpeedInKbps *LinkSpeedInKbps `json:"uplinkSpeedInKbps,omitempty"`
 
 	VenueNames []*VenueName `json:"venueNames,omitempty"`
+}
+
+func NewModifyHotspot20VenueProfile() *ModifyHotspot20VenueProfile {
+	modifyHotspot20VenueProfileType := new(ModifyHotspot20VenueProfile)
+	return modifyHotspot20VenueProfileType
+}
+
+func NewDefaultModifyHotspot20VenueProfile() *ModifyHotspot20VenueProfile {
+	modifyHotspot20VenueProfileType := new(ModifyHotspot20VenueProfile)
+	return modifyHotspot20VenueProfileType
 }
 
 type ModifyHotspot20WlanProfile struct {
@@ -759,6 +992,16 @@ type ModifyHotspot20WlanProfile struct {
 	SignupSsid *common.GenericRef `json:"signupSsid,omitempty"`
 }
 
+func NewModifyHotspot20WlanProfile() *ModifyHotspot20WlanProfile {
+	modifyHotspot20WlanProfileType := new(ModifyHotspot20WlanProfile)
+	return modifyHotspot20WlanProfileType
+}
+
+func NewDefaultModifyHotspot20WlanProfile() *ModifyHotspot20WlanProfile {
+	modifyHotspot20WlanProfileType := new(ModifyHotspot20WlanProfile)
+	return modifyHotspot20WlanProfileType
+}
+
 type ModifyL2ACL struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -774,6 +1017,16 @@ type ModifyL2ACL struct {
 	RuleMacs []common.Mac `json:"ruleMacs,omitempty"`
 }
 
+func NewModifyL2ACL() *ModifyL2ACL {
+	modifyL2ACLType := new(ModifyL2ACL)
+	return modifyL2ACLType
+}
+
+func NewDefaultModifyL2ACL() *ModifyL2ACL {
+	modifyL2ACLType := new(ModifyL2ACL)
+	return modifyL2ACLType
+}
+
 type ModifyWebAuthentication struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -786,6 +1039,16 @@ type ModifyWebAuthentication struct {
 	UserSession *UserSession `json:"userSession,omitempty"`
 
 	WebAuthenticationPortalCustomization *common.WebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
+}
+
+func NewModifyWebAuthentication() *ModifyWebAuthentication {
+	modifyWebAuthenticationType := new(ModifyWebAuthentication)
+	return modifyWebAuthenticationType
+}
+
+func NewDefaultModifyWebAuthentication() *ModifyWebAuthentication {
+	modifyWebAuthenticationType := new(ModifyWebAuthentication)
+	return modifyWebAuthenticationType
 }
 
 type ModifyWechat struct {
@@ -823,6 +1086,18 @@ type ModifyWechat struct {
 	WhiteList []string `json:"whiteList,omitempty"`
 }
 
+func NewModifyWechat() *ModifyWechat {
+	modifyWechatType := new(ModifyWechat)
+	return modifyWechatType
+}
+
+func NewDefaultModifyWechat() *ModifyWechat {
+	modifyWechatType := new(ModifyWechat)
+	gracePeriodField := 60
+	modifyWechatType.GracePeriod = &gracePeriodField
+	return modifyWechatType
+}
+
 type PortalLocation struct {
 	// Id
 	// Portal location id
@@ -833,8 +1108,28 @@ type PortalLocation struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewPortalLocation() *PortalLocation {
+	portalLocationType := new(PortalLocation)
+	return portalLocationType
+}
+
+func NewDefaultPortalLocation() *PortalLocation {
+	portalLocationType := new(PortalLocation)
+	return portalLocationType
+}
+
 type PortalRedirect struct {
 	Url *common.NormalURL `json:"url,omitempty"`
+}
+
+func NewPortalRedirect() *PortalRedirect {
+	portalRedirectType := new(PortalRedirect)
+	return portalRedirectType
+}
+
+func NewDefaultPortalRedirect() *PortalRedirect {
+	portalRedirectType := new(PortalRedirect)
+	return portalRedirectType
 }
 
 type PortalServiceList struct {
@@ -847,12 +1142,32 @@ type PortalServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewPortalServiceList() *PortalServiceList {
+	portalServiceListType := new(PortalServiceList)
+	return portalServiceListType
+}
+
+func NewDefaultPortalServiceList() *PortalServiceList {
+	portalServiceListType := new(PortalServiceList)
+	return portalServiceListType
+}
+
 type PortalServiceListType struct {
 	// Id
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewPortalServiceListType() *PortalServiceListType {
+	portalServiceListTypeType := new(PortalServiceListType)
+	return portalServiceListTypeType
+}
+
+func NewDefaultPortalServiceListType() *PortalServiceListType {
+	portalServiceListTypeType := new(PortalServiceListType)
+	return portalServiceListTypeType
 }
 
 type UserSession struct {
@@ -875,6 +1190,20 @@ type UserSession struct {
 	TimeoutInMin *int `json:"timeoutInMin,omitempty" validate:"omitempty,gte=2,lte=14400"`
 }
 
+func NewUserSession() *UserSession {
+	userSessionType := new(UserSession)
+	return userSessionType
+}
+
+func NewDefaultUserSession() *UserSession {
+	userSessionType := new(UserSession)
+	gracePeriodInMinField := 60
+	userSessionType.GracePeriodInMin = &gracePeriodInMinField
+	timeoutInMinField := 1440
+	userSessionType.TimeoutInMin = &timeoutInMinField
+	return userSessionType
+}
+
 type VenueName struct {
 	// Language
 	// Constraints:
@@ -886,6 +1215,16 @@ type VenueName struct {
 	// Constraints:
 	//    - required
 	Name *string `json:"name" validate:"required"`
+}
+
+func NewVenueName() *VenueName {
+	venueNameType := new(VenueName)
+	return venueNameType
+}
+
+func NewDefaultVenueName() *VenueName {
+	venueNameType := new(VenueName)
+	return venueNameType
 }
 
 type WebAuthentication struct {
@@ -908,6 +1247,16 @@ type WebAuthentication struct {
 	// ZoneId
 	// Identifier of the zone which the web authentication profile belongs to
 	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewWebAuthentication() *WebAuthentication {
+	webAuthenticationType := new(WebAuthentication)
+	return webAuthenticationType
+}
+
+func NewDefaultWebAuthentication() *WebAuthentication {
+	webAuthenticationType := new(WebAuthentication)
+	return webAuthenticationType
 }
 
 type WechatConfiguration struct {
@@ -943,4 +1292,16 @@ type WechatConfiguration struct {
 	// WhiteList
 	// White list of the wechat profile
 	WhiteList []string `json:"whiteList,omitempty"`
+}
+
+func NewWechatConfiguration() *WechatConfiguration {
+	wechatConfigurationType := new(WechatConfiguration)
+	return wechatConfigurationType
+}
+
+func NewDefaultWechatConfiguration() *WechatConfiguration {
+	wechatConfigurationType := new(WechatConfiguration)
+	gracePeriodField := 60
+	wechatConfigurationType.GracePeriod = &gracePeriodField
+	return wechatConfigurationType
 }

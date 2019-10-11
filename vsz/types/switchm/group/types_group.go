@@ -16,6 +16,16 @@ type AuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewAuditId() *AuditId {
+	auditIdType := new(AuditId)
+	return auditIdType
+}
+
+func NewDefaultAuditId() *AuditId {
+	auditIdType := new(AuditId)
+	return auditIdType
+}
+
 type ClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
@@ -32,6 +42,16 @@ type ClientObjectID struct {
 	// Type
 	// Type of the client
 	Type *string `json:"type,omitempty"`
+}
+
+func NewClientObjectID() *ClientObjectID {
+	clientObjectIDType := new(ClientObjectID)
+	return clientObjectIDType
+}
+
+func NewDefaultClientObjectID() *ClientObjectID {
+	clientObjectIDType := new(ClientObjectID)
+	return clientObjectIDType
 }
 
 // ClientObjectIDExtraValuesType
@@ -57,12 +77,32 @@ func (t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
+	clientObjectIDExtraValuesTypeType := new(ClientObjectIDExtraValuesType)
+	return clientObjectIDExtraValuesTypeType
+}
+
+func NewDefaultClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
+	clientObjectIDExtraValuesTypeType := new(ClientObjectIDExtraValuesType)
+	return clientObjectIDExtraValuesTypeType
+}
+
 type CloneConfigByGroup struct {
 	Destination []string `json:"destination,omitempty"`
 
 	// Source
 	// Source
 	Source *string `json:"source,omitempty"`
+}
+
+func NewCloneConfigByGroup() *CloneConfigByGroup {
+	cloneConfigByGroupType := new(CloneConfigByGroup)
+	return cloneConfigByGroupType
+}
+
+func NewDefaultCloneConfigByGroup() *CloneConfigByGroup {
+	cloneConfigByGroupType := new(CloneConfigByGroup)
+	return cloneConfigByGroupType
 }
 
 type CloneConfigBySwitch struct {
@@ -77,6 +117,16 @@ type CloneConfigBySwitch struct {
 	Source *string `json:"source,omitempty"`
 }
 
+func NewCloneConfigBySwitch() *CloneConfigBySwitch {
+	cloneConfigBySwitchType := new(CloneConfigBySwitch)
+	return cloneConfigBySwitchType
+}
+
+func NewDefaultCloneConfigBySwitch() *CloneConfigBySwitch {
+	cloneConfigBySwitchType := new(CloneConfigBySwitch)
+	return cloneConfigBySwitchType
+}
+
 type DeleteSwitchGroupResult struct {
 	*AuditId
 }
@@ -89,6 +139,16 @@ type ErrorObject struct {
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
+func NewErrorObject() *ErrorObject {
+	errorObjectType := new(ErrorObject)
+	return errorObjectType
+}
+
+func NewDefaultErrorObject() *ErrorObject {
+	errorObjectType := new(ErrorObject)
+	return errorObjectType
+}
+
 type GetConfigBySwitch struct {
 	// Id
 	// ID
@@ -97,6 +157,16 @@ type GetConfigBySwitch struct {
 	// Source
 	// Source
 	Source *string `json:"source,omitempty"`
+}
+
+func NewGetConfigBySwitch() *GetConfigBySwitch {
+	getConfigBySwitchType := new(GetConfigBySwitch)
+	return getConfigBySwitchType
+}
+
+func NewDefaultGetConfigBySwitch() *GetConfigBySwitch {
+	getConfigBySwitchType := new(GetConfigBySwitch)
+	return getConfigBySwitchType
 }
 
 type GroupsByIdsQueryResultList struct {
@@ -115,6 +185,16 @@ type GroupsByIdsQueryResultList struct {
 	// Success
 	// Query result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewGroupsByIdsQueryResultList() *GroupsByIdsQueryResultList {
+	groupsByIdsQueryResultListType := new(GroupsByIdsQueryResultList)
+	return groupsByIdsQueryResultListType
+}
+
+func NewDefaultGroupsByIdsQueryResultList() *GroupsByIdsQueryResultList {
+	groupsByIdsQueryResultListType := new(GroupsByIdsQueryResultList)
+	return groupsByIdsQueryResultListType
 }
 
 // GroupsByIdsQueryResultListExtraType
@@ -140,6 +220,16 @@ func (t *GroupsByIdsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewGroupsByIdsQueryResultListExtraType() *GroupsByIdsQueryResultListExtraType {
+	groupsByIdsQueryResultListExtraTypeType := new(GroupsByIdsQueryResultListExtraType)
+	return groupsByIdsQueryResultListExtraTypeType
+}
+
+func NewDefaultGroupsByIdsQueryResultListExtraType() *GroupsByIdsQueryResultListExtraType {
+	groupsByIdsQueryResultListExtraTypeType := new(GroupsByIdsQueryResultListExtraType)
+	return groupsByIdsQueryResultListExtraTypeType
+}
+
 // GroupsByIdsQueryResultListMetaDataType
 //
 // Metadata of query result list
@@ -161,6 +251,16 @@ func (t *GroupsByIdsQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewGroupsByIdsQueryResultListMetaDataType() *GroupsByIdsQueryResultListMetaDataType {
+	groupsByIdsQueryResultListMetaDataTypeType := new(GroupsByIdsQueryResultListMetaDataType)
+	return groupsByIdsQueryResultListMetaDataTypeType
+}
+
+func NewDefaultGroupsByIdsQueryResultListMetaDataType() *GroupsByIdsQueryResultListMetaDataType {
+	groupsByIdsQueryResultListMetaDataTypeType := new(GroupsByIdsQueryResultListMetaDataType)
+	return groupsByIdsQueryResultListMetaDataTypeType
 }
 
 type QueryResultList struct {
@@ -187,6 +287,16 @@ type QueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewQueryResultList() *QueryResultList {
+	queryResultListType := new(QueryResultList)
+	return queryResultListType
+}
+
+func NewDefaultQueryResultList() *QueryResultList {
+	queryResultListType := new(QueryResultList)
+	return queryResultListType
+}
+
 // QueryResultListExtraType
 //
 // Extra information for query result list
@@ -208,6 +318,16 @@ func (t *QueryResultListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewQueryResultListExtraType() *QueryResultListExtraType {
+	queryResultListExtraTypeType := new(QueryResultListExtraType)
+	return queryResultListExtraTypeType
+}
+
+func NewDefaultQueryResultListExtraType() *QueryResultListExtraType {
+	queryResultListExtraTypeType := new(QueryResultListExtraType)
+	return queryResultListExtraTypeType
 }
 
 type SwitchGroup struct {
@@ -264,6 +384,16 @@ type SwitchGroup struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+func NewSwitchGroup() *SwitchGroup {
+	switchGroupType := new(SwitchGroup)
+	return switchGroupType
+}
+
+func NewDefaultSwitchGroup() *SwitchGroup {
+	switchGroupType := new(SwitchGroup)
+	return switchGroupType
+}
+
 type SwitchGroupQueryResult struct {
 	*SwitchGroup
 }
@@ -289,6 +419,16 @@ func (t *SwitchGroupSampledInstantType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchGroupSampledInstantType() *SwitchGroupSampledInstantType {
+	switchGroupSampledInstantTypeType := new(SwitchGroupSampledInstantType)
+	return switchGroupSampledInstantTypeType
+}
+
+func NewDefaultSwitchGroupSampledInstantType() *SwitchGroupSampledInstantType {
+	switchGroupSampledInstantTypeType := new(SwitchGroupSampledInstantType)
+	return switchGroupSampledInstantTypeType
 }
 
 type UpdateSwitchGroup struct {

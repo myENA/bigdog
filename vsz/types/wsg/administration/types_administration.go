@@ -33,6 +33,16 @@ type ActiveDirectoryServer struct {
 	WindowsDomainName *string `json:"windowsDomainName" validate:"required"`
 }
 
+func NewActiveDirectoryServer() *ActiveDirectoryServer {
+	activeDirectoryServerType := new(ActiveDirectoryServer)
+	return activeDirectoryServerType
+}
+
+func NewDefaultActiveDirectoryServer() *ActiveDirectoryServer {
+	activeDirectoryServerType := new(ActiveDirectoryServer)
+	return activeDirectoryServerType
+}
+
 type ApPatchHistory struct {
 	// ApFwVersion
 	// apFwVersion of the AP Patch history
@@ -51,6 +61,16 @@ type ApPatchHistory struct {
 	StartDateTime *string `json:"startDateTime,omitempty"`
 }
 
+func NewApPatchHistory() *ApPatchHistory {
+	apPatchHistoryType := new(ApPatchHistory)
+	return apPatchHistoryType
+}
+
+func NewDefaultApPatchHistory() *ApPatchHistory {
+	apPatchHistoryType := new(ApPatchHistory)
+	return apPatchHistoryType
+}
+
 type ApPatchHistoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -59,6 +79,16 @@ type ApPatchHistoryList struct {
 	List []*ApPatchHistory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewApPatchHistoryList() *ApPatchHistoryList {
+	apPatchHistoryListType := new(ApPatchHistoryList)
+	return apPatchHistoryListType
+}
+
+func NewDefaultApPatchHistoryList() *ApPatchHistoryList {
+	apPatchHistoryListType := new(ApPatchHistoryList)
+	return apPatchHistoryListType
 }
 
 type ApPatchInfo struct {
@@ -79,8 +109,28 @@ type ApPatchInfo struct {
 	FileSize *int `json:"fileSize,omitempty"`
 }
 
+func NewApPatchInfo() *ApPatchInfo {
+	apPatchInfoType := new(ApPatchInfo)
+	return apPatchInfoType
+}
+
+func NewDefaultApPatchInfo() *ApPatchInfo {
+	apPatchInfoType := new(ApPatchInfo)
+	return apPatchInfoType
+}
+
 type ApPatchStatus struct {
 	ClusterOperationProgress *clusterblade.ClusterOperationProgress `json:"clusterOperationProgress,omitempty"`
+}
+
+func NewApPatchStatus() *ApPatchStatus {
+	apPatchStatusType := new(ApPatchStatus)
+	return apPatchStatusType
+}
+
+func NewDefaultApPatchStatus() *ApPatchStatus {
+	apPatchStatusType := new(ApPatchStatus)
+	return apPatchStatusType
 }
 
 type ApplicationLogAndStatus struct {
@@ -105,6 +155,16 @@ type ApplicationLogAndStatus struct {
 	NumOfLogs *int `json:"numOfLogs,omitempty"`
 }
 
+func NewApplicationLogAndStatus() *ApplicationLogAndStatus {
+	applicationLogAndStatusType := new(ApplicationLogAndStatus)
+	return applicationLogAndStatusType
+}
+
+func NewDefaultApplicationLogAndStatus() *ApplicationLogAndStatus {
+	applicationLogAndStatusType := new(ApplicationLogAndStatus)
+	return applicationLogAndStatusType
+}
+
 type ApplicationLogAndStatusList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -115,6 +175,16 @@ type ApplicationLogAndStatusList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewApplicationLogAndStatusList() *ApplicationLogAndStatusList {
+	applicationLogAndStatusListType := new(ApplicationLogAndStatusList)
+	return applicationLogAndStatusListType
+}
+
+func NewDefaultApplicationLogAndStatusList() *ApplicationLogAndStatusList {
+	applicationLogAndStatusListType := new(ApplicationLogAndStatusList)
+	return applicationLogAndStatusListType
+}
+
 type AutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
@@ -123,6 +193,16 @@ type AutoExportBackup struct {
 	// FtpServer
 	// FTP server name
 	FtpServer *string `json:"ftpServer,omitempty"`
+}
+
+func NewAutoExportBackup() *AutoExportBackup {
+	autoExportBackupType := new(AutoExportBackup)
+	return autoExportBackupType
+}
+
+func NewDefaultAutoExportBackup() *AutoExportBackup {
+	autoExportBackupType := new(AutoExportBackup)
+	return autoExportBackupType
 }
 
 type BackupFile struct {
@@ -167,6 +247,16 @@ type BackupFile struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewBackupFile() *BackupFile {
+	backupFileType := new(BackupFile)
+	return backupFileType
+}
+
+func NewDefaultBackupFile() *BackupFile {
+	backupFileType := new(BackupFile)
+	return backupFileType
+}
+
 type ClusterBackupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -175,6 +265,16 @@ type ClusterBackupList struct {
 	List []*ClusterBackupSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewClusterBackupList() *ClusterBackupList {
+	clusterBackupListType := new(ClusterBackupList)
+	return clusterBackupListType
+}
+
+func NewDefaultClusterBackupList() *ClusterBackupList {
+	clusterBackupListType := new(ClusterBackupList)
+	return clusterBackupListType
 }
 
 type ClusterBackupSummary struct {
@@ -195,6 +295,16 @@ type ClusterBackupSummary struct {
 	Version *string `json:"version,omitempty"`
 }
 
+func NewClusterBackupSummary() *ClusterBackupSummary {
+	clusterBackupSummaryType := new(ClusterBackupSummary)
+	return clusterBackupSummaryType
+}
+
+func NewDefaultClusterBackupSummary() *ClusterBackupSummary {
+	clusterBackupSummaryType := new(ClusterBackupSummary)
+	return clusterBackupSummaryType
+}
+
 type ConfigurationBackupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -203,6 +313,16 @@ type ConfigurationBackupList struct {
 	List []*BackupFile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewConfigurationBackupList() *ConfigurationBackupList {
+	configurationBackupListType := new(ConfigurationBackupList)
+	return configurationBackupListType
+}
+
+func NewDefaultConfigurationBackupList() *ConfigurationBackupList {
+	configurationBackupListType := new(ConfigurationBackupList)
+	return configurationBackupListType
 }
 
 type CreateAdminAAAServer struct {
@@ -229,6 +349,16 @@ type CreateAdminAAAServer struct {
 	Type *string `json:"type" validate:"required,oneof=RADIUS TACACS AD LDAP"`
 }
 
+func NewCreateAdminAAAServer() *CreateAdminAAAServer {
+	createAdminAAAServerType := new(CreateAdminAAAServer)
+	return createAdminAAAServerType
+}
+
+func NewDefaultCreateAdminAAAServer() *CreateAdminAAAServer {
+	createAdminAAAServerType := new(CreateAdminAAAServer)
+	return createAdminAAAServerType
+}
+
 type DefaultRoleMapping struct {
 	// DefaultAdmin
 	// DefaultAdmin of DefaultRoleMapping object
@@ -241,6 +371,16 @@ type DefaultRoleMapping struct {
 	// Constraints:
 	//    - required
 	DefaultUserGroup *string `json:"defaultUserGroup" validate:"required"`
+}
+
+func NewDefaultRoleMapping() *DefaultRoleMapping {
+	defaultRoleMappingType := new(DefaultRoleMapping)
+	return defaultRoleMappingType
+}
+
+func NewDefaultDefaultRoleMapping() *DefaultRoleMapping {
+	defaultRoleMappingType := new(DefaultRoleMapping)
+	return defaultRoleMappingType
 }
 
 type LdapServer struct {
@@ -293,6 +433,16 @@ type LdapServer struct {
 	SearchFilter *string `json:"searchFilter" validate:"required"`
 }
 
+func NewLdapServer() *LdapServer {
+	ldapServerType := new(LdapServer)
+	return ldapServerType
+}
+
+func NewDefaultLdapServer() *LdapServer {
+	ldapServerType := new(LdapServer)
+	return ldapServerType
+}
+
 type Licenses struct {
 	// Count
 	// number of licenses
@@ -315,6 +465,16 @@ type Licenses struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewLicenses() *Licenses {
+	licensesType := new(Licenses)
+	return licensesType
+}
+
+func NewDefaultLicenses() *Licenses {
+	licensesType := new(Licenses)
+	return licensesType
+}
+
 type LicenseServer struct {
 	// IpAddress
 	// local license server IP address
@@ -333,6 +493,16 @@ type LicenseServer struct {
 	UseCloud *bool `json:"useCloud,omitempty"`
 }
 
+func NewLicenseServer() *LicenseServer {
+	licenseServerType := new(LicenseServer)
+	return licenseServerType
+}
+
+func NewDefaultLicenseServer() *LicenseServer {
+	licenseServerType := new(LicenseServer)
+	return licenseServerType
+}
+
 type LicensesList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -343,12 +513,32 @@ type LicensesList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewLicensesList() *LicensesList {
+	licensesListType := new(LicensesList)
+	return licensesListType
+}
+
+func NewDefaultLicensesList() *LicensesList {
+	licensesListType := new(LicensesList)
+	return licensesListType
+}
+
 type LicensesSummary struct {
 	CapacityControlLicenseCount *LicensesSummaryCapacityControlLicenseCountType `json:"capacityControlLicenseCount,omitempty"`
 
 	// LicenseTypeDescription
 	// license type description
 	LicenseTypeDescription *string `json:"licenseTypeDescription,omitempty"`
+}
+
+func NewLicensesSummary() *LicensesSummary {
+	licensesSummaryType := new(LicensesSummary)
+	return licensesSummaryType
+}
+
+func NewDefaultLicensesSummary() *LicensesSummary {
+	licensesSummaryType := new(LicensesSummary)
+	return licensesSummaryType
 }
 
 type LicensesSummaryCapacityControlLicenseCountType struct {
@@ -361,6 +551,16 @@ type LicensesSummaryCapacityControlLicenseCountType struct {
 	UsedCount *int `json:"usedCount,omitempty"`
 }
 
+func NewLicensesSummaryCapacityControlLicenseCountType() *LicensesSummaryCapacityControlLicenseCountType {
+	licensesSummaryCapacityControlLicenseCountTypeType := new(LicensesSummaryCapacityControlLicenseCountType)
+	return licensesSummaryCapacityControlLicenseCountTypeType
+}
+
+func NewDefaultLicensesSummaryCapacityControlLicenseCountType() *LicensesSummaryCapacityControlLicenseCountType {
+	licensesSummaryCapacityControlLicenseCountTypeType := new(LicensesSummaryCapacityControlLicenseCountType)
+	return licensesSummaryCapacityControlLicenseCountTypeType
+}
+
 type LicensesSummaryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -369,6 +569,16 @@ type LicensesSummaryList struct {
 	List []*LicensesSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewLicensesSummaryList() *LicensesSummaryList {
+	licensesSummaryListType := new(LicensesSummaryList)
+	return licensesSummaryListType
+}
+
+func NewDefaultLicensesSummaryList() *LicensesSummaryList {
+	licensesSummaryListType := new(LicensesSummaryList)
+	return licensesSummaryListType
 }
 
 type LicensesSyncLogs struct {
@@ -384,6 +594,16 @@ type LicensesSyncLogs struct {
 	SyncResult *string `json:"syncResult,omitempty" validate:"omitempty,oneof=SUCCESS FAILURE"`
 }
 
+func NewLicensesSyncLogs() *LicensesSyncLogs {
+	licensesSyncLogsType := new(LicensesSyncLogs)
+	return licensesSyncLogsType
+}
+
+func NewDefaultLicensesSyncLogs() *LicensesSyncLogs {
+	licensesSyncLogsType := new(LicensesSyncLogs)
+	return licensesSyncLogsType
+}
+
 type LicensesSyncLogsList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -392,6 +612,16 @@ type LicensesSyncLogsList struct {
 	List []*LicensesSyncLogs `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewLicensesSyncLogsList() *LicensesSyncLogsList {
+	licensesSyncLogsListType := new(LicensesSyncLogsList)
+	return licensesSyncLogsListType
+}
+
+func NewDefaultLicensesSyncLogsList() *LicensesSyncLogsList {
+	licensesSyncLogsListType := new(LicensesSyncLogsList)
+	return licensesSyncLogsListType
 }
 
 type ModfiyLicenseServer struct {
@@ -408,6 +638,16 @@ type ModfiyLicenseServer struct {
 	// Constraints:
 	//    - required
 	UseCloud *bool `json:"useCloud" validate:"required"`
+}
+
+func NewModfiyLicenseServer() *ModfiyLicenseServer {
+	modfiyLicenseServerType := new(ModfiyLicenseServer)
+	return modfiyLicenseServerType
+}
+
+func NewDefaultModfiyLicenseServer() *ModfiyLicenseServer {
+	modfiyLicenseServerType := new(ModfiyLicenseServer)
+	return modfiyLicenseServerType
 }
 
 type ModifyAdminAAAServer struct {
@@ -434,6 +674,16 @@ type ModifyAdminAAAServer struct {
 	Type *string `json:"type" validate:"required,oneof=RADIUS TACACS AD LDAP"`
 }
 
+func NewModifyAdminAAAServer() *ModifyAdminAAAServer {
+	modifyAdminAAAServerType := new(ModifyAdminAAAServer)
+	return modifyAdminAAAServerType
+}
+
+func NewDefaultModifyAdminAAAServer() *ModifyAdminAAAServer {
+	modifyAdminAAAServerType := new(ModifyAdminAAAServer)
+	return modifyAdminAAAServerType
+}
+
 type ModifyAutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
@@ -442,6 +692,18 @@ type ModifyAutoExportBackup struct {
 	// FtpServer
 	// ftp server name
 	FtpServer *string `json:"ftpServer,omitempty"`
+}
+
+func NewModifyAutoExportBackup() *ModifyAutoExportBackup {
+	modifyAutoExportBackupType := new(ModifyAutoExportBackup)
+	return modifyAutoExportBackupType
+}
+
+func NewDefaultModifyAutoExportBackup() *ModifyAutoExportBackup {
+	modifyAutoExportBackupType := new(ModifyAutoExportBackup)
+	enableAutoExportBackupField := false
+	modifyAutoExportBackupType.EnableAutoExportBackup = &enableAutoExportBackupField
+	return modifyAutoExportBackupType
 }
 
 type ModifyLogLevel struct {
@@ -455,6 +717,16 @@ type ModifyLogLevel struct {
 	//    - nullable
 	//    - oneof:[DEBUG,INFO,WARN,ERROR]
 	LogLevel *string `json:"logLevel,omitempty" validate:"omitempty,oneof=DEBUG INFO WARN ERROR"`
+}
+
+func NewModifyLogLevel() *ModifyLogLevel {
+	modifyLogLevelType := new(ModifyLogLevel)
+	return modifyLogLevelType
+}
+
+func NewDefaultModifyLogLevel() *ModifyLogLevel {
+	modifyLogLevelType := new(ModifyLogLevel)
+	return modifyLogLevelType
 }
 
 type ModifyScheduleBackup struct {
@@ -489,6 +761,22 @@ type ModifyScheduleBackup struct {
 	Minute *int `json:"minute,omitempty"`
 }
 
+func NewModifyScheduleBackup() *ModifyScheduleBackup {
+	modifyScheduleBackupType := new(ModifyScheduleBackup)
+	return modifyScheduleBackupType
+}
+
+func NewDefaultModifyScheduleBackup() *ModifyScheduleBackup {
+	modifyScheduleBackupType := new(ModifyScheduleBackup)
+	enableScheduleBackupField := false
+	modifyScheduleBackupType.EnableScheduleBackup = &enableScheduleBackupField
+	hourField := 0
+	modifyScheduleBackupType.Hour = &hourField
+	minuteField := 0
+	modifyScheduleBackupType.Minute = &minuteField
+	return modifyScheduleBackupType
+}
+
 type RadiusServer struct {
 	// Ip
 	// Constraints:
@@ -517,6 +805,16 @@ type RadiusServer struct {
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
+func NewRadiusServer() *RadiusServer {
+	radiusServerType := new(RadiusServer)
+	return radiusServerType
+}
+
+func NewDefaultRadiusServer() *RadiusServer {
+	radiusServerType := new(RadiusServer)
+	return radiusServerType
+}
+
 type RetrieveAdminAAAServer struct {
 	ActiveDirectoryServer *ActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
 
@@ -542,6 +840,16 @@ type RetrieveAdminAAAServer struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
 }
 
+func NewRetrieveAdminAAAServer() *RetrieveAdminAAAServer {
+	retrieveAdminAAAServerType := new(RetrieveAdminAAAServer)
+	return retrieveAdminAAAServerType
+}
+
+func NewDefaultRetrieveAdminAAAServer() *RetrieveAdminAAAServer {
+	retrieveAdminAAAServerType := new(RetrieveAdminAAAServer)
+	return retrieveAdminAAAServerType
+}
+
 type RetrieveAdminAAAServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -550,6 +858,16 @@ type RetrieveAdminAAAServerList struct {
 	List []*RetrieveAdminAAAServerListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewRetrieveAdminAAAServerList() *RetrieveAdminAAAServerList {
+	retrieveAdminAAAServerListType := new(RetrieveAdminAAAServerList)
+	return retrieveAdminAAAServerListType
+}
+
+func NewDefaultRetrieveAdminAAAServerList() *RetrieveAdminAAAServerList {
+	retrieveAdminAAAServerListType := new(RetrieveAdminAAAServerList)
+	return retrieveAdminAAAServerListType
 }
 
 type RetrieveAdminAAAServerListType struct {
@@ -562,6 +880,16 @@ type RetrieveAdminAAAServerListType struct {
 	//    - nullable
 	//    - oneof:[RADIUS,TACACS,AD,LDAP]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
+}
+
+func NewRetrieveAdminAAAServerListType() *RetrieveAdminAAAServerListType {
+	retrieveAdminAAAServerListTypeType := new(RetrieveAdminAAAServerListType)
+	return retrieveAdminAAAServerListTypeType
+}
+
+func NewDefaultRetrieveAdminAAAServerListType() *RetrieveAdminAAAServerListType {
+	retrieveAdminAAAServerListTypeType := new(RetrieveAdminAAAServerListType)
+	return retrieveAdminAAAServerListTypeType
 }
 
 type ScheduleBackup struct {
@@ -594,6 +922,16 @@ type ScheduleBackup struct {
 	// Minute
 	// minute
 	Minute *int `json:"minute,omitempty"`
+}
+
+func NewScheduleBackup() *ScheduleBackup {
+	scheduleBackupType := new(ScheduleBackup)
+	return scheduleBackupType
+}
+
+func NewDefaultScheduleBackup() *ScheduleBackup {
+	scheduleBackupType := new(ScheduleBackup)
+	return scheduleBackupType
 }
 
 type SecondaryRadiusServer struct {
@@ -644,6 +982,22 @@ type SecondaryRadiusServer struct {
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
+func NewSecondaryRadiusServer() *SecondaryRadiusServer {
+	secondaryRadiusServerType := new(SecondaryRadiusServer)
+	return secondaryRadiusServerType
+}
+
+func NewDefaultSecondaryRadiusServer() *SecondaryRadiusServer {
+	secondaryRadiusServerType := new(SecondaryRadiusServer)
+	maxRetriesField := 2
+	secondaryRadiusServerType.MaxRetries = &maxRetriesField
+	requestTimeOutField := 3
+	secondaryRadiusServerType.RequestTimeOut = &requestTimeOutField
+	retryPriInvlField := 5
+	secondaryRadiusServerType.RetryPriInvl = &retryPriInvlField
+	return secondaryRadiusServerType
+}
+
 type TacacsServer struct {
 	// Ip
 	// Constraints:
@@ -670,6 +1024,16 @@ type TacacsServer struct {
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
+func NewTacacsServer() *TacacsServer {
+	tacacsServerType := new(TacacsServer)
+	return tacacsServerType
+}
+
+func NewDefaultTacacsServer() *TacacsServer {
+	tacacsServerType := new(TacacsServer)
+	return tacacsServerType
+}
+
 type UpgradeHistoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -678,6 +1042,16 @@ type UpgradeHistoryList struct {
 	List []*UpgradeHistorySummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewUpgradeHistoryList() *UpgradeHistoryList {
+	upgradeHistoryListType := new(UpgradeHistoryList)
+	return upgradeHistoryListType
+}
+
+func NewDefaultUpgradeHistoryList() *UpgradeHistoryList {
+	upgradeHistoryListType := new(UpgradeHistoryList)
+	return upgradeHistoryListType
 }
 
 type UpgradeHistorySummary struct {
@@ -726,14 +1100,44 @@ type UpgradeHistorySummary struct {
 	Version *string `json:"version,omitempty"`
 }
 
+func NewUpgradeHistorySummary() *UpgradeHistorySummary {
+	upgradeHistorySummaryType := new(UpgradeHistorySummary)
+	return upgradeHistorySummaryType
+}
+
+func NewDefaultUpgradeHistorySummary() *UpgradeHistorySummary {
+	upgradeHistorySummaryType := new(UpgradeHistorySummary)
+	return upgradeHistorySummaryType
+}
+
 type UpgradePatchInfo struct {
 	ClusterOperationProgress *clusterblade.ClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 
 	UploadPatchInfo *clusterblade.UploadPatchInfo `json:"uploadPatchInfo,omitempty"`
 }
 
+func NewUpgradePatchInfo() *UpgradePatchInfo {
+	upgradePatchInfoType := new(UpgradePatchInfo)
+	return upgradePatchInfoType
+}
+
+func NewDefaultUpgradePatchInfo() *UpgradePatchInfo {
+	upgradePatchInfoType := new(UpgradePatchInfo)
+	return upgradePatchInfoType
+}
+
 type UpgradeStatus struct {
 	ClusterOperationProgress *clusterblade.ClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
+}
+
+func NewUpgradeStatus() *UpgradeStatus {
+	upgradeStatusType := new(UpgradeStatus)
+	return upgradeStatusType
+}
+
+func NewDefaultUpgradeStatus() *UpgradeStatus {
+	upgradeStatusType := new(UpgradeStatus)
+	return upgradeStatusType
 }
 
 type ZdAP struct {
@@ -746,6 +1150,16 @@ type ZdAP struct {
 	Mac *string `json:"mac,omitempty"`
 }
 
+func NewZdAP() *ZdAP {
+	zdAPType := new(ZdAP)
+	return zdAPType
+}
+
+func NewDefaultZdAP() *ZdAP {
+	zdAPType := new(ZdAP)
+	return zdAPType
+}
+
 type ZdAPList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -756,6 +1170,16 @@ type ZdAPList struct {
 	List []*ZdAP `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewZdAPList() *ZdAPList {
+	zdAPListType := new(ZdAPList)
+	return zdAPListType
+}
+
+func NewDefaultZdAPList() *ZdAPList {
+	zdAPListType := new(ZdAPList)
+	return zdAPListType
 }
 
 type ZdImport struct {
@@ -776,6 +1200,16 @@ type ZdImport struct {
 	User *string `json:"user,omitempty"`
 }
 
+func NewZdImport() *ZdImport {
+	zdImportType := new(ZdImport)
+	return zdImportType
+}
+
+func NewDefaultZdImport() *ZdImport {
+	zdImportType := new(ZdImport)
+	return zdImportType
+}
+
 type ZdImportStatus struct {
 	// Details
 	// Details
@@ -792,4 +1226,14 @@ type ZdImportStatus struct {
 	// State
 	// State
 	State *string `json:"state,omitempty"`
+}
+
+func NewZdImportStatus() *ZdImportStatus {
+	zdImportStatusType := new(ZdImportStatus)
+	return zdImportStatusType
+}
+
+func NewDefaultZdImportStatus() *ZdImportStatus {
+	zdImportStatusType := new(ZdImportStatus)
+	return zdImportStatusType
 }

@@ -12,6 +12,16 @@ type Capacities struct {
 	Capacity *string `json:"capacity,omitempty"`
 }
 
+func NewCapacities() *Capacities {
+	capacitiesType := new(Capacities)
+	return capacitiesType
+}
+
+func NewDefaultCapacities() *Capacities {
+	capacitiesType := new(Capacities)
+	return capacitiesType
+}
+
 type Result struct {
 	// Extra
 	// Extra field
@@ -36,6 +46,16 @@ type Result struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewResult() *Result {
+	resultType := new(Result)
+	return resultType
+}
+
+func NewDefaultResult() *Result {
+	resultType := new(Result)
+	return resultType
+}
+
 // ResultExtraType
 //
 // Extra field
@@ -57,4 +77,14 @@ func (t *ResultExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewResultExtraType() *ResultExtraType {
+	resultExtraTypeType := new(ResultExtraType)
+	return resultExtraTypeType
+}
+
+func NewDefaultResultExtraType() *ResultExtraType {
+	resultExtraTypeType := new(ResultExtraType)
+	return resultExtraTypeType
 }

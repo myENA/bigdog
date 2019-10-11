@@ -12,6 +12,16 @@ type HelperZoneInfo struct {
 	HelperAPZoneName *string `json:"helperAPZoneName,omitempty"`
 }
 
+func NewHelperZoneInfo() *HelperZoneInfo {
+	helperZoneInfoType := new(HelperZoneInfo)
+	return helperZoneInfoType
+}
+
+func NewDefaultHelperZoneInfo() *HelperZoneInfo {
+	helperZoneInfoType := new(HelperZoneInfo)
+	return helperZoneInfoType
+}
+
 type MeshNodeInfo struct {
 	// ApMac
 	// The MAC of the mesh AP
@@ -64,7 +74,27 @@ type MeshNodeInfo struct {
 	UplinkRssi *int `json:"uplinkRssi,omitempty"`
 }
 
+func NewMeshNodeInfo() *MeshNodeInfo {
+	meshNodeInfoType := new(MeshNodeInfo)
+	return meshNodeInfoType
+}
+
+func NewDefaultMeshNodeInfo() *MeshNodeInfo {
+	meshNodeInfoType := new(MeshNodeInfo)
+	return meshNodeInfoType
+}
+
 type MeshNodeInfoArray []*MeshNodeInfo
+
+func NewMeshNodeInfoArray() *MeshNodeInfoArray {
+	meshNodeInfoArrayType := make(MeshNodeInfoArray, 0)
+	return &meshNodeInfoArrayType
+}
+
+func NewDefaultMeshNodeInfoArray() *MeshNodeInfoArray {
+	meshNodeInfoArrayType := make(MeshNodeInfoArray, 0)
+	return &meshNodeInfoArrayType
+}
 
 type MeshNodeInfoList struct {
 	// Extra
@@ -90,6 +120,16 @@ type MeshNodeInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewMeshNodeInfoList() *MeshNodeInfoList {
+	meshNodeInfoListType := new(MeshNodeInfoList)
+	return meshNodeInfoListType
+}
+
+func NewDefaultMeshNodeInfoList() *MeshNodeInfoList {
+	meshNodeInfoListType := new(MeshNodeInfoList)
+	return meshNodeInfoListType
+}
+
 // MeshNodeInfoListExtraType
 //
 // Any additional response data.
@@ -113,6 +153,16 @@ func (t *MeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewMeshNodeInfoListExtraType() *MeshNodeInfoListExtraType {
+	meshNodeInfoListExtraTypeType := new(MeshNodeInfoListExtraType)
+	return meshNodeInfoListExtraTypeType
+}
+
+func NewDefaultMeshNodeInfoListExtraType() *MeshNodeInfoListExtraType {
+	meshNodeInfoListExtraTypeType := new(MeshNodeInfoListExtraType)
+	return meshNodeInfoListExtraTypeType
+}
+
 type UpdateAPZeroTouch struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -125,4 +175,14 @@ type UpdateAPZeroTouch struct {
 	//    - nullable
 	//    - oneof:[Accept,Reject]
 	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Accept Reject"`
+}
+
+func NewUpdateAPZeroTouch() *UpdateAPZeroTouch {
+	updateAPZeroTouchType := new(UpdateAPZeroTouch)
+	return updateAPZeroTouchType
+}
+
+func NewDefaultUpdateAPZeroTouch() *UpdateAPZeroTouch {
+	updateAPZeroTouchType := new(UpdateAPZeroTouch)
+	return updateAPZeroTouchType
 }

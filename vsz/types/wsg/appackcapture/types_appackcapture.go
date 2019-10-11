@@ -23,6 +23,16 @@ type ApPacketCaptureReq struct {
 	IncludedMac *string `json:"includedMac,omitempty"`
 }
 
+func NewApPacketCaptureReq() *ApPacketCaptureReq {
+	apPacketCaptureReqType := new(ApPacketCaptureReq)
+	return apPacketCaptureReqType
+}
+
+func NewDefaultApPacketCaptureReq() *ApPacketCaptureReq {
+	apPacketCaptureReqType := new(ApPacketCaptureReq)
+	return apPacketCaptureReqType
+}
+
 type ApPacketCaptureRes struct {
 	// ApMac
 	// AP MAC address
@@ -57,4 +67,14 @@ type ApPacketCaptureRes struct {
 	// IncludedMac
 	// MAC filter
 	IncludedMac *string `json:"includedMac,omitempty"`
+}
+
+func NewApPacketCaptureRes() *ApPacketCaptureRes {
+	apPacketCaptureResType := new(ApPacketCaptureRes)
+	return apPacketCaptureResType
+}
+
+func NewDefaultApPacketCaptureRes() *ApPacketCaptureRes {
+	apPacketCaptureResType := new(ApPacketCaptureRes)
+	return apPacketCaptureResType
 }

@@ -20,6 +20,16 @@ type ConfigurationHistoryQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewConfigurationHistoryQueryResult() *ConfigurationHistoryQueryResult {
+	configurationHistoryQueryResultType := new(ConfigurationHistoryQueryResult)
+	return configurationHistoryQueryResultType
+}
+
+func NewDefaultConfigurationHistoryQueryResult() *ConfigurationHistoryQueryResult {
+	configurationHistoryQueryResultType := new(ConfigurationHistoryQueryResult)
+	return configurationHistoryQueryResultType
+}
+
 type DeployLog struct {
 	// ConfigType
 	// Config Type
@@ -81,6 +91,16 @@ type DeployLog struct {
 	Yang *string `json:"yang,omitempty"`
 }
 
+func NewDeployLog() *DeployLog {
+	deployLogType := new(DeployLog)
+	return deployLogType
+}
+
+func NewDefaultDeployLog() *DeployLog {
+	deployLogType := new(DeployLog)
+	return deployLogType
+}
+
 type DeployLogStatusSummary struct {
 	// Failed
 	// Deployment Fail Counter
@@ -97,4 +117,14 @@ type DeployLogStatusSummary struct {
 	// Success
 	// Deployment Success Counter
 	Success *int `json:"success,omitempty"`
+}
+
+func NewDeployLogStatusSummary() *DeployLogStatusSummary {
+	deployLogStatusSummaryType := new(DeployLogStatusSummary)
+	return deployLogStatusSummaryType
+}
+
+func NewDefaultDeployLogStatusSummary() *DeployLogStatusSummary {
+	deployLogStatusSummaryType := new(DeployLogStatusSummary)
+	return deployLogStatusSummaryType
 }

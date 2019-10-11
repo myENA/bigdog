@@ -34,6 +34,16 @@ type FirmwaresQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewFirmwaresQueryResultList() *FirmwaresQueryResultList {
+	firmwaresQueryResultListType := new(FirmwaresQueryResultList)
+	return firmwaresQueryResultListType
+}
+
+func NewDefaultFirmwaresQueryResultList() *FirmwaresQueryResultList {
+	firmwaresQueryResultListType := new(FirmwaresQueryResultList)
+	return firmwaresQueryResultListType
+}
+
 // FirmwaresQueryResultListExtraType
 //
 // Extra information for Firmware list
@@ -55,6 +65,16 @@ func (t *FirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewFirmwaresQueryResultListExtraType() *FirmwaresQueryResultListExtraType {
+	firmwaresQueryResultListExtraTypeType := new(FirmwaresQueryResultListExtraType)
+	return firmwaresQueryResultListExtraTypeType
+}
+
+func NewDefaultFirmwaresQueryResultListExtraType() *FirmwaresQueryResultListExtraType {
+	firmwaresQueryResultListExtraTypeType := new(FirmwaresQueryResultListExtraType)
+	return firmwaresQueryResultListExtraTypeType
 }
 
 type ScheduleIds struct {
@@ -81,6 +101,16 @@ type ScheduleIds struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewScheduleIds() *ScheduleIds {
+	scheduleIdsType := new(ScheduleIds)
+	return scheduleIdsType
+}
+
+func NewDefaultScheduleIds() *ScheduleIds {
+	scheduleIdsType := new(ScheduleIds)
+	return scheduleIdsType
+}
+
 // ScheduleIdsExtraType
 //
 // Extra information for Schedule Ids list
@@ -104,12 +134,32 @@ func (t *ScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewScheduleIdsExtraType() *ScheduleIdsExtraType {
+	scheduleIdsExtraTypeType := new(ScheduleIdsExtraType)
+	return scheduleIdsExtraTypeType
+}
+
+func NewDefaultScheduleIdsExtraType() *ScheduleIdsExtraType {
+	scheduleIdsExtraTypeType := new(ScheduleIdsExtraType)
+	return scheduleIdsExtraTypeType
+}
+
 type SwitchFirmware struct {
 	SwitchModels []*SwitchModel `json:"switchModels,omitempty"`
 
 	// Version
 	// Firmware version of the Switch
 	Version *string `json:"version,omitempty"`
+}
+
+func NewSwitchFirmware() *SwitchFirmware {
+	switchFirmwareType := new(SwitchFirmware)
+	return switchFirmwareType
+}
+
+func NewDefaultSwitchFirmware() *SwitchFirmware {
+	switchFirmwareType := new(SwitchFirmware)
+	return switchFirmwareType
 }
 
 type SwitchModel struct {
@@ -120,4 +170,14 @@ type SwitchModel struct {
 	// Name
 	// Name of the Switch Model
 	Name *string `json:"name,omitempty"`
+}
+
+func NewSwitchModel() *SwitchModel {
+	switchModelType := new(SwitchModel)
+	return switchModelType
+}
+
+func NewDefaultSwitchModel() *SwitchModel {
+	switchModelType := new(SwitchModel)
+	return switchModelType
 }

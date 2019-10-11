@@ -12,6 +12,16 @@ type CaleaCommonSettingRq struct {
 	Dcip *string `json:"dc_ip,omitempty"`
 }
 
+func NewCaleaCommonSettingRq() *CaleaCommonSettingRq {
+	caleaCommonSettingRqType := new(CaleaCommonSettingRq)
+	return caleaCommonSettingRqType
+}
+
+func NewDefaultCaleaCommonSettingRq() *CaleaCommonSettingRq {
+	caleaCommonSettingRqType := new(CaleaCommonSettingRq)
+	return caleaCommonSettingRqType
+}
+
 type CaleaCommonSettingRsp struct {
 	// CaleaServerIp
 	// CARLEA Server IP
@@ -22,8 +32,28 @@ type CaleaCommonSettingRsp struct {
 	Dcip *string `json:"dc_ip,omitempty"`
 }
 
+func NewCaleaCommonSettingRsp() *CaleaCommonSettingRsp {
+	caleaCommonSettingRspType := new(CaleaCommonSettingRsp)
+	return caleaCommonSettingRspType
+}
+
+func NewDefaultCaleaCommonSettingRsp() *CaleaCommonSettingRsp {
+	caleaCommonSettingRspType := new(CaleaCommonSettingRsp)
+	return caleaCommonSettingRspType
+}
+
 type CaleaMacListRq struct {
 	MacList []string `json:"macList,omitempty"`
+}
+
+func NewCaleaMacListRq() *CaleaMacListRq {
+	caleaMacListRqType := new(CaleaMacListRq)
+	return caleaMacListRqType
+}
+
+func NewDefaultCaleaMacListRq() *CaleaMacListRq {
+	caleaMacListRqType := new(CaleaMacListRq)
+	return caleaMacListRqType
 }
 
 type CaleaMacListRsp struct {
@@ -34,4 +64,14 @@ type CaleaMacListRsp struct {
 	List []string `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewCaleaMacListRsp() *CaleaMacListRsp {
+	caleaMacListRspType := new(CaleaMacListRsp)
+	return caleaMacListRspType
+}
+
+func NewDefaultCaleaMacListRsp() *CaleaMacListRsp {
+	caleaMacListRspType := new(CaleaMacListRsp)
+	return caleaMacListRspType
 }

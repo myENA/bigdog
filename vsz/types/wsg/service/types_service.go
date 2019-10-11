@@ -126,6 +126,20 @@ type ActiveDirectoryService struct {
 	WindowsDomainName *common.NormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
+func NewActiveDirectoryService() *ActiveDirectoryService {
+	activeDirectoryServiceType := new(ActiveDirectoryService)
+	return activeDirectoryServiceType
+}
+
+func NewDefaultActiveDirectoryService() *ActiveDirectoryService {
+	activeDirectoryServiceType := new(ActiveDirectoryService)
+	portField := 389
+	activeDirectoryServiceType.Port = &portField
+	standbyPortField := 389
+	activeDirectoryServiceType.StandbyPort = &standbyPortField
+	return activeDirectoryServiceType
+}
+
 type ActiveDirectoryServiceList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -136,6 +150,16 @@ type ActiveDirectoryServiceList struct {
 	List []*ActiveDirectoryService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewActiveDirectoryServiceList() *ActiveDirectoryServiceList {
+	activeDirectoryServiceListType := new(ActiveDirectoryServiceList)
+	return activeDirectoryServiceListType
+}
+
+func NewDefaultActiveDirectoryServiceList() *ActiveDirectoryServiceList {
+	activeDirectoryServiceListType := new(ActiveDirectoryServiceList)
+	return activeDirectoryServiceListType
 }
 
 type CommonAccountingService struct {
@@ -194,6 +218,16 @@ type CommonAccountingService struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS CGF"`
 }
 
+func NewCommonAccountingService() *CommonAccountingService {
+	commonAccountingServiceType := new(CommonAccountingService)
+	return commonAccountingServiceType
+}
+
+func NewDefaultCommonAccountingService() *CommonAccountingService {
+	commonAccountingServiceType := new(CommonAccountingService)
+	return commonAccountingServiceType
+}
+
 type CommonAccountingServiceList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -204,6 +238,16 @@ type CommonAccountingServiceList struct {
 	List []*CommonAccountingService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewCommonAccountingServiceList() *CommonAccountingServiceList {
+	commonAccountingServiceListType := new(CommonAccountingServiceList)
+	return commonAccountingServiceListType
+}
+
+func NewDefaultCommonAccountingServiceList() *CommonAccountingServiceList {
+	commonAccountingServiceListType := new(CommonAccountingServiceList)
+	return commonAccountingServiceListType
 }
 
 type CommonAuthenticationService struct {
@@ -268,6 +312,16 @@ type CommonAuthenticationService struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS AD LDAP FACEBOOK LINKEDIN GOOGLE GENERICOAUTH SOAP HLR LOCAL_DB GUEST"`
 }
 
+func NewCommonAuthenticationService() *CommonAuthenticationService {
+	commonAuthenticationServiceType := new(CommonAuthenticationService)
+	return commonAuthenticationServiceType
+}
+
+func NewDefaultCommonAuthenticationService() *CommonAuthenticationService {
+	commonAuthenticationServiceType := new(CommonAuthenticationService)
+	return commonAuthenticationServiceType
+}
+
 type CommonAuthenticationServiceList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -278,6 +332,16 @@ type CommonAuthenticationServiceList struct {
 	List []*CommonAuthenticationService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewCommonAuthenticationServiceList() *CommonAuthenticationServiceList {
+	commonAuthenticationServiceListType := new(CommonAuthenticationServiceList)
+	return commonAuthenticationServiceListType
+}
+
+func NewDefaultCommonAuthenticationServiceList() *CommonAuthenticationServiceList {
+	commonAuthenticationServiceListType := new(CommonAuthenticationServiceList)
+	return commonAuthenticationServiceListType
 }
 
 type CreateActiveDirectoryAuthentication struct {
@@ -376,6 +440,22 @@ type CreateActiveDirectoryAuthentication struct {
 	// Constraints:
 	//    - required
 	WindowsDomainName *common.NormalName2to64 `json:"windowsDomainName" validate:"required"`
+}
+
+func NewCreateActiveDirectoryAuthentication() *CreateActiveDirectoryAuthentication {
+	createActiveDirectoryAuthenticationType := new(CreateActiveDirectoryAuthentication)
+	return createActiveDirectoryAuthenticationType
+}
+
+func NewDefaultCreateActiveDirectoryAuthentication() *CreateActiveDirectoryAuthentication {
+	createActiveDirectoryAuthenticationType := new(CreateActiveDirectoryAuthentication)
+	portField := 389
+	createActiveDirectoryAuthenticationType.Port = &portField
+	standbyPortField := 389
+	createActiveDirectoryAuthenticationType.StandbyPort = &standbyPortField
+	standbyServerEnabledField := false
+	createActiveDirectoryAuthenticationType.StandbyServerEnabled = &standbyServerEnabledField
+	return createActiveDirectoryAuthenticationType
 }
 
 type CreateHlrAuthentication struct {
@@ -527,6 +607,16 @@ type CreateHlrAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
 }
 
+func NewCreateHlrAuthentication() *CreateHlrAuthentication {
+	createHlrAuthenticationType := new(CreateHlrAuthentication)
+	return createHlrAuthenticationType
+}
+
+func NewDefaultCreateHlrAuthentication() *CreateHlrAuthentication {
+	createHlrAuthenticationType := new(CreateHlrAuthentication)
+	return createHlrAuthenticationType
+}
+
 type CreateLDAPAuthentication struct {
 	// AdminDomainName
 	// Constraints:
@@ -634,6 +724,22 @@ type CreateLDAPAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
 }
 
+func NewCreateLDAPAuthentication() *CreateLDAPAuthentication {
+	createLDAPAuthenticationType := new(CreateLDAPAuthentication)
+	return createLDAPAuthenticationType
+}
+
+func NewDefaultCreateLDAPAuthentication() *CreateLDAPAuthentication {
+	createLDAPAuthenticationType := new(CreateLDAPAuthentication)
+	portField := 389
+	createLDAPAuthenticationType.Port = &portField
+	standbyPortField := 389
+	createLDAPAuthenticationType.StandbyPort = &standbyPortField
+	standbyServerEnabledField := false
+	createLDAPAuthenticationType.StandbyServerEnabled = &standbyServerEnabledField
+	return createLDAPAuthenticationType
+}
+
 type CreateRadiusAccounting struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -676,6 +782,18 @@ type CreateRadiusAccounting struct {
 	//    - nullable
 	//    - oneof:[RADIUS]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+}
+
+func NewCreateRadiusAccounting() *CreateRadiusAccounting {
+	createRadiusAccountingType := new(CreateRadiusAccounting)
+	return createRadiusAccountingType
+}
+
+func NewDefaultCreateRadiusAccounting() *CreateRadiusAccounting {
+	createRadiusAccountingType := new(CreateRadiusAccounting)
+	standbyServerEnabledField := false
+	createRadiusAccountingType.StandbyServerEnabled = &standbyServerEnabledField
+	return createRadiusAccountingType
 }
 
 type CreateRadiusAuthentication struct {
@@ -730,12 +848,48 @@ type CreateRadiusAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
+func NewCreateRadiusAuthentication() *CreateRadiusAuthentication {
+	createRadiusAuthenticationType := new(CreateRadiusAuthentication)
+	return createRadiusAuthenticationType
+}
+
+func NewDefaultCreateRadiusAuthentication() *CreateRadiusAuthentication {
+	createRadiusAuthenticationType := new(CreateRadiusAuthentication)
+	locationDeliveryEnabledField := false
+	createRadiusAuthenticationType.LocationDeliveryEnabled = &locationDeliveryEnabledField
+	standbyServerEnabledField := false
+	createRadiusAuthenticationType.StandbyServerEnabled = &standbyServerEnabledField
+	typeField := `RADIUS`
+	createRadiusAuthenticationType.Type = &typeField
+	return createRadiusAuthenticationType
+}
+
 type DeleteBulkAccountingService struct {
 	IdList common.IdList `json:"idList,omitempty"`
 }
 
+func NewDeleteBulkAccountingService() *DeleteBulkAccountingService {
+	deleteBulkAccountingServiceType := new(DeleteBulkAccountingService)
+	return deleteBulkAccountingServiceType
+}
+
+func NewDefaultDeleteBulkAccountingService() *DeleteBulkAccountingService {
+	deleteBulkAccountingServiceType := new(DeleteBulkAccountingService)
+	return deleteBulkAccountingServiceType
+}
+
 type DeleteBulkAuthenticationService struct {
 	IdList common.IdList `json:"idList,omitempty"`
+}
+
+func NewDeleteBulkAuthenticationService() *DeleteBulkAuthenticationService {
+	deleteBulkAuthenticationServiceType := new(DeleteBulkAuthenticationService)
+	return deleteBulkAuthenticationServiceType
+}
+
+func NewDefaultDeleteBulkAuthenticationService() *DeleteBulkAuthenticationService {
+	deleteBulkAuthenticationServiceType := new(DeleteBulkAuthenticationService)
+	return deleteBulkAuthenticationServiceType
 }
 
 type DnsServer struct {
@@ -744,7 +898,27 @@ type DnsServer struct {
 	Ip *string `json:"ip,omitempty"`
 }
 
+func NewDnsServer() *DnsServer {
+	dnsServerType := new(DnsServer)
+	return dnsServerType
+}
+
+func NewDefaultDnsServer() *DnsServer {
+	dnsServerType := new(DnsServer)
+	return dnsServerType
+}
+
 type DnsServerList []*DnsServer
+
+func NewDnsServerList() *DnsServerList {
+	dnsServerListType := make(DnsServerList, 0)
+	return &dnsServerListType
+}
+
+func NewDefaultDnsServerList() *DnsServerList {
+	dnsServerListType := make(DnsServerList, 0)
+	return &dnsServerListType
+}
 
 type Ggsn struct {
 	// DomainName
@@ -756,6 +930,16 @@ type Ggsn struct {
 	GgsnIPAddress *string `json:"ggsnIPAddress,omitempty"`
 }
 
+func NewGgsn() *Ggsn {
+	ggsnType := new(Ggsn)
+	return ggsnType
+}
+
+func NewDefaultGgsn() *Ggsn {
+	ggsnType := new(Ggsn)
+	return ggsnType
+}
+
 type GgsnConfig struct {
 	DnsServerList DnsServerList `json:"dnsServerList,omitempty"`
 
@@ -764,7 +948,27 @@ type GgsnConfig struct {
 	GtpSettings *GtpSettings `json:"gtpSettings,omitempty"`
 }
 
+func NewGgsnConfig() *GgsnConfig {
+	ggsnConfigType := new(GgsnConfig)
+	return ggsnConfigType
+}
+
+func NewDefaultGgsnConfig() *GgsnConfig {
+	ggsnConfigType := new(GgsnConfig)
+	return ggsnConfigType
+}
+
 type GgsnList []*Ggsn
+
+func NewGgsnList() *GgsnList {
+	ggsnListType := make(GgsnList, 0)
+	return &ggsnListType
+}
+
+func NewDefaultGgsnList() *GgsnList {
+	ggsnListType := make(GgsnList, 0)
+	return &ggsnListType
+}
 
 // GroupAttrIdentityUserRoleMapping
 //
@@ -787,6 +991,16 @@ type GroupAttrIdentityUserRoleMapping struct {
 	UserRole *GroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
+func NewGroupAttrIdentityUserRoleMapping() *GroupAttrIdentityUserRoleMapping {
+	groupAttrIdentityUserRoleMappingType := new(GroupAttrIdentityUserRoleMapping)
+	return groupAttrIdentityUserRoleMappingType
+}
+
+func NewDefaultGroupAttrIdentityUserRoleMapping() *GroupAttrIdentityUserRoleMapping {
+	groupAttrIdentityUserRoleMappingType := new(GroupAttrIdentityUserRoleMapping)
+	return groupAttrIdentityUserRoleMappingType
+}
+
 // GroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
@@ -802,6 +1016,16 @@ type GroupAttrIdentityUserRoleMappingUserRoleType struct {
 	UserTrafficProfile *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType `json:"userTrafficProfile,omitempty"`
 }
 
+func NewGroupAttrIdentityUserRoleMappingUserRoleType() *GroupAttrIdentityUserRoleMappingUserRoleType {
+	groupAttrIdentityUserRoleMappingUserRoleTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleType)
+	return groupAttrIdentityUserRoleMappingUserRoleTypeType
+}
+
+func NewDefaultGroupAttrIdentityUserRoleMappingUserRoleType() *GroupAttrIdentityUserRoleMappingUserRoleType {
+	groupAttrIdentityUserRoleMappingUserRoleTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleType)
+	return groupAttrIdentityUserRoleMappingUserRoleTypeType
+}
+
 // GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
 //
 // Identity user role
@@ -813,6 +1037,16 @@ type GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType struct {
 	// Name
 	// User traffic profile name
 	Name *string `json:"name,omitempty"`
+}
+
+func NewGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
+	groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType)
+	return groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType
+}
+
+func NewDefaultGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
+	groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType := new(GroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType)
+	return groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTypeType
 }
 
 type GtpSettings struct {
@@ -855,6 +1089,16 @@ type GtpSettings struct {
 	//    - min:2
 	//    - max:5
 	T3ResponseTimer *int `json:"t3ResponseTimer,omitempty" validate:"omitempty,gte=2,lte=5"`
+}
+
+func NewGtpSettings() *GtpSettings {
+	gtpSettingsType := new(GtpSettings)
+	return gtpSettingsType
+}
+
+func NewDefaultGtpSettings() *GtpSettings {
+	gtpSettingsType := new(GtpSettings)
+	return gtpSettingsType
 }
 
 type HlrService struct {
@@ -1079,6 +1323,16 @@ type HlrService struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
 }
 
+func NewHlrService() *HlrService {
+	hlrServiceType := new(HlrService)
+	return hlrServiceType
+}
+
+func NewDefaultHlrService() *HlrService {
+	hlrServiceType := new(HlrService)
+	return hlrServiceType
+}
+
 type HlrServiceList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1089,6 +1343,16 @@ type HlrServiceList struct {
 	List []*HlrService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewHlrServiceList() *HlrServiceList {
+	hlrServiceListType := new(HlrServiceList)
+	return hlrServiceListType
+}
+
+func NewDefaultHlrServiceList() *HlrServiceList {
+	hlrServiceListType := new(HlrServiceList)
+	return hlrServiceListType
 }
 
 type LDAPService struct {
@@ -1211,6 +1475,20 @@ type LDAPService struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
 }
 
+func NewLDAPService() *LDAPService {
+	lDAPServiceType := new(LDAPService)
+	return lDAPServiceType
+}
+
+func NewDefaultLDAPService() *LDAPService {
+	lDAPServiceType := new(LDAPService)
+	portField := 389
+	lDAPServiceType.Port = &portField
+	standbyPortField := 389
+	lDAPServiceType.StandbyPort = &standbyPortField
+	return lDAPServiceType
+}
+
 type LDAPServiceList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1221,6 +1499,16 @@ type LDAPServiceList struct {
 	List []*LDAPService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewLDAPServiceList() *LDAPServiceList {
+	lDAPServiceListType := new(LDAPServiceList)
+	return lDAPServiceListType
+}
+
+func NewDefaultLDAPServiceList() *LDAPServiceList {
+	lDAPServiceListType := new(LDAPServiceList)
+	return lDAPServiceListType
 }
 
 type MncNdc struct {
@@ -1243,6 +1531,16 @@ type MncNdc struct {
 	// ProfileId
 	// Profile ID
 	ProfileId *string `json:"profileId,omitempty"`
+}
+
+func NewMncNdc() *MncNdc {
+	mncNdcType := new(MncNdc)
+	return mncNdcType
+}
+
+func NewDefaultMncNdc() *MncNdc {
+	mncNdcType := new(MncNdc)
+	return mncNdcType
 }
 
 type ModifyActiveDirectoryAuthentication struct {
@@ -1330,6 +1628,20 @@ type ModifyActiveDirectoryAuthentication struct {
 	WindowsDomainName *common.NormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
+func NewModifyActiveDirectoryAuthentication() *ModifyActiveDirectoryAuthentication {
+	modifyActiveDirectoryAuthenticationType := new(ModifyActiveDirectoryAuthentication)
+	return modifyActiveDirectoryAuthenticationType
+}
+
+func NewDefaultModifyActiveDirectoryAuthentication() *ModifyActiveDirectoryAuthentication {
+	modifyActiveDirectoryAuthenticationType := new(ModifyActiveDirectoryAuthentication)
+	portField := 389
+	modifyActiveDirectoryAuthenticationType.Port = &portField
+	standbyPortField := 389
+	modifyActiveDirectoryAuthenticationType.StandbyPort = &standbyPortField
+	return modifyActiveDirectoryAuthenticationType
+}
+
 // ModifyGroupAttrIdentityUserRoleMapping
 //
 // User traffic profile mapping
@@ -1347,6 +1659,16 @@ type ModifyGroupAttrIdentityUserRoleMapping struct {
 	UserRole *ModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
+func NewModifyGroupAttrIdentityUserRoleMapping() *ModifyGroupAttrIdentityUserRoleMapping {
+	modifyGroupAttrIdentityUserRoleMappingType := new(ModifyGroupAttrIdentityUserRoleMapping)
+	return modifyGroupAttrIdentityUserRoleMappingType
+}
+
+func NewDefaultModifyGroupAttrIdentityUserRoleMapping() *ModifyGroupAttrIdentityUserRoleMapping {
+	modifyGroupAttrIdentityUserRoleMappingType := new(ModifyGroupAttrIdentityUserRoleMapping)
+	return modifyGroupAttrIdentityUserRoleMappingType
+}
+
 // ModifyGroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
@@ -1356,6 +1678,16 @@ type ModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName2to64 `json:"name,omitempty"`
+}
+
+func NewModifyGroupAttrIdentityUserRoleMappingUserRoleType() *ModifyGroupAttrIdentityUserRoleMappingUserRoleType {
+	modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType := new(ModifyGroupAttrIdentityUserRoleMappingUserRoleType)
+	return modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType
+}
+
+func NewDefaultModifyGroupAttrIdentityUserRoleMappingUserRoleType() *ModifyGroupAttrIdentityUserRoleMappingUserRoleType {
+	modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType := new(ModifyGroupAttrIdentityUserRoleMappingUserRoleType)
+	return modifyGroupAttrIdentityUserRoleMappingUserRoleTypeType
 }
 
 type ModifyHlrAuthentication struct {
@@ -1504,6 +1836,16 @@ type ModifyHlrAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
 }
 
+func NewModifyHlrAuthentication() *ModifyHlrAuthentication {
+	modifyHlrAuthenticationType := new(ModifyHlrAuthentication)
+	return modifyHlrAuthenticationType
+}
+
+func NewDefaultModifyHlrAuthentication() *ModifyHlrAuthentication {
+	modifyHlrAuthenticationType := new(ModifyHlrAuthentication)
+	return modifyHlrAuthenticationType
+}
+
 type ModifyLDAPAuthentication struct {
 	AdminDomainName *common.NormalName2to128 `json:"adminDomainName,omitempty"`
 
@@ -1589,6 +1931,20 @@ type ModifyLDAPAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
 }
 
+func NewModifyLDAPAuthentication() *ModifyLDAPAuthentication {
+	modifyLDAPAuthenticationType := new(ModifyLDAPAuthentication)
+	return modifyLDAPAuthenticationType
+}
+
+func NewDefaultModifyLDAPAuthentication() *ModifyLDAPAuthentication {
+	modifyLDAPAuthenticationType := new(ModifyLDAPAuthentication)
+	portField := 389
+	modifyLDAPAuthenticationType.Port = &portField
+	standbyPortField := 389
+	modifyLDAPAuthenticationType.StandbyPort = &standbyPortField
+	return modifyLDAPAuthenticationType
+}
+
 type ModifyLocalDbAuthentication struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -1625,6 +1981,16 @@ type ModifyLocalDbAuthentication struct {
 	//    - nullable
 	//    - oneof:[LOCAL_DB]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LOCAL_DB"`
+}
+
+func NewModifyLocalDbAuthentication() *ModifyLocalDbAuthentication {
+	modifyLocalDbAuthenticationType := new(ModifyLocalDbAuthentication)
+	return modifyLocalDbAuthenticationType
+}
+
+func NewDefaultModifyLocalDbAuthentication() *ModifyLocalDbAuthentication {
+	modifyLocalDbAuthenticationType := new(ModifyLocalDbAuthentication)
+	return modifyLocalDbAuthenticationType
 }
 
 type ModifyRadiusAccounting struct {
@@ -1667,6 +2033,16 @@ type ModifyRadiusAccounting struct {
 	//    - nullable
 	//    - oneof:[RADIUS]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+}
+
+func NewModifyRadiusAccounting() *ModifyRadiusAccounting {
+	modifyRadiusAccountingType := new(ModifyRadiusAccounting)
+	return modifyRadiusAccountingType
+}
+
+func NewDefaultModifyRadiusAccounting() *ModifyRadiusAccounting {
+	modifyRadiusAccountingType := new(ModifyRadiusAccounting)
+	return modifyRadiusAccountingType
 }
 
 type ModifyRadiusAuthentication struct {
@@ -1712,6 +2088,18 @@ type ModifyRadiusAuthentication struct {
 	//    - nullable
 	//    - oneof:[RADIUS]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+}
+
+func NewModifyRadiusAuthentication() *ModifyRadiusAuthentication {
+	modifyRadiusAuthenticationType := new(ModifyRadiusAuthentication)
+	return modifyRadiusAuthenticationType
+}
+
+func NewDefaultModifyRadiusAuthentication() *ModifyRadiusAuthentication {
+	modifyRadiusAuthenticationType := new(ModifyRadiusAuthentication)
+	locationDeliveryEnabledField := false
+	modifyRadiusAuthenticationType.LocationDeliveryEnabled = &locationDeliveryEnabledField
+	return modifyRadiusAuthenticationType
 }
 
 type RadiusAccountingService struct {
@@ -1784,6 +2172,16 @@ type RadiusAccountingService struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
+func NewRadiusAccountingService() *RadiusAccountingService {
+	radiusAccountingServiceType := new(RadiusAccountingService)
+	return radiusAccountingServiceType
+}
+
+func NewDefaultRadiusAccountingService() *RadiusAccountingService {
+	radiusAccountingServiceType := new(RadiusAccountingService)
+	return radiusAccountingServiceType
+}
+
 type RadiusAccountingServiceList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1794,6 +2192,16 @@ type RadiusAccountingServiceList struct {
 	List []*RadiusAccountingService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewRadiusAccountingServiceList() *RadiusAccountingServiceList {
+	radiusAccountingServiceListType := new(RadiusAccountingServiceList)
+	return radiusAccountingServiceListType
+}
+
+func NewDefaultRadiusAccountingServiceList() *RadiusAccountingServiceList {
+	radiusAccountingServiceListType := new(RadiusAccountingServiceList)
+	return radiusAccountingServiceListType
 }
 
 type RadiusAuthenticationService struct {
@@ -1876,6 +2284,18 @@ type RadiusAuthenticationService struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
 }
 
+func NewRadiusAuthenticationService() *RadiusAuthenticationService {
+	radiusAuthenticationServiceType := new(RadiusAuthenticationService)
+	return radiusAuthenticationServiceType
+}
+
+func NewDefaultRadiusAuthenticationService() *RadiusAuthenticationService {
+	radiusAuthenticationServiceType := new(RadiusAuthenticationService)
+	locationDeliveryEnabledField := false
+	radiusAuthenticationServiceType.LocationDeliveryEnabled = &locationDeliveryEnabledField
+	return radiusAuthenticationServiceType
+}
+
 type RadiusAuthenticationServiceList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1886,6 +2306,16 @@ type RadiusAuthenticationServiceList struct {
 	List []*RadiusAuthenticationService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewRadiusAuthenticationServiceList() *RadiusAuthenticationServiceList {
+	radiusAuthenticationServiceListType := new(RadiusAuthenticationServiceList)
+	return radiusAuthenticationServiceListType
+}
+
+func NewDefaultRadiusAuthenticationServiceList() *RadiusAuthenticationServiceList {
+	radiusAuthenticationServiceListType := new(RadiusAuthenticationServiceList)
+	return radiusAuthenticationServiceListType
 }
 
 type SccpGtt struct {
@@ -1942,6 +2372,16 @@ type SccpGtt struct {
 	TransType *int `json:"transType,omitempty"`
 }
 
+func NewSccpGtt() *SccpGtt {
+	sccpGttType := new(SccpGtt)
+	return sccpGttType
+}
+
+func NewDefaultSccpGtt() *SccpGtt {
+	sccpGttType := new(SccpGtt)
+	return sccpGttType
+}
+
 type SctpAssociation struct {
 	// AdjPointCode
 	// Adj Pointcode
@@ -1975,6 +2415,16 @@ type SctpAssociation struct {
 	SourcePort *int `json:"sourcePort,omitempty"`
 }
 
+func NewSctpAssociation() *SctpAssociation {
+	sctpAssociationType := new(SctpAssociation)
+	return sctpAssociationType
+}
+
+func NewDefaultSctpAssociation() *SctpAssociation {
+	sctpAssociationType := new(SctpAssociation)
+	return sctpAssociationType
+}
+
 type SecondaryRadiusServer struct {
 	// AutoFallbackDisable
 	// Automatic fallback enabled or disabled
@@ -2003,12 +2453,34 @@ type SecondaryRadiusServer struct {
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
+func NewSecondaryRadiusServer() *SecondaryRadiusServer {
+	secondaryRadiusServerType := new(SecondaryRadiusServer)
+	return secondaryRadiusServerType
+}
+
+func NewDefaultSecondaryRadiusServer() *SecondaryRadiusServer {
+	secondaryRadiusServerType := new(SecondaryRadiusServer)
+	portField := 1812
+	secondaryRadiusServerType.Port = &portField
+	return secondaryRadiusServerType
+}
+
 type TestingConfig struct {
 	// Id
 	// Identifier of the authentication service
 	Id *string `json:"id,omitempty"`
 
 	LoginRequest *TestingConfigLoginRequestType `json:"loginRequest,omitempty"`
+}
+
+func NewTestingConfig() *TestingConfig {
+	testingConfigType := new(TestingConfig)
+	return testingConfigType
+}
+
+func NewDefaultTestingConfig() *TestingConfig {
+	testingConfigType := new(TestingConfig)
+	return testingConfigType
 }
 
 type TestingConfigLoginRequestType struct {
@@ -2025,4 +2497,14 @@ type TestingConfigLoginRequestType struct {
 	// UserName
 	// name for test user
 	UserName *string `json:"userName,omitempty"`
+}
+
+func NewTestingConfigLoginRequestType() *TestingConfigLoginRequestType {
+	testingConfigLoginRequestTypeType := new(TestingConfigLoginRequestType)
+	return testingConfigLoginRequestTypeType
+}
+
+func NewDefaultTestingConfigLoginRequestType() *TestingConfigLoginRequestType {
+	testingConfigLoginRequestTypeType := new(TestingConfigLoginRequestType)
+	return testingConfigLoginRequestTypeType
 }

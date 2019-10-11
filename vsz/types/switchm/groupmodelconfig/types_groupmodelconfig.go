@@ -16,6 +16,16 @@ type GroupConfigAuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewGroupConfigAuditId() *GroupConfigAuditId {
+	groupConfigAuditIdType := new(GroupConfigAuditId)
+	return groupConfigAuditIdType
+}
+
+func NewDefaultGroupConfigAuditId() *GroupConfigAuditId {
+	groupConfigAuditIdType := new(GroupConfigAuditId)
+	return groupConfigAuditIdType
+}
+
 type GroupModelConfig struct {
 	// CreatedTime
 	// The create time of the Group Model Config
@@ -58,6 +68,16 @@ type GroupModelConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewGroupModelConfig() *GroupModelConfig {
+	groupModelConfigType := new(GroupModelConfig)
+	return groupModelConfigType
+}
+
+func NewDefaultGroupModelConfig() *GroupModelConfig {
+	groupModelConfigType := new(GroupModelConfig)
+	return groupModelConfigType
+}
+
 type GroupModelConfigQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -80,6 +100,16 @@ type GroupModelConfigQueryResult struct {
 	// TotalCount
 	// Total Group Model Configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewGroupModelConfigQueryResult() *GroupModelConfigQueryResult {
+	groupModelConfigQueryResultType := new(GroupModelConfigQueryResult)
+	return groupModelConfigQueryResultType
+}
+
+func NewDefaultGroupModelConfigQueryResult() *GroupModelConfigQueryResult {
+	groupModelConfigQueryResultType := new(GroupModelConfigQueryResult)
+	return groupModelConfigQueryResultType
 }
 
 // GroupModelConfigQueryResultExtraType
@@ -105,8 +135,28 @@ func (t *GroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewGroupModelConfigQueryResultExtraType() *GroupModelConfigQueryResultExtraType {
+	groupModelConfigQueryResultExtraTypeType := new(GroupModelConfigQueryResultExtraType)
+	return groupModelConfigQueryResultExtraTypeType
+}
+
+func NewDefaultGroupModelConfigQueryResultExtraType() *GroupModelConfigQueryResultExtraType {
+	groupModelConfigQueryResultExtraTypeType := new(GroupModelConfigQueryResultExtraType)
+	return groupModelConfigQueryResultExtraTypeType
+}
+
 type SelectedIds struct {
 	SelectedIdList []string `json:"selectedIdList,omitempty"`
+}
+
+func NewSelectedIds() *SelectedIds {
+	selectedIdsType := new(SelectedIds)
+	return selectedIdsType
+}
+
+func NewDefaultSelectedIds() *SelectedIds {
+	selectedIdsType := new(SelectedIds)
+	return selectedIdsType
 }
 
 type UpdateGroupConfigResultList struct {
@@ -133,6 +183,16 @@ type UpdateGroupConfigResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewUpdateGroupConfigResultList() *UpdateGroupConfigResultList {
+	updateGroupConfigResultListType := new(UpdateGroupConfigResultList)
+	return updateGroupConfigResultListType
+}
+
+func NewDefaultUpdateGroupConfigResultList() *UpdateGroupConfigResultList {
+	updateGroupConfigResultListType := new(UpdateGroupConfigResultList)
+	return updateGroupConfigResultListType
+}
+
 // UpdateGroupConfigResultListExtraType
 //
 // Any additional response data
@@ -154,4 +214,14 @@ func (t *UpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewUpdateGroupConfigResultListExtraType() *UpdateGroupConfigResultListExtraType {
+	updateGroupConfigResultListExtraTypeType := new(UpdateGroupConfigResultListExtraType)
+	return updateGroupConfigResultListExtraTypeType
+}
+
+func NewDefaultUpdateGroupConfigResultListExtraType() *UpdateGroupConfigResultListExtraType {
+	updateGroupConfigResultListExtraTypeType := new(UpdateGroupConfigResultListExtraType)
+	return updateGroupConfigResultListExtraTypeType
 }

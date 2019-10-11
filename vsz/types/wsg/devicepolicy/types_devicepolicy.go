@@ -22,6 +22,16 @@ type CreateDevicePolicy struct {
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
+func NewCreateDevicePolicy() *CreateDevicePolicy {
+	createDevicePolicyType := new(CreateDevicePolicy)
+	return createDevicePolicyType
+}
+
+func NewDefaultCreateDevicePolicy() *CreateDevicePolicy {
+	createDevicePolicyType := new(CreateDevicePolicy)
+	return createDevicePolicyType
+}
+
 type DevicePolicyPorfile struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -41,6 +51,16 @@ type DevicePolicyPorfile struct {
 	// Rule
 	// rule of the device policy cofig
 	Rule []*DevicePolicyRule `json:"rule,omitempty"`
+}
+
+func NewDevicePolicyPorfile() *DevicePolicyPorfile {
+	devicePolicyPorfileType := new(DevicePolicyPorfile)
+	return devicePolicyPorfileType
+}
+
+func NewDefaultDevicePolicyPorfile() *DevicePolicyPorfile {
+	devicePolicyPorfileType := new(DevicePolicyPorfile)
+	return devicePolicyPorfileType
 }
 
 type DevicePolicyRule struct {
@@ -85,6 +105,16 @@ type DevicePolicyRule struct {
 	Vlan *int `json:"vlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 }
 
+func NewDevicePolicyRule() *DevicePolicyRule {
+	devicePolicyRuleType := new(DevicePolicyRule)
+	return devicePolicyRuleType
+}
+
+func NewDefaultDevicePolicyRule() *DevicePolicyRule {
+	devicePolicyRuleType := new(DevicePolicyRule)
+	return devicePolicyRuleType
+}
+
 type ModifyDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -102,6 +132,16 @@ type ModifyDevicePolicy struct {
 	Rule []*DevicePolicyRule `json:"rule,omitempty"`
 }
 
+func NewModifyDevicePolicy() *ModifyDevicePolicy {
+	modifyDevicePolicyType := new(ModifyDevicePolicy)
+	return modifyDevicePolicyType
+}
+
+func NewDefaultModifyDevicePolicy() *ModifyDevicePolicy {
+	modifyDevicePolicyType := new(ModifyDevicePolicy)
+	return modifyDevicePolicyType
+}
+
 type PorfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -112,10 +152,30 @@ type PorfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewPorfileList() *PorfileList {
+	porfileListType := new(PorfileList)
+	return porfileListType
+}
+
+func NewDefaultPorfileList() *PorfileList {
+	porfileListType := new(PorfileList)
+	return porfileListType
+}
+
 type PorfileListType struct {
 	// Id
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewPorfileListType() *PorfileListType {
+	porfileListTypeType := new(PorfileListType)
+	return porfileListTypeType
+}
+
+func NewDefaultPorfileListType() *PorfileListType {
+	porfileListTypeType := new(PorfileListType)
+	return porfileListTypeType
 }

@@ -18,6 +18,16 @@ type ClientQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewClientQueryList() *ClientQueryList {
+	clientQueryListType := new(ClientQueryList)
+	return clientQueryListType
+}
+
+func NewDefaultClientQueryList() *ClientQueryList {
+	clientQueryListType := new(ClientQueryList)
+	return clientQueryListType
+}
+
 type CreateClientQuery struct {
 	ApEthID *int `json:"apEthID,omitempty"`
 
@@ -62,4 +72,14 @@ type CreateClientQuery struct {
 	Vlan *int `json:"vlan,omitempty"`
 
 	WlanType *string `json:"wlanType,omitempty"`
+}
+
+func NewCreateClientQuery() *CreateClientQuery {
+	createClientQueryType := new(CreateClientQuery)
+	return createClientQueryType
+}
+
+func NewDefaultCreateClientQuery() *CreateClientQuery {
+	createClientQueryType := new(CreateClientQuery)
+	return createClientQueryType
 }

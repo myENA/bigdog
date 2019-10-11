@@ -19,6 +19,16 @@ type DhcpClientInfo struct {
 	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty"`
 }
 
+func NewDhcpClientInfo() *DhcpClientInfo {
+	dhcpClientInfoType := new(DhcpClientInfo)
+	return dhcpClientInfoType
+}
+
+func NewDefaultDhcpClientInfo() *DhcpClientInfo {
+	dhcpClientInfoType := new(DhcpClientInfo)
+	return dhcpClientInfoType
+}
+
 // DhcpPoolInfo
 //
 // DHCP Pool Information List
@@ -46,6 +56,16 @@ type DhcpPoolInfo struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+func NewDhcpPoolInfo() *DhcpPoolInfo {
+	dhcpPoolInfoType := new(DhcpPoolInfo)
+	return dhcpPoolInfoType
+}
+
+func NewDefaultDhcpPoolInfo() *DhcpPoolInfo {
+	dhcpPoolInfoType := new(DhcpPoolInfo)
+	return dhcpPoolInfoType
+}
+
 type DhcpPoolInfoClientInfoListType struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -54,6 +74,16 @@ type DhcpPoolInfoClientInfoListType struct {
 	List []*DhcpClientInfo `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewDhcpPoolInfoClientInfoListType() *DhcpPoolInfoClientInfoListType {
+	dhcpPoolInfoClientInfoListTypeType := new(DhcpPoolInfoClientInfoListType)
+	return dhcpPoolInfoClientInfoListTypeType
+}
+
+func NewDefaultDhcpPoolInfoClientInfoListType() *DhcpPoolInfoClientInfoListType {
+	dhcpPoolInfoClientInfoListTypeType := new(DhcpPoolInfoClientInfoListType)
+	return dhcpPoolInfoClientInfoListTypeType
 }
 
 // DhcpPools
@@ -71,4 +101,14 @@ type DhcpPools struct {
 	PoolInfoList []*DhcpPoolInfo `json:"poolInfoList,omitempty"`
 
 	TenantId *string `json:"tenantId,omitempty"`
+}
+
+func NewDhcpPools() *DhcpPools {
+	dhcpPoolsType := new(DhcpPools)
+	return dhcpPoolsType
+}
+
+func NewDefaultDhcpPools() *DhcpPools {
+	dhcpPoolsType := new(DhcpPools)
+	return dhcpPoolsType
 }

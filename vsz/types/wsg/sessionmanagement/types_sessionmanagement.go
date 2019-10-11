@@ -32,6 +32,16 @@ type RuckusSession struct {
 	UserUUID *string `json:"userUUID,omitempty"`
 }
 
+func NewRuckusSession() *RuckusSession {
+	ruckusSessionType := new(RuckusSession)
+	return ruckusSessionType
+}
+
+func NewDefaultRuckusSession() *RuckusSession {
+	ruckusSessionType := new(RuckusSession)
+	return ruckusSessionType
+}
+
 type RuckusSessions struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -40,4 +50,14 @@ type RuckusSessions struct {
 	List []*RuckusSession `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewRuckusSessions() *RuckusSessions {
+	ruckusSessionsType := new(RuckusSessions)
+	return ruckusSessionsType
+}
+
+func NewDefaultRuckusSessions() *RuckusSessions {
+	ruckusSessionsType := new(RuckusSessions)
+	return ruckusSessionsType
 }

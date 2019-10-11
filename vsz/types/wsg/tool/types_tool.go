@@ -41,6 +41,16 @@ type SpeedFlex struct {
 	Tool *string `json:"tool" validate:"required,oneof=ZAP_DOWN ZAP_UP"`
 }
 
+func NewSpeedFlex() *SpeedFlex {
+	speedFlexType := new(SpeedFlex)
+	return speedFlexType
+}
+
+func NewDefaultSpeedFlex() *SpeedFlex {
+	speedFlexType := new(SpeedFlex)
+	return speedFlexType
+}
+
 type TestResult struct {
 	// Downlink
 	// Downlink
@@ -67,4 +77,14 @@ type TestResult struct {
 	Uplink *int `json:"uplink,omitempty"`
 
 	Wcid *string `json:"wcid,omitempty"`
+}
+
+func NewTestResult() *TestResult {
+	testResultType := new(TestResult)
+	return testResultType
+}
+
+func NewDefaultTestResult() *TestResult {
+	testResultType := new(TestResult)
+	return testResultType
 }

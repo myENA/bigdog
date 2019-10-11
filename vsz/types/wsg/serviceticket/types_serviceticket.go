@@ -16,10 +16,30 @@ type LoginRequest struct {
 	Username *string `json:"username" validate:"required"`
 }
 
+func NewLoginRequest() *LoginRequest {
+	loginRequestType := new(LoginRequest)
+	return loginRequestType
+}
+
+func NewDefaultLoginRequest() *LoginRequest {
+	loginRequestType := new(LoginRequest)
+	return loginRequestType
+}
+
 type LoginResponse struct {
 	ControllerVersion *string `json:"controllerVersion,omitempty"`
 
 	// ServiceTicket
 	// Logon authentication successful, the server generates a service ticket
 	ServiceTicket *string `json:"serviceTicket,omitempty"`
+}
+
+func NewLoginResponse() *LoginResponse {
+	loginResponseType := new(LoginResponse)
+	return loginResponseType
+}
+
+func NewDefaultLoginResponse() *LoginResponse {
+	loginResponseType := new(LoginResponse)
+	return loginResponseType
 }

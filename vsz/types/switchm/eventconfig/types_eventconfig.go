@@ -61,6 +61,16 @@ type EventConfig struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=CPU Memory TextPattern"`
 }
 
+func NewEventConfig() *EventConfig {
+	eventConfigType := new(EventConfig)
+	return eventConfigType
+}
+
+func NewDefaultEventConfig() *EventConfig {
+	eventConfigType := new(EventConfig)
+	return eventConfigType
+}
+
 type GetEventConfigList struct {
 	// Extra
 	// Extra information of responsed Switch custom event config list
@@ -83,6 +93,16 @@ type GetEventConfigList struct {
 	// TotalCount
 	// Count of  responsed Switch custom event config
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewGetEventConfigList() *GetEventConfigList {
+	getEventConfigListType := new(GetEventConfigList)
+	return getEventConfigListType
+}
+
+func NewDefaultGetEventConfigList() *GetEventConfigList {
+	getEventConfigListType := new(GetEventConfigList)
+	return getEventConfigListType
 }
 
 // GetEventConfigListExtraType
@@ -108,6 +128,16 @@ func (t *GetEventConfigListExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewGetEventConfigListExtraType() *GetEventConfigListExtraType {
+	getEventConfigListExtraTypeType := new(GetEventConfigListExtraType)
+	return getEventConfigListExtraTypeType
+}
+
+func NewDefaultGetEventConfigListExtraType() *GetEventConfigListExtraType {
+	getEventConfigListExtraTypeType := new(GetEventConfigListExtraType)
+	return getEventConfigListExtraTypeType
+}
+
 type QueryResponse struct {
 	// Data
 	// Response data message of Public API
@@ -128,6 +158,16 @@ type QueryResponse struct {
 	// Success
 	// Response success message of Public API
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewQueryResponse() *QueryResponse {
+	queryResponseType := new(QueryResponse)
+	return queryResponseType
+}
+
+func NewDefaultQueryResponse() *QueryResponse {
+	queryResponseType := new(QueryResponse)
+	return queryResponseType
 }
 
 // QueryResponseDataType
@@ -153,6 +193,16 @@ func (t *QueryResponseDataType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewQueryResponseDataType() *QueryResponseDataType {
+	queryResponseDataTypeType := new(QueryResponseDataType)
+	return queryResponseDataTypeType
+}
+
+func NewDefaultQueryResponseDataType() *QueryResponseDataType {
+	queryResponseDataTypeType := new(QueryResponseDataType)
+	return queryResponseDataTypeType
+}
+
 // QueryResponseErrorType
 //
 // Response error message of Public API
@@ -174,6 +224,16 @@ func (t *QueryResponseErrorType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewQueryResponseErrorType() *QueryResponseErrorType {
+	queryResponseErrorTypeType := new(QueryResponseErrorType)
+	return queryResponseErrorTypeType
+}
+
+func NewDefaultQueryResponseErrorType() *QueryResponseErrorType {
+	queryResponseErrorTypeType := new(QueryResponseErrorType)
+	return queryResponseErrorTypeType
 }
 
 // QueryResponseExtraType
@@ -199,6 +259,16 @@ func (t *QueryResponseExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewQueryResponseExtraType() *QueryResponseExtraType {
+	queryResponseExtraTypeType := new(QueryResponseExtraType)
+	return queryResponseExtraTypeType
+}
+
+func NewDefaultQueryResponseExtraType() *QueryResponseExtraType {
+	queryResponseExtraTypeType := new(QueryResponseExtraType)
+	return queryResponseExtraTypeType
+}
+
 // QueryResponseMetaDataType
 //
 // Meta-data of Public API response
@@ -220,6 +290,16 @@ func (t *QueryResponseMetaDataType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewQueryResponseMetaDataType() *QueryResponseMetaDataType {
+	queryResponseMetaDataTypeType := new(QueryResponseMetaDataType)
+	return queryResponseMetaDataTypeType
+}
+
+func NewDefaultQueryResponseMetaDataType() *QueryResponseMetaDataType {
+	queryResponseMetaDataTypeType := new(QueryResponseMetaDataType)
+	return queryResponseMetaDataTypeType
 }
 
 type UpdateEventConfig struct {

@@ -72,6 +72,16 @@ type GetResult struct {
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
+func NewGetResult() *GetResult {
+	getResultType := new(GetResult)
+	return getResultType
+}
+
+func NewDefaultGetResult() *GetResult {
+	getResultType := new(GetResult)
+	return getResultType
+}
+
 type Proposal struct {
 	// AuthAlg
 	// Authentication algorithm
@@ -84,6 +94,16 @@ type Proposal struct {
 	// Constraints:
 	//    - required
 	EncAlg *string `json:"encAlg" validate:"required"`
+}
+
+func NewProposal() *Proposal {
+	proposalType := new(Proposal)
+	return proposalType
+}
+
+func NewDefaultProposal() *Proposal {
+	proposalType := new(Proposal)
+	return proposalType
 }
 
 type Update struct {
@@ -156,4 +176,14 @@ type Update struct {
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
+}
+
+func NewUpdate() *Update {
+	updateType := new(Update)
+	return updateType
+}
+
+func NewDefaultUpdate() *Update {
+	updateType := new(Update)
+	return updateType
 }

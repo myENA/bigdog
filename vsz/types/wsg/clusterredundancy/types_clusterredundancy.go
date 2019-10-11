@@ -16,6 +16,16 @@ type ActiveCluster struct {
 	TargetClusterAdminPassword *string `json:"targetClusterAdminPassword,omitempty"`
 }
 
+func NewActiveCluster() *ActiveCluster {
+	activeClusterType := new(ActiveCluster)
+	return activeClusterType
+}
+
+func NewDefaultActiveCluster() *ActiveCluster {
+	activeClusterType := new(ActiveCluster)
+	return activeClusterType
+}
+
 type ClusterRedundancySettings struct {
 	// ActiveClusterList
 	// A list of target active clusters (Active-Active only)
@@ -68,6 +78,16 @@ type ClusterRedundancySettings struct {
 	StandbyAdminPassword *string `json:"standbyAdminPassword,omitempty"`
 }
 
+func NewClusterRedundancySettings() *ClusterRedundancySettings {
+	clusterRedundancySettingsType := new(ClusterRedundancySettings)
+	return clusterRedundancySettingsType
+}
+
+func NewDefaultClusterRedundancySettings() *ClusterRedundancySettings {
+	clusterRedundancySettingsType := new(ClusterRedundancySettings)
+	return clusterRedundancySettingsType
+}
+
 type ManagementEntry struct {
 	// Ip
 	// Management IP
@@ -76,6 +96,16 @@ type ManagementEntry struct {
 	// Port
 	// Management port
 	Port *string `json:"port,omitempty"`
+}
+
+func NewManagementEntry() *ManagementEntry {
+	managementEntryType := new(ManagementEntry)
+	return managementEntryType
+}
+
+func NewDefaultManagementEntry() *ManagementEntry {
+	managementEntryType := new(ManagementEntry)
+	return managementEntryType
 }
 
 type UpdateClusterRedundancy struct {
@@ -130,4 +160,14 @@ type UpdateClusterRedundancy struct {
 	// StandbyAdminPassword
 	// Password of admin account of standby cluster (Active-Standby only)
 	StandbyAdminPassword *string `json:"standbyAdminPassword,omitempty"`
+}
+
+func NewUpdateClusterRedundancy() *UpdateClusterRedundancy {
+	updateClusterRedundancyType := new(UpdateClusterRedundancy)
+	return updateClusterRedundancyType
+}
+
+func NewDefaultUpdateClusterRedundancy() *UpdateClusterRedundancy {
+	updateClusterRedundancyType := new(UpdateClusterRedundancy)
+	return updateClusterRedundancyType
 }

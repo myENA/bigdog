@@ -20,6 +20,16 @@ type AaaSettings struct {
 	Authorization *AaaSettingsAuthorizationType `json:"authorization,omitempty"`
 }
 
+func NewAaaSettings() *AaaSettings {
+	aaaSettingsType := new(AaaSettings)
+	return aaaSettingsType
+}
+
+func NewDefaultAaaSettings() *AaaSettings {
+	aaaSettingsType := new(AaaSettings)
+	return aaaSettingsType
+}
+
 // AaaSettingsAccountingType
 //
 // Accounting service
@@ -39,6 +49,16 @@ type AaaSettingsAccountingType struct {
 	// Exec
 	// Exec service
 	Exec *AaaSettingsAccountingTypeExecType `json:"exec,omitempty"`
+}
+
+func NewAaaSettingsAccountingType() *AaaSettingsAccountingType {
+	aaaSettingsAccountingTypeType := new(AaaSettingsAccountingType)
+	return aaaSettingsAccountingTypeType
+}
+
+func NewDefaultAaaSettingsAccountingType() *AaaSettingsAccountingType {
+	aaaSettingsAccountingTypeType := new(AaaSettingsAccountingType)
+	return aaaSettingsAccountingTypeType
 }
 
 // AaaSettingsAccountingTypeCommandsType
@@ -67,6 +87,16 @@ type AaaSettingsAccountingTypeCommandsType struct {
 	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 }
 
+func NewAaaSettingsAccountingTypeCommandsType() *AaaSettingsAccountingTypeCommandsType {
+	aaaSettingsAccountingTypeCommandsTypeType := new(AaaSettingsAccountingTypeCommandsType)
+	return aaaSettingsAccountingTypeCommandsTypeType
+}
+
+func NewDefaultAaaSettingsAccountingTypeCommandsType() *AaaSettingsAccountingTypeCommandsType {
+	aaaSettingsAccountingTypeCommandsTypeType := new(AaaSettingsAccountingTypeCommandsType)
+	return aaaSettingsAccountingTypeCommandsTypeType
+}
+
 // AaaSettingsAccountingTypeExecType
 //
 // Exec service
@@ -84,6 +114,16 @@ type AaaSettingsAccountingTypeExecType struct {
 	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+}
+
+func NewAaaSettingsAccountingTypeExecType() *AaaSettingsAccountingTypeExecType {
+	aaaSettingsAccountingTypeExecTypeType := new(AaaSettingsAccountingTypeExecType)
+	return aaaSettingsAccountingTypeExecTypeType
+}
+
+func NewDefaultAaaSettingsAccountingTypeExecType() *AaaSettingsAccountingTypeExecType {
+	aaaSettingsAccountingTypeExecTypeType := new(AaaSettingsAccountingTypeExecType)
+	return aaaSettingsAccountingTypeExecTypeType
 }
 
 // AaaSettingsAuthenticationType
@@ -120,6 +160,16 @@ type AaaSettingsAuthenticationType struct {
 	ThirdPref *string `json:"thirdPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
 }
 
+func NewAaaSettingsAuthenticationType() *AaaSettingsAuthenticationType {
+	aaaSettingsAuthenticationTypeType := new(AaaSettingsAuthenticationType)
+	return aaaSettingsAuthenticationTypeType
+}
+
+func NewDefaultAaaSettingsAuthenticationType() *AaaSettingsAuthenticationType {
+	aaaSettingsAuthenticationTypeType := new(AaaSettingsAuthenticationType)
+	return aaaSettingsAuthenticationTypeType
+}
+
 // AaaSettingsAuthorizationType
 //
 // Authorization service
@@ -139,6 +189,16 @@ type AaaSettingsAuthorizationType struct {
 	// Exec
 	// Exec Service
 	Exec *AaaSettingsAuthorizationTypeExecType `json:"exec,omitempty"`
+}
+
+func NewAaaSettingsAuthorizationType() *AaaSettingsAuthorizationType {
+	aaaSettingsAuthorizationTypeType := new(AaaSettingsAuthorizationType)
+	return aaaSettingsAuthorizationTypeType
+}
+
+func NewDefaultAaaSettingsAuthorizationType() *AaaSettingsAuthorizationType {
+	aaaSettingsAuthorizationTypeType := new(AaaSettingsAuthorizationType)
+	return aaaSettingsAuthorizationTypeType
 }
 
 // AaaSettingsAuthorizationTypeCommandsType
@@ -167,6 +227,16 @@ type AaaSettingsAuthorizationTypeCommandsType struct {
 	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
 }
 
+func NewAaaSettingsAuthorizationTypeCommandsType() *AaaSettingsAuthorizationTypeCommandsType {
+	aaaSettingsAuthorizationTypeCommandsTypeType := new(AaaSettingsAuthorizationTypeCommandsType)
+	return aaaSettingsAuthorizationTypeCommandsTypeType
+}
+
+func NewDefaultAaaSettingsAuthorizationTypeCommandsType() *AaaSettingsAuthorizationTypeCommandsType {
+	aaaSettingsAuthorizationTypeCommandsTypeType := new(AaaSettingsAuthorizationTypeCommandsType)
+	return aaaSettingsAuthorizationTypeCommandsTypeType
+}
+
 // AaaSettingsAuthorizationTypeExecType
 //
 // Exec Service
@@ -184,6 +254,16 @@ type AaaSettingsAuthorizationTypeExecType struct {
 	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+}
+
+func NewAaaSettingsAuthorizationTypeExecType() *AaaSettingsAuthorizationTypeExecType {
+	aaaSettingsAuthorizationTypeExecTypeType := new(AaaSettingsAuthorizationTypeExecType)
+	return aaaSettingsAuthorizationTypeExecTypeType
+}
+
+func NewDefaultAaaSettingsAuthorizationTypeExecType() *AaaSettingsAuthorizationTypeExecType {
+	aaaSettingsAuthorizationTypeExecTypeType := new(AaaSettingsAuthorizationTypeExecType)
+	return aaaSettingsAuthorizationTypeExecTypeType
 }
 
 type EmptyResult struct {
@@ -204,4 +284,14 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
 }

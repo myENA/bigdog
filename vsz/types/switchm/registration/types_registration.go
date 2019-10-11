@@ -24,6 +24,16 @@ type ClientObjectID struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewClientObjectID() *ClientObjectID {
+	clientObjectIDType := new(ClientObjectID)
+	return clientObjectIDType
+}
+
+func NewDefaultClientObjectID() *ClientObjectID {
+	clientObjectIDType := new(ClientObjectID)
+	return clientObjectIDType
+}
+
 // ClientObjectIDExtraValuesType
 //
 // Extra values of the client
@@ -47,6 +57,16 @@ func (t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
+	clientObjectIDExtraValuesTypeType := new(ClientObjectIDExtraValuesType)
+	return clientObjectIDExtraValuesTypeType
+}
+
+func NewDefaultClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
+	clientObjectIDExtraValuesTypeType := new(ClientObjectIDExtraValuesType)
+	return clientObjectIDExtraValuesTypeType
+}
+
 type CreateResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
 
@@ -63,6 +83,16 @@ type CreateResult struct {
 	// Success
 	// Create result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewCreateResult() *CreateResult {
+	createResultType := new(CreateResult)
+	return createResultType
+}
+
+func NewDefaultCreateResult() *CreateResult {
+	createResultType := new(CreateResult)
+	return createResultType
 }
 
 // CreateResultExtraType
@@ -88,6 +118,16 @@ func (t *CreateResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewCreateResultExtraType() *CreateResultExtraType {
+	createResultExtraTypeType := new(CreateResultExtraType)
+	return createResultExtraTypeType
+}
+
+func NewDefaultCreateResultExtraType() *CreateResultExtraType {
+	createResultExtraTypeType := new(CreateResultExtraType)
+	return createResultExtraTypeType
+}
+
 // CreateResultMetaDataType
 //
 // Matadata of Rule create result
@@ -111,6 +151,16 @@ func (t *CreateResultMetaDataType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewCreateResultMetaDataType() *CreateResultMetaDataType {
+	createResultMetaDataTypeType := new(CreateResultMetaDataType)
+	return createResultMetaDataTypeType
+}
+
+func NewDefaultCreateResultMetaDataType() *CreateResultMetaDataType {
+	createResultMetaDataTypeType := new(CreateResultMetaDataType)
+	return createResultMetaDataTypeType
+}
+
 type DeleteMultipleResult struct {
 	Data *List `json:"data,omitempty"`
 
@@ -127,6 +177,16 @@ type DeleteMultipleResult struct {
 	// Success
 	// Delete multiple result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewDeleteMultipleResult() *DeleteMultipleResult {
+	deleteMultipleResultType := new(DeleteMultipleResult)
+	return deleteMultipleResultType
+}
+
+func NewDefaultDeleteMultipleResult() *DeleteMultipleResult {
+	deleteMultipleResultType := new(DeleteMultipleResult)
+	return deleteMultipleResultType
 }
 
 // DeleteMultipleResultExtraType
@@ -152,6 +212,16 @@ func (t *DeleteMultipleResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewDeleteMultipleResultExtraType() *DeleteMultipleResultExtraType {
+	deleteMultipleResultExtraTypeType := new(DeleteMultipleResultExtraType)
+	return deleteMultipleResultExtraTypeType
+}
+
+func NewDefaultDeleteMultipleResultExtraType() *DeleteMultipleResultExtraType {
+	deleteMultipleResultExtraTypeType := new(DeleteMultipleResultExtraType)
+	return deleteMultipleResultExtraTypeType
+}
+
 // DeleteMultipleResultMetaDataType
 //
 // Matadata of delete multiple rules result
@@ -175,6 +245,16 @@ func (t *DeleteMultipleResultMetaDataType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewDeleteMultipleResultMetaDataType() *DeleteMultipleResultMetaDataType {
+	deleteMultipleResultMetaDataTypeType := new(DeleteMultipleResultMetaDataType)
+	return deleteMultipleResultMetaDataTypeType
+}
+
+func NewDefaultDeleteMultipleResultMetaDataType() *DeleteMultipleResultMetaDataType {
+	deleteMultipleResultMetaDataTypeType := new(DeleteMultipleResultMetaDataType)
+	return deleteMultipleResultMetaDataTypeType
+}
+
 type DeleteResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
 
@@ -191,6 +271,16 @@ type DeleteResult struct {
 	// Success
 	// Delete result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewDeleteResult() *DeleteResult {
+	deleteResultType := new(DeleteResult)
+	return deleteResultType
+}
+
+func NewDefaultDeleteResult() *DeleteResult {
+	deleteResultType := new(DeleteResult)
+	return deleteResultType
 }
 
 // DeleteResultExtraType
@@ -216,6 +306,16 @@ func (t *DeleteResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewDeleteResultExtraType() *DeleteResultExtraType {
+	deleteResultExtraTypeType := new(DeleteResultExtraType)
+	return deleteResultExtraTypeType
+}
+
+func NewDefaultDeleteResultExtraType() *DeleteResultExtraType {
+	deleteResultExtraTypeType := new(DeleteResultExtraType)
+	return deleteResultExtraTypeType
+}
+
 // DeleteResultMetaDataType
 //
 // Matadata of Rule delete result
@@ -239,12 +339,32 @@ func (t *DeleteResultMetaDataType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewDeleteResultMetaDataType() *DeleteResultMetaDataType {
+	deleteResultMetaDataTypeType := new(DeleteResultMetaDataType)
+	return deleteResultMetaDataTypeType
+}
+
+func NewDefaultDeleteResultMetaDataType() *DeleteResultMetaDataType {
+	deleteResultMetaDataTypeType := new(DeleteResultMetaDataType)
+	return deleteResultMetaDataTypeType
+}
+
 type ErrorObject struct {
 	List []string `json:"list,omitempty"`
 
 	Message *string `json:"message,omitempty"`
 
 	MsgKey *string `json:"msgKey,omitempty"`
+}
+
+func NewErrorObject() *ErrorObject {
+	errorObjectType := new(ErrorObject)
+	return errorObjectType
+}
+
+func NewDefaultErrorObject() *ErrorObject {
+	errorObjectType := new(ErrorObject)
+	return errorObjectType
 }
 
 type List struct {
@@ -271,6 +391,16 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewList() *List {
+	listType := new(List)
+	return listType
+}
+
+func NewDefaultList() *List {
+	listType := new(List)
+	return listType
+}
+
 // ListExtraType
 //
 // Any additional response data
@@ -294,6 +424,16 @@ func (t *ListExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewListExtraType() *ListExtraType {
+	listExtraTypeType := new(ListExtraType)
+	return listExtraTypeType
+}
+
+func NewDefaultListExtraType() *ListExtraType {
+	listExtraTypeType := new(ListExtraType)
+	return listExtraTypeType
+}
+
 type ModifyResult struct {
 	Data *ClientObjectID `json:"data,omitempty"`
 
@@ -310,6 +450,16 @@ type ModifyResult struct {
 	// Success
 	// Modify result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewModifyResult() *ModifyResult {
+	modifyResultType := new(ModifyResult)
+	return modifyResultType
+}
+
+func NewDefaultModifyResult() *ModifyResult {
+	modifyResultType := new(ModifyResult)
+	return modifyResultType
 }
 
 // ModifyResultExtraType
@@ -335,6 +485,16 @@ func (t *ModifyResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewModifyResultExtraType() *ModifyResultExtraType {
+	modifyResultExtraTypeType := new(ModifyResultExtraType)
+	return modifyResultExtraTypeType
+}
+
+func NewDefaultModifyResultExtraType() *ModifyResultExtraType {
+	modifyResultExtraTypeType := new(ModifyResultExtraType)
+	return modifyResultExtraTypeType
+}
+
 // ModifyResultMetaDataType
 //
 // Matadata of rule modify result
@@ -356,6 +516,16 @@ func (t *ModifyResultMetaDataType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewModifyResultMetaDataType() *ModifyResultMetaDataType {
+	modifyResultMetaDataTypeType := new(ModifyResultMetaDataType)
+	return modifyResultMetaDataTypeType
+}
+
+func NewDefaultModifyResultMetaDataType() *ModifyResultMetaDataType {
+	modifyResultMetaDataTypeType := new(ModifyResultMetaDataType)
+	return modifyResultMetaDataTypeType
 }
 
 type RegistrationRule struct {
@@ -427,6 +597,16 @@ type RegistrationRule struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_RANGE SUBNET MODEL_NUMBER"`
 }
 
+func NewRegistrationRule() *RegistrationRule {
+	registrationRuleType := new(RegistrationRule)
+	return registrationRuleType
+}
+
+func NewDefaultRegistrationRule() *RegistrationRule {
+	registrationRuleType := new(RegistrationRule)
+	return registrationRuleType
+}
+
 type RuleQueryResultList struct {
 	Data *List `json:"data,omitempty"`
 
@@ -443,6 +623,16 @@ type RuleQueryResultList struct {
 	// Success
 	// Rule query result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewRuleQueryResultList() *RuleQueryResultList {
+	ruleQueryResultListType := new(RuleQueryResultList)
+	return ruleQueryResultListType
+}
+
+func NewDefaultRuleQueryResultList() *RuleQueryResultList {
+	ruleQueryResultListType := new(RuleQueryResultList)
+	return ruleQueryResultListType
 }
 
 // RuleQueryResultListExtraType
@@ -468,6 +658,16 @@ func (t *RuleQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewRuleQueryResultListExtraType() *RuleQueryResultListExtraType {
+	ruleQueryResultListExtraTypeType := new(RuleQueryResultListExtraType)
+	return ruleQueryResultListExtraTypeType
+}
+
+func NewDefaultRuleQueryResultListExtraType() *RuleQueryResultListExtraType {
+	ruleQueryResultListExtraTypeType := new(RuleQueryResultListExtraType)
+	return ruleQueryResultListExtraTypeType
+}
+
 // RuleQueryResultListMetaDataType
 //
 // Matadata of Rule query result
@@ -491,4 +691,24 @@ func (t *RuleQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewRuleQueryResultListMetaDataType() *RuleQueryResultListMetaDataType {
+	ruleQueryResultListMetaDataTypeType := new(RuleQueryResultListMetaDataType)
+	return ruleQueryResultListMetaDataTypeType
+}
+
+func NewDefaultRuleQueryResultListMetaDataType() *RuleQueryResultListMetaDataType {
+	ruleQueryResultListMetaDataTypeType := new(RuleQueryResultListMetaDataType)
+	return ruleQueryResultListMetaDataTypeType
+}
+
 type RuleUUIDs []string
+
+func NewRuleUUIDs() *RuleUUIDs {
+	ruleUUIDsType := make(RuleUUIDs, 0)
+	return &ruleUUIDsType
+}
+
+func NewDefaultRuleUUIDs() *RuleUUIDs {
+	ruleUUIDsType := make(RuleUUIDs, 0)
+	return &ruleUUIDsType
+}

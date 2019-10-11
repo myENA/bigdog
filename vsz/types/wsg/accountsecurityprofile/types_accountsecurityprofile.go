@@ -75,14 +75,44 @@ type Create struct {
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
 
+func NewCreate() *Create {
+	createType := new(Create)
+	return createType
+}
+
+func NewDefaultCreate() *Create {
+	createType := new(Create)
+	return createType
+}
+
 type Delete struct {
 	// Id
 	// Profile id
 	Id *string `json:"id,omitempty"`
 }
 
+func NewDelete() *Delete {
+	deleteType := new(Delete)
+	return deleteType
+}
+
+func NewDefaultDelete() *Delete {
+	deleteType := new(Delete)
+	return deleteType
+}
+
 type DeleteList struct {
 	IdList common.IdList `json:"idList,omitempty"`
+}
+
+func NewDeleteList() *DeleteList {
+	deleteListType := new(DeleteList)
+	return deleteListType
+}
+
+func NewDefaultDeleteList() *DeleteList {
+	deleteListType := new(DeleteList)
+	return deleteListType
 }
 
 type GetById struct {
@@ -91,6 +121,16 @@ type GetById struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
+}
+
+func NewGetById() *GetById {
+	getByIdType := new(GetById)
+	return getByIdType
+}
+
+func NewDefaultGetById() *GetById {
+	getByIdType := new(GetById)
+	return getByIdType
 }
 
 type GetByIdResult struct {
@@ -126,6 +166,16 @@ type GetByIdResult struct {
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
 
+func NewGetByIdResult() *GetByIdResult {
+	getByIdResultType := new(GetByIdResult)
+	return getByIdResultType
+}
+
+func NewDefaultGetByIdResult() *GetByIdResult {
+	getByIdResultType := new(GetByIdResult)
+	return getByIdResultType
+}
+
 type ProfileListResult struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -134,6 +184,16 @@ type ProfileListResult struct {
 	List []*GetById `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewProfileListResult() *ProfileListResult {
+	profileListResultType := new(ProfileListResult)
+	return profileListResultType
+}
+
+func NewDefaultProfileListResult() *ProfileListResult {
+	profileListResultType := new(ProfileListResult)
+	return profileListResultType
 }
 
 type Update struct {
@@ -201,4 +261,14 @@ type Update struct {
 	// TwoFactorAuthEnabled
 	// Enable the two-factor authentication. (This configuration can only be enabled from Web GUI.)
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
+}
+
+func NewUpdate() *Update {
+	updateType := new(Update)
+	return updateType
+}
+
+func NewDefaultUpdate() *Update {
+	updateType := new(Update)
+	return updateType
 }

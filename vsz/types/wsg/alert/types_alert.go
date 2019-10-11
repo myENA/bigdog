@@ -10,8 +10,28 @@ type AckBulkAlarms struct {
 	IdList []string `json:"idList,omitempty"`
 }
 
+func NewAckBulkAlarms() *AckBulkAlarms {
+	ackBulkAlarmsType := new(AckBulkAlarms)
+	return ackBulkAlarmsType
+}
+
+func NewDefaultAckBulkAlarms() *AckBulkAlarms {
+	ackBulkAlarmsType := new(AckBulkAlarms)
+	return ackBulkAlarmsType
+}
+
 type ClearBulkAlarms struct {
 	Comment *common.NormalNameAllowBlank `json:"comment,omitempty"`
 
 	IdList []string `json:"idList,omitempty"`
+}
+
+func NewClearBulkAlarms() *ClearBulkAlarms {
+	clearBulkAlarmsType := new(ClearBulkAlarms)
+	return clearBulkAlarmsType
+}
+
+func NewDefaultClearBulkAlarms() *ClearBulkAlarms {
+	clearBulkAlarmsType := new(ClearBulkAlarms)
+	return clearBulkAlarmsType
 }

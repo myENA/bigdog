@@ -16,6 +16,16 @@ type AppCategory struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewAppCategory() *AppCategory {
+	appCategoryType := new(AppCategory)
+	return appCategoryType
+}
+
+func NewDefaultAppCategory() *AppCategory {
+	appCategoryType := new(AppCategory)
+	return appCategoryType
+}
+
 type AppCategoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -24,6 +34,16 @@ type AppCategoryList struct {
 	List []*AppCategory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewAppCategoryList() *AppCategoryList {
+	appCategoryListType := new(AppCategoryList)
+	return appCategoryListType
+}
+
+func NewDefaultAppCategoryList() *AppCategoryList {
+	appCategoryListType := new(AppCategoryList)
+	return appCategoryListType
 }
 
 type Application struct {
@@ -40,6 +60,16 @@ type Application struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewApplication() *Application {
+	applicationType := new(Application)
+	return applicationType
+}
+
+func NewDefaultApplication() *Application {
+	applicationType := new(Application)
+	return applicationType
+}
+
 type ApplicationList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -48,6 +78,16 @@ type ApplicationList struct {
 	List []*Application `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewApplicationList() *ApplicationList {
+	applicationListType := new(ApplicationList)
+	return applicationListType
+}
+
+func NewDefaultApplicationList() *ApplicationList {
+	applicationListType := new(ApplicationList)
+	return applicationListType
 }
 
 type ApplicationPolicyProfile struct {
@@ -102,6 +142,16 @@ type ApplicationPolicyProfile struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+func NewApplicationPolicyProfile() *ApplicationPolicyProfile {
+	applicationPolicyProfileType := new(ApplicationPolicyProfile)
+	return applicationPolicyProfileType
+}
+
+func NewDefaultApplicationPolicyProfile() *ApplicationPolicyProfile {
+	applicationPolicyProfileType := new(ApplicationPolicyProfile)
+	return applicationPolicyProfileType
+}
+
 type ApplicationPolicyProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -112,6 +162,16 @@ type ApplicationPolicyProfileList struct {
 	List []*ApplicationPolicyProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewApplicationPolicyProfileList() *ApplicationPolicyProfileList {
+	applicationPolicyProfileListType := new(ApplicationPolicyProfileList)
+	return applicationPolicyProfileListType
+}
+
+func NewDefaultApplicationPolicyProfileList() *ApplicationPolicyProfileList {
+	applicationPolicyProfileListType := new(ApplicationPolicyProfileList)
+	return applicationPolicyProfileListType
 }
 
 type ApplicationRule struct {
@@ -177,6 +237,16 @@ type ApplicationRule struct {
 	Uplink *int `json:"uplink,omitempty"`
 }
 
+func NewApplicationRule() *ApplicationRule {
+	applicationRuleType := new(ApplicationRule)
+	return applicationRuleType
+}
+
+func NewDefaultApplicationRule() *ApplicationRule {
+	applicationRuleType := new(ApplicationRule)
+	return applicationRuleType
+}
+
 type CreateApplicationPolicyProfile struct {
 	// ApplicationRules
 	// Constraints:
@@ -201,6 +271,16 @@ type CreateApplicationPolicyProfile struct {
 	// Constraints:
 	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
+}
+
+func NewCreateApplicationPolicyProfile() *CreateApplicationPolicyProfile {
+	createApplicationPolicyProfileType := new(CreateApplicationPolicyProfile)
+	return createApplicationPolicyProfileType
+}
+
+func NewDefaultCreateApplicationPolicyProfile() *CreateApplicationPolicyProfile {
+	createApplicationPolicyProfileType := new(CreateApplicationPolicyProfile)
+	return createApplicationPolicyProfileType
 }
 
 type CreateUserDefinedProfile struct {
@@ -240,8 +320,28 @@ type CreateUserDefinedProfile struct {
 	Type *string `json:"type" validate:"required,oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
+func NewCreateUserDefinedProfile() *CreateUserDefinedProfile {
+	createUserDefinedProfileType := new(CreateUserDefinedProfile)
+	return createUserDefinedProfileType
+}
+
+func NewDefaultCreateUserDefinedProfile() *CreateUserDefinedProfile {
+	createUserDefinedProfileType := new(CreateUserDefinedProfile)
+	return createUserDefinedProfileType
+}
+
 type DeleteBulk struct {
 	IdList common.IdList `json:"idList,omitempty"`
+}
+
+func NewDeleteBulk() *DeleteBulk {
+	deleteBulkType := new(DeleteBulk)
+	return deleteBulkType
+}
+
+func NewDefaultDeleteBulk() *DeleteBulk {
+	deleteBulkType := new(DeleteBulk)
+	return deleteBulkType
 }
 
 type ModifyApplicationPolicyProfile struct {
@@ -258,6 +358,16 @@ type ModifyApplicationPolicyProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
+}
+
+func NewModifyApplicationPolicyProfile() *ModifyApplicationPolicyProfile {
+	modifyApplicationPolicyProfileType := new(ModifyApplicationPolicyProfile)
+	return modifyApplicationPolicyProfileType
+}
+
+func NewDefaultModifyApplicationPolicyProfile() *ModifyApplicationPolicyProfile {
+	modifyApplicationPolicyProfileType := new(ModifyApplicationPolicyProfile)
+	return modifyApplicationPolicyProfileType
 }
 
 type ModifyUserDefinedProfile struct {
@@ -290,6 +400,16 @@ type ModifyUserDefinedProfile struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
+func NewModifyUserDefinedProfile() *ModifyUserDefinedProfile {
+	modifyUserDefinedProfileType := new(ModifyUserDefinedProfile)
+	return modifyUserDefinedProfileType
+}
+
+func NewDefaultModifyUserDefinedProfile() *ModifyUserDefinedProfile {
+	modifyUserDefinedProfileType := new(ModifyUserDefinedProfile)
+	return modifyUserDefinedProfileType
+}
+
 type SignaturePackage struct {
 	// FileName
 	// Name of the Signature Package
@@ -306,6 +426,16 @@ type SignaturePackage struct {
 	// Version
 	// Version of the Signature Package
 	Version *string `json:"version,omitempty"`
+}
+
+func NewSignaturePackage() *SignaturePackage {
+	signaturePackageType := new(SignaturePackage)
+	return signaturePackageType
+}
+
+func NewDefaultSignaturePackage() *SignaturePackage {
+	signaturePackageType := new(SignaturePackage)
+	return signaturePackageType
 }
 
 type UserDefinedProfile struct {
@@ -378,6 +508,16 @@ type UserDefinedProfile struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
+func NewUserDefinedProfile() *UserDefinedProfile {
+	userDefinedProfileType := new(UserDefinedProfile)
+	return userDefinedProfileType
+}
+
+func NewDefaultUserDefinedProfile() *UserDefinedProfile {
+	userDefinedProfileType := new(UserDefinedProfile)
+	return userDefinedProfileType
+}
+
 type UserDefinedProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -388,4 +528,14 @@ type UserDefinedProfileList struct {
 	List []*UserDefinedProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewUserDefinedProfileList() *UserDefinedProfileList {
+	userDefinedProfileListType := new(UserDefinedProfileList)
+	return userDefinedProfileListType
+}
+
+func NewDefaultUserDefinedProfileList() *UserDefinedProfileList {
+	userDefinedProfileListType := new(UserDefinedProfileList)
+	return userDefinedProfileListType
 }

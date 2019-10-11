@@ -20,6 +20,16 @@ type DHCPOption struct {
 	Value *string `json:"value,omitempty"`
 }
 
+func NewDHCPOption() *DHCPOption {
+	dHCPOptionType := new(DHCPOption)
+	return dHCPOptionType
+}
+
+func NewDefaultDHCPOption() *DHCPOption {
+	dHCPOptionType := new(DHCPOption)
+	return dHCPOptionType
+}
+
 type DHCPServer struct {
 	// DefaultRouterIp
 	// Default Router Ip
@@ -56,6 +66,16 @@ type DHCPServer struct {
 	PoolName *string `json:"poolName,omitempty"`
 }
 
+func NewDHCPServer() *DHCPServer {
+	dHCPServerType := new(DHCPServer)
+	return dHCPServerType
+}
+
+func NewDefaultDHCPServer() *DHCPServer {
+	dHCPServerType := new(DHCPServer)
+	return dHCPServerType
+}
+
 type EmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -76,6 +96,16 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
 type IdList struct {
 	// Hostname
 	// Hostname
@@ -84,6 +114,16 @@ type IdList struct {
 	// Id
 	// Id
 	Id *string `json:"id,omitempty"`
+}
+
+func NewIdList() *IdList {
+	idListType := new(IdList)
+	return idListType
+}
+
+func NewDefaultIdList() *IdList {
+	idListType := new(IdList)
+	return idListType
 }
 
 type SpecificSettings struct {
@@ -118,6 +158,16 @@ type SpecificSettings struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewSpecificSettings() *SpecificSettings {
+	specificSettingsType := new(SpecificSettings)
+	return specificSettingsType
+}
+
+func NewDefaultSpecificSettings() *SpecificSettings {
+	specificSettingsType := new(SpecificSettings)
+	return specificSettingsType
+}
+
 type SpecificSettingsAllResult struct {
 	// Extra
 	// Any additional response data
@@ -140,6 +190,16 @@ type SpecificSettingsAllResult struct {
 	// TotalCount
 	// Total Specific Settings count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSpecificSettingsAllResult() *SpecificSettingsAllResult {
+	specificSettingsAllResultType := new(SpecificSettingsAllResult)
+	return specificSettingsAllResultType
+}
+
+func NewDefaultSpecificSettingsAllResult() *SpecificSettingsAllResult {
+	specificSettingsAllResultType := new(SpecificSettingsAllResult)
+	return specificSettingsAllResultType
 }
 
 // SpecificSettingsAllResultExtraType
@@ -165,6 +225,16 @@ func (t *SpecificSettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSpecificSettingsAllResultExtraType() *SpecificSettingsAllResultExtraType {
+	specificSettingsAllResultExtraTypeType := new(SpecificSettingsAllResultExtraType)
+	return specificSettingsAllResultExtraTypeType
+}
+
+func NewDefaultSpecificSettingsAllResultExtraType() *SpecificSettingsAllResultExtraType {
+	specificSettingsAllResultExtraTypeType := new(SpecificSettingsAllResultExtraType)
+	return specificSettingsAllResultExtraTypeType
+}
+
 type UpdateSpecificSettings struct {
 	// DhcpServerEnabled
 	// DHCP server enabled
@@ -183,4 +253,14 @@ type UpdateSpecificSettings struct {
 	// JumboMode
 	// JumboMode
 	JumboMode *bool `json:"jumboMode,omitempty"`
+}
+
+func NewUpdateSpecificSettings() *UpdateSpecificSettings {
+	updateSpecificSettingsType := new(UpdateSpecificSettings)
+	return updateSpecificSettingsType
+}
+
+func NewDefaultUpdateSpecificSettings() *UpdateSpecificSettings {
+	updateSpecificSettingsType := new(UpdateSpecificSettings)
+	return updateSpecificSettingsType
 }

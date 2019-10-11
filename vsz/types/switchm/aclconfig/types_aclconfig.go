@@ -56,6 +56,16 @@ type ACLConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewACLConfig() *ACLConfig {
+	aCLConfigType := new(ACLConfig)
+	return aCLConfigType
+}
+
+func NewDefaultACLConfig() *ACLConfig {
+	aCLConfigType := new(ACLConfig)
+	return aCLConfigType
+}
+
 type ACLConfigsQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -80,6 +90,16 @@ type ACLConfigsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewACLConfigsQueryResult() *ACLConfigsQueryResult {
+	aCLConfigsQueryResultType := new(ACLConfigsQueryResult)
+	return aCLConfigsQueryResultType
+}
+
+func NewDefaultACLConfigsQueryResult() *ACLConfigsQueryResult {
+	aCLConfigsQueryResultType := new(ACLConfigsQueryResult)
+	return aCLConfigsQueryResultType
+}
+
 // ACLConfigsQueryResultExtraType
 //
 // Any additional response data
@@ -101,6 +121,16 @@ func (t *ACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewACLConfigsQueryResultExtraType() *ACLConfigsQueryResultExtraType {
+	aCLConfigsQueryResultExtraTypeType := new(ACLConfigsQueryResultExtraType)
+	return aCLConfigsQueryResultExtraTypeType
+}
+
+func NewDefaultACLConfigsQueryResultExtraType() *ACLConfigsQueryResultExtraType {
+	aCLConfigsQueryResultExtraTypeType := new(ACLConfigsQueryResultExtraType)
+	return aCLConfigsQueryResultExtraTypeType
 }
 
 type ACLRule struct {
@@ -137,6 +167,16 @@ type ACLRule struct {
 	// SrcPort
 	// The source port of AccessControl Rule
 	SrcPort *string `json:"srcPort,omitempty"`
+}
+
+func NewACLRule() *ACLRule {
+	aCLRuleType := new(ACLRule)
+	return aCLRuleType
+}
+
+func NewDefaultACLRule() *ACLRule {
+	aCLRuleType := new(ACLRule)
+	return aCLRuleType
 }
 
 type CreateACLConfig struct {
@@ -177,6 +217,16 @@ type CreateACLConfig struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+func NewCreateACLConfig() *CreateACLConfig {
+	createACLConfigType := new(CreateACLConfig)
+	return createACLConfigType
+}
+
+func NewDefaultCreateACLConfig() *CreateACLConfig {
+	createACLConfigType := new(CreateACLConfig)
+	return createACLConfigType
+}
+
 type EmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -195,6 +245,16 @@ func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
+}
+
+func NewDefaultEmptyResult() *EmptyResult {
+	emptyResultType := new(EmptyResult)
+	return emptyResultType
 }
 
 type UpdateACLConfig struct {
@@ -217,4 +277,14 @@ type UpdateACLConfig struct {
 	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
+}
+
+func NewUpdateACLConfig() *UpdateACLConfig {
+	updateACLConfigType := new(UpdateACLConfig)
+	return updateACLConfigType
+}
+
+func NewDefaultUpdateACLConfig() *UpdateACLConfig {
+	updateACLConfigType := new(UpdateACLConfig)
+	return updateACLConfigType
 }

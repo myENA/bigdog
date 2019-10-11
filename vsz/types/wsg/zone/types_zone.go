@@ -31,8 +31,14 @@ type ApFirmwareList struct {
 }
 
 type ApLogin struct {
+	// ApLoginName
+	// Constraints:
+	//    - required
 	ApLoginName *common.ApLoginName `json:"apLoginName" validate:"required"`
 
+	// ApLoginPassword
+	// Constraints:
+	//    - required
 	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword" validate:"required"`
 }
 
@@ -67,6 +73,9 @@ type AvailableTunnelProfile struct {
 
 	// TunnelType
 	// Tunnel Profile Type ("RuckusGRE", "SoftGRE",or "Ipsec")
+	// Constraints:
+	//    - nullable
+	//    - oneof:[RuckusGRE,SoftGRE,Ipsec]
 	TunnelType *string `json:"tunnelType,omitempty" validate:"omitempty,oneof=RuckusGRE SoftGRE Ipsec"`
 }
 
@@ -83,19 +92,30 @@ type AvailableTunnelProfileList struct {
 type BackgroundScanning struct {
 	// FrequencyInSec
 	// Frequency in second
+	// Constraints:
+	//    - nullable
+	//    - default:20
+	//    - min:1
+	//    - max:65535
 	FrequencyInSec *int `json:"frequencyInSec,omitempty" validate:"omitempty,gte=1,lte=65535"`
 }
 
 type BandBalancing struct {
 	// Mode
-	// Band Balancing Mode: BASIC-Withholds probe and authentication responses at connetcion time in heavily
-	// loaded band to balance clients to the other band, PROACTIVE-Uses BASIC functionality and actively
-	// rebalances clients via 802.11v BTM, STRICT-Uses PROACTIVE functionality and forcefully rebalances
-	// clients via 802.11v BTM
+	// Band Balancing Mode: BASIC-Withholds probe and authentication responses at connetcion time in heavily loaded band to balance clients to the other band, PROACTIVE-Uses BASIC functionality and actively rebalances clients via 802.11v BTM, STRICT-Uses PROACTIVE functionality and forcefully rebalances clients via 802.11v BTM
+	// Constraints:
+	//    - nullable
+	//    - default:'BASIC'
+	//    - oneof:[BASIC,PROACTIVE,STRICT]
 	Mode *string `json:"mode,omitempty" validate:"omitempty,oneof=BASIC PROACTIVE STRICT"`
 
 	// Wifi24Percentage
 	// Percentage of client load on 2.4GHz radio band
+	// Constraints:
+	//    - nullable
+	//    - default:25
+	//    - min:0
+	//    - max:100
 	Wifi24Percentage *int `json:"wifi24Percentage,omitempty" validate:"omitempty,gte=0,lte=100"`
 }
 
@@ -147,10 +167,17 @@ type BonjourGatewayPolicySummary struct {
 type BonjourPolicyRule struct {
 	// BridgeService
 	// Bridge service
+	// Constraints:
+	//    - required
+	//    - oneof:[AIRDISK,AIRPLAY,AIRPORT_MANAGEMENT,AIRPRINT,AIRTUNES,APPLE_FILE_SHARING,APPLE_MOBILE_DEVICES,APPLETV,ICLOUD_SYNC,ITUNES_REMOTE,ITUNES_SHARING,OPEN_DIRECTORY_MASTER,OPTICAL_DISK_SHARING,SCREEN_SHARING,SECURE_FILE_SHARING,SECURE_SHELL,WWW_HTTP,WWW_HTTPS,WORKGROUP_MANAGER,XGRID,OTHER]
 	BridgeService *string `json:"bridgeService" validate:"required,oneof=AIRDISK AIRPLAY AIRPORT_MANAGEMENT AIRPRINT AIRTUNES APPLE_FILE_SHARING APPLE_MOBILE_DEVICES APPLETV ICLOUD_SYNC ITUNES_REMOTE ITUNES_SHARING OPEN_DIRECTORY_MASTER OPTICAL_DISK_SHARING SCREEN_SHARING SECURE_FILE_SHARING SECURE_SHELL WWW_HTTP WWW_HTTPS WORKGROUP_MANAGER XGRID OTHER"`
 
 	// FromVlan
 	// From VLAN
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:4094
 	FromVlan *int `json:"fromVlan" validate:"required,gte=1,lte=4094"`
 
 	// Notes
@@ -163,6 +190,10 @@ type BonjourPolicyRule struct {
 
 	// ToVlan
 	// To VLAN
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:4094
 	ToVlan *int `json:"toVlan" validate:"required,gte=1,lte=4094"`
 }
 
@@ -198,6 +229,10 @@ type BonjourPolicyRuleConfiguration struct {
 type ClientLoadBalancing struct {
 	// AdjacentRadioThreshold
 	// Adjacent radio threshold
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:100
 	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty" validate:"omitempty,gte=1,lte=100"`
 }
 
@@ -208,6 +243,9 @@ type CreateBonjourGatewayPolicy struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -216,6 +254,9 @@ type CreateDiffServProfile struct {
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PreservedList
@@ -229,8 +270,7 @@ type CreateZone struct {
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
 	// ApHccdEnabled
-	// Historical Connection Failures allows the AP to report historical client connection failures for this
-	// zone.
+	// Historical Connection Failures allows the AP to report historical client connection failures for this zone.
 	ApHccdEnabled *bool `json:"apHccdEnabled,omitempty"`
 
 	// ApHccdPersist
@@ -273,6 +313,11 @@ type CreateZone struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
+	// Constraints:
+	//    - nullable
+	//    - default:600
+	//    - min:60
+	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	// ChannelModeEnabled
@@ -353,6 +398,10 @@ type CreateZone struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
+	// IpsecTunnelMode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DISABLE,SOFT_GRE,RUCKUS_GRE]
 	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
@@ -361,6 +410,11 @@ type CreateZone struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
+	// LoadBalancingMethod
+	// Constraints:
+	//    - nullable
+	//    - default:'BASED_ON_CLIENT_COUNT'
+	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
 	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
@@ -369,6 +423,9 @@ type CreateZone struct {
 
 	LocationBasedService *common.GenericRef `json:"locationBasedService,omitempty"`
 
+	// Login
+	// Constraints:
+	//    - required
 	Login *ApLogin `json:"login" validate:"required"`
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
@@ -379,6 +436,9 @@ type CreateZone struct {
 
 	Mesh *MeshConfiguration `json:"mesh,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	NodeAffinityProfile *common.GenericRef `json:"nodeAffinityProfile,omitempty"`
@@ -413,6 +473,11 @@ type CreateZone struct {
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
+	// SshTunnelEncryption
+	// Constraints:
+	//    - nullable
+	//    - default:'AES128'
+	//    - oneof:[AES128,AES256]
 	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
@@ -443,16 +508,26 @@ type CreateZone struct {
 type CustomizedTimeZone struct {
 	// Abbreviation
 	// Time zone abbreviation
+	// Constraints:
+	//    - required
 	Abbreviation *string `json:"abbreviation" validate:"required"`
 
 	End *DaylightSavingTime `json:"end,omitempty"`
 
 	// GmtOffset
 	// GMT offset
+	// Constraints:
+	//    - required
+	//    - min:-11
+	//    - max:14
 	GmtOffset *int `json:"gmtOffset" validate:"required,gte=-11,lte=14"`
 
 	// GmtOffsetMinute
 	// GMT offset minute
+	// Constraints:
+	//    - required
+	//    - min:0
+	//    - max:59
 	GmtOffsetMinute *int `json:"gmtOffsetMinute" validate:"required,gte=0,lte=59"`
 
 	Start *DaylightSavingTime `json:"start,omitempty"`
@@ -461,18 +536,31 @@ type CustomizedTimeZone struct {
 type DaylightSavingTime struct {
 	// Day
 	// Day of the week (0 for Sunday, 1 for Monday, 2 for Tuesday, and so on)
+	// Constraints:
+	//    - required
+	//    - oneof:[0,1,2,3,4,5,6]
 	Day *int `json:"day" validate:"required,oneof=0 1 2 3 4 5 6"`
 
 	// Hour
 	// Hour of the day
+	// Constraints:
+	//    - required
+	//    - min:0
+	//    - max:23
 	Hour *int `json:"hour" validate:"required,gte=0,lte=23"`
 
 	// Month
 	// Month when daylight saving time begins
+	// Constraints:
+	//    - required
+	//    - oneof:[1,2,3,4,5,6,7,8,9,10,11,12]
 	Month *int `json:"month" validate:"required,oneof=1 2 3 4 5 6 7 8 9 10 11 12"`
 
 	// Week
 	// Week of the month (1 for the first week, 2 for the second week, and so on)
+	// Constraints:
+	//    - required
+	//    - oneof:[1,2,3,4,5]
 	Week *int `json:"week" validate:"required,oneof=1 2 3 4 5"`
 }
 
@@ -537,6 +625,10 @@ type DownlinkDiffServ struct {
 type MeshConfiguration struct {
 	// MeshRadioIdx
 	// Mesh radio index
+	// Constraints:
+	//    - nullable
+	//    - default:'Radio5G'
+	//    - oneof:[Radio24G,Radio5G]
 	MeshRadioIdx *string `json:"meshRadioIdx,omitempty" validate:"omitempty,oneof=Radio24G Radio5G"`
 
 	// Passphrase
@@ -571,6 +663,9 @@ type ModifyDiffServProfile struct {
 
 	DownlinkDiffServ *DownlinkDiffServ `json:"downlinkDiffServ,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PreservedList
@@ -629,6 +724,11 @@ type ModifyZone struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
+	// Constraints:
+	//    - nullable
+	//    - default:600
+	//    - min:60
+	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	// ChannelModeEnabled
@@ -709,6 +809,10 @@ type ModifyZone struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
+	// IpsecTunnelMode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DISABLE,SOFT_GRE,RUCKUS_GRE]
 	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
@@ -717,6 +821,11 @@ type ModifyZone struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
+	// LoadBalancingMethod
+	// Constraints:
+	//    - nullable
+	//    - default:'BASED_ON_CLIENT_COUNT'
+	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
 	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
@@ -769,6 +878,10 @@ type ModifyZone struct {
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
+	// SshTunnelEncryption
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AES128,AES256]
 	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`
@@ -807,16 +920,25 @@ type Rogue struct {
 
 	// ReportType
 	// Report type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[All,Malicious]
 	ReportType *string `json:"reportType,omitempty" validate:"omitempty,oneof=All Malicious"`
 }
 
 type SnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
+	// Constraints:
+	//    - nullable
+	//    - min:8
 	AuthPassword *string `json:"authPassword,omitempty" validate:"omitempty,min=8"`
 
 	// AuthProtocol
 	// authProtocol of the SNMP User.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NONE,MD5,SHA]
 	AuthProtocol *string `json:"authProtocol,omitempty" validate:"omitempty,oneof=NONE MD5 SHA"`
 
 	// NotificationEnabled
@@ -829,14 +951,23 @@ type SnmpUser struct {
 
 	// NotificationType
 	// type of the notification privilege
+	// Constraints:
+	//    - nullable
+	//    - oneof:[TRAP,INFORM]
 	NotificationType *string `json:"notificationType,omitempty" validate:"omitempty,oneof=TRAP INFORM"`
 
 	// PrivPassword
 	// privPassword of the SNMP User.
+	// Constraints:
+	//    - nullable
+	//    - min:8
 	PrivPassword *string `json:"privPassword,omitempty" validate:"omitempty,min=8"`
 
 	// PrivProtocol
 	// privProtocol of the SNMP User.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NONE,DES,AES]
 	PrivProtocol *string `json:"privProtocol,omitempty" validate:"omitempty,oneof=NONE DES AES"`
 
 	// ReadEnabled
@@ -845,6 +976,8 @@ type SnmpUser struct {
 
 	// UserName
 	// name of the SNMP User.
+	// Constraints:
+	//    - required
 	UserName *string `json:"userName" validate:"required"`
 
 	// WriteEnabled
@@ -865,32 +998,62 @@ type Syslog struct {
 
 	// Facility
 	// Facility of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:'Keep_Original'
+	//    - oneof:[Keep_Original,Local0,Local1,Local2,Local3,Local4,Local5,Local6,Local7]
 	Facility *string `json:"facility,omitempty" validate:"omitempty,oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
 
 	// FlowLevel
 	// Flow Level of the syslog
+	// Constraints:
+	//    - nullable
+	//    - default:'GENERAL_LOGS'
+	//    - oneof:[GENERAL_LOGS,CLIENT_FLOW,ALL]
 	FlowLevel *string `json:"flowLevel,omitempty" validate:"omitempty,oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
 
 	// Port
 	// Port number of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:514
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// Priority
 	// Priority of the log messages
+	// Constraints:
+	//    - nullable
+	//    - default:'Error'
+	//    - oneof:[Emergency,Alert,Critical,Error,Warning,Notice,Info,All]
 	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=Emergency Alert Critical Error Warning Notice Info All"`
 
 	// Protocol
 	// Protocol of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:'IPPROTO_TCP'
+	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
 
 	SecondaryAddress *common.IpAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:514
+	//    - min:1
+	//    - max:65535
 	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// SecondaryProtocol
 	// Secondary Server Protocol of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:'IPPROTO_TCP'
+	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
 	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
@@ -971,6 +1134,11 @@ type ZoneConfiguration struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
+	// Constraints:
+	//    - nullable
+	//    - default:600
+	//    - min:60
+	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	// ChannelModeEnabled
@@ -1057,6 +1225,10 @@ type ZoneConfiguration struct {
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
 	IpsecProfiles []*common.GenericRef `json:"ipsecProfiles,omitempty"`
 
+	// IpsecTunnelMode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DISABLE,SOFT_GRE,RUCKUS_GRE]
 	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
@@ -1065,6 +1237,11 @@ type ZoneConfiguration struct {
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
 
+	// LoadBalancingMethod
+	// Constraints:
+	//    - nullable
+	//    - default:'BASED_ON_CLIENT_COUNT'
+	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
 	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *common.Location `json:"location,omitempty"`
@@ -1117,6 +1294,10 @@ type ZoneConfiguration struct {
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
 	SoftGreTunnelProflies []*SoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
+	// SshTunnelEncryption
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AES128,AES256]
 	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
 
 	Syslog *Syslog `json:"syslog,omitempty"`

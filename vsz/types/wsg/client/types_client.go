@@ -7,8 +7,14 @@ import (
 )
 
 type DeAuthClient struct {
+	// ApMac
+	// Constraints:
+	//    - required
 	ApMac *common.Mac `json:"apMac" validate:"required"`
 
+	// Mac
+	// Constraints:
+	//    - required
 	Mac *common.Mac `json:"mac" validate:"required"`
 }
 
@@ -17,8 +23,14 @@ type DeAuthClientList struct {
 }
 
 type DisconnectClient struct {
+	// ApMac
+	// Constraints:
+	//    - required
 	ApMac *common.Mac `json:"apMac" validate:"required"`
 
+	// Mac
+	// Constraints:
+	//    - required
 	Mac *common.Mac `json:"mac" validate:"required"`
 }
 

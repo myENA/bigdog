@@ -44,6 +44,10 @@ type AlarmSummary struct {
 type ApConfiguration struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
+	// Constraints:
+	//    - nullable
+	//    - default:'Unlocked'
+	//    - oneof:[Locked,Unlocked]
 	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
@@ -64,6 +68,11 @@ type ApConfiguration struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
+	// Constraints:
+	//    - nullable
+	//    - default:600
+	//    - min:60
+	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
@@ -111,8 +120,7 @@ type ApConfiguration struct {
 	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	// ProvisionChecklist
-	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP
-	// provisioning process.
+	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
 	ProvisionChecklist *string `json:"provisionChecklist,omitempty"`
 
 	RecoverySsid *common.RecoverySsid `json:"recoverySsid,omitempty"`
@@ -177,6 +185,9 @@ type ApLinemanSummaryListType struct {
 
 	// ConfigState
 	// State of the AP configuration
+	// Constraints:
+	//    - nullable
+	//    - oneof:[newConfig,fwApplied,fwDownloaded,fwFailed,configApplied,completed,configFailed]
 	ConfigState *string `json:"configState,omitempty" validate:"omitempty,oneof=newConfig fwApplied fwDownloaded fwFailed configApplied completed configFailed"`
 
 	Latitude *common.Latitude `json:"latitude,omitempty"`
@@ -233,6 +244,9 @@ type ApName string
 type ApOperationalSummary struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Locked,Unlocked]
 	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
@@ -251,6 +265,9 @@ type ApOperationalSummary struct {
 
 	// ConfigState
 	// State of the AP configuration.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[completed,configApplied,configFailed,fwApplied,fwDownloaded,fwFailed,newConfig]
 	ConfigState *string `json:"configState,omitempty" validate:"omitempty,oneof=completed configApplied configFailed fwApplied fwDownloaded fwFailed newConfig"`
 
 	// ConnectionState
@@ -284,13 +301,14 @@ type ApOperationalSummary struct {
 	Ip *string `json:"ip,omitempty"`
 
 	// IpType
-	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically
-	// assigned or kept unchanged.
+	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically assigned or kept unchanged.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Dynamic,Keep,Static]
 	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Dynamic Keep Static"`
 
 	// IsCriticalAP
-	// Indicates critical APs. Critical AP are APs that were tagged by the controller based on predefined
-	// rules.
+	// Indicates critical APs. Critical AP are APs that were tagged by the controller based on predefined rules.
 	IsCriticalAP *bool `json:"isCriticalAP,omitempty"`
 
 	// LastSeenTime
@@ -317,6 +335,9 @@ type ApOperationalSummary struct {
 
 	// MeshRole
 	// Mesh role of the AP
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Disabled,Down,Map,Root,Undefined,eMap]
 	MeshRole *string `json:"meshRole,omitempty" validate:"omitempty,oneof=Disabled Down Map Root Undefined eMap"`
 
 	// Model
@@ -326,19 +347,14 @@ type ApOperationalSummary struct {
 	Name *ApName `json:"name,omitempty"`
 
 	// ProvisionMethod
-	// Provisioning method of the AP. Discovered indicates that the AP contacted the controller using
-	// discovery and the AP did not have pre-existing record on the controller. Preprovision indicates that
-	// the AP was provisioned to the controller before AP made the first contact. Swap indicates that the AP
-	// was provisioned to be a replacement of an existing AP.
+	// Provisioning method of the AP. Discovered indicates that the AP contacted the controller using discovery and the AP did not have pre-existing record on the controller. Preprovision indicates that the AP was provisioned to the controller before AP made the first contact. Swap indicates that the AP was provisioned to be a replacement of an existing AP.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Discovered,Preprovision,Swap]
 	ProvisionMethod *string `json:"provisionMethod,omitempty" validate:"omitempty,oneof=Discovered Preprovision Swap"`
 
 	// ProvisionStage
-	// Provisioning stage of the AP. This indicates the stage at which the AP is at in the provisioning
-	// process. (value: 'Waiting for Registration','Pre-Provision AP Joined','Waiting for Swap In;Waiting for
-	// registration','Waiting for Swap In;Swap In AP Joined','Swapped In;Waiting for registration','Swapped
-	// In','Waiting for Swap Out','Swapped Out','Waiting for Swap In, the other AP was deleted','Swapped In,
-	// the other AP was deleted','Waiting for Swap Out, the other AP was deleted','Swapped Out, the other AP
-	// was deleted')
+	// Provisioning stage of the AP. This indicates the stage at which the AP is at in the provisioning process. (value: 'Waiting for Registration','Pre-Provision AP Joined','Waiting for Swap In;Waiting for registration','Waiting for Swap In;Swap In AP Joined','Swapped In;Waiting for registration','Swapped In','Waiting for Swap Out','Swapped Out','Waiting for Swap In, the other AP was deleted','Swapped In, the other AP was deleted','Waiting for Swap Out, the other AP was deleted','Swapped Out, the other AP was deleted')
 	ProvisionStage *string `json:"provisionStage,omitempty"`
 
 	// RegistrationState
@@ -387,11 +403,14 @@ type ClientList struct {
 type CreateAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
+	// Constraints:
+	//    - nullable
+	//    - default:'Unlocked'
+	//    - oneof:[Locked,Unlocked]
 	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
 
 	// ApGroupId
-	// Identifier of the AP group to which the AP belongs. If the AP belongs to the default AP group, this
-	// property is not needed.
+	// Identifier of the AP group to which the AP belongs. If the AP belongs to the default AP group, this property is not needed.
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	// AwsVenue
@@ -408,6 +427,9 @@ type CreateAP struct {
 
 	Longitude *common.Longitude `json:"longitude,omitempty"`
 
+	// Mac
+	// Constraints:
+	//    - required
 	Mac *common.Mac `json:"mac" validate:"required"`
 
 	// Model
@@ -417,8 +439,7 @@ type CreateAP struct {
 	Name *ApName `json:"name,omitempty"`
 
 	// ProvisionChecklist
-	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP
-	// provisioning process.
+	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
 	ProvisionChecklist *string `json:"provisionChecklist,omitempty"`
 
 	// Serial
@@ -427,6 +448,8 @@ type CreateAP struct {
 
 	// ZoneId
 	// Identifier of the zone to which the AP belongs
+	// Constraints:
+	//    - required
 	ZoneId *string `json:"zoneId" validate:"required"`
 }
 
@@ -457,14 +480,23 @@ type EventSummary struct {
 }
 
 type Login struct {
+	// ApLoginName
+	// Constraints:
+	//    - required
 	ApLoginName *common.ApLoginName `json:"apLoginName" validate:"required"`
 
+	// ApLoginPassword
+	// Constraints:
+	//    - required
 	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword" validate:"required"`
 }
 
 type Mesh struct {
 	// MeshMode
 	// mesh mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AUTO,ROOT_AP,MESH_AP,DISABLE]
 	MeshMode *string `json:"meshMode,omitempty" validate:"omitempty,oneof=AUTO ROOT_AP MESH_AP DISABLE"`
 
 	// MeshUplinkEntryList
@@ -473,12 +505,18 @@ type Mesh struct {
 
 	// UplinkSelection
 	// Uplink selection
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SMART,MANUAL]
 	UplinkSelection *string `json:"uplinkSelection,omitempty" validate:"omitempty,oneof=SMART MANUAL"`
 }
 
 type ModifyAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Locked,Unlocked]
 	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
 
 	Altitude *common.Altitude `json:"altitude,omitempty"`
@@ -501,6 +539,11 @@ type ModifyAP struct {
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
+	// Constraints:
+	//    - nullable
+	//    - default:600
+	//    - min:60
+	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *common.OverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
@@ -546,8 +589,7 @@ type ModifyAP struct {
 	ProtectionMode24 *common.ProtectionMode `json:"protectionMode24,omitempty"`
 
 	// ProvisionChecklist
-	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP
-	// provisioning process.
+	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
 	ProvisionChecklist *string `json:"provisionChecklist,omitempty"`
 
 	RecoverySsid *common.RecoverySsid `json:"recoverySsid,omitempty"`
@@ -661,8 +703,10 @@ type Network struct {
 	Ip *common.IpAddress `json:"ip,omitempty"`
 
 	// IpType
-	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically
-	// assigned or kept unchanged.
+	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically assigned or kept unchanged.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Dynamic,Keep,Static]
 	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Dynamic Keep Static"`
 
 	Netmask *common.SubNetMask `json:"netmask,omitempty"`
@@ -678,8 +722,10 @@ type NetworkIpv6 struct {
 	Ip *common.IpAddress `json:"ip,omitempty"`
 
 	// IpType
-	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically
-	// assigned or kept unchanged.
+	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically assigned or kept unchanged.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Dynamic,Keep,Static]
 	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Dynamic Keep Static"`
 
 	PrimaryDns *common.IpAddress `json:"primaryDns,omitempty"`
@@ -701,8 +747,7 @@ type SwitchoverAP struct {
 	DeleteRecord *bool `json:"deleteRecord,omitempty"`
 
 	// IpOrFqdn
-	// IP or FQDN address of destination cluster, Notice: Once this value been set, clusterName will be
-	// ignored.
+	// IP or FQDN address of destination cluster, Notice: Once this value been set, clusterName will be ignored.
 	IpOrFqdn *string `json:"ipOrFqdn,omitempty"`
 
 	// ZoneIdList
@@ -715,36 +760,68 @@ type Syslog struct {
 
 	// Enabled
 	// Indicates whether syslog is enabled or disabled
+	// Constraints:
+	//    - required
 	Enabled *bool `json:"enabled" validate:"required"`
 
 	// Facility
 	// Facility of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:'Keep_Original'
+	//    - oneof:[Keep_Original,Local0,Local1,Local2,Local3,Local4,Local5,Local6,Local7]
 	Facility *string `json:"facility,omitempty" validate:"omitempty,oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
 
 	// FlowLevel
 	// Flow Level of the syslog
+	// Constraints:
+	//    - nullable
+	//    - default:'GENERAL_LOGS'
+	//    - oneof:[GENERAL_LOGS,CLIENT_FLOW,ALL]
 	FlowLevel *string `json:"flowLevel,omitempty" validate:"omitempty,oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
 
 	// Port
 	// Port number of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:'514'
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// Priority
 	// Priority of the log messages
+	// Constraints:
+	//    - nullable
+	//    - default:'Error'
+	//    - oneof:[Emergency,Alert,Critical,Error,Warning,Notice,Info,All]
 	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=Emergency Alert Critical Error Warning Notice Info All"`
 
 	// Protocol
 	// Protocol of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:'IPPROTO_TCP'
+	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
 
 	SecondaryAddress *common.IpAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:'514'
+	//    - min:1
+	//    - max:65535
 	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// SecondaryProtocol
 	// Secondary Server Protocol of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - default:'IPPROTO_TCP'
+	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
 	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 

@@ -31,6 +31,9 @@ type DeployLogItem struct {
 
 	// DispatchStatus
 	// Status of Deployment
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PENDING,IN_PROGRESS,SUCCESS,FAILED]
 	DispatchStatus *string `json:"dispatchStatus,omitempty" validate:"omitempty,oneof=PENDING IN_PROGRESS SUCCESS FAILED"`
 
 	// EndTime

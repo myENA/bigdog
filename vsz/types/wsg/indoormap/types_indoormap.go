@@ -13,10 +13,17 @@ type BasicIndoorMap struct {
 
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - required
 	Description *common.Description `json:"description" validate:"required"`
 
 	DomainId *string `json:"domainId,omitempty"`
 
+	// GroupType
+	// Constraints:
+	//    - required
+	//    - oneof:[SYSTEM,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP]
 	GroupType *string `json:"groupType" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
 	Id *string `json:"id,omitempty"`
@@ -27,8 +34,15 @@ type BasicIndoorMap struct {
 
 	Longitude *float64 `json:"longitude,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
+	// Orientation
+	// Constraints:
+	//    - nullable
+	//    - oneof:[HORIZONTAL,VERTICAL]
 	Orientation *string `json:"orientation,omitempty" validate:"omitempty,oneof=HORIZONTAL VERTICAL"`
 
 	Scale *Scale `json:"scale,omitempty"`
@@ -57,6 +71,9 @@ type IndoorMap struct {
 	// apGroupId
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - required
 	Description *common.Description `json:"description" validate:"required"`
 
 	// DomainId
@@ -65,6 +82,9 @@ type IndoorMap struct {
 
 	// GroupType
 	// group Type
+	// Constraints:
+	//    - required
+	//    - oneof:[SYSTEM,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP]
 	GroupType *string `json:"groupType" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
 	// Id
@@ -87,10 +107,16 @@ type IndoorMap struct {
 	// longitude
 	Longitude *float64 `json:"longitude,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Orientation
 	// orientation
+	// Constraints:
+	//    - nullable
+	//    - oneof:[HORIZONTAL,VERTICAL]
 	Orientation *string `json:"orientation,omitempty" validate:"omitempty,oneof=HORIZONTAL VERTICAL"`
 
 	Scale *Scale `json:"scale,omitempty"`
@@ -143,6 +169,9 @@ type IndoorMapSummary struct {
 	// apGroupId
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - required
 	Description *common.Description `json:"description" validate:"required"`
 
 	// DomainId
@@ -151,6 +180,9 @@ type IndoorMapSummary struct {
 
 	// GroupType
 	// group Type
+	// Constraints:
+	//    - required
+	//    - oneof:[SYSTEM,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP]
 	GroupType *string `json:"groupType" validate:"required,oneof=SYSTEM DOMAIN ZONE THIRD_PARTY_ZONE APGROUP"`
 
 	// Id
@@ -173,6 +205,9 @@ type IndoorMapSummary struct {
 	// longitude
 	Longitude *float64 `json:"longitude,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	Scale *Scale `json:"scale,omitempty"`
@@ -225,5 +260,8 @@ type Scale struct {
 
 	// Unit
 	// unit
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MM,CM,M,Foot,Yard]
 	Unit *string `json:"unit,omitempty" validate:"omitempty,oneof=MM CM M Foot Yard"`
 }

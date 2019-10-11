@@ -33,6 +33,9 @@ type CreateStaticRoute struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SwitchId
@@ -95,6 +98,9 @@ type StaticRoute struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SwitchId
@@ -172,5 +178,8 @@ type UpdateStaticRoute struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 }

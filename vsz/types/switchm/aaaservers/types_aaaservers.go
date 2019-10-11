@@ -37,6 +37,9 @@ type AAAServer struct {
 
 	// Level
 	// Access level of AAA server
+	// Constraints:
+	//    - nullable
+	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
 	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Name
@@ -49,6 +52,9 @@ type AAAServer struct {
 
 	// Purpose
 	// AAA server purpose
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DEFAULT,AUTHENTICATION_ONLY,AUTHORIZATION_ONLY,ACCOUNTING_ONLY]
 	Purpose *string `json:"purpose,omitempty" validate:"omitempty,oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
 
 	// Secret
@@ -57,6 +63,9 @@ type AAAServer struct {
 
 	// ServerType
 	// The server tpye of the AAA server
+	// Constraints:
+	//    - nullable
+	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
 	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// UpdatedTime
@@ -138,6 +147,9 @@ type CreateAdminAAAServer struct {
 
 	// Level
 	// Access level of AAA server
+	// Constraints:
+	//    - nullable
+	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
 	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Name
@@ -150,6 +162,9 @@ type CreateAdminAAAServer struct {
 
 	// Purpose
 	// AAA server purpose
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DEFAULT,AUTHENTICATION_ONLY,AUTHORIZATION_ONLY,ACCOUNTING_ONLY]
 	Purpose *string `json:"purpose,omitempty" validate:"omitempty,oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
 
 	// Secret
@@ -158,6 +173,9 @@ type CreateAdminAAAServer struct {
 
 	// ServerType
 	// The server tpye of the AAA server
+	// Constraints:
+	//    - nullable
+	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
 	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// Username

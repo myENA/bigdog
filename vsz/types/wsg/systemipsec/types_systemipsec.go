@@ -75,10 +75,14 @@ type GetResult struct {
 type Proposal struct {
 	// AuthAlg
 	// Authentication algorithm
+	// Constraints:
+	//    - required
 	AuthAlg *string `json:"authAlg" validate:"required"`
 
 	// EncAlg
 	// Encrytion algorithm
+	// Constraints:
+	//    - required
 	EncAlg *string `json:"encAlg" validate:"required"`
 }
 
@@ -123,6 +127,8 @@ type Update struct {
 
 	// IpSecEnabled
 	// Enable System IPSec
+	// Constraints:
+	//    - required
 	IpSecEnabled *bool `json:"ipSecEnabled" validate:"required"`
 
 	OcspEnabled *bool `json:"ocspEnabled,omitempty"`

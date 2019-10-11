@@ -11,8 +11,15 @@ type CreateDomain struct {
 
 	// DomainType
 	// domain type
+	// Constraints:
+	//    - nullable
+	//    - default:'REGULAR'
+	//    - oneof:[PARTNER,MVNO,REGULAR]
 	DomainType *string `json:"domainType,omitempty" validate:"omitempty,oneof=PARTNER MVNO REGULAR"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// ParentDomainId

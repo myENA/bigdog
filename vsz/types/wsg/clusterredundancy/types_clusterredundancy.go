@@ -35,6 +35,9 @@ type ClusterRedundancySettings struct {
 
 	// DayOfWeek
 	// Scheduled day of the week (Active-Active only)
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
 	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// Hour
@@ -43,6 +46,9 @@ type ClusterRedundancySettings struct {
 
 	// Interval
 	// Schedule interval (Active-Active only)
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MONTHLY,WEEKLY,DAILY,HOURLY]
 	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY HOURLY"`
 
 	// ManagementEntryList
@@ -79,6 +85,8 @@ type UpdateClusterRedundancy struct {
 
 	// ClusterRedundancyEnabled
 	// Cluster redundancy enabled
+	// Constraints:
+	//    - required
 	ClusterRedundancyEnabled *bool `json:"clusterRedundancyEnabled" validate:"required"`
 
 	// ClusterRedundancyType
@@ -91,6 +99,9 @@ type UpdateClusterRedundancy struct {
 
 	// DayOfWeek
 	// Scheduled day of the week (Active-Active only)
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
 	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// Hour
@@ -99,6 +110,9 @@ type UpdateClusterRedundancy struct {
 
 	// Interval
 	// Schedule interval (Active-Active only)
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MONTHLY,WEEKLY,DAILY,HOURLY]
 	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY HOURLY"`
 
 	// ManagementEntryList

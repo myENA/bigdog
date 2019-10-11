@@ -23,6 +23,9 @@ type FullTextSearch struct {
 
 	// Type
 	// Search logic operator
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AND,OR]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AND OR"`
 
 	// Value
@@ -63,6 +66,9 @@ type QueryCriteria struct {
 
 	// Limit
 	// Size of one page
+	// Constraints:
+	//    - nullable
+	//    - min:1
 	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
 
 	// Options
@@ -71,6 +77,9 @@ type QueryCriteria struct {
 
 	// Page
 	// Page number to get
+	// Constraints:
+	//    - nullable
+	//    - min:1
 	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
 
 	// Query
@@ -143,6 +152,10 @@ func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 //
 // About sorting
 type QueryCriteriaSortInfoType struct {
+	// Dir
+	// Constraints:
+	//    - nullable
+	//    - oneof:[ASC,DESC]
 	Dir *string `json:"dir,omitempty" validate:"omitempty,oneof=ASC DESC"`
 
 	SortColumn *string `json:"sortColumn,omitempty"`
@@ -161,6 +174,9 @@ type TimeRange struct {
 
 	// Field
 	// time field for collecting data
+	// Constraints:
+	//    - nullable
+	//    - oneof:[insertionTime]
 	Field *string `json:"field,omitempty" validate:"omitempty,oneof=insertionTime"`
 
 	// Interval

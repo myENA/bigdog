@@ -9,6 +9,9 @@ import (
 type CreateWlanGroup struct {
 	Description *common.Description `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -21,10 +24,17 @@ type ModifyWlanGroup struct {
 type ModifyWlanGroupMember struct {
 	// AccessVlan
 	// Access VLAN
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:4094
 	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// NasId
 	// NAS-ID
+	// Constraints:
+	//    - nullable
+	//    - max:63
 	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
@@ -65,6 +75,9 @@ type WlanGroup struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// ZoneId
@@ -85,10 +98,16 @@ type WlanGroupList struct {
 type WlanMember struct {
 	// AccessVlan
 	// Access VLAN
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:4094
 	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// Id
 	// Identifier of the WLAN
+	// Constraints:
+	//    - required
 	Id *string `json:"id" validate:"required"`
 
 	// Name
@@ -97,6 +116,9 @@ type WlanMember struct {
 
 	// NasId
 	// NAS-ID
+	// Constraints:
+	//    - nullable
+	//    - max:63
 	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`

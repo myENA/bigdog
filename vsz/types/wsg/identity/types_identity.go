@@ -85,22 +85,36 @@ type CreateIdentityGuestPass struct {
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
+	// GuestName
+	// Constraints:
+	//    - required
 	GuestName *common.NormalName `json:"guestName" validate:"required"`
 
+	// MaxDevices
+	// Constraints:
+	//    - required
 	MaxDevices *MaxDevices `json:"maxDevices" validate:"required"`
 
 	// NumberOfPasses
 	// Number of passes
+	// Constraints:
+	//    - required
 	NumberOfPasses *int `json:"numberOfPasses" validate:"required"`
 
 	// PassEffectSince
 	// Pass effective since
+	// Constraints:
+	//    - nullable
+	//    - oneof:[CREATION_TIME,FIRST_USE]
 	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"omitempty,oneof=CREATION_TIME FIRST_USE"`
 
 	// PassUseDays
 	// Expire new guest pass if not used within
 	PassUseDays *int `json:"passUseDays,omitempty"`
 
+	// PassValidFor
+	// Constraints:
+	//    - required
 	PassValidFor *PassValidFor `json:"passValidFor" validate:"required"`
 
 	// PassValue
@@ -113,8 +127,14 @@ type CreateIdentityGuestPass struct {
 
 	SessionDuration *SessionDuration `json:"sessionDuration,omitempty"`
 
+	// Wlan
+	// Constraints:
+	//    - required
 	Wlan *common.GenericRef `json:"wlan" validate:"required"`
 
+	// Zone
+	// Constraints:
+	//    - required
 	Zone *common.GenericRef `json:"zone" validate:"required"`
 }
 
@@ -125,14 +145,27 @@ type CreateIdentityUserRole struct {
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
+	// MaxDevices
+	// Constraints:
+	//    - required
 	MaxDevices *MaxDevices `json:"maxDevices" validate:"required"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName2to64 `json:"name" validate:"required"`
 
+	// UserTrafficProfile
+	// Constraints:
+	//    - required
 	UserTrafficProfile *common.GenericRef `json:"userTrafficProfile" validate:"required"`
 
 	// VlanId
 	// vlan id
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:4096
 	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4096"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
@@ -147,12 +180,20 @@ type CreateSubscriptionPackage struct {
 
 	// ExpirationInterval
 	// Expiration interval
+	// Constraints:
+	//    - required
+	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
 	ExpirationInterval *string `json:"expirationInterval" validate:"required,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// ExpirationValue
 	// Expiration value
+	// Constraints:
+	//    - required
 	ExpirationValue *int `json:"expirationValue" validate:"required"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -183,18 +224,27 @@ type CreateUser struct {
 
 	// FirstName
 	// First name
+	// Constraints:
+	//    - required
 	FirstName *string `json:"firstName" validate:"required"`
 
 	// IsDisabled
 	// Is Disabled
+	// Constraints:
+	//    - required
+	//    - oneof:[NO,YES]
 	IsDisabled *string `json:"isDisabled" validate:"required,oneof=NO YES"`
 
 	// LastName
 	// Last Name
+	// Constraints:
+	//    - required
 	LastName *string `json:"lastName" validate:"required"`
 
 	// Password
 	// Password
+	// Constraints:
+	//    - required
 	Password *string `json:"password" validate:"required"`
 
 	// Phone
@@ -213,6 +263,8 @@ type CreateUser struct {
 
 	// UserName
 	// User Name
+	// Constraints:
+	//    - required
 	UserName *string `json:"userName" validate:"required"`
 
 	// ZipCode
@@ -255,6 +307,9 @@ type IdentityGuestPassConfiguration struct {
 
 	// PassEffectSince
 	// Pass effective since
+	// Constraints:
+	//    - nullable
+	//    - oneof:[CREATION_TIME,FIRST_USE]
 	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"omitempty,oneof=CREATION_TIME FIRST_USE"`
 
 	// PassUseDays
@@ -439,32 +494,56 @@ type ImportIdentityGuestPass struct {
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
+	// MaxDevices
+	// Constraints:
+	//    - required
 	MaxDevices *MaxDevices `json:"maxDevices" validate:"required"`
 
 	// PassEffectSince
 	// Pass effective since
+	// Constraints:
+	//    - nullable
+	//    - oneof:[CREATION_TIME,FIRST_USE]
 	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"omitempty,oneof=CREATION_TIME FIRST_USE"`
 
 	// PassUseDays
 	// Expire new guest pass if not used within
 	PassUseDays *int `json:"passUseDays,omitempty"`
 
+	// PassValidFor
+	// Constraints:
+	//    - required
 	PassValidFor *PassValidFor `json:"passValidFor" validate:"required"`
 
 	SessionDuration *SessionDuration `json:"sessionDuration,omitempty"`
 
+	// Wlan
+	// Constraints:
+	//    - required
 	Wlan *common.GenericRef `json:"wlan" validate:"required"`
 
+	// Zone
+	// Constraints:
+	//    - required
 	Zone *common.GenericRef `json:"zone" validate:"required"`
 }
 
 type MaxDevices struct {
 	// MaxDevicesAllowed
 	// Max devices allowed
+	// Constraints:
+	//    - nullable
+	//    - default:'LIMITED'
+	//    - oneof:[UNLIMITED,LIMITED]
 	MaxDevicesAllowed *string `json:"maxDevicesAllowed,omitempty" validate:"omitempty,oneof=UNLIMITED LIMITED"`
 
 	// MaxDevicesNumber
 	// max devices number
+	// Constraints:
+	//    - nullable
+	//    - default:3
+	//    - min:1
+	//    - max:10
 	MaxDevicesNumber *int `json:"maxDevicesNumber,omitempty" validate:"omitempty,gte=1,lte=10"`
 }
 
@@ -487,6 +566,10 @@ type ModifyIdentityUserRole struct {
 
 	// VlanId
 	// vlan id
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:4096
 	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4096"`
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
@@ -501,6 +584,9 @@ type ModifySubscriptionPackage struct {
 
 	// ExpirationInterval
 	// Expiration interval
+	// Constraints:
+	//    - nullable
+	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
 	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// ExpirationValue
@@ -549,6 +635,9 @@ type ModifyUser struct {
 
 	// IsDisabled
 	// Is Disabled
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NO,YES]
 	IsDisabled *string `json:"isDisabled,omitempty" validate:"omitempty,oneof=NO YES"`
 
 	// LastName
@@ -597,6 +686,10 @@ type PackageList struct {
 }
 
 type PassValidFor struct {
+	// ExpirationUnit
+	// Constraints:
+	//    - nullable
+	//    - oneof:[HOUR,DAY,WEEK]
 	ExpirationUnit *string `json:"expirationUnit,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK"`
 
 	ExpirationValue *int `json:"expirationValue,omitempty"`
@@ -607,6 +700,10 @@ type QueryCriteria struct{}
 type SessionDuration struct {
 	RequireLoginAgain *bool `json:"requireLoginAgain,omitempty"`
 
+	// SessionUnit
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MIN,HOUR,DAY,WEEK]
 	SessionUnit *string `json:"sessionUnit,omitempty" validate:"omitempty,oneof=MIN HOUR DAY WEEK"`
 
 	SessionValue *int `json:"sessionValue,omitempty"`
@@ -633,6 +730,9 @@ type SubscriptionPackage struct {
 
 	// ExpirationInterval
 	// Expiration interval
+	// Constraints:
+	//    - nullable
+	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
 	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// ExpirationValue
@@ -675,6 +775,9 @@ type SubscriptionPackageListType struct {
 
 	// ExpirationInterval
 	// Expiration interval
+	// Constraints:
+	//    - nullable
+	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
 	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// ExpirationValue
@@ -691,10 +794,18 @@ type SubscriptionPackageListType struct {
 type UserConfiguration struct {
 	// Address
 	// Address
+	// Constraints:
+	//    - nullable
+	//    - max:256
+	//    - min:2
 	Address *string `json:"address,omitempty" validate:"omitempty,max=256,min=2"`
 
 	// City
 	// City
+	// Constraints:
+	//    - nullable
+	//    - max:50
+	//    - min:2
 	City *string `json:"city,omitempty" validate:"omitempty,max=50,min=2"`
 
 	// CountryName
@@ -725,14 +836,25 @@ type UserConfiguration struct {
 
 	// FirstName
 	// First name
+	// Constraints:
+	//    - nullable
+	//    - max:32
+	//    - min:2
 	FirstName *string `json:"firstName,omitempty" validate:"omitempty,max=32,min=2"`
 
 	// IsDisabled
 	// Is Disabled
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NO,YES]
 	IsDisabled *string `json:"isDisabled,omitempty" validate:"omitempty,oneof=NO YES"`
 
 	// LastName
 	// Last Name
+	// Constraints:
+	//    - nullable
+	//    - max:32
+	//    - min:2
 	LastName *string `json:"lastName,omitempty" validate:"omitempty,max=32,min=2"`
 
 	// ModifiedDateTime
@@ -753,6 +875,9 @@ type UserConfiguration struct {
 
 	// PackageExpirationInterval
 	// Package Expiration Interval
+	// Constraints:
+	//    - nullable
+	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
 	PackageExpirationInterval *string `json:"packageExpirationInterval,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// PackageExpirationValue
@@ -761,36 +886,62 @@ type UserConfiguration struct {
 
 	// PackageStatus
 	// Package Status
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DEPLETED,AVAILABLE,EXPIRED,TERMINATED,REMOVED]
 	PackageStatus *string `json:"packageStatus,omitempty" validate:"omitempty,oneof=DEPLETED AVAILABLE EXPIRED TERMINATED REMOVED"`
 
 	// Phone
 	// Phone
+	// Constraints:
+	//    - nullable
+	//    - max:32
+	//    - min:2
 	Phone *string `json:"phone,omitempty" validate:"omitempty,max=32,min=2"`
 
 	// Remark
 	// Remark
+	// Constraints:
+	//    - nullable
+	//    - max:32
+	//    - min:2
 	Remark *string `json:"remark,omitempty" validate:"omitempty,max=32,min=2"`
 
 	// State
 	// State
+	// Constraints:
+	//    - nullable
+	//    - max:32
+	//    - min:2
 	State *string `json:"state,omitempty" validate:"omitempty,max=32,min=2"`
 
 	SubscriberPackage *common.GenericRef `json:"subscriberPackage,omitempty"`
 
 	// UserName
 	// User Name
+	// Constraints:
+	//    - nullable
+	//    - max:64
+	//    - min:2
 	UserName *string `json:"userName,omitempty" validate:"omitempty,max=64,min=2"`
 
 	UsernamePasswordCredentialsImplDto *UsernamePasswordCredentialsImplDto `json:"usernamePasswordCredentialsImplDto,omitempty"`
 
 	// ZipCode
 	// Zip Code
+	// Constraints:
+	//    - nullable
+	//    - max:32
+	//    - min:2
 	ZipCode *string `json:"zipCode,omitempty" validate:"omitempty,max=32,min=2"`
 }
 
 type UserConfigurationCredentialsGuestPassDtoType struct {
 	// AuthenticationMethod
 	// Authentication method of credential
+	// Constraints:
+	//    - nullable
+	//    - oneof:[GUEST_PASS]
 	AuthenticationMethod *string `json:"authenticationMethod,omitempty" validate:"omitempty,oneof=GUEST_PASS"`
 
 	// AutoGeneratePassword
@@ -819,6 +970,10 @@ type UserConfigurationCredentialsGuestPassDtoType struct {
 	// Expiration date and time
 	ExpirationDate *string `json:"expirationDate,omitempty"`
 
+	// ExpirationUnit
+	// Constraints:
+	//    - nullable
+	//    - oneof:[HOUR,DAY,WEEK]
 	ExpirationUnit *string `json:"expirationUnit,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK"`
 
 	ExpirationValue *int `json:"expirationValue,omitempty"`
@@ -847,6 +1002,10 @@ type UserConfigurationCredentialsGuestPassDtoType struct {
 	// Service Provider Id
 	ServiceProviderId *string `json:"serviceProviderId,omitempty"`
 
+	// SessionUnit
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MIN,HOUR,DAY,WEEK]
 	SessionUnit *string `json:"sessionUnit,omitempty" validate:"omitempty,oneof=MIN HOUR DAY WEEK"`
 
 	SessionValue *int `json:"sessionValue,omitempty"`
@@ -883,6 +1042,9 @@ type UserList struct {
 type UsernamePasswordCredentialsImplDto struct {
 	// AuthenticationMethod
 	// Authentication Method
+	// Constraints:
+	//    - nullable
+	//    - oneof:[USERNAME_PASSWORD,GUEST_PASS,MAC_WLAN_DPSK,MO,REMOTE,OAUTH2]
 	AuthenticationMethod *string `json:"authenticationMethod,omitempty" validate:"omitempty,oneof=USERNAME_PASSWORD GUEST_PASS MAC_WLAN_DPSK MO REMOTE OAUTH2"`
 
 	AuthenticationServerConfig *AuthenticationServerConfig `json:"authenticationServerConfig,omitempty"`

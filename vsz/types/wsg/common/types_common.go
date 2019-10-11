@@ -31,10 +31,16 @@ type Alarm struct {
 
 	// Severity
 	// Alarm severity
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Critical,Major,Minor,Warning,Informational]
 	Severity *string `json:"severity,omitempty" validate:"omitempty,oneof=Critical Major Minor Warning Informational"`
 
 	// Status
 	// Alarm status
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Outstanding,Acknowledged,Cleared]
 	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Outstanding Acknowledged Cleared"`
 
 	// Time
@@ -49,6 +55,10 @@ type Alarm struct {
 type Altitude struct {
 	// AltitudeUnit
 	// altitude unit
+	// Constraints:
+	//    - nullable
+	//    - default:'meters'
+	//    - oneof:[meters,floor]
 	AltitudeUnit *string `json:"altitudeUnit,omitempty" validate:"omitempty,oneof=meters floor"`
 
 	// AltitudeValue
@@ -59,6 +69,10 @@ type Altitude struct {
 // ApGpsSource
 //
 // GPS Source of the AP
+// Constraints:
+//    - nullable
+//    - oneof:[GPS,MANUAL]
+//    - oneof:[GPS,MANUAL]
 type ApGpsSource string
 
 type ApLatencyInterval struct {
@@ -78,6 +92,10 @@ type ApManagementVlan struct {
 
 	// Mode
 	// Vlan Mode of the zone
+	// Constraints:
+	//    - nullable
+	//    - default:'KEEP'
+	//    - oneof:[KEEP,USER_DEFINED]
 	Mode *string `json:"mode,omitempty" validate:"omitempty,oneof=KEEP USER_DEFINED"`
 }
 
@@ -96,6 +114,9 @@ type ApRadio50 struct {
 
 	// ChannelWidth
 	// channel width, 0 mean Auto, 8080 means 80+80MHz
+	// Constraints:
+	//    - nullable
+	//    - oneof:[0,20,40,80,8080,160]
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40 80 8080 160"`
 
 	// SecondaryChannel
@@ -108,20 +129,37 @@ type ApRadio50 struct {
 type ApRebootTimeout struct {
 	// GatewayLossTimeoutInSec
 	// Gateway loss timeout in second
+	// Constraints:
+	//    - nullable
+	//    - default:1800
+	//    - oneof:[0,1800,3600,5400,7200,9000,10800,12600,14400,16200,18000,19800,23400,25200,27000,28800,30600,32400,34200,36000,37800,39600,41400,43200,45000,46800,48600,50400,52200,54000,55800,57600,59400,61200,63000,64800,66600,68400,70200,72000,73800,75600,77400,79200,81000,82800,84600,86400]
 	GatewayLossTimeoutInSec *int `json:"gatewayLossTimeoutInSec,omitempty" validate:"omitempty,oneof=0 1800 3600 5400 7200 9000 10800 12600 14400 16200 18000 19800 23400 25200 27000 28800 30600 32400 34200 36000 37800 39600 41400 43200 45000 46800 48600 50400 52200 54000 55800 57600 59400 61200 63000 64800 66600 68400 70200 72000 73800 75600 77400 79200 81000 82800 84600 86400"`
 
 	// ServerLossTimeoutInSec
 	// Server loss timeout in second
+	// Constraints:
+	//    - nullable
+	//    - default:7200
+	//    - oneof:[0,7200,14400,21600,28800,36000,43200,50400,57600,64800,72000,79200,86400]
 	ServerLossTimeoutInSec *int `json:"serverLossTimeoutInSec,omitempty" validate:"omitempty,oneof=0 7200 14400 21600 28800 36000 43200 50400 57600 64800 72000 79200 86400"`
 }
 
 type AutoChannelSelection struct {
 	// ChannelFlyMtbc
 	// ChannelFly MTBC
+	// Constraints:
+	//    - nullable
+	//    - default:480
+	//    - min:100
+	//    - max:1440
 	ChannelFlyMtbc *int `json:"channelFlyMtbc,omitempty" validate:"omitempty,gte=100,lte=1440"`
 
 	// ChannelSelectMode
 	// Channel Select Mode
+	// Constraints:
+	//    - nullable
+	//    - default:'BackgroundScanning'
+	//    - oneof:[None,BackgroundScanning,ChannelFly]
 	ChannelSelectMode *string `json:"channelSelectMode,omitempty" validate:"omitempty,oneof=None BackgroundScanning ChannelFly"`
 }
 
@@ -250,14 +288,29 @@ type Client struct {
 type ClientAdmissionControl struct {
 	// MaxRadioLoadPercent
 	// Maximum radio load percentage.
+	// Constraints:
+	//    - nullable
+	//    - default:75
+	//    - min:50
+	//    - max:100
 	MaxRadioLoadPercent *int `json:"maxRadioLoadPercent,omitempty" validate:"omitempty,gte=50,lte=100"`
 
 	// MinClientCount
 	// Minimum client count number.
+	// Constraints:
+	//    - nullable
+	//    - default:10
+	//    - min:0
+	//    - max:100
 	MinClientCount *int `json:"minClientCount,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	// MinClientThroughputMbps
 	// Minimum client throughput in Mbps.
+	// Constraints:
+	//    - nullable
+	//    - default:0
+	//    - min:0.000000
+	//    - max:100.000000
 	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"omitempty,gte=0.000000,lte=100.000000"`
 }
 
@@ -284,10 +337,18 @@ type DhcpProfileRef struct {
 
 	// LeaseTimeHours
 	// Lease time in hours of the DHCP Profile
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:24
 	LeaseTimeHours *int `json:"leaseTimeHours,omitempty" validate:"omitempty,gte=0,lte=24"`
 
 	// LeaseTimeMinutes
 	// Lease time in minutes of the DHCP Profile
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:59
 	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty" validate:"omitempty,gte=0,lte=59"`
 
 	Name *NormalName `json:"name,omitempty"`
@@ -306,6 +367,10 @@ type DhcpProfileRef struct {
 
 	// VlanId
 	// VLAN ID of the DHCP Profile
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:4094
 	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// ZoneId
@@ -334,6 +399,9 @@ type DhcpSiteConfigListRef struct {
 
 	// SiteMode
 	// DHCP Service mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[EnableOnEachAPs,EnableOnMultipleAPs,EnableOnHierarchicalAPs]
 	SiteMode *string `json:"siteMode,omitempty" validate:"omitempty,oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
 	SiteProfiles []*DhcpProfileRef `json:"siteProfiles,omitempty"`
@@ -361,6 +429,10 @@ type DhcpSiteConfigListRefSiteApsType struct {
 
 	ApServerType *string `json:"apServerType,omitempty"`
 
+	// ApStatus
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Online,Offline,Flagged]
 	ApStatus *string `json:"apStatus,omitempty" validate:"omitempty,oneof=Online Offline Flagged"`
 }
 
@@ -385,6 +457,9 @@ type DhcpSiteConfigRef struct {
 
 	// SiteMode
 	// DHCP Service mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[EnableOnEachAPs,EnableOnMultipleAPs,EnableOnHierarchicalAPs]
 	SiteMode *string `json:"siteMode,omitempty" validate:"omitempty,oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
@@ -408,6 +483,10 @@ type DhcpSiteConfigRefSiteApsType struct {
 
 	ApServerType *string `json:"apServerType,omitempty"`
 
+	// ApStatus
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Online,Offline,Flagged]
 	ApStatus *string `json:"apStatus,omitempty" validate:"omitempty,oneof=Online Offline Flagged"`
 }
 
@@ -428,6 +507,9 @@ type DoAssignIp struct {
 
 	// SiteMode
 	// DHCP Service mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[EnableOnEachAPs,EnableOnMultipleAPs,EnableOnHierarchicalAPs]
 	SiteMode *string `json:"siteMode,omitempty" validate:"omitempty,oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
@@ -479,6 +561,9 @@ type FullTextSearch struct {
 
 	// Type
 	// Search logic operator
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AND,OR]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AND OR"`
 
 	// Value
@@ -499,14 +584,29 @@ type HealthCheckPolicy struct {
 
 	// ResponseWindow
 	// Response window
+	// Constraints:
+	//    - required
+	//    - default:20
+	//    - min:5
+	//    - max:30
 	ResponseWindow *int `json:"responseWindow" validate:"required,gte=5,lte=30"`
 
 	// ReviveInterval
 	// Revive interval
+	// Constraints:
+	//    - required
+	//    - default:120
+	//    - min:60
+	//    - max:3600
 	ReviveInterval *int `json:"reviveInterval" validate:"required,gte=60,lte=3600"`
 
 	// ZombiePeriod
 	// Zombie period
+	// Constraints:
+	//    - required
+	//    - default:40
+	//    - min:30
+	//    - max:120
 	ZombiePeriod *int `json:"zombiePeriod" validate:"required,gte=30,lte=120"`
 }
 
@@ -563,14 +663,29 @@ type OverrideClientAdmissionControl struct {
 
 	// MaxRadioLoadPercent
 	// Maximum radio load percentage.
+	// Constraints:
+	//    - nullable
+	//    - default:75
+	//    - min:50
+	//    - max:100
 	MaxRadioLoadPercent *int `json:"maxRadioLoadPercent,omitempty" validate:"omitempty,gte=50,lte=100"`
 
 	// MinClientCount
 	// Minimum client count number.
+	// Constraints:
+	//    - nullable
+	//    - default:10
+	//    - min:0
+	//    - max:100
 	MinClientCount *int `json:"minClientCount,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	// MinClientThroughputMbps
 	// Minimum client throughput in Mbps.
+	// Constraints:
+	//    - nullable
+	//    - default:0
+	//    - min:0.000000
+	//    - max:100.000000
 	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"omitempty,gte=0.000000,lte=100.000000"`
 }
 
@@ -587,14 +702,27 @@ type OverrideSmartMonitor struct {
 
 	// IntervalInSec
 	// Interval in seconds. This is required if smartMonitor is enabled
+	// Constraints:
+	//    - nullable
+	//    - default:10
+	//    - min:5
+	//    - max:60
 	IntervalInSec *int `json:"intervalInSec,omitempty" validate:"omitempty,gte=5,lte=60"`
 
 	// RetryThreshold
 	// Retry threshold. This is required if smartMonitor is enabled
+	// Constraints:
+	//    - nullable
+	//    - default:3
+	//    - min:1
+	//    - max:10
 	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"omitempty,gte=1,lte=10"`
 }
 
 type PortalCustomization struct {
+	// Language
+	// Constraints:
+	//    - required
 	Language *PortalLanguage `json:"language" validate:"required"`
 
 	// Logo
@@ -607,16 +735,38 @@ type PortalCustomization struct {
 
 	// TermsAndConditionsText
 	// Terms and conditions text
+	// Constraints:
+	//    - nullable
+	//    - default:'Terms of Use
+	//
+	// By accepting this agreement and accessing the wireless network, you acknowledge that you are of legal age, you have read and understood, and agree to be bound by this agreement.
+	// (*) The wireless network service is provided by the property owners and is completely at their discretion. Your access to the network may be blocked, suspended, or terminated at any time for any reason.
+	// (*) You agree not to use the wireless network for any purpose that is unlawful or otherwise prohibited and you are fully responsible for your use.
+	// (*) The wireless network is provided "as is" without warranties of any kind, either expressed or implied.
+	//
+	// This wireless network is powered by Ruckus Wireless.'
+	//    - max:3999
+	//    - min:0
 	TermsAndConditionsText *string `json:"termsAndConditionsText,omitempty" validate:"omitempty,max=3999,min=0"`
 
 	// Title
 	// Title
+	// Constraints:
+	//    - nullable
+	//    - max:63
+	//    - min:0
 	Title *string `json:"title,omitempty" validate:"omitempty,max=63,min=0"`
 }
 
 // PortalLanguage
 //
 // Language
+// Constraints:
+//    - nullable
+//    - default:'en_US'
+//    - oneof:[en_US,zh_TW,zh_CN,nl_NL,fr_FR,de_DE,ja_JP,es_ES,se_SE,ar_SA,cz_CZ,da_DK,tr_TR,pt_BR]
+//    - default:'en_US'
+//    - oneof:[en_US,zh_TW,zh_CN,nl_NL,fr_FR,de_DE,ja_JP,es_ES,se_SE,ar_SA,cz_CZ,da_DK,tr_TR,pt_BR]
 type PortalLanguage string
 
 type ProtectionMode string
@@ -652,6 +802,9 @@ type QueryCriteria struct {
 
 	// Limit
 	// Size of one page
+	// Constraints:
+	//    - nullable
+	//    - min:1
 	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
 
 	// Options
@@ -660,6 +813,9 @@ type QueryCriteria struct {
 
 	// Page
 	// Page number to get
+	// Constraints:
+	//    - nullable
+	//    - min:1
 	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
 
 	// Query
@@ -732,6 +888,10 @@ func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 //
 // About sorting
 type QueryCriteriaSortInfoType struct {
+	// Dir
+	// Constraints:
+	//    - nullable
+	//    - oneof:[ASC,DESC]
 	Dir *string `json:"dir,omitempty" validate:"omitempty,oneof=ASC DESC"`
 
 	SortColumn *string `json:"sortColumn,omitempty"`
@@ -754,6 +914,10 @@ type Radio24 struct {
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto.
+	// Constraints:
+	//    - nullable
+	//    - default:0
+	//    - oneof:[0,20,40]
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40"`
 
 	TxPower *TxPower `json:"txPower,omitempty"`
@@ -778,6 +942,9 @@ type Radio24SuperSet struct {
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[0,20,40]
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40"`
 
 	TxPower *TxPower `json:"txPower,omitempty"`
@@ -790,6 +957,10 @@ type Radio50 struct {
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto. 8080 means 80+80MHz
+	// Constraints:
+	//    - nullable
+	//    - default:0
+	//    - oneof:[0,20,40,80,8080,160]
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40 80 8080 160"`
 
 	// IndoorChannel
@@ -834,6 +1005,9 @@ type Radio50SuperSet struct {
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto. 8080 means 80+80MHz
+	// Constraints:
+	//    - nullable
+	//    - oneof:[0,20,40,80,8080,160]
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40 80 8080 160"`
 
 	// IndoorChannel
@@ -864,28 +1038,48 @@ type Radio50SuperSet struct {
 }
 
 type RadiusServer struct {
+	// Ip
+	// Constraints:
+	//    - required
 	Ip *IpAddress `json:"ip" validate:"required"`
 
 	// Port
 	// Server port
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
 	// SharedSecret
 	// Server shared secrect
+	// Constraints:
+	//    - required
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
 type RateLimiting struct {
 	// MaxOutstandingRequestsPerServer
 	// Maximum outstanding requests (MOR), value should be 0 or between 10 and 4096
+	// Constraints:
+	//    - required
+	//    - default:0
 	MaxOutstandingRequestsPerServer *int `json:"maxOutstandingRequestsPerServer" validate:"required"`
 
 	// SanityTimer
 	// Sanity timer
+	// Constraints:
+	//    - required
+	//    - default:10
+	//    - min:1
+	//    - max:3600
 	SanityTimer *int `json:"sanityTimer" validate:"required,gte=1,lte=3600"`
 
 	// Threshold
 	// Threshold, value should be 0 if MOR is 0, or between 10 and 90 if MOR is between 10 and 4096
+	// Constraints:
+	//    - required
+	//    - default:0
 	Threshold *int `json:"threshold" validate:"required"`
 }
 
@@ -904,16 +1098,28 @@ type RecoverySsid struct {
 type SmartMonitor struct {
 	// IntervalInSec
 	// Interval in seconds. This is required if smartMonitor is enabled
+	// Constraints:
+	//    - nullable
+	//    - default:10
+	//    - min:5
+	//    - max:60
 	IntervalInSec *int `json:"intervalInSec,omitempty" validate:"omitempty,gte=5,lte=60"`
 
 	// RetryThreshold
 	// Retry threshold. This is required if smartMonitor is enabled
+	// Constraints:
+	//    - nullable
+	//    - default:3
+	//    - min:1
+	//    - max:10
 	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"omitempty,gte=1,lte=10"`
 }
 
 type SnmpCommunity struct {
 	// CommunityName
 	// name of the SNMP Community.
+	// Constraints:
+	//    - required
 	CommunityName *string `json:"communityName" validate:"required"`
 
 	// NotificationEnabled
@@ -926,6 +1132,9 @@ type SnmpCommunity struct {
 
 	// NotificationType
 	// type of the notification privilege
+	// Constraints:
+	//    - nullable
+	//    - oneof:[TRAP,INFORM]
 	NotificationType *string `json:"notificationType,omitempty" validate:"omitempty,oneof=TRAP INFORM"`
 
 	// ReadEnabled
@@ -940,10 +1149,16 @@ type SnmpCommunity struct {
 type SnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
+	// Constraints:
+	//    - nullable
+	//    - min:8
 	AuthPassword *string `json:"authPassword,omitempty" validate:"omitempty,min=8"`
 
 	// AuthProtocol
 	// authProtocol of the SNMP User.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MD5,SHA]
 	AuthProtocol *string `json:"authProtocol,omitempty" validate:"omitempty,oneof=MD5 SHA"`
 
 	// NotificationEnabled
@@ -956,14 +1171,23 @@ type SnmpUser struct {
 
 	// NotificationType
 	// type of the notification privilege
+	// Constraints:
+	//    - nullable
+	//    - oneof:[TRAP,INFORM]
 	NotificationType *string `json:"notificationType,omitempty" validate:"omitempty,oneof=TRAP INFORM"`
 
 	// PrivPassword
 	// privPassword of the SNMP User.
+	// Constraints:
+	//    - nullable
+	//    - min:8
 	PrivPassword *string `json:"privPassword,omitempty" validate:"omitempty,min=8"`
 
 	// PrivProtocol
 	// privProtocol of the SNMP User.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DES,AES]
 	PrivProtocol *string `json:"privProtocol,omitempty" validate:"omitempty,oneof=DES AES"`
 
 	// ReadEnabled
@@ -972,6 +1196,8 @@ type SnmpUser struct {
 
 	// UserName
 	// name of the SNMP User.
+	// Constraints:
+	//    - required
 	UserName *string `json:"userName" validate:"required"`
 
 	// WriteEnabled
@@ -984,10 +1210,16 @@ type SubNetMask string
 type TargetConfig struct {
 	// Address
 	// address of the SNMP Trap
+	// Constraints:
+	//    - required
 	Address *string `json:"address" validate:"required"`
 
 	// Port
 	// port number of the SNMP Trap
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 }
 
@@ -998,6 +1230,9 @@ type TimeRange struct {
 
 	// Field
 	// time field for collecting data
+	// Constraints:
+	//    - nullable
+	//    - oneof:[insertionTime]
 	Field *string `json:"field,omitempty" validate:"omitempty,oneof=insertionTime"`
 
 	// Interval
@@ -1012,6 +1247,10 @@ type TimeRange struct {
 // TimeUnitStore
 //
 // time unit
+// Constraints:
+//    - nullable
+//    - oneof:[second,minute,hour,day]
+//    - oneof:[second,minute,hour,day]
 type TimeUnitStore string
 
 type TrafficClassProfileRef struct {
@@ -1045,10 +1284,16 @@ type TxPower string
 type WebAuthenticationPortalCustomization struct {
 	// Logo
 	// Logo encoded with base64, format is "data:image/png;base64,the base64 encoded logo"
+	// Constraints:
+	//    - required
 	Logo *string `json:"logo" validate:"required"`
 
 	// Title
 	// Title of the custom portal
+	// Constraints:
+	//    - nullable
+	//    - max:63
+	//    - min:0
 	Title *string `json:"title,omitempty" validate:"omitempty,max=63,min=0"`
 }
 
@@ -1060,4 +1305,10 @@ type WildFQDN string
 // ZoneTunnelType
 //
 // Tunnel type configuration of the zone. No_Tunneled is for IPv6 mode
+// Constraints:
+//    - nullable
+//    - default:'RuckusGRE'
+//    - oneof:[No_Tunneled,RuckusGRE,SoftGRE,SoftGREIpsec]
+//    - default:'RuckusGRE'
+//    - oneof:[No_Tunneled,RuckusGRE,SoftGRE,SoftGREIpsec]
 type ZoneTunnelType string

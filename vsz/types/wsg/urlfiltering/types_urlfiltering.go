@@ -18,14 +18,19 @@ type CreateUrlFilteringPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// DomainId
-	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy
-	// belongs
+	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy belongs
 	DomainId *string `json:"domainId,omitempty"`
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
+	// Constraints:
+	//    - required
+	//    - oneof:[NO_ADULT,CLEAN_AND_SAFE,CHILD_AND_STUDENT_FRIENDLY,STRICT,CUSTOM]
 	FilteringLevel *string `json:"filteringLevel" validate:"required,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// SafeSearchBingDns
@@ -74,6 +79,9 @@ type ModifyUrlFilteringPolicy struct {
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NO_ADULT,CLEAN_AND_SAFE,CHILD_AND_STUDENT_FRIENDLY,STRICT,CUSTOM]
 	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"omitempty,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
 	Name *common.NormalName `json:"name,omitempty"`
@@ -151,12 +159,14 @@ type UrlFilteringPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// DomainId
-	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy
-	// belongs
+	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy belongs
 	DomainId *string `json:"domainId,omitempty"`
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NO_ADULT,CLEAN_AND_SAFE,CHILD_AND_STUDENT_FRIENDLY,STRICT,CUSTOM]
 	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"omitempty,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
 	// Id

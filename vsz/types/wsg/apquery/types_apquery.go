@@ -249,6 +249,10 @@ type CreateApQuery struct {
 
 	Serial *string `json:"serial,omitempty"`
 
+	// Status
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Online,Offline,Flagged]
 	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Online Offline Flagged"`
 
 	SupportFips *bool `json:"supportFips,omitempty"`

@@ -5,6 +5,9 @@ package appackcapture
 type ApPacketCaptureReq struct {
 	// CaptureInterface
 	// Capture interface
+	// Constraints:
+	//    - required
+	//    - oneof:[RADIO24,RADIO50,ETH0,ETH1,ETH2,ETH3,ETH4,ETH5,ETH6,ETH7]
 	CaptureInterface *string `json:"captureInterface" validate:"required,oneof=RADIO24 RADIO50 ETH0 ETH1 ETH2 ETH3 ETH4 ETH5 ETH6 ETH7"`
 
 	// HostIp
@@ -27,10 +30,16 @@ type ApPacketCaptureRes struct {
 
 	// CaptureInterface
 	// Capture interface
+	// Constraints:
+	//    - nullable
+	//    - oneof:[RADIO24,RADIO50,ETH0,ETH1,ETH2,ETH3,ETH4,ETH5,ETH6,ETH7]
 	CaptureInterface *string `json:"captureInterface,omitempty" validate:"omitempty,oneof=RADIO24 RADIO50 ETH0 ETH1 ETH2 ETH3 ETH4 ETH5 ETH6 ETH7"`
 
 	// CaptureMode
 	// Capture mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STREAMING,FILE_CAPTURE]
 	CaptureMode *string `json:"captureMode,omitempty" validate:"omitempty,oneof=STREAMING FILE_CAPTURE"`
 
 	// CaptureState

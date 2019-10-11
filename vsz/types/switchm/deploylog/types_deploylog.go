@@ -23,14 +23,23 @@ type ConfigurationHistoryQueryResult struct {
 type DeployLog struct {
 	// ConfigType
 	// Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PROVISIONING,GLOBAL,COMMON,MODEL,SWITCH_SETTINGS,PORT_SETTINGS]
 	ConfigType *string `json:"configType,omitempty" validate:"omitempty,oneof=PROVISIONING GLOBAL COMMON MODEL SWITCH_SETTINGS PORT_SETTINGS"`
 
 	// DeployScope
 	// Deploy Scope
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PROVISION,GROUP,PORT,SWITCH]
 	DeployScope *string `json:"deployScope,omitempty" validate:"omitempty,oneof=PROVISION GROUP PORT SWITCH"`
 
 	// DeployStatus
 	// Deploy Status
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PENDING,STARTED,END]
 	DeployStatus *string `json:"deployStatus,omitempty" validate:"omitempty,oneof=PENDING STARTED END"`
 
 	// EndTime

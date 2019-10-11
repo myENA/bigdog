@@ -31,6 +31,9 @@ type CreateVlanConfig struct {
 
 	// IgmpSnooping
 	// IGMP Snooping
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IST_NONE,ACTIVE,PASSIVE]
 	IgmpSnooping *string `json:"igmpSnooping,omitempty" validate:"omitempty,oneof=IST_NONE ACTIVE PASSIVE"`
 
 	// Ipv4DhcpSnoopingTrustPort
@@ -53,10 +56,16 @@ type CreateVlanConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STT_NONE,STP,RSTP]
 	SpanningTree *string `json:"spanningTree,omitempty" validate:"omitempty,oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority
@@ -109,6 +118,9 @@ type UpdateVlanConfig struct {
 
 	// IgmpSnooping
 	// IGMP Snooping
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IST_NONE,ACTIVE,PASSIVE]
 	IgmpSnooping *string `json:"igmpSnooping,omitempty" validate:"omitempty,oneof=IST_NONE ACTIVE PASSIVE"`
 
 	// Ipv4DhcpSnoopingTrustPort
@@ -131,10 +143,16 @@ type UpdateVlanConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STT_NONE,STP,RSTP]
 	SpanningTree *string `json:"spanningTree,omitempty" validate:"omitempty,oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority
@@ -207,10 +225,16 @@ type VlanConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STT_NONE,STP,RSTP]
 	SpanningTree *string `json:"spanningTree,omitempty" validate:"omitempty,oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority

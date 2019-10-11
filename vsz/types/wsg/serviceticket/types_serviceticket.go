@@ -5,10 +5,14 @@ package serviceticket
 type LoginRequest struct {
 	// Password
 	// Logon password
+	// Constraints:
+	//    - required
 	Password *string `json:"password" validate:"required"`
 
 	// Username
 	// Logon user name
+	// Constraints:
+	//    - required
 	Username *string `json:"username" validate:"required"`
 }
 

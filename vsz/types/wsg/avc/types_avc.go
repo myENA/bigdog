@@ -76,8 +76,7 @@ type ApplicationPolicyProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// DomainId
-	// Identifier of the System (root) domain or partner managed domain to which the Application Policy
-	// Profile belongs
+	// Identifier of the System (root) domain or partner managed domain to which the Application Policy Profile belongs
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Id
@@ -122,6 +121,9 @@ type ApplicationRule struct {
 
 	// ApplicationType
 	// Type of the application when ruleType
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SIGNATURE,USER_DEFINED]
 	ApplicationType *string `json:"applicationType,omitempty" validate:"omitempty,oneof=SIGNATURE USER_DEFINED"`
 
 	// AppName
@@ -129,8 +131,7 @@ type ApplicationRule struct {
 	AppName *string `json:"appName,omitempty"`
 
 	// CatId
-	// Identifier of the Application Category from Signature Package (If applicationType is UserDefind, the
-	// catId is 32768)
+	// Identifier of the Application Category from Signature Package (If applicationType is UserDefind, the catId is 32768)
 	CatId *string `json:"catId,omitempty"`
 
 	// CatName
@@ -139,6 +140,9 @@ type ApplicationRule struct {
 
 	// ClassificationType
 	// QoS downlink classification type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[VOICE,VIDEO,BEST_EFFORT,BACKGROUND]
 	ClassificationType *string `json:"classificationType,omitempty" validate:"omitempty,oneof=VOICE VIDEO BEST_EFFORT BACKGROUND"`
 
 	// Downlink
@@ -147,16 +151,25 @@ type ApplicationRule struct {
 
 	// MarkingPriority
 	// QoS uplink marking priority
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IEEE802_1p,DSCP,BOTH]
 	MarkingPriority *string `json:"markingPriority,omitempty" validate:"omitempty,oneof=IEEE802_1p DSCP BOTH"`
 
 	// MarkingType
 	// QoS uplink marking type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[VOICE,VIDEO,BEST_EFFORT,BACKGROUND]
 	MarkingType *string `json:"markingType,omitempty" validate:"omitempty,oneof=VOICE VIDEO BEST_EFFORT BACKGROUND"`
 
 	Priority *int `json:"priority,omitempty"`
 
 	// RuleType
 	// Type of the application rule
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DENY,QOS,RATE_LIMITING]
 	RuleType *string `json:"ruleType,omitempty" validate:"omitempty,oneof=DENY QOS RATE_LIMITING"`
 
 	// Uplink
@@ -165,6 +178,9 @@ type ApplicationRule struct {
 }
 
 type CreateApplicationPolicyProfile struct {
+	// ApplicationRules
+	// Constraints:
+	//    - required
 	ApplicationRules []*ApplicationRule `json:"applicationRules" validate:"required"`
 
 	// AvcEventEnable
@@ -178,10 +194,12 @@ type CreateApplicationPolicyProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// DomainId
-	// Identifier of the System (root) domain or partner managed domain to which the Application Policy
-	// Profile belongs
+	// Identifier of the System (root) domain or partner managed domain to which the Application Policy Profile belongs
 	DomainId *string `json:"domainId,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -190,23 +208,35 @@ type CreateUserDefinedProfile struct {
 
 	// DestPort
 	// Destination Port of User Defined Profile
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:65535
 	DestPort *int `json:"destPort" validate:"required,gte=1,lte=65535"`
 
 	// DomainId
-	// Identifier of the System (root) domain or partner managed domain to which the User Defined Profile
-	// belongs
+	// Identifier of the System (root) domain or partner managed domain to which the User Defined Profile belongs
 	DomainId *string `json:"domainId,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	Netmask *common.SubNetMask `json:"netmask,omitempty"`
 
 	// Protocol
 	// Protocol of User Defined Profile
+	// Constraints:
+	//    - required
+	//    - oneof:[TCP,UDP]
 	Protocol *string `json:"protocol" validate:"required,oneof=TCP UDP"`
 
 	// Type
 	// Type of the User Defined Profile
+	// Constraints:
+	//    - required
+	//    - oneof:[IP_WITH_PORT,PORT_ONLY]
 	Type *string `json:"type" validate:"required,oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
@@ -235,6 +265,10 @@ type ModifyUserDefinedProfile struct {
 
 	// DestPort
 	// Destination Port of User Defined Profile
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:65535
 	DestPort *int `json:"destPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	Name *common.NormalName `json:"name,omitempty"`
@@ -243,10 +277,16 @@ type ModifyUserDefinedProfile struct {
 
 	// Protocol
 	// Protocol of User Defined Profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[TCP,UDP]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=TCP UDP"`
 
 	// Type
 	// Type of the User Defined Profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IP_WITH_PORT,PORT_ONLY]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
@@ -289,11 +329,14 @@ type UserDefinedProfile struct {
 
 	// DestPort
 	// Destination Port of User Defined Profile
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:65535
 	DestPort *int `json:"destPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// DomainId
-	// Identifier of the System (root) domain or partner managed domain to which the User Defined Profile
-	// belongs
+	// Identifier of the System (root) domain or partner managed domain to which the User Defined Profile belongs
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Id
@@ -318,6 +361,9 @@ type UserDefinedProfile struct {
 
 	// Protocol
 	// Protocol of User Defined Profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[TCP,UDP]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=TCP UDP"`
 
 	// TenantId
@@ -326,6 +372,9 @@ type UserDefinedProfile struct {
 
 	// Type
 	// Type of the User Defined Profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IP_WITH_PORT,PORT_ONLY]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_WITH_PORT PORT_ONLY"`
 }
 

@@ -11,6 +11,9 @@ type ACLConfig struct {
 
 	// AclType
 	// ACL Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STANDARD,EXTENDED]
 	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
 
 	// CreatedTime
@@ -39,6 +42,9 @@ type ACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SwitchId
@@ -100,6 +106,9 @@ func (t *ACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 type ACLRule struct {
 	// Action
 	// The action of AccessControl Rule
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PERMIT,DENY]
 	Action *string `json:"action,omitempty" validate:"omitempty,oneof=PERMIT DENY"`
 
 	// DestNetwork
@@ -112,6 +121,9 @@ type ACLRule struct {
 
 	// Protocol
 	// The protocol of AccessControl Rule
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IP,TCP,UDP]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IP TCP UDP"`
 
 	// Seq
@@ -132,6 +144,9 @@ type CreateACLConfig struct {
 
 	// AclType
 	// ACL Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STANDARD,EXTENDED]
 	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
 
 	// FamilyId
@@ -152,6 +167,9 @@ type CreateACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SwitchId
@@ -184,6 +202,9 @@ type UpdateACLConfig struct {
 
 	// AclType
 	// ACL Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STANDARD,EXTENDED]
 	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
 
 	// PushTime
@@ -192,5 +213,8 @@ type UpdateACLConfig struct {
 
 	// PushTimeType
 	// Puch Config Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 }

@@ -9,6 +9,10 @@ import (
 type CreateScgUser struct {
 	// AccountLockout
 	// The number of successive failures before a lockout will occur. (System default admin ONLY)
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:100
 	AccountLockout *int `json:"accountLockout,omitempty" validate:"omitempty,gte=1,lte=100"`
 
 	// DomainId
@@ -24,25 +28,41 @@ type CreateScgUser struct {
 	Id *string `json:"id,omitempty"`
 
 	// LockoutDuration
-	// The duration for which the account is automatically locked without administrative intervention. (System
-	// default admin ONLY)
+	// The duration for which the account is automatically locked without administrative intervention. (System default admin ONLY)
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:1440
 	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"omitempty,gte=1,lte=1440"`
 
 	// MinimumPasswordLength
 	// The minimum length of the password for the account. (System default admin ONLY)
+	// Constraints:
+	//    - nullable
+	//    - min:8
+	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
 	// NewPassphrase
 	// User login passphrase
+	// Constraints:
+	//    - required
 	NewPassphrase *string `json:"newPassphrase" validate:"required"`
 
 	// PasswordExpiration
-	// A simple timer that forces the administrator to change their password regularly. (System default admin
-	// ONLY)
+	// A simple timer that forces the administrator to change their password regularly. (System default admin ONLY)
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:365
 	PasswordExpiration *int `json:"passwordExpiration,omitempty" validate:"omitempty,gte=1,lte=365"`
 
 	// PasswordReuse
 	// A validation the prevents reuse of the same password(s). (System default admin ONLY)
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:6
 	PasswordReuse *int `json:"passwordReuse,omitempty" validate:"omitempty,gte=1,lte=6"`
 
 	// Phone
@@ -55,6 +75,10 @@ type CreateScgUser struct {
 
 	// SessionIdle
 	// A period of idle used to invalid that session. (System default admin ONLY)
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:1440
 	SessionIdle *int `json:"sessionIdle,omitempty" validate:"omitempty,gte=1,lte=1440"`
 
 	// Title
@@ -63,10 +87,17 @@ type CreateScgUser struct {
 
 	// UserName
 	// User name
+	// Constraints:
+	//    - required
 	UserName *string `json:"userName" validate:"required"`
 }
 
 type GetScgUser struct {
+	// AccountLockout
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:100
 	AccountLockout *int `json:"accountLockout,omitempty" validate:"omitempty,gte=1,lte=100"`
 
 	// CreateDateTime
@@ -91,6 +122,9 @@ type GetScgUser struct {
 
 	// Enabled
 	// User enabled or not
+	// Constraints:
+	//    - nullable
+	//    - oneof:[0,1]
 	Enabled *int `json:"enabled,omitempty" validate:"omitempty,oneof=0 1"`
 
 	// Id
@@ -99,10 +133,23 @@ type GetScgUser struct {
 
 	// Locked
 	// User locked or not (0:unlocked/1:locked)
+	// Constraints:
+	//    - nullable
+	//    - oneof:[0,1,2]
 	Locked *int `json:"locked,omitempty" validate:"omitempty,oneof=0 1 2"`
 
+	// LockoutDuration
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:1440
 	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"omitempty,gte=1,lte=1440"`
 
+	// MinimumPasswordLength
+	// Constraints:
+	//    - nullable
+	//    - min:8
+	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
 	// ModifiedDateTime
@@ -117,8 +164,18 @@ type GetScgUser struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
+	// PasswordExpiration
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:365
 	PasswordExpiration *int `json:"passwordExpiration,omitempty" validate:"omitempty,gte=1,lte=365"`
 
+	// PasswordReuse
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:6
 	PasswordReuse *int `json:"passwordReuse,omitempty" validate:"omitempty,gte=1,lte=6"`
 
 	// Phone
@@ -129,6 +186,11 @@ type GetScgUser struct {
 	// User real name
 	RealName *string `json:"realName,omitempty"`
 
+	// SessionIdle
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:1440
 	SessionIdle *int `json:"sessionIdle,omitempty" validate:"omitempty,gte=1,lte=1440"`
 
 	// TenantUUID
@@ -145,6 +207,11 @@ type GetScgUser struct {
 }
 
 type ModifyScgUser struct {
+	// AccountLockout
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:100
 	AccountLockout *int `json:"accountLockout,omitempty" validate:"omitempty,gte=1,lte=100"`
 
 	// DomainId
@@ -157,10 +224,22 @@ type ModifyScgUser struct {
 
 	// Id
 	// User id
+	// Constraints:
+	//    - required
 	Id *string `json:"id" validate:"required"`
 
+	// LockoutDuration
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:1440
 	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"omitempty,gte=1,lte=1440"`
 
+	// MinimumPasswordLength
+	// Constraints:
+	//    - nullable
+	//    - min:8
+	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
 	// NewPassphrase
@@ -171,8 +250,18 @@ type ModifyScgUser struct {
 	// User login passphrase
 	Passphrase *string `json:"passphrase,omitempty"`
 
+	// PasswordExpiration
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:365
 	PasswordExpiration *int `json:"passwordExpiration,omitempty" validate:"omitempty,gte=1,lte=365"`
 
+	// PasswordReuse
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:6
 	PasswordReuse *int `json:"passwordReuse,omitempty" validate:"omitempty,gte=1,lte=6"`
 
 	// Phone
@@ -183,6 +272,11 @@ type ModifyScgUser struct {
 	// User real name
 	RealName *string `json:"realName,omitempty"`
 
+	// SessionIdle
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:1440
 	SessionIdle *int `json:"sessionIdle,omitempty" validate:"omitempty,gte=1,lte=1440"`
 
 	// Title
@@ -237,6 +331,9 @@ type ScgUserAuditId struct {
 }
 
 type ScgUserGroup struct {
+	// AccountSecurityProfileId
+	// Constraints:
+	//    - required
 	AccountSecurityProfileId *string `json:"accountSecurityProfileId" validate:"required"`
 
 	AccountSecurityProfileName *string `json:"accountSecurityProfileName,omitempty"`
@@ -281,18 +378,26 @@ type ScgUserGroup struct {
 
 	// Name
 	// User group name
+	// Constraints:
+	//    - required
 	Name *string `json:"name" validate:"required"`
 
 	// Permissions
 	// Permission list
+	// Constraints:
+	//    - required
 	Permissions []*ScgUserGroupPermissionWithoutDetailItems `json:"permissions" validate:"required"`
 
 	// ResourceGroups
 	// Resource group id list
+	// Constraints:
+	//    - required
 	ResourceGroups []*ScgUserGroupResourceGroup `json:"resourceGroups" validate:"required"`
 
 	// Role
 	// User group role
+	// Constraints:
+	//    - required
 	Role *string `json:"role" validate:"required"`
 
 	// TenantId
@@ -325,6 +430,9 @@ type ScgUserGroupList struct {
 type ScgUserGroupPermission struct {
 	// Access
 	// Access level
+	// Constraints:
+	//    - nullable
+	//    - oneof:[READ,MODIFY,FULL_ACCESS]
 	Access *string `json:"access,omitempty" validate:"omitempty,oneof=READ MODIFY FULL_ACCESS"`
 
 	// Display
@@ -349,6 +457,10 @@ type ScgUserGroupPermission struct {
 }
 
 type ScgUserGroupPermissionItemsType struct {
+	// Access
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NA,READ,MODIFY,FULL_ACCESS]
 	Access *string `json:"access,omitempty" validate:"omitempty,oneof=NA READ MODIFY FULL_ACCESS"`
 
 	Display *string `json:"display,omitempty"`
@@ -375,19 +487,20 @@ type ScgUserGroupPermissionList struct {
 // Any additional response data.
 type ScgUserGroupPermissionListExtraType struct {
 	// IsSuperAdmin
-	// whether or not current user is a 'Super Admin' that possesses all 6 permission categories with
-	// 'FULL_ACCESS'
+	// whether or not current user is a 'Super Admin' that possesses all 6 permission categories with 'FULL_ACCESS'
 	IsSuperAdmin *bool `json:"isSuperAdmin,omitempty"`
 
 	// IsSuperAdminOfDomain
-	// whether or not current user is a 'Super Admin of Partner Domain' that possesses all 6 permission
-	// categories with 'FULL_ACCESS'
+	// whether or not current user is a 'Super Admin of Partner Domain' that possesses all 6 permission categories with 'FULL_ACCESS'
 	IsSuperAdminOfDomain *bool `json:"isSuperAdminOfDomain,omitempty"`
 }
 
 type ScgUserGroupPermissionWithoutDetailItems struct {
 	// Access
 	// Access level
+	// Constraints:
+	//    - nullable
+	//    - oneof:[READ,MODIFY,FULL_ACCESS]
 	Access *string `json:"access,omitempty" validate:"omitempty,oneof=READ MODIFY FULL_ACCESS"`
 
 	// Display
@@ -414,6 +527,9 @@ type ScgUserGroupResourceGroup struct {
 
 	// Type
 	// the type of SCG resource group
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DOMAIN,ZONE,APGROUP]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=DOMAIN ZONE APGROUP"`
 }
 

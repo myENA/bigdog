@@ -61,6 +61,9 @@ type AuthenticationKey struct {
 
 	// KeyType
 	// Authentication Key Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SHA1,MD5]
 	KeyType *string `json:"keyType,omitempty" validate:"omitempty,oneof=SHA1 MD5"`
 }
 
@@ -157,6 +160,9 @@ type ControllerListType struct {
 type ControlPlaneConfiguration struct {
 	// IpMode
 	// IP support version
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IPV4,IPV4_IPV6]
 	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=IPV4 IPV4_IPV6"`
 
 	Ipv4AccessAndCoreSeparation *Ipv4AccessAndCoreSeparation `json:"ipv4AccessAndCoreSeparation,omitempty"`
@@ -243,6 +249,10 @@ type CpStaticRoute struct {
 
 	// Metric
 	// Metric
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:999
 	Metric *int `json:"metric,omitempty" validate:"omitempty,gte=0,lte=999"`
 
 	// NetworkAddress
@@ -269,10 +279,16 @@ type CpUserDefinedInterface struct {
 
 	// PhysicalInterface
 	// Physical interface
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Control,Management,Cluster]
 	PhysicalInterface *string `json:"physicalInterface,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
 
 	// Service
 	// Service
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NotSpecified,Hotspot]
 	Service *string `json:"service,omitempty" validate:"omitempty,oneof=NotSpecified Hotspot"`
 
 	// SubnetMask
@@ -285,6 +301,10 @@ type CpUserDefinedInterface struct {
 }
 
 type DataPlaneConfiguration struct {
+	// InterfaceMode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SINGLE,ACCESS_AND_CORE]
 	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"omitempty,oneof=SINGLE ACCESS_AND_CORE"`
 
 	Ipv6PrimaryInterface *Ipv6PrimaryInterface `json:"ipv6PrimaryInterface,omitempty"`
@@ -376,8 +396,7 @@ type FriendlyNameLang struct {
 	Display *string `json:"display,omitempty"`
 
 	// Value
-	// value of language used on create Hotspot 2.0 Identity provider (Language in OSU Service Description)
-	// profile
+	// value of language used on create Hotspot 2.0 Identity provider (Language in OSU Service Description) profile
 	Value *string `json:"value,omitempty"`
 }
 
@@ -424,10 +443,17 @@ type Ftp struct {
 
 	// FtpPort
 	// Port used by FTP
+	// Constraints:
+	//    - nullable
+	//    - min:21
+	//    - max:65535
 	FtpPort *int `json:"ftpPort,omitempty" validate:"omitempty,gte=21,lte=65535"`
 
 	// FtpProtocol
 	// Protocol used
+	// Constraints:
+	//    - nullable
+	//    - oneof:[FTP,SFTP]
 	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"omitempty,oneof=FTP SFTP"`
 
 	// FtpRemoteDirectory
@@ -466,6 +492,9 @@ type FtpGlobalSetting struct {
 
 	// FtpInterval
 	// ftpInterval
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Hourly]
 	FtpInterval *string `json:"ftpInterval,omitempty" validate:"omitempty,oneof=Hourly"`
 }
 
@@ -516,10 +545,17 @@ type GatewayAdvanced struct {
 
 	// GtpInterfaceType
 	// GTPv2 interface type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[S2A,S5_S8]
 	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"omitempty,oneof=S2A S5_S8"`
 
 	// GtpNetworkServiceAcessPointIdentifier
 	// GTP network service access point identifier (NSAPI)
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:5
 	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"omitempty,gte=0,lte=5"`
 
 	// ImeiInGtp
@@ -610,6 +646,9 @@ type InventoryListType struct {
 type Ipv4AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Control,Management,Cluster]
 	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
 
 	// PrimaryDNSServer
@@ -632,6 +671,9 @@ type Ipv4ClusterInterface struct {
 
 	// IpMode
 	// IP mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STATIC,DHCP]
 	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
 
 	// SubnetMask
@@ -650,6 +692,9 @@ type Ipv4ControlInterface struct {
 
 	// IpMode
 	// IP mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STATIC,DHCP]
 	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
 
 	// NatIp
@@ -672,6 +717,9 @@ type Ipv4ManagementInterface struct {
 
 	// IpMode
 	// IP mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STATIC,DHCP]
 	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
 
 	// SubnetMask
@@ -682,6 +730,9 @@ type Ipv4ManagementInterface struct {
 type Ipv6AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Control,Management,Cluster]
 	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
 
 	// PrimaryDNSServer
@@ -704,6 +755,9 @@ type Ipv6ControlInterface struct {
 
 	// IpMode
 	// IP mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STATIC,AUTO]
 	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC AUTO"`
 }
 
@@ -718,20 +772,30 @@ type Ipv6ManagementInterface struct {
 
 	// IpMode
 	// IP mode
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STATIC,AUTO]
 	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC AUTO"`
 }
 
 type Ipv6PrimaryInterface struct {
 	// Gateway
 	// Gateway
+	// Constraints:
+	//    - required
 	Gateway *string `json:"gateway" validate:"required"`
 
 	// IpAddress
 	// IP address
+	// Constraints:
+	//    - required
 	IpAddress *string `json:"ipAddress" validate:"required"`
 
 	// IpMode
 	// IP mode
+	// Constraints:
+	//    - required
+	//    - oneof:[AUTO,STATIC]
 	IpMode *string `json:"ipMode" validate:"required,oneof=AUTO STATIC"`
 
 	// PrimaryDNSServer
@@ -758,14 +822,25 @@ type Lwapp2scgConfiguration struct {
 
 	// PasvMaxPort
 	// pasvMaxPort of the lwapp
+	// Constraints:
+	//    - nullable
+	//    - min:16384
+	//    - max:65000
 	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
 
 	// PasvMinPort
 	// pasvMinPort of the lwapp
+	// Constraints:
+	//    - nullable
+	//    - min:16384
+	//    - max:65000
 	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
 
 	// Policy
 	// policy of the lwapp
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DENY,ACCEPT,DENY_ALL,ACCEPT_ALL]
 	Policy *string `json:"policy,omitempty" validate:"omitempty,oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
@@ -792,12 +867,21 @@ type ModifyControlPlane struct {
 type ModifyDataPlane struct {
 	// InterfaceMode
 	// Interface mode
+	// Constraints:
+	//    - required
+	//    - oneof:[ACCESS_AND_CORE,SINGLE]
 	InterfaceMode *string `json:"interfaceMode" validate:"required,oneof=ACCESS_AND_CORE SINGLE"`
 
+	// Ipv6PrimaryInterface
+	// Constraints:
+	//    - required
 	Ipv6PrimaryInterface *Ipv6PrimaryInterface `json:"ipv6PrimaryInterface" validate:"required"`
 
 	KeepConfig *bool `json:"keepConfig,omitempty"`
 
+	// PrimaryInterface
+	// Constraints:
+	//    - required
 	PrimaryInterface *PrimaryInterface `json:"primaryInterface" validate:"required"`
 
 	SecondaryInterface *SecondaryInterface `json:"secondaryInterface,omitempty"`
@@ -824,10 +908,17 @@ type ModifyGatewayAdvanced struct {
 
 	// GtpInterfaceType
 	// GTPv2 interface type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[S2A,S5_S8]
 	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"omitempty,oneof=S2A S5_S8"`
 
 	// GtpNetworkServiceAcessPointIdentifier
 	// GTP network service access point identifier (NSAPI)
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:5
 	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"omitempty,gte=0,lte=5"`
 
 	// ImeiInGtp
@@ -850,6 +941,9 @@ type ModifyGatewayAdvanced struct {
 type ModifyIpSupportType struct {
 	// IpMode
 	// IP support version
+	// Constraints:
+	//    - required
+	//    - oneof:[IPV4,IPV4_IPV6]
 	IpMode *string `json:"ipMode" validate:"required,oneof=IPV4 IPV4_IPV6"`
 }
 
@@ -864,21 +958,33 @@ type ModifyLwapp2scg struct {
 
 	// PasvMaxPort
 	// pasvMaxPort of the lwapp
+	// Constraints:
+	//    - nullable
+	//    - min:16384
+	//    - max:65000
 	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
 
 	// PasvMinPort
 	// pasvMinPort of the lwapp
+	// Constraints:
+	//    - nullable
+	//    - min:16384
+	//    - max:65000
 	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
 
 	// Policy
 	// policy of the lwapp
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DENY,ACCEPT,DENY_ALL,ACCEPT_ALL]
 	Policy *string `json:"policy,omitempty" validate:"omitempty,oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
 type ModifySnmpAgent struct {
 	// SnmpNotificationEnabled
-	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message
-	// is sent out.)
+	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message is sent out.)
+	// Constraints:
+	//    - required
 	SnmpNotificationEnabled *bool `json:"snmpNotificationEnabled" validate:"required"`
 
 	// SnmpV2Agent
@@ -907,6 +1013,9 @@ type NorthboundInterface struct {
 
 	// RadiusAuthType
 	// AuthType of the Radius used in Northbound Interface, the value should be "PAP" or "CHAP".
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PAP,CHAP]
 	RadiusAuthType *string `json:"radiusAuthType,omitempty" validate:"omitempty,oneof=PAP CHAP"`
 
 	UserName *common.ApLoginName `json:"userName,omitempty"`
@@ -918,8 +1027,7 @@ type PortalLang struct {
 	Display *string `json:"display,omitempty"`
 
 	// Value
-	// value of language used on create Hotspot 2.0 Identity provider (Language in OSU Service Description)
-	// profile
+	// value of language used on create Hotspot 2.0 Identity provider (Language in OSU Service Description) profile
 	Value *string `json:"value,omitempty"`
 }
 
@@ -992,14 +1100,21 @@ type PortStatistic struct {
 type PrimaryInterface struct {
 	// Gateway
 	// Gateway
+	// Constraints:
+	//    - required
 	Gateway *string `json:"gateway" validate:"required"`
 
 	// IpAddress
 	// IP address
+	// Constraints:
+	//    - required
 	IpAddress *string `json:"ipAddress" validate:"required"`
 
 	// IpMode
 	// IP mode
+	// Constraints:
+	//    - required
+	//    - oneof:[DHCP,STATIC]
 	IpMode *string `json:"ipMode" validate:"required,oneof=DHCP STATIC"`
 
 	// NatIp
@@ -1016,6 +1131,8 @@ type PrimaryInterface struct {
 
 	// SubnetMask
 	// Subnet mask
+	// Constraints:
+	//    - required
 	SubnetMask *string `json:"subnetMask" validate:"required"`
 
 	// Vlan
@@ -1024,20 +1141,41 @@ type PrimaryInterface struct {
 }
 
 type SaveApNumberLimitSettingOfDomain struct {
+	// DomainId
+	// Constraints:
+	//    - required
 	DomainId *string `json:"domainId" validate:"required"`
 
+	// NumberLimit
+	// Constraints:
+	//    - required
 	NumberLimit *float64 `json:"numberLimit" validate:"required"`
 
+	// Shared
+	// Constraints:
+	//    - required
 	Shared *bool `json:"shared" validate:"required"`
 }
 
 type SaveApNumberLimitSettingOfZone struct {
+	// DomainId
+	// Constraints:
+	//    - required
 	DomainId *string `json:"domainId" validate:"required"`
 
+	// NumberLimit
+	// Constraints:
+	//    - required
 	NumberLimit *float64 `json:"numberLimit" validate:"required"`
 
+	// Shared
+	// Constraints:
+	//    - required
 	Shared *bool `json:"shared" validate:"required"`
 
+	// ZoneId
+	// Constraints:
+	//    - required
 	ZoneId *string `json:"zoneId" validate:"required"`
 }
 
@@ -1052,10 +1190,14 @@ type SaveSystemSettings struct {
 type SecondaryInterface struct {
 	// IpAddress
 	// IP address
+	// Constraints:
+	//    - required
 	IpAddress *string `json:"ipAddress" validate:"required"`
 
 	// SubnetMask
 	// Subnet mask
+	// Constraints:
+	//    - required
 	SubnetMask *string `json:"subnetMask" validate:"required"`
 
 	// Vlan
@@ -1078,6 +1220,9 @@ type Sms struct {
 
 	// Enabled
 	// Enabled SMS server or not
+	// Constraints:
+	//    - nullable
+	//    - oneof:[0,1]
 	Enabled *int `json:"enabled,omitempty" validate:"omitempty,oneof=0 1"`
 
 	// From
@@ -1094,6 +1239,9 @@ type Sms struct {
 
 	// ServerType
 	// Server type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Twilio]
 	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=Twilio"`
 }
 
@@ -1117,8 +1265,7 @@ type SmsList struct {
 
 type SnmpAgentConfiguration struct {
 	// SnmpNotificationEnabled
-	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message
-	// is sent out.)
+	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message is sent out.)
 	SnmpNotificationEnabled *bool `json:"snmpNotificationEnabled,omitempty"`
 
 	// SnmpV2Agent
@@ -1133,14 +1280,20 @@ type SnmpAgentConfiguration struct {
 type StaticRoute struct {
 	// Gateway
 	// Gateway
+	// Constraints:
+	//    - required
 	Gateway *string `json:"gateway" validate:"required"`
 
 	// NetworkAddress
 	// Network address
+	// Constraints:
+	//    - required
 	NetworkAddress *string `json:"networkAddress" validate:"required"`
 
 	// SubnetMask
 	// Subnet mask
+	// Constraints:
+	//    - required
 	SubnetMask *string `json:"subnetMask" validate:"required"`
 }
 

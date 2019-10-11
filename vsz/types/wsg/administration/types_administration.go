@@ -8,16 +8,28 @@ import (
 )
 
 type ActiveDirectoryServer struct {
+	// Ip
+	// Constraints:
+	//    - required
 	Ip *common.IpAddress `json:"ip" validate:"required"`
 
 	// Port
 	// Port number of Active Directory Server object
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
+	// Realm
+	// Constraints:
+	//    - required
 	Realm *common.Realm `json:"realm" validate:"required"`
 
 	// WindowsDomainName
 	// Windows Domain Name of Active Directory Server object
+	// Constraints:
+	//    - required
 	WindowsDomainName *string `json:"windowsDomainName" validate:"required"`
 }
 
@@ -200,6 +212,9 @@ type CreateAdminAAAServer struct {
 
 	LdapServer *LdapServer `json:"ldapServer,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	RadiusServer *RadiusServer `json:"radiusServer,omitempty"`
@@ -207,48 +222,74 @@ type CreateAdminAAAServer struct {
 	TacacsServer *TacacsServer `json:"tacacsServer,omitempty"`
 
 	// Type
-	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name
-	// [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	// Constraints:
+	//    - required
+	//    - oneof:[RADIUS,TACACS,AD,LDAP]
 	Type *string `json:"type" validate:"required,oneof=RADIUS TACACS AD LDAP"`
 }
 
 type DefaultRoleMapping struct {
 	// DefaultAdmin
 	// DefaultAdmin of DefaultRoleMapping object
+	// Constraints:
+	//    - required
 	DefaultAdmin *string `json:"defaultAdmin" validate:"required"`
 
 	// DefaultUserGroup
 	// DefaultUserGroup of DefaultRoleMapping object
+	// Constraints:
+	//    - required
 	DefaultUserGroup *string `json:"defaultUserGroup" validate:"required"`
 }
 
 type LdapServer struct {
 	// AdminDomainName
 	// Admin Domain Name of LDAP Server object
+	// Constraints:
+	//    - required
 	AdminDomainName *string `json:"adminDomainName" validate:"required"`
 
 	// AdminPassword
 	// Admin password of LDAP Server object
+	// Constraints:
+	//    - required
 	AdminPassword *string `json:"adminPassword" validate:"required"`
 
 	// BaseDomainName
 	// Base Domain Name of LDAP Server object
+	// Constraints:
+	//    - required
 	BaseDomainName *string `json:"baseDomainName" validate:"required"`
 
+	// Ip
+	// Constraints:
+	//    - required
 	Ip *common.IpAddress `json:"ip" validate:"required"`
 
 	// KeyAttribute
 	// Key attribute of LDAP Server object
+	// Constraints:
+	//    - required
 	KeyAttribute *string `json:"keyAttribute" validate:"required"`
 
 	// Port
 	// Port number of LDAP Server object
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
+	// Realm
+	// Constraints:
+	//    - required
 	Realm *common.Realm `json:"realm" validate:"required"`
 
 	// SearchFilter
 	// Search filter of LDAP Server object
+	// Constraints:
+	//    - required
 	SearchFilter *string `json:"searchFilter" validate:"required"`
 }
 
@@ -281,6 +322,10 @@ type LicenseServer struct {
 
 	// Port
 	// local license server port
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:65535
 	Port *int `json:"port,omitempty" validate:"omitempty,gte=0,lte=65535"`
 
 	// UseCloud
@@ -333,6 +378,9 @@ type LicensesSyncLogs struct {
 
 	// SyncResult
 	// sync license result
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SUCCESS,FAILURE]
 	SyncResult *string `json:"syncResult,omitempty" validate:"omitempty,oneof=SUCCESS FAILURE"`
 }
 
@@ -349,8 +397,16 @@ type LicensesSyncLogsList struct {
 type ModfiyLicenseServer struct {
 	IpAddress *string `json:"ipAddress,omitempty"`
 
+	// Port
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:65535
 	Port *int `json:"port,omitempty" validate:"omitempty,gte=0,lte=65535"`
 
+	// UseCloud
+	// Constraints:
+	//    - required
 	UseCloud *bool `json:"useCloud" validate:"required"`
 }
 
@@ -361,6 +417,9 @@ type ModifyAdminAAAServer struct {
 
 	LdapServer *LdapServer `json:"ldapServer,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	RadiusServer *RadiusServer `json:"radiusServer,omitempty"`
@@ -368,8 +427,10 @@ type ModifyAdminAAAServer struct {
 	TacacsServer *TacacsServer `json:"tacacsServer,omitempty"`
 
 	// Type
-	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name
-	// [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	// Constraints:
+	//    - required
+	//    - oneof:[RADIUS,TACACS,AD,LDAP]
 	Type *string `json:"type" validate:"required,oneof=RADIUS TACACS AD LDAP"`
 }
 
@@ -390,6 +451,9 @@ type ModifyLogLevel struct {
 
 	// LogLevel
 	// Log level.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DEBUG,INFO,WARN,ERROR]
 	LogLevel *string `json:"logLevel,omitempty" validate:"omitempty,oneof=DEBUG INFO WARN ERROR"`
 }
 
@@ -400,6 +464,9 @@ type ModifyScheduleBackup struct {
 
 	// DayOfWeek
 	// day of the week
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
 	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
@@ -412,6 +479,9 @@ type ModifyScheduleBackup struct {
 
 	// Interval
 	// schedule interval
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MONTHLY,WEEKLY,DAILY]
 	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
@@ -420,18 +490,30 @@ type ModifyScheduleBackup struct {
 }
 
 type RadiusServer struct {
+	// Ip
+	// Constraints:
+	//    - required
 	Ip *common.IpAddress `json:"ip" validate:"required"`
 
 	// Port
 	// Port number of RADIUS Server object
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
+	// Realm
+	// Constraints:
+	//    - required
 	Realm *common.Realm `json:"realm" validate:"required"`
 
 	SecondaryRadiusServer *SecondaryRadiusServer `json:"secondaryRadiusServer,omitempty"`
 
 	// SharedSecret
 	// Shared secret of RADIUS Server object
+	// Constraints:
+	//    - required
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
@@ -453,8 +535,10 @@ type RetrieveAdminAAAServer struct {
 	TacacsServer *TacacsServer `json:"tacacsServer,omitempty"`
 
 	// Type
-	// Type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is
-	// for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	// Type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
+	// Constraints:
+	//    - nullable
+	//    - oneof:[RADIUS,TACACS,AD,LDAP]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
 }
 
@@ -473,6 +557,10 @@ type RetrieveAdminAAAServerListType struct {
 
 	Name *common.NormalName `json:"name,omitempty"`
 
+	// Type
+	// Constraints:
+	//    - nullable
+	//    - oneof:[RADIUS,TACACS,AD,LDAP]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
 }
 
@@ -483,6 +571,9 @@ type ScheduleBackup struct {
 
 	// DayOfWeek
 	// day of the week
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
 	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
@@ -495,6 +586,9 @@ type ScheduleBackup struct {
 
 	// Interval
 	// schedule interval
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MONTHLY,WEEKLY,DAILY]
 	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
@@ -503,40 +597,76 @@ type ScheduleBackup struct {
 }
 
 type SecondaryRadiusServer struct {
+	// Ip
+	// Constraints:
+	//    - required
 	Ip *common.IpAddress `json:"ip" validate:"required"`
 
 	// MaxRetries
 	// Max number(how many times) of retries for re-connection to primary
+	// Constraints:
+	//    - required
+	//    - default:2
+	//    - min:2
+	//    - max:10
 	MaxRetries *int `json:"maxRetries" validate:"required,gte=2,lte=10"`
 
 	// Port
 	// Port number of Secondary RADIUS Server object
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
 	// RequestTimeOut
 	// Request timeout(seconds) value of re-connection to primary
+	// Constraints:
+	//    - required
+	//    - default:3
+	//    - min:2
+	//    - max:20
 	RequestTimeOut *int `json:"requestTimeOut" validate:"required,gte=2,lte=20"`
 
 	// RetryPriInvl
 	// Interval of re-connection to primary(1-60 minute)
+	// Constraints:
+	//    - required
+	//    - default:5
+	//    - min:1
+	//    - max:60
 	RetryPriInvl *int `json:"retryPriInvl" validate:"required,gte=1,lte=60"`
 
 	// SharedSecret
 	// Shared secret of Secondary RADIUS Server object
+	// Constraints:
+	//    - required
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
 type TacacsServer struct {
+	// Ip
+	// Constraints:
+	//    - required
 	Ip *common.IpAddress `json:"ip" validate:"required"`
 
 	// Port
 	// Port number of TACACS+ Server object
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
+	// Service
+	// Constraints:
+	//    - required
 	Service *common.Realm `json:"service" validate:"required"`
 
 	// SharedSecret
 	// Shared secret of TACACS+ Server object
+	// Constraints:
+	//    - required
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 

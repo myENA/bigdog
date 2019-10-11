@@ -24,12 +24,19 @@ type ModifySyslogSettings struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
 	// EventFilter
-	// Event Filter, 0 : All events, 1 : All events except client association/disassociation events, 2 : All
-	// events above a severity
+	// Event Filter, 0 : All events, 1 : All events except client association/disassociation events, 2 : All events above a severity
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:2
 	EventFilter *int `json:"eventFilter,omitempty" validate:"omitempty,gte=0,lte=2"`
 
 	// EventFilterSeverity
 	// Event Filter Severity, This only applies when the Event Filter is set to 2
+	// Constraints:
+	//    - nullable
+	//    - default:'Debug'
+	//    - oneof:[Critical,Major,Minor,Warning,Informational,Debug]
 	EventFilterSeverity *string `json:"eventFilterSeverity,omitempty" validate:"omitempty,oneof=Critical Major Minor Warning Informational Debug"`
 
 	// EventLogFacility
@@ -62,32 +69,53 @@ type PrimaryServer struct {
 
 	// Protocol
 	// protocol of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - oneof:[UDP,TCP]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=UDP TCP"`
 }
 
 type Priority struct {
 	// Critical
 	// Event severity
+	// Constraints:
+	//    - nullable
+	//    - oneof:[ERROR,WARN,INFO,DEBUG]
 	Critical *string `json:"critical,omitempty" validate:"omitempty,oneof=ERROR WARN INFO DEBUG"`
 
 	// Debug
 	// Event severity
+	// Constraints:
+	//    - nullable
+	//    - oneof:[ERROR,WARN,INFO,DEBUG]
 	Debug *string `json:"debug,omitempty" validate:"omitempty,oneof=ERROR WARN INFO DEBUG"`
 
 	// Informational
 	// Event severity
+	// Constraints:
+	//    - nullable
+	//    - oneof:[ERROR,WARN,INFO,DEBUG]
 	Informational *string `json:"informational,omitempty" validate:"omitempty,oneof=ERROR WARN INFO DEBUG"`
 
 	// Major
 	// Event severity
+	// Constraints:
+	//    - nullable
+	//    - oneof:[ERROR,WARN,INFO,DEBUG]
 	Major *string `json:"major,omitempty" validate:"omitempty,oneof=ERROR WARN INFO DEBUG"`
 
 	// Minor
 	// Event severity
+	// Constraints:
+	//    - nullable
+	//    - oneof:[ERROR,WARN,INFO,DEBUG]
 	Minor *string `json:"minor,omitempty" validate:"omitempty,oneof=ERROR WARN INFO DEBUG"`
 
 	// Warning
 	// Event severity
+	// Constraints:
+	//    - nullable
+	//    - oneof:[ERROR,WARN,INFO,DEBUG]
 	Warning *string `json:"warning,omitempty" validate:"omitempty,oneof=ERROR WARN INFO DEBUG"`
 }
 
@@ -102,10 +130,16 @@ type SecondaryServer struct {
 
 	// Protocol
 	// protocol of the syslog server
+	// Constraints:
+	//    - nullable
+	//    - oneof:[UDP,TCP]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=UDP TCP"`
 
 	// RedundancyMode
 	// The redundancy mode of syslog server
+	// Constraints:
+	//    - nullable
+	//    - oneof:[active_active,primary_backup]
 	RedundancyMode *string `json:"redundancyMode,omitempty" validate:"omitempty,oneof=active_active primary_backup"`
 }
 
@@ -131,12 +165,18 @@ type SyslogServerSetting struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
 	// EventFilter
-	// Event Filter, 0 : All events, 1 : All events except client association/disassociation events, 2 : All
-	// events above a severity
+	// Event Filter, 0 : All events, 1 : All events except client association/disassociation events, 2 : All events above a severity
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:2
 	EventFilter *int `json:"eventFilter,omitempty" validate:"omitempty,gte=0,lte=2"`
 
 	// EventFilterSeverity
 	// Event Filter Severity, This only applies when the Event Filter is set to 2
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Critical,Major,Minor,Warning,Informational,Debug]
 	EventFilterSeverity *string `json:"eventFilterSeverity,omitempty" validate:"omitempty,oneof=Critical Major Minor Warning Informational Debug"`
 
 	// EventLogFacility

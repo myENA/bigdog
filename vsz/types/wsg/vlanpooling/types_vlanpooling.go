@@ -9,6 +9,10 @@ import (
 type CreateVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
+	// Constraints:
+	//    - required
+	//    - default:'MAC_HASH'
+	//    - oneof:[MAC_HASH]
 	Algo *string `json:"algo" validate:"required,oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -17,10 +21,15 @@ type CreateVlanPooling struct {
 	// identifier of the domain
 	DomainId *string `json:"domainId,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
+	// Constraints:
+	//    - required
 	Pool *string `json:"pool" validate:"required"`
 }
 
@@ -31,6 +40,9 @@ type DeleteBulkVlanPooling struct {
 type ModifyVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MAC_HASH]
 	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -49,6 +61,9 @@ type ModifyVlanPooling struct {
 type VlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[MAC_HASH]
 	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -83,6 +98,10 @@ type VlanPoolingList struct {
 type VlanPoolingListType struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
+	// Constraints:
+	//    - nullable
+	//    - default:'MAC_HASH'
+	//    - oneof:[MAC_HASH]
 	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
 	// Description

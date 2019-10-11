@@ -84,10 +84,15 @@ type ListType struct {
 type Persist struct {
 	// Attributes
 	// Vendor specific attribute list for Radius protocol
+	// Constraints:
+	//    - required
 	Attributes []*VendorSpecificAttribute `json:"attributes" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -106,21 +111,33 @@ type QueryCriteriaResult struct {
 type VendorSpecificAttribute struct {
 	// KeyId
 	// Key ID of vendor specific attribute
+	// Constraints:
+	//    - required
 	KeyId *int `json:"keyId" validate:"required"`
 
 	// SupportedRadiusProtocol
 	// The radius protocol to which this given vendor specific attribute will attach
+	// Constraints:
+	//    - required
+	//    - oneof:[ACCOUNTING,AUTHENTICATION,BOTH_AUTHENTICATION_AND_ACCOUNTING]
 	SupportedRadiusProtocol *string `json:"supportedRadiusProtocol" validate:"required,oneof=ACCOUNTING AUTHENTICATION BOTH_AUTHENTICATION_AND_ACCOUNTING"`
 
 	// Type
 	// Type of vendor specific attribute
+	// Constraints:
+	//    - required
+	//    - oneof:[INTEGER,STRING]
 	Type *string `json:"type" validate:"required,oneof=INTEGER STRING"`
 
 	// Value
 	// Value of vendor specific attribute
+	// Constraints:
+	//    - required
 	Value *string `json:"value" validate:"required"`
 
 	// VendorId
 	// Vendor ID of vendor specific attribute
+	// Constraints:
+	//    - required
 	VendorId *int `json:"vendorId" validate:"required"`
 }

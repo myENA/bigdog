@@ -10,18 +10,25 @@ type CreateWifiCallingPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// DomainId
-	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy
-	// belongs
+	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy belongs
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
+	// Constraints:
+	//    - required
 	Epdgs []*Epdg `json:"epdgs" validate:"required"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
+	// Constraints:
+	//    - required
+	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
 	Priority *string `json:"priority" validate:"required,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 }
 
@@ -52,6 +59,10 @@ type ModifyWifiCallingPolicy struct {
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
+	// Constraints:
+	//    - nullable
+	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
+	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
 	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 }
 
@@ -71,8 +82,7 @@ type WifiCallingPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
 	// DomainId
-	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy
-	// belongs
+	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy belongs
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Epdgs
@@ -99,6 +109,9 @@ type WifiCallingPolicy struct {
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
+	// Constraints:
+	//    - nullable
+	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
 	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 
 	// TenantId

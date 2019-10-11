@@ -13,10 +13,17 @@ type Ftp struct {
 
 	// FtpPort
 	// Port used by FTP
+	// Constraints:
+	//    - nullable
+	//    - min:21
+	//    - max:65535
 	FtpPort *int `json:"ftpPort,omitempty" validate:"omitempty,gte=21,lte=65535"`
 
 	// FtpProtocol
 	// Protocol used
+	// Constraints:
+	//    - nullable
+	//    - oneof:[FTP,SFTP]
 	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"omitempty,oneof=FTP SFTP"`
 
 	// FtpRemoteDirectory
@@ -31,6 +38,9 @@ type Ftp struct {
 type Report struct {
 	// Action
 	// Request action
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SEARCH,DELETE,INTERRUPT,PROGRESS]
 	Action *string `json:"action,omitempty" validate:"omitempty,oneof=SEARCH DELETE INTERRUPT PROGRESS"`
 
 	// ClientMac

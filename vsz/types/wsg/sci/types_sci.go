@@ -9,32 +9,46 @@ import (
 type CreateSciProfile struct {
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciPassword *string `json:"sciPassword" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciProfile *string `json:"sciProfile" validate:"required"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciServerHost *string `json:"sciServerHost" validate:"required"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciServerPort *string `json:"sciServerPort" validate:"required"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciSystemId *string `json:"sciSystemId" validate:"required"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciUser *string `json:"sciUser" validate:"required"`
 }
 
 type DeleteSciProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	Id *string `json:"id" validate:"required"`
 }
 
@@ -43,12 +57,17 @@ type DeleteSciProfileList struct {
 }
 
 type ModifyEventCode struct {
+	// SciAcceptedEventCodes
+	// Constraints:
+	//    - required
 	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes" validate:"required"`
 }
 
 type ModifySciEnabled struct {
 	// SciEnabled
 	// Is SZ/SCI interface enabled or disabled
+	// Constraints:
+	//    - required
 	SciEnabled *bool `json:"sciEnabled" validate:"required"`
 }
 
@@ -59,14 +78,20 @@ type ModifySciPriorityList struct {
 type ModifySciPriorityListType struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	Id *string `json:"id" validate:"required"`
 
 	// SciPriority
 	// Priority of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciPriority *int `json:"sciPriority" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciProfile *string `json:"sciProfile" validate:"required"`
 }
 
@@ -77,26 +102,38 @@ type ModifySciProfile struct {
 
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciPassword *string `json:"sciPassword" validate:"required"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciProfile *string `json:"sciProfile" validate:"required"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciServerHost *string `json:"sciServerHost" validate:"required"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciServerPort *string `json:"sciServerPort" validate:"required"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciSystemId *string `json:"sciSystemId" validate:"required"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
+	// Constraints:
+	//    - required
 	SciUser *string `json:"sciUser" validate:"required"`
 }
 

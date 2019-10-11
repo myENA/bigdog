@@ -31,6 +31,9 @@ type ApRuleConfiguration struct {
 
 	// Type
 	// type of the AP Registration Rules
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IPAddressRange,Subnet,GPSCoordinates,ProvisionTag]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
@@ -63,6 +66,9 @@ type CreateApRule struct {
 
 	IpAddressRange *IpAddressRange `json:"ipAddressRange,omitempty"`
 
+	// MobilityZone
+	// Constraints:
+	//    - required
 	MobilityZone *common.GenericRef `json:"mobilityZone" validate:"required"`
 
 	// ProvisionTag
@@ -73,6 +79,9 @@ type CreateApRule struct {
 
 	// Type
 	// type of the AP Registration Rules
+	// Constraints:
+	//    - required
+	//    - oneof:[IPAddressRange,Subnet,GPSCoordinates,ProvisionTag]
 	Type *string `json:"type" validate:"required,oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
@@ -109,6 +118,9 @@ type ModifyApRule struct {
 
 	// Type
 	// type of the AP Registration Rules
+	// Constraints:
+	//    - nullable
+	//    - oneof:[IPAddressRange,Subnet,GPSCoordinates,ProvisionTag]
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 

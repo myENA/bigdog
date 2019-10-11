@@ -76,10 +76,16 @@ type AcctServiceRealmMapping struct {
 	// Accounting service name
 	Name *string `json:"name,omitempty"`
 
+	// Realm
+	// Constraints:
+	//    - required
 	Realm *common.Realm `json:"realm" validate:"required"`
 
 	// ServiceType
 	// Accounting service type, NA is NA-Request Rejected
+	// Constraints:
+	//    - required
+	//    - oneof:[NA,RADIUS,CGF]
 	ServiceType *string `json:"serviceType" validate:"required,oneof=NA RADIUS CGF"`
 }
 
@@ -97,10 +103,16 @@ type AdvancedOptionContent struct {
 
 	// EnforceNatt
 	// enforceNatt Enable of the ipsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Disabled,Enabled]
 	EnforceNatt *string `json:"enforceNatt,omitempty" validate:"omitempty,oneof=Disabled Enabled"`
 
 	// FailoverMode
 	// mode of the failover
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Non_Revertive,Revertive]
 	FailoverMode *string `json:"failoverMode,omitempty" validate:"omitempty,oneof=Non_Revertive Revertive"`
 
 	// FailoverPrimaryCheckInterval
@@ -117,6 +129,9 @@ type AdvancedOptionContent struct {
 
 	// IpcompEnable
 	// ipcomp Enable of the ipsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Disabled,Enabled]
 	IpcompEnable *string `json:"ipcompEnable,omitempty" validate:"omitempty,oneof=Disabled Enabled"`
 
 	// KeepAliveIntval
@@ -239,6 +254,9 @@ type BlockClient struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
+	// Mac
+	// Constraints:
+	//    - required
 	Mac *common.Mac `json:"mac" validate:"required"`
 
 	// ModifiedDateTime
@@ -293,6 +311,8 @@ type BlockClientListType struct {
 type BonjourFencingPolicy struct {
 	// BonjourFencingRuleList
 	// Bonjour Fencing Rule List
+	// Constraints:
+	//    - required
 	BonjourFencingRuleList []*BonjourFencingRule `json:"bonjourFencingRuleList" validate:"required"`
 
 	// BonjourFencingRuleMappingList
@@ -329,6 +349,9 @@ type BonjourFencingPolicy struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// ZoneId
@@ -359,12 +382,21 @@ type BonjourFencingRule struct {
 
 	// DeviceType
 	// Name of the Bonjour Fencing Rule
+	// Constraints:
+	//    - required
+	//    - oneof:[Wired,Wireless]
 	DeviceType *string `json:"deviceType" validate:"required,oneof=Wired Wireless"`
 
 	// FencingRange
 	// The range of AP can take Bonjour work
+	// Constraints:
+	//    - required
+	//    - oneof:[SameAp,OneHopAp]
 	FencingRange *string `json:"fencingRange" validate:"required,oneof=SameAp OneHopAp"`
 
+	// ServiceType
+	// Constraints:
+	//    - required
 	ServiceType *BridgeService `json:"serviceType" validate:"required"`
 }
 
@@ -389,6 +421,10 @@ type BonjourFencingService struct {
 
 	ServiceType *BridgeService `json:"serviceType,omitempty"`
 
+	// SourceType
+	// Constraints:
+	//    - nullable
+	//    - oneof:[UNKNOWN,DIRECT,NEIGHBOR]
 	SourceType *string `json:"sourceType,omitempty" validate:"omitempty,oneof=UNKNOWN DIRECT NEIGHBOR"`
 }
 
@@ -465,10 +501,16 @@ type BulkBlockClient struct {
 }
 
 type BulkBlockClientBlockClientListType struct {
+	// ApMac
+	// Constraints:
+	//    - required
 	ApMac *common.Mac `json:"apMac" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
+	// Mac
+	// Constraints:
+	//    - required
 	Mac *common.Mac `json:"mac" validate:"required"`
 
 	ZoneId *string `json:"zoneId,omitempty"`
@@ -481,12 +523,17 @@ type ClientIsolationEntry struct {
 	// Client Entry ip
 	Ip *string `json:"ip,omitempty"`
 
+	// Mac
+	// Constraints:
+	//    - required
 	Mac *common.Mac `json:"mac" validate:"required"`
 }
 
 type ClientIsolationWhitelist struct {
 	// ClientIsolationAutoEnabled
 	// Client Isolation Auto Enable
+	// Constraints:
+	//    - required
 	ClientIsolationAutoEnabled *bool `json:"clientIsolationAutoEnabled" validate:"required"`
 
 	// CreateDateTime
@@ -519,10 +566,15 @@ type ClientIsolationWhitelist struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Whitelist
 	// Client Isolation Whitelist array
+	// Constraints:
+	//    - required
 	Whitelist []*ClientIsolationEntry `json:"whitelist" validate:"required"`
 
 	// ZoneId
@@ -570,6 +622,8 @@ type ClientIsolationWhitelistArray struct {
 type CmProtocolOptionContent struct {
 	// CmpDhcpOpt43Subcode
 	// Certificate Management Protocol dhcpOpt43Subcode
+	// Constraints:
+	//    - required
 	CmpDhcpOpt43Subcode *float64 `json:"cmpDhcpOpt43Subcode" validate:"required"`
 
 	// CmpDhcpOpt43SubcodeRecipient
@@ -592,10 +646,20 @@ type CmProtocolOptionContent struct {
 type CoreNetworkGateway struct {
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
+	// Constraints:
+	//    - nullable
+	//    - default:10
+	//    - min:1
+	//    - max:32767
 	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"omitempty,gte=1,lte=32767"`
 
 	// KeepAliveRetry
 	// ICMP Keep-Alive Retry
+	// Constraints:
+	//    - nullable
+	//    - default:3
+	//    - min:1
+	//    - max:255
 	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"omitempty,gte=1,lte=255"`
 
 	// PrimaryGateway
@@ -608,10 +672,18 @@ type CoreNetworkGateway struct {
 
 	// TunnelMTU
 	// Gateway path MTU
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AUTO,MANUAL]
 	TunnelMTU *string `json:"tunnelMTU,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMTUSize
 	// Manual setting value of Gateway path MTU
+	// Constraints:
+	//    - nullable
+	//    - default:1500
+	//    - min:850
+	//    - max:1500
 	TunnelMTUSize *int `json:"tunnelMTUSize,omitempty" validate:"omitempty,gte=850,lte=1500"`
 }
 
@@ -626,6 +698,9 @@ type CreateAccountingProfile struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// RealmMappings
@@ -642,6 +717,9 @@ type CreateAuthenticationProfile struct {
 
 	// GppSuppportEnabled
 	// 3GPP support enabled or disabled
+	// Constraints:
+	//    - required
+	//    - default:false
 	GppSuppportEnabled *bool `json:"gppSuppportEnabled" validate:"required"`
 
 	// H20SuppportEnabled
@@ -652,6 +730,9 @@ type CreateAuthenticationProfile struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// RealmMappings
@@ -664,6 +745,8 @@ type CreateAuthenticationProfile struct {
 type CreateBonjourFencingPolicy struct {
 	// BonjourFencingRuleList
 	// Bonjour Fencing Rule List
+	// Constraints:
+	//    - required
 	BonjourFencingRuleList []*BonjourFencingRule `json:"bonjourFencingRuleList" validate:"required"`
 
 	// BonjourFencingRuleMappingList
@@ -672,6 +755,9 @@ type CreateBonjourFencingPolicy struct {
 
 	Description *common.Description `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -688,20 +774,30 @@ type CreateBridgeProfile struct {
 	// Profile Id
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
 type CreateClientIsolationWhitelist struct {
 	// ClientIsolationAutoEnabled
 	// Client Isolation Auto Enable
+	// Constraints:
+	//    - required
 	ClientIsolationAutoEnabled *bool `json:"clientIsolationAutoEnabled" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Whitelist
 	// Client Isolation Whitelist array
+	// Constraints:
+	//    - required
 	Whitelist []*ClientIsolationEntry `json:"whitelist" validate:"required"`
 }
 
@@ -710,28 +806,55 @@ type CreateDhcpProfile struct {
 
 	// LeaseTimeHours
 	// Lease time in hours of the DHCP Profile
+	// Constraints:
+	//    - required
+	//    - min:0
+	//    - max:24
 	LeaseTimeHours *int `json:"leaseTimeHours" validate:"required,gte=0,lte=24"`
 
 	// LeaseTimeMinutes
 	// Lease time in minutes of the DHCP Profile
+	// Constraints:
+	//    - required
+	//    - min:0
+	//    - max:59
 	LeaseTimeMinutes *int `json:"leaseTimeMinutes" validate:"required,gte=0,lte=59"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
+	// PoolEndIp
+	// Constraints:
+	//    - required
 	PoolEndIp *common.IpAddress `json:"poolEndIp" validate:"required"`
 
+	// PoolStartIp
+	// Constraints:
+	//    - required
 	PoolStartIp *common.IpAddress `json:"poolStartIp" validate:"required"`
 
 	PrimaryDnsIp *common.IpAddress `json:"primaryDnsIp,omitempty"`
 
 	SecondaryDnsIp *common.IpAddress `json:"secondaryDnsIp,omitempty"`
 
+	// SubnetMask
+	// Constraints:
+	//    - required
 	SubnetMask *common.IpAddress `json:"subnetMask" validate:"required"`
 
+	// SubnetNetworkIp
+	// Constraints:
+	//    - required
 	SubnetNetworkIp *common.IpAddress `json:"subnetNetworkIp" validate:"required"`
 
 	// VlanId
 	// VLAN ID of the DHCP Profile
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:4094
 	VlanId *int `json:"vlanId" validate:"required,gte=1,lte=4094"`
 }
 
@@ -746,10 +869,15 @@ type CreateDnsServerProfile struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PrimaryIp
 	// Primary ip of DNS server service
+	// Constraints:
+	//    - required
 	PrimaryIp *string `json:"primaryIp" validate:"required"`
 
 	// SecondaryIp
@@ -766,6 +894,9 @@ type CreateIpsecProfile struct {
 
 	// AuthType
 	// authentication type of the ipsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PresharedKey,Certificate]
 	AuthType *string `json:"authType,omitempty" validate:"omitempty,oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
@@ -778,6 +909,8 @@ type CreateIpsecProfile struct {
 
 	// EspRekeyTime
 	// espRekey Time of the ipsec profile
+	// Constraints:
+	//    - required
 	EspRekeyTime *float64 `json:"espRekeyTime" validate:"required"`
 
 	EspRekeyTimeUnit *common.TimeUnitStore `json:"espRekeyTimeUnit,omitempty"`
@@ -790,14 +923,22 @@ type CreateIpsecProfile struct {
 
 	// IkeRekeyTime
 	// ikeRekey Time of the ipsec profile
+	// Constraints:
+	//    - required
 	IkeRekeyTime *float64 `json:"ikeRekeyTime" validate:"required"`
 
 	IkeRekeyTimeUnit *common.TimeUnitStore `json:"ikeRekeyTimeUnit,omitempty"`
 
 	IkeSecurityAssociation *IkeSecurityAssociationContent `json:"ikeSecurityAssociation,omitempty"`
 
+	// IpMode
+	// Constraints:
+	//    - required
 	IpMode *IpMode `json:"ipMode" validate:"required"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PreSharedKey
@@ -810,10 +951,16 @@ type CreateIpsecProfile struct {
 
 	// TunnelMode
 	// Tunnel mode of IPsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SOFT_GRE,RUCKUS_GRE]
 	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=SOFT_GRE RUCKUS_GRE"`
 }
 
 type CreateL2oGREProfile struct {
+	// CoreNetworkGateway
+	// Constraints:
+	//    - required
 	CoreNetworkGateway *CoreNetworkGateway `json:"coreNetworkGateway" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -828,6 +975,9 @@ type CreateL2oGREProfile struct {
 	// Profile Id
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -852,14 +1002,22 @@ type CreateResultList []*common.CreateResult
 type CreateRogueApPolicy struct {
 	Description *common.Description `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
+	// Rules
+	// Constraints:
+	//    - required
 	Rules []*RogueApRuleList `json:"rules" validate:"required"`
 }
 
 type CreateRtlsProfile struct {
 	// EkahauEnabled
 	// Eekahau Location Service Enabled
+	// Constraints:
+	//    - required
 	EkahauEnabled *bool `json:"ekahauEnabled" validate:"required"`
 
 	EkahauIp *common.IpAddress `json:"ekahauIp,omitempty"`
@@ -872,6 +1030,8 @@ type CreateRtlsProfile struct {
 
 	// StanleyEnabled
 	// Stanley Location Service Enabled
+	// Constraints:
+	//    - required
 	StanleyEnabled *bool `json:"stanleyEnabled" validate:"required"`
 }
 
@@ -886,22 +1046,39 @@ type CreateRuckusGREProfile struct {
 	// Profile Id
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DISABLE,AES128,AES256]
 	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"omitempty,oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[GRE,GREUDP]
 	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
+	// Constraints:
+	//    - required
+	//    - oneof:[AUTO,MANUAL]
 	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled" validate:"required,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - default:1500
+	//    - min:850
+	//    - max:9018
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
@@ -924,16 +1101,29 @@ type CreateSoftGREProfile struct {
 
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
+	// Constraints:
+	//    - required
+	//    - min:1
+	//    - max:180
 	KeepAlivePeriod *int `json:"keepAlivePeriod" validate:"required,gte=1,lte=180"`
 
 	// KeepAliveRetry
 	// ICMP Keep-Alive Retry
+	// Constraints:
+	//    - required
+	//    - min:2
+	//    - max:20
 	KeepAliveRetry *int `json:"keepAliveRetry" validate:"required,gte=2,lte=20"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PrimaryGateway
 	// Primary gateway address of the SoftGRE profile
+	// Constraints:
+	//    - required
 	PrimaryGateway *string `json:"primaryGateway" validate:"required"`
 
 	// SecondaryGateway
@@ -942,38 +1132,61 @@ type CreateSoftGREProfile struct {
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the SoftGRE profile
+	// Constraints:
+	//    - required
+	//    - oneof:[AUTO,MANUAL]
 	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled" validate:"required,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of SoftGRE profile. IPV4:850-1500, IPV6:1384-1500. Default 1500.
+	// Constraints:
+	//    - nullable
+	//    - default:1500
+	//    - min:850
+	//    - max:9018
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
 type CreateTrafficClassProfile struct {
 	Description *common.Description `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName2to64 `json:"name" validate:"required"`
 
+	// TrafficClasses
+	// Constraints:
+	//    - required
 	TrafficClasses []*common.TrafficClassRef `json:"trafficClasses" validate:"required"`
 }
 
 type CreateTtgpdgProfile struct {
 	// ApnForwardingRealms
 	// List of the APN Forwarding Policy Per Realm
+	// Constraints:
+	//    - required
 	ApnForwardingRealms []*TtgpdgApnForwardingRealm `json:"apnForwardingRealms" validate:"required"`
 
 	// ApnRealms
 	// List of the Default APN
 	ApnRealms []*ApnRealm `json:"apnRealms,omitempty"`
 
+	// CommonSetting
+	// Constraints:
+	//    - required
 	CommonSetting *TtgpdgCommonSetting `json:"commonSetting" validate:"required"`
 
 	// DefaultNoMatchingAPN
 	// Default APN of the No Matching Realm Found
+	// Constraints:
+	//    - required
 	DefaultNoMatchingAPN *string `json:"defaultNoMatchingAPN" validate:"required"`
 
 	// DefaultNoRealmAPN
 	// Default APN of the No Realm Specified
+	// Constraints:
+	//    - required
 	DefaultNoRealmAPN *string `json:"defaultNoRealmAPN" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -988,6 +1201,9 @@ type CreateTtgpdgProfile struct {
 	// Profile Id
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -998,6 +1214,10 @@ type CreateUserTrafficProfile struct {
 
 	// DefaultAction
 	// Default action
+	// Constraints:
+	//    - required
+	//    - default:'ALLOW'
+	//    - oneof:[BLOCK,ALLOW]
 	DefaultAction *string `json:"defaultAction" validate:"required,oneof=BLOCK ALLOW"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -1016,6 +1236,9 @@ type CreateUserTrafficProfile struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// QmAppPolicyId
@@ -1032,18 +1255,30 @@ type CreateUserTrafficProfile struct {
 type CreateZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
+	// Constraints:
+	//    - nullable
+	//    - max:64
 	Description *string `json:"description,omitempty" validate:"omitempty,max=64"`
 
 	// Name
 	// Zone affinity profile name
+	// Constraints:
+	//    - required
+	//    - max:64
+	//    - min:1
 	Name *string `json:"name" validate:"required,max=64,min=1"`
 
+	// ZoneAffinityList
+	// Constraints:
+	//    - required
 	ZoneAffinityList []string `json:"zoneAffinityList" validate:"required"`
 }
 
 type DataPlaneL3RoamingData struct {
 	// Activated
 	// Show if this DP is included in the L3 roaming feature or not, 0 means excluded and 1 means included
+	// Constraints:
+	//    - required
 	Activated *int `json:"activated" validate:"required"`
 
 	// FirmwareVersion
@@ -1052,16 +1287,24 @@ type DataPlaneL3RoamingData struct {
 
 	// Key
 	// Data plane key
+	// Constraints:
+	//    - required
 	Key *string `json:"key" validate:"required"`
 
 	// Name
 	// DP name
 	Name *string `json:"name,omitempty"`
 
+	// SubCriteriaType
+	// Constraints:
+	//    - nullable
+	//    - oneof:[VLAN,SUBNET]
 	SubCriteriaType *string `json:"subCriteriaType,omitempty" validate:"omitempty,oneof=VLAN SUBNET"`
 
 	// Value
 	// A list of L3 roaming configuration for this DP
+	// Constraints:
+	//    - required
 	Value *string `json:"value" validate:"required"`
 }
 
@@ -1092,6 +1335,9 @@ type DhcpOption82 struct {
 
 	// Subopt1Format
 	// Subopt-1 format
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AP_INFO,AP_MAC_hex,AP_MAC_hex_ESSID,AP_INFO_LOCATION]
 	Subopt1Format *string `json:"subopt1Format,omitempty" validate:"omitempty,oneof=AP_INFO AP_MAC_hex AP_MAC_hex_ESSID AP_INFO_LOCATION"`
 
 	// Subopt2Enabled
@@ -1100,6 +1346,9 @@ type DhcpOption82 struct {
 
 	// Subopt2Format
 	// Subopt-2 format
+	// Constraints:
+	//    - nullable
+	//    - oneof:[CLIENT_MAC_hex,CLIENT_MAC_hex_ESSID,AP_MAC_hex,AP_MAC__hex_ESSID]
 	Subopt2Format *string `json:"subopt2Format,omitempty" validate:"omitempty,oneof=CLIENT_MAC_hex CLIENT_MAC_hex_ESSID AP_MAC_hex AP_MAC__hex_ESSID"`
 
 	// Subopt150Enabled
@@ -1116,6 +1365,9 @@ type DhcpOption82 struct {
 
 	// Subopt151Format
 	// Subopt-151 format
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AREA_NAME,ESSID]
 	Subopt151Format *string `json:"subopt151Format,omitempty" validate:"omitempty,oneof=AREA_NAME ESSID"`
 }
 
@@ -1255,14 +1507,23 @@ type DownlinkRateLimiting struct {
 type EspProposal struct {
 	// AuthAlg
 	// authAlg of espProposal Specific
+	// Constraints:
+	//    - required
+	//    - oneof:[MD5,SHA1,AESXCBC,SHA256,SHA384,SHA512]
 	AuthAlg *string `json:"authAlg" validate:"required,oneof=MD5 SHA1 AESXCBC SHA256 SHA384 SHA512"`
 
 	// DhGroup
 	// dhGroup of espProposal Specific
+	// Constraints:
+	//    - required
+	//    - oneof:[None,Modp768,Modp1024,Modp1536,Modp2048,Modp3072,Modp4096,Modp6144,Modp8192,Ecp384]
 	DhGroup *string `json:"dhGroup" validate:"required,oneof=None Modp768 Modp1024 Modp1536 Modp2048 Modp3072 Modp4096 Modp6144 Modp8192 Ecp384"`
 
 	// EncAlg
 	// encAlg of espProposal Specific
+	// Constraints:
+	//    - required
+	//    - oneof:[None,ThreeDES,AES128,AES192,AES256]
 	EncAlg *string `json:"encAlg" validate:"required,oneof=None ThreeDES AES128 AES192 AES256"`
 }
 
@@ -1276,6 +1537,9 @@ type EspSecurityAssociationContent struct {
 
 	// EspProposalType
 	// espProposal Type of the ipsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Default,Specific]
 	EspProposalType *string `json:"espProposalType,omitempty" validate:"omitempty,oneof=Default Specific"`
 }
 
@@ -1358,10 +1622,17 @@ type GetL3RoamingConfig struct {
 }
 
 type Hs20FriendlyName struct {
+	// Language
+	// Constraints:
+	//    - required
 	Language *common.LanguageName `json:"language" validate:"required"`
 
 	// Name
 	// Name of the friendly name
+	// Constraints:
+	//    - required
+	//    - max:32
+	//    - min:2
 	Name *string `json:"name" validate:"required,max=32,min=2"`
 }
 
@@ -1388,10 +1659,14 @@ type Hs20Operator struct {
 
 	// DomainNames
 	// Domain names
+	// Constraints:
+	//    - required
 	DomainNames []common.WildFQDN `json:"domainNames" validate:"required"`
 
 	// FriendlyNames
 	// Friendly names
+	// Constraints:
+	//    - required
 	FriendlyNames []*Hs20FriendlyName `json:"friendlyNames" validate:"required"`
 
 	// Id
@@ -1410,6 +1685,9 @@ type Hs20Operator struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
@@ -1503,18 +1781,30 @@ type Hs20ProviderList struct {
 type IkeProposal struct {
 	// AuthAlg
 	// authAlg of ikeProposal Specific
+	// Constraints:
+	//    - required
+	//    - oneof:[MD5,SHA1,AESXCBC,SHA256,SHA384,SHA512]
 	AuthAlg *string `json:"authAlg" validate:"required,oneof=MD5 SHA1 AESXCBC SHA256 SHA384 SHA512"`
 
 	// DhGroup
 	// dhGroup of ikeProposal Specific
+	// Constraints:
+	//    - required
+	//    - oneof:[Modp768,Modp1024,Modp1536,Modp2048,Modp3072,Modp4096,Modp6144,Modp8192,Ecp384]
 	DhGroup *string `json:"dhGroup" validate:"required,oneof=Modp768 Modp1024 Modp1536 Modp2048 Modp3072 Modp4096 Modp6144 Modp8192 Ecp384"`
 
 	// EncAlg
 	// encAlg of ikeProposal Specific
+	// Constraints:
+	//    - required
+	//    - oneof:[ThreeDES,AES128,AES192,AES256]
 	EncAlg *string `json:"encAlg" validate:"required,oneof=ThreeDES AES128 AES192 AES256"`
 
 	// PrfAlg
 	// prfAlg of ikeProposal Specific
+	// Constraints:
+	//    - nullable
+	//    - oneof:[UseIntegrityALG,PRF_MD5,PRF_SHA1,PRF_AES_CBC,PRF_AES_MAC,PRF_SHA256,PRF_SHA384,PRF_SHA512]
 	PrfAlg *string `json:"prfAlg,omitempty" validate:"omitempty,oneof=UseIntegrityALG PRF_MD5 PRF_SHA1 PRF_AES_CBC PRF_AES_MAC PRF_SHA256 PRF_SHA384 PRF_SHA512"`
 }
 
@@ -1528,16 +1818,27 @@ type IkeSecurityAssociationContent struct {
 
 	// IkeProposalType
 	// ikeProposal Type of the ipsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[Default,Specific]
 	IkeProposalType *string `json:"ikeProposalType,omitempty" validate:"omitempty,oneof=Default Specific"`
 }
 
 type IpAclRules struct {
 	// Action
 	// The access of traffic access control.
+	// Constraints:
+	//    - nullable
+	//    - default:'ALLOW'
+	//    - oneof:[ALLOW,BLOCK]
 	Action *string `json:"action,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
 
 	// CustomProtocol
 	// The protocol of traffic access control. Available if the protocol is set to CUSTOM.
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:255
 	CustomProtocol *int `json:"customProtocol,omitempty" validate:"omitempty,gte=1,lte=255"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -1564,6 +1865,10 @@ type IpAclRules struct {
 
 	// Direction
 	// The direction of traffic access control.
+	// Constraints:
+	//    - nullable
+	//    - default:'UPSTREAM'
+	//    - oneof:[UPSTREAM]
 	Direction *string `json:"direction,omitempty" validate:"omitempty,oneof=UPSTREAM"`
 
 	// DownlinkRateLimitingEnabled
@@ -1600,6 +1905,10 @@ type IpAclRules struct {
 
 	// IpType
 	// IP Type(IPv4 or IPv6).
+	// Constraints:
+	//    - nullable
+	//    - default:'IPv4'
+	//    - oneof:[IPv4,IPv6]
 	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=IPv4 IPv6"`
 
 	// Priority
@@ -1608,6 +1917,9 @@ type IpAclRules struct {
 
 	// Protocol
 	// The protocol of traffic access control.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[TCP,UDP,UDPLITE,ICMP_ICMPV4,ICMPV6,IGMP,ESP,AH,SCTP,CUSTOM]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
 
 	// SourceIp
@@ -1646,6 +1958,9 @@ type IpsecProfile struct {
 
 	// AuthType
 	// authentication type of the ipsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PresharedKey,Certificate]
 	AuthType *string `json:"authType,omitempty" validate:"omitempty,oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
@@ -1714,6 +2029,9 @@ type IpsecProfile struct {
 
 	// TunnelMode
 	// Tunnel mode of IPsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[SOFT_GRE,RUCKUS_GRE]
 	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=SOFT_GRE RUCKUS_GRE"`
 }
 
@@ -2013,10 +2331,18 @@ type ModifyHS20Operator struct {
 type ModifyIpAclRules struct {
 	// Action
 	// The access of traffic access control.
+	// Constraints:
+	//    - required
+	//    - default:'ALLOW'
+	//    - oneof:[ALLOW,BLOCK]
 	Action *string `json:"action" validate:"required,oneof=ALLOW BLOCK"`
 
 	// CustomProtocol
 	// The protocol of traffic access control. Available if the protocol is set to CUSTOM.
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:255
 	CustomProtocol *int `json:"customProtocol,omitempty" validate:"omitempty,gte=1,lte=255"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -2043,6 +2369,10 @@ type ModifyIpAclRules struct {
 
 	// Direction
 	// The direction of traffic access control.
+	// Constraints:
+	//    - required
+	//    - default:'UPSTREAM'
+	//    - oneof:[UPSTREAM]
 	Direction *string `json:"direction" validate:"required,oneof=UPSTREAM"`
 
 	// DownlinkRateLimitingEnabled
@@ -2079,6 +2409,10 @@ type ModifyIpAclRules struct {
 
 	// IpType
 	// IP Type(IPv4 or IPv6)
+	// Constraints:
+	//    - nullable
+	//    - default:'IPv4'
+	//    - oneof:[IPv4,IPv6]
 	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=IPv4 IPv6"`
 
 	// Priority
@@ -2087,6 +2421,9 @@ type ModifyIpAclRules struct {
 
 	// Protocol
 	// The protocol of traffic access control.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[TCP,UDP,UDPLITE,ICMP_ICMPV4,ICMPV6,IGMP,ESP,AH,SCTP,CUSTOM]
 	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
 
 	// SourceIp
@@ -2123,6 +2460,9 @@ type ModifyIpsecProfile struct {
 
 	// AuthType
 	// authentication type of the ipsec profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[PresharedKey,Certificate]
 	AuthType *string `json:"authType,omitempty" validate:"omitempty,oneof=PresharedKey Certificate"`
 
 	CmProtocolOption *CmProtocolOptionContent `json:"cmProtocolOption,omitempty"`
@@ -2199,18 +2539,32 @@ type ModifyRuckusGREProfile struct {
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DISABLE,AES128,AES256]
 	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"omitempty,oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[GRE,GREUDP]
 	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AUTO,MANUAL]
 	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - default:1500
+	//    - min:850
+	//    - max:9018
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
@@ -2231,10 +2585,20 @@ type ModifySoftGREProfile struct {
 
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
+	// Constraints:
+	//    - nullable
+	//    - default:10
+	//    - min:1
+	//    - max:180
 	KeepAlivePeriod *int `json:"keepAlivePeriod,omitempty" validate:"omitempty,gte=1,lte=180"`
 
 	// KeepAliveRetry
 	// ICMP Keep-Alive Retry
+	// Constraints:
+	//    - nullable
+	//    - default:5
+	//    - min:2
+	//    - max:20
 	KeepAliveRetry *int `json:"keepAliveRetry,omitempty" validate:"omitempty,gte=2,lte=20"`
 
 	Name *common.NormalName `json:"name,omitempty"`
@@ -2249,10 +2613,18 @@ type ModifySoftGREProfile struct {
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the SoftGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AUTO,MANUAL]
 	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
 	// Tunnel MTU size of SoftGRE profile. IPV4:850-1500, IPV6:1384-1500. Default 1500.
+	// Constraints:
+	//    - nullable
+	//    - default:1500
+	//    - min:850
+	//    - max:9018
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty" validate:"omitempty,gte=850,lte=9018"`
 }
 
@@ -2263,6 +2635,10 @@ type ModifyUserTrafficProfile struct {
 
 	// DefaultAction
 	// Default action
+	// Constraints:
+	//    - nullable
+	//    - default:'ALLOW'
+	//    - oneof:[BLOCK,ALLOW]
 	DefaultAction *string `json:"defaultAction,omitempty" validate:"omitempty,oneof=BLOCK ALLOW"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -2301,10 +2677,17 @@ type ModifyUserTrafficProfile struct {
 type ModifyZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
+	// Constraints:
+	//    - nullable
+	//    - max:64
 	Description *string `json:"description,omitempty" validate:"omitempty,max=64"`
 
 	// Name
 	// Zone affinity profile name
+	// Constraints:
+	//    - nullable
+	//    - max:64
+	//    - min:1
 	Name *string `json:"name,omitempty" validate:"omitempty,max=64,min=1"`
 
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
@@ -2417,10 +2800,16 @@ type ProviderAccounting struct {
 	// Accounting name
 	Name *string `json:"name,omitempty"`
 
+	// Realm
+	// Constraints:
+	//    - required
 	Realm *common.Realm `json:"realm" validate:"required"`
 
 	// ServiceType
 	// Accounting service type
+	// Constraints:
+	//    - required
+	//    - oneof:[NA,RADIUS,CGF]
 	ServiceType *string `json:"serviceType" validate:"required,oneof=NA RADIUS CGF"`
 }
 
@@ -2433,20 +2822,33 @@ type ProviderAuthentication struct {
 	// Authentication name
 	Name *string `json:"name,omitempty"`
 
+	// Realm
+	// Constraints:
+	//    - required
 	Realm *common.Realm `json:"realm" validate:"required"`
 
 	// ServiceType
 	// Authentication service type
+	// Constraints:
+	//    - required
+	//    - oneof:[NA,LOCAL_DB,RADIUS,GUEST]
 	ServiceType *string `json:"serviceType" validate:"required,oneof=NA LOCAL_DB RADIUS GUEST"`
 
 	// VlanId
 	// Dynamic vlan ID
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:4094
 	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4094"`
 }
 
 type ProviderEAPAuthSetting struct {
 	// Info
 	// EAP auth info
+	// Constraints:
+	//    - required
+	//    - oneof:[Expanded,Non,Inner,Expanded_Inner,Credential,Tunneled]
 	Info *string `json:"info" validate:"required,oneof=Expanded Non Inner Expanded_Inner Credential Tunneled"`
 
 	// Type
@@ -2455,10 +2857,18 @@ type ProviderEAPAuthSetting struct {
 
 	// VendorId
 	// EAP auth vendor ID
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:16777215
 	VendorId *int `json:"vendorId,omitempty" validate:"omitempty,gte=0,lte=16777215"`
 
 	// VendorType
 	// EAP auth vendor type
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:4294967295
 	VendorType *int `json:"vendorType,omitempty" validate:"omitempty,gte=0,lte=4294967295"`
 }
 
@@ -2469,26 +2879,40 @@ type ProviderEAPMethod struct {
 
 	// Type
 	// EAP method type
+	// Constraints:
+	//    - required
+	//    - oneof:[NA,MD5,EAP_TLS,EAP_Cisco,EAP_SIM,EAP_TTLS,EAP_AKA,PEAP,EAP_MSCHAP_V2,EAP_AKAs,Reserved]
 	Type *string `json:"type" validate:"required,oneof=NA MD5 EAP_TLS EAP_Cisco EAP_SIM EAP_TTLS EAP_AKA PEAP EAP_MSCHAP_V2 EAP_AKAs Reserved"`
 }
 
 type ProviderExternalOSU struct {
 	// CommonLanguageIcon
 	// The base64 encoded data of icon.
+	// Constraints:
+	//    - required
 	CommonLanguageIcon *string `json:"commonLanguageIcon" validate:"required"`
 
 	// OsuNaiRealm
 	// Online signup NAI realm, it should be one of realm as defined in Hotspot 2.0 identity provider
+	// Constraints:
+	//    - required
 	OsuNaiRealm *string `json:"osuNaiRealm" validate:"required"`
 
+	// OsuServiceUrl
+	// Constraints:
+	//    - required
 	OsuServiceUrl *common.HTTPS `json:"osuServiceUrl" validate:"required"`
 
 	// ProvisioningProtocals
 	// Provisioning protocal
+	// Constraints:
+	//    - required
 	ProvisioningProtocals []ProviderProvisionProtocal `json:"provisioningProtocals" validate:"required"`
 
 	// SubscriptionDescriptions
 	// Subscription descriptions
+	// Constraints:
+	//    - required
 	SubscriptionDescriptions []*ProviderSubscriptionDescription `json:"subscriptionDescriptions" validate:"required"`
 
 	// WhitelistedDomains
@@ -2499,40 +2923,65 @@ type ProviderExternalOSU struct {
 type ProviderHomeOIs struct {
 	// Name
 	// Name of the home OI
+	// Constraints:
+	//    - required
+	//    - max:255
 	Name *string `json:"name" validate:"required,max=255"`
 
 	// Oi
 	// Orgnization ID(3Hex or 5Hex)
+	// Constraints:
+	//    - required
 	Oi *string `json:"oi" validate:"required"`
 }
 
 type ProviderInternalOSU struct {
+	// Certificate
+	// Constraints:
+	//    - required
 	Certificate *common.GenericRef `json:"certificate" validate:"required"`
 
 	// CommonLanguageIcon
 	// The base64 encoded data of icon.
+	// Constraints:
+	//    - required
 	CommonLanguageIcon *string `json:"commonLanguageIcon" validate:"required"`
 
 	// OsuAuthServices
 	// Online signup authentication services
+	// Constraints:
+	//    - required
 	OsuAuthServices []*ProviderInternalOSUOsuAuthServicesType `json:"osuAuthServices" validate:"required"`
 
+	// OsuPortal
+	// Constraints:
+	//    - required
 	OsuPortal *ProviderInternalOSUOsuPortalType `json:"osuPortal" validate:"required"`
 
 	// ProvisioningFormat
 	// Provisioning format
+	// Constraints:
+	//    - required
+	//    - oneof:[R1_R2_ZEROIT,R2_ZEROIT]
 	ProvisioningFormat *string `json:"provisioningFormat" validate:"required,oneof=R1_R2_ZEROIT R2_ZEROIT"`
 
 	// ProvisioningProtocals
 	// Provisioning protocal
+	// Constraints:
+	//    - required
 	ProvisioningProtocals []ProviderProvisionProtocal `json:"provisioningProtocals" validate:"required"`
 
 	// ProvisioningUpdateType
 	// Provisioning update at
+	// Constraints:
+	//    - required
+	//    - oneof:[ALWAYS,KNOWN_ROAM_PARTNERS,NEVER]
 	ProvisioningUpdateType *string `json:"provisioningUpdateType" validate:"required,oneof=ALWAYS KNOWN_ROAM_PARTNERS NEVER"`
 
 	// SubscriptionDescriptions
 	// Subscription descriptions
+	// Constraints:
+	//    - required
 	SubscriptionDescriptions []*ProviderSubscriptionDescription `json:"subscriptionDescriptions" validate:"required"`
 
 	// WhitelistedDomains
@@ -2543,10 +2992,17 @@ type ProviderInternalOSU struct {
 type ProviderInternalOSUOsuAuthServicesType struct {
 	// CredentialType
 	// Authentication credential type
+	// Constraints:
+	//    - required
+	//    - oneof:[LOCAL,REMOTE]
 	CredentialType *string `json:"credentialType" validate:"required,oneof=LOCAL REMOTE"`
 
 	// Expiration
 	// Expiration hour. null mean never expire
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	//    - max:175200
 	Expiration *int `json:"expiration,omitempty" validate:"omitempty,gte=1,lte=175200"`
 
 	// Id
@@ -2557,6 +3013,9 @@ type ProviderInternalOSUOsuAuthServicesType struct {
 	// Authentication service name
 	Name *string `json:"name,omitempty"`
 
+	// Realm
+	// Constraints:
+	//    - required
 	Realm *common.Realm `json:"realm" validate:"required"`
 }
 
@@ -2567,6 +3026,9 @@ type ProviderInternalOSUOsuPortalType struct {
 
 	// Type
 	// Portal type
+	// Constraints:
+	//    - required
+	//    - oneof:[Internal,External]
 	Type *string `json:"type" validate:"required,oneof=Internal External"`
 }
 
@@ -2577,16 +3039,23 @@ type ProviderOnlineSignup struct {
 
 	// Type
 	// Online singup type
+	// Constraints:
+	//    - required
+	//    - oneof:[Internal,External]
 	Type *string `json:"type" validate:"required,oneof=Internal External"`
 }
 
 type ProviderPLMN struct {
 	// Mcc
 	// MCC
+	// Constraints:
+	//    - required
 	Mcc *string `json:"mcc" validate:"required"`
 
 	// Mnc
 	// MNC
+	// Constraints:
+	//    - required
 	Mnc *string `json:"mnc" validate:"required"`
 }
 
@@ -2595,30 +3064,49 @@ type ProviderProvisionProtocal string
 type ProviderRealm struct {
 	// EapMethods
 	// EAP methods
+	// Constraints:
+	//    - required
 	EapMethods []*ProviderEAPMethod `json:"eapMethods" validate:"required"`
 
 	// Encoding
 	// Encoding
+	// Constraints:
+	//    - required
+	//    - oneof:[RFC4282,UTF8]
 	Encoding *string `json:"encoding" validate:"required,oneof=RFC4282 UTF8"`
 
 	// Name
 	// Name of realm
+	// Constraints:
+	//    - required
+	//    - max:243
+	//    - min:2
 	Name *string `json:"name" validate:"required,max=243,min=2"`
 }
 
 type ProviderSubscriptionDescription struct {
 	// Description
 	// Description of the friendly name
+	// Constraints:
+	//    - nullable
+	//    - max:64
 	Description *string `json:"description,omitempty" validate:"omitempty,max=64"`
 
 	// Icon
 	// The binary data of icon, maximum size 65536
 	Icon *string `json:"icon,omitempty"`
 
+	// Language
+	// Constraints:
+	//    - required
 	Language *common.LanguageName `json:"language" validate:"required"`
 
 	// Name
 	// Name of the friendly name
+	// Constraints:
+	//    - required
+	//    - max:252
+	//    - min:2
 	Name *string `json:"name" validate:"required,max=252,min=2"`
 }
 
@@ -2628,6 +3116,9 @@ type ProviderSubscriptionDescription struct {
 type RateLimitingPrecedenceItem struct {
 	// Name
 	// Name of rate limiting precedence item
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AAA,DEVICE,WLANUTP]
 	Name *string `json:"name,omitempty" validate:"omitempty,oneof=AAA DEVICE WLANUTP"`
 
 	// Priority
@@ -2641,10 +3132,17 @@ type RateLimitingPrecedenceItem struct {
 type RealmAuthServiceMapping struct {
 	// AuthorizationMethod
 	// Authorization method
+	// Constraints:
+	//    - required
+	//    - oneof:[NonGPPCallFlow,GPPCallFlow,UpdateGPRSLocation,RestoreData,NoAutz]
 	AuthorizationMethod *string `json:"authorizationMethod" validate:"required,oneof=NonGPPCallFlow GPPCallFlow UpdateGPRSLocation RestoreData NoAutz"`
 
 	// DynamicVlanId
 	// Dynamic VLAN ID
+	// Constraints:
+	//    - nullable
+	//    - min:2
+	//    - max:4094
 	DynamicVlanId *int `json:"dynamicVlanId,omitempty" validate:"omitempty,gte=2,lte=4094"`
 
 	HostedAaaEnabled *bool `json:"hostedAaaEnabled,omitempty"`
@@ -2657,10 +3155,16 @@ type RealmAuthServiceMapping struct {
 	// Authentication service name
 	Name *string `json:"name,omitempty"`
 
+	// Realm
+	// Constraints:
+	//    - required
 	Realm *common.Realm `json:"realm" validate:"required"`
 
 	// ServiceType
 	// Authentication service type, NA is NA-Request Rejected
+	// Constraints:
+	//    - required
+	//    - oneof:[NA,RADIUS,LOCAL_DB,HLR,AD,LDAP]
 	ServiceType *string `json:"serviceType" validate:"required,oneof=NA RADIUS LOCAL_DB HLR AD LDAP"`
 }
 
@@ -2707,6 +3211,10 @@ type ReturnZoneAffinityProfile struct {
 
 	// Name
 	// Zone affinity profile name
+	// Constraints:
+	//    - nullable
+	//    - max:64
+	//    - min:1
 	Name *string `json:"name,omitempty" validate:"omitempty,max=64,min=1"`
 
 	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
@@ -2759,12 +3267,26 @@ type RogueApPolicyList struct {
 }
 
 type RogueApRuleList struct {
+	// Classification
+	// Constraints:
+	//    - required
+	//    - oneof:[Ignore,Known,Rogue,Malicious]
 	Classification *string `json:"classification" validate:"required,oneof=Ignore Known Rogue Malicious"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalNameAllowBlank `json:"name" validate:"required"`
 
+	// Priority
+	// Constraints:
+	//    - required
 	Priority *int `json:"priority" validate:"required"`
 
+	// Type
+	// Constraints:
+	//    - required
+	//    - oneof:[AdhocRule,SsidSpoofingRule,MacSpoofingRule,SameNetworkRule,CustomSsidRule,CustomRssiRule,CustomMacOuiRule]
 	Type *string `json:"type" validate:"required,oneof=AdhocRule SsidSpoofingRule MacSpoofingRule SameNetworkRule CustomSsidRule CustomRssiRule CustomMacOuiRule"`
 
 	Value interface{} `json:"value,omitempty"`
@@ -2821,14 +3343,23 @@ type RuckusGREProfile struct {
 
 	// TunnelEncryption
 	// Tunnel Encryption of the RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DISABLE,AES128,AES256]
 	TunnelEncryption *string `json:"tunnelEncryption,omitempty" validate:"omitempty,oneof=DISABLE AES128 AES256"`
 
 	// TunnelMode
 	// Ruckus Tunnel Mode of RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[GRE,GREUDP]
 	TunnelMode *string `json:"tunnelMode,omitempty" validate:"omitempty,oneof=GRE GREUDP"`
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the RuckusGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AUTO,MANUAL]
 	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
@@ -2909,6 +3440,9 @@ type SoftGREProfile struct {
 
 	// TunnelMtuAutoEnabled
 	// WAN Interface MTU of the SoftGRE profile
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AUTO,MANUAL]
 	TunnelMtuAutoEnabled *string `json:"tunnelMtuAutoEnabled,omitempty" validate:"omitempty,oneof=AUTO MANUAL"`
 
 	// TunnelMtuSize
@@ -2968,10 +3502,18 @@ type TrafficClassProfileList struct {
 type TtgCommonSetting struct {
 	// MobileCountryCode
 	// Mobile country code
+	// Constraints:
+	//    - nullable
+	//    - max:3
+	//    - min:3
 	MobileCountryCode *string `json:"mobileCountryCode,omitempty" validate:"omitempty,max=3,min=3"`
 
 	// MobileNetworkCode
 	// Mobile network code
+	// Constraints:
+	//    - nullable
+	//    - max:3
+	//    - min:2
 	MobileNetworkCode *string `json:"mobileNetworkCode,omitempty" validate:"omitempty,max=3,min=2"`
 }
 
@@ -2982,10 +3524,16 @@ type TtgpdgApnForwardingRealm struct {
 
 	// ApnType
 	// type of the forwarding policy APN.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[NI,NIOI]
 	ApnType *string `json:"apnType,omitempty" validate:"omitempty,oneof=NI NIOI"`
 
 	// RouteType
 	// routeType of the forwarding policy APN.
+	// Constraints:
+	//    - nullable
+	//    - oneof:[GTPv1,GTPv2,PDG]
 	RouteType *string `json:"routeType,omitempty" validate:"omitempty,oneof=GTPv1 GTPv2 PDG"`
 }
 
@@ -3000,6 +3548,9 @@ type TtgpdgCommonSetting struct {
 
 	// ApnFormat2GGSN
 	// APN format to GGSN of TTG PDG common setting
+	// Constraints:
+	//    - nullable
+	//    - oneof:[DNS,String]
 	ApnFormat2GGSN *string `json:"apnFormat2GGSN,omitempty" validate:"omitempty,oneof=DNS String"`
 
 	// ApnOIInUse
@@ -3182,6 +3733,10 @@ type UserTrafficProfile struct {
 
 	// DefaultAction
 	// Default action
+	// Constraints:
+	//    - nullable
+	//    - default:'ALLOW'
+	//    - oneof:[BLOCK,ALLOW]
 	DefaultAction *string `json:"defaultAction,omitempty" validate:"omitempty,oneof=BLOCK ALLOW"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -3349,6 +3904,9 @@ type VdpProfile struct {
 type VlanPrecedenceItem struct {
 	// Name
 	// Name of the Vlan precedence item
+	// Constraints:
+	//    - nullable
+	//    - oneof:[AAA,DEVICE,WLAN]
 	Name *string `json:"name,omitempty" validate:"omitempty,oneof=AAA DEVICE WLAN"`
 
 	// Priority

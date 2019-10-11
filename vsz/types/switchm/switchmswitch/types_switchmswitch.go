@@ -383,6 +383,9 @@ type NetworkSwitch struct {
 
 	// LastBackupStatus
 	// Last config backup status of switch
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STARTED,SUCCESS,FAILED]
 	LastBackupStatus *string `json:"lastBackupStatus,omitempty" validate:"omitempty,oneof=STARTED SUCCESS FAILED"`
 
 	// LastBackupTime
@@ -391,6 +394,9 @@ type NetworkSwitch struct {
 
 	// LastRestoreStatus
 	// Last config restore status of switch
+	// Constraints:
+	//    - nullable
+	//    - oneof:[STARTED,SUCCESS,FAILED]
 	LastRestoreStatus *string `json:"lastRestoreStatus,omitempty" validate:"omitempty,oneof=STARTED SUCCESS FAILED"`
 
 	// LastRestoreTime

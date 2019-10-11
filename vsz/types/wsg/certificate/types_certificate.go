@@ -169,6 +169,8 @@ type CreateCert struct {
 
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
+	// Constraints:
+	//    - required
 	Data *string `json:"data" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -177,6 +179,9 @@ type CreateCert struct {
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
 	IntermediateData []string `json:"intermediateData,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Passphrase
@@ -184,8 +189,7 @@ type CreateCert struct {
 	Passphrase *string `json:"passphrase,omitempty"`
 
 	// PrivateKeyData
-	// Incompatible with certificasSigningRequest. Must choose one to enter. The value must be in PEM format
-	// which is a Base64 encoded DER certificate.
+	// Incompatible with certificasSigningRequest. Must choose one to enter. The value must be in PEM format which is a Base64 encoded DER certificate.
 	PrivateKeyData *string `json:"privateKeyData,omitempty"`
 
 	// RootData
@@ -196,6 +200,8 @@ type CreateCert struct {
 type CreateClientCert struct {
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
+	// Constraints:
+	//    - required
 	Data *string `json:"data" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
@@ -204,10 +210,15 @@ type CreateClientCert struct {
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
 	IntermediateData []string `json:"intermediateData,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// PrivateKeyData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
+	// Constraints:
+	//    - required
 	PrivateKeyData *string `json:"privateKeyData" validate:"required"`
 
 	// RootData
@@ -218,30 +229,53 @@ type CreateClientCert struct {
 type CreateCSR struct {
 	// City
 	// City of the certificates signing request
+	// Constraints:
+	//    - required
+	//    - max:128
 	City *string `json:"city" validate:"required,max=128"`
 
+	// CommonName
+	// Constraints:
+	//    - required
 	CommonName *common.FQDN `json:"commonName" validate:"required"`
 
 	// CountryCode
 	// Country code of the certificates signing request
+	// Constraints:
+	//    - required
 	CountryCode *string `json:"countryCode" validate:"required"`
 
 	Description *common.Description `json:"description,omitempty"`
 
+	// Email
+	// Constraints:
+	//    - required
 	Email *common.Email `json:"email" validate:"required"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// Organization
 	// Organization of the certificates signing request
+	// Constraints:
+	//    - required
+	//    - max:64
 	Organization *string `json:"organization" validate:"required,max=64"`
 
 	// OrganizationUnit
 	// Organization unit of the certificates signing request
+	// Constraints:
+	//    - nullable
+	//    - max:64
 	OrganizationUnit *string `json:"organizationUnit,omitempty" validate:"omitempty,max=64"`
 
 	// State
 	// State of the certificates signing request
+	// Constraints:
+	//    - required
+	//    - max:128
 	State *string `json:"state" validate:"required,max=128"`
 }
 
@@ -252,10 +286,15 @@ type CreateTrustedCAChain struct {
 	// Intermediate data of the trusted CA chain certificates
 	InterCertData []string `json:"interCertData,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - required
 	Name *common.NormalName `json:"name" validate:"required"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
+	// Constraints:
+	//    - required
 	RootCertData *string `json:"rootCertData" validate:"required"`
 }
 
@@ -306,6 +345,9 @@ type ServiceCertificate struct {
 
 	// Service
 	// the service
+	// Constraints:
+	//    - required
+	//    - oneof:[MANAGEMENT_WEB,AP_PORTAL,HOTSPOT,COMMUNICATOR]
 	Service *string `json:"service" validate:"required,oneof=MANAGEMENT_WEB AP_PORTAL HOTSPOT COMMUNICATOR"`
 }
 

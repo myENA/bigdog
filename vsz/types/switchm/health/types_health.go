@@ -30,24 +30,13 @@ type AggMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewAggMetrics() *AggMetrics {
-	aggMetricsType := new(AggMetrics)
-	return aggMetricsType
-}
-
-func NewAggMetricsWithDefaults() *AggMetrics {
-	aggMetricsType := new(AggMetrics)
-	return aggMetricsType
-}
-
 // AggMetricsExtraType
 //
 // Extra information for Aggregation Metrics
 type AggMetricsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *AggMetricsExtraType) UnmarshalJSON(b []byte) error {
+func(t *AggMetricsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -56,21 +45,11 @@ func (t *AggMetricsExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *AggMetricsExtraType) MarshalJSON() ([]byte, error) {
+func(t *AggMetricsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewAggMetricsExtraType() *AggMetricsExtraType {
-	aggMetricsExtraTypeType := new(AggMetricsExtraType)
-	return aggMetricsExtraTypeType
-}
-
-func NewAggMetricsExtraTypeWithDefaults() *AggMetricsExtraType {
-	aggMetricsExtraTypeType := new(AggMetricsExtraType)
-	return aggMetricsExtraTypeType
 }
 
 type Aggs struct {
@@ -85,16 +64,6 @@ type Aggs struct {
 	// Value
 	// Metrics of the aggregation value
 	Value *float64 `json:"value,omitempty"`
-}
-
-func NewAggs() *Aggs {
-	aggsType := new(Aggs)
-	return aggsType
-}
-
-func NewAggsWithDefaults() *Aggs {
-	aggsType := new(Aggs)
-	return aggsType
 }
 
 type IcxMetrics struct {
@@ -121,24 +90,13 @@ type IcxMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewIcxMetrics() *IcxMetrics {
-	icxMetricsType := new(IcxMetrics)
-	return icxMetricsType
-}
-
-func NewIcxMetricsWithDefaults() *IcxMetrics {
-	icxMetricsType := new(IcxMetrics)
-	return icxMetricsType
-}
-
 // IcxMetricsExtraType
 //
 // Extra information for ICX Metrics
 type IcxMetricsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *IcxMetricsExtraType) UnmarshalJSON(b []byte) error {
+func(t *IcxMetricsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -147,21 +105,11 @@ func (t *IcxMetricsExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *IcxMetricsExtraType) MarshalJSON() ([]byte, error) {
+func(t *IcxMetricsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewIcxMetricsExtraType() *IcxMetricsExtraType {
-	icxMetricsExtraTypeType := new(IcxMetricsExtraType)
-	return icxMetricsExtraTypeType
-}
-
-func NewIcxMetricsExtraTypeWithDefaults() *IcxMetricsExtraType {
-	icxMetricsExtraTypeType := new(IcxMetricsExtraType)
-	return icxMetricsExtraTypeType
 }
 
 type Metrics struct {
@@ -180,16 +128,6 @@ type Metrics struct {
 	// Timestamp
 	// Timestamp
 	Timestamp *string `json:"timestamp,omitempty"`
-}
-
-func NewMetrics() *Metrics {
-	metricsType := new(Metrics)
-	return metricsType
-}
-
-func NewMetricsWithDefaults() *Metrics {
-	metricsType := new(Metrics)
-	return metricsType
 }
 
 type Status struct {
@@ -218,16 +156,6 @@ type Status struct {
 	Temperature []*StatusTemperatureType `json:"temperature,omitempty"`
 }
 
-func NewStatus() *Status {
-	statusType := new(Status)
-	return statusType
-}
-
-func NewStatusWithDefaults() *Status {
-	statusType := new(Status)
-	return statusType
-}
-
 type StatusFanType struct {
 	// SlotNumber
 	// Fan slot number
@@ -240,16 +168,6 @@ type StatusFanType struct {
 	// Type
 	// Fan type
 	Type *string `json:"type,omitempty"`
-}
-
-func NewStatusFanType() *StatusFanType {
-	statusFanTypeType := new(StatusFanType)
-	return statusFanTypeType
-}
-
-func NewStatusFanTypeWithDefaults() *StatusFanType {
-	statusFanTypeType := new(StatusFanType)
-	return statusFanTypeType
 }
 
 type StatusPowerSupplyType struct {
@@ -266,16 +184,6 @@ type StatusPowerSupplyType struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewStatusPowerSupplyType() *StatusPowerSupplyType {
-	statusPowerSupplyTypeType := new(StatusPowerSupplyType)
-	return statusPowerSupplyTypeType
-}
-
-func NewStatusPowerSupplyTypeWithDefaults() *StatusPowerSupplyType {
-	statusPowerSupplyTypeType := new(StatusPowerSupplyType)
-	return statusPowerSupplyTypeType
-}
-
 type StatusTemperatureType struct {
 	// SlotNumber
 	// Solt number
@@ -286,12 +194,3 @@ type StatusTemperatureType struct {
 	TemperatureValue *float64 `json:"temperatureValue,omitempty"`
 }
 
-func NewStatusTemperatureType() *StatusTemperatureType {
-	statusTemperatureTypeType := new(StatusTemperatureType)
-	return statusTemperatureTypeType
-}
-
-func NewStatusTemperatureTypeWithDefaults() *StatusTemperatureType {
-	statusTemperatureTypeType := new(StatusTemperatureType)
-	return statusTemperatureTypeType
-}

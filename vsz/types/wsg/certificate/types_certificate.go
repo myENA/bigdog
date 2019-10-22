@@ -46,16 +46,6 @@ type Certificate struct {
 	RootData *string `json:"rootData,omitempty"`
 }
 
-func NewCertificate() *Certificate {
-	certificateType := new(Certificate)
-	return certificateType
-}
-
-func NewCertificateWithDefaults() *Certificate {
-	certificateType := new(Certificate)
-	return certificateType
-}
-
 type CertificateList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -66,16 +56,6 @@ type CertificateList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewCertificateList() *CertificateList {
-	certificateListType := new(CertificateList)
-	return certificateListType
-}
-
-func NewCertificateListWithDefaults() *CertificateList {
-	certificateListType := new(CertificateList)
-	return certificateListType
-}
-
 type CertificateListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -84,16 +64,6 @@ type CertificateListType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
-}
-
-func NewCertificateListType() *CertificateListType {
-	certificateListTypeType := new(CertificateListType)
-	return certificateListTypeType
-}
-
-func NewCertificateListTypeWithDefaults() *CertificateListType {
-	certificateListTypeType := new(CertificateListType)
-	return certificateListTypeType
 }
 
 type CertificatesSigningRequest struct {
@@ -134,30 +104,10 @@ type CertificatesSigningRequest struct {
 	State *string `json:"state,omitempty"`
 }
 
-func NewCertificatesSigningRequest() *CertificatesSigningRequest {
-	certificatesSigningRequestType := new(CertificatesSigningRequest)
-	return certificatesSigningRequestType
-}
-
-func NewCertificatesSigningRequestWithDefaults() *CertificatesSigningRequest {
-	certificatesSigningRequestType := new(CertificatesSigningRequest)
-	return certificatesSigningRequestType
-}
-
 type CertSetting struct {
 	// ServiceCertificates
 	// Certificate Setting of the service
 	ServiceCertificates []*ServiceCertificate `json:"serviceCertificates,omitempty"`
-}
-
-func NewCertSetting() *CertSetting {
-	certSettingType := new(CertSetting)
-	return certSettingType
-}
-
-func NewCertSettingWithDefaults() *CertSetting {
-	certSettingType := new(CertSetting)
-	return certSettingType
 }
 
 type ClientCert struct {
@@ -194,16 +144,6 @@ type ClientCert struct {
 	RootData *string `json:"rootData,omitempty"`
 }
 
-func NewClientCert() *ClientCert {
-	clientCertType := new(ClientCert)
-	return clientCertType
-}
-
-func NewClientCertWithDefaults() *ClientCert {
-	clientCertType := new(ClientCert)
-	return clientCertType
-}
-
 type ClientCertList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -214,16 +154,6 @@ type ClientCertList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewClientCertList() *ClientCertList {
-	clientCertListType := new(ClientCertList)
-	return clientCertListType
-}
-
-func NewClientCertListWithDefaults() *ClientCertList {
-	clientCertListType := new(ClientCertList)
-	return clientCertListType
-}
-
 type ClientCertListType struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -232,16 +162,6 @@ type ClientCertListType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
-}
-
-func NewClientCertListType() *ClientCertListType {
-	clientCertListTypeType := new(ClientCertListType)
-	return clientCertListTypeType
-}
-
-func NewClientCertListTypeWithDefaults() *ClientCertListType {
-	clientCertListTypeType := new(ClientCertListType)
-	return clientCertListTypeType
 }
 
 type CreateCert struct {
@@ -277,16 +197,6 @@ type CreateCert struct {
 	RootData *string `json:"rootData,omitempty"`
 }
 
-func NewCreateCert() *CreateCert {
-	createCertType := new(CreateCert)
-	return createCertType
-}
-
-func NewCreateCertWithDefaults() *CreateCert {
-	createCertType := new(CreateCert)
-	return createCertType
-}
-
 type CreateClientCert struct {
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
@@ -314,16 +224,6 @@ type CreateClientCert struct {
 	// RootData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
 	RootData *string `json:"rootData,omitempty"`
-}
-
-func NewCreateClientCert() *CreateClientCert {
-	createClientCertType := new(CreateClientCert)
-	return createClientCertType
-}
-
-func NewCreateClientCertWithDefaults() *CreateClientCert {
-	createClientCertType := new(CreateClientCert)
-	return createClientCertType
 }
 
 type CreateCSR struct {
@@ -379,16 +279,6 @@ type CreateCSR struct {
 	State *string `json:"state" validate:"required,max=128"`
 }
 
-func NewCreateCSR() *CreateCSR {
-	createCSRType := new(CreateCSR)
-	return createCSRType
-}
-
-func NewCreateCSRWithDefaults() *CreateCSR {
-	createCSRType := new(CreateCSR)
-	return createCSRType
-}
-
 type CreateTrustedCAChain struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -408,16 +298,6 @@ type CreateTrustedCAChain struct {
 	RootCertData *string `json:"rootCertData" validate:"required"`
 }
 
-func NewCreateTrustedCAChain() *CreateTrustedCAChain {
-	createTrustedCAChainType := new(CreateTrustedCAChain)
-	return createTrustedCAChainType
-}
-
-func NewCreateTrustedCAChainWithDefaults() *CreateTrustedCAChain {
-	createTrustedCAChainType := new(CreateTrustedCAChain)
-	return createTrustedCAChainType
-}
-
 type CsrList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -426,16 +306,6 @@ type CsrList struct {
 	List []*CsrListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewCsrList() *CsrList {
-	csrListType := new(CsrList)
-	return csrListType
-}
-
-func NewCsrListWithDefaults() *CsrList {
-	csrListType := new(CsrList)
-	return csrListType
 }
 
 type CsrListType struct {
@@ -448,28 +318,8 @@ type CsrListType struct {
 	Name *common.NormalName `json:"name,omitempty"`
 }
 
-func NewCsrListType() *CsrListType {
-	csrListTypeType := new(CsrListType)
-	return csrListTypeType
-}
-
-func NewCsrListTypeWithDefaults() *CsrListType {
-	csrListTypeType := new(CsrListType)
-	return csrListTypeType
-}
-
 type DeleteBulk struct {
 	IdList common.IdList `json:"idList,omitempty"`
-}
-
-func NewDeleteBulk() *DeleteBulk {
-	deleteBulkType := new(DeleteBulk)
-	return deleteBulkType
-}
-
-func NewDeleteBulkWithDefaults() *DeleteBulk {
-	deleteBulkType := new(DeleteBulk)
-	return deleteBulkType
 }
 
 type ModifyTrustedCAChain struct {
@@ -490,16 +340,6 @@ type ModifyTrustedCAChain struct {
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 
-func NewModifyTrustedCAChain() *ModifyTrustedCAChain {
-	modifyTrustedCAChainType := new(ModifyTrustedCAChain)
-	return modifyTrustedCAChainType
-}
-
-func NewModifyTrustedCAChainWithDefaults() *ModifyTrustedCAChain {
-	modifyTrustedCAChainType := new(ModifyTrustedCAChain)
-	return modifyTrustedCAChainType
-}
-
 type ServiceCertificate struct {
 	Certificate *common.GenericRef `json:"certificate,omitempty"`
 
@@ -511,27 +351,7 @@ type ServiceCertificate struct {
 	Service *string `json:"service" validate:"required,oneof=MANAGEMENT_WEB AP_PORTAL HOTSPOT COMMUNICATOR"`
 }
 
-func NewServiceCertificate() *ServiceCertificate {
-	serviceCertificateType := new(ServiceCertificate)
-	return serviceCertificateType
-}
-
-func NewServiceCertificateWithDefaults() *ServiceCertificate {
-	serviceCertificateType := new(ServiceCertificate)
-	return serviceCertificateType
-}
-
 type ServiceCertificates []*ServiceCertificate
-
-func NewServiceCertificates() *ServiceCertificates {
-	serviceCertificatesType := make(ServiceCertificates, 0)
-	return &serviceCertificatesType
-}
-
-func NewServiceCertificatesWithDefaults() *ServiceCertificates {
-	serviceCertificatesType := make(ServiceCertificates, 0)
-	return &serviceCertificatesType
-}
 
 type TrustedCAChain struct {
 	Description *common.Description `json:"description,omitempty"`
@@ -551,16 +371,6 @@ type TrustedCAChain struct {
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 
-func NewTrustedCAChain() *TrustedCAChain {
-	trustedCAChainType := new(TrustedCAChain)
-	return trustedCAChainType
-}
-
-func NewTrustedCAChainWithDefaults() *TrustedCAChain {
-	trustedCAChainType := new(TrustedCAChain)
-	return trustedCAChainType
-}
-
 type TrustedCAChainCertList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -569,16 +379,6 @@ type TrustedCAChainCertList struct {
 	List []*TrustedCAChainCertListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewTrustedCAChainCertList() *TrustedCAChainCertList {
-	trustedCAChainCertListType := new(TrustedCAChainCertList)
-	return trustedCAChainCertListType
-}
-
-func NewTrustedCAChainCertListWithDefaults() *TrustedCAChainCertList {
-	trustedCAChainCertListType := new(TrustedCAChainCertList)
-	return trustedCAChainCertListType
 }
 
 type TrustedCAChainCertListType struct {
@@ -607,12 +407,3 @@ type TrustedCAChainCertListType struct {
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 
-func NewTrustedCAChainCertListType() *TrustedCAChainCertListType {
-	trustedCAChainCertListTypeType := new(TrustedCAChainCertListType)
-	return trustedCAChainCertListTypeType
-}
-
-func NewTrustedCAChainCertListTypeWithDefaults() *TrustedCAChainCertListType {
-	trustedCAChainCertListTypeType := new(TrustedCAChainCertListType)
-	return trustedCAChainCertListTypeType
-}

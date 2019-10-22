@@ -9,29 +9,30 @@ import (
 )
 
 type SwitchMSwitchPortSettingsService struct {
-	client *Client
+    client *Client
 }
 
-func NewSwitchMSwitchPortSettingsService(client *Client) *SwitchMSwitchPortSettingsService {
-	s := new(SwitchMSwitchPortSettingsService)
-	s.client = client
-	return s
+func NewSwitchMSwitchPortSettingsService (client *Client) *SwitchMSwitchPortSettingsService {
+    s := new(SwitchMSwitchPortSettingsService)
+    s.client = client
+    return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchPortSettingsService() *SwitchMSwitchPortSettingsService {
-	serv := new(SwitchMSwitchPortSettingsService)
-	serv.client = ss.client
-	return serv
+func (ss *SwitchMService) SwitchMSwitchPortSettingsService () *SwitchMSwitchPortSettingsService {
+    serv := new(SwitchMSwitchPortSettingsService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *SwitchMSwitchPortSettingsService) AddPortSettingsBulk(ctx context.Context) (*portsettings.EmptyResult, error) {
+func (s *SwitchMSwitchPortSettingsService) AddPortSettingsBulk (ctx context.Context) (*portsettings.EmptyResult, error) {
 }
 
-func (s *SwitchMSwitchPortSettingsService) FindPortSettings(ctx context.Context) (*portsettings.PortSettingsQueryResult, error) {
+func (s *SwitchMSwitchPortSettingsService) FindPortSettings (ctx context.Context) (*portsettings.PortSettingsQueryResult, error) {
 }
 
-func (s *SwitchMSwitchPortSettingsService) FindPortSettingsById(ctx context.Context, id string) (*portsettings.PortSettings, error) {
+func (s *SwitchMSwitchPortSettingsService) FindPortSettingsById (ctx context.Context, id string) (*portsettings.PortSettings, error) {
 }
 
-func (s *SwitchMSwitchPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context) (*portsettings.PortSettingsQueryResult, error) {
+func (s *SwitchMSwitchPortSettingsService) FindPortSettingsByQueryCriteria (ctx context.Context) (*portsettings.PortSettingsQueryResult, error) {
 }
+

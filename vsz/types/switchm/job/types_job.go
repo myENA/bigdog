@@ -14,16 +14,6 @@ type ErrorObject struct {
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
-func NewErrorObject() *ErrorObject {
-	errorObjectType := new(ErrorObject)
-	return errorObjectType
-}
-
-func NewErrorObjectWithDefaults() *ErrorObject {
-	errorObjectType := new(ErrorObject)
-	return errorObjectType
-}
-
 type Job struct {
 	// Action
 	// Action of the job
@@ -84,21 +74,10 @@ type Job struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewJob() *Job {
-	jobType := new(Job)
-	return jobType
-}
-
-func NewJobWithDefaults() *Job {
-	jobType := new(Job)
-	return jobType
-}
-
 type JobCsvDataMapType struct {
-	XAdditionalProperties map[string]string `json:"-"`
-}
+	XAdditionalProperties map[string]string `json:"-"`}
 
-func (t *JobCsvDataMapType) UnmarshalJSON(b []byte) error {
+func(t *JobCsvDataMapType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]string)
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -107,21 +86,11 @@ func (t *JobCsvDataMapType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *JobCsvDataMapType) MarshalJSON() ([]byte, error) {
+func(t *JobCsvDataMapType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewJobCsvDataMapType() *JobCsvDataMapType {
-	jobCsvDataMapTypeType := new(JobCsvDataMapType)
-	return jobCsvDataMapTypeType
-}
-
-func NewJobCsvDataMapTypeWithDefaults() *JobCsvDataMapType {
-	jobCsvDataMapTypeType := new(JobCsvDataMapType)
-	return jobCsvDataMapTypeType
 }
 
 type JobSchedule struct {
@@ -136,16 +105,6 @@ type JobSchedule struct {
 	// TriggerValue
 	// Trigger value of job schedule
 	TriggerValue *string `json:"triggerValue,omitempty"`
-}
-
-func NewJobSchedule() *JobSchedule {
-	jobScheduleType := new(JobSchedule)
-	return jobScheduleType
-}
-
-func NewJobScheduleWithDefaults() *JobSchedule {
-	jobScheduleType := new(JobSchedule)
-	return jobScheduleType
 }
 
 type JobScheduleResponse struct {
@@ -166,24 +125,13 @@ type JobScheduleResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewJobScheduleResponse() *JobScheduleResponse {
-	jobScheduleResponseType := new(JobScheduleResponse)
-	return jobScheduleResponseType
-}
-
-func NewJobScheduleResponseWithDefaults() *JobScheduleResponse {
-	jobScheduleResponseType := new(JobScheduleResponse)
-	return jobScheduleResponseType
-}
-
 // JobScheduleResponseExtraType
 //
 // Extra response of job schedule
 type JobScheduleResponseExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *JobScheduleResponseExtraType) UnmarshalJSON(b []byte) error {
+func(t *JobScheduleResponseExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -192,31 +140,20 @@ func (t *JobScheduleResponseExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *JobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
+func(t *JobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewJobScheduleResponseExtraType() *JobScheduleResponseExtraType {
-	jobScheduleResponseExtraTypeType := new(JobScheduleResponseExtraType)
-	return jobScheduleResponseExtraTypeType
-}
-
-func NewJobScheduleResponseExtraTypeWithDefaults() *JobScheduleResponseExtraType {
-	jobScheduleResponseExtraTypeType := new(JobScheduleResponseExtraType)
-	return jobScheduleResponseExtraTypeType
-}
-
 // JobScheduleResponseMetaDataType
 //
 // metaData of job schedule
 type JobScheduleResponseMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *JobScheduleResponseMetaDataType) UnmarshalJSON(b []byte) error {
+func(t *JobScheduleResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -225,21 +162,11 @@ func (t *JobScheduleResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *JobScheduleResponseMetaDataType) MarshalJSON() ([]byte, error) {
+func(t *JobScheduleResponseMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewJobScheduleResponseMetaDataType() *JobScheduleResponseMetaDataType {
-	jobScheduleResponseMetaDataTypeType := new(JobScheduleResponseMetaDataType)
-	return jobScheduleResponseMetaDataTypeType
-}
-
-func NewJobScheduleResponseMetaDataTypeWithDefaults() *JobScheduleResponseMetaDataType {
-	jobScheduleResponseMetaDataTypeType := new(JobScheduleResponseMetaDataType)
-	return jobScheduleResponseMetaDataTypeType
 }
 
 type List struct {
@@ -266,24 +193,13 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewList() *List {
-	listType := new(List)
-	return listType
-}
-
-func NewListWithDefaults() *List {
-	listType := new(List)
-	return listType
-}
-
 // ListExtraType
 //
 // Extra information for job list
 type ListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ListExtraType) UnmarshalJSON(b []byte) error {
+func(t *ListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -292,19 +208,10 @@ func (t *ListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ListExtraType) MarshalJSON() ([]byte, error) {
+func(t *ListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewListExtraType() *ListExtraType {
-	listExtraTypeType := new(ListExtraType)
-	return listExtraTypeType
-}
-
-func NewListExtraTypeWithDefaults() *ListExtraType {
-	listExtraTypeType := new(ListExtraType)
-	return listExtraTypeType
-}

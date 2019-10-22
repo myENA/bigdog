@@ -8,26 +8,27 @@ import (
 )
 
 type SwitchMSwitchGroupService struct {
-	client *Client
+    client *Client
 }
 
-func NewSwitchMSwitchGroupService(client *Client) *SwitchMSwitchGroupService {
-	s := new(SwitchMSwitchGroupService)
-	s.client = client
-	return s
+func NewSwitchMSwitchGroupService (client *Client) *SwitchMSwitchGroupService {
+    s := new(SwitchMSwitchGroupService)
+    s.client = client
+    return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchGroupService() *SwitchMSwitchGroupService {
-	serv := new(SwitchMSwitchGroupService)
-	serv.client = ss.client
-	return serv
+func (ss *SwitchMService) SwitchMSwitchGroupService () *SwitchMSwitchGroupService {
+    serv := new(SwitchMSwitchGroupService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *SwitchMSwitchGroupService) AddGroup(ctx context.Context) (*group.AuditId, error) {
+func (s *SwitchMSwitchGroupService) AddGroup (ctx context.Context) (*group.AuditId, error) {
 }
 
-func (s *SwitchMSwitchGroupService) FindGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*group.SwitchGroupQueryResult, error) {
+func (s *SwitchMSwitchGroupService) FindGroupBySwitchGroupId (ctx context.Context, switchGroupId string) (*group.SwitchGroupQueryResult, error) {
 }
 
-func (s *SwitchMSwitchGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, domainId string) (*group.GroupsByIdsQueryResultList, error) {
+func (s *SwitchMSwitchGroupService) FindGroupIdsByDomainByDomainId (ctx context.Context, domainId string) (*group.GroupsByIdsQueryResultList, error) {
 }
+

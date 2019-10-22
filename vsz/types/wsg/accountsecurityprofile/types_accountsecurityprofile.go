@@ -75,44 +75,14 @@ type Create struct {
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
 
-func NewCreate() *Create {
-	createType := new(Create)
-	return createType
-}
-
-func NewCreateWithDefaults() *Create {
-	createType := new(Create)
-	return createType
-}
-
 type Delete struct {
 	// Id
 	// Profile id
 	Id *string `json:"id,omitempty"`
 }
 
-func NewDelete() *Delete {
-	deleteType := new(Delete)
-	return deleteType
-}
-
-func NewDeleteWithDefaults() *Delete {
-	deleteType := new(Delete)
-	return deleteType
-}
-
 type DeleteList struct {
 	IdList common.IdList `json:"idList,omitempty"`
-}
-
-func NewDeleteList() *DeleteList {
-	deleteListType := new(DeleteList)
-	return deleteListType
-}
-
-func NewDeleteListWithDefaults() *DeleteList {
-	deleteListType := new(DeleteList)
-	return deleteListType
 }
 
 type GetById struct {
@@ -121,16 +91,6 @@ type GetById struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
-}
-
-func NewGetById() *GetById {
-	getByIdType := new(GetById)
-	return getByIdType
-}
-
-func NewGetByIdWithDefaults() *GetById {
-	getByIdType := new(GetById)
-	return getByIdType
 }
 
 type GetByIdResult struct {
@@ -166,16 +126,6 @@ type GetByIdResult struct {
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
 
-func NewGetByIdResult() *GetByIdResult {
-	getByIdResultType := new(GetByIdResult)
-	return getByIdResultType
-}
-
-func NewGetByIdResultWithDefaults() *GetByIdResult {
-	getByIdResultType := new(GetByIdResult)
-	return getByIdResultType
-}
-
 type ProfileListResult struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -184,16 +134,6 @@ type ProfileListResult struct {
 	List []*GetById `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewProfileListResult() *ProfileListResult {
-	profileListResultType := new(ProfileListResult)
-	return profileListResultType
-}
-
-func NewProfileListResultWithDefaults() *ProfileListResult {
-	profileListResultType := new(ProfileListResult)
-	return profileListResultType
 }
 
 type Update struct {
@@ -263,12 +203,3 @@ type Update struct {
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
 
-func NewUpdate() *Update {
-	updateType := new(Update)
-	return updateType
-}
-
-func NewUpdateWithDefaults() *Update {
-	updateType := new(Update)
-	return updateType
-}

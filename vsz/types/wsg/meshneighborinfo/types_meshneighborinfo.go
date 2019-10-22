@@ -48,16 +48,6 @@ type MeshNeighborInfo struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-func NewMeshNeighborInfo() *MeshNeighborInfo {
-	meshNeighborInfoType := new(MeshNeighborInfo)
-	return meshNeighborInfoType
-}
-
-func NewMeshNeighborInfoWithDefaults() *MeshNeighborInfo {
-	meshNeighborInfoType := new(MeshNeighborInfo)
-	return meshNeighborInfoType
-}
-
 type MeshNeighborInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -82,24 +72,13 @@ type MeshNeighborInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewMeshNeighborInfoList() *MeshNeighborInfoList {
-	meshNeighborInfoListType := new(MeshNeighborInfoList)
-	return meshNeighborInfoListType
-}
-
-func NewMeshNeighborInfoListWithDefaults() *MeshNeighborInfoList {
-	meshNeighborInfoListType := new(MeshNeighborInfoList)
-	return meshNeighborInfoListType
-}
-
 // MeshNeighborInfoListExtraType
 //
 // Any additional response data.
 type MeshNeighborInfoListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *MeshNeighborInfoListExtraType) UnmarshalJSON(b []byte) error {
+func(t *MeshNeighborInfoListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -108,19 +87,10 @@ func (t *MeshNeighborInfoListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *MeshNeighborInfoListExtraType) MarshalJSON() ([]byte, error) {
+func(t *MeshNeighborInfoListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewMeshNeighborInfoListExtraType() *MeshNeighborInfoListExtraType {
-	meshNeighborInfoListExtraTypeType := new(MeshNeighborInfoListExtraType)
-	return meshNeighborInfoListExtraTypeType
-}
-
-func NewMeshNeighborInfoListExtraTypeWithDefaults() *MeshNeighborInfoListExtraType {
-	meshNeighborInfoListExtraTypeType := new(MeshNeighborInfoListExtraType)
-	return meshNeighborInfoListExtraTypeType
-}

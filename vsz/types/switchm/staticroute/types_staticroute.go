@@ -43,21 +43,10 @@ type CreateStaticRoute struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
-func NewCreateStaticRoute() *CreateStaticRoute {
-	createStaticRouteType := new(CreateStaticRoute)
-	return createStaticRouteType
-}
-
-func NewCreateStaticRouteWithDefaults() *CreateStaticRoute {
-	createStaticRouteType := new(CreateStaticRoute)
-	return createStaticRouteType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -66,21 +55,11 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
 }
 
 type StaticRoute struct {
@@ -132,16 +111,6 @@ type StaticRoute struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewStaticRoute() *StaticRoute {
-	staticRouteType := new(StaticRoute)
-	return staticRouteType
-}
-
-func NewStaticRouteWithDefaults() *StaticRoute {
-	staticRouteType := new(StaticRoute)
-	return staticRouteType
-}
-
 type StaticRoutesQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -166,24 +135,13 @@ type StaticRoutesQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewStaticRoutesQueryResult() *StaticRoutesQueryResult {
-	staticRoutesQueryResultType := new(StaticRoutesQueryResult)
-	return staticRoutesQueryResultType
-}
-
-func NewStaticRoutesQueryResultWithDefaults() *StaticRoutesQueryResult {
-	staticRoutesQueryResultType := new(StaticRoutesQueryResult)
-	return staticRoutesQueryResultType
-}
-
 // StaticRoutesQueryResultExtraType
 //
 // Any additional response data
 type StaticRoutesQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *StaticRoutesQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *StaticRoutesQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -192,21 +150,11 @@ func (t *StaticRoutesQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *StaticRoutesQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *StaticRoutesQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewStaticRoutesQueryResultExtraType() *StaticRoutesQueryResultExtraType {
-	staticRoutesQueryResultExtraTypeType := new(StaticRoutesQueryResultExtraType)
-	return staticRoutesQueryResultExtraTypeType
-}
-
-func NewStaticRoutesQueryResultExtraTypeWithDefaults() *StaticRoutesQueryResultExtraType {
-	staticRoutesQueryResultExtraTypeType := new(StaticRoutesQueryResultExtraType)
-	return staticRoutesQueryResultExtraTypeType
 }
 
 type UpdateStaticRoute struct {
@@ -234,12 +182,3 @@ type UpdateStaticRoute struct {
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 }
 
-func NewUpdateStaticRoute() *UpdateStaticRoute {
-	updateStaticRouteType := new(UpdateStaticRoute)
-	return updateStaticRouteType
-}
-
-func NewUpdateStaticRouteWithDefaults() *UpdateStaticRoute {
-	updateStaticRouteType := new(UpdateStaticRoute)
-	return updateStaticRouteType
-}

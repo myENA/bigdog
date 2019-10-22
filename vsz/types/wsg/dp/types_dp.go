@@ -6,16 +6,6 @@ type EmptyResult struct {
 	DpemptyResult *string `json:"dp_emptyResult,omitempty"`
 }
 
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
 type SwitchoverDp struct {
 	// ClusterName
 	// Name of destination cluster, Notice: System will take ipOrFqdn as 1st priority, and clusterName as 2nd.
@@ -34,12 +24,3 @@ type SwitchoverDp struct {
 	IpOrFqdn *string `json:"ipOrFqdn,omitempty"`
 }
 
-func NewSwitchoverDp() *SwitchoverDp {
-	switchoverDpType := new(SwitchoverDp)
-	return switchoverDpType
-}
-
-func NewSwitchoverDpWithDefaults() *SwitchoverDp {
-	switchoverDpType := new(SwitchoverDp)
-	return switchoverDpType
-}

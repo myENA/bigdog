@@ -29,20 +29,6 @@ type CreateDomain struct {
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
 
-func NewCreateDomain() *CreateDomain {
-	createDomainType := new(CreateDomain)
-	return createDomainType
-}
-
-func NewCreateDomainWithDefaults() *CreateDomain {
-	createDomainType := new(CreateDomain)
-	domainTypeField := `REGULAR`
-	createDomainType.DomainType = &domainTypeField
-	zeroTouchStatusField := false
-	createDomainType.ZeroTouchStatus = &zeroTouchStatusField
-	return createDomainType
-}
-
 type DomainConfiguration struct {
 	// AdministratorCount
 	// # of Subdomains
@@ -87,16 +73,6 @@ type DomainConfiguration struct {
 	ZoneCount *int `json:"zoneCount,omitempty"`
 }
 
-func NewDomainConfiguration() *DomainConfiguration {
-	domainConfigurationType := new(DomainConfiguration)
-	return domainConfigurationType
-}
-
-func NewDomainConfigurationWithDefaults() *DomainConfiguration {
-	domainConfigurationType := new(DomainConfiguration)
-	return domainConfigurationType
-}
-
 type DomainList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -105,16 +81,6 @@ type DomainList struct {
 	List []*DomainConfiguration `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewDomainList() *DomainList {
-	domainListType := new(DomainList)
-	return domainListType
-}
-
-func NewDomainListWithDefaults() *DomainList {
-	domainListType := new(DomainList)
-	return domainListType
 }
 
 type ModifyDomain struct {
@@ -135,12 +101,3 @@ type ModifyDomain struct {
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
 
-func NewModifyDomain() *ModifyDomain {
-	modifyDomainType := new(ModifyDomain)
-	return modifyDomainType
-}
-
-func NewModifyDomainWithDefaults() *ModifyDomain {
-	modifyDomainType := new(ModifyDomain)
-	return modifyDomainType
-}

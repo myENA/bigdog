@@ -48,33 +48,12 @@ type Create struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
-func NewCreate() *Create {
-	createType := new(Create)
-	return createType
-}
-
-func NewCreateWithDefaults() *Create {
-	createType := new(Create)
-	return createType
-}
-
 type CreateResult interface{}
 
-func NewCreateResult() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
-func NewCreateResultWithDefaults() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -83,21 +62,11 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
 }
 
 type IpConfig struct {
@@ -166,16 +135,6 @@ type IpConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewIpConfig() *IpConfig {
-	ipConfigType := new(IpConfig)
-	return ipConfigType
-}
-
-func NewIpConfigWithDefaults() *IpConfig {
-	ipConfigType := new(IpConfig)
-	return ipConfigType
-}
-
 type List struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -192,16 +151,6 @@ type List struct {
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewList() *List {
-	listType := new(List)
-	return listType
-}
-
-func NewListWithDefaults() *List {
-	listType := new(List)
-	return listType
 }
 
 type Modify struct {
@@ -238,12 +187,3 @@ type Modify struct {
 	SubnetMask *string `json:"subnetMask,omitempty"`
 }
 
-func NewModify() *Modify {
-	modifyType := new(Modify)
-	return modifyType
-}
-
-func NewModifyWithDefaults() *Modify {
-	modifyType := new(Modify)
-	return modifyType
-}

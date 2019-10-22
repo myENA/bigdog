@@ -18,28 +18,8 @@ type DeAuthClient struct {
 	Mac *common.Mac `json:"mac" validate:"required"`
 }
 
-func NewDeAuthClient() *DeAuthClient {
-	deAuthClientType := new(DeAuthClient)
-	return deAuthClientType
-}
-
-func NewDeAuthClientWithDefaults() *DeAuthClient {
-	deAuthClientType := new(DeAuthClient)
-	return deAuthClientType
-}
-
 type DeAuthClientList struct {
 	ClientList []*DeAuthClient `json:"clientList,omitempty"`
-}
-
-func NewDeAuthClientList() *DeAuthClientList {
-	deAuthClientListType := new(DeAuthClientList)
-	return deAuthClientListType
-}
-
-func NewDeAuthClientListWithDefaults() *DeAuthClientList {
-	deAuthClientListType := new(DeAuthClientList)
-	return deAuthClientListType
 }
 
 type DisconnectClient struct {
@@ -54,28 +34,8 @@ type DisconnectClient struct {
 	Mac *common.Mac `json:"mac" validate:"required"`
 }
 
-func NewDisconnectClient() *DisconnectClient {
-	disconnectClientType := new(DisconnectClient)
-	return disconnectClientType
-}
-
-func NewDisconnectClientWithDefaults() *DisconnectClient {
-	disconnectClientType := new(DisconnectClient)
-	return disconnectClientType
-}
-
 type DisconnectClientList struct {
 	ClientList []*DisconnectClient `json:"clientList,omitempty"`
-}
-
-func NewDisconnectClientList() *DisconnectClientList {
-	disconnectClientListType := new(DisconnectClientList)
-	return disconnectClientListType
-}
-
-func NewDisconnectClientListWithDefaults() *DisconnectClientList {
-	disconnectClientListType := new(DisconnectClientList)
-	return disconnectClientListType
 }
 
 type HistoricalClient struct {
@@ -148,16 +108,6 @@ type HistoricalClient struct {
 	TxFrames *int `json:"txFrames,omitempty"`
 }
 
-func NewHistoricalClient() *HistoricalClient {
-	historicalClientType := new(HistoricalClient)
-	return historicalClientType
-}
-
-func NewHistoricalClientWithDefaults() *HistoricalClient {
-	historicalClientType := new(HistoricalClient)
-	return historicalClientType
-}
-
 type HistoricalClientList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -170,12 +120,3 @@ type HistoricalClientList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewHistoricalClientList() *HistoricalClientList {
-	historicalClientListType := new(HistoricalClientList)
-	return historicalClientListType
-}
-
-func NewHistoricalClientListWithDefaults() *HistoricalClientList {
-	historicalClientListType := new(HistoricalClientList)
-	return historicalClientListType
-}

@@ -12,16 +12,6 @@ type AlarmSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
-func NewAlarmSummary() *AlarmSummary {
-	alarmSummaryType := new(AlarmSummary)
-	return alarmSummaryType
-}
-
-func NewAlarmSummaryWithDefaults() *AlarmSummary {
-	alarmSummaryType := new(AlarmSummary)
-	return alarmSummaryType
-}
-
 type EventSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`
 
@@ -36,12 +26,3 @@ type EventSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
-func NewEventSummary() *EventSummary {
-	eventSummaryType := new(EventSummary)
-	return eventSummaryType
-}
-
-func NewEventSummaryWithDefaults() *EventSummary {
-	eventSummaryType := new(EventSummary)
-	return eventSummaryType
-}

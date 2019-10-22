@@ -18,16 +18,6 @@ type ApQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewApQueryList() *ApQueryList {
-	apQueryListType := new(ApQueryList)
-	return apQueryListType
-}
-
-func NewApQueryListWithDefaults() *ApQueryList {
-	apQueryListType := new(ApQueryList)
-	return apQueryListType
-}
-
 type CreateApQuery struct {
 	AdministrativeState *string `json:"administrativeState,omitempty"`
 
@@ -294,16 +284,6 @@ type CreateApQuery struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-func NewCreateApQuery() *CreateApQuery {
-	createApQueryType := new(CreateApQuery)
-	return createApQueryType
-}
-
-func NewCreateApQueryWithDefaults() *CreateApQuery {
-	createApQueryType := new(CreateApQuery)
-	return createApQueryType
-}
-
 type CreateApQueryCellularGpsHistoryType struct {
 	Latitude *string `json:"latitude,omitempty"`
 
@@ -312,28 +292,9 @@ type CreateApQueryCellularGpsHistoryType struct {
 	Timestamp *int `json:"timestamp,omitempty"`
 }
 
-func NewCreateApQueryCellularGpsHistoryType() *CreateApQueryCellularGpsHistoryType {
-	createApQueryCellularGpsHistoryTypeType := new(CreateApQueryCellularGpsHistoryType)
-	return createApQueryCellularGpsHistoryTypeType
-}
-
-func NewCreateApQueryCellularGpsHistoryTypeWithDefaults() *CreateApQueryCellularGpsHistoryType {
-	createApQueryCellularGpsHistoryTypeType := new(CreateApQueryCellularGpsHistoryType)
-	return createApQueryCellularGpsHistoryTypeType
-}
-
 type CreateApQueryIndoorMapXyType struct {
 	X *float64 `json:"x,omitempty"`
 
 	Y *float64 `json:"y,omitempty"`
 }
 
-func NewCreateApQueryIndoorMapXyType() *CreateApQueryIndoorMapXyType {
-	createApQueryIndoorMapXyTypeType := new(CreateApQueryIndoorMapXyType)
-	return createApQueryIndoorMapXyTypeType
-}
-
-func NewCreateApQueryIndoorMapXyTypeWithDefaults() *CreateApQueryIndoorMapXyType {
-	createApQueryIndoorMapXyTypeType := new(CreateApQueryIndoorMapXyType)
-	return createApQueryIndoorMapXyTypeType
-}

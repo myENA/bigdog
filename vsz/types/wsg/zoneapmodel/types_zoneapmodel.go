@@ -52,18 +52,6 @@ type ApModel struct {
 	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty"`
 }
 
-func NewApModel() *ApModel {
-	apModelType := new(ApModel)
-	return apModelType
-}
-
-func NewApModelWithDefaults() *ApModel {
-	apModelType := new(ApModel)
-	poeTxChainField := 2
-	apModelType.PoeTxChain = &poeTxChainField
-	return apModelType
-}
-
 type LanPortSetting struct {
 	// Enabled
 	// Constraints:
@@ -79,12 +67,3 @@ type LanPortSetting struct {
 	PortName *string `json:"portName" validate:"required,oneof=LAN1 LAN2 LAN3 LAN4 LAN5"`
 }
 
-func NewLanPortSetting() *LanPortSetting {
-	lanPortSettingType := new(LanPortSetting)
-	return lanPortSettingType
-}
-
-func NewLanPortSettingWithDefaults() *LanPortSetting {
-	lanPortSettingType := new(LanPortSetting)
-	return lanPortSettingType
-}

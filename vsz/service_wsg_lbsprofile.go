@@ -9,26 +9,27 @@ import (
 )
 
 type WSGLBSprofileService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGLBSprofileService(client *Client) *WSGLBSprofileService {
-	s := new(WSGLBSprofileService)
-	s.client = client
-	return s
+func NewWSGLBSprofileService (client *Client) *WSGLBSprofileService {
+    s := new(WSGLBSprofileService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
-	serv := new(WSGLBSprofileService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGLBSprofileService () *WSGLBSprofileService {
+    serv := new(WSGLBSprofileService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context) (*common.CreateResult, error) {
+func (s *WSGLBSprofileService) AddProfilesLbs (ctx context.Context) (*common.CreateResult, error) {
 }
 
-func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id string) (*profile.LbsProfile, error) {
+func (s *WSGLBSprofileService) FindProfilesLbsById (ctx context.Context, id string) (*profile.LbsProfile, error) {
 }
 
-func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context) (*profile.LbsProfileList, error) {
+func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria (ctx context.Context) (*profile.LbsProfileList, error) {
 }
+

@@ -8,23 +8,24 @@ import (
 )
 
 type SwitchMSwitchRegistrationRulesService struct {
-	client *Client
+    client *Client
 }
 
-func NewSwitchMSwitchRegistrationRulesService(client *Client) *SwitchMSwitchRegistrationRulesService {
-	s := new(SwitchMSwitchRegistrationRulesService)
-	s.client = client
-	return s
+func NewSwitchMSwitchRegistrationRulesService (client *Client) *SwitchMSwitchRegistrationRulesService {
+    s := new(SwitchMSwitchRegistrationRulesService)
+    s.client = client
+    return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchRegistrationRulesService() *SwitchMSwitchRegistrationRulesService {
-	serv := new(SwitchMSwitchRegistrationRulesService)
-	serv.client = ss.client
-	return serv
+func (ss *SwitchMService) SwitchMSwitchRegistrationRulesService () *SwitchMSwitchRegistrationRulesService {
+    serv := new(SwitchMSwitchRegistrationRulesService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *SwitchMSwitchRegistrationRulesService) FindRegistrationRules(ctx context.Context) (*registration.RuleQueryResultList, error) {
+func (s *SwitchMSwitchRegistrationRulesService) FindRegistrationRules (ctx context.Context) (*registration.RuleQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchRegistrationRulesService) UpdateRegistrationRulesById(ctx context.Context, id string) (*registration.ModifyResult, error) {
+func (s *SwitchMSwitchRegistrationRulesService) UpdateRegistrationRulesById (ctx context.Context, id string) (*registration.ModifyResult, error) {
 }
+

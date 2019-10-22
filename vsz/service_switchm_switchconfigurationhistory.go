@@ -10,29 +10,30 @@ import (
 )
 
 type SwitchMSwitchConfigurationHistoryService struct {
-	client *Client
+    client *Client
 }
 
-func NewSwitchMSwitchConfigurationHistoryService(client *Client) *SwitchMSwitchConfigurationHistoryService {
-	s := new(SwitchMSwitchConfigurationHistoryService)
-	s.client = client
-	return s
+func NewSwitchMSwitchConfigurationHistoryService (client *Client) *SwitchMSwitchConfigurationHistoryService {
+    s := new(SwitchMSwitchConfigurationHistoryService)
+    s.client = client
+    return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchConfigurationHistoryService() *SwitchMSwitchConfigurationHistoryService {
-	serv := new(SwitchMSwitchConfigurationHistoryService)
-	serv.client = ss.client
-	return serv
+func (ss *SwitchMService) SwitchMSwitchConfigurationHistoryService () *SwitchMSwitchConfigurationHistoryService {
+    serv := new(SwitchMSwitchConfigurationHistoryService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistory(ctx context.Context) (*deploylog.ConfigurationHistoryQueryResult, error) {
+func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistory (ctx context.Context) (*deploylog.ConfigurationHistoryQueryResult, error) {
 }
 
-func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context) (*deploylog.ConfigurationHistoryQueryResult, error) {
+func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria (ctx context.Context) (*deploylog.ConfigurationHistoryQueryResult, error) {
 }
 
-func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context) (*deploylogitem.ConfigurationHistoryDetailQueryResult, error) {
+func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryDetail (ctx context.Context) (*deploylogitem.ConfigurationHistoryDetailQueryResult, error) {
 }
 
-func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context) (*deploylogitem.ConfigurationHistoryDetailQueryResult, error) {
+func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria (ctx context.Context) (*deploylogitem.ConfigurationHistoryDetailQueryResult, error) {
 }
+

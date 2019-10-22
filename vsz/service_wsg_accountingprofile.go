@@ -9,29 +9,30 @@ import (
 )
 
 type WSGAccountingProfileService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGAccountingProfileService(client *Client) *WSGAccountingProfileService {
-	s := new(WSGAccountingProfileService)
-	s.client = client
-	return s
+func NewWSGAccountingProfileService (client *Client) *WSGAccountingProfileService {
+    s := new(WSGAccountingProfileService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService {
-	serv := new(WSGAccountingProfileService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGAccountingProfileService () *WSGAccountingProfileService {
+    serv := new(WSGAccountingProfileService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Context, id string) (*profile.ProfileCloneResponse, error) {
+func (s *WSGAccountingProfileService) AddProfilesAcctCloneById (ctx context.Context, id string) (*profile.ProfileCloneResponse, error) {
 }
 
-func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*profile.AccountingProfileList, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcct (ctx context.Context) (*profile.AccountingProfileList, error) {
 }
 
-func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, id string) (*profile.AccountingProfile, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcctById (ctx context.Context, id string) (*profile.AccountingProfile, error) {
 }
 
-func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx context.Context) (*profile.AccountingProfileList, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria (ctx context.Context) (*profile.AccountingProfileList, error) {
 }
+

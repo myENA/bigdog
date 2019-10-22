@@ -43,16 +43,6 @@ type CreateWlanScheduler struct {
 	Wed []string `json:"wed,omitempty"`
 }
 
-func NewCreateWlanScheduler() *CreateWlanScheduler {
-	createWlanSchedulerType := new(CreateWlanScheduler)
-	return createWlanSchedulerType
-}
-
-func NewCreateWlanSchedulerWithDefaults() *CreateWlanScheduler {
-	createWlanSchedulerType := new(CreateWlanScheduler)
-	return createWlanSchedulerType
-}
-
 type ModifyWlanScheduler struct {
 	Description *common.Description `json:"description,omitempty"`
 
@@ -85,16 +75,6 @@ type ModifyWlanScheduler struct {
 	// Wed
 	// schedules on Wednesday
 	Wed []string `json:"wed,omitempty"`
-}
-
-func NewModifyWlanScheduler() *ModifyWlanScheduler {
-	modifyWlanSchedulerType := new(ModifyWlanScheduler)
-	return modifyWlanSchedulerType
-}
-
-func NewModifyWlanSchedulerWithDefaults() *ModifyWlanScheduler {
-	modifyWlanSchedulerType := new(ModifyWlanScheduler)
-	return modifyWlanSchedulerType
 }
 
 type WlanSchedule struct {
@@ -139,16 +119,6 @@ type WlanSchedule struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewWlanSchedule() *WlanSchedule {
-	wlanScheduleType := new(WlanSchedule)
-	return wlanScheduleType
-}
-
-func NewWlanScheduleWithDefaults() *WlanSchedule {
-	wlanScheduleType := new(WlanSchedule)
-	return wlanScheduleType
-}
-
 type WlanScheduleList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -159,12 +129,3 @@ type WlanScheduleList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWlanScheduleList() *WlanScheduleList {
-	wlanScheduleListType := new(WlanScheduleList)
-	return wlanScheduleListType
-}
-
-func NewWlanScheduleListWithDefaults() *WlanScheduleList {
-	wlanScheduleListType := new(WlanScheduleList)
-	return wlanScheduleListType
-}

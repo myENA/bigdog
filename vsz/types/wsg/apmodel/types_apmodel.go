@@ -51,18 +51,6 @@ type ApModel struct {
 	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty"`
 }
 
-func NewApModel() *ApModel {
-	apModelType := new(ApModel)
-	return apModelType
-}
-
-func NewApModelWithDefaults() *ApModel {
-	apModelType := new(ApModel)
-	poeTxChainField := 2
-	apModelType.PoeTxChain = &poeTxChainField
-	return apModelType
-}
-
 type AuthenticatorAAAServer struct {
 	// EnableUseSCGasProxy
 	// Constraints:
@@ -70,16 +58,6 @@ type AuthenticatorAAAServer struct {
 	EnableUseSCGasProxy *bool `json:"enableUseSCGasProxy" validate:"required"`
 
 	Server *common.GenericRef `json:"server,omitempty"`
-}
-
-func NewAuthenticatorAAAServer() *AuthenticatorAAAServer {
-	authenticatorAAAServerType := new(AuthenticatorAAAServer)
-	return authenticatorAAAServerType
-}
-
-func NewAuthenticatorAAAServerWithDefaults() *AuthenticatorAAAServer {
-	authenticatorAAAServerType := new(AuthenticatorAAAServer)
-	return authenticatorAAAServerType
 }
 
 type CellularSettings struct {
@@ -143,16 +121,6 @@ type CellularSettings struct {
 	//    - min:10
 	//    - max:300
 	WanRecoveryTimer *int `json:"wanRecoveryTimer" validate:"required,gte=10,lte=300"`
-}
-
-func NewCellularSettings() *CellularSettings {
-	cellularSettingsType := new(CellularSettings)
-	return cellularSettingsType
-}
-
-func NewCellularSettingsWithDefaults() *CellularSettings {
-	cellularSettingsType := new(CellularSettings)
-	return cellularSettingsType
 }
 
 type CommonAttribute struct {
@@ -221,16 +189,6 @@ type CommonAttribute struct {
 	SupportResetCablemodem *bool `json:"supportResetCablemodem,omitempty"`
 }
 
-func NewCommonAttribute() *CommonAttribute {
-	commonAttributeType := new(CommonAttribute)
-	return commonAttributeType
-}
-
-func NewCommonAttributeWithDefaults() *CommonAttribute {
-	commonAttributeType := new(CommonAttribute)
-	return commonAttributeType
-}
-
 type ExternalAntenna struct {
 	// ChainMask
 	// Constraints:
@@ -251,30 +209,8 @@ type ExternalAntenna struct {
 	Enabled *bool `json:"enabled" validate:"required"`
 }
 
-func NewExternalAntenna() *ExternalAntenna {
-	externalAntennaType := new(ExternalAntenna)
-	return externalAntennaType
-}
-
-func NewExternalAntennaWithDefaults() *ExternalAntenna {
-	externalAntennaType := new(ExternalAntenna)
-	return externalAntennaType
-}
-
 type LacpSetting struct {
 	Enabled *bool `json:"enabled,omitempty"`
-}
-
-func NewLacpSetting() *LacpSetting {
-	lacpSettingType := new(LacpSetting)
-	return lacpSettingType
-}
-
-func NewLacpSettingWithDefaults() *LacpSetting {
-	lacpSettingType := new(LacpSetting)
-	enabledField := false
-	lacpSettingType.Enabled = &enabledField
-	return lacpSettingType
 }
 
 type LanPort8021X struct {
@@ -289,16 +225,6 @@ type LanPort8021X struct {
 	Type *string `json:"type" validate:"required,oneof=Disable Supplicant PortBasedAuthenticator MACBasedAuthenticator"`
 }
 
-func NewLanPort8021X() *LanPort8021X {
-	lanPort8021XType := new(LanPort8021X)
-	return lanPort8021XType
-}
-
-func NewLanPort8021XWithDefaults() *LanPort8021X {
-	lanPort8021XType := new(LanPort8021X)
-	return lanPort8021XType
-}
-
 type LanPortAuthenticator struct {
 	Accounting *AuthenticatorAAAServer `json:"accounting,omitempty"`
 
@@ -310,16 +236,6 @@ type LanPortAuthenticator struct {
 	// Constraints:
 	//    - required
 	MacAuthByPassEnabled *bool `json:"macAuthByPassEnabled" validate:"required"`
-}
-
-func NewLanPortAuthenticator() *LanPortAuthenticator {
-	lanPortAuthenticatorType := new(LanPortAuthenticator)
-	return lanPortAuthenticatorType
-}
-
-func NewLanPortAuthenticatorWithDefaults() *LanPortAuthenticator {
-	lanPortAuthenticatorType := new(LanPortAuthenticator)
-	return lanPortAuthenticatorType
 }
 
 type LanPortSetting struct {
@@ -348,16 +264,6 @@ type LanPortSetting struct {
 	VlanUntagId *int `json:"vlanUntagId,omitempty" validate:"omitempty,gte=0,lte=4094"`
 }
 
-func NewLanPortSetting() *LanPortSetting {
-	lanPortSettingType := new(LanPortSetting)
-	return lanPortSettingType
-}
-
-func NewLanPortSettingWithDefaults() *LanPortSetting {
-	lanPortSettingType := new(LanPortSetting)
-	return lanPortSettingType
-}
-
 type LanPortSupplicant struct {
 	// Password
 	// Constraints:
@@ -376,16 +282,6 @@ type LanPortSupplicant struct {
 	//    - nullable
 	//    - max:64
 	UserName *string `json:"userName,omitempty" validate:"omitempty,max=64"`
-}
-
-func NewLanPortSupplicant() *LanPortSupplicant {
-	lanPortSupplicantType := new(LanPortSupplicant)
-	return lanPortSupplicantType
-}
-
-func NewLanPortSupplicantWithDefaults() *LanPortSupplicant {
-	lanPortSupplicantType := new(LanPortSupplicant)
-	return lanPortSupplicantType
 }
 
 type LldpSetting struct {
@@ -412,14 +308,3 @@ type LldpSetting struct {
 	ManagementIPTLVEnabled *bool `json:"managementIPTLVEnabled,omitempty"`
 }
 
-func NewLldpSetting() *LldpSetting {
-	lldpSettingType := new(LldpSetting)
-	return lldpSettingType
-}
-
-func NewLldpSettingWithDefaults() *LldpSetting {
-	lldpSettingType := new(LldpSetting)
-	enabledField := false
-	lldpSettingType.Enabled = &enabledField
-	return lldpSettingType
-}

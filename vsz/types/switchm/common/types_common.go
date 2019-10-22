@@ -10,41 +10,11 @@ type BulkDeleteRequest struct {
 	IdList IdList `json:"idList,omitempty"`
 }
 
-func NewBulkDeleteRequest() *BulkDeleteRequest {
-	bulkDeleteRequestType := new(BulkDeleteRequest)
-	return bulkDeleteRequestType
-}
-
-func NewBulkDeleteRequestWithDefaults() *BulkDeleteRequest {
-	bulkDeleteRequestType := new(BulkDeleteRequest)
-	return bulkDeleteRequestType
-}
-
 type CreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
 
-func NewCreateResult() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
-func NewCreateResultWithDefaults() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
 type FilterOperator string
-
-func NewFilterOperator() *FilterOperator {
-	filterOperatorType := new(FilterOperator)
-	return filterOperatorType
-}
-
-func NewFilterOperatorWithDefaults() *FilterOperator {
-	filterOperatorType := new(FilterOperator)
-	return filterOperatorType
-}
 
 type FullTextSearch struct {
 	// Fields
@@ -63,27 +33,7 @@ type FullTextSearch struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewFullTextSearch() *FullTextSearch {
-	fullTextSearchType := new(FullTextSearch)
-	return fullTextSearchType
-}
-
-func NewFullTextSearchWithDefaults() *FullTextSearch {
-	fullTextSearchType := new(FullTextSearch)
-	return fullTextSearchType
-}
-
 type IdList []string
-
-func NewIdList() *IdList {
-	idListType := make(IdList, 0)
-	return &idListType
-}
-
-func NewIdListWithDefaults() *IdList {
-	idListType := make(IdList, 0)
-	return &idListType
-}
 
 type QueryCriteria struct {
 	// Attributes
@@ -141,16 +91,6 @@ type QueryCriteria struct {
 	SortInfo *QueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
-func NewQueryCriteria() *QueryCriteria {
-	queryCriteriaType := new(QueryCriteria)
-	return queryCriteriaType
-}
-
-func NewQueryCriteriaWithDefaults() *QueryCriteria {
-	queryCriteriaType := new(QueryCriteria)
-	return queryCriteriaType
-}
-
 type QueryCriteriaExtraFiltersType struct {
 	Operator *FilterOperator `json:"operator,omitempty"`
 
@@ -163,16 +103,6 @@ type QueryCriteriaExtraFiltersType struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewQueryCriteriaExtraFiltersType() *QueryCriteriaExtraFiltersType {
-	queryCriteriaExtraFiltersTypeType := new(QueryCriteriaExtraFiltersType)
-	return queryCriteriaExtraFiltersTypeType
-}
-
-func NewQueryCriteriaExtraFiltersTypeWithDefaults() *QueryCriteriaExtraFiltersType {
-	queryCriteriaExtraFiltersTypeType := new(QueryCriteriaExtraFiltersType)
-	return queryCriteriaExtraFiltersTypeType
-}
-
 type QueryCriteriaExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
@@ -181,16 +111,6 @@ type QueryCriteriaExtraNotFiltersType struct {
 	// Value
 	// value not to search
 	Value *string `json:"value,omitempty"`
-}
-
-func NewQueryCriteriaExtraNotFiltersType() *QueryCriteriaExtraNotFiltersType {
-	queryCriteriaExtraNotFiltersTypeType := new(QueryCriteriaExtraNotFiltersType)
-	return queryCriteriaExtraNotFiltersTypeType
-}
-
-func NewQueryCriteriaExtraNotFiltersTypeWithDefaults() *QueryCriteriaExtraNotFiltersType {
-	queryCriteriaExtraNotFiltersTypeType := new(QueryCriteriaExtraNotFiltersType)
-	return queryCriteriaExtraNotFiltersTypeType
 }
 
 type QueryCriteriaFiltersType struct {
@@ -205,24 +125,13 @@ type QueryCriteriaFiltersType struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewQueryCriteriaFiltersType() *QueryCriteriaFiltersType {
-	queryCriteriaFiltersTypeType := new(QueryCriteriaFiltersType)
-	return queryCriteriaFiltersTypeType
-}
-
-func NewQueryCriteriaFiltersTypeWithDefaults() *QueryCriteriaFiltersType {
-	queryCriteriaFiltersTypeType := new(QueryCriteriaFiltersType)
-	return queryCriteriaFiltersTypeType
-}
-
 // QueryCriteriaOptionsType
 //
 // Specified feature required information
 type QueryCriteriaOptionsType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
+func(t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -231,21 +140,11 @@ func (t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
+func(t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewQueryCriteriaOptionsType() *QueryCriteriaOptionsType {
-	queryCriteriaOptionsTypeType := new(QueryCriteriaOptionsType)
-	return queryCriteriaOptionsTypeType
-}
-
-func NewQueryCriteriaOptionsTypeWithDefaults() *QueryCriteriaOptionsType {
-	queryCriteriaOptionsTypeType := new(QueryCriteriaOptionsType)
-	return queryCriteriaOptionsTypeType
 }
 
 // QueryCriteriaSortInfoType
@@ -261,40 +160,10 @@ type QueryCriteriaSortInfoType struct {
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
 
-func NewQueryCriteriaSortInfoType() *QueryCriteriaSortInfoType {
-	queryCriteriaSortInfoTypeType := new(QueryCriteriaSortInfoType)
-	return queryCriteriaSortInfoTypeType
-}
-
-func NewQueryCriteriaSortInfoTypeWithDefaults() *QueryCriteriaSortInfoType {
-	queryCriteriaSortInfoTypeType := new(QueryCriteriaSortInfoType)
-	return queryCriteriaSortInfoTypeType
-}
-
-type QueryCriteriaSuperSet struct{}
-
-func NewQueryCriteriaSuperSet() *QueryCriteriaSuperSet {
-	queryCriteriaSuperSetType := new(QueryCriteriaSuperSet)
-	return queryCriteriaSuperSetType
-}
-
-func NewQueryCriteriaSuperSetWithDefaults() *QueryCriteriaSuperSet {
-	queryCriteriaSuperSetType := new(QueryCriteriaSuperSet)
-	return queryCriteriaSuperSetType
-}
+type QueryCriteriaSuperSet struct {}
 
 type RbacMetadata struct {
 	RbacMetadata []string `json:"rbacMetadata,omitempty"`
-}
-
-func NewRbacMetadata() *RbacMetadata {
-	rbacMetadataType := new(RbacMetadata)
-	return rbacMetadataType
-}
-
-func NewRbacMetadataWithDefaults() *RbacMetadata {
-	rbacMetadataType := new(RbacMetadata)
-	return rbacMetadataType
 }
 
 type TimeRange struct {
@@ -318,12 +187,3 @@ type TimeRange struct {
 	Start *float64 `json:"start,omitempty"`
 }
 
-func NewTimeRange() *TimeRange {
-	timeRangeType := new(TimeRange)
-	return timeRangeType
-}
-
-func NewTimeRangeWithDefaults() *TimeRange {
-	timeRangeType := new(TimeRange)
-	return timeRangeType
-}

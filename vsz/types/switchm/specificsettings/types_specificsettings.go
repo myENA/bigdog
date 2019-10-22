@@ -20,16 +20,6 @@ type DHCPOption struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewDHCPOption() *DHCPOption {
-	dHCPOptionType := new(DHCPOption)
-	return dHCPOptionType
-}
-
-func NewDHCPOptionWithDefaults() *DHCPOption {
-	dHCPOptionType := new(DHCPOption)
-	return dHCPOptionType
-}
-
 type DHCPServer struct {
 	// DefaultRouterIp
 	// Default Router Ip
@@ -66,21 +56,10 @@ type DHCPServer struct {
 	PoolName *string `json:"poolName,omitempty"`
 }
 
-func NewDHCPServer() *DHCPServer {
-	dHCPServerType := new(DHCPServer)
-	return dHCPServerType
-}
-
-func NewDHCPServerWithDefaults() *DHCPServer {
-	dHCPServerType := new(DHCPServer)
-	return dHCPServerType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -89,21 +68,11 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
 }
 
 type IdList struct {
@@ -114,16 +83,6 @@ type IdList struct {
 	// Id
 	// Id
 	Id *string `json:"id,omitempty"`
-}
-
-func NewIdList() *IdList {
-	idListType := new(IdList)
-	return idListType
-}
-
-func NewIdListWithDefaults() *IdList {
-	idListType := new(IdList)
-	return idListType
 }
 
 type SpecificSettings struct {
@@ -158,16 +117,6 @@ type SpecificSettings struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSpecificSettings() *SpecificSettings {
-	specificSettingsType := new(SpecificSettings)
-	return specificSettingsType
-}
-
-func NewSpecificSettingsWithDefaults() *SpecificSettings {
-	specificSettingsType := new(SpecificSettings)
-	return specificSettingsType
-}
-
 type SpecificSettingsAllResult struct {
 	// Extra
 	// Any additional response data
@@ -192,24 +141,13 @@ type SpecificSettingsAllResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSpecificSettingsAllResult() *SpecificSettingsAllResult {
-	specificSettingsAllResultType := new(SpecificSettingsAllResult)
-	return specificSettingsAllResultType
-}
-
-func NewSpecificSettingsAllResultWithDefaults() *SpecificSettingsAllResult {
-	specificSettingsAllResultType := new(SpecificSettingsAllResult)
-	return specificSettingsAllResultType
-}
-
 // SpecificSettingsAllResultExtraType
 //
 // Any additional response data
 type SpecificSettingsAllResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *SpecificSettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *SpecificSettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -218,21 +156,11 @@ func (t *SpecificSettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *SpecificSettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *SpecificSettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSpecificSettingsAllResultExtraType() *SpecificSettingsAllResultExtraType {
-	specificSettingsAllResultExtraTypeType := new(SpecificSettingsAllResultExtraType)
-	return specificSettingsAllResultExtraTypeType
-}
-
-func NewSpecificSettingsAllResultExtraTypeWithDefaults() *SpecificSettingsAllResultExtraType {
-	specificSettingsAllResultExtraTypeType := new(SpecificSettingsAllResultExtraType)
-	return specificSettingsAllResultExtraTypeType
 }
 
 type UpdateSpecificSettings struct {
@@ -255,12 +183,3 @@ type UpdateSpecificSettings struct {
 	JumboMode *bool `json:"jumboMode,omitempty"`
 }
 
-func NewUpdateSpecificSettings() *UpdateSpecificSettings {
-	updateSpecificSettingsType := new(UpdateSpecificSettings)
-	return updateSpecificSettingsType
-}
-
-func NewUpdateSpecificSettingsWithDefaults() *UpdateSpecificSettings {
-	updateSpecificSettingsType := new(UpdateSpecificSettings)
-	return updateSpecificSettingsType
-}

@@ -20,16 +20,6 @@ type ConfigurationHistoryDetailQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewConfigurationHistoryDetailQueryResult() *ConfigurationHistoryDetailQueryResult {
-	configurationHistoryDetailQueryResultType := new(ConfigurationHistoryDetailQueryResult)
-	return configurationHistoryDetailQueryResultType
-}
-
-func NewConfigurationHistoryDetailQueryResultWithDefaults() *ConfigurationHistoryDetailQueryResult {
-	configurationHistoryDetailQueryResultType := new(ConfigurationHistoryDetailQueryResult)
-	return configurationHistoryDetailQueryResultType
-}
-
 type DeployLogItem struct {
 	// Clis
 	// CLI Command
@@ -75,16 +65,6 @@ type DeployLogItem struct {
 	TransactionId *string `json:"transactionId,omitempty"`
 }
 
-func NewDeployLogItem() *DeployLogItem {
-	deployLogItemType := new(DeployLogItem)
-	return deployLogItemType
-}
-
-func NewDeployLogItemWithDefaults() *DeployLogItem {
-	deployLogItemType := new(DeployLogItem)
-	return deployLogItemType
-}
-
 // DeployLogItemDispatchFailedReasonType
 //
 // Deployment Fail Description
@@ -98,12 +78,3 @@ type DeployLogItemDispatchFailedReasonType struct {
 	Message *int `json:"message,omitempty"`
 }
 
-func NewDeployLogItemDispatchFailedReasonType() *DeployLogItemDispatchFailedReasonType {
-	deployLogItemDispatchFailedReasonTypeType := new(DeployLogItemDispatchFailedReasonType)
-	return deployLogItemDispatchFailedReasonTypeType
-}
-
-func NewDeployLogItemDispatchFailedReasonTypeWithDefaults() *DeployLogItemDispatchFailedReasonType {
-	deployLogItemDispatchFailedReasonTypeType := new(DeployLogItemDispatchFailedReasonType)
-	return deployLogItemDispatchFailedReasonTypeType
-}

@@ -93,21 +93,10 @@ type CreateBulk struct {
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
 }
 
-func NewCreateBulk() *CreateBulk {
-	createBulkType := new(CreateBulk)
-	return createBulkType
-}
-
-func NewCreateBulkWithDefaults() *CreateBulk {
-	createBulkType := new(CreateBulk)
-	return createBulkType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -116,21 +105,11 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
 }
 
 type PortSettings struct {
@@ -231,16 +210,6 @@ type PortSettings struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewPortSettings() *PortSettings {
-	portSettingsType := new(PortSettings)
-	return portSettingsType
-}
-
-func NewPortSettingsWithDefaults() *PortSettings {
-	portSettingsType := new(PortSettings)
-	return portSettingsType
-}
-
 type PortSettingsQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -265,24 +234,13 @@ type PortSettingsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewPortSettingsQueryResult() *PortSettingsQueryResult {
-	portSettingsQueryResultType := new(PortSettingsQueryResult)
-	return portSettingsQueryResultType
-}
-
-func NewPortSettingsQueryResultWithDefaults() *PortSettingsQueryResult {
-	portSettingsQueryResultType := new(PortSettingsQueryResult)
-	return portSettingsQueryResultType
-}
-
 // PortSettingsQueryResultExtraType
 //
 // Any additional response data
 type PortSettingsQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *PortSettingsQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *PortSettingsQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -291,21 +249,11 @@ func (t *PortSettingsQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *PortSettingsQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *PortSettingsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewPortSettingsQueryResultExtraType() *PortSettingsQueryResultExtraType {
-	portSettingsQueryResultExtraTypeType := new(PortSettingsQueryResultExtraType)
-	return portSettingsQueryResultExtraTypeType
-}
-
-func NewPortSettingsQueryResultExtraTypeWithDefaults() *PortSettingsQueryResultExtraType {
-	portSettingsQueryResultExtraTypeType := new(PortSettingsQueryResultExtraType)
-	return portSettingsQueryResultExtraTypeType
 }
 
 type UpdatePortSettings struct {
@@ -380,12 +328,3 @@ type UpdatePortSettings struct {
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
 }
 
-func NewUpdatePortSettings() *UpdatePortSettings {
-	updatePortSettingsType := new(UpdatePortSettings)
-	return updatePortSettingsType
-}
-
-func NewUpdatePortSettingsWithDefaults() *UpdatePortSettings {
-	updatePortSettingsType := new(UpdatePortSettings)
-	return updatePortSettingsType
-}

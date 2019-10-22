@@ -81,21 +81,10 @@ type CreateVlanConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewCreateVlanConfig() *CreateVlanConfig {
-	createVlanConfigType := new(CreateVlanConfig)
-	return createVlanConfigType
-}
-
-func NewCreateVlanConfigWithDefaults() *CreateVlanConfig {
-	createVlanConfigType := new(CreateVlanConfig)
-	return createVlanConfigType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -104,21 +93,11 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
 }
 
 type UpdateVlanConfig struct {
@@ -180,16 +159,6 @@ type UpdateVlanConfig struct {
 	SpanningTreePriority *int `json:"spanningTreePriority,omitempty"`
 }
 
-func NewUpdateVlanConfig() *UpdateVlanConfig {
-	updateVlanConfigType := new(UpdateVlanConfig)
-	return updateVlanConfigType
-}
-
-func NewUpdateVlanConfigWithDefaults() *UpdateVlanConfig {
-	updateVlanConfigType := new(UpdateVlanConfig)
-	return updateVlanConfigType
-}
-
 type VlanArpInspections struct {
 	// Ip
 	// The IP of ArpInspections
@@ -198,16 +167,6 @@ type VlanArpInspections struct {
 	// Mac
 	// The MAC of ArpInspections
 	Mac *string `json:"mac,omitempty"`
-}
-
-func NewVlanArpInspections() *VlanArpInspections {
-	vlanArpInspectionsType := new(VlanArpInspections)
-	return vlanArpInspectionsType
-}
-
-func NewVlanArpInspectionsWithDefaults() *VlanArpInspections {
-	vlanArpInspectionsType := new(VlanArpInspections)
-	return vlanArpInspectionsType
 }
 
 type VlanConfig struct {
@@ -294,16 +253,6 @@ type VlanConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewVlanConfig() *VlanConfig {
-	vlanConfigType := new(VlanConfig)
-	return vlanConfigType
-}
-
-func NewVlanConfigWithDefaults() *VlanConfig {
-	vlanConfigType := new(VlanConfig)
-	return vlanConfigType
-}
-
 type VlanConfigQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -328,24 +277,13 @@ type VlanConfigQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewVlanConfigQueryResult() *VlanConfigQueryResult {
-	vlanConfigQueryResultType := new(VlanConfigQueryResult)
-	return vlanConfigQueryResultType
-}
-
-func NewVlanConfigQueryResultWithDefaults() *VlanConfigQueryResult {
-	vlanConfigQueryResultType := new(VlanConfigQueryResult)
-	return vlanConfigQueryResultType
-}
-
 // VlanConfigQueryResultExtraType
 //
 // Any additional response data
 type VlanConfigQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *VlanConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *VlanConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -354,21 +292,11 @@ func (t *VlanConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *VlanConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *VlanConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewVlanConfigQueryResultExtraType() *VlanConfigQueryResultExtraType {
-	vlanConfigQueryResultExtraTypeType := new(VlanConfigQueryResultExtraType)
-	return vlanConfigQueryResultExtraTypeType
-}
-
-func NewVlanConfigQueryResultExtraTypeWithDefaults() *VlanConfigQueryResultExtraType {
-	vlanConfigQueryResultExtraTypeType := new(VlanConfigQueryResultExtraType)
-	return vlanConfigQueryResultExtraTypeType
 }
 
 type VlanPorts struct {
@@ -385,12 +313,3 @@ type VlanPorts struct {
 	UntaggedPorts *string `json:"untaggedPorts,omitempty"`
 }
 
-func NewVlanPorts() *VlanPorts {
-	vlanPortsType := new(VlanPorts)
-	return vlanPortsType
-}
-
-func NewVlanPortsWithDefaults() *VlanPorts {
-	vlanPortsType := new(VlanPorts)
-	return vlanPortsType
-}

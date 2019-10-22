@@ -9,26 +9,27 @@ import (
 )
 
 type WSGBridgeService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGBridgeService(client *Client) *WSGBridgeService {
-	s := new(WSGBridgeService)
-	s.client = client
-	return s
+func NewWSGBridgeService (client *Client) *WSGBridgeService {
+    s := new(WSGBridgeService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGBridgeService() *WSGBridgeService {
-	serv := new(WSGBridgeService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGBridgeService () *WSGBridgeService {
+    serv := new(WSGBridgeService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*profile.ProfileList, error) {
+func (s *WSGBridgeService) FindProfilesBridge (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string) (*profile.BridgeProfile, error) {
+func (s *WSGBridgeService) FindProfilesBridgeById (ctx context.Context, id string) (*profile.BridgeProfile, error) {
 }
 
-func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context) (*profile.BridgeProfileList, error) {
+func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria (ctx context.Context) (*profile.BridgeProfileList, error) {
 }
+

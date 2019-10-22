@@ -9,32 +9,33 @@ import (
 )
 
 type WSGMarkRogueService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGMarkRogueService(client *Client) *WSGMarkRogueService {
-	s := new(WSGMarkRogueService)
-	s.client = client
-	return s
+func NewWSGMarkRogueService (client *Client) *WSGMarkRogueService {
+    s := new(WSGMarkRogueService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
-	serv := new(WSGMarkRogueService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGMarkRogueService () *WSGMarkRogueService {
+    serv := new(WSGMarkRogueService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGMarkRogueService) AddRogueMarkIgnore (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGMarkRogueService) AddRogueMarkMalicious (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGMarkRogueService) AddRogueMarkRogue (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGMarkRogueService) AddRogueUnMark (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context) (*ap.ModifyRogueType, error) {
+func (s *WSGMarkRogueService) FindRogueMarkKnown (ctx context.Context) (*ap.ModifyRogueType, error) {
 }
+

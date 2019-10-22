@@ -19,16 +19,6 @@ type CreatePortalDetectionProfile struct {
 	PortalDetectionPatterns []*PortalDetectionPattern `json:"portalDetectionPatterns,omitempty"`
 }
 
-func NewCreatePortalDetectionProfile() *CreatePortalDetectionProfile {
-	createPortalDetectionProfileType := new(CreatePortalDetectionProfile)
-	return createPortalDetectionProfileType
-}
-
-func NewCreatePortalDetectionProfileWithDefaults() *CreatePortalDetectionProfile {
-	createPortalDetectionProfileType := new(CreatePortalDetectionProfile)
-	return createPortalDetectionProfileType
-}
-
 type PortalDetectionPattern struct {
 	// HttpCode
 	// HTTP status codes
@@ -63,16 +53,6 @@ type PortalDetectionPattern struct {
 	//    - required
 	//    - max:256
 	UserAgentPattern *string `json:"userAgentPattern" validate:"required,max=256"`
-}
-
-func NewPortalDetectionPattern() *PortalDetectionPattern {
-	portalDetectionPatternType := new(PortalDetectionPattern)
-	return portalDetectionPatternType
-}
-
-func NewPortalDetectionPatternWithDefaults() *PortalDetectionPattern {
-	portalDetectionPatternType := new(PortalDetectionPattern)
-	return portalDetectionPatternType
 }
 
 type PortalDetectionProfile struct {
@@ -120,16 +100,6 @@ type PortalDetectionProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewPortalDetectionProfile() *PortalDetectionProfile {
-	portalDetectionProfileType := new(PortalDetectionProfile)
-	return portalDetectionProfileType
-}
-
-func NewPortalDetectionProfileWithDefaults() *PortalDetectionProfile {
-	portalDetectionProfileType := new(PortalDetectionProfile)
-	return portalDetectionProfileType
-}
-
 type PortalDetectionProfileList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -142,12 +112,3 @@ type PortalDetectionProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewPortalDetectionProfileList() *PortalDetectionProfileList {
-	portalDetectionProfileListType := new(PortalDetectionProfileList)
-	return portalDetectionProfileListType
-}
-
-func NewPortalDetectionProfileListWithDefaults() *PortalDetectionProfileList {
-	portalDetectionProfileListType := new(PortalDetectionProfileList)
-	return portalDetectionProfileListType
-}

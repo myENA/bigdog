@@ -30,24 +30,13 @@ type TopPortErrorQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewTopPortErrorQueryResultList() *TopPortErrorQueryResultList {
-	topPortErrorQueryResultListType := new(TopPortErrorQueryResultList)
-	return topPortErrorQueryResultListType
-}
-
-func NewTopPortErrorQueryResultListWithDefaults() *TopPortErrorQueryResultList {
-	topPortErrorQueryResultListType := new(TopPortErrorQueryResultList)
-	return topPortErrorQueryResultListType
-}
-
 // TopPortErrorQueryResultListExtraType
 //
 // Extra information for top port error
 type TopPortErrorQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *TopPortErrorQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *TopPortErrorQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -56,21 +45,11 @@ func (t *TopPortErrorQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *TopPortErrorQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *TopPortErrorQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewTopPortErrorQueryResultListExtraType() *TopPortErrorQueryResultListExtraType {
-	topPortErrorQueryResultListExtraTypeType := new(TopPortErrorQueryResultListExtraType)
-	return topPortErrorQueryResultListExtraTypeType
-}
-
-func NewTopPortErrorQueryResultListExtraTypeWithDefaults() *TopPortErrorQueryResultListExtraType {
-	topPortErrorQueryResultListExtraTypeType := new(TopPortErrorQueryResultListExtraType)
-	return topPortErrorQueryResultListExtraTypeType
 }
 
 type TopPortTrafficUsageQueryResultList struct {
@@ -97,24 +76,13 @@ type TopPortTrafficUsageQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewTopPortTrafficUsageQueryResultList() *TopPortTrafficUsageQueryResultList {
-	topPortTrafficUsageQueryResultListType := new(TopPortTrafficUsageQueryResultList)
-	return topPortTrafficUsageQueryResultListType
-}
-
-func NewTopPortTrafficUsageQueryResultListWithDefaults() *TopPortTrafficUsageQueryResultList {
-	topPortTrafficUsageQueryResultListType := new(TopPortTrafficUsageQueryResultList)
-	return topPortTrafficUsageQueryResultListType
-}
-
 // TopPortTrafficUsageQueryResultListExtraType
 //
 // Extra information for top port traffic usage
 type TopPortTrafficUsageQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *TopPortTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *TopPortTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -123,21 +91,11 @@ func (t *TopPortTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) er
 	return nil
 }
 
-func (t *TopPortTrafficUsageQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *TopPortTrafficUsageQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewTopPortTrafficUsageQueryResultListExtraType() *TopPortTrafficUsageQueryResultListExtraType {
-	topPortTrafficUsageQueryResultListExtraTypeType := new(TopPortTrafficUsageQueryResultListExtraType)
-	return topPortTrafficUsageQueryResultListExtraTypeType
-}
-
-func NewTopPortTrafficUsageQueryResultListExtraTypeWithDefaults() *TopPortTrafficUsageQueryResultListExtraType {
-	topPortTrafficUsageQueryResultListExtraTypeType := new(TopPortTrafficUsageQueryResultListExtraType)
-	return topPortTrafficUsageQueryResultListExtraTypeType
 }
 
 type TopSwitchPoEUtilizationQueryResultList struct {
@@ -164,24 +122,13 @@ type TopSwitchPoEUtilizationQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewTopSwitchPoEUtilizationQueryResultList() *TopSwitchPoEUtilizationQueryResultList {
-	topSwitchPoEUtilizationQueryResultListType := new(TopSwitchPoEUtilizationQueryResultList)
-	return topSwitchPoEUtilizationQueryResultListType
-}
-
-func NewTopSwitchPoEUtilizationQueryResultListWithDefaults() *TopSwitchPoEUtilizationQueryResultList {
-	topSwitchPoEUtilizationQueryResultListType := new(TopSwitchPoEUtilizationQueryResultList)
-	return topSwitchPoEUtilizationQueryResultListType
-}
-
 // TopSwitchPoEUtilizationQueryResultListExtraType
 //
 // Extra information for top PoE utilization
 type TopSwitchPoEUtilizationQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *TopSwitchPoEUtilizationQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *TopSwitchPoEUtilizationQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -190,21 +137,11 @@ func (t *TopSwitchPoEUtilizationQueryResultListExtraType) UnmarshalJSON(b []byte
 	return nil
 }
 
-func (t *TopSwitchPoEUtilizationQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *TopSwitchPoEUtilizationQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewTopSwitchPoEUtilizationQueryResultListExtraType() *TopSwitchPoEUtilizationQueryResultListExtraType {
-	topSwitchPoEUtilizationQueryResultListExtraTypeType := new(TopSwitchPoEUtilizationQueryResultListExtraType)
-	return topSwitchPoEUtilizationQueryResultListExtraTypeType
-}
-
-func NewTopSwitchPoEUtilizationQueryResultListExtraTypeWithDefaults() *TopSwitchPoEUtilizationQueryResultListExtraType {
-	topSwitchPoEUtilizationQueryResultListExtraTypeType := new(TopSwitchPoEUtilizationQueryResultListExtraType)
-	return topSwitchPoEUtilizationQueryResultListExtraTypeType
 }
 
 type TopTrafficUsageQueryResultList struct {
@@ -231,24 +168,13 @@ type TopTrafficUsageQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewTopTrafficUsageQueryResultList() *TopTrafficUsageQueryResultList {
-	topTrafficUsageQueryResultListType := new(TopTrafficUsageQueryResultList)
-	return topTrafficUsageQueryResultListType
-}
-
-func NewTopTrafficUsageQueryResultListWithDefaults() *TopTrafficUsageQueryResultList {
-	topTrafficUsageQueryResultListType := new(TopTrafficUsageQueryResultList)
-	return topTrafficUsageQueryResultListType
-}
-
 // TopTrafficUsageQueryResultListExtraType
 //
 // Extra information for top traffic usage
 type TopTrafficUsageQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *TopTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *TopTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -257,21 +183,11 @@ func (t *TopTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error 
 	return nil
 }
 
-func (t *TopTrafficUsageQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *TopTrafficUsageQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewTopTrafficUsageQueryResultListExtraType() *TopTrafficUsageQueryResultListExtraType {
-	topTrafficUsageQueryResultListExtraTypeType := new(TopTrafficUsageQueryResultListExtraType)
-	return topTrafficUsageQueryResultListExtraTypeType
-}
-
-func NewTopTrafficUsageQueryResultListExtraTypeWithDefaults() *TopTrafficUsageQueryResultListExtraType {
-	topTrafficUsageQueryResultListExtraTypeType := new(TopTrafficUsageQueryResultListExtraType)
-	return topTrafficUsageQueryResultListExtraTypeType
 }
 
 type Traffic struct {
@@ -290,16 +206,6 @@ type Traffic struct {
 	// Tx
 	// TX traffic of the switch
 	Tx *string `json:"tx,omitempty"`
-}
-
-func NewTraffic() *Traffic {
-	trafficType := new(Traffic)
-	return trafficType
-}
-
-func NewTrafficWithDefaults() *Traffic {
-	trafficType := new(Traffic)
-	return trafficType
 }
 
 type TrafficQueryResultList struct {
@@ -326,24 +232,13 @@ type TrafficQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewTrafficQueryResultList() *TrafficQueryResultList {
-	trafficQueryResultListType := new(TrafficQueryResultList)
-	return trafficQueryResultListType
-}
-
-func NewTrafficQueryResultListWithDefaults() *TrafficQueryResultList {
-	trafficQueryResultListType := new(TrafficQueryResultList)
-	return trafficQueryResultListType
-}
-
 // TrafficQueryResultListExtraType
 //
 // Extra information for traffic list
 type TrafficQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *TrafficQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *TrafficQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -352,21 +247,11 @@ func (t *TrafficQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *TrafficQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *TrafficQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewTrafficQueryResultListExtraType() *TrafficQueryResultListExtraType {
-	trafficQueryResultListExtraTypeType := new(TrafficQueryResultListExtraType)
-	return trafficQueryResultListExtraTypeType
-}
-
-func NewTrafficQueryResultListExtraTypeWithDefaults() *TrafficQueryResultListExtraType {
-	trafficQueryResultListExtraTypeType := new(TrafficQueryResultListExtraType)
-	return trafficQueryResultListExtraTypeType
 }
 
 type TrafficUsage struct {
@@ -383,12 +268,3 @@ type TrafficUsage struct {
 	Value *float64 `json:"value,omitempty"`
 }
 
-func NewTrafficUsage() *TrafficUsage {
-	trafficUsageType := new(TrafficUsage)
-	return trafficUsageType
-}
-
-func NewTrafficUsageWithDefaults() *TrafficUsage {
-	trafficUsageType := new(TrafficUsage)
-	return trafficUsageType
-}

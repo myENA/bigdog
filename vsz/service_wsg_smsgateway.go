@@ -9,23 +9,24 @@ import (
 )
 
 type WSGSMSGatewayService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGSMSGatewayService(client *Client) *WSGSMSGatewayService {
-	s := new(WSGSMSGatewayService)
-	s.client = client
-	return s
+func NewWSGSMSGatewayService (client *Client) *WSGSMSGatewayService {
+    s := new(WSGSMSGatewayService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
-	serv := new(WSGSMSGatewayService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGSMSGatewayService () *WSGSMSGatewayService {
+    serv := new(WSGSMSGatewayService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context) (*system.Sms, error) {
+func (s *WSGSMSGatewayService) FindSmsGateway (ctx context.Context) (*system.Sms, error) {
 }
 
-func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context) (*system.SmsList, error) {
+func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria (ctx context.Context) (*system.SmsList, error) {
 }
+

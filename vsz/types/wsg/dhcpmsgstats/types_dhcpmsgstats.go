@@ -23,16 +23,6 @@ type DhcpMsgStats struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
-func NewDhcpMsgStats() *DhcpMsgStats {
-	dhcpMsgStatsType := new(DhcpMsgStats)
-	return dhcpMsgStatsType
-}
-
-func NewDhcpMsgStatsWithDefaults() *DhcpMsgStats {
-	dhcpMsgStatsType := new(DhcpMsgStats)
-	return dhcpMsgStatsType
-}
-
 // DhcpMsgStatsDhcpMsgRecvdStatsType
 //
 // DHCP Message Received Statistic
@@ -48,16 +38,6 @@ type DhcpMsgStatsDhcpMsgRecvdStatsType struct {
 	DhcpRequest *int `json:"dhcpRequest,omitempty"`
 }
 
-func NewDhcpMsgStatsDhcpMsgRecvdStatsType() *DhcpMsgStatsDhcpMsgRecvdStatsType {
-	dhcpMsgStatsDhcpMsgRecvdStatsTypeType := new(DhcpMsgStatsDhcpMsgRecvdStatsType)
-	return dhcpMsgStatsDhcpMsgRecvdStatsTypeType
-}
-
-func NewDhcpMsgStatsDhcpMsgRecvdStatsTypeWithDefaults() *DhcpMsgStatsDhcpMsgRecvdStatsType {
-	dhcpMsgStatsDhcpMsgRecvdStatsTypeType := new(DhcpMsgStatsDhcpMsgRecvdStatsType)
-	return dhcpMsgStatsDhcpMsgRecvdStatsTypeType
-}
-
 // DhcpMsgStatsDhcpMsgSentStatsType
 //
 // DHCP Message Sent Statistic
@@ -69,12 +49,3 @@ type DhcpMsgStatsDhcpMsgSentStatsType struct {
 	DhcpOffer *int `json:"dhcpOffer,omitempty"`
 }
 
-func NewDhcpMsgStatsDhcpMsgSentStatsType() *DhcpMsgStatsDhcpMsgSentStatsType {
-	dhcpMsgStatsDhcpMsgSentStatsTypeType := new(DhcpMsgStatsDhcpMsgSentStatsType)
-	return dhcpMsgStatsDhcpMsgSentStatsTypeType
-}
-
-func NewDhcpMsgStatsDhcpMsgSentStatsTypeWithDefaults() *DhcpMsgStatsDhcpMsgSentStatsType {
-	dhcpMsgStatsDhcpMsgSentStatsTypeType := new(DhcpMsgStatsDhcpMsgSentStatsType)
-	return dhcpMsgStatsDhcpMsgSentStatsTypeType
-}

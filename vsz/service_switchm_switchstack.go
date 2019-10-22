@@ -9,26 +9,27 @@ import (
 )
 
 type SwitchMSwitchStackService struct {
-	client *Client
+    client *Client
 }
 
-func NewSwitchMSwitchStackService(client *Client) *SwitchMSwitchStackService {
-	s := new(SwitchMSwitchStackService)
-	s.client = client
-	return s
+func NewSwitchMSwitchStackService (client *Client) *SwitchMSwitchStackService {
+    s := new(SwitchMSwitchStackService)
+    s.client = client
+    return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchStackService() *SwitchMSwitchStackService {
-	serv := new(SwitchMSwitchStackService)
-	serv.client = ss.client
-	return serv
+func (ss *SwitchMService) SwitchMSwitchStackService () *SwitchMSwitchStackService {
+    serv := new(SwitchMSwitchStackService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *SwitchMSwitchStackService) AddStack(ctx context.Context) (stack.AuditIdList, error) {
+func (s *SwitchMSwitchStackService) AddStack (ctx context.Context) (stack.AuditIdList, error) {
 }
 
-func (s *SwitchMSwitchStackService) FindStackBySwitchId(ctx context.Context, switchId string) (*stack.StackConfig, error) {
+func (s *SwitchMSwitchStackService) FindStackBySwitchId (ctx context.Context, switchId string) (*stack.StackConfig, error) {
 }
 
-func (s *SwitchMSwitchStackService) FindStackMemberBySerialNumber(ctx context.Context, serialNumber string) (*stack.List, error) {
+func (s *SwitchMSwitchStackService) FindStackMemberBySerialNumber (ctx context.Context, serialNumber string) (*stack.List, error) {
 }
+

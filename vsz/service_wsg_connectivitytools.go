@@ -8,29 +8,30 @@ import (
 )
 
 type WSGConnectivityToolsService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGConnectivityToolsService(client *Client) *WSGConnectivityToolsService {
-	s := new(WSGConnectivityToolsService)
-	s.client = client
-	return s
+func NewWSGConnectivityToolsService (client *Client) *WSGConnectivityToolsService {
+    s := new(WSGConnectivityToolsService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGConnectivityToolsService() *WSGConnectivityToolsService {
-	serv := new(WSGConnectivityToolsService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGConnectivityToolsService () *WSGConnectivityToolsService {
+    serv := new(WSGConnectivityToolsService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context) (*tool.TestResult, error) {
+func (s *WSGConnectivityToolsService) AddToolSpeedflex (ctx context.Context) (*tool.TestResult, error) {
 }
 
-func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context) error {
+func (s *WSGConnectivityToolsService) FindToolPing (ctx context.Context) error {
 }
 
-func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, wcid string) (*tool.TestResult, error) {
+func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid (ctx context.Context, wcid string) (*tool.TestResult, error) {
 }
 
-func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context) error {
+func (s *WSGConnectivityToolsService) FindToolTraceRoute (ctx context.Context) error {
 }
+

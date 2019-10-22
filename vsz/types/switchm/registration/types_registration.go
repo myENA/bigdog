@@ -24,24 +24,13 @@ type ClientObjectID struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewClientObjectID() *ClientObjectID {
-	clientObjectIDType := new(ClientObjectID)
-	return clientObjectIDType
-}
-
-func NewClientObjectIDWithDefaults() *ClientObjectID {
-	clientObjectIDType := new(ClientObjectID)
-	return clientObjectIDType
-}
-
 // ClientObjectIDExtraValuesType
 //
 // Extra values of the client
 type ClientObjectIDExtraValuesType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
+func(t *ClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -50,21 +39,11 @@ func (t *ClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
+func(t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewClientObjectIDExtraValuesType() *ClientObjectIDExtraValuesType {
-	clientObjectIDExtraValuesTypeType := new(ClientObjectIDExtraValuesType)
-	return clientObjectIDExtraValuesTypeType
-}
-
-func NewClientObjectIDExtraValuesTypeWithDefaults() *ClientObjectIDExtraValuesType {
-	clientObjectIDExtraValuesTypeType := new(ClientObjectIDExtraValuesType)
-	return clientObjectIDExtraValuesTypeType
 }
 
 type CreateResult struct {
@@ -85,24 +64,13 @@ type CreateResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewCreateResult() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
-func NewCreateResultWithDefaults() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
 // CreateResultExtraType
 //
 // Any additional response
 type CreateResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *CreateResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *CreateResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -111,31 +79,20 @@ func (t *CreateResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *CreateResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *CreateResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewCreateResultExtraType() *CreateResultExtraType {
-	createResultExtraTypeType := new(CreateResultExtraType)
-	return createResultExtraTypeType
-}
-
-func NewCreateResultExtraTypeWithDefaults() *CreateResultExtraType {
-	createResultExtraTypeType := new(CreateResultExtraType)
-	return createResultExtraTypeType
-}
-
 // CreateResultMetaDataType
 //
 // Matadata of Rule create result
 type CreateResultMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *CreateResultMetaDataType) UnmarshalJSON(b []byte) error {
+func(t *CreateResultMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -144,21 +101,11 @@ func (t *CreateResultMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *CreateResultMetaDataType) MarshalJSON() ([]byte, error) {
+func(t *CreateResultMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewCreateResultMetaDataType() *CreateResultMetaDataType {
-	createResultMetaDataTypeType := new(CreateResultMetaDataType)
-	return createResultMetaDataTypeType
-}
-
-func NewCreateResultMetaDataTypeWithDefaults() *CreateResultMetaDataType {
-	createResultMetaDataTypeType := new(CreateResultMetaDataType)
-	return createResultMetaDataTypeType
 }
 
 type DeleteMultipleResult struct {
@@ -179,24 +126,13 @@ type DeleteMultipleResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewDeleteMultipleResult() *DeleteMultipleResult {
-	deleteMultipleResultType := new(DeleteMultipleResult)
-	return deleteMultipleResultType
-}
-
-func NewDeleteMultipleResultWithDefaults() *DeleteMultipleResult {
-	deleteMultipleResultType := new(DeleteMultipleResult)
-	return deleteMultipleResultType
-}
-
 // DeleteMultipleResultExtraType
 //
 // Any additional response
 type DeleteMultipleResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *DeleteMultipleResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *DeleteMultipleResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -205,31 +141,20 @@ func (t *DeleteMultipleResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *DeleteMultipleResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *DeleteMultipleResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewDeleteMultipleResultExtraType() *DeleteMultipleResultExtraType {
-	deleteMultipleResultExtraTypeType := new(DeleteMultipleResultExtraType)
-	return deleteMultipleResultExtraTypeType
-}
-
-func NewDeleteMultipleResultExtraTypeWithDefaults() *DeleteMultipleResultExtraType {
-	deleteMultipleResultExtraTypeType := new(DeleteMultipleResultExtraType)
-	return deleteMultipleResultExtraTypeType
-}
-
 // DeleteMultipleResultMetaDataType
 //
 // Matadata of delete multiple rules result
 type DeleteMultipleResultMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *DeleteMultipleResultMetaDataType) UnmarshalJSON(b []byte) error {
+func(t *DeleteMultipleResultMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -238,21 +163,11 @@ func (t *DeleteMultipleResultMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *DeleteMultipleResultMetaDataType) MarshalJSON() ([]byte, error) {
+func(t *DeleteMultipleResultMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewDeleteMultipleResultMetaDataType() *DeleteMultipleResultMetaDataType {
-	deleteMultipleResultMetaDataTypeType := new(DeleteMultipleResultMetaDataType)
-	return deleteMultipleResultMetaDataTypeType
-}
-
-func NewDeleteMultipleResultMetaDataTypeWithDefaults() *DeleteMultipleResultMetaDataType {
-	deleteMultipleResultMetaDataTypeType := new(DeleteMultipleResultMetaDataType)
-	return deleteMultipleResultMetaDataTypeType
 }
 
 type DeleteResult struct {
@@ -273,24 +188,13 @@ type DeleteResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewDeleteResult() *DeleteResult {
-	deleteResultType := new(DeleteResult)
-	return deleteResultType
-}
-
-func NewDeleteResultWithDefaults() *DeleteResult {
-	deleteResultType := new(DeleteResult)
-	return deleteResultType
-}
-
 // DeleteResultExtraType
 //
 // Any additional response
 type DeleteResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *DeleteResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *DeleteResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -299,31 +203,20 @@ func (t *DeleteResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *DeleteResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *DeleteResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewDeleteResultExtraType() *DeleteResultExtraType {
-	deleteResultExtraTypeType := new(DeleteResultExtraType)
-	return deleteResultExtraTypeType
-}
-
-func NewDeleteResultExtraTypeWithDefaults() *DeleteResultExtraType {
-	deleteResultExtraTypeType := new(DeleteResultExtraType)
-	return deleteResultExtraTypeType
-}
-
 // DeleteResultMetaDataType
 //
 // Matadata of Rule delete result
 type DeleteResultMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *DeleteResultMetaDataType) UnmarshalJSON(b []byte) error {
+func(t *DeleteResultMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -332,21 +225,11 @@ func (t *DeleteResultMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *DeleteResultMetaDataType) MarshalJSON() ([]byte, error) {
+func(t *DeleteResultMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewDeleteResultMetaDataType() *DeleteResultMetaDataType {
-	deleteResultMetaDataTypeType := new(DeleteResultMetaDataType)
-	return deleteResultMetaDataTypeType
-}
-
-func NewDeleteResultMetaDataTypeWithDefaults() *DeleteResultMetaDataType {
-	deleteResultMetaDataTypeType := new(DeleteResultMetaDataType)
-	return deleteResultMetaDataTypeType
 }
 
 type ErrorObject struct {
@@ -355,16 +238,6 @@ type ErrorObject struct {
 	Message *string `json:"message,omitempty"`
 
 	MsgKey *string `json:"msgKey,omitempty"`
-}
-
-func NewErrorObject() *ErrorObject {
-	errorObjectType := new(ErrorObject)
-	return errorObjectType
-}
-
-func NewErrorObjectWithDefaults() *ErrorObject {
-	errorObjectType := new(ErrorObject)
-	return errorObjectType
 }
 
 type List struct {
@@ -391,24 +264,13 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewList() *List {
-	listType := new(List)
-	return listType
-}
-
-func NewListWithDefaults() *List {
-	listType := new(List)
-	return listType
-}
-
 // ListExtraType
 //
 // Any additional response data
 type ListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ListExtraType) UnmarshalJSON(b []byte) error {
+func(t *ListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -417,21 +279,11 @@ func (t *ListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ListExtraType) MarshalJSON() ([]byte, error) {
+func(t *ListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewListExtraType() *ListExtraType {
-	listExtraTypeType := new(ListExtraType)
-	return listExtraTypeType
-}
-
-func NewListExtraTypeWithDefaults() *ListExtraType {
-	listExtraTypeType := new(ListExtraType)
-	return listExtraTypeType
 }
 
 type ModifyResult struct {
@@ -452,24 +304,13 @@ type ModifyResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewModifyResult() *ModifyResult {
-	modifyResultType := new(ModifyResult)
-	return modifyResultType
-}
-
-func NewModifyResultWithDefaults() *ModifyResult {
-	modifyResultType := new(ModifyResult)
-	return modifyResultType
-}
-
 // ModifyResultExtraType
 //
 // Any additional response
 type ModifyResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ModifyResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *ModifyResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -478,31 +319,20 @@ func (t *ModifyResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ModifyResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *ModifyResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewModifyResultExtraType() *ModifyResultExtraType {
-	modifyResultExtraTypeType := new(ModifyResultExtraType)
-	return modifyResultExtraTypeType
-}
-
-func NewModifyResultExtraTypeWithDefaults() *ModifyResultExtraType {
-	modifyResultExtraTypeType := new(ModifyResultExtraType)
-	return modifyResultExtraTypeType
-}
-
 // ModifyResultMetaDataType
 //
 // Matadata of rule modify result
 type ModifyResultMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ModifyResultMetaDataType) UnmarshalJSON(b []byte) error {
+func(t *ModifyResultMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -511,21 +341,11 @@ func (t *ModifyResultMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ModifyResultMetaDataType) MarshalJSON() ([]byte, error) {
+func(t *ModifyResultMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewModifyResultMetaDataType() *ModifyResultMetaDataType {
-	modifyResultMetaDataTypeType := new(ModifyResultMetaDataType)
-	return modifyResultMetaDataTypeType
-}
-
-func NewModifyResultMetaDataTypeWithDefaults() *ModifyResultMetaDataType {
-	modifyResultMetaDataTypeType := new(ModifyResultMetaDataType)
-	return modifyResultMetaDataTypeType
 }
 
 type RegistrationRule struct {
@@ -597,16 +417,6 @@ type RegistrationRule struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_RANGE SUBNET MODEL_NUMBER"`
 }
 
-func NewRegistrationRule() *RegistrationRule {
-	registrationRuleType := new(RegistrationRule)
-	return registrationRuleType
-}
-
-func NewRegistrationRuleWithDefaults() *RegistrationRule {
-	registrationRuleType := new(RegistrationRule)
-	return registrationRuleType
-}
-
 type RuleQueryResultList struct {
 	Data *List `json:"data,omitempty"`
 
@@ -625,24 +435,13 @@ type RuleQueryResultList struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewRuleQueryResultList() *RuleQueryResultList {
-	ruleQueryResultListType := new(RuleQueryResultList)
-	return ruleQueryResultListType
-}
-
-func NewRuleQueryResultListWithDefaults() *RuleQueryResultList {
-	ruleQueryResultListType := new(RuleQueryResultList)
-	return ruleQueryResultListType
-}
-
 // RuleQueryResultListExtraType
 //
 // Any additional response
 type RuleQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *RuleQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *RuleQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -651,31 +450,20 @@ func (t *RuleQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *RuleQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *RuleQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewRuleQueryResultListExtraType() *RuleQueryResultListExtraType {
-	ruleQueryResultListExtraTypeType := new(RuleQueryResultListExtraType)
-	return ruleQueryResultListExtraTypeType
-}
-
-func NewRuleQueryResultListExtraTypeWithDefaults() *RuleQueryResultListExtraType {
-	ruleQueryResultListExtraTypeType := new(RuleQueryResultListExtraType)
-	return ruleQueryResultListExtraTypeType
-}
-
 // RuleQueryResultListMetaDataType
 //
 // Matadata of Rule query result
 type RuleQueryResultListMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *RuleQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
+func(t *RuleQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -684,31 +472,12 @@ func (t *RuleQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *RuleQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
+func(t *RuleQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewRuleQueryResultListMetaDataType() *RuleQueryResultListMetaDataType {
-	ruleQueryResultListMetaDataTypeType := new(RuleQueryResultListMetaDataType)
-	return ruleQueryResultListMetaDataTypeType
-}
-
-func NewRuleQueryResultListMetaDataTypeWithDefaults() *RuleQueryResultListMetaDataType {
-	ruleQueryResultListMetaDataTypeType := new(RuleQueryResultListMetaDataType)
-	return ruleQueryResultListMetaDataTypeType
-}
-
 type RuleUUIDs []string
 
-func NewRuleUUIDs() *RuleUUIDs {
-	ruleUUIDsType := make(RuleUUIDs, 0)
-	return &ruleUUIDsType
-}
-
-func NewRuleUUIDsWithDefaults() *RuleUUIDs {
-	ruleUUIDsType := make(RuleUUIDs, 0)
-	return &ruleUUIDsType
-}

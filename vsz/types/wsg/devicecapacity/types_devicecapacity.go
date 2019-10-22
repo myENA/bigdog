@@ -52,12 +52,3 @@ type DevicesSummary struct {
 	TotalSwitches *int `json:"totalSwitches,omitempty"`
 }
 
-func NewDevicesSummary() *DevicesSummary {
-	devicesSummaryType := new(DevicesSummary)
-	return devicesSummaryType
-}
-
-func NewDevicesSummaryWithDefaults() *DevicesSummary {
-	devicesSummaryType := new(DevicesSummary)
-	return devicesSummaryType
-}

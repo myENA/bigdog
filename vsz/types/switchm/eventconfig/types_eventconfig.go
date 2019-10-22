@@ -61,16 +61,6 @@ type EventConfig struct {
 	Type *string `json:"type,omitempty" validate:"omitempty,oneof=CPU Memory TextPattern"`
 }
 
-func NewEventConfig() *EventConfig {
-	eventConfigType := new(EventConfig)
-	return eventConfigType
-}
-
-func NewEventConfigWithDefaults() *EventConfig {
-	eventConfigType := new(EventConfig)
-	return eventConfigType
-}
-
 type GetEventConfigList struct {
 	// Extra
 	// Extra information of responsed Switch custom event config list
@@ -95,24 +85,13 @@ type GetEventConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewGetEventConfigList() *GetEventConfigList {
-	getEventConfigListType := new(GetEventConfigList)
-	return getEventConfigListType
-}
-
-func NewGetEventConfigListWithDefaults() *GetEventConfigList {
-	getEventConfigListType := new(GetEventConfigList)
-	return getEventConfigListType
-}
-
 // GetEventConfigListExtraType
 //
 // Extra information of responsed Switch custom event config list
 type GetEventConfigListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *GetEventConfigListExtraType) UnmarshalJSON(b []byte) error {
+func(t *GetEventConfigListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -121,21 +100,11 @@ func (t *GetEventConfigListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *GetEventConfigListExtraType) MarshalJSON() ([]byte, error) {
+func(t *GetEventConfigListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewGetEventConfigListExtraType() *GetEventConfigListExtraType {
-	getEventConfigListExtraTypeType := new(GetEventConfigListExtraType)
-	return getEventConfigListExtraTypeType
-}
-
-func NewGetEventConfigListExtraTypeWithDefaults() *GetEventConfigListExtraType {
-	getEventConfigListExtraTypeType := new(GetEventConfigListExtraType)
-	return getEventConfigListExtraTypeType
 }
 
 type QueryResponse struct {
@@ -160,24 +129,13 @@ type QueryResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewQueryResponse() *QueryResponse {
-	queryResponseType := new(QueryResponse)
-	return queryResponseType
-}
-
-func NewQueryResponseWithDefaults() *QueryResponse {
-	queryResponseType := new(QueryResponse)
-	return queryResponseType
-}
-
 // QueryResponseDataType
 //
 // Response data message of Public API
 type QueryResponseDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *QueryResponseDataType) UnmarshalJSON(b []byte) error {
+func(t *QueryResponseDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -186,31 +144,20 @@ func (t *QueryResponseDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *QueryResponseDataType) MarshalJSON() ([]byte, error) {
+func(t *QueryResponseDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewQueryResponseDataType() *QueryResponseDataType {
-	queryResponseDataTypeType := new(QueryResponseDataType)
-	return queryResponseDataTypeType
-}
-
-func NewQueryResponseDataTypeWithDefaults() *QueryResponseDataType {
-	queryResponseDataTypeType := new(QueryResponseDataType)
-	return queryResponseDataTypeType
-}
-
 // QueryResponseErrorType
 //
 // Response error message of Public API
 type QueryResponseErrorType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *QueryResponseErrorType) UnmarshalJSON(b []byte) error {
+func(t *QueryResponseErrorType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -219,31 +166,20 @@ func (t *QueryResponseErrorType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *QueryResponseErrorType) MarshalJSON() ([]byte, error) {
+func(t *QueryResponseErrorType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewQueryResponseErrorType() *QueryResponseErrorType {
-	queryResponseErrorTypeType := new(QueryResponseErrorType)
-	return queryResponseErrorTypeType
-}
-
-func NewQueryResponseErrorTypeWithDefaults() *QueryResponseErrorType {
-	queryResponseErrorTypeType := new(QueryResponseErrorType)
-	return queryResponseErrorTypeType
-}
-
 // QueryResponseExtraType
 //
 // Extra information of Public API response
 type QueryResponseExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *QueryResponseExtraType) UnmarshalJSON(b []byte) error {
+func(t *QueryResponseExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -252,31 +188,20 @@ func (t *QueryResponseExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *QueryResponseExtraType) MarshalJSON() ([]byte, error) {
+func(t *QueryResponseExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewQueryResponseExtraType() *QueryResponseExtraType {
-	queryResponseExtraTypeType := new(QueryResponseExtraType)
-	return queryResponseExtraTypeType
-}
-
-func NewQueryResponseExtraTypeWithDefaults() *QueryResponseExtraType {
-	queryResponseExtraTypeType := new(QueryResponseExtraType)
-	return queryResponseExtraTypeType
-}
-
 // QueryResponseMetaDataType
 //
 // Meta-data of Public API response
 type QueryResponseMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *QueryResponseMetaDataType) UnmarshalJSON(b []byte) error {
+func(t *QueryResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -285,21 +210,11 @@ func (t *QueryResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *QueryResponseMetaDataType) MarshalJSON() ([]byte, error) {
+func(t *QueryResponseMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewQueryResponseMetaDataType() *QueryResponseMetaDataType {
-	queryResponseMetaDataTypeType := new(QueryResponseMetaDataType)
-	return queryResponseMetaDataTypeType
-}
-
-func NewQueryResponseMetaDataTypeWithDefaults() *QueryResponseMetaDataType {
-	queryResponseMetaDataTypeType := new(QueryResponseMetaDataType)
-	return queryResponseMetaDataTypeType
 }
 
 type UpdateEventConfig struct {
@@ -309,3 +224,4 @@ type UpdateEventConfig struct {
 type UpdateEventConfigResult struct {
 	*QueryResponse
 }
+

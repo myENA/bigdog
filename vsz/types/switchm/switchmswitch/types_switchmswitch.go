@@ -17,16 +17,6 @@ type AuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewAuditId() *AuditId {
-	auditIdType := new(AuditId)
-	return auditIdType
-}
-
-func NewAuditIdWithDefaults() *AuditId {
-	auditIdType := new(AuditId)
-	return auditIdType
-}
-
 type BarChart struct {
 	// Id
 	// Identifier of the barchart
@@ -39,16 +29,6 @@ type BarChart struct {
 	// Value
 	// Metrics of the barchart
 	Value *float64 `json:"value,omitempty"`
-}
-
-func NewBarChart() *BarChart {
-	barChartType := new(BarChart)
-	return barChartType
-}
-
-func NewBarChartWithDefaults() *BarChart {
-	barChartType := new(BarChart)
-	return barChartType
 }
 
 type ConnectedAPsQueryList struct {
@@ -75,24 +55,13 @@ type ConnectedAPsQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewConnectedAPsQueryList() *ConnectedAPsQueryList {
-	connectedAPsQueryListType := new(ConnectedAPsQueryList)
-	return connectedAPsQueryListType
-}
-
-func NewConnectedAPsQueryListWithDefaults() *ConnectedAPsQueryList {
-	connectedAPsQueryListType := new(ConnectedAPsQueryList)
-	return connectedAPsQueryListType
-}
-
 // ConnectedAPsQueryListExtraType
 //
 // Any additional response data
 type ConnectedAPsQueryListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ConnectedAPsQueryListExtraType) UnmarshalJSON(b []byte) error {
+func(t *ConnectedAPsQueryListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -101,21 +70,11 @@ func (t *ConnectedAPsQueryListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ConnectedAPsQueryListExtraType) MarshalJSON() ([]byte, error) {
+func(t *ConnectedAPsQueryListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewConnectedAPsQueryListExtraType() *ConnectedAPsQueryListExtraType {
-	connectedAPsQueryListExtraTypeType := new(ConnectedAPsQueryListExtraType)
-	return connectedAPsQueryListExtraTypeType
-}
-
-func NewConnectedAPsQueryListExtraTypeWithDefaults() *ConnectedAPsQueryListExtraType {
-	connectedAPsQueryListExtraTypeType := new(ConnectedAPsQueryListExtraType)
-	return connectedAPsQueryListExtraTypeType
 }
 
 type ConnectedDevice struct {
@@ -196,24 +155,13 @@ type ConnectedDevice struct {
 	UnitId *string `json:"unitId,omitempty"`
 }
 
-func NewConnectedDevice() *ConnectedDevice {
-	connectedDeviceType := new(ConnectedDevice)
-	return connectedDeviceType
-}
-
-func NewConnectedDeviceWithDefaults() *ConnectedDevice {
-	connectedDeviceType := new(ConnectedDevice)
-	return connectedDeviceType
-}
-
 // ConnectedDeviceSampledInstantType
 //
 // Sampled instant
 type ConnectedDeviceSampledInstantType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ConnectedDeviceSampledInstantType) UnmarshalJSON(b []byte) error {
+func(t *ConnectedDeviceSampledInstantType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -222,21 +170,11 @@ func (t *ConnectedDeviceSampledInstantType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ConnectedDeviceSampledInstantType) MarshalJSON() ([]byte, error) {
+func(t *ConnectedDeviceSampledInstantType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewConnectedDeviceSampledInstantType() *ConnectedDeviceSampledInstantType {
-	connectedDeviceSampledInstantTypeType := new(ConnectedDeviceSampledInstantType)
-	return connectedDeviceSampledInstantTypeType
-}
-
-func NewConnectedDeviceSampledInstantTypeWithDefaults() *ConnectedDeviceSampledInstantType {
-	connectedDeviceSampledInstantTypeType := new(ConnectedDeviceSampledInstantType)
-	return connectedDeviceSampledInstantTypeType
 }
 
 type ConnectedDevicesQueryList struct {
@@ -263,24 +201,13 @@ type ConnectedDevicesQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewConnectedDevicesQueryList() *ConnectedDevicesQueryList {
-	connectedDevicesQueryListType := new(ConnectedDevicesQueryList)
-	return connectedDevicesQueryListType
-}
-
-func NewConnectedDevicesQueryListWithDefaults() *ConnectedDevicesQueryList {
-	connectedDevicesQueryListType := new(ConnectedDevicesQueryList)
-	return connectedDevicesQueryListType
-}
-
 // ConnectedDevicesQueryListExtraType
 //
 // Any additional response data
 type ConnectedDevicesQueryListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ConnectedDevicesQueryListExtraType) UnmarshalJSON(b []byte) error {
+func(t *ConnectedDevicesQueryListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -289,21 +216,11 @@ func (t *ConnectedDevicesQueryListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ConnectedDevicesQueryListExtraType) MarshalJSON() ([]byte, error) {
+func(t *ConnectedDevicesQueryListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewConnectedDevicesQueryListExtraType() *ConnectedDevicesQueryListExtraType {
-	connectedDevicesQueryListExtraTypeType := new(ConnectedDevicesQueryListExtraType)
-	return connectedDevicesQueryListExtraTypeType
-}
-
-func NewConnectedDevicesQueryListExtraTypeWithDefaults() *ConnectedDevicesQueryListExtraType {
-	connectedDevicesQueryListExtraTypeType := new(ConnectedDevicesQueryListExtraType)
-	return connectedDevicesQueryListExtraTypeType
 }
 
 type DeleteSwitchesResultList struct {
@@ -330,24 +247,13 @@ type DeleteSwitchesResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewDeleteSwitchesResultList() *DeleteSwitchesResultList {
-	deleteSwitchesResultListType := new(DeleteSwitchesResultList)
-	return deleteSwitchesResultListType
-}
-
-func NewDeleteSwitchesResultListWithDefaults() *DeleteSwitchesResultList {
-	deleteSwitchesResultListType := new(DeleteSwitchesResultList)
-	return deleteSwitchesResultListType
-}
-
 // DeleteSwitchesResultListExtraType
 //
 // Any additional response data
 type DeleteSwitchesResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *DeleteSwitchesResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *DeleteSwitchesResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -356,21 +262,11 @@ func (t *DeleteSwitchesResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *DeleteSwitchesResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *DeleteSwitchesResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewDeleteSwitchesResultListExtraType() *DeleteSwitchesResultListExtraType {
-	deleteSwitchesResultListExtraTypeType := new(DeleteSwitchesResultListExtraType)
-	return deleteSwitchesResultListExtraTypeType
-}
-
-func NewDeleteSwitchesResultListExtraTypeWithDefaults() *DeleteSwitchesResultListExtraType {
-	deleteSwitchesResultListExtraTypeType := new(DeleteSwitchesResultListExtraType)
-	return deleteSwitchesResultListExtraTypeType
 }
 
 type Firmware struct {
@@ -385,16 +281,6 @@ type Firmware struct {
 	// ToVersion
 	// Firmware version after firmware update
 	ToVersion *string `json:"toVersion,omitempty"`
-}
-
-func NewFirmware() *Firmware {
-	firmwareType := new(Firmware)
-	return firmwareType
-}
-
-func NewFirmwareWithDefaults() *Firmware {
-	firmwareType := new(Firmware)
-	return firmwareType
 }
 
 type FirmwareHistoryQueryResultList struct {
@@ -421,24 +307,13 @@ type FirmwareHistoryQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewFirmwareHistoryQueryResultList() *FirmwareHistoryQueryResultList {
-	firmwareHistoryQueryResultListType := new(FirmwareHistoryQueryResultList)
-	return firmwareHistoryQueryResultListType
-}
-
-func NewFirmwareHistoryQueryResultListWithDefaults() *FirmwareHistoryQueryResultList {
-	firmwareHistoryQueryResultListType := new(FirmwareHistoryQueryResultList)
-	return firmwareHistoryQueryResultListType
-}
-
 // FirmwareHistoryQueryResultListExtraType
 //
 // Any additional response data
 type FirmwareHistoryQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *FirmwareHistoryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *FirmwareHistoryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -447,21 +322,11 @@ func (t *FirmwareHistoryQueryResultListExtraType) UnmarshalJSON(b []byte) error 
 	return nil
 }
 
-func (t *FirmwareHistoryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *FirmwareHistoryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewFirmwareHistoryQueryResultListExtraType() *FirmwareHistoryQueryResultListExtraType {
-	firmwareHistoryQueryResultListExtraTypeType := new(FirmwareHistoryQueryResultListExtraType)
-	return firmwareHistoryQueryResultListExtraTypeType
-}
-
-func NewFirmwareHistoryQueryResultListExtraTypeWithDefaults() *FirmwareHistoryQueryResultListExtraType {
-	firmwareHistoryQueryResultListExtraTypeType := new(FirmwareHistoryQueryResultListExtraType)
-	return firmwareHistoryQueryResultListExtraTypeType
 }
 
 type NetworkSwitch struct {
@@ -590,16 +455,6 @@ type NetworkSwitch struct {
 	UpTime *string `json:"upTime,omitempty"`
 }
 
-func NewNetworkSwitch() *NetworkSwitch {
-	networkSwitchType := new(NetworkSwitch)
-	return networkSwitchType
-}
-
-func NewNetworkSwitchWithDefaults() *NetworkSwitch {
-	networkSwitchType := new(NetworkSwitch)
-	return networkSwitchType
-}
-
 // NetworkSwitchFirmwareUpdateType
 //
 // Information of firmware update
@@ -625,16 +480,6 @@ type NetworkSwitchFirmwareUpdateType struct {
 	ToVersion *string `json:"toVersion,omitempty"`
 }
 
-func NewNetworkSwitchFirmwareUpdateType() *NetworkSwitchFirmwareUpdateType {
-	networkSwitchFirmwareUpdateTypeType := new(NetworkSwitchFirmwareUpdateType)
-	return networkSwitchFirmwareUpdateTypeType
-}
-
-func NewNetworkSwitchFirmwareUpdateTypeWithDefaults() *NetworkSwitchFirmwareUpdateType {
-	networkSwitchFirmwareUpdateTypeType := new(NetworkSwitchFirmwareUpdateType)
-	return networkSwitchFirmwareUpdateTypeType
-}
-
 // NetworkSwitchPoeType
 //
 // Information of PoE
@@ -650,16 +495,6 @@ type NetworkSwitchPoeType struct {
 	// Total
 	// Total power capacity of a switch
 	Total *int `json:"total,omitempty"`
-}
-
-func NewNetworkSwitchPoeType() *NetworkSwitchPoeType {
-	networkSwitchPoeTypeType := new(NetworkSwitchPoeType)
-	return networkSwitchPoeTypeType
-}
-
-func NewNetworkSwitchPoeTypeWithDefaults() *NetworkSwitchPoeType {
-	networkSwitchPoeTypeType := new(NetworkSwitchPoeType)
-	return networkSwitchPoeTypeType
 }
 
 // NetworkSwitchPortStatusType
@@ -693,16 +528,6 @@ type NetworkSwitchPortStatusType struct {
 	// Warning
 	// Count for port status is warring of switch
 	Warning *int `json:"warning,omitempty"`
-}
-
-func NewNetworkSwitchPortStatusType() *NetworkSwitchPortStatusType {
-	networkSwitchPortStatusTypeType := new(NetworkSwitchPortStatusType)
-	return networkSwitchPortStatusTypeType
-}
-
-func NewNetworkSwitchPortStatusTypeWithDefaults() *NetworkSwitchPortStatusType {
-	networkSwitchPortStatusTypeType := new(NetworkSwitchPortStatusType)
-	return networkSwitchPortStatusTypeType
 }
 
 type PortDetails struct {
@@ -815,16 +640,6 @@ type PortDetails struct {
 	Vlans *string `json:"vlans,omitempty"`
 }
 
-func NewPortDetails() *PortDetails {
-	portDetailsType := new(PortDetails)
-	return portDetailsType
-}
-
-func NewPortDetailsWithDefaults() *PortDetails {
-	portDetailsType := new(PortDetails)
-	return portDetailsType
-}
-
 // PortDetailsConnectedDeviceType
 //
 // Connected device information
@@ -902,16 +717,6 @@ type PortDetailsConnectedDeviceType struct {
 	UnitId *string `json:"unitId,omitempty"`
 }
 
-func NewPortDetailsConnectedDeviceType() *PortDetailsConnectedDeviceType {
-	portDetailsConnectedDeviceTypeType := new(PortDetailsConnectedDeviceType)
-	return portDetailsConnectedDeviceTypeType
-}
-
-func NewPortDetailsConnectedDeviceTypeWithDefaults() *PortDetailsConnectedDeviceType {
-	portDetailsConnectedDeviceTypeType := new(PortDetailsConnectedDeviceType)
-	return portDetailsConnectedDeviceTypeType
-}
-
 // PortDetailsPacketsType
 //
 // Port packet transmit information
@@ -933,16 +738,6 @@ type PortDetailsPacketsType struct {
 	MulticastOut *int `json:"multicastOut,omitempty"`
 }
 
-func NewPortDetailsPacketsType() *PortDetailsPacketsType {
-	portDetailsPacketsTypeType := new(PortDetailsPacketsType)
-	return portDetailsPacketsTypeType
-}
-
-func NewPortDetailsPacketsTypeWithDefaults() *PortDetailsPacketsType {
-	portDetailsPacketsTypeType := new(PortDetailsPacketsType)
-	return portDetailsPacketsTypeType
-}
-
 // PortDetailsPoeType
 //
 // POE information of switch port
@@ -958,16 +753,6 @@ type PortDetailsPoeType struct {
 	// Total
 	// Total power capacity of switch port
 	Total *int `json:"total,omitempty"`
-}
-
-func NewPortDetailsPoeType() *PortDetailsPoeType {
-	portDetailsPoeTypeType := new(PortDetailsPoeType)
-	return portDetailsPoeTypeType
-}
-
-func NewPortDetailsPoeTypeWithDefaults() *PortDetailsPoeType {
-	portDetailsPoeTypeType := new(PortDetailsPoeType)
-	return portDetailsPoeTypeType
 }
 
 // PortDetailsPortErrorType
@@ -989,16 +774,6 @@ type PortDetailsPortErrorType struct {
 	// OutError
 	// Switch port traffic out error count
 	OutError *int `json:"outError,omitempty"`
-}
-
-func NewPortDetailsPortErrorType() *PortDetailsPortErrorType {
-	portDetailsPortErrorTypeType := new(PortDetailsPortErrorType)
-	return portDetailsPortErrorTypeType
-}
-
-func NewPortDetailsPortErrorTypeWithDefaults() *PortDetailsPortErrorType {
-	portDetailsPortErrorTypeType := new(PortDetailsPortErrorType)
-	return portDetailsPortErrorTypeType
 }
 
 type PortDetailsQueryResultList struct {
@@ -1025,24 +800,13 @@ type PortDetailsQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewPortDetailsQueryResultList() *PortDetailsQueryResultList {
-	portDetailsQueryResultListType := new(PortDetailsQueryResultList)
-	return portDetailsQueryResultListType
-}
-
-func NewPortDetailsQueryResultListWithDefaults() *PortDetailsQueryResultList {
-	portDetailsQueryResultListType := new(PortDetailsQueryResultList)
-	return portDetailsQueryResultListType
-}
-
 // PortDetailsQueryResultListExtraType
 //
 // Any additional response data
 type PortDetailsQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *PortDetailsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *PortDetailsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -1051,21 +815,11 @@ func (t *PortDetailsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *PortDetailsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *PortDetailsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewPortDetailsQueryResultListExtraType() *PortDetailsQueryResultListExtraType {
-	portDetailsQueryResultListExtraTypeType := new(PortDetailsQueryResultListExtraType)
-	return portDetailsQueryResultListExtraTypeType
-}
-
-func NewPortDetailsQueryResultListExtraTypeWithDefaults() *PortDetailsQueryResultListExtraType {
-	portDetailsQueryResultListExtraTypeType := new(PortDetailsQueryResultListExtraType)
-	return portDetailsQueryResultListExtraTypeType
 }
 
 // PortDetailsTrafficUsageType
@@ -1079,16 +833,6 @@ type PortDetailsTrafficUsageType struct {
 	// Tx
 	// Tx traffic usage of switch port
 	Tx *int `json:"tx,omitempty"`
-}
-
-func NewPortDetailsTrafficUsageType() *PortDetailsTrafficUsageType {
-	portDetailsTrafficUsageTypeType := new(PortDetailsTrafficUsageType)
-	return portDetailsTrafficUsageTypeType
-}
-
-func NewPortDetailsTrafficUsageTypeWithDefaults() *PortDetailsTrafficUsageType {
-	portDetailsTrafficUsageTypeType := new(PortDetailsTrafficUsageType)
-	return portDetailsTrafficUsageTypeType
 }
 
 type PortStatus struct {
@@ -1119,16 +863,6 @@ type PortStatus struct {
 	// Warning
 	// Warring port count
 	Warning *int `json:"warning,omitempty"`
-}
-
-func NewPortStatus() *PortStatus {
-	portStatusType := new(PortStatus)
-	return portStatusType
-}
-
-func NewPortStatusWithDefaults() *PortStatus {
-	portStatusType := new(PortStatus)
-	return portStatusType
 }
 
 type StackMember struct {
@@ -1165,16 +899,6 @@ type StackMember struct {
 	SwitchUnit *string `json:"switchUnit,omitempty"`
 }
 
-func NewStackMember() *StackMember {
-	stackMemberType := new(StackMember)
-	return stackMemberType
-}
-
-func NewStackMemberWithDefaults() *StackMember {
-	stackMemberType := new(StackMember)
-	return stackMemberType
-}
-
 type StackMemberQueryResult struct {
 	// Extra
 	// Extra information for stack member list
@@ -1199,24 +923,13 @@ type StackMemberQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewStackMemberQueryResult() *StackMemberQueryResult {
-	stackMemberQueryResultType := new(StackMemberQueryResult)
-	return stackMemberQueryResultType
-}
-
-func NewStackMemberQueryResultWithDefaults() *StackMemberQueryResult {
-	stackMemberQueryResultType := new(StackMemberQueryResult)
-	return stackMemberQueryResultType
-}
-
 // StackMemberQueryResultExtraType
 //
 // Extra information for stack member list
 type StackMemberQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *StackMemberQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *StackMemberQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -1225,34 +938,14 @@ func (t *StackMemberQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *StackMemberQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *StackMemberQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewStackMemberQueryResultExtraType() *StackMemberQueryResultExtraType {
-	stackMemberQueryResultExtraTypeType := new(StackMemberQueryResultExtraType)
-	return stackMemberQueryResultExtraTypeType
-}
-
-func NewStackMemberQueryResultExtraTypeWithDefaults() *StackMemberQueryResultExtraType {
-	stackMemberQueryResultExtraTypeType := new(StackMemberQueryResultExtraType)
-	return stackMemberQueryResultExtraTypeType
-}
-
 type SwitchIdList []string
-
-func NewSwitchIdList() *SwitchIdList {
-	switchIdListType := make(SwitchIdList, 0)
-	return &switchIdListType
-}
-
-func NewSwitchIdListWithDefaults() *SwitchIdList {
-	switchIdListType := make(SwitchIdList, 0)
-	return &switchIdListType
-}
 
 type SwitchPortsSummaryQueryResultList struct {
 	// Extra
@@ -1278,24 +971,13 @@ type SwitchPortsSummaryQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchPortsSummaryQueryResultList() *SwitchPortsSummaryQueryResultList {
-	switchPortsSummaryQueryResultListType := new(SwitchPortsSummaryQueryResultList)
-	return switchPortsSummaryQueryResultListType
-}
-
-func NewSwitchPortsSummaryQueryResultListWithDefaults() *SwitchPortsSummaryQueryResultList {
-	switchPortsSummaryQueryResultListType := new(SwitchPortsSummaryQueryResultList)
-	return switchPortsSummaryQueryResultListType
-}
-
 // SwitchPortsSummaryQueryResultListExtraType
 //
 // Any additional response data
 type SwitchPortsSummaryQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *SwitchPortsSummaryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *SwitchPortsSummaryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -1304,21 +986,11 @@ func (t *SwitchPortsSummaryQueryResultListExtraType) UnmarshalJSON(b []byte) err
 	return nil
 }
 
-func (t *SwitchPortsSummaryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *SwitchPortsSummaryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchPortsSummaryQueryResultListExtraType() *SwitchPortsSummaryQueryResultListExtraType {
-	switchPortsSummaryQueryResultListExtraTypeType := new(SwitchPortsSummaryQueryResultListExtraType)
-	return switchPortsSummaryQueryResultListExtraTypeType
-}
-
-func NewSwitchPortsSummaryQueryResultListExtraTypeWithDefaults() *SwitchPortsSummaryQueryResultListExtraType {
-	switchPortsSummaryQueryResultListExtraTypeType := new(SwitchPortsSummaryQueryResultListExtraType)
-	return switchPortsSummaryQueryResultListExtraTypeType
 }
 
 type SwitchQueryResultList struct {
@@ -1341,16 +1013,6 @@ type SwitchQueryResultList struct {
 	// TotalCount
 	// Total switch query result list count
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewSwitchQueryResultList() *SwitchQueryResultList {
-	switchQueryResultListType := new(SwitchQueryResultList)
-	return switchQueryResultListType
-}
-
-func NewSwitchQueryResultListWithDefaults() *SwitchQueryResultList {
-	switchQueryResultListType := new(SwitchQueryResultList)
-	return switchQueryResultListType
 }
 
 type TopSwitchesByFirmwareQueryResultList struct {
@@ -1377,24 +1039,13 @@ type TopSwitchesByFirmwareQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewTopSwitchesByFirmwareQueryResultList() *TopSwitchesByFirmwareQueryResultList {
-	topSwitchesByFirmwareQueryResultListType := new(TopSwitchesByFirmwareQueryResultList)
-	return topSwitchesByFirmwareQueryResultListType
-}
-
-func NewTopSwitchesByFirmwareQueryResultListWithDefaults() *TopSwitchesByFirmwareQueryResultList {
-	topSwitchesByFirmwareQueryResultListType := new(TopSwitchesByFirmwareQueryResultList)
-	return topSwitchesByFirmwareQueryResultListType
-}
-
 // TopSwitchesByFirmwareQueryResultListExtraType
 //
 // Any additional response data
 type TopSwitchesByFirmwareQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *TopSwitchesByFirmwareQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *TopSwitchesByFirmwareQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -1403,21 +1054,11 @@ func (t *TopSwitchesByFirmwareQueryResultListExtraType) UnmarshalJSON(b []byte) 
 	return nil
 }
 
-func (t *TopSwitchesByFirmwareQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *TopSwitchesByFirmwareQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewTopSwitchesByFirmwareQueryResultListExtraType() *TopSwitchesByFirmwareQueryResultListExtraType {
-	topSwitchesByFirmwareQueryResultListExtraTypeType := new(TopSwitchesByFirmwareQueryResultListExtraType)
-	return topSwitchesByFirmwareQueryResultListExtraTypeType
-}
-
-func NewTopSwitchesByFirmwareQueryResultListExtraTypeWithDefaults() *TopSwitchesByFirmwareQueryResultListExtraType {
-	topSwitchesByFirmwareQueryResultListExtraTypeType := new(TopSwitchesByFirmwareQueryResultListExtraType)
-	return topSwitchesByFirmwareQueryResultListExtraTypeType
 }
 
 type TopSwitchesByModelQueryResultList struct {
@@ -1444,24 +1085,13 @@ type TopSwitchesByModelQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewTopSwitchesByModelQueryResultList() *TopSwitchesByModelQueryResultList {
-	topSwitchesByModelQueryResultListType := new(TopSwitchesByModelQueryResultList)
-	return topSwitchesByModelQueryResultListType
-}
-
-func NewTopSwitchesByModelQueryResultListWithDefaults() *TopSwitchesByModelQueryResultList {
-	topSwitchesByModelQueryResultListType := new(TopSwitchesByModelQueryResultList)
-	return topSwitchesByModelQueryResultListType
-}
-
 // TopSwitchesByModelQueryResultListExtraType
 //
 // Any additional response data
 type TopSwitchesByModelQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *TopSwitchesByModelQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *TopSwitchesByModelQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -1470,19 +1100,10 @@ func (t *TopSwitchesByModelQueryResultListExtraType) UnmarshalJSON(b []byte) err
 	return nil
 }
 
-func (t *TopSwitchesByModelQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *TopSwitchesByModelQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewTopSwitchesByModelQueryResultListExtraType() *TopSwitchesByModelQueryResultListExtraType {
-	topSwitchesByModelQueryResultListExtraTypeType := new(TopSwitchesByModelQueryResultListExtraType)
-	return topSwitchesByModelQueryResultListExtraTypeType
-}
-
-func NewTopSwitchesByModelQueryResultListExtraTypeWithDefaults() *TopSwitchesByModelQueryResultListExtraType {
-	topSwitchesByModelQueryResultListExtraTypeType := new(TopSwitchesByModelQueryResultListExtraType)
-	return topSwitchesByModelQueryResultListExtraTypeType
-}

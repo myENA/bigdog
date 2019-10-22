@@ -9,26 +9,27 @@ import (
 )
 
 type WSGTrafficClassProfileService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGTrafficClassProfileService(client *Client) *WSGTrafficClassProfileService {
-	s := new(WSGTrafficClassProfileService)
-	s.client = client
-	return s
+func NewWSGTrafficClassProfileService (client *Client) *WSGTrafficClassProfileService {
+    s := new(WSGTrafficClassProfileService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGTrafficClassProfileService() *WSGTrafficClassProfileService {
-	serv := new(WSGTrafficClassProfileService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGTrafficClassProfileService () *WSGTrafficClassProfileService {
+    serv := new(WSGTrafficClassProfileService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*common.TrafficClassProfileRef, error) {
+func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById (ctx context.Context, id string, zoneId string) (*common.TrafficClassProfileRef, error) {
 }
 
-func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(ctx context.Context, zoneId string) (*profile.TrafficClassProfileList, error) {
+func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId (ctx context.Context, zoneId string) (*profile.TrafficClassProfileList, error) {
 }
 
-func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria(ctx context.Context) (*profile.TrafficClassProfileList, error) {
+func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria (ctx context.Context) (*profile.TrafficClassProfileList, error) {
 }
+

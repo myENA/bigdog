@@ -10,16 +10,6 @@ type BulkDelete struct {
 	IdList common.IdList `json:"idList,omitempty"`
 }
 
-func NewBulkDelete() *BulkDelete {
-	bulkDeleteType := new(BulkDelete)
-	return bulkDeleteType
-}
-
-func NewBulkDeleteWithDefaults() *BulkDelete {
-	bulkDeleteType := new(BulkDelete)
-	return bulkDeleteType
-}
-
 type DpDhcpProfileBasicBO struct {
 	// DefaultLeaseTime
 	// defaultLeaseTime
@@ -50,16 +40,6 @@ type DpDhcpProfileBasicBO struct {
 	SecondaryDnsServer *string `json:"secondaryDnsServer,omitempty"`
 }
 
-func NewDpDhcpProfileBasicBO() *DpDhcpProfileBasicBO {
-	dpDhcpProfileBasicBOType := new(DpDhcpProfileBasicBO)
-	return dpDhcpProfileBasicBOType
-}
-
-func NewDpDhcpProfileBasicBOWithDefaults() *DpDhcpProfileBasicBO {
-	dpDhcpProfileBasicBOType := new(DpDhcpProfileBasicBO)
-	return dpDhcpProfileBasicBOType
-}
-
 type DpDhcpProfileBasicBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -68,16 +48,6 @@ type DpDhcpProfileBasicBOList struct {
 	List []*DpDhcpProfileBasicBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewDpDhcpProfileBasicBOList() *DpDhcpProfileBasicBOList {
-	dpDhcpProfileBasicBOListType := new(DpDhcpProfileBasicBOList)
-	return dpDhcpProfileBasicBOListType
-}
-
-func NewDpDhcpProfileBasicBOListWithDefaults() *DpDhcpProfileBasicBOList {
-	dpDhcpProfileBasicBOListType := new(DpDhcpProfileBasicBOList)
-	return dpDhcpProfileBasicBOListType
 }
 
 type DpDhcpProfileHostBO struct {
@@ -130,16 +100,6 @@ type DpDhcpProfileHostBO struct {
 	Routers []string `json:"routers,omitempty"`
 }
 
-func NewDpDhcpProfileHostBO() *DpDhcpProfileHostBO {
-	dpDhcpProfileHostBOType := new(DpDhcpProfileHostBO)
-	return dpDhcpProfileHostBOType
-}
-
-func NewDpDhcpProfileHostBOWithDefaults() *DpDhcpProfileHostBO {
-	dpDhcpProfileHostBOType := new(DpDhcpProfileHostBO)
-	return dpDhcpProfileHostBOType
-}
-
 type DpDhcpProfileHostBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -148,16 +108,6 @@ type DpDhcpProfileHostBOList struct {
 	List []*DpDhcpProfileHostBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewDpDhcpProfileHostBOList() *DpDhcpProfileHostBOList {
-	dpDhcpProfileHostBOListType := new(DpDhcpProfileHostBOList)
-	return dpDhcpProfileHostBOListType
-}
-
-func NewDpDhcpProfileHostBOListWithDefaults() *DpDhcpProfileHostBOList {
-	dpDhcpProfileHostBOListType := new(DpDhcpProfileHostBOList)
-	return dpDhcpProfileHostBOListType
 }
 
 type DpDhcpProfileOptionBO struct {
@@ -178,30 +128,10 @@ type DpDhcpProfileOptionBO struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewDpDhcpProfileOptionBO() *DpDhcpProfileOptionBO {
-	dpDhcpProfileOptionBOType := new(DpDhcpProfileOptionBO)
-	return dpDhcpProfileOptionBOType
-}
-
-func NewDpDhcpProfileOptionBOWithDefaults() *DpDhcpProfileOptionBO {
-	dpDhcpProfileOptionBOType := new(DpDhcpProfileOptionBO)
-	return dpDhcpProfileOptionBOType
-}
-
 type DpDhcpProfileOptionInstance struct {
 	FunctionName *string `json:"functionName,omitempty"`
 
 	Value *string `json:"value,omitempty"`
-}
-
-func NewDpDhcpProfileOptionInstance() *DpDhcpProfileOptionInstance {
-	dpDhcpProfileOptionInstanceType := new(DpDhcpProfileOptionInstance)
-	return dpDhcpProfileOptionInstanceType
-}
-
-func NewDpDhcpProfileOptionInstanceWithDefaults() *DpDhcpProfileOptionInstance {
-	dpDhcpProfileOptionInstanceType := new(DpDhcpProfileOptionInstance)
-	return dpDhcpProfileOptionInstanceType
 }
 
 type DpDhcpProfileOptionSpaceApplyToBO struct {
@@ -224,16 +154,6 @@ type DpDhcpProfileOptionSpaceApplyToBO struct {
 	SpaceId *string `json:"spaceId,omitempty"`
 }
 
-func NewDpDhcpProfileOptionSpaceApplyToBO() *DpDhcpProfileOptionSpaceApplyToBO {
-	dpDhcpProfileOptionSpaceApplyToBOType := new(DpDhcpProfileOptionSpaceApplyToBO)
-	return dpDhcpProfileOptionSpaceApplyToBOType
-}
-
-func NewDpDhcpProfileOptionSpaceApplyToBOWithDefaults() *DpDhcpProfileOptionSpaceApplyToBO {
-	dpDhcpProfileOptionSpaceApplyToBOType := new(DpDhcpProfileOptionSpaceApplyToBO)
-	return dpDhcpProfileOptionSpaceApplyToBOType
-}
-
 type DpDhcpProfileOptionSpaceApplyToBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -242,16 +162,6 @@ type DpDhcpProfileOptionSpaceApplyToBOList struct {
 	List []*DpDhcpProfileOptionSpaceApplyToBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewDpDhcpProfileOptionSpaceApplyToBOList() *DpDhcpProfileOptionSpaceApplyToBOList {
-	dpDhcpProfileOptionSpaceApplyToBOListType := new(DpDhcpProfileOptionSpaceApplyToBOList)
-	return dpDhcpProfileOptionSpaceApplyToBOListType
-}
-
-func NewDpDhcpProfileOptionSpaceApplyToBOListWithDefaults() *DpDhcpProfileOptionSpaceApplyToBOList {
-	dpDhcpProfileOptionSpaceApplyToBOListType := new(DpDhcpProfileOptionSpaceApplyToBOList)
-	return dpDhcpProfileOptionSpaceApplyToBOListType
 }
 
 type DpDhcpProfileOptionSpaceBO struct {
@@ -272,16 +182,6 @@ type DpDhcpProfileOptionSpaceBO struct {
 	SpaceId *string `json:"spaceId,omitempty"`
 }
 
-func NewDpDhcpProfileOptionSpaceBO() *DpDhcpProfileOptionSpaceBO {
-	dpDhcpProfileOptionSpaceBOType := new(DpDhcpProfileOptionSpaceBO)
-	return dpDhcpProfileOptionSpaceBOType
-}
-
-func NewDpDhcpProfileOptionSpaceBOWithDefaults() *DpDhcpProfileOptionSpaceBO {
-	dpDhcpProfileOptionSpaceBOType := new(DpDhcpProfileOptionSpaceBO)
-	return dpDhcpProfileOptionSpaceBOType
-}
-
 type DpDhcpProfileOptionSpaceInstance struct {
 	Description *string `json:"description,omitempty"`
 
@@ -290,16 +190,6 @@ type DpDhcpProfileOptionSpaceInstance struct {
 	Options []*DpDhcpProfileOptionInstance `json:"options,omitempty"`
 
 	SpaceId *string `json:"spaceId,omitempty"`
-}
-
-func NewDpDhcpProfileOptionSpaceInstance() *DpDhcpProfileOptionSpaceInstance {
-	dpDhcpProfileOptionSpaceInstanceType := new(DpDhcpProfileOptionSpaceInstance)
-	return dpDhcpProfileOptionSpaceInstanceType
-}
-
-func NewDpDhcpProfileOptionSpaceInstanceWithDefaults() *DpDhcpProfileOptionSpaceInstance {
-	dpDhcpProfileOptionSpaceInstanceType := new(DpDhcpProfileOptionSpaceInstance)
-	return dpDhcpProfileOptionSpaceInstanceType
 }
 
 type DpDhcpProfilePoolBO struct {
@@ -380,16 +270,6 @@ type DpDhcpProfilePoolBO struct {
 	VlanRange *string `json:"vlanRange,omitempty"`
 }
 
-func NewDpDhcpProfilePoolBO() *DpDhcpProfilePoolBO {
-	dpDhcpProfilePoolBOType := new(DpDhcpProfilePoolBO)
-	return dpDhcpProfilePoolBOType
-}
-
-func NewDpDhcpProfilePoolBOWithDefaults() *DpDhcpProfilePoolBO {
-	dpDhcpProfilePoolBOType := new(DpDhcpProfilePoolBO)
-	return dpDhcpProfilePoolBOType
-}
-
 type DpDhcpProfilePoolBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -400,16 +280,6 @@ type DpDhcpProfilePoolBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewDpDhcpProfilePoolBOList() *DpDhcpProfilePoolBOList {
-	dpDhcpProfilePoolBOListType := new(DpDhcpProfilePoolBOList)
-	return dpDhcpProfilePoolBOListType
-}
-
-func NewDpDhcpProfilePoolBOListWithDefaults() *DpDhcpProfilePoolBOList {
-	dpDhcpProfilePoolBOListType := new(DpDhcpProfilePoolBOList)
-	return dpDhcpProfilePoolBOListType
-}
-
 type DpDhcpProfileQinqVlanRangeBO struct {
 	// Cvlan
 	// cvlan
@@ -418,16 +288,6 @@ type DpDhcpProfileQinqVlanRangeBO struct {
 	// Svlan
 	// svlan
 	Svlan *string `json:"svlan,omitempty"`
-}
-
-func NewDpDhcpProfileQinqVlanRangeBO() *DpDhcpProfileQinqVlanRangeBO {
-	dpDhcpProfileQinqVlanRangeBOType := new(DpDhcpProfileQinqVlanRangeBO)
-	return dpDhcpProfileQinqVlanRangeBOType
-}
-
-func NewDpDhcpProfileQinqVlanRangeBOWithDefaults() *DpDhcpProfileQinqVlanRangeBO {
-	dpDhcpProfileQinqVlanRangeBOType := new(DpDhcpProfileQinqVlanRangeBO)
-	return dpDhcpProfileQinqVlanRangeBOType
 }
 
 type DpNatProfileBasicBO struct {
@@ -462,16 +322,6 @@ type DpNatProfileBasicBO struct {
 	SecondaryNatDefaultRouteGateway *string `json:"secondaryNatDefaultRouteGateway,omitempty"`
 }
 
-func NewDpNatProfileBasicBO() *DpNatProfileBasicBO {
-	dpNatProfileBasicBOType := new(DpNatProfileBasicBO)
-	return dpNatProfileBasicBOType
-}
-
-func NewDpNatProfileBasicBOWithDefaults() *DpNatProfileBasicBO {
-	dpNatProfileBasicBOType := new(DpNatProfileBasicBO)
-	return dpNatProfileBasicBOType
-}
-
 type DpNatProfileBasicBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -480,16 +330,6 @@ type DpNatProfileBasicBOList struct {
 	List []*DpNatProfileBasicBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewDpNatProfileBasicBOList() *DpNatProfileBasicBOList {
-	dpNatProfileBasicBOListType := new(DpNatProfileBasicBOList)
-	return dpNatProfileBasicBOListType
-}
-
-func NewDpNatProfileBasicBOListWithDefaults() *DpNatProfileBasicBOList {
-	dpNatProfileBasicBOListType := new(DpNatProfileBasicBOList)
-	return dpNatProfileBasicBOListType
 }
 
 type DpNatProfilePoolBO struct {
@@ -534,16 +374,6 @@ type DpNatProfilePoolBO struct {
 	PublicVlan *int `json:"publicVlan,omitempty"`
 }
 
-func NewDpNatProfilePoolBO() *DpNatProfilePoolBO {
-	dpNatProfilePoolBOType := new(DpNatProfilePoolBO)
-	return dpNatProfilePoolBOType
-}
-
-func NewDpNatProfilePoolBOWithDefaults() *DpNatProfilePoolBO {
-	dpNatProfilePoolBOType := new(DpNatProfilePoolBO)
-	return dpNatProfilePoolBOType
-}
-
 type DpNatProfilePoolBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -552,16 +382,6 @@ type DpNatProfilePoolBOList struct {
 	List []*DpNatProfilePoolBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewDpNatProfilePoolBOList() *DpNatProfilePoolBOList {
-	dpNatProfilePoolBOListType := new(DpNatProfilePoolBOList)
-	return dpNatProfilePoolBOListType
-}
-
-func NewDpNatProfilePoolBOListWithDefaults() *DpNatProfilePoolBOList {
-	dpNatProfilePoolBOListType := new(DpNatProfilePoolBOList)
-	return dpNatProfilePoolBOListType
 }
 
 type DpNatProfilePrivateQinqVlanRangeBO struct {
@@ -574,16 +394,6 @@ type DpNatProfilePrivateQinqVlanRangeBO struct {
 	Svlan *string `json:"svlan,omitempty"`
 }
 
-func NewDpNatProfilePrivateQinqVlanRangeBO() *DpNatProfilePrivateQinqVlanRangeBO {
-	dpNatProfilePrivateQinqVlanRangeBOType := new(DpNatProfilePrivateQinqVlanRangeBO)
-	return dpNatProfilePrivateQinqVlanRangeBOType
-}
-
-func NewDpNatProfilePrivateQinqVlanRangeBOWithDefaults() *DpNatProfilePrivateQinqVlanRangeBO {
-	dpNatProfilePrivateQinqVlanRangeBOType := new(DpNatProfilePrivateQinqVlanRangeBO)
-	return dpNatProfilePrivateQinqVlanRangeBOType
-}
-
 type DpNatProfilePublicSubnetIdBO struct {
 	// Ip
 	// ip
@@ -592,16 +402,6 @@ type DpNatProfilePublicSubnetIdBO struct {
 	// PrefixLength
 	// prefixLength
 	PrefixLength *int `json:"prefixLength,omitempty"`
-}
-
-func NewDpNatProfilePublicSubnetIdBO() *DpNatProfilePublicSubnetIdBO {
-	dpNatProfilePublicSubnetIdBOType := new(DpNatProfilePublicSubnetIdBO)
-	return dpNatProfilePublicSubnetIdBOType
-}
-
-func NewDpNatProfilePublicSubnetIdBOWithDefaults() *DpNatProfilePublicSubnetIdBO {
-	dpNatProfilePublicSubnetIdBOType := new(DpNatProfilePublicSubnetIdBO)
-	return dpNatProfilePublicSubnetIdBOType
 }
 
 type DpProfileSettingBO struct {
@@ -638,16 +438,6 @@ type DpProfileSettingBO struct {
 	NatProfileName *string `json:"natProfileName,omitempty"`
 }
 
-func NewDpProfileSettingBO() *DpProfileSettingBO {
-	dpProfileSettingBOType := new(DpProfileSettingBO)
-	return dpProfileSettingBOType
-}
-
-func NewDpProfileSettingBOWithDefaults() *DpProfileSettingBO {
-	dpProfileSettingBOType := new(DpProfileSettingBO)
-	return dpProfileSettingBOType
-}
-
 type DpProfileSettingBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -658,12 +448,3 @@ type DpProfileSettingBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewDpProfileSettingBOList() *DpProfileSettingBOList {
-	dpProfileSettingBOListType := new(DpProfileSettingBOList)
-	return dpProfileSettingBOListType
-}
-
-func NewDpProfileSettingBOListWithDefaults() *DpProfileSettingBOList {
-	dpProfileSettingBOListType := new(DpProfileSettingBOList)
-	return dpProfileSettingBOListType
-}

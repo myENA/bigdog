@@ -50,16 +50,6 @@ type RogueInfo struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewRogueInfo() *RogueInfo {
-	rogueInfoType := new(RogueInfo)
-	return rogueInfoType
-}
-
-func NewRogueInfoWithDefaults() *RogueInfo {
-	rogueInfoType := new(RogueInfo)
-	return rogueInfoType
-}
-
 type RogueInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -84,24 +74,13 @@ type RogueInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewRogueInfoList() *RogueInfoList {
-	rogueInfoListType := new(RogueInfoList)
-	return rogueInfoListType
-}
-
-func NewRogueInfoListWithDefaults() *RogueInfoList {
-	rogueInfoListType := new(RogueInfoList)
-	return rogueInfoListType
-}
-
 // RogueInfoListExtraType
 //
 // Any additional response data.
 type RogueInfoListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *RogueInfoListExtraType) UnmarshalJSON(b []byte) error {
+func(t *RogueInfoListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -110,19 +89,10 @@ func (t *RogueInfoListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *RogueInfoListExtraType) MarshalJSON() ([]byte, error) {
+func(t *RogueInfoListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewRogueInfoListExtraType() *RogueInfoListExtraType {
-	rogueInfoListExtraTypeType := new(RogueInfoListExtraType)
-	return rogueInfoListExtraTypeType
-}
-
-func NewRogueInfoListExtraTypeWithDefaults() *RogueInfoListExtraType {
-	rogueInfoListExtraTypeType := new(RogueInfoListExtraType)
-	return rogueInfoListExtraTypeType
-}

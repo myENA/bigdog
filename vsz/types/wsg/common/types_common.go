@@ -52,16 +52,6 @@ type Alarm struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewAlarm() *Alarm {
-	alarmType := new(Alarm)
-	return alarmType
-}
-
-func NewAlarmWithDefaults() *Alarm {
-	alarmType := new(Alarm)
-	return alarmType
-}
-
 type Altitude struct {
 	// AltitudeUnit
 	// altitude unit
@@ -76,18 +66,6 @@ type Altitude struct {
 	AltitudeValue *int `json:"altitudeValue,omitempty"`
 }
 
-func NewAltitude() *Altitude {
-	altitudeType := new(Altitude)
-	return altitudeType
-}
-
-func NewAltitudeWithDefaults() *Altitude {
-	altitudeType := new(Altitude)
-	altitudeUnitField := `meters`
-	altitudeType.AltitudeUnit = &altitudeUnitField
-	return altitudeType
-}
-
 // ApGpsSource
 //
 // GPS Source of the AP
@@ -96,57 +74,15 @@ func NewAltitudeWithDefaults() *Altitude {
 //    - oneof:[GPS,MANUAL]
 type ApGpsSource string
 
-func NewApGpsSource() *ApGpsSource {
-	apGpsSourceType := new(ApGpsSource)
-	return apGpsSourceType
-}
-
-func NewApGpsSourceWithDefaults() *ApGpsSource {
-	apGpsSourceType := new(ApGpsSource)
-	return apGpsSourceType
-}
-
 type ApLatencyInterval struct {
 	// PingEnabled
 	// AP ping latency enabled
 	PingEnabled *bool `json:"pingEnabled,omitempty"`
 }
 
-func NewApLatencyInterval() *ApLatencyInterval {
-	apLatencyIntervalType := new(ApLatencyInterval)
-	return apLatencyIntervalType
-}
-
-func NewApLatencyIntervalWithDefaults() *ApLatencyInterval {
-	apLatencyIntervalType := new(ApLatencyInterval)
-	pingEnabledField := false
-	apLatencyIntervalType.PingEnabled = &pingEnabledField
-	return apLatencyIntervalType
-}
-
 type ApLoginName string
 
-func NewApLoginName() *ApLoginName {
-	apLoginNameType := new(ApLoginName)
-	return apLoginNameType
-}
-
-func NewApLoginNameWithDefaults() *ApLoginName {
-	apLoginNameType := new(ApLoginName)
-	return apLoginNameType
-}
-
 type ApLoginPassword string
-
-func NewApLoginPassword() *ApLoginPassword {
-	apLoginPasswordType := new(ApLoginPassword)
-	return apLoginPasswordType
-}
-
-func NewApLoginPasswordWithDefaults() *ApLoginPassword {
-	apLoginPasswordType := new(ApLoginPassword)
-	return apLoginPasswordType
-}
 
 type ApManagementVlan struct {
 	// Id
@@ -160,20 +96,6 @@ type ApManagementVlan struct {
 	//    - default:'KEEP'
 	//    - oneof:[KEEP,USER_DEFINED]
 	Mode *string `json:"mode,omitempty" validate:"omitempty,oneof=KEEP USER_DEFINED"`
-}
-
-func NewApManagementVlan() *ApManagementVlan {
-	apManagementVlanType := new(ApManagementVlan)
-	return apManagementVlanType
-}
-
-func NewApManagementVlanWithDefaults() *ApManagementVlan {
-	apManagementVlanType := new(ApManagementVlan)
-	idField := 1
-	apManagementVlanType.Id = &idField
-	modeField := `KEEP`
-	apManagementVlanType.Mode = &modeField
-	return apManagementVlanType
 }
 
 type ApRadio50 struct {
@@ -203,16 +125,6 @@ type ApRadio50 struct {
 	TxPower *TxPower `json:"txPower,omitempty"`
 }
 
-func NewApRadio50() *ApRadio50 {
-	apRadio50Type := new(ApRadio50)
-	return apRadio50Type
-}
-
-func NewApRadio50WithDefaults() *ApRadio50 {
-	apRadio50Type := new(ApRadio50)
-	return apRadio50Type
-}
-
 type ApRebootTimeout struct {
 	// GatewayLossTimeoutInSec
 	// Gateway loss timeout in second
@@ -229,20 +141,6 @@ type ApRebootTimeout struct {
 	//    - default:7200
 	//    - oneof:[0,7200,14400,21600,28800,36000,43200,50400,57600,64800,72000,79200,86400]
 	ServerLossTimeoutInSec *int `json:"serverLossTimeoutInSec,omitempty" validate:"omitempty,oneof=0 7200 14400 21600 28800 36000 43200 50400 57600 64800 72000 79200 86400"`
-}
-
-func NewApRebootTimeout() *ApRebootTimeout {
-	apRebootTimeoutType := new(ApRebootTimeout)
-	return apRebootTimeoutType
-}
-
-func NewApRebootTimeoutWithDefaults() *ApRebootTimeout {
-	apRebootTimeoutType := new(ApRebootTimeout)
-	gatewayLossTimeoutInSecField := 1800
-	apRebootTimeoutType.GatewayLossTimeoutInSec = &gatewayLossTimeoutInSecField
-	serverLossTimeoutInSecField := 7200
-	apRebootTimeoutType.ServerLossTimeoutInSec = &serverLossTimeoutInSecField
-	return apRebootTimeoutType
 }
 
 type AutoChannelSelection struct {
@@ -264,20 +162,6 @@ type AutoChannelSelection struct {
 	ChannelSelectMode *string `json:"channelSelectMode,omitempty" validate:"omitempty,oneof=None BackgroundScanning ChannelFly"`
 }
 
-func NewAutoChannelSelection() *AutoChannelSelection {
-	autoChannelSelectionType := new(AutoChannelSelection)
-	return autoChannelSelectionType
-}
-
-func NewAutoChannelSelectionWithDefaults() *AutoChannelSelection {
-	autoChannelSelectionType := new(AutoChannelSelection)
-	channelFlyMtbcField := 480
-	autoChannelSelectionType.ChannelFlyMtbc = &channelFlyMtbcField
-	channelSelectModeField := `BackgroundScanning`
-	autoChannelSelectionType.ChannelSelectMode = &channelSelectModeField
-	return autoChannelSelectionType
-}
-
 type BaseServiceInfo struct {
 	// Id
 	// ID of service
@@ -296,28 +180,8 @@ type BaseServiceInfo struct {
 	ServiceType *string `json:"serviceType,omitempty"`
 }
 
-func NewBaseServiceInfo() *BaseServiceInfo {
-	baseServiceInfoType := new(BaseServiceInfo)
-	return baseServiceInfoType
-}
-
-func NewBaseServiceInfoWithDefaults() *BaseServiceInfo {
-	baseServiceInfoType := new(BaseServiceInfo)
-	return baseServiceInfoType
-}
-
 type BulkDeleteRequest struct {
 	IdList IdList `json:"idList,omitempty"`
-}
-
-func NewBulkDeleteRequest() *BulkDeleteRequest {
-	bulkDeleteRequestType := new(BulkDeleteRequest)
-	return bulkDeleteRequestType
-}
-
-func NewBulkDeleteRequestWithDefaults() *BulkDeleteRequest {
-	bulkDeleteRequestType := new(BulkDeleteRequest)
-	return bulkDeleteRequestType
 }
 
 type Client struct {
@@ -420,16 +284,6 @@ type Client struct {
 	WlanId *string `json:"wlanId,omitempty"`
 }
 
-func NewClient() *Client {
-	clientType := new(Client)
-	return clientType
-}
-
-func NewClientWithDefaults() *Client {
-	clientType := new(Client)
-	return clientType
-}
-
 type ClientAdmissionControl struct {
 	// MaxRadioLoadPercent
 	// Maximum radio load percentage.
@@ -459,34 +313,8 @@ type ClientAdmissionControl struct {
 	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"omitempty,gte=0.000000,lte=100.000000"`
 }
 
-func NewClientAdmissionControl() *ClientAdmissionControl {
-	clientAdmissionControlType := new(ClientAdmissionControl)
-	return clientAdmissionControlType
-}
-
-func NewClientAdmissionControlWithDefaults() *ClientAdmissionControl {
-	clientAdmissionControlType := new(ClientAdmissionControl)
-	maxRadioLoadPercentField := 75
-	clientAdmissionControlType.MaxRadioLoadPercent = &maxRadioLoadPercentField
-	minClientCountField := 10
-	clientAdmissionControlType.MinClientCount = &minClientCountField
-	minClientThroughputMbpsField := 0.000000
-	clientAdmissionControlType.MinClientThroughputMbps = &minClientThroughputMbpsField
-	return clientAdmissionControlType
-}
-
 type CreateResult struct {
 	Id *string `json:"id,omitempty"`
-}
-
-func NewCreateResult() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
-func NewCreateResultWithDefaults() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
 }
 
 type CreateResultIdName struct {
@@ -495,39 +323,9 @@ type CreateResultIdName struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewCreateResultIdName() *CreateResultIdName {
-	createResultIdNameType := new(CreateResultIdName)
-	return createResultIdNameType
-}
-
-func NewCreateResultIdNameWithDefaults() *CreateResultIdName {
-	createResultIdNameType := new(CreateResultIdName)
-	return createResultIdNameType
-}
-
 type Description string
 
-func NewDescription() *Description {
-	descriptionType := new(Description)
-	return descriptionType
-}
-
-func NewDescriptionWithDefaults() *Description {
-	descriptionType := new(Description)
-	return descriptionType
-}
-
 type DescriptionTo128 string
-
-func NewDescriptionTo128() *DescriptionTo128 {
-	descriptionTo128Type := new(DescriptionTo128)
-	return descriptionTo128Type
-}
-
-func NewDescriptionTo128WithDefaults() *DescriptionTo128 {
-	descriptionTo128Type := new(DescriptionTo128)
-	return descriptionTo128Type
-}
 
 type DhcpProfileRef struct {
 	Description *Description `json:"description,omitempty"`
@@ -579,16 +377,6 @@ type DhcpProfileRef struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewDhcpProfileRef() *DhcpProfileRef {
-	dhcpProfileRefType := new(DhcpProfileRef)
-	return dhcpProfileRefType
-}
-
-func NewDhcpProfileRefWithDefaults() *DhcpProfileRef {
-	dhcpProfileRefType := new(DhcpProfileRef)
-	return dhcpProfileRefType
-}
-
 type DhcpSiteConfigListRef struct {
 	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
@@ -622,16 +410,6 @@ type DhcpSiteConfigListRef struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-func NewDhcpSiteConfigListRef() *DhcpSiteConfigListRef {
-	dhcpSiteConfigListRefType := new(DhcpSiteConfigListRef)
-	return dhcpSiteConfigListRefType
-}
-
-func NewDhcpSiteConfigListRefWithDefaults() *DhcpSiteConfigListRef {
-	dhcpSiteConfigListRefType := new(DhcpSiteConfigListRef)
-	return dhcpSiteConfigListRefType
-}
-
 // DhcpSiteConfigListRefSiteApsType
 //
 // DHCP Site selected APs
@@ -655,16 +433,6 @@ type DhcpSiteConfigListRefSiteApsType struct {
 	//    - nullable
 	//    - oneof:[Online,Offline,Flagged]
 	ApStatus *string `json:"apStatus,omitempty" validate:"omitempty,oneof=Online Offline Flagged"`
-}
-
-func NewDhcpSiteConfigListRefSiteApsType() *DhcpSiteConfigListRefSiteApsType {
-	dhcpSiteConfigListRefSiteApsTypeType := new(DhcpSiteConfigListRefSiteApsType)
-	return dhcpSiteConfigListRefSiteApsTypeType
-}
-
-func NewDhcpSiteConfigListRefSiteApsTypeWithDefaults() *DhcpSiteConfigListRefSiteApsType {
-	dhcpSiteConfigListRefSiteApsTypeType := new(DhcpSiteConfigListRefSiteApsType)
-	return dhcpSiteConfigListRefSiteApsTypeType
 }
 
 type DhcpSiteConfigRef struct {
@@ -696,16 +464,6 @@ type DhcpSiteConfigRef struct {
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
 
-func NewDhcpSiteConfigRef() *DhcpSiteConfigRef {
-	dhcpSiteConfigRefType := new(DhcpSiteConfigRef)
-	return dhcpSiteConfigRefType
-}
-
-func NewDhcpSiteConfigRefWithDefaults() *DhcpSiteConfigRef {
-	dhcpSiteConfigRefType := new(DhcpSiteConfigRef)
-	return dhcpSiteConfigRefType
-}
-
 // DhcpSiteConfigRefSiteApsType
 //
 // DHCP Site selected APs. The content is effective when the siteMode is EnableOnMultipleAPs.
@@ -729,16 +487,6 @@ type DhcpSiteConfigRefSiteApsType struct {
 	//    - nullable
 	//    - oneof:[Online,Offline,Flagged]
 	ApStatus *string `json:"apStatus,omitempty" validate:"omitempty,oneof=Online Offline Flagged"`
-}
-
-func NewDhcpSiteConfigRefSiteApsType() *DhcpSiteConfigRefSiteApsType {
-	dhcpSiteConfigRefSiteApsTypeType := new(DhcpSiteConfigRefSiteApsType)
-	return dhcpSiteConfigRefSiteApsTypeType
-}
-
-func NewDhcpSiteConfigRefSiteApsTypeWithDefaults() *DhcpSiteConfigRefSiteApsType {
-	dhcpSiteConfigRefSiteApsTypeType := new(DhcpSiteConfigRefSiteApsType)
-	return dhcpSiteConfigRefSiteApsTypeType
 }
 
 type DoAssignIp struct {
@@ -766,16 +514,6 @@ type DoAssignIp struct {
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
 
-func NewDoAssignIp() *DoAssignIp {
-	doAssignIpType := new(DoAssignIp)
-	return doAssignIpType
-}
-
-func NewDoAssignIpWithDefaults() *DoAssignIp {
-	doAssignIpType := new(DoAssignIp)
-	return doAssignIpType
-}
-
 // DoAssignIpSiteApsType
 //
 // DHCP Site selected APs. The content is effective when the siteMode is EnableOnMultipleAPs.
@@ -787,33 +525,12 @@ type DoAssignIpSiteApsType struct {
 	ApServerPrimary *bool `json:"apServerPrimary,omitempty"`
 }
 
-func NewDoAssignIpSiteApsType() *DoAssignIpSiteApsType {
-	doAssignIpSiteApsTypeType := new(DoAssignIpSiteApsType)
-	return doAssignIpSiteApsTypeType
-}
-
-func NewDoAssignIpSiteApsTypeWithDefaults() *DoAssignIpSiteApsType {
-	doAssignIpSiteApsTypeType := new(DoAssignIpSiteApsType)
-	return doAssignIpSiteApsTypeType
-}
-
 type Email string
 
-func NewEmail() *Email {
-	emailType := new(Email)
-	return emailType
-}
-
-func NewEmailWithDefaults() *Email {
-	emailType := new(Email)
-	return emailType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -822,58 +539,18 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
 type FilterOperator string
-
-func NewFilterOperator() *FilterOperator {
-	filterOperatorType := new(FilterOperator)
-	return filterOperatorType
-}
-
-func NewFilterOperatorWithDefaults() *FilterOperator {
-	filterOperatorType := new(FilterOperator)
-	return filterOperatorType
-}
 
 type FirmwareVersion string
 
-func NewFirmwareVersion() *FirmwareVersion {
-	firmwareVersionType := new(FirmwareVersion)
-	return firmwareVersionType
-}
-
-func NewFirmwareVersionWithDefaults() *FirmwareVersion {
-	firmwareVersionType := new(FirmwareVersion)
-	return firmwareVersionType
-}
-
 type FQDN string
-
-func NewFQDN() *FQDN {
-	fQDNType := new(FQDN)
-	return fQDNType
-}
-
-func NewFQDNWithDefaults() *FQDN {
-	fQDNType := new(FQDN)
-	return fQDNType
-}
 
 type FullTextSearch struct {
 	// Fields
@@ -892,30 +569,10 @@ type FullTextSearch struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewFullTextSearch() *FullTextSearch {
-	fullTextSearchType := new(FullTextSearch)
-	return fullTextSearchType
-}
-
-func NewFullTextSearchWithDefaults() *FullTextSearch {
-	fullTextSearchType := new(FullTextSearch)
-	return fullTextSearchType
-}
-
 type GenericRef struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
-}
-
-func NewGenericRef() *GenericRef {
-	genericRefType := new(GenericRef)
-	return genericRefType
-}
-
-func NewGenericRefWithDefaults() *GenericRef {
-	genericRefType := new(GenericRef)
-	return genericRefType
 }
 
 type HealthCheckPolicy struct {
@@ -951,131 +608,23 @@ type HealthCheckPolicy struct {
 	ZombiePeriod *int `json:"zombiePeriod" validate:"required,gte=30,lte=120"`
 }
 
-func NewHealthCheckPolicy() *HealthCheckPolicy {
-	healthCheckPolicyType := new(HealthCheckPolicy)
-	return healthCheckPolicyType
-}
-
-func NewHealthCheckPolicyWithDefaults() *HealthCheckPolicy {
-	healthCheckPolicyType := new(HealthCheckPolicy)
-	responseFailField := false
-	healthCheckPolicyType.ResponseFail = &responseFailField
-	responseWindowField := 20
-	healthCheckPolicyType.ResponseWindow = &responseWindowField
-	reviveIntervalField := 120
-	healthCheckPolicyType.ReviveInterval = &reviveIntervalField
-	zombiePeriodField := 40
-	healthCheckPolicyType.ZombiePeriod = &zombiePeriodField
-	return healthCheckPolicyType
-}
-
 type HTTPS string
-
-func NewHTTPS() *HTTPS {
-	hTTPSType := new(HTTPS)
-	return hTTPSType
-}
-
-func NewHTTPSWithDefaults() *HTTPS {
-	hTTPSType := new(HTTPS)
-	return hTTPSType
-}
 
 type IdList []string
 
-func NewIdList() *IdList {
-	idListType := make(IdList, 0)
-	return &idListType
-}
-
-func NewIdListWithDefaults() *IdList {
-	idListType := make(IdList, 0)
-	return &idListType
-}
-
 type IpAddress string
-
-func NewIpAddress() *IpAddress {
-	ipAddressType := new(IpAddress)
-	return ipAddressType
-}
-
-func NewIpAddressWithDefaults() *IpAddress {
-	ipAddressType := new(IpAddress)
-	return ipAddressType
-}
 
 type IpMode string
 
-func NewIpMode() *IpMode {
-	ipModeType := new(IpMode)
-	return ipModeType
-}
-
-func NewIpModeWithDefaults() *IpMode {
-	ipModeType := new(IpMode)
-	return ipModeType
-}
-
 type LanguageName string
-
-func NewLanguageName() *LanguageName {
-	languageNameType := new(LanguageName)
-	return languageNameType
-}
-
-func NewLanguageNameWithDefaults() *LanguageName {
-	languageNameType := new(LanguageName)
-	return languageNameType
-}
 
 type Latitude float64
 
-func NewLatitude() *Latitude {
-	latitudeType := new(Latitude)
-	return latitudeType
-}
-
-func NewLatitudeWithDefaults() *Latitude {
-	latitudeType := new(Latitude)
-	return latitudeType
-}
-
 type Location string
-
-func NewLocation() *Location {
-	locationType := new(Location)
-	return locationType
-}
-
-func NewLocationWithDefaults() *Location {
-	locationType := new(Location)
-	return locationType
-}
 
 type LocationAdditionalInfo string
 
-func NewLocationAdditionalInfo() *LocationAdditionalInfo {
-	locationAdditionalInfoType := new(LocationAdditionalInfo)
-	return locationAdditionalInfoType
-}
-
-func NewLocationAdditionalInfoWithDefaults() *LocationAdditionalInfo {
-	locationAdditionalInfoType := new(LocationAdditionalInfo)
-	return locationAdditionalInfoType
-}
-
 type Longitude float64
-
-func NewLongitude() *Longitude {
-	longitudeType := new(Longitude)
-	return longitudeType
-}
-
-func NewLongitudeWithDefaults() *Longitude {
-	longitudeType := new(Longitude)
-	return longitudeType
-}
 
 type LteBandLockChannel struct {
 	// Channel3g
@@ -1095,87 +644,17 @@ type LteBandLockChannel struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewLteBandLockChannel() *LteBandLockChannel {
-	lteBandLockChannelType := new(LteBandLockChannel)
-	return lteBandLockChannelType
-}
-
-func NewLteBandLockChannelWithDefaults() *LteBandLockChannel {
-	lteBandLockChannelType := new(LteBandLockChannel)
-	return lteBandLockChannelType
-}
-
 type Mac string
-
-func NewMac() *Mac {
-	macType := new(Mac)
-	return macType
-}
-
-func NewMacWithDefaults() *Mac {
-	macType := new(Mac)
-	return macType
-}
 
 type NormalName string
 
-func NewNormalName() *NormalName {
-	normalNameType := new(NormalName)
-	return normalNameType
-}
-
-func NewNormalNameWithDefaults() *NormalName {
-	normalNameType := new(NormalName)
-	return normalNameType
-}
-
 type NormalName2to64 string
-
-func NewNormalName2to64() *NormalName2to64 {
-	normalName2to64Type := new(NormalName2to64)
-	return normalName2to64Type
-}
-
-func NewNormalName2to64WithDefaults() *NormalName2to64 {
-	normalName2to64Type := new(NormalName2to64)
-	return normalName2to64Type
-}
 
 type NormalName2to128 string
 
-func NewNormalName2to128() *NormalName2to128 {
-	normalName2to128Type := new(NormalName2to128)
-	return normalName2to128Type
-}
-
-func NewNormalName2to128WithDefaults() *NormalName2to128 {
-	normalName2to128Type := new(NormalName2to128)
-	return normalName2to128Type
-}
-
 type NormalNameAllowBlank string
 
-func NewNormalNameAllowBlank() *NormalNameAllowBlank {
-	normalNameAllowBlankType := new(NormalNameAllowBlank)
-	return normalNameAllowBlankType
-}
-
-func NewNormalNameAllowBlankWithDefaults() *NormalNameAllowBlank {
-	normalNameAllowBlankType := new(NormalNameAllowBlank)
-	return normalNameAllowBlankType
-}
-
 type NormalURL string
-
-func NewNormalURL() *NormalURL {
-	normalURLType := new(NormalURL)
-	return normalURLType
-}
-
-func NewNormalURLWithDefaults() *NormalURL {
-	normalURLType := new(NormalURL)
-	return normalURLType
-}
 
 type OverrideClientAdmissionControl struct {
 	Enabled *bool `json:"enabled,omitempty"`
@@ -1208,38 +687,12 @@ type OverrideClientAdmissionControl struct {
 	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"omitempty,gte=0.000000,lte=100.000000"`
 }
 
-func NewOverrideClientAdmissionControl() *OverrideClientAdmissionControl {
-	overrideClientAdmissionControlType := new(OverrideClientAdmissionControl)
-	return overrideClientAdmissionControlType
-}
-
-func NewOverrideClientAdmissionControlWithDefaults() *OverrideClientAdmissionControl {
-	overrideClientAdmissionControlType := new(OverrideClientAdmissionControl)
-	maxRadioLoadPercentField := 75
-	overrideClientAdmissionControlType.MaxRadioLoadPercent = &maxRadioLoadPercentField
-	minClientCountField := 10
-	overrideClientAdmissionControlType.MinClientCount = &minClientCountField
-	minClientThroughputMbpsField := 0.000000
-	overrideClientAdmissionControlType.MinClientThroughputMbps = &minClientThroughputMbpsField
-	return overrideClientAdmissionControlType
-}
-
 type OverrideGenericRef struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
-}
-
-func NewOverrideGenericRef() *OverrideGenericRef {
-	overrideGenericRefType := new(OverrideGenericRef)
-	return overrideGenericRefType
-}
-
-func NewOverrideGenericRefWithDefaults() *OverrideGenericRef {
-	overrideGenericRefType := new(OverrideGenericRef)
-	return overrideGenericRefType
 }
 
 type OverrideSmartMonitor struct {
@@ -1264,20 +717,6 @@ type OverrideSmartMonitor struct {
 	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"omitempty,gte=1,lte=10"`
 }
 
-func NewOverrideSmartMonitor() *OverrideSmartMonitor {
-	overrideSmartMonitorType := new(OverrideSmartMonitor)
-	return overrideSmartMonitorType
-}
-
-func NewOverrideSmartMonitorWithDefaults() *OverrideSmartMonitor {
-	overrideSmartMonitorType := new(OverrideSmartMonitor)
-	intervalInSecField := 10
-	overrideSmartMonitorType.IntervalInSec = &intervalInSecField
-	retryThresholdField := 3
-	overrideSmartMonitorType.RetryThreshold = &retryThresholdField
-	return overrideSmartMonitorType
-}
-
 type PortalCustomization struct {
 	// Language
 	// Constraints:
@@ -1297,12 +736,12 @@ type PortalCustomization struct {
 	// Constraints:
 	//    - nullable
 	//    - default:'Terms of Use
-	//
+	// 
 	// By accepting this agreement and accessing the wireless network, you acknowledge that you are of legal age, you have read and understood, and agree to be bound by this agreement.
 	// (*) The wireless network service is provided by the property owners and is completely at their discretion. Your access to the network may be blocked, suspended, or terminated at any time for any reason.
 	// (*) You agree not to use the wireless network for any purpose that is unlawful or otherwise prohibited and you are fully responsible for your use.
 	// (*) The wireless network is provided "as is" without warranties of any kind, either expressed or implied.
-	//
+	// 
 	// This wireless network is powered by Ruckus Wireless.'
 	//    - max:3999
 	//    - min:0
@@ -1317,27 +756,6 @@ type PortalCustomization struct {
 	Title *string `json:"title,omitempty" validate:"omitempty,max=63,min=0"`
 }
 
-func NewPortalCustomization() *PortalCustomization {
-	portalCustomizationType := new(PortalCustomization)
-	return portalCustomizationType
-}
-
-func NewPortalCustomizationWithDefaults() *PortalCustomization {
-	portalCustomizationType := new(PortalCustomization)
-	termsAndConditionsRequiredField := false
-	portalCustomizationType.TermsAndConditionsRequired = &termsAndConditionsRequiredField
-	termsAndConditionsTextField := `Terms of Use
-
-By accepting this agreement and accessing the wireless network, you acknowledge that you are of legal age, you have read and understood, and agree to be bound by this agreement.
-(*) The wireless network service is provided by the property owners and is completely at their discretion. Your access to the network may be blocked, suspended, or terminated at any time for any reason.
-(*) You agree not to use the wireless network for any purpose that is unlawful or otherwise prohibited and you are fully responsible for your use.
-(*) The wireless network is provided "as is" without warranties of any kind, either expressed or implied.
-
-This wireless network is powered by Ruckus Wireless.`
-	portalCustomizationType.TermsAndConditionsText = &termsAndConditionsTextField
-	return portalCustomizationType
-}
-
 // PortalLanguage
 //
 // Language
@@ -1347,29 +765,7 @@ This wireless network is powered by Ruckus Wireless.`
 //    - oneof:[en_US,zh_TW,zh_CN,nl_NL,fr_FR,de_DE,ja_JP,es_ES,se_SE,ar_SA,cz_CZ,da_DK,tr_TR,pt_BR]
 type PortalLanguage string
 
-func NewPortalLanguage() *PortalLanguage {
-	portalLanguageType := new(PortalLanguage)
-	return portalLanguageType
-}
-
-func NewPortalLanguageWithDefaults() *PortalLanguage {
-	portalLanguageType := new(PortalLanguage)
-	*portalLanguageType = `en_US`
-	return portalLanguageType
-}
-
 type ProtectionMode string
-
-func NewProtectionMode() *ProtectionMode {
-	protectionModeType := new(ProtectionMode)
-	return protectionModeType
-}
-
-func NewProtectionModeWithDefaults() *ProtectionMode {
-	protectionModeType := new(ProtectionMode)
-	*protectionModeType = `RTS_CTS`
-	return protectionModeType
-}
 
 type QueryCriteria struct {
 	// Attributes
@@ -1427,16 +823,6 @@ type QueryCriteria struct {
 	SortInfo *QueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
-func NewQueryCriteria() *QueryCriteria {
-	queryCriteriaType := new(QueryCriteria)
-	return queryCriteriaType
-}
-
-func NewQueryCriteriaWithDefaults() *QueryCriteria {
-	queryCriteriaType := new(QueryCriteria)
-	return queryCriteriaType
-}
-
 type QueryCriteriaExtraFiltersType struct {
 	Operator *FilterOperator `json:"operator,omitempty"`
 
@@ -1449,16 +835,6 @@ type QueryCriteriaExtraFiltersType struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewQueryCriteriaExtraFiltersType() *QueryCriteriaExtraFiltersType {
-	queryCriteriaExtraFiltersTypeType := new(QueryCriteriaExtraFiltersType)
-	return queryCriteriaExtraFiltersTypeType
-}
-
-func NewQueryCriteriaExtraFiltersTypeWithDefaults() *QueryCriteriaExtraFiltersType {
-	queryCriteriaExtraFiltersTypeType := new(QueryCriteriaExtraFiltersType)
-	return queryCriteriaExtraFiltersTypeType
-}
-
 type QueryCriteriaExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
@@ -1467,16 +843,6 @@ type QueryCriteriaExtraNotFiltersType struct {
 	// Value
 	// value not to search
 	Value *string `json:"value,omitempty"`
-}
-
-func NewQueryCriteriaExtraNotFiltersType() *QueryCriteriaExtraNotFiltersType {
-	queryCriteriaExtraNotFiltersTypeType := new(QueryCriteriaExtraNotFiltersType)
-	return queryCriteriaExtraNotFiltersTypeType
-}
-
-func NewQueryCriteriaExtraNotFiltersTypeWithDefaults() *QueryCriteriaExtraNotFiltersType {
-	queryCriteriaExtraNotFiltersTypeType := new(QueryCriteriaExtraNotFiltersType)
-	return queryCriteriaExtraNotFiltersTypeType
 }
 
 type QueryCriteriaFiltersType struct {
@@ -1491,24 +857,13 @@ type QueryCriteriaFiltersType struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewQueryCriteriaFiltersType() *QueryCriteriaFiltersType {
-	queryCriteriaFiltersTypeType := new(QueryCriteriaFiltersType)
-	return queryCriteriaFiltersTypeType
-}
-
-func NewQueryCriteriaFiltersTypeWithDefaults() *QueryCriteriaFiltersType {
-	queryCriteriaFiltersTypeType := new(QueryCriteriaFiltersType)
-	return queryCriteriaFiltersTypeType
-}
-
 // QueryCriteriaOptionsType
 //
 // Specified feature required information
 type QueryCriteriaOptionsType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
+func(t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -1517,21 +872,11 @@ func (t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
+func(t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewQueryCriteriaOptionsType() *QueryCriteriaOptionsType {
-	queryCriteriaOptionsTypeType := new(QueryCriteriaOptionsType)
-	return queryCriteriaOptionsTypeType
-}
-
-func NewQueryCriteriaOptionsTypeWithDefaults() *QueryCriteriaOptionsType {
-	queryCriteriaOptionsTypeType := new(QueryCriteriaOptionsType)
-	return queryCriteriaOptionsTypeType
 }
 
 // QueryCriteriaSortInfoType
@@ -1547,27 +892,7 @@ type QueryCriteriaSortInfoType struct {
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
 
-func NewQueryCriteriaSortInfoType() *QueryCriteriaSortInfoType {
-	queryCriteriaSortInfoTypeType := new(QueryCriteriaSortInfoType)
-	return queryCriteriaSortInfoTypeType
-}
-
-func NewQueryCriteriaSortInfoTypeWithDefaults() *QueryCriteriaSortInfoType {
-	queryCriteriaSortInfoTypeType := new(QueryCriteriaSortInfoType)
-	return queryCriteriaSortInfoTypeType
-}
-
-type QueryCriteriaSuperSet struct{}
-
-func NewQueryCriteriaSuperSet() *QueryCriteriaSuperSet {
-	queryCriteriaSuperSetType := new(QueryCriteriaSuperSet)
-	return queryCriteriaSuperSetType
-}
-
-func NewQueryCriteriaSuperSetWithDefaults() *QueryCriteriaSuperSet {
-	queryCriteriaSuperSetType := new(QueryCriteriaSuperSet)
-	return queryCriteriaSuperSetType
-}
+type QueryCriteriaSuperSet struct {}
 
 type Radio24 struct {
 	// AutoCellSizing
@@ -1591,18 +916,6 @@ type Radio24 struct {
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40"`
 
 	TxPower *TxPower `json:"txPower,omitempty"`
-}
-
-func NewRadio24() *Radio24 {
-	radio24Type := new(Radio24)
-	return radio24Type
-}
-
-func NewRadio24WithDefaults() *Radio24 {
-	radio24Type := new(Radio24)
-	channelWidthField := 0
-	radio24Type.ChannelWidth = &channelWidthField
-	return radio24Type
 }
 
 type Radio24SuperSet struct {
@@ -1630,16 +943,6 @@ type Radio24SuperSet struct {
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"omitempty,oneof=0 20 40"`
 
 	TxPower *TxPower `json:"txPower,omitempty"`
-}
-
-func NewRadio24SuperSet() *Radio24SuperSet {
-	radio24SuperSetType := new(Radio24SuperSet)
-	return radio24SuperSetType
-}
-
-func NewRadio24SuperSetWithDefaults() *Radio24SuperSet {
-	radio24SuperSetType := new(Radio24SuperSet)
-	return radio24SuperSetType
 }
 
 type Radio50 struct {
@@ -1680,18 +983,6 @@ type Radio50 struct {
 	OutdoorSecondaryChannel *int `json:"outdoorSecondaryChannel,omitempty"`
 
 	TxPower *TxPower `json:"txPower,omitempty"`
-}
-
-func NewRadio50() *Radio50 {
-	radio50Type := new(Radio50)
-	return radio50Type
-}
-
-func NewRadio50WithDefaults() *Radio50 {
-	radio50Type := new(Radio50)
-	channelWidthField := 0
-	radio50Type.ChannelWidth = &channelWidthField
-	return radio50Type
 }
 
 type Radio50SuperSet struct {
@@ -1741,16 +1032,6 @@ type Radio50SuperSet struct {
 	TxPower *TxPower `json:"txPower,omitempty"`
 }
 
-func NewRadio50SuperSet() *Radio50SuperSet {
-	radio50SuperSetType := new(Radio50SuperSet)
-	return radio50SuperSetType
-}
-
-func NewRadio50SuperSetWithDefaults() *Radio50SuperSet {
-	radio50SuperSetType := new(Radio50SuperSet)
-	return radio50SuperSetType
-}
-
 type RadiusServer struct {
 	// Ip
 	// Constraints:
@@ -1770,16 +1051,6 @@ type RadiusServer struct {
 	// Constraints:
 	//    - required
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
-}
-
-func NewRadiusServer() *RadiusServer {
-	radiusServerType := new(RadiusServer)
-	return radiusServerType
-}
-
-func NewRadiusServerWithDefaults() *RadiusServer {
-	radiusServerType := new(RadiusServer)
-	return radiusServerType
 }
 
 type RateLimiting struct {
@@ -1807,62 +1078,16 @@ type RateLimiting struct {
 	Threshold *int `json:"threshold" validate:"required"`
 }
 
-func NewRateLimiting() *RateLimiting {
-	rateLimitingType := new(RateLimiting)
-	return rateLimitingType
-}
-
-func NewRateLimitingWithDefaults() *RateLimiting {
-	rateLimitingType := new(RateLimiting)
-	maxOutstandingRequestsPerServerField := 0
-	rateLimitingType.MaxOutstandingRequestsPerServer = &maxOutstandingRequestsPerServerField
-	sanityTimerField := 10
-	rateLimitingType.SanityTimer = &sanityTimerField
-	thresholdField := 0
-	rateLimitingType.Threshold = &thresholdField
-	return rateLimitingType
-}
-
 type RbacMetadata struct {
 	RbacMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
-func NewRbacMetadata() *RbacMetadata {
-	rbacMetadataType := new(RbacMetadata)
-	return rbacMetadataType
-}
-
-func NewRbacMetadataWithDefaults() *RbacMetadata {
-	rbacMetadataType := new(RbacMetadata)
-	return rbacMetadataType
-}
-
 type Realm string
-
-func NewRealm() *Realm {
-	realmType := new(Realm)
-	return realmType
-}
-
-func NewRealmWithDefaults() *Realm {
-	realmType := new(Realm)
-	return realmType
-}
 
 type RecoverySsid struct {
 	// RecoverySsidEnabled
 	// recovery ssid enable/disable
 	RecoverySsidEnabled *bool `json:"recoverySsidEnabled,omitempty"`
-}
-
-func NewRecoverySsid() *RecoverySsid {
-	recoverySsidType := new(RecoverySsid)
-	return recoverySsidType
-}
-
-func NewRecoverySsidWithDefaults() *RecoverySsid {
-	recoverySsidType := new(RecoverySsid)
-	return recoverySsidType
 }
 
 type SmartMonitor struct {
@@ -1883,20 +1108,6 @@ type SmartMonitor struct {
 	//    - min:1
 	//    - max:10
 	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"omitempty,gte=1,lte=10"`
-}
-
-func NewSmartMonitor() *SmartMonitor {
-	smartMonitorType := new(SmartMonitor)
-	return smartMonitorType
-}
-
-func NewSmartMonitorWithDefaults() *SmartMonitor {
-	smartMonitorType := new(SmartMonitor)
-	intervalInSecField := 10
-	smartMonitorType.IntervalInSec = &intervalInSecField
-	retryThresholdField := 3
-	smartMonitorType.RetryThreshold = &retryThresholdField
-	return smartMonitorType
 }
 
 type SnmpCommunity struct {
@@ -1928,16 +1139,6 @@ type SnmpCommunity struct {
 	// WriteEnabled
 	// write privilege of the SNMP Coummunity
 	WriteEnabled *bool `json:"writeEnabled,omitempty"`
-}
-
-func NewSnmpCommunity() *SnmpCommunity {
-	snmpCommunityType := new(SnmpCommunity)
-	return snmpCommunityType
-}
-
-func NewSnmpCommunityWithDefaults() *SnmpCommunity {
-	snmpCommunityType := new(SnmpCommunity)
-	return snmpCommunityType
 }
 
 type SnmpUser struct {
@@ -1999,27 +1200,7 @@ type SnmpUser struct {
 	WriteEnabled *bool `json:"writeEnabled,omitempty"`
 }
 
-func NewSnmpUser() *SnmpUser {
-	snmpUserType := new(SnmpUser)
-	return snmpUserType
-}
-
-func NewSnmpUserWithDefaults() *SnmpUser {
-	snmpUserType := new(SnmpUser)
-	return snmpUserType
-}
-
 type SubNetMask string
-
-func NewSubNetMask() *SubNetMask {
-	subNetMaskType := new(SubNetMask)
-	return subNetMaskType
-}
-
-func NewSubNetMaskWithDefaults() *SubNetMask {
-	subNetMaskType := new(SubNetMask)
-	return subNetMaskType
-}
 
 type TargetConfig struct {
 	// Address
@@ -2035,16 +1216,6 @@ type TargetConfig struct {
 	//    - min:1
 	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
-}
-
-func NewTargetConfig() *TargetConfig {
-	targetConfigType := new(TargetConfig)
-	return targetConfigType
-}
-
-func NewTargetConfigWithDefaults() *TargetConfig {
-	targetConfigType := new(TargetConfig)
-	return targetConfigType
 }
 
 type TimeRange struct {
@@ -2068,16 +1239,6 @@ type TimeRange struct {
 	Start *float64 `json:"start,omitempty"`
 }
 
-func NewTimeRange() *TimeRange {
-	timeRangeType := new(TimeRange)
-	return timeRangeType
-}
-
-func NewTimeRangeWithDefaults() *TimeRange {
-	timeRangeType := new(TimeRange)
-	return timeRangeType
-}
-
 // TimeUnitStore
 //
 // time unit
@@ -2085,16 +1246,6 @@ func NewTimeRangeWithDefaults() *TimeRange {
 //    - nullable
 //    - oneof:[second,minute,hour,day]
 type TimeUnitStore string
-
-func NewTimeUnitStore() *TimeUnitStore {
-	timeUnitStoreType := new(TimeUnitStore)
-	return timeUnitStoreType
-}
-
-func NewTimeUnitStoreWithDefaults() *TimeUnitStore {
-	timeUnitStoreType := new(TimeUnitStore)
-	return timeUnitStoreType
-}
 
 type TrafficClassProfileRef struct {
 	Description *Description `json:"description,omitempty"`
@@ -2112,16 +1263,6 @@ type TrafficClassProfileRef struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewTrafficClassProfileRef() *TrafficClassProfileRef {
-	trafficClassProfileRefType := new(TrafficClassProfileRef)
-	return trafficClassProfileRefType
-}
-
-func NewTrafficClassProfileRefWithDefaults() *TrafficClassProfileRef {
-	trafficClassProfileRefType := new(TrafficClassProfileRef)
-	return trafficClassProfileRefType
-}
-
 type TrafficClassRef struct {
 	// Id
 	// Identifier of the Traffic Class
@@ -2132,28 +1273,7 @@ type TrafficClassRef struct {
 	Whitelists *string `json:"whitelists,omitempty"`
 }
 
-func NewTrafficClassRef() *TrafficClassRef {
-	trafficClassRefType := new(TrafficClassRef)
-	return trafficClassRefType
-}
-
-func NewTrafficClassRefWithDefaults() *TrafficClassRef {
-	trafficClassRefType := new(TrafficClassRef)
-	return trafficClassRefType
-}
-
 type TxPower string
-
-func NewTxPower() *TxPower {
-	txPowerType := new(TxPower)
-	return txPowerType
-}
-
-func NewTxPowerWithDefaults() *TxPower {
-	txPowerType := new(TxPower)
-	*txPowerType = `Full`
-	return txPowerType
-}
 
 type WebAuthenticationPortalCustomization struct {
 	// Logo
@@ -2171,30 +1291,10 @@ type WebAuthenticationPortalCustomization struct {
 	Title *string `json:"title,omitempty" validate:"omitempty,max=63,min=0"`
 }
 
-func NewWebAuthenticationPortalCustomization() *WebAuthenticationPortalCustomization {
-	webAuthenticationPortalCustomizationType := new(WebAuthenticationPortalCustomization)
-	return webAuthenticationPortalCustomizationType
-}
-
-func NewWebAuthenticationPortalCustomizationWithDefaults() *WebAuthenticationPortalCustomization {
-	webAuthenticationPortalCustomizationType := new(WebAuthenticationPortalCustomization)
-	return webAuthenticationPortalCustomizationType
-}
-
 // WildFQDN
 //
 // Compare with FQDN, it could start with '*.'
 type WildFQDN string
-
-func NewWildFQDN() *WildFQDN {
-	wildFQDNType := new(WildFQDN)
-	return wildFQDNType
-}
-
-func NewWildFQDNWithDefaults() *WildFQDN {
-	wildFQDNType := new(WildFQDN)
-	return wildFQDNType
-}
 
 // ZoneTunnelType
 //
@@ -2205,13 +1305,3 @@ func NewWildFQDNWithDefaults() *WildFQDN {
 //    - oneof:[No_Tunneled,RuckusGRE,SoftGRE,SoftGREIpsec]
 type ZoneTunnelType string
 
-func NewZoneTunnelType() *ZoneTunnelType {
-	zoneTunnelTypeType := new(ZoneTunnelType)
-	return zoneTunnelTypeType
-}
-
-func NewZoneTunnelTypeWithDefaults() *ZoneTunnelType {
-	zoneTunnelTypeType := new(ZoneTunnelType)
-	*zoneTunnelTypeType = `RuckusGRE`
-	return zoneTunnelTypeType
-}

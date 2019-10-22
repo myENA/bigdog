@@ -9,26 +9,27 @@ import (
 )
 
 type WSGAccessPointAPPService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGAccessPointAPPService(client *Client) *WSGAccessPointAPPService {
-	s := new(WSGAccessPointAPPService)
-	s.client = client
-	return s
+func NewWSGAccessPointAPPService (client *Client) *WSGAccessPointAPPService {
+    s := new(WSGAccessPointAPPService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGAccessPointAPPService() *WSGAccessPointAPPService {
-	serv := new(WSGAccessPointAPPService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGAccessPointAPPService () *WSGAccessPointAPPService {
+    serv := new(WSGAccessPointAPPService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context) (*ap.ApLinemanSummary, error) {
+func (s *WSGAccessPointAPPService) FindApsLineman (ctx context.Context) (*ap.ApLinemanSummary, error) {
 }
 
-func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context) error {
+func (s *WSGAccessPointAPPService) FindApsTotalCount (ctx context.Context) error {
 }
 
-func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) (json.RawMessage, error) {
+func (s *WSGAccessPointAPPService) FindLinemanWorkflow (ctx context.Context) (json.RawMessage, error) {
 }
+

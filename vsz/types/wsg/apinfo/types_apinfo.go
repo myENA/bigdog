@@ -32,24 +32,5 @@ type ApInfo struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-func NewApInfo() *ApInfo {
-	apInfoType := new(ApInfo)
-	return apInfoType
-}
-
-func NewApInfoWithDefaults() *ApInfo {
-	apInfoType := new(ApInfo)
-	return apInfoType
-}
-
 type ApName string
 
-func NewApName() *ApName {
-	apNameType := new(ApName)
-	return apNameType
-}
-
-func NewApNameWithDefaults() *ApName {
-	apNameType := new(ApName)
-	return apNameType
-}

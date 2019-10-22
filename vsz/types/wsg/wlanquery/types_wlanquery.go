@@ -14,16 +14,6 @@ type ApWlanBssid struct {
 	WlanBssids []*WlanBssid `json:"wlanBssids,omitempty"`
 }
 
-func NewApWlanBssid() *ApWlanBssid {
-	apWlanBssidType := new(ApWlanBssid)
-	return apWlanBssidType
-}
-
-func NewApWlanBssidWithDefaults() *ApWlanBssid {
-	apWlanBssidType := new(ApWlanBssid)
-	return apWlanBssidType
-}
-
 type ApWlanBssidQueryList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -40,16 +30,6 @@ type ApWlanBssidQueryList struct {
 	// TotalCount
 	// Total matched AP count
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewApWlanBssidQueryList() *ApWlanBssidQueryList {
-	apWlanBssidQueryListType := new(ApWlanBssidQueryList)
-	return apWlanBssidQueryListType
-}
-
-func NewApWlanBssidQueryListWithDefaults() *ApWlanBssidQueryList {
-	apWlanBssidQueryListType := new(ApWlanBssidQueryList)
-	return apWlanBssidQueryListType
 }
 
 type CreateWlanQuery struct {
@@ -136,16 +116,6 @@ type CreateWlanQuery struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-func NewCreateWlanQuery() *CreateWlanQuery {
-	createWlanQueryType := new(CreateWlanQuery)
-	return createWlanQueryType
-}
-
-func NewCreateWlanQueryWithDefaults() *CreateWlanQuery {
-	createWlanQueryType := new(CreateWlanQuery)
-	return createWlanQueryType
-}
-
 type WlanBssid struct {
 	Bssid *string `json:"bssid,omitempty"`
 
@@ -154,16 +124,6 @@ type WlanBssid struct {
 	WlanId *int `json:"wlanId,omitempty"`
 
 	WlanName *string `json:"wlanName,omitempty"`
-}
-
-func NewWlanBssid() *WlanBssid {
-	wlanBssidType := new(WlanBssid)
-	return wlanBssidType
-}
-
-func NewWlanBssidWithDefaults() *WlanBssid {
-	wlanBssidType := new(WlanBssid)
-	return wlanBssidType
 }
 
 type WlanQueryList struct {
@@ -178,12 +138,3 @@ type WlanQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWlanQueryList() *WlanQueryList {
-	wlanQueryListType := new(WlanQueryList)
-	return wlanQueryListType
-}
-
-func NewWlanQueryListWithDefaults() *WlanQueryList {
-	wlanQueryListType := new(WlanQueryList)
-	return wlanQueryListType
-}

@@ -16,16 +16,6 @@ type LoginRequest struct {
 	Username *string `json:"username" validate:"required"`
 }
 
-func NewLoginRequest() *LoginRequest {
-	loginRequestType := new(LoginRequest)
-	return loginRequestType
-}
-
-func NewLoginRequestWithDefaults() *LoginRequest {
-	loginRequestType := new(LoginRequest)
-	return loginRequestType
-}
-
 type LoginResponse struct {
 	ControllerVersion *string `json:"controllerVersion,omitempty"`
 
@@ -34,12 +24,3 @@ type LoginResponse struct {
 	ServiceTicket *string `json:"serviceTicket,omitempty"`
 }
 
-func NewLoginResponse() *LoginResponse {
-	loginResponseType := new(LoginResponse)
-	return loginResponseType
-}
-
-func NewLoginResponseWithDefaults() *LoginResponse {
-	loginResponseType := new(LoginResponse)
-	return loginResponseType
-}

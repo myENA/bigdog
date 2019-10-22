@@ -34,24 +34,13 @@ type FirmwaresQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewFirmwaresQueryResultList() *FirmwaresQueryResultList {
-	firmwaresQueryResultListType := new(FirmwaresQueryResultList)
-	return firmwaresQueryResultListType
-}
-
-func NewFirmwaresQueryResultListWithDefaults() *FirmwaresQueryResultList {
-	firmwaresQueryResultListType := new(FirmwaresQueryResultList)
-	return firmwaresQueryResultListType
-}
-
 // FirmwaresQueryResultListExtraType
 //
 // Extra information for Firmware list
 type FirmwaresQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *FirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *FirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -60,21 +49,11 @@ func (t *FirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *FirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *FirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewFirmwaresQueryResultListExtraType() *FirmwaresQueryResultListExtraType {
-	firmwaresQueryResultListExtraTypeType := new(FirmwaresQueryResultListExtraType)
-	return firmwaresQueryResultListExtraTypeType
-}
-
-func NewFirmwaresQueryResultListExtraTypeWithDefaults() *FirmwaresQueryResultListExtraType {
-	firmwaresQueryResultListExtraTypeType := new(FirmwaresQueryResultListExtraType)
-	return firmwaresQueryResultListExtraTypeType
 }
 
 type ScheduleIds struct {
@@ -101,24 +80,13 @@ type ScheduleIds struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewScheduleIds() *ScheduleIds {
-	scheduleIdsType := new(ScheduleIds)
-	return scheduleIdsType
-}
-
-func NewScheduleIdsWithDefaults() *ScheduleIds {
-	scheduleIdsType := new(ScheduleIds)
-	return scheduleIdsType
-}
-
 // ScheduleIdsExtraType
 //
 // Extra information for Schedule Ids list
 type ScheduleIdsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
+func(t *ScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -127,21 +95,11 @@ func (t *ScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
+func(t *ScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewScheduleIdsExtraType() *ScheduleIdsExtraType {
-	scheduleIdsExtraTypeType := new(ScheduleIdsExtraType)
-	return scheduleIdsExtraTypeType
-}
-
-func NewScheduleIdsExtraTypeWithDefaults() *ScheduleIdsExtraType {
-	scheduleIdsExtraTypeType := new(ScheduleIdsExtraType)
-	return scheduleIdsExtraTypeType
 }
 
 type SwitchFirmware struct {
@@ -150,16 +108,6 @@ type SwitchFirmware struct {
 	// Version
 	// Firmware version of the Switch
 	Version *string `json:"version,omitempty"`
-}
-
-func NewSwitchFirmware() *SwitchFirmware {
-	switchFirmwareType := new(SwitchFirmware)
-	return switchFirmwareType
-}
-
-func NewSwitchFirmwareWithDefaults() *SwitchFirmware {
-	switchFirmwareType := new(SwitchFirmware)
-	return switchFirmwareType
 }
 
 type SwitchModel struct {
@@ -172,12 +120,3 @@ type SwitchModel struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewSwitchModel() *SwitchModel {
-	switchModelType := new(SwitchModel)
-	return switchModelType
-}
-
-func NewSwitchModelWithDefaults() *SwitchModel {
-	switchModelType := new(SwitchModel)
-	return switchModelType
-}

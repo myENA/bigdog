@@ -8,23 +8,24 @@ import (
 )
 
 type SwitchMSwitchSpecificSettingsService struct {
-	client *Client
+    client *Client
 }
 
-func NewSwitchMSwitchSpecificSettingsService(client *Client) *SwitchMSwitchSpecificSettingsService {
-	s := new(SwitchMSwitchSpecificSettingsService)
-	s.client = client
-	return s
+func NewSwitchMSwitchSpecificSettingsService (client *Client) *SwitchMSwitchSpecificSettingsService {
+    s := new(SwitchMSwitchSpecificSettingsService)
+    s.client = client
+    return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchSpecificSettingsService() *SwitchMSwitchSpecificSettingsService {
-	serv := new(SwitchMSwitchSpecificSettingsService)
-	serv.client = ss.client
-	return serv
+func (ss *SwitchMService) SwitchMSwitchSpecificSettingsService () *SwitchMSwitchSpecificSettingsService {
+    serv := new(SwitchMSwitchSpecificSettingsService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettings(ctx context.Context) (*specificsettings.SpecificSettingsAllResult, error) {
+func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettings (ctx context.Context) (*specificsettings.SpecificSettingsAllResult, error) {
 }
 
-func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettingsById(ctx context.Context, id string) (*specificsettings.SpecificSettings, error) {
+func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettingsById (ctx context.Context, id string) (*specificsettings.SpecificSettings, error) {
 }
+

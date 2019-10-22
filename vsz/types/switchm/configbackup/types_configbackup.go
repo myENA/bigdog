@@ -8,16 +8,6 @@ import (
 
 type BackupIds []string
 
-func NewBackupIds() *BackupIds {
-	backupIdsType := make(BackupIds, 0)
-	return &backupIdsType
-}
-
-func NewBackupIdsWithDefaults() *BackupIds {
-	backupIdsType := make(BackupIds, 0)
-	return &backupIdsType
-}
-
 type Cfgbk struct {
 	// FailureReason
 	// Failure reason of the config backup and config restore
@@ -56,16 +46,6 @@ type Cfgbk struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewCfgbk() *Cfgbk {
-	cfgbkType := new(Cfgbk)
-	return cfgbkType
-}
-
-func NewCfgbkWithDefaults() *Cfgbk {
-	cfgbkType := new(Cfgbk)
-	return cfgbkType
-}
-
 type ConfigBackupContent struct {
 	// Config
 	// Content of the ConfigBackup
@@ -80,30 +60,10 @@ type ConfigBackupContent struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewConfigBackupContent() *ConfigBackupContent {
-	configBackupContentType := new(ConfigBackupContent)
-	return configBackupContentType
-}
-
-func NewConfigBackupContentWithDefaults() *ConfigBackupContent {
-	configBackupContentType := new(ConfigBackupContent)
-	return configBackupContentType
-}
-
 type ConfigBackupDiff struct {
 	ConfigBackup1 *ConfigBackupContent `json:"configBackup1,omitempty"`
 
 	ConfigBackup2 *ConfigBackupContent `json:"configBackup2,omitempty"`
-}
-
-func NewConfigBackupDiff() *ConfigBackupDiff {
-	configBackupDiffType := new(ConfigBackupDiff)
-	return configBackupDiffType
-}
-
-func NewConfigBackupDiffWithDefaults() *ConfigBackupDiff {
-	configBackupDiffType := new(ConfigBackupDiff)
-	return configBackupDiffType
 }
 
 type ConfigBackupDiffInput struct {
@@ -114,16 +74,6 @@ type ConfigBackupDiffInput struct {
 	// ConfigBackupId2
 	// The second config backup id of diff input
 	ConfigBackupId2 *string `json:"configBackupId2,omitempty"`
-}
-
-func NewConfigBackupDiffInput() *ConfigBackupDiffInput {
-	configBackupDiffInputType := new(ConfigBackupDiffInput)
-	return configBackupDiffInputType
-}
-
-func NewConfigBackupDiffInputWithDefaults() *ConfigBackupDiffInput {
-	configBackupDiffInputType := new(ConfigBackupDiffInput)
-	return configBackupDiffInputType
 }
 
 type CreateBackupResultList struct {
@@ -148,16 +98,6 @@ type CreateBackupResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewCreateBackupResultList() *CreateBackupResultList {
-	createBackupResultListType := new(CreateBackupResultList)
-	return createBackupResultListType
-}
-
-func NewCreateBackupResultListWithDefaults() *CreateBackupResultList {
-	createBackupResultListType := new(CreateBackupResultList)
-	return createBackupResultListType
-}
-
 type CreateBackupResultListType struct {
 	// ConfigBackupId
 	// Identifier of config backup
@@ -166,16 +106,6 @@ type CreateBackupResultListType struct {
 	// SwitchId
 	// Identifier of switch
 	SwitchId *string `json:"switchId,omitempty"`
-}
-
-func NewCreateBackupResultListType() *CreateBackupResultListType {
-	createBackupResultListTypeType := new(CreateBackupResultListType)
-	return createBackupResultListTypeType
-}
-
-func NewCreateBackupResultListTypeWithDefaults() *CreateBackupResultListType {
-	createBackupResultListTypeType := new(CreateBackupResultListType)
-	return createBackupResultListTypeType
 }
 
 type List struct {
@@ -200,38 +130,9 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewList() *List {
-	listType := new(List)
-	return listType
-}
-
-func NewListWithDefaults() *List {
-	listType := new(List)
-	return listType
-}
-
 type QueryCriteria struct {
 	ConfigBackupqueryCriteria *string `json:"configBackup_queryCriteria,omitempty"`
 }
 
-func NewQueryCriteria() *QueryCriteria {
-	queryCriteriaType := new(QueryCriteria)
-	return queryCriteriaType
-}
-
-func NewQueryCriteriaWithDefaults() *QueryCriteria {
-	queryCriteriaType := new(QueryCriteria)
-	return queryCriteriaType
-}
-
 type SwitchIds []string
 
-func NewSwitchIds() *SwitchIds {
-	switchIdsType := make(SwitchIds, 0)
-	return &switchIdsType
-}
-
-func NewSwitchIdsWithDefaults() *SwitchIds {
-	switchIdsType := make(SwitchIds, 0)
-	return &switchIdsType
-}

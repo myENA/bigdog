@@ -52,33 +52,12 @@ type Create struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewCreate() *Create {
-	createType := new(Create)
-	return createType
-}
-
-func NewCreateWithDefaults() *Create {
-	createType := new(Create)
-	return createType
-}
-
 type CreateResult interface{}
 
-func NewCreateResult() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
-func NewCreateResultWithDefaults() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -87,21 +66,11 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
 }
 
 type List struct {
@@ -120,16 +89,6 @@ type List struct {
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewList() *List {
-	listType := new(List)
-	return listType
-}
-
-func NewListWithDefaults() *List {
-	listType := new(List)
-	return listType
 }
 
 type Modify struct {
@@ -168,16 +127,6 @@ type Modify struct {
 	// VlanId
 	// VLAN ID
 	VlanId *int `json:"vlanId,omitempty"`
-}
-
-func NewModify() *Modify {
-	modifyType := new(Modify)
-	return modifyType
-}
-
-func NewModifyWithDefaults() *Modify {
-	modifyType := new(Modify)
-	return modifyType
 }
 
 type VeConfig struct {
@@ -250,12 +199,3 @@ type VeConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewVeConfig() *VeConfig {
-	veConfigType := new(VeConfig)
-	return veConfigType
-}
-
-func NewVeConfigWithDefaults() *VeConfig {
-	veConfigType := new(VeConfig)
-	return veConfigType
-}

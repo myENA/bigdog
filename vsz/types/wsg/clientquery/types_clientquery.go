@@ -18,16 +18,6 @@ type ClientQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewClientQueryList() *ClientQueryList {
-	clientQueryListType := new(ClientQueryList)
-	return clientQueryListType
-}
-
-func NewClientQueryListWithDefaults() *ClientQueryList {
-	clientQueryListType := new(ClientQueryList)
-	return clientQueryListType
-}
-
 type CreateClientQuery struct {
 	Alerts *int `json:"alerts,omitempty"`
 
@@ -116,16 +106,6 @@ type CreateClientQuery struct {
 	ZoneVersion *string `json:"zoneVersion,omitempty"`
 }
 
-func NewCreateClientQuery() *CreateClientQuery {
-	createClientQueryType := new(CreateClientQuery)
-	return createClientQueryType
-}
-
-func NewCreateClientQueryWithDefaults() *CreateClientQuery {
-	createClientQueryType := new(CreateClientQuery)
-	return createClientQueryType
-}
-
 type TcWithQuota struct {
 	TcMaxQuota *string `json:"tcMaxQuota,omitempty"`
 
@@ -134,12 +114,3 @@ type TcWithQuota struct {
 	TcRemainingQuota *string `json:"tcRemainingQuota,omitempty"`
 }
 
-func NewTcWithQuota() *TcWithQuota {
-	tcWithQuotaType := new(TcWithQuota)
-	return tcWithQuotaType
-}
-
-func NewTcWithQuotaWithDefaults() *TcWithQuota {
-	tcWithQuotaType := new(TcWithQuota)
-	return tcWithQuotaType
-}

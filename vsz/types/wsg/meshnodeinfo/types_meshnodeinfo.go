@@ -12,16 +12,6 @@ type HelperZoneInfo struct {
 	HelperAPZoneName *string `json:"helperAPZoneName,omitempty"`
 }
 
-func NewHelperZoneInfo() *HelperZoneInfo {
-	helperZoneInfoType := new(HelperZoneInfo)
-	return helperZoneInfoType
-}
-
-func NewHelperZoneInfoWithDefaults() *HelperZoneInfo {
-	helperZoneInfoType := new(HelperZoneInfo)
-	return helperZoneInfoType
-}
-
 type MeshNodeInfo struct {
 	// ApMac
 	// The MAC of the mesh AP
@@ -74,27 +64,7 @@ type MeshNodeInfo struct {
 	UplinkRssi *int `json:"uplinkRssi,omitempty"`
 }
 
-func NewMeshNodeInfo() *MeshNodeInfo {
-	meshNodeInfoType := new(MeshNodeInfo)
-	return meshNodeInfoType
-}
-
-func NewMeshNodeInfoWithDefaults() *MeshNodeInfo {
-	meshNodeInfoType := new(MeshNodeInfo)
-	return meshNodeInfoType
-}
-
 type MeshNodeInfoArray []*MeshNodeInfo
-
-func NewMeshNodeInfoArray() *MeshNodeInfoArray {
-	meshNodeInfoArrayType := make(MeshNodeInfoArray, 0)
-	return &meshNodeInfoArrayType
-}
-
-func NewMeshNodeInfoArrayWithDefaults() *MeshNodeInfoArray {
-	meshNodeInfoArrayType := make(MeshNodeInfoArray, 0)
-	return &meshNodeInfoArrayType
-}
 
 type MeshNodeInfoList struct {
 	// Extra
@@ -120,24 +90,13 @@ type MeshNodeInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewMeshNodeInfoList() *MeshNodeInfoList {
-	meshNodeInfoListType := new(MeshNodeInfoList)
-	return meshNodeInfoListType
-}
-
-func NewMeshNodeInfoListWithDefaults() *MeshNodeInfoList {
-	meshNodeInfoListType := new(MeshNodeInfoList)
-	return meshNodeInfoListType
-}
-
 // MeshNodeInfoListExtraType
 //
 // Any additional response data.
 type MeshNodeInfoListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *MeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
+func(t *MeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -146,21 +105,11 @@ func (t *MeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *MeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
+func(t *MeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewMeshNodeInfoListExtraType() *MeshNodeInfoListExtraType {
-	meshNodeInfoListExtraTypeType := new(MeshNodeInfoListExtraType)
-	return meshNodeInfoListExtraTypeType
-}
-
-func NewMeshNodeInfoListExtraTypeWithDefaults() *MeshNodeInfoListExtraType {
-	meshNodeInfoListExtraTypeType := new(MeshNodeInfoListExtraType)
-	return meshNodeInfoListExtraTypeType
 }
 
 type UpdateAPZeroTouch struct {
@@ -177,12 +126,3 @@ type UpdateAPZeroTouch struct {
 	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Accept Reject"`
 }
 
-func NewUpdateAPZeroTouch() *UpdateAPZeroTouch {
-	updateAPZeroTouchType := new(UpdateAPZeroTouch)
-	return updateAPZeroTouchType
-}
-
-func NewUpdateAPZeroTouchWithDefaults() *UpdateAPZeroTouch {
-	updateAPZeroTouchType := new(UpdateAPZeroTouch)
-	return updateAPZeroTouchType
-}

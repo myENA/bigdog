@@ -9,29 +9,30 @@ import (
 )
 
 type WSGApplicationLogAndStatusService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGApplicationLogAndStatusService(client *Client) *WSGApplicationLogAndStatusService {
-	s := new(WSGApplicationLogAndStatusService)
-	s.client = client
-	return s
+func NewWSGApplicationLogAndStatusService (client *Client) *WSGApplicationLogAndStatusService {
+    s := new(WSGApplicationLogAndStatusService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndStatusService {
-	serv := new(WSGApplicationLogAndStatusService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGApplicationLogAndStatusService () *WSGApplicationLogAndStatusService {
+    serv := new(WSGApplicationLogAndStatusService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx context.Context, bladeUUID string) (*administration.ApplicationLogAndStatusList, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID (ctx context.Context, bladeUUID string) (*administration.ApplicationLogAndStatusList, error) {
 }
 
-func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, bladeUUID string) (json.RawMessage, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID (ctx context.Context, bladeUUID string) (json.RawMessage, error) {
 }
 
-func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, bladeUUID string) (json.RawMessage, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID (ctx context.Context, bladeUUID string) (json.RawMessage, error) {
 }
 
-func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx context.Context) error {
+func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications (ctx context.Context) error {
 }
+

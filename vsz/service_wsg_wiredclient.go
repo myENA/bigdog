@@ -10,26 +10,27 @@ import (
 )
 
 type WSGWiredClientService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGWiredClientService(client *Client) *WSGWiredClientService {
-	s := new(WSGWiredClientService)
-	s.client = client
-	return s
+func NewWSGWiredClientService (client *Client) *WSGWiredClientService {
+    s := new(WSGWiredClientService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGWiredClientService() *WSGWiredClientService {
-	serv := new(WSGWiredClientService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGWiredClientService () *WSGWiredClientService {
+    serv := new(WSGWiredClientService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGWiredClientService) AddWiredClientsBulkDeauth (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGWiredClientService) AddWiredClientsDeauth (ctx context.Context) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Context) (*wiredclientquery.ClientQueryList, error) {
+func (s *WSGWiredClientService) FindWiredclientByQueryCriteria (ctx context.Context) (*wiredclientquery.ClientQueryList, error) {
 }
+

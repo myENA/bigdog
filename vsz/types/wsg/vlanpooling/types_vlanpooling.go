@@ -33,30 +33,8 @@ type CreateVlanPooling struct {
 	Pool *string `json:"pool" validate:"required"`
 }
 
-func NewCreateVlanPooling() *CreateVlanPooling {
-	createVlanPoolingType := new(CreateVlanPooling)
-	return createVlanPoolingType
-}
-
-func NewCreateVlanPoolingWithDefaults() *CreateVlanPooling {
-	createVlanPoolingType := new(CreateVlanPooling)
-	algoField := `MAC_HASH`
-	createVlanPoolingType.Algo = &algoField
-	return createVlanPoolingType
-}
-
 type DeleteBulkVlanPooling struct {
 	IdList common.IdList `json:"idList,omitempty"`
-}
-
-func NewDeleteBulkVlanPooling() *DeleteBulkVlanPooling {
-	deleteBulkVlanPoolingType := new(DeleteBulkVlanPooling)
-	return deleteBulkVlanPoolingType
-}
-
-func NewDeleteBulkVlanPoolingWithDefaults() *DeleteBulkVlanPooling {
-	deleteBulkVlanPoolingType := new(DeleteBulkVlanPooling)
-	return deleteBulkVlanPoolingType
 }
 
 type ModifyVlanPooling struct {
@@ -78,16 +56,6 @@ type ModifyVlanPooling struct {
 	// Pool
 	// VLANs of the VLAN pooling profile
 	Pool *string `json:"pool,omitempty"`
-}
-
-func NewModifyVlanPooling() *ModifyVlanPooling {
-	modifyVlanPoolingType := new(ModifyVlanPooling)
-	return modifyVlanPoolingType
-}
-
-func NewModifyVlanPoolingWithDefaults() *ModifyVlanPooling {
-	modifyVlanPoolingType := new(ModifyVlanPooling)
-	return modifyVlanPoolingType
 }
 
 type VlanPooling struct {
@@ -115,16 +83,6 @@ type VlanPooling struct {
 	Pool *string `json:"pool,omitempty"`
 }
 
-func NewVlanPooling() *VlanPooling {
-	vlanPoolingType := new(VlanPooling)
-	return vlanPoolingType
-}
-
-func NewVlanPoolingWithDefaults() *VlanPooling {
-	vlanPoolingType := new(VlanPooling)
-	return vlanPoolingType
-}
-
 type VlanPoolingList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -135,16 +93,6 @@ type VlanPoolingList struct {
 	List []*VlanPoolingListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewVlanPoolingList() *VlanPoolingList {
-	vlanPoolingListType := new(VlanPoolingList)
-	return vlanPoolingListType
-}
-
-func NewVlanPoolingListWithDefaults() *VlanPoolingList {
-	vlanPoolingListType := new(VlanPoolingList)
-	return vlanPoolingListType
 }
 
 type VlanPoolingListType struct {
@@ -175,14 +123,3 @@ type VlanPoolingListType struct {
 	Pool *string `json:"pool,omitempty"`
 }
 
-func NewVlanPoolingListType() *VlanPoolingListType {
-	vlanPoolingListTypeType := new(VlanPoolingListType)
-	return vlanPoolingListTypeType
-}
-
-func NewVlanPoolingListTypeWithDefaults() *VlanPoolingListType {
-	vlanPoolingListTypeType := new(VlanPoolingListType)
-	algoField := `MAC_HASH`
-	vlanPoolingListTypeType.Algo = &algoField
-	return vlanPoolingListTypeType
-}

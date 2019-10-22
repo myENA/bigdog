@@ -12,16 +12,6 @@ type EventDataList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewEventDataList() *EventDataList {
-	eventDataListType := new(EventDataList)
-	return eventDataListType
-}
-
-func NewEventDataListWithDefaults() *EventDataList {
-	eventDataListType := new(EventDataList)
-	return eventDataListType
-}
-
 type EventDataResponse struct {
 	Data *EventDataList `json:"data,omitempty"`
 
@@ -38,16 +28,6 @@ type EventDataResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewEventDataResponse() *EventDataResponse {
-	eventDataResponseType := new(EventDataResponse)
-	return eventDataResponseType
-}
-
-func NewEventDataResponseWithDefaults() *EventDataResponse {
-	eventDataResponseType := new(EventDataResponse)
-	return eventDataResponseType
-}
-
 type EventEmailSetting struct {
 	// EmailEnabled
 	// Enable/Disable Email sending function
@@ -58,27 +38,7 @@ type EventEmailSetting struct {
 	MailTo *string `json:"mailTo,omitempty"`
 }
 
-func NewEventEmailSetting() *EventEmailSetting {
-	eventEmailSettingType := new(EventEmailSetting)
-	return eventEmailSettingType
-}
-
-func NewEventEmailSettingWithDefaults() *EventEmailSetting {
-	eventEmailSettingType := new(EventEmailSetting)
-	return eventEmailSettingType
-}
-
 type EventSettingList []*SingleEventSetting
-
-func NewEventSettingList() *EventSettingList {
-	eventSettingListType := make(EventSettingList, 0)
-	return &eventSettingListType
-}
-
-func NewEventSettingListWithDefaults() *EventSettingList {
-	eventSettingListType := make(EventSettingList, 0)
-	return &eventSettingListType
-}
 
 type SingleEventSetting struct {
 	// Category
@@ -122,12 +82,3 @@ type SingleEventSetting struct {
 	ZoneOverride *bool `json:"zoneOverride,omitempty"`
 }
 
-func NewSingleEventSetting() *SingleEventSetting {
-	singleEventSettingType := new(SingleEventSetting)
-	return singleEventSettingType
-}
-
-func NewSingleEventSettingWithDefaults() *SingleEventSetting {
-	singleEventSettingType := new(SingleEventSetting)
-	return singleEventSettingType
-}

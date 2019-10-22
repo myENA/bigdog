@@ -8,26 +8,27 @@ import (
 )
 
 type WSGSCGUserService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGSCGUserService(client *Client) *WSGSCGUserService {
-	s := new(WSGSCGUserService)
-	s.client = client
-	return s
+func NewWSGSCGUserService (client *Client) *WSGSCGUserService {
+    s := new(WSGSCGUserService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGSCGUserService() *WSGSCGUserService {
-	serv := new(WSGSCGUserService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGSCGUserService () *WSGSCGUserService {
+    serv := new(WSGSCGUserService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGSCGUserService) AddUsers(ctx context.Context) (*scguser.ScgUserAuditId, error) {
+func (s *WSGSCGUserService) AddUsers (ctx context.Context) (*scguser.ScgUserAuditId, error) {
 }
 
-func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context) (*scguser.ScgUserList, error) {
+func (s *WSGSCGUserService) FindUsersByQueryCriteria (ctx context.Context) (*scguser.ScgUserList, error) {
 }
 
-func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string) (*scguser.GetScgUser, error) {
+func (s *WSGSCGUserService) FindUsersByUserId (ctx context.Context, userId string) (*scguser.GetScgUser, error) {
 }
+

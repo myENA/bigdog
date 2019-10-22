@@ -8,26 +8,27 @@ import (
 )
 
 type WSGIdentitySubscriptionPackageService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGIdentitySubscriptionPackageService(client *Client) *WSGIdentitySubscriptionPackageService {
-	s := new(WSGIdentitySubscriptionPackageService)
-	s.client = client
-	return s
+func NewWSGIdentitySubscriptionPackageService (client *Client) *WSGIdentitySubscriptionPackageService {
+    s := new(WSGIdentitySubscriptionPackageService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGIdentitySubscriptionPackageService() *WSGIdentitySubscriptionPackageService {
-	serv := new(WSGIdentitySubscriptionPackageService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGIdentitySubscriptionPackageService () *WSGIdentitySubscriptionPackageService {
+    serv := new(WSGIdentitySubscriptionPackageService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx context.Context) (*identity.SubscriptionPackageList, error) {
+func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList (ctx context.Context) (*identity.SubscriptionPackageList, error) {
 }
 
-func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context.Context) (*identity.SubscriptionPackageList, error) {
+func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages (ctx context.Context) (*identity.SubscriptionPackageList, error) {
 }
 
-func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx context.Context, id string) (*identity.SubscriptionPackage, error) {
+func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById (ctx context.Context, id string) (*identity.SubscriptionPackage, error) {
 }
+

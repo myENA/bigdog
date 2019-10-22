@@ -24,16 +24,6 @@ type ApNumberLimitSettingOfDomain struct {
 	Shared *bool `json:"shared,omitempty"`
 }
 
-func NewApNumberLimitSettingOfDomain() *ApNumberLimitSettingOfDomain {
-	apNumberLimitSettingOfDomainType := new(ApNumberLimitSettingOfDomain)
-	return apNumberLimitSettingOfDomainType
-}
-
-func NewApNumberLimitSettingOfDomainWithDefaults() *ApNumberLimitSettingOfDomain {
-	apNumberLimitSettingOfDomainType := new(ApNumberLimitSettingOfDomain)
-	return apNumberLimitSettingOfDomainType
-}
-
 type ApNumberLimitSettingOfZone struct {
 	// DomainId
 	// Admin Domain Id
@@ -60,16 +50,6 @@ type ApNumberLimitSettingOfZone struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-func NewApNumberLimitSettingOfZone() *ApNumberLimitSettingOfZone {
-	apNumberLimitSettingOfZoneType := new(ApNumberLimitSettingOfZone)
-	return apNumberLimitSettingOfZoneType
-}
-
-func NewApNumberLimitSettingOfZoneWithDefaults() *ApNumberLimitSettingOfZone {
-	apNumberLimitSettingOfZoneType := new(ApNumberLimitSettingOfZone)
-	return apNumberLimitSettingOfZoneType
-}
-
 type AuthenticationKey struct {
 	// Key
 	// Authentication Key value
@@ -87,30 +67,10 @@ type AuthenticationKey struct {
 	KeyType *string `json:"keyType,omitempty" validate:"omitempty,oneof=SHA1 MD5"`
 }
 
-func NewAuthenticationKey() *AuthenticationKey {
-	authenticationKeyType := new(AuthenticationKey)
-	return authenticationKeyType
-}
-
-func NewAuthenticationKeyWithDefaults() *AuthenticationKey {
-	authenticationKeyType := new(AuthenticationKey)
-	return authenticationKeyType
-}
-
 type CaptchaSetting struct {
 	// CaptchaEnabled
 	// Captcha setting
 	CaptchaEnabled *bool `json:"captchaEnabled,omitempty"`
-}
-
-func NewCaptchaSetting() *CaptchaSetting {
-	captchaSettingType := new(CaptchaSetting)
-	return captchaSettingType
-}
-
-func NewCaptchaSettingWithDefaults() *CaptchaSetting {
-	captchaSettingType := new(CaptchaSetting)
-	return captchaSettingType
 }
 
 type ControllerList struct {
@@ -121,16 +81,6 @@ type ControllerList struct {
 	List []*ControllerListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewControllerList() *ControllerList {
-	controllerListType := new(ControllerList)
-	return controllerListType
-}
-
-func NewControllerListWithDefaults() *ControllerList {
-	controllerListType := new(ControllerList)
-	return controllerListType
 }
 
 type ControllerListType struct {
@@ -207,16 +157,6 @@ type ControllerListType struct {
 	Version *string `json:"version,omitempty"`
 }
 
-func NewControllerListType() *ControllerListType {
-	controllerListTypeType := new(ControllerListType)
-	return controllerListTypeType
-}
-
-func NewControllerListTypeWithDefaults() *ControllerListType {
-	controllerListTypeType := new(ControllerListType)
-	return controllerListTypeType
-}
-
 type ControlPlaneConfiguration struct {
 	// IpMode
 	// IP support version
@@ -240,16 +180,6 @@ type ControlPlaneConfiguration struct {
 	Ipv6ManagementInterface *Ipv6ManagementInterface `json:"ipv6ManagementInterface,omitempty"`
 }
 
-func NewControlPlaneConfiguration() *ControlPlaneConfiguration {
-	controlPlaneConfigurationType := new(ControlPlaneConfiguration)
-	return controlPlaneConfigurationType
-}
-
-func NewControlPlaneConfigurationWithDefaults() *ControlPlaneConfiguration {
-	controlPlaneConfigurationType := new(ControlPlaneConfiguration)
-	return controlPlaneConfigurationType
-}
-
 type ControlPlaneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -258,16 +188,6 @@ type ControlPlaneList struct {
 	List []*ControlPlaneListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewControlPlaneList() *ControlPlaneList {
-	controlPlaneListType := new(ControlPlaneList)
-	return controlPlaneListType
-}
-
-func NewControlPlaneListWithDefaults() *ControlPlaneList {
-	controlPlaneListType := new(ControlPlaneList)
-	return controlPlaneListType
 }
 
 type ControlPlaneListType struct {
@@ -318,16 +238,6 @@ type ControlPlaneListType struct {
 	UpTime *string `json:"upTime,omitempty"`
 }
 
-func NewControlPlaneListType() *ControlPlaneListType {
-	controlPlaneListTypeType := new(ControlPlaneListType)
-	return controlPlaneListTypeType
-}
-
-func NewControlPlaneListTypeWithDefaults() *ControlPlaneListType {
-	controlPlaneListTypeType := new(ControlPlaneListType)
-	return controlPlaneListTypeType
-}
-
 type CpStaticRoute struct {
 	// Gateway
 	// Gateway
@@ -352,16 +262,6 @@ type CpStaticRoute struct {
 	// SubnetMask
 	// Subnet Mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
-}
-
-func NewCpStaticRoute() *CpStaticRoute {
-	cpStaticRouteType := new(CpStaticRoute)
-	return cpStaticRouteType
-}
-
-func NewCpStaticRouteWithDefaults() *CpStaticRoute {
-	cpStaticRouteType := new(CpStaticRoute)
-	return cpStaticRouteType
 }
 
 type CpUserDefinedInterface struct {
@@ -400,16 +300,6 @@ type CpUserDefinedInterface struct {
 	Vlan *string `json:"vlan,omitempty"`
 }
 
-func NewCpUserDefinedInterface() *CpUserDefinedInterface {
-	cpUserDefinedInterfaceType := new(CpUserDefinedInterface)
-	return cpUserDefinedInterfaceType
-}
-
-func NewCpUserDefinedInterfaceWithDefaults() *CpUserDefinedInterface {
-	cpUserDefinedInterfaceType := new(CpUserDefinedInterface)
-	return cpUserDefinedInterfaceType
-}
-
 type DataPlaneConfiguration struct {
 	// InterfaceMode
 	// Constraints:
@@ -430,16 +320,6 @@ type DataPlaneConfiguration struct {
 	StaticRoute []*StaticRoute `json:"staticRoute,omitempty"`
 }
 
-func NewDataPlaneConfiguration() *DataPlaneConfiguration {
-	dataPlaneConfigurationType := new(DataPlaneConfiguration)
-	return dataPlaneConfigurationType
-}
-
-func NewDataPlaneConfigurationWithDefaults() *DataPlaneConfiguration {
-	dataPlaneConfigurationType := new(DataPlaneConfiguration)
-	return dataPlaneConfigurationType
-}
-
 type DataPlaneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -448,16 +328,6 @@ type DataPlaneList struct {
 	List []*DataPlaneListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewDataPlaneList() *DataPlaneList {
-	dataPlaneListType := new(DataPlaneList)
-	return dataPlaneListType
-}
-
-func NewDataPlaneListWithDefaults() *DataPlaneList {
-	dataPlaneListType := new(DataPlaneList)
-	return dataPlaneListType
 }
 
 type DataPlaneListType struct {
@@ -516,28 +386,8 @@ type DataPlaneListType struct {
 	Uptime *string `json:"uptime,omitempty"`
 }
 
-func NewDataPlaneListType() *DataPlaneListType {
-	dataPlaneListTypeType := new(DataPlaneListType)
-	return dataPlaneListTypeType
-}
-
-func NewDataPlaneListTypeWithDefaults() *DataPlaneListType {
-	dataPlaneListTypeType := new(DataPlaneListType)
-	return dataPlaneListTypeType
-}
-
 type DeleteBulkFtp struct {
 	IdList common.IdList `json:"idList,omitempty"`
-}
-
-func NewDeleteBulkFtp() *DeleteBulkFtp {
-	deleteBulkFtpType := new(DeleteBulkFtp)
-	return deleteBulkFtpType
-}
-
-func NewDeleteBulkFtpWithDefaults() *DeleteBulkFtp {
-	deleteBulkFtpType := new(DeleteBulkFtp)
-	return deleteBulkFtpType
 }
 
 type FriendlyNameLang struct {
@@ -548,16 +398,6 @@ type FriendlyNameLang struct {
 	// Value
 	// value of language used on create Hotspot 2.0 Identity provider (Language in OSU Service Description) profile
 	Value *string `json:"value,omitempty"`
-}
-
-func NewFriendlyNameLang() *FriendlyNameLang {
-	friendlyNameLangType := new(FriendlyNameLang)
-	return friendlyNameLangType
-}
-
-func NewFriendlyNameLangWithDefaults() *FriendlyNameLang {
-	friendlyNameLangType := new(FriendlyNameLang)
-	return friendlyNameLangType
 }
 
 type FriendlyNameLangList struct {
@@ -574,16 +414,6 @@ type FriendlyNameLangList struct {
 	// TotalCount
 	// Total count of FriendlyName of language
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewFriendlyNameLangList() *FriendlyNameLangList {
-	friendlyNameLangListType := new(FriendlyNameLangList)
-	return friendlyNameLangListType
-}
-
-func NewFriendlyNameLangListWithDefaults() *FriendlyNameLangList {
-	friendlyNameLangListType := new(FriendlyNameLangList)
-	return friendlyNameLangListType
 }
 
 type Ftp struct {
@@ -651,16 +481,6 @@ type Ftp struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
-func NewFtp() *Ftp {
-	ftpType := new(Ftp)
-	return ftpType
-}
-
-func NewFtpWithDefaults() *Ftp {
-	ftpType := new(Ftp)
-	return ftpType
-}
-
 type FtpGlobalSetting struct {
 	// Enabled
 	// enable logging to remote syslog server
@@ -676,16 +496,6 @@ type FtpGlobalSetting struct {
 	//    - nullable
 	//    - oneof:[Hourly]
 	FtpInterval *string `json:"ftpInterval,omitempty" validate:"omitempty,oneof=Hourly"`
-}
-
-func NewFtpGlobalSetting() *FtpGlobalSetting {
-	ftpGlobalSettingType := new(FtpGlobalSetting)
-	return ftpGlobalSettingType
-}
-
-func NewFtpGlobalSettingWithDefaults() *FtpGlobalSetting {
-	ftpGlobalSettingType := new(FtpGlobalSetting)
-	return ftpGlobalSettingType
 }
 
 type FtpList struct {
@@ -706,16 +516,6 @@ type FtpList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewFtpList() *FtpList {
-	ftpListType := new(FtpList)
-	return ftpListType
-}
-
-func NewFtpListWithDefaults() *FtpList {
-	ftpListType := new(FtpList)
-	return ftpListType
-}
-
 type FtpTestResponse struct {
 	// Data
 	// The testing result
@@ -732,16 +532,6 @@ type FtpTestResponse struct {
 	// Success
 	// The status of http request
 	Success *bool `json:"success,omitempty"`
-}
-
-func NewFtpTestResponse() *FtpTestResponse {
-	ftpTestResponseType := new(FtpTestResponse)
-	return ftpTestResponseType
-}
-
-func NewFtpTestResponseWithDefaults() *FtpTestResponse {
-	ftpTestResponseType := new(FtpTestResponse)
-	return ftpTestResponseType
 }
 
 type GatewayAdvanced struct {
@@ -785,30 +575,10 @@ type GatewayAdvanced struct {
 	TaiInGtpV2 *bool `json:"taiInGtpV2,omitempty"`
 }
 
-func NewGatewayAdvanced() *GatewayAdvanced {
-	gatewayAdvancedType := new(GatewayAdvanced)
-	return gatewayAdvancedType
-}
-
-func NewGatewayAdvancedWithDefaults() *GatewayAdvanced {
-	gatewayAdvancedType := new(GatewayAdvanced)
-	return gatewayAdvancedType
-}
-
 type GetDataPlaneMeshTunnelSetting struct {
 	// Encrypted
 	// Data Plane mesh tunnel encrypted.
 	Encrypted *bool `json:"encrypted,omitempty"`
-}
-
-func NewGetDataPlaneMeshTunnelSetting() *GetDataPlaneMeshTunnelSetting {
-	getDataPlaneMeshTunnelSettingType := new(GetDataPlaneMeshTunnelSetting)
-	return getDataPlaneMeshTunnelSettingType
-}
-
-func NewGetDataPlaneMeshTunnelSettingWithDefaults() *GetDataPlaneMeshTunnelSetting {
-	getDataPlaneMeshTunnelSettingType := new(GetDataPlaneMeshTunnelSetting)
-	return getDataPlaneMeshTunnelSettingType
 }
 
 type InventoryList struct {
@@ -819,16 +589,6 @@ type InventoryList struct {
 	List []*InventoryListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewInventoryList() *InventoryList {
-	inventoryListType := new(InventoryList)
-	return inventoryListType
-}
-
-func NewInventoryListWithDefaults() *InventoryList {
-	inventoryListType := new(InventoryList)
-	return inventoryListType
 }
 
 type InventoryListType struct {
@@ -883,16 +643,6 @@ type InventoryListType struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-func NewInventoryListType() *InventoryListType {
-	inventoryListTypeType := new(InventoryListType)
-	return inventoryListTypeType
-}
-
-func NewInventoryListTypeWithDefaults() *InventoryListType {
-	inventoryListTypeType := new(InventoryListType)
-	return inventoryListTypeType
-}
-
 type Ipv4AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
@@ -908,16 +658,6 @@ type Ipv4AccessAndCoreSeparation struct {
 	// SecondaryDNSServer
 	// Secondary DNS server
 	SecondaryDNSServer *string `json:"secondaryDNSServer,omitempty"`
-}
-
-func NewIpv4AccessAndCoreSeparation() *Ipv4AccessAndCoreSeparation {
-	ipv4AccessAndCoreSeparationType := new(Ipv4AccessAndCoreSeparation)
-	return ipv4AccessAndCoreSeparationType
-}
-
-func NewIpv4AccessAndCoreSeparationWithDefaults() *Ipv4AccessAndCoreSeparation {
-	ipv4AccessAndCoreSeparationType := new(Ipv4AccessAndCoreSeparation)
-	return ipv4AccessAndCoreSeparationType
 }
 
 type Ipv4ClusterInterface struct {
@@ -939,16 +679,6 @@ type Ipv4ClusterInterface struct {
 	// SubnetMask
 	// Subnet mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
-}
-
-func NewIpv4ClusterInterface() *Ipv4ClusterInterface {
-	ipv4ClusterInterfaceType := new(Ipv4ClusterInterface)
-	return ipv4ClusterInterfaceType
-}
-
-func NewIpv4ClusterInterfaceWithDefaults() *Ipv4ClusterInterface {
-	ipv4ClusterInterfaceType := new(Ipv4ClusterInterface)
-	return ipv4ClusterInterfaceType
 }
 
 type Ipv4ControlInterface struct {
@@ -976,16 +706,6 @@ type Ipv4ControlInterface struct {
 	SubnetMask *string `json:"subnetMask,omitempty"`
 }
 
-func NewIpv4ControlInterface() *Ipv4ControlInterface {
-	ipv4ControlInterfaceType := new(Ipv4ControlInterface)
-	return ipv4ControlInterfaceType
-}
-
-func NewIpv4ControlInterfaceWithDefaults() *Ipv4ControlInterface {
-	ipv4ControlInterfaceType := new(Ipv4ControlInterface)
-	return ipv4ControlInterfaceType
-}
-
 type Ipv4ManagementInterface struct {
 	// Gateway
 	// Gateway
@@ -1007,16 +727,6 @@ type Ipv4ManagementInterface struct {
 	SubnetMask *string `json:"subnetMask,omitempty"`
 }
 
-func NewIpv4ManagementInterface() *Ipv4ManagementInterface {
-	ipv4ManagementInterfaceType := new(Ipv4ManagementInterface)
-	return ipv4ManagementInterfaceType
-}
-
-func NewIpv4ManagementInterfaceWithDefaults() *Ipv4ManagementInterface {
-	ipv4ManagementInterfaceType := new(Ipv4ManagementInterface)
-	return ipv4ManagementInterfaceType
-}
-
 type Ipv6AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
@@ -1032,16 +742,6 @@ type Ipv6AccessAndCoreSeparation struct {
 	// SecondaryDNSServer
 	// Secondary DNS server
 	SecondaryDNSServer *string `json:"secondaryDNSServer,omitempty"`
-}
-
-func NewIpv6AccessAndCoreSeparation() *Ipv6AccessAndCoreSeparation {
-	ipv6AccessAndCoreSeparationType := new(Ipv6AccessAndCoreSeparation)
-	return ipv6AccessAndCoreSeparationType
-}
-
-func NewIpv6AccessAndCoreSeparationWithDefaults() *Ipv6AccessAndCoreSeparation {
-	ipv6AccessAndCoreSeparationType := new(Ipv6AccessAndCoreSeparation)
-	return ipv6AccessAndCoreSeparationType
 }
 
 type Ipv6ControlInterface struct {
@@ -1061,16 +761,6 @@ type Ipv6ControlInterface struct {
 	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC AUTO"`
 }
 
-func NewIpv6ControlInterface() *Ipv6ControlInterface {
-	ipv6ControlInterfaceType := new(Ipv6ControlInterface)
-	return ipv6ControlInterfaceType
-}
-
-func NewIpv6ControlInterfaceWithDefaults() *Ipv6ControlInterface {
-	ipv6ControlInterfaceType := new(Ipv6ControlInterface)
-	return ipv6ControlInterfaceType
-}
-
 type Ipv6ManagementInterface struct {
 	// Gateway
 	// Gateway
@@ -1086,16 +776,6 @@ type Ipv6ManagementInterface struct {
 	//    - nullable
 	//    - oneof:[STATIC,AUTO]
 	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC AUTO"`
-}
-
-func NewIpv6ManagementInterface() *Ipv6ManagementInterface {
-	ipv6ManagementInterfaceType := new(Ipv6ManagementInterface)
-	return ipv6ManagementInterfaceType
-}
-
-func NewIpv6ManagementInterfaceWithDefaults() *Ipv6ManagementInterface {
-	ipv6ManagementInterfaceType := new(Ipv6ManagementInterface)
-	return ipv6ManagementInterfaceType
 }
 
 type Ipv6PrimaryInterface struct {
@@ -1125,16 +805,6 @@ type Ipv6PrimaryInterface struct {
 	// SecondaryDNSServer
 	// Secondary DNS server
 	SecondaryDNSServer *string `json:"secondaryDNSServer,omitempty"`
-}
-
-func NewIpv6PrimaryInterface() *Ipv6PrimaryInterface {
-	ipv6PrimaryInterfaceType := new(Ipv6PrimaryInterface)
-	return ipv6PrimaryInterfaceType
-}
-
-func NewIpv6PrimaryInterfaceWithDefaults() *Ipv6PrimaryInterface {
-	ipv6PrimaryInterfaceType := new(Ipv6PrimaryInterface)
-	return ipv6PrimaryInterfaceType
 }
 
 type Lwapp2scgConfiguration struct {
@@ -1174,16 +844,6 @@ type Lwapp2scgConfiguration struct {
 	Policy *string `json:"policy,omitempty" validate:"omitempty,oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
-func NewLwapp2scgConfiguration() *Lwapp2scgConfiguration {
-	lwapp2scgConfigurationType := new(Lwapp2scgConfiguration)
-	return lwapp2scgConfigurationType
-}
-
-func NewLwapp2scgConfigurationWithDefaults() *Lwapp2scgConfiguration {
-	lwapp2scgConfigurationType := new(Lwapp2scgConfiguration)
-	return lwapp2scgConfigurationType
-}
-
 type ModifyControlPlane struct {
 	// EnableAccessAndCoreSeparation
 	// Enable Access & Core Separation
@@ -1202,16 +862,6 @@ type ModifyControlPlane struct {
 	Ipv6ControlInterface *Ipv6ControlInterface `json:"ipv6ControlInterface,omitempty"`
 
 	Ipv6ManagementInterface *Ipv6ManagementInterface `json:"ipv6ManagementInterface,omitempty"`
-}
-
-func NewModifyControlPlane() *ModifyControlPlane {
-	modifyControlPlaneType := new(ModifyControlPlane)
-	return modifyControlPlaneType
-}
-
-func NewModifyControlPlaneWithDefaults() *ModifyControlPlane {
-	modifyControlPlaneType := new(ModifyControlPlane)
-	return modifyControlPlaneType
 }
 
 type ModifyDataPlane struct {
@@ -1241,30 +891,10 @@ type ModifyDataPlane struct {
 	StaticRoute []*StaticRoute `json:"staticRoute,omitempty"`
 }
 
-func NewModifyDataPlane() *ModifyDataPlane {
-	modifyDataPlaneType := new(ModifyDataPlane)
-	return modifyDataPlaneType
-}
-
-func NewModifyDataPlaneWithDefaults() *ModifyDataPlane {
-	modifyDataPlaneType := new(ModifyDataPlane)
-	return modifyDataPlaneType
-}
-
 type ModifyDataPlaneState struct {
 	// IsDataCenter
 	// Mark this Data Plane as a CALEA Relay
 	IsDataCenter *bool `json:"isDataCenter,omitempty"`
-}
-
-func NewModifyDataPlaneState() *ModifyDataPlaneState {
-	modifyDataPlaneStateType := new(ModifyDataPlaneState)
-	return modifyDataPlaneStateType
-}
-
-func NewModifyDataPlaneStateWithDefaults() *ModifyDataPlaneState {
-	modifyDataPlaneStateType := new(ModifyDataPlaneState)
-	return modifyDataPlaneStateType
 }
 
 type ModifyGatewayAdvanced struct {
@@ -1308,16 +938,6 @@ type ModifyGatewayAdvanced struct {
 	TaiInGtpV2 *bool `json:"taiInGtpV2,omitempty"`
 }
 
-func NewModifyGatewayAdvanced() *ModifyGatewayAdvanced {
-	modifyGatewayAdvancedType := new(ModifyGatewayAdvanced)
-	return modifyGatewayAdvancedType
-}
-
-func NewModifyGatewayAdvancedWithDefaults() *ModifyGatewayAdvanced {
-	modifyGatewayAdvancedType := new(ModifyGatewayAdvanced)
-	return modifyGatewayAdvancedType
-}
-
 type ModifyIpSupportType struct {
 	// IpMode
 	// IP support version
@@ -1325,16 +945,6 @@ type ModifyIpSupportType struct {
 	//    - required
 	//    - oneof:[IPV4,IPV4_IPV6]
 	IpMode *string `json:"ipMode" validate:"required,oneof=IPV4 IPV4_IPV6"`
-}
-
-func NewModifyIpSupportType() *ModifyIpSupportType {
-	modifyIpSupportTypeType := new(ModifyIpSupportType)
-	return modifyIpSupportTypeType
-}
-
-func NewModifyIpSupportTypeWithDefaults() *ModifyIpSupportType {
-	modifyIpSupportTypeType := new(ModifyIpSupportType)
-	return modifyIpSupportTypeType
 }
 
 type ModifyLwapp2scg struct {
@@ -1370,16 +980,6 @@ type ModifyLwapp2scg struct {
 	Policy *string `json:"policy,omitempty" validate:"omitempty,oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
-func NewModifyLwapp2scg() *ModifyLwapp2scg {
-	modifyLwapp2scgType := new(ModifyLwapp2scg)
-	return modifyLwapp2scgType
-}
-
-func NewModifyLwapp2scgWithDefaults() *ModifyLwapp2scg {
-	modifyLwapp2scgType := new(ModifyLwapp2scg)
-	return modifyLwapp2scgType
-}
-
 type ModifySnmpAgent struct {
 	// SnmpNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message is sent out.)
@@ -1396,16 +996,6 @@ type ModifySnmpAgent struct {
 	SnmpV3Agent []*common.SnmpUser `json:"snmpV3Agent,omitempty"`
 }
 
-func NewModifySnmpAgent() *ModifySnmpAgent {
-	modifySnmpAgentType := new(ModifySnmpAgent)
-	return modifySnmpAgentType
-}
-
-func NewModifySnmpAgentWithDefaults() *ModifySnmpAgent {
-	modifySnmpAgentType := new(ModifySnmpAgent)
-	return modifySnmpAgentType
-}
-
 type ModifySystemTimeSetting struct {
 	AuthenticationKey *AuthenticationKey `json:"authenticationKey,omitempty"`
 
@@ -1416,16 +1006,6 @@ type ModifySystemTimeSetting struct {
 	// Timezone
 	// System defined time zone, please refer to the “Overview > Time Zone” list
 	Timezone *string `json:"timezone,omitempty"`
-}
-
-func NewModifySystemTimeSetting() *ModifySystemTimeSetting {
-	modifySystemTimeSettingType := new(ModifySystemTimeSetting)
-	return modifySystemTimeSettingType
-}
-
-func NewModifySystemTimeSettingWithDefaults() *ModifySystemTimeSetting {
-	modifySystemTimeSettingType := new(ModifySystemTimeSetting)
-	return modifySystemTimeSettingType
 }
 
 type NorthboundInterface struct {
@@ -1441,16 +1021,6 @@ type NorthboundInterface struct {
 	UserName *common.ApLoginName `json:"userName,omitempty"`
 }
 
-func NewNorthboundInterface() *NorthboundInterface {
-	northboundInterfaceType := new(NorthboundInterface)
-	return northboundInterfaceType
-}
-
-func NewNorthboundInterfaceWithDefaults() *NorthboundInterface {
-	northboundInterfaceType := new(NorthboundInterface)
-	return northboundInterfaceType
-}
-
 type PortalLang struct {
 	// Display
 	// Display name
@@ -1459,16 +1029,6 @@ type PortalLang struct {
 	// Value
 	// value of language used on create Hotspot 2.0 Identity provider (Language in OSU Service Description) profile
 	Value *string `json:"value,omitempty"`
-}
-
-func NewPortalLang() *PortalLang {
-	portalLangType := new(PortalLang)
-	return portalLangType
-}
-
-func NewPortalLangWithDefaults() *PortalLang {
-	portalLangType := new(PortalLang)
-	return portalLangType
 }
 
 type PortalLangList struct {
@@ -1485,16 +1045,6 @@ type PortalLangList struct {
 	// TotalCount
 	// Total portal name count
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewPortalLangList() *PortalLangList {
-	portalLangListType := new(PortalLangList)
-	return portalLangListType
-}
-
-func NewPortalLangListWithDefaults() *PortalLangList {
-	portalLangListType := new(PortalLangList)
-	return portalLangListType
 }
 
 type PortStatistic struct {
@@ -1547,16 +1097,6 @@ type PortStatistic struct {
 	TxPackets *float64 `json:"txPackets,omitempty"`
 }
 
-func NewPortStatistic() *PortStatistic {
-	portStatisticType := new(PortStatistic)
-	return portStatisticType
-}
-
-func NewPortStatisticWithDefaults() *PortStatistic {
-	portStatisticType := new(PortStatistic)
-	return portStatisticType
-}
-
 type PrimaryInterface struct {
 	// Gateway
 	// Gateway
@@ -1600,16 +1140,6 @@ type PrimaryInterface struct {
 	Vlan *string `json:"vlan,omitempty"`
 }
 
-func NewPrimaryInterface() *PrimaryInterface {
-	primaryInterfaceType := new(PrimaryInterface)
-	return primaryInterfaceType
-}
-
-func NewPrimaryInterfaceWithDefaults() *PrimaryInterface {
-	primaryInterfaceType := new(PrimaryInterface)
-	return primaryInterfaceType
-}
-
 type SaveApNumberLimitSettingOfDomain struct {
 	// DomainId
 	// Constraints:
@@ -1625,16 +1155,6 @@ type SaveApNumberLimitSettingOfDomain struct {
 	// Constraints:
 	//    - required
 	Shared *bool `json:"shared" validate:"required"`
-}
-
-func NewSaveApNumberLimitSettingOfDomain() *SaveApNumberLimitSettingOfDomain {
-	saveApNumberLimitSettingOfDomainType := new(SaveApNumberLimitSettingOfDomain)
-	return saveApNumberLimitSettingOfDomainType
-}
-
-func NewSaveApNumberLimitSettingOfDomainWithDefaults() *SaveApNumberLimitSettingOfDomain {
-	saveApNumberLimitSettingOfDomainType := new(SaveApNumberLimitSettingOfDomain)
-	return saveApNumberLimitSettingOfDomainType
 }
 
 type SaveApNumberLimitSettingOfZone struct {
@@ -1659,32 +1179,12 @@ type SaveApNumberLimitSettingOfZone struct {
 	ZoneId *string `json:"zoneId" validate:"required"`
 }
 
-func NewSaveApNumberLimitSettingOfZone() *SaveApNumberLimitSettingOfZone {
-	saveApNumberLimitSettingOfZoneType := new(SaveApNumberLimitSettingOfZone)
-	return saveApNumberLimitSettingOfZoneType
-}
-
-func NewSaveApNumberLimitSettingOfZoneWithDefaults() *SaveApNumberLimitSettingOfZone {
-	saveApNumberLimitSettingOfZoneType := new(SaveApNumberLimitSettingOfZone)
-	return saveApNumberLimitSettingOfZoneType
-}
-
 type SaveSystemSettings struct {
 	ApNumberLimitEnabled *bool `json:"apNumberLimitEnabled,omitempty"`
 
 	ApNumberLimitSettingsOfDomain []*SaveApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
 
 	ApNumberLimitSettingsOfZone []*SaveApNumberLimitSettingOfZone `json:"apNumberLimitSettingsOfZone,omitempty"`
-}
-
-func NewSaveSystemSettings() *SaveSystemSettings {
-	saveSystemSettingsType := new(SaveSystemSettings)
-	return saveSystemSettingsType
-}
-
-func NewSaveSystemSettingsWithDefaults() *SaveSystemSettings {
-	saveSystemSettingsType := new(SaveSystemSettings)
-	return saveSystemSettingsType
 }
 
 type SecondaryInterface struct {
@@ -1703,16 +1203,6 @@ type SecondaryInterface struct {
 	// Vlan
 	// vlan
 	Vlan *string `json:"vlan,omitempty"`
-}
-
-func NewSecondaryInterface() *SecondaryInterface {
-	secondaryInterfaceType := new(SecondaryInterface)
-	return secondaryInterfaceType
-}
-
-func NewSecondaryInterfaceWithDefaults() *SecondaryInterface {
-	secondaryInterfaceType := new(SecondaryInterface)
-	return secondaryInterfaceType
 }
 
 type Sms struct {
@@ -1755,16 +1245,6 @@ type Sms struct {
 	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=Twilio"`
 }
 
-func NewSms() *Sms {
-	smsType := new(Sms)
-	return smsType
-}
-
-func NewSmsWithDefaults() *Sms {
-	smsType := new(Sms)
-	return smsType
-}
-
 type SmsList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -1783,16 +1263,6 @@ type SmsList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSmsList() *SmsList {
-	smsListType := new(SmsList)
-	return smsListType
-}
-
-func NewSmsListWithDefaults() *SmsList {
-	smsListType := new(SmsList)
-	return smsListType
-}
-
 type SnmpAgentConfiguration struct {
 	// SnmpNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message is sent out.)
@@ -1805,16 +1275,6 @@ type SnmpAgentConfiguration struct {
 	// SnmpV3Agent
 	// User List of the SNMP V2 Agent.
 	SnmpV3Agent []*common.SnmpUser `json:"snmpV3Agent,omitempty"`
-}
-
-func NewSnmpAgentConfiguration() *SnmpAgentConfiguration {
-	snmpAgentConfigurationType := new(SnmpAgentConfiguration)
-	return snmpAgentConfigurationType
-}
-
-func NewSnmpAgentConfigurationWithDefaults() *SnmpAgentConfiguration {
-	snmpAgentConfigurationType := new(SnmpAgentConfiguration)
-	return snmpAgentConfigurationType
 }
 
 type StaticRoute struct {
@@ -1837,43 +1297,13 @@ type StaticRoute struct {
 	SubnetMask *string `json:"subnetMask" validate:"required"`
 }
 
-func NewStaticRoute() *StaticRoute {
-	staticRouteType := new(StaticRoute)
-	return staticRouteType
-}
-
-func NewStaticRouteWithDefaults() *StaticRoute {
-	staticRouteType := new(StaticRoute)
-	return staticRouteType
-}
-
 type StaticRouteList struct {
 	// StaticRoutes
 	// Static route for Control Plane
 	StaticRoutes []*CpStaticRoute `json:"staticRoutes,omitempty"`
 }
 
-func NewStaticRouteList() *StaticRouteList {
-	staticRouteListType := new(StaticRouteList)
-	return staticRouteListType
-}
-
-func NewStaticRouteListWithDefaults() *StaticRouteList {
-	staticRouteListType := new(StaticRouteList)
-	return staticRouteListType
-}
-
 type StatisticList []*StatisticListType
-
-func NewStatisticList() *StatisticList {
-	statisticListType := make(StatisticList, 0)
-	return &statisticListType
-}
-
-func NewStatisticListWithDefaults() *StatisticList {
-	statisticListType := make(StatisticList, 0)
-	return &statisticListType
-}
 
 type StatisticListType struct {
 	Cluster *PortStatistic `json:"cluster,omitempty"`
@@ -1905,16 +1335,6 @@ type StatisticListType struct {
 	Timestamp *float64 `json:"timestamp,omitempty"`
 }
 
-func NewStatisticListType() *StatisticListType {
-	statisticListTypeType := new(StatisticListType)
-	return statisticListTypeType
-}
-
-func NewStatisticListTypeWithDefaults() *StatisticListType {
-	statisticListTypeType := new(StatisticListType)
-	return statisticListTypeType
-}
-
 type StatisticListTypeCpuType struct {
 	// MaxPercent
 	// maxPercent
@@ -1927,16 +1347,6 @@ type StatisticListTypeCpuType struct {
 	// Percent
 	// percent
 	Percent *float64 `json:"percent,omitempty"`
-}
-
-func NewStatisticListTypeCpuType() *StatisticListTypeCpuType {
-	statisticListTypeCpuTypeType := new(StatisticListTypeCpuType)
-	return statisticListTypeCpuTypeType
-}
-
-func NewStatisticListTypeCpuTypeWithDefaults() *StatisticListTypeCpuType {
-	statisticListTypeCpuTypeType := new(StatisticListTypeCpuType)
-	return statisticListTypeCpuTypeType
 }
 
 type StatisticListTypeDiskType struct {
@@ -1957,16 +1367,6 @@ type StatisticListTypeDiskType struct {
 	Total *float64 `json:"total,omitempty"`
 }
 
-func NewStatisticListTypeDiskType() *StatisticListTypeDiskType {
-	statisticListTypeDiskTypeType := new(StatisticListTypeDiskType)
-	return statisticListTypeDiskTypeType
-}
-
-func NewStatisticListTypeDiskTypeWithDefaults() *StatisticListTypeDiskType {
-	statisticListTypeDiskTypeType := new(StatisticListTypeDiskType)
-	return statisticListTypeDiskTypeType
-}
-
 type StatisticListTypeMemoryType struct {
 	// MaxPercent
 	// maxPercent
@@ -1981,16 +1381,6 @@ type StatisticListTypeMemoryType struct {
 	Percent *float64 `json:"percent,omitempty"`
 }
 
-func NewStatisticListTypeMemoryType() *StatisticListTypeMemoryType {
-	statisticListTypeMemoryTypeType := new(StatisticListTypeMemoryType)
-	return statisticListTypeMemoryTypeType
-}
-
-func NewStatisticListTypeMemoryTypeWithDefaults() *StatisticListTypeMemoryType {
-	statisticListTypeMemoryTypeType := new(StatisticListTypeMemoryType)
-	return statisticListTypeMemoryTypeType
-}
-
 type SystemSettings struct {
 	// ApNumberLimitEnabled
 	// Enabled AP number limit feature or not
@@ -1999,16 +1389,6 @@ type SystemSettings struct {
 	ApNumberLimitSettingsOfDomain []*ApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
 
 	ApNumberLimitSettingsOfZone []*ApNumberLimitSettingOfZone `json:"apNumberLimitSettingsOfZone,omitempty"`
-}
-
-func NewSystemSettings() *SystemSettings {
-	systemSettingsType := new(SystemSettings)
-	return systemSettingsType
-}
-
-func NewSystemSettingsWithDefaults() *SystemSettings {
-	systemSettingsType := new(SystemSettings)
-	return systemSettingsType
 }
 
 type SystemTimeSetting struct {
@@ -2031,30 +1411,10 @@ type SystemTimeSetting struct {
 	Timezone *string `json:"timezone,omitempty"`
 }
 
-func NewSystemTimeSetting() *SystemTimeSetting {
-	systemTimeSettingType := new(SystemTimeSetting)
-	return systemTimeSettingType
-}
-
-func NewSystemTimeSettingWithDefaults() *SystemTimeSetting {
-	systemTimeSettingType := new(SystemTimeSetting)
-	return systemTimeSettingType
-}
-
 type UpdateDpMeshTunnelSetting struct {
 	// Encrypted
 	// Data Plane mesh tunnel encrypted.
 	Encrypted *bool `json:"encrypted,omitempty"`
-}
-
-func NewUpdateDpMeshTunnelSetting() *UpdateDpMeshTunnelSetting {
-	updateDpMeshTunnelSettingType := new(UpdateDpMeshTunnelSetting)
-	return updateDpMeshTunnelSettingType
-}
-
-func NewUpdateDpMeshTunnelSettingWithDefaults() *UpdateDpMeshTunnelSetting {
-	updateDpMeshTunnelSettingType := new(UpdateDpMeshTunnelSetting)
-	return updateDpMeshTunnelSettingType
 }
 
 type UserDefinedInterfaceList struct {
@@ -2063,12 +1423,3 @@ type UserDefinedInterfaceList struct {
 	UserDefinedInterface []*CpUserDefinedInterface `json:"userDefinedInterface,omitempty"`
 }
 
-func NewUserDefinedInterfaceList() *UserDefinedInterfaceList {
-	userDefinedInterfaceListType := new(UserDefinedInterfaceList)
-	return userDefinedInterfaceListType
-}
-
-func NewUserDefinedInterfaceListWithDefaults() *UserDefinedInterfaceList {
-	userDefinedInterfaceListType := new(UserDefinedInterfaceList)
-	return userDefinedInterfaceListType
-}

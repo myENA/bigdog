@@ -23,16 +23,6 @@ type AlarmList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewAlarmList() *AlarmList {
-	alarmListType := new(AlarmList)
-	return alarmListType
-}
-
-func NewAlarmListWithDefaults() *AlarmList {
-	alarmListType := new(AlarmList)
-	return alarmListType
-}
-
 type AlarmSummary struct {
 	// CriticalCount
 	// Critical alarm count
@@ -49,16 +39,6 @@ type AlarmSummary struct {
 	// WarningCount
 	// Warning alarm count
 	WarningCount *int `json:"warningCount,omitempty"`
-}
-
-func NewAlarmSummary() *AlarmSummary {
-	alarmSummaryType := new(AlarmSummary)
-	return alarmSummaryType
-}
-
-func NewAlarmSummaryWithDefaults() *AlarmSummary {
-	alarmSummaryType := new(AlarmSummary)
-	return alarmSummaryType
 }
 
 type ApConfiguration struct {
@@ -184,20 +164,6 @@ type ApConfiguration struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewApConfiguration() *ApConfiguration {
-	apConfigurationType := new(ApConfiguration)
-	return apConfigurationType
-}
-
-func NewApConfigurationWithDefaults() *ApConfiguration {
-	apConfigurationType := new(ApConfiguration)
-	administrativeStateField := `Unlocked`
-	apConfigurationType.AdministrativeState = &administrativeStateField
-	channelEvaluationIntervalField := 600
-	apConfigurationType.ChannelEvaluationInterval = &channelEvaluationIntervalField
-	return apConfigurationType
-}
-
 type ApLinemanSummary struct {
 	// FirstIndex
 	// Index of the first AP returned out of the complete AP list
@@ -212,16 +178,6 @@ type ApLinemanSummary struct {
 	// TotalCount
 	// Total AP count
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewApLinemanSummary() *ApLinemanSummary {
-	apLinemanSummaryType := new(ApLinemanSummary)
-	return apLinemanSummaryType
-}
-
-func NewApLinemanSummaryWithDefaults() *ApLinemanSummary {
-	apLinemanSummaryType := new(ApLinemanSummary)
-	return apLinemanSummaryType
 }
 
 type ApLinemanSummaryListType struct {
@@ -247,16 +203,6 @@ type ApLinemanSummaryListType struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewApLinemanSummaryListType() *ApLinemanSummaryListType {
-	apLinemanSummaryListTypeType := new(ApLinemanSummaryListType)
-	return apLinemanSummaryListTypeType
-}
-
-func NewApLinemanSummaryListTypeWithDefaults() *ApLinemanSummaryListType {
-	apLinemanSummaryListTypeType := new(ApLinemanSummaryListType)
-	return apLinemanSummaryListTypeType
-}
-
 type ApListEntry struct {
 	// FirstIndex
 	// Index of the first AP returned out of the complete AP list
@@ -271,16 +217,6 @@ type ApListEntry struct {
 	// TotalCount
 	// Total AP count
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewApListEntry() *ApListEntry {
-	apListEntryType := new(ApListEntry)
-	return apListEntryType
-}
-
-func NewApListEntryWithDefaults() *ApListEntry {
-	apListEntryType := new(ApListEntry)
-	return apListEntryType
 }
 
 type ApListEntryListType struct {
@@ -303,27 +239,7 @@ type ApListEntryListType struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewApListEntryListType() *ApListEntryListType {
-	apListEntryListTypeType := new(ApListEntryListType)
-	return apListEntryListTypeType
-}
-
-func NewApListEntryListTypeWithDefaults() *ApListEntryListType {
-	apListEntryListTypeType := new(ApListEntryListType)
-	return apListEntryListTypeType
-}
-
 type ApName string
-
-func NewApName() *ApName {
-	apNameType := new(ApName)
-	return apNameType
-}
-
-func NewApNameWithDefaults() *ApName {
-	apNameType := new(ApName)
-	return apNameType
-}
 
 type ApOperationalSummary struct {
 	// AdministrativeState
@@ -468,16 +384,6 @@ type ApOperationalSummary struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewApOperationalSummary() *ApOperationalSummary {
-	apOperationalSummaryType := new(ApOperationalSummary)
-	return apOperationalSummaryType
-}
-
-func NewApOperationalSummaryWithDefaults() *ApOperationalSummary {
-	apOperationalSummaryType := new(ApOperationalSummary)
-	return apOperationalSummaryType
-}
-
 type ClientList struct {
 	// FirstIndex
 	// Index of the first client returned out of the complete client list
@@ -492,16 +398,6 @@ type ClientList struct {
 	// TotalCount
 	// Total client count
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewClientList() *ClientList {
-	clientListType := new(ClientList)
-	return clientListType
-}
-
-func NewClientListWithDefaults() *ClientList {
-	clientListType := new(ClientList)
-	return clientListType
 }
 
 type CreateAP struct {
@@ -557,18 +453,6 @@ type CreateAP struct {
 	ZoneId *string `json:"zoneId" validate:"required"`
 }
 
-func NewCreateAP() *CreateAP {
-	createAPType := new(CreateAP)
-	return createAPType
-}
-
-func NewCreateAPWithDefaults() *CreateAP {
-	createAPType := new(CreateAP)
-	administrativeStateField := `Unlocked`
-	createAPType.AdministrativeState = &administrativeStateField
-	return createAPType
-}
-
 type EventSummary struct {
 	// CriticalCount
 	// Critical event count
@@ -595,16 +479,6 @@ type EventSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
-func NewEventSummary() *EventSummary {
-	eventSummaryType := new(EventSummary)
-	return eventSummaryType
-}
-
-func NewEventSummaryWithDefaults() *EventSummary {
-	eventSummaryType := new(EventSummary)
-	return eventSummaryType
-}
-
 type Login struct {
 	// ApLoginName
 	// Constraints:
@@ -615,16 +489,6 @@ type Login struct {
 	// Constraints:
 	//    - required
 	ApLoginPassword *common.ApLoginPassword `json:"apLoginPassword" validate:"required"`
-}
-
-func NewLogin() *Login {
-	loginType := new(Login)
-	return loginType
-}
-
-func NewLoginWithDefaults() *Login {
-	loginType := new(Login)
-	return loginType
 }
 
 type Mesh struct {
@@ -645,16 +509,6 @@ type Mesh struct {
 	//    - nullable
 	//    - oneof:[SMART,MANUAL]
 	UplinkSelection *string `json:"uplinkSelection,omitempty" validate:"omitempty,oneof=SMART MANUAL"`
-}
-
-func NewMesh() *Mesh {
-	meshType := new(Mesh)
-	return meshType
-}
-
-func NewMeshWithDefaults() *Mesh {
-	meshType := new(Mesh)
-	return meshType
 }
 
 type ModifyAP struct {
@@ -777,32 +631,10 @@ type ModifyAP struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewModifyAP() *ModifyAP {
-	modifyAPType := new(ModifyAP)
-	return modifyAPType
-}
-
-func NewModifyAPWithDefaults() *ModifyAP {
-	modifyAPType := new(ModifyAP)
-	channelEvaluationIntervalField := 600
-	modifyAPType.ChannelEvaluationInterval = &channelEvaluationIntervalField
-	return modifyAPType
-}
-
 type ModifyRogueType struct {
 	// RogueMacList
 	// rogue mac list
 	RogueMacList []common.Mac `json:"rogueMacList,omitempty"`
-}
-
-func NewModifyRogueType() *ModifyRogueType {
-	modifyRogueTypeType := new(ModifyRogueType)
-	return modifyRogueTypeType
-}
-
-func NewModifyRogueTypeWithDefaults() *ModifyRogueType {
-	modifyRogueTypeType := new(ModifyRogueType)
-	return modifyRogueTypeType
 }
 
 type NeighborAPList struct {
@@ -819,16 +651,6 @@ type NeighborAPList struct {
 	// TotalCount
 	// Total mesh neighbor APs count
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewNeighborAPList() *NeighborAPList {
-	neighborAPListType := new(NeighborAPList)
-	return neighborAPListType
-}
-
-func NewNeighborAPListWithDefaults() *NeighborAPList {
-	neighborAPListType := new(NeighborAPList)
-	return neighborAPListType
 }
 
 type NeighborAPListType struct {
@@ -875,16 +697,6 @@ type NeighborAPListType struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
-func NewNeighborAPListType() *NeighborAPListType {
-	neighborAPListTypeType := new(NeighborAPListType)
-	return neighborAPListTypeType
-}
-
-func NewNeighborAPListTypeWithDefaults() *NeighborAPListType {
-	neighborAPListTypeType := new(NeighborAPListType)
-	return neighborAPListTypeType
-}
-
 type Network struct {
 	Gateway *common.IpAddress `json:"gateway,omitempty"`
 
@@ -904,16 +716,6 @@ type Network struct {
 	SecondaryDns *common.IpAddress `json:"secondaryDns,omitempty"`
 }
 
-func NewNetwork() *Network {
-	networkType := new(Network)
-	return networkType
-}
-
-func NewNetworkWithDefaults() *Network {
-	networkType := new(Network)
-	return networkType
-}
-
 type NetworkIpv6 struct {
 	Gateway *common.IpAddress `json:"gateway,omitempty"`
 
@@ -929,16 +731,6 @@ type NetworkIpv6 struct {
 	PrimaryDns *common.IpAddress `json:"primaryDns,omitempty"`
 
 	SecondaryDns *common.IpAddress `json:"secondaryDns,omitempty"`
-}
-
-func NewNetworkIpv6() *NetworkIpv6 {
-	networkIpv6Type := new(NetworkIpv6)
-	return networkIpv6Type
-}
-
-func NewNetworkIpv6WithDefaults() *NetworkIpv6 {
-	networkIpv6Type := new(NetworkIpv6)
-	return networkIpv6Type
 }
 
 type SwitchoverAP struct {
@@ -961,16 +753,6 @@ type SwitchoverAP struct {
 	// ZoneIdList
 	// Zone ID list for which APs attached to will be switchovered.
 	ZoneIdList []string `json:"zoneIdList,omitempty"`
-}
-
-func NewSwitchoverAP() *SwitchoverAP {
-	switchoverAPType := new(SwitchoverAP)
-	return switchoverAPType
-}
-
-func NewSwitchoverAPWithDefaults() *SwitchoverAP {
-	switchoverAPType := new(SwitchoverAP)
-	return switchoverAPType
 }
 
 type Syslog struct {
@@ -1043,30 +825,6 @@ type Syslog struct {
 	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
-func NewSyslog() *Syslog {
-	syslogType := new(Syslog)
-	return syslogType
-}
-
-func NewSyslogWithDefaults() *Syslog {
-	syslogType := new(Syslog)
-	facilityField := `Keep_Original`
-	syslogType.Facility = &facilityField
-	flowLevelField := `GENERAL_LOGS`
-	syslogType.FlowLevel = &flowLevelField
-	portField := 514
-	syslogType.Port = &portField
-	priorityField := `Error`
-	syslogType.Priority = &priorityField
-	protocolField := `IPPROTO_TCP`
-	syslogType.Protocol = &protocolField
-	secondaryPortField := 514
-	syslogType.SecondaryPort = &secondaryPortField
-	secondaryProtocolField := `IPPROTO_TCP`
-	syslogType.SecondaryProtocol = &secondaryProtocolField
-	return syslogType
-}
-
 type WlanGroup struct {
 	// Id
 	// Identifier of the WLAN group
@@ -1077,12 +835,3 @@ type WlanGroup struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewWlanGroup() *WlanGroup {
-	wlanGroupType := new(WlanGroup)
-	return wlanGroupType
-}
-
-func NewWlanGroupWithDefaults() *WlanGroup {
-	wlanGroupType := new(WlanGroup)
-	return wlanGroupType
-}

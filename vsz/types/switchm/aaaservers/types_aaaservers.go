@@ -85,16 +85,6 @@ type AAAServer struct {
 	Username *string `json:"username,omitempty"`
 }
 
-func NewAAAServer() *AAAServer {
-	aAAServerType := new(AAAServer)
-	return aAAServerType
-}
-
-func NewAAAServerWithDefaults() *AAAServer {
-	aAAServerType := new(AAAServer)
-	return aAAServerType
-}
-
 type AaaServersQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -119,24 +109,13 @@ type AaaServersQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewAaaServersQueryResult() *AaaServersQueryResult {
-	aaaServersQueryResultType := new(AaaServersQueryResult)
-	return aaaServersQueryResultType
-}
-
-func NewAaaServersQueryResultWithDefaults() *AaaServersQueryResult {
-	aaaServersQueryResultType := new(AaaServersQueryResult)
-	return aaaServersQueryResultType
-}
-
 // AaaServersQueryResultExtraType
 //
 // Any additional response data
 type AaaServersQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *AaaServersQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *AaaServersQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -145,21 +124,11 @@ func (t *AaaServersQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *AaaServersQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *AaaServersQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewAaaServersQueryResultExtraType() *AaaServersQueryResultExtraType {
-	aaaServersQueryResultExtraTypeType := new(AaaServersQueryResultExtraType)
-	return aaaServersQueryResultExtraTypeType
-}
-
-func NewAaaServersQueryResultExtraTypeWithDefaults() *AaaServersQueryResultExtraType {
-	aaaServersQueryResultExtraTypeType := new(AaaServersQueryResultExtraType)
-	return aaaServersQueryResultExtraTypeType
 }
 
 type CreateAdminAAAServer struct {
@@ -213,21 +182,10 @@ type CreateAdminAAAServer struct {
 	Username *string `json:"username,omitempty"`
 }
 
-func NewCreateAdminAAAServer() *CreateAdminAAAServer {
-	createAdminAAAServerType := new(CreateAdminAAAServer)
-	return createAdminAAAServerType
-}
-
-func NewCreateAdminAAAServerWithDefaults() *CreateAdminAAAServer {
-	createAdminAAAServerType := new(CreateAdminAAAServer)
-	return createAdminAAAServerType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -236,19 +194,10 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}

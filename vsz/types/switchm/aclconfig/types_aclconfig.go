@@ -56,16 +56,6 @@ type ACLConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewACLConfig() *ACLConfig {
-	aCLConfigType := new(ACLConfig)
-	return aCLConfigType
-}
-
-func NewACLConfigWithDefaults() *ACLConfig {
-	aCLConfigType := new(ACLConfig)
-	return aCLConfigType
-}
-
 type ACLConfigsQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -90,24 +80,13 @@ type ACLConfigsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewACLConfigsQueryResult() *ACLConfigsQueryResult {
-	aCLConfigsQueryResultType := new(ACLConfigsQueryResult)
-	return aCLConfigsQueryResultType
-}
-
-func NewACLConfigsQueryResultWithDefaults() *ACLConfigsQueryResult {
-	aCLConfigsQueryResultType := new(ACLConfigsQueryResult)
-	return aCLConfigsQueryResultType
-}
-
 // ACLConfigsQueryResultExtraType
 //
 // Any additional response data
 type ACLConfigsQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *ACLConfigsQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *ACLConfigsQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -116,21 +95,11 @@ func (t *ACLConfigsQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *ACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *ACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewACLConfigsQueryResultExtraType() *ACLConfigsQueryResultExtraType {
-	aCLConfigsQueryResultExtraTypeType := new(ACLConfigsQueryResultExtraType)
-	return aCLConfigsQueryResultExtraTypeType
-}
-
-func NewACLConfigsQueryResultExtraTypeWithDefaults() *ACLConfigsQueryResultExtraType {
-	aCLConfigsQueryResultExtraTypeType := new(ACLConfigsQueryResultExtraType)
-	return aCLConfigsQueryResultExtraTypeType
 }
 
 type ACLRule struct {
@@ -167,16 +136,6 @@ type ACLRule struct {
 	// SrcPort
 	// The source port of AccessControl Rule
 	SrcPort *string `json:"srcPort,omitempty"`
-}
-
-func NewACLRule() *ACLRule {
-	aCLRuleType := new(ACLRule)
-	return aCLRuleType
-}
-
-func NewACLRuleWithDefaults() *ACLRule {
-	aCLRuleType := new(ACLRule)
-	return aCLRuleType
 }
 
 type CreateACLConfig struct {
@@ -217,21 +176,10 @@ type CreateACLConfig struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
-func NewCreateACLConfig() *CreateACLConfig {
-	createACLConfigType := new(CreateACLConfig)
-	return createACLConfigType
-}
-
-func NewCreateACLConfigWithDefaults() *CreateACLConfig {
-	createACLConfigType := new(CreateACLConfig)
-	return createACLConfigType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -240,21 +188,11 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
 }
 
 type UpdateACLConfig struct {
@@ -279,12 +217,3 @@ type UpdateACLConfig struct {
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 }
 
-func NewUpdateACLConfig() *UpdateACLConfig {
-	updateACLConfigType := new(UpdateACLConfig)
-	return updateACLConfigType
-}
-
-func NewUpdateACLConfigWithDefaults() *UpdateACLConfig {
-	updateACLConfigType := new(UpdateACLConfig)
-	return updateACLConfigType
-}

@@ -8,23 +8,24 @@ import (
 )
 
 type WSGAccountSecurityService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGAccountSecurityService(client *Client) *WSGAccountSecurityService {
-	s := new(WSGAccountSecurityService)
-	s.client = client
-	return s
+func NewWSGAccountSecurityService (client *Client) *WSGAccountSecurityService {
+    s := new(WSGAccountSecurityService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGAccountSecurityService() *WSGAccountSecurityService {
-	serv := new(WSGAccountSecurityService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGAccountSecurityService () *WSGAccountSecurityService {
+    serv := new(WSGAccountSecurityService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*accountsecurityprofile.ProfileListResult, error) {
+func (s *WSGAccountSecurityService) FindAccountSecurity (ctx context.Context) (*accountsecurityprofile.ProfileListResult, error) {
 }
 
-func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context, id string) (*accountsecurityprofile.GetByIdResult, error) {
+func (s *WSGAccountSecurityService) FindAccountSecurityById (ctx context.Context, id string) (*accountsecurityprofile.GetByIdResult, error) {
 }
+

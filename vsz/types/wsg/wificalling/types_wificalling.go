@@ -32,28 +32,8 @@ type CreateWifiCallingPolicy struct {
 	Priority *string `json:"priority" validate:"required,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 }
 
-func NewCreateWifiCallingPolicy() *CreateWifiCallingPolicy {
-	createWifiCallingPolicyType := new(CreateWifiCallingPolicy)
-	return createWifiCallingPolicyType
-}
-
-func NewCreateWifiCallingPolicyWithDefaults() *CreateWifiCallingPolicy {
-	createWifiCallingPolicyType := new(CreateWifiCallingPolicy)
-	return createWifiCallingPolicyType
-}
-
 type DeleteBulk struct {
 	IdList common.IdList `json:"idList,omitempty"`
-}
-
-func NewDeleteBulk() *DeleteBulk {
-	deleteBulkType := new(DeleteBulk)
-	return deleteBulkType
-}
-
-func NewDeleteBulkWithDefaults() *DeleteBulk {
-	deleteBulkType := new(DeleteBulk)
-	return deleteBulkType
 }
 
 type Epdg struct {
@@ -62,16 +42,6 @@ type Epdg struct {
 	Fqdn *string `json:"fqdn,omitempty"`
 
 	Ip *string `json:"ip,omitempty"`
-}
-
-func NewEpdg() *Epdg {
-	epdgType := new(Epdg)
-	return epdgType
-}
-
-func NewEpdgWithDefaults() *Epdg {
-	epdgType := new(Epdg)
-	return epdgType
 }
 
 type ModifyEntireWifiCallingPolicy struct {
@@ -93,16 +63,6 @@ type ModifyWifiCallingPolicy struct {
 	//    - nullable
 	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
 	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
-}
-
-func NewModifyWifiCallingPolicy() *ModifyWifiCallingPolicy {
-	modifyWifiCallingPolicyType := new(ModifyWifiCallingPolicy)
-	return modifyWifiCallingPolicyType
-}
-
-func NewModifyWifiCallingPolicyWithDefaults() *ModifyWifiCallingPolicy {
-	modifyWifiCallingPolicyType := new(ModifyWifiCallingPolicy)
-	return modifyWifiCallingPolicyType
 }
 
 type WifiCallingPolicy struct {
@@ -158,16 +118,6 @@ type WifiCallingPolicy struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
-func NewWifiCallingPolicy() *WifiCallingPolicy {
-	wifiCallingPolicyType := new(WifiCallingPolicy)
-	return wifiCallingPolicyType
-}
-
-func NewWifiCallingPolicyWithDefaults() *WifiCallingPolicy {
-	wifiCallingPolicyType := new(WifiCallingPolicy)
-	return wifiCallingPolicyType
-}
-
 type WifiCallingPolicyList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -180,12 +130,3 @@ type WifiCallingPolicyList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWifiCallingPolicyList() *WifiCallingPolicyList {
-	wifiCallingPolicyListType := new(WifiCallingPolicyList)
-	return wifiCallingPolicyListType
-}
-
-func NewWifiCallingPolicyListWithDefaults() *WifiCallingPolicyList {
-	wifiCallingPolicyListType := new(WifiCallingPolicyList)
-	return wifiCallingPolicyListType
-}

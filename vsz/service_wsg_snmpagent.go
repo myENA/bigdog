@@ -8,20 +8,21 @@ import (
 )
 
 type WSGSNMPAgentService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGSNMPAgentService(client *Client) *WSGSNMPAgentService {
-	s := new(WSGSNMPAgentService)
-	s.client = client
-	return s
+func NewWSGSNMPAgentService (client *Client) *WSGSNMPAgentService {
+    s := new(WSGSNMPAgentService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGSNMPAgentService() *WSGSNMPAgentService {
-	serv := new(WSGSNMPAgentService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGSNMPAgentService () *WSGSNMPAgentService {
+    serv := new(WSGSNMPAgentService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*system.SnmpAgentConfiguration, error) {
+func (s *WSGSNMPAgentService) FindSystemSnmpAgent (ctx context.Context) (*system.SnmpAgentConfiguration, error) {
 }
+

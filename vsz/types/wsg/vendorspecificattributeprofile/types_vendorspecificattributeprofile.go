@@ -9,35 +9,14 @@ import (
 
 type CreateResult interface{}
 
-func NewCreateResult() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
-func NewCreateResultWithDefaults() *CreateResult {
-	createResultType := new(CreateResult)
-	return createResultType
-}
-
 type DeleteBulk struct {
 	IdList common.IdList `json:"idList,omitempty"`
 }
 
-func NewDeleteBulk() *DeleteBulk {
-	deleteBulkType := new(DeleteBulk)
-	return deleteBulkType
-}
-
-func NewDeleteBulkWithDefaults() *DeleteBulk {
-	deleteBulkType := new(DeleteBulk)
-	return deleteBulkType
-}
-
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *EmptyResult) UnmarshalJSON(b []byte) error {
+func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -46,21 +25,11 @@ func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *EmptyResult) MarshalJSON() ([]byte, error) {
+func(t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewEmptyResult() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
-}
-
-func NewEmptyResultWithDefaults() *EmptyResult {
-	emptyResultType := new(EmptyResult)
-	return emptyResultType
 }
 
 type Get struct {
@@ -85,16 +54,6 @@ type Get struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewGet() *Get {
-	getType := new(Get)
-	return getType
-}
-
-func NewGetWithDefaults() *Get {
-	getType := new(Get)
-	return getType
-}
-
 type List struct {
 	// FirstIndex
 	// Index of the first profile returned out of the profile list
@@ -113,32 +72,12 @@ type List struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewList() *List {
-	listType := new(List)
-	return listType
-}
-
-func NewListWithDefaults() *List {
-	listType := new(List)
-	return listType
-}
-
 type ListType struct {
 	// Id
 	// Identifier of the vendor specific attribute profile
 	Id *string `json:"id,omitempty"`
 
 	Name *common.NormalName `json:"name,omitempty"`
-}
-
-func NewListType() *ListType {
-	listTypeType := new(ListType)
-	return listTypeType
-}
-
-func NewListTypeWithDefaults() *ListType {
-	listTypeType := new(ListType)
-	return listTypeType
 }
 
 type Persist struct {
@@ -156,16 +95,6 @@ type Persist struct {
 	Name *common.NormalName `json:"name" validate:"required"`
 }
 
-func NewPersist() *Persist {
-	persistType := new(Persist)
-	return persistType
-}
-
-func NewPersistWithDefaults() *Persist {
-	persistType := new(Persist)
-	return persistType
-}
-
 type QueryCriteriaResult struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -176,16 +105,6 @@ type QueryCriteriaResult struct {
 	List []*Get `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewQueryCriteriaResult() *QueryCriteriaResult {
-	queryCriteriaResultType := new(QueryCriteriaResult)
-	return queryCriteriaResultType
-}
-
-func NewQueryCriteriaResultWithDefaults() *QueryCriteriaResult {
-	queryCriteriaResultType := new(QueryCriteriaResult)
-	return queryCriteriaResultType
 }
 
 type VendorSpecificAttribute struct {
@@ -222,12 +141,3 @@ type VendorSpecificAttribute struct {
 	VendorId *int `json:"vendorId" validate:"required"`
 }
 
-func NewVendorSpecificAttribute() *VendorSpecificAttribute {
-	vendorSpecificAttributeType := new(VendorSpecificAttribute)
-	return vendorSpecificAttributeType
-}
-
-func NewVendorSpecificAttributeWithDefaults() *VendorSpecificAttribute {
-	vendorSpecificAttributeType := new(VendorSpecificAttribute)
-	return vendorSpecificAttributeType
-}

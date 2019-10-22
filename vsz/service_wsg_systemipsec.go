@@ -8,20 +8,21 @@ import (
 )
 
 type WSGSystemIPsecService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGSystemIPsecService(client *Client) *WSGSystemIPsecService {
-	s := new(WSGSystemIPsecService)
-	s.client = client
-	return s
+func NewWSGSystemIPsecService (client *Client) *WSGSystemIPsecService {
+    s := new(WSGSystemIPsecService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGSystemIPsecService() *WSGSystemIPsecService {
-	serv := new(WSGSystemIPsecService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGSystemIPsecService () *WSGSystemIPsecService {
+    serv := new(WSGSystemIPsecService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*systemipsec.GetResult, error) {
+func (s *WSGSystemIPsecService) FindSystemIpsec (ctx context.Context) (*systemipsec.GetResult, error) {
 }
+

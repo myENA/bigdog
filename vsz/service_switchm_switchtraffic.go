@@ -9,32 +9,33 @@ import (
 )
 
 type SwitchMSwitchTrafficService struct {
-	client *Client
+    client *Client
 }
 
-func NewSwitchMSwitchTrafficService(client *Client) *SwitchMSwitchTrafficService {
-	s := new(SwitchMSwitchTrafficService)
-	s.client = client
-	return s
+func NewSwitchMSwitchTrafficService (client *Client) *SwitchMSwitchTrafficService {
+    s := new(SwitchMSwitchTrafficService)
+    s.client = client
+    return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchTrafficService() *SwitchMSwitchTrafficService {
-	serv := new(SwitchMSwitchTrafficService)
-	serv.client = ss.client
-	return serv
+func (ss *SwitchMService) SwitchMSwitchTrafficService () *SwitchMSwitchTrafficService {
+    serv := new(SwitchMSwitchTrafficService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTopPoeutilization(ctx context.Context) (*traffic.TopSwitchPoEUtilizationQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTopPoeutilization (ctx context.Context) (*traffic.TopSwitchPoEUtilizationQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTopPorterror(ctx context.Context) (*traffic.TopPortErrorQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTopPorterror (ctx context.Context) (*traffic.TopPortErrorQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTopPortusage(ctx context.Context) (*traffic.TopPortTrafficUsageQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTopPortusage (ctx context.Context) (*traffic.TopPortTrafficUsageQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTopUsage(ctx context.Context) (*traffic.TopTrafficUsageQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTopUsage (ctx context.Context) (*traffic.TopTrafficUsageQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchTrafficService) AddTrafficTotalTrend(ctx context.Context) (*traffic.TrafficQueryResultList, error) {
+func (s *SwitchMSwitchTrafficService) AddTrafficTotalTrend (ctx context.Context) (*traffic.TrafficQueryResultList, error) {
 }
+

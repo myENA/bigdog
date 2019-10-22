@@ -30,42 +30,12 @@ type BatchGenUnbound struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewBatchGenUnbound() *BatchGenUnbound {
-	batchGenUnboundType := new(BatchGenUnbound)
-	return batchGenUnboundType
-}
-
-func NewBatchGenUnboundWithDefaults() *BatchGenUnbound {
-	batchGenUnboundType := new(BatchGenUnbound)
-	return batchGenUnboundType
-}
-
 type DeleteDpskResult struct {
 	ResultCount *int `json:"resultCount,omitempty"`
 }
 
-func NewDeleteDpskResult() *DeleteDpskResult {
-	deleteDpskResultType := new(DeleteDpskResult)
-	return deleteDpskResultType
-}
-
-func NewDeleteDpskResultWithDefaults() *DeleteDpskResult {
-	deleteDpskResultType := new(DeleteDpskResult)
-	return deleteDpskResultType
-}
-
 type DeleteDPSKs struct {
 	IdList []string `json:"idList,omitempty"`
-}
-
-func NewDeleteDPSKs() *DeleteDPSKs {
-	deleteDPSKsType := new(DeleteDPSKs)
-	return deleteDPSKsType
-}
-
-func NewDeleteDPSKsWithDefaults() *DeleteDPSKs {
-	deleteDPSKsType := new(DeleteDPSKs)
-	return deleteDPSKsType
 }
 
 type DeleteExpiredDpskConfig struct {
@@ -77,30 +47,10 @@ type DeleteExpiredDpskConfig struct {
 	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"omitempty,oneof=Never AfterOneDay AfterSixMonths"`
 }
 
-func NewDeleteExpiredDpskConfig() *DeleteExpiredDpskConfig {
-	deleteExpiredDpskConfigType := new(DeleteExpiredDpskConfig)
-	return deleteExpiredDpskConfigType
-}
-
-func NewDeleteExpiredDpskConfigWithDefaults() *DeleteExpiredDpskConfig {
-	deleteExpiredDpskConfigType := new(DeleteExpiredDpskConfig)
-	return deleteExpiredDpskConfigType
-}
-
 // DpskInfo
 //
 // Information list of DPSK
 type DpskInfo []*DpskInfoType
-
-func NewDpskInfo() *DpskInfo {
-	dpskInfoType := make(DpskInfo, 0)
-	return &dpskInfoType
-}
-
-func NewDpskInfoWithDefaults() *DpskInfo {
-	dpskInfoType := make(DpskInfo, 0)
-	return &dpskInfoType
-}
 
 type DpskInfoType struct {
 	// CreationDateTime
@@ -144,16 +94,6 @@ type DpskInfoType struct {
 	WlanId *string `json:"wlanId,omitempty"`
 }
 
-func NewDpskInfoType() *DpskInfoType {
-	dpskInfoTypeType := new(DpskInfoType)
-	return dpskInfoTypeType
-}
-
-func NewDpskInfoTypeWithDefaults() *DpskInfoType {
-	dpskInfoTypeType := new(DpskInfoType)
-	return dpskInfoTypeType
-}
-
 type DpskQueryList struct {
 	Extra *common.RbacMetadata `json:"extra,omitempty"`
 
@@ -166,16 +106,6 @@ type DpskQueryList struct {
 	List []*DpskQueryListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewDpskQueryList() *DpskQueryList {
-	dpskQueryListType := new(DpskQueryList)
-	return dpskQueryListType
-}
-
-func NewDpskQueryListWithDefaults() *DpskQueryList {
-	dpskQueryListType := new(DpskQueryList)
-	return dpskQueryListType
 }
 
 type DpskQueryListType struct {
@@ -240,16 +170,6 @@ type DpskQueryListType struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewDpskQueryListType() *DpskQueryListType {
-	dpskQueryListTypeType := new(DpskQueryListType)
-	return dpskQueryListTypeType
-}
-
-func NewDpskQueryListTypeWithDefaults() *DpskQueryListType {
-	dpskQueryListTypeType := new(DpskQueryListType)
-	return dpskQueryListTypeType
-}
-
 type GetDpskEnabledWlans struct {
 	// FirstIndex
 	// Index of the first DPSK enabled WLAN returned out of the complete WLAN list
@@ -266,16 +186,6 @@ type GetDpskEnabledWlans struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewGetDpskEnabledWlans() *GetDpskEnabledWlans {
-	getDpskEnabledWlansType := new(GetDpskEnabledWlans)
-	return getDpskEnabledWlansType
-}
-
-func NewGetDpskEnabledWlansWithDefaults() *GetDpskEnabledWlans {
-	getDpskEnabledWlansType := new(GetDpskEnabledWlans)
-	return getDpskEnabledWlansType
-}
-
 type GetDpskEnabledWlansListType struct {
 	// Ssid
 	// SSID of the DPSK enabled WLAN
@@ -290,16 +200,6 @@ type GetDpskEnabledWlansListType struct {
 	WlanName *string `json:"wlanName,omitempty"`
 }
 
-func NewGetDpskEnabledWlansListType() *GetDpskEnabledWlansListType {
-	getDpskEnabledWlansListTypeType := new(GetDpskEnabledWlansListType)
-	return getDpskEnabledWlansListTypeType
-}
-
-func NewGetDpskEnabledWlansListTypeWithDefaults() *GetDpskEnabledWlansListType {
-	getDpskEnabledWlansListTypeType := new(GetDpskEnabledWlansListType)
-	return getDpskEnabledWlansListTypeType
-}
-
 type GetDpskInfoList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -310,30 +210,10 @@ type GetDpskInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewGetDpskInfoList() *GetDpskInfoList {
-	getDpskInfoListType := new(GetDpskInfoList)
-	return getDpskInfoListType
-}
-
-func NewGetDpskInfoListWithDefaults() *GetDpskInfoList {
-	getDpskInfoListType := new(GetDpskInfoList)
-	return getDpskInfoListType
-}
-
 type GetDpskResult struct {
 	DpskInfoList DpskInfo `json:"dpskInfoList,omitempty"`
 
 	ResultCount *int `json:"resultCount,omitempty"`
-}
-
-func NewGetDpskResult() *GetDpskResult {
-	getDpskResultType := new(GetDpskResult)
-	return getDpskResultType
-}
-
-func NewGetDpskResultWithDefaults() *GetDpskResult {
-	getDpskResultType := new(GetDpskResult)
-	return getDpskResultType
 }
 
 type ModifyDeleteExpiredDpsk struct {
@@ -345,30 +225,10 @@ type ModifyDeleteExpiredDpsk struct {
 	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"omitempty,oneof=Never AfterOneDay AfterSixMonths"`
 }
 
-func NewModifyDeleteExpiredDpsk() *ModifyDeleteExpiredDpsk {
-	modifyDeleteExpiredDpskType := new(ModifyDeleteExpiredDpsk)
-	return modifyDeleteExpiredDpskType
-}
-
-func NewModifyDeleteExpiredDpskWithDefaults() *ModifyDeleteExpiredDpsk {
-	modifyDeleteExpiredDpskType := new(ModifyDeleteExpiredDpsk)
-	return modifyDeleteExpiredDpskType
-}
-
 type UpdateDpsk struct {
 	// UserName
 	// User Name of DPSK
 	UserName *string `json:"userName,omitempty"`
-}
-
-func NewUpdateDpsk() *UpdateDpsk {
-	updateDpskType := new(UpdateDpsk)
-	return updateDpskType
-}
-
-func NewUpdateDpskWithDefaults() *UpdateDpsk {
-	updateDpskType := new(UpdateDpsk)
-	return updateDpskType
 }
 
 type WlanDpskSetting struct {
@@ -405,26 +265,6 @@ type WlanDpskSetting struct {
 	Length *int `json:"length,omitempty"`
 }
 
-func NewWlanDpskSetting() *WlanDpskSetting {
-	wlanDpskSettingType := new(WlanDpskSetting)
-	return wlanDpskSettingType
-}
-
-func NewWlanDpskSettingWithDefaults() *WlanDpskSetting {
-	wlanDpskSettingType := new(WlanDpskSetting)
-	dpskEnabledField := false
-	wlanDpskSettingType.DpskEnabled = &dpskEnabledField
-	dpskFromTypeField := `CreateTime`
-	wlanDpskSettingType.DpskFromType = &dpskFromTypeField
-	dpskTypeField := `Secure`
-	wlanDpskSettingType.DpskType = &dpskTypeField
-	expirationField := `Unlimited`
-	wlanDpskSettingType.Expiration = &expirationField
-	lengthField := 62
-	wlanDpskSettingType.Length = &lengthField
-	return wlanDpskSettingType
-}
-
 type WlanExternalDpsk struct {
 	// AuthService
 	// Autentication of the WLAN relate to external DPSK
@@ -442,18 +282,6 @@ type WlanExternalDpsk struct {
 	Encryption *WlanExternalDpskEncryptionType `json:"encryption,omitempty"`
 }
 
-func NewWlanExternalDpsk() *WlanExternalDpsk {
-	wlanExternalDpskType := new(WlanExternalDpsk)
-	return wlanExternalDpskType
-}
-
-func NewWlanExternalDpskWithDefaults() *WlanExternalDpsk {
-	wlanExternalDpskType := new(WlanExternalDpsk)
-	enabledField := false
-	wlanExternalDpskType.Enabled = &enabledField
-	return wlanExternalDpskType
-}
-
 // WlanExternalDpskAuthServiceType
 //
 // Autentication of the WLAN relate to external DPSK
@@ -465,16 +293,6 @@ type WlanExternalDpskAuthServiceType struct {
 	// Name
 	// Name of the authentication service. At least one ID or name is required in the request.
 	Name *string `json:"name,omitempty"`
-}
-
-func NewWlanExternalDpskAuthServiceType() *WlanExternalDpskAuthServiceType {
-	wlanExternalDpskAuthServiceTypeType := new(WlanExternalDpskAuthServiceType)
-	return wlanExternalDpskAuthServiceTypeType
-}
-
-func NewWlanExternalDpskAuthServiceTypeWithDefaults() *WlanExternalDpskAuthServiceType {
-	wlanExternalDpskAuthServiceTypeType := new(WlanExternalDpskAuthServiceType)
-	return wlanExternalDpskAuthServiceTypeType
 }
 
 // WlanExternalDpskEncryptionType
@@ -496,12 +314,3 @@ type WlanExternalDpskEncryptionType struct {
 	Method *string `json:"method,omitempty" validate:"omitempty,oneof=WPA2 WPA_Mixed None"`
 }
 
-func NewWlanExternalDpskEncryptionType() *WlanExternalDpskEncryptionType {
-	wlanExternalDpskEncryptionTypeType := new(WlanExternalDpskEncryptionType)
-	return wlanExternalDpskEncryptionTypeType
-}
-
-func NewWlanExternalDpskEncryptionTypeWithDefaults() *WlanExternalDpskEncryptionType {
-	wlanExternalDpskEncryptionTypeType := new(WlanExternalDpskEncryptionType)
-	return wlanExternalDpskEncryptionTypeType
-}

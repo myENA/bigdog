@@ -18,16 +18,6 @@ type AaaServerQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewAaaServerQueryList() *AaaServerQueryList {
-	aaaServerQueryListType := new(AaaServerQueryList)
-	return aaaServerQueryListType
-}
-
-func NewAaaServerQueryListWithDefaults() *AaaServerQueryList {
-	aaaServerQueryListType := new(AaaServerQueryList)
-	return aaaServerQueryListType
-}
-
 type CreateAaaServer struct {
 	AdminDomainName *string `json:"adminDomainName,omitempty"`
 
@@ -98,12 +88,3 @@ type CreateAaaServer struct {
 	ZoneUUID *string `json:"zoneUUID,omitempty"`
 }
 
-func NewCreateAaaServer() *CreateAaaServer {
-	createAaaServerType := new(CreateAaaServer)
-	return createAaaServerType
-}
-
-func NewCreateAaaServerWithDefaults() *CreateAaaServer {
-	createAaaServerType := new(CreateAaaServer)
-	return createAaaServerType
-}

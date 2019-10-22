@@ -12,16 +12,6 @@ type AddMembers struct {
 	MemberList []*ApGroupMember `json:"memberList,omitempty"`
 }
 
-func NewAddMembers() *AddMembers {
-	addMembersType := new(AddMembers)
-	return addMembersType
-}
-
-func NewAddMembersWithDefaults() *AddMembers {
-	addMembersType := new(AddMembers)
-	return addMembersType
-}
-
 type ApGroupConfiguration struct {
 	Altitude *common.Altitude `json:"altitude,omitempty"`
 
@@ -115,18 +105,6 @@ type ApGroupConfiguration struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewApGroupConfiguration() *ApGroupConfiguration {
-	apGroupConfigurationType := new(ApGroupConfiguration)
-	return apGroupConfigurationType
-}
-
-func NewApGroupConfigurationWithDefaults() *ApGroupConfiguration {
-	apGroupConfigurationType := new(ApGroupConfiguration)
-	channelEvaluationIntervalField := 600
-	apGroupConfigurationType.ChannelEvaluationInterval = &channelEvaluationIntervalField
-	return apGroupConfigurationType
-}
-
 type ApGroupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -137,32 +115,12 @@ type ApGroupList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewApGroupList() *ApGroupList {
-	apGroupListType := new(ApGroupList)
-	return apGroupListType
-}
-
-func NewApGroupListWithDefaults() *ApGroupList {
-	apGroupListType := new(ApGroupList)
-	return apGroupListType
-}
-
 type ApGroupMember struct {
 	ApMac *common.Mac `json:"apMac,omitempty"`
 
 	// ApSerial
 	// Serial number of member AP
 	ApSerial *string `json:"apSerial,omitempty"`
-}
-
-func NewApGroupMember() *ApGroupMember {
-	apGroupMemberType := new(ApGroupMember)
-	return apGroupMemberType
-}
-
-func NewApGroupMemberWithDefaults() *ApGroupMember {
-	apGroupMemberType := new(ApGroupMember)
-	return apGroupMemberType
 }
 
 type ApGroupSummary struct {
@@ -175,27 +133,7 @@ type ApGroupSummary struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewApGroupSummary() *ApGroupSummary {
-	apGroupSummaryType := new(ApGroupSummary)
-	return apGroupSummaryType
-}
-
-func NewApGroupSummaryWithDefaults() *ApGroupSummary {
-	apGroupSummaryType := new(ApGroupSummary)
-	return apGroupSummaryType
-}
-
-type CreateAPGroup struct{}
-
-func NewCreateAPGroup() *CreateAPGroup {
-	createAPGroupType := new(CreateAPGroup)
-	return createAPGroupType
-}
-
-func NewCreateAPGroupWithDefaults() *CreateAPGroup {
-	createAPGroupType := new(CreateAPGroup)
-	return createAPGroupType
-}
+type CreateAPGroup struct {}
 
 type ModifyAPGroup struct {
 	Altitude *common.Altitude `json:"altitude,omitempty"`
@@ -278,14 +216,3 @@ type ModifyAPGroup struct {
 	WlanGroup50 *common.GenericRef `json:"wlanGroup50,omitempty"`
 }
 
-func NewModifyAPGroup() *ModifyAPGroup {
-	modifyAPGroupType := new(ModifyAPGroup)
-	return modifyAPGroupType
-}
-
-func NewModifyAPGroupWithDefaults() *ModifyAPGroup {
-	modifyAPGroupType := new(ModifyAPGroup)
-	channelEvaluationIntervalField := 600
-	modifyAPGroupType.ChannelEvaluationInterval = &channelEvaluationIntervalField
-	return modifyAPGroupType
-}

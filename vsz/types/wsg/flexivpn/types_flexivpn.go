@@ -10,12 +10,3 @@ type FlexiVpnSetting struct {
 	ZoneAffinityId *string `json:"zoneAffinityId" validate:"required"`
 }
 
-func NewFlexiVpnSetting() *FlexiVpnSetting {
-	flexiVpnSettingType := new(FlexiVpnSetting)
-	return flexiVpnSettingType
-}
-
-func NewFlexiVpnSettingWithDefaults() *FlexiVpnSetting {
-	flexiVpnSettingType := new(FlexiVpnSetting)
-	return flexiVpnSettingType
-}

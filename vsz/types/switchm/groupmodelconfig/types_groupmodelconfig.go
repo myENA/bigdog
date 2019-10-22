@@ -16,16 +16,6 @@ type GroupConfigAuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewGroupConfigAuditId() *GroupConfigAuditId {
-	groupConfigAuditIdType := new(GroupConfigAuditId)
-	return groupConfigAuditIdType
-}
-
-func NewGroupConfigAuditIdWithDefaults() *GroupConfigAuditId {
-	groupConfigAuditIdType := new(GroupConfigAuditId)
-	return groupConfigAuditIdType
-}
-
 type GroupModelConfig struct {
 	// CreatedTime
 	// The create time of the Group Model Config
@@ -68,16 +58,6 @@ type GroupModelConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewGroupModelConfig() *GroupModelConfig {
-	groupModelConfigType := new(GroupModelConfig)
-	return groupModelConfigType
-}
-
-func NewGroupModelConfigWithDefaults() *GroupModelConfig {
-	groupModelConfigType := new(GroupModelConfig)
-	return groupModelConfigType
-}
-
 type GroupModelConfigQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -102,24 +82,13 @@ type GroupModelConfigQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewGroupModelConfigQueryResult() *GroupModelConfigQueryResult {
-	groupModelConfigQueryResultType := new(GroupModelConfigQueryResult)
-	return groupModelConfigQueryResultType
-}
-
-func NewGroupModelConfigQueryResultWithDefaults() *GroupModelConfigQueryResult {
-	groupModelConfigQueryResultType := new(GroupModelConfigQueryResult)
-	return groupModelConfigQueryResultType
-}
-
 // GroupModelConfigQueryResultExtraType
 //
 // Any additional response data
 type GroupModelConfigQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *GroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func(t *GroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -128,35 +97,15 @@ func (t *GroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *GroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func(t *GroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewGroupModelConfigQueryResultExtraType() *GroupModelConfigQueryResultExtraType {
-	groupModelConfigQueryResultExtraTypeType := new(GroupModelConfigQueryResultExtraType)
-	return groupModelConfigQueryResultExtraTypeType
-}
-
-func NewGroupModelConfigQueryResultExtraTypeWithDefaults() *GroupModelConfigQueryResultExtraType {
-	groupModelConfigQueryResultExtraTypeType := new(GroupModelConfigQueryResultExtraType)
-	return groupModelConfigQueryResultExtraTypeType
-}
-
 type SelectedIds struct {
 	SelectedIdList []string `json:"selectedIdList,omitempty"`
-}
-
-func NewSelectedIds() *SelectedIds {
-	selectedIdsType := new(SelectedIds)
-	return selectedIdsType
-}
-
-func NewSelectedIdsWithDefaults() *SelectedIds {
-	selectedIdsType := new(SelectedIds)
-	return selectedIdsType
 }
 
 type UpdateGroupConfigResultList struct {
@@ -183,24 +132,13 @@ type UpdateGroupConfigResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewUpdateGroupConfigResultList() *UpdateGroupConfigResultList {
-	updateGroupConfigResultListType := new(UpdateGroupConfigResultList)
-	return updateGroupConfigResultListType
-}
-
-func NewUpdateGroupConfigResultListWithDefaults() *UpdateGroupConfigResultList {
-	updateGroupConfigResultListType := new(UpdateGroupConfigResultList)
-	return updateGroupConfigResultListType
-}
-
 // UpdateGroupConfigResultListExtraType
 //
 // Any additional response data
 type UpdateGroupConfigResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	XAdditionalProperties map[string]interface{} `json:"-"`}
 
-func (t *UpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
+func(t *UpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -209,19 +147,10 @@ func (t *UpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *UpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
+func(t *UpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewUpdateGroupConfigResultListExtraType() *UpdateGroupConfigResultListExtraType {
-	updateGroupConfigResultListExtraTypeType := new(UpdateGroupConfigResultListExtraType)
-	return updateGroupConfigResultListExtraTypeType
-}
-
-func NewUpdateGroupConfigResultListExtraTypeWithDefaults() *UpdateGroupConfigResultListExtraType {
-	updateGroupConfigResultListExtraTypeType := new(UpdateGroupConfigResultListExtraType)
-	return updateGroupConfigResultListExtraTypeType
-}

@@ -9,35 +9,36 @@ import (
 )
 
 type WSGWLANGroupService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGWLANGroupService(client *Client) *WSGWLANGroupService {
-	s := new(WSGWLANGroupService)
-	s.client = client
-	return s
+func NewWSGWLANGroupService (client *Client) *WSGWLANGroupService {
+    s := new(WSGWLANGroupService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGWLANGroupService() *WSGWLANGroupService {
-	serv := new(WSGWLANGroupService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGWLANGroupService () *WSGWLANGroupService {
+    serv := new(WSGWLANGroupService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
+func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById (ctx context.Context, id string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*common.EmptyResult, error) {
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId (ctx context.Context, id string, memberId string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*common.EmptyResult, error) {
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId (ctx context.Context, id string, memberId string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*common.EmptyResult, error) {
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId (ctx context.Context, id string, memberId string, zoneId string) (*common.EmptyResult, error) {
 }
 
-func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id string, zoneId string) (*wlangroup.WlanGroup, error) {
+func (s *WSGWLANGroupService) FindRkszonesWlangroupsById (ctx context.Context, id string, zoneId string) (*wlangroup.WlanGroup, error) {
 }
 
-func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context, zoneId string) (*wlangroup.WlanGroupList, error) {
+func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId (ctx context.Context, zoneId string) (*wlangroup.WlanGroupList, error) {
 }
+

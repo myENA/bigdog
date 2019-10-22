@@ -8,26 +8,27 @@ import (
 )
 
 type WSGVDPProfileService struct {
-	client *Client
+    client *Client
 }
 
-func NewWSGVDPProfileService(client *Client) *WSGVDPProfileService {
-	s := new(WSGVDPProfileService)
-	s.client = client
-	return s
+func NewWSGVDPProfileService (client *Client) *WSGVDPProfileService {
+    s := new(WSGVDPProfileService)
+    s.client = client
+    return s
 }
 
-func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
-	serv := new(WSGVDPProfileService)
-	serv.client = ss.client
-	return serv
+func (ss *WSGService) WSGVDPProfileService () *WSGVDPProfileService {
+    serv := new(WSGVDPProfileService)
+    serv.client = ss.client
+    return serv
 }
 
-func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context) (*profile.ProfileList, error) {
+func (s *WSGVDPProfileService) FindProfilesVdp (ctx context.Context) (*profile.ProfileList, error) {
 }
 
-func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id string) (*profile.VdpProfile, error) {
+func (s *WSGVDPProfileService) FindProfilesVdpById (ctx context.Context, id string) (*profile.VdpProfile, error) {
 }
 
-func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context, id string) error {
+func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById (ctx context.Context, id string) error {
 }
+

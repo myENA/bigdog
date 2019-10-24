@@ -24,8 +24,20 @@ func (ss *SwitchMService) SwitchMSwitchGroupModelConfigService() *SwitchMSwitchG
 	return serv
 }
 
+// FindGroupModelConfigsByQueryCriteria
+//
+// Use this API command to retrieve the list of group model configs.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*groupmodelconfig.GroupModelConfigQueryResult, error) {
 }
 
+// UpdateGroupModelConfigsByGroupId
+//
+// Use this API command to add or remove the model family of a group config.
+//
+// Request Body:
+//	 - body *groupmodelconfig.SelectedIds
 func (s *SwitchMSwitchGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *groupmodelconfig.SelectedIds, pGroupId string) (*groupmodelconfig.UpdateGroupConfigResultList, error) {
 }

@@ -23,8 +23,14 @@ func (ss *WSGService) WSGHotspot20WLANServiceService() *WSGHotspot20WLANServiceS
 	return serv
 }
 
+// FindRkszonesHs20sById
+//
+// Use this API command to retrieve a Hotspot 2.0 WLAN profile of a zone.
 func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Context, pId string, pZoneId string) (*portalservice.Hotspot20WlanProfile, error) {
 }
 
+// FindRkszonesHs20sByZoneId
+//
+// Use this API command to retrieve a list of Hotspot 2.0 WLAN profiles of a zone.
 func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
 }

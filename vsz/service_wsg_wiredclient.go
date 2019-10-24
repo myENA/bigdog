@@ -25,11 +25,29 @@ func (ss *WSGService) WSGWiredClientService() *WSGWiredClientService {
 	return serv
 }
 
+// AddWiredClientsBulkDeauth
+//
+// Use this API command to bulk deauth client.
+//
+// Request Body:
+//	 - body *client.DeAuthClientList
 func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, body *client.DeAuthClientList) (*common.EmptyResult, error) {
 }
 
+// AddWiredClientsDeauth
+//
+// Use this API command to deauth client.
+//
+// Request Body:
+//	 - body *client.DeAuthClient
 func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body *client.DeAuthClient) (*common.EmptyResult, error) {
 }
 
+// FindWiredclientByQueryCriteria
+//
+// Query wired clients with specified filters
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*wiredclientquery.ClientQueryList, error) {
 }

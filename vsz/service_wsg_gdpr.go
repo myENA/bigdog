@@ -23,5 +23,11 @@ func (ss *WSGService) WSGGDPRService() *WSGGDPRService {
 	return serv
 }
 
+// AddGdprReport
+//
+// Use this API command to execute a client-related data search or delete task and upload a report to FTP. Also use this API to check task progress or to interrupt it.
+//
+// Request Body:
+//	 - body *gdpr.Report
 func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *gdpr.Report) error {
 }

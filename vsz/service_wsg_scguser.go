@@ -23,11 +23,26 @@ func (ss *WSGService) WSGSCGUserService() *WSGSCGUserService {
 	return serv
 }
 
+// AddUsers
+//
+// Add SCG user.
+//
+// Request Body:
+//	 - body *scguser.CreateScgUser
 func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *scguser.CreateScgUser) (*scguser.ScgUserAuditId, error) {
 }
 
+// FindUsersByQueryCriteria
+//
+// Query SCG users.
+//
+// Request Body:
+//	 - body *scguser.QueryCriteria
 func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *scguser.QueryCriteria) (*scguser.ScgUserList, error) {
 }
 
+// FindUsersByUserId
+//
+// Get SCG user.
 func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, pUserId string) (*scguser.GetScgUser, error) {
 }

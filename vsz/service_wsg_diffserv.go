@@ -23,8 +23,14 @@ func (ss *WSGService) WSGDiffServService() *WSGDiffServService {
 	return serv
 }
 
+// FindRkszonesDiffservById
+//
+// Use this API command to retrieve DiffServ profile.
 func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, pId string, pZoneId string) (*zone.DiffServConfiguration, error) {
 }
 
+// FindRkszonesDiffservByZoneId
+//
+// Use this API command to retrieve a list of DiffServ profile.
 func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, pZoneId string) (*zone.DiffServList, error) {
 }

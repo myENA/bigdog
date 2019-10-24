@@ -24,20 +24,44 @@ func (ss *WSGService) WSGBonjourFencingPolicyService() *WSGBonjourFencingPolicyS
 	return serv
 }
 
+// DeleteRkszonesBonjourFencingPolicy
+//
+// Use this API command to delete Bulk Bonjour Fencing Policy.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
 func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
 }
 
+// DeleteRkszonesBonjourFencingPolicyById
+//
+// Use this API command to delete Bonjour Fencing Policy.
 func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(ctx context.Context, pId string) error {
 }
 
+// FindApsBonjourFencingStatisticByApMac
+//
+// Use this API command to get Bonjour Fencing Statistic per AP.
 func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(ctx context.Context, pApMac string) (*profile.BonjourFencingStatistic, error) {
 }
 
+// FindRkszonesBonjourFencingPolicyById
+//
+// Use this API command to retrieve Bonjour Fencing Policy.
 func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ctx context.Context, pId string, pZoneId string) (*profile.BonjourFencingPolicy, error) {
 }
 
+// FindRkszonesBonjourFencingPolicyByZoneId
+//
+// Use this API command to retrieve a list of Bonjour Fencing Policy.
 func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneId(ctx context.Context, pZoneId string) (*profile.BonjourFencingPolicyList, error) {
 }
 
+// FindServicesBonjourFencingPolicyByQueryCriteria
+//
+// Use this API command to retrieve a list of Bonjour Fencing Policy.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.BonjourFencingPolicyList, error) {
 }

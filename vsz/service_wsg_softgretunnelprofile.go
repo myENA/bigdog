@@ -24,11 +24,23 @@ func (ss *WSGService) WSGSoftGRETunnelProfileService() *WSGSoftGRETunnelProfileS
 	return serv
 }
 
+// FindProfilesTunnelSoftgre
+//
+// Use this API command to retrieve a list of SoftGRE tunnel profile.
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.Context) (*profile.ProfileList, error) {
 }
 
+// FindProfilesTunnelSoftgreById
+//
+// Use this API command to retrieve SoftGRE tunnel profile.
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx context.Context, pId string) (*profile.SoftGREProfile, error) {
 }
 
+// FindProfilesTunnelSoftgreByQueryCriteria
+//
+// Use this API command to query a list of SoftGRE tunnel profile.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.SoftGREProfileList, error) {
 }

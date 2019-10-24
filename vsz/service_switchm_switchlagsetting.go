@@ -24,11 +24,23 @@ func (ss *SwitchMService) SwitchMSwitchLAGSettingService() *SwitchMSwitchLAGSett
 	return serv
 }
 
+// FindLagConfigs
+//
+// Use this API command to Retrieve all LAG Config list.
 func (s *SwitchMSwitchLAGSettingService) FindLagConfigs(ctx context.Context) (*lagconfig.List, error) {
 }
 
+// FindLagConfigsById
+//
+// Use this API command to Retrieve Specific LAG Config.
 func (s *SwitchMSwitchLAGSettingService) FindLagConfigsById(ctx context.Context, pId string) (*lagconfig.LagConfig, error) {
 }
 
+// FindLagConfigsByQueryCriteria
+//
+// Use this API command to Retrieve LAG Config list.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*lagconfig.List, error) {
 }

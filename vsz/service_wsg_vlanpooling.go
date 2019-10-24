@@ -24,11 +24,26 @@ func (ss *WSGService) WSGVlanPoolingService() *WSGVlanPoolingService {
 	return serv
 }
 
+// AddVlanpoolings
+//
+// Use this API command to create new VLAN pooling.
+//
+// Request Body:
+//	 - body *vlanpooling.CreateVlanPooling
 func (s *WSGVlanPoolingService) AddVlanpoolings(ctx context.Context, body *vlanpooling.CreateVlanPooling) (*common.CreateResult, error) {
 }
 
+// FindVlanpoolingsById
+//
+// Use this API command to retrieve VLAN pooling.
 func (s *WSGVlanPoolingService) FindVlanpoolingsById(ctx context.Context, pId string) (*vlanpooling.VlanPooling, error) {
 }
 
+// FindVlanpoolingsByQueryCriteria
+//
+// Use this API command to retrieve a list of VLAN poolings.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGVlanPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*vlanpooling.VlanPoolingList, error) {
 }

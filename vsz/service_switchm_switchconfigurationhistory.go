@@ -25,14 +25,32 @@ func (ss *SwitchMService) SwitchMSwitchConfigurationHistoryService() *SwitchMSwi
 	return serv
 }
 
+// FindConfigurationHistory
+//
+// Use this API command to Retrieve Configuration History List.
 func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistory(ctx context.Context) (*deploylog.ConfigurationHistoryQueryResult, error) {
 }
 
+// FindConfigurationHistoryByQueryCriteria
+//
+// Use this API command to Query Configuration History List.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*deploylog.ConfigurationHistoryQueryResult, error) {
 }
 
+// FindConfigurationHistoryDetail
+//
+// Use this API command to Retrieve Configuration History List.
 func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context) (*deploylogitem.ConfigurationHistoryDetailQueryResult, error) {
 }
 
+// FindConfigurationHistoryDetailByQueryCriteria
+//
+// Use this API command to Query Configuration History List.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*deploylogitem.ConfigurationHistoryDetailQueryResult, error) {
 }

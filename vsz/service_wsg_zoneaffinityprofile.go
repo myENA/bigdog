@@ -23,8 +23,14 @@ func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileSer
 	return serv
 }
 
+// FindProfilesZoneAffinity
+//
+// Use this API command to get all zone affinity profiles.
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Context, qVdpId string) (*profile.ZoneAffinityProfileList, error) {
 }
 
+// FindProfilesZoneAffinityById
+//
+// Use this API command to get one zone affinity profile.
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context.Context, pId string) (*profile.ReturnZoneAffinityProfile, error) {
 }

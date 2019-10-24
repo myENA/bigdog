@@ -23,5 +23,8 @@ func (ss *WSGService) WSGSessionManagementService() *WSGSessionManagementService
 	return serv
 }
 
+// FindSessionManagement
+//
+// Use this API command to retrieve information about the current logon sessions.
 func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context) (*sessionmanagement.RuckusSessions, error) {
 }

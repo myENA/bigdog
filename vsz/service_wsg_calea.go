@@ -24,11 +24,23 @@ func (ss *WSGService) WSGCALEAService() *WSGCALEAService {
 	return serv
 }
 
+// AddSystemCaleaMac
+//
+// Use this API command to add specified CALEA UE MACs
+//
+// Request Body:
+//	 - body *calea.CaleaMacListRq
 func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *calea.CaleaMacListRq) (*common.EmptyResult, error) {
 }
 
+// FindSystemCaleaCommonSetting
+//
+// Use this API command to get CALEA common setting.
 func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*calea.CaleaCommonSettingRsp, error) {
 }
 
+// FindSystemCaleaMacList
+//
+// Use this API command to get all CALEA UE MACs.
 func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context) (*calea.CaleaMacListRsp, error) {
 }

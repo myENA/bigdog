@@ -24,17 +24,41 @@ func (ss *WSGService) WSGHotspotServiceService() *WSGHotspotServiceService {
 	return serv
 }
 
+// AddRkszonesPortalsHotspotExternalByZoneId
+//
+// Use this API command to create a new Hotspot (WISPr) with external logon URL of a zone.MacAddressFormat.
+//
+// Request Body:
+//	 - body *portalservice.CreateHotspotExternal
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx context.Context, body *portalservice.CreateHotspotExternal, pZoneId string) (*common.CreateResult, error) {
 }
 
+// AddRkszonesPortalsHotspotInternalByZoneId
+//
+// Use this API command to create a new Hotspot (WISPr) with internal logon URL of a zone.MacAddressFormat.
+//
+// Request Body:
+//	 - body *portalservice.CreateHotspotInternal
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx context.Context, body *portalservice.CreateHotspotInternal, pZoneId string) (*common.CreateResult, error) {
 }
 
+// AddRkszonesPortalsHotspotSmartClientOnlyByZoneId
+//
+// Use this API command to create a new Hotspot (WISPr) with smart client only of a zone.MacAddressFormat.
+//
+// Request Body:
+//	 - body *portalservice.CreateHotspotSmartClientOnly
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId(ctx context.Context, body *portalservice.CreateHotspotSmartClientOnly, pZoneId string) (*common.CreateResult, error) {
 }
 
+// FindRkszonesPortalsHotspotById
+//
+// Use this API command to retrieve a Hotspot (WISPr) of zone.
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Context, pId string, pZoneId string) (*portalservice.Hotspot, error) {
 }
 
+// FindRkszonesPortalsHotspotByZoneId
+//
+// Use this API command to retrieve a list of Hotspot (WISPr) of a zone.
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
 }

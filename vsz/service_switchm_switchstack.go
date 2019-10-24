@@ -24,11 +24,23 @@ func (ss *SwitchMService) SwitchMSwitchStackService() *SwitchMSwitchStackService
 	return serv
 }
 
+// AddStack
+//
+// Use this API command to create a stack configuration.
+//
+// Request Body:
+//	 - body stack.StackConfigList
 func (s *SwitchMSwitchStackService) AddStack(ctx context.Context, body stack.StackConfigList) (stack.AuditIdList, error) {
 }
 
+// FindStackBySwitchId
+//
+// Use this API command to retrieve a stack configuration configured via SZ.
 func (s *SwitchMSwitchStackService) FindStackBySwitchId(ctx context.Context, pSwitchId string) (*stack.StackConfig, error) {
 }
 
+// FindStackMemberBySerialNumber
+//
+// Use this API command to retrieve the member of switches in a stack.
 func (s *SwitchMSwitchStackService) FindStackMemberBySerialNumber(ctx context.Context, pSerialNumber string) (*stack.List, error) {
 }

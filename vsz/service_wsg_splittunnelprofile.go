@@ -24,11 +24,23 @@ func (ss *WSGService) WSGSplitTunnelProfileService() *WSGSplitTunnelProfileServi
 	return serv
 }
 
+// FindRkszonesSplitTunnelProfilesById
+//
+// Get a split tunnel profile by ID.
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx context.Context, pId string, pZoneId string) (*splittunnel.SplitTunnelProfile, error) {
 }
 
+// FindRkszonesSplitTunnelProfilesByQueryCriteria
+//
+// Use this API command to retrieve a list of split tunnel profile by query criteria.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*splittunnel.SplitTunnelProfileQuery, error) {
 }
 
+// FindRkszonesSplitTunnelProfilesByZoneId
+//
+// Get a ID list of split tunnel profile in this Zone.
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, pZoneId string) (*splittunnel.SplitTunnelProfileList, error) {
 }

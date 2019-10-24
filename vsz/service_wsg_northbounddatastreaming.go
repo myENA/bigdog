@@ -24,17 +24,38 @@ func (ss *WSGService) WSGNorthboundDataStreamingService() *WSGNorthboundDataStre
 	return serv
 }
 
+// AddNorthboundDataStreamingProfile
+//
+// Use this API command to create northbound Data Streaming Profile
+//
+// Request Body:
+//	 - body *northbounddatastreaming.CreateNorthboundDataStreamingProfile
 func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *northbounddatastreaming.CreateNorthboundDataStreamingProfile) (*common.CreateResult, error) {
 }
 
+// FindNorthboundDataStreamingEventCodes
+//
+// Use this API command to retrieve NorthboundDataStreamingEventCodes.
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context) (*northbounddatastreaming.NorthboundDataStreamingEventCodes, error) {
 }
 
+// FindNorthboundDataStreamingProfileById
+//
+// Use this API command to retrieve northbound Data Streaming Profile
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, pId string) (*northbounddatastreaming.NorthboundDataStreamingProfile, error) {
 }
 
+// FindNorthboundDataStreamingProfileList
+//
+// Use this API command to retrieve northbound Data Streaming Profile List
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*northbounddatastreaming.NorthboundDataStreamingProfileList, error) {
 }
 
+// UpdateNorthboundDataStreamingSettings
+//
+// Use this API command to modify Northbound Data Streaming Settings.
+//
+// Request Body:
+//	 - body *northbounddatastreaming.NorthboundDataStreamingSettings
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *northbounddatastreaming.NorthboundDataStreamingSettings) error {
 }

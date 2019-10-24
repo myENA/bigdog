@@ -24,11 +24,23 @@ func (ss *WSGService) WSGVendorSpecificAttributeProfileService() *WSGVendorSpeci
 	return serv
 }
 
+// FindRkszonesVendorSpecificAttributeProfilesById
+//
+// Get a vendor specific attribute profile by ID.
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, pId string, pZoneId string) (*vendorspecificattributeprofile.Get, error) {
 }
 
+// FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria
+//
+// Use this API command to retrieve a list of vendor specific attribute profile by query criteria.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*vendorspecificattributeprofile.QueryCriteriaResult, error) {
 }
 
+// FindRkszonesVendorSpecificAttributeProfilesByZoneId
+//
+// Get a ID list of vendor specific attribute profile in this Zone.
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, pZoneId string) (*vendorspecificattributeprofile.List, error) {
 }

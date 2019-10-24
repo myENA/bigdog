@@ -23,8 +23,14 @@ func (ss *WSGService) WSGDevicePolicyService() *WSGDevicePolicyService {
 	return serv
 }
 
+// FindRkszonesDevicePolicyById
+//
+// Retrieve a Device Policy Porfile.
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*devicepolicy.DevicePolicyPorfile, error) {
 }
 
+// FindRkszonesDevicePolicyByZoneId
+//
+// Retrieve a list of Device Policy Porfiles within a zone.
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*devicepolicy.PorfileList, error) {
 }

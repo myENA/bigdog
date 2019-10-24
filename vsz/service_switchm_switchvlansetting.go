@@ -24,11 +24,23 @@ func (ss *SwitchMService) SwitchMSwitchVLANSettingService() *SwitchMSwitchVLANSe
 	return serv
 }
 
+// FindVlans
+//
+// Use this API command to Retrieve the VLAN Config List.
 func (s *SwitchMSwitchVLANSettingService) FindVlans(ctx context.Context) (*vlanconfig.VlanConfigQueryResult, error) {
 }
 
+// FindVlansById
+//
+// Use this API command to Retrieve the VLAN Config.
 func (s *SwitchMSwitchVLANSettingService) FindVlansById(ctx context.Context, pId string) (*vlanconfig.VlanConfig, error) {
 }
 
+// FindVlansByQueryCriteria
+//
+// Use this API command to Retrieve the VLAN Config list.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchVLANSettingService) FindVlansByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*vlanconfig.VlanConfigQueryResult, error) {
 }

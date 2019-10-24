@@ -24,11 +24,23 @@ func (ss *WSGService) WSGPortalDetectionandSuppressionProfileService() *WSGPorta
 	return serv
 }
 
+// FindRkszonesPortalDetectionProfilesById
+//
+// Use this API command to get portal detection and suppression profile by profile's ID.
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesById(ctx context.Context, pId string, pZoneId string) (*portaldetectionprofile.PortalDetectionProfile, error) {
 }
 
+// FindRkszonesPortalDetectionProfilesByQueryCriteria
+//
+// Query portal detection and suppression profile with specified filters.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*portaldetectionprofile.PortalDetectionProfileList, error) {
 }
 
+// FindRkszonesPortalDetectionProfilesByZoneId
+//
+// Use this API command to get portal detection and suppression profile list.
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, pZoneId string) (*portaldetectionprofile.PortalDetectionProfileList, error) {
 }

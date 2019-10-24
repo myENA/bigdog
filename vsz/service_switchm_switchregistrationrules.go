@@ -23,8 +23,17 @@ func (ss *SwitchMService) SwitchMSwitchRegistrationRulesService() *SwitchMSwitch
 	return serv
 }
 
+// FindRegistrationRules
+//
+// Use this API command to retrieves all the registration rules configured in SmartZone.
 func (s *SwitchMSwitchRegistrationRulesService) FindRegistrationRules(ctx context.Context) (*registration.RuleQueryResultList, error) {
 }
 
+// UpdateRegistrationRulesById
+//
+// Use this API command to modify the registration rule.
+//
+// Request Body:
+//	 - body *registration.RegistrationRule
 func (s *SwitchMSwitchRegistrationRulesService) UpdateRegistrationRulesById(ctx context.Context, body *registration.RegistrationRule, pId string) (*registration.ModifyResult, error) {
 }

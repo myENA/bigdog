@@ -23,8 +23,20 @@ func (ss *SwitchMService) SwitchMSwitchConfigurationCloneService() *SwitchMSwitc
 	return serv
 }
 
+// AddCloneConfigurationByGroup
+//
+// Use this API command to Clone Switch Group Config.
+//
+// Request Body:
+//	 - body *group.CloneConfigByGroup
 func (s *SwitchMSwitchConfigurationCloneService) AddCloneConfigurationByGroup(ctx context.Context, body *group.CloneConfigByGroup) error {
 }
 
+// UpdateCloneConfiguration
+//
+// Use this API command to Clone Switch Config.
+//
+// Request Body:
+//	 - body *group.CloneConfigBySwitch
 func (s *SwitchMSwitchConfigurationCloneService) UpdateCloneConfiguration(ctx context.Context, body *group.CloneConfigBySwitch) error {
 }

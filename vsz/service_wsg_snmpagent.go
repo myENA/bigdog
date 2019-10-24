@@ -23,5 +23,8 @@ func (ss *WSGService) WSGSNMPAgentService() *WSGSNMPAgentService {
 	return serv
 }
 
+// FindSystemSnmpAgent
+//
+// Retrieve SNMP Agent sertting.
 func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*system.SnmpAgentConfiguration, error) {
 }

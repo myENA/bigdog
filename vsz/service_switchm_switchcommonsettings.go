@@ -24,8 +24,17 @@ func (ss *SwitchMService) SwitchMSwitchCommonSettingsService() *SwitchMSwitchCom
 	return serv
 }
 
+// AddDnsConfig
+//
+// Use this API command to Create DNS Config.
+//
+// Request Body:
+//	 - body *dnsconfig.CreateDnsConfig
 func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig(ctx context.Context, body *dnsconfig.CreateDnsConfig) (*common.CreateResult, error) {
 }
 
+// FindDnsConfigBySwitchGroupId
+//
+// Use this API command to Retrieve DNS Config.
 func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, pSwitchGroupId string) (*dnsconfig.DnsConfig, error) {
 }

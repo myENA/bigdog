@@ -24,11 +24,26 @@ func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 	return serv
 }
 
+// AddProfilesLbs
+//
+// Create LBS profile.
+//
+// Request Body:
+//	 - body *profile.LbsProfile
 func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *profile.LbsProfile) (*common.CreateResult, error) {
 }
 
+// FindProfilesLbsById
+//
+// Retrieve LBS profile.
 func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, pId string) (*profile.LbsProfile, error) {
 }
 
+// FindProfilesLbsByQueryCriteria
+//
+// Query LBS profiles.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.LbsProfileList, error) {
 }

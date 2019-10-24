@@ -23,8 +23,14 @@ func (ss *SwitchMService) SwitchMSwitchEventService() *SwitchMSwitchEventService
 	return serv
 }
 
+// FindCustomEvent
+//
+// Use this API command to retrieve switch event config list
 func (s *SwitchMSwitchEventService) FindCustomEvent(ctx context.Context) (*eventconfig.GetEventConfigList, error) {
 }
 
+// FindCustomEventById
+//
+// Use this API command to retrieve one switch event config
 func (s *SwitchMSwitchEventService) FindCustomEventById(ctx context.Context, pId string) (*eventconfig.EventConfig, error) {
 }

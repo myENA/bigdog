@@ -24,8 +24,20 @@ func (ss *SwitchMService) SwitchMTopReportsService() *SwitchMTopReportsService {
 	return serv
 }
 
+// AddSwitchTopByFirmware
+//
+// Use this API command to retrieves top N switch count based on firmware version.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.TopSwitchesByFirmwareQueryResultList, error) {
 }
 
+// AddSwitchTopByModel
+//
+// Use this API command to retrieve top N switch count based on switch model.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMTopReportsService) AddSwitchTopByModel(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.TopSwitchesByModelQueryResultList, error) {
 }

@@ -23,5 +23,8 @@ func (ss *SwitchMService) SwitchMSwitchPortCapacityService() *SwitchMSwitchPortC
 	return serv
 }
 
+// FindPortCapacity
+//
+// Use this API command to Retrieve Switch Port Capacity List.
 func (s *SwitchMSwitchPortCapacityService) FindPortCapacity(ctx context.Context) (*portcapacity.Result, error) {
 }

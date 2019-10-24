@@ -23,8 +23,14 @@ func (ss *SwitchMService) SwitchMSwitchAAAServersService() *SwitchMSwitchAAAServ
 	return serv
 }
 
+// FindAaaServersAdmin
+//
+// Use this API command to retrieve a list of AAA server.
 func (s *SwitchMSwitchAAAServersService) FindAaaServersAdmin(ctx context.Context) (*aaaservers.AaaServersQueryResult, error) {
 }
 
+// FindAaaServersAdminById
+//
+// Use this API command to retrieve a AAA server.
 func (s *SwitchMSwitchAAAServersService) FindAaaServersAdminById(ctx context.Context, pId string) (*aaaservers.AAAServer, error) {
 }

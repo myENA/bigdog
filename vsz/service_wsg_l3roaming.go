@@ -23,8 +23,14 @@ func (ss *WSGService) WSGL3RoamingService() *WSGL3RoamingService {
 	return serv
 }
 
+// FindProfilesTunnelL3Roaming
+//
+// Use this API command to retrieve L3 Roaming basic configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (*profile.GetL3RoamingConfig, error) {
 }
 
+// FindProfilesTunnelL3RoamingByQueryCriteria
+//
+// Use this API command to retrieve L3 Roaming configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria(ctx context.Context) (*profile.GetL3RoamingConfig, error) {
 }

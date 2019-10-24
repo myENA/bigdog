@@ -24,14 +24,32 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 	return serv
 }
 
+// AddZdImportConnectZD
+//
+// Connect to ZD.
+//
+// Request Body:
+//	 - body *administration.ZdImport
 func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *administration.ZdImport) (*common.EmptyResult, error) {
 }
 
+// AddZdImportMigrate
+//
+// Migrate ZD to SCG.
+//
+// Request Body:
+//	 - body *administration.ZdImport
 func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *administration.ZdImport) (*common.EmptyResult, error) {
 }
 
+// FindZdImportGetZDAPs
+//
+// Get ZD AP.
 func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, qIp string) (*administration.ZdAPList, error) {
 }
 
+// FindZdImportStatus
+//
+// Get Migrate Status.
 func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, qDetails string) (*administration.ZdImportStatus, error) {
 }

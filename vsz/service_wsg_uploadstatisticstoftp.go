@@ -23,5 +23,8 @@ func (ss *WSGService) WSGUploadStatisticstoFTPService() *WSGUploadStatisticstoFT
 	return serv
 }
 
+// FindGlobalSettingsStatsFtp
+//
+// Use this API command to retrieve the uploading statistical data to FTP server setting.
 func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context.Context) (*system.FtpGlobalSetting, error) {
 }

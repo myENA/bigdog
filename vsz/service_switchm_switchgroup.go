@@ -23,11 +23,23 @@ func (ss *SwitchMService) SwitchMSwitchGroupService() *SwitchMSwitchGroupService
 	return serv
 }
 
+// AddGroup
+//
+// Use this API command to create a new switch group under an existing domain or switch group.
+//
+// Request Body:
+//	 - body *group.SwitchGroup
 func (s *SwitchMSwitchGroupService) AddGroup(ctx context.Context, body *group.SwitchGroup) (*group.AuditId, error) {
 }
 
+// FindGroupBySwitchGroupId
+//
+// Use this API command to retrieve switch group detail.
 func (s *SwitchMSwitchGroupService) FindGroupBySwitchGroupId(ctx context.Context, pSwitchGroupId string) (*group.SwitchGroupQueryResult, error) {
 }
 
+// FindGroupIdsByDomainByDomainId
+//
+// Use this API command to retrieve the switch groups by domain ID.
 func (s *SwitchMSwitchGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, pDomainId string) (*group.GroupsByIdsQueryResultList, error) {
 }

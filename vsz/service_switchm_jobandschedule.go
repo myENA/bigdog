@@ -24,14 +24,32 @@ func (ss *SwitchMService) SwitchMJobandScheduleService() *SwitchMJobandScheduleS
 	return serv
 }
 
+// AddJob
+//
+// Use this API command to retrieve a list of jobs.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *common.QueryCriteriaSuperSet) (*job.List, error) {
 }
 
+// DeleteJobSchedule
+//
+// Use this API command to delete a selected schedule.
 func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) error {
 }
 
+// FindJobByJobId
+//
+// Use this API command to retrieve a given job.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body *common.QueryCriteriaSuperSet, pJobId string) (*job.Job, error) {
 }
 
+// FindJobScheduleByScheduleId
+//
+// Use this API command to retrieve a given schedule.
 func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.Context, pScheduleId string) (*job.JobScheduleResponse, error) {
 }

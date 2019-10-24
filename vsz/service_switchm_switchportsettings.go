@@ -24,14 +24,32 @@ func (ss *SwitchMService) SwitchMSwitchPortSettingsService() *SwitchMSwitchPortS
 	return serv
 }
 
+// AddPortSettingsBulk
+//
+// Use this API command to Bulk update the port setting
+//
+// Request Body:
+//	 - body *portsettings.CreateBulk
 func (s *SwitchMSwitchPortSettingsService) AddPortSettingsBulk(ctx context.Context, body *portsettings.CreateBulk) (*portsettings.EmptyResult, error) {
 }
 
+// FindPortSettings
+//
+// Use this API command to Retrieve all Port Settings list.
 func (s *SwitchMSwitchPortSettingsService) FindPortSettings(ctx context.Context) (*portsettings.PortSettingsQueryResult, error) {
 }
 
+// FindPortSettingsById
+//
+// Use this API command to Retrieve Port Settings.
 func (s *SwitchMSwitchPortSettingsService) FindPortSettingsById(ctx context.Context, pId string) (*portsettings.PortSettings, error) {
 }
 
+// FindPortSettingsByQueryCriteria
+//
+// Use this API command to Retrieve Port Settings list.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*portsettings.PortSettingsQueryResult, error) {
 }

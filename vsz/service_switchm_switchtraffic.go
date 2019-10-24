@@ -24,17 +24,47 @@ func (ss *SwitchMService) SwitchMSwitchTrafficService() *SwitchMSwitchTrafficSer
 	return serv
 }
 
+// AddTrafficTopPoeutilization
+//
+// Use this API command retrieve the top 10 switches by the PoE utilization.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTopPoeutilization(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TopSwitchPoEUtilizationQueryResultList, error) {
 }
 
+// AddTrafficTopPorterror
+//
+// Use this API command to get the top 10 switches by the porterror.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTopPorterror(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TopPortErrorQueryResultList, error) {
 }
 
+// AddTrafficTopPortusage
+//
+// Use this API command to get the top 10 ports by the traffic.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTopPortusage(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TopPortTrafficUsageQueryResultList, error) {
 }
 
+// AddTrafficTopUsage
+//
+// Use this API command to retrieve Top Swich/Port usage data based on the time duration.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTopUsage(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TopTrafficUsageQueryResultList, error) {
 }
 
+// AddTrafficTotalTrend
+//
+// Use this API command to retrieve Swich/Port trend data based on the time duration.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTotalTrend(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TrafficQueryResultList, error) {
 }

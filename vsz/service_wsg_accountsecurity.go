@@ -23,8 +23,17 @@ func (ss *WSGService) WSGAccountSecurityService() *WSGAccountSecurityService {
 	return serv
 }
 
+// FindAccountSecurity
+//
+// Use this API command to get account security profiles.
 func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*accountsecurityprofile.ProfileListResult, error) {
 }
 
+// FindAccountSecurityById
+//
+// Use this API command to retrieve the specific account security profile.
+//
+// Request Body:
+//	 - body *accountsecurityprofile.GetById
 func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context, body *accountsecurityprofile.GetById, pId string) (*accountsecurityprofile.GetByIdResult, error) {
 }

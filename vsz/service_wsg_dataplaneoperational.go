@@ -23,5 +23,11 @@ func (ss *WSGService) WSGDataPlaneOperationalService() *WSGDataPlaneOperationalS
 	return serv
 }
 
+// AddDpsSwitchoverCluster
+//
+// Use this API command to switchover DP to another cluster
+//
+// Request Body:
+//	 - body *dp.SwitchoverDp
 func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *dp.SwitchoverDp) (*dp.EmptyResult, error) {
 }

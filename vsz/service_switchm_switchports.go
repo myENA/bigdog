@@ -24,8 +24,20 @@ func (ss *SwitchMService) SwitchMSwitchPortsService() *SwitchMSwitchPortsService
 	return serv
 }
 
+// AddSwitchPortsDetails
+//
+// Use this API command to retrieve all the switch ports and its details currently managed by SmartZone.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchPortsService) AddSwitchPortsDetails(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.PortDetailsQueryResultList, error) {
 }
 
+// AddSwitchPortsSummary
+//
+// Use this API command to retrieve ports summary based on status, speed of a switch, currently managed by SmartZone.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchPortsService) AddSwitchPortsSummary(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.SwitchPortsSummaryQueryResultList, error) {
 }

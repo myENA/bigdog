@@ -23,5 +23,11 @@ func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
 	return serv
 }
 
+// AddSystemAaaTest
+//
+// Use this API command to test AAA server.
+//
+// Request Body:
+//	 - body *aaa.TestAuthenticationServer
 func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *aaa.TestAuthenticationServer) (*aaa.TestAAAServerResult, error) {
 }

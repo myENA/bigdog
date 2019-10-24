@@ -24,11 +24,23 @@ func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 	return serv
 }
 
+// FindProfilesTunnelIpsec
+//
+// Retrieve a list of IPSEC.
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, qIndex string, qListSize string) (*profile.ProfileList, error) {
 }
 
+// FindProfilesTunnelIpsecById
+//
+// Retrieve a IPSEC.
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context, pId string) (*profile.IpsecProfile, error) {
 }
 
+// FindProfilesTunnelIpsecByQueryCriteria
+//
+// Query a list of IPSEC.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.IpsecProfileList, error) {
 }

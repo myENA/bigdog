@@ -26,20 +26,38 @@ func (ss *WSGService) WSGDHCPService() *WSGDHCPService {
 	return serv
 }
 
+// FindDhcpDataDhcpMsgStatsByApMac
+//
+// Use this API command to get AP DHCP Message Statistic.
 func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, pApMac string) (*dhcpmsgstats.DhcpMsgStats, error) {
 }
 
+// FindDhcpDataDhcpPoolsByApMac
+//
+// Use this API command to get AP DHCP Pools Usage.
 func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, pApMac string) (*dhcppools.DhcpPools, error) {
 }
 
+// FindDhcpDataDhcpPoolsByPoolIndex
+//
+// Use this API command to get AP DHCP Pool Usage by pool's index.
 func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, pApMac string, pPoolIndex string) (*dhcppools.DhcpPoolInfo, error) {
 }
 
+// FindRkszonesDhcpSiteDhcpProfileById
+//
+// Use this API command to get DHCP Pool by pool's ID.
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context, pId string, pZoneId string) (*common.DhcpProfileRef, error) {
 }
 
+// FindRkszonesDhcpSiteDhcpProfileByZoneId
+//
+// Use this API command to get DHCP Pool list.
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, pZoneId string) (*profile.DhcpProfileList, error) {
 }
 
+// FindRkszonesDhcpSiteDhcpSiteConfigByZoneId
+//
+// Use this API command to get DHCP Configuration.
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.Context, pZoneId string) (*common.DhcpSiteConfigListRef, error) {
 }

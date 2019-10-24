@@ -23,5 +23,11 @@ func (ss *WSGService) WSGServiceTicketService() *WSGServiceTicketService {
 	return serv
 }
 
+// AddServiceTicket
+//
+// Use this API command to log on to the controller and acquire a valid service ticket.
+//
+// Request Body:
+//	 - body *serviceticket.LoginRequest
 func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *serviceticket.LoginRequest) (*serviceticket.LoginResponse, error) {
 }

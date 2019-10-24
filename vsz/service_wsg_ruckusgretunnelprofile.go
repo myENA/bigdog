@@ -24,11 +24,23 @@ func (ss *WSGService) WSGRuckusGRETunnelProfileService() *WSGRuckusGRETunnelProf
 	return serv
 }
 
+// FindProfilesTunnelRuckusgre
+//
+// Use this API command to retrieve a list of RuckusGRE tunnel profile.
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx context.Context) (*profile.ProfileList, error) {
 }
 
+// FindProfilesTunnelRuckusgreById
+//
+// Use this API command to retrieve RuckusGRE tunnel profile.
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx context.Context, pId string) (*profile.RuckusGREProfile, error) {
 }
 
+// FindProfilesTunnelRuckusgreByQueryCriteria
+//
+// Use this API command to query a list of RuckusGRE tunnel profile.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.RuckusGREProfileList, error) {
 }

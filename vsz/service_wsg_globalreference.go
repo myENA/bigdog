@@ -23,8 +23,14 @@ func (ss *WSGService) WSGGlobalreferenceService() *WSGGlobalreferenceService {
 	return serv
 }
 
+// FindGlobalSettingsFriendlyNameLang
+//
+// Use this API command to get friendly name of usable language for profile: Hotspot2.0 Identity Provider.
 func (s *WSGGlobalreferenceService) FindGlobalSettingsFriendlyNameLang(ctx context.Context) (*system.FriendlyNameLangList, error) {
 }
 
+// FindGlobalSettingsPortalLang
+//
+// Use this API command to get friendly name of usable language for profile: Guest Access (Language in General Options), Web Auth (Language in General Options).
 func (s *WSGGlobalreferenceService) FindGlobalSettingsPortalLang(ctx context.Context) (*system.PortalLangList, error) {
 }

@@ -23,20 +23,44 @@ func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
 	return serv
 }
 
+// AddUserGroups
+//
+// Add SCG user group.
+//
+// Request Body:
+//	 - body *scguser.ScgUserGroup
 func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *scguser.ScgUserGroup) (*scguser.ScgUserGroupAuditId, error) {
 }
 
+// FindUserGroupsByQueryCriteria
+//
+// Query user groups.
+//
+// Request Body:
+//	 - body *scguser.QueryCriteria
 func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Context, body *scguser.QueryCriteria) (*scguser.ScgUserGroupList, error) {
 }
 
+// FindUserGroupsByUserGroupId
+//
+// Get SCG user group.
 func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, pUserGroupId string, qIncludeUsers string) (*scguser.ScgUserGroup, error) {
 }
 
+// FindUserGroupsCurrentUserPermissionCategories
+//
+// Get permitted categories of current user.
 func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(ctx context.Context) (*scguser.ScgUserGroupPermissionList, error) {
 }
 
+// FindUserGroupsRoles
+//
+// Get pre-defined roles.
 func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*scguser.ScgUserGroupRoleLabelValueList, error) {
 }
 
+// FindUserGroupsRolesPermissionsByRole
+//
+// Get permission items of role.
 func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, pRole string, qDomainId string) (*scguser.ScgUserGroupPermissionList, error) {
 }

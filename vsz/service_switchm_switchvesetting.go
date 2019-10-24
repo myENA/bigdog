@@ -24,11 +24,23 @@ func (ss *SwitchMService) SwitchMSwitchVESettingService() *SwitchMSwitchVESettin
 	return serv
 }
 
+// FindVeConfigs
+//
+// Use this API command to Retrieve VE Config List.
 func (s *SwitchMSwitchVESettingService) FindVeConfigs(ctx context.Context) (*veconfig.List, error) {
 }
 
+// FindVeConfigsById
+//
+// Use this API command to Retrieve VE Config.
 func (s *SwitchMSwitchVESettingService) FindVeConfigsById(ctx context.Context, pId string) (*veconfig.VeConfig, error) {
 }
 
+// FindVeConfigsByQueryCriteria
+//
+// Use this API command to Retrieve VE Config list.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchVESettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*veconfig.List, error) {
 }

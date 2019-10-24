@@ -24,14 +24,32 @@ func (ss *WSGService) WSGIndoorMapService() *WSGIndoorMapService {
 	return serv
 }
 
+// FindMaps
+//
+// Use this API command to get indoor map list.
 func (s *WSGIndoorMapService) FindMaps(ctx context.Context, qGroupId string, qGroupType string) (*indoormap.IndoorMapList, error) {
 }
 
+// FindMapsByIndoorMapId
+//
+// Use this API command to get indoor maps.
 func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, pIndoorMapId string) (*indoormap.IndoorMap, error) {
 }
 
+// FindMapsByQueryCriteria
+//
+// Use this API command to query indoorMap.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*indoormap.IndoorMapList, error) {
 }
 
+// UpdateMapsApsByIndoorMapId
+//
+// Use this API command to put Aps in indoor map.
+//
+// Request Body:
+//	 - body indoormap.AccessPointList
 func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body indoormap.AccessPointList, pIndoorMapId string) (*indoormap.IndooMapAuditId, error) {
 }

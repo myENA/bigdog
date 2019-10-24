@@ -23,8 +23,14 @@ func (ss *WSGService) WSGBonjourGatewayPoliciesService() *WSGBonjourGatewayPolic
 	return serv
 }
 
+// FindRkszonesBonjourGatewayPoliciesById
+//
+// Use this API command to retrieve bonjour gateway policy.
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesById(ctx context.Context, pId string, pZoneId string) (*zone.BonjourGatewayPolicyConfiguration, error) {
 }
 
+// FindRkszonesBonjourGatewayPoliciesByZoneId
+//
+// Use this API command to retrieve a list of bonjour gateway policies.
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, pZoneId string) (*zone.BonjourGatewayPolicyList, error) {
 }

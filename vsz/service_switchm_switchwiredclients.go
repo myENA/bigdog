@@ -24,8 +24,20 @@ func (ss *SwitchMService) SwitchMSwitchWiredClientsService() *SwitchMSwitchWired
 	return serv
 }
 
+// AddSwitchClients
+//
+// Use this API command to retrieve all the wired clients connected to switch, currently managed by SmartZone.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchWiredClientsService) AddSwitchClients(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.ConnectedDevicesQueryList, error) {
 }
 
+// AddSwitchClientsAp
+//
+// Use this API command to retrieve all the Ruckus APs connected to switch, currently managed by SmartZone.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchWiredClientsService) AddSwitchClientsAp(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.ConnectedAPsQueryList, error) {
 }

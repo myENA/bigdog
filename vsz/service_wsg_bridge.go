@@ -24,11 +24,23 @@ func (ss *WSGService) WSGBridgeService() *WSGBridgeService {
 	return serv
 }
 
+// FindProfilesBridge
+//
+// Use this API command to retrieve a list of Bridge profile.
 func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*profile.ProfileList, error) {
 }
 
+// FindProfilesBridgeById
+//
+// Use this API command to retrieve Bridge profile by ID.
 func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, pId string) (*profile.BridgeProfile, error) {
 }
 
+// FindProfilesBridgeByQueryCriteria
+//
+// Use this API command to query a list of Bridge profile.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.BridgeProfileList, error) {
 }

@@ -24,8 +24,17 @@ func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
 	return serv
 }
 
+// FindLwapp2scg
+//
+// Use this API command to retrieve Lwapp Config.
 func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*system.Lwapp2scgConfiguration, error) {
 }
 
+// PartialUpdateLwapp2scgApList
+//
+// Use this API command to modify the apList of the Lwapp Config.
+//
+// Request Body:
+//	 - body *system.ModifyLwapp2scg
 func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context, body *system.ModifyLwapp2scg) (*common.EmptyResult, error) {
 }

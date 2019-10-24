@@ -23,8 +23,14 @@ func (ss *WSGService) WSGEthernetPortProfileService() *WSGEthernetPortProfileSer
 	return serv
 }
 
+// FindRkszonesProfileEthernetPortById
+//
+// Retrieve a Ethernet Port Porfile.
 func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx context.Context, pId string, pZoneId string) (*ethernetport.EthernetPortProfile, error) {
 }
 
+// FindRkszonesProfileEthernetPortByZoneId
+//
+// Retrieve a list of Ethernet Port Porfiles within a zone.
 func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*ethernetport.ProfileList, error) {
 }

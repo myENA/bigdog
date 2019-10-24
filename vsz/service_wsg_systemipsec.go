@@ -23,5 +23,8 @@ func (ss *WSGService) WSGSystemIPsecService() *WSGSystemIPsecService {
 	return serv
 }
 
+// FindSystemIpsec
+//
+// Use this API command to retrieve the System IPSec.
 func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*systemipsec.GetResult, error) {
 }

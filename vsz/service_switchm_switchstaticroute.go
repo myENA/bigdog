@@ -24,11 +24,26 @@ func (ss *SwitchMService) SwitchMSwitchStaticRouteService() *SwitchMSwitchStatic
 	return serv
 }
 
+// AddStaticRoutes
+//
+// Use this API command to Create Static Route.
+//
+// Request Body:
+//	 - body *staticroute.CreateStaticRoute
 func (s *SwitchMSwitchStaticRouteService) AddStaticRoutes(ctx context.Context, body *staticroute.CreateStaticRoute) (*common.CreateResult, error) {
 }
 
+// FindStaticRoutesById
+//
+// Use this API command to Retrieve Static Route.
 func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesById(ctx context.Context, pId string) (*staticroute.StaticRoute, error) {
 }
 
+// FindStaticRoutesByQueryCriteria
+//
+// Use this API command to Retrieve Static Route list.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*staticroute.StaticRoutesQueryResult, error) {
 }

@@ -23,8 +23,14 @@ func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificat
 	return serv
 }
 
+// FindRkszonesRogueApPoliciesById
+//
+// Use this API command to retrieve rogue AP policy.
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ctx context.Context, pId string, pZoneId string) (*profile.RogueApPolicy, error) {
 }
 
+// FindRkszonesRogueApPoliciesByZoneId
+//
+// Use this API command to retrieve a list of rogue AP policy.
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId(ctx context.Context, pZoneId string) (*profile.RogueApPolicyList, error) {
 }

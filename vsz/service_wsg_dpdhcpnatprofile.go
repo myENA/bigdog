@@ -23,8 +23,14 @@ func (ss *WSGService) WSGDPDHCPNATProfileService() *WSGDPDHCPNATProfileService {
 	return serv
 }
 
+// FindDpProfileSettings
+//
+// Use this API command to retrieve DP DHCP & NAT profile setting list.
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) (*dpprofile.DpProfileSettingBOList, error) {
 }
 
+// FindDpProfileSettingsByDpKey
+//
+// Use this API command to retrieve DP DHCP & NAT profile setting.
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Context, pDpKey string) (*dpprofile.DpProfileSettingBO, error) {
 }

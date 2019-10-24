@@ -23,14 +23,26 @@ func (ss *WSGService) WSGAPRegistrationRulesService() *WSGAPRegistrationRulesSer
 	return serv
 }
 
+// FindApRules
+//
+// Use this API command to retrieve a list of AP Registration Rules profile.
 func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*aprules.ApRuleList, error) {
 }
 
+// FindApRulesById
+//
+// Use this API command to retrieve AP Registration Rules profile by ID.
 func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, pId string) (*aprules.ApRuleConfiguration, error) {
 }
 
+// FindApRulesPriorityDownById
+//
+// Use this API command to move Priority Down of AP Registration Rules profile.
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.Context, pId string) error {
 }
 
+// FindApRulesPriorityUpById
+//
+// Use this API command to move Priority Up of AP Registration Rules profile.
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Context, pId string) error {
 }

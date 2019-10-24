@@ -23,5 +23,8 @@ func (ss *SwitchMService) SwitchMSwitchAAASettingsService() *SwitchMSwitchAAASet
 	return serv
 }
 
+// FindAaaSettings
+//
+// Use this API command to retrieve the AAA settings.
 func (s *SwitchMSwitchAAASettingsService) FindAaaSettings(ctx context.Context) (*aaasettings.AaaSettings, error) {
 }

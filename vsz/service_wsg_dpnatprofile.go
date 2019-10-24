@@ -23,14 +23,26 @@ func (ss *WSGService) WSGDPNATProfileService() *WSGDPNATProfileService {
 	return serv
 }
 
+// FindDpNatProfiles
+//
+// Use this API command to retrieve DHCP NAT profile - basic list.
 func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context) (*dpprofile.DpNatProfileBasicBOList, error) {
 }
 
+// FindDpNatProfilesById
+//
+// Use this API command to retrieve DHCP NAT profile - basic.
 func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, pId string) (*dpprofile.DpNatProfileBasicBO, error) {
 }
 
+// FindDpNatProfilesDpNatPoolsById
+//
+// Use this API command to retrieve DP NAT profile - pool list.
 func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Context, pId string) (*dpprofile.DpNatProfilePoolBOList, error) {
 }
 
+// FindDpNatProfilesDpNatPoolsByPoolId
+//
+// Use this API command to retrieve DP DHCP profile - pool.
 func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, pId string, pPoolId string) (*dpprofile.DpNatProfilePoolBO, error) {
 }

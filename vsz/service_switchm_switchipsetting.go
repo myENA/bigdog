@@ -24,11 +24,23 @@ func (ss *SwitchMService) SwitchMSwitchIPSettingService() *SwitchMSwitchIPSettin
 	return serv
 }
 
+// FindIpConfigs
+//
+// Use this API command to Retrieve IP Config List.
 func (s *SwitchMSwitchIPSettingService) FindIpConfigs(ctx context.Context) (*ipconfig.List, error) {
 }
 
+// FindIpConfigsById
+//
+// Use this API command to Retrieve IP Config.
 func (s *SwitchMSwitchIPSettingService) FindIpConfigsById(ctx context.Context, pId string) (*ipconfig.IpConfig, error) {
 }
 
+// FindIpConfigsByQueryCriteria
+//
+// Use this API command to Retrieve IP Config list.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*ipconfig.List, error) {
 }

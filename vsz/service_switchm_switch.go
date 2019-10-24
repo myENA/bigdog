@@ -24,20 +24,50 @@ func (ss *SwitchMService) SwitchMSwitchService() *SwitchMSwitchService {
 	return serv
 }
 
+// AddSwitch
+//
+// Use this API command to retrieve all the switches currently managed by SmartZone.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.SwitchQueryResultList, error) {
 }
 
+// AddSwitchSnmpSyncedSwitch
+//
+// Use this API command to retrieve all the switches currently managed by SmartZone and SNMP synced.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.SwitchQueryResultList, error) {
 }
 
+// AddSwitchViewDetails
+//
+// Use this API command to retrieve switch and port details for the selected Switch/SwitchGroup/Domain.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.StackMemberQueryResult, error) {
 }
 
+// FindSwitchById
+//
+// Use this API command to retrieve a switch status.
 func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, pId string) (*switchmswitch.NetworkSwitch, error) {
 }
 
+// FindSwitchFirmwareBySwitchId
+//
+// Use this API command to get a list of firmware update history.
 func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context, pSwitchId string) (*switchmswitch.FirmwareHistoryQueryResultList, error) {
 }
 
+// UpdateSwitchMoveByDestinationSwitchGroupId
+//
+// Use this API command to move a list of switches to a switch group.
+//
+// Request Body:
+//	 - body switchmswitch.SwitchIdList
 func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body switchmswitch.SwitchIdList, pDestinationSwitchGroupId string) error {
 }

@@ -23,8 +23,14 @@ func (ss *SwitchMService) SwitchMSwitchSpecificSettingsService() *SwitchMSwitchS
 	return serv
 }
 
+// FindSpecificSettings
+//
+// Use this API command to Retrieve all Specific Setting list.
 func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettings(ctx context.Context) (*specificsettings.SpecificSettingsAllResult, error) {
 }
 
+// FindSpecificSettingsById
+//
+// Use this API command to Retrieve Specific Settings.
 func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettingsById(ctx context.Context, pId string) (*specificsettings.SpecificSettings, error) {
 }

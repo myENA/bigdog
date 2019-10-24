@@ -24,11 +24,23 @@ func (ss *WSGService) WSGL2oGREService() *WSGL2oGREService {
 	return serv
 }
 
+// FindProfilesL2ogre
+//
+// Use this API command to retrieve a list of L2oGRE profile.
 func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context) (*profile.ProfileList, error) {
 }
 
+// FindProfilesL2ogreById
+//
+// Use this API command to retrieve L2oGRE profile by ID.
 func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, pId string) (*profile.L2oGREProfile, error) {
 }
 
+// FindProfilesL2ogreByQueryCriteria
+//
+// Use this API command to query a list of L2oGRE profile.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.L2oGREProfileList, error) {
 }

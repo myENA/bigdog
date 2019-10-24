@@ -23,8 +23,14 @@ func (ss *WSGService) WSGL2AccessControlService() *WSGL2AccessControlService {
 	return serv
 }
 
+// FindRkszonesL2ACLById
+//
+// Retrieve an L2 Access Control.
 func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, pId string, pZoneId string) (*portalservice.L2ACL, error) {
 }
 
+// FindRkszonesL2ACLByZoneId
+//
+// Retrieve a list of L2 Access Control.
 func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*portalservice.PortalServiceList, error) {
 }

@@ -23,11 +23,23 @@ func (ss *WSGService) WSGIdentityUserRoleService() *WSGIdentityUserRoleService {
 	return serv
 }
 
+// AddIdentityUserRoleList
+//
+// Use this API command to retrieve a list of identity user role.
+//
+// Request Body:
+//	 - body *identity.QueryCriteria
 func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context, body *identity.QueryCriteria) (*identity.IdentityList, error) {
 }
 
+// FindIdentityUserrole
+//
+// Use this API command to retrieve a list of identity user role.
 func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (*identity.IdentityList, error) {
 }
 
+// FindIdentityUserroleById
+//
+// Use this API command to retrieve identity user role by ID.
 func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Context, pId string) (*identity.IdentityUserRole, error) {
 }

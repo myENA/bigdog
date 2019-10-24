@@ -23,8 +23,14 @@ func (ss *WSGService) WSGEventManagementSettingService() *WSGEventManagementSett
 	return serv
 }
 
+// FindRkszonesEventEmailSettingsByZoneId
+//
+// Get Event E-mail Setting of Zone Override.
 func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneId(ctx context.Context, pZoneId string) (*eventmanagement.EventEmailSetting, error) {
 }
 
+// FindRkszonesEventNotificationSettingsByZoneId
+//
+// Get Event Notification Setting of Zone Override.
 func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettingsByZoneId(ctx context.Context, pZoneId string) (*eventmanagement.EventDataResponse, error) {
 }

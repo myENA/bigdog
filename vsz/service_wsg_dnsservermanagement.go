@@ -24,14 +24,32 @@ func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementSer
 	return serv
 }
 
+// AddProfilesDnsserverCloneById
+//
+// Use this API command to clone an DNS server profile.
+//
+// Request Body:
+//	 - body *profile.ProfileCloneRequest
 func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
 }
 
+// FindProfilesDnsserver
+//
+// Use this API command to retrieve a list of DNS server profile.
 func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Context, qIndex string, qListSize string) (*profile.DnsServerProfileList, error) {
 }
 
+// FindProfilesDnsserverById
+//
+// Use this API command to retrieve DNS server profile.
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Context, pId string) (*profile.DnsServerProfile, error) {
 }
 
+// FindProfilesDnsserverByQueryCriteria
+//
+// Use this API command to retrieve a list of DNS server profile  by query criteria.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.DnsServerProfileList, error) {
 }

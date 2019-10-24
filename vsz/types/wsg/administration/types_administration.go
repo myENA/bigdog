@@ -793,4 +793,3 @@ type ZdImportStatus struct {
 	// State
 	State *string `json:"state,omitempty"`
 }
-

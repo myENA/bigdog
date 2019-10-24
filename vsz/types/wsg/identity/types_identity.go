@@ -695,7 +695,7 @@ type PassValidFor struct {
 	ExpirationValue *int `json:"expirationValue,omitempty"`
 }
 
-type QueryCriteria struct {}
+type QueryCriteria struct{}
 
 type SessionDuration struct {
 	RequireLoginAgain *bool `json:"requireLoginAgain,omitempty"`
@@ -1081,4 +1081,3 @@ type UsernamePasswordCredentialsImplDto struct {
 	// Service Provider Id
 	ServiceProviderId *string `json:"serviceProviderId,omitempty"`
 }
-

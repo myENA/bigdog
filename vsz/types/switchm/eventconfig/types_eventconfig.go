@@ -89,9 +89,10 @@ type GetEventConfigList struct {
 //
 // Extra information of responsed Switch custom event config list
 type GetEventConfigListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *GetEventConfigListExtraType) UnmarshalJSON(b []byte) error {
+func (t *GetEventConfigListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -100,7 +101,7 @@ func(t *GetEventConfigListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *GetEventConfigListExtraType) MarshalJSON() ([]byte, error) {
+func (t *GetEventConfigListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -133,9 +134,10 @@ type QueryResponse struct {
 //
 // Response data message of Public API
 type QueryResponseDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *QueryResponseDataType) UnmarshalJSON(b []byte) error {
+func (t *QueryResponseDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -144,7 +146,7 @@ func(t *QueryResponseDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *QueryResponseDataType) MarshalJSON() ([]byte, error) {
+func (t *QueryResponseDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -155,9 +157,10 @@ func(t *QueryResponseDataType) MarshalJSON() ([]byte, error) {
 //
 // Response error message of Public API
 type QueryResponseErrorType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *QueryResponseErrorType) UnmarshalJSON(b []byte) error {
+func (t *QueryResponseErrorType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -166,7 +169,7 @@ func(t *QueryResponseErrorType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *QueryResponseErrorType) MarshalJSON() ([]byte, error) {
+func (t *QueryResponseErrorType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -177,9 +180,10 @@ func(t *QueryResponseErrorType) MarshalJSON() ([]byte, error) {
 //
 // Extra information of Public API response
 type QueryResponseExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *QueryResponseExtraType) UnmarshalJSON(b []byte) error {
+func (t *QueryResponseExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -188,7 +192,7 @@ func(t *QueryResponseExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *QueryResponseExtraType) MarshalJSON() ([]byte, error) {
+func (t *QueryResponseExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -199,9 +203,10 @@ func(t *QueryResponseExtraType) MarshalJSON() ([]byte, error) {
 //
 // Meta-data of Public API response
 type QueryResponseMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *QueryResponseMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *QueryResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -210,7 +215,7 @@ func(t *QueryResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *QueryResponseMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *QueryResponseMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -224,4 +229,3 @@ type UpdateEventConfig struct {
 type UpdateEventConfigResult struct {
 	*QueryResponse
 }
-

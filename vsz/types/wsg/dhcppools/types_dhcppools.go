@@ -72,4 +72,3 @@ type DhcpPools struct {
 
 	TenantId *string `json:"tenantId,omitempty"`
 }
-

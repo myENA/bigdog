@@ -154,9 +154,10 @@ type NorthboundDataStreamingProfileList struct {
 
 	List []*NorthboundDataStreamingProfile `json:"list,omitempty"`
 
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *NorthboundDataStreamingProfileList) UnmarshalJSON(b []byte) error {
+func (t *NorthboundDataStreamingProfileList) UnmarshalJSON(b []byte) error {
 	tmpt := new(NorthboundDataStreamingProfileList)
 	if err := json.Unmarshal(b, tmpt); err != nil {
 		return err
@@ -172,7 +173,7 @@ func(t *NorthboundDataStreamingProfileList) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *NorthboundDataStreamingProfileList) MarshalJSON() ([]byte, error) {
+func (t *NorthboundDataStreamingProfileList) MarshalJSON() ([]byte, error) {
 	if t == nil {
 		return nil, nil
 	}
@@ -230,4 +231,3 @@ type NorthboundDataStreamingSettings struct {
 	// Zone Ids for 'streamingByDomainZoneEnabled' settings
 	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
 }
-

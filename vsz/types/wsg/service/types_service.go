@@ -2026,4 +2026,3 @@ type TestingConfigLoginRequestType struct {
 	// name for test user
 	UserName *string `json:"userName,omitempty"`
 }
-

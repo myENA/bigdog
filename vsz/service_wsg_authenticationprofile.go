@@ -9,36 +9,35 @@ import (
 )
 
 type WSGAuthenticationProfileService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGAuthenticationProfileService (client *Client) *WSGAuthenticationProfileService {
-    s := new(WSGAuthenticationProfileService)
-    s.client = client
-    return s
+func NewWSGAuthenticationProfileService(client *Client) *WSGAuthenticationProfileService {
+	s := new(WSGAuthenticationProfileService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGAuthenticationProfileService () *WSGAuthenticationProfileService {
-    serv := new(WSGAuthenticationProfileService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfileService {
+	serv := new(WSGAuthenticationProfileService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById (ctx context.Context, id string) (*profile.ProfileCloneResponse, error) {
+func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuth (ctx context.Context) (*profile.AuthenticationProfileList, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context) (*profile.AuthenticationProfileList, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList (ctx context.Context) (*profile.BaseServiceInfoList, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx context.Context, qType string) (*profile.BaseServiceInfoList, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQueryCriteria (ctx context.Context) (*profile.BaseServiceInfoList, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.BaseServiceInfoList, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuthById (ctx context.Context, id string) (*profile.AuthenticationProfile, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Context, pId string) (*profile.AuthenticationProfile, error) {
 }
 
-func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria (ctx context.Context) (*profile.AuthenticationProfileList, error) {
+func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.AuthenticationProfileList, error) {
 }
-

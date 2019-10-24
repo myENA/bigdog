@@ -43,4 +43,3 @@ type SingleAlarm struct {
 
 	Severity *string `json:"severity,omitempty"`
 }
-

@@ -94,9 +94,10 @@ type MeshNodeInfoList struct {
 //
 // Any additional response data.
 type MeshNodeInfoListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *MeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
+func (t *MeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -105,7 +106,7 @@ func(t *MeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *MeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
+func (t *MeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -125,4 +126,3 @@ type UpdateAPZeroTouch struct {
 	//    - oneof:[Accept,Reject]
 	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Accept Reject"`
 }
-

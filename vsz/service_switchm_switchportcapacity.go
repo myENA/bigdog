@@ -8,21 +8,20 @@ import (
 )
 
 type SwitchMSwitchPortCapacityService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchPortCapacityService (client *Client) *SwitchMSwitchPortCapacityService {
-    s := new(SwitchMSwitchPortCapacityService)
-    s.client = client
-    return s
+func NewSwitchMSwitchPortCapacityService(client *Client) *SwitchMSwitchPortCapacityService {
+	s := new(SwitchMSwitchPortCapacityService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchPortCapacityService () *SwitchMSwitchPortCapacityService {
-    serv := new(SwitchMSwitchPortCapacityService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchPortCapacityService() *SwitchMSwitchPortCapacityService {
+	serv := new(SwitchMSwitchPortCapacityService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchPortCapacityService) FindPortCapacity (ctx context.Context) (*portcapacity.Result, error) {
+func (s *SwitchMSwitchPortCapacityService) FindPortCapacity(ctx context.Context) (*portcapacity.Result, error) {
 }
-

@@ -322,7 +322,7 @@ type PatchScgUserGroup struct {
 	Users []*GetScgUser `json:"users,omitempty"`
 }
 
-type QueryCriteria struct {}
+type QueryCriteria struct{}
 
 type ScgUserAuditId struct {
 	// Id
@@ -564,4 +564,3 @@ type ScgUserList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

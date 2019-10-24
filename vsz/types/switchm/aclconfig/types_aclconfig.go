@@ -84,9 +84,10 @@ type ACLConfigsQueryResult struct {
 //
 // Any additional response data
 type ACLConfigsQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *ACLConfigsQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *ACLConfigsQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -95,7 +96,7 @@ func(t *ACLConfigsQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *ACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *ACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -177,9 +178,10 @@ type CreateACLConfig struct {
 }
 
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *EmptyResult) UnmarshalJSON(b []byte) error {
+func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -188,7 +190,7 @@ func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *EmptyResult) MarshalJSON() ([]byte, error) {
+func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -216,4 +218,3 @@ type UpdateACLConfig struct {
 	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 }
-

@@ -113,4 +113,3 @@ type TcWithQuota struct {
 
 	TcRemainingQuota *string `json:"tcRemainingQuota,omitempty"`
 }
-

@@ -128,4 +128,3 @@ type WlanScheduleList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

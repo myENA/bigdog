@@ -202,9 +202,10 @@ type SciProfileList struct {
 
 	List []*SciProfile `json:"list,omitempty"`
 
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *SciProfileList) UnmarshalJSON(b []byte) error {
+func (t *SciProfileList) UnmarshalJSON(b []byte) error {
 	tmpt := new(SciProfileList)
 	if err := json.Unmarshal(b, tmpt); err != nil {
 		return err
@@ -220,7 +221,7 @@ func(t *SciProfileList) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *SciProfileList) MarshalJSON() ([]byte, error) {
+func (t *SciProfileList) MarshalJSON() ([]byte, error) {
 	if t == nil {
 		return nil, nil
 	}
@@ -244,4 +245,3 @@ type SciProfileListExtraType struct {
 	// SCI password of the SCI profile for SZ/SCI interface
 	SciEnabled *bool `json:"sciEnabled,omitempty"`
 }
-

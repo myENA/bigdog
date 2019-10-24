@@ -9,24 +9,23 @@ import (
 )
 
 type SwitchMSwitchWiredClientsService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchWiredClientsService (client *Client) *SwitchMSwitchWiredClientsService {
-    s := new(SwitchMSwitchWiredClientsService)
-    s.client = client
-    return s
+func NewSwitchMSwitchWiredClientsService(client *Client) *SwitchMSwitchWiredClientsService {
+	s := new(SwitchMSwitchWiredClientsService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchWiredClientsService () *SwitchMSwitchWiredClientsService {
-    serv := new(SwitchMSwitchWiredClientsService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchWiredClientsService() *SwitchMSwitchWiredClientsService {
+	serv := new(SwitchMSwitchWiredClientsService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchWiredClientsService) AddSwitchClients (ctx context.Context) (*switchmswitch.ConnectedDevicesQueryList, error) {
+func (s *SwitchMSwitchWiredClientsService) AddSwitchClients(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.ConnectedDevicesQueryList, error) {
 }
 
-func (s *SwitchMSwitchWiredClientsService) AddSwitchClientsAp (ctx context.Context) (*switchmswitch.ConnectedAPsQueryList, error) {
+func (s *SwitchMSwitchWiredClientsService) AddSwitchClientsAp(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.ConnectedAPsQueryList, error) {
 }
-

@@ -5,4 +5,3 @@ package aproutinestatusinterval
 type ApRoutineStatusIntervalRsp struct {
 	ApRoutineStatusInterval *int `json:"apRoutineStatusInterval,omitempty"`
 }
-

@@ -41,4 +41,3 @@ type RuckusSessions struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

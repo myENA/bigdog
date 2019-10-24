@@ -197,4 +197,3 @@ type SyslogServerSetting struct {
 
 	SecondaryServer *SecondaryServer `json:"secondaryServer,omitempty"`
 }
-

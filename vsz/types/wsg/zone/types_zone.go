@@ -907,7 +907,7 @@ type ModifyZone struct {
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
-type QueryCriteria struct {}
+type QueryCriteria struct{}
 
 type Rogue struct {
 	// MaliciousTypes
@@ -1348,4 +1348,3 @@ type ZoneSummary struct {
 	// Name of the zone
 	ServiceName *string `json:"serviceName,omitempty"`
 }
-

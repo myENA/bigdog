@@ -40,9 +40,10 @@ type Result struct {
 //
 // Extra field
 type ResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *ResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *ResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -51,10 +52,9 @@ func(t *ResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *ResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *ResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
-

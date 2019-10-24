@@ -58,4 +58,3 @@ type ApPacketCaptureRes struct {
 	// MAC filter
 	IncludedMac *string `json:"includedMac,omitempty"`
 }
-

@@ -100,4 +100,3 @@ type ModifyDomain struct {
 	// Zero Touch enable/disable
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
-

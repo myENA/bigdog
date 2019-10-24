@@ -9,24 +9,23 @@ import (
 )
 
 type SwitchMSwitchPortsService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchPortsService (client *Client) *SwitchMSwitchPortsService {
-    s := new(SwitchMSwitchPortsService)
-    s.client = client
-    return s
+func NewSwitchMSwitchPortsService(client *Client) *SwitchMSwitchPortsService {
+	s := new(SwitchMSwitchPortsService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchPortsService () *SwitchMSwitchPortsService {
-    serv := new(SwitchMSwitchPortsService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchPortsService() *SwitchMSwitchPortsService {
+	serv := new(SwitchMSwitchPortsService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchPortsService) AddSwitchPortsDetails (ctx context.Context) (*switchmswitch.PortDetailsQueryResultList, error) {
+func (s *SwitchMSwitchPortsService) AddSwitchPortsDetails(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.PortDetailsQueryResultList, error) {
 }
 
-func (s *SwitchMSwitchPortsService) AddSwitchPortsSummary (ctx context.Context) (*switchmswitch.SwitchPortsSummaryQueryResultList, error) {
+func (s *SwitchMSwitchPortsService) AddSwitchPortsSummary(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.SwitchPortsSummaryQueryResultList, error) {
 }
-

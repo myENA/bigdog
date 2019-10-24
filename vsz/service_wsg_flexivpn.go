@@ -9,24 +9,23 @@ import (
 )
 
 type WSGFlexiVPNService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGFlexiVPNService (client *Client) *WSGFlexiVPNService {
-    s := new(WSGFlexiVPNService)
-    s.client = client
-    return s
+func NewWSGFlexiVPNService(client *Client) *WSGFlexiVPNService {
+	s := new(WSGFlexiVPNService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGFlexiVPNService () *WSGFlexiVPNService {
-    serv := new(WSGFlexiVPNService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGFlexiVPNService() *WSGFlexiVPNService {
+	serv := new(WSGFlexiVPNService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById (ctx context.Context, id string, zoneId string) error {
+func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.Context, pId string, pZoneId string) error {
 }
 
-func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria (ctx context.Context) (*profile.FlexiVpnProfileList, error) {
+func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.FlexiVpnProfileList, error) {
 }
-

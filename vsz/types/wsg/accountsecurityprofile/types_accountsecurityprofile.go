@@ -202,4 +202,3 @@ type Update struct {
 	// Enable the two-factor authentication. (This configuration can only be enabled from Web GUI.)
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
-

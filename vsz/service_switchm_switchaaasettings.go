@@ -8,21 +8,20 @@ import (
 )
 
 type SwitchMSwitchAAASettingsService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchAAASettingsService (client *Client) *SwitchMSwitchAAASettingsService {
-    s := new(SwitchMSwitchAAASettingsService)
-    s.client = client
-    return s
+func NewSwitchMSwitchAAASettingsService(client *Client) *SwitchMSwitchAAASettingsService {
+	s := new(SwitchMSwitchAAASettingsService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchAAASettingsService () *SwitchMSwitchAAASettingsService {
-    serv := new(SwitchMSwitchAAASettingsService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchAAASettingsService() *SwitchMSwitchAAASettingsService {
+	serv := new(SwitchMSwitchAAASettingsService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchAAASettingsService) FindAaaSettings (ctx context.Context) (*aaasettings.AaaSettings, error) {
+func (s *SwitchMSwitchAAASettingsService) FindAaaSettings(ctx context.Context) (*aaasettings.AaaSettings, error) {
 }
-

@@ -389,4 +389,3 @@ type UserDefinedProfileList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

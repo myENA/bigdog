@@ -528,9 +528,10 @@ type DoAssignIpSiteApsType struct {
 type Email string
 
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *EmptyResult) UnmarshalJSON(b []byte) error {
+func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -539,7 +540,7 @@ func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *EmptyResult) MarshalJSON() ([]byte, error) {
+func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -736,12 +737,12 @@ type PortalCustomization struct {
 	// Constraints:
 	//    - nullable
 	//    - default:'Terms of Use
-	// 
+	//
 	// By accepting this agreement and accessing the wireless network, you acknowledge that you are of legal age, you have read and understood, and agree to be bound by this agreement.
 	// (*) The wireless network service is provided by the property owners and is completely at their discretion. Your access to the network may be blocked, suspended, or terminated at any time for any reason.
 	// (*) You agree not to use the wireless network for any purpose that is unlawful or otherwise prohibited and you are fully responsible for your use.
 	// (*) The wireless network is provided "as is" without warranties of any kind, either expressed or implied.
-	// 
+	//
 	// This wireless network is powered by Ruckus Wireless.'
 	//    - max:3999
 	//    - min:0
@@ -861,9 +862,10 @@ type QueryCriteriaFiltersType struct {
 //
 // Specified feature required information
 type QueryCriteriaOptionsType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
+func (t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -872,7 +874,7 @@ func(t *QueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
+func (t *QueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -892,7 +894,7 @@ type QueryCriteriaSortInfoType struct {
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
 
-type QueryCriteriaSuperSet struct {}
+type QueryCriteriaSuperSet struct{}
 
 type Radio24 struct {
 	// AutoCellSizing
@@ -1304,4 +1306,3 @@ type WildFQDN string
 //    - default:'RuckusGRE'
 //    - oneof:[No_Tunneled,RuckusGRE,SoftGRE,SoftGREIpsec]
 type ZoneTunnelType string
-

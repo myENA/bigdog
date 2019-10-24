@@ -9,36 +9,35 @@ import (
 )
 
 type WSGBonjourFencingPolicyService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGBonjourFencingPolicyService (client *Client) *WSGBonjourFencingPolicyService {
-    s := new(WSGBonjourFencingPolicyService)
-    s.client = client
-    return s
+func NewWSGBonjourFencingPolicyService(client *Client) *WSGBonjourFencingPolicyService {
+	s := new(WSGBonjourFencingPolicyService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGBonjourFencingPolicyService () *WSGBonjourFencingPolicyService {
-    serv := new(WSGBonjourFencingPolicyService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGBonjourFencingPolicyService() *WSGBonjourFencingPolicyService {
+	serv := new(WSGBonjourFencingPolicyService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy (ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
 }
 
-func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById (ctx context.Context, id string) error {
+func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(ctx context.Context, pId string) error {
 }
 
-func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac (ctx context.Context, apMac string) (*profile.BonjourFencingStatistic, error) {
+func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(ctx context.Context, pApMac string) (*profile.BonjourFencingStatistic, error) {
 }
 
-func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById (ctx context.Context, id string, zoneId string) (*profile.BonjourFencingPolicy, error) {
+func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ctx context.Context, pId string, pZoneId string) (*profile.BonjourFencingPolicy, error) {
 }
 
-func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneId (ctx context.Context, zoneId string) (*profile.BonjourFencingPolicyList, error) {
+func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneId(ctx context.Context, pZoneId string) (*profile.BonjourFencingPolicyList, error) {
 }
 
-func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQueryCriteria (ctx context.Context) (*profile.BonjourFencingPolicyList, error) {
+func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.BonjourFencingPolicyList, error) {
 }
-

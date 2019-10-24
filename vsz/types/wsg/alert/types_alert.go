@@ -15,4 +15,3 @@ type ClearBulkAlarms struct {
 
 	IdList []string `json:"idList,omitempty"`
 }
-

@@ -98,4 +98,3 @@ type DeployLogStatusSummary struct {
 	// Deployment Success Counter
 	Success *int `json:"success,omitempty"`
 }
-

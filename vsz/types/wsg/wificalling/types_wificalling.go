@@ -129,4 +129,3 @@ type WifiCallingPolicyList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

@@ -265,4 +265,3 @@ type Scale struct {
 	//    - oneof:[MM,CM,M,Foot,Yard]
 	Unit *string `json:"unit,omitempty" validate:"omitempty,oneof=MM CM M Foot Yard"`
 }
-

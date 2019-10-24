@@ -111,4 +111,3 @@ type PortalDetectionProfileList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

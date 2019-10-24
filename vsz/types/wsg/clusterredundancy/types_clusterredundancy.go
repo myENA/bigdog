@@ -131,4 +131,3 @@ type UpdateClusterRedundancy struct {
 	// Password of admin account of standby cluster (Active-Standby only)
 	StandbyAdminPassword *string `json:"standbyAdminPassword,omitempty"`
 }
-

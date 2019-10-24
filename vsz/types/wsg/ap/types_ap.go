@@ -834,4 +834,3 @@ type WlanGroup struct {
 	// Name of the WLAN group
 	Name *string `json:"name,omitempty"`
 }
-

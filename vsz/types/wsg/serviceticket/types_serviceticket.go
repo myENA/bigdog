@@ -23,4 +23,3 @@ type LoginResponse struct {
 	// Logon authentication successful, the server generates a service ticket
 	ServiceTicket *string `json:"serviceTicket,omitempty"`
 }
-

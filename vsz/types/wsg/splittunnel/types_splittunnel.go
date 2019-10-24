@@ -90,4 +90,3 @@ type SplitTunnelProfileQuery struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

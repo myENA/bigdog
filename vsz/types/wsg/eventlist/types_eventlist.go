@@ -29,4 +29,3 @@ type SingleEvent struct {
 
 	Severity *string `json:"severity,omitempty"`
 }
-

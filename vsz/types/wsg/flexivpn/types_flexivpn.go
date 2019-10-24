@@ -9,4 +9,3 @@ type FlexiVpnSetting struct {
 	//    - required
 	ZoneAffinityId *string `json:"zoneAffinityId" validate:"required"`
 }
-

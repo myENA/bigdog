@@ -33,4 +33,3 @@ type ApInfo struct {
 }
 
 type ApName string
-

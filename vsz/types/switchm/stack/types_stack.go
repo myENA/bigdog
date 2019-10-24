@@ -321,4 +321,3 @@ type StackConfig struct {
 }
 
 type StackConfigList []*StackConfig
-

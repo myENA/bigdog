@@ -48,4 +48,3 @@ type DhcpMsgStatsDhcpMsgSentStatsType struct {
 
 	DhcpOffer *int `json:"dhcpOffer,omitempty"`
 }
-

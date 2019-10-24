@@ -406,4 +406,3 @@ type TrustedCAChainCertListType struct {
 	// Root data of the trusted CA chain certificates
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
-

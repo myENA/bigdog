@@ -77,4 +77,3 @@ type DeployLogItemDispatchFailedReasonType struct {
 	// Status
 	Message *int `json:"message,omitempty"`
 }
-

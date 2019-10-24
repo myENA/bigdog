@@ -1422,4 +1422,3 @@ type UserDefinedInterfaceList struct {
 	// User defined interface for Control Plane
 	UserDefinedInterface []*CpUserDefinedInterface `json:"userDefinedInterface,omitempty"`
 }
-

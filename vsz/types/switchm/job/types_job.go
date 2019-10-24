@@ -75,9 +75,10 @@ type Job struct {
 }
 
 type JobCsvDataMapType struct {
-	XAdditionalProperties map[string]string `json:"-"`}
+	XAdditionalProperties map[string]string `json:"-"`
+}
 
-func(t *JobCsvDataMapType) UnmarshalJSON(b []byte) error {
+func (t *JobCsvDataMapType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]string)
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -86,7 +87,7 @@ func(t *JobCsvDataMapType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *JobCsvDataMapType) MarshalJSON() ([]byte, error) {
+func (t *JobCsvDataMapType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -129,9 +130,10 @@ type JobScheduleResponse struct {
 //
 // Extra response of job schedule
 type JobScheduleResponseExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *JobScheduleResponseExtraType) UnmarshalJSON(b []byte) error {
+func (t *JobScheduleResponseExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -140,7 +142,7 @@ func(t *JobScheduleResponseExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *JobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
+func (t *JobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -151,9 +153,10 @@ func(t *JobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
 //
 // metaData of job schedule
 type JobScheduleResponseMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *JobScheduleResponseMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *JobScheduleResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -162,7 +165,7 @@ func(t *JobScheduleResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *JobScheduleResponseMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *JobScheduleResponseMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -197,9 +200,10 @@ type List struct {
 //
 // Extra information for job list
 type ListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *ListExtraType) UnmarshalJSON(b []byte) error {
+func (t *ListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -208,10 +212,9 @@ func(t *ListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *ListExtraType) MarshalJSON() ([]byte, error) {
+func (t *ListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
-

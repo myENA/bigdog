@@ -63,4 +63,3 @@ type CreateClientQuery struct {
 
 	WlanType *string `json:"wlanType,omitempty"`
 }
-

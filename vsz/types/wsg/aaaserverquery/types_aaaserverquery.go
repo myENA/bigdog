@@ -87,4 +87,3 @@ type CreateAaaServer struct {
 
 	ZoneUUID *string `json:"zoneUUID,omitempty"`
 }
-

@@ -119,4 +119,3 @@ type PorfileListType struct {
 
 	Name *common.NormalName `json:"name,omitempty"`
 }
-

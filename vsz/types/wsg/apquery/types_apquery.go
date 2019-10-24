@@ -297,4 +297,3 @@ type CreateApQueryIndoorMapXyType struct {
 
 	Y *float64 `json:"y,omitempty"`
 }
-

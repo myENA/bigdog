@@ -13,4 +13,3 @@ type ApRoutineConfigIntervalRsp struct {
 
 	UpperBound *int `json:"upperBound,omitempty"`
 }
-

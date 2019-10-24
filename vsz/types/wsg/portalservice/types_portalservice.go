@@ -944,4 +944,3 @@ type WechatConfiguration struct {
 	// White list of the wechat profile
 	WhiteList []string `json:"whiteList,omitempty"`
 }
-

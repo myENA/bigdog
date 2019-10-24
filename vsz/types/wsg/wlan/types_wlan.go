@@ -1777,4 +1777,3 @@ type WlanVlan struct {
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }
-

@@ -68,4 +68,3 @@ type TestResult struct {
 
 	Wcid *string `json:"wcid,omitempty"`
 }
-

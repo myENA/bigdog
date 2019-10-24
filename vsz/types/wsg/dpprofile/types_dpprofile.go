@@ -447,4 +447,3 @@ type DpProfileSettingBOList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

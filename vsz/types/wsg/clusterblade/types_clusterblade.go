@@ -204,4 +204,3 @@ type UploadPatchInfo struct {
 	// version of uploadPatchInfo
 	Version *string `json:"version,omitempty"`
 }
-

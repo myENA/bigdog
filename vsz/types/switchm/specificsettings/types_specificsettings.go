@@ -57,9 +57,10 @@ type DHCPServer struct {
 }
 
 type EmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *EmptyResult) UnmarshalJSON(b []byte) error {
+func (t *EmptyResult) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -68,7 +69,7 @@ func(t *EmptyResult) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *EmptyResult) MarshalJSON() ([]byte, error) {
+func (t *EmptyResult) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -145,9 +146,10 @@ type SpecificSettingsAllResult struct {
 //
 // Any additional response data
 type SpecificSettingsAllResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *SpecificSettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SpecificSettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -156,7 +158,7 @@ func(t *SpecificSettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *SpecificSettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SpecificSettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -182,4 +184,3 @@ type UpdateSpecificSettings struct {
 	// JumboMode
 	JumboMode *bool `json:"jumboMode,omitempty"`
 }
-

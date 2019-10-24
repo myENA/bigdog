@@ -9,30 +9,29 @@ import (
 )
 
 type WSGDNSServerManagementService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGDNSServerManagementService (client *Client) *WSGDNSServerManagementService {
-    s := new(WSGDNSServerManagementService)
-    s.client = client
-    return s
+func NewWSGDNSServerManagementService(client *Client) *WSGDNSServerManagementService {
+	s := new(WSGDNSServerManagementService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGDNSServerManagementService () *WSGDNSServerManagementService {
-    serv := new(WSGDNSServerManagementService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementService {
+	serv := new(WSGDNSServerManagementService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById (ctx context.Context, id string) (*profile.ProfileCloneResponse, error) {
+func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
 }
 
-func (s *WSGDNSServerManagementService) FindProfilesDnsserver (ctx context.Context) (*profile.DnsServerProfileList, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Context, qIndex string, qListSize string) (*profile.DnsServerProfileList, error) {
 }
 
-func (s *WSGDNSServerManagementService) FindProfilesDnsserverById (ctx context.Context, id string) (*profile.DnsServerProfile, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Context, pId string) (*profile.DnsServerProfile, error) {
 }
 
-func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria (ctx context.Context) (*profile.DnsServerProfileList, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.DnsServerProfileList, error) {
 }
-

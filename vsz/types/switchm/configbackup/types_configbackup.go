@@ -135,4 +135,3 @@ type QueryCriteria struct {
 }
 
 type SwitchIds []string
-

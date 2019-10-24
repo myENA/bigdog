@@ -133,7 +133,7 @@ type ApGroupSummary struct {
 	Name *string `json:"name,omitempty"`
 }
 
-type CreateAPGroup struct {}
+type CreateAPGroup struct{}
 
 type ModifyAPGroup struct {
 	Altitude *common.Altitude `json:"altitude,omitempty"`
@@ -215,4 +215,3 @@ type ModifyAPGroup struct {
 
 	WlanGroup50 *common.GenericRef `json:"wlanGroup50,omitempty"`
 }
-

@@ -34,9 +34,10 @@ type AggMetrics struct {
 //
 // Extra information for Aggregation Metrics
 type AggMetricsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *AggMetricsExtraType) UnmarshalJSON(b []byte) error {
+func (t *AggMetricsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -45,7 +46,7 @@ func(t *AggMetricsExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *AggMetricsExtraType) MarshalJSON() ([]byte, error) {
+func (t *AggMetricsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -94,9 +95,10 @@ type IcxMetrics struct {
 //
 // Extra information for ICX Metrics
 type IcxMetricsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *IcxMetricsExtraType) UnmarshalJSON(b []byte) error {
+func (t *IcxMetricsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -105,7 +107,7 @@ func(t *IcxMetricsExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *IcxMetricsExtraType) MarshalJSON() ([]byte, error) {
+func (t *IcxMetricsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -193,4 +195,3 @@ type StatusTemperatureType struct {
 	// Slot temperature
 	TemperatureValue *float64 `json:"temperatureValue,omitempty"`
 }
-

@@ -313,4 +313,3 @@ type WlanExternalDpskEncryptionType struct {
 	//    - oneof:[WPA2,WPA_Mixed,None]
 	Method *string `json:"method,omitempty" validate:"omitempty,oneof=WPA2 WPA_Mixed None"`
 }
-

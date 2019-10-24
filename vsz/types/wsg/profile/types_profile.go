@@ -3917,4 +3917,3 @@ type VlanPrecedenceItem struct {
 type ZoneAffinityProfileList struct {
 	List []*ReturnZoneAffinityProfile `json:"list,omitempty"`
 }
-

@@ -76,9 +76,10 @@ type MeshNeighborInfoList struct {
 //
 // Any additional response data.
 type MeshNeighborInfoListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *MeshNeighborInfoListExtraType) UnmarshalJSON(b []byte) error {
+func (t *MeshNeighborInfoListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -87,10 +88,9 @@ func(t *MeshNeighborInfoListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *MeshNeighborInfoListExtraType) MarshalJSON() ([]byte, error) {
+func (t *MeshNeighborInfoListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
-

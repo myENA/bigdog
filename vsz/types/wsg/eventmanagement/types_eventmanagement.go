@@ -81,4 +81,3 @@ type SingleEventSetting struct {
 	// Enable/Disable override event system settings
 	ZoneOverride *bool `json:"zoneOverride,omitempty"`
 }
-

@@ -38,9 +38,10 @@ type ClientObjectID struct {
 //
 // Extra values of the client
 type ClientObjectIDExtraValuesType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *ClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
+func (t *ClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -49,7 +50,7 @@ func(t *ClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
+func (t *ClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -120,9 +121,10 @@ type GroupsByIdsQueryResultList struct {
 //
 // Any additional response
 type GroupsByIdsQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *GroupsByIdsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *GroupsByIdsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -131,7 +133,7 @@ func(t *GroupsByIdsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *GroupsByIdsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *GroupsByIdsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -142,9 +144,10 @@ func(t *GroupsByIdsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 //
 // Metadata of query result list
 type GroupsByIdsQueryResultListMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *GroupsByIdsQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *GroupsByIdsQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -153,7 +156,7 @@ func(t *GroupsByIdsQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *GroupsByIdsQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *GroupsByIdsQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -188,9 +191,10 @@ type QueryResultList struct {
 //
 // Extra information for query result list
 type QueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *QueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *QueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -199,7 +203,7 @@ func(t *QueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *QueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *QueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -268,9 +272,10 @@ type SwitchGroupQueryResult struct {
 //
 // Sampled instant of the switch group
 type SwitchGroupSampledInstantType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *SwitchGroupSampledInstantType) UnmarshalJSON(b []byte) error {
+func (t *SwitchGroupSampledInstantType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -279,7 +284,7 @@ func(t *SwitchGroupSampledInstantType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *SwitchGroupSampledInstantType) MarshalJSON() ([]byte, error) {
+func (t *SwitchGroupSampledInstantType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -293,4 +298,3 @@ type UpdateSwitchGroup struct {
 type UpdateSwitchGroupResult struct {
 	*AuditId
 }
-

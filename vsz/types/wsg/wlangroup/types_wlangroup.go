@@ -123,4 +123,3 @@ type WlanMember struct {
 
 	VlanPooling *common.GenericRef `json:"vlanPooling,omitempty"`
 }
-

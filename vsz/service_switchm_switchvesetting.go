@@ -9,27 +9,26 @@ import (
 )
 
 type SwitchMSwitchVESettingService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchVESettingService (client *Client) *SwitchMSwitchVESettingService {
-    s := new(SwitchMSwitchVESettingService)
-    s.client = client
-    return s
+func NewSwitchMSwitchVESettingService(client *Client) *SwitchMSwitchVESettingService {
+	s := new(SwitchMSwitchVESettingService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchVESettingService () *SwitchMSwitchVESettingService {
-    serv := new(SwitchMSwitchVESettingService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchVESettingService() *SwitchMSwitchVESettingService {
+	serv := new(SwitchMSwitchVESettingService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchVESettingService) FindVeConfigs (ctx context.Context) (*veconfig.List, error) {
+func (s *SwitchMSwitchVESettingService) FindVeConfigs(ctx context.Context) (*veconfig.List, error) {
 }
 
-func (s *SwitchMSwitchVESettingService) FindVeConfigsById (ctx context.Context, id string) (*veconfig.VeConfig, error) {
+func (s *SwitchMSwitchVESettingService) FindVeConfigsById(ctx context.Context, pId string) (*veconfig.VeConfig, error) {
 }
 
-func (s *SwitchMSwitchVESettingService) FindVeConfigsByQueryCriteria (ctx context.Context) (*veconfig.List, error) {
+func (s *SwitchMSwitchVESettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*veconfig.List, error) {
 }
-

@@ -8,24 +8,23 @@ import (
 )
 
 type SwitchMSwitchAAAServersService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchAAAServersService (client *Client) *SwitchMSwitchAAAServersService {
-    s := new(SwitchMSwitchAAAServersService)
-    s.client = client
-    return s
+func NewSwitchMSwitchAAAServersService(client *Client) *SwitchMSwitchAAAServersService {
+	s := new(SwitchMSwitchAAAServersService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchAAAServersService () *SwitchMSwitchAAAServersService {
-    serv := new(SwitchMSwitchAAAServersService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchAAAServersService() *SwitchMSwitchAAAServersService {
+	serv := new(SwitchMSwitchAAAServersService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchAAAServersService) FindAaaServersAdmin (ctx context.Context) (*aaaservers.AaaServersQueryResult, error) {
+func (s *SwitchMSwitchAAAServersService) FindAaaServersAdmin(ctx context.Context) (*aaaservers.AaaServersQueryResult, error) {
 }
 
-func (s *SwitchMSwitchAAAServersService) FindAaaServersAdminById (ctx context.Context, id string) (*aaaservers.AAAServer, error) {
+func (s *SwitchMSwitchAAAServersService) FindAaaServersAdminById(ctx context.Context, pId string) (*aaaservers.AAAServer, error) {
 }
-

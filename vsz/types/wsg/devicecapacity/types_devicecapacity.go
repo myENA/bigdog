@@ -51,4 +51,3 @@ type DevicesSummary struct {
 	// total connected switches in the cluster.
 	TotalSwitches *int `json:"totalSwitches,omitempty"`
 }
-

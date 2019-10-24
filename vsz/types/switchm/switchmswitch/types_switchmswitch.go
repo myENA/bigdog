@@ -59,9 +59,10 @@ type ConnectedAPsQueryList struct {
 //
 // Any additional response data
 type ConnectedAPsQueryListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *ConnectedAPsQueryListExtraType) UnmarshalJSON(b []byte) error {
+func (t *ConnectedAPsQueryListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -70,7 +71,7 @@ func(t *ConnectedAPsQueryListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *ConnectedAPsQueryListExtraType) MarshalJSON() ([]byte, error) {
+func (t *ConnectedAPsQueryListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -159,9 +160,10 @@ type ConnectedDevice struct {
 //
 // Sampled instant
 type ConnectedDeviceSampledInstantType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *ConnectedDeviceSampledInstantType) UnmarshalJSON(b []byte) error {
+func (t *ConnectedDeviceSampledInstantType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -170,7 +172,7 @@ func(t *ConnectedDeviceSampledInstantType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *ConnectedDeviceSampledInstantType) MarshalJSON() ([]byte, error) {
+func (t *ConnectedDeviceSampledInstantType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -205,9 +207,10 @@ type ConnectedDevicesQueryList struct {
 //
 // Any additional response data
 type ConnectedDevicesQueryListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *ConnectedDevicesQueryListExtraType) UnmarshalJSON(b []byte) error {
+func (t *ConnectedDevicesQueryListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -216,7 +219,7 @@ func(t *ConnectedDevicesQueryListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *ConnectedDevicesQueryListExtraType) MarshalJSON() ([]byte, error) {
+func (t *ConnectedDevicesQueryListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -251,9 +254,10 @@ type DeleteSwitchesResultList struct {
 //
 // Any additional response data
 type DeleteSwitchesResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *DeleteSwitchesResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *DeleteSwitchesResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -262,7 +266,7 @@ func(t *DeleteSwitchesResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *DeleteSwitchesResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *DeleteSwitchesResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -311,9 +315,10 @@ type FirmwareHistoryQueryResultList struct {
 //
 // Any additional response data
 type FirmwareHistoryQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *FirmwareHistoryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *FirmwareHistoryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -322,7 +327,7 @@ func(t *FirmwareHistoryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *FirmwareHistoryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *FirmwareHistoryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -804,9 +809,10 @@ type PortDetailsQueryResultList struct {
 //
 // Any additional response data
 type PortDetailsQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *PortDetailsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *PortDetailsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -815,7 +821,7 @@ func(t *PortDetailsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *PortDetailsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *PortDetailsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -927,9 +933,10 @@ type StackMemberQueryResult struct {
 //
 // Extra information for stack member list
 type StackMemberQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *StackMemberQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *StackMemberQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -938,7 +945,7 @@ func(t *StackMemberQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *StackMemberQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *StackMemberQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -975,9 +982,10 @@ type SwitchPortsSummaryQueryResultList struct {
 //
 // Any additional response data
 type SwitchPortsSummaryQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *SwitchPortsSummaryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchPortsSummaryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -986,7 +994,7 @@ func(t *SwitchPortsSummaryQueryResultListExtraType) UnmarshalJSON(b []byte) erro
 	return nil
 }
 
-func(t *SwitchPortsSummaryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchPortsSummaryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -1043,9 +1051,10 @@ type TopSwitchesByFirmwareQueryResultList struct {
 //
 // Any additional response data
 type TopSwitchesByFirmwareQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *TopSwitchesByFirmwareQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *TopSwitchesByFirmwareQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -1054,7 +1063,7 @@ func(t *TopSwitchesByFirmwareQueryResultListExtraType) UnmarshalJSON(b []byte) e
 	return nil
 }
 
-func(t *TopSwitchesByFirmwareQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *TopSwitchesByFirmwareQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -1089,9 +1098,10 @@ type TopSwitchesByModelQueryResultList struct {
 //
 // Any additional response data
 type TopSwitchesByModelQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *TopSwitchesByModelQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *TopSwitchesByModelQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -1100,10 +1110,9 @@ func(t *TopSwitchesByModelQueryResultListExtraType) UnmarshalJSON(b []byte) erro
 	return nil
 }
 
-func(t *TopSwitchesByModelQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *TopSwitchesByModelQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
-

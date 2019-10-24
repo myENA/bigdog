@@ -231,4 +231,3 @@ type UrlFilteringPolicyList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

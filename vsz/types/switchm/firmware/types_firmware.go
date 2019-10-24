@@ -38,9 +38,10 @@ type FirmwaresQueryResultList struct {
 //
 // Extra information for Firmware list
 type FirmwaresQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *FirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *FirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -49,7 +50,7 @@ func(t *FirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *FirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *FirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -84,9 +85,10 @@ type ScheduleIds struct {
 //
 // Extra information for Schedule Ids list
 type ScheduleIdsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *ScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
+func (t *ScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -95,7 +97,7 @@ func(t *ScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *ScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
+func (t *ScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -119,4 +121,3 @@ type SwitchModel struct {
 	// Name of the Switch Model
 	Name *string `json:"name,omitempty"`
 }
-

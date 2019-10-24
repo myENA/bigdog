@@ -693,4 +693,3 @@ type TestAuthenticationServer struct {
 	//    - required
 	UserName *string `json:"userName" validate:"required"`
 }
-

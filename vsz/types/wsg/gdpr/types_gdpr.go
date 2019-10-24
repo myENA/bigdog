@@ -49,4 +49,3 @@ type Report struct {
 
 	Ftp *Ftp `json:"ftp,omitempty"`
 }
-

@@ -9,24 +9,23 @@ import (
 )
 
 type WSGLWAPPTOSCGService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGLWAPPTOSCGService (client *Client) *WSGLWAPPTOSCGService {
-    s := new(WSGLWAPPTOSCGService)
-    s.client = client
-    return s
+func NewWSGLWAPPTOSCGService(client *Client) *WSGLWAPPTOSCGService {
+	s := new(WSGLWAPPTOSCGService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGLWAPPTOSCGService () *WSGLWAPPTOSCGService {
-    serv := new(WSGLWAPPTOSCGService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
+	serv := new(WSGLWAPPTOSCGService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGLWAPPTOSCGService) FindLwapp2scg (ctx context.Context) (*system.Lwapp2scgConfiguration, error) {
+func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*system.Lwapp2scgConfiguration, error) {
 }
 
-func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList (ctx context.Context) (*common.EmptyResult, error) {
+func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context, body *system.ModifyLwapp2scg) (*common.EmptyResult, error) {
 }
-

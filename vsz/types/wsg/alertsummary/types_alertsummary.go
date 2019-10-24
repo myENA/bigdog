@@ -25,4 +25,3 @@ type EventSummary struct {
 
 	WarningCount *int `json:"warningCount,omitempty"`
 }
-

@@ -8,21 +8,20 @@ import (
 )
 
 type WSGDataPlaneOperationalService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGDataPlaneOperationalService (client *Client) *WSGDataPlaneOperationalService {
-    s := new(WSGDataPlaneOperationalService)
-    s.client = client
-    return s
+func NewWSGDataPlaneOperationalService(client *Client) *WSGDataPlaneOperationalService {
+	s := new(WSGDataPlaneOperationalService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGDataPlaneOperationalService () *WSGDataPlaneOperationalService {
-    serv := new(WSGDataPlaneOperationalService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGDataPlaneOperationalService() *WSGDataPlaneOperationalService {
+	serv := new(WSGDataPlaneOperationalService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster (ctx context.Context) (*dp.EmptyResult, error) {
+func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *dp.SwitchoverDp) (*dp.EmptyResult, error) {
 }
-

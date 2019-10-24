@@ -137,4 +137,3 @@ type WlanQueryList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

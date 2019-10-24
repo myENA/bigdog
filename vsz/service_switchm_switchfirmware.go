@@ -8,27 +8,26 @@ import (
 )
 
 type SwitchMSwitchFirmwareService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchFirmwareService (client *Client) *SwitchMSwitchFirmwareService {
-    s := new(SwitchMSwitchFirmwareService)
-    s.client = client
-    return s
+func NewSwitchMSwitchFirmwareService(client *Client) *SwitchMSwitchFirmwareService {
+	s := new(SwitchMSwitchFirmwareService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchFirmwareService () *SwitchMSwitchFirmwareService {
-    serv := new(SwitchMSwitchFirmwareService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchFirmwareService() *SwitchMSwitchFirmwareService {
+	serv := new(SwitchMSwitchFirmwareService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchFirmwareService) AddFirmwareUpload (ctx context.Context) error {
+func (s *SwitchMSwitchFirmwareService) AddFirmwareUpload(ctx context.Context) error {
 }
 
-func (s *SwitchMSwitchFirmwareService) DeleteFirmwareByVersion (ctx context.Context, version string) error {
+func (s *SwitchMSwitchFirmwareService) DeleteFirmwareByVersion(ctx context.Context, pVersion string) error {
 }
 
-func (s *SwitchMSwitchFirmwareService) FindFirmware (ctx context.Context) (*firmware.AllFirmwaresQueryResultList, error) {
+func (s *SwitchMSwitchFirmwareService) FindFirmware(ctx context.Context) (*firmware.AllFirmwaresQueryResultList, error) {
 }
-

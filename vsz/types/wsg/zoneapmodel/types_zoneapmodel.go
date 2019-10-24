@@ -66,4 +66,3 @@ type LanPortSetting struct {
 	//    - oneof:[LAN1,LAN2,LAN3,LAN4,LAN5]
 	PortName *string `json:"portName" validate:"required,oneof=LAN1 LAN2 LAN3 LAN4 LAN5"`
 }
-

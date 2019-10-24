@@ -119,4 +119,3 @@ type HistoricalClientList struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

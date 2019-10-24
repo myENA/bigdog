@@ -8,24 +8,23 @@ import (
 )
 
 type WSGRealTimeLocationServiceProfileService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGRealTimeLocationServiceProfileService (client *Client) *WSGRealTimeLocationServiceProfileService {
-    s := new(WSGRealTimeLocationServiceProfileService)
-    s.client = client
-    return s
+func NewWSGRealTimeLocationServiceProfileService(client *Client) *WSGRealTimeLocationServiceProfileService {
+	s := new(WSGRealTimeLocationServiceProfileService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGRealTimeLocationServiceProfileService () *WSGRealTimeLocationServiceProfileService {
-    serv := new(WSGRealTimeLocationServiceProfileService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGRealTimeLocationServiceProfileService() *WSGRealTimeLocationServiceProfileService {
+	serv := new(WSGRealTimeLocationServiceProfileService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById (ctx context.Context, id string, zoneId string) (*profile.CreateRtlsProfile, error) {
+func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById(ctx context.Context, pId string, pZoneId string) (*profile.CreateRtlsProfile, error) {
 }
 
-func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId (ctx context.Context, zoneId string) (*profile.RtlsProfileList, error) {
+func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, pZoneId string) (*profile.RtlsProfileList, error) {
 }
-

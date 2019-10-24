@@ -9,27 +9,26 @@ import (
 )
 
 type SwitchMSwitchLAGSettingService struct {
-    client *Client
+	client *Client
 }
 
-func NewSwitchMSwitchLAGSettingService (client *Client) *SwitchMSwitchLAGSettingService {
-    s := new(SwitchMSwitchLAGSettingService)
-    s.client = client
-    return s
+func NewSwitchMSwitchLAGSettingService(client *Client) *SwitchMSwitchLAGSettingService {
+	s := new(SwitchMSwitchLAGSettingService)
+	s.client = client
+	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchLAGSettingService () *SwitchMSwitchLAGSettingService {
-    serv := new(SwitchMSwitchLAGSettingService)
-    serv.client = ss.client
-    return serv
+func (ss *SwitchMService) SwitchMSwitchLAGSettingService() *SwitchMSwitchLAGSettingService {
+	serv := new(SwitchMSwitchLAGSettingService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *SwitchMSwitchLAGSettingService) FindLagConfigs (ctx context.Context) (*lagconfig.List, error) {
+func (s *SwitchMSwitchLAGSettingService) FindLagConfigs(ctx context.Context) (*lagconfig.List, error) {
 }
 
-func (s *SwitchMSwitchLAGSettingService) FindLagConfigsById (ctx context.Context, id string) (*lagconfig.LagConfig, error) {
+func (s *SwitchMSwitchLAGSettingService) FindLagConfigsById(ctx context.Context, pId string) (*lagconfig.LagConfig, error) {
 }
 
-func (s *SwitchMSwitchLAGSettingService) FindLagConfigsByQueryCriteria (ctx context.Context) (*lagconfig.List, error) {
+func (s *SwitchMSwitchLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*lagconfig.List, error) {
 }
-

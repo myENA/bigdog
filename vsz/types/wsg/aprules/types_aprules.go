@@ -131,4 +131,3 @@ type Subnet struct {
 	// subnetMask
 	SubnetMask *string `json:"subnetMask,omitempty"`
 }
-

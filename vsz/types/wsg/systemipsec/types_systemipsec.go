@@ -157,4 +157,3 @@ type Update struct {
 
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
-

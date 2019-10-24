@@ -35,4 +35,3 @@ type CaleaMacListRsp struct {
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
-

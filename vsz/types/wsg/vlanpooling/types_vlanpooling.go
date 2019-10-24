@@ -122,4 +122,3 @@ type VlanPoolingListType struct {
 	// VLANs of the VLAN pooling profile
 	Pool *string `json:"pool,omitempty"`
 }
-

@@ -86,9 +86,10 @@ type GroupModelConfigQueryResult struct {
 //
 // Any additional response data
 type GroupModelConfigQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *GroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *GroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -97,7 +98,7 @@ func(t *GroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *GroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *GroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
@@ -136,9 +137,10 @@ type UpdateGroupConfigResultList struct {
 //
 // Any additional response data
 type UpdateGroupConfigResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *UpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *UpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -147,10 +149,9 @@ func(t *UpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *UpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *UpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
-

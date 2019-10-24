@@ -78,9 +78,10 @@ type RogueInfoList struct {
 //
 // Any additional response data.
 type RogueInfoListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`}
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
 
-func(t *RogueInfoListExtraType) UnmarshalJSON(b []byte) error {
+func (t *RogueInfoListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
@@ -89,10 +90,9 @@ func(t *RogueInfoListExtraType) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func(t *RogueInfoListExtraType) MarshalJSON() ([]byte, error) {
+func (t *RogueInfoListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
-

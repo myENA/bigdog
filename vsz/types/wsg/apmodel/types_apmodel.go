@@ -307,4 +307,3 @@ type LldpSetting struct {
 
 	ManagementIPTLVEnabled *bool `json:"managementIPTLVEnabled,omitempty"`
 }
-

@@ -9,30 +9,29 @@ import (
 )
 
 type WSGIndoorMapService struct {
-    client *Client
+	client *Client
 }
 
-func NewWSGIndoorMapService (client *Client) *WSGIndoorMapService {
-    s := new(WSGIndoorMapService)
-    s.client = client
-    return s
+func NewWSGIndoorMapService(client *Client) *WSGIndoorMapService {
+	s := new(WSGIndoorMapService)
+	s.client = client
+	return s
 }
 
-func (ss *WSGService) WSGIndoorMapService () *WSGIndoorMapService {
-    serv := new(WSGIndoorMapService)
-    serv.client = ss.client
-    return serv
+func (ss *WSGService) WSGIndoorMapService() *WSGIndoorMapService {
+	serv := new(WSGIndoorMapService)
+	serv.client = ss.client
+	return serv
 }
 
-func (s *WSGIndoorMapService) FindMaps (ctx context.Context) (*indoormap.IndoorMapList, error) {
+func (s *WSGIndoorMapService) FindMaps(ctx context.Context, qGroupId string, qGroupType string) (*indoormap.IndoorMapList, error) {
 }
 
-func (s *WSGIndoorMapService) FindMapsByIndoorMapId (ctx context.Context, indoorMapId string) (*indoormap.IndoorMap, error) {
+func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, pIndoorMapId string) (*indoormap.IndoorMap, error) {
 }
 
-func (s *WSGIndoorMapService) FindMapsByQueryCriteria (ctx context.Context) (*indoormap.IndoorMapList, error) {
+func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*indoormap.IndoorMapList, error) {
 }
 
-func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId (ctx context.Context, indoorMapId string) (*indoormap.IndooMapAuditId, error) {
+func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body indoormap.AccessPointList, pIndoorMapId string) (*indoormap.IndooMapAuditId, error) {
 }
-

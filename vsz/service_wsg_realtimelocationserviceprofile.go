@@ -26,11 +26,21 @@ func (ss *WSGService) WSGRealTimeLocationServiceProfileService() *WSGRealTimeLoc
 // FindRkszonesRealTimeLocationServiceById
 //
 // Use this API command to Get RTLS Profile by profile's ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById(ctx context.Context, pId string, pZoneId string) (*profile.CreateRtlsProfile, error) {
 }
 
 // FindRkszonesRealTimeLocationServiceByZoneId
 //
 // Use this API command to Get RTLS Profile by zone ID.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, pZoneId string) (*profile.RtlsProfileList, error) {
 }

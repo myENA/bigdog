@@ -33,6 +33,10 @@ func (s *SwitchMSwitchLAGSettingService) FindLagConfigs(ctx context.Context) (*l
 // FindLagConfigsById
 //
 // Use this API command to Retrieve Specific LAG Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchLAGSettingService) FindLagConfigsById(ctx context.Context, pId string) (*lagconfig.LagConfig, error) {
 }
 

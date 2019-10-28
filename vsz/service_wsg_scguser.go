@@ -44,5 +44,9 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 // FindUsersByUserId
 //
 // Get SCG user.
+//
+// Path Parameters:
+// - pUserId string
+//		- required
 func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, pUserId string) (*scguser.GetScgUser, error) {
 }

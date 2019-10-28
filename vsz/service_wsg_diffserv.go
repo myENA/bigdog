@@ -26,11 +26,21 @@ func (ss *WSGService) WSGDiffServService() *WSGDiffServService {
 // FindRkszonesDiffservById
 //
 // Use this API command to retrieve DiffServ profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, pId string, pZoneId string) (*zone.DiffServConfiguration, error) {
 }
 
 // FindRkszonesDiffservByZoneId
 //
 // Use this API command to retrieve a list of DiffServ profile.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, pZoneId string) (*zone.DiffServList, error) {
 }

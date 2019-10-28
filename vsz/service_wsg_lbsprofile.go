@@ -36,6 +36,10 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *profile
 // FindProfilesLbsById
 //
 // Retrieve LBS profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, pId string) (*profile.LbsProfile, error) {
 }
 

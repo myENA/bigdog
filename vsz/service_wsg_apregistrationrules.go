@@ -32,17 +32,29 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*aprul
 // FindApRulesById
 //
 // Use this API command to retrieve AP Registration Rules profile by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, pId string) (*aprules.ApRuleConfiguration, error) {
 }
 
 // FindApRulesPriorityDownById
 //
 // Use this API command to move Priority Down of AP Registration Rules profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.Context, pId string) error {
 }
 
 // FindApRulesPriorityUpById
 //
 // Use this API command to move Priority Up of AP Registration Rules profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Context, pId string) error {
 }

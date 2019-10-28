@@ -33,6 +33,10 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx conte
 // FindProfilesTunnelRuckusgreById
 //
 // Use this API command to retrieve RuckusGRE tunnel profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx context.Context, pId string) (*profile.RuckusGREProfile, error) {
 }
 

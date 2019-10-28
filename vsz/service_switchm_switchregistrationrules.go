@@ -35,5 +35,9 @@ func (s *SwitchMSwitchRegistrationRulesService) FindRegistrationRules(ctx contex
 //
 // Request Body:
 //	 - body *registration.RegistrationRule
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchRegistrationRulesService) UpdateRegistrationRulesById(ctx context.Context, body *registration.RegistrationRule, pId string) (*registration.ModifyResult, error) {
 }

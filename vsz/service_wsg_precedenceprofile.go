@@ -27,12 +27,20 @@ func (ss *WSGService) WSGPrecedenceProfileService() *WSGPrecedenceProfileService
 // FindPrecedence
 //
 // Use this API command to Get Precedence Profile list.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, qIndex string, qListSize string) (*profile.PrecedenceList, error) {
 }
 
 // FindPrecedenceById
 //
 // Use this API command to Get Precedence Profile by profile's ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, pId string) (*profile.CreatePrecedenceProfile, error) {
 }
 

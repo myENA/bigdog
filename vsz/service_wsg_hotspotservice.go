@@ -30,6 +30,10 @@ func (ss *WSGService) WSGHotspotServiceService() *WSGHotspotServiceService {
 //
 // Request Body:
 //	 - body *portalservice.CreateHotspotExternal
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx context.Context, body *portalservice.CreateHotspotExternal, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -39,6 +43,10 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx
 //
 // Request Body:
 //	 - body *portalservice.CreateHotspotInternal
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx context.Context, body *portalservice.CreateHotspotInternal, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -48,17 +56,31 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 //
 // Request Body:
 //	 - body *portalservice.CreateHotspotSmartClientOnly
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId(ctx context.Context, body *portalservice.CreateHotspotSmartClientOnly, pZoneId string) (*common.CreateResult, error) {
 }
 
 // FindRkszonesPortalsHotspotById
 //
 // Use this API command to retrieve a Hotspot (WISPr) of zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Context, pId string, pZoneId string) (*portalservice.Hotspot, error) {
 }
 
 // FindRkszonesPortalsHotspotByZoneId
 //
 // Use this API command to retrieve a list of Hotspot (WISPr) of a zone.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
 }

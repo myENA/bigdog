@@ -27,23 +27,45 @@ func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
 // DeleteRkszonesPortalsGuestRedirectById
 //
 // Use this API command to set redirect to the URL that user intends to visit on guest access of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesPortalsGuestSmsGatewayById
 //
 // Use this API command to disable SMS gateway on guest access of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // FindRkszonesPortalsGuestById
 //
 // Use this API command to retrieve guest access of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context, pId string, pZoneId string) (*portalservice.GuestAccess, error) {
 }
 
 // FindRkszonesPortalsGuestByZoneId
 //
 // Use this API command to retrieve a list of guest access of a zone.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
 }

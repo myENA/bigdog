@@ -39,5 +39,9 @@ func (s *SwitchMSwitchGroupModelConfigService) FindGroupModelConfigsByQueryCrite
 //
 // Request Body:
 //	 - body *groupmodelconfig.SelectedIds
+//
+// Path Parameters:
+// - pGroupId string
+//		- required
 func (s *SwitchMSwitchGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *groupmodelconfig.SelectedIds, pGroupId string) (*groupmodelconfig.UpdateGroupConfigResultList, error) {
 }

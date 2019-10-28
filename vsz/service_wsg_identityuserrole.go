@@ -41,5 +41,9 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (
 // FindIdentityUserroleById
 //
 // Use this API command to retrieve identity user role by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Context, pId string) (*identity.IdentityUserRole, error) {
 }

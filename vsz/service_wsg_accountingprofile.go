@@ -30,6 +30,10 @@ func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService
 //
 // Request Body:
 //	 - body *profile.ProfileCloneRequest
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
 }
 
@@ -42,6 +46,10 @@ func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*pr
 // FindProfilesAcctById
 //
 // Use this API command to retrieve an accounting profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, pId string) (*profile.AccountingProfile, error) {
 }
 

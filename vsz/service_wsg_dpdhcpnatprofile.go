@@ -32,5 +32,9 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) 
 // FindDpProfileSettingsByDpKey
 //
 // Use this API command to retrieve DP DHCP & NAT profile setting.
+//
+// Path Parameters:
+// - pDpKey string
+//		- required
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Context, pDpKey string) (*dpprofile.DpProfileSettingBO, error) {
 }

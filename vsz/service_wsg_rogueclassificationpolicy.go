@@ -26,11 +26,21 @@ func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificat
 // FindRkszonesRogueApPoliciesById
 //
 // Use this API command to retrieve rogue AP policy.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ctx context.Context, pId string, pZoneId string) (*profile.RogueApPolicy, error) {
 }
 
 // FindRkszonesRogueApPoliciesByZoneId
 //
 // Use this API command to retrieve a list of rogue AP policy.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId(ctx context.Context, pZoneId string) (*profile.RogueApPolicyList, error) {
 }

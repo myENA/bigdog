@@ -30,6 +30,10 @@ func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfil
 //
 // Request Body:
 //	 - body *profile.ProfileCloneRequest
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
 }
 
@@ -42,6 +46,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context) 
 // FindProfilesAuthAuthorizationList
 //
 // Use this API command to retrieve a list of authorization profiles.
+//
+// Query Parameters:
+// - qType string
+//		- required
 func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx context.Context, qType string) (*profile.BaseServiceInfoList, error) {
 }
 
@@ -57,6 +65,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 // FindProfilesAuthById
 //
 // Use this API command to retrieve an authentication profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Context, pId string) (*profile.AuthenticationProfile, error) {
 }
 

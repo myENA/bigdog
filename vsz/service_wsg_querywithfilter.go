@@ -84,6 +84,10 @@ func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria(ctx context.Con
 //
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
+//
+// Path Parameters:
+// - pApMac string
+//		- required
 func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet, pApMac string) (*meshneighborinfo.MeshNeighborInfoList, error) {
 }
 
@@ -93,6 +97,10 @@ func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx c
 //
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
+//
+// Path Parameters:
+// - pApMac string
+//		- required
 func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet, pApMac string) (meshnodeinfo.MeshNodeInfoArray, error) {
 }
 

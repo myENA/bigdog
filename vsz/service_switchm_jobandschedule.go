@@ -45,11 +45,19 @@ func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) er
 //
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
+//
+// Path Parameters:
+// - pJobId string
+//		- required
 func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body *common.QueryCriteriaSuperSet, pJobId string) (*job.Job, error) {
 }
 
 // FindJobScheduleByScheduleId
 //
 // Use this API command to retrieve a given schedule.
+//
+// Path Parameters:
+// - pScheduleId string
+//		- required
 func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.Context, pScheduleId string) (*job.JobScheduleResponse, error) {
 }

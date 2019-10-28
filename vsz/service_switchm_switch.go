@@ -54,12 +54,20 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *c
 // FindSwitchById
 //
 // Use this API command to retrieve a switch status.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, pId string) (*switchmswitch.NetworkSwitch, error) {
 }
 
 // FindSwitchFirmwareBySwitchId
 //
 // Use this API command to get a list of firmware update history.
+//
+// Path Parameters:
+// - pSwitchId string
+//		- required
 func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context, pSwitchId string) (*switchmswitch.FirmwareHistoryQueryResultList, error) {
 }
 
@@ -69,5 +77,9 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 //
 // Request Body:
 //	 - body switchmswitch.SwitchIdList
+//
+// Path Parameters:
+// - pDestinationSwitchGroupId string
+//		- required
 func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body switchmswitch.SwitchIdList, pDestinationSwitchGroupId string) error {
 }

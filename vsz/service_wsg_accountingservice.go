@@ -30,6 +30,10 @@ func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService
 //
 // Request Body:
 //	 - body *service.TestingConfig
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Context, body *service.TestingConfig, pId string) error {
 }
 
@@ -45,18 +49,30 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 // DeleteServicesAcctById
 //
 // Use this API command to delete an accounting service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteServicesAcctRadiusSecondaryById
 //
 // Use this API command to disable secondary RADIUS server of a RADIUS accounting service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteServicesAcctRadiusStandbyPrimaryById
 //
 // Use this API command to disable Standby secondary RADIUS server of a RADIUS Accounting service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
@@ -78,6 +94,10 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 // FindServicesAcctRadiusById
 //
 // Use this API command to retrieve a RADIUS accounting service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Context, pId string) (*service.RadiusAccountingService, error) {
 }
 

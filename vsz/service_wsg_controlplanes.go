@@ -33,18 +33,30 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*syste
 // FindControlPlanesByBladeUUID
 //
 // Use this API command to retrieve control plane.
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
 func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Context, pBladeUUID string) (*system.ControlPlaneConfiguration, error) {
 }
 
 // FindControlPlanesStaticRoutesByBladeUUID
 //
 // Use this API command to retrieve static route of control plane.
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
 func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, pBladeUUID string) (*system.StaticRouteList, error) {
 }
 
 // FindControlPlanesUserDefinedInterfaceByBladeUUID
 //
 // Use this API command to retrieve user defined interface of control plane.
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
 func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, pBladeUUID string) (*system.UserDefinedInterfaceList, error) {
 }
 

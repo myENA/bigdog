@@ -33,6 +33,10 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.C
 // FindProfilesTunnelSoftgreById
 //
 // Use this API command to retrieve SoftGRE tunnel profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx context.Context, pId string) (*profile.SoftGREProfile, error) {
 }
 

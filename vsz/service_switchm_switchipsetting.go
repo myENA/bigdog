@@ -33,6 +33,10 @@ func (s *SwitchMSwitchIPSettingService) FindIpConfigs(ctx context.Context) (*ipc
 // FindIpConfigsById
 //
 // Use this API command to Retrieve IP Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchIPSettingService) FindIpConfigsById(ctx context.Context, pId string) (*ipconfig.IpConfig, error) {
 }
 

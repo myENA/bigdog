@@ -60,11 +60,26 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx conte
 // DeleteIdentityGuestpassByUserId
 //
 // Use this API command to delete identity guest pass.
+//
+// Path Parameters:
+// - pUserId string
+//		- required
 func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx context.Context, pUserId string) (*common.EmptyResult, error) {
 }
 
 // FindIdentityGuestpass
 //
 // Use this API command to retrieve a list of identity guest pass.
+//
+// Query Parameters:
+// - qDisplayName string
+// - qExpirationFrom string
+// - qExpirationTo string
+// - qGeneratedTimeFrom string
+// - qGeneratedTimeTo string
+// - qIndex string
+// - qListSize string
+// - qTimeZone string
+// - qWlan string
 func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context, qDisplayName string, qExpirationFrom string, qExpirationTo string, qGeneratedTimeFrom string, qGeneratedTimeTo string, qIndex string, qListSize string, qTimeZone string, qWlan string) (*identity.IdentityGuestPassList, error) {
 }

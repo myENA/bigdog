@@ -32,5 +32,9 @@ func (s *SwitchMSwitchAAAServersService) FindAaaServersAdmin(ctx context.Context
 // FindAaaServersAdminById
 //
 // Use this API command to retrieve a AAA server.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchAAAServersService) FindAaaServersAdminById(ctx context.Context, pId string) (*aaaservers.AAAServer, error) {
 }

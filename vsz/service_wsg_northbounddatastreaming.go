@@ -42,6 +42,10 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 // FindNorthboundDataStreamingProfileById
 //
 // Use this API command to retrieve northbound Data Streaming Profile
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, pId string) (*northbounddatastreaming.NorthboundDataStreamingProfile, error) {
 }
 

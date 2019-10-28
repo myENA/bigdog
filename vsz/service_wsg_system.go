@@ -54,6 +54,14 @@ func (s *WSGSystemService) FindController(ctx context.Context) (*system.Controll
 // FindControllerStatisticsById
 //
 // Use this API command to retrieve the system statistics.
+//
+// Path Parameters:
+// - pId string
+//		- required
+//
+// Query Parameters:
+// - qInterval string
+// - qSize float64
 func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, pId string, qInterval string, qSize float64) (system.StatisticList, error) {
 }
 
@@ -72,6 +80,10 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context) error {
 // FindSystemApmodelsByFirmwareVersion
 //
 // Use this API command to retrieve support AP models from input firmware version.
+//
+// Path Parameters:
+// - pFirmwareVersion string
+//		- required
 func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, pFirmwareVersion string) error {
 }
 
@@ -111,12 +123,19 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context) (*syst
 // FindSystemInventory
 //
 // Use this API command to retrieve the system inventory with current logon user domain.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGSystemService) FindSystemInventory(ctx context.Context, qIndex string, qListSize string) (*system.InventoryList, error) {
 }
 
 // FindSystemNbi
 //
 // Use this API command to retrieve user information by Northbound Portal Interface.
+//
+// Query Parameters:
+// - qDomainId string
 func (s *WSGSystemService) FindSystemNbi(ctx context.Context, qDomainId string) (*system.NorthboundInterface, error) {
 }
 

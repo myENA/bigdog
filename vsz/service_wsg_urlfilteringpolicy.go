@@ -42,11 +42,20 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx conte
 // FindUrlFilteringUrlFilteringPolicy
 //
 // Use this API command to retrieve list of URL Filtering policies.
+//
+// Query Parameters:
+// - qDomainId string
+// - qIndex string
+// - qListSize string
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx context.Context, qDomainId string, qIndex string, qListSize string) (*urlfiltering.UrlFilteringPolicyList, error) {
 }
 
 // FindUrlFilteringUrlFilteringPolicyById
 //
 // Use this API command to retrieve an URL Filtering policy.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ctx context.Context, pId string) (*urlfiltering.UrlFilteringPolicy, error) {
 }

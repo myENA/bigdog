@@ -32,5 +32,9 @@ func (s *SwitchMSwitchEventService) FindCustomEvent(ctx context.Context) (*event
 // FindCustomEventById
 //
 // Use this API command to retrieve one switch event config
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchEventService) FindCustomEventById(ctx context.Context, pId string) (*eventconfig.EventConfig, error) {
 }

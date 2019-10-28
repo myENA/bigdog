@@ -75,6 +75,10 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 // UpdateAlertAlarmAckByAlarmID
 //
 // Acknowledge a single Alarm with provided alarmID.
+//
+// Path Parameters:
+// - pAlarmID string
+//		- required
 func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Context, pAlarmID string) error {
 }
 
@@ -90,5 +94,9 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 // UpdateAlertAlarmClearByAlarmID
 //
 // Clear a single Alarm with provided alarmID.
+//
+// Path Parameters:
+// - pAlarmID string
+//		- required
 func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Context, pAlarmID string) error {
 }

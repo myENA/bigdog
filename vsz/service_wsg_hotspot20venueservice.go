@@ -26,11 +26,21 @@ func (ss *WSGService) WSGHotspot20VenueServiceService() *WSGHotspot20VenueServic
 // FindRkszonesHs20VenuesById
 //
 // Use this API command to retrieve a Hotspot 2.0 venue profile of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context.Context, pId string, pZoneId string) (*portalservice.Hotspot20VeuneProfile, error) {
 }
 
 // FindRkszonesHs20VenuesByZoneId
 //
 // Use this API command to retrieve a list of Hotspot 2.0 venue profile of a zone.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
 }

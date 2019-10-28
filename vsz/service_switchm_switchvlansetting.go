@@ -33,6 +33,10 @@ func (s *SwitchMSwitchVLANSettingService) FindVlans(ctx context.Context) (*vlanc
 // FindVlansById
 //
 // Use this API command to Retrieve the VLAN Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchVLANSettingService) FindVlansById(ctx context.Context, pId string) (*vlanconfig.VlanConfig, error) {
 }
 

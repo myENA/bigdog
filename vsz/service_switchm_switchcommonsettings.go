@@ -36,5 +36,9 @@ func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig(ctx context.Context, b
 // FindDnsConfigBySwitchGroupId
 //
 // Use this API command to Retrieve DNS Config.
+//
+// Path Parameters:
+// - pSwitchGroupId string
+//		- required
 func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, pSwitchGroupId string) (*dnsconfig.DnsConfig, error) {
 }

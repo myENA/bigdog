@@ -27,12 +27,22 @@ func (ss *WSGService) WSGTrafficClassProfileService() *WSGTrafficClassProfileSer
 // FindRkszonesTrafficClassProfileById
 //
 // Use this API command to retrieve a Traffic Class Profile of zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx context.Context, pId string, pZoneId string) (*common.TrafficClassProfileRef, error) {
 }
 
 // FindRkszonesTrafficClassProfileByZoneId
 //
 // Use this API command to retrieve a list of Traffic Class Profile of a zone.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(ctx context.Context, pZoneId string) (*profile.TrafficClassProfileList, error) {
 }
 

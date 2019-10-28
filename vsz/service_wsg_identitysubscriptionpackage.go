@@ -41,5 +41,9 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 // FindIdentityPackagesById
 //
 // Use this API command to retrieve subscription package.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx context.Context, pId string) (*identity.SubscriptionPackage, error) {
 }

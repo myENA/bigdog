@@ -84,12 +84,20 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 // FindAvcApplicationPolicyById
 //
 // Use this API command to retrieve a AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ctx context.Context, pId string) (*avc.ApplicationPolicyProfile, error) {
 }
 
 // FindAvcApplicationPolicyV2ById
 //
 // Use this API command to retrieve a AVC Application Policy profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(ctx context.Context, pId string) (*avc.ApplicationPolicyProfile, error) {
 }
 
@@ -102,6 +110,10 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx con
 // FindAvcSignaturePackageApplicationByApplicationName
 //
 // Get Application info (catId, appId and name) by application name (for 5.0 and Earlier Firmware Versions).
+//
+// Path Parameters:
+// - pApplicationName string
+//		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicationByApplicationName(ctx context.Context, pApplicationName string) (*avc.Application, error) {
 }
 
@@ -120,6 +132,10 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategori
 // FindAvcSignaturePackageCategoryByCategoryName
 //
 // Get Application Category info (catId and name) by category name (for 5.0 and Earlier Firmware Versions).
+//
+// Path Parameters:
+// - pCategoryName string
+//		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategoryByCategoryName(ctx context.Context, pCategoryName string) (*avc.AppCategory, error) {
 }
 
@@ -132,18 +148,28 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 // FindAvcSignaturePackageV2Applications
 //
 // Get Application list from current Signature Package.
+//
+// Query Parameters:
+// - qAppName string
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applications(ctx context.Context, qAppName string) (*avc.ApplicationList, error) {
 }
 
 // FindAvcSignaturePackageV2Categories
 //
 // Get Application Category list from current Signature Package.
+//
+// Query Parameters:
+// - qCatName string
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Categories(ctx context.Context, qCatName string) (*avc.AppCategoryList, error) {
 }
 
 // FindAvcUserDefinedById
 //
 // Use this API command to retrieve a AVC User Defined profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx context.Context, pId string) (*avc.UserDefinedProfile, error) {
 }
 

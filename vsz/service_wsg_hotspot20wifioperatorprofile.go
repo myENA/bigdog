@@ -27,18 +27,30 @@ func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService() *WSGHotspot20WiFi
 // DeleteProfilesHs20OperatorsCertificateById
 //
 // Use this API command to disable certificate of a Hotspot 2.0 Wi-Fi operator.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCertificateById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesHs20Operators
 //
 // Use this API command to retrieve list of Hotspot 2.0 Wi-Fi Operators.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx context.Context, qIndex string, qListSize string) (*profile.Hs20OperatorList, error) {
 }
 
 // FindProfilesHs20OperatorsById
 //
 // Use this API command to retrieve a Hotspot 2.0 Wi-Fi operator.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(ctx context.Context, pId string) (*profile.Hs20Operator, error) {
 }
 

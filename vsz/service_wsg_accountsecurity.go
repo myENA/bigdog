@@ -35,5 +35,9 @@ func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*a
 //
 // Request Body:
 //	 - body *accountsecurityprofile.GetById
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context, body *accountsecurityprofile.GetById, pId string) (*accountsecurityprofile.GetByIdResult, error) {
 }

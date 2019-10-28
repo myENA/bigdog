@@ -26,11 +26,21 @@ func (ss *WSGService) WSGBonjourGatewayPoliciesService() *WSGBonjourGatewayPolic
 // FindRkszonesBonjourGatewayPoliciesById
 //
 // Use this API command to retrieve bonjour gateway policy.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesById(ctx context.Context, pId string, pZoneId string) (*zone.BonjourGatewayPolicyConfiguration, error) {
 }
 
 // FindRkszonesBonjourGatewayPoliciesByZoneId
 //
 // Use this API command to retrieve a list of bonjour gateway policies.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, pZoneId string) (*zone.BonjourGatewayPolicyList, error) {
 }

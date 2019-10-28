@@ -33,6 +33,10 @@ func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context) (*profile.Pro
 // FindProfilesL2ogreById
 //
 // Use this API command to retrieve L2oGRE profile by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, pId string) (*profile.L2oGREProfile, error) {
 }
 

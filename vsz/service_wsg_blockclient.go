@@ -39,12 +39,20 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *profil
 //
 // Request Body:
 //	 - body *profile.BlockClient
+//
+// Path Parameters:
+// - pApMac string
+//		- required
 func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context, body *profile.BlockClient, pApMac string) (*common.CreateResult, error) {
 }
 
 // FindBlockClientById
 //
 // Retrieve a Block Client.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, pId string) (*profile.BlockClient, error) {
 }
 
@@ -60,5 +68,9 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 // FindBlockClientByZoneByZoneId
 //
 // Retrieve a list of Block Client.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Context, pZoneId string) (*profile.BlockClientList, error) {
 }

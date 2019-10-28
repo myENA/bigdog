@@ -47,6 +47,10 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*sci.SciProfileL
 // FindSciSciProfileById
 //
 // Use this API command to retrieve sciProfile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, pId string) (*sci.SciProfile, error) {
 }
 

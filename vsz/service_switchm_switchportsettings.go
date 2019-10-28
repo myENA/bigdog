@@ -42,6 +42,10 @@ func (s *SwitchMSwitchPortSettingsService) FindPortSettings(ctx context.Context)
 // FindPortSettingsById
 //
 // Use this API command to Retrieve Port Settings.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchPortSettingsService) FindPortSettingsById(ctx context.Context, pId string) (*portsettings.PortSettings, error) {
 }
 

@@ -36,6 +36,10 @@ func (s *SwitchMSwitchAccessControlListService) AddAccessControls(ctx context.Co
 // FindAccessControlsById
 //
 // Use this API command to Retrieve the Access Control Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchAccessControlListService) FindAccessControlsById(ctx context.Context, pId string) (*aclconfig.ACLConfig, error) {
 }
 

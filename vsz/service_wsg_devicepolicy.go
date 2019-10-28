@@ -26,11 +26,25 @@ func (ss *WSGService) WSGDevicePolicyService() *WSGDevicePolicyService {
 // FindRkszonesDevicePolicyById
 //
 // Retrieve a Device Policy Porfile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*devicepolicy.DevicePolicyPorfile, error) {
 }
 
 // FindRkszonesDevicePolicyByZoneId
 //
 // Retrieve a list of Device Policy Porfiles within a zone.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*devicepolicy.PorfileList, error) {
 }

@@ -27,6 +27,12 @@ func (ss *WSGService) WSGSplitTunnelProfileService() *WSGSplitTunnelProfileServi
 // FindRkszonesSplitTunnelProfilesById
 //
 // Get a split tunnel profile by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx context.Context, pId string, pZoneId string) (*splittunnel.SplitTunnelProfile, error) {
 }
 
@@ -42,5 +48,9 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCri
 // FindRkszonesSplitTunnelProfilesByZoneId
 //
 // Get a ID list of split tunnel profile in this Zone.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, pZoneId string) (*splittunnel.SplitTunnelProfileList, error) {
 }

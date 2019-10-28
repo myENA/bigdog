@@ -36,6 +36,10 @@ func (s *WSGVlanPoolingService) AddVlanpoolings(ctx context.Context, body *vlanp
 // FindVlanpoolingsById
 //
 // Use this API command to retrieve VLAN pooling.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGVlanPoolingService) FindVlanpoolingsById(ctx context.Context, pId string) (*vlanpooling.VlanPooling, error) {
 }
 

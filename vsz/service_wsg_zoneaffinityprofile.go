@@ -26,11 +26,18 @@ func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileSer
 // FindProfilesZoneAffinity
 //
 // Use this API command to get all zone affinity profiles.
+//
+// Query Parameters:
+// - qVdpId string
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Context, qVdpId string) (*profile.ZoneAffinityProfileList, error) {
 }
 
 // FindProfilesZoneAffinityById
 //
 // Use this API command to get one zone affinity profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context.Context, pId string) (*profile.ReturnZoneAffinityProfile, error) {
 }

@@ -27,12 +27,20 @@ func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 // FindProfilesTunnelIpsec
 //
 // Retrieve a list of IPSEC.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, qIndex string, qListSize string) (*profile.ProfileList, error) {
 }
 
 // FindProfilesTunnelIpsecById
 //
 // Retrieve a IPSEC.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context, pId string) (*profile.IpsecProfile, error) {
 }
 

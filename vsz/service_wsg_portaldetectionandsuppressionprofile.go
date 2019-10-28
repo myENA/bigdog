@@ -27,6 +27,12 @@ func (ss *WSGService) WSGPortalDetectionandSuppressionProfileService() *WSGPorta
 // FindRkszonesPortalDetectionProfilesById
 //
 // Use this API command to get portal detection and suppression profile by profile's ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesById(ctx context.Context, pId string, pZoneId string) (*portaldetectionprofile.PortalDetectionProfile, error) {
 }
 
@@ -42,5 +48,9 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 // FindRkszonesPortalDetectionProfilesByZoneId
 //
 // Use this API command to get portal detection and suppression profile list.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, pZoneId string) (*portaldetectionprofile.PortalDetectionProfileList, error) {
 }

@@ -26,6 +26,10 @@ func (ss *WSGService) WSGSyslogServerService() *WSGSyslogServerService {
 // FindSystemSyslog
 //
 // Retrieve syslog server sertting.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, qIndex string, qListSize string) (*syslog.SyslogServerSetting, error) {
 }
 

@@ -36,18 +36,32 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 // DeleteRkszonesClientIsolationWhitelistById
 //
 // Delete a Client Isolation Whitelist.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindRkszonesClientIsolationWhitelistById
 //
 // Retrieve an Client Isolation Whitelist.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistById(ctx context.Context, pId string, pZoneId string) (*profile.ClientIsolationWhitelist, error) {
 }
 
 // FindRkszonesClientIsolationWhitelistByZoneId
 //
 // Retrieve a list of Client Isolation Whitelist.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, pZoneId string) (*profile.ClientIsolationWhitelistArray, error) {
 }
 

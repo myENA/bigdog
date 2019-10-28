@@ -27,6 +27,12 @@ func (ss *WSGService) WSGFlexiVPNService() *WSGFlexiVPNService {
 // DeleteRkszonesWlansFlexiVpnProfileById
 //
 // Use this API command to delete Flexi-VPN on WLAN
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.Context, pId string, pZoneId string) error {
 }
 

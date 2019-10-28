@@ -30,6 +30,10 @@ func (ss *WSGService) WSGWLANService() *WSGWLANService {
 //
 // Request Body:
 //	 - body *wlan.CreateGuestAccessWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body *wlan.CreateGuestAccessWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -39,6 +43,10 @@ func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body
 //
 // Request Body:
 //	 - body *wlan.CreateHotspot20Wlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, body *wlan.CreateHotspot20Wlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -48,6 +56,10 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, 
 //
 // Request Body:
 //	 - body *wlan.CreateHotspot20OpenWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Context, body *wlan.CreateHotspot20OpenWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -57,12 +69,22 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Conte
 //
 // Request Body:
 //	 - body *wlan.CreateHotspot20OpenWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Context, body *wlan.CreateHotspot20OpenWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
 // AddRkszonesWlansQosMapsById
 //
 // Use this API command to enable Qos Map Set of a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
@@ -72,6 +94,10 @@ func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, pId st
 //
 // Request Body:
 //	 - body *wlan.CreateStandard80211Wlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Context, body *wlan.CreateStandard80211Wlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -81,6 +107,10 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Conte
 //
 // Request Body:
 //	 - body *wlan.CreateStandard80211Wlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Context, body *wlan.CreateStandard80211Wlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -90,6 +120,10 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Co
 //
 // Request Body:
 //	 - body *wlan.CreateStandard80211Wlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context, body *wlan.CreateStandard80211Wlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -99,6 +133,10 @@ func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context
 //
 // Request Body:
 //	 - body *wlan.CreateWebAuthWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, body *wlan.CreateWebAuthWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -108,6 +146,10 @@ func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, bo
 //
 // Request Body:
 //	 - body *wlan.CreateWechatWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, body *wlan.CreateWechatWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -117,6 +159,10 @@ func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, bod
 //
 // Request Body:
 //	 - body *wlan.CreateHotspotWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context, body *wlan.CreateHotspotWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -126,6 +172,10 @@ func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context,
 //
 // Request Body:
 //	 - body *wlan.CreateHotspotWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body *wlan.CreateHotspotWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
@@ -135,47 +185,95 @@ func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body
 //
 // Request Body:
 //	 - body *wlan.CreateHotspotWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, body *wlan.CreateHotspotWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
 // DeleteRkszonesWlansAccountingServiceOrProfileById
 //
 // Use this API command to disable the accounting of a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesWlansDevicePolicyById
 //
 // Use this API command to disable the device policy of a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesWlansDiffServProfileById
 //
 // Use this API command to disable the DiffServ profile of a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesWlansDnsServerProfileById
 //
 // Use this API command to disable DNS server profile of a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesWlansL2ACLById
 //
 // Use this API command to disable the layer 2 access control list (ACL) configuration of a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // FindRkszonesWlansById
 //
 // Use this API command to retrieve a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, pId string, pZoneId string) (*wlan.WlanConfiguration, error) {
 }
 
 // FindRkszonesWlansByZoneId
 //
 // Use this API command to retrieve a list of WLANs within a zone.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*wlan.WlanList, error) {
 }

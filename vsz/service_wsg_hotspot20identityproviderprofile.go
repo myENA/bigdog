@@ -27,24 +27,40 @@ func (ss *WSGService) WSGHotspot20IdentityProviderProfileService() *WSGHotspot20
 // DeleteProfilesHs20IdentityprovidersAccountingsById
 //
 // Use this API command to disable accountings of a Hotspot 2.0 identity provider.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersAccountingsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteProfilesHs20IdentityprovidersOsuById
 //
 // Use this API command to disable online signup & provisioning of a Hotspot 2.0 identity provider.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersOsuById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesHs20Identityproviders
 //
 // Use this API command to retrieve list of Hotspot 2.0 identity providers.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identityproviders(ctx context.Context, qIndex string, qListSize string) (*profile.Hs20ProviderList, error) {
 }
 
 // FindProfilesHs20IdentityprovidersById
 //
 // Use this API command to retrieve a Hotspot 2.0 identity provider.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersById(ctx context.Context, pId string) (*profile.Hs20Provider, error) {
 }
 

@@ -32,6 +32,10 @@ func (s *SwitchMSwitchFirmwareService) AddFirmwareUpload(ctx context.Context) er
 // DeleteFirmwareByVersion
 //
 // Use this API command to deletes a firmware image file from SmartZone.
+//
+// Path Parameters:
+// - pVersion string
+//		- required
 func (s *SwitchMSwitchFirmwareService) DeleteFirmwareByVersion(ctx context.Context, pVersion string) error {
 }
 

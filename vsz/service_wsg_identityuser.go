@@ -35,6 +35,22 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 // FindIdentityUsers
 //
 // Use this API command to retrieve a list of identity user.
+//
+// Query Parameters:
+// - qCreatedOnFrom string
+// - qCreatedOnTo string
+// - qDisplayName string
+// - qEmail string
+// - qFirstName string
+// - qIndex string
+// - qIsDisabled string
+// - qLastName string
+// - qListSize string
+// - qPhone string
+// - qTimeZone string
+// - qUserName string
+// - qUserSource string
+// - qUserType string
 func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, qCreatedOnFrom string, qCreatedOnTo string, qDisplayName string, qEmail string, qFirstName string, qIndex string, qIsDisabled string, qLastName string, qListSize string, qPhone string, qTimeZone string, qUserName string, qUserSource string, qUserType string) (*identity.UserList, error) {
 }
 
@@ -47,6 +63,10 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context)
 // FindIdentityUsersById
 //
 // Use this API command to retrieve identity user.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, pId string) (*identity.UserConfiguration, error) {
 }
 

@@ -36,6 +36,10 @@ func (s *SwitchMSwitchStaticRouteService) AddStaticRoutes(ctx context.Context, b
 // FindStaticRoutesById
 //
 // Use this API command to Retrieve Static Route.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesById(ctx context.Context, pId string) (*staticroute.StaticRoute, error) {
 }
 

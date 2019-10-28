@@ -35,11 +35,19 @@ func (s *SwitchMSwitchGroupService) AddGroup(ctx context.Context, body *group.Sw
 // FindGroupBySwitchGroupId
 //
 // Use this API command to retrieve switch group detail.
+//
+// Path Parameters:
+// - pSwitchGroupId string
+//		- required
 func (s *SwitchMSwitchGroupService) FindGroupBySwitchGroupId(ctx context.Context, pSwitchGroupId string) (*group.SwitchGroupQueryResult, error) {
 }
 
 // FindGroupIdsByDomainByDomainId
 //
 // Use this API command to retrieve the switch groups by domain ID.
+//
+// Path Parameters:
+// - pDomainId string
+//		- required
 func (s *SwitchMSwitchGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, pDomainId string) (*group.GroupsByIdsQueryResultList, error) {
 }

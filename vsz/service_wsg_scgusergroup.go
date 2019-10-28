@@ -44,6 +44,13 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 // FindUserGroupsByUserGroupId
 //
 // Get SCG user group.
+//
+// Path Parameters:
+// - pUserGroupId string
+//		- required
+//
+// Query Parameters:
+// - qIncludeUsers string
 func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, pUserGroupId string, qIncludeUsers string) (*scguser.ScgUserGroup, error) {
 }
 
@@ -62,5 +69,12 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*scgu
 // FindUserGroupsRolesPermissionsByRole
 //
 // Get permission items of role.
+//
+// Path Parameters:
+// - pRole string
+//		- required
+//
+// Query Parameters:
+// - qDomainId string
 func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, pRole string, qDomainId string) (*scguser.ScgUserGroupPermissionList, error) {
 }

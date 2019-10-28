@@ -36,6 +36,10 @@ func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *system.
 // FindFtpsByFtpId
 //
 // Retrieve information of specific FTP server.
+//
+// Path Parameters:
+// - pFtpId string
+//		- required
 func (s *WSGFtpServerSettingsService) FindFtpsByFtpId(ctx context.Context, pFtpId string) (*system.Ftp, error) {
 }
 
@@ -60,5 +64,9 @@ func (s *WSGFtpServerSettingsService) FindFtpsTest(ctx context.Context, body *sy
 // FindFtpsTestByFtpId
 //
 // Test ftp server of specific FTP server id.
+//
+// Path Parameters:
+// - pFtpId string
+//		- required
 func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, pFtpId string) (*system.FtpTestResponse, error) {
 }

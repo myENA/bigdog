@@ -27,6 +27,9 @@ func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
 // FindSmsGateway
 //
 // Get SMS gateway.
+//
+// Query Parameters:
+// - qDomainId string
 func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, qDomainId string) (*system.Sms, error) {
 }
 

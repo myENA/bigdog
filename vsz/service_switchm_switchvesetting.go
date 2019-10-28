@@ -33,6 +33,10 @@ func (s *SwitchMSwitchVESettingService) FindVeConfigs(ctx context.Context) (*vec
 // FindVeConfigsById
 //
 // Use this API command to Retrieve VE Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchVESettingService) FindVeConfigsById(ctx context.Context, pId string) (*veconfig.VeConfig, error) {
 }
 

@@ -42,6 +42,10 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context) erro
 // AddClusterRestoreById
 //
 // Restore cluster backup by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context, pId string) error {
 }
 
@@ -54,6 +58,10 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 // AddConfigurationRestoreById
 //
 // Restore system configuration with specified backupUUID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Context, pId string) error {
 }
 
@@ -78,12 +86,20 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context) (*ad
 // DeleteClusterById
 //
 // Delete cluster backup by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, pId string) error {
 }
 
 // DeleteConfigurationById
 //
 // Delete system configuration file.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Context, pId string) error {
 }
 
@@ -96,6 +112,11 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*adminis
 // FindApPatchHistory
 //
 // Use this API command to retrive AP patch history.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
+// - qTimezone string
 func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*administration.ApPatchHistoryList, error) {
 }
 
@@ -108,6 +129,11 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*a
 // FindCluster
 //
 // Retrive cluster backup list.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
+// - qTimezone string
 func (s *WSGClusterManagementService) FindCluster(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*administration.ClusterBackupList, error) {
 }
 
@@ -138,12 +164,21 @@ func (s *WSGClusterManagementService) FindClusterStatus(ctx context.Context) (*c
 // FindConfiguration
 //
 // Retrive system configuration list.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, qIndex string, qListSize string) (*administration.ConfigurationBackupList, error) {
 }
 
 // FindConfigurationDownload
 //
 // Download system configuration file.
+//
+// Query Parameters:
+// - qBackupUUID string
+//		- required
+// - qTimeZone string
 func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, qBackupUUID string, qTimeZone string) (json.RawMessage, error) {
 }
 
@@ -162,6 +197,11 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 // FindUpgradeHistory
 //
 // Use this API command to retrive upgrade history.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
+// - qTimezone string
 func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*administration.UpgradeHistoryList, error) {
 }
 

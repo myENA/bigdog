@@ -36,11 +36,20 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context
 // FindWifiCallingWifiCallingPolicy
 //
 // Use this API command to Retrieve List of Wi-Fi Calling Policy.
+//
+// Query Parameters:
+// - qDomainId string
+// - qIndex string
+// - qListSize string
 func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx context.Context, qDomainId string, qIndex string, qListSize string) (*wificalling.WifiCallingPolicyList, error) {
 }
 
 // FindWifiCallingWifiCallingPolicyById
 //
 // Use this API command to Retrieve Wi-Fi Calling Policy.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx context.Context, pId string) (*wificalling.WifiCallingPolicy, error) {
 }

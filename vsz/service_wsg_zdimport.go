@@ -45,11 +45,18 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *admin
 // FindZdImportGetZDAPs
 //
 // Get ZD AP.
+//
+// Query Parameters:
+// - qIp string
+//		- required
 func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, qIp string) (*administration.ZdAPList, error) {
 }
 
 // FindZdImportStatus
 //
 // Get Migrate Status.
+//
+// Query Parameters:
+// - qDetails string
 func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, qDetails string) (*administration.ZdImportStatus, error) {
 }

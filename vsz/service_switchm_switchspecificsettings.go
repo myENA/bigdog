@@ -32,5 +32,9 @@ func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettings(ctx context.
 // FindSpecificSettingsById
 //
 // Use this API command to Retrieve Specific Settings.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettingsById(ctx context.Context, pId string) (*specificsettings.SpecificSettings, error) {
 }

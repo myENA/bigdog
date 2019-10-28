@@ -35,17 +35,34 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 // FindToolPing
 //
 // Use this API command to run the PING test on an AP.
+//
+// Query Parameters:
+// - qApMac string
+//		- required
+// - qTargetIP string
+//		- required
 func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, qApMac string, qTargetIP string) error {
 }
 
 // FindToolSpeedflexByWcid
 //
 // Use this API command to retrieve existing SpeedFlex test results.
+//
+// Path Parameters:
+// - pWcid string
+//		- required
 func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, pWcid string) (*tool.TestResult, error) {
 }
 
 // FindToolTraceRoute
 //
 // Use this API command to run the traceroute test on an AP.
+//
+// Query Parameters:
+// - qApMac string
+//		- required
+// - qTargetIP string
+//		- required
+// - qTimeoutInSec string
 func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, qApMac string, qTargetIP string, qTimeoutInSec string) error {
 }

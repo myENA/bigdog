@@ -50,6 +50,10 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 //
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
+//
+// Path Parameters:
+// - pWlanname string
+//		- required
 func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Context, body *common.QueryCriteriaSuperSet, pWlanname string) (*clientquery.ClientQueryList, error) {
 }
 
@@ -74,12 +78,24 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 // FindApsOperationalClientByApMac
 //
 // Use this API command to retrieve the client list per AP.
+//
+// Path Parameters:
+// - pApMac string
+//		- required
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.Context, pApMac string, qIndex string, qListSize string) (*ap.ClientList, error) {
 }
 
 // FindApsOperationalClientTotalCountByApMac
 //
 // Use this API command to retrieve the total client count per AP.
+//
+// Path Parameters:
+// - pApMac string
+//		- required
 func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx context.Context, pApMac string) error {
 }
 

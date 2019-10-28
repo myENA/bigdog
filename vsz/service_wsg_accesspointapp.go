@@ -27,12 +27,23 @@ func (ss *WSGService) WSGAccessPointAPPService() *WSGAccessPointAPPService {
 // FindApsLineman
 //
 // Use this API command to retrieve the summary information of an AP. This is used by the Ruckus Wireless AP mobile app.
+//
+// Query Parameters:
+// - qDomainId string
+// - qIndex string
+// - qListSize string
+// - qShowAlarm string
+// - qZoneId string
 func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, qDomainId string, qIndex string, qListSize string, qShowAlarm string, qZoneId string) (*ap.ApLinemanSummary, error) {
 }
 
 // FindApsTotalCount
 //
 // Use this API command to retrieve the total AP count within a zone or a domain.
+//
+// Query Parameters:
+// - qDomainId string
+// - qZoneId string
 func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, qDomainId string, qZoneId string) error {
 }
 

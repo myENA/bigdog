@@ -27,6 +27,10 @@ func (ss *WSGService) WSGDPNetworkService() *WSGDPNetworkService {
 // DeletePlanesStaticRouteByBladeUUID
 //
 // Use this API command to delete static route.
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
 func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Context, pBladeUUID string) (*common.EmptyResult, error) {
 }
 
@@ -39,6 +43,10 @@ func (s *WSGDPNetworkService) FindPlanes(ctx context.Context) (*system.DataPlane
 // FindPlanesByBladeUUID
 //
 // Use this API command to retrieve data plane by id.
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
 func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, pBladeUUID string) (*system.DataPlaneConfiguration, error) {
 }
 
@@ -54,5 +62,9 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*s
 //
 // Request Body:
 //	 - body *system.ModifyDataPlaneState
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
 func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Context, body *system.ModifyDataPlaneState, pBladeUUID string) (*common.EmptyResult, error) {
 }

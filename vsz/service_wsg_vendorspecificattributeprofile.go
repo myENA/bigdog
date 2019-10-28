@@ -27,6 +27,12 @@ func (ss *WSGService) WSGVendorSpecificAttributeProfileService() *WSGVendorSpeci
 // FindRkszonesVendorSpecificAttributeProfilesById
 //
 // Get a vendor specific attribute profile by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, pId string, pZoneId string) (*vendorspecificattributeprofile.Get, error) {
 }
 
@@ -42,5 +48,9 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 // FindRkszonesVendorSpecificAttributeProfilesByZoneId
 //
 // Get a ID list of vendor specific attribute profile in this Zone.
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, pZoneId string) (*vendorspecificattributeprofile.List, error) {
 }

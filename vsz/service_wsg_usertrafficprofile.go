@@ -30,30 +30,50 @@ func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileServi
 //
 // Request Body:
 //	 - body *profile.ProfileCloneRequest
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
 }
 
 // DeleteProfilesUtpDownlinkRateLimitingById
 //
 // Use this API command to disable downlink rate limiting of user traffic profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteProfilesUtpUplinkRateLimitingById
 //
 // Use this API command to disable uplink rateLimiting of user traffic profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesUtp
 //
 // Use this API command to retrieve a list of user traffic profile.
+//
+// Query Parameters:
+// - qIndex string
+// - qListSize string
 func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, qIndex string, qListSize string) (*profile.ProfileList, error) {
 }
 
 // FindProfilesUtpById
 //
 // Use this API command to retrieve an user traffic profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, pId string) (*profile.UserTrafficProfile, error) {
 }
 

@@ -30,6 +30,10 @@ func (ss *WSGService) WSGAuthenticationServiceService() *WSGAuthenticationServic
 //
 // Request Body:
 //	 - body *service.TestingConfig
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Context, body *service.TestingConfig, pId string) error {
 }
 
@@ -45,18 +49,30 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 // DeleteServicesAuthById
 //
 // Use this API command to delete an authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteServicesAuthRadiusSecondaryById
 //
 // Use this API command to disable secondary RADIUS server of a RADIUS authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteServicesAuthRadiusStandbyPrimaryById
 //
 // Use this API command to disable Standby secondary RADIUS server of a RADIUS authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimaryById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
@@ -69,6 +85,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 // FindServicesAuthAdById
 //
 // Use this API command to retrieve an active directory authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Context, pId string) (*service.ActiveDirectoryService, error) {
 }
 
@@ -93,6 +113,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 // FindServicesAuthGuestById
 //
 // Use this API command to retrieve a Guest authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.Context, pId string) (*service.CommonAuthenticationService, error) {
 }
 
@@ -105,6 +129,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 // FindServicesAuthHlrById
 //
 // Use this API command to retrieve a hlr authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Context, pId string) (*service.HlrService, error) {
 }
 
@@ -126,6 +154,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 // FindServicesAuthLdapById
 //
 // Use this API command to retrieve a LDAP authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.Context, pId string) (*service.LDAPService, error) {
 }
 
@@ -141,6 +173,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 // FindServicesAuthLocal_dbById
 //
 // Use this API command to retrieve a LocalDB authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthLocal_dbById(ctx context.Context, pId string) (*service.CommonAuthenticationService, error) {
 }
 
@@ -153,6 +189,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 // FindServicesAuthRadiusById
 //
 // Use this API command to retrieve a RADIUS authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context.Context, pId string) (*service.RadiusAuthenticationService, error) {
 }
 

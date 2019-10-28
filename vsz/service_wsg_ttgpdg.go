@@ -27,12 +27,20 @@ func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
 // DeleteProfilesTtgpdgApnRealmsById
 //
 // Use this API command to disable the APN realm of TTG PDG profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteProfilesTtgpdgDhcpRelayById
 //
 // Use this API command to disable the DHCP relay of TTG PDG profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
@@ -45,6 +53,10 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context) (*profile.Pro
 // FindProfilesTtgpdgById
 //
 // Use this API command to retrieve TTG+PDG profile by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, pId string) (*profile.TtgpdgProfile, error) {
 }
 

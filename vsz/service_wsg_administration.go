@@ -38,12 +38,20 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
 // FindAdminaaa
 //
 // Use this API command to retrieve the list of Admin AAA server
+//
+// Query Parameters:
+// - qType string
+//		- required
 func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, qType string) (*administration.RetrieveAdminAAAServerList, error) {
 }
 
 // FindAdminaaaById
 //
 // Use this API command to retrieve an existing Admin AAA server
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, pId string) (*administration.RetrieveAdminAAAServer, error) {
 }
 

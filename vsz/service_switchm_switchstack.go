@@ -36,11 +36,19 @@ func (s *SwitchMSwitchStackService) AddStack(ctx context.Context, body stack.Sta
 // FindStackBySwitchId
 //
 // Use this API command to retrieve a stack configuration configured via SZ.
+//
+// Path Parameters:
+// - pSwitchId string
+//		- required
 func (s *SwitchMSwitchStackService) FindStackBySwitchId(ctx context.Context, pSwitchId string) (*stack.StackConfig, error) {
 }
 
 // FindStackMemberBySerialNumber
 //
 // Use this API command to retrieve the member of switches in a stack.
+//
+// Path Parameters:
+// - pSerialNumber string
+//		- required
 func (s *SwitchMSwitchStackService) FindStackMemberBySerialNumber(ctx context.Context, pSerialNumber string) (*stack.List, error) {
 }

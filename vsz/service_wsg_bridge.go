@@ -33,6 +33,10 @@ func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*profile.Pro
 // FindProfilesBridgeById
 //
 // Use this API command to retrieve Bridge profile by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
 func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, pId string) (*profile.BridgeProfile, error) {
 }
 

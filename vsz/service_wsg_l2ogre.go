@@ -9,19 +9,47 @@ import (
 )
 
 type WSGL2oGREService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGL2oGREService(client *Client) *WSGL2oGREService {
+func NewWSGL2oGREService(c *APIClient) *WSGL2oGREService {
 	s := new(WSGL2oGREService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGL2oGREService() *WSGL2oGREService {
 	serv := new(WSGL2oGREService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesL2ogre
+//
+// Use this API command to create L2oGRE profile.
+//
+// Request Body:
+//	 - body *profile.CreateL2oGREProfile
+func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *profile.CreateL2oGREProfile) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesL2ogre
+//
+// Use this API command to delete multiple L2oGRE profile.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesL2ogreById
+//
+// Use this API command to delete L2oGRE profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, pId string) error {
 }
 
 // FindProfilesL2ogre
@@ -47,4 +75,17 @@ func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, pId strin
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.L2oGREProfileList, error) {
+}
+
+// PartialUpdateProfilesL2ogreById
+//
+// Use this API command to modify the basic information of L2oGRE profile.
+//
+// Request Body:
+//	 - body *profile.ModifyL2oGREProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGL2oGREService) PartialUpdateProfilesL2ogreById(ctx context.Context, body *profile.ModifyL2oGREProfile, pId string) (*common.EmptyResult, error) {
 }

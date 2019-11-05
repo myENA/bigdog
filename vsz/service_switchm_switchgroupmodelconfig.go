@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMSwitchGroupModelConfigService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchGroupModelConfigService(client *Client) *SwitchMSwitchGroupModelConfigService {
+func NewSwitchMSwitchGroupModelConfigService(c *APIClient) *SwitchMSwitchGroupModelConfigService {
 	s := new(SwitchMSwitchGroupModelConfigService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchGroupModelConfigService() *SwitchMSwitchGroupModelConfigService {
 	serv := new(SwitchMSwitchGroupModelConfigService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

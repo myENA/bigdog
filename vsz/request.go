@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"path"
 	"strings"
 	"sync/atomic"
 )
@@ -21,7 +20,9 @@ type Request struct {
 	uri           string
 	authenticated bool
 
-	queryParameters map[string]string
+	compiledURI string
+
+	queryParameters map[string][]string
 	pathParameters  map[string]string
 	headers         url.Values
 	cookies         []*http.Cookie
@@ -34,7 +35,7 @@ func NewRequest(method, uri string, authenticated bool) *Request {
 		method:          method,
 		uri:             uri,
 		authenticated:   authenticated,
-		queryParameters: make(map[string]string),
+		queryParameters: make(map[string][]string),
 		pathParameters:  make(map[string]string),
 		headers:         make(url.Values),
 		cookies:         make([]*http.Cookie, 0),
@@ -66,17 +67,14 @@ func (r *Request) AddHeader(name, value string) {
 	r.headers.Add(name, value)
 }
 
-// SetHeader will attempt to overwrite an existing header with the same name, simply adding it if one is not found.
 func (r *Request) SetHeader(name, value string) {
 	r.headers.Set(name, value)
 }
 
-// RemoveHeader will attempt to remove a header from this request, returning the value being removed.
 func (r *Request) RemoveHeader(name string) {
 	r.headers.Del(name)
 }
 
-// Headers will return a copy of current headers on this request
 func (r *Request) Headers() url.Values {
 	return r.headers
 }
@@ -89,8 +87,6 @@ func (r *Request) AddCookie(cookie *http.Cookie) {
 	r.cookies = append(r.cookies, cookie)
 }
 
-// SetCookie will attempt to locate and overwrite a cookie with the same name, simply appending it to the list if one is
-// not found
 func (r *Request) SetCookie(cookie *http.Cookie) {
 	for i, cc := range r.cookies {
 		if cc.Name == cookie.Name {
@@ -111,30 +107,58 @@ func (r *Request) RemoveCookie(name string) {
 	r.cookies = nc
 }
 
-// Cookies will return a copy of the list of cookies to be used with this request
-// NOTE: The cookies are pointers.  Be aware.
 func (r *Request) Cookies() []*http.Cookie {
 	return r.cookies
 }
 
-func (r *Request) SetQueryParameters(params map[string]string) {
+// SetQueryParameters will override any / all existing query parameters
+func (r *Request) SetQueryParameters(params map[string][]string) {
 	r.queryParameters = params
+	r.compiledURI = ""
 }
 
+// SetQueryParameter will set a query param to a specific value, overriding any previously set value
 func (r *Request) SetQueryParameter(param, value string) {
-	r.queryParameters[param] = value
+	r.queryParameters[param] = []string{value}
+	r.compiledURI = ""
 }
 
-func (r *Request) QueryParameters() map[string]string {
+// AddQueryParameter will add a value to the specified param
+func (r *Request) AddQueryParameter(param, value string) {
+	if _, ok := r.queryParameters[param]; !ok {
+		r.queryParameters[param] = make([]string, 0)
+	}
+	r.queryParameters[param] = append(r.queryParameters[param], value)
+	r.compiledURI = ""
+}
+
+// RemoveQueryParameter will attempt to delete all values for a specific query parameter from this request.
+func (r *Request) RemoveQueryParameter(param string) {
+	delete(r.queryParameters, param)
+	r.compiledURI = ""
+}
+
+// QueryParameters will return all values of currently set query parameters
+func (r *Request) QueryParameters() map[string][]string {
 	return r.queryParameters
 }
 
+// SetPathParameters will re-define all path parameters, overriding any / all existing ones
 func (r *Request) SetPathParameters(params map[string]string) {
 	r.pathParameters = params
+	r.compiledURI = ""
 }
 
+// SetPathParameter will define a path parameter value, overriding any existing value
 func (r *Request) SetPathParameter(param, value string) {
 	r.pathParameters[param] = value
+	r.compiledURI = ""
+}
+
+// RemovePathParameter will attempt to remove a single parameter from the current list of path parameters
+func (r *Request) RemovePathParameter(param string) {
+	delete(r.pathParameters, param)
+	r.compiledURI = ""
 }
 
 func (r *Request) PathParameters() map[string]string {
@@ -161,7 +185,14 @@ func (r *Request) Body() []byte {
 	return r.body
 }
 
-func (r *Request) compileURI() string {
+func (r *Request) CompiledURI() string {
+	if r.compiledURI == "" {
+		r.compileURI()
+	}
+	return r.compiledURI
+}
+
+func (r *Request) compileURI() {
 	pathParams := r.PathParameters()
 	queryParams := r.QueryParameters()
 	uri := r.uri
@@ -170,20 +201,31 @@ func (r *Request) compileURI() string {
 			uri = strings.Replace(uri, fmt.Sprintf("{%s}", k), v, 1)
 		}
 	}
+	// TODO: could probably be made more efficient.
 	if len(queryParams) > 0 {
-		uri = fmt.Sprintf("%s%s", uri, buildQueryParamString(queryParams))
+		uri = fmt.Sprintf("%s?", uri)
+		for param, values := range queryParams {
+			for _, value := range values {
+				if value == "" {
+					uri = fmt.Sprintf("%s%s&", uri, param)
+				} else {
+					uri = fmt.Sprintf("%s%s=%s&", uri, param, value)
+				}
+			}
+		}
+		uri = strings.TrimRight(uri, "&")
 	}
-	return uri
+	r.compiledURI = uri
 }
 
 // toHTTP will attempt to construct an executable http.request
-func (r *Request) toHTTP(ctx context.Context, config *Config) (*http.Request, error) {
+func (r *Request) toHTTP(ctx context.Context, addr string, port int, debug bool) (*http.Request, error) {
 	var err error
 	var httpRequest *http.Request
 
 	body := r.Body()
 	bodyLen := len(body)
-	compiledURL := fmt.Sprintf("https://%s:8443%s", path.Join(config.PathPrefix, r.compileURI()))
+	compiledURL := fmt.Sprintf("https://%s:%d%s", addr, port, r.CompiledURI())
 
 	// if debug mode is enabled, prepare a big'ol log statement.
 	if debug {

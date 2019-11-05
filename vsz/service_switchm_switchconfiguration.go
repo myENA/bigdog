@@ -8,18 +8,18 @@ import (
 )
 
 type SwitchMSwitchConfigurationService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchConfigurationService(client *Client) *SwitchMSwitchConfigurationService {
+func NewSwitchMSwitchConfigurationService(c *APIClient) *SwitchMSwitchConfigurationService {
 	s := new(SwitchMSwitchConfigurationService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchConfigurationService() *SwitchMSwitchConfigurationService {
 	serv := new(SwitchMSwitchConfigurationService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -32,6 +32,15 @@ func (ss *SwitchMService) SwitchMSwitchConfigurationService() *SwitchMSwitchConf
 func (s *SwitchMSwitchConfigurationService) AddSwitchconfig(ctx context.Context, body *configbackup.QueryCriteria) (*configbackup.List, error) {
 }
 
+// AddSwitchconfigBackup
+//
+// Use this API command to backup configuration for a list of switches.
+//
+// Request Body:
+//	 - body configbackup.SwitchIds
+func (s *SwitchMSwitchConfigurationService) AddSwitchconfigBackup(ctx context.Context, body configbackup.SwitchIds) (*configbackup.CreateBackupResultList, error) {
+}
+
 // AddSwitchconfigBackupDiff
 //
 // Use this API command to diff between two config back up files for a switch.
@@ -39,6 +48,25 @@ func (s *SwitchMSwitchConfigurationService) AddSwitchconfig(ctx context.Context,
 // Request Body:
 //	 - body *configbackup.ConfigBackupDiffInput
 func (s *SwitchMSwitchConfigurationService) AddSwitchconfigBackupDiff(ctx context.Context, body *configbackup.ConfigBackupDiffInput) (*configbackup.ConfigBackupDiff, error) {
+}
+
+// DeleteSwitchconfig
+//
+// Use this API command to delete config backups by a list of config backup id.
+//
+// Request Body:
+//	 - body configbackup.BackupIds
+func (s *SwitchMSwitchConfigurationService) DeleteSwitchconfig(ctx context.Context, body configbackup.BackupIds) error {
+}
+
+// DeleteSwitchconfigByConfigId
+//
+// Use this API command to delete the configuration backup.
+//
+// Path Parameters:
+// - pConfigId string
+//		- required
+func (s *SwitchMSwitchConfigurationService) DeleteSwitchconfigByConfigId(ctx context.Context, pConfigId string) error {
 }
 
 // FindSwitchconfigByConfigId

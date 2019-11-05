@@ -10,18 +10,18 @@ import (
 )
 
 type SwitchMSwitchConfigurationHistoryService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchConfigurationHistoryService(client *Client) *SwitchMSwitchConfigurationHistoryService {
+func NewSwitchMSwitchConfigurationHistoryService(c *APIClient) *SwitchMSwitchConfigurationHistoryService {
 	s := new(SwitchMSwitchConfigurationHistoryService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchConfigurationHistoryService() *SwitchMSwitchConfigurationHistoryService {
 	serv := new(SwitchMSwitchConfigurationHistoryService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

@@ -4,23 +4,43 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
 
 type WSGZoneAffinityProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGZoneAffinityProfileService(client *Client) *WSGZoneAffinityProfileService {
+func NewWSGZoneAffinityProfileService(c *APIClient) *WSGZoneAffinityProfileService {
 	s := new(WSGZoneAffinityProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileService {
 	serv := new(WSGZoneAffinityProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesZoneAffinity
+//
+// Use this API command to create zone affinity profile.
+//
+// Request Body:
+//	 - body *profile.CreateZoneAffinityProfile
+func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Context, body *profile.CreateZoneAffinityProfile) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesZoneAffinityById
+//
+// Use this API command to delete zone affinity profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx context.Context, pId string) error {
 }
 
 // FindProfilesZoneAffinity
@@ -40,4 +60,17 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 // - pId string
 //		- required
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context.Context, pId string) (*profile.ReturnZoneAffinityProfile, error) {
+}
+
+// PartialUpdateProfilesZoneAffinityById
+//
+// Use this API command to modify zone affinity profile.
+//
+// Request Body:
+//	 - body *profile.ModifyZoneAffinityProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ctx context.Context, body *profile.ModifyZoneAffinityProfile, pId string) (*common.EmptyResult, error) {
 }

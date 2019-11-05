@@ -9,19 +9,47 @@ import (
 )
 
 type WSGIPSECProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGIPSECProfileService(client *Client) *WSGIPSECProfileService {
+func NewWSGIPSECProfileService(c *APIClient) *WSGIPSECProfileService {
 	s := new(WSGIPSECProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 	serv := new(WSGIPSECProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesTunnelIpsec
+//
+// Create a new ipsec.
+//
+// Request Body:
+//	 - body *profile.CreateIpsecProfile
+func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, body *profile.CreateIpsecProfile) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesTunnelIpsec
+//
+// Delete multiple ipsec.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesTunnelIpsecById
+//
+// Delete a ipsec.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesTunnelIpsec
@@ -51,4 +79,17 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.IpsecProfileList, error) {
+}
+
+// PartialUpdateProfilesTunnelIpsecById
+//
+// Modify a specific ipsec basic.
+//
+// Request Body:
+//	 - body *profile.ModifyIpsecProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *profile.ModifyIpsecProfile, pId string) (*common.EmptyResult, error) {
 }

@@ -4,23 +4,62 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
 
 type WSGRogueClassificationPolicyService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGRogueClassificationPolicyService(client *Client) *WSGRogueClassificationPolicyService {
+func NewWSGRogueClassificationPolicyService(c *APIClient) *WSGRogueClassificationPolicyService {
 	s := new(WSGRogueClassificationPolicyService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificationPolicyService {
 	serv := new(WSGRogueClassificationPolicyService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesRogueApPoliciesByZoneId
+//
+// Use this API command to create rogue AP policy.
+//
+// Request Body:
+//	 - body *profile.CreateRogueApPolicy
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *profile.CreateRogueApPolicy, pZoneId string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesRogueApPoliciesById
+//
+// Use this API command to delete rogue AP policy.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesRogueApPoliciesByZoneId
+//
+// Use this API command to delete bulk rogue AP policy.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *common.BulkDeleteRequest, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // FindRkszonesRogueApPoliciesById
@@ -43,4 +82,19 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ct
 // - pZoneId string
 //		- required
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId(ctx context.Context, pZoneId string) (*profile.RogueApPolicyList, error) {
+}
+
+// PartialUpdateRkszonesRogueApPoliciesById
+//
+// Use this API command to modify rogue AP policy.
+//
+// Request Body:
+//	 - body *profile.UpdateRogueApPolicy
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGRogueClassificationPolicyService) PartialUpdateRkszonesRogueApPoliciesById(ctx context.Context, body *profile.UpdateRogueApPolicy, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

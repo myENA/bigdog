@@ -8,18 +8,18 @@ import (
 )
 
 type WSGSessionManagementService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSessionManagementService(client *Client) *WSGSessionManagementService {
+func NewWSGSessionManagementService(c *APIClient) *WSGSessionManagementService {
 	s := new(WSGSessionManagementService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSessionManagementService() *WSGSessionManagementService {
 	serv := new(WSGSessionManagementService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

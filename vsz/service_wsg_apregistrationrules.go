@@ -5,22 +5,42 @@ package vsz
 import (
 	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/aprules"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
 type WSGAPRegistrationRulesService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAPRegistrationRulesService(client *Client) *WSGAPRegistrationRulesService {
+func NewWSGAPRegistrationRulesService(c *APIClient) *WSGAPRegistrationRulesService {
 	s := new(WSGAPRegistrationRulesService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAPRegistrationRulesService() *WSGAPRegistrationRulesService {
 	serv := new(WSGAPRegistrationRulesService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddApRules
+//
+// Use this API command to create AP Registration Rules profile.
+//
+// Request Body:
+//	 - body *aprules.CreateApRule
+func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *aprules.CreateApRule) (*common.CreateResult, error) {
+}
+
+// DeleteApRulesById
+//
+// Use this API command to delete AP Registration Rules profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, pId string) error {
 }
 
 // FindApRules
@@ -57,4 +77,17 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 // - pId string
 //		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Context, pId string) error {
+}
+
+// PartialUpdateApRulesById
+//
+// Use this API command to modify the basic information of AP Registration Rules profile.
+//
+// Request Body:
+//	 - body *aprules.ModifyApRule
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Context, body *aprules.ModifyApRule, pId string) (*common.EmptyResult, error) {
 }

@@ -9,19 +9,28 @@ import (
 )
 
 type WSGCALEAService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGCALEAService(client *Client) *WSGCALEAService {
+func NewWSGCALEAService(c *APIClient) *WSGCALEAService {
 	s := new(WSGCALEAService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGCALEAService() *WSGCALEAService {
 	serv := new(WSGCALEAService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddSystemCaleaCommonSetting
+//
+// Use this API command to set CALEA common setting.
+//
+// Request Body:
+//	 - body *calea.CaleaCommonSettingRq
+func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body *calea.CaleaCommonSettingRq) (*common.EmptyResult, error) {
 }
 
 // AddSystemCaleaMac
@@ -31,6 +40,27 @@ func (ss *WSGService) WSGCALEAService() *WSGCALEAService {
 // Request Body:
 //	 - body *calea.CaleaMacListRq
 func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *calea.CaleaMacListRq) (*common.EmptyResult, error) {
+}
+
+// AddSystemCaleaMacList
+//
+// Use this API command to upload csv file of CALEA UE MACs.
+func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context) error {
+}
+
+// DeleteSystemCaleaMac
+//
+// Use this API command to delete specified CALEA UE MACs.
+//
+// Request Body:
+//	 - body *calea.CaleaMacListRq
+func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *calea.CaleaMacListRq) (*common.EmptyResult, error) {
+}
+
+// DeleteSystemCaleaMacList
+//
+// Use this API command to delete all CALEA UE MACs.
+func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*common.EmptyResult, error) {
 }
 
 // FindSystemCaleaCommonSetting

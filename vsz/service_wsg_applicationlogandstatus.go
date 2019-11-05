@@ -9,18 +9,18 @@ import (
 )
 
 type WSGApplicationLogAndStatusService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGApplicationLogAndStatusService(client *Client) *WSGApplicationLogAndStatusService {
+func NewWSGApplicationLogAndStatusService(c *APIClient) *WSGApplicationLogAndStatusService {
 	s := new(WSGApplicationLogAndStatusService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndStatusService {
 	serv := new(WSGApplicationLogAndStatusService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

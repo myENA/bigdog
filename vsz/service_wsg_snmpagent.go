@@ -4,22 +4,23 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/system"
 )
 
 type WSGSNMPAgentService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSNMPAgentService(client *Client) *WSGSNMPAgentService {
+func NewWSGSNMPAgentService(c *APIClient) *WSGSNMPAgentService {
 	s := new(WSGSNMPAgentService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSNMPAgentService() *WSGSNMPAgentService {
 	serv := new(WSGSNMPAgentService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -27,4 +28,13 @@ func (ss *WSGService) WSGSNMPAgentService() *WSGSNMPAgentService {
 //
 // Retrieve SNMP Agent sertting.
 func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*system.SnmpAgentConfiguration, error) {
+}
+
+// UpdateSystemSnmpAgent
+//
+// Modify syslog server setting.
+//
+// Request Body:
+//	 - body *system.ModifySnmpAgent
+func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *system.ModifySnmpAgent) (*common.EmptyResult, error) {
 }

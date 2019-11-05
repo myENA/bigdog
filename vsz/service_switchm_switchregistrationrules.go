@@ -8,19 +8,47 @@ import (
 )
 
 type SwitchMSwitchRegistrationRulesService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchRegistrationRulesService(client *Client) *SwitchMSwitchRegistrationRulesService {
+func NewSwitchMSwitchRegistrationRulesService(c *APIClient) *SwitchMSwitchRegistrationRulesService {
 	s := new(SwitchMSwitchRegistrationRulesService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchRegistrationRulesService() *SwitchMSwitchRegistrationRulesService {
 	serv := new(SwitchMSwitchRegistrationRulesService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRegistrationRules
+//
+// Use this API command to create new switch registration rule.
+//
+// Request Body:
+//	 - body *registration.RegistrationRule
+func (s *SwitchMSwitchRegistrationRulesService) AddRegistrationRules(ctx context.Context, body *registration.RegistrationRule) (*registration.CreateResult, error) {
+}
+
+// DeleteRegistrationRules
+//
+// Use this API command to delete multiple switch registration rules.
+//
+// Request Body:
+//	 - body registration.RuleUUIDs
+func (s *SwitchMSwitchRegistrationRulesService) DeleteRegistrationRules(ctx context.Context, body registration.RuleUUIDs) (*registration.DeleteMultipleResult, error) {
+}
+
+// DeleteRegistrationRulesById
+//
+// Use this API command to delete a switch registration rule.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchRegistrationRulesService) DeleteRegistrationRulesById(ctx context.Context, pId string) (*registration.DeleteResult, error) {
 }
 
 // FindRegistrationRules

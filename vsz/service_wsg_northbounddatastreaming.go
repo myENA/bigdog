@@ -9,18 +9,18 @@ import (
 )
 
 type WSGNorthboundDataStreamingService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGNorthboundDataStreamingService(client *Client) *WSGNorthboundDataStreamingService {
+func NewWSGNorthboundDataStreamingService(c *APIClient) *WSGNorthboundDataStreamingService {
 	s := new(WSGNorthboundDataStreamingService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGNorthboundDataStreamingService() *WSGNorthboundDataStreamingService {
 	serv := new(WSGNorthboundDataStreamingService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,16 @@ func (ss *WSGService) WSGNorthboundDataStreamingService() *WSGNorthboundDataStre
 // Request Body:
 //	 - body *northbounddatastreaming.CreateNorthboundDataStreamingProfile
 func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *northbounddatastreaming.CreateNorthboundDataStreamingProfile) (*common.CreateResult, error) {
+}
+
+// DeleteNorthboundDataStreamingProfileById
+//
+// Use this API command to delete northbound Data Streaming Profile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, pId string) (*northbounddatastreaming.EmptyResult, error) {
 }
 
 // FindNorthboundDataStreamingEventCodes
@@ -53,6 +63,28 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 //
 // Use this API command to retrieve northbound Data Streaming Profile List
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*northbounddatastreaming.NorthboundDataStreamingProfileList, error) {
+}
+
+// UpdateNorthboundDataStreamingEventCodes
+//
+// Use this API command to modify NorthboundDataStreamingEventCodes.
+//
+// Request Body:
+//	 - body *northbounddatastreaming.ModifyNorthboundDataStreamingEventCodes
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *northbounddatastreaming.ModifyNorthboundDataStreamingEventCodes) error {
+}
+
+// UpdateNorthboundDataStreamingProfileById
+//
+// Use this API command to update northbound Data Streaming Profile
+//
+// Request Body:
+//	 - body *northbounddatastreaming.ModifyNorthboundDataStreamingProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *northbounddatastreaming.ModifyNorthboundDataStreamingProfile, pId string) error {
 }
 
 // UpdateNorthboundDataStreamingSettings

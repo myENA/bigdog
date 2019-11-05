@@ -9,19 +9,47 @@ import (
 )
 
 type WSGPrecedenceProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGPrecedenceProfileService(client *Client) *WSGPrecedenceProfileService {
+func NewWSGPrecedenceProfileService(c *APIClient) *WSGPrecedenceProfileService {
 	s := new(WSGPrecedenceProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGPrecedenceProfileService() *WSGPrecedenceProfileService {
 	serv := new(WSGPrecedenceProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddPrecedence
+//
+// Use this API command to create Precedence Profile.
+//
+// Request Body:
+//	 - body *profile.CreatePrecedenceProfile
+func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *profile.CreatePrecedenceProfile) (*common.CreateResult, error) {
+}
+
+// DeletePrecedence
+//
+// Use this API command to Bulk Delete Precedence Profile.
+//
+// Request Body:
+//	 - body *profile.DeleteBulkPrecedenceProfile
+func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body *profile.DeleteBulkPrecedenceProfile) (*common.EmptyResult, error) {
+}
+
+// DeletePrecedenceById
+//
+// Use this API command to Delete Precedence Profile by profile's ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindPrecedence
@@ -51,4 +79,17 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, pI
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.PrecedenceList, error) {
+}
+
+// PartialUpdatePrecedenceById
+//
+// Use this API command to Modify Precedence Profile by profile's ID.
+//
+// Request Body:
+//	 - body *profile.UpdatePrecedenceProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGPrecedenceProfileService) PartialUpdatePrecedenceById(ctx context.Context, body *profile.UpdatePrecedenceProfile, pId string) (*common.EmptyResult, error) {
 }

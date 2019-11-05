@@ -9,18 +9,18 @@ import (
 )
 
 type WSGApplicationVisibilityControlService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGApplicationVisibilityControlService(client *Client) *WSGApplicationVisibilityControlService {
+func NewWSGApplicationVisibilityControlService(c *APIClient) *WSGApplicationVisibilityControlService {
 	s := new(WSGApplicationVisibilityControlService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGApplicationVisibilityControlService() *WSGApplicationVisibilityControlService {
 	serv := new(WSGApplicationVisibilityControlService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -61,6 +61,63 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 // Request Body:
 //	 - body *avc.CreateUserDefinedProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.Context, body *avc.CreateUserDefinedProfile) (*common.CreateResult, error) {
+}
+
+// DeleteAvcApplicationPolicy
+//
+// Use this API command to delete a AVC Application Policy Profile (for 5.0 and Earlier Firmware Versions).
+//
+// Request Body:
+//	 - body *avc.DeleteBulk
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx context.Context, body *avc.DeleteBulk) error {
+}
+
+// DeleteAvcApplicationPolicyById
+//
+// Use this API command to delete a AVC Application Policy Profile (for 5.0 and Earlier Firmware Versions).
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteAvcApplicationPolicyV2
+//
+// Use this API command to delete a AVC Application Policy Profile.
+//
+// Request Body:
+//	 - body *avc.DeleteBulk
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ctx context.Context, body *avc.DeleteBulk) error {
+}
+
+// DeleteAvcApplicationPolicyV2ById
+//
+// Use this API command to delete a AVC Application Policy Profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteAvcUserDefined
+//
+// Use this API command to delete a AVC User Defined Profile.
+//
+// Request Body:
+//	 - body *avc.DeleteBulk
+func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx context.Context, body *avc.DeleteBulk) (*common.EmptyResult, error) {
+}
+
+// DeleteAvcUserDefinedById
+//
+// Use this API command to delete a AVC User Defined Profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindApplicationPolicyByQueryCriteria
@@ -180,4 +237,43 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*avc.UserDefinedProfileList, error) {
+}
+
+// PartialUpdateAvcApplicationPolicyById
+//
+// Use this API command to modify the basic information on AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
+//
+// Request Body:
+//	 - body *avc.ModifyApplicationPolicyProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyById(ctx context.Context, body *avc.ModifyApplicationPolicyProfile, pId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateAvcApplicationPolicyV2ById
+//
+// Use this API command to modify the basic information on AVC Application Policy profile.
+//
+// Request Body:
+//	 - body *avc.ModifyApplicationPolicyProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyV2ById(ctx context.Context, body *avc.ModifyApplicationPolicyProfile, pId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateAvcUserDefinedById
+//
+// Use this API command to modify the basic information on AVC User Defined profile.
+//
+// Request Body:
+//	 - body *avc.ModifyUserDefinedProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *avc.ModifyUserDefinedProfile, pId string) (*common.EmptyResult, error) {
 }

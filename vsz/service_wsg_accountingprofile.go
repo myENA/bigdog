@@ -9,19 +9,28 @@ import (
 )
 
 type WSGAccountingProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAccountingProfileService(client *Client) *WSGAccountingProfileService {
+func NewWSGAccountingProfileService(c *APIClient) *WSGAccountingProfileService {
 	s := new(WSGAccountingProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService {
 	serv := new(WSGAccountingProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesAcct
+//
+// Use this API command to create a new accounting profile.
+//
+// Request Body:
+//	 - body *profile.CreateAccountingProfile
+func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body *profile.CreateAccountingProfile) (*common.CreateResult, error) {
 }
 
 // AddProfilesAcctCloneById
@@ -35,6 +44,25 @@ func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService
 // - pId string
 //		- required
 func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
+}
+
+// DeleteProfilesAcct
+//
+// Use this API command to delete a list of accounting profile.
+//
+// Request Body:
+//	 - body *profile.DeleteBulkAccountingProfile
+func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, body *profile.DeleteBulkAccountingProfile) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesAcctById
+//
+// Use this API command to delete an accounting profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesAcct
@@ -60,4 +88,17 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.AccountingProfileList, error) {
+}
+
+// PartialUpdateProfilesAcctById
+//
+// Use this API command to modify the basic information of an accounting profile.
+//
+// Request Body:
+//	 - body *profile.ModifyAccountingProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.Context, body *profile.ModifyAccountingProfile, pId string) (*common.EmptyResult, error) {
 }

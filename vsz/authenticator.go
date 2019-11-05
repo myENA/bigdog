@@ -3,14 +3,17 @@ package vsz
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"sync"
 	"time"
+
+	"github.com/myENA/ruckus-client/vsz/types/wsg/serviceticket"
 )
 
 const (
-	SessionCookieToken = "JSESSIONID"
+	serviceTicketQueryParameter = "serviceTicket"
 )
 
 type (
@@ -20,7 +23,7 @@ type (
 		// Decorate must do one of two things:
 		//
 		// If the internal state of this authenticator is such that it currently has whatever is needed to modify a
-		// given request with the appropriate authentication cookie / token / header / etc., then it must do so,
+		// given request with the appropriate authentication serviceTicket / token / header / etc., then it must do so,
 		// returning the current CAS and a nil error
 		//
 		// If the internal state is such that decoration CANNOT happen, it must return the current CAS and an error,
@@ -52,10 +55,10 @@ type (
 		// Arguments:
 		//
 		// 0. the context provided to the original API call
-		// 1. the current VSZ API client
+		// 1. the current API client
 		// 2. the CAS value seen from the calling routine's most recent action (could be from either Decorate or
 		// Invalidate)
-		Refresh(context.Context, *Client, AuthCAS) (AuthCAS, error)
+		Refresh(context.Context, *APIClient, AuthCAS) (AuthCAS, error)
 
 		// Invalidate will only be called if a 401 is seen after a refresh has been attempted, and should indicate to
 		// the implementor that whatever decoration the authenticator is current using is no longer considered valid by
@@ -64,34 +67,37 @@ type (
 		// Arguments:
 		//
 		// 0. the context provided to the original API call
-		// 1. the CAS value seen from the calling routine's most recent action (could be from either Decorate or
+		// 1. the current API client
+		// 2. the CAS value seen from the calling routine's most recent action (could be from either Decorate or
 		// Refresh)
-		Invalidate(context.Context, AuthCAS) (AuthCAS, error)
+		Invalidate(context.Context, *APIClient, AuthCAS) (AuthCAS, error)
 	}
 )
 
 // PasswordAuthenticator is a simple example implementation of an Authenticator that will decorate a given request
-// with a session id bearing cookie if one exists, and attempt to create one if it doesn't.
+// with a session id bearing serviceTicket if one exists, and attempt to create one if it doesn't.
 type PasswordAuthenticator struct {
 	username string
 	password string
 
 	mu sync.RWMutex
 
-	cas       uint64
-	refreshed time.Time
-	cookieTTL time.Duration
-	cookie    *http.Cookie
+	cas           uint64
+	refreshed     time.Time
+	sessionTTL    time.Duration
+	serviceTicket string
 
-	debug bool
+	logger *log.Logger
+	debug  bool
 }
 
-func NewPasswordAuthenticator(username, password string, cookieTTL time.Duration, debug bool) *PasswordAuthenticator {
+func NewPasswordAuthenticator(username, password string, sessionTTL time.Duration, l *log.Logger, debug bool) *PasswordAuthenticator {
 	pa := &PasswordAuthenticator{
-		username:  username,
-		password:  password,
-		cookieTTL: cookieTTL,
-		debug:     debug,
+		username:   username,
+		password:   password,
+		sessionTTL: sessionTTL,
+		logger:     l,
+		debug:      debug,
 	}
 	return pa
 }
@@ -104,50 +110,49 @@ func (pa *PasswordAuthenticator) Password() string {
 	return pa.password
 }
 
-func (pa *PasswordAuthenticator) Decorate(ctx context.Context, httpRequest *http.Request) (AuthCAS, error) {
-	if pa.debug {
-		log.Printf("[pw-auth-%s] Decorate called for request \"%s %s\"", pa.username, httpRequest.Method, httpRequest.URL)
-	}
-
+// Decorate will, if a current serviceTicket is found, add it to the provided request
+func (pa *PasswordAuthenticator) Decorate(ctx context.Context, request *Request) (AuthCAS, error) {
 	pa.mu.RLock()
 	cas := pa.cas
 
-	if httpRequest == nil {
-		// TODO: yell a bit more if the request is nil?
-		pa.mu.RUnlock()
-		return AuthCAS(cas), errors.New("httpRequest cannot be nil")
+	if request == nil {
+		// TODO: yell a bit more if request is nil?
+		return AuthCAS(cas), errors.New("request cannot be nil")
 	}
+
+	pa.log(true, "Decorate called for request \"%s %s\"", request.Method(), request.CompiledURI())
+
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
 		pa.mu.RUnlock()
 		return AuthCAS(cas), err
 	}
 
-	cookie := pa.cookie
-	// TODO improve efficiency of this?
-	if cookie != nil && !pa.refreshed.IsZero() && pa.refreshed.Add(pa.cookieTTL).After(time.Now()) {
-		httpRequest.AddCookie(cookie)
+	serviceTicket := pa.serviceTicket
+	if serviceTicket == "" && !pa.refreshed.IsZero() && pa.refreshed.Add(pa.sessionTTL).After(time.Now()) {
+		request.SetQueryParameter(serviceTicketQueryParameter, serviceTicket)
 		pa.mu.RUnlock()
 		return AuthCAS(cas), nil
 	}
+
 	pa.mu.RUnlock()
-	return AuthCAS(cas), errors.New("cookie requires refresh")
+	return AuthCAS(cas), errors.New("serviceTicket requires refresh")
 }
 
-func (pa *PasswordAuthenticator) Refresh(ctx context.Context, client *Client, cas AuthCAS) (AuthCAS, error) {
-	if pa.debug {
-		log.Printf("[pw-auth-%s] Refresh called", pa.username)
-	}
+// Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
+func (pa *PasswordAuthenticator) Refresh(ctx context.Context, client *APIClient, cas AuthCAS) (AuthCAS, error) {
+	pa.log(true, "Refresh called")
 
 	pa.mu.Lock()
 	ccas := pa.cas
 
 	if client == nil {
 		pa.mu.Unlock()
-		return AuthCAS(ccas), errors.New("client cannot be nil")
+		return AuthCAS(ccas), errors.New("apiClient cannot be nil")
 	}
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
+		pa.log(true, "Context error seen: %s", err)
 		pa.mu.Unlock()
 		return AuthCAS(ccas), err
 	}
@@ -168,33 +173,27 @@ func (pa *PasswordAuthenticator) Refresh(ctx context.Context, client *Client, ca
 	// try to execute logon
 	username := pa.username
 	password := pa.password
-	resp, _, err := client.Session().LoginSessionLogonPost(ctx, &LoginSessionLogonPostRequest{
-		Username: &username,
-		Password: &password,
-	})
-
-	if resp != nil {
-		resp.Body.Close()
-	}
-
+	loginRequest := &serviceticket.LoginRequest{Username: &username, Password: &password}
+	resp, err := client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
 	if err != nil {
-		pa.cookie = nil
+		pa.log(true, "Error seen calling Login: %s", err)
+		pa.serviceTicket = ""
 		pa.cas++
 		ncas := pa.cas
 		pa.mu.Unlock()
 		return AuthCAS(ncas), err
 	}
 
-	cookie := TryExtractSessionCookie(resp)
-	if cookie == nil {
-		pa.cookie = nil
+	if resp == nil || resp.ServiceTicket == nil || *resp.ServiceTicket == "" {
+		pa.log(true, "%q empty in response: %v", serviceTicketQueryParameter, resp)
+		pa.serviceTicket = ""
 		pa.cas++
 		ncas := pa.cas
 		pa.mu.Unlock()
-		return AuthCAS(ncas), errors.New("unable to locate cookie in response")
+		return AuthCAS(ncas), errors.New("nil response from login request seen")
 	}
 
-	pa.cookie = cookie
+	pa.serviceTicket = *resp.ServiceTicket
 	pa.refreshed = time.Now()
 	pa.cas++
 	ncas := pa.cas
@@ -202,10 +201,9 @@ func (pa *PasswordAuthenticator) Refresh(ctx context.Context, client *Client, ca
 	return AuthCAS(ncas), nil
 }
 
-func (pa *PasswordAuthenticator) Invalidate(ctx context.Context, cas AuthCAS) (AuthCAS, error) {
-	if pa.debug {
-		log.Printf("[pw-auth-%s] Invalidate called", pa.username)
-	}
+// Invalidate will mark the current session as invalid.
+func (pa *PasswordAuthenticator) Invalidate(ctx context.Context, client *APIClient, cas AuthCAS) (AuthCAS, error) {
+	pa.log(true, "Invalidate called", pa.username)
 
 	pa.mu.Lock()
 	ccas := pa.cas
@@ -226,10 +224,31 @@ func (pa *PasswordAuthenticator) Invalidate(ctx context.Context, cas AuthCAS) (A
 		return AuthCAS(ccas), nil
 	}
 
+	// if we have a service ticket stored, attempt to invalidate it at the VSZ
+	if pa.serviceTicket != "" {
+		pa.log(true, "Calling Logout...")
+		err := client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, pa.serviceTicket)
+		if err != nil {
+			pa.log(false, "Error calling Logout: %s", err)
+		} else {
+			pa.log(true, "Logout called successfully")
+		}
+	}
+
 	pa.cas++
 	ncas := pa.cas
-	pa.cookie = nil
+	pa.serviceTicket = ""
 	pa.refreshed = time.Now()
 	pa.mu.Unlock()
 	return AuthCAS(ncas), nil
+}
+
+func (pa *PasswordAuthenticator) log(debug bool, f string, v ...interface{}) {
+	if debug {
+		if pa.debug {
+			pa.logger.Printf(fmt.Sprintf("[pw-auth-%s] %s", pa.username, f), v...)
+		}
+	} else {
+		pa.logger.Printf(fmt.Sprintf("[pw-auth-%s] %s", pa.username, f), v...)
+	}
 }

@@ -9,19 +9,57 @@ import (
 )
 
 type WSGVendorSpecificAttributeProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGVendorSpecificAttributeProfileService(client *Client) *WSGVendorSpecificAttributeProfileService {
+func NewWSGVendorSpecificAttributeProfileService(c *APIClient) *WSGVendorSpecificAttributeProfileService {
 	s := new(WSGVendorSpecificAttributeProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGVendorSpecificAttributeProfileService() *WSGVendorSpecificAttributeProfileService {
 	serv := new(WSGVendorSpecificAttributeProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesVendorSpecificAttributeProfilesByZoneId
+//
+// Create a vendor specific attribute profile.
+//
+// Request Body:
+//	 - body *vendorspecificattributeprofile.Persist
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *vendorspecificattributeprofile.Persist, pZoneId string) (vendorspecificattributeprofile.CreateResult, error) {
+}
+
+// DeleteRkszonesVendorSpecificAttributeProfilesById
+//
+// Use this API command to delete a vendor specific attribute profile by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, pId string, pZoneId string) (*vendorspecificattributeprofile.EmptyResult, error) {
+}
+
+// DeleteRkszonesVendorSpecificAttributeProfilesByZoneId
+//
+// Use this API command to delete a list of vendor specific attribute profile.
+//
+// Request Body:
+//	 - body *vendorspecificattributeprofile.DeleteBulk
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *vendorspecificattributeprofile.DeleteBulk, pZoneId string) (*vendorspecificattributeprofile.EmptyResult, error) {
 }
 
 // FindRkszonesVendorSpecificAttributeProfilesById
@@ -53,4 +91,19 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 // - pZoneId string
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, pZoneId string) (*vendorspecificattributeprofile.List, error) {
+}
+
+// UpdateRkszonesVendorSpecificAttributeProfilesById
+//
+// Use this API command to modify entire information of a vendor specific attribute profile.
+//
+// Request Body:
+//	 - body *vendorspecificattributeprofile.Persist
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *vendorspecificattributeprofile.Persist, pId string, pZoneId string) (*vendorspecificattributeprofile.EmptyResult, error) {
 }

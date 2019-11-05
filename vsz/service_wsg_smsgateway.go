@@ -9,18 +9,18 @@ import (
 )
 
 type WSGSMSGatewayService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSMSGatewayService(client *Client) *WSGSMSGatewayService {
+func NewWSGSMSGatewayService(c *APIClient) *WSGSMSGatewayService {
 	s := new(WSGSMSGatewayService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
 	serv := new(WSGSMSGatewayService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -40,4 +40,13 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, qDomainId str
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*system.SmsList, error) {
+}
+
+// PartialUpdateSmsGateway
+//
+// Update SMS gateway.
+//
+// Request Body:
+//	 - body *system.Sms
+func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body *system.Sms) error {
 }

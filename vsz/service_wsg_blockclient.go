@@ -9,18 +9,18 @@ import (
 )
 
 type WSGBlockClientService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGBlockClientService(client *Client) *WSGBlockClientService {
+func NewWSGBlockClientService(c *APIClient) *WSGBlockClientService {
 	s := new(WSGBlockClientService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGBlockClientService() *WSGBlockClientService {
 	serv := new(WSGBlockClientService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -44,6 +44,25 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *profil
 // - pApMac string
 //		- required
 func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context, body *profile.BlockClient, pApMac string) (*common.CreateResult, error) {
+}
+
+// DeleteBlockClient
+//
+// Delete Block Client List.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteBlockClientById
+//
+// Delete a Block Client.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindBlockClientById
@@ -73,4 +92,30 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 // - pZoneId string
 //		- required
 func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Context, pZoneId string) (*profile.BlockClientList, error) {
+}
+
+// PartialUpdateBlockClientById
+//
+// Modify a specific Block Client basic.
+//
+// Request Body:
+//	 - body *profile.ModifyBlockClient
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context, body *profile.ModifyBlockClient, pId string) (*common.EmptyResult, error) {
+}
+
+// UpdateBlockClientById
+//
+// Modify a specific Block Client basic.
+//
+// Request Body:
+//	 - body *profile.ModifyBlockClient
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body *profile.ModifyBlockClient, pId string) (*common.EmptyResult, error) {
 }

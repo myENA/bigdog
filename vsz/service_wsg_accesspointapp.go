@@ -9,18 +9,18 @@ import (
 )
 
 type WSGAccessPointAPPService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAccessPointAPPService(client *Client) *WSGAccessPointAPPService {
+func NewWSGAccessPointAPPService(c *APIClient) *WSGAccessPointAPPService {
 	s := new(WSGAccessPointAPPService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAccessPointAPPService() *WSGAccessPointAPPService {
 	serv := new(WSGAccessPointAPPService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -51,4 +51,10 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, qDomai
 //
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
 func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) (json.RawMessage, error) {
+}
+
+// UpdateLinemanWorkflow
+//
+// Use this API command to upload a workflow file used by the Ruckus Wireless AP mobile app.
+func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context) error {
 }

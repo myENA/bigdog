@@ -4,22 +4,23 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/identity"
 )
 
 type WSGIdentityUserService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGIdentityUserService(client *Client) *WSGIdentityUserService {
+func NewWSGIdentityUserService(c *APIClient) *WSGIdentityUserService {
 	s := new(WSGIdentityUserService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGIdentityUserService() *WSGIdentityUserService {
 	serv := new(WSGIdentityUserService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -30,6 +31,34 @@ func (ss *WSGService) WSGIdentityUserService() *WSGIdentityUserService {
 // Request Body:
 //	 - body *identity.QueryCriteria
 func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *identity.QueryCriteria) (*identity.UserList, error) {
+}
+
+// AddIdentityUsers
+//
+// Use this API command to create identity user.
+//
+// Request Body:
+//	 - body *identity.CreateUser
+func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *identity.CreateUser) (*common.CreateResult, error) {
+}
+
+// DeleteIdentityUsers
+//
+// Use this API command to delete multiple identity users.
+//
+// Request Body:
+//	 - body *identity.DeleteBulk
+func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *identity.DeleteBulk) error {
+}
+
+// DeleteIdentityUsersById
+//
+// Use this API command to delete identity user.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindIdentityUsers
@@ -80,4 +109,17 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context)
 //
 // Use this API command to retrieve a list of packages.
 func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) (*identity.PackageList, error) {
+}
+
+// PartialUpdateIdentityUsersById
+//
+// Use this API command to modify the basic information of identity user.
+//
+// Request Body:
+//	 - body *identity.ModifyUser
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Context, body *identity.ModifyUser, pId string) (*common.EmptyResult, error) {
 }

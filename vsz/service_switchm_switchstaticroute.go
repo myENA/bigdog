@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMSwitchStaticRouteService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchStaticRouteService(client *Client) *SwitchMSwitchStaticRouteService {
+func NewSwitchMSwitchStaticRouteService(c *APIClient) *SwitchMSwitchStaticRouteService {
 	s := new(SwitchMSwitchStaticRouteService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchStaticRouteService() *SwitchMSwitchStaticRouteService {
 	serv := new(SwitchMSwitchStaticRouteService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,25 @@ func (ss *SwitchMService) SwitchMSwitchStaticRouteService() *SwitchMSwitchStatic
 // Request Body:
 //	 - body *staticroute.CreateStaticRoute
 func (s *SwitchMSwitchStaticRouteService) AddStaticRoutes(ctx context.Context, body *staticroute.CreateStaticRoute) (*common.CreateResult, error) {
+}
+
+// DeleteStaticRoutes
+//
+// Use this API command to Delete Static Route by Id list.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *SwitchMSwitchStaticRouteService) DeleteStaticRoutes(ctx context.Context, body *common.BulkDeleteRequest) error {
+}
+
+// DeleteStaticRoutesById
+//
+// Use this API command to Delete Static Route.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchStaticRouteService) DeleteStaticRoutesById(ctx context.Context, pId string) error {
 }
 
 // FindStaticRoutesById
@@ -50,4 +69,17 @@ func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesById(ctx context.Conte
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*staticroute.StaticRoutesQueryResult, error) {
+}
+
+// UpdateStaticRoutesById
+//
+// Use this API command to Update Static Route.
+//
+// Request Body:
+//	 - body *staticroute.UpdateStaticRoute
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchStaticRouteService) UpdateStaticRoutesById(ctx context.Context, body *staticroute.UpdateStaticRoute, pId string) (*staticroute.EmptyResult, error) {
 }

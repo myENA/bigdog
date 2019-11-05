@@ -9,19 +9,32 @@ import (
 )
 
 type WSGWLANGroupService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGWLANGroupService(client *Client) *WSGWLANGroupService {
+func NewWSGWLANGroupService(c *APIClient) *WSGWLANGroupService {
 	s := new(WSGWLANGroupService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGWLANGroupService() *WSGWLANGroupService {
 	serv := new(WSGWLANGroupService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesWlangroupsByZoneId
+//
+// Use this API command to create a new WLAN group.
+//
+// Request Body:
+//	 - body *wlangroup.CreateWlanGroup
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context, body *wlangroup.CreateWlanGroup, pZoneId string) (*common.CreateResult, error) {
 }
 
 // AddRkszonesWlangroupsMembersById
@@ -37,6 +50,18 @@ func (ss *WSGService) WSGWLANGroupService() *WSGWLANGroupService {
 // - pZoneId string
 //		- required
 func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Context, body *wlangroup.WlanMember, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesWlangroupsById
+//
+// Use this API command to delete a WLAN group.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesWlangroupsMembersByMemberId
@@ -105,4 +130,36 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, pI
 // - qIndex string
 // - qListSize string
 func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*wlangroup.WlanGroupList, error) {
+}
+
+// PartialUpdateRkszonesWlangroupsById
+//
+// Use this API command to modify the basic information of a WLAN group.
+//
+// Request Body:
+//	 - body *wlangroup.ModifyWlanGroup
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Context, body *wlangroup.ModifyWlanGroup, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateRkszonesWlangroupsMembersByMemberId
+//
+// Use this API command to modify a member of a WLAN group.
+//
+// Request Body:
+//	 - body *wlangroup.ModifyWlanGroupMember
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pMemberId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsMembersByMemberId(ctx context.Context, body *wlangroup.ModifyWlanGroupMember, pId string, pMemberId string, pZoneId string) (*common.EmptyResult, error) {
 }

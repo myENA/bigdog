@@ -9,19 +9,28 @@ import (
 )
 
 type WSGUserTrafficProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGUserTrafficProfileService(client *Client) *WSGUserTrafficProfileService {
+func NewWSGUserTrafficProfileService(c *APIClient) *WSGUserTrafficProfileService {
 	s := new(WSGUserTrafficProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileService {
 	serv := new(WSGUserTrafficProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesUtp
+//
+// Use this API command to create a new user traffic profile.
+//
+// Request Body:
+//	 - body *profile.CreateUserTrafficProfile
+func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body *profile.CreateUserTrafficProfile) (*common.CreateResult, error) {
 }
 
 // AddProfilesUtpCloneById
@@ -35,6 +44,25 @@ func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileServi
 // - pId string
 //		- required
 func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
+}
+
+// DeleteProfilesUtp
+//
+// Use this API command to delete a list of traffic profile.
+//
+// Request Body:
+//	 - body *profile.DeleteBulkUserTrafficProfile
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, body *profile.DeleteBulkUserTrafficProfile) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesUtpById
+//
+// Use this API command to delete an user traffic profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteProfilesUtpDownlinkRateLimitingById
@@ -84,4 +112,17 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.UserTrafficProfileList, error) {
+}
+
+// PartialUpdateProfilesUtpById
+//
+// Use this API command to modify the basic information of user traffic profile.
+//
+// Request Body:
+//	 - body *profile.ModifyUserTrafficProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGUserTrafficProfileService) PartialUpdateProfilesUtpById(ctx context.Context, body *profile.ModifyUserTrafficProfile, pId string) (*common.EmptyResult, error) {
 }

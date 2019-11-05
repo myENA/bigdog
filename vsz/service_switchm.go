@@ -1,11 +1,11 @@
 package vsz
 
 type SwitchMService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMService(c *Client) *SwitchMService {
+func NewSwitchMService(c *APIClient) *SwitchMService {
 	ss := new(SwitchMService)
-	ss.client = c
+	ss.apiClient = c
 	return ss
 }

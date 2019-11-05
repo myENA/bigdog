@@ -9,19 +9,38 @@ import (
 )
 
 type WSGIndoorMapService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGIndoorMapService(client *Client) *WSGIndoorMapService {
+func NewWSGIndoorMapService(c *APIClient) *WSGIndoorMapService {
 	s := new(WSGIndoorMapService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGIndoorMapService() *WSGIndoorMapService {
 	serv := new(WSGIndoorMapService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddMaps
+//
+// Use this API command to create indoorMap.
+//
+// Request Body:
+//	 - body *indoormap.IndoorMap
+func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *indoormap.IndoorMap) (*indoormap.IndooMapAuditId, error) {
+}
+
+// DeleteMapsByIndoorMapId
+//
+// Use this API command to delete indoor map.
+//
+// Path Parameters:
+// - pIndoorMapId string
+//		- required
+func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, pIndoorMapId string) (*indoormap.IndooMapAuditId, error) {
 }
 
 // FindMaps
@@ -53,6 +72,19 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, pIndoor
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*indoormap.IndoorMapList, error) {
+}
+
+// PartialUpdateMapsByIndoorMapId
+//
+// Use this API command to update specific indoor map.
+//
+// Request Body:
+//	 - body *indoormap.IndoorMap
+//
+// Path Parameters:
+// - pIndoorMapId string
+//		- required
+func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *indoormap.IndoorMap, pIndoorMapId string) (*indoormap.IndooMapAuditId, error) {
 }
 
 // UpdateMapsApsByIndoorMapId

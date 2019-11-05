@@ -1,11 +1,11 @@
 package vsz
 
 type WSGService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGService(c *Client) *WSGService {
+func NewWSGService(c *APIClient) *WSGService {
 	ws := new(WSGService)
-	ws.client = c
+	ws.apiClient = c
 	return ws
 }

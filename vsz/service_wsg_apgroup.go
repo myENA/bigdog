@@ -10,19 +10,32 @@ import (
 )
 
 type WSGAPGroupService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAPGroupService(client *Client) *WSGAPGroupService {
+func NewWSGAPGroupService(c *APIClient) *WSGAPGroupService {
 	s := new(WSGAPGroupService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAPGroupService() *WSGAPGroupService {
 	serv := new(WSGAPGroupService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesApgroupsByZoneId
+//
+// Use this API command to create new AP group within a zone.
+//
+// Request Body:
+//	 - body *apgroup.CreateAPGroup
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, body *apgroup.CreateAPGroup, pZoneId string) (*common.CreateResult, error) {
 }
 
 // AddRkszonesApgroupsMembersByApMac
@@ -78,6 +91,20 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Conte
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
+// DeleteRkszonesApgroupsApmodelByModel
+//
+// Use this API command to disable AP model specific configuration override zone that belong to an AP group.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pModel string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Context, pId string, pModel string, pZoneId string) (*common.EmptyResult, error) {
+}
+
 // DeleteRkszonesApgroupsAutoChannelSelection24ById
 //
 // Disable Radio 2.4G Auto ChannelSelectMode and ChannelFly MTBC Override of an AP group.
@@ -100,6 +127,18 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx
 // - pZoneId string
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesApgroupsById
+//
+// Use this API command to delete an AP group.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesApgroupsChannelEvaluationIntervalById
@@ -220,6 +259,20 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Conte
 // - pZoneId string
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesApgroupsMembersByApMac
+//
+// Use this API command to remove a member AP from an AP group.
+//
+// Path Parameters:
+// - pApMac string
+//		- required
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Context, pApMac string, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesApgroupsProtectionMode24ById
@@ -510,4 +563,36 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, pZ
 // - pZoneId string
 //		- required
 func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Context, pZoneId string) (*apgroup.ApGroupConfiguration, error) {
+}
+
+// PartialUpdateRkszonesApgroupsById
+//
+// Use this API command to modify the basic information of an AP group.
+//
+// Request Body:
+//	 - body *apgroup.ModifyAPGroup
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Context, body *apgroup.ModifyAPGroup, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesApgroupsApmodelByModel
+//
+// Use this API command to modify AP model specific configuration override zone that belong to an AP group.
+//
+// Request Body:
+//	 - body *zoneapmodel.ApModel
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pModel string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Context, body *zoneapmodel.ApModel, pId string, pModel string, pZoneId string) (*common.EmptyResult, error) {
 }

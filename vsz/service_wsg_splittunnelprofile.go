@@ -9,19 +9,44 @@ import (
 )
 
 type WSGSplitTunnelProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSplitTunnelProfileService(client *Client) *WSGSplitTunnelProfileService {
+func NewWSGSplitTunnelProfileService(c *APIClient) *WSGSplitTunnelProfileService {
 	s := new(WSGSplitTunnelProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSplitTunnelProfileService() *WSGSplitTunnelProfileService {
 	serv := new(WSGSplitTunnelProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesSplitTunnelProfilesByZoneId
+//
+// Create a split tunnel profile.
+//
+// Request Body:
+//	 - body *splittunnel.CreateSplitTunnelProfile
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, body *splittunnel.CreateSplitTunnelProfile, pZoneId string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesSplitTunnelProfilesById
+//
+// Use this API command to delete a split tunnel profile by ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // FindRkszonesSplitTunnelProfilesById
@@ -53,4 +78,34 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCri
 // - pZoneId string
 //		- required
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, pZoneId string) (*splittunnel.SplitTunnelProfileList, error) {
+}
+
+// PartialUpdateRkszonesSplitTunnelProfilesById
+//
+// Use this API command to modify a split tunnel profile.
+//
+// Request Body:
+//	 - body *splittunnel.ModifySplitTunnelProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *splittunnel.ModifySplitTunnelProfile, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesSplitTunnelProfilesById
+//
+// Use this API command to modify entire information of a split tunnel profile.
+//
+// Request Body:
+//	 - body *splittunnel.CreateSplitTunnelProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGSplitTunnelProfileService) UpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *splittunnel.CreateSplitTunnelProfile, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

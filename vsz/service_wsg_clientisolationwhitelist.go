@@ -9,19 +9,32 @@ import (
 )
 
 type WSGClientIsolationWhitelistService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGClientIsolationWhitelistService(client *Client) *WSGClientIsolationWhitelistService {
+func NewWSGClientIsolationWhitelistService(c *APIClient) *WSGClientIsolationWhitelistService {
 	s := new(WSGClientIsolationWhitelistService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGClientIsolationWhitelistService() *WSGClientIsolationWhitelistService {
 	serv := new(WSGClientIsolationWhitelistService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesClientIsolationWhitelistByZoneId
+//
+// Create a new ClientIsolationWhitelist.
+//
+// Request Body:
+//	 - body *profile.CreateClientIsolationWhitelist
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, body *profile.CreateClientIsolationWhitelist, pZoneId string) (*common.CreateResult, error) {
 }
 
 // DeleteRkszonesClientIsolationWhitelist
@@ -72,4 +85,19 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.ClientIsolationWhitelistArray, error) {
+}
+
+// PartialUpdateRkszonesClientIsolationWhitelistById
+//
+// Modify a specific Client Isolation Whitelist basic.
+//
+// Request Body:
+//	 - body *profile.ModifyClientIsolationWhitelist
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGClientIsolationWhitelistService) PartialUpdateRkszonesClientIsolationWhitelistById(ctx context.Context, body *profile.ModifyClientIsolationWhitelist, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

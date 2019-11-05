@@ -11,19 +11,28 @@ import (
 )
 
 type WSGRuckusWirelessAPZoneService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGRuckusWirelessAPZoneService(client *Client) *WSGRuckusWirelessAPZoneService {
+func NewWSGRuckusWirelessAPZoneService(c *APIClient) *WSGRuckusWirelessAPZoneService {
 	s := new(WSGRuckusWirelessAPZoneService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGRuckusWirelessAPZoneService() *WSGRuckusWirelessAPZoneService {
 	serv := new(WSGRuckusWirelessAPZoneService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszones
+//
+// Use this API command to create a new Ruckus Wireless AP zone.
+//
+// Request Body:
+//	 - body *zone.CreateZone
+func (s *WSGRuckusWirelessAPZoneService) AddRkszones(ctx context.Context, body *zone.CreateZone) (*common.CreateResult, error) {
 }
 
 // AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
@@ -97,6 +106,16 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBandBalancingById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
+// DeleteRkszonesById
+//
+// Use this API command to delete a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
 // DeleteRkszonesClientAdmissionControl24ById
 //
 // Use this API command to disable client admission control 2.4GHz radio configuration for APs that belong to a zone.
@@ -155,6 +174,16 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx con
 // - pId string
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLocationBasedServiceById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesMeshById
+//
+// Use this API command to disable mesh networking.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesMeshById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesRecoverySsidById
@@ -319,4 +348,58 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Contex
 // Request Body:
 //	 - body *zone.QueryCriteria
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx context.Context, body *zone.QueryCriteria) (*zone.DhcpSiteConfigList, error) {
+}
+
+// PartialUpdateRkszonesById
+//
+// Use this API command to modify the basic information of a zone.
+//
+// Request Body:
+//	 - body *zone.ModifyZone
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) PartialUpdateRkszonesById(ctx context.Context, body *zone.ModifyZone, pId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesApFirmwareByZoneId
+//
+// Use this API command to change the AP Firmware that belong to a zone.
+//
+// Request Body:
+//	 - body *zone.ModfiyApFirmware
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApFirmwareByZoneId(ctx context.Context, body *zone.ModfiyApFirmware, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesApmodelByModel
+//
+// Use this API command to modify the AP model specific configuration that belong to a zone.
+//
+// Request Body:
+//	 - body *zoneapmodel.ApModel
+//
+// Path Parameters:
+// - pModel string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApmodelByModel(ctx context.Context, body *zoneapmodel.ApModel, pModel string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesById
+//
+// Use this API command to modify entire information of a zone.
+//
+// Request Body:
+//	 - body *zone.ModifyZone
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesById(ctx context.Context, body *zone.ModifyZone, pId string) (*common.EmptyResult, error) {
 }

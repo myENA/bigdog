@@ -8,18 +8,18 @@ import (
 )
 
 type WSGSyslogServerService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSyslogServerService(client *Client) *WSGSyslogServerService {
+func NewWSGSyslogServerService(c *APIClient) *WSGSyslogServerService {
 	s := new(WSGSyslogServerService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSyslogServerService() *WSGSyslogServerService {
 	serv := new(WSGSyslogServerService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,15 @@ func (ss *WSGService) WSGSyslogServerService() *WSGSyslogServerService {
 // - qIndex string
 // - qListSize string
 func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, qIndex string, qListSize string) (*syslog.SyslogServerSetting, error) {
+}
+
+// PartialUpdateSystemSyslog
+//
+// Modify syslog server setting.
+//
+// Request Body:
+//	 - body *syslog.ModifySyslogSettings
+func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, body *syslog.ModifySyslogSettings) error {
 }
 
 // PartialUpdateSystemSyslogPrimaryServer

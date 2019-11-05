@@ -8,18 +8,18 @@ import (
 )
 
 type SwitchMSwitchPortCapacityService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchPortCapacityService(client *Client) *SwitchMSwitchPortCapacityService {
+func NewSwitchMSwitchPortCapacityService(c *APIClient) *SwitchMSwitchPortCapacityService {
 	s := new(SwitchMSwitchPortCapacityService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchPortCapacityService() *SwitchMSwitchPortCapacityService {
 	serv := new(SwitchMSwitchPortCapacityService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

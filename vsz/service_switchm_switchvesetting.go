@@ -9,19 +9,47 @@ import (
 )
 
 type SwitchMSwitchVESettingService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchVESettingService(client *Client) *SwitchMSwitchVESettingService {
+func NewSwitchMSwitchVESettingService(c *APIClient) *SwitchMSwitchVESettingService {
 	s := new(SwitchMSwitchVESettingService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchVESettingService() *SwitchMSwitchVESettingService {
 	serv := new(SwitchMSwitchVESettingService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddVeConfigs
+//
+// Use this API command to Create VE Config.
+//
+// Request Body:
+//	 - body *veconfig.Create
+func (s *SwitchMSwitchVESettingService) AddVeConfigs(ctx context.Context, body *veconfig.Create) (veconfig.CreateResult, error) {
+}
+
+// DeleteVeConfigs
+//
+// Use this API command to Delete VE Config by Id list.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *SwitchMSwitchVESettingService) DeleteVeConfigs(ctx context.Context, body *common.BulkDeleteRequest) error {
+}
+
+// DeleteVeConfigsById
+//
+// Use this API command to Delete VE Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchVESettingService) DeleteVeConfigsById(ctx context.Context, pId string) error {
 }
 
 // FindVeConfigs
@@ -47,4 +75,17 @@ func (s *SwitchMSwitchVESettingService) FindVeConfigsById(ctx context.Context, p
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchVESettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*veconfig.List, error) {
+}
+
+// UpdateVeConfigsById
+//
+// Use this API command to Update VE Config.
+//
+// Request Body:
+//	 - body *veconfig.Modify
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchVESettingService) UpdateVeConfigsById(ctx context.Context, body *veconfig.Modify, pId string) (*veconfig.EmptyResult, error) {
 }

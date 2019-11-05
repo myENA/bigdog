@@ -9,18 +9,18 @@ import (
 )
 
 type WSGFlexiVPNService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGFlexiVPNService(client *Client) *WSGFlexiVPNService {
+func NewWSGFlexiVPNService(c *APIClient) *WSGFlexiVPNService {
 	s := new(WSGFlexiVPNService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGFlexiVPNService() *WSGFlexiVPNService {
 	serv := new(WSGFlexiVPNService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

@@ -9,19 +9,47 @@ import (
 )
 
 type SwitchMSwitchLAGSettingService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchLAGSettingService(client *Client) *SwitchMSwitchLAGSettingService {
+func NewSwitchMSwitchLAGSettingService(c *APIClient) *SwitchMSwitchLAGSettingService {
 	s := new(SwitchMSwitchLAGSettingService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchLAGSettingService() *SwitchMSwitchLAGSettingService {
 	serv := new(SwitchMSwitchLAGSettingService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddLagConfigs
+//
+// Use this API command to Create LAG Config.
+//
+// Request Body:
+//	 - body *lagconfig.Create
+func (s *SwitchMSwitchLAGSettingService) AddLagConfigs(ctx context.Context, body *lagconfig.Create) (lagconfig.CreateResult, error) {
+}
+
+// DeleteLagConfigs
+//
+// Use this API command to Delete LAG Config by Id list.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *SwitchMSwitchLAGSettingService) DeleteLagConfigs(ctx context.Context, body *common.BulkDeleteRequest) error {
+}
+
+// DeleteLagConfigsById
+//
+// Use this API command to Delete LAG Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchLAGSettingService) DeleteLagConfigsById(ctx context.Context, pId string) error {
 }
 
 // FindLagConfigs
@@ -47,4 +75,17 @@ func (s *SwitchMSwitchLAGSettingService) FindLagConfigsById(ctx context.Context,
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*lagconfig.List, error) {
+}
+
+// UpdateLagConfigsById
+//
+// Use this API command to Update LAG Config.
+//
+// Request Body:
+//	 - body *lagconfig.Modify
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchLAGSettingService) UpdateLagConfigsById(ctx context.Context, body *lagconfig.Modify, pId string) (*lagconfig.EmptyResult, error) {
 }

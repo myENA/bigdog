@@ -4,22 +4,23 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/eventmanagement"
 )
 
 type WSGEventManagementSettingService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGEventManagementSettingService(client *Client) *WSGEventManagementSettingService {
+func NewWSGEventManagementSettingService(c *APIClient) *WSGEventManagementSettingService {
 	s := new(WSGEventManagementSettingService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGEventManagementSettingService() *WSGEventManagementSettingService {
 	serv := new(WSGEventManagementSettingService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -41,4 +42,30 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneI
 // - pZoneId string
 //		- required
 func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettingsByZoneId(ctx context.Context, pZoneId string) (*eventmanagement.EventDataResponse, error) {
+}
+
+// UpdateRkszonesEventEmailSettingsByZoneId
+//
+// Modify Event E-mail Setting of Zone Override.
+//
+// Request Body:
+//	 - body *eventmanagement.EventEmailSetting
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZoneId(ctx context.Context, body *eventmanagement.EventEmailSetting, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesEventNotificationSettingsByZoneId
+//
+// Modify Event Notification Setting of Zone Override.
+//
+// Request Body:
+//	 - body eventmanagement.EventSettingList
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettingsByZoneId(ctx context.Context, body eventmanagement.EventSettingList, pZoneId string) (*common.EmptyResult, error) {
 }

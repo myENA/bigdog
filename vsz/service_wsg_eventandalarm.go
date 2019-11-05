@@ -12,18 +12,18 @@ import (
 )
 
 type WSGEventandAlarmService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGEventandAlarmService(client *Client) *WSGEventandAlarmService {
+func NewWSGEventandAlarmService(c *APIClient) *WSGEventandAlarmService {
 	s := new(WSGEventandAlarmService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGEventandAlarmService() *WSGEventandAlarmService {
 	serv := new(WSGEventandAlarmService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

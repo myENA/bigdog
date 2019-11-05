@@ -9,19 +9,55 @@ import (
 )
 
 type WSGAuthenticationServiceService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAuthenticationServiceService(client *Client) *WSGAuthenticationServiceService {
+func NewWSGAuthenticationServiceService(c *APIClient) *WSGAuthenticationServiceService {
 	s := new(WSGAuthenticationServiceService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAuthenticationServiceService() *WSGAuthenticationServiceService {
 	serv := new(WSGAuthenticationServiceService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddServicesAuthAd
+//
+// Use this API command to create a new active directory authentication service.
+//
+// Request Body:
+//	 - body *service.CreateActiveDirectoryAuthentication
+func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context, body *service.CreateActiveDirectoryAuthentication) (*common.CreateResult, error) {
+}
+
+// AddServicesAuthHlr
+//
+// Use this API command to create a new hlr authentication service.
+//
+// Request Body:
+//	 - body *service.CreateHlrAuthentication
+func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context, body *service.CreateHlrAuthentication) (*common.CreateResult, error) {
+}
+
+// AddServicesAuthLdap
+//
+// Use this API command to create a new LDAP authentication service.
+//
+// Request Body:
+//	 - body *service.CreateLDAPAuthentication
+func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Context, body *service.CreateLDAPAuthentication) (*common.CreateResult, error) {
+}
+
+// AddServicesAuthRadius
+//
+// Use this API command to create a new RADIUS authentication service.
+//
+// Request Body:
+//	 - body *service.CreateRadiusAuthentication
+func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Context, body *service.CreateRadiusAuthentication) (*common.CreateResult, error) {
 }
 
 // AddServicesAuthTestById
@@ -46,6 +82,16 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context, body *service.DeleteBulkAuthenticationService) (*common.EmptyResult, error) {
 }
 
+// DeleteServicesAuthAdById
+//
+// Use this API command to delete an active directory authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
 // DeleteServicesAuthById
 //
 // Use this API command to delete an authentication service.
@@ -54,6 +100,36 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteServicesAuthHlrById
+//
+// Use this API command to delete a hlr authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteServicesAuthLdapById
+//
+// Use this API command to delete a LDAP authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteServicesAuthRadiusById
+//
+// Use this API command to delete a RADIUS authentication service.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteServicesAuthRadiusSecondaryById
@@ -203,4 +279,69 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.RadiusAuthenticationServiceList, error) {
+}
+
+// PartialUpdateServicesAuthAdById
+//
+// Use this API command to modify the basic information of an active directory authentication service.
+//
+// Request Body:
+//	 - body *service.ModifyActiveDirectoryAuthentication
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx context.Context, body *service.ModifyActiveDirectoryAuthentication, pId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateServicesAuthHlrById
+//
+// Use this API command to modify the basic information of a hlr authentication service.
+//
+// Request Body:
+//	 - body *service.ModifyHlrAuthentication
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx context.Context, body *service.ModifyHlrAuthentication, pId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateServicesAuthLdapById
+//
+// Use this API command to modify the basic information of a LDAP authentication service.
+//
+// Request Body:
+//	 - body *service.ModifyLDAPAuthentication
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx context.Context, body *service.ModifyLDAPAuthentication, pId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateServicesAuthLocal_dbById
+//
+// Use this API command to update LocalDB authentication service.
+//
+// Request Body:
+//	 - body *service.ModifyLocalDbAuthentication
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocal_dbById(ctx context.Context, body *service.ModifyLocalDbAuthentication, pId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateServicesAuthRadiusById
+//
+// Use this API command to modify the basic information of a RADIUS authentication service.
+//
+// Request Body:
+//	 - body *service.ModifyRadiusAuthentication
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ctx context.Context, body *service.ModifyRadiusAuthentication, pId string) (*common.EmptyResult, error) {
 }

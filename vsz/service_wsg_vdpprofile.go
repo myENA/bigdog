@@ -4,23 +4,34 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 )
 
 type WSGVDPProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGVDPProfileService(client *Client) *WSGVDPProfileService {
+func NewWSGVDPProfileService(c *APIClient) *WSGVDPProfileService {
 	s := new(WSGVDPProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
 	serv := new(WSGVDPProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// DeleteProfilesVdpById
+//
+// Use this API command to delete an vdp.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesVdp

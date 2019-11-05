@@ -9,19 +9,44 @@ import (
 )
 
 type WSGWebAuthenticationService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGWebAuthenticationService(client *Client) *WSGWebAuthenticationService {
+func NewWSGWebAuthenticationService(c *APIClient) *WSGWebAuthenticationService {
 	s := new(WSGWebAuthenticationService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGWebAuthenticationService() *WSGWebAuthenticationService {
 	serv := new(WSGWebAuthenticationService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesPortalsWebauthByZoneId
+//
+// Use this API command to create a new web authentication of a zone.
+//
+// Request Body:
+//	 - body *portalservice.CreateWebAuthentication
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx context.Context, body *portalservice.CreateWebAuthentication, pZoneId string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesPortalsWebauthById
+//
+// Use this API command to delete an web authentication of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesPortalsWebauthRedirectById
@@ -56,4 +81,19 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context
 // - pZoneId string
 //		- required
 func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
+}
+
+// PartialUpdateRkszonesPortalsWebauthById
+//
+// Use this API command to modify the basic information on web authentication of a zone.
+//
+// Request Body:
+//	 - body *portalservice.ModifyWebAuthentication
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWebAuthenticationService) PartialUpdateRkszonesPortalsWebauthById(ctx context.Context, body *portalservice.ModifyWebAuthentication, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

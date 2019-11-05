@@ -9,19 +9,47 @@ import (
 )
 
 type WSGHotspot20WiFiOperatorProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGHotspot20WiFiOperatorProfileService(client *Client) *WSGHotspot20WiFiOperatorProfileService {
+func NewWSGHotspot20WiFiOperatorProfileService(c *APIClient) *WSGHotspot20WiFiOperatorProfileService {
 	s := new(WSGHotspot20WiFiOperatorProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService() *WSGHotspot20WiFiOperatorProfileService {
 	serv := new(WSGHotspot20WiFiOperatorProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesHs20Operators
+//
+// Use this API command to create a new Hotspot 2.0 Wi-Fi operator.
+//
+// Request Body:
+//	 - body *profile.Hs20Operator
+func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx context.Context, body *profile.Hs20Operator) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesHs20Operators
+//
+// Use this API command to delete multiple Hotspot 2.0 Wi-Fi operators.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesHs20OperatorsById
+//
+// Use this API command to delete a Hotspot 2.0 Wi-Fi operator.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteProfilesHs20OperatorsCertificateById
@@ -61,4 +89,30 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.Hs20OperatorList, error) {
+}
+
+// PartialUpdateProfilesHs20OperatorsById
+//
+// Use this API command to modify the basic information of a Hotspot 2.0 Wi-Fi operator.
+//
+// Request Body:
+//	 - body *profile.ModifyHS20Operator
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20OperatorsById(ctx context.Context, body *profile.ModifyHS20Operator, pId string) (*common.EmptyResult, error) {
+}
+
+// UpdateProfilesHs20OperatorsById
+//
+// Use this API command to modify entire configuration of a Hotspot 2.0 Wi-Fi operator.
+//
+// Request Body:
+//	 - body *profile.Hs20Operator
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGHotspot20WiFiOperatorProfileService) UpdateProfilesHs20OperatorsById(ctx context.Context, body *profile.Hs20Operator, pId string) (*common.EmptyResult, error) {
 }

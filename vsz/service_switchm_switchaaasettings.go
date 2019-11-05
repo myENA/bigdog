@@ -8,18 +8,18 @@ import (
 )
 
 type SwitchMSwitchAAASettingsService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchAAASettingsService(client *Client) *SwitchMSwitchAAASettingsService {
+func NewSwitchMSwitchAAASettingsService(c *APIClient) *SwitchMSwitchAAASettingsService {
 	s := new(SwitchMSwitchAAASettingsService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchAAASettingsService() *SwitchMSwitchAAASettingsService {
 	serv := new(SwitchMSwitchAAASettingsService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -27,4 +27,13 @@ func (ss *SwitchMService) SwitchMSwitchAAASettingsService() *SwitchMSwitchAAASet
 //
 // Use this API command to retrieve the AAA settings.
 func (s *SwitchMSwitchAAASettingsService) FindAaaSettings(ctx context.Context) (*aaasettings.AaaSettings, error) {
+}
+
+// UpdateAaaSettings
+//
+// Use this API command to modify the AAA settings.
+//
+// Request Body:
+//	 - body *aaasettings.AaaSettings
+func (s *SwitchMSwitchAAASettingsService) UpdateAaaSettings(ctx context.Context, body *aaasettings.AaaSettings) (*aaasettings.EmptyResult, error) {
 }

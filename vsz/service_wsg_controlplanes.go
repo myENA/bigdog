@@ -9,19 +9,39 @@ import (
 )
 
 type WSGControlPlanesService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGControlPlanesService(client *Client) *WSGControlPlanesService {
+func NewWSGControlPlanesService(c *APIClient) *WSGControlPlanesService {
 	s := new(WSGControlPlanesService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
 	serv := new(WSGControlPlanesService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// DeleteControlPlanesStaticRoutesByBladeUUID
+//
+// Use this API command to delete the static route of control plane.
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
+func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, pBladeUUID string) error {
+}
+
+// DeleteControlPlanesUserDefinedInterfaceByBladeUUID
+//
+// Use this API command to delete the user defined interface of control plane.
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
+func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, pBladeUUID string) error {
 }
 
 // FindControlPlanes
@@ -58,6 +78,19 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 // - pBladeUUID string
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, pBladeUUID string) (*system.UserDefinedInterfaceList, error) {
+}
+
+// PartialUpdateControlPlanesByBladeUUID
+//
+// Use this API command to modify the basic information of control plane.
+//
+// Request Body:
+//	 - body *system.ModifyControlPlane
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *system.ModifyControlPlane, pBladeUUID string) (*common.EmptyResult, error) {
 }
 
 // PartialUpdateControlPlanesIpSupport

@@ -9,18 +9,18 @@ import (
 )
 
 type WSGFtpServerSettingsService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGFtpServerSettingsService(client *Client) *WSGFtpServerSettingsService {
+func NewWSGFtpServerSettingsService(c *APIClient) *WSGFtpServerSettingsService {
 	s := new(WSGFtpServerSettingsService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGFtpServerSettingsService() *WSGFtpServerSettingsService {
 	serv := new(WSGFtpServerSettingsService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,25 @@ func (ss *WSGService) WSGFtpServerSettingsService() *WSGFtpServerSettingsService
 // Request Body:
 //	 - body *system.Ftp
 func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *system.Ftp) error {
+}
+
+// DeleteFtps
+//
+// Remove FTP servers.
+//
+// Request Body:
+//	 - body *system.DeleteBulkFtp
+func (s *WSGFtpServerSettingsService) DeleteFtps(ctx context.Context, body *system.DeleteBulkFtp) error {
+}
+
+// DeleteFtpsByFtpId
+//
+// Remove FTP server.
+//
+// Path Parameters:
+// - pFtpId string
+//		- required
+func (s *WSGFtpServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, pFtpId string) error {
 }
 
 // FindFtpsByFtpId
@@ -69,4 +88,17 @@ func (s *WSGFtpServerSettingsService) FindFtpsTest(ctx context.Context, body *sy
 // - pFtpId string
 //		- required
 func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, pFtpId string) (*system.FtpTestResponse, error) {
+}
+
+// PartialUpdateFtpsByFtpId
+//
+// Update FTP server settings.
+//
+// Request Body:
+//	 - body *system.Ftp
+//
+// Path Parameters:
+// - pFtpId string
+//		- required
+func (s *WSGFtpServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Context, body *system.Ftp, pFtpId string) error {
 }

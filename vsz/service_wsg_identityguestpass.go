@@ -9,18 +9,18 @@ import (
 )
 
 type WSGIdentityGuestPassService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGIdentityGuestPassService(client *Client) *WSGIdentityGuestPassService {
+func NewWSGIdentityGuestPassService(c *APIClient) *WSGIdentityGuestPassService {
 	s := new(WSGIdentityGuestPassService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGIdentityGuestPassService() *WSGIdentityGuestPassService {
 	serv := new(WSGIdentityGuestPassService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -55,6 +55,15 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 // Request Body:
 //	 - body *identity.ImportIdentityGuestPass
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx context.Context, body *identity.ImportIdentityGuestPass) error {
+}
+
+// DeleteIdentityGuestpass
+//
+// Use this API command to delete multiple identity guest passes.
+//
+// Request Body:
+//	 - body *identity.DeleteBulk
+func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Context, body *identity.DeleteBulk) error {
 }
 
 // DeleteIdentityGuestpassByUserId

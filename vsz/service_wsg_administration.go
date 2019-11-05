@@ -5,22 +5,32 @@ package vsz
 import (
 	"context"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/administration"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 )
 
 type WSGAdministrationService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAdministrationService(client *Client) *WSGAdministrationService {
+func NewWSGAdministrationService(c *APIClient) *WSGAdministrationService {
 	s := new(WSGAdministrationService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAdministrationService() *WSGAdministrationService {
 	serv := new(WSGAdministrationService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddAdminaaa
+//
+// Use this API command to create a new Admin AAA server
+//
+// Request Body:
+//	 - body *administration.CreateAdminAAAServer
+func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *administration.CreateAdminAAAServer) (*common.CreateResult, error) {
 }
 
 // AddRestart
@@ -33,6 +43,16 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context) error {
 //
 // Use this API command to shut down the controller.
 func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
+}
+
+// DeleteAdminaaaById
+//
+// Use this API command to delete an existing Admin AAA server
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindAdminaaa
@@ -77,6 +97,28 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*ad
 //
 // Use this API command to get licenses synchronize logs.
 func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*administration.LicensesSyncLogsList, error) {
+}
+
+// UpdateAdminaaaById
+//
+// Use this API command to modify an existing Admin AAA server
+//
+// Request Body:
+//	 - body *administration.ModifyAdminAAAServer
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *administration.ModifyAdminAAAServer, pId string) (*common.EmptyResult, error) {
+}
+
+// UpdateLicenseServer
+//
+// Use this API command to update license server configuration.
+//
+// Request Body:
+//	 - body *administration.ModfiyLicenseServer
+func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *administration.ModfiyLicenseServer) error {
 }
 
 // UpdateLicensesSync

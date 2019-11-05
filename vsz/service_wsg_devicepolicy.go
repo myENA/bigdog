@@ -4,23 +4,49 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/devicepolicy"
 )
 
 type WSGDevicePolicyService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGDevicePolicyService(client *Client) *WSGDevicePolicyService {
+func NewWSGDevicePolicyService(c *APIClient) *WSGDevicePolicyService {
 	s := new(WSGDevicePolicyService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGDevicePolicyService() *WSGDevicePolicyService {
 	serv := new(WSGDevicePolicyService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesDevicePolicyByZoneId
+//
+// Create a new Device Policy Porfile.
+//
+// Request Body:
+//	 - body *devicepolicy.CreateDevicePolicy
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Context, body *devicepolicy.CreateDevicePolicy, pZoneId string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesDevicePolicyById
+//
+// Delete Device Policy Porfile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // FindRkszonesDevicePolicyById
@@ -47,4 +73,19 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 // - qIndex string
 // - qListSize string
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*devicepolicy.PorfileList, error) {
+}
+
+// PartialUpdateRkszonesDevicePolicyById
+//
+// Modify a specific Device Policy Porfile.
+//
+// Request Body:
+//	 - body *devicepolicy.ModifyDevicePolicy
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx context.Context, body *devicepolicy.ModifyDevicePolicy, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

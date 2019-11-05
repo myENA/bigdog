@@ -4,23 +4,33 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/firmware"
 )
 
 type SwitchMSwitchFirmwareService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchFirmwareService(client *Client) *SwitchMSwitchFirmwareService {
+func NewSwitchMSwitchFirmwareService(c *APIClient) *SwitchMSwitchFirmwareService {
 	s := new(SwitchMSwitchFirmwareService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchFirmwareService() *SwitchMSwitchFirmwareService {
 	serv := new(SwitchMSwitchFirmwareService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddFirmware
+//
+// Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
+func (s *SwitchMSwitchFirmwareService) AddFirmware(ctx context.Context, body *common.QueryCriteriaSuperSet) (*firmware.FirmwaresQueryResultList, error) {
 }
 
 // AddFirmwareUpload
@@ -43,4 +53,17 @@ func (s *SwitchMSwitchFirmwareService) DeleteFirmwareByVersion(ctx context.Conte
 //
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
 func (s *SwitchMSwitchFirmwareService) FindFirmware(ctx context.Context) (*firmware.AllFirmwaresQueryResultList, error) {
+}
+
+// PartialUpdateFirmwareByVersion
+//
+// Use this API command to update the given firmware version on switches matching criteria.
+//
+// Request Body:
+//	 - body *common.QueryCriteriaSuperSet
+//
+// Path Parameters:
+// - pVersion string
+//		- required
+func (s *SwitchMSwitchFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Context, body *common.QueryCriteriaSuperSet, pVersion string) (*firmware.ScheduleIds, error) {
 }

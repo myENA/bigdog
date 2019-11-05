@@ -9,19 +9,73 @@ import (
 )
 
 type WSGZoneAAAService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGZoneAAAService(client *Client) *WSGZoneAAAService {
+func NewWSGZoneAAAService(c *APIClient) *WSGZoneAAAService {
 	s := new(WSGZoneAAAService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGZoneAAAService() *WSGZoneAAAService {
 	serv := new(WSGZoneAAAService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesAaaAdByZoneId
+//
+// Use this API command to create a new active directory server of a zone.
+//
+// Request Body:
+//	 - body *aaa.CreateActiveDirectoryServer
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *aaa.CreateActiveDirectoryServer, pZoneId string) (*common.CreateResult, error) {
+}
+
+// AddRkszonesAaaLdapByZoneId
+//
+// Use this API command to create a new LDAP server of a zone.
+//
+// Request Body:
+//	 - body *aaa.CreateLDAPServer
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body *aaa.CreateLDAPServer, pZoneId string) (*common.CreateResult, error) {
+}
+
+// AddRkszonesAaaRadiusByZoneId
+//
+// Use this API command to create a new radius server of a zone.
+//
+// Request Body:
+//	 - body *aaa.CreateAuthenticationServer
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+//
+// Query Parameters:
+// - qForAccounting string
+func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *aaa.CreateAuthenticationServer, pZoneId string, qForAccounting string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesAaaAdById
+//
+// Use this API command to delete an active directory server of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesAaaById
@@ -47,6 +101,30 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, pId strin
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *aaa.DeleteBulkAAAServerList, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesAaaLdapById
+//
+// Use this API command to delete a LDAP server of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesAaaRadiusById
+//
+// Use this API command to delete a radius server of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesAaaRadiusSecondaryById
@@ -137,4 +215,94 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, pId s
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, pZoneId string) (*aaa.AuthenticationServerList, error) {
+}
+
+// PartialUpdateRkszonesAaaAdById
+//
+// Use this API command to modify the basic information on active directory server of a zone.
+//
+// Request Body:
+//	 - body *aaa.ModifyActiveDirectoryServer
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *aaa.ModifyActiveDirectoryServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateRkszonesAaaLdapById
+//
+// Use this API command to modify the basic information on LDAP server of a zone.
+//
+// Request Body:
+//	 - body *aaa.ModifyLDAPServer
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *aaa.ModifyLDAPServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateRkszonesAaaRadiusById
+//
+// Use this API command to modify the basic information on radius server of a zone.
+//
+// Request Body:
+//	 - body *aaa.ModifyAuthenticationServer
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *aaa.ModifyAuthenticationServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesAaaAdById
+//
+// Use this API command to modify the basic information on active directory server of a zone by complete attributes.
+//
+// Request Body:
+//	 - body *aaa.ModifyActiveDirectoryServer
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *aaa.ModifyActiveDirectoryServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesAaaLdapById
+//
+// Use this API command to modify the basic information on LDAP server of a zone by complete attributes.
+//
+// Request Body:
+//	 - body *aaa.ModifyLDAPServer
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body *aaa.ModifyLDAPServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesAaaRadiusById
+//
+// Use this API command to modify the basic information on radius server of a zone by complete attributes.
+//
+// Request Body:
+//	 - body *aaa.ModifyAuthenticationServer
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *aaa.ModifyAuthenticationServer, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

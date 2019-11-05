@@ -4,22 +4,23 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/scguser"
 )
 
 type WSGSCGUserService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSCGUserService(client *Client) *WSGSCGUserService {
+func NewWSGSCGUserService(c *APIClient) *WSGSCGUserService {
 	s := new(WSGSCGUserService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSCGUserService() *WSGSCGUserService {
 	serv := new(WSGSCGUserService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -30,6 +31,25 @@ func (ss *WSGService) WSGSCGUserService() *WSGSCGUserService {
 // Request Body:
 //	 - body *scguser.CreateScgUser
 func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *scguser.CreateScgUser) (*scguser.ScgUserAuditId, error) {
+}
+
+// DeleteUsers
+//
+// Delete multiple SCG user.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteUsersByUserId
+//
+// Delete SCG user.
+//
+// Path Parameters:
+// - pUserId string
+//		- required
+func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, pUserId string) (*scguser.ScgUserAuditId, error) {
 }
 
 // FindUsersByQueryCriteria
@@ -49,4 +69,17 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 // - pUserId string
 //		- required
 func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, pUserId string) (*scguser.GetScgUser, error) {
+}
+
+// PartialUpdateUsersByUserId
+//
+// Update SCG user.
+//
+// Request Body:
+//	 - body *scguser.ModifyScgUser
+//
+// Path Parameters:
+// - pUserId string
+//		- required
+func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body *scguser.ModifyScgUser, pUserId string) (*scguser.ScgUserAuditId, error) {
 }

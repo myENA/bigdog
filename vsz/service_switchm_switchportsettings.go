@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMSwitchPortSettingsService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchPortSettingsService(client *Client) *SwitchMSwitchPortSettingsService {
+func NewSwitchMSwitchPortSettingsService(c *APIClient) *SwitchMSwitchPortSettingsService {
 	s := new(SwitchMSwitchPortSettingsService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchPortSettingsService() *SwitchMSwitchPortSettingsService {
 	serv := new(SwitchMSwitchPortSettingsService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -56,4 +56,17 @@ func (s *SwitchMSwitchPortSettingsService) FindPortSettingsById(ctx context.Cont
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*portsettings.PortSettingsQueryResult, error) {
+}
+
+// UpdatePortSettingsById
+//
+// Use this API command to Update Port Settings.
+//
+// Request Body:
+//	 - body *portsettings.UpdatePortSettings
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *portsettings.UpdatePortSettings, pId string) (*portsettings.EmptyResult, error) {
 }

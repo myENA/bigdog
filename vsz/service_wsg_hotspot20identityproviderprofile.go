@@ -9,19 +9,37 @@ import (
 )
 
 type WSGHotspot20IdentityProviderProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGHotspot20IdentityProviderProfileService(client *Client) *WSGHotspot20IdentityProviderProfileService {
+func NewWSGHotspot20IdentityProviderProfileService(c *APIClient) *WSGHotspot20IdentityProviderProfileService {
 	s := new(WSGHotspot20IdentityProviderProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGHotspot20IdentityProviderProfileService() *WSGHotspot20IdentityProviderProfileService {
 	serv := new(WSGHotspot20IdentityProviderProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesHs20Identityproviders
+//
+// Use this API command to create a new Hotspot 2.0 identity provider.
+//
+// Request Body:
+//	 - body *profile.Hs20Provider
+func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityproviders(ctx context.Context, body *profile.Hs20Provider) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesHs20Identityproviders
+//
+// Use this API command to delete multiple Hotspot 2.0 identity provider.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityproviders(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
 }
 
 // DeleteProfilesHs20IdentityprovidersAccountingsById
@@ -32,6 +50,16 @@ func (ss *WSGService) WSGHotspot20IdentityProviderProfileService() *WSGHotspot20
 // - pId string
 //		- required
 func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersAccountingsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesHs20IdentityprovidersById
+//
+// Use this API command to delete a Hotspot 2.0 identity provider.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteProfilesHs20IdentityprovidersOsuById
@@ -71,4 +99,17 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.Hs20ProviderList, error) {
+}
+
+// PartialUpdateProfilesHs20IdentityprovidersById
+//
+// Use this API command to modify the basic information of a Hotspot 2.0 identity provider.
+//
+// Request Body:
+//	 - body *profile.Hs20Provider
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGHotspot20IdentityProviderProfileService) PartialUpdateProfilesHs20IdentityprovidersById(ctx context.Context, body *profile.Hs20Provider, pId string) (*common.EmptyResult, error) {
 }

@@ -18,18 +18,18 @@ import (
 )
 
 type WSGQueryWithFilterService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGQueryWithFilterService(client *Client) *WSGQueryWithFilterService {
+func NewWSGQueryWithFilterService(c *APIClient) *WSGQueryWithFilterService {
 	s := new(WSGQueryWithFilterService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGQueryWithFilterService() *WSGQueryWithFilterService {
 	serv := new(WSGQueryWithFilterService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

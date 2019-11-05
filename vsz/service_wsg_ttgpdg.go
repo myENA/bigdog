@@ -9,19 +9,37 @@ import (
 )
 
 type WSGTTGPDGService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGTTGPDGService(client *Client) *WSGTTGPDGService {
+func NewWSGTTGPDGService(c *APIClient) *WSGTTGPDGService {
 	s := new(WSGTTGPDGService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
 	serv := new(WSGTTGPDGService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesTtgpdg
+//
+// Use this API command to create TTG+PDG profile.
+//
+// Request Body:
+//	 - body *profile.CreateTtgpdgProfile
+func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *profile.CreateTtgpdgProfile) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesTtgpdg
+//
+// Use this API command to delete multiple TTG PDG profile.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
 }
 
 // DeleteProfilesTtgpdgApnRealmsById
@@ -32,6 +50,16 @@ func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
 // - pId string
 //		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesTtgpdgById
+//
+// Use this API command to delete TTG PDG profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, pId string) error {
 }
 
 // DeleteProfilesTtgpdgDhcpRelayById
@@ -67,4 +95,17 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, pId strin
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.TtgpdgProfileList, error) {
+}
+
+// PartialUpdateProfilesTtgpdgById
+//
+// Use this API command to modify the basic information of TTG+PDG profile.
+//
+// Request Body:
+//	 - body *profile.TtgpdgProfileConfiguration
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGTTGPDGService) PartialUpdateProfilesTtgpdgById(ctx context.Context, body *profile.TtgpdgProfileConfiguration, pId string) (*common.EmptyResult, error) {
 }

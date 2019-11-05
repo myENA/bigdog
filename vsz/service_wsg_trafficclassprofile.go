@@ -9,19 +9,57 @@ import (
 )
 
 type WSGTrafficClassProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGTrafficClassProfileService(client *Client) *WSGTrafficClassProfileService {
+func NewWSGTrafficClassProfileService(c *APIClient) *WSGTrafficClassProfileService {
 	s := new(WSGTrafficClassProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGTrafficClassProfileService() *WSGTrafficClassProfileService {
 	serv := new(WSGTrafficClassProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesTrafficClassProfileByZoneId
+//
+// Use this API command to create a new Traffic Class Profile of a zone.
+//
+// Request Body:
+//	 - body *profile.CreateTrafficClassProfile
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *profile.CreateTrafficClassProfile, pZoneId string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesTrafficClassProfileById
+//
+// Use this API command to delete a Traffic Class Profile of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesTrafficClassProfileByZoneId
+//
+// Use this API command to bulk delete Traffic Class Profiles of a zone.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *common.BulkDeleteRequest, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // FindRkszonesTrafficClassProfileById
@@ -53,4 +91,19 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.TrafficClassProfileList, error) {
+}
+
+// PartialUpdateRkszonesTrafficClassProfileById
+//
+// Use this API command to modify Traffic Class Profile of a zone.
+//
+// Request Body:
+//	 - body *profile.CreateTrafficClassProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfileById(ctx context.Context, body *profile.CreateTrafficClassProfile, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

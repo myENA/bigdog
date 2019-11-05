@@ -4,23 +4,49 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/wlanscheduler"
 )
 
 type WSGWLANSchedulerService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGWLANSchedulerService(client *Client) *WSGWLANSchedulerService {
+func NewWSGWLANSchedulerService(c *APIClient) *WSGWLANSchedulerService {
 	s := new(WSGWLANSchedulerService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGWLANSchedulerService() *WSGWLANSchedulerService {
 	serv := new(WSGWLANSchedulerService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesWlanSchedulersByZoneId
+//
+// Use this API command to create a new WLAN schedule.
+//
+// Request Body:
+//	 - body *wlanscheduler.CreateWlanScheduler
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.Context, body *wlanscheduler.CreateWlanScheduler, pZoneId string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesWlanSchedulersById
+//
+// Use this API command to delete a WLAN schedule.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // FindRkszonesWlanSchedulersById
@@ -47,4 +73,19 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 // - qIndex string
 // - qListSize string
 func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*wlanscheduler.WlanScheduleList, error) {
+}
+
+// PartialUpdateRkszonesWlanSchedulersById
+//
+// Use this API command to modify the basic information of a WLAN schedule.
+//
+// Request Body:
+//	 - body *wlanscheduler.ModifyWlanScheduler
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx context.Context, body *wlanscheduler.ModifyWlanScheduler, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

@@ -8,19 +8,29 @@ import (
 )
 
 type SwitchMSwitchSpecificSettingsService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchSpecificSettingsService(client *Client) *SwitchMSwitchSpecificSettingsService {
+func NewSwitchMSwitchSpecificSettingsService(c *APIClient) *SwitchMSwitchSpecificSettingsService {
 	s := new(SwitchMSwitchSpecificSettingsService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchSpecificSettingsService() *SwitchMSwitchSpecificSettingsService {
 	serv := new(SwitchMSwitchSpecificSettingsService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// DeleteSpecificSettingsById
+//
+// Use this API command to Delete Specific Settings.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchSpecificSettingsService) DeleteSpecificSettingsById(ctx context.Context, pId string) error {
 }
 
 // FindSpecificSettings
@@ -37,4 +47,17 @@ func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettings(ctx context.
 // - pId string
 //		- required
 func (s *SwitchMSwitchSpecificSettingsService) FindSpecificSettingsById(ctx context.Context, pId string) (*specificsettings.SpecificSettings, error) {
+}
+
+// UpdateSpecificSettingsById
+//
+// Use this API command to Update Specific Settings.
+//
+// Request Body:
+//	 - body *specificsettings.UpdateSpecificSettings
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchSpecificSettingsService) UpdateSpecificSettingsById(ctx context.Context, body *specificsettings.UpdateSpecificSettings, pId string) (*specificsettings.EmptyResult, error) {
 }

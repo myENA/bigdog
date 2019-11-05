@@ -9,18 +9,18 @@ import (
 )
 
 type WSGDPNetworkService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGDPNetworkService(client *Client) *WSGDPNetworkService {
+func NewWSGDPNetworkService(c *APIClient) *WSGDPNetworkService {
 	s := new(WSGDPNetworkService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGDPNetworkService() *WSGDPNetworkService {
 	serv := new(WSGDPNetworkService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -56,6 +56,19 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, pBladeU
 func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*system.GetDataPlaneMeshTunnelSetting, error) {
 }
 
+// PartialUpdatePlanesByBladeUUID
+//
+// Use this API command to modify the basic information of data plane.
+//
+// Request Body:
+//	 - body *system.ModifyDataPlane
+//
+// Path Parameters:
+// - pBladeUUID string
+//		- required
+func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context, body *system.ModifyDataPlane, pBladeUUID string) (*common.EmptyResult, error) {
+}
+
 // PartialUpdatePlaneStatesByBladeUUID
 //
 // Use this API command to update DP state profile.
@@ -67,4 +80,13 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*s
 // - pBladeUUID string
 //		- required
 func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Context, body *system.ModifyDataPlaneState, pBladeUUID string) (*common.EmptyResult, error) {
+}
+
+// UpdatePlanesDpTunnelSetting
+//
+// Use this API command to update DP mesh tunnel setting.
+//
+// Request Body:
+//	 - body *system.UpdateDpMeshTunnelSetting
+func (s *WSGDPNetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, body *system.UpdateDpMeshTunnelSetting) (*common.EmptyResult, error) {
 }

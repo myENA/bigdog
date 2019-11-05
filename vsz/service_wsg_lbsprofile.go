@@ -9,18 +9,18 @@ import (
 )
 
 type WSGLBSprofileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGLBSprofileService(client *Client) *WSGLBSprofileService {
+func NewWSGLBSprofileService(c *APIClient) *WSGLBSprofileService {
 	s := new(WSGLBSprofileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 	serv := new(WSGLBSprofileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,25 @@ func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 // Request Body:
 //	 - body *profile.LbsProfile
 func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *profile.LbsProfile) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesLbs
+//
+// Delete multiple LBS profile.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesLbsById
+//
+// Delete LBS profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesLbsById
@@ -50,4 +69,17 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, pId stri
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.LbsProfileList, error) {
+}
+
+// PartialUpdateProfilesLbsById
+//
+// Update LBS profile.
+//
+// Request Body:
+//	 - body *profile.LbsProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *profile.LbsProfile, pId string) (*common.EmptyResult, error) {
 }

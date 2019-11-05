@@ -9,18 +9,18 @@ import (
 )
 
 type WSGVlanPoolingService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGVlanPoolingService(client *Client) *WSGVlanPoolingService {
+func NewWSGVlanPoolingService(c *APIClient) *WSGVlanPoolingService {
 	s := new(WSGVlanPoolingService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGVlanPoolingService() *WSGVlanPoolingService {
 	serv := new(WSGVlanPoolingService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,25 @@ func (ss *WSGService) WSGVlanPoolingService() *WSGVlanPoolingService {
 // Request Body:
 //	 - body *vlanpooling.CreateVlanPooling
 func (s *WSGVlanPoolingService) AddVlanpoolings(ctx context.Context, body *vlanpooling.CreateVlanPooling) (*common.CreateResult, error) {
+}
+
+// DeleteVlanpoolings
+//
+// Use this API command to bulk delete VLAN pooling.
+//
+// Request Body:
+//	 - body *vlanpooling.DeleteBulkVlanPooling
+func (s *WSGVlanPoolingService) DeleteVlanpoolings(ctx context.Context, body *vlanpooling.DeleteBulkVlanPooling) (*common.EmptyResult, error) {
+}
+
+// DeleteVlanpoolingsById
+//
+// Use this API command to delete VLAN pooling.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGVlanPoolingService) DeleteVlanpoolingsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindVlanpoolingsById
@@ -50,4 +69,17 @@ func (s *WSGVlanPoolingService) FindVlanpoolingsById(ctx context.Context, pId st
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGVlanPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*vlanpooling.VlanPoolingList, error) {
+}
+
+// PartialUpdateVlanpoolingsById
+//
+// Use this API command to modify the basic information on VLAN pooling.
+//
+// Request Body:
+//	 - body *vlanpooling.ModifyVlanPooling
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGVlanPoolingService) PartialUpdateVlanpoolingsById(ctx context.Context, body *vlanpooling.ModifyVlanPooling, pId string) (*common.EmptyResult, error) {
 }

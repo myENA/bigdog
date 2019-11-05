@@ -8,19 +8,47 @@ import (
 )
 
 type WSGDPDHCPNATProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGDPDHCPNATProfileService(client *Client) *WSGDPDHCPNATProfileService {
+func NewWSGDPDHCPNATProfileService(c *APIClient) *WSGDPDHCPNATProfileService {
 	s := new(WSGDPDHCPNATProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGDPDHCPNATProfileService() *WSGDPDHCPNATProfileService {
 	serv := new(WSGDPDHCPNATProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddDpProfileSettings
+//
+// Use this API command to create DP DHCP & NAT profile setting.
+//
+// Request Body:
+//	 - body *dpprofile.DpProfileSettingBO
+func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, body *dpprofile.DpProfileSettingBO) error {
+}
+
+// DeleteDpProfileSettings
+//
+// Use this API command to delete DP DHCP & NAT profile settings.
+//
+// Request Body:
+//	 - body *dpprofile.BulkDelete
+func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context, body *dpprofile.BulkDelete) error {
+}
+
+// DeleteDpProfileSettingsByDpKey
+//
+// Use this API command to delete DP DHCP & NAT profile setting.
+//
+// Path Parameters:
+// - pDpKey string
+//		- required
+func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.Context, pDpKey string) error {
 }
 
 // FindDpProfileSettings
@@ -37,4 +65,17 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) 
 // - pDpKey string
 //		- required
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Context, pDpKey string) (*dpprofile.DpProfileSettingBO, error) {
+}
+
+// UpdateDpProfileSettingsByDpKey
+//
+// Use this API command to modify DP DHCP & NAT profile setting.
+//
+// Request Body:
+//	 - body *dpprofile.DpProfileSettingBO
+//
+// Path Parameters:
+// - pDpKey string
+//		- required
+func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.Context, body *dpprofile.DpProfileSettingBO, pDpKey string) error {
 }

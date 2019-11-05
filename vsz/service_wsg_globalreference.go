@@ -8,18 +8,18 @@ import (
 )
 
 type WSGGlobalreferenceService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGGlobalreferenceService(client *Client) *WSGGlobalreferenceService {
+func NewWSGGlobalreferenceService(c *APIClient) *WSGGlobalreferenceService {
 	s := new(WSGGlobalreferenceService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGGlobalreferenceService() *WSGGlobalreferenceService {
 	serv := new(WSGGlobalreferenceService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

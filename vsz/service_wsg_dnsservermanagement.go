@@ -9,19 +9,28 @@ import (
 )
 
 type WSGDNSServerManagementService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGDNSServerManagementService(client *Client) *WSGDNSServerManagementService {
+func NewWSGDNSServerManagementService(c *APIClient) *WSGDNSServerManagementService {
 	s := new(WSGDNSServerManagementService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementService {
 	serv := new(WSGDNSServerManagementService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesDnsserver
+//
+// Use this API command to create DNS server profile.
+//
+// Request Body:
+//	 - body *profile.CreateDnsServerProfile
+func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context, body *profile.CreateDnsServerProfile) (*common.CreateResult, error) {
 }
 
 // AddProfilesDnsserverCloneById
@@ -35,6 +44,25 @@ func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementSer
 // - pId string
 //		- required
 func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
+}
+
+// DeleteProfilesDnsserver
+//
+// Use this API command to delete a list of DNS server profile.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesDnsserverById
+//
+// Use this API command to delete DNS server profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesDnsserver
@@ -64,4 +92,17 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Co
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.DnsServerProfileList, error) {
+}
+
+// PartialUpdateProfilesDnsserverById
+//
+// Use this API command to modify the basic information of DNS server profile.
+//
+// Request Body:
+//	 - body *profile.ModifyDnsServerProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *profile.ModifyDnsServerProfile, pId string) (*common.EmptyResult, error) {
 }

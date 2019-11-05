@@ -9,19 +9,47 @@ import (
 )
 
 type WSGSoftGRETunnelProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSoftGRETunnelProfileService(client *Client) *WSGSoftGRETunnelProfileService {
+func NewWSGSoftGRETunnelProfileService(c *APIClient) *WSGSoftGRETunnelProfileService {
 	s := new(WSGSoftGRETunnelProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSoftGRETunnelProfileService() *WSGSoftGRETunnelProfileService {
 	serv := new(WSGSoftGRETunnelProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesTunnelSoftgre
+//
+// Use this API command to create SoftGRE tunnel profile.
+//
+// Request Body:
+//	 - body *profile.CreateSoftGREProfile
+func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Context, body *profile.CreateSoftGREProfile) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesTunnelSoftgre
+//
+// Use this API command to delete multiple SoftGRE tunnel profile.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesTunnelSoftgreById
+//
+// Use this API command to delete SoftGRE tunnel profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesTunnelSoftgre
@@ -47,4 +75,17 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.SoftGREProfileList, error) {
+}
+
+// PartialUpdateProfilesTunnelSoftgreById
+//
+// Use this API command to modify the basic information of SoftGRE tunnel profile.
+//
+// Request Body:
+//	 - body *profile.ModifySoftGREProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGSoftGRETunnelProfileService) PartialUpdateProfilesTunnelSoftgreById(ctx context.Context, body *profile.ModifySoftGREProfile, pId string) (*common.EmptyResult, error) {
 }

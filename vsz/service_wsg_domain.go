@@ -4,23 +4,68 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/domain"
 )
 
 type WSGDomainService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGDomainService(client *Client) *WSGDomainService {
+func NewWSGDomainService(c *APIClient) *WSGDomainService {
 	s := new(WSGDomainService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGDomainService() *WSGDomainService {
 	serv := new(WSGDomainService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddDomains
+//
+// Use this API command to create new domain.
+//
+// Request Body:
+//	 - body *domain.CreateDomain
+//
+// Query Parameters:
+// - qParentDomainId string
+func (s *WSGDomainService) AddDomains(ctx context.Context, body *domain.CreateDomain, qParentDomainId string) (*common.CreateResult, error) {
+}
+
+// AddRkszonesDomains
+//
+// Use this API command to create new domain.
+//
+// Request Body:
+//	 - body *domain.CreateDomain
+//
+// Query Parameters:
+// - qParentDomainId string
+func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *domain.CreateDomain, qParentDomainId string) (*common.CreateResult, error) {
+}
+
+// DeleteDomainsById
+//
+// Use this API command to delete domain.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, pId string) error {
+}
+
+// DeleteRkszonesDomainsById
+//
+// Use this API command to delete domain.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, pId string) error {
 }
 
 // FindDomains
@@ -107,4 +152,30 @@ func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, pId stri
 // - qListSize string
 // - qRecursively string
 func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context, pId string, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*domain.DomainList, error) {
+}
+
+// PartialUpdateDomainsById
+//
+// Use this API command to modify the basic information of domain.
+//
+// Request Body:
+//	 - body *domain.ModifyDomain
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *domain.ModifyDomain, pId string) error {
+}
+
+// PartialUpdateRkszonesDomainsById
+//
+// Use this API command to modify the basic information of domain.
+//
+// Request Body:
+//	 - body *domain.ModifyDomain
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGDomainService) PartialUpdateRkszonesDomainsById(ctx context.Context, body *domain.ModifyDomain, pId string) error {
 }

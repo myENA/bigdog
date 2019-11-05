@@ -9,18 +9,18 @@ import (
 )
 
 type WSGMarkRogueService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGMarkRogueService(client *Client) *WSGMarkRogueService {
+func NewWSGMarkRogueService(c *APIClient) *WSGMarkRogueService {
 	s := new(WSGMarkRogueService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
 	serv := new(WSGMarkRogueService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,15 @@ func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
 // Request Body:
 //	 - body *ap.ModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *ap.ModifyRogueType) (*common.EmptyResult, error) {
+}
+
+// AddRogueMarkKnown
+//
+// Mark a rogue AP as know.
+//
+// Request Body:
+//	 - body *ap.ModifyRogueType
+func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *ap.ModifyRogueType) (*common.EmptyResult, error) {
 }
 
 // AddRogueMarkMalicious

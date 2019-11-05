@@ -8,18 +8,18 @@ import (
 )
 
 type WSGServiceTicketService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGServiceTicketService(client *Client) *WSGServiceTicketService {
+func NewWSGServiceTicketService(c *APIClient) *WSGServiceTicketService {
 	s := new(WSGServiceTicketService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGServiceTicketService() *WSGServiceTicketService {
 	serv := new(WSGServiceTicketService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -30,4 +30,14 @@ func (ss *WSGService) WSGServiceTicketService() *WSGServiceTicketService {
 // Request Body:
 //	 - body *serviceticket.LoginRequest
 func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *serviceticket.LoginRequest) (*serviceticket.LoginResponse, error) {
+}
+
+// DeleteServiceTicket
+//
+// Use this API command to log off of the controller.
+//
+// Query Parameters:
+// - qServiceTicket string
+//		- required
+func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, qServiceTicket string) error {
 }

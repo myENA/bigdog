@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMSwitchService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchService(client *Client) *SwitchMSwitchService {
+func NewSwitchMSwitchService(c *APIClient) *SwitchMSwitchService {
 	s := new(SwitchMSwitchService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchService() *SwitchMSwitchService {
 	serv := new(SwitchMSwitchService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -49,6 +49,25 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.StackMemberQueryResult, error) {
+}
+
+// DeleteSwitch
+//
+// Use this API command to delete multiple switches managed by SmartZone
+//
+// Request Body:
+//	 - body switchmswitch.SwitchIdList
+func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body switchmswitch.SwitchIdList) (*switchmswitch.DeleteSwitchesResultList, error) {
+}
+
+// DeleteSwitchById
+//
+// Use this API command to delete a switch managed by SmartZone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, pId string) (*switchmswitch.AuditId, error) {
 }
 
 // FindSwitchById

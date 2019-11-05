@@ -9,19 +9,28 @@ import (
 )
 
 type WSGAccountingServiceService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAccountingServiceService(client *Client) *WSGAccountingServiceService {
+func NewWSGAccountingServiceService(c *APIClient) *WSGAccountingServiceService {
 	s := new(WSGAccountingServiceService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService {
 	serv := new(WSGAccountingServiceService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddServicesAcctRadius
+//
+// Use this API command to create a new RADIUS accounting service.
+//
+// Request Body:
+//	 - body *service.CreateRadiusAccounting
+func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context, body *service.CreateRadiusAccounting) (*common.CreateResult, error) {
 }
 
 // AddServicesAcctTestById
@@ -54,6 +63,16 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 // - pId string
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+}
+
+// DeleteServicesAcctRadiusById
+//
+// Use this API command to delete a RADIUS accounting service.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // DeleteServicesAcctRadiusSecondaryById
@@ -108,4 +127,17 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.RadiusAccountingServiceList, error) {
+}
+
+// PartialUpdateServicesAcctRadiusById
+//
+// Use this API command to modify the basic information of a RADIUS accounting service.
+//
+// Request Body:
+//	 - body *service.ModifyRadiusAccounting
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx context.Context, body *service.ModifyRadiusAccounting, pId string) (*common.EmptyResult, error) {
 }

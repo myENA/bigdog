@@ -4,22 +4,23 @@ package vsz
 
 import (
 	"context"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/scguser"
 )
 
 type WSGSCGUserGroupService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSCGUserGroupService(client *Client) *WSGSCGUserGroupService {
+func NewWSGSCGUserGroupService(c *APIClient) *WSGSCGUserGroupService {
 	s := new(WSGSCGUserGroupService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
 	serv := new(WSGSCGUserGroupService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -30,6 +31,25 @@ func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
 // Request Body:
 //	 - body *scguser.ScgUserGroup
 func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *scguser.ScgUserGroup) (*scguser.ScgUserGroupAuditId, error) {
+}
+
+// DeleteUserGroups
+//
+// Delete multiple SCG user group.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteUserGroupsByUserGroupId
+//
+// Delete SCG user group.
+//
+// Path Parameters:
+// - pUserGroupId string
+//		- required
+func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, pUserGroupId string) (*scguser.ScgUserGroupAuditId, error) {
 }
 
 // FindUserGroupsByQueryCriteria
@@ -77,4 +97,17 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*scgu
 // Query Parameters:
 // - qDomainId string
 func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, pRole string, qDomainId string) (*scguser.ScgUserGroupPermissionList, error) {
+}
+
+// PartialUpdateUserGroupsByUserGroupId
+//
+// Update user groups.
+//
+// Request Body:
+//	 - body *scguser.PatchScgUserGroup
+//
+// Path Parameters:
+// - pUserGroupId string
+//		- required
+func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *scguser.PatchScgUserGroup, pUserGroupId string) (*scguser.ScgUserGroupAuditId, error) {
 }

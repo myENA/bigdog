@@ -9,19 +9,44 @@ import (
 )
 
 type WSGGuestAccessService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGGuestAccessService(client *Client) *WSGGuestAccessService {
+func NewWSGGuestAccessService(c *APIClient) *WSGGuestAccessService {
 	s := new(WSGGuestAccessService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
 	serv := new(WSGGuestAccessService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesPortalsGuestByZoneId
+//
+// Use this API command to create new guest access of a zone.
+//
+// Request Body:
+//	 - body *portalservice.CreateGuestAccess
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Context, body *portalservice.CreateGuestAccess, pZoneId string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesPortalsGuestById
+//
+// Use this API command to delete guest access of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // DeleteRkszonesPortalsGuestRedirectById
@@ -68,4 +93,19 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context
 // - pZoneId string
 //		- required
 func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
+}
+
+// PartialUpdateRkszonesPortalsGuestById
+//
+// Use this API command to modify the basic information on guest access of a zone.
+//
+// Request Body:
+//	 - body *portalservice.ModifyGuestAccess
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGGuestAccessService) PartialUpdateRkszonesPortalsGuestById(ctx context.Context, body *portalservice.ModifyGuestAccess, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMSwitchCommonSettingsService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchCommonSettingsService(client *Client) *SwitchMSwitchCommonSettingsService {
+func NewSwitchMSwitchCommonSettingsService(c *APIClient) *SwitchMSwitchCommonSettingsService {
 	s := new(SwitchMSwitchCommonSettingsService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchCommonSettingsService() *SwitchMSwitchCommonSettingsService {
 	serv := new(SwitchMSwitchCommonSettingsService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -33,6 +33,16 @@ func (ss *SwitchMService) SwitchMSwitchCommonSettingsService() *SwitchMSwitchCom
 func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig(ctx context.Context, body *dnsconfig.CreateDnsConfig) (*common.CreateResult, error) {
 }
 
+// DeleteDnsConfigBySwitchGroupId
+//
+// Use this API command to Delete DNS Config.
+//
+// Path Parameters:
+// - pSwitchGroupId string
+//		- required
+func (s *SwitchMSwitchCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx context.Context, pSwitchGroupId string) error {
+}
+
 // FindDnsConfigBySwitchGroupId
 //
 // Use this API command to Retrieve DNS Config.
@@ -41,4 +51,17 @@ func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig(ctx context.Context, b
 // - pSwitchGroupId string
 //		- required
 func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, pSwitchGroupId string) (*dnsconfig.DnsConfig, error) {
+}
+
+// UpdateDnsConfigBySwitchGroupId
+//
+// Use this API command to Update DNS Config.
+//
+// Request Body:
+//	 - body *dnsconfig.UpdateDnsConfig
+//
+// Path Parameters:
+// - pSwitchGroupId string
+//		- required
+func (s *SwitchMSwitchCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *dnsconfig.UpdateDnsConfig, pSwitchGroupId string) (*dnsconfig.EmptyResult, error) {
 }

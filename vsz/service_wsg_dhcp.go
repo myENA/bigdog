@@ -11,19 +11,57 @@ import (
 )
 
 type WSGDHCPService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGDHCPService(client *Client) *WSGDHCPService {
+func NewWSGDHCPService(c *APIClient) *WSGDHCPService {
 	s := new(WSGDHCPService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGDHCPService() *WSGDHCPService {
 	serv := new(WSGDHCPService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesDhcpSiteDhcpProfileByZoneId
+//
+// Use this API command to create DHCP Pool.
+//
+// Request Body:
+//	 - body *profile.CreateDhcpProfile
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *profile.CreateDhcpProfile, pZoneId string) (*common.CreateResult, error) {
+}
+
+// DeleteRkszonesDhcpSiteDhcpProfileById
+//
+// Use this API command to delete DHCP Pool by pool's ID.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// DeleteRkszonesDhcpSiteDhcpProfileByZoneId
+//
+// Use this API command to delete multiple DHCP Pools.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *common.BulkDeleteRequest, pZoneId string) (*common.EmptyResult, error) {
 }
 
 // FindDhcpDataDhcpMsgStatsByApMac
@@ -88,4 +126,19 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Con
 // - pZoneId string
 //		- required
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.Context, pZoneId string) (*common.DhcpSiteConfigListRef, error) {
+}
+
+// PartialUpdateRkszonesDhcpSiteDhcpProfileById
+//
+// Use this API command to modify DHCP Pool by pool's ID.
+//
+// Request Body:
+//	 - body *profile.CreateDhcpProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGDHCPService) PartialUpdateRkszonesDhcpSiteDhcpProfileById(ctx context.Context, body *profile.CreateDhcpProfile, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

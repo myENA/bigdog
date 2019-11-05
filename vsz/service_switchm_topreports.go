@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMTopReportsService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMTopReportsService(client *Client) *SwitchMTopReportsService {
+func NewSwitchMTopReportsService(c *APIClient) *SwitchMTopReportsService {
 	s := new(SwitchMTopReportsService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMTopReportsService() *SwitchMTopReportsService {
 	serv := new(SwitchMTopReportsService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

@@ -9,19 +9,28 @@ import (
 )
 
 type WSGAuthenticationProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAuthenticationProfileService(client *Client) *WSGAuthenticationProfileService {
+func NewWSGAuthenticationProfileService(c *APIClient) *WSGAuthenticationProfileService {
 	s := new(WSGAuthenticationProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfileService {
 	serv := new(WSGAuthenticationProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesAuth
+//
+// Use this API command to create a new authentication profile.
+//
+// Request Body:
+//	 - body *profile.CreateAuthenticationProfile
+func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, body *profile.CreateAuthenticationProfile) (*common.CreateResult, error) {
 }
 
 // AddProfilesAuthCloneById
@@ -35,6 +44,25 @@ func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfil
 // - pId string
 //		- required
 func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
+}
+
+// DeleteProfilesAuth
+//
+// Use this API command to delete a list of authentication profile.
+//
+// Request Body:
+//	 - body *profile.DeleteBulkAuthenticationProfile
+func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context, body *profile.DeleteBulkAuthenticationProfile) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesAuthById
+//
+// Use this API command to delete an authentication profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Context, pId string) (*common.EmptyResult, error) {
 }
 
 // FindProfilesAuth
@@ -79,4 +107,17 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.AuthenticationProfileList, error) {
+}
+
+// PartialUpdateProfilesAuthById
+//
+// Use this API command to modify the basic information of an authentication profile.
+//
+// Request Body:
+//	 - body *profile.ModifyAuthenticationProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx context.Context, body *profile.ModifyAuthenticationProfile, pId string) (*common.EmptyResult, error) {
 }

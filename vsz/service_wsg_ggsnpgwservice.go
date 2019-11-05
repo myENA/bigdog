@@ -9,18 +9,18 @@ import (
 )
 
 type WSGGGSNPGWServiceService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGGGSNPGWServiceService(client *Client) *WSGGGSNPGWServiceService {
+func NewWSGGGSNPGWServiceService(c *APIClient) *WSGGGSNPGWServiceService {
 	s := new(WSGGGSNPGWServiceService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGGGSNPGWServiceService() *WSGGGSNPGWServiceService {
 	serv := new(WSGGGSNPGWServiceService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -40,6 +40,33 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Contex
 //
 // Use this API command to retrieve GGSN/PGW setting.
 func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context) (*service.GgsnConfig, error) {
+}
+
+// PartialUpdateServicesGgsn
+//
+// Use this API command to modify the setting of GGSN/PGW.
+//
+// Request Body:
+//	 - body *service.GgsnConfig
+func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context, body *service.GgsnConfig) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateServicesGgsnDnsServerList
+//
+// Use this API command to modify the dns server list of GGSN/PGW.
+//
+// Request Body:
+//	 - body service.DnsServerList
+func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx context.Context, body service.DnsServerList) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateServicesGgsnGgsnList
+//
+// Use this API command to modify the ggsn server list of GGSN/PGW.
+//
+// Request Body:
+//	 - body service.GgsnList
+func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context.Context, body service.GgsnList) (*common.EmptyResult, error) {
 }
 
 // PartialUpdateServicesGgsnGtpSettings

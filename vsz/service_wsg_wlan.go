@@ -9,19 +9,32 @@ import (
 )
 
 type WSGWLANService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGWLANService(client *Client) *WSGWLANService {
+func NewWSGWLANService(c *APIClient) *WSGWLANService {
 	s := new(WSGWLANService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGWLANService() *WSGWLANService {
 	serv := new(WSGWLANService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesWlansByZoneId
+//
+// Use this API command to create a new standard, open and non-tunneled basic WLAN.
+//
+// Request Body:
+//	 - body *wlan.CreateStandardOpenWlan
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *wlan.CreateStandardOpenWlan, pZoneId string) (*common.CreateResult, error) {
 }
 
 // AddRkszonesWlansGuestByZoneId
@@ -204,6 +217,18 @@ func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, b
 func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
+// DeleteRkszonesWlansById
+//
+// Use this API command to delete a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
 // DeleteRkszonesWlansDevicePolicyById
 //
 // Use this API command to disable the device policy of a WLAN.
@@ -252,6 +277,18 @@ func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Con
 func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
 }
 
+// DeleteRkszonesWlansQosMapsById
+//
+// Use this API command to disable Qos Map Set of a WLAN.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
 // FindRkszonesWlansById
 //
 // Use this API command to retrieve a WLAN.
@@ -276,4 +313,34 @@ func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, pId string, 
 // - qIndex string
 // - qListSize string
 func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*wlan.WlanList, error) {
+}
+
+// PartialUpdateRkszonesWlansById
+//
+// Use this API command to modify the basic information of a WLAN.
+//
+// Request Body:
+//	 - body *wlan.ModifyWlan
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, body *wlan.ModifyWlan, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesWlansById
+//
+// Use this API command to modify entire information of a WLAN.
+//
+// Request Body:
+//	 - body *wlan.ModifyWlan
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGWLANService) UpdateRkszonesWlansById(ctx context.Context, body *wlan.ModifyWlan, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

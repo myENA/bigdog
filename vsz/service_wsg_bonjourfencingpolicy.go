@@ -9,19 +9,32 @@ import (
 )
 
 type WSGBonjourFencingPolicyService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGBonjourFencingPolicyService(client *Client) *WSGBonjourFencingPolicyService {
+func NewWSGBonjourFencingPolicyService(c *APIClient) *WSGBonjourFencingPolicyService {
 	s := new(WSGBonjourFencingPolicyService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGBonjourFencingPolicyService() *WSGBonjourFencingPolicyService {
 	serv := new(WSGBonjourFencingPolicyService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddRkszonesBonjourFencingPolicyByZoneId
+//
+// Use this API command to create Bonjour Fencing Policy.
+//
+// Request Body:
+//	 - body *profile.CreateBonjourFencingPolicy
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId(ctx context.Context, body *profile.CreateBonjourFencingPolicy, pZoneId string) (*common.CreateResult, error) {
 }
 
 // DeleteRkszonesBonjourFencingPolicy
@@ -82,4 +95,19 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.BonjourFencingPolicyList, error) {
+}
+
+// PartialUpdateRkszonesBonjourFencingPolicyById
+//
+// Use this API command to modify the basic information of Bonjour Fencing Policy.
+//
+// Request Body:
+//	 - body *profile.ModifyBonjourFencingPolicy
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPolicyById(ctx context.Context, body *profile.ModifyBonjourFencingPolicy, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

@@ -12,19 +12,38 @@ import (
 )
 
 type WSGAccessPointConfigurationService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGAccessPointConfigurationService(client *Client) *WSGAccessPointConfigurationService {
+func NewWSGAccessPointConfigurationService(c *APIClient) *WSGAccessPointConfigurationService {
 	s := new(WSGAccessPointConfigurationService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGAccessPointConfigurationService() *WSGAccessPointConfigurationService {
 	serv := new(WSGAccessPointConfigurationService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddAps
+//
+// Use this API command to create a new access point.
+//
+// Request Body:
+//	 - body *ap.CreateAP
+func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *ap.CreateAP) (*common.EmptyResult, error) {
+}
+
+// AddApsPictureByApMac
+//
+// Use this API command to upload a new AP picture.
+//
+// Path Parameters:
+// - pApMac string
+//		- required
+func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Context, pApMac string) error {
 }
 
 // DeleteApsAltitudeByApMac
@@ -75,6 +94,16 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByAp
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+}
+
+// DeleteApsByApMac
+//
+// Use this API command to delete an access point.
+//
+// Path Parameters:
+// - pApMac string
+//		- required
+func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
 }
 
 // DeleteApsChannelEvaluationIntervalByApMac
@@ -197,6 +226,16 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac
 func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
 }
 
+// DeleteApsPictureByApMac
+//
+// Use this API command to delete an AP picture.
+//
+// Path Parameters:
+// - pApMac string
+//		- required
+func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context.Context, pApMac string) error {
+}
+
 // DeleteApsProtectionMode24ByApMac
 //
 // Use this API command to disable 2.4GHz radio protection mode configuration override.The AP will apply its group's or zone's configuration.
@@ -255,6 +294,16 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByAp
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+}
+
+// DeleteApsSpecificByApMac
+//
+// Use this API command to disable specific configuration override from AP group or zone.
+//
+// Path Parameters:
+// - pApMac string
+//		- required
+func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
 }
 
 // DeleteApsSyslogByApMac
@@ -445,6 +494,19 @@ func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx contex
 func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Context) (*meshnodeinfo.MeshNodeInfoList, error) {
 }
 
+// PartialUpdateApsByApMac
+//
+// Use this API command to modify the basic information of an AP.
+//
+// Request Body:
+//	 - body *ap.ModifyAP
+//
+// Path Parameters:
+// - pApMac string
+//		- required
+func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context.Context, body *ap.ModifyAP, pApMac string) (*common.EmptyResult, error) {
+}
+
 // UpdateApsRebootByApMac
 //
 // reboot an access point.
@@ -466,4 +528,13 @@ func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx context.Context, body *apmodel.ApModel, pApMac string) (*common.EmptyResult, error) {
+}
+
+// UpdateMeshZeroTouch
+//
+// Use this API command to approve/reject unapproved AP. Recommend to deploy 20 island APs to join per batch at the same time.
+//
+// Request Body:
+//	 - body *meshnodeinfo.UpdateAPZeroTouch
+func (s *WSGAccessPointConfigurationService) UpdateMeshZeroTouch(ctx context.Context, body *meshnodeinfo.UpdateAPZeroTouch) error {
 }

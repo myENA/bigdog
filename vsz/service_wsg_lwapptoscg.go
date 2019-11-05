@@ -9,18 +9,18 @@ import (
 )
 
 type WSGLWAPPTOSCGService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGLWAPPTOSCGService(client *Client) *WSGLWAPPTOSCGService {
+func NewWSGLWAPPTOSCGService(c *APIClient) *WSGLWAPPTOSCGService {
 	s := new(WSGLWAPPTOSCGService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
 	serv := new(WSGLWAPPTOSCGService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -28,6 +28,15 @@ func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
 //
 // Use this API command to retrieve Lwapp Config.
 func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*system.Lwapp2scgConfiguration, error) {
+}
+
+// PartialUpdateLwapp2scg
+//
+// Use this API command to modify the basic information of the Lwapp Config.
+//
+// Request Body:
+//	 - body *system.ModifyLwapp2scg
+func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body *system.ModifyLwapp2scg) (*common.EmptyResult, error) {
 }
 
 // PartialUpdateLwapp2scgApList

@@ -8,18 +8,18 @@ import (
 )
 
 type WSGTestAAAServerService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGTestAAAServerService(client *Client) *WSGTestAAAServerService {
+func NewWSGTestAAAServerService(c *APIClient) *WSGTestAAAServerService {
 	s := new(WSGTestAAAServerService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
 	serv := new(WSGTestAAAServerService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

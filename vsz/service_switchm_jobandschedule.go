@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMJobandScheduleService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMJobandScheduleService(client *Client) *SwitchMJobandScheduleService {
+func NewSwitchMJobandScheduleService(c *APIClient) *SwitchMJobandScheduleService {
 	s := new(SwitchMJobandScheduleService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMJobandScheduleService() *SwitchMJobandScheduleService {
 	serv := new(SwitchMJobandScheduleService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

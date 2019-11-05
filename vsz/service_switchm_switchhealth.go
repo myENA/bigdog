@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMSwitchHealthService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchHealthService(client *Client) *SwitchMSwitchHealthService {
+func NewSwitchMSwitchHealthService(c *APIClient) *SwitchMSwitchHealthService {
 	s := new(SwitchMSwitchHealthService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchHealthService() *SwitchMSwitchHealthService {
 	serv := new(SwitchMSwitchHealthService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

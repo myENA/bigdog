@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMSwitchTrafficService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchTrafficService(client *Client) *SwitchMSwitchTrafficService {
+func NewSwitchMSwitchTrafficService(c *APIClient) *SwitchMSwitchTrafficService {
 	s := new(SwitchMSwitchTrafficService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchTrafficService() *SwitchMSwitchTrafficService {
 	serv := new(SwitchMSwitchTrafficService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

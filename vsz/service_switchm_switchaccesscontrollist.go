@@ -9,18 +9,18 @@ import (
 )
 
 type SwitchMSwitchAccessControlListService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchAccessControlListService(client *Client) *SwitchMSwitchAccessControlListService {
+func NewSwitchMSwitchAccessControlListService(c *APIClient) *SwitchMSwitchAccessControlListService {
 	s := new(SwitchMSwitchAccessControlListService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchAccessControlListService() *SwitchMSwitchAccessControlListService {
 	serv := new(SwitchMSwitchAccessControlListService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,25 @@ func (ss *SwitchMService) SwitchMSwitchAccessControlListService() *SwitchMSwitch
 // Request Body:
 //	 - body *aclconfig.CreateACLConfig
 func (s *SwitchMSwitchAccessControlListService) AddAccessControls(ctx context.Context, body *aclconfig.CreateACLConfig) (*common.CreateResult, error) {
+}
+
+// DeleteAccessControls
+//
+// Use this API command to Delete the Access Control Config by Id list.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *SwitchMSwitchAccessControlListService) DeleteAccessControls(ctx context.Context, body *common.BulkDeleteRequest) error {
+}
+
+// DeleteAccessControlsById
+//
+// Use this API command to Delete the Access Control Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchAccessControlListService) DeleteAccessControlsById(ctx context.Context, pId string) error {
 }
 
 // FindAccessControlsById
@@ -50,4 +69,17 @@ func (s *SwitchMSwitchAccessControlListService) FindAccessControlsById(ctx conte
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchAccessControlListService) FindAccessControlsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*aclconfig.ACLConfigsQueryResult, error) {
+}
+
+// UpdateAccessControlsById
+//
+// Use this API command to Update the Access Control Config.
+//
+// Request Body:
+//	 - body *aclconfig.UpdateACLConfig
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchAccessControlListService) UpdateAccessControlsById(ctx context.Context, body *aclconfig.UpdateACLConfig, pId string) (*aclconfig.EmptyResult, error) {
 }

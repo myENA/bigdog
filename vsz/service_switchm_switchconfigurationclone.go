@@ -8,19 +8,28 @@ import (
 )
 
 type SwitchMSwitchConfigurationCloneService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchConfigurationCloneService(client *Client) *SwitchMSwitchConfigurationCloneService {
+func NewSwitchMSwitchConfigurationCloneService(c *APIClient) *SwitchMSwitchConfigurationCloneService {
 	s := new(SwitchMSwitchConfigurationCloneService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchConfigurationCloneService() *SwitchMSwitchConfigurationCloneService {
 	serv := new(SwitchMSwitchConfigurationCloneService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddCloneConfiguration
+//
+// Use this API command to Get Switch Config.
+//
+// Request Body:
+//	 - body *group.GetConfigBySwitch
+func (s *SwitchMSwitchConfigurationCloneService) AddCloneConfiguration(ctx context.Context, body *group.GetConfigBySwitch) error {
 }
 
 // AddCloneConfigurationByGroup

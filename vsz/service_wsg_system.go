@@ -12,18 +12,18 @@ import (
 )
 
 type WSGSystemService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGSystemService(client *Client) *WSGSystemService {
+func NewWSGSystemService(c *APIClient) *WSGSystemService {
 	s := new(WSGSystemService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGSystemService() *WSGSystemService {
 	serv := new(WSGSystemService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -31,6 +31,15 @@ func (ss *WSGService) WSGSystemService() *WSGSystemService {
 //
 // Execute ap balance.
 func (s *WSGSystemService) AddSystemAp_balance(ctx context.Context) error {
+}
+
+// AddSystemApRoutineConfigInterval
+//
+// Use this API command to get AP routine configuration interval setting.
+//
+// Request Body:
+//	 - body *aproutineconfiginterval.ApRoutineConfigIntervalReq
+func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context, body *aproutineconfiginterval.ApRoutineConfigIntervalReq) error {
 }
 
 // AddSystemApRoutineStatusIntervalSlowdown
@@ -43,6 +52,15 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 //
 // Use this API command to set AP routine status interval setting to 180 seconds.
 func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.Context) error {
+}
+
+// DeleteSystemNbi
+//
+// Use this API command to disable the user information by Northbound Portal Interface.
+//
+// Query Parameters:
+// - qDomainId string
+func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, qDomainId string) (*common.EmptyResult, error) {
 }
 
 // FindController
@@ -145,6 +163,15 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, qDomainId string) 
 func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context) (*system.SystemTimeSetting, error) {
 }
 
+// PartialUpdateSystem
+//
+// Use this API command to modify settings of system. Currently, Only can modify settings about AP number limit by query criteria with domain and zone filters.
+//
+// Request Body:
+//	 - body *system.SaveSystemSettings
+func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *system.SaveSystemSettings) error {
+}
+
 // PartialUpdateSystemCaptcha
 //
 // Use this API command to modify the CAPTCHA setting.
@@ -152,4 +179,34 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context) (*system.Sy
 // Request Body:
 //	 - body *system.CaptchaSetting
 func (s *WSGSystemService) PartialUpdateSystemCaptcha(ctx context.Context, body *system.CaptchaSetting) error {
+}
+
+// PartialUpdateSystemGatewayAdvanced
+//
+// Use this API command to modify the gateway advanced setting.
+//
+// Request Body:
+//	 - body *system.ModifyGatewayAdvanced
+func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Context, body *system.ModifyGatewayAdvanced) error {
+}
+
+// PartialUpdateSystemNbi
+//
+// Use this API command to modify the user information by Northbound Portal Interface.
+//
+// Request Body:
+//	 - body *system.NorthboundInterface
+//
+// Query Parameters:
+// - qDomainId string
+func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *system.NorthboundInterface, qDomainId string) error {
+}
+
+// PartialUpdateSystemSystemTime
+//
+// Modify System Time Setting.
+//
+// Request Body:
+//	 - body *system.ModifySystemTimeSetting
+func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *system.ModifySystemTimeSetting) (*common.EmptyResult, error) {
 }

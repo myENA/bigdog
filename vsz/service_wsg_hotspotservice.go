@@ -9,18 +9,18 @@ import (
 )
 
 type WSGHotspotServiceService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGHotspotServiceService(client *Client) *WSGHotspotServiceService {
+func NewWSGHotspotServiceService(c *APIClient) *WSGHotspotServiceService {
 	s := new(WSGHotspotServiceService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGHotspotServiceService() *WSGHotspotServiceService {
 	serv := new(WSGHotspotServiceService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -63,6 +63,18 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId(ctx context.Context, body *portalservice.CreateHotspotSmartClientOnly, pZoneId string) (*common.CreateResult, error) {
 }
 
+// DeleteRkszonesPortalsHotspotById
+//
+// Use this API command to delete a Hotspot (WISPr) of a zone.
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
 // FindRkszonesPortalsHotspotById
 //
 // Use this API command to retrieve a Hotspot (WISPr) of zone.
@@ -83,4 +95,19 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Co
 // - pZoneId string
 //		- required
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
+}
+
+// PartialUpdateRkszonesPortalsHotspotById
+//
+// Use this API command to modify the basic information on Hotspot (WISPr) of a zone.MacAddressFormat.
+//
+// Request Body:
+//	 - body *portalservice.ModifyHotspot
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGHotspotServiceService) PartialUpdateRkszonesPortalsHotspotById(ctx context.Context, body *portalservice.ModifyHotspot, pId string, pZoneId string) (*common.EmptyResult, error) {
 }

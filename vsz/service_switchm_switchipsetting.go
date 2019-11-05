@@ -9,19 +9,47 @@ import (
 )
 
 type SwitchMSwitchIPSettingService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewSwitchMSwitchIPSettingService(client *Client) *SwitchMSwitchIPSettingService {
+func NewSwitchMSwitchIPSettingService(c *APIClient) *SwitchMSwitchIPSettingService {
 	s := new(SwitchMSwitchIPSettingService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchIPSettingService() *SwitchMSwitchIPSettingService {
 	serv := new(SwitchMSwitchIPSettingService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddIpConfigs
+//
+// Use this API command to Create IP Config.
+//
+// Request Body:
+//	 - body *ipconfig.Create
+func (s *SwitchMSwitchIPSettingService) AddIpConfigs(ctx context.Context, body *ipconfig.Create) (ipconfig.CreateResult, error) {
+}
+
+// DeleteIpConfigs
+//
+// Use this API command to Delete IP Config by Id list.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *SwitchMSwitchIPSettingService) DeleteIpConfigs(ctx context.Context, body *common.BulkDeleteRequest) error {
+}
+
+// DeleteIpConfigsById
+//
+// Use this API command to Delete IP Config.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchIPSettingService) DeleteIpConfigsById(ctx context.Context, pId string) error {
 }
 
 // FindIpConfigs
@@ -47,4 +75,17 @@ func (s *SwitchMSwitchIPSettingService) FindIpConfigsById(ctx context.Context, p
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*ipconfig.List, error) {
+}
+
+// UpdateIpConfigsById
+//
+// Use this API command to Update IP Config.
+//
+// Request Body:
+//	 - body *ipconfig.Modify
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *SwitchMSwitchIPSettingService) UpdateIpConfigsById(ctx context.Context, body *ipconfig.Modify, pId string) (*ipconfig.EmptyResult, error) {
 }

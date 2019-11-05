@@ -9,19 +9,47 @@ import (
 )
 
 type WSGRuckusGRETunnelProfileService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGRuckusGRETunnelProfileService(client *Client) *WSGRuckusGRETunnelProfileService {
+func NewWSGRuckusGRETunnelProfileService(c *APIClient) *WSGRuckusGRETunnelProfileService {
 	s := new(WSGRuckusGRETunnelProfileService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGRuckusGRETunnelProfileService() *WSGRuckusGRETunnelProfileService {
 	serv := new(WSGRuckusGRETunnelProfileService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddProfilesTunnelRuckusgre
+//
+// Use this API command to create RuckusGRE tunnel profile.
+//
+// Request Body:
+//	 - body *profile.CreateRuckusGREProfile
+func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx context.Context, body *profile.CreateRuckusGREProfile) (*common.CreateResult, error) {
+}
+
+// DeleteProfilesTunnelRuckusgre
+//
+// Use this API command to delete multiple RuckusGRE tunnel profile.
+//
+// Request Body:
+//	 - body *common.BulkDeleteRequest
+func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+}
+
+// DeleteProfilesTunnelRuckusgreById
+//
+// Use this API command to delete RuckusGRE tunnel profile.
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx context.Context, pId string) error {
 }
 
 // FindProfilesTunnelRuckusgre
@@ -47,4 +75,17 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.RuckusGREProfileList, error) {
+}
+
+// PartialUpdateProfilesTunnelRuckusgreById
+//
+// Use this API command to modify the basic information of RuckusGRE tunnel profile.
+//
+// Request Body:
+//	 - body *profile.ModifyRuckusGREProfile
+//
+// Path Parameters:
+// - pId string
+//		- required
+func (s *WSGRuckusGRETunnelProfileService) PartialUpdateProfilesTunnelRuckusgreById(ctx context.Context, body *profile.ModifyRuckusGREProfile, pId string) (*common.EmptyResult, error) {
 }

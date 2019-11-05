@@ -5,22 +5,23 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/dpsk"
 )
 
 type WSGDynamicPSKService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGDynamicPSKService(client *Client) *WSGDynamicPSKService {
+func NewWSGDynamicPSKService(c *APIClient) *WSGDynamicPSKService {
 	s := new(WSGDynamicPSKService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
 	serv := new(WSGDynamicPSKService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 
@@ -37,6 +38,21 @@ func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx context.Context, body *dpsk.BatchGenUnbound, pId string, pZoneId string) (*dpsk.GetDpskResult, error) {
+}
+
+// AddRkszonesWlansDpskById
+//
+// Use this API command to delete DPSKs of a WLAN.
+//
+// Request Body:
+//	 - body *dpsk.DeleteDPSKs
+//
+// Path Parameters:
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, body *dpsk.DeleteDPSKs, pId string, pZoneId string) (*dpsk.DeleteDpskResult, error) {
 }
 
 // AddRkszonesWlansDpskUploadById
@@ -114,4 +130,34 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, pId string, pZoneId string) (*dpsk.GetDpskInfoList, error) {
+}
+
+// PartialUpdateRkszonesWlansDpskByDpskId
+//
+// Use this API command to update DPSK info.
+//
+// Request Body:
+//	 - body *dpsk.UpdateDpsk
+//
+// Path Parameters:
+// - pDpskId string
+//		- required
+// - pId string
+//		- required
+// - pZoneId string
+//		- required
+func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx context.Context, body *dpsk.UpdateDpsk, pDpskId string, pId string, pZoneId string) (*common.EmptyResult, error) {
+}
+
+// UpdateRkszonesDeleteExpiredDpskByZoneId
+//
+// Use this API command to modify interval of delete expired DPSK of a zone.
+//
+// Request Body:
+//	 - body *dpsk.ModifyDeleteExpiredDpsk
+//
+// Path Parameters:
+// - pZoneId string
+//		- required
+func (s *WSGDynamicPSKService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, body *dpsk.ModifyDeleteExpiredDpsk, pZoneId string) (*common.EmptyResult, error) {
 }

@@ -8,18 +8,18 @@ import (
 )
 
 type WSGGDPRService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGGDPRService(client *Client) *WSGGDPRService {
+func NewWSGGDPRService(c *APIClient) *WSGGDPRService {
 	s := new(WSGGDPRService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGGDPRService() *WSGGDPRService {
 	serv := new(WSGGDPRService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

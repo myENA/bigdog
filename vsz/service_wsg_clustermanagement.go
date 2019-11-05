@@ -12,19 +12,25 @@ import (
 )
 
 type WSGClusterManagementService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGClusterManagementService(client *Client) *WSGClusterManagementService {
+func NewWSGClusterManagementService(c *APIClient) *WSGClusterManagementService {
 	s := new(WSGClusterManagementService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGClusterManagementService() *WSGClusterManagementService {
 	serv := new(WSGClusterManagementService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
+}
+
+// AddApPatch
+//
+// Use this API command to apply AP patch.
+func (s *WSGClusterManagementService) AddApPatch(ctx context.Context) (*administration.ApPatchStatus, error) {
 }
 
 // AddApPatchFile
@@ -215,4 +221,31 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context) (*ad
 //
 // Use this API command to retrive cluster progress status.
 func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context) (*administration.UpgradeStatus, error) {
+}
+
+// PartialUpdateConfigurationSettingsAutoExportBackup
+//
+// Modify Auto Export Backup Settings.
+//
+// Request Body:
+//	 - body *administration.ModifyAutoExportBackup
+func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExportBackup(ctx context.Context, body *administration.ModifyAutoExportBackup) (*common.EmptyResult, error) {
+}
+
+// PartialUpdateConfigurationSettingsScheduleBackup
+//
+// Modify Schedule Backup Setting.
+//
+// Request Body:
+//	 - body *administration.ModifyScheduleBackup
+func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsScheduleBackup(ctx context.Context, body *administration.ModifyScheduleBackup) (*common.EmptyResult, error) {
+}
+
+// UpdateClusterGeoRedundancy
+//
+// Update cluster redundancy settings.
+//
+// Request Body:
+//	 - body *clusterredundancy.UpdateClusterRedundancy
+func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Context, body *clusterredundancy.UpdateClusterRedundancy) error {
 }

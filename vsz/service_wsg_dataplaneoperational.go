@@ -8,18 +8,18 @@ import (
 )
 
 type WSGDataPlaneOperationalService struct {
-	client *Client
+	apiClient *APIClient
 }
 
-func NewWSGDataPlaneOperationalService(client *Client) *WSGDataPlaneOperationalService {
+func NewWSGDataPlaneOperationalService(c *APIClient) *WSGDataPlaneOperationalService {
 	s := new(WSGDataPlaneOperationalService)
-	s.client = client
+	s.apiClient = c
 	return s
 }
 
 func (ss *WSGService) WSGDataPlaneOperationalService() *WSGDataPlaneOperationalService {
 	serv := new(WSGDataPlaneOperationalService)
-	serv.client = ss.client
+	serv.apiClient = ss.apiClient
 	return serv
 }
 

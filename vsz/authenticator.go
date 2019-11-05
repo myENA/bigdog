@@ -35,8 +35,8 @@ type (
 		// Arguments:
 		//
 		// 0. the context provided to original API call
-		// 1. the raw http request created as part of api call chain
-		Decorate(context.Context, *http.Request) (AuthCAS, error)
+		// 1. the  request created as part of api call chain
+		Decorate(context.Context, *Request) (AuthCAS, error)
 
 		// Refresh must do one of two things:
 		//

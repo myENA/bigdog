@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/service"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGAuthenticationServiceService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGAuthenticationServiceService(c *APIClient) *WSGAuthenticationServiceService {
 	s := new(WSGAuthenticationServiceService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGAuthenticationServiceService() *WSGAuthenticationServiceService {
-	serv := new(WSGAuthenticationServiceService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGAuthenticationServiceService(ss.apiClient)
 }
 
 // AddServicesAuthAd
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGAuthenticationServiceService() *WSGAuthenticationServic
 // Request Body:
 //	 - body *service.CreateActiveDirectoryAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context, body *service.CreateActiveDirectoryAuthentication) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddServicesAuthHlr
@@ -40,6 +55,18 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context,
 // Request Body:
 //	 - body *service.CreateHlrAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context, body *service.CreateHlrAuthentication) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddServicesAuthLdap
@@ -49,6 +76,18 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context
 // Request Body:
 //	 - body *service.CreateLDAPAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Context, body *service.CreateLDAPAuthentication) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddServicesAuthRadius
@@ -58,6 +97,18 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Contex
 // Request Body:
 //	 - body *service.CreateRadiusAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Context, body *service.CreateRadiusAuthentication) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddServicesAuthTestById
@@ -71,6 +122,15 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Cont
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Context, body *service.TestingConfig, pId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteServicesAuth
@@ -80,6 +140,15 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 // Request Body:
 //	 - body *service.DeleteBulkAuthenticationService
 func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context, body *service.DeleteBulkAuthenticationService) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteServicesAuthAdById
@@ -90,6 +159,12 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAuthById
@@ -100,6 +175,12 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAuthHlrById
@@ -110,6 +191,12 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAuthLdapById
@@ -120,6 +207,12 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAuthRadiusById
@@ -130,6 +223,12 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAuthRadiusSecondaryById
@@ -140,6 +239,12 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAuthRadiusStandbyPrimaryById
@@ -150,12 +255,24 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimaryById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthAd
 //
 // Use this API command to retrieve a list of active directory authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context) (*service.ActiveDirectoryServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthAdById
@@ -166,6 +283,12 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Context, pId string) (*service.ActiveDirectoryService, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthAdByQueryCriteria
@@ -175,6 +298,15 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.ActiveDirectoryServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesAuthByQueryCriteria
@@ -184,6 +316,15 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.CommonAuthenticationServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesAuthGuestById
@@ -194,12 +335,24 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.Context, pId string) (*service.CommonAuthenticationService, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthHlr
 //
 // Use this API command to retrieve a list of hlr authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Context) (*service.HlrServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthHlrById
@@ -210,6 +363,12 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Context, pId string) (*service.HlrService, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthHlrByQueryCriteria
@@ -219,12 +378,27 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.HlrServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesAuthLdap
 //
 // Use this API command to retrieve a list of LDAP authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Context) (*service.LDAPServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthLdapById
@@ -235,6 +409,12 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.Context, pId string) (*service.LDAPService, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthLdapByQueryCriteria
@@ -244,6 +424,15 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.LDAPServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesAuthLocal_dbById
@@ -254,12 +443,24 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthLocal_dbById(ctx context.Context, pId string) (*service.CommonAuthenticationService, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthRadius
 //
 // Use this API command to retrieve a list of RADIUS authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Context) (*service.RadiusAuthenticationServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthRadiusById
@@ -270,6 +471,12 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context.Context, pId string) (*service.RadiusAuthenticationService, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAuthRadiusByQueryCriteria
@@ -279,6 +486,15 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.RadiusAuthenticationServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateServicesAuthAdById
@@ -292,6 +508,18 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx context.Context, body *service.ModifyActiveDirectoryAuthentication, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateServicesAuthHlrById
@@ -305,6 +533,18 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx context.Context, body *service.ModifyHlrAuthentication, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateServicesAuthLdapById
@@ -318,6 +558,18 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx context.Context, body *service.ModifyLDAPAuthentication, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateServicesAuthLocal_dbById
@@ -331,6 +583,18 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx 
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocal_dbById(ctx context.Context, body *service.ModifyLocalDbAuthentication, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateServicesAuthRadiusById
@@ -344,4 +608,16 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocal_dbById(
 // - pId string
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ctx context.Context, body *service.ModifyRadiusAuthentication, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

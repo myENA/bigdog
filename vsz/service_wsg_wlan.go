@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/wlan"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGWLANService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGWLANService(c *APIClient) *WSGWLANService {
 	s := new(WSGWLANService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGWLANService() *WSGWLANService {
-	serv := new(WSGWLANService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGWLANService(ss.apiClient)
 }
 
 // AddRkszonesWlansByZoneId
@@ -35,6 +38,18 @@ func (ss *WSGService) WSGWLANService() *WSGWLANService {
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *wlan.CreateStandardOpenWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansGuestByZoneId
@@ -48,6 +63,18 @@ func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *wla
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body *wlan.CreateGuestAccessWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansHotspot20ByZoneId
@@ -61,6 +88,18 @@ func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, body *wlan.CreateHotspot20Wlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansHotspot20openByZoneId
@@ -74,6 +113,18 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, 
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Context, body *wlan.CreateHotspot20OpenWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansHotspot20osenByZoneId
@@ -87,6 +138,18 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Conte
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Context, body *wlan.CreateHotspot20OpenWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansQosMapsById
@@ -99,6 +162,12 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Conte
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // AddRkszonesWlansStandard8021XByZoneId
@@ -112,6 +181,18 @@ func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, pId st
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Context, body *wlan.CreateStandard80211Wlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansStandard8021XmacByZoneId
@@ -125,6 +206,18 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Conte
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Context, body *wlan.CreateStandard80211Wlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansStandardmacByZoneId
@@ -138,6 +231,18 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Co
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context, body *wlan.CreateStandard80211Wlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansWebauthByZoneId
@@ -151,6 +256,18 @@ func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, body *wlan.CreateWebAuthWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansWechatByZoneId
@@ -164,6 +281,18 @@ func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, bo
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, body *wlan.CreateWechatWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansWispr8021XByZoneId
@@ -177,6 +306,18 @@ func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, bod
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context, body *wlan.CreateHotspotWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansWisprByZoneId
@@ -190,6 +331,18 @@ func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context,
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body *wlan.CreateHotspotWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesWlansWisprmacByZoneId
@@ -203,6 +356,18 @@ func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, body *wlan.CreateHotspotWlan, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteRkszonesWlansAccountingServiceOrProfileById
@@ -215,6 +380,12 @@ func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, b
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesWlansById
@@ -227,6 +398,12 @@ func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx c
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesWlansDevicePolicyById
@@ -239,6 +416,12 @@ func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, pId string
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesWlansDiffServProfileById
@@ -251,6 +434,12 @@ func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesWlansDnsServerProfileById
@@ -263,6 +452,12 @@ func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Cont
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesWlansL2ACLById
@@ -275,6 +470,12 @@ func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Con
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesWlansQosMapsById
@@ -287,6 +488,12 @@ func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, pId s
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesWlansById
@@ -299,6 +506,12 @@ func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, pId
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, pId string, pZoneId string) (*wlan.WlanConfiguration, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesWlansByZoneId
@@ -313,6 +526,12 @@ func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, pId string, 
 // - qIndex string
 // - qListSize string
 func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*wlan.WlanList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateRkszonesWlansById
@@ -328,6 +547,18 @@ func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, pZoneId 
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, body *wlan.ModifyWlan, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // UpdateRkszonesWlansById
@@ -343,4 +574,16 @@ func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, bod
 // - pZoneId string
 //		- required
 func (s *WSGWLANService) UpdateRkszonesWlansById(ctx context.Context, body *wlan.ModifyWlan, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

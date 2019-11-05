@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGUserTrafficProfileService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGUserTrafficProfileService(c *APIClient) *WSGUserTrafficProfileService {
 	s := new(WSGUserTrafficProfileService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileService {
-	serv := new(WSGUserTrafficProfileService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGUserTrafficProfileService(ss.apiClient)
 }
 
 // AddProfilesUtp
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileServi
 // Request Body:
 //	 - body *profile.CreateUserTrafficProfile
 func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body *profile.CreateUserTrafficProfile) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddProfilesUtpCloneById
@@ -44,6 +59,15 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body 
 // - pId string
 //		- required
 func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteProfilesUtp
@@ -53,6 +77,15 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Conte
 // Request Body:
 //	 - body *profile.DeleteBulkUserTrafficProfile
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, body *profile.DeleteBulkUserTrafficProfile) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteProfilesUtpById
@@ -63,6 +96,12 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, bo
 // - pId string
 //		- required
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteProfilesUtpDownlinkRateLimitingById
@@ -73,6 +112,12 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteProfilesUtpUplinkRateLimitingById
@@ -83,6 +128,12 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById
 // - pId string
 //		- required
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesUtp
@@ -93,6 +144,12 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(c
 // - qIndex string
 // - qListSize string
 func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, qIndex string, qListSize string) (*profile.ProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesUtpById
@@ -103,6 +160,12 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, qInd
 // - pId string
 //		- required
 func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, pId string) (*profile.UserTrafficProfile, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesUtpByQueryCriteria
@@ -112,6 +175,15 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.UserTrafficProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateProfilesUtpById
@@ -125,4 +197,16 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx contex
 // - pId string
 //		- required
 func (s *WSGUserTrafficProfileService) PartialUpdateProfilesUtpById(ctx context.Context, body *profile.ModifyUserTrafficProfile, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/zone"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGDiffServService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGDiffServService(c *APIClient) *WSGDiffServService {
 	s := new(WSGDiffServService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGDiffServService() *WSGDiffServService {
-	serv := new(WSGDiffServService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGDiffServService(ss.apiClient)
 }
 
 // AddRkszonesDiffservByZoneId
@@ -35,6 +38,18 @@ func (ss *WSGService) WSGDiffServService() *WSGDiffServService {
 // - pZoneId string
 //		- required
 func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, body *zone.CreateDiffServProfile, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteRkszonesDiffservById
@@ -47,6 +62,12 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 // - pZoneId string
 //		- required
 func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, pId string, pZoneId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesDiffservById
@@ -59,6 +80,12 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, pId
 // - pZoneId string
 //		- required
 func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, pId string, pZoneId string) (*zone.DiffServConfiguration, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesDiffservByZoneId
@@ -69,6 +96,12 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, pId s
 // - pZoneId string
 //		- required
 func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, pZoneId string) (*zone.DiffServList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateRkszonesDiffservById
@@ -84,4 +117,16 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, p
 // - pZoneId string
 //		- required
 func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Context, body *zone.ModifyDiffServProfile, pId string, pZoneId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }

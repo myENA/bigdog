@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/devicepolicy"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGDevicePolicyService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGDevicePolicyService(c *APIClient) *WSGDevicePolicyService {
 	s := new(WSGDevicePolicyService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGDevicePolicyService() *WSGDevicePolicyService {
-	serv := new(WSGDevicePolicyService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGDevicePolicyService(ss.apiClient)
 }
 
 // AddRkszonesDevicePolicyByZoneId
@@ -35,6 +38,18 @@ func (ss *WSGService) WSGDevicePolicyService() *WSGDevicePolicyService {
 // - pZoneId string
 //		- required
 func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Context, body *devicepolicy.CreateDevicePolicy, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteRkszonesDevicePolicyById
@@ -47,6 +62,12 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 // - pZoneId string
 //		- required
 func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesDevicePolicyById
@@ -59,6 +80,12 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 // - pZoneId string
 //		- required
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*devicepolicy.DevicePolicyPorfile, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesDevicePolicyByZoneId
@@ -73,6 +100,12 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 // - qIndex string
 // - qListSize string
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*devicepolicy.PorfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateRkszonesDevicePolicyById
@@ -88,4 +121,16 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 // - pZoneId string
 //		- required
 func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx context.Context, body *devicepolicy.ModifyDevicePolicy, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

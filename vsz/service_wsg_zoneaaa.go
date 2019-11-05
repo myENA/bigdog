@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/aaa"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGZoneAAAService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGZoneAAAService(c *APIClient) *WSGZoneAAAService {
 	s := new(WSGZoneAAAService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGZoneAAAService() *WSGZoneAAAService {
-	serv := new(WSGZoneAAAService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGZoneAAAService(ss.apiClient)
 }
 
 // AddRkszonesAaaAdByZoneId
@@ -35,6 +38,18 @@ func (ss *WSGService) WSGZoneAAAService() *WSGZoneAAAService {
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *aaa.CreateActiveDirectoryServer, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesAaaLdapByZoneId
@@ -48,6 +63,18 @@ func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body *aaa.CreateLDAPServer, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddRkszonesAaaRadiusByZoneId
@@ -64,6 +91,18 @@ func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body
 // Query Parameters:
 // - qForAccounting string
 func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *aaa.CreateAuthenticationServer, pZoneId string, qForAccounting string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteRkszonesAaaAdById
@@ -76,6 +115,12 @@ func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, bo
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesAaaById
@@ -88,6 +133,12 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, pId str
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesAaaByZoneId
@@ -101,6 +152,15 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, pId strin
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *aaa.DeleteBulkAAAServerList, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteRkszonesAaaLdapById
@@ -113,6 +173,12 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body 
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesAaaRadiusById
@@ -125,6 +191,12 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, pId s
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesAaaRadiusSecondaryById
@@ -137,6 +209,12 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, pId
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesAaaRadiusStandbyPrimaryById
@@ -149,6 +227,12 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Con
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesAaaAdById
@@ -161,6 +245,12 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx contex
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, pId string, pZoneId string) (*aaa.ActiveDirectory, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesAaaAdByZoneId
@@ -171,6 +261,12 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, pId strin
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, pZoneId string) (*aaa.ActiveDirectoryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesAaaLdapById
@@ -183,6 +279,12 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, pZone
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, pId string, pZoneId string) (*aaa.LDAPServer, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesAaaLdapByZoneId
@@ -193,6 +295,12 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, pId str
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, pZoneId string) (*aaa.LDAPServerList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesAaaRadiusById
@@ -205,6 +313,12 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, pZo
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, pId string, pZoneId string) (*aaa.AuthenticationServer, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesAaaRadiusByZoneId
@@ -215,6 +329,12 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, pId s
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, pZoneId string) (*aaa.AuthenticationServerList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateRkszonesAaaAdById
@@ -230,6 +350,18 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, p
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *aaa.ModifyActiveDirectoryServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateRkszonesAaaLdapById
@@ -245,6 +377,18 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, 
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *aaa.ModifyLDAPServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateRkszonesAaaRadiusById
@@ -260,6 +404,18 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *aaa.ModifyAuthenticationServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // UpdateRkszonesAaaAdById
@@ -275,6 +431,18 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Conte
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *aaa.ModifyActiveDirectoryServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // UpdateRkszonesAaaLdapById
@@ -290,6 +458,18 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *a
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body *aaa.ModifyLDAPServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // UpdateRkszonesAaaRadiusById
@@ -305,4 +485,16 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body 
 // - pZoneId string
 //		- required
 func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *aaa.ModifyAuthenticationServer, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

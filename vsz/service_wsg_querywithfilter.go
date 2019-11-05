@@ -4,6 +4,8 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/aaaserverquery"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/apquery"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/clientquery"
@@ -15,22 +17,23 @@ import (
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/rogueinfo"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/wlanquery"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGQueryWithFilterService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGQueryWithFilterService(c *APIClient) *WSGQueryWithFilterService {
 	s := new(WSGQueryWithFilterService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGQueryWithFilterService() *WSGQueryWithFilterService {
-	serv := new(WSGQueryWithFilterService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGQueryWithFilterService(ss.apiClient)
 }
 
 // FindApByQueryCriteria
@@ -40,6 +43,15 @@ func (ss *WSGService) WSGQueryWithFilterService() *WSGQueryWithFilterService {
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindApByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*apquery.ApQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindApWlanByQueryCriteria
@@ -49,6 +61,15 @@ func (s *WSGQueryWithFilterService) FindApByQueryCriteria(ctx context.Context, b
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*wlanquery.ApWlanBssidQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindClientByQueryCriteria
@@ -58,6 +79,15 @@ func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria(ctx context.Contex
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindClientByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*clientquery.ClientQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindDpskByQueryCriteria
@@ -67,6 +97,15 @@ func (s *WSGQueryWithFilterService) FindClientByQueryCriteria(ctx context.Contex
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*dpsk.DpskQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindIndoorMapByQueryCriteria
@@ -76,6 +115,15 @@ func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria(ctx context.Context,
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*indoormap.IndoorMapSummaryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindMeshNeighborByApMacByQueryCriteria
@@ -89,6 +137,15 @@ func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria(ctx context.Con
 // - pApMac string
 //		- required
 func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet, pApMac string) (*meshneighborinfo.MeshNeighborInfoList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindMeshTopologyByApMacByQueryCriteria
@@ -102,6 +159,15 @@ func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx c
 // - pApMac string
 //		- required
 func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet, pApMac string) (meshnodeinfo.MeshNodeInfoArray, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindMeshTopologyByQueryCriteria
@@ -111,6 +177,15 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*meshnodeinfo.MeshNodeInfoList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindRoguesInfoListByQueryCriteria
@@ -120,6 +195,15 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria(ctx context.
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*rogueinfo.RogueInfoList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesAaaServerAcctByQueryCriteria
@@ -129,6 +213,15 @@ func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria(ctx contex
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*aaaserverquery.AaaServerQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesAaaServerAuthByQueryCriteria
@@ -138,6 +231,15 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria(ctx
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*aaaserverquery.AaaServerQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesAaaServerByQueryCriteria
@@ -147,6 +249,15 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria(ctx
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*aaaserverquery.AaaServerQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesBonjourPolicyByQueryCriteria
@@ -156,6 +267,15 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria(ctx con
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesDevicePolicyByQueryCriteria
@@ -165,6 +285,15 @@ func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria(ctx
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesDhcpProfileByQueryCriteria
@@ -174,6 +303,15 @@ func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria(ctx 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.DhcpProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesDscpProfileByQueryCriteria
@@ -183,6 +321,15 @@ func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria(ctx c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesEthernetPortProfileByQueryCriteria
@@ -192,6 +339,15 @@ func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria(ctx c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesEthernetPortProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesGuessAccessByQueryCriteria
@@ -201,6 +357,15 @@ func (s *WSGQueryWithFilterService) FindServicesEthernetPortProfileByQueryCriter
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesGuessAccessByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesGuestAccessByQueryCriteria
@@ -210,6 +375,15 @@ func (s *WSGQueryWithFilterService) FindServicesGuessAccessByQueryCriteria(ctx c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesGuestAccessByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesHotspot20ProfileByQueryCriteria
@@ -219,6 +393,15 @@ func (s *WSGQueryWithFilterService) FindServicesGuestAccessByQueryCriteria(ctx c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesHotspot20ProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesHotspotByQueryCriteria
@@ -228,6 +411,15 @@ func (s *WSGQueryWithFilterService) FindServicesHotspot20ProfileByQueryCriteria(
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesHotspotByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesL2AccessControlByQueryCriteria
@@ -237,6 +429,15 @@ func (s *WSGQueryWithFilterService) FindServicesHotspotByQueryCriteria(ctx conte
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesL2AccessControlByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesVenueProfileByQueryCriteria
@@ -246,6 +447,15 @@ func (s *WSGQueryWithFilterService) FindServicesL2AccessControlByQueryCriteria(c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesVenueProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesVlanPoolingByQueryCriteria
@@ -255,6 +465,15 @@ func (s *WSGQueryWithFilterService) FindServicesVenueProfileByQueryCriteria(ctx 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesVlanPoolingByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesWebAuthenticationByQueryCriteria
@@ -264,6 +483,15 @@ func (s *WSGQueryWithFilterService) FindServicesVlanPoolingByQueryCriteria(ctx c
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesWebAuthenticationByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesWechatProfileByQueryCriteria
@@ -273,6 +501,15 @@ func (s *WSGQueryWithFilterService) FindServicesWebAuthenticationByQueryCriteria
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesWechatProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesWlanSchedulerByQueryCriteria
@@ -282,6 +519,15 @@ func (s *WSGQueryWithFilterService) FindServicesWechatProfileByQueryCriteria(ctx
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindUserByQueryCriteria
@@ -291,6 +537,15 @@ func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria(ctx
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindUserByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // FindWlanByQueryCriteria
@@ -300,4 +555,13 @@ func (s *WSGQueryWithFilterService) FindUserByQueryCriteria(ctx context.Context,
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*wlanquery.WlanQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

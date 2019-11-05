@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/indoormap"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGIndoorMapService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGIndoorMapService(c *APIClient) *WSGIndoorMapService {
 	s := new(WSGIndoorMapService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGIndoorMapService() *WSGIndoorMapService {
-	serv := new(WSGIndoorMapService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGIndoorMapService(ss.apiClient)
 }
 
 // AddMaps
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGIndoorMapService() *WSGIndoorMapService {
 // Request Body:
 //	 - body *indoormap.IndoorMap
 func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *indoormap.IndoorMap) (*indoormap.IndooMapAuditId, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteMapsByIndoorMapId
@@ -41,6 +56,12 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *indoormap.Indoo
 // - pIndoorMapId string
 //		- required
 func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, pIndoorMapId string) (*indoormap.IndooMapAuditId, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindMaps
@@ -53,6 +74,12 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, pIndo
 // - qGroupType string
 //		- required
 func (s *WSGIndoorMapService) FindMaps(ctx context.Context, qGroupId string, qGroupType string) (*indoormap.IndoorMapList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindMapsByIndoorMapId
@@ -63,6 +90,12 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, qGroupId string, qGr
 // - pIndoorMapId string
 //		- required
 func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, pIndoorMapId string) (*indoormap.IndoorMap, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindMapsByQueryCriteria
@@ -72,6 +105,15 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, pIndoor
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*indoormap.IndoorMapList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateMapsByIndoorMapId
@@ -85,6 +127,18 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 // - pIndoorMapId string
 //		- required
 func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *indoormap.IndoorMap, pIndoorMapId string) (*indoormap.IndooMapAuditId, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // UpdateMapsApsByIndoorMapId
@@ -98,4 +152,13 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 // - pIndoorMapId string
 //		- required
 func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body indoormap.AccessPointList, pIndoorMapId string) (*indoormap.IndooMapAuditId, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if len(body) == 0 {
+		return nil, errors.New("body cannot be empty")
+	}
 }

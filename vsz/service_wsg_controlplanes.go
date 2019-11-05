@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/system"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGControlPlanesService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGControlPlanesService(c *APIClient) *WSGControlPlanesService {
 	s := new(WSGControlPlanesService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
-	serv := new(WSGControlPlanesService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGControlPlanesService(ss.apiClient)
 }
 
 // DeleteControlPlanesStaticRoutesByBladeUUID
@@ -32,6 +35,12 @@ func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
 // - pBladeUUID string
 //		- required
 func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, pBladeUUID string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteControlPlanesUserDefinedInterfaceByBladeUUID
@@ -42,12 +51,24 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 // - pBladeUUID string
 //		- required
 func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, pBladeUUID string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindControlPlanes
 //
 // Use this API command to retrieve the list of control plane.
 func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*system.ControlPlaneList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindControlPlanesByBladeUUID
@@ -58,6 +79,12 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*syste
 // - pBladeUUID string
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Context, pBladeUUID string) (*system.ControlPlaneConfiguration, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindControlPlanesStaticRoutesByBladeUUID
@@ -68,6 +95,12 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 // - pBladeUUID string
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, pBladeUUID string) (*system.StaticRouteList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindControlPlanesUserDefinedInterfaceByBladeUUID
@@ -78,6 +111,12 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 // - pBladeUUID string
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, pBladeUUID string) (*system.UserDefinedInterfaceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateControlPlanesByBladeUUID
@@ -91,6 +130,15 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 // - pBladeUUID string
 //		- required
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *system.ModifyControlPlane, pBladeUUID string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateControlPlanesIpSupport
@@ -100,4 +148,16 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 // Request Body:
 //	 - body *system.ModifyIpSupportType
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context, body *system.ModifyIpSupportType) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

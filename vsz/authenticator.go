@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"net/http"
 	"sync"
 	"time"
 
@@ -128,14 +127,14 @@ func (pa *PasswordAuthenticator) Decorate(ctx context.Context, request *Request)
 		return AuthCAS(cas), err
 	}
 
-	serviceTicket := pa.serviceTicket
-	if serviceTicket == "" && !pa.refreshed.IsZero() && pa.refreshed.Add(pa.sessionTTL).After(time.Now()) {
-		request.SetQueryParameter(serviceTicketQueryParameter, serviceTicket)
+	if pa.serviceTicket == "" && !pa.refreshed.IsZero() && pa.refreshed.Add(pa.sessionTTL).After(time.Now()) {
+		request.SetQueryParameter(serviceTicketQueryParameter, pa.serviceTicket)
 		pa.mu.RUnlock()
 		return AuthCAS(cas), nil
 	}
 
 	pa.mu.RUnlock()
+
 	return AuthCAS(cas), errors.New("serviceTicket requires refresh")
 }
 

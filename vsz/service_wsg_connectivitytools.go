@@ -4,23 +4,26 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/tool"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGConnectivityToolsService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGConnectivityToolsService(c *APIClient) *WSGConnectivityToolsService {
 	s := new(WSGConnectivityToolsService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGConnectivityToolsService() *WSGConnectivityToolsService {
-	serv := new(WSGConnectivityToolsService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGConnectivityToolsService(ss.apiClient)
 }
 
 // AddToolSpeedflex
@@ -30,6 +33,18 @@ func (ss *WSGService) WSGConnectivityToolsService() *WSGConnectivityToolsService
 // Request Body:
 //	 - body *tool.SpeedFlex
 func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body *tool.SpeedFlex) (*tool.TestResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindToolPing
@@ -42,6 +57,12 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 // - qTargetIP string
 //		- required
 func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, qApMac string, qTargetIP string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindToolSpeedflexByWcid
@@ -52,6 +73,12 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, qApMac s
 // - pWcid string
 //		- required
 func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, pWcid string) (*tool.TestResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindToolTraceRoute
@@ -65,4 +92,10 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 //		- required
 // - qTimeoutInSec string
 func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, qApMac string, qTargetIP string, qTimeoutInSec string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }

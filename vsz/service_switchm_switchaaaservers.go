@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/aaaservers"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchAAAServersService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchAAAServersService(c *APIClient) *SwitchMSwitchAAAServersService {
 	s := new(SwitchMSwitchAAAServersService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchAAAServersService() *SwitchMSwitchAAAServersService {
-	serv := new(SwitchMSwitchAAAServersService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchAAAServersService(ss.apiClient)
 }
 
 // AddAaaServersAdmin
@@ -31,6 +34,18 @@ func (ss *SwitchMService) SwitchMSwitchAAAServersService() *SwitchMSwitchAAAServ
 // Request Body:
 //	 - body *aaaservers.CreateAdminAAAServer
 func (s *SwitchMSwitchAAAServersService) AddAaaServersAdmin(ctx context.Context, body *aaaservers.CreateAdminAAAServer) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteAaaServersAdmin
@@ -40,6 +55,15 @@ func (s *SwitchMSwitchAAAServersService) AddAaaServersAdmin(ctx context.Context,
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *SwitchMSwitchAAAServersService) DeleteAaaServersAdmin(ctx context.Context, body *common.BulkDeleteRequest) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteAaaServersAdminById
@@ -50,12 +74,24 @@ func (s *SwitchMSwitchAAAServersService) DeleteAaaServersAdmin(ctx context.Conte
 // - pId string
 //		- required
 func (s *SwitchMSwitchAAAServersService) DeleteAaaServersAdminById(ctx context.Context, pId string) (*aaaservers.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAaaServersAdmin
 //
 // Use this API command to retrieve a list of AAA server.
 func (s *SwitchMSwitchAAAServersService) FindAaaServersAdmin(ctx context.Context) (*aaaservers.AaaServersQueryResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAaaServersAdminById
@@ -66,6 +102,12 @@ func (s *SwitchMSwitchAAAServersService) FindAaaServersAdmin(ctx context.Context
 // - pId string
 //		- required
 func (s *SwitchMSwitchAAAServersService) FindAaaServersAdminById(ctx context.Context, pId string) (*aaaservers.AAAServer, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // UpdateAaaServersAdminById
@@ -79,4 +121,16 @@ func (s *SwitchMSwitchAAAServersService) FindAaaServersAdminById(ctx context.Con
 // - pId string
 //		- required
 func (s *SwitchMSwitchAAAServersService) UpdateAaaServersAdminById(ctx context.Context, body *aaaservers.CreateAdminAAAServer, pId string) (*aaaservers.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

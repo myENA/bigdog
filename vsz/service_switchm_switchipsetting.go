@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/ipconfig"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchIPSettingService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchIPSettingService(c *APIClient) *SwitchMSwitchIPSettingService {
 	s := new(SwitchMSwitchIPSettingService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchIPSettingService() *SwitchMSwitchIPSettingService {
-	serv := new(SwitchMSwitchIPSettingService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchIPSettingService(ss.apiClient)
 }
 
 // AddIpConfigs
@@ -31,6 +34,15 @@ func (ss *SwitchMService) SwitchMSwitchIPSettingService() *SwitchMSwitchIPSettin
 // Request Body:
 //	 - body *ipconfig.Create
 func (s *SwitchMSwitchIPSettingService) AddIpConfigs(ctx context.Context, body *ipconfig.Create) (ipconfig.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteIpConfigs
@@ -40,6 +52,15 @@ func (s *SwitchMSwitchIPSettingService) AddIpConfigs(ctx context.Context, body *
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *SwitchMSwitchIPSettingService) DeleteIpConfigs(ctx context.Context, body *common.BulkDeleteRequest) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteIpConfigsById
@@ -50,12 +71,24 @@ func (s *SwitchMSwitchIPSettingService) DeleteIpConfigs(ctx context.Context, bod
 // - pId string
 //		- required
 func (s *SwitchMSwitchIPSettingService) DeleteIpConfigsById(ctx context.Context, pId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindIpConfigs
 //
 // Use this API command to Retrieve IP Config List.
 func (s *SwitchMSwitchIPSettingService) FindIpConfigs(ctx context.Context) (*ipconfig.List, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindIpConfigsById
@@ -66,6 +99,12 @@ func (s *SwitchMSwitchIPSettingService) FindIpConfigs(ctx context.Context) (*ipc
 // - pId string
 //		- required
 func (s *SwitchMSwitchIPSettingService) FindIpConfigsById(ctx context.Context, pId string) (*ipconfig.IpConfig, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindIpConfigsByQueryCriteria
@@ -75,6 +114,15 @@ func (s *SwitchMSwitchIPSettingService) FindIpConfigsById(ctx context.Context, p
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*ipconfig.List, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // UpdateIpConfigsById
@@ -88,4 +136,13 @@ func (s *SwitchMSwitchIPSettingService) FindIpConfigsByQueryCriteria(ctx context
 // - pId string
 //		- required
 func (s *SwitchMSwitchIPSettingService) UpdateIpConfigsById(ctx context.Context, body *ipconfig.Modify, pId string) (*ipconfig.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

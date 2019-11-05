@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/vlanconfig"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchVLANSettingService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchVLANSettingService(c *APIClient) *SwitchMSwitchVLANSettingService {
 	s := new(SwitchMSwitchVLANSettingService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchVLANSettingService() *SwitchMSwitchVLANSettingService {
-	serv := new(SwitchMSwitchVLANSettingService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchVLANSettingService(ss.apiClient)
 }
 
 // AddVlans
@@ -31,6 +34,18 @@ func (ss *SwitchMService) SwitchMSwitchVLANSettingService() *SwitchMSwitchVLANSe
 // Request Body:
 //	 - body *vlanconfig.CreateVlanConfig
 func (s *SwitchMSwitchVLANSettingService) AddVlans(ctx context.Context, body *vlanconfig.CreateVlanConfig) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteVlans
@@ -40,6 +55,15 @@ func (s *SwitchMSwitchVLANSettingService) AddVlans(ctx context.Context, body *vl
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *SwitchMSwitchVLANSettingService) DeleteVlans(ctx context.Context, body *common.BulkDeleteRequest) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteVlansById
@@ -50,12 +74,24 @@ func (s *SwitchMSwitchVLANSettingService) DeleteVlans(ctx context.Context, body 
 // - pId string
 //		- required
 func (s *SwitchMSwitchVLANSettingService) DeleteVlansById(ctx context.Context, pId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindVlans
 //
 // Use this API command to Retrieve the VLAN Config List.
 func (s *SwitchMSwitchVLANSettingService) FindVlans(ctx context.Context) (*vlanconfig.VlanConfigQueryResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindVlansById
@@ -66,6 +102,12 @@ func (s *SwitchMSwitchVLANSettingService) FindVlans(ctx context.Context) (*vlanc
 // - pId string
 //		- required
 func (s *SwitchMSwitchVLANSettingService) FindVlansById(ctx context.Context, pId string) (*vlanconfig.VlanConfig, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindVlansByQueryCriteria
@@ -75,6 +117,15 @@ func (s *SwitchMSwitchVLANSettingService) FindVlansById(ctx context.Context, pId
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchVLANSettingService) FindVlansByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*vlanconfig.VlanConfigQueryResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // UpdateVlansById
@@ -88,4 +139,16 @@ func (s *SwitchMSwitchVLANSettingService) FindVlansByQueryCriteria(ctx context.C
 // - pId string
 //		- required
 func (s *SwitchMSwitchVLANSettingService) UpdateVlansById(ctx context.Context, body *vlanconfig.UpdateVlanConfig, pId string) (*vlanconfig.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

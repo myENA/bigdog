@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/veconfig"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchVESettingService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchVESettingService(c *APIClient) *SwitchMSwitchVESettingService {
 	s := new(SwitchMSwitchVESettingService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchVESettingService() *SwitchMSwitchVESettingService {
-	serv := new(SwitchMSwitchVESettingService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchVESettingService(ss.apiClient)
 }
 
 // AddVeConfigs
@@ -31,6 +34,15 @@ func (ss *SwitchMService) SwitchMSwitchVESettingService() *SwitchMSwitchVESettin
 // Request Body:
 //	 - body *veconfig.Create
 func (s *SwitchMSwitchVESettingService) AddVeConfigs(ctx context.Context, body *veconfig.Create) (veconfig.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteVeConfigs
@@ -40,6 +52,15 @@ func (s *SwitchMSwitchVESettingService) AddVeConfigs(ctx context.Context, body *
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *SwitchMSwitchVESettingService) DeleteVeConfigs(ctx context.Context, body *common.BulkDeleteRequest) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteVeConfigsById
@@ -50,12 +71,24 @@ func (s *SwitchMSwitchVESettingService) DeleteVeConfigs(ctx context.Context, bod
 // - pId string
 //		- required
 func (s *SwitchMSwitchVESettingService) DeleteVeConfigsById(ctx context.Context, pId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindVeConfigs
 //
 // Use this API command to Retrieve VE Config List.
 func (s *SwitchMSwitchVESettingService) FindVeConfigs(ctx context.Context) (*veconfig.List, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindVeConfigsById
@@ -66,6 +99,12 @@ func (s *SwitchMSwitchVESettingService) FindVeConfigs(ctx context.Context) (*vec
 // - pId string
 //		- required
 func (s *SwitchMSwitchVESettingService) FindVeConfigsById(ctx context.Context, pId string) (*veconfig.VeConfig, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindVeConfigsByQueryCriteria
@@ -75,6 +114,15 @@ func (s *SwitchMSwitchVESettingService) FindVeConfigsById(ctx context.Context, p
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchVESettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*veconfig.List, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // UpdateVeConfigsById
@@ -88,4 +136,13 @@ func (s *SwitchMSwitchVESettingService) FindVeConfigsByQueryCriteria(ctx context
 // - pId string
 //		- required
 func (s *SwitchMSwitchVESettingService) UpdateVeConfigsById(ctx context.Context, body *veconfig.Modify, pId string) (*veconfig.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

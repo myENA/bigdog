@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/certificate"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGCertificateService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGCertificateService(c *APIClient) *WSGCertificateService {
 	s := new(WSGCertificateService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGCertificateService() *WSGCertificateService {
-	serv := new(WSGCertificateService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGCertificateService(ss.apiClient)
 }
 
 // AddCertstoreCertificate
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGCertificateService() *WSGCertificateService {
 // Request Body:
 //	 - body *certificate.CreateCert
 func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, body *certificate.CreateCert) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddCertstoreClientCert
@@ -40,6 +55,18 @@ func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, bod
 // Request Body:
 //	 - body *certificate.CreateClientCert
 func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body *certificate.CreateClientCert) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddCertstoreCsr
@@ -49,6 +76,18 @@ func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body
 // Request Body:
 //	 - body *certificate.CreateCSR
 func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *certificate.CreateCSR) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddCertstoreTrustedCAChainCert
@@ -58,6 +97,18 @@ func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *certi
 // Request Body:
 //	 - body *certificate.CreateTrustedCAChain
 func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Context, body *certificate.CreateTrustedCAChain) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteCertstoreCertificateById
@@ -68,6 +119,12 @@ func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Conte
 // - pId string
 //		- required
 func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteCertstoreClientCertById
@@ -78,6 +135,12 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 // - pId string
 //		- required
 func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteCertstoreCsrById
@@ -88,6 +151,12 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 // - pId string
 //		- required
 func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteCertstoreTrustedCAChainCert
@@ -97,6 +166,15 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, pId 
 // Request Body:
 //	 - body *certificate.DeleteBulk
 func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Context, body *certificate.DeleteBulk) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteCertstoreTrustedCAChainCertById
@@ -107,6 +185,12 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Co
 // - pId string
 //		- required
 func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreCertificate
@@ -117,6 +201,12 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 // - qIndex string
 // - qListSize string
 func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, qIndex string, qListSize string) (*certificate.CertificateList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreCertificateById
@@ -127,6 +217,12 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, qI
 // - pId string
 //		- required
 func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context, pId string) (*certificate.Certificate, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreClientCert
@@ -137,6 +233,12 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 // - qIndex string
 // - qListSize string
 func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, qIndex string, qListSize string) (*certificate.ClientCertList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreClientCertById
@@ -147,6 +249,12 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, qIn
 // - pId string
 //		- required
 func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context, pId string) (*certificate.ClientCert, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreCsr
@@ -157,6 +265,12 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 // - qIndex string
 // - qListSize string
 func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, qIndex string, qListSize string) (*certificate.CsrList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreCsrById
@@ -167,12 +281,24 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, qIndex str
 // - pId string
 //		- required
 func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, pId string) (*certificate.CertificatesSigningRequest, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreSetting
 //
 // Use this API command to retrieve certificate setting.
 func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context) (*certificate.CertSetting, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreTrustedCAChainCert
@@ -183,6 +309,12 @@ func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context) (*cert
 // - qIndex string
 // - qListSize string
 func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Context, qIndex string, qListSize string) (*certificate.TrustedCAChainCertList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCertstoreTrustedCAChainCertById
@@ -193,6 +325,12 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 // - pId string
 //		- required
 func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.Context, pId string) (*certificate.TrustedCAChain, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateCertstoreSetting
@@ -202,6 +340,15 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 // Request Body:
 //	 - body *certificate.CertSetting
 func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Context, body *certificate.CertSetting) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateCertstoreSettingServiceCertificates
@@ -211,6 +358,15 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Contex
 // Request Body:
 //	 - body certificate.ServiceCertificates
 func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates(ctx context.Context, body certificate.ServiceCertificates) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if len(body) == 0 {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateCertstoreTrustedCAChainCertById
@@ -224,4 +380,16 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates
 // - pId string
 //		- required
 func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx context.Context, body *certificate.ModifyTrustedCAChain, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

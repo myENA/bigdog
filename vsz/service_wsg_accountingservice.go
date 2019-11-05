@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/service"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGAccountingServiceService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGAccountingServiceService(c *APIClient) *WSGAccountingServiceService {
 	s := new(WSGAccountingServiceService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService {
-	serv := new(WSGAccountingServiceService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGAccountingServiceService(ss.apiClient)
 }
 
 // AddServicesAcctRadius
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService
 // Request Body:
 //	 - body *service.CreateRadiusAccounting
 func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context, body *service.CreateRadiusAccounting) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddServicesAcctTestById
@@ -44,6 +59,15 @@ func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context,
 // - pId string
 //		- required
 func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Context, body *service.TestingConfig, pId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteServicesAcct
@@ -53,6 +77,15 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 // Request Body:
 //	 - body *service.DeleteBulkAccountingService
 func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, body *service.DeleteBulkAccountingService) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteServicesAcctById
@@ -63,6 +96,12 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 // - pId string
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAcctRadiusById
@@ -73,6 +112,12 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAcctRadiusSecondaryById
@@ -83,6 +128,12 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 // - pId string
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteServicesAcctRadiusStandbyPrimaryById
@@ -93,6 +144,12 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 // - pId string
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAcctByQueryCriteria
@@ -102,12 +159,27 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.CommonAccountingServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindServicesAcctRadius
 //
 // Use this API command to retrieve a list of RADIUS accounting services.
 func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context) (*service.RadiusAccountingServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAcctRadiusById
@@ -118,6 +190,12 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Context, pId string) (*service.RadiusAccountingService, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesAcctRadiusByQueryCriteria
@@ -127,6 +205,15 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*service.RadiusAccountingServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateServicesAcctRadiusById
@@ -140,4 +227,16 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx 
 // - pId string
 //		- required
 func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx context.Context, body *service.ModifyRadiusAccounting, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

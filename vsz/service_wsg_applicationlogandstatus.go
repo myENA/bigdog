@@ -5,23 +5,26 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/administration"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGApplicationLogAndStatusService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGApplicationLogAndStatusService(c *APIClient) *WSGApplicationLogAndStatusService {
 	s := new(WSGApplicationLogAndStatusService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndStatusService {
-	serv := new(WSGApplicationLogAndStatusService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGApplicationLogAndStatusService(ss.apiClient)
 }
 
 // FindApplicationsByBladeUUID
@@ -36,6 +39,12 @@ func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndS
 // - qIndex string
 // - qListSize string
 func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx context.Context, pBladeUUID string, qIndex string, qListSize string) (*administration.ApplicationLogAndStatusList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApplicationsDownloadByBladeUUID
@@ -51,6 +60,12 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 //		- required
 // - qLogFileName string
 func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, pBladeUUID string, qAppName string, qLogFileName string) (json.RawMessage, error) {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApplicationsDownloadsnapByBladeUUID
@@ -61,6 +76,12 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 // - pBladeUUID string
 //		- required
 func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, pBladeUUID string) (json.RawMessage, error) {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateApplications
@@ -70,4 +91,16 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 // Request Body:
 //	 - body *administration.ModifyLogLevel
 func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx context.Context, body *administration.ModifyLogLevel) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }

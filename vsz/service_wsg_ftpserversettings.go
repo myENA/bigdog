@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/system"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGFtpServerSettingsService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGFtpServerSettingsService(c *APIClient) *WSGFtpServerSettingsService {
 	s := new(WSGFtpServerSettingsService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGFtpServerSettingsService() *WSGFtpServerSettingsService {
-	serv := new(WSGFtpServerSettingsService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGFtpServerSettingsService(ss.apiClient)
 }
 
 // AddFtps
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGFtpServerSettingsService() *WSGFtpServerSettingsService
 // Request Body:
 //	 - body *system.Ftp
 func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *system.Ftp) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // DeleteFtps
@@ -40,6 +55,15 @@ func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *system.
 // Request Body:
 //	 - body *system.DeleteBulkFtp
 func (s *WSGFtpServerSettingsService) DeleteFtps(ctx context.Context, body *system.DeleteBulkFtp) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteFtpsByFtpId
@@ -50,6 +74,12 @@ func (s *WSGFtpServerSettingsService) DeleteFtps(ctx context.Context, body *syst
 // - pFtpId string
 //		- required
 func (s *WSGFtpServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, pFtpId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindFtpsByFtpId
@@ -60,6 +90,12 @@ func (s *WSGFtpServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, pFt
 // - pFtpId string
 //		- required
 func (s *WSGFtpServerSettingsService) FindFtpsByFtpId(ctx context.Context, pFtpId string) (*system.Ftp, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindFtpsByQueryCriteria
@@ -69,6 +105,15 @@ func (s *WSGFtpServerSettingsService) FindFtpsByFtpId(ctx context.Context, pFtpI
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGFtpServerSettingsService) FindFtpsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*system.FtpList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindFtpsTest
@@ -78,6 +123,18 @@ func (s *WSGFtpServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 // Request Body:
 //	 - body *system.Ftp
 func (s *WSGFtpServerSettingsService) FindFtpsTest(ctx context.Context, body *system.Ftp) (*system.FtpTestResponse, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindFtpsTestByFtpId
@@ -88,6 +145,12 @@ func (s *WSGFtpServerSettingsService) FindFtpsTest(ctx context.Context, body *sy
 // - pFtpId string
 //		- required
 func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, pFtpId string) (*system.FtpTestResponse, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateFtpsByFtpId
@@ -101,4 +164,16 @@ func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, p
 // - pFtpId string
 //		- required
 func (s *WSGFtpServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Context, body *system.Ftp, pFtpId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }

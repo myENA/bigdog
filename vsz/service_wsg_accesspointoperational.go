@@ -5,25 +5,28 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ap"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/appackcapture"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGAccessPointOperationalService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGAccessPointOperationalService(c *APIClient) *WSGAccessPointOperationalService {
 	s := new(WSGAccessPointOperationalService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGAccessPointOperationalService() *WSGAccessPointOperationalService {
-	serv := new(WSGAccessPointOperationalService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGAccessPointOperationalService(ss.apiClient)
 }
 
 // AddApsApPacketCaptureDownloadByApMac
@@ -34,6 +37,12 @@ func (ss *WSGService) WSGAccessPointOperationalService() *WSGAccessPointOperatio
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(ctx context.Context, pApMac string) (json.RawMessage, error) {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // AddApsApPacketCaptureStartFileCaptureByApMac
@@ -47,6 +56,18 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCaptureByApMac(ctx context.Context, body *appackcapture.ApPacketCaptureReq, pApMac string) (*appackcapture.ApPacketCaptureRes, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddApsApPacketCaptureStartStreamingByApMac
@@ -60,6 +81,18 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCapture
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingByApMac(ctx context.Context, body *appackcapture.ApPacketCaptureReq, pApMac string) (*appackcapture.ApPacketCaptureRes, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddApsApPacketCaptureStopByApMac
@@ -70,6 +103,12 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingBy
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx context.Context, pApMac string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // AddApsOperationalBlinkLedByApMac
@@ -80,6 +119,12 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx context.Context, pApMac string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // AddApsSwitchoverCluster
@@ -89,6 +134,15 @@ func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 // Request Body:
 //	 - body *ap.SwitchoverAP
 func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.Context, body *ap.SwitchoverAP) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindApsApPacketCaptureByApMac
@@ -99,6 +153,12 @@ func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.C
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx context.Context, pApMac string) (*appackcapture.ApPacketCaptureRes, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsOperationalAlarmsByApMac
@@ -119,6 +179,12 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 // - qStartTime string
 // - qStatus string
 func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmsByApMac(ctx context.Context, pApMac string, qCategory string, qCode float64, qEndTime string, qIndex string, qListSize string, qSeverity string, qStartTime string, qStatus string) (*ap.AlarmList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsOperationalAlarmSummaryByApMac
@@ -129,6 +195,12 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmsByApMac(ctx c
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmSummaryByApMac(ctx context.Context, pApMac string) (*ap.AlarmSummary, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsOperationalEventSummaryByApMac
@@ -139,6 +211,12 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmSummaryByApMac
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsOperationalEventSummaryByApMac(ctx context.Context, pApMac string) (*ap.EventSummary, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsOperationalNeighborByApMac
@@ -153,6 +231,12 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalEventSummaryByApMac
 // - qIndex string
 // - qListSize string
 func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx context.Context, pApMac string, qIndex string, qListSize string) (*ap.NeighborAPList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsOperationalSummaryByApMac
@@ -163,4 +247,10 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx
 // - pApMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx context.Context, pApMac string) (*ap.ApOperationalSummary, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }

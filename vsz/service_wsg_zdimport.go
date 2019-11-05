@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/administration"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGZDImportService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGZDImportService(c *APIClient) *WSGZDImportService {
 	s := new(WSGZDImportService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
-	serv := new(WSGZDImportService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGZDImportService(ss.apiClient)
 }
 
 // AddZdImportConnectZD
@@ -31,6 +34,15 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 // Request Body:
 //	 - body *administration.ZdImport
 func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *administration.ZdImport) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddZdImportMigrate
@@ -40,6 +52,15 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *adm
 // Request Body:
 //	 - body *administration.ZdImport
 func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *administration.ZdImport) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindZdImportGetZDAPs
@@ -50,6 +71,12 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *admin
 // - qIp string
 //		- required
 func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, qIp string) (*administration.ZdAPList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindZdImportStatus
@@ -59,4 +86,10 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, qIp strin
 // Query Parameters:
 // - qDetails string
 func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, qDetails string) (*administration.ZdImportStatus, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }

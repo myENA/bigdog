@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/system"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGDPNetworkService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGDPNetworkService(c *APIClient) *WSGDPNetworkService {
 	s := new(WSGDPNetworkService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGDPNetworkService() *WSGDPNetworkService {
-	serv := new(WSGDPNetworkService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGDPNetworkService(ss.apiClient)
 }
 
 // DeletePlanesStaticRouteByBladeUUID
@@ -32,12 +35,24 @@ func (ss *WSGService) WSGDPNetworkService() *WSGDPNetworkService {
 // - pBladeUUID string
 //		- required
 func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Context, pBladeUUID string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindPlanes
 //
 // Use this API command to retrieve a list of data planes.
 func (s *WSGDPNetworkService) FindPlanes(ctx context.Context) (*system.DataPlaneList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindPlanesByBladeUUID
@@ -48,12 +63,24 @@ func (s *WSGDPNetworkService) FindPlanes(ctx context.Context) (*system.DataPlane
 // - pBladeUUID string
 //		- required
 func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, pBladeUUID string) (*system.DataPlaneConfiguration, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindPlanesDpTunnelSetting
 //
 // Use this API command to get DP mesh tunnel setting.
 func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*system.GetDataPlaneMeshTunnelSetting, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdatePlanesByBladeUUID
@@ -67,6 +94,18 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*s
 // - pBladeUUID string
 //		- required
 func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context, body *system.ModifyDataPlane, pBladeUUID string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdatePlaneStatesByBladeUUID
@@ -80,6 +119,15 @@ func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context
 // - pBladeUUID string
 //		- required
 func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Context, body *system.ModifyDataPlaneState, pBladeUUID string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // UpdatePlanesDpTunnelSetting
@@ -89,4 +137,13 @@ func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Co
 // Request Body:
 //	 - body *system.UpdateDpMeshTunnelSetting
 func (s *WSGDPNetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, body *system.UpdateDpMeshTunnelSetting) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

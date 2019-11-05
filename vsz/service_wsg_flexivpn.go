@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGFlexiVPNService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGFlexiVPNService(c *APIClient) *WSGFlexiVPNService {
 	s := new(WSGFlexiVPNService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGFlexiVPNService() *WSGFlexiVPNService {
-	serv := new(WSGFlexiVPNService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGFlexiVPNService(ss.apiClient)
 }
 
 // DeleteRkszonesWlansFlexiVpnProfileById
@@ -34,6 +37,12 @@ func (ss *WSGService) WSGFlexiVPNService() *WSGFlexiVPNService {
 // - pZoneId string
 //		- required
 func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.Context, pId string, pZoneId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesFlexiVpnProfileByQueryCriteria
@@ -43,4 +52,13 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.FlexiVpnProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

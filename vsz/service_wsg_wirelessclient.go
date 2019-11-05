@@ -4,26 +4,29 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ap"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/client"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/clientquery"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGWirelessClientService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGWirelessClientService(c *APIClient) *WSGWirelessClientService {
 	s := new(WSGWirelessClientService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGWirelessClientService() *WSGWirelessClientService {
-	serv := new(WSGWirelessClientService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGWirelessClientService(ss.apiClient)
 }
 
 // AddClientsBulkDeauth
@@ -33,6 +36,15 @@ func (ss *WSGService) WSGWirelessClientService() *WSGWirelessClientService {
 // Request Body:
 //	 - body *client.DeAuthClientList
 func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, body *client.DeAuthClientList) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddClientsBulkDisconnect
@@ -42,6 +54,15 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 // Request Body:
 //	 - body *client.DisconnectClientList
 func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context, body *client.DisconnectClientList) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddClientsByWlanNameByWlanname
@@ -55,6 +76,15 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 // - pWlanname string
 //		- required
 func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Context, body *common.QueryCriteriaSuperSet, pWlanname string) (*clientquery.ClientQueryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddClientsDeauth
@@ -64,6 +94,18 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 // Request Body:
 //	 - body *client.DeAuthClient
 func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *client.DeAuthClient) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddClientsDisconnect
@@ -73,6 +115,18 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *c
 // Request Body:
 //	 - body *client.DisconnectClient
 func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, body *client.DisconnectClient) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindApsOperationalClientByApMac
@@ -87,6 +141,12 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 // - qIndex string
 // - qListSize string
 func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.Context, pApMac string, qIndex string, qListSize string) (*ap.ClientList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsOperationalClientTotalCountByApMac
@@ -97,6 +157,12 @@ func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.C
 // - pApMac string
 //		- required
 func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx context.Context, pApMac string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindHistoricalclientByQueryCriteria
@@ -106,4 +172,13 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*client.HistoricalClientList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

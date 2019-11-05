@@ -4,23 +4,26 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/group"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchConfigurationCloneService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchConfigurationCloneService(c *APIClient) *SwitchMSwitchConfigurationCloneService {
 	s := new(SwitchMSwitchConfigurationCloneService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchConfigurationCloneService() *SwitchMSwitchConfigurationCloneService {
-	serv := new(SwitchMSwitchConfigurationCloneService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchConfigurationCloneService(ss.apiClient)
 }
 
 // AddCloneConfiguration
@@ -30,6 +33,15 @@ func (ss *SwitchMService) SwitchMSwitchConfigurationCloneService() *SwitchMSwitc
 // Request Body:
 //	 - body *group.GetConfigBySwitch
 func (s *SwitchMSwitchConfigurationCloneService) AddCloneConfiguration(ctx context.Context, body *group.GetConfigBySwitch) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // AddCloneConfigurationByGroup
@@ -39,6 +51,15 @@ func (s *SwitchMSwitchConfigurationCloneService) AddCloneConfiguration(ctx conte
 // Request Body:
 //	 - body *group.CloneConfigByGroup
 func (s *SwitchMSwitchConfigurationCloneService) AddCloneConfigurationByGroup(ctx context.Context, body *group.CloneConfigByGroup) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // UpdateCloneConfiguration
@@ -48,4 +69,13 @@ func (s *SwitchMSwitchConfigurationCloneService) AddCloneConfigurationByGroup(ct
 // Request Body:
 //	 - body *group.CloneConfigBySwitch
 func (s *SwitchMSwitchConfigurationCloneService) UpdateCloneConfiguration(ctx context.Context, body *group.CloneConfigBySwitch) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }

@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/dnsconfig"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchCommonSettingsService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchCommonSettingsService(c *APIClient) *SwitchMSwitchCommonSettingsService {
 	s := new(SwitchMSwitchCommonSettingsService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchCommonSettingsService() *SwitchMSwitchCommonSettingsService {
-	serv := new(SwitchMSwitchCommonSettingsService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchCommonSettingsService(ss.apiClient)
 }
 
 // AddDnsConfig
@@ -31,6 +34,15 @@ func (ss *SwitchMService) SwitchMSwitchCommonSettingsService() *SwitchMSwitchCom
 // Request Body:
 //	 - body *dnsconfig.CreateDnsConfig
 func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig(ctx context.Context, body *dnsconfig.CreateDnsConfig) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteDnsConfigBySwitchGroupId
@@ -41,6 +53,12 @@ func (s *SwitchMSwitchCommonSettingsService) AddDnsConfig(ctx context.Context, b
 // - pSwitchGroupId string
 //		- required
 func (s *SwitchMSwitchCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx context.Context, pSwitchGroupId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindDnsConfigBySwitchGroupId
@@ -51,6 +69,12 @@ func (s *SwitchMSwitchCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx 
 // - pSwitchGroupId string
 //		- required
 func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, pSwitchGroupId string) (*dnsconfig.DnsConfig, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // UpdateDnsConfigBySwitchGroupId
@@ -64,4 +88,13 @@ func (s *SwitchMSwitchCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx co
 // - pSwitchGroupId string
 //		- required
 func (s *SwitchMSwitchCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *dnsconfig.UpdateDnsConfig, pSwitchGroupId string) (*dnsconfig.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

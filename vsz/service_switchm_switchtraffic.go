@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/traffic"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchTrafficService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchTrafficService(c *APIClient) *SwitchMSwitchTrafficService {
 	s := new(SwitchMSwitchTrafficService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchTrafficService() *SwitchMSwitchTrafficService {
-	serv := new(SwitchMSwitchTrafficService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchTrafficService(ss.apiClient)
 }
 
 // AddTrafficTopPoeutilization
@@ -31,6 +34,15 @@ func (ss *SwitchMService) SwitchMSwitchTrafficService() *SwitchMSwitchTrafficSer
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTopPoeutilization(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TopSwitchPoEUtilizationQueryResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddTrafficTopPorterror
@@ -40,6 +52,15 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTopPoeutilization(ctx context.Co
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTopPorterror(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TopPortErrorQueryResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddTrafficTopPortusage
@@ -49,6 +70,15 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTopPorterror(ctx context.Context
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTopPortusage(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TopPortTrafficUsageQueryResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddTrafficTopUsage
@@ -58,6 +88,15 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTopPortusage(ctx context.Context
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTopUsage(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TopTrafficUsageQueryResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddTrafficTotalTrend
@@ -67,4 +106,13 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTopUsage(ctx context.Context, bo
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchTrafficService) AddTrafficTotalTrend(ctx context.Context, body *common.QueryCriteriaSuperSet) (*traffic.TrafficQueryResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/vlanpooling"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGVlanPoolingService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGVlanPoolingService(c *APIClient) *WSGVlanPoolingService {
 	s := new(WSGVlanPoolingService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGVlanPoolingService() *WSGVlanPoolingService {
-	serv := new(WSGVlanPoolingService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGVlanPoolingService(ss.apiClient)
 }
 
 // AddVlanpoolings
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGVlanPoolingService() *WSGVlanPoolingService {
 // Request Body:
 //	 - body *vlanpooling.CreateVlanPooling
 func (s *WSGVlanPoolingService) AddVlanpoolings(ctx context.Context, body *vlanpooling.CreateVlanPooling) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteVlanpoolings
@@ -40,6 +55,15 @@ func (s *WSGVlanPoolingService) AddVlanpoolings(ctx context.Context, body *vlanp
 // Request Body:
 //	 - body *vlanpooling.DeleteBulkVlanPooling
 func (s *WSGVlanPoolingService) DeleteVlanpoolings(ctx context.Context, body *vlanpooling.DeleteBulkVlanPooling) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteVlanpoolingsById
@@ -50,6 +74,12 @@ func (s *WSGVlanPoolingService) DeleteVlanpoolings(ctx context.Context, body *vl
 // - pId string
 //		- required
 func (s *WSGVlanPoolingService) DeleteVlanpoolingsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindVlanpoolingsById
@@ -60,6 +90,12 @@ func (s *WSGVlanPoolingService) DeleteVlanpoolingsById(ctx context.Context, pId 
 // - pId string
 //		- required
 func (s *WSGVlanPoolingService) FindVlanpoolingsById(ctx context.Context, pId string) (*vlanpooling.VlanPooling, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindVlanpoolingsByQueryCriteria
@@ -69,6 +105,15 @@ func (s *WSGVlanPoolingService) FindVlanpoolingsById(ctx context.Context, pId st
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGVlanPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*vlanpooling.VlanPoolingList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateVlanpoolingsById
@@ -82,4 +127,16 @@ func (s *WSGVlanPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 // - pId string
 //		- required
 func (s *WSGVlanPoolingService) PartialUpdateVlanpoolingsById(ctx context.Context, body *vlanpooling.ModifyVlanPooling, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

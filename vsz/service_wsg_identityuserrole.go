@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/identity"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGIdentityUserRoleService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGIdentityUserRoleService(c *APIClient) *WSGIdentityUserRoleService {
 	s := new(WSGIdentityUserRoleService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGIdentityUserRoleService() *WSGIdentityUserRoleService {
-	serv := new(WSGIdentityUserRoleService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGIdentityUserRoleService(ss.apiClient)
 }
 
 // AddIdentityUserrole
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGIdentityUserRoleService() *WSGIdentityUserRoleService {
 // Request Body:
 //	 - body *identity.CreateIdentityUserRole
 func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, body *identity.CreateIdentityUserRole) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddIdentityUserRoleList
@@ -40,6 +55,15 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 // Request Body:
 //	 - body *identity.QueryCriteria
 func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context, body *identity.QueryCriteria) (*identity.IdentityList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteIdentityUserrole
@@ -49,6 +73,15 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 // Request Body:
 //	 - body *identity.DeleteBulk
 func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context, body *identity.DeleteBulk) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteIdentityUserroleById
@@ -59,12 +92,24 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 // - pId string
 //		- required
 func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindIdentityUserrole
 //
 // Use this API command to retrieve a list of identity user role.
 func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (*identity.IdentityList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindIdentityUserroleById
@@ -75,6 +120,12 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (
 // - pId string
 //		- required
 func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Context, pId string) (*identity.IdentityUserRole, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateIdentityUserroleById
@@ -88,4 +139,16 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 // - pId string
 //		- required
 func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx context.Context, body *identity.ModifyIdentityUserRole, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

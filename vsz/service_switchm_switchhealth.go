@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/health"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchHealthService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchHealthService(c *APIClient) *SwitchMSwitchHealthService {
 	s := new(SwitchMSwitchHealthService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchHealthService() *SwitchMSwitchHealthService {
-	serv := new(SwitchMSwitchHealthService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchHealthService(ss.apiClient)
 }
 
 // AddHealthCpuAgg
@@ -31,6 +34,15 @@ func (ss *SwitchMService) SwitchMSwitchHealthService() *SwitchMSwitchHealthServi
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchHealthService) AddHealthCpuAgg(ctx context.Context, body *common.QueryCriteriaSuperSet) (*health.AggMetrics, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddHealthCpuLine
@@ -40,6 +52,15 @@ func (s *SwitchMSwitchHealthService) AddHealthCpuAgg(ctx context.Context, body *
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchHealthService) AddHealthCpuLine(ctx context.Context, body *common.QueryCriteriaSuperSet) (*health.IcxMetrics, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddHealthMemAgg
@@ -49,6 +70,15 @@ func (s *SwitchMSwitchHealthService) AddHealthCpuLine(ctx context.Context, body 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchHealthService) AddHealthMemAgg(ctx context.Context, body *common.QueryCriteriaSuperSet) (*health.AggMetrics, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddHealthMemLine
@@ -58,6 +88,15 @@ func (s *SwitchMSwitchHealthService) AddHealthMemAgg(ctx context.Context, body *
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchHealthService) AddHealthMemLine(ctx context.Context, body *common.QueryCriteriaSuperSet) (*health.IcxMetrics, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddHealthStatus
@@ -67,6 +106,15 @@ func (s *SwitchMSwitchHealthService) AddHealthMemLine(ctx context.Context, body 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchHealthService) AddHealthStatus(ctx context.Context, body *common.QueryCriteriaSuperSet) (*health.Status, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddHealthStatusAll
@@ -76,4 +124,13 @@ func (s *SwitchMSwitchHealthService) AddHealthStatus(ctx context.Context, body *
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchHealthService) AddHealthStatusAll(ctx context.Context, body *common.QueryCriteriaSuperSet) (*health.Status, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

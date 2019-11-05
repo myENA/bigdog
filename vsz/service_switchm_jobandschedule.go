@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/job"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMJobandScheduleService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMJobandScheduleService(c *APIClient) *SwitchMJobandScheduleService {
 	s := new(SwitchMJobandScheduleService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMJobandScheduleService() *SwitchMJobandScheduleService {
-	serv := new(SwitchMJobandScheduleService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMJobandScheduleService(ss.apiClient)
 }
 
 // AddJob
@@ -31,12 +34,27 @@ func (ss *SwitchMService) SwitchMJobandScheduleService() *SwitchMJobandScheduleS
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *common.QueryCriteriaSuperSet) (*job.List, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteJobSchedule
 //
 // Use this API command to delete a selected schedule.
 func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindJobByJobId
@@ -50,6 +68,15 @@ func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) er
 // - pJobId string
 //		- required
 func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body *common.QueryCriteriaSuperSet, pJobId string) (*job.Job, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindJobScheduleByScheduleId
@@ -60,4 +87,10 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 // - pScheduleId string
 //		- required
 func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.Context, pScheduleId string) (*job.JobScheduleResponse, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }

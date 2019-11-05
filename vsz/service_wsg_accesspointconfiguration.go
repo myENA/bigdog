@@ -5,26 +5,29 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ap"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/apmodel"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/meshnodeinfo"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGAccessPointConfigurationService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGAccessPointConfigurationService(c *APIClient) *WSGAccessPointConfigurationService {
 	s := new(WSGAccessPointConfigurationService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGAccessPointConfigurationService() *WSGAccessPointConfigurationService {
-	serv := new(WSGAccessPointConfigurationService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGAccessPointConfigurationService(ss.apiClient)
 }
 
 // AddAps
@@ -34,6 +37,18 @@ func (ss *WSGService) WSGAccessPointConfigurationService() *WSGAccessPointConfig
 // Request Body:
 //	 - body *ap.CreateAP
 func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *ap.CreateAP) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddApsPictureByApMac
@@ -44,6 +59,12 @@ func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *a
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Context, pApMac string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsAltitudeByApMac
@@ -54,6 +75,12 @@ func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Co
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsApMgmtVlanByApMac
@@ -64,6 +91,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx contex
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsAutoChannelSelection24ByApMac
@@ -74,6 +107,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx cont
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsAutoChannelSelection50ByApMac
@@ -84,6 +123,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByAp
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsBonjourGatewayByApMac
@@ -94,6 +139,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByAp
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsByApMac
@@ -104,6 +155,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx 
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsChannelEvaluationIntervalByApMac
@@ -114,6 +171,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Contex
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsClientAdmissionControl24ByApMac
@@ -124,6 +187,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalB
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsClientAdmissionControl50ByApMac
@@ -134,6 +203,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24By
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsDirectedMulticastFromNetworkEnabledByApMac
@@ -144,6 +219,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50By
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetworkEnabledByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsDirectedMulticastFromWiredClientEnabledByApMac
@@ -154,6 +235,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetwo
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWiredClientEnabledByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac
@@ -164,6 +251,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWired
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsGpsCoordinatesByApMac
@@ -174,6 +267,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirel
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsLocationAdditionalInfoByApMac
@@ -184,6 +283,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx 
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsLocationByApMac
@@ -194,6 +299,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByAp
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsLoginByApMac
@@ -204,6 +315,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx contex
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsLteBandLockChannelsByApMac
@@ -214,6 +331,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.C
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsMeshOptionsByApMac
@@ -224,6 +347,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsPictureByApMac
@@ -234,6 +363,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx con
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context.Context, pApMac string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsProtectionMode24ByApMac
@@ -244,6 +379,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsRecoverySsidByApMac
@@ -254,6 +395,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ct
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsRogueApAggressivenessModeByApMac
@@ -264,6 +411,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx co
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsRogueApJammingThresholdByApMac
@@ -274,6 +427,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeB
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsRogueApReportThresholdByApMac
@@ -284,6 +443,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByA
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsSmartMonitorByApMac
@@ -294,6 +459,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByAp
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsSpecificByApMac
@@ -304,6 +475,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx co
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsSyslogByApMac
@@ -314,6 +491,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx contex
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsVenueProfileByApMac
@@ -324,6 +507,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi24ByApMac
@@ -334,6 +523,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx co
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi24ChannelByApMac
@@ -344,6 +539,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi24ChannelRangeByApMac
@@ -354,6 +555,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx c
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi24ChannelWidthByApMac
@@ -364,6 +571,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi24TxPowerByApMac
@@ -374,6 +587,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi50ByApMac
@@ -384,6 +603,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx c
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi50ChannelByApMac
@@ -394,6 +619,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi50ChannelRangeByApMac
@@ -404,6 +635,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx c
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi50ChannelWidthByApMac
@@ -414,6 +651,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWifi50TxPowerByApMac
@@ -424,6 +667,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWlanGroup24ByApMac
@@ -434,6 +683,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx c
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteApsWlanGroup50ByApMac
@@ -444,6 +699,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx con
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx context.Context, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAps
@@ -456,6 +717,12 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx con
 // - qListSize string
 // - qZoneId string
 func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, qDomainId string, qIndex string, qListSize string, qZoneId string) (*ap.ApListEntry, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsByApMac
@@ -466,6 +733,12 @@ func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, qDomai
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context, pApMac string) (*ap.ApConfiguration, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsPictureByApMac
@@ -476,6 +749,12 @@ func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context,
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.Context, pApMac string) (json.RawMessage, error) {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApsSupportLogByApMac
@@ -486,12 +765,24 @@ func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.C
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx context.Context, pApMac string) (json.RawMessage, error) {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindMeshZeroTouch
 //
 // Use this API command to retrieve a list of unapproved AP.
 func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Context) (*meshnodeinfo.MeshNodeInfoList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateApsByApMac
@@ -505,6 +796,18 @@ func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Conte
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context.Context, body *ap.ModifyAP, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // UpdateApsRebootByApMac
@@ -515,6 +818,12 @@ func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.Context, pApMac string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // UpdateApsSpecificByApMac
@@ -528,6 +837,18 @@ func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.
 // - pApMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx context.Context, body *apmodel.ApModel, pApMac string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // UpdateMeshZeroTouch
@@ -537,4 +858,16 @@ func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx contex
 // Request Body:
 //	 - body *meshnodeinfo.UpdateAPZeroTouch
 func (s *WSGAccessPointConfigurationService) UpdateMeshZeroTouch(ctx context.Context, body *meshnodeinfo.UpdateAPZeroTouch) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }

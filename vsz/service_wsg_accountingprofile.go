@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGAccountingProfileService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGAccountingProfileService(c *APIClient) *WSGAccountingProfileService {
 	s := new(WSGAccountingProfileService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService {
-	serv := new(WSGAccountingProfileService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGAccountingProfileService(ss.apiClient)
 }
 
 // AddProfilesAcct
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService
 // Request Body:
 //	 - body *profile.CreateAccountingProfile
 func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body *profile.CreateAccountingProfile) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddProfilesAcctCloneById
@@ -44,6 +59,15 @@ func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body 
 // - pId string
 //		- required
 func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteProfilesAcct
@@ -53,6 +77,15 @@ func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Conte
 // Request Body:
 //	 - body *profile.DeleteBulkAccountingProfile
 func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, body *profile.DeleteBulkAccountingProfile) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteProfilesAcctById
@@ -63,12 +96,24 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, bo
 // - pId string
 //		- required
 func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesAcct
 //
 // Use this API command to retrieve a list of accounting profiles.
 func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*profile.AccountingProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesAcctById
@@ -79,6 +124,12 @@ func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*pr
 // - pId string
 //		- required
 func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, pId string) (*profile.AccountingProfile, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesAcctByQueryCriteria
@@ -88,6 +139,15 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.AccountingProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateProfilesAcctById
@@ -101,4 +161,16 @@ func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx contex
 // - pId string
 //		- required
 func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.Context, body *profile.ModifyAccountingProfile, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

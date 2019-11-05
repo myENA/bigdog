@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/aclconfig"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchAccessControlListService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchAccessControlListService(c *APIClient) *SwitchMSwitchAccessControlListService {
 	s := new(SwitchMSwitchAccessControlListService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchAccessControlListService() *SwitchMSwitchAccessControlListService {
-	serv := new(SwitchMSwitchAccessControlListService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchAccessControlListService(ss.apiClient)
 }
 
 // AddAccessControls
@@ -31,6 +34,18 @@ func (ss *SwitchMService) SwitchMSwitchAccessControlListService() *SwitchMSwitch
 // Request Body:
 //	 - body *aclconfig.CreateACLConfig
 func (s *SwitchMSwitchAccessControlListService) AddAccessControls(ctx context.Context, body *aclconfig.CreateACLConfig) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteAccessControls
@@ -40,6 +55,15 @@ func (s *SwitchMSwitchAccessControlListService) AddAccessControls(ctx context.Co
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *SwitchMSwitchAccessControlListService) DeleteAccessControls(ctx context.Context, body *common.BulkDeleteRequest) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteAccessControlsById
@@ -50,6 +74,12 @@ func (s *SwitchMSwitchAccessControlListService) DeleteAccessControls(ctx context
 // - pId string
 //		- required
 func (s *SwitchMSwitchAccessControlListService) DeleteAccessControlsById(ctx context.Context, pId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAccessControlsById
@@ -60,6 +90,12 @@ func (s *SwitchMSwitchAccessControlListService) DeleteAccessControlsById(ctx con
 // - pId string
 //		- required
 func (s *SwitchMSwitchAccessControlListService) FindAccessControlsById(ctx context.Context, pId string) (*aclconfig.ACLConfig, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAccessControlsByQueryCriteria
@@ -69,6 +105,15 @@ func (s *SwitchMSwitchAccessControlListService) FindAccessControlsById(ctx conte
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchAccessControlListService) FindAccessControlsByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*aclconfig.ACLConfigsQueryResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // UpdateAccessControlsById
@@ -82,4 +127,16 @@ func (s *SwitchMSwitchAccessControlListService) FindAccessControlsByQueryCriteri
 // - pId string
 //		- required
 func (s *SwitchMSwitchAccessControlListService) UpdateAccessControlsById(ctx context.Context, body *aclconfig.UpdateACLConfig, pId string) (*aclconfig.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

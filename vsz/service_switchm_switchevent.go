@@ -4,23 +4,26 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/eventconfig"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchEventService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchEventService(c *APIClient) *SwitchMSwitchEventService {
 	s := new(SwitchMSwitchEventService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchEventService() *SwitchMSwitchEventService {
-	serv := new(SwitchMSwitchEventService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchEventService(ss.apiClient)
 }
 
 // AddCustomEvent
@@ -30,6 +33,15 @@ func (ss *SwitchMService) SwitchMSwitchEventService() *SwitchMSwitchEventService
 // Request Body:
 //	 - body *eventconfig.AddEventConfig
 func (s *SwitchMSwitchEventService) AddCustomEvent(ctx context.Context, body *eventconfig.AddEventConfig) (*eventconfig.AddEventConfigResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteCustomEventById
@@ -40,12 +52,24 @@ func (s *SwitchMSwitchEventService) AddCustomEvent(ctx context.Context, body *ev
 // - pId string
 //		- required
 func (s *SwitchMSwitchEventService) DeleteCustomEventById(ctx context.Context, pId string) (*eventconfig.DeleteEventConfigResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCustomEvent
 //
 // Use this API command to retrieve switch event config list
 func (s *SwitchMSwitchEventService) FindCustomEvent(ctx context.Context) (*eventconfig.GetEventConfigList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindCustomEventById
@@ -56,6 +80,12 @@ func (s *SwitchMSwitchEventService) FindCustomEvent(ctx context.Context) (*event
 // - pId string
 //		- required
 func (s *SwitchMSwitchEventService) FindCustomEventById(ctx context.Context, pId string) (*eventconfig.EventConfig, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // UpdateCustomEventById
@@ -69,4 +99,13 @@ func (s *SwitchMSwitchEventService) FindCustomEventById(ctx context.Context, pId
 // - pId string
 //		- required
 func (s *SwitchMSwitchEventService) UpdateCustomEventById(ctx context.Context, body *eventconfig.UpdateEventConfig, pId string) (*eventconfig.UpdateEventConfigResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

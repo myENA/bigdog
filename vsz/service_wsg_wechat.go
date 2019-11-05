@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/portalservice"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGWechatService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGWechatService(c *APIClient) *WSGWechatService {
 	s := new(WSGWechatService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGWechatService() *WSGWechatService {
-	serv := new(WSGWechatService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGWechatService(ss.apiClient)
 }
 
 // AddRkszonesPortalsWechatByZoneId
@@ -35,6 +38,18 @@ func (ss *WSGService) WSGWechatService() *WSGWechatService {
 // - pZoneId string
 //		- required
 func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context, body *portalservice.CreateWechat, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteRkszonesPortalsWechatById
@@ -47,6 +62,12 @@ func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context,
 // - pZoneId string
 //		- required
 func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesPortalsWechatById
@@ -59,6 +80,12 @@ func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, 
 // - pZoneId string
 //		- required
 func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, pId string, pZoneId string) (*portalservice.WechatConfiguration, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesPortalsWechatByZoneId
@@ -73,6 +100,12 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, pI
 // - qIndex string
 // - qListSize string
 func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*portalservice.PortalServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateRkszonesPortalsWechatById
@@ -88,4 +121,16 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context
 // - pZoneId string
 //		- required
 func (s *WSGWechatService) PartialUpdateRkszonesPortalsWechatById(ctx context.Context, body *portalservice.ModifyWechat, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

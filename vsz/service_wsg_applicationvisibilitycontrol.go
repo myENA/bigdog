@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/avc"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGApplicationVisibilityControlService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGApplicationVisibilityControlService(c *APIClient) *WSGApplicationVisibilityControlService {
 	s := new(WSGApplicationVisibilityControlService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGApplicationVisibilityControlService() *WSGApplicationVisibilityControlService {
-	serv := new(WSGApplicationVisibilityControlService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGApplicationVisibilityControlService(ss.apiClient)
 }
 
 // AddAvcApplicationPolicy
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGApplicationVisibilityControlService() *WSGApplicationVi
 // Request Body:
 //	 - body *avc.CreateApplicationPolicyProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx context.Context, body *avc.CreateApplicationPolicyProfile) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddAvcApplicationPolicyV2
@@ -40,18 +55,42 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx con
 // Request Body:
 //	 - body *avc.CreateApplicationPolicyProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx context.Context, body *avc.CreateApplicationPolicyProfile) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddAvcSignaturePackageUpload
 //
 // Update AVC Signature Package by upload file (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ctx context.Context) (*avc.SignaturePackage, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // AddAvcSignaturePackageV2Upload
 //
 // Update AVC Signature Package by upload file.
 func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(ctx context.Context) (*avc.SignaturePackage, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // AddAvcUserDefined
@@ -61,6 +100,18 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 // Request Body:
 //	 - body *avc.CreateUserDefinedProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.Context, body *avc.CreateUserDefinedProfile) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteAvcApplicationPolicy
@@ -70,6 +121,15 @@ func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.C
 // Request Body:
 //	 - body *avc.DeleteBulk
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx context.Context, body *avc.DeleteBulk) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteAvcApplicationPolicyById
@@ -80,6 +140,12 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx 
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteAvcApplicationPolicyV2
@@ -89,6 +155,15 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(
 // Request Body:
 //	 - body *avc.DeleteBulk
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ctx context.Context, body *avc.DeleteBulk) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteAvcApplicationPolicyV2ById
@@ -99,6 +174,12 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ct
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteAvcUserDefined
@@ -108,6 +189,15 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ByI
 // Request Body:
 //	 - body *avc.DeleteBulk
 func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx context.Context, body *avc.DeleteBulk) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteAvcUserDefinedById
@@ -118,6 +208,12 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx contex
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindApplicationPolicyByQueryCriteria
@@ -127,6 +223,15 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx co
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*avc.ApplicationPolicyProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindApplicationPolicyV2ByQueryCriteria
@@ -136,6 +241,15 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCri
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*avc.ApplicationPolicyProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindAvcApplicationPolicyById
@@ -146,6 +260,12 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ctx context.Context, pId string) (*avc.ApplicationPolicyProfile, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcApplicationPolicyV2ById
@@ -156,12 +276,24 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(ctx context.Context, pId string) (*avc.ApplicationPolicyProfile, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcSignaturePackage
 //
 // Get current Signature Package info (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx context.Context) (*avc.SignaturePackage, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcSignaturePackageApplicationByApplicationName
@@ -172,18 +304,36 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx con
 // - pApplicationName string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicationByApplicationName(ctx context.Context, pApplicationName string) (*avc.Application, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcSignaturePackageApplications
 //
 // Get Application list from current Signature Package (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplications(ctx context.Context) (*avc.ApplicationList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcSignaturePackageCategories
 //
 // Get Application Category list from current Signature Package (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategories(ctx context.Context) (*avc.AppCategoryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcSignaturePackageCategoryByCategoryName
@@ -194,12 +344,24 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategori
 // - pCategoryName string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategoryByCategoryName(ctx context.Context, pCategoryName string) (*avc.AppCategory, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcSignaturePackageV2
 //
 // Get current Signature Package info.
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx context.Context) (*avc.SignaturePackage, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcSignaturePackageV2Applications
@@ -209,6 +371,12 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 // Query Parameters:
 // - qAppName string
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applications(ctx context.Context, qAppName string) (*avc.ApplicationList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcSignaturePackageV2Categories
@@ -218,6 +386,12 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 // Query Parameters:
 // - qCatName string
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Categories(ctx context.Context, qCatName string) (*avc.AppCategoryList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAvcUserDefinedById
@@ -228,6 +402,12 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx context.Context, pId string) (*avc.UserDefinedProfile, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindUserDefinedByQueryCriteria
@@ -237,6 +417,15 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*avc.UserDefinedProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateAvcApplicationPolicyById
@@ -250,6 +439,18 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyById(ctx context.Context, body *avc.ModifyApplicationPolicyProfile, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateAvcApplicationPolicyV2ById
@@ -263,6 +464,18 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyV2ById(ctx context.Context, body *avc.ModifyApplicationPolicyProfile, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateAvcUserDefinedById
@@ -276,4 +489,16 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 // - pId string
 //		- required
 func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *avc.ModifyUserDefinedProfile, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

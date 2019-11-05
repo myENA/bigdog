@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGDNSServerManagementService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGDNSServerManagementService(c *APIClient) *WSGDNSServerManagementService {
 	s := new(WSGDNSServerManagementService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementService {
-	serv := new(WSGDNSServerManagementService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGDNSServerManagementService(ss.apiClient)
 }
 
 // AddProfilesDnsserver
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementSer
 // Request Body:
 //	 - body *profile.CreateDnsServerProfile
 func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context, body *profile.CreateDnsServerProfile) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddProfilesDnsserverCloneById
@@ -44,6 +59,15 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *profile.ProfileCloneRequest, pId string) (*profile.ProfileCloneResponse, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteProfilesDnsserver
@@ -53,6 +77,15 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx contex
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteProfilesDnsserverById
@@ -63,6 +96,12 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Cont
 // - pId string
 //		- required
 func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesDnsserver
@@ -73,6 +112,12 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.
 // - qIndex string
 // - qListSize string
 func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Context, qIndex string, qListSize string) (*profile.DnsServerProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesDnsserverById
@@ -83,6 +128,12 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Contex
 // - pId string
 //		- required
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Context, pId string) (*profile.DnsServerProfile, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesDnsserverByQueryCriteria
@@ -92,6 +143,15 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Co
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.DnsServerProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateProfilesDnsserverById
@@ -105,4 +165,16 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx
 // - pId string
 //		- required
 func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *profile.ModifyDnsServerProfile, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

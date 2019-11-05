@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/ap"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGMarkRogueService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGMarkRogueService(c *APIClient) *WSGMarkRogueService {
 	s := new(WSGMarkRogueService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
-	serv := new(WSGMarkRogueService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGMarkRogueService(ss.apiClient)
 }
 
 // AddRogueMarkIgnore
@@ -31,6 +34,15 @@ func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
 // Request Body:
 //	 - body *ap.ModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *ap.ModifyRogueType) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddRogueMarkKnown
@@ -40,6 +52,15 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *ap.M
 // Request Body:
 //	 - body *ap.ModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *ap.ModifyRogueType) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddRogueMarkMalicious
@@ -49,6 +70,15 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *ap.Mo
 // Request Body:
 //	 - body *ap.ModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *ap.ModifyRogueType) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddRogueMarkRogue
@@ -58,6 +88,15 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *a
 // Request Body:
 //	 - body *ap.ModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *ap.ModifyRogueType) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddRogueUnMark
@@ -67,10 +106,25 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *ap.Mo
 // Request Body:
 //	 - body *ap.ModifyRogueType
 func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *ap.ModifyRogueType) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindRogueMarkKnown
 //
 // Get Known Rogue AP list.
 func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context) (*ap.ModifyRogueType, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }

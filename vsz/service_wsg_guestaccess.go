@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/portalservice"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGGuestAccessService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGGuestAccessService(c *APIClient) *WSGGuestAccessService {
 	s := new(WSGGuestAccessService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
-	serv := new(WSGGuestAccessService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGGuestAccessService(ss.apiClient)
 }
 
 // AddRkszonesPortalsGuestByZoneId
@@ -35,6 +38,18 @@ func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
 // - pZoneId string
 //		- required
 func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Context, body *portalservice.CreateGuestAccess, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteRkszonesPortalsGuestById
@@ -47,6 +62,12 @@ func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Cont
 // - pZoneId string
 //		- required
 func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesPortalsGuestRedirectById
@@ -59,6 +80,12 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Conte
 // - pZoneId string
 //		- required
 func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteRkszonesPortalsGuestSmsGatewayById
@@ -71,6 +98,12 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx conte
 // - pZoneId string
 //		- required
 func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx context.Context, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesPortalsGuestById
@@ -83,6 +116,12 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx con
 // - pZoneId string
 //		- required
 func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context, pId string, pZoneId string) (*portalservice.GuestAccess, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesPortalsGuestByZoneId
@@ -93,6 +132,12 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context
 // - pZoneId string
 //		- required
 func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Context, pZoneId string) (*portalservice.PortalServiceList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateRkszonesPortalsGuestById
@@ -108,4 +153,16 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Con
 // - pZoneId string
 //		- required
 func (s *WSGGuestAccessService) PartialUpdateRkszonesPortalsGuestById(ctx context.Context, body *portalservice.ModifyGuestAccess, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

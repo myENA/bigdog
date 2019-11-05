@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGTTGPDGService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGTTGPDGService(c *APIClient) *WSGTTGPDGService {
 	s := new(WSGTTGPDGService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
-	serv := new(WSGTTGPDGService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGTTGPDGService(ss.apiClient)
 }
 
 // AddProfilesTtgpdg
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
 // Request Body:
 //	 - body *profile.CreateTtgpdgProfile
 func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *profile.CreateTtgpdgProfile) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteProfilesTtgpdg
@@ -40,6 +55,15 @@ func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *profile.
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteProfilesTtgpdgApnRealmsById
@@ -50,6 +74,12 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *commo
 // - pId string
 //		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteProfilesTtgpdgById
@@ -60,6 +90,12 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, pId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // DeleteProfilesTtgpdgDhcpRelayById
@@ -70,12 +106,24 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, pId str
 // - pId string
 //		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesTtgpdg
 //
 // Use this API command to retrieve a list of TTG+PDG profile.
 func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context) (*profile.ProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesTtgpdgById
@@ -86,6 +134,12 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context) (*profile.Pro
 // - pId string
 //		- required
 func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, pId string) (*profile.TtgpdgProfile, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindProfilesTtgpdgByQueryCriteria
@@ -95,6 +149,15 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, pId strin
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.TtgpdgProfileList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateProfilesTtgpdgById
@@ -108,4 +171,16 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context
 // - pId string
 //		- required
 func (s *WSGTTGPDGService) PartialUpdateProfilesTtgpdgById(ctx context.Context, body *profile.TtgpdgProfileConfiguration, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

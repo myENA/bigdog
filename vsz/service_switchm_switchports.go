@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/common"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/switchmswitch"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchPortsService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchPortsService(c *APIClient) *SwitchMSwitchPortsService {
 	s := new(SwitchMSwitchPortsService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchPortsService() *SwitchMSwitchPortsService {
-	serv := new(SwitchMSwitchPortsService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchPortsService(ss.apiClient)
 }
 
 // AddSwitchPortsDetails
@@ -31,6 +34,15 @@ func (ss *SwitchMService) SwitchMSwitchPortsService() *SwitchMSwitchPortsService
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchPortsService) AddSwitchPortsDetails(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.PortDetailsQueryResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddSwitchPortsSummary
@@ -40,4 +52,13 @@ func (s *SwitchMSwitchPortsService) AddSwitchPortsDetails(ctx context.Context, b
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *SwitchMSwitchPortsService) AddSwitchPortsSummary(ctx context.Context, body *common.QueryCriteriaSuperSet) (*switchmswitch.SwitchPortsSummaryQueryResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

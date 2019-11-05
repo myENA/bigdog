@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/scguser"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGSCGUserGroupService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGSCGUserGroupService(c *APIClient) *WSGSCGUserGroupService {
 	s := new(WSGSCGUserGroupService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
-	serv := new(WSGSCGUserGroupService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGSCGUserGroupService(ss.apiClient)
 }
 
 // AddUserGroups
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
 // Request Body:
 //	 - body *scguser.ScgUserGroup
 func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *scguser.ScgUserGroup) (*scguser.ScgUserGroupAuditId, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteUserGroups
@@ -40,6 +55,15 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *scguse
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteUserGroupsByUserGroupId
@@ -50,6 +74,12 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *com
 // - pUserGroupId string
 //		- required
 func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, pUserGroupId string) (*scguser.ScgUserGroupAuditId, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindUserGroupsByQueryCriteria
@@ -59,6 +89,15 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 // Request Body:
 //	 - body *scguser.QueryCriteria
 func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Context, body *scguser.QueryCriteria) (*scguser.ScgUserGroupList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindUserGroupsByUserGroupId
@@ -72,18 +111,36 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 // Query Parameters:
 // - qIncludeUsers string
 func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, pUserGroupId string, qIncludeUsers string) (*scguser.ScgUserGroup, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindUserGroupsCurrentUserPermissionCategories
 //
 // Get permitted categories of current user.
 func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(ctx context.Context) (*scguser.ScgUserGroupPermissionList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindUserGroupsRoles
 //
 // Get pre-defined roles.
 func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*scguser.ScgUserGroupRoleLabelValueList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindUserGroupsRolesPermissionsByRole
@@ -97,6 +154,12 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*scgu
 // Query Parameters:
 // - qDomainId string
 func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, pRole string, qDomainId string) (*scguser.ScgUserGroupPermissionList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateUserGroupsByUserGroupId
@@ -110,4 +173,13 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 // - pUserGroupId string
 //		- required
 func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *scguser.PatchScgUserGroup, pUserGroupId string) (*scguser.ScgUserGroupAuditId, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }

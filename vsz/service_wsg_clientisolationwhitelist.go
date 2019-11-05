@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/profile"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGClientIsolationWhitelistService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGClientIsolationWhitelistService(c *APIClient) *WSGClientIsolationWhitelistService {
 	s := new(WSGClientIsolationWhitelistService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGClientIsolationWhitelistService() *WSGClientIsolationWhitelistService {
-	serv := new(WSGClientIsolationWhitelistService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGClientIsolationWhitelistService(ss.apiClient)
 }
 
 // AddRkszonesClientIsolationWhitelistByZoneId
@@ -35,6 +38,18 @@ func (ss *WSGService) WSGClientIsolationWhitelistService() *WSGClientIsolationWh
 // - pZoneId string
 //		- required
 func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, body *profile.CreateClientIsolationWhitelist, pZoneId string) (*common.CreateResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteRkszonesClientIsolationWhitelist
@@ -44,6 +59,15 @@ func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelist
 // Request Body:
 //	 - body *common.BulkDeleteRequest
 func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist(ctx context.Context, body *common.BulkDeleteRequest) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteRkszonesClientIsolationWhitelistById
@@ -54,6 +78,12 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 // - pId string
 //		- required
 func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById(ctx context.Context, pId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesClientIsolationWhitelistById
@@ -66,6 +96,12 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 // - pZoneId string
 //		- required
 func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistById(ctx context.Context, pId string, pZoneId string) (*profile.ClientIsolationWhitelist, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesClientIsolationWhitelistByZoneId
@@ -76,6 +112,12 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 // - pZoneId string
 //		- required
 func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, pZoneId string) (*profile.ClientIsolationWhitelistArray, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindServicesClientIsolationWhitelistByQueryCriteria
@@ -85,6 +127,15 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 // Request Body:
 //	 - body *common.QueryCriteriaSuperSet
 func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria(ctx context.Context, body *common.QueryCriteriaSuperSet) (*profile.ClientIsolationWhitelistArray, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateRkszonesClientIsolationWhitelistById
@@ -100,4 +151,16 @@ func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelis
 // - pZoneId string
 //		- required
 func (s *WSGClientIsolationWhitelistService) PartialUpdateRkszonesClientIsolationWhitelistById(ctx context.Context, body *profile.ModifyClientIsolationWhitelist, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

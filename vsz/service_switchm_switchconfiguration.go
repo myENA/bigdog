@@ -4,23 +4,26 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/switchm/configbackup"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchConfigurationService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewSwitchMSwitchConfigurationService(c *APIClient) *SwitchMSwitchConfigurationService {
 	s := new(SwitchMSwitchConfigurationService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *SwitchMService) SwitchMSwitchConfigurationService() *SwitchMSwitchConfigurationService {
-	serv := new(SwitchMSwitchConfigurationService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewSwitchMSwitchConfigurationService(ss.apiClient)
 }
 
 // AddSwitchconfig
@@ -30,6 +33,15 @@ func (ss *SwitchMService) SwitchMSwitchConfigurationService() *SwitchMSwitchConf
 // Request Body:
 //	 - body *configbackup.QueryCriteria
 func (s *SwitchMSwitchConfigurationService) AddSwitchconfig(ctx context.Context, body *configbackup.QueryCriteria) (*configbackup.List, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddSwitchconfigBackup
@@ -39,6 +51,15 @@ func (s *SwitchMSwitchConfigurationService) AddSwitchconfig(ctx context.Context,
 // Request Body:
 //	 - body configbackup.SwitchIds
 func (s *SwitchMSwitchConfigurationService) AddSwitchconfigBackup(ctx context.Context, body configbackup.SwitchIds) (*configbackup.CreateBackupResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if len(body) == 0 {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddSwitchconfigBackupDiff
@@ -48,6 +69,15 @@ func (s *SwitchMSwitchConfigurationService) AddSwitchconfigBackup(ctx context.Co
 // Request Body:
 //	 - body *configbackup.ConfigBackupDiffInput
 func (s *SwitchMSwitchConfigurationService) AddSwitchconfigBackupDiff(ctx context.Context, body *configbackup.ConfigBackupDiffInput) (*configbackup.ConfigBackupDiff, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // DeleteSwitchconfig
@@ -57,6 +87,15 @@ func (s *SwitchMSwitchConfigurationService) AddSwitchconfigBackupDiff(ctx contex
 // Request Body:
 //	 - body configbackup.BackupIds
 func (s *SwitchMSwitchConfigurationService) DeleteSwitchconfig(ctx context.Context, body configbackup.BackupIds) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if len(body) == 0 {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteSwitchconfigByConfigId
@@ -67,6 +106,12 @@ func (s *SwitchMSwitchConfigurationService) DeleteSwitchconfig(ctx context.Conte
 // - pConfigId string
 //		- required
 func (s *SwitchMSwitchConfigurationService) DeleteSwitchconfigByConfigId(ctx context.Context, pConfigId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindSwitchconfigByConfigId
@@ -77,6 +122,12 @@ func (s *SwitchMSwitchConfigurationService) DeleteSwitchconfigByConfigId(ctx con
 // - pConfigId string
 //		- required
 func (s *SwitchMSwitchConfigurationService) FindSwitchconfigByConfigId(ctx context.Context, pConfigId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindSwitchconfigDownloadByConfigId
@@ -87,6 +138,12 @@ func (s *SwitchMSwitchConfigurationService) FindSwitchconfigByConfigId(ctx conte
 // - pConfigId string
 //		- required
 func (s *SwitchMSwitchConfigurationService) FindSwitchconfigDownloadByConfigId(ctx context.Context, pConfigId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // UpdateSwitchconfigBackup
@@ -96,6 +153,15 @@ func (s *SwitchMSwitchConfigurationService) FindSwitchconfigDownloadByConfigId(c
 // Request Body:
 //	 - body configbackup.SwitchIds
 func (s *SwitchMSwitchConfigurationService) UpdateSwitchconfigBackup(ctx context.Context, body configbackup.SwitchIds) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if len(body) == 0 {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // UpdateSwitchconfigBackupByGroupId
@@ -108,6 +174,12 @@ func (s *SwitchMSwitchConfigurationService) UpdateSwitchconfigBackup(ctx context
 // - pGroupType string
 //		- required
 func (s *SwitchMSwitchConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx context.Context, pGroupId string, pGroupType string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // UpdateSwitchconfigBackupRestoreByBackupId
@@ -118,4 +190,10 @@ func (s *SwitchMSwitchConfigurationService) UpdateSwitchconfigBackupByGroupId(ct
 // - pBackupId string
 //		- required
 func (s *SwitchMSwitchConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(ctx context.Context, pBackupId string) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }

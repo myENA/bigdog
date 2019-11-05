@@ -145,32 +145,25 @@ func (c *APIClient) Do(ctx context.Context, request *Request) (*http.Response, e
 	return httpResponse, err
 }
 
-func (c *APIClient) tryDo(ctx context.Context, request *Request) (AuthCAS, *http.Response, error) {
+func (c *APIClient) do(ctx context.Context, request *Request) (AuthCAS, *http.Response, error) {
 	var (
 		httpRequest  *http.Request
 		httpResponse *http.Response
 		cas          AuthCAS
 		err          error
 	)
-	if httpRequest, err = request.toHTTP(ctx, c.addr, c.port, c.debug); err != nil {
-		return cas, nil, err
-	}
 	if request.authenticated {
-		if cas, err = c.auth.Decorate(ctx, httpRequest); err != nil {
+		if cas, err = c.auth.Decorate(ctx, request); err != nil {
 			if cas, err = c.auth.Refresh(ctx, c, cas); err != nil {
 				return cas, nil, err
-			} else if cas, err = c.auth.Decorate(ctx, httpRequest); err != nil {
+			} else if cas, err = c.auth.Decorate(ctx, request); err != nil {
 				return cas, nil, err
 			}
 		}
 	}
+	if httpRequest, err = request.toHTTP(ctx, c.addr, c.port, c.debug); err != nil {
+		return cas, nil, err
+	}
 	httpResponse, err = c.client.Do(httpRequest)
 	return cas, httpResponse, err
-}
-
-func (c *APIClient) do(ctx context.Context, request *Request) (AuthCAS, *http.Response, error) {
-	if ctx == nil {
-		return 0, nil, errors.New("ctx must not be nil")
-	}
-	return c.tryDo(ctx, request)
 }

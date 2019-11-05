@@ -4,24 +4,27 @@ package vsz
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/accountsecurityprofile"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGAccountSecurityService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGAccountSecurityService(c *APIClient) *WSGAccountSecurityService {
 	s := new(WSGAccountSecurityService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGAccountSecurityService() *WSGAccountSecurityService {
-	serv := new(WSGAccountSecurityService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGAccountSecurityService(ss.apiClient)
 }
 
 // AddAccountSecurity
@@ -31,6 +34,18 @@ func (ss *WSGService) WSGAccountSecurityService() *WSGAccountSecurityService {
 // Request Body:
 //	 - body *accountsecurityprofile.Create
 func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body *accountsecurityprofile.Create) (*common.CreateResultIdName, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // DeleteAccountSecurity
@@ -40,6 +55,15 @@ func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body
 // Request Body:
 //	 - body *accountsecurityprofile.DeleteList
 func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, body *accountsecurityprofile.DeleteList) error {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return errors.New("body cannot be empty")
+	}
 }
 
 // DeleteAccountSecurityById
@@ -53,12 +77,27 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, b
 // - pId string
 //		- required
 func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Context, body *accountsecurityprofile.Delete, pId string) (*common.CreateResultIdName, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // FindAccountSecurity
 //
 // Use this API command to get account security profiles.
 func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*accountsecurityprofile.ProfileListResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindAccountSecurityById
@@ -72,6 +111,15 @@ func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*a
 // - pId string
 //		- required
 func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context, body *accountsecurityprofile.GetById, pId string) (*accountsecurityprofile.GetByIdResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // PartialUpdateAccountSecurityById
@@ -85,6 +133,18 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 // - pId string
 //		- required
 func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context.Context, body *accountsecurityprofile.Update, pId string) (*common.CreateResultIdName, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // UpdateAccountSecurityById
@@ -98,4 +158,16 @@ func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context
 // - pId string
 //		- required
 func (s *WSGAccountSecurityService) UpdateAccountSecurityById(ctx context.Context, body *accountsecurityprofile.Update, pId string) (*common.CreateResultIdName, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

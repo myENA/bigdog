@@ -5,24 +5,27 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"errors"
+	"fmt"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/common"
 	"github.com/myENA/ruckus-client/vsz/types/wsg/dpsk"
+	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGDynamicPSKService struct {
 	apiClient *APIClient
+	validate  *validator.Validate
 }
 
 func NewWSGDynamicPSKService(c *APIClient) *WSGDynamicPSKService {
 	s := new(WSGDynamicPSKService)
 	s.apiClient = c
+	s.validate = validator.New()
 	return s
 }
 
 func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
-	serv := new(WSGDynamicPSKService)
-	serv.apiClient = ss.apiClient
-	return serv
+	return NewWSGDynamicPSKService(ss.apiClient)
 }
 
 // AddRkszonesWlansDpskBatchGenUnboundById
@@ -38,6 +41,15 @@ func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx context.Context, body *dpsk.BatchGenUnbound, pId string, pZoneId string) (*dpsk.GetDpskResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddRkszonesWlansDpskById
@@ -53,6 +65,15 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx conte
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, body *dpsk.DeleteDPSKs, pId string, pZoneId string) (*dpsk.DeleteDpskResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // AddRkszonesWlansDpskUploadById
@@ -65,6 +86,12 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Context, pId string, pZoneId string) (*dpsk.GetDpskResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesDeleteExpiredDpskByZoneId
@@ -75,6 +102,12 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, pZoneId string) (*dpsk.DeleteExpiredDpskConfig, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesDownloadDpskCsvSample
@@ -84,6 +117,12 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 // Query Parameters:
 // - qType string
 func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Context, qType string) (json.RawMessage, error) {
+	if ctx == nil {
+		return errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesDpskByZoneId
@@ -94,6 +133,12 @@ func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Con
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, pZoneId string) (*dpsk.GetDpskInfoList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesDpskEnabledWlansByZoneId
@@ -104,6 +149,12 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, pZo
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.Context, pZoneId string) (*dpsk.GetDpskEnabledWlans, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesWlansDpskByDpskId
@@ -118,6 +169,12 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context, pDpskId string, pId string, pZoneId string) (*dpsk.GetDpskInfoList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // FindRkszonesWlansDpskById
@@ -130,6 +187,12 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, pId string, pZoneId string) (*dpsk.GetDpskInfoList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
 }
 
 // PartialUpdateRkszonesWlansDpskByDpskId
@@ -147,6 +210,15 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, pI
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx context.Context, body *dpsk.UpdateDpsk, pDpskId string, pId string, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
 }
 
 // UpdateRkszonesDeleteExpiredDpskByZoneId
@@ -160,4 +232,16 @@ func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx contex
 // - pZoneId string
 //		- required
 func (s *WSGDynamicPSKService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, body *dpsk.ModifyDeleteExpiredDpsk, pZoneId string) (*common.EmptyResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+	if body == nil {
+		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }

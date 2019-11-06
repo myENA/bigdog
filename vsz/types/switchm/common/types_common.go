@@ -161,7 +161,61 @@ type QueryCriteriaSortInfoType struct {
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
 
-type QueryCriteriaSuperSet struct{}
+type QueryCriteriaSuperSet struct {
+	// Attributes
+	// Get specific columns only
+	Attributes []string `json:"attributes,omitempty"`
+
+	// Criteria
+	// Add backward compatibility for UI framework
+	Criteria *string `json:"criteria,omitempty"`
+
+	// ExpandDomains
+	// Whether to expand domains into sub domains/ zones or not
+	ExpandDomains *bool `json:"expandDomains,omitempty"`
+
+	// ExtraFilters
+	// "AND" condition for multiple filters
+	ExtraFilters []*QueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
+
+	// ExtraNotFilters
+	// "NOT" condition for multiple filters
+	ExtraNotFilters []*QueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+
+	ExtraTimeRange *TimeRange `json:"extraTimeRange,omitempty"`
+
+	// Filters
+	// Filters used to select specific resource scope
+	Filters []*QueryCriteriaFiltersType `json:"filters,omitempty"`
+
+	FullTextSearch *FullTextSearch `json:"fullTextSearch,omitempty"`
+
+	// Limit
+	// Size of one page
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
+
+	// Options
+	// Specified feature required information
+	Options *QueryCriteriaOptionsType `json:"options,omitempty"`
+
+	// Page
+	// Page number to get
+	// Constraints:
+	//    - nullable
+	//    - min:1
+	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
+
+	// Query
+	// Add backward compatibility for UI framework
+	Query *string `json:"query,omitempty"`
+
+	// SortInfo
+	// About sorting
+	SortInfo *QueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
+}
 
 type RbacMetadata struct {
 	RbacMetadata []string `json:"rbacMetadata,omitempty"`

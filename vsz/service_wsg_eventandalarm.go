@@ -46,6 +46,9 @@ func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *c
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddAlertAlarmSummary
@@ -63,6 +66,9 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -82,6 +88,9 @@ func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *c
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddAlertEventSummary
@@ -99,6 +108,9 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 

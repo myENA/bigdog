@@ -43,6 +43,9 @@ func (s *SwitchMSwitchHealthService) AddHealthCpuAgg(ctx context.Context, body *
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddHealthCpuLine
@@ -60,6 +63,9 @@ func (s *SwitchMSwitchHealthService) AddHealthCpuLine(ctx context.Context, body 
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -79,6 +85,9 @@ func (s *SwitchMSwitchHealthService) AddHealthMemAgg(ctx context.Context, body *
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddHealthMemLine
@@ -96,6 +105,9 @@ func (s *SwitchMSwitchHealthService) AddHealthMemLine(ctx context.Context, body 
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -115,6 +127,9 @@ func (s *SwitchMSwitchHealthService) AddHealthStatus(ctx context.Context, body *
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddHealthStatusAll
@@ -132,5 +147,8 @@ func (s *SwitchMSwitchHealthService) AddHealthStatusAll(ctx context.Context, bod
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }

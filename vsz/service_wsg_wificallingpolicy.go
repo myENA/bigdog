@@ -98,6 +98,9 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindWifiCallingWifiCallingPolicy

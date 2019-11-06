@@ -114,6 +114,9 @@ func (s *WSGVlanPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // PartialUpdateVlanpoolingsById

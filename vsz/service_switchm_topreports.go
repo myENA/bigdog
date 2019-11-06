@@ -43,6 +43,9 @@ func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, b
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddSwitchTopByModel
@@ -60,5 +63,8 @@ func (s *SwitchMTopReportsService) AddSwitchTopByModel(ctx context.Context, body
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }

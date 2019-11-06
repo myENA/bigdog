@@ -232,6 +232,9 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCri
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindApplicationPolicyV2ByQueryCriteria
@@ -249,6 +252,9 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -425,6 +431,9 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 

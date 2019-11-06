@@ -43,6 +43,9 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *common.Query
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddSwitchSnmpSyncedSwitch
@@ -61,6 +64,9 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddSwitchViewDetails
@@ -78,6 +84,9 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *c
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 

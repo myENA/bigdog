@@ -52,6 +52,9 @@ func (s *WSGQueryWithFilterService) FindApByQueryCriteria(ctx context.Context, b
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindApWlanByQueryCriteria
@@ -69,6 +72,9 @@ func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria(ctx context.Contex
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -88,6 +94,9 @@ func (s *WSGQueryWithFilterService) FindClientByQueryCriteria(ctx context.Contex
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindDpskByQueryCriteria
@@ -106,6 +115,9 @@ func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria(ctx context.Context,
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindIndoorMapByQueryCriteria
@@ -123,6 +135,9 @@ func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria(ctx context.Con
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -146,6 +161,9 @@ func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx c
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindMeshTopologyByApMacByQueryCriteria
@@ -168,6 +186,9 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx c
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindMeshTopologyByQueryCriteria
@@ -185,6 +206,9 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria(ctx context.
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -204,6 +228,9 @@ func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria(ctx contex
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindServicesAaaServerAcctByQueryCriteria
@@ -221,6 +248,9 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria(ctx
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -240,6 +270,9 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria(ctx
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindServicesAaaServerByQueryCriteria
@@ -257,6 +290,9 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria(ctx con
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -276,6 +312,9 @@ func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria(ctx
 	if body == nil {
 		return errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // FindServicesDevicePolicyByQueryCriteria
@@ -293,6 +332,9 @@ func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria(ctx 
 	}
 	if body == nil {
 		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -312,6 +354,9 @@ func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria(ctx c
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // FindServicesDscpProfileByQueryCriteria
@@ -329,6 +374,9 @@ func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria(ctx c
 	}
 	if body == nil {
 		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -348,6 +396,9 @@ func (s *WSGQueryWithFilterService) FindServicesEthernetPortProfileByQueryCriter
 	if body == nil {
 		return errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // FindServicesGuessAccessByQueryCriteria
@@ -365,6 +416,9 @@ func (s *WSGQueryWithFilterService) FindServicesGuessAccessByQueryCriteria(ctx c
 	}
 	if body == nil {
 		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -384,6 +438,9 @@ func (s *WSGQueryWithFilterService) FindServicesGuestAccessByQueryCriteria(ctx c
 	if body == nil {
 		return errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // FindServicesHotspot20ProfileByQueryCriteria
@@ -401,6 +458,9 @@ func (s *WSGQueryWithFilterService) FindServicesHotspot20ProfileByQueryCriteria(
 	}
 	if body == nil {
 		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -420,6 +480,9 @@ func (s *WSGQueryWithFilterService) FindServicesHotspotByQueryCriteria(ctx conte
 	if body == nil {
 		return errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // FindServicesL2AccessControlByQueryCriteria
@@ -437,6 +500,9 @@ func (s *WSGQueryWithFilterService) FindServicesL2AccessControlByQueryCriteria(c
 	}
 	if body == nil {
 		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -456,6 +522,9 @@ func (s *WSGQueryWithFilterService) FindServicesVenueProfileByQueryCriteria(ctx 
 	if body == nil {
 		return errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // FindServicesVlanPoolingByQueryCriteria
@@ -473,6 +542,9 @@ func (s *WSGQueryWithFilterService) FindServicesVlanPoolingByQueryCriteria(ctx c
 	}
 	if body == nil {
 		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -492,6 +564,9 @@ func (s *WSGQueryWithFilterService) FindServicesWebAuthenticationByQueryCriteria
 	if body == nil {
 		return errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // FindServicesWechatProfileByQueryCriteria
@@ -509,6 +584,9 @@ func (s *WSGQueryWithFilterService) FindServicesWechatProfileByQueryCriteria(ctx
 	}
 	if body == nil {
 		return errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -528,6 +606,9 @@ func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria(ctx
 	if body == nil {
 		return errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // FindUserByQueryCriteria
@@ -546,6 +627,9 @@ func (s *WSGQueryWithFilterService) FindUserByQueryCriteria(ctx context.Context,
 	if body == nil {
 		return errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return err
+	}
 }
 
 // FindWlanByQueryCriteria
@@ -563,5 +647,8 @@ func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria(ctx context.Context,
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }

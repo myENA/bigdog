@@ -43,6 +43,9 @@ func (s *SwitchMSwitchFirmwareService) AddFirmware(ctx context.Context, body *co
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddFirmwareUpload
@@ -104,5 +107,8 @@ func (s *SwitchMSwitchFirmwareService) PartialUpdateFirmwareByVersion(ctx contex
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }

@@ -43,6 +43,9 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTopPoeutilization(ctx context.Co
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddTrafficTopPorterror
@@ -60,6 +63,9 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTopPorterror(ctx context.Context
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }
 
@@ -79,6 +85,9 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTopPortusage(ctx context.Context
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddTrafficTopUsage
@@ -97,6 +106,9 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTopUsage(ctx context.Context, bo
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
 	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
+	}
 }
 
 // AddTrafficTotalTrend
@@ -114,5 +126,8 @@ func (s *SwitchMSwitchTrafficService) AddTrafficTotalTrend(ctx context.Context, 
 	}
 	if body == nil {
 		return nil, errors.New("body cannot be empty")
+	}
+	if err := s.validate.StructCtx(ctx, body); err != nil {
+		return nil, err
 	}
 }

@@ -1,0 +1,209 @@
+package vsz
+
+// API Version: v8_1
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"gopkg.in/go-playground/validator.v9"
+)
+
+type SwitchMGroupModelConfigService struct {
+	apiClient *APIClient
+}
+
+func NewSwitchMGroupModelConfigService(c *APIClient) *SwitchMGroupModelConfigService {
+	s := new(SwitchMGroupModelConfigService)
+	s.apiClient = c
+	return s
+}
+
+func (ss *SwitchMService) SwitchMGroupModelConfigService() *SwitchMGroupModelConfigService {
+	return NewSwitchMGroupModelConfigService(ss.apiClient)
+}
+
+type SwitchMGroupModelConfigGroupConfigAuditId struct {
+	// Id
+	// The identifier of the Group Model Config
+	Id *string `json:"id,omitempty"`
+
+	// Name
+	// The name of the Group Model Config
+	Name *string `json:"name,omitempty"`
+}
+
+type SwitchMGroupModelConfig struct {
+	// CreatedTime
+	// The create time of the Group Model Config
+	CreatedTime *int `json:"createdTime,omitempty"`
+
+	// FamilyId
+	// Family Id
+	FamilyId *string `json:"familyId,omitempty"`
+
+	// GroupId
+	// Group Id
+	GroupId *string `json:"groupId,omitempty"`
+
+	// HasAclConfig
+	// Indicates if there is any ACLConfig in the Group Model Config
+	HasAclConfig *bool `json:"hasAclConfig,omitempty"`
+
+	// HasConfigured
+	// Indicates if there is any config in the Group Model Config
+	HasConfigured *bool `json:"hasConfigured,omitempty"`
+
+	// HasSelected
+	// Indicates if this Group Model Config has been selected
+	HasSelected *bool `json:"hasSelected,omitempty"`
+
+	// HasStaticRouteConfig
+	// Indicates if there is any StaticRoute in the Group Model Config
+	HasStaticRouteConfig *bool `json:"hasStaticRouteConfig,omitempty"`
+
+	// HasVlanConfig
+	// Indicates if there is any VlanConfig in the Group Model Config
+	HasVlanConfig *bool `json:"hasVlanConfig,omitempty"`
+
+	// Id
+	// Id
+	Id *string `json:"id,omitempty"`
+
+	// UpdatedTime
+	// The update time of the Group Model Config
+	UpdatedTime *int `json:"updatedTime,omitempty"`
+}
+
+type SwitchMGroupModelConfigQueryResult struct {
+	// Extra
+	// Any additional response data
+	Extra *SwitchMGroupModelConfigQueryResultExtraType `json:"extra,omitempty"`
+
+	// FirstIndex
+	// Index of the first Group Model Config returned out of the complete Group Model Configs list
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	// HasMore
+	// Indicator of whether there are more Group Model Configs after the current displayed list
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*SwitchMGroupModelConfig `json:"list,omitempty"`
+
+	// RawDataTotalCount
+	// Total Group Model Configs count
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	// TotalCount
+	// Total Group Model Configs count in this response
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+// SwitchMGroupModelConfigQueryResultExtraType
+//
+// Any additional response data
+type SwitchMGroupModelConfigQueryResultExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMGroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = SwitchMGroupModelConfigQueryResultExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *SwitchMGroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+type SwitchMGroupModelConfigSelectedIds struct {
+	SelectedIdList []string `json:"selectedIdList,omitempty"`
+}
+
+type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
+	// Extra
+	// Any additional response data
+	Extra *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType `json:"extra,omitempty"`
+
+	// FirstIndex
+	// Index of the first updated Group Model Config returned out of the complete Group Model Configs list
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	// HasMore
+	// Indicator of whether there are more updated Group Model Configs after the current displayed list
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*SwitchMGroupModelConfigGroupConfigAuditId `json:"list,omitempty"`
+
+	// RawDataTotalCount
+	// Total updated Group Model Configs count
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	// TotalCount
+	// Total updated Group Model Configs count in this response
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+// SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType
+//
+// Any additional response data
+type SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+// FindGroupModelConfigsByQueryCriteria
+//
+// Use this API command to retrieve the list of group model configs.
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMGroupModelConfigQueryResult, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+}
+
+// UpdateGroupModelConfigsByGroupId
+//
+// Use this API command to add or remove the model family of a group config.
+//
+// Request Body:
+//	 - body *SwitchMGroupModelConfigSelectedIds
+//
+// Path Parameters:
+// - pGroupId string
+//		- required
+func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *SwitchMGroupModelConfigSelectedIds, pGroupId string) (*SwitchMGroupModelConfigUpdateGroupConfigResultList, error) {
+	if ctx == nil {
+		return nil, errors.New("ctx cannot be empty")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, fmt.Errorf("provided context is done: %s", err)
+	}
+}

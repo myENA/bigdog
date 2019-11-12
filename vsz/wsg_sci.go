@@ -78,7 +78,7 @@ type WSGSCIModifyEventCode struct {
 	// SciAcceptedEventCodes
 	// Constraints:
 	//    - required
-	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes" validate:"required,dive,required"`
+	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes" validate:"required,dive"`
 }
 
 type WSGSCIModifySciEnabled struct {

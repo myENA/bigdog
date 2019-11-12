@@ -33,7 +33,9 @@ func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndS
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx context.Context, pBladeUUID string, qIndex string, qListSize string) (*WSGAdministrationApplicationLogAndStatusList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -55,6 +57,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 // - qAppName string
 //		- required
 // - qLogFileName string
+//		- nullable
 func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, pBladeUUID string, qAppName string, qLogFileName string) (json.RawMessage, error) {
 	if ctx == nil {
 		return errors.New("ctx cannot be empty")

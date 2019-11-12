@@ -91,7 +91,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCert
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx context.Context, qIndex string, qListSize string) (*WSGProfileHs20OperatorList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

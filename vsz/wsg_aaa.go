@@ -159,7 +159,7 @@ type WSGAAACreateActiveDirectoryServer struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Password
 	// Admin password
@@ -215,7 +215,7 @@ type WSGAAACreateAuthenticationServer struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Primary
 	// Constraints:
@@ -235,12 +235,12 @@ type WSGAAACreateLDAPServer struct {
 	// AdminDomainName
 	// Constraints:
 	//    - required
-	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName" validate:"required"`
+	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName" validate:"required,max=128,min=2"`
 
 	// BaseDomainName
 	// Constraints:
 	//    - required
-	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName" validate:"required"`
+	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName" validate:"required,max=64,min=2"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -252,7 +252,7 @@ type WSGAAACreateLDAPServer struct {
 	// KeyAttribute
 	// Constraints:
 	//    - required
-	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute" validate:"required"`
+	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute" validate:"required,max=64,min=2"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
@@ -261,7 +261,7 @@ type WSGAAACreateLDAPServer struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Password
 	// Admin password
@@ -281,7 +281,7 @@ type WSGAAACreateLDAPServer struct {
 	// SearchFilter
 	// Constraints:
 	//    - required
-	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter" validate:"required"`
+	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter" validate:"required,max=64,min=2"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -489,11 +489,10 @@ type WSGAAAModifyActiveDirectoryServer struct {
 	// Port
 	// Port
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
 	// StandbyAdminDomainName
 	// Admin domain name - Standby Cluster settings
@@ -598,11 +597,10 @@ type WSGAAAModifyLDAPServer struct {
 	// Port
 	// Port
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
 	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter,omitempty"`
 
@@ -658,17 +656,15 @@ type WSGAAATestAuthenticationServer struct {
 	// AaaType
 	// Authentication/Accounting service protocol. RADIUS for Radius, AD and LDAP. RADIUSAcct for RADIUS Accounting
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,RADIUSAcct]
-	AaaType *string `json:"aaaType,omitempty" validate:"omitempty,oneof=RADIUS RADIUSAcct"`
+	AaaType *string `json:"aaaType,omitempty" validate:"oneof=RADIUS RADIUSAcct"`
 
 	// AuthProtocol
 	// Authentication protocol
 	// Constraints:
-	//    - nullable
 	//    - default:'PAP'
 	//    - oneof:[PAP,CHAP]
-	AuthProtocol *string `json:"authProtocol,omitempty" validate:"omitempty,oneof=PAP CHAP"`
+	AuthProtocol *string `json:"authProtocol,omitempty" validate:"oneof=PAP CHAP"`
 
 	// Password
 	// Password
@@ -679,9 +675,8 @@ type WSGAAATestAuthenticationServer struct {
 	// ServerType
 	// Radius server type.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ADMIN,GLOBAL,ZONE]
-	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=ADMIN GLOBAL ZONE"`
+	ServerType *string `json:"serverType,omitempty" validate:"oneof=ADMIN GLOBAL ZONE"`
 
 	// UserName
 	// User name

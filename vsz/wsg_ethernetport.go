@@ -10,36 +10,33 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	// ArpRequestRateLimit
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:100
-	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
+	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:100
-	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
 	// GuestVlan
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	GuestVlan *int `json:"guestVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	GuestVlan *int `json:"guestVlan,omitempty" validate:"gte=1,lte=4094"`
 
 	IpsecProfile *WSGCommonGenericRef `json:"ipsecProfile,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
@@ -58,11 +55,10 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	// UntagId
 	// VLAN Untag ID of the ethernet port profile
 	// Constraints:
-	//    - nullable
 	//    - default:1
 	//    - min:1
 	//    - max:4094
-	UntagId *int `json:"untagId,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile
@@ -82,29 +78,26 @@ type WSGEthernetPortProfile struct {
 	// ArpRequestRateLimit
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:100
-	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
+	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:100
-	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
 	// GuestVlan
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	GuestVlan *int `json:"guestVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	GuestVlan *int `json:"guestVlan,omitempty" validate:"gte=1,lte=4094"`
 
 	// Id
 	// identifier of the ethernet port profile
@@ -123,17 +116,15 @@ type WSGEthernetPortProfile struct {
 	// Type
 	// type of the ethernet port profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AccessPort,TrunkPort,GeneralPort]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AccessPort TrunkPort GeneralPort"`
+	Type *string `json:"type,omitempty" validate:"oneof=AccessPort TrunkPort GeneralPort"`
 
 	// UntagId
 	// VLAN Untag ID of the ethernet port profile
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	UntagId *int `json:"untagId,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile
@@ -150,30 +141,27 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	// ArpRequestRateLimit
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
 	// Constraints:
-	//    - nullable
 	//    - default:15
 	//    - min:0
 	//    - max:100
-	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
+	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:100
-	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
 	// GuestVlan
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	GuestVlan *int `json:"guestVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	GuestVlan *int `json:"guestVlan,omitempty" validate:"gte=1,lte=4094"`
 
 	IpsecProfile *WSGCommonGenericRef `json:"ipsecProfile,omitempty"`
 
@@ -188,10 +176,9 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	// UntagId
 	// VLAN Untag ID of the ethernet port profile
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	UntagId *int `json:"untagId,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile

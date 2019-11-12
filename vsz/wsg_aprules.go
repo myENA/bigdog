@@ -28,9 +28,8 @@ type WSGAPRulesApRuleConfiguration struct {
 	// Type
 	// type of the AP Registration Rules
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IPAddressRange,Subnet,GPSCoordinates,ProvisionTag]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
+	Type *string `json:"type,omitempty" validate:"oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
 type WSGAPRulesApRuleList struct {
@@ -115,9 +114,8 @@ type WSGAPRulesModifyApRule struct {
 	// Type
 	// type of the AP Registration Rules
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IPAddressRange,Subnet,GPSCoordinates,ProvisionTag]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
+	Type *string `json:"type,omitempty" validate:"oneof=IPAddressRange Subnet GPSCoordinates ProvisionTag"`
 }
 
 type WSGAPRulesSubnet struct {

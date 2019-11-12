@@ -126,7 +126,9 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(c
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, qIndex string, qListSize string) (*WSGProfileList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

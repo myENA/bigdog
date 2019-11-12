@@ -94,6 +94,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 //
 // Query Parameters:
 // - qIncludeUsers string
+//		- nullable
 func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, pUserGroupId string, qIncludeUsers string) (*WSGSCGUserGroup, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -137,6 +138,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*WSGS
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, pRole string, qDomainId string) (*WSGSCGUserGroupPermissionList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

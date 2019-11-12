@@ -75,7 +75,9 @@ func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, 
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, qIndex string, qListSize string) (*WSGProfilePrecedenceList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

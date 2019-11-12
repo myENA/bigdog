@@ -10,9 +10,8 @@ type WSGToolSpeedFlex struct {
 	// Model
 	// Test model
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AP,CLIENT,TRACE,HOP,NULL]
-	Model *string `json:"model,omitempty" validate:"omitempty,oneof=AP CLIENT TRACE HOP NULL"`
+	Model *string `json:"model,omitempty" validate:"oneof=AP CLIENT TRACE HOP NULL"`
 
 	// Protocol
 	// Protocol used in the SpeedFlex test

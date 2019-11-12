@@ -32,9 +32,8 @@ type SwitchMVlanConfigCreateVlanConfig struct {
 	// IgmpSnooping
 	// IGMP Snooping
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IST_NONE,ACTIVE,PASSIVE]
-	IgmpSnooping *string `json:"igmpSnooping,omitempty" validate:"omitempty,oneof=IST_NONE ACTIVE PASSIVE"`
+	IgmpSnooping *string `json:"igmpSnooping,omitempty" validate:"oneof=IST_NONE ACTIVE PASSIVE"`
 
 	// Ipv4DhcpSnoopingTrustPort
 	// IPv4 DHCP Snooping Trust Port
@@ -57,16 +56,14 @@ type SwitchMVlanConfigCreateVlanConfig struct {
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STT_NONE,STP,RSTP]
-	SpanningTree *string `json:"spanningTree,omitempty" validate:"omitempty,oneof=STT_NONE STP RSTP"`
+	SpanningTree *string `json:"spanningTree,omitempty" validate:"oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority
 	// Spanning Tree Priority
@@ -119,9 +116,8 @@ type SwitchMVlanConfigUpdateVlanConfig struct {
 	// IgmpSnooping
 	// IGMP Snooping
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IST_NONE,ACTIVE,PASSIVE]
-	IgmpSnooping *string `json:"igmpSnooping,omitempty" validate:"omitempty,oneof=IST_NONE ACTIVE PASSIVE"`
+	IgmpSnooping *string `json:"igmpSnooping,omitempty" validate:"oneof=IST_NONE ACTIVE PASSIVE"`
 
 	// Ipv4DhcpSnoopingTrustPort
 	// IPv4 DHCP Snooping Trust Port
@@ -144,16 +140,14 @@ type SwitchMVlanConfigUpdateVlanConfig struct {
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STT_NONE,STP,RSTP]
-	SpanningTree *string `json:"spanningTree,omitempty" validate:"omitempty,oneof=STT_NONE STP RSTP"`
+	SpanningTree *string `json:"spanningTree,omitempty" validate:"oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority
 	// Spanning Tree Priority
@@ -226,16 +220,14 @@ type SwitchMVlanConfig struct {
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
 	// SpanningTree
 	// Spanning Tree
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STT_NONE,STP,RSTP]
-	SpanningTree *string `json:"spanningTree,omitempty" validate:"omitempty,oneof=STT_NONE STP RSTP"`
+	SpanningTree *string `json:"spanningTree,omitempty" validate:"oneof=STT_NONE STP RSTP"`
 
 	// SpanningTreePriority
 	// Spanning Tree Priority

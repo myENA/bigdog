@@ -42,16 +42,14 @@ type WSGClusterBladeClusterState struct {
 	// ClusterRole
 	// The cluster role of the current controller node
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Leader,Follower]
-	ClusterRole *string `json:"clusterRole,omitempty" validate:"omitempty,oneof=Leader Follower"`
+	ClusterRole *string `json:"clusterRole,omitempty" validate:"oneof=Leader Follower"`
 
 	// ClusterState
 	// cluster state
 	// Constraints:
-	//    - nullable
 	//    - oneof:[In_Service,Out_Of_Service,Maintenance,Read_Only,NetworkPartitionSuspected]
-	ClusterState *string `json:"clusterState,omitempty" validate:"omitempty,oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
+	ClusterState *string `json:"clusterState,omitempty" validate:"oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
 
 	// CurrentNodeId
 	// Identifier of the current controller node
@@ -70,9 +68,8 @@ type WSGClusterBladeClusterStateManagementServiceStateListType struct {
 	// ManagementServiceState
 	// management service state
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Out_Of_Service,In_Service]
-	ManagementServiceState *string `json:"managementServiceState,omitempty" validate:"omitempty,oneof=Out_Of_Service In_Service"`
+	ManagementServiceState *string `json:"managementServiceState,omitempty" validate:"oneof=Out_Of_Service In_Service"`
 
 	// NodeId
 	// Identifier of the controller node
@@ -93,18 +90,16 @@ type WSGClusterBladeClusterStateNodeStateListType struct {
 	// NodeState
 	// node state
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Out_Of_Service,In_Service]
-	NodeState *string `json:"nodeState,omitempty" validate:"omitempty,oneof=Out_Of_Service In_Service"`
+	NodeState *string `json:"nodeState,omitempty" validate:"oneof=Out_Of_Service In_Service"`
 }
 
 type WSGClusterBladeClusterStatus struct {
 	// ClusterStatus
 	// progress of bladeProgress
 	// Constraints:
-	//    - nullable
 	//    - oneof:[In_Service,Out_Of_Service,Maintenance,Read_Only,NetworkPartitionSuspected]
-	ClusterStatus *string `json:"clusterStatus,omitempty" validate:"omitempty,oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
+	ClusterStatus *string `json:"clusterStatus,omitempty" validate:"oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
 }
 
 type WSGClusterBladeClusterUpgradeProgress struct {
@@ -123,9 +118,8 @@ type WSGClusterBladeClusterUpgradeProgress struct {
 	// ClusterSubTaskState
 	// clusterSubTaskState of clusterOperationProgress
 	// Constraints:
-	//    - nullable
 	//    - oneof:[None,Running,Failed,Completed]
-	ClusterSubTaskState *string `json:"clusterSubTaskState,omitempty" validate:"omitempty,oneof=None Running Failed Completed"`
+	ClusterSubTaskState *string `json:"clusterSubTaskState,omitempty" validate:"oneof=None Running Failed Completed"`
 
 	// IsSelfBladeRebooting
 	// isSelfBladeRebooting of clusterOperationProgress
@@ -152,9 +146,8 @@ type WSGClusterBladeControlNodeStatusNodeStatusListType struct {
 	// NodeStatus
 	// node status
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Out_Of_Service,Bootstrapping,Got_WSG_Version,WSG_FW_Upgrading,Initializing_Database,Syncing_Configurations,Changing_Configurations,Launching_Apps,In_Service,Shutting_Down_Apps]
-	NodeStatus *string `json:"nodeStatus,omitempty" validate:"omitempty,oneof=Out_Of_Service Bootstrapping Got_WSG_Version WSG_FW_Upgrading Initializing_Database Syncing_Configurations Changing_Configurations Launching_Apps In_Service Shutting_Down_Apps"`
+	NodeStatus *string `json:"nodeStatus,omitempty" validate:"oneof=Out_Of_Service Bootstrapping Got_WSG_Version WSG_FW_Upgrading Initializing_Database Syncing_Configurations Changing_Configurations Launching_Apps In_Service Shutting_Down_Apps"`
 }
 
 type WSGClusterBladeOperation string

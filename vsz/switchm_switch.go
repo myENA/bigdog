@@ -401,9 +401,8 @@ type SwitchMSwitchNetworkSwitch struct {
 	// LastBackupStatus
 	// Last config backup status of switch
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STARTED,SUCCESS,FAILED]
-	LastBackupStatus *string `json:"lastBackupStatus,omitempty" validate:"omitempty,oneof=STARTED SUCCESS FAILED"`
+	LastBackupStatus *string `json:"lastBackupStatus,omitempty" validate:"oneof=STARTED SUCCESS FAILED"`
 
 	// LastBackupTime
 	// Last config backup time of switch
@@ -412,9 +411,8 @@ type SwitchMSwitchNetworkSwitch struct {
 	// LastRestoreStatus
 	// Last config restore status of switch
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STARTED,SUCCESS,FAILED]
-	LastRestoreStatus *string `json:"lastRestoreStatus,omitempty" validate:"omitempty,oneof=STARTED SUCCESS FAILED"`
+	LastRestoreStatus *string `json:"lastRestoreStatus,omitempty" validate:"oneof=STARTED SUCCESS FAILED"`
 
 	// LastRestoreTime
 	// Last config restore time of switch

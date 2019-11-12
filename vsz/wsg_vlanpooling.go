@@ -41,7 +41,7 @@ type WSGVLANPoolingCreateVlanPooling struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
@@ -58,9 +58,8 @@ type WSGVLANPoolingModifyVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MAC_HASH]
-	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -79,9 +78,8 @@ type WSGVLANPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MAC_HASH]
-	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -116,10 +114,9 @@ type WSGVLANPoolingListType struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
 	// Constraints:
-	//    - nullable
 	//    - default:'MAC_HASH'
 	//    - oneof:[MAC_HASH]
-	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
 
 	// Description
 	// Description of the service

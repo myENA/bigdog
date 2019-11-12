@@ -9,7 +9,10 @@ type WSGAPModel struct {
 
 	ExternalAntenna50 *WSGAPModelExternalAntenna `json:"externalAntenna50,omitempty"`
 
-	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty"`
+	// InternalHeaterEnabled
+	// Constraints:
+	//    - nullable
+	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty" validate:"omitempty"`
 
 	Lacp *WSGAPModelLacpSetting `json:"lacp,omitempty"`
 
@@ -21,7 +24,10 @@ type WSGAPModel struct {
 	//    - oneof:[CableModem,AccessPoint,CableModem_AccessPoint,CableModem_AccessPoint_DEFAULT,ActiveSurgeProtector,ActiveSurgeProtector_ModemOnline_DEFAULT,Off]
 	LedMode *string `json:"ledMode,omitempty" validate:"omitempty,oneof=CableModem AccessPoint CableModem_AccessPoint CableModem_AccessPoint_DEFAULT ActiveSurgeProtector ActiveSurgeProtector_ModemOnline_DEFAULT Off"`
 
-	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty"`
+	// LedStatusEnabled
+	// Constraints:
+	//    - nullable
+	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty" validate:"omitempty"`
 
 	Lldp *WSGAPModelLldpSetting `json:"lldp,omitempty"`
 
@@ -31,11 +37,17 @@ type WSGAPModel struct {
 	//    - oneof:[Auto,_802_3af,_802_3at,_802_3atPlus]
 	PoeModeSetting *string `json:"poeModeSetting,omitempty" validate:"omitempty,oneof=Auto _802_3af _802_3at _802_3atPlus"`
 
-	PoeOutPortEnabled *bool `json:"poeOutPortEnabled,omitempty"`
+	// PoeOutPortEnabled
+	// Constraints:
+	//    - nullable
+	PoeOutPortEnabled *bool `json:"poeOutPortEnabled,omitempty" validate:"omitempty"`
 
 	// PoeTxChain
 	// Option to use 1, 2 or 4 Tx chains while AP power source is 802.3af PoE
-	PoeTxChain *int `json:"poeTxChain,omitempty"`
+	// Constraints:
+	//    - nullable
+	//    - default:2
+	PoeTxChain *int `json:"poeTxChain,omitempty" validate:"omitempty"`
 
 	// RadioBand
 	// Band switch between 2.4GHz and 5GHz is provided in single radio AP ZF-7321, ZF-7321-U, and ZF-7441.
@@ -44,7 +56,10 @@ type WSGAPModel struct {
 	//    - oneof:[2.4GHz,5GHz]
 	RadioBand *string `json:"radioBand,omitempty" validate:"omitempty,oneof=2.4GHz 5GHz"`
 
-	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty"`
+	// UsbPowerEnable
+	// Constraints:
+	//    - nullable
+	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty" validate:"omitempty"`
 }
 
 type WSGAPModelAuthenticatorAAAServer struct {
@@ -126,17 +141,35 @@ type WSGAPModelCommonAttribute struct {
 
 	CpuFrequency *int `json:"cpuFrequency,omitempty"`
 
-	HasCablemodem *bool `json:"hasCablemodem,omitempty"`
+	// HasCablemodem
+	// Constraints:
+	//    - nullable
+	HasCablemodem *bool `json:"hasCablemodem,omitempty" validate:"omitempty"`
 
-	HasGps *bool `json:"hasGps,omitempty"`
+	// HasGps
+	// Constraints:
+	//    - nullable
+	HasGps *bool `json:"hasGps,omitempty" validate:"omitempty"`
 
-	HasScanRadio *bool `json:"hasScanRadio,omitempty"`
+	// HasScanRadio
+	// Constraints:
+	//    - nullable
+	HasScanRadio *bool `json:"hasScanRadio,omitempty" validate:"omitempty"`
 
-	IsAllowDisableExtAnt *bool `json:"isAllowDisableExtAnt,omitempty"`
+	// IsAllowDisableExtAnt
+	// Constraints:
+	//    - nullable
+	IsAllowDisableExtAnt *bool `json:"isAllowDisableExtAnt,omitempty" validate:"omitempty"`
 
-	IsDualRadio *bool `json:"isDualRadio,omitempty"`
+	// IsDualRadio
+	// Constraints:
+	//    - nullable
+	IsDualRadio *bool `json:"isDualRadio,omitempty" validate:"omitempty"`
 
-	IsOutdoor *bool `json:"isOutdoor,omitempty"`
+	// IsOutdoor
+	// Constraints:
+	//    - nullable
+	IsOutdoor *bool `json:"isOutdoor,omitempty" validate:"omitempty"`
 
 	MaxChannelization5G *int `json:"maxChannelization5G,omitempty"`
 
@@ -150,9 +183,15 @@ type WSGAPModelCommonAttribute struct {
 
 	MeshRadioCaps *string `json:"meshRadioCaps,omitempty"`
 
-	NoAvc *bool `json:"noAvc,omitempty"`
+	// NoAvc
+	// Constraints:
+	//    - nullable
+	NoAvc *bool `json:"noAvc,omitempty" validate:"omitempty"`
 
-	NoMesh *bool `json:"noMesh,omitempty"`
+	// NoMesh
+	// Constraints:
+	//    - nullable
+	NoMesh *bool `json:"noMesh,omitempty" validate:"omitempty"`
 
 	NonEditablePorts []int `json:"nonEditablePorts,omitempty"`
 
@@ -168,21 +207,45 @@ type WSGAPModelCommonAttribute struct {
 
 	ScalingFactor *int `json:"scalingFactor,omitempty"`
 
-	Support11AC *bool `json:"support11AC,omitempty"`
+	// Support11AC
+	// Constraints:
+	//    - nullable
+	Support11AC *bool `json:"support11AC,omitempty" validate:"omitempty"`
 
-	SupportAPUsbSoftwarePackage *bool `json:"supportAPUsbSoftwarePackage,omitempty"`
+	// SupportAPUsbSoftwarePackage
+	// Constraints:
+	//    - nullable
+	SupportAPUsbSoftwarePackage *bool `json:"supportAPUsbSoftwarePackage,omitempty" validate:"omitempty"`
 
-	SupportBandSwitch *bool `json:"supportBandSwitch,omitempty"`
+	// SupportBandSwitch
+	// Constraints:
+	//    - nullable
+	SupportBandSwitch *bool `json:"supportBandSwitch,omitempty" validate:"omitempty"`
 
-	SupportBonjour *bool `json:"supportBonjour,omitempty"`
+	// SupportBonjour
+	// Constraints:
+	//    - nullable
+	SupportBonjour *bool `json:"supportBonjour,omitempty" validate:"omitempty"`
 
-	SupportChannelization160 *bool `json:"supportChannelization160,omitempty"`
+	// SupportChannelization160
+	// Constraints:
+	//    - nullable
+	SupportChannelization160 *bool `json:"supportChannelization160,omitempty" validate:"omitempty"`
 
-	SupportIpsec *bool `json:"supportIpsec,omitempty"`
+	// SupportIpsec
+	// Constraints:
+	//    - nullable
+	SupportIpsec *bool `json:"supportIpsec,omitempty" validate:"omitempty"`
 
-	SupportLBS *bool `json:"supportLBS,omitempty"`
+	// SupportLBS
+	// Constraints:
+	//    - nullable
+	SupportLBS *bool `json:"supportLBS,omitempty" validate:"omitempty"`
 
-	SupportResetCablemodem *bool `json:"supportResetCablemodem,omitempty"`
+	// SupportResetCablemodem
+	// Constraints:
+	//    - nullable
+	SupportResetCablemodem *bool `json:"supportResetCablemodem,omitempty" validate:"omitempty"`
 }
 
 type WSGAPModelExternalAntenna struct {
@@ -242,7 +305,10 @@ type WSGAPModelLanPortSetting struct {
 
 	EthPortProfile *WSGCommonGenericRef `json:"ethPortProfile,omitempty"`
 
-	Members *string `json:"members,omitempty"`
+	// Members
+	// Constraints:
+	//    - nullable
+	Members *string `json:"members,omitempty" validate:"omitempty"`
 
 	OverwriteVlanEnabled *bool `json:"overwriteVlanEnabled,omitempty"`
 
@@ -301,5 +367,8 @@ type WSGAPModelLldpSetting struct {
 	//    - max:1200
 	HoldTimeInSec *int `json:"holdTimeInSec,omitempty" validate:"omitempty,gte=60,lte=1200"`
 
-	ManagementIPTLVEnabled *bool `json:"managementIPTLVEnabled,omitempty"`
+	// ManagementIPTLVEnabled
+	// Constraints:
+	//    - nullable
+	ManagementIPTLVEnabled *bool `json:"managementIPTLVEnabled,omitempty" validate:"omitempty"`
 }

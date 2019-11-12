@@ -12,9 +12,8 @@ type SwitchMACLConfig struct {
 	// AclType
 	// ACL Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STANDARD,EXTENDED]
-	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
+	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
 
 	// CreatedTime
 	// The create time of the AccessControl
@@ -43,9 +42,8 @@ type SwitchMACLConfig struct {
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
 	// SwitchId
 	// Switch Id
@@ -107,9 +105,8 @@ type SwitchMACLConfigACLRule struct {
 	// Action
 	// The action of AccessControl Rule
 	// Constraints:
-	//    - nullable
 	//    - oneof:[PERMIT,DENY]
-	Action *string `json:"action,omitempty" validate:"omitempty,oneof=PERMIT DENY"`
+	Action *string `json:"action,omitempty" validate:"oneof=PERMIT DENY"`
 
 	// DestNetwork
 	// The destination network of AccessControl Rule
@@ -122,9 +119,8 @@ type SwitchMACLConfigACLRule struct {
 	// Protocol
 	// The protocol of AccessControl Rule
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IP,TCP,UDP]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IP TCP UDP"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=IP TCP UDP"`
 
 	// Seq
 	// The seq of AccessControl Rule
@@ -145,9 +141,8 @@ type SwitchMACLConfigCreateACLConfig struct {
 	// AclType
 	// ACL Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STANDARD,EXTENDED]
-	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
+	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
 
 	// FamilyId
 	// Family Id
@@ -168,9 +163,8 @@ type SwitchMACLConfigCreateACLConfig struct {
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
 	// SwitchId
 	// Switch Id
@@ -203,9 +197,8 @@ type SwitchMACLConfigUpdateACLConfig struct {
 	// AclType
 	// ACL Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STANDARD,EXTENDED]
-	AclType *string `json:"aclType,omitempty" validate:"omitempty,oneof=STANDARD EXTENDED"`
+	AclType *string `json:"aclType,omitempty" validate:"oneof=STANDARD EXTENDED"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -214,7 +207,6 @@ type SwitchMACLConfigUpdateACLConfig struct {
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 }

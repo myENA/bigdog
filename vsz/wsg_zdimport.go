@@ -75,6 +75,7 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, qIp strin
 //
 // Query Parameters:
 // - qDetails string
+//		- nullable
 func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, qDetails string) (*WSGAdministrationZdImportStatus, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

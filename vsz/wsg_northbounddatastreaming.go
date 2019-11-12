@@ -70,7 +70,7 @@ type WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes struct {
 	// NorthboundDataStreamingAcceptedEventCodes
 	// Constraints:
 	//    - required
-	NorthboundDataStreamingAcceptedEventCodes []int `json:"northboundDataStreamingAcceptedEventCodes" validate:"required,dive,required"`
+	NorthboundDataStreamingAcceptedEventCodes []int `json:"northboundDataStreamingAcceptedEventCodes" validate:"required,dive"`
 }
 
 type WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile struct {

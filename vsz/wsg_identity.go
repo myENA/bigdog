@@ -84,7 +84,7 @@ type WSGIdentityCreateIdentityGuestPass struct {
 	// GuestName
 	// Constraints:
 	//    - required
-	GuestName *WSGCommonNormalName `json:"guestName" validate:"required"`
+	GuestName *WSGCommonNormalName `json:"guestName" validate:"required,max=32,min=2"`
 
 	// MaxDevices
 	// Constraints:
@@ -100,9 +100,8 @@ type WSGIdentityCreateIdentityGuestPass struct {
 	// PassEffectSince
 	// Pass effective since
 	// Constraints:
-	//    - nullable
 	//    - oneof:[CREATION_TIME,FIRST_USE]
-	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"omitempty,oneof=CREATION_TIME FIRST_USE"`
+	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"oneof=CREATION_TIME FIRST_USE"`
 
 	// PassUseDays
 	// Expire new guest pass if not used within
@@ -149,7 +148,7 @@ type WSGIdentityCreateIdentityUserRole struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName2to64 `json:"name" validate:"required"`
+	Name *WSGCommonNormalName2to64 `json:"name" validate:"required,max=64,min=2"`
 
 	// UserTrafficProfile
 	// Constraints:
@@ -159,10 +158,9 @@ type WSGIdentityCreateIdentityUserRole struct {
 	// VlanId
 	// vlan id
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4096
-	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4096"`
+	VlanId *int `json:"vlanId,omitempty" validate:"gte=1,lte=4096"`
 
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
@@ -190,7 +188,7 @@ type WSGIdentityCreateSubscriptionPackage struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 }
 
 type WSGIdentityCreateUser struct {
@@ -304,9 +302,8 @@ type WSGIdentityGuestPassConfiguration struct {
 	// PassEffectSince
 	// Pass effective since
 	// Constraints:
-	//    - nullable
 	//    - oneof:[CREATION_TIME,FIRST_USE]
-	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"omitempty,oneof=CREATION_TIME FIRST_USE"`
+	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"oneof=CREATION_TIME FIRST_USE"`
 
 	// PassUseDays
 	// Expire new guest pass if not used within
@@ -498,9 +495,8 @@ type WSGIdentityImportIdentityGuestPass struct {
 	// PassEffectSince
 	// Pass effective since
 	// Constraints:
-	//    - nullable
 	//    - oneof:[CREATION_TIME,FIRST_USE]
-	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"omitempty,oneof=CREATION_TIME FIRST_USE"`
+	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"oneof=CREATION_TIME FIRST_USE"`
 
 	// PassUseDays
 	// Expire new guest pass if not used within
@@ -528,19 +524,17 @@ type WSGIdentityMaxDevices struct {
 	// MaxDevicesAllowed
 	// Max devices allowed
 	// Constraints:
-	//    - nullable
 	//    - default:'LIMITED'
 	//    - oneof:[UNLIMITED,LIMITED]
-	MaxDevicesAllowed *string `json:"maxDevicesAllowed,omitempty" validate:"omitempty,oneof=UNLIMITED LIMITED"`
+	MaxDevicesAllowed *string `json:"maxDevicesAllowed,omitempty" validate:"oneof=UNLIMITED LIMITED"`
 
 	// MaxDevicesNumber
 	// max devices number
 	// Constraints:
-	//    - nullable
 	//    - default:3
 	//    - min:1
 	//    - max:10
-	MaxDevicesNumber *int `json:"maxDevicesNumber,omitempty" validate:"omitempty,gte=1,lte=10"`
+	MaxDevicesNumber *int `json:"maxDevicesNumber,omitempty" validate:"gte=1,lte=10"`
 }
 
 type WSGIdentityModifyIdentityUserRole struct {
@@ -563,10 +557,9 @@ type WSGIdentityModifyIdentityUserRole struct {
 	// VlanId
 	// vlan id
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4096
-	VlanId *int `json:"vlanId,omitempty" validate:"omitempty,gte=1,lte=4096"`
+	VlanId *int `json:"vlanId,omitempty" validate:"gte=1,lte=4096"`
 
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
@@ -581,9 +574,8 @@ type WSGIdentityModifySubscriptionPackage struct {
 	// ExpirationInterval
 	// Expiration interval
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
-	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
+	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// ExpirationValue
 	// Expiration value
@@ -632,9 +624,8 @@ type WSGIdentityModifyUser struct {
 	// IsDisabled
 	// Is Disabled
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NO,YES]
-	IsDisabled *string `json:"isDisabled,omitempty" validate:"omitempty,oneof=NO YES"`
+	IsDisabled *string `json:"isDisabled,omitempty" validate:"oneof=NO YES"`
 
 	// LastName
 	// Last Name
@@ -684,9 +675,8 @@ type WSGIdentityPackageList struct {
 type WSGIdentityPassValidFor struct {
 	// ExpirationUnit
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HOUR,DAY,WEEK]
-	ExpirationUnit *string `json:"expirationUnit,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK"`
+	ExpirationUnit *string `json:"expirationUnit,omitempty" validate:"oneof=HOUR DAY WEEK"`
 
 	ExpirationValue *int `json:"expirationValue,omitempty"`
 }
@@ -723,9 +713,8 @@ type WSGIdentityQueryCriteria struct {
 	// Limit
 	// Size of one page
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
+	Limit *int `json:"limit,omitempty" validate:"gte=1"`
 
 	// Options
 	// Specified feature required information
@@ -734,9 +723,8 @@ type WSGIdentityQueryCriteria struct {
 	// Page
 	// Page number to get
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
+	Page *int `json:"page,omitempty" validate:"gte=1"`
 
 	// Query
 	// Add backward compatibility for UI framework
@@ -752,9 +740,8 @@ type WSGIdentitySessionDuration struct {
 
 	// SessionUnit
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MIN,HOUR,DAY,WEEK]
-	SessionUnit *string `json:"sessionUnit,omitempty" validate:"omitempty,oneof=MIN HOUR DAY WEEK"`
+	SessionUnit *string `json:"sessionUnit,omitempty" validate:"oneof=MIN HOUR DAY WEEK"`
 
 	SessionValue *int `json:"sessionValue,omitempty"`
 }
@@ -781,9 +768,8 @@ type WSGIdentitySubscriptionPackage struct {
 	// ExpirationInterval
 	// Expiration interval
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
-	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
+	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// ExpirationValue
 	// Expiration value
@@ -826,9 +812,8 @@ type WSGIdentitySubscriptionPackageListType struct {
 	// ExpirationInterval
 	// Expiration interval
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
-	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
+	ExpirationInterval *string `json:"expirationInterval,omitempty" validate:"oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// ExpirationValue
 	// Expiration value
@@ -845,18 +830,16 @@ type WSGIdentityUserConfiguration struct {
 	// Address
 	// Address
 	// Constraints:
-	//    - nullable
 	//    - max:256
 	//    - min:2
-	Address *string `json:"address,omitempty" validate:"omitempty,max=256,min=2"`
+	Address *string `json:"address,omitempty" validate:"max=256,min=2"`
 
 	// City
 	// City
 	// Constraints:
-	//    - nullable
 	//    - max:50
 	//    - min:2
-	City *string `json:"city,omitempty" validate:"omitempty,max=50,min=2"`
+	City *string `json:"city,omitempty" validate:"max=50,min=2"`
 
 	// CountryName
 	// Country
@@ -887,25 +870,22 @@ type WSGIdentityUserConfiguration struct {
 	// FirstName
 	// First name
 	// Constraints:
-	//    - nullable
 	//    - max:32
 	//    - min:2
-	FirstName *string `json:"firstName,omitempty" validate:"omitempty,max=32,min=2"`
+	FirstName *string `json:"firstName,omitempty" validate:"max=32,min=2"`
 
 	// IsDisabled
 	// Is Disabled
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NO,YES]
-	IsDisabled *string `json:"isDisabled,omitempty" validate:"omitempty,oneof=NO YES"`
+	IsDisabled *string `json:"isDisabled,omitempty" validate:"oneof=NO YES"`
 
 	// LastName
 	// Last Name
 	// Constraints:
-	//    - nullable
 	//    - max:32
 	//    - min:2
-	LastName *string `json:"lastName,omitempty" validate:"omitempty,max=32,min=2"`
+	LastName *string `json:"lastName,omitempty" validate:"max=32,min=2"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -926,9 +906,8 @@ type WSGIdentityUserConfiguration struct {
 	// PackageExpirationInterval
 	// Package Expiration Interval
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HOUR,DAY,WEEK,MONTH,YEAR,NEVER]
-	PackageExpirationInterval *string `json:"packageExpirationInterval,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
+	PackageExpirationInterval *string `json:"packageExpirationInterval,omitempty" validate:"oneof=HOUR DAY WEEK MONTH YEAR NEVER"`
 
 	// PackageExpirationValue
 	// Package Expiration Value
@@ -937,62 +916,55 @@ type WSGIdentityUserConfiguration struct {
 	// PackageStatus
 	// Package Status
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DEPLETED,AVAILABLE,EXPIRED,TERMINATED,REMOVED]
-	PackageStatus *string `json:"packageStatus,omitempty" validate:"omitempty,oneof=DEPLETED AVAILABLE EXPIRED TERMINATED REMOVED"`
+	PackageStatus *string `json:"packageStatus,omitempty" validate:"oneof=DEPLETED AVAILABLE EXPIRED TERMINATED REMOVED"`
 
 	// Phone
 	// Phone
 	// Constraints:
-	//    - nullable
 	//    - max:32
 	//    - min:2
-	Phone *string `json:"phone,omitempty" validate:"omitempty,max=32,min=2"`
+	Phone *string `json:"phone,omitempty" validate:"max=32,min=2"`
 
 	// Remark
 	// Remark
 	// Constraints:
-	//    - nullable
 	//    - max:32
 	//    - min:2
-	Remark *string `json:"remark,omitempty" validate:"omitempty,max=32,min=2"`
+	Remark *string `json:"remark,omitempty" validate:"max=32,min=2"`
 
 	// State
 	// State
 	// Constraints:
-	//    - nullable
 	//    - max:32
 	//    - min:2
-	State *string `json:"state,omitempty" validate:"omitempty,max=32,min=2"`
+	State *string `json:"state,omitempty" validate:"max=32,min=2"`
 
 	SubscriberPackage *WSGCommonGenericRef `json:"subscriberPackage,omitempty"`
 
 	// UserName
 	// User Name
 	// Constraints:
-	//    - nullable
 	//    - max:64
 	//    - min:2
-	UserName *string `json:"userName,omitempty" validate:"omitempty,max=64,min=2"`
+	UserName *string `json:"userName,omitempty" validate:"max=64,min=2"`
 
 	UsernamePasswordCredentialsImplDto *WSGIdentityUsernamePasswordCredentialsImplDto `json:"usernamePasswordCredentialsImplDto,omitempty"`
 
 	// ZipCode
 	// Zip Code
 	// Constraints:
-	//    - nullable
 	//    - max:32
 	//    - min:2
-	ZipCode *string `json:"zipCode,omitempty" validate:"omitempty,max=32,min=2"`
+	ZipCode *string `json:"zipCode,omitempty" validate:"max=32,min=2"`
 }
 
 type WSGIdentityUserConfigurationCredentialsGuestPassDtoType struct {
 	// AuthenticationMethod
 	// Authentication method of credential
 	// Constraints:
-	//    - nullable
 	//    - oneof:[GUEST_PASS]
-	AuthenticationMethod *string `json:"authenticationMethod,omitempty" validate:"omitempty,oneof=GUEST_PASS"`
+	AuthenticationMethod *string `json:"authenticationMethod,omitempty" validate:"oneof=GUEST_PASS"`
 
 	// AutoGeneratePassword
 	// Pass generation
@@ -1022,9 +994,8 @@ type WSGIdentityUserConfigurationCredentialsGuestPassDtoType struct {
 
 	// ExpirationUnit
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HOUR,DAY,WEEK]
-	ExpirationUnit *string `json:"expirationUnit,omitempty" validate:"omitempty,oneof=HOUR DAY WEEK"`
+	ExpirationUnit *string `json:"expirationUnit,omitempty" validate:"oneof=HOUR DAY WEEK"`
 
 	ExpirationValue *int `json:"expirationValue,omitempty"`
 
@@ -1054,9 +1025,8 @@ type WSGIdentityUserConfigurationCredentialsGuestPassDtoType struct {
 
 	// SessionUnit
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MIN,HOUR,DAY,WEEK]
-	SessionUnit *string `json:"sessionUnit,omitempty" validate:"omitempty,oneof=MIN HOUR DAY WEEK"`
+	SessionUnit *string `json:"sessionUnit,omitempty" validate:"oneof=MIN HOUR DAY WEEK"`
 
 	SessionValue *int `json:"sessionValue,omitempty"`
 
@@ -1093,9 +1063,8 @@ type WSGIdentityUsernamePasswordCredentialsImplDto struct {
 	// AuthenticationMethod
 	// Authentication Method
 	// Constraints:
-	//    - nullable
 	//    - oneof:[USERNAME_PASSWORD,GUEST_PASS,MAC_WLAN_DPSK,MO,REMOTE,OAUTH2]
-	AuthenticationMethod *string `json:"authenticationMethod,omitempty" validate:"omitempty,oneof=USERNAME_PASSWORD GUEST_PASS MAC_WLAN_DPSK MO REMOTE OAUTH2"`
+	AuthenticationMethod *string `json:"authenticationMethod,omitempty" validate:"oneof=USERNAME_PASSWORD GUEST_PASS MAC_WLAN_DPSK MO REMOTE OAUTH2"`
 
 	AuthenticationServerConfig *WSGIdentityAuthenticationServerConfig `json:"authenticationServerConfig,omitempty"`
 

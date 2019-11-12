@@ -66,23 +66,20 @@ type SwitchMAAASettingsAccountingTypeCommandsType struct {
 	// Level
 	// Access level of command
 	// Constraints:
-	//    - nullable
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
-	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Server1
 	// Primary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
 	// Secondary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
 // SwitchMAAASettingsAccountingTypeExecType
@@ -92,16 +89,14 @@ type SwitchMAAASettingsAccountingTypeExecType struct {
 	// Server1
 	// Primary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
 	// Secondary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
 // SwitchMAAASettingsAuthenticationType
@@ -119,23 +114,20 @@ type SwitchMAAASettingsAuthenticationType struct {
 	// FirstPref
 	// Primary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
-	FirstPref *string `json:"firstPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
+	FirstPref *string `json:"firstPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// SecondPref
 	// Secondary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
-	SecondPref *string `json:"secondPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
+	SecondPref *string `json:"secondPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// ThirdPref
 	// Third server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
-	ThirdPref *string `json:"thirdPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
+	ThirdPref *string `json:"thirdPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 }
 
 // SwitchMAAASettingsAuthorizationType
@@ -166,23 +158,20 @@ type SwitchMAAASettingsAuthorizationTypeCommandsType struct {
 	// Level
 	// Access level of command
 	// Constraints:
-	//    - nullable
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
-	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Server1
 	// Primary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
 	// Secondary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
 // SwitchMAAASettingsAuthorizationTypeExecType
@@ -192,16 +181,14 @@ type SwitchMAAASettingsAuthorizationTypeExecType struct {
 	// Server1
 	// Primary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
 	// Secondary server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
 type SwitchMAAASettingsEmptyResult struct {

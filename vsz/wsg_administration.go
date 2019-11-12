@@ -40,7 +40,7 @@ type WSGAdministrationActiveDirectoryServer struct {
 	// Realm
 	// Constraints:
 	//    - required
-	Realm *WSGCommonRealm `json:"realm" validate:"required"`
+	Realm *WSGCommonRealm `json:"realm" validate:"required,max=255"`
 
 	// WindowsDomainName
 	// Windows Domain Name of Active Directory Server object
@@ -231,7 +231,7 @@ type WSGAdministrationCreateAdminAAAServer struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	RadiusServer *WSGAdministrationRadiusServer `json:"radiusServer,omitempty"`
 
@@ -300,7 +300,7 @@ type WSGAdministrationLdapServer struct {
 	// Realm
 	// Constraints:
 	//    - required
-	Realm *WSGCommonRealm `json:"realm" validate:"required"`
+	Realm *WSGCommonRealm `json:"realm" validate:"required,max=255"`
 
 	// SearchFilter
 	// Search filter of LDAP Server object
@@ -339,10 +339,9 @@ type WSGAdministrationLicenseServer struct {
 	// Port
 	// local license server port
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=0,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
 
 	// UseCloud
 	// use cloud license server
@@ -395,9 +394,8 @@ type WSGAdministrationLicensesSyncLogs struct {
 	// SyncResult
 	// sync license result
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SUCCESS,FAILURE]
-	SyncResult *string `json:"syncResult,omitempty" validate:"omitempty,oneof=SUCCESS FAILURE"`
+	SyncResult *string `json:"syncResult,omitempty" validate:"oneof=SUCCESS FAILURE"`
 }
 
 type WSGAdministrationLicensesSyncLogsList struct {
@@ -415,10 +413,9 @@ type WSGAdministrationModfiyLicenseServer struct {
 
 	// Port
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=0,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
 
 	// UseCloud
 	// Constraints:
@@ -436,7 +433,7 @@ type WSGAdministrationModifyAdminAAAServer struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	RadiusServer *WSGAdministrationRadiusServer `json:"radiusServer,omitempty"`
 
@@ -468,9 +465,8 @@ type WSGAdministrationModifyLogLevel struct {
 	// LogLevel
 	// Log level.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DEBUG,INFO,WARN,ERROR]
-	LogLevel *string `json:"logLevel,omitempty" validate:"omitempty,oneof=DEBUG INFO WARN ERROR"`
+	LogLevel *string `json:"logLevel,omitempty" validate:"oneof=DEBUG INFO WARN ERROR"`
 }
 
 type WSGAdministrationModifyScheduleBackup struct {
@@ -481,9 +477,8 @@ type WSGAdministrationModifyScheduleBackup struct {
 	// DayOfWeek
 	// day of the week
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
 	// enable schedule backup
@@ -496,9 +491,8 @@ type WSGAdministrationModifyScheduleBackup struct {
 	// Interval
 	// schedule interval
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MONTHLY,WEEKLY,DAILY]
-	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY"`
+	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
 	// minute
@@ -522,7 +516,7 @@ type WSGAdministrationRadiusServer struct {
 	// Realm
 	// Constraints:
 	//    - required
-	Realm *WSGCommonRealm `json:"realm" validate:"required"`
+	Realm *WSGCommonRealm `json:"realm" validate:"required,max=255"`
 
 	SecondaryRadiusServer *WSGAdministrationSecondaryRadiusServer `json:"secondaryRadiusServer,omitempty"`
 
@@ -553,9 +547,8 @@ type WSGAdministrationRetrieveAdminAAAServer struct {
 	// Type
 	// Type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS,AD,LDAP]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
+	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
 }
 
 type WSGAdministrationRetrieveAdminAAAServerList struct {
@@ -575,9 +568,8 @@ type WSGAdministrationRetrieveAdminAAAServerListType struct {
 
 	// Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS,AD,LDAP]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
+	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
 }
 
 type WSGAdministrationScheduleBackup struct {
@@ -588,9 +580,8 @@ type WSGAdministrationScheduleBackup struct {
 	// DayOfWeek
 	// day of the week
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
 	// enable schedule backup
@@ -603,9 +594,8 @@ type WSGAdministrationScheduleBackup struct {
 	// Interval
 	// schedule interval
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MONTHLY,WEEKLY,DAILY]
-	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY"`
+	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
 	// minute
@@ -677,7 +667,7 @@ type WSGAdministrationTacacsServer struct {
 	// Service
 	// Constraints:
 	//    - required
-	Service *WSGCommonRealm `json:"service" validate:"required"`
+	Service *WSGCommonRealm `json:"service" validate:"required,max=255"`
 
 	// SharedSecret
 	// Shared secret of TACACS+ Server object

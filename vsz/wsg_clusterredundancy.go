@@ -36,9 +36,8 @@ type WSGClusterRedundancySettings struct {
 	// DayOfWeek
 	// Scheduled day of the week (Active-Active only)
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// Hour
 	// Schedule sync time in daily hour (0-23)
@@ -47,9 +46,8 @@ type WSGClusterRedundancySettings struct {
 	// Interval
 	// Schedule interval (Active-Active only)
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MONTHLY,WEEKLY,DAILY,HOURLY]
-	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY HOURLY"`
+	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY HOURLY"`
 
 	// ManagementEntryList
 	// Management entry list of standby cluster (Active-Standby only)
@@ -100,9 +98,8 @@ type WSGClusterRedundancyUpdateClusterRedundancy struct {
 	// DayOfWeek
 	// Scheduled day of the week (Active-Active only)
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// Hour
 	// Schedule sync time in daily hour (0-23)
@@ -111,9 +108,8 @@ type WSGClusterRedundancyUpdateClusterRedundancy struct {
 	// Interval
 	// Schedule interval (Active-Active only)
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MONTHLY,WEEKLY,DAILY,HOURLY]
-	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY HOURLY"`
+	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY HOURLY"`
 
 	// ManagementEntryList
 	// Management entry list of standby cluster (Active-Standby only)

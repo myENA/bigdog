@@ -112,7 +112,9 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.Context, pApMac string, qIndex string, qListSize string) (*WSGAPClientList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

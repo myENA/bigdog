@@ -75,7 +75,9 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, qIndex string, qListSize string) (*WSGProfileList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

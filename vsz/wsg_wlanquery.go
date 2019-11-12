@@ -33,9 +33,8 @@ type WSGWLANQueryCreateWlanQuery struct {
 
 	// ApplicationVisibility
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Enabled,Disabled]
-	ApplicationVisibility *string `json:"applicationVisibility,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
+	ApplicationVisibility *string `json:"applicationVisibility,omitempty" validate:"oneof=Enabled Disabled"`
 
 	AuthMethod *string `json:"authMethod,omitempty"`
 
@@ -49,15 +48,13 @@ type WSGWLANQueryCreateWlanQuery struct {
 
 	// Enability11k
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Enabled,Disabled]
-	Enability11k *string `json:"enability11k,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
+	Enability11k *string `json:"enability11k,omitempty" validate:"oneof=Enabled Disabled"`
 
 	// Enability11r
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Enabled,Disabled]
-	Enability11r *string `json:"enability11r,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
+	Enability11r *string `json:"enability11r,omitempty" validate:"oneof=Enabled Disabled"`
 
 	EncryptionMethod *string `json:"encryptionMethod,omitempty"`
 
@@ -67,9 +64,8 @@ type WSGWLANQueryCreateWlanQuery struct {
 
 	// Status
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Online,Flagged,Offline]
-	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Online Flagged Offline"`
+	Status *string `json:"status,omitempty" validate:"oneof=Online Flagged Offline"`
 
 	TenantDomainName *string `json:"tenantDomainName,omitempty"`
 
@@ -83,9 +79,8 @@ type WSGWLANQueryCreateWlanQuery struct {
 
 	// Tunneled
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Tunneled,APBridged]
-	Tunneled *string `json:"tunneled,omitempty" validate:"omitempty,oneof=Tunneled APBridged"`
+	Tunneled *string `json:"tunneled,omitempty" validate:"oneof=Tunneled APBridged"`
 
 	Utp *string `json:"utp,omitempty"`
 
@@ -99,15 +94,13 @@ type WSGWLANQueryCreateWlanQuery struct {
 
 	// ZeroITEnabled
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Enabled,Disabled]
-	ZeroITEnabled *string `json:"zeroITEnabled,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
+	ZeroITEnabled *string `json:"zeroITEnabled,omitempty" validate:"oneof=Enabled Disabled"`
 
 	// ZeroITOnboard
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Enabled,Disabled]
-	ZeroITOnboard *string `json:"zeroITOnboard,omitempty" validate:"omitempty,oneof=Enabled Disabled"`
+	ZeroITOnboard *string `json:"zeroITOnboard,omitempty" validate:"oneof=Enabled Disabled"`
 
 	ZoneName *string `json:"zoneName,omitempty"`
 }

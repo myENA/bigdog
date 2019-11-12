@@ -103,14 +103,14 @@ type WSGVendorSpecificAttributeProfilePersist struct {
 	// Vendor specific attribute list for Radius protocol
 	// Constraints:
 	//    - required
-	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes" validate:"required,dive,required"`
+	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes" validate:"required,dive"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 }
 
 type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {

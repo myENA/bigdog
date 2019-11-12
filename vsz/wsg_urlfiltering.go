@@ -27,7 +27,7 @@ type WSGURLFilteringCreateUrlFilteringPolicy struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// SafeSearchBingDns
 	// Bing DNS for safe search of the URL Filtering policy
@@ -76,9 +76,8 @@ type WSGURLFilteringModifyUrlFilteringPolicy struct {
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NO_ADULT,CLEAN_AND_SAFE,CHILD_AND_STUDENT_FRIENDLY,STRICT,CUSTOM]
-	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"omitempty,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
+	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -161,9 +160,8 @@ type WSGURLFilteringPolicy struct {
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NO_ADULT,CLEAN_AND_SAFE,CHILD_AND_STUDENT_FRIENDLY,STRICT,CUSTOM]
-	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"omitempty,oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
+	FilteringLevel *string `json:"filteringLevel,omitempty" validate:"oneof=NO_ADULT CLEAN_AND_SAFE CHILD_AND_STUDENT_FRIENDLY STRICT CUSTOM"`
 
 	// Id
 	// Identifier of the URL Filtering policy

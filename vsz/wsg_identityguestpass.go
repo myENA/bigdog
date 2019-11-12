@@ -117,14 +117,23 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 //
 // Query Parameters:
 // - qDisplayName string
+//		- nullable
 // - qExpirationFrom string
+//		- nullable
 // - qExpirationTo string
+//		- nullable
 // - qGeneratedTimeFrom string
+//		- nullable
 // - qGeneratedTimeTo string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qTimeZone string
+//		- nullable
 // - qWlan string
+//		- nullable
 func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context, qDisplayName string, qExpirationFrom string, qExpirationTo string, qGeneratedTimeFrom string, qGeneratedTimeTo string, qIndex string, qListSize string, qTimeZone string, qWlan string) (*WSGIdentityGuestPassList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

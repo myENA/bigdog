@@ -88,7 +88,9 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, p
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*WSGPortalServiceList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

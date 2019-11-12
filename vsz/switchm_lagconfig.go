@@ -26,9 +26,8 @@ type SwitchMLagConfigCreate struct {
 	// Type
 	// The LAG Types in STATIC or DYNAMIC
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,DYNAMIC]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=STATIC DYNAMIC"`
+	Type *string `json:"type,omitempty" validate:"oneof=STATIC DYNAMIC"`
 }
 
 type SwitchMLagConfigCreateResult interface{}
@@ -81,9 +80,8 @@ type SwitchMLagConfig struct {
 	// Type
 	// The LAG Types in STATIC or DYNAMIC
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,DYNAMIC]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=STATIC DYNAMIC"`
+	Type *string `json:"type,omitempty" validate:"oneof=STATIC DYNAMIC"`
 
 	// UpdatedTime
 	// The LAG Types in STATIC or DYNAMIC

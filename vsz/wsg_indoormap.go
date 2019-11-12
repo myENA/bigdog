@@ -33,7 +33,7 @@ type WSGIndoorMapBasicIndoorMap struct {
 	// Description
 	// Constraints:
 	//    - required
-	Description *WSGCommonDescription `json:"description" validate:"required"`
+	Description *WSGCommonDescription `json:"description" validate:"required,omitempty,max=64"`
 
 	DomainId *string `json:"domainId,omitempty"`
 
@@ -54,13 +54,12 @@ type WSGIndoorMapBasicIndoorMap struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Orientation
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HORIZONTAL,VERTICAL]
-	Orientation *string `json:"orientation,omitempty" validate:"omitempty,oneof=HORIZONTAL VERTICAL"`
+	Orientation *string `json:"orientation,omitempty" validate:"oneof=HORIZONTAL VERTICAL"`
 
 	Scale *WSGIndoorMapScale `json:"scale,omitempty"`
 
@@ -91,7 +90,7 @@ type WSGIndoorMap struct {
 	// Description
 	// Constraints:
 	//    - required
-	Description *WSGCommonDescription `json:"description" validate:"required"`
+	Description *WSGCommonDescription `json:"description" validate:"required,omitempty,max=64"`
 
 	// DomainId
 	// domainId
@@ -127,14 +126,13 @@ type WSGIndoorMap struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Orientation
 	// orientation
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HORIZONTAL,VERTICAL]
-	Orientation *string `json:"orientation,omitempty" validate:"omitempty,oneof=HORIZONTAL VERTICAL"`
+	Orientation *string `json:"orientation,omitempty" validate:"oneof=HORIZONTAL VERTICAL"`
 
 	Scale *WSGIndoorMapScale `json:"scale,omitempty"`
 
@@ -189,7 +187,7 @@ type WSGIndoorMapSummary struct {
 	// Description
 	// Constraints:
 	//    - required
-	Description *WSGCommonDescription `json:"description" validate:"required"`
+	Description *WSGCommonDescription `json:"description" validate:"required,omitempty,max=64"`
 
 	// DomainId
 	// domainId
@@ -225,7 +223,7 @@ type WSGIndoorMapSummary struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	Scale *WSGIndoorMapScale `json:"scale,omitempty"`
 
@@ -278,9 +276,8 @@ type WSGIndoorMapScale struct {
 	// Unit
 	// unit
 	// Constraints:
-	//    - nullable
 	//    - oneof:[MM,CM,M,Foot,Yard]
-	Unit *string `json:"unit,omitempty" validate:"omitempty,oneof=MM CM M Foot Yard"`
+	Unit *string `json:"unit,omitempty" validate:"oneof=MM CM M Foot Yard"`
 }
 
 // AddMaps

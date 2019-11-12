@@ -29,15 +29,14 @@ type WSGDomainCreateDomain struct {
 	// DomainType
 	// domain type
 	// Constraints:
-	//    - nullable
 	//    - default:'REGULAR'
 	//    - oneof:[PARTNER,MVNO,REGULAR]
-	DomainType *string `json:"domainType,omitempty" validate:"omitempty,oneof=PARTNER MVNO REGULAR"`
+	DomainType *string `json:"domainType,omitempty" validate:"oneof=PARTNER MVNO REGULAR"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// ParentDomainId
 	// parent domain id
@@ -127,6 +126,7 @@ type WSGDomainModifyDomain struct {
 //
 // Query Parameters:
 // - qParentDomainId string
+//		- nullable
 func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, qParentDomainId string) (*WSGCommonCreateResult, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -145,6 +145,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 //
 // Query Parameters:
 // - qParentDomainId string
+//		- nullable
 func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDomainCreateDomain, qParentDomainId string) (*WSGCommonCreateResult, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -192,10 +193,15 @@ func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, pId st
 //
 // Query Parameters:
 // - qExcludeRegularDomain string
+//		- nullable
 // - qIncludeSelf string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qRecursively string
+//		- nullable
 func (s *WSGDomainService) FindDomains(ctx context.Context, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*WSGDomainList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -215,6 +221,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, qExcludeRegularDomai
 //
 // Query Parameters:
 // - qRecursively string
+//		- nullable
 func (s *WSGDomainService) FindDomainsById(ctx context.Context, pId string, qRecursively string) (*WSGDomainConfiguration, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -234,10 +241,15 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, pId string, qRec
 //
 // Query Parameters:
 // - qExcludeRegularDomain string
+//		- nullable
 // - qIncludeSelf string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qRecursively string
+//		- nullable
 func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, pId string, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*WSGDomainList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -253,10 +265,15 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, pId str
 //
 // Query Parameters:
 // - qExcludeRegularDomain string
+//		- nullable
 // - qIncludeSelf string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qRecursively string
+//		- nullable
 func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*WSGDomainList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -276,6 +293,7 @@ func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, qExcludeRegu
 //
 // Query Parameters:
 // - qRecursively string
+//		- nullable
 func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, pId string, qRecursively string) (*WSGDomainConfiguration, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -295,10 +313,15 @@ func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, pId stri
 //
 // Query Parameters:
 // - qExcludeRegularDomain string
+//		- nullable
 // - qIncludeSelf string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qRecursively string
+//		- nullable
 func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context, pId string, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*WSGDomainList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

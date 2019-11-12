@@ -74,6 +74,7 @@ func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body
 //
 // Query Parameters:
 // - qForAccounting string
+//		- nullable
 func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *WSGAAACreateAuthenticationServer, pZoneId string, qForAccounting string) (*WSGCommonCreateResult, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

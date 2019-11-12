@@ -90,19 +90,33 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, pI
 //
 // Query Parameters:
 // - qCreatedOnFrom string
+//		- nullable
 // - qCreatedOnTo string
+//		- nullable
 // - qDisplayName string
+//		- nullable
 // - qEmail string
+//		- nullable
 // - qFirstName string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qIsDisabled string
+//		- nullable
 // - qLastName string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qPhone string
+//		- nullable
 // - qTimeZone string
+//		- nullable
 // - qUserName string
+//		- nullable
 // - qUserSource string
+//		- nullable
 // - qUserType string
+//		- nullable
 func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, qCreatedOnFrom string, qCreatedOnTo string, qDisplayName string, qEmail string, qFirstName string, qIndex string, qIsDisabled string, qLastName string, qListSize string, qPhone string, qTimeZone string, qUserName string, qUserSource string, qUserType string) (*WSGIdentityUserList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

@@ -29,10 +29,15 @@ func (ss *WSGService) WSGAccessPointAPPService() *WSGAccessPointAPPService {
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qShowAlarm string
+//		- nullable
 // - qZoneId string
+//		- nullable
 func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, qDomainId string, qIndex string, qListSize string, qShowAlarm string, qZoneId string) (*WSGAPLinemanSummary, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -48,7 +53,9 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, qDomainId
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 // - qZoneId string
+//		- nullable
 func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, qDomainId string, qZoneId string) error {
 	if ctx == nil {
 		return errors.New("ctx cannot be empty")

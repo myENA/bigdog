@@ -7,8 +7,6 @@ import (
 	"log"
 	"sync"
 	"time"
-
-	"github.com/myENA/ruckus-client/vsz/types/wsg/serviceticket"
 )
 
 const (
@@ -73,9 +71,9 @@ type (
 	}
 )
 
-// PasswordAuthenticator is a simple example implementation of an Authenticator that will decorate a given request
-// with a session id bearing serviceTicket if one exists, and attempt to create one if it doesn't.
-type PasswordAuthenticator struct {
+// ServiceTicketAuthenticator is a simple example implementation of an Authenticator that will attempt to automatically
+// handle the login / logout cycle for api requests using a username and password.
+type ServiceTicketAuthenticator struct {
 	username string
 	password string
 
@@ -90,8 +88,8 @@ type PasswordAuthenticator struct {
 	debug  bool
 }
 
-func NewPasswordAuthenticator(username, password string, sessionTTL time.Duration, l *log.Logger, debug bool) *PasswordAuthenticator {
-	pa := &PasswordAuthenticator{
+func NewServiceTicketAuthenticator(username, password string, sessionTTL time.Duration, l *log.Logger, debug bool) *ServiceTicketAuthenticator {
+	pa := &ServiceTicketAuthenticator{
 		username:   username,
 		password:   password,
 		sessionTTL: sessionTTL,
@@ -101,153 +99,153 @@ func NewPasswordAuthenticator(username, password string, sessionTTL time.Duratio
 	return pa
 }
 
-func (pa *PasswordAuthenticator) Username() string {
-	return pa.username
+func (st *ServiceTicketAuthenticator) Username() string {
+	return st.username
 }
 
-func (pa *PasswordAuthenticator) Password() string {
-	return pa.password
+func (st *ServiceTicketAuthenticator) Password() string {
+	return st.password
 }
 
 // Decorate will, if a current serviceTicket is found, add it to the provided request
-func (pa *PasswordAuthenticator) Decorate(ctx context.Context, request *APIRequest) (AuthCAS, error) {
-	pa.mu.RLock()
-	cas := pa.cas
+func (st *ServiceTicketAuthenticator) Decorate(ctx context.Context, request *APIRequest) (AuthCAS, error) {
+	st.mu.RLock()
+	cas := st.cas
 
 	if request == nil {
 		// TODO: yell a bit more if request is nil?
 		return AuthCAS(cas), errors.New("request cannot be nil")
 	}
 
-	pa.log(true, "Decorate called for request \"%s %s\"", request.Method(), request.CompiledURI())
+	st.log(true, "Decorate called for request \"%s %s\"", request.Method(), request.CompiledURI())
 
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
-		pa.mu.RUnlock()
+		st.mu.RUnlock()
 		return AuthCAS(cas), err
 	}
 
-	if pa.serviceTicket == "" && !pa.refreshed.IsZero() && pa.refreshed.Add(pa.sessionTTL).After(time.Now()) {
-		request.SetQueryParameter(serviceTicketQueryParameter, pa.serviceTicket)
-		pa.mu.RUnlock()
+	if st.serviceTicket == "" && !st.refreshed.IsZero() && st.refreshed.Add(st.sessionTTL).After(time.Now()) {
+		request.SetQueryParameter(serviceTicketQueryParameter, st.serviceTicket)
+		st.mu.RUnlock()
 		return AuthCAS(cas), nil
 	}
 
-	pa.mu.RUnlock()
+	st.mu.RUnlock()
 
 	return AuthCAS(cas), errors.New("serviceTicket requires refresh")
 }
 
 // Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
-func (pa *PasswordAuthenticator) Refresh(ctx context.Context, client *APIClient, cas AuthCAS) (AuthCAS, error) {
-	pa.log(true, "Refresh called")
+func (st *ServiceTicketAuthenticator) Refresh(ctx context.Context, client *APIClient, cas AuthCAS) (AuthCAS, error) {
+	st.log(true, "Refresh called")
 
-	pa.mu.Lock()
-	ccas := pa.cas
+	st.mu.Lock()
+	ccas := st.cas
 
 	if client == nil {
-		pa.mu.Unlock()
+		st.mu.Unlock()
 		return AuthCAS(ccas), errors.New("apiClient cannot be nil")
 	}
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
-		pa.log(true, "Context error seen: %s", err)
-		pa.mu.Unlock()
+		st.log(true, "Context error seen: %s", err)
+		st.mu.Unlock()
 		return AuthCAS(ccas), err
 	}
 	// if the passed cas value is greater than the internal CAS, assume weirdness and return current CAS and an error
 	if ccas < uint64(cas) {
-		pa.mu.Unlock()
+		st.mu.Unlock()
 		return AuthCAS(ccas), errors.New("provided cas value is greater than possible")
 	}
 	// if the passed in CAS value is less than the currently stored one, assume another routine called either Refresh
 	// or Invalidate and just return current cas
 	if ccas > uint64(cas) {
-		pa.mu.Unlock()
+		st.mu.Unlock()
 		return AuthCAS(ccas), nil
 	}
 
 	// if cas matches internal...
 
 	// try to execute logon
-	username := pa.username
-	password := pa.password
-	loginRequest := &serviceticket.LoginRequest{Username: &username, Password: &password}
+	username := st.username
+	password := st.password
+	loginRequest := &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
 	resp, err := client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
 	if err != nil {
-		pa.log(true, "Error seen calling Login: %s", err)
-		pa.serviceTicket = ""
-		pa.cas++
-		ncas := pa.cas
-		pa.mu.Unlock()
+		st.log(true, "Error seen calling Login: %s", err)
+		st.serviceTicket = ""
+		st.cas++
+		ncas := st.cas
+		st.mu.Unlock()
 		return AuthCAS(ncas), err
 	}
 
 	if resp == nil || resp.ServiceTicket == nil || *resp.ServiceTicket == "" {
-		pa.log(true, "%q empty in response: %v", serviceTicketQueryParameter, resp)
-		pa.serviceTicket = ""
-		pa.cas++
-		ncas := pa.cas
-		pa.mu.Unlock()
+		st.log(true, "%q empty in response: %v", serviceTicketQueryParameter, resp)
+		st.serviceTicket = ""
+		st.cas++
+		ncas := st.cas
+		st.mu.Unlock()
 		return AuthCAS(ncas), errors.New("nil response from login request seen")
 	}
 
-	pa.serviceTicket = *resp.ServiceTicket
-	pa.refreshed = time.Now()
-	pa.cas++
-	ncas := pa.cas
-	pa.mu.Unlock()
+	st.serviceTicket = *resp.ServiceTicket
+	st.refreshed = time.Now()
+	st.cas++
+	ncas := st.cas
+	st.mu.Unlock()
 	return AuthCAS(ncas), nil
 }
 
 // Invalidate will mark the current session as invalid.
-func (pa *PasswordAuthenticator) Invalidate(ctx context.Context, client *APIClient, cas AuthCAS) (AuthCAS, error) {
-	pa.log(true, "Invalidate called", pa.username)
+func (st *ServiceTicketAuthenticator) Invalidate(ctx context.Context, client *APIClient, cas AuthCAS) (AuthCAS, error) {
+	st.log(true, "Invalidate called", st.username)
 
-	pa.mu.Lock()
-	ccas := pa.cas
+	st.mu.Lock()
+	ccas := st.cas
 
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
-		pa.mu.Unlock()
+		st.mu.Unlock()
 		return AuthCAS(ccas), err
 	}
 	// if current cas is less than provided, assume insanity.
 	if ccas < uint64(cas) {
-		pa.mu.Unlock()
+		st.mu.Unlock()
 		return AuthCAS(ccas), errors.New("provided cas value greater than possible")
 	}
 	// if current cas is greater than provided, assume Refresh or Invalidate has already been called.
 	if ccas > uint64(cas) {
-		pa.mu.Unlock()
+		st.mu.Unlock()
 		return AuthCAS(ccas), nil
 	}
 
 	// if we have a service ticket stored, attempt to invalidate it at the VSZ
-	if pa.serviceTicket != "" {
-		pa.log(true, "Calling Logout...")
-		err := client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, pa.serviceTicket)
+	if st.serviceTicket != "" {
+		st.log(true, "Calling Logout...")
+		err := client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, st.serviceTicket)
 		if err != nil {
-			pa.log(false, "Error calling Logout: %s", err)
+			st.log(false, "Error calling Logout: %s", err)
 		} else {
-			pa.log(true, "Logout called successfully")
+			st.log(true, "Logout called successfully")
 		}
 	}
 
-	pa.cas++
-	ncas := pa.cas
-	pa.serviceTicket = ""
-	pa.refreshed = time.Now()
-	pa.mu.Unlock()
+	st.cas++
+	ncas := st.cas
+	st.serviceTicket = ""
+	st.refreshed = time.Now()
+	st.mu.Unlock()
 	return AuthCAS(ncas), nil
 }
 
-func (pa *PasswordAuthenticator) log(debug bool, f string, v ...interface{}) {
+func (st *ServiceTicketAuthenticator) log(debug bool, f string, v ...interface{}) {
 	if debug {
-		if pa.debug {
-			pa.logger.Printf(fmt.Sprintf("[pw-auth-%s] %s", pa.username, f), v...)
+		if st.debug {
+			st.logger.Printf(fmt.Sprintf("[pw-auth-%s] %s", st.username, f), v...)
 		}
 	} else {
-		pa.logger.Printf(fmt.Sprintf("[pw-auth-%s] %s", pa.username, f), v...)
+		st.logger.Printf(fmt.Sprintf("[pw-auth-%s] %s", st.username, f), v...)
 	}
 }

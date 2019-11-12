@@ -9,7 +9,10 @@ type WSGZoneAPModelApModel struct {
 
 	ExternalAntenna50 *WSGAPModelExternalAntenna `json:"externalAntenna50,omitempty"`
 
-	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty"`
+	// InternalHeaterEnabled
+	// Constraints:
+	//    - nullable
+	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty" validate:"omitempty"`
 
 	Lacp *WSGAPModelLacpSetting `json:"lacp,omitempty"`
 
@@ -21,7 +24,10 @@ type WSGZoneAPModelApModel struct {
 	//    - oneof:[CableModem,AccessPoint,CableModem_AccessPoint,CableModem_AccessPoint_DEFAULT,ActiveSurgeProtector,ActiveSurgeProtector_ModemOnline_DEFAULT,Off]
 	LedMode *string `json:"ledMode,omitempty" validate:"omitempty,oneof=CableModem AccessPoint CableModem_AccessPoint CableModem_AccessPoint_DEFAULT ActiveSurgeProtector ActiveSurgeProtector_ModemOnline_DEFAULT Off"`
 
-	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty"`
+	// LedStatusEnabled
+	// Constraints:
+	//    - nullable
+	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty" validate:"omitempty"`
 
 	Lldp *WSGAPModelLldpSetting `json:"lldp,omitempty"`
 
@@ -31,11 +37,17 @@ type WSGZoneAPModelApModel struct {
 	//    - oneof:[Auto,_802_3af,_802_3at,_802_3atPlus]
 	PoeModeSetting *string `json:"poeModeSetting,omitempty" validate:"omitempty,oneof=Auto _802_3af _802_3at _802_3atPlus"`
 
-	PoeOutPortEnabled *bool `json:"poeOutPortEnabled,omitempty"`
+	// PoeOutPortEnabled
+	// Constraints:
+	//    - nullable
+	PoeOutPortEnabled *bool `json:"poeOutPortEnabled,omitempty" validate:"omitempty"`
 
 	// PoeTxChain
 	// Option to use 1, 2 or 4 Tx chains while AP power source is 802.3af PoE
-	PoeTxChain *int `json:"poeTxChain,omitempty"`
+	// Constraints:
+	//    - nullable
+	//    - default:2
+	PoeTxChain *int `json:"poeTxChain,omitempty" validate:"omitempty"`
 
 	// RadioBand
 	// Band switch between 2.4GHz and 5GHz is provided in single radio AP ZF-7321, ZF-7321-U, and ZF-7441.
@@ -44,7 +56,10 @@ type WSGZoneAPModelApModel struct {
 	//    - oneof:[2.4GHz,5GHz]
 	RadioBand *string `json:"radioBand,omitempty" validate:"omitempty,oneof=2.4GHz 5GHz"`
 
-	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty"`
+	// UsbPowerEnable
+	// Constraints:
+	//    - nullable
+	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty" validate:"omitempty"`
 }
 
 type WSGZoneAPModelLanPortSetting struct {

@@ -6,20 +6,18 @@ type WSGAccountSecurityProfileCreate struct {
 	// AccountLockout
 	// The number of successive failures before a lockout will occur.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:100
-	AccountLockout *int `json:"accountLockout,omitempty" validate:"omitempty,gte=1,lte=100"`
+	AccountLockout *int `json:"accountLockout,omitempty" validate:"gte=1,lte=100"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DisableInactiveAccounts
 	// A period in a inactive status used to lockout these accounts.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:1000
-	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty" validate:"omitempty,gte=1,lte=1000"`
+	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty" validate:"gte=1,lte=1000"`
 
 	// DomainId
 	// Domain id
@@ -28,10 +26,9 @@ type WSGAccountSecurityProfileCreate struct {
 	// LockoutDuration
 	// The duration for which the account is automatically locked without administrative intervention.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:1440
-	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"omitempty,gte=1,lte=1440"`
+	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"gte=1,lte=1440"`
 
 	// MinimumPasswordLength
 	// Constraints:
@@ -45,26 +42,23 @@ type WSGAccountSecurityProfileCreate struct {
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:365
-	PasswordExpiration *int `json:"passwordExpiration,omitempty" validate:"omitempty,gte=1,lte=365"`
+	PasswordExpiration *int `json:"passwordExpiration,omitempty" validate:"gte=1,lte=365"`
 
 	// PasswordReuse
 	// A validation the prevents reuse of the same password(s).
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:6
-	PasswordReuse *int `json:"passwordReuse,omitempty" validate:"omitempty,gte=1,lte=6"`
+	PasswordReuse *int `json:"passwordReuse,omitempty" validate:"gte=1,lte=6"`
 
 	// SessionIdle
 	// A period of idle used to invalid that session.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:1440
-	SessionIdle *int `json:"sessionIdle,omitempty" validate:"omitempty,gte=1,lte=1440"`
+	SessionIdle *int `json:"sessionIdle,omitempty" validate:"gte=1,lte=1440"`
 
 	// TwoFactorAuthEnabled
 	// Enable the two-factor authentication. (This configuration can only be enabled from Web GUI.)
@@ -136,30 +130,27 @@ type WSGAccountSecurityProfileUpdate struct {
 	// AccountLockout
 	// The number of successive failures before a lockout will occur.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:100
-	AccountLockout *int `json:"accountLockout,omitempty" validate:"omitempty,gte=1,lte=100"`
+	AccountLockout *int `json:"accountLockout,omitempty" validate:"gte=1,lte=100"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DisableInactiveAccounts
 	// A period in a inactive status used to lockout these accounts.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:1000
-	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty" validate:"omitempty,gte=1,lte=1000"`
+	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty" validate:"gte=1,lte=1000"`
 
 	DomainId *string `json:"domainId,omitempty"`
 
 	// LockoutDuration
 	// The duration for which the account is automatically locked without administrative intervention.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:1440
-	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"omitempty,gte=1,lte=1440"`
+	LockoutDuration *int `json:"lockoutDuration,omitempty" validate:"gte=1,lte=1440"`
 
 	// MinimumPasswordLength
 	// Constraints:
@@ -173,26 +164,23 @@ type WSGAccountSecurityProfileUpdate struct {
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:365
-	PasswordExpiration *int `json:"passwordExpiration,omitempty" validate:"omitempty,gte=1,lte=365"`
+	PasswordExpiration *int `json:"passwordExpiration,omitempty" validate:"gte=1,lte=365"`
 
 	// PasswordReuse
 	// A validation the prevents reuse of the same password(s).
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:6
-	PasswordReuse *int `json:"passwordReuse,omitempty" validate:"omitempty,gte=1,lte=6"`
+	PasswordReuse *int `json:"passwordReuse,omitempty" validate:"gte=1,lte=6"`
 
 	// SessionIdle
 	// A period of idle used to invalid that session.
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:1440
-	SessionIdle *int `json:"sessionIdle,omitempty" validate:"omitempty,gte=1,lte=1440"`
+	SessionIdle *int `json:"sessionIdle,omitempty" validate:"gte=1,lte=1440"`
 
 	// TwoFactorAuthEnabled
 	// Enable the two-factor authentication. (This configuration can only be enabled from Web GUI.)

@@ -38,9 +38,8 @@ type WSGDPSKDeleteExpiredDpskConfig struct {
 	// DeleteExpiredDpsk
 	// Delete expired DPSK interval of the Zone.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Never,AfterOneDay,AfterSixMonths]
-	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"omitempty,oneof=Never AfterOneDay AfterSixMonths"`
+	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
 }
 
 // WSGDPSKInfo
@@ -216,9 +215,8 @@ type WSGDPSKModifyDeleteExpiredDpsk struct {
 	// DeleteExpiredDpsk
 	// Delete expired DPSK interval of the Zone.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Never,AfterOneDay,AfterSixMonths]
-	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"omitempty,oneof=Never AfterOneDay AfterSixMonths"`
+	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
 }
 
 type WSGDPSKUpdateDpsk struct {
@@ -235,26 +233,23 @@ type WSGDPSKWlanDpskSetting struct {
 	// DpskFromType
 	// Type of expiration start from
 	// Constraints:
-	//    - nullable
 	//    - default:'CreateTime'
 	//    - oneof:[CreateTime,FirstUse]
-	DpskFromType *string `json:"dpskFromType,omitempty" validate:"omitempty,oneof=CreateTime FirstUse"`
+	DpskFromType *string `json:"dpskFromType,omitempty" validate:"oneof=CreateTime FirstUse"`
 
 	// DpskType
 	// Type of DPSK key
 	// Constraints:
-	//    - nullable
 	//    - default:'Secure'
 	//    - oneof:[Secure,KeyboardFriendly,NumbersOnly]
-	DpskType *string `json:"dpskType,omitempty" validate:"omitempty,oneof=Secure KeyboardFriendly NumbersOnly"`
+	DpskType *string `json:"dpskType,omitempty" validate:"oneof=Secure KeyboardFriendly NumbersOnly"`
 
 	// Expiration
 	// Expiration of DPSK key
 	// Constraints:
-	//    - nullable
 	//    - default:'Unlimited'
 	//    - oneof:[Unlimited,OneDay,TwoDays,OneWeek,TwoWeeks,OneMonth,SixMonths,OneYear,TwoYears]
-	Expiration *string `json:"expiration,omitempty" validate:"omitempty,oneof=Unlimited OneDay TwoDays OneWeek TwoWeeks OneMonth SixMonths OneYear TwoYears"`
+	Expiration *string `json:"expiration,omitempty" validate:"oneof=Unlimited OneDay TwoDays OneWeek TwoWeeks OneMonth SixMonths OneYear TwoYears"`
 
 	// Length
 	// Length of DPSK key
@@ -298,14 +293,12 @@ type WSGDPSKWlanExternalDpskEncryptionType struct {
 	// Algorithm
 	// Encryption algorithm. This only applies to WPA2 and WPA mixed mode.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AES,TKIP_AES]
-	Algorithm *string `json:"algorithm,omitempty" validate:"omitempty,oneof=AES TKIP_AES"`
+	Algorithm *string `json:"algorithm,omitempty" validate:"oneof=AES TKIP_AES"`
 
 	// Method
 	// Encryption method
 	// Constraints:
-	//    - nullable
 	//    - oneof:[WPA2,WPA_Mixed,None]
-	Method *string `json:"method,omitempty" validate:"omitempty,oneof=WPA2 WPA_Mixed None"`
+	Method *string `json:"method,omitempty" validate:"oneof=WPA2 WPA_Mixed None"`
 }

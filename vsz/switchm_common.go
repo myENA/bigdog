@@ -24,9 +24,8 @@ type SwitchMCommonFullTextSearch struct {
 	// Type
 	// Search logic operator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AND,OR]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AND OR"`
+	Type *string `json:"type,omitempty" validate:"oneof=AND OR"`
 
 	// Value
 	// Text or number to search
@@ -67,9 +66,8 @@ type SwitchMCommonQueryCriteria struct {
 	// Limit
 	// Size of one page
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
+	Limit *int `json:"limit,omitempty" validate:"gte=1"`
 
 	// Options
 	// Specified feature required information
@@ -78,9 +76,8 @@ type SwitchMCommonQueryCriteria struct {
 	// Page
 	// Page number to get
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
+	Page *int `json:"page,omitempty" validate:"gte=1"`
 
 	// Query
 	// Add backward compatibility for UI framework
@@ -154,9 +151,8 @@ func (t *SwitchMCommonQueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 type SwitchMCommonQueryCriteriaSortInfoType struct {
 	// Dir
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ASC,DESC]
-	Dir *string `json:"dir,omitempty" validate:"omitempty,oneof=ASC DESC"`
+	Dir *string `json:"dir,omitempty" validate:"oneof=ASC DESC"`
 
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
@@ -193,9 +189,8 @@ type SwitchMCommonQueryCriteriaSuperSet struct {
 	// Limit
 	// Size of one page
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
+	Limit *int `json:"limit,omitempty" validate:"gte=1"`
 
 	// Options
 	// Specified feature required information
@@ -204,9 +199,8 @@ type SwitchMCommonQueryCriteriaSuperSet struct {
 	// Page
 	// Page number to get
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
+	Page *int `json:"page,omitempty" validate:"gte=1"`
 
 	// Query
 	// Add backward compatibility for UI framework
@@ -229,9 +223,8 @@ type SwitchMCommonTimeRange struct {
 	// Field
 	// time field for collecting data
 	// Constraints:
-	//    - nullable
 	//    - oneof:[insertionTime]
-	Field *string `json:"field,omitempty" validate:"omitempty,oneof=insertionTime"`
+	Field *string `json:"field,omitempty" validate:"oneof=insertionTime"`
 
 	// Interval
 	// time interval in second

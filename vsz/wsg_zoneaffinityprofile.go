@@ -60,6 +60,7 @@ func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx conte
 //
 // Query Parameters:
 // - qVdpId string
+//		- nullable
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Context, qVdpId string) (*WSGProfileZoneAffinityProfileList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

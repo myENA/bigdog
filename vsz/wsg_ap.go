@@ -40,10 +40,9 @@ type WSGAPConfiguration struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	// Constraints:
-	//    - nullable
 	//    - default:'Unlocked'
 	//    - oneof:[Locked,Unlocked]
-	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
+	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
@@ -64,11 +63,10 @@ type WSGAPConfiguration struct {
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -181,9 +179,8 @@ type WSGAPLinemanSummaryListType struct {
 	// ConfigState
 	// State of the AP configuration
 	// Constraints:
-	//    - nullable
 	//    - oneof:[newConfig,fwApplied,fwDownloaded,fwFailed,configApplied,completed,configFailed]
-	ConfigState *string `json:"configState,omitempty" validate:"omitempty,oneof=newConfig fwApplied fwDownloaded fwFailed configApplied completed configFailed"`
+	ConfigState *string `json:"configState,omitempty" validate:"oneof=newConfig fwApplied fwDownloaded fwFailed configApplied completed configFailed"`
 
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
@@ -240,9 +237,8 @@ type WSGAPOperationalSummary struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Locked,Unlocked]
-	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
+	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
@@ -261,9 +257,8 @@ type WSGAPOperationalSummary struct {
 	// ConfigState
 	// State of the AP configuration.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[completed,configApplied,configFailed,fwApplied,fwDownloaded,fwFailed,newConfig]
-	ConfigState *string `json:"configState,omitempty" validate:"omitempty,oneof=completed configApplied configFailed fwApplied fwDownloaded fwFailed newConfig"`
+	ConfigState *string `json:"configState,omitempty" validate:"oneof=completed configApplied configFailed fwApplied fwDownloaded fwFailed newConfig"`
 
 	// ConnectionState
 	// Connection state of the AP (value: 'Discovery','Connect','Rebooting','Disconnect','Provisioned')
@@ -298,9 +293,8 @@ type WSGAPOperationalSummary struct {
 	// IpType
 	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically assigned or kept unchanged.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Dynamic,Keep,Static]
-	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Dynamic Keep Static"`
+	IpType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
 	// IsCriticalAP
 	// Indicates critical APs. Critical AP are APs that were tagged by the controller based on predefined rules.
@@ -331,9 +325,8 @@ type WSGAPOperationalSummary struct {
 	// MeshRole
 	// Mesh role of the AP
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Disabled,Down,Map,Root,Undefined,eMap]
-	MeshRole *string `json:"meshRole,omitempty" validate:"omitempty,oneof=Disabled Down Map Root Undefined eMap"`
+	MeshRole *string `json:"meshRole,omitempty" validate:"oneof=Disabled Down Map Root Undefined eMap"`
 
 	// Model
 	// Model name of the AP
@@ -344,9 +337,8 @@ type WSGAPOperationalSummary struct {
 	// ProvisionMethod
 	// Provisioning method of the AP. Discovered indicates that the AP contacted the controller using discovery and the AP did not have pre-existing record on the controller. Preprovision indicates that the AP was provisioned to the controller before AP made the first contact. Swap indicates that the AP was provisioned to be a replacement of an existing AP.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Discovered,Preprovision,Swap]
-	ProvisionMethod *string `json:"provisionMethod,omitempty" validate:"omitempty,oneof=Discovered Preprovision Swap"`
+	ProvisionMethod *string `json:"provisionMethod,omitempty" validate:"oneof=Discovered Preprovision Swap"`
 
 	// ProvisionStage
 	// Provisioning stage of the AP. This indicates the stage at which the AP is at in the provisioning process. (value: 'Waiting for Registration','Pre-Provision AP Joined','Waiting for Swap In;Waiting for registration','Waiting for Swap In;Swap In AP Joined','Swapped In;Waiting for registration','Swapped In','Waiting for Swap Out','Swapped Out','Waiting for Swap In, the other AP was deleted','Swapped In, the other AP was deleted','Waiting for Swap Out, the other AP was deleted','Swapped Out, the other AP was deleted')
@@ -399,10 +391,9 @@ type WSGAPCreateAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	// Constraints:
-	//    - nullable
 	//    - default:'Unlocked'
 	//    - oneof:[Locked,Unlocked]
-	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
+	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
 	// ApGroupId
 	// Identifier of the AP group to which the AP belongs. If the AP belongs to the default AP group, this property is not needed.
@@ -478,21 +469,20 @@ type WSGAPLogin struct {
 	// ApLoginName
 	// Constraints:
 	//    - required
-	ApLoginName *WSGCommonApLoginName `json:"apLoginName" validate:"required"`
+	ApLoginName *WSGCommonApLoginName `json:"apLoginName" validate:"required,max=64"`
 
 	// ApLoginPassword
 	// Constraints:
 	//    - required
-	ApLoginPassword *WSGCommonApLoginPassword `json:"apLoginPassword" validate:"required"`
+	ApLoginPassword *WSGCommonApLoginPassword `json:"apLoginPassword" validate:"required,max=64"`
 }
 
 type WSGAPMesh struct {
 	// MeshMode
 	// mesh mode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AUTO,ROOT_AP,MESH_AP,DISABLE]
-	MeshMode *string `json:"meshMode,omitempty" validate:"omitempty,oneof=AUTO ROOT_AP MESH_AP DISABLE"`
+	MeshMode *string `json:"meshMode,omitempty" validate:"oneof=AUTO ROOT_AP MESH_AP DISABLE"`
 
 	// MeshUplinkEntryList
 	// MAC address of the neighbor AP
@@ -501,18 +491,16 @@ type WSGAPMesh struct {
 	// UplinkSelection
 	// Uplink selection
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SMART,MANUAL]
-	UplinkSelection *string `json:"uplinkSelection,omitempty" validate:"omitempty,oneof=SMART MANUAL"`
+	UplinkSelection *string `json:"uplinkSelection,omitempty" validate:"oneof=SMART MANUAL"`
 }
 
 type WSGAPModifyAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Locked,Unlocked]
-	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
+	AdministrativeState *string `json:"administrativeState,omitempty" validate:"oneof=Locked Unlocked"`
 
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
@@ -535,11 +523,10 @@ type WSGAPModifyAP struct {
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -700,9 +687,8 @@ type WSGAPNetwork struct {
 	// IpType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically assigned or kept unchanged.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Dynamic,Keep,Static]
-	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Dynamic Keep Static"`
+	IpType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
 	Netmask *WSGCommonSubNetMask `json:"netmask,omitempty"`
 
@@ -719,9 +705,8 @@ type WSGAPNetworkIpv6 struct {
 	// IpType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically assigned or kept unchanged.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Dynamic,Keep,Static]
-	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Dynamic Keep Static"`
+	IpType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
 
 	PrimaryDns *WSGCommonIpAddress `json:"primaryDns,omitempty"`
 
@@ -762,62 +747,55 @@ type WSGAPSyslog struct {
 	// Facility
 	// Facility of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'Keep_Original'
 	//    - oneof:[Keep_Original,Local0,Local1,Local2,Local3,Local4,Local5,Local6,Local7]
-	Facility *string `json:"facility,omitempty" validate:"omitempty,oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
+	Facility *string `json:"facility,omitempty" validate:"oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
 
 	// FlowLevel
 	// Flow Level of the syslog
 	// Constraints:
-	//    - nullable
 	//    - default:'GENERAL_LOGS'
 	//    - oneof:[GENERAL_LOGS,CLIENT_FLOW,ALL]
-	FlowLevel *string `json:"flowLevel,omitempty" validate:"omitempty,oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
+	FlowLevel *string `json:"flowLevel,omitempty" validate:"oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
 
 	// Port
 	// Port number of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'514'
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
 	// Priority
 	// Priority of the log messages
 	// Constraints:
-	//    - nullable
 	//    - default:'Error'
 	//    - oneof:[Emergency,Alert,Critical,Error,Warning,Notice,Info,All]
-	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=Emergency Alert Critical Error Warning Notice Info All"`
+	Priority *string `json:"priority,omitempty" validate:"oneof=Emergency Alert Critical Error Warning Notice Info All"`
 
 	// Protocol
 	// Protocol of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'IPPROTO_TCP'
 	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 
 	SecondaryAddress *WSGCommonIpAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'514'
 	//    - min:1
 	//    - max:65535
-	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"gte=1,lte=65535"`
 
 	// SecondaryProtocol
 	// Secondary Server Protocol of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'IPPROTO_TCP'
 	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
-	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
+	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
 type WSGAPWlanGroup struct {

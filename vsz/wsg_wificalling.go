@@ -13,12 +13,12 @@ type WSGWIFICallingCreateWifiCallingPolicy struct {
 	// ePDG list of the Wi-Fi calling policy
 	// Constraints:
 	//    - required
-	Epdgs []*WSGWIFICallingEpdg `json:"epdgs" validate:"required,dive,required"`
+	Epdgs []*WSGWIFICallingEpdg `json:"epdgs" validate:"required,dive"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
@@ -56,9 +56,8 @@ type WSGWIFICallingModifyWifiCallingPolicy struct {
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
 	// Constraints:
-	//    - nullable
 	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
-	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
+	Priority *string `json:"priority,omitempty" validate:"oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 }
 
 type WSGWIFICallingPolicy struct {
@@ -105,9 +104,8 @@ type WSGWIFICallingPolicy struct {
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
 	// Constraints:
-	//    - nullable
 	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
-	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
+	Priority *string `json:"priority,omitempty" validate:"oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 
 	// TenantId
 	// Tenant Id

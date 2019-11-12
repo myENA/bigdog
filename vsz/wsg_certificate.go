@@ -42,7 +42,9 @@ type WSGCertificate struct {
 
 	// IntermediateData
 	// Intermediate data of the certificate
-	IntermediateData []string `json:"intermediateData,omitempty"`
+	// Constraints:
+	//    - nullable
+	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -144,7 +146,9 @@ type WSGCertificateClientCert struct {
 
 	// IntermediateData
 	// Intermediate data of the client certificate
-	IntermediateData []string `json:"intermediateData,omitempty"`
+	// Constraints:
+	//    - nullable
+	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -194,12 +198,14 @@ type WSGCertificateCreateCert struct {
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
-	IntermediateData []string `json:"intermediateData,omitempty"`
+	// Constraints:
+	//    - nullable
+	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Passphrase
 	// Key passphrase
@@ -225,12 +231,14 @@ type WSGCertificateCreateClientCert struct {
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
-	IntermediateData []string `json:"intermediateData,omitempty"`
+	// Constraints:
+	//    - nullable
+	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// PrivateKeyData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
@@ -272,7 +280,7 @@ type WSGCertificateCreateCSR struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Organization
 	// Organization of the certificates signing request
@@ -284,9 +292,8 @@ type WSGCertificateCreateCSR struct {
 	// OrganizationUnit
 	// Organization unit of the certificates signing request
 	// Constraints:
-	//    - nullable
 	//    - max:64
-	OrganizationUnit *string `json:"organizationUnit,omitempty" validate:"omitempty,max=64"`
+	OrganizationUnit *string `json:"organizationUnit,omitempty" validate:"max=64"`
 
 	// State
 	// State of the certificates signing request
@@ -301,12 +308,14 @@ type WSGCertificateCreateTrustedCAChain struct {
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
-	InterCertData []string `json:"interCertData,omitempty"`
+	// Constraints:
+	//    - nullable
+	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
@@ -348,7 +357,9 @@ type WSGCertificateModifyTrustedCAChain struct {
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
-	InterCertData []string `json:"interCertData,omitempty"`
+	// Constraints:
+	//    - nullable
+	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -379,7 +390,9 @@ type WSGCertificateTrustedCAChain struct {
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
-	InterCertData []string `json:"interCertData,omitempty"`
+	// Constraints:
+	//    - nullable
+	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -411,7 +424,9 @@ type WSGCertificateTrustedCAChainCertListType struct {
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
-	InterCertData []string `json:"interCertData,omitempty"`
+	// Constraints:
+	//    - nullable
+	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
 
 	ModifiedDateTime *WSGCommonNormalNameAllowBlank `json:"modifiedDateTime,omitempty"`
 
@@ -569,7 +584,9 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, qIndex string, qListSize string) (*WSGCertificateList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -601,7 +618,9 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, qIndex string, qListSize string) (*WSGCertificateClientCertList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -633,7 +652,9 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, qIndex string, qListSize string) (*WSGCertificateCsrList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -677,7 +698,9 @@ func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context) (*WSGC
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Context, qIndex string, qListSize string) (*WSGCertificateTrustedCAChainCertList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

@@ -102,8 +102,11 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx conte
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx context.Context, qDomainId string, qIndex string, qListSize string) (*WSGURLFilteringPolicyList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

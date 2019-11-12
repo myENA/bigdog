@@ -37,7 +37,7 @@ type WSGWLANSchedulerCreateWlanScheduler struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Sat
 	// Schedules on Saturday
@@ -211,7 +211,9 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*WSGWLANSchedulerWlanScheduleList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

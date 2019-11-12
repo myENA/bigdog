@@ -397,8 +397,11 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesVenueProfileById(ctx cont
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGRuckusWirelessAPZoneService) FindRkszones(ctx context.Context, qDomainId string, qIndex string, qListSize string) (*WSGZoneList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

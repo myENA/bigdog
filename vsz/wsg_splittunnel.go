@@ -8,13 +8,13 @@ type WSGSplitTunnelCreateSplitTunnelProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Rules
 	// Destination rule of split tunnel profile
 	// Constraints:
 	//    - required
-	Rules []*WSGSplitTunnelIpMaskRule `json:"rules" validate:"required,dive,required"`
+	Rules []*WSGSplitTunnelIpMaskRule `json:"rules" validate:"required,dive"`
 }
 
 type WSGSplitTunnelModifySplitTunnelProfile struct {

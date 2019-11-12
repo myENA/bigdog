@@ -30,12 +30,12 @@ type WSGZoneApLogin struct {
 	// ApLoginName
 	// Constraints:
 	//    - required
-	ApLoginName *WSGCommonApLoginName `json:"apLoginName" validate:"required"`
+	ApLoginName *WSGCommonApLoginName `json:"apLoginName" validate:"required,max=64"`
 
 	// ApLoginPassword
 	// Constraints:
 	//    - required
-	ApLoginPassword *WSGCommonApLoginPassword `json:"apLoginPassword" validate:"required"`
+	ApLoginPassword *WSGCommonApLoginPassword `json:"apLoginPassword" validate:"required,max=64"`
 }
 
 type WSGZoneApSnmpOptions struct {
@@ -70,9 +70,8 @@ type WSGZoneAvailableTunnelProfile struct {
 	// TunnelType
 	// Tunnel Profile Type ("RuckusGRE", "SoftGRE",or "Ipsec")
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RuckusGRE,SoftGRE,Ipsec]
-	TunnelType *string `json:"tunnelType,omitempty" validate:"omitempty,oneof=RuckusGRE SoftGRE Ipsec"`
+	TunnelType *string `json:"tunnelType,omitempty" validate:"oneof=RuckusGRE SoftGRE Ipsec"`
 }
 
 type WSGZoneAvailableTunnelProfileList struct {
@@ -89,30 +88,27 @@ type WSGZoneBackgroundScanning struct {
 	// FrequencyInSec
 	// Frequency in second
 	// Constraints:
-	//    - nullable
 	//    - default:20
 	//    - min:1
 	//    - max:65535
-	FrequencyInSec *int `json:"frequencyInSec,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	FrequencyInSec *int `json:"frequencyInSec,omitempty" validate:"gte=1,lte=65535"`
 }
 
 type WSGZoneBandBalancing struct {
 	// Mode
 	// Band Balancing Mode: BASIC-Withholds probe and authentication responses at connetcion time in heavily loaded band to balance clients to the other band, PROACTIVE-Uses BASIC functionality and actively rebalances clients via 802.11v BTM, STRICT-Uses PROACTIVE functionality and forcefully rebalances clients via 802.11v BTM
 	// Constraints:
-	//    - nullable
 	//    - default:'BASIC'
 	//    - oneof:[BASIC,PROACTIVE,STRICT]
-	Mode *string `json:"mode,omitempty" validate:"omitempty,oneof=BASIC PROACTIVE STRICT"`
+	Mode *string `json:"mode,omitempty" validate:"oneof=BASIC PROACTIVE STRICT"`
 
 	// Wifi24Percentage
 	// Percentage of client load on 2.4GHz radio band
 	// Constraints:
-	//    - nullable
 	//    - default:25
 	//    - min:0
 	//    - max:100
-	Wifi24Percentage *int `json:"wifi24Percentage,omitempty" validate:"omitempty,gte=0,lte=100"`
+	Wifi24Percentage *int `json:"wifi24Percentage,omitempty" validate:"gte=0,lte=100"`
 }
 
 type WSGZoneBonjourGatewayPolicyConfiguration struct {
@@ -226,10 +222,9 @@ type WSGZoneClientLoadBalancing struct {
 	// AdjacentRadioThreshold
 	// Adjacent radio threshold
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:100
-	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty" validate:"omitempty,gte=1,lte=100"`
+	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty" validate:"gte=1,lte=100"`
 }
 
 type WSGZoneCreateBonjourGatewayPolicy struct {
@@ -242,7 +237,7 @@ type WSGZoneCreateBonjourGatewayPolicy struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 }
 
 type WSGZoneCreateDiffServProfile struct {
@@ -253,7 +248,7 @@ type WSGZoneCreateDiffServProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// PreservedList
 	// Preserved list
@@ -310,11 +305,10 @@ type WSGZoneCreateZone struct {
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -396,9 +390,8 @@ type WSGZoneCreateZone struct {
 
 	// IpsecTunnelMode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DISABLE,SOFT_GRE,RUCKUS_GRE]
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -408,10 +401,9 @@ type WSGZoneCreateZone struct {
 
 	// LoadBalancingMethod
 	// Constraints:
-	//    - nullable
 	//    - default:'BASED_ON_CLIENT_COUNT'
 	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -435,7 +427,7 @@ type WSGZoneCreateZone struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	NodeAffinityProfile *WSGCommonGenericRef `json:"nodeAffinityProfile,omitempty"`
 
@@ -471,10 +463,9 @@ type WSGZoneCreateZone struct {
 
 	// SshTunnelEncryption
 	// Constraints:
-	//    - nullable
 	//    - default:'AES128'
 	//    - oneof:[AES128,AES256]
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *WSGZoneSyslog `json:"syslog,omitempty"`
 
@@ -622,10 +613,9 @@ type WSGZoneMeshConfiguration struct {
 	// MeshRadioIdx
 	// Mesh radio index
 	// Constraints:
-	//    - nullable
 	//    - default:'Radio5G'
 	//    - oneof:[Radio24G,Radio5G]
-	MeshRadioIdx *string `json:"meshRadioIdx,omitempty" validate:"omitempty,oneof=Radio24G Radio5G"`
+	MeshRadioIdx *string `json:"meshRadioIdx,omitempty" validate:"oneof=Radio24G Radio5G"`
 
 	// Passphrase
 	// Passphrase for the mesh network
@@ -662,7 +652,7 @@ type WSGZoneModifyDiffServProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// PreservedList
 	// Preserved list
@@ -721,11 +711,10 @@ type WSGZoneModifyZone struct {
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -807,9 +796,8 @@ type WSGZoneModifyZone struct {
 
 	// IpsecTunnelMode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DISABLE,SOFT_GRE,RUCKUS_GRE]
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -819,10 +807,9 @@ type WSGZoneModifyZone struct {
 
 	// LoadBalancingMethod
 	// Constraints:
-	//    - nullable
 	//    - default:'BASED_ON_CLIENT_COUNT'
 	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -876,9 +863,8 @@ type WSGZoneModifyZone struct {
 
 	// SshTunnelEncryption
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AES128,AES256]
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *WSGZoneSyslog `json:"syslog,omitempty"`
 
@@ -935,9 +921,8 @@ type WSGZoneQueryCriteria struct {
 	// Limit
 	// Size of one page
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
+	Limit *int `json:"limit,omitempty" validate:"gte=1"`
 
 	// Options
 	// Specified feature required information
@@ -946,9 +931,8 @@ type WSGZoneQueryCriteria struct {
 	// Page
 	// Page number to get
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
+	Page *int `json:"page,omitempty" validate:"gte=1"`
 
 	// Query
 	// Add backward compatibility for UI framework
@@ -962,7 +946,9 @@ type WSGZoneQueryCriteria struct {
 type WSGZoneRogue struct {
 	// MaliciousTypes
 	// Malicious type when reportType is Malicious
-	MaliciousTypes []string `json:"maliciousTypes,omitempty"`
+	// Constraints:
+	//    - nullable
+	MaliciousTypes []string `json:"maliciousTypes,omitempty" validate:"omitempty,dive"`
 
 	// ProtectionEnabled
 	// Protection enabled
@@ -971,25 +957,22 @@ type WSGZoneRogue struct {
 	// ReportType
 	// Report type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[All,Malicious]
-	ReportType *string `json:"reportType,omitempty" validate:"omitempty,oneof=All Malicious"`
+	ReportType *string `json:"reportType,omitempty" validate:"oneof=All Malicious"`
 }
 
 type WSGZoneSnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
 	// Constraints:
-	//    - nullable
 	//    - min:8
-	AuthPassword *string `json:"authPassword,omitempty" validate:"omitempty,min=8"`
+	AuthPassword *string `json:"authPassword,omitempty" validate:"min=8"`
 
 	// AuthProtocol
 	// authProtocol of the SNMP User.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NONE,MD5,SHA]
-	AuthProtocol *string `json:"authProtocol,omitempty" validate:"omitempty,oneof=NONE MD5 SHA"`
+	AuthProtocol *string `json:"authProtocol,omitempty" validate:"oneof=NONE MD5 SHA"`
 
 	// NotificationEnabled
 	// notification privilege of the SNMP User
@@ -1002,23 +985,20 @@ type WSGZoneSnmpUser struct {
 	// NotificationType
 	// type of the notification privilege
 	// Constraints:
-	//    - nullable
 	//    - oneof:[TRAP,INFORM]
-	NotificationType *string `json:"notificationType,omitempty" validate:"omitempty,oneof=TRAP INFORM"`
+	NotificationType *string `json:"notificationType,omitempty" validate:"oneof=TRAP INFORM"`
 
 	// PrivPassword
 	// privPassword of the SNMP User.
 	// Constraints:
-	//    - nullable
 	//    - min:8
-	PrivPassword *string `json:"privPassword,omitempty" validate:"omitempty,min=8"`
+	PrivPassword *string `json:"privPassword,omitempty" validate:"min=8"`
 
 	// PrivProtocol
 	// privProtocol of the SNMP User.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NONE,DES,AES]
-	PrivProtocol *string `json:"privProtocol,omitempty" validate:"omitempty,oneof=NONE DES AES"`
+	PrivProtocol *string `json:"privProtocol,omitempty" validate:"oneof=NONE DES AES"`
 
 	// ReadEnabled
 	// read privilege of the SNMP User
@@ -1049,62 +1029,55 @@ type WSGZoneSyslog struct {
 	// Facility
 	// Facility of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'Keep_Original'
 	//    - oneof:[Keep_Original,Local0,Local1,Local2,Local3,Local4,Local5,Local6,Local7]
-	Facility *string `json:"facility,omitempty" validate:"omitempty,oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
+	Facility *string `json:"facility,omitempty" validate:"oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
 
 	// FlowLevel
 	// Flow Level of the syslog
 	// Constraints:
-	//    - nullable
 	//    - default:'GENERAL_LOGS'
 	//    - oneof:[GENERAL_LOGS,CLIENT_FLOW,ALL]
-	FlowLevel *string `json:"flowLevel,omitempty" validate:"omitempty,oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
+	FlowLevel *string `json:"flowLevel,omitempty" validate:"oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
 
 	// Port
 	// Port number of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:514
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
 	// Priority
 	// Priority of the log messages
 	// Constraints:
-	//    - nullable
 	//    - default:'Error'
 	//    - oneof:[Emergency,Alert,Critical,Error,Warning,Notice,Info,All]
-	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=Emergency Alert Critical Error Warning Notice Info All"`
+	Priority *string `json:"priority,omitempty" validate:"oneof=Emergency Alert Critical Error Warning Notice Info All"`
 
 	// Protocol
 	// Protocol of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'IPPROTO_TCP'
 	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 
 	SecondaryAddress *WSGCommonIpAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:514
 	//    - min:1
 	//    - max:65535
-	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"gte=1,lte=65535"`
 
 	// SecondaryProtocol
 	// Secondary Server Protocol of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'IPPROTO_TCP'
 	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
-	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
+	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
 type WSGZoneTimezoneSetting struct {
@@ -1185,11 +1158,10 @@ type WSGZoneConfiguration struct {
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the zone
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	// ChannelModeEnabled
 	// Channel mode configuration of the zone.
@@ -1277,9 +1249,8 @@ type WSGZoneConfiguration struct {
 
 	// IpsecTunnelMode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DISABLE,SOFT_GRE,RUCKUS_GRE]
-	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"omitempty,oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
+	IpsecTunnelMode *string `json:"ipsecTunnelMode,omitempty" validate:"oneof=DISABLE SOFT_GRE RUCKUS_GRE"`
 
 	// Ipv6TrafficFilterEnabled
 	// IPv6 Traffic filtering on the AP
@@ -1289,10 +1260,9 @@ type WSGZoneConfiguration struct {
 
 	// LoadBalancingMethod
 	// Constraints:
-	//    - nullable
 	//    - default:'BASED_ON_CLIENT_COUNT'
 	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"omitempty,oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -1346,9 +1316,8 @@ type WSGZoneConfiguration struct {
 
 	// SshTunnelEncryption
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AES128,AES256]
-	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"omitempty,oneof=AES128 AES256"`
+	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty" validate:"oneof=AES128 AES256"`
 
 	Syslog *WSGZoneSyslog `json:"syslog,omitempty"`
 

@@ -82,6 +82,7 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 // - qTargetIP string
 //		- required
 // - qTimeoutInSec string
+//		- nullable
 func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, qApMac string, qTargetIP string, qTimeoutInSec string) error {
 	if ctx == nil {
 		return errors.New("ctx cannot be empty")

@@ -45,11 +45,10 @@ type WSGAPGroupConfiguration struct {
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -166,11 +165,10 @@ type WSGAPGroupCreateAPGroup struct {
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -247,11 +245,10 @@ type WSGAPGroupModifyAPGroup struct {
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"gte=60,lte=3600"`
 
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
@@ -1090,7 +1087,9 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, pId st
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*WSGAPGroupList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

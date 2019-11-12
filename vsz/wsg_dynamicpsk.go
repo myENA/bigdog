@@ -105,6 +105,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 //
 // Query Parameters:
 // - qType string
+//		- nullable
 func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Context, qType string) (json.RawMessage, error) {
 	if ctx == nil {
 		return errors.New("ctx cannot be empty")

@@ -88,7 +88,9 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, pI
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*WSGPortalServiceList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

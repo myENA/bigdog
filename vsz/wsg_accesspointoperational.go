@@ -150,13 +150,21 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 //
 // Query Parameters:
 // - qCategory string
+//		- nullable
 // - qCode float64
+//		- nullable
 // - qEndTime string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qSeverity string
+//		- nullable
 // - qStartTime string
+//		- nullable
 // - qStatus string
+//		- nullable
 func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmsByApMac(ctx context.Context, pApMac string, qCategory string, qCode float64, qEndTime string, qIndex string, qListSize string, qSeverity string, qStartTime string, qStatus string) (*WSGAPAlarmList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -208,7 +216,9 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalEventSummaryByApMac
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx context.Context, pApMac string, qIndex string, qListSize string) (*WSGAPNeighborAPList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

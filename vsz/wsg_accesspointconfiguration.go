@@ -700,9 +700,13 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx con
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qZoneId string
+//		- nullable
 func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, qDomainId string, qIndex string, qListSize string, qZoneId string) (*WSGAPListEntry, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

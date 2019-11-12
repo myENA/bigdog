@@ -88,7 +88,9 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx 
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*WSGEthernetPortProfileList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

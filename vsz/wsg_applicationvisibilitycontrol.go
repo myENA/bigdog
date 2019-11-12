@@ -333,6 +333,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 //
 // Query Parameters:
 // - qAppName string
+//		- nullable
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applications(ctx context.Context, qAppName string) (*WSGAVCApplicationList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -348,6 +349,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 //
 // Query Parameters:
 // - qCatName string
+//		- nullable
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Categories(ctx context.Context, qCatName string) (*WSGAVCAppCategoryList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

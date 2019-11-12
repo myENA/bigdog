@@ -29,7 +29,9 @@ func (ss *WSGService) WSGSyslogServerService() *WSGSyslogServerService {
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, qIndex string, qListSize string) (*WSGSyslogServerSetting, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

@@ -118,9 +118,8 @@ type WSGAVCApplicationRule struct {
 	// ApplicationType
 	// Type of the application when ruleType
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SIGNATURE,USER_DEFINED]
-	ApplicationType *string `json:"applicationType,omitempty" validate:"omitempty,oneof=SIGNATURE USER_DEFINED"`
+	ApplicationType *string `json:"applicationType,omitempty" validate:"oneof=SIGNATURE USER_DEFINED"`
 
 	// AppName
 	// Name of the Application from Signature Package
@@ -137,9 +136,8 @@ type WSGAVCApplicationRule struct {
 	// ClassificationType
 	// QoS downlink classification type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[VOICE,VIDEO,BEST_EFFORT,BACKGROUND]
-	ClassificationType *string `json:"classificationType,omitempty" validate:"omitempty,oneof=VOICE VIDEO BEST_EFFORT BACKGROUND"`
+	ClassificationType *string `json:"classificationType,omitempty" validate:"oneof=VOICE VIDEO BEST_EFFORT BACKGROUND"`
 
 	// Downlink
 	// Downlink rate limiting (unit: Kbps)
@@ -148,25 +146,22 @@ type WSGAVCApplicationRule struct {
 	// MarkingPriority
 	// QoS uplink marking priority
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IEEE802_1p,DSCP,BOTH]
-	MarkingPriority *string `json:"markingPriority,omitempty" validate:"omitempty,oneof=IEEE802_1p DSCP BOTH"`
+	MarkingPriority *string `json:"markingPriority,omitempty" validate:"oneof=IEEE802_1p DSCP BOTH"`
 
 	// MarkingType
 	// QoS uplink marking type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[VOICE,VIDEO,BEST_EFFORT,BACKGROUND]
-	MarkingType *string `json:"markingType,omitempty" validate:"omitempty,oneof=VOICE VIDEO BEST_EFFORT BACKGROUND"`
+	MarkingType *string `json:"markingType,omitempty" validate:"oneof=VOICE VIDEO BEST_EFFORT BACKGROUND"`
 
 	Priority *int `json:"priority,omitempty"`
 
 	// RuleType
 	// Type of the application rule
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DENY,QOS,RATE_LIMITING]
-	RuleType *string `json:"ruleType,omitempty" validate:"omitempty,oneof=DENY QOS RATE_LIMITING"`
+	RuleType *string `json:"ruleType,omitempty" validate:"oneof=DENY QOS RATE_LIMITING"`
 
 	// Uplink
 	// Uplink rate limiting (unit: Kbps)
@@ -177,7 +172,7 @@ type WSGAVCCreateApplicationPolicyProfile struct {
 	// ApplicationRules
 	// Constraints:
 	//    - required
-	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules" validate:"required,dive,required"`
+	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules" validate:"required,dive"`
 
 	// AvcEventEnable
 	// Send ARC logs from AP to SmartZone
@@ -196,7 +191,7 @@ type WSGAVCCreateApplicationPolicyProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 }
 
 type WSGAVCCreateUserDefinedProfile struct {
@@ -217,7 +212,7 @@ type WSGAVCCreateUserDefinedProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	Netmask *WSGCommonSubNetMask `json:"netmask,omitempty"`
 
@@ -262,10 +257,9 @@ type WSGAVCModifyUserDefinedProfile struct {
 	// DestPort
 	// Destination Port of User Defined Profile
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:65535
-	DestPort *int `json:"destPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	DestPort *int `json:"destPort,omitempty" validate:"gte=1,lte=65535"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -274,16 +268,14 @@ type WSGAVCModifyUserDefinedProfile struct {
 	// Protocol
 	// Protocol of User Defined Profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[TCP,UDP]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=TCP UDP"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP"`
 
 	// Type
 	// Type of the User Defined Profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IP_WITH_PORT,PORT_ONLY]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_WITH_PORT PORT_ONLY"`
+	Type *string `json:"type,omitempty" validate:"oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
 type WSGAVCSignaturePackage struct {
@@ -326,10 +318,9 @@ type WSGAVCUserDefinedProfile struct {
 	// DestPort
 	// Destination Port of User Defined Profile
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:65535
-	DestPort *int `json:"destPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	DestPort *int `json:"destPort,omitempty" validate:"gte=1,lte=65535"`
 
 	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the User Defined Profile belongs
@@ -358,9 +349,8 @@ type WSGAVCUserDefinedProfile struct {
 	// Protocol
 	// Protocol of User Defined Profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[TCP,UDP]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=TCP UDP"`
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP"`
 
 	// TenantId
 	// Tenant Id
@@ -369,9 +359,8 @@ type WSGAVCUserDefinedProfile struct {
 	// Type
 	// Type of the User Defined Profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IP_WITH_PORT,PORT_ONLY]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_WITH_PORT PORT_ONLY"`
+	Type *string `json:"type,omitempty" validate:"oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
 type WSGAVCUserDefinedProfileList struct {

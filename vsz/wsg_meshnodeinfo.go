@@ -122,7 +122,6 @@ type WSGMeshNodeInfoUpdateAPZeroTouch struct {
 
 	// Status
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Accept,Reject]
-	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Accept Reject"`
+	Status *string `json:"status,omitempty" validate:"oneof=Accept Reject"`
 }

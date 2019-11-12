@@ -79,9 +79,8 @@ type WSGSystemAuthenticationKey struct {
 	// KeyType
 	// Authentication Key Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SHA1,MD5]
-	KeyType *string `json:"keyType,omitempty" validate:"omitempty,oneof=SHA1 MD5"`
+	KeyType *string `json:"keyType,omitempty" validate:"oneof=SHA1 MD5"`
 }
 
 type WSGSystemCaptchaSetting struct {
@@ -178,9 +177,8 @@ type WSGSystemControlPlaneConfiguration struct {
 	// IpMode
 	// IP support version
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IPV4,IPV4_IPV6]
-	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=IPV4 IPV4_IPV6"`
+	IpMode *string `json:"ipMode,omitempty" validate:"oneof=IPV4 IPV4_IPV6"`
 
 	Ipv4AccessAndCoreSeparation *WSGSystemIpv4AccessAndCoreSeparation `json:"ipv4AccessAndCoreSeparation,omitempty"`
 
@@ -267,10 +265,9 @@ type WSGSystemCpStaticRoute struct {
 	// Metric
 	// Metric
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:999
-	Metric *int `json:"metric,omitempty" validate:"omitempty,gte=0,lte=999"`
+	Metric *int `json:"metric,omitempty" validate:"gte=0,lte=999"`
 
 	// NetworkAddress
 	// Network Address
@@ -297,16 +294,14 @@ type WSGSystemCpUserDefinedInterface struct {
 	// PhysicalInterface
 	// Physical interface
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Control,Management,Cluster]
-	PhysicalInterface *string `json:"physicalInterface,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
+	PhysicalInterface *string `json:"physicalInterface,omitempty" validate:"oneof=Control Management Cluster"`
 
 	// Service
 	// Service
 	// Constraints:
-	//    - nullable
 	//    - oneof:[NotSpecified,Hotspot]
-	Service *string `json:"service,omitempty" validate:"omitempty,oneof=NotSpecified Hotspot"`
+	Service *string `json:"service,omitempty" validate:"oneof=NotSpecified Hotspot"`
 
 	// SubnetMask
 	// Subnet Mask
@@ -320,9 +315,8 @@ type WSGSystemCpUserDefinedInterface struct {
 type WSGSystemDataPlaneConfiguration struct {
 	// InterfaceMode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SINGLE,ACCESS_AND_CORE]
-	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"omitempty,oneof=SINGLE ACCESS_AND_CORE"`
+	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"oneof=SINGLE ACCESS_AND_CORE"`
 
 	Ipv6PrimaryInterface *WSGSystemIpv6PrimaryInterface `json:"ipv6PrimaryInterface,omitempty"`
 
@@ -461,17 +455,15 @@ type WSGSystemFtp struct {
 	// FtpPort
 	// Port used by FTP
 	// Constraints:
-	//    - nullable
 	//    - min:21
 	//    - max:65535
-	FtpPort *int `json:"ftpPort,omitempty" validate:"omitempty,gte=21,lte=65535"`
+	FtpPort *int `json:"ftpPort,omitempty" validate:"gte=21,lte=65535"`
 
 	// FtpProtocol
 	// Protocol used
 	// Constraints:
-	//    - nullable
 	//    - oneof:[FTP,SFTP]
-	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"omitempty,oneof=FTP SFTP"`
+	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"oneof=FTP SFTP"`
 
 	// FtpRemoteDirectory
 	// Destination directory used for file upload
@@ -510,9 +502,8 @@ type WSGSystemFtpGlobalSetting struct {
 	// FtpInterval
 	// ftpInterval
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Hourly]
-	FtpInterval *string `json:"ftpInterval,omitempty" validate:"omitempty,oneof=Hourly"`
+	FtpInterval *string `json:"ftpInterval,omitempty" validate:"oneof=Hourly"`
 }
 
 type WSGSystemFtpList struct {
@@ -563,17 +554,15 @@ type WSGSystemGatewayAdvanced struct {
 	// GtpInterfaceType
 	// GTPv2 interface type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[S2A,S5_S8]
-	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"omitempty,oneof=S2A S5_S8"`
+	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"oneof=S2A S5_S8"`
 
 	// GtpNetworkServiceAcessPointIdentifier
 	// GTP network service access point identifier (NSAPI)
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:5
-	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"omitempty,gte=0,lte=5"`
+	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"gte=0,lte=5"`
 
 	// ImeiInGtp
 	// Include IMEI IE in GTP messages
@@ -664,9 +653,8 @@ type WSGSystemIpv4AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Control,Management,Cluster]
-	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
+	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"oneof=Control Management Cluster"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -689,9 +677,8 @@ type WSGSystemIpv4ClusterInterface struct {
 	// IpMode
 	// IP mode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,DHCP]
-	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
+	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
 
 	// SubnetMask
 	// Subnet mask
@@ -710,9 +697,8 @@ type WSGSystemIpv4ControlInterface struct {
 	// IpMode
 	// IP mode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,DHCP]
-	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
+	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
 
 	// NatIp
 	// NAT IP
@@ -735,9 +721,8 @@ type WSGSystemIpv4ManagementInterface struct {
 	// IpMode
 	// IP mode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,DHCP]
-	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC DHCP"`
+	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC DHCP"`
 
 	// SubnetMask
 	// Subnet mask
@@ -748,9 +733,8 @@ type WSGSystemIpv6AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Control,Management,Cluster]
-	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"omitempty,oneof=Control Management Cluster"`
+	DefaultGateway *string `json:"defaultGateway,omitempty" validate:"oneof=Control Management Cluster"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -773,9 +757,8 @@ type WSGSystemIpv6ControlInterface struct {
 	// IpMode
 	// IP mode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,AUTO]
-	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC AUTO"`
+	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC AUTO"`
 }
 
 type WSGSystemIpv6ManagementInterface struct {
@@ -790,9 +773,8 @@ type WSGSystemIpv6ManagementInterface struct {
 	// IpMode
 	// IP mode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,AUTO]
-	IpMode *string `json:"ipMode,omitempty" validate:"omitempty,oneof=STATIC AUTO"`
+	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC AUTO"`
 }
 
 type WSGSystemIpv6PrimaryInterface struct {
@@ -840,25 +822,22 @@ type WSGSystemLwapp2scgConfiguration struct {
 	// PasvMaxPort
 	// pasvMaxPort of the lwapp
 	// Constraints:
-	//    - nullable
 	//    - min:16384
 	//    - max:65000
-	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
+	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"gte=16384,lte=65000"`
 
 	// PasvMinPort
 	// pasvMinPort of the lwapp
 	// Constraints:
-	//    - nullable
 	//    - min:16384
 	//    - max:65000
-	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
+	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"gte=16384,lte=65000"`
 
 	// Policy
 	// policy of the lwapp
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DENY,ACCEPT,DENY_ALL,ACCEPT_ALL]
-	Policy *string `json:"policy,omitempty" validate:"omitempty,oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
+	Policy *string `json:"policy,omitempty" validate:"oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
 type WSGSystemModifyControlPlane struct {
@@ -926,17 +905,15 @@ type WSGSystemModifyGatewayAdvanced struct {
 	// GtpInterfaceType
 	// GTPv2 interface type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[S2A,S5_S8]
-	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"omitempty,oneof=S2A S5_S8"`
+	GtpInterfaceType *string `json:"gtpInterfaceType,omitempty" validate:"oneof=S2A S5_S8"`
 
 	// GtpNetworkServiceAcessPointIdentifier
 	// GTP network service access point identifier (NSAPI)
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:5
-	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"omitempty,gte=0,lte=5"`
+	GtpNetworkServiceAcessPointIdentifier *int `json:"gtpNetworkServiceAcessPointIdentifier,omitempty" validate:"gte=0,lte=5"`
 
 	// ImeiInGtp
 	// Include IMEI IE in GTP messages
@@ -976,25 +953,22 @@ type WSGSystemModifyLwapp2scg struct {
 	// PasvMaxPort
 	// pasvMaxPort of the lwapp
 	// Constraints:
-	//    - nullable
 	//    - min:16384
 	//    - max:65000
-	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
+	PasvMaxPort *int `json:"pasvMaxPort,omitempty" validate:"gte=16384,lte=65000"`
 
 	// PasvMinPort
 	// pasvMinPort of the lwapp
 	// Constraints:
-	//    - nullable
 	//    - min:16384
 	//    - max:65000
-	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"omitempty,gte=16384,lte=65000"`
+	PasvMinPort *int `json:"pasvMinPort,omitempty" validate:"gte=16384,lte=65000"`
 
 	// Policy
 	// policy of the lwapp
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DENY,ACCEPT,DENY_ALL,ACCEPT_ALL]
-	Policy *string `json:"policy,omitempty" validate:"omitempty,oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
+	Policy *string `json:"policy,omitempty" validate:"oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
 type WSGSystemModifySnmpAgent struct {
@@ -1031,9 +1005,8 @@ type WSGSystemNorthboundInterface struct {
 	// RadiusAuthType
 	// AuthType of the Radius used in Northbound Interface, the value should be "PAP" or "CHAP".
 	// Constraints:
-	//    - nullable
 	//    - oneof:[PAP,CHAP]
-	RadiusAuthType *string `json:"radiusAuthType,omitempty" validate:"omitempty,oneof=PAP CHAP"`
+	RadiusAuthType *string `json:"radiusAuthType,omitempty" validate:"oneof=PAP CHAP"`
 
 	UserName *WSGCommonApLoginName `json:"userName,omitempty"`
 }
@@ -1233,14 +1206,15 @@ type WSGSystemSms struct {
 
 	// DomainId
 	// Domain Id
-	DomainId *string `json:"domainId,omitempty"`
+	// Constraints:
+	//    - nullable
+	DomainId *string `json:"domainId,omitempty" validate:"omitempty"`
 
 	// Enabled
 	// Enabled SMS server or not
 	// Constraints:
-	//    - nullable
 	//    - oneof:[0,1]
-	Enabled *int `json:"enabled,omitempty" validate:"omitempty,oneof=0 1"`
+	Enabled *int `json:"enabled,omitempty" validate:"oneof=0 1"`
 
 	// From
 	// From
@@ -1257,9 +1231,8 @@ type WSGSystemSms struct {
 	// ServerType
 	// Server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Twilio]
-	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=Twilio"`
+	ServerType *string `json:"serverType,omitempty" validate:"oneof=Twilio"`
 }
 
 type WSGSystemSmsList struct {
@@ -1497,6 +1470,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, qDomainId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -1528,7 +1502,9 @@ func (s *WSGSystemService) FindController(ctx context.Context) (*WSGSystemContro
 //
 // Query Parameters:
 // - qInterval string
+//		- nullable
 // - qSize float64
+//		- nullable
 func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, pId string, qInterval string, qSize float64) (WSGSystemStatisticList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -1647,7 +1623,9 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context) (*WSGS
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGSystemService) FindSystemInventory(ctx context.Context, qIndex string, qListSize string) (*WSGSystemInventoryList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -1663,6 +1641,7 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, qIndex strin
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 func (s *WSGSystemService) FindSystemNbi(ctx context.Context, qDomainId string) (*WSGSystemNorthboundInterface, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -1738,6 +1717,7 @@ func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Contex
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSGSystemNorthboundInterface, qDomainId string) error {
 	if ctx == nil {
 		return errors.New("ctx cannot be empty")

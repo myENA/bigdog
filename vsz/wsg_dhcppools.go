@@ -62,13 +62,25 @@ type WSGDHCPPoolsDhcpPoolInfoClientInfoListType struct {
 type WSGDHCPPools struct {
 	ApMac *string `json:"apMac,omitempty"`
 
-	DomainEntity *string `json:"domainEntity,omitempty"`
+	// DomainEntity
+	// Constraints:
+	//    - nullable
+	DomainEntity *string `json:"domainEntity,omitempty" validate:"omitempty"`
 
-	DomainId *string `json:"domainId,omitempty"`
+	// DomainId
+	// Constraints:
+	//    - nullable
+	DomainId *string `json:"domainId,omitempty" validate:"omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	// Id
+	// Constraints:
+	//    - nullable
+	Id *string `json:"id,omitempty" validate:"omitempty"`
 
 	PoolInfoList []*WSGDHCPPoolsDhcpPoolInfo `json:"poolInfoList,omitempty"`
 
-	TenantId *string `json:"tenantId,omitempty"`
+	// TenantId
+	// Constraints:
+	//    - nullable
+	TenantId *string `json:"tenantId,omitempty" validate:"omitempty"`
 }

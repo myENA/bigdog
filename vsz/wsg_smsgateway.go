@@ -29,6 +29,7 @@ func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
 //
 // Query Parameters:
 // - qDomainId string
+//		- nullable
 func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, qDomainId string) (*WSGSystemSms, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

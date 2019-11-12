@@ -107,7 +107,9 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identityproviders(ctx context.Context, qIndex string, qListSize string) (*WSGProfileHs20ProviderList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

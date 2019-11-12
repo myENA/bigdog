@@ -39,7 +39,7 @@ type WSGPortalServiceCreateGuestAccess struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// PortalCustomization
 	// Constraints:
@@ -64,14 +64,13 @@ type WSGPortalServiceCreateHotspot20VenueProfile struct {
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Unspecified,Assembly,Business,Educational,FactoryAndIndustrial,Institutional,Mercantile,Residential,Storage,UtilityAndMiscellaneous,Vehicular,Outdoor]
-	Group *string `json:"group,omitempty" validate:"omitempty,oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
+	Group *string `json:"group,omitempty" validate:"oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Type
 	// Category type of the Hotspot 2.0 venue profile
@@ -82,7 +81,7 @@ type WSGPortalServiceCreateHotspot20VenueProfile struct {
 	// VenueNames
 	// Constraints:
 	//    - required
-	VenueNames []*WSGPortalServiceVenueName `json:"venueNames" validate:"required,dive,required"`
+	VenueNames []*WSGPortalServiceVenueName `json:"venueNames" validate:"required,dive"`
 }
 
 type WSGPortalServiceCreateHotspot20WlanProfile struct {
@@ -127,7 +126,7 @@ type WSGPortalServiceCreateHotspot20WlanProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Operator
 	// Constraints:
@@ -140,7 +139,9 @@ type WSGPortalServiceCreateHotspot20WlanProfile struct {
 type WSGPortalServiceCreateHotspotExternal struct {
 	// BackupPortalUrl
 	// Backup Portal URL of the Hotspot
-	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
+	// Constraints:
+	//    - nullable
+	BackupPortalUrl *string `json:"backupPortalUrl,omitempty" validate:"omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -157,12 +158,12 @@ type WSGPortalServiceCreateHotspotExternal struct {
 	// MacAddressFormat
 	// Constraints:
 	//    - required
-	MacAddressFormat *WSGPortalServiceMacAddressFormatSetting `json:"macAddressFormat" validate:"required"`
+	MacAddressFormat *WSGPortalServiceMacAddressFormatSetting `json:"macAddressFormat" validate:"required,gte=0,lte=5"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// PortalUrl
 	// Constraints:
@@ -205,12 +206,12 @@ type WSGPortalServiceCreateHotspotInternal struct {
 	// MacAddressFormat
 	// Constraints:
 	//    - required
-	MacAddressFormat *WSGPortalServiceMacAddressFormatSetting `json:"macAddressFormat" validate:"required"`
+	MacAddressFormat *WSGPortalServiceMacAddressFormatSetting `json:"macAddressFormat" validate:"required,gte=0,lte=5"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	Redirect *WSGPortalServicePortalRedirect `json:"redirect,omitempty"`
 
@@ -244,12 +245,12 @@ type WSGPortalServiceCreateHotspotSmartClientOnly struct {
 	// MacAddressFormat
 	// Constraints:
 	//    - required
-	MacAddressFormat *WSGPortalServiceMacAddressFormatSetting `json:"macAddressFormat" validate:"required"`
+	MacAddressFormat *WSGPortalServiceMacAddressFormatSetting `json:"macAddressFormat" validate:"required,gte=0,lte=5"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	Redirect *WSGPortalServicePortalRedirect `json:"redirect,omitempty"`
 
@@ -280,7 +281,7 @@ type WSGPortalServiceCreateL2ACL struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
@@ -298,7 +299,7 @@ type WSGPortalServiceCreateWebAuthentication struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	Redirect *WSGPortalServicePortalRedirect `json:"redirect,omitempty"`
 
@@ -333,22 +334,21 @@ type WSGPortalServiceCreateWechat struct {
 	// GracePeriod
 	// Grace period of the wechat profile
 	// Constraints:
-	//    - nullable
 	//    - default:60
 	//    - min:1
 	//    - max:14399
-	GracePeriod *int `json:"gracePeriod,omitempty" validate:"omitempty,gte=1,lte=14399"`
+	GracePeriod *int `json:"gracePeriod,omitempty" validate:"gte=1,lte=14399"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// WhiteList
 	// White list of the wechat profile
 	// Constraints:
 	//    - required
-	WhiteList []string `json:"whiteList" validate:"required,dive,required"`
+	WhiteList []string `json:"whiteList" validate:"required,dive"`
 }
 
 type WSGPortalServiceDefaultConnectionCapability struct {
@@ -386,18 +386,16 @@ type WSGPortalServiceDnatPortMapping struct {
 	// DestPort
 	// Destination port
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:65535
-	DestPort *int `json:"destPort,omitempty" validate:"omitempty,gte=0,lte=65535"`
+	DestPort *int `json:"destPort,omitempty" validate:"gte=0,lte=65535"`
 
 	// SourcePort
 	// Source port
 	// Constraints:
-	//    - nullable
 	//    - min:0
 	//    - max:65535
-	SourcePort *int `json:"sourcePort,omitempty" validate:"omitempty,gte=0,lte=65535"`
+	SourcePort *int `json:"sourcePort,omitempty" validate:"gte=0,lte=65535"`
 }
 
 type WSGPortalServiceGuestAccess struct {
@@ -423,7 +421,10 @@ type WSGPortalServiceGuestAccess struct {
 }
 
 type WSGPortalServiceHotspot struct {
-	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
+	// BackupPortalUrl
+	// Constraints:
+	//    - nullable
+	BackupPortalUrl *string `json:"backupPortalUrl,omitempty" validate:"omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -450,9 +451,8 @@ type WSGPortalServiceHotspot struct {
 	// PortalType
 	// Portal type of the Hotspot
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Internal,External]
-	PortalType *string `json:"portalType,omitempty" validate:"omitempty,oneof=Internal External"`
+	PortalType *string `json:"portalType,omitempty" validate:"oneof=Internal External"`
 
 	PortalUrl *WSGCommonNormalURL `json:"portalUrl,omitempty"`
 
@@ -469,9 +469,8 @@ type WSGPortalServiceHotspot struct {
 	// SmartClientSupport
 	// Smart client support of the Hotspot
 	// Constraints:
-	//    - nullable
 	//    - oneof:[None,Enabled,SmartClientOnly]
-	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"omitempty,oneof=None Enabled SmartClientOnly"`
+	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"oneof=None Enabled SmartClientOnly"`
 
 	// TrafficClassProfileId
 	// Traffic Class Profile of the Hotspot
@@ -496,9 +495,8 @@ type WSGPortalServiceHotspot20VeuneProfile struct {
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Unspecified,Assembly,Business,Educational,FactoryAndIndustrial,Institutional,Mercantile,Residential,Storage,UtilityAndMiscellaneous,Vehicular,Outdoor]
-	Group *string `json:"group,omitempty" validate:"omitempty,oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
+	Group *string `json:"group,omitempty" validate:"oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
 
 	// Id
 	// Identifier of the Hotspot 2.0 venue profile
@@ -523,9 +521,8 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[CHARGEABLE_PUBLIC,FREE_PUBLIC,PERSONAL_DEVICE,PRIVATE,PRIVATE_WITH_GUEST,TEST,WILDCARD]
-	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"omitempty,oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
+	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
 
 	// ConnectionCapabilities
 	// Default connection capabilities of the Hotspot 2.0 WLAN profile
@@ -554,16 +551,14 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 	// Ipv4AddressType
 	// IPv4 address type of the v WLAN profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[UNAVAILABLE,PUBLIC,PORT_RESTRICTED,SINGLE_NATED_PRIVATE,DOUBLE_NATED_PRIVATE,PORT_RESTRICTED_AND_SINGLE_NATED,PORT_RESTRICTED_AND_DOUBLE_NATED,UNKNOWN]
-	Ipv4AddressType *string `json:"ipv4AddressType,omitempty" validate:"omitempty,oneof=UNAVAILABLE PUBLIC PORT_RESTRICTED SINGLE_NATED_PRIVATE DOUBLE_NATED_PRIVATE PORT_RESTRICTED_AND_SINGLE_NATED PORT_RESTRICTED_AND_DOUBLE_NATED UNKNOWN"`
+	Ipv4AddressType *string `json:"ipv4AddressType,omitempty" validate:"oneof=UNAVAILABLE PUBLIC PORT_RESTRICTED SINGLE_NATED_PRIVATE DOUBLE_NATED_PRIVATE PORT_RESTRICTED_AND_SINGLE_NATED PORT_RESTRICTED_AND_DOUBLE_NATED UNKNOWN"`
 
 	// Ipv6AddressType
 	// IPv6 address type of the Hotspot 2.0 WLAN profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[UNAVAILABLE,AVAILABLE,UNKNOWN]
-	Ipv6AddressType *string `json:"ipv6AddressType,omitempty" validate:"omitempty,oneof=UNAVAILABLE AVAILABLE UNKNOWN"`
+	Ipv6AddressType *string `json:"ipv6AddressType,omitempty" validate:"oneof=UNAVAILABLE AVAILABLE UNKNOWN"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -588,9 +583,8 @@ type WSGPortalServiceL2ACL struct {
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ALLOW,BLOCK]
-	Restriction *string `json:"restriction,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
+	Restriction *string `json:"restriction,omitempty" validate:"oneof=ALLOW BLOCK"`
 
 	RuleMacs []WSGCommonMac `json:"ruleMacs,omitempty"`
 
@@ -603,7 +597,6 @@ type WSGPortalServiceL2ACL struct {
 //
 // Link Speed of the Hotspot 2.0 venue profile
 // Constraints:
-//    - nullable
 //    - min:0.000000
 //    - max:4294967295.000000
 type WSGPortalServiceLinkSpeedInKbps float64
@@ -612,7 +605,6 @@ type WSGPortalServiceLinkSpeedInKbps float64
 //
 // mac address format of redirection,the format define: 0(aabbccddeeff), 1(AA-BB-CC-DD-EE-FF), 2(AA:BB:CC:DD:EE:FF), 3(AABBCCDDEEFF), 4(aa-bb-cc-dd-ee-ff), 5(aa:bb:cc:dd:ee:ff)
 // Constraints:
-//    - nullable
 //    - default:2
 //    - min:0
 //    - max:5
@@ -633,7 +625,10 @@ type WSGPortalServiceModifyGuestAccess struct {
 }
 
 type WSGPortalServiceModifyHotspot struct {
-	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
+	// BackupPortalUrl
+	// Constraints:
+	//    - nullable
+	BackupPortalUrl *string `json:"backupPortalUrl,omitempty" validate:"omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -668,9 +663,8 @@ type WSGPortalServiceModifyHotspot struct {
 	// SmartClientSupport
 	// Smart client support of the Hotspot
 	// Constraints:
-	//    - nullable
 	//    - oneof:[None,Enabled]
-	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"omitempty,oneof=None Enabled"`
+	SmartClientSupport *string `json:"smartClientSupport,omitempty" validate:"oneof=None Enabled"`
 
 	// TrafficClassProfileId
 	// Traffic Class Profile of the Hotspot
@@ -691,9 +685,8 @@ type WSGPortalServiceModifyHotspot20VenueProfile struct {
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Unspecified,Assembly,Business,Educational,FactoryAndIndustrial,Institutional,Mercantile,Residential,Storage,UtilityAndMiscellaneous,Vehicular,Outdoor]
-	Group *string `json:"group,omitempty" validate:"omitempty,oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
+	Group *string `json:"group,omitempty" validate:"oneof=Unspecified Assembly Business Educational FactoryAndIndustrial Institutional Mercantile Residential Storage UtilityAndMiscellaneous Vehicular Outdoor"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -710,9 +703,8 @@ type WSGPortalServiceModifyHotspot20WlanProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[CHARGEABLE_PUBLIC,FREE_PUBLIC,PERSONAL_DEVICE,PRIVATE,PRIVATE_WITH_GUEST,TEST,WILDCARD]
-	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"omitempty,oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
+	AccessNetworkType *string `json:"accessNetworkType,omitempty" validate:"oneof=CHARGEABLE_PUBLIC FREE_PUBLIC PERSONAL_DEVICE PRIVATE PRIVATE_WITH_GUEST TEST WILDCARD"`
 
 	// ConnectionCapabilities
 	// Default connection capabilities of the Hotspot 2.0 WLAN profile
@@ -737,16 +729,14 @@ type WSGPortalServiceModifyHotspot20WlanProfile struct {
 	// Ipv4AddressType
 	// IPv4 address type of the Hotspot 2.0 Wlan profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[UNAVAILABLE,PUBLIC,PORT_RESTRICTED,SINGLE_NATED_PRIVATE,DOUBLE_NATED_PRIVATE,PORT_RESTRICTED_AND_SINGLE_NATED,PORT_RESTRICTED_AND_DOUBLE_NATED,UNKNOWN]
-	Ipv4AddressType *string `json:"ipv4AddressType,omitempty" validate:"omitempty,oneof=UNAVAILABLE PUBLIC PORT_RESTRICTED SINGLE_NATED_PRIVATE DOUBLE_NATED_PRIVATE PORT_RESTRICTED_AND_SINGLE_NATED PORT_RESTRICTED_AND_DOUBLE_NATED UNKNOWN"`
+	Ipv4AddressType *string `json:"ipv4AddressType,omitempty" validate:"oneof=UNAVAILABLE PUBLIC PORT_RESTRICTED SINGLE_NATED_PRIVATE DOUBLE_NATED_PRIVATE PORT_RESTRICTED_AND_SINGLE_NATED PORT_RESTRICTED_AND_DOUBLE_NATED UNKNOWN"`
 
 	// Ipv6AddressType
 	// IPv6 address type of the Hotspot 2.0 Wlan profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[UNAVAILABLE,AVAILABLE,UNKNOWN]
-	Ipv6AddressType *string `json:"ipv6AddressType,omitempty" validate:"omitempty,oneof=UNAVAILABLE AVAILABLE UNKNOWN"`
+	Ipv6AddressType *string `json:"ipv6AddressType,omitempty" validate:"oneof=UNAVAILABLE AVAILABLE UNKNOWN"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -763,9 +753,8 @@ type WSGPortalServiceModifyL2ACL struct {
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ALLOW,BLOCK]
-	Restriction *string `json:"restriction,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
+	Restriction *string `json:"restriction,omitempty" validate:"oneof=ALLOW BLOCK"`
 
 	RuleMacs []WSGCommonMac `json:"ruleMacs,omitempty"`
 }
@@ -806,11 +795,10 @@ type WSGPortalServiceModifyWechat struct {
 	// GracePeriod
 	// Grace period of the wechat profile
 	// Constraints:
-	//    - nullable
 	//    - default:60
 	//    - min:1
 	//    - max:14399
-	GracePeriod *int `json:"gracePeriod,omitempty" validate:"omitempty,gte=1,lte=14399"`
+	GracePeriod *int `json:"gracePeriod,omitempty" validate:"gte=1,lte=14399"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -855,27 +843,25 @@ type WSGPortalServiceUserSession struct {
 	// GracePeriodInMin
 	// Grace period in minutes
 	// Constraints:
-	//    - nullable
 	//    - default:60
 	//    - min:1
 	//    - max:14399
-	GracePeriodInMin *int `json:"gracePeriodInMin,omitempty" validate:"omitempty,gte=1,lte=14399"`
+	GracePeriodInMin *int `json:"gracePeriodInMin,omitempty" validate:"gte=1,lte=14399"`
 
 	// TimeoutInMin
 	// Time out value in minutes
 	// Constraints:
-	//    - nullable
 	//    - default:1440
 	//    - min:2
 	//    - max:14400
-	TimeoutInMin *int `json:"timeoutInMin,omitempty" validate:"omitempty,gte=2,lte=14400"`
+	TimeoutInMin *int `json:"timeoutInMin,omitempty" validate:"gte=2,lte=14400"`
 }
 
 type WSGPortalServiceVenueName struct {
 	// Language
 	// Constraints:
 	//    - required
-	Language *WSGCommonLanguageName `json:"language" validate:"required"`
+	Language *WSGCommonLanguageName `json:"language" validate:"required,oneof=English Chinese Czech Danish Dutch French German Japanese Spanish Korean Swedish Turkish eng chi cze dan dut fre ger jpn kor spa swe tur"`
 
 	// Name
 	// Venue name
@@ -928,11 +914,10 @@ type WSGPortalServiceWechatConfiguration struct {
 	// GracePeriod
 	// Grace period of the wechat profile
 	// Constraints:
-	//    - nullable
 	//    - default:60
 	//    - min:1
 	//    - max:14399
-	GracePeriod *int `json:"gracePeriod,omitempty" validate:"omitempty,gte=1,lte=14399"`
+	GracePeriod *int `json:"gracePeriod,omitempty" validate:"gte=1,lte=14399"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 

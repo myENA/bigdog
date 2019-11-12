@@ -189,8 +189,11 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*WSGAdmi
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qTimezone string
+//		- nullable
 func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*WSGAdministrationApPatchHistoryList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -218,8 +221,11 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*W
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qTimezone string
+//		- nullable
 func (s *WSGClusterManagementService) FindCluster(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*WSGAdministrationClusterBackupList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -283,7 +289,9 @@ func (s *WSGClusterManagementService) FindClusterStatus(ctx context.Context) (*W
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, qIndex string, qListSize string) (*WSGAdministrationConfigurationBackupList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")
@@ -301,6 +309,7 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, qIn
 // - qBackupUUID string
 //		- required
 // - qTimeZone string
+//		- nullable
 func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, qBackupUUID string, qTimeZone string) (json.RawMessage, error) {
 	if ctx == nil {
 		return errors.New("ctx cannot be empty")
@@ -340,8 +349,11 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 // - qTimezone string
+//		- nullable
 func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*WSGAdministrationUpgradeHistoryList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

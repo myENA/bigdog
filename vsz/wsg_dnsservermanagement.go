@@ -94,7 +94,9 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Context, qIndex string, qListSize string) (*WSGProfileDnsServerProfileList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

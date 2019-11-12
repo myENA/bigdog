@@ -45,7 +45,9 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, pId st
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, qIndex string, qListSize string) (*WSGProfileList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

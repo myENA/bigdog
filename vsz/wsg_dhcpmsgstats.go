@@ -16,11 +16,20 @@ type WSGDHCPMsgStats struct {
 	// DHCP Message Sent Statistic
 	DhcpMsgSentStats *WSGDHCPMsgStatsDhcpMsgSentStatsType `json:"dhcpMsgSentStats,omitempty"`
 
-	DomainId *string `json:"domainId,omitempty"`
+	// DomainId
+	// Constraints:
+	//    - nullable
+	DomainId *string `json:"domainId,omitempty" validate:"omitempty"`
 
-	Id *string `json:"id,omitempty"`
+	// Id
+	// Constraints:
+	//    - nullable
+	Id *string `json:"id,omitempty" validate:"omitempty"`
 
-	TenantId *string `json:"tenantId,omitempty"`
+	// TenantId
+	// Constraints:
+	//    - nullable
+	TenantId *string `json:"tenantId,omitempty" validate:"omitempty"`
 }
 
 // WSGDHCPMsgStatsDhcpMsgRecvdStatsType

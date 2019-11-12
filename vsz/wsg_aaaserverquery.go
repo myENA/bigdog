@@ -19,9 +19,8 @@ type WSGAAAServerQueryCreateAaaServer struct {
 
 	// AuthType
 	// Constraints:
-	//    - nullable
 	//    - oneof:[WSG,WLAN]
-	AuthType *string `json:"authType,omitempty" validate:"omitempty,oneof=WSG WLAN"`
+	AuthType *string `json:"authType,omitempty" validate:"oneof=WSG WLAN"`
 
 	CreateOn *int `json:"createOn,omitempty"`
 
@@ -75,9 +74,8 @@ type WSGAAAServerQueryCreateAaaServer struct {
 
 	// Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,AD,LDAP,RADIUSAcct,TACACS]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS AD LDAP RADIUSAcct TACACS"`
+	Type *string `json:"type,omitempty" validate:"oneof=RADIUS AD LDAP RADIUSAcct TACACS"`
 
 	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
 

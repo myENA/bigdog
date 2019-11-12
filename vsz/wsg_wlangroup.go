@@ -29,7 +29,7 @@ type WSGWLANGroupCreateWlanGroup struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 }
 
 type WSGWLANGroupModifyWlanGroup struct {
@@ -42,17 +42,15 @@ type WSGWLANGroupModifyWlanGroupMember struct {
 	// AccessVlan
 	// Access VLAN
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	AccessVlan *int `json:"accessVlan,omitempty" validate:"gte=1,lte=4094"`
 
 	// NasId
 	// NAS-ID
 	// Constraints:
-	//    - nullable
 	//    - max:63
-	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
+	NasId *string `json:"nasId,omitempty" validate:"max=63"`
 
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
@@ -95,7 +93,7 @@ type WSGWLANGroup struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 
 	// ZoneId
 	// Identifier of the zone to which the WLAN group belongs
@@ -116,10 +114,9 @@ type WSGWLANGroupWlanMember struct {
 	// AccessVlan
 	// Access VLAN
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	AccessVlan *int `json:"accessVlan,omitempty" validate:"gte=1,lte=4094"`
 
 	// Id
 	// Identifier of the WLAN
@@ -134,9 +131,8 @@ type WSGWLANGroupWlanMember struct {
 	// NasId
 	// NAS-ID
 	// Constraints:
-	//    - nullable
 	//    - max:63
-	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
+	NasId *string `json:"nasId,omitempty" validate:"max=63"`
 
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
@@ -287,7 +283,9 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, pI
 //
 // Query Parameters:
 // - qIndex string
+//		- nullable
 // - qListSize string
+//		- nullable
 func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*WSGWLANGroupList, error) {
 	if ctx == nil {
 		return nil, errors.New("ctx cannot be empty")

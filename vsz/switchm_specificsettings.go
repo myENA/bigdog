@@ -259,9 +259,9 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 //		- required
 func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.Context, body *SwitchMSpecificSettingsUpdateSpecificSettings, pId string) (*SwitchMSpecificSettingsEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

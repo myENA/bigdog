@@ -176,10 +176,10 @@ func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.
 //		- required
 func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -237,9 +237,9 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context
 //		- required
 func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx context.Context, body *WSGWLANSchedulerModifyWlanScheduler, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

@@ -31,10 +31,10 @@ func (ss *WSGService) WSGWiredClientService() *WSGWiredClientService {
 //	 - body *WSGClientDeAuthClientList
 func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -46,10 +46,10 @@ func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 //	 - body *WSGClientDeAuthClient
 func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

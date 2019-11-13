@@ -160,10 +160,10 @@ func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVL
 //	 - body *WSGVLANPoolingDeleteBulkVlanPooling
 func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WSGVLANPoolingDeleteBulkVlanPooling) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -176,10 +176,10 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WS
 //		- required
 func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -226,9 +226,9 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 //		- required
 func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Context, body *WSGVLANPoolingModifyVlanPooling, pId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

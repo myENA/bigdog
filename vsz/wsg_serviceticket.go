@@ -67,11 +67,11 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 // Query Parameters:
 // - qServiceTicket string
 //		- required
-func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, qServiceTicket string) error {
+func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, qServiceTicket string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }

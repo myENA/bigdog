@@ -53,10 +53,10 @@ func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context,
 //		- required
 func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -114,9 +114,9 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context
 //		- required
 func (s *WSGWechatService) PartialUpdateRkszonesPortalsWechatById(ctx context.Context, body *WSGPortalServiceModifyWechat, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

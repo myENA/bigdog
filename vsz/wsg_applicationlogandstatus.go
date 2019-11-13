@@ -58,12 +58,12 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 //		- required
 // - qLogFileName string
 //		- nullable
-func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, pBladeUUID string, qAppName string, qLogFileName string) (json.RawMessage, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, pBladeUUID string, qAppName string, qLogFileName string) ([]byte, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -74,12 +74,12 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 // Path Parameters:
 // - pBladeUUID string
 //		- required
-func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, pBladeUUID string) (json.RawMessage, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, pBladeUUID string) ([]byte, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

@@ -53,10 +53,10 @@ func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context
 //		- required
 func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -114,9 +114,9 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Contex
 //		- required
 func (s *WSGL2AccessControlService) PartialUpdateRkszonesL2ACLById(ctx context.Context, body *WSGPortalServiceModifyL2ACL, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

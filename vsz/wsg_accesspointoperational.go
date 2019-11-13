@@ -30,12 +30,12 @@ func (ss *WSGService) WSGAccessPointOperationalService() *WSGAccessPointOperatio
 // Path Parameters:
 // - pApMac string
 //		- required
-func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(ctx context.Context, pApMac string) (json.RawMessage, error) {
+func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(ctx context.Context, pApMac string) ([]byte, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -84,12 +84,12 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingBy
 // Path Parameters:
 // - pApMac string
 //		- required
-func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx context.Context, pApMac string) error {
+func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx context.Context, pApMac string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -100,12 +100,12 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 // Path Parameters:
 // - pApMac string
 //		- required
-func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx context.Context, pApMac string) error {
+func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx context.Context, pApMac string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -117,10 +117,10 @@ func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 //	 - body *WSGAPSwitchoverAP
 func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.Context, body *WSGAPSwitchoverAP) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

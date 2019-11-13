@@ -77,10 +77,10 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 //		- required
 func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -124,9 +124,9 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 //		- required
 func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx context.Context, body *WSGIdentityModifyIdentityUserRole, pId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

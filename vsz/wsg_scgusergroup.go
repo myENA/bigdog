@@ -62,10 +62,10 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 //		- required
 func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, pUserGroupId string) (*WSGSCGUserGroupAuditId, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -160,9 +160,9 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 //		- required
 func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, pUserGroupId string) (*WSGSCGUserGroupAuditId, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

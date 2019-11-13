@@ -41,12 +41,12 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 // DeleteJobSchedule
 //
 // Use this API command to delete a selected schedule.
-func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) error {
+func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

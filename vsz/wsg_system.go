@@ -1416,12 +1416,12 @@ type WSGSystemUserDefinedInterfaceList struct {
 // AddSystemAp_balance
 //
 // Execute ap balance.
-func (s *WSGSystemService) AddSystemAp_balance(ctx context.Context) error {
+func (s *WSGSystemService) AddSystemAp_balance(ctx context.Context) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -1473,10 +1473,10 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 //		- nullable
 func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, qDomainId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -1529,12 +1529,12 @@ func (s *WSGSystemService) FindSystem(ctx context.Context) (*WSGSystemSettings, 
 // FindSystemApmodels
 //
 // Use this API command to retrieve support AP models for the current installed SZ version's default AP firmware.
-func (s *WSGSystemService) FindSystemApmodels(ctx context.Context) error {
+func (s *WSGSystemService) FindSystemApmodels(ctx context.Context) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -1545,12 +1545,12 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context) error {
 // Path Parameters:
 // - pFirmwareVersion string
 //		- required
-func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, pFirmwareVersion string) error {
+func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, pFirmwareVersion string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -1735,9 +1735,9 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 //	 - body *WSGSystemModifySystemTimeSetting
 func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *WSGSystemModifySystemTimeSetting) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

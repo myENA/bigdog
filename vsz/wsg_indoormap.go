@@ -304,10 +304,10 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (
 //		- required
 func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, pIndoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -372,10 +372,10 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 //		- required
 func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, pIndoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -391,9 +391,9 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 //		- required
 func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, pIndoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

@@ -56,12 +56,12 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Conte
 // AddIdentityGuestpassUpload
 //
 // Use this API command to upload identity guest pass csv file.
-func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Context) error {
+func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Context) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -71,12 +71,12 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 //
 // Request Body:
 //	 - body *WSGIdentityImportIdentityGuestPass
-func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx context.Context, body *WSGIdentityImportIdentityGuestPass) error {
+func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx context.Context, body *WSGIdentityImportIdentityGuestPass) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -104,10 +104,10 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Contex
 //		- required
 func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx context.Context, pUserId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

@@ -63,12 +63,12 @@ func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Cont
 //
 // Request Body:
 //	 - body *WSGDPProfileBulkDelete
-func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *WSGDPProfileBulkDelete) error {
+func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *WSGDPProfileBulkDelete) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -79,12 +79,12 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *
 // Path Parameters:
 // - pId string
 //		- required
-func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, pId string) error {
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, pId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -98,12 +98,12 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, pI
 // Path Parameters:
 // - pId string
 //		- required
-func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, pId string) error {
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, pId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -116,12 +116,12 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.C
 //		- required
 // - pPoolId string
 //		- required
-func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, pId string, pPoolId string) error {
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, pId string, pPoolId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

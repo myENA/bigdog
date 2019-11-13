@@ -74,11 +74,11 @@ type WSGGDPRReport struct {
 //
 // Request Body:
 //	 - body *WSGGDPRReport
-func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport) error {
+func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }

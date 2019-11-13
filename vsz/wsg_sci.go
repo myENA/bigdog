@@ -270,12 +270,12 @@ type WSGSCIProfileListExtraType struct {
 //
 // Request Body:
 //	 - body *WSGSCIModifyEventCode
-func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModifyEventCode) error {
+func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModifyEventCode) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -300,12 +300,12 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 //
 // Request Body:
 //	 - body *WSGSCIModifySciPriorityList
-func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *WSGSCIModifySciPriorityList) error {
+func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *WSGSCIModifySciPriorityList) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -315,12 +315,12 @@ func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *W
 //
 // Request Body:
 //	 - body *WSGSCIDeleteSciProfileList
-func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDeleteSciProfileList) error {
+func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDeleteSciProfileList) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -386,12 +386,12 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, pId string) (
 //
 // Request Body:
 //	 - body *WSGSCIModifySciEnabled
-func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WSGSCIModifySciEnabled) error {
+func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WSGSCIModifySciEnabled) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -405,11 +405,11 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 // Path Parameters:
 // - pId string
 //		- required
-func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, pId string) error {
+func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, pId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }

@@ -31,10 +31,10 @@ func (ss *WSGService) WSGWirelessClientService() *WSGWirelessClientService {
 //	 - body *WSGClientDeAuthClientList
 func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -46,10 +46,10 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 //	 - body *WSGClientDisconnectClientList
 func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context, body *WSGClientDisconnectClientList) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -80,10 +80,10 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 //	 - body *WSGClientDeAuthClient
 func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -95,10 +95,10 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 //	 - body *WSGClientDisconnectClient
 func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, body *WSGClientDisconnectClient) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -131,12 +131,12 @@ func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.C
 // Path Parameters:
 // - pApMac string
 //		- required
-func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx context.Context, pApMac string) error {
+func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx context.Context, pApMac string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

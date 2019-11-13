@@ -29,12 +29,12 @@ func (ss *WSGService) WSGFtpServerSettingsService() *WSGFtpServerSettingsService
 //
 // Request Body:
 //	 - body *WSGSystemFtp
-func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *WSGSystemFtp) error {
+func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *WSGSystemFtp) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -44,12 +44,12 @@ func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *WSGSyst
 //
 // Request Body:
 //	 - body *WSGSystemDeleteBulkFtp
-func (s *WSGFtpServerSettingsService) DeleteFtps(ctx context.Context, body *WSGSystemDeleteBulkFtp) error {
+func (s *WSGFtpServerSettingsService) DeleteFtps(ctx context.Context, body *WSGSystemDeleteBulkFtp) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

@@ -254,10 +254,10 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, bo
 //		- required
 func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context, pId string) (*SwitchMAAAServersEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -301,9 +301,9 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 //		- required
 func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, pId string) (*SwitchMAAAServersEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }

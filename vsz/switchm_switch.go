@@ -1250,11 +1250,11 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 // Path Parameters:
 // - pDestinationSwitchGroupId string
 //		- required
-func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, pDestinationSwitchGroupId string) error {
+func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, pDestinationSwitchGroupId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }

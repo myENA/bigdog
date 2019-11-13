@@ -32,10 +32,10 @@ func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
 //		- required
 func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

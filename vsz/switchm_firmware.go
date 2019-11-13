@@ -158,12 +158,12 @@ func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMC
 // AddFirmwareUpload
 //
 // Use this API command to upload a firmware image zip file to SmartZone.
-func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context) error {
+func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -174,12 +174,12 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context) error {
 // Path Parameters:
 // - pVersion string
 //		- required
-func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, pVersion string) error {
+func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, pVersion string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

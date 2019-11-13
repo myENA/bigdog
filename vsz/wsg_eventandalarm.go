@@ -91,10 +91,10 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 //	 - body *WSGAlertAckBulkAlarms
 func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body *WSGAlertAckBulkAlarms) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -105,12 +105,12 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 // Path Parameters:
 // - pAlarmID string
 //		- required
-func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Context, pAlarmID string) error {
+func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Context, pAlarmID string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -122,10 +122,10 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 //	 - body *WSGAlertClearBulkAlarms
 func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, body *WSGAlertClearBulkAlarms) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+		return errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+		return fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -136,11 +136,11 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 // Path Parameters:
 // - pAlarmID string
 //		- required
-func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Context, pAlarmID string) error {
+func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Context, pAlarmID string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }

@@ -106,12 +106,12 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 // Path Parameters:
 // - pConfigId string
 //		- required
-func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Context, pConfigId string) error {
+func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Context, pConfigId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -122,12 +122,12 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 // Path Parameters:
 // - pConfigId string
 //		- required
-func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx context.Context, pConfigId string) error {
+func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx context.Context, pConfigId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -171,11 +171,11 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 // Path Parameters:
 // - pBackupId string
 //		- required
-func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(ctx context.Context, pBackupId string) error {
+func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(ctx context.Context, pBackupId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }

@@ -56,24 +56,24 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, qDomainId
 //		- nullable
 // - qZoneId string
 //		- nullable
-func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, qDomainId string, qZoneId string) error {
+func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, qDomainId string, qZoneId string) (interface{}, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
 // FindLinemanWorkflow
 //
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
-func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) (json.RawMessage, error) {
+func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]byte, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

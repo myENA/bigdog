@@ -46,10 +46,10 @@ func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *W
 //	 - body *WSGProfileDeleteBulkPrecedenceProfile
 func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body *WSGProfileDeleteBulkPrecedenceProfile) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 
@@ -62,10 +62,10 @@ func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body
 //		- required
 func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

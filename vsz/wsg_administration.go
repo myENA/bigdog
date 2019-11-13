@@ -848,10 +848,10 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
 //		- required
 func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
 	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+		return nil, errors.New("ctx cannot be empty")
 	}
 	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+		return nil, fmt.Errorf("provided context is done: %s", err)
 	}
 }
 

@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGIPSECProfileService struct {
@@ -30,11 +29,17 @@ func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 // Request Body:
 //	 - body *WSGProfileCreateIpsecProfile
 func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, body *WSGProfileCreateIpsecProfile) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,11 +50,17 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -57,15 +68,19 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 //
 // Delete a ipsec.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -73,17 +88,18 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 //
 // Retrieve a list of IPSEC.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, qIndex string, qListSize string) (*WSGProfileList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileList, error) {
+	var (
+		resp *WSGProfileList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -91,15 +107,19 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, qI
 //
 // Retrieve a IPSEC.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context, pId string) (*WSGProfileIpsecProfile, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context, id string) (*WSGProfileIpsecProfile, error) {
+	var (
+		resp *WSGProfileIpsecProfile
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -110,11 +130,17 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileIpsecProfileList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGProfileIpsecProfileList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -125,14 +151,23 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 // Request Body:
 //	 - body *WSGProfileModifyIpsecProfile
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *WSGProfileModifyIpsecProfile, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *WSGProfileModifyIpsecProfile, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

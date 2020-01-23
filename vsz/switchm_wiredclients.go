@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMWiredClientsService struct {
@@ -30,11 +29,17 @@ func (ss *SwitchMService) SwitchMWiredClientsService() *SwitchMWiredClientsServi
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedDevicesQueryList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMSwitchConnectedDevicesQueryList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,10 +50,16 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedAPsQueryList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMSwitchConnectedAPsQueryList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

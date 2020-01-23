@@ -58,8 +58,18 @@ type WSGURLFilteringCreateUrlFilteringPolicy struct {
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
+func NewWSGURLFilteringCreateUrlFilteringPolicy() *WSGURLFilteringCreateUrlFilteringPolicy {
+	m := new(WSGURLFilteringCreateUrlFilteringPolicy)
+	return m
+}
+
 type WSGURLFilteringDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGURLFilteringDeleteBulk() *WSGURLFilteringDeleteBulk {
+	m := new(WSGURLFilteringDeleteBulk)
+	return m
 }
 
 type WSGURLFilteringModifyUrlFilteringPolicy struct {
@@ -110,6 +120,11 @@ type WSGURLFilteringModifyUrlFilteringPolicy struct {
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
+func NewWSGURLFilteringModifyUrlFilteringPolicy() *WSGURLFilteringModifyUrlFilteringPolicy {
+	m := new(WSGURLFilteringModifyUrlFilteringPolicy)
+	return m
+}
+
 type WSGURLFilteringBlockCategoriesList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -120,6 +135,11 @@ type WSGURLFilteringBlockCategoriesList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGURLFilteringBlockCategoriesList() *WSGURLFilteringBlockCategoriesList {
+	m := new(WSGURLFilteringBlockCategoriesList)
+	return m
+}
+
 type WSGURLFilteringBlockCategory struct {
 	// Id
 	// Identifier of the URL Filtering Category
@@ -128,6 +148,11 @@ type WSGURLFilteringBlockCategory struct {
 	// Name
 	// name of the URL Filtering Category
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGURLFilteringBlockCategory() *WSGURLFilteringBlockCategory {
+	m := new(WSGURLFilteringBlockCategory)
+	return m
 }
 
 type WSGURLFilteringPolicy struct {
@@ -214,6 +239,11 @@ type WSGURLFilteringPolicy struct {
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
+func NewWSGURLFilteringPolicy() *WSGURLFilteringPolicy {
+	m := new(WSGURLFilteringPolicy)
+	return m
+}
+
 type WSGURLFilteringPolicyList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -224,4 +254,9 @@ type WSGURLFilteringPolicyList struct {
 	List []*WSGURLFilteringPolicy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGURLFilteringPolicyList() *WSGURLFilteringPolicyList {
+	m := new(WSGURLFilteringPolicyList)
+	return m
 }

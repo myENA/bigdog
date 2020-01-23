@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGZoneAAAService struct {
@@ -30,15 +29,24 @@ func (ss *WSGService) WSGZoneAAAService() *WSGZoneAAAService {
 // Request Body:
 //	 - body *WSGAAACreateActiveDirectoryServer
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *WSGAAACreateActiveDirectoryServer, pZoneId string) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *WSGAAACreateActiveDirectoryServer, zoneId string) (*WSGCommonCreateResult, error) {
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -49,15 +57,24 @@ func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *
 // Request Body:
 //	 - body *WSGAAACreateLDAPServer
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body *WSGAAACreateLDAPServer, pZoneId string) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body *WSGAAACreateLDAPServer, zoneId string) (*WSGCommonCreateResult, error) {
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -68,19 +85,28 @@ func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body
 // Request Body:
 //	 - body *WSGAAACreateAuthenticationServer
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
 //
-// Query Parameters:
-// - qForAccounting string
+// Optional Parameters:
+// - forAccounting string
 //		- nullable
-func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *WSGAAACreateAuthenticationServer, pZoneId string, qForAccounting string) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *WSGAAACreateAuthenticationServer, zoneId string, optionalParams map[string]interface{}) (*WSGCommonCreateResult, error) {
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -88,17 +114,24 @@ func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, bo
 //
 // Use this API command to delete an active directory server of a zone.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -106,17 +139,24 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, pId str
 //
 // Use this API command to delete an AAA server.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -127,15 +167,24 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, pId strin
 // Request Body:
 //	 - body *WSGAAADeleteBulkAAAServerList
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGAAADeleteBulkAAAServerList, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGAAADeleteBulkAAAServerList, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -143,17 +192,24 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body 
 //
 // Use this API command to delete a LDAP server of a zone.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -161,17 +217,24 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, pId s
 //
 // Use this API command to delete a radius server of a zone.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -179,17 +242,24 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, pId
 //
 // Use this API command to disable secondary server on radius server of a zone.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -197,17 +267,24 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Con
 //
 // Use this API command to disable primary server on radius server of a zone for Standby Cluster.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -215,17 +292,24 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx contex
 //
 // Use this API command to retrieve an active directory server of a zone.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, pId string, pZoneId string) (*WSGAAAActiveDirectory, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, id string, zoneId string) (*WSGAAAActiveDirectory, error) {
+	var (
+		resp *WSGAAAActiveDirectory
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -233,15 +317,19 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, pId strin
 //
 // Use this API command to retrieve a list of active directory servers of a zone.
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, pZoneId string) (*WSGAAAActiveDirectoryList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneId string) (*WSGAAAActiveDirectoryList, error) {
+	var (
+		resp *WSGAAAActiveDirectoryList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -249,17 +337,24 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, pZone
 //
 // Use this API command to retrieve a LDAP server of a zone.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, pId string, pZoneId string) (*WSGAAALDAPServer, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, id string, zoneId string) (*WSGAAALDAPServer, error) {
+	var (
+		resp *WSGAAALDAPServer
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -267,15 +362,19 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, pId str
 //
 // Use this API command to retrieve a list of LDAP servers of a zone.
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, pZoneId string) (*WSGAAALDAPServerList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zoneId string) (*WSGAAALDAPServerList, error) {
+	var (
+		resp *WSGAAALDAPServerList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -283,17 +382,24 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, pZo
 //
 // Use this API command to retrieve a radius server of a zone.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, pId string, pZoneId string) (*WSGAAAAuthenticationServer, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string) (*WSGAAAAuthenticationServer, error) {
+	var (
+		resp *WSGAAAAuthenticationServer
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -301,15 +407,19 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, pId s
 //
 // Use this API command to retrieve a list of radius servers of a zone.
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, pZoneId string) (*WSGAAAAuthenticationServerList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, zoneId string) (*WSGAAAAuthenticationServerList, error) {
+	var (
+		resp *WSGAAAAuthenticationServerList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -320,17 +430,29 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, p
 // Request Body:
 //	 - body *WSGAAAModifyActiveDirectoryServer
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -341,17 +463,29 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, 
 // Request Body:
 //	 - body *WSGAAAModifyLDAPServer
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -362,17 +496,29 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context
 // Request Body:
 //	 - body *WSGAAAModifyAuthenticationServer
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -383,17 +529,29 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Conte
 // Request Body:
 //	 - body *WSGAAAModifyActiveDirectoryServer
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -404,17 +562,29 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *W
 // Request Body:
 //	 - body *WSGAAAModifyLDAPServer
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -425,16 +595,28 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body 
 // Request Body:
 //	 - body *WSGAAAModifyAuthenticationServer
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

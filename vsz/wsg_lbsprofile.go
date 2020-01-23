@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGLBSprofileService struct {
@@ -30,11 +29,17 @@ func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 // Request Body:
 //	 - body *WSGProfileLbsProfile
 func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProfileLbsProfile) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,11 +50,17 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -57,15 +68,19 @@ func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGC
 //
 // Delete LBS profile.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -73,15 +88,19 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, pId st
 //
 // Retrieve LBS profile.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, pId string) (*WSGProfileLbsProfile, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id string) (*WSGProfileLbsProfile, error) {
+	var (
+		resp *WSGProfileLbsProfile
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -92,11 +111,17 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, pId stri
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileLbsProfileList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGProfileLbsProfileList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -107,14 +132,23 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 // Request Body:
 //	 - body *WSGProfileLbsProfile
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *WSGProfileLbsProfile, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *WSGProfileLbsProfile, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

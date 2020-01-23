@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGL3RoamingService struct {
@@ -27,11 +26,12 @@ func (ss *WSGService) WSGL3RoamingService() *WSGL3RoamingService {
 //
 // Use this API command to retrieve L3 Roaming basic configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (*WSGProfileGetL3RoamingConfig, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGProfileGetL3RoamingConfig
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -39,11 +39,12 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (
 //
 // Use this API command to retrieve L3 Roaming configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria(ctx context.Context) (*WSGProfileGetL3RoamingConfig, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGProfileGetL3RoamingConfig
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -54,10 +55,16 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria(ctx con
 // Request Body:
 //	 - body *WSGProfileUpdateL3RoamingConfig
 func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.Context, body *WSGProfileUpdateL3RoamingConfig) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

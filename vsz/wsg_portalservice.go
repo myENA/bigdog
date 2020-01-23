@@ -33,6 +33,11 @@ type WSGPortalServiceConnectionCapability struct {
 	Status *string `json:"status" validate:"required,oneof=CLOSED OPEN UNKNOWN"`
 }
 
+func NewWSGPortalServiceConnectionCapability() *WSGPortalServiceConnectionCapability {
+	m := new(WSGPortalServiceConnectionCapability)
+	return m
+}
+
 type WSGPortalServiceCreateGuestAccess struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -54,6 +59,11 @@ type WSGPortalServiceCreateGuestAccess struct {
 	// Constraints:
 	//    - required
 	UserSession *WSGPortalServiceUserSession `json:"userSession" validate:"required"`
+}
+
+func NewWSGPortalServiceCreateGuestAccess() *WSGPortalServiceCreateGuestAccess {
+	m := new(WSGPortalServiceCreateGuestAccess)
+	return m
 }
 
 type WSGPortalServiceCreateHotspot20VenueProfile struct {
@@ -82,6 +92,11 @@ type WSGPortalServiceCreateHotspot20VenueProfile struct {
 	// Constraints:
 	//    - required
 	VenueNames []*WSGPortalServiceVenueName `json:"venueNames" validate:"required,dive"`
+}
+
+func NewWSGPortalServiceCreateHotspot20VenueProfile() *WSGPortalServiceCreateHotspot20VenueProfile {
+	m := new(WSGPortalServiceCreateHotspot20VenueProfile)
+	return m
 }
 
 type WSGPortalServiceCreateHotspot20WlanProfile struct {
@@ -134,6 +149,11 @@ type WSGPortalServiceCreateHotspot20WlanProfile struct {
 	Operator *WSGCommonGenericRef `json:"operator" validate:"required"`
 
 	SignupSsid *WSGCommonGenericRef `json:"signupSsid,omitempty"`
+}
+
+func NewWSGPortalServiceCreateHotspot20WlanProfile() *WSGPortalServiceCreateHotspot20WlanProfile {
+	m := new(WSGPortalServiceCreateHotspot20WlanProfile)
+	return m
 }
 
 type WSGPortalServiceCreateHotspotExternal struct {
@@ -194,6 +214,11 @@ type WSGPortalServiceCreateHotspotExternal struct {
 	WalledGardens []string `json:"walledGardens,omitempty"`
 }
 
+func NewWSGPortalServiceCreateHotspotExternal() *WSGPortalServiceCreateHotspotExternal {
+	m := new(WSGPortalServiceCreateHotspotExternal)
+	return m
+}
+
 type WSGPortalServiceCreateHotspotInternal struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -227,6 +252,11 @@ type WSGPortalServiceCreateHotspotInternal struct {
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
 	WalledGardens []string `json:"walledGardens,omitempty"`
+}
+
+func NewWSGPortalServiceCreateHotspotInternal() *WSGPortalServiceCreateHotspotInternal {
+	m := new(WSGPortalServiceCreateHotspotInternal)
+	return m
 }
 
 type WSGPortalServiceCreateHotspotSmartClientOnly struct {
@@ -275,6 +305,11 @@ type WSGPortalServiceCreateHotspotSmartClientOnly struct {
 	WalledGardens []string `json:"walledGardens,omitempty"`
 }
 
+func NewWSGPortalServiceCreateHotspotSmartClientOnly() *WSGPortalServiceCreateHotspotSmartClientOnly {
+	m := new(WSGPortalServiceCreateHotspotSmartClientOnly)
+	return m
+}
+
 type WSGPortalServiceCreateL2ACL struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -293,6 +328,11 @@ type WSGPortalServiceCreateL2ACL struct {
 	RuleMacs []WSGCommonMac `json:"ruleMacs,omitempty"`
 }
 
+func NewWSGPortalServiceCreateL2ACL() *WSGPortalServiceCreateL2ACL {
+	m := new(WSGPortalServiceCreateL2ACL)
+	return m
+}
+
 type WSGPortalServiceCreateWebAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -304,6 +344,11 @@ type WSGPortalServiceCreateWebAuthentication struct {
 	Redirect *WSGPortalServicePortalRedirect `json:"redirect,omitempty"`
 
 	WebAuthenticationPortalCustomization *WSGCommonWebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
+}
+
+func NewWSGPortalServiceCreateWebAuthentication() *WSGPortalServiceCreateWebAuthentication {
+	m := new(WSGPortalServiceCreateWebAuthentication)
+	return m
 }
 
 type WSGPortalServiceCreateWechat struct {
@@ -351,6 +396,11 @@ type WSGPortalServiceCreateWechat struct {
 	WhiteList []string `json:"whiteList" validate:"required,dive"`
 }
 
+func NewWSGPortalServiceCreateWechat() *WSGPortalServiceCreateWechat {
+	m := new(WSGPortalServiceCreateWechat)
+	return m
+}
+
 type WSGPortalServiceDefaultConnectionCapability struct {
 	// PortNumber
 	// Port number of connection capability, cannot be modified
@@ -382,6 +432,11 @@ type WSGPortalServiceDefaultConnectionCapability struct {
 	Status *string `json:"status" validate:"required,oneof=CLOSED OPEN UNKNOWN"`
 }
 
+func NewWSGPortalServiceDefaultConnectionCapability() *WSGPortalServiceDefaultConnectionCapability {
+	m := new(WSGPortalServiceDefaultConnectionCapability)
+	return m
+}
+
 type WSGPortalServiceDnatPortMapping struct {
 	// DestPort
 	// Destination port
@@ -396,6 +451,11 @@ type WSGPortalServiceDnatPortMapping struct {
 	//    - min:0
 	//    - max:65535
 	SourcePort *int `json:"sourcePort,omitempty" validate:"gte=0,lte=65535"`
+}
+
+func NewWSGPortalServiceDnatPortMapping() *WSGPortalServiceDnatPortMapping {
+	m := new(WSGPortalServiceDnatPortMapping)
+	return m
 }
 
 type WSGPortalServiceGuestAccess struct {
@@ -418,6 +478,11 @@ type WSGPortalServiceGuestAccess struct {
 	// ZoneId
 	// Identifier of the zone which the guest access profile belongs to
 	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewWSGPortalServiceGuestAccess() *WSGPortalServiceGuestAccess {
+	m := new(WSGPortalServiceGuestAccess)
+	return m
 }
 
 type WSGPortalServiceHotspot struct {
@@ -487,6 +552,11 @@ type WSGPortalServiceHotspot struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGPortalServiceHotspot() *WSGPortalServiceHotspot {
+	m := new(WSGPortalServiceHotspot)
+	return m
+}
+
 type WSGPortalServiceHotspot20VeuneProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -515,6 +585,11 @@ type WSGPortalServiceHotspot20VeuneProfile struct {
 	// ZoneId
 	// Identifier of the zone which the Hotspot 2.0 venue profile belongs to
 	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewWSGPortalServiceHotspot20VeuneProfile() *WSGPortalServiceHotspot20VeuneProfile {
+	m := new(WSGPortalServiceHotspot20VeuneProfile)
+	return m
 }
 
 type WSGPortalServiceHotspot20WlanProfile struct {
@@ -571,6 +646,11 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGPortalServiceHotspot20WlanProfile() *WSGPortalServiceHotspot20WlanProfile {
+	m := new(WSGPortalServiceHotspot20WlanProfile)
+	return m
+}
+
 type WSGPortalServiceL2ACL struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -593,6 +673,11 @@ type WSGPortalServiceL2ACL struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGPortalServiceL2ACL() *WSGPortalServiceL2ACL {
+	m := new(WSGPortalServiceL2ACL)
+	return m
+}
+
 // WSGPortalServiceLinkSpeedInKbps
 //
 // Link Speed of the Hotspot 2.0 venue profile
@@ -600,6 +685,11 @@ type WSGPortalServiceL2ACL struct {
 //    - min:0.000000
 //    - max:4294967295.000000
 type WSGPortalServiceLinkSpeedInKbps float64
+
+func NewWSGPortalServiceLinkSpeedInKbps() *WSGPortalServiceLinkSpeedInKbps {
+	m := new(WSGPortalServiceLinkSpeedInKbps)
+	return m
+}
 
 // WSGPortalServiceMacAddressFormatSetting
 //
@@ -609,6 +699,11 @@ type WSGPortalServiceLinkSpeedInKbps float64
 //    - min:0
 //    - max:5
 type WSGPortalServiceMacAddressFormatSetting int
+
+func NewWSGPortalServiceMacAddressFormatSetting() *WSGPortalServiceMacAddressFormatSetting {
+	m := new(WSGPortalServiceMacAddressFormatSetting)
+	return m
+}
 
 type WSGPortalServiceModifyGuestAccess struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
@@ -622,6 +717,11 @@ type WSGPortalServiceModifyGuestAccess struct {
 	SmsGateway *WSGCommonGenericRef `json:"smsGateway,omitempty"`
 
 	UserSession *WSGPortalServiceUserSession `json:"userSession,omitempty"`
+}
+
+func NewWSGPortalServiceModifyGuestAccess() *WSGPortalServiceModifyGuestAccess {
+	m := new(WSGPortalServiceModifyGuestAccess)
+	return m
 }
 
 type WSGPortalServiceModifyHotspot struct {
@@ -677,6 +777,11 @@ type WSGPortalServiceModifyHotspot struct {
 	WalledGardens []string `json:"walledGardens,omitempty"`
 }
 
+func NewWSGPortalServiceModifyHotspot() *WSGPortalServiceModifyHotspot {
+	m := new(WSGPortalServiceModifyHotspot)
+	return m
+}
+
 type WSGPortalServiceModifyHotspot20VenueProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -697,6 +802,11 @@ type WSGPortalServiceModifyHotspot20VenueProfile struct {
 	UplinkSpeedInKbps *WSGPortalServiceLinkSpeedInKbps `json:"uplinkSpeedInKbps,omitempty"`
 
 	VenueNames []*WSGPortalServiceVenueName `json:"venueNames,omitempty"`
+}
+
+func NewWSGPortalServiceModifyHotspot20VenueProfile() *WSGPortalServiceModifyHotspot20VenueProfile {
+	m := new(WSGPortalServiceModifyHotspot20VenueProfile)
+	return m
 }
 
 type WSGPortalServiceModifyHotspot20WlanProfile struct {
@@ -745,6 +855,11 @@ type WSGPortalServiceModifyHotspot20WlanProfile struct {
 	SignupSsid *WSGCommonGenericRef `json:"signupSsid,omitempty"`
 }
 
+func NewWSGPortalServiceModifyHotspot20WlanProfile() *WSGPortalServiceModifyHotspot20WlanProfile {
+	m := new(WSGPortalServiceModifyHotspot20WlanProfile)
+	return m
+}
+
 type WSGPortalServiceModifyL2ACL struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -759,6 +874,11 @@ type WSGPortalServiceModifyL2ACL struct {
 	RuleMacs []WSGCommonMac `json:"ruleMacs,omitempty"`
 }
 
+func NewWSGPortalServiceModifyL2ACL() *WSGPortalServiceModifyL2ACL {
+	m := new(WSGPortalServiceModifyL2ACL)
+	return m
+}
+
 type WSGPortalServiceModifyWebAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -771,6 +891,11 @@ type WSGPortalServiceModifyWebAuthentication struct {
 	UserSession *WSGPortalServiceUserSession `json:"userSession,omitempty"`
 
 	WebAuthenticationPortalCustomization *WSGCommonWebAuthenticationPortalCustomization `json:"webAuthenticationPortalCustomization,omitempty"`
+}
+
+func NewWSGPortalServiceModifyWebAuthentication() *WSGPortalServiceModifyWebAuthentication {
+	m := new(WSGPortalServiceModifyWebAuthentication)
+	return m
 }
 
 type WSGPortalServiceModifyWechat struct {
@@ -807,6 +932,11 @@ type WSGPortalServiceModifyWechat struct {
 	WhiteList []string `json:"whiteList,omitempty"`
 }
 
+func NewWSGPortalServiceModifyWechat() *WSGPortalServiceModifyWechat {
+	m := new(WSGPortalServiceModifyWechat)
+	return m
+}
+
 type WSGPortalServicePortalLocation struct {
 	// Id
 	// Portal location id
@@ -817,8 +947,18 @@ type WSGPortalServicePortalLocation struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewWSGPortalServicePortalLocation() *WSGPortalServicePortalLocation {
+	m := new(WSGPortalServicePortalLocation)
+	return m
+}
+
 type WSGPortalServicePortalRedirect struct {
 	Url *WSGCommonNormalURL `json:"url,omitempty"`
+}
+
+func NewWSGPortalServicePortalRedirect() *WSGPortalServicePortalRedirect {
+	m := new(WSGPortalServicePortalRedirect)
+	return m
 }
 
 type WSGPortalServiceList struct {
@@ -831,12 +971,22 @@ type WSGPortalServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGPortalServiceList() *WSGPortalServiceList {
+	m := new(WSGPortalServiceList)
+	return m
+}
+
 type WSGPortalServiceListType struct {
 	// Id
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGPortalServiceListType() *WSGPortalServiceListType {
+	m := new(WSGPortalServiceListType)
+	return m
 }
 
 type WSGPortalServiceUserSession struct {
@@ -857,6 +1007,11 @@ type WSGPortalServiceUserSession struct {
 	TimeoutInMin *int `json:"timeoutInMin,omitempty" validate:"gte=2,lte=14400"`
 }
 
+func NewWSGPortalServiceUserSession() *WSGPortalServiceUserSession {
+	m := new(WSGPortalServiceUserSession)
+	return m
+}
+
 type WSGPortalServiceVenueName struct {
 	// Language
 	// Constraints:
@@ -868,6 +1023,11 @@ type WSGPortalServiceVenueName struct {
 	// Constraints:
 	//    - required
 	Name *string `json:"name" validate:"required"`
+}
+
+func NewWSGPortalServiceVenueName() *WSGPortalServiceVenueName {
+	m := new(WSGPortalServiceVenueName)
+	return m
 }
 
 type WSGPortalServiceWebAuthentication struct {
@@ -890,6 +1050,11 @@ type WSGPortalServiceWebAuthentication struct {
 	// ZoneId
 	// Identifier of the zone which the web authentication profile belongs to
 	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewWSGPortalServiceWebAuthentication() *WSGPortalServiceWebAuthentication {
+	m := new(WSGPortalServiceWebAuthentication)
+	return m
 }
 
 type WSGPortalServiceWechatConfiguration struct {
@@ -924,4 +1089,9 @@ type WSGPortalServiceWechatConfiguration struct {
 	// WhiteList
 	// White list of the wechat profile
 	WhiteList []string `json:"whiteList,omitempty"`
+}
+
+func NewWSGPortalServiceWechatConfiguration() *WSGPortalServiceWechatConfiguration {
+	m := new(WSGPortalServiceWechatConfiguration)
+	return m
 }

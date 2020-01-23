@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGHotspot20WiFiOperatorProfileService struct {
@@ -30,11 +29,17 @@ func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService() *WSGHotspot20WiFi
 // Request Body:
 //	 - body *WSGProfileHs20Operator
 func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx context.Context, body *WSGProfileHs20Operator) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,11 +50,17 @@ func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx co
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -57,15 +68,19 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx
 //
 // Use this API command to delete a Hotspot 2.0 Wi-Fi operator.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -73,15 +88,19 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById
 //
 // Use this API command to disable certificate of a Hotspot 2.0 Wi-Fi operator.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCertificateById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCertificateById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -89,17 +108,18 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCert
 //
 // Use this API command to retrieve list of Hotspot 2.0 Wi-Fi Operators.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx context.Context, qIndex string, qListSize string) (*WSGProfileHs20OperatorList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileHs20OperatorList, error) {
+	var (
+		resp *WSGProfileHs20OperatorList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -107,15 +127,19 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx c
 //
 // Use this API command to retrieve a Hotspot 2.0 Wi-Fi operator.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(ctx context.Context, pId string) (*WSGProfileHs20Operator, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(ctx context.Context, id string) (*WSGProfileHs20Operator, error) {
+	var (
+		resp *WSGProfileHs20Operator
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -126,11 +150,17 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(c
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileHs20OperatorList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGProfileHs20OperatorList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -141,15 +171,24 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQuer
 // Request Body:
 //	 - body *WSGProfileModifyHS20Operator
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileModifyHS20Operator, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileModifyHS20Operator, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -160,14 +199,23 @@ func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20Operat
 // Request Body:
 //	 - body *WSGProfileHs20Operator
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) UpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileHs20Operator, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGHotspot20WiFiOperatorProfileService) UpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileHs20Operator, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

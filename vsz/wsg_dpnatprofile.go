@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGDPNATProfileService struct {
@@ -30,11 +29,17 @@ func (ss *WSGService) WSGDPNATProfileService() *WSGDPNATProfileService {
 // Request Body:
 //	 - body *WSGDPProfileDpNatProfileBasicBO
 func (s *WSGDPNATProfileService) AddDpNatProfiles(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO) (*WSGDPProfileDpNatProfileBasicBO, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGDPProfileDpNatProfileBasicBO
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,15 +50,24 @@ func (s *WSGDPNATProfileService) AddDpNatProfiles(ctx context.Context, body *WSG
 // Request Body:
 //	 - body *WSGDPProfileDpNatProfilePoolBO
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, pId string) (*WSGDPProfileDpNatProfilePoolBO, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, id string) (*WSGDPProfileDpNatProfilePoolBO, error) {
+	var (
+		resp *WSGDPProfileDpNatProfilePoolBO
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -64,11 +78,17 @@ func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Cont
 // Request Body:
 //	 - body *WSGDPProfileBulkDelete
 func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *WSGDPProfileBulkDelete) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -76,15 +96,19 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *
 //
 // Use this API command to delete DHCP NAT profile.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, pId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, id string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -95,15 +119,24 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, pI
 // Request Body:
 //	 - body *WSGDPProfileBulkDelete
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, pId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, id string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -111,17 +144,24 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.C
 //
 // Use this API command to delete DP NAT profile - pool.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pPoolId string
+// - poolId string
 //		- required
-func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, pId string, pPoolId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, id string, poolId string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, poolId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -129,11 +169,12 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx conte
 //
 // Use this API command to retrieve DHCP NAT profile - basic list.
 func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context) (*WSGDPProfileDpNatProfileBasicBOList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGDPProfileDpNatProfileBasicBOList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -141,15 +182,19 @@ func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context) (*WSGDPP
 //
 // Use this API command to retrieve DHCP NAT profile - basic.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, pId string) (*WSGDPProfileDpNatProfileBasicBO, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, id string) (*WSGDPProfileDpNatProfileBasicBO, error) {
+	var (
+		resp *WSGDPProfileDpNatProfileBasicBO
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -157,15 +202,19 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, pId 
 //
 // Use this API command to retrieve DP NAT profile - pool list.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Context, pId string) (*WSGDPProfileDpNatProfilePoolBOList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Context, id string) (*WSGDPProfileDpNatProfilePoolBOList, error) {
+	var (
+		resp *WSGDPProfileDpNatProfilePoolBOList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -173,17 +222,24 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Con
 //
 // Use this API command to retrieve DP DHCP profile - pool.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pPoolId string
+// - poolId string
 //		- required
-func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, pId string, pPoolId string) (*WSGDPProfileDpNatProfilePoolBO, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, id string, poolId string) (*WSGDPProfileDpNatProfilePoolBO, error) {
+	var (
+		resp *WSGDPProfileDpNatProfilePoolBO
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, poolId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -194,15 +250,24 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context
 // Request Body:
 //	 - body *WSGDPProfileDpNatProfileBasicBO
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO, pId string) (*WSGDPProfileDpNatProfileBasicBO, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO, id string) (*WSGDPProfileDpNatProfileBasicBO, error) {
+	var (
+		resp *WSGDPProfileDpNatProfileBasicBO
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -213,16 +278,28 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, bo
 // Request Body:
 //	 - body *WSGDPProfileDpNatProfilePoolBO
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pPoolId string
+// - poolId string
 //		- required
-func (s *WSGDPNATProfileService) UpdateDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, pId string, pPoolId string) (*WSGDPProfileDpNatProfilePoolBO, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDPNATProfileService) UpdateDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, id string, poolId string) (*WSGDPProfileDpNatProfilePoolBO, error) {
+	var (
+		resp *WSGDPProfileDpNatProfilePoolBO
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, poolId, "required"); err != nil {
+		return resp, err
 	}
 }

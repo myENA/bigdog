@@ -28,8 +28,18 @@ type WSGWIFICallingCreateWifiCallingPolicy struct {
 	Priority *string `json:"priority" validate:"required,oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
 }
 
+func NewWSGWIFICallingCreateWifiCallingPolicy() *WSGWIFICallingCreateWifiCallingPolicy {
+	m := new(WSGWIFICallingCreateWifiCallingPolicy)
+	return m
+}
+
 type WSGWIFICallingDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGWIFICallingDeleteBulk() *WSGWIFICallingDeleteBulk {
+	m := new(WSGWIFICallingDeleteBulk)
+	return m
 }
 
 type WSGWIFICallingEpdg struct {
@@ -38,6 +48,11 @@ type WSGWIFICallingEpdg struct {
 	Fqdn *string `json:"fqdn,omitempty"`
 
 	Ip *string `json:"ip,omitempty"`
+}
+
+func NewWSGWIFICallingEpdg() *WSGWIFICallingEpdg {
+	m := new(WSGWIFICallingEpdg)
+	return m
 }
 
 type WSGWIFICallingModifyEntireWifiCallingPolicy struct {
@@ -58,6 +73,11 @@ type WSGWIFICallingModifyWifiCallingPolicy struct {
 	// Constraints:
 	//    - oneof:[BACKGROUND,BEST_EFFORT,VIDEO,VOICE]
 	Priority *string `json:"priority,omitempty" validate:"oneof=BACKGROUND BEST_EFFORT VIDEO VOICE"`
+}
+
+func NewWSGWIFICallingModifyWifiCallingPolicy() *WSGWIFICallingModifyWifiCallingPolicy {
+	m := new(WSGWIFICallingModifyWifiCallingPolicy)
+	return m
 }
 
 type WSGWIFICallingPolicy struct {
@@ -112,6 +132,11 @@ type WSGWIFICallingPolicy struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+func NewWSGWIFICallingPolicy() *WSGWIFICallingPolicy {
+	m := new(WSGWIFICallingPolicy)
+	return m
+}
+
 type WSGWIFICallingPolicyList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -122,4 +147,9 @@ type WSGWIFICallingPolicyList struct {
 	List []*WSGWIFICallingPolicy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGWIFICallingPolicyList() *WSGWIFICallingPolicyList {
+	m := new(WSGWIFICallingPolicyList)
+	return m
 }

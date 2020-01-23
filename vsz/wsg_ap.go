@@ -18,6 +18,11 @@ type WSGAPAlarmList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGAPAlarmList() *WSGAPAlarmList {
+	m := new(WSGAPAlarmList)
+	return m
+}
+
 type WSGAPAlarmSummary struct {
 	// CriticalCount
 	// Critical alarm count
@@ -34,6 +39,11 @@ type WSGAPAlarmSummary struct {
 	// WarningCount
 	// Warning alarm count
 	WarningCount *int `json:"warningCount,omitempty"`
+}
+
+func NewWSGAPAlarmSummary() *WSGAPAlarmSummary {
+	m := new(WSGAPAlarmSummary)
+	return m
 }
 
 type WSGAPConfiguration struct {
@@ -157,6 +167,11 @@ type WSGAPConfiguration struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGAPConfiguration() *WSGAPConfiguration {
+	m := new(WSGAPConfiguration)
+	return m
+}
+
 type WSGAPLinemanSummary struct {
 	// FirstIndex
 	// Index of the first AP returned out of the complete AP list
@@ -171,6 +186,11 @@ type WSGAPLinemanSummary struct {
 	// TotalCount
 	// Total AP count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAPLinemanSummary() *WSGAPLinemanSummary {
+	m := new(WSGAPLinemanSummary)
+	return m
 }
 
 type WSGAPLinemanSummaryListType struct {
@@ -195,6 +215,11 @@ type WSGAPLinemanSummaryListType struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewWSGAPLinemanSummaryListType() *WSGAPLinemanSummaryListType {
+	m := new(WSGAPLinemanSummaryListType)
+	return m
+}
+
 type WSGAPListEntry struct {
 	// FirstIndex
 	// Index of the first AP returned out of the complete AP list
@@ -209,6 +234,11 @@ type WSGAPListEntry struct {
 	// TotalCount
 	// Total AP count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAPListEntry() *WSGAPListEntry {
+	m := new(WSGAPListEntry)
+	return m
 }
 
 type WSGAPListEntryListType struct {
@@ -231,7 +261,17 @@ type WSGAPListEntryListType struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGAPListEntryListType() *WSGAPListEntryListType {
+	m := new(WSGAPListEntryListType)
+	return m
+}
+
 type WSGAPName string
+
+func NewWSGAPName() *WSGAPName {
+	m := new(WSGAPName)
+	return m
+}
 
 type WSGAPOperationalSummary struct {
 	// AdministrativeState
@@ -371,6 +411,11 @@ type WSGAPOperationalSummary struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGAPOperationalSummary() *WSGAPOperationalSummary {
+	m := new(WSGAPOperationalSummary)
+	return m
+}
+
 type WSGAPClientList struct {
 	// FirstIndex
 	// Index of the first client returned out of the complete client list
@@ -385,6 +430,11 @@ type WSGAPClientList struct {
 	// TotalCount
 	// Total client count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAPClientList() *WSGAPClientList {
+	m := new(WSGAPClientList)
+	return m
 }
 
 type WSGAPCreateAP struct {
@@ -439,6 +489,11 @@ type WSGAPCreateAP struct {
 	ZoneId *string `json:"zoneId" validate:"required"`
 }
 
+func NewWSGAPCreateAP() *WSGAPCreateAP {
+	m := new(WSGAPCreateAP)
+	return m
+}
+
 type WSGAPEventSummary struct {
 	// CriticalCount
 	// Critical event count
@@ -465,6 +520,11 @@ type WSGAPEventSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
+func NewWSGAPEventSummary() *WSGAPEventSummary {
+	m := new(WSGAPEventSummary)
+	return m
+}
+
 type WSGAPLogin struct {
 	// ApLoginName
 	// Constraints:
@@ -475,6 +535,11 @@ type WSGAPLogin struct {
 	// Constraints:
 	//    - required
 	ApLoginPassword *WSGCommonApLoginPassword `json:"apLoginPassword" validate:"required,max=64"`
+}
+
+func NewWSGAPLogin() *WSGAPLogin {
+	m := new(WSGAPLogin)
+	return m
 }
 
 type WSGAPMesh struct {
@@ -493,6 +558,11 @@ type WSGAPMesh struct {
 	// Constraints:
 	//    - oneof:[SMART,MANUAL]
 	UplinkSelection *string `json:"uplinkSelection,omitempty" validate:"oneof=SMART MANUAL"`
+}
+
+func NewWSGAPMesh() *WSGAPMesh {
+	m := new(WSGAPMesh)
+	return m
 }
 
 type WSGAPModifyAP struct {
@@ -613,10 +683,20 @@ type WSGAPModifyAP struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGAPModifyAP() *WSGAPModifyAP {
+	m := new(WSGAPModifyAP)
+	return m
+}
+
 type WSGAPModifyRogueType struct {
 	// RogueMacList
 	// rogue mac list
 	RogueMacList []WSGCommonMac `json:"rogueMacList,omitempty"`
+}
+
+func NewWSGAPModifyRogueType() *WSGAPModifyRogueType {
+	m := new(WSGAPModifyRogueType)
+	return m
 }
 
 type WSGAPNeighborAPList struct {
@@ -633,6 +713,11 @@ type WSGAPNeighborAPList struct {
 	// TotalCount
 	// Total mesh neighbor APs count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAPNeighborAPList() *WSGAPNeighborAPList {
+	m := new(WSGAPNeighborAPList)
+	return m
 }
 
 type WSGAPNeighborAPListType struct {
@@ -679,6 +764,11 @@ type WSGAPNeighborAPListType struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewWSGAPNeighborAPListType() *WSGAPNeighborAPListType {
+	m := new(WSGAPNeighborAPListType)
+	return m
+}
+
 type WSGAPNetwork struct {
 	Gateway *WSGCommonIpAddress `json:"gateway,omitempty"`
 
@@ -697,6 +787,11 @@ type WSGAPNetwork struct {
 	SecondaryDns *WSGCommonIpAddress `json:"secondaryDns,omitempty"`
 }
 
+func NewWSGAPNetwork() *WSGAPNetwork {
+	m := new(WSGAPNetwork)
+	return m
+}
+
 type WSGAPNetworkIpv6 struct {
 	Gateway *WSGCommonIpAddress `json:"gateway,omitempty"`
 
@@ -711,6 +806,11 @@ type WSGAPNetworkIpv6 struct {
 	PrimaryDns *WSGCommonIpAddress `json:"primaryDns,omitempty"`
 
 	SecondaryDns *WSGCommonIpAddress `json:"secondaryDns,omitempty"`
+}
+
+func NewWSGAPNetworkIpv6() *WSGAPNetworkIpv6 {
+	m := new(WSGAPNetworkIpv6)
+	return m
 }
 
 type WSGAPSwitchoverAP struct {
@@ -733,6 +833,11 @@ type WSGAPSwitchoverAP struct {
 	// ZoneIdList
 	// Zone ID list for which APs attached to will be switchovered.
 	ZoneIdList []string `json:"zoneIdList,omitempty"`
+}
+
+func NewWSGAPSwitchoverAP() *WSGAPSwitchoverAP {
+	m := new(WSGAPSwitchoverAP)
+	return m
 }
 
 type WSGAPSyslog struct {
@@ -798,6 +903,11 @@ type WSGAPSyslog struct {
 	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
+func NewWSGAPSyslog() *WSGAPSyslog {
+	m := new(WSGAPSyslog)
+	return m
+}
+
 type WSGAPWlanGroup struct {
 	// Id
 	// Identifier of the WLAN group
@@ -806,4 +916,9 @@ type WSGAPWlanGroup struct {
 	// Name
 	// Name of the WLAN group
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGAPWlanGroup() *WSGAPWlanGroup {
+	m := new(WSGAPWlanGroup)
+	return m
 }

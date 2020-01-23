@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGSCIService struct {
@@ -62,6 +61,11 @@ type WSGSCICreateSciProfile struct {
 	SciUser *string `json:"sciUser" validate:"required"`
 }
 
+func NewWSGSCICreateSciProfile() *WSGSCICreateSciProfile {
+	m := new(WSGSCICreateSciProfile)
+	return m
+}
+
 type WSGSCIDeleteSciProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
@@ -70,8 +74,18 @@ type WSGSCIDeleteSciProfile struct {
 	Id *string `json:"id" validate:"required"`
 }
 
+func NewWSGSCIDeleteSciProfile() *WSGSCIDeleteSciProfile {
+	m := new(WSGSCIDeleteSciProfile)
+	return m
+}
+
 type WSGSCIDeleteSciProfileList struct {
 	List []*WSGSCIDeleteSciProfile `json:"list,omitempty"`
+}
+
+func NewWSGSCIDeleteSciProfileList() *WSGSCIDeleteSciProfileList {
+	m := new(WSGSCIDeleteSciProfileList)
+	return m
 }
 
 type WSGSCIModifyEventCode struct {
@@ -79,6 +93,11 @@ type WSGSCIModifyEventCode struct {
 	// Constraints:
 	//    - required
 	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes" validate:"required,dive"`
+}
+
+func NewWSGSCIModifyEventCode() *WSGSCIModifyEventCode {
+	m := new(WSGSCIModifyEventCode)
+	return m
 }
 
 type WSGSCIModifySciEnabled struct {
@@ -89,8 +108,18 @@ type WSGSCIModifySciEnabled struct {
 	SciEnabled *bool `json:"sciEnabled" validate:"required"`
 }
 
+func NewWSGSCIModifySciEnabled() *WSGSCIModifySciEnabled {
+	m := new(WSGSCIModifySciEnabled)
+	return m
+}
+
 type WSGSCIModifySciPriorityList struct {
 	List []*WSGSCIModifySciPriorityListType `json:"list,omitempty"`
+}
+
+func NewWSGSCIModifySciPriorityList() *WSGSCIModifySciPriorityList {
+	m := new(WSGSCIModifySciPriorityList)
+	return m
 }
 
 type WSGSCIModifySciPriorityListType struct {
@@ -111,6 +140,11 @@ type WSGSCIModifySciPriorityListType struct {
 	// Constraints:
 	//    - required
 	SciProfile *string `json:"sciProfile" validate:"required"`
+}
+
+func NewWSGSCIModifySciPriorityListType() *WSGSCIModifySciPriorityListType {
+	m := new(WSGSCIModifySciPriorityListType)
+	return m
 }
 
 type WSGSCIModifySciProfile struct {
@@ -155,6 +189,11 @@ type WSGSCIModifySciProfile struct {
 	SciUser *string `json:"sciUser" validate:"required"`
 }
 
+func NewWSGSCIModifySciProfile() *WSGSCIModifySciProfile {
+	m := new(WSGSCIModifySciProfile)
+	return m
+}
+
 type WSGSCIEventCode struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
@@ -171,6 +210,11 @@ type WSGSCIEventCode struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGSCIEventCode() *WSGSCIEventCode {
+	m := new(WSGSCIEventCode)
+	return m
+}
+
 type WSGSCIEventCodeListType struct {
 	// Code
 	// SCI accepted event code
@@ -179,6 +223,11 @@ type WSGSCIEventCodeListType struct {
 	// Type
 	// SCI accepted event type
 	Type *string `json:"type,omitempty"`
+}
+
+func NewWSGSCIEventCodeListType() *WSGSCIEventCodeListType {
+	m := new(WSGSCIEventCodeListType)
+	return m
 }
 
 type WSGSCIProfile struct {
@@ -213,6 +262,11 @@ type WSGSCIProfile struct {
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
 	SciUser *string `json:"sciUser,omitempty"`
+}
+
+func NewWSGSCIProfile() *WSGSCIProfile {
+	m := new(WSGSCIProfile)
+	return m
 }
 
 type WSGSCIProfileList struct {
@@ -258,10 +312,20 @@ func (t *WSGSCIProfileList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
+func NewWSGSCIProfileList() *WSGSCIProfileList {
+	m := new(WSGSCIProfileList)
+	return m
+}
+
 type WSGSCIProfileListExtraType struct {
 	// SciEnabled
 	// SCI password of the SCI profile for SZ/SCI interface
 	SciEnabled *bool `json:"sciEnabled,omitempty"`
+}
+
+func NewWSGSCIProfileListExtraType() *WSGSCIProfileListExtraType {
+	m := new(WSGSCIProfileListExtraType)
+	return m
 }
 
 // AddSciSciEventCode
@@ -271,11 +335,17 @@ type WSGSCIProfileListExtraType struct {
 // Request Body:
 //	 - body *WSGSCIModifyEventCode
 func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModifyEventCode) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -286,11 +356,17 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 // Request Body:
 //	 - body *WSGSCICreateSciProfile
 func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreateSciProfile) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -301,11 +377,17 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 // Request Body:
 //	 - body *WSGSCIModifySciPriorityList
 func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *WSGSCIModifySciPriorityList) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -316,11 +398,17 @@ func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *W
 // Request Body:
 //	 - body *WSGSCIDeleteSciProfileList
 func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDeleteSciProfileList) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -328,15 +416,19 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 //
 // Use this API command to delete sciProfile.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -344,11 +436,12 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, pId string)
 //
 // Use this API command to retrieve SciAcceptedEventCodes.
 func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCode, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGSCIEventCode
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -356,11 +449,12 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCo
 //
 // Use this API command to retrieve sciProfile list.
 func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGSCIProfileList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -368,15 +462,19 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileLi
 //
 // Use this API command to retrieve sciProfile.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, pId string) (*WSGSCIProfile, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*WSGSCIProfile, error) {
+	var (
+		resp *WSGSCIProfile
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -387,11 +485,17 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, pId string) (
 // Request Body:
 //	 - body *WSGSCIModifySciEnabled
 func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WSGSCIModifySciEnabled) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -402,14 +506,23 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 // Request Body:
 //	 - body *WSGSCIModifySciProfile
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, pId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, id string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

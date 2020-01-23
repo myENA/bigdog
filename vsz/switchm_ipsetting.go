@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMIPSettingService struct {
@@ -30,11 +29,17 @@ func (ss *SwitchMService) SwitchMIPSettingService() *SwitchMIPSettingService {
 // Request Body:
 //	 - body *SwitchMIpConfigCreate
 func (s *SwitchMIPSettingService) AddIpConfigs(ctx context.Context, body *SwitchMIpConfigCreate) (SwitchMIpConfigCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp SwitchMIpConfigCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,11 +50,14 @@ func (s *SwitchMIPSettingService) AddIpConfigs(ctx context.Context, body *Switch
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMIPSettingService) DeleteIpConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -57,15 +65,16 @@ func (s *SwitchMIPSettingService) DeleteIpConfigs(ctx context.Context, body *Swi
 //
 // Use this API command to Delete IP Config.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
@@ -73,11 +82,12 @@ func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, pId s
 //
 // Use this API command to Retrieve IP Config List.
 func (s *SwitchMIPSettingService) FindIpConfigs(ctx context.Context) (*SwitchMIpConfigList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *SwitchMIpConfigList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -85,15 +95,19 @@ func (s *SwitchMIPSettingService) FindIpConfigs(ctx context.Context) (*SwitchMIp
 //
 // Use this API command to Retrieve IP Config.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, pId string) (*SwitchMIpConfig, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, id string) (*SwitchMIpConfig, error) {
+	var (
+		resp *SwitchMIpConfig
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -104,11 +118,17 @@ func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, pId str
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMIpConfigList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMIpConfigList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -119,14 +139,23 @@ func (s *SwitchMIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Conte
 // Request Body:
 //	 - body *SwitchMIpConfigModify
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMIPSettingService) UpdateIpConfigsById(ctx context.Context, body *SwitchMIpConfigModify, pId string) (*SwitchMIpConfigEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMIPSettingService) UpdateIpConfigsById(ctx context.Context, body *SwitchMIpConfigModify, id string) (*SwitchMIpConfigEmptyResult, error) {
+	var (
+		resp *SwitchMIpConfigEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGIdentityUserService struct {
@@ -30,11 +29,17 @@ func (ss *WSGService) WSGIdentityUserService() *WSGIdentityUserService {
 // Request Body:
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityUserList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGIdentityUserList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,11 +50,17 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 // Request Body:
 //	 - body *WSGIdentityCreateUser
 func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSGIdentityCreateUser) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -60,11 +71,14 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 // Request Body:
 //	 - body *WSGIdentityDeleteBulk
 func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *WSGIdentityDeleteBulk) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -72,15 +86,19 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 //
 // Use this API command to delete identity user.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -88,41 +106,42 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, pI
 //
 // Use this API command to retrieve a list of identity user.
 //
-// Query Parameters:
-// - qCreatedOnFrom string
+// Optional Parameters:
+// - createdOnFrom string
 //		- nullable
-// - qCreatedOnTo string
+// - createdOnTo string
 //		- nullable
-// - qDisplayName string
+// - displayName string
 //		- nullable
-// - qEmail string
+// - email string
 //		- nullable
-// - qFirstName string
+// - firstName string
 //		- nullable
-// - qIndex string
+// - index string
 //		- nullable
-// - qIsDisabled string
+// - isDisabled string
 //		- nullable
-// - qLastName string
+// - lastName string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-// - qPhone string
+// - phone string
 //		- nullable
-// - qTimeZone string
+// - timeZone string
 //		- nullable
-// - qUserName string
+// - userName string
 //		- nullable
-// - qUserSource string
+// - userSource string
 //		- nullable
-// - qUserType string
+// - userType string
 //		- nullable
-func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, qCreatedOnFrom string, qCreatedOnTo string, qDisplayName string, qEmail string, qFirstName string, qIndex string, qIsDisabled string, qLastName string, qListSize string, qPhone string, qTimeZone string, qUserName string, qUserSource string, qUserType string) (*WSGIdentityUserList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optionalParams map[string]interface{}) (*WSGIdentityUserList, error) {
+	var (
+		resp *WSGIdentityUserList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -130,11 +149,12 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, qCreated
 //
 // Use this API command to retrieve a list of aaa server.
 func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context) (*WSGIdentityAaaServerList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGIdentityAaaServerList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -142,15 +162,19 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context)
 //
 // Use this API command to retrieve identity user.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, pId string) (*WSGIdentityUserConfiguration, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id string) (*WSGIdentityUserConfiguration, error) {
+	var (
+		resp *WSGIdentityUserConfiguration
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -158,11 +182,12 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, pId 
 //
 // Use this API command to retrieve a list of countries.
 func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context) (*WSGIdentityCountryList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGIdentityCountryList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -170,11 +195,12 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context)
 //
 // Use this API command to retrieve a list of packages.
 func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) (*WSGIdentityPackageList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGIdentityPackageList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -185,14 +211,23 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) 
 // Request Body:
 //	 - body *WSGIdentityModifyUser
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Context, body *WSGIdentityModifyUser, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Context, body *WSGIdentityModifyUser, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

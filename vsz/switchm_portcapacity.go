@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMPortCapacityService struct {
@@ -28,6 +27,11 @@ type SwitchMPortCapacityCapacities struct {
 	// Capacity
 	// Port Speed Capacity
 	Capacity *string `json:"capacity,omitempty"`
+}
+
+func NewSwitchMPortCapacityCapacities() *SwitchMPortCapacityCapacities {
+	m := new(SwitchMPortCapacityCapacities)
+	return m
 }
 
 type SwitchMPortCapacityResult struct {
@@ -54,6 +58,11 @@ type SwitchMPortCapacityResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
+	m := new(SwitchMPortCapacityResult)
+	return m
+}
+
 // SwitchMPortCapacityResultExtraType
 //
 // Extra field
@@ -77,14 +86,20 @@ func (t *SwitchMPortCapacityResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMPortCapacityResultExtraType() *SwitchMPortCapacityResultExtraType {
+	m := new(SwitchMPortCapacityResultExtraType)
+	return m
+}
+
 // FindPortCapacity
 //
 // Use this API command to Retrieve Switch Port Capacity List.
 func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context) (*SwitchMPortCapacityResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *SwitchMPortCapacityResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }

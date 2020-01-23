@@ -14,6 +14,11 @@ type WSGEventListEventQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGEventListEventQueryResultList() *WSGEventListEventQueryResultList {
+	m := new(WSGEventListEventQueryResultList)
+	return m
+}
+
 type WSGEventListSingleEvent struct {
 	Activity *string `json:"activity,omitempty"`
 
@@ -28,4 +33,9 @@ type WSGEventListSingleEvent struct {
 	InsertionTime *float64 `json:"insertionTime,omitempty"`
 
 	Severity *string `json:"severity,omitempty"`
+}
+
+func NewWSGEventListSingleEvent() *WSGEventListSingleEvent {
+	m := new(WSGEventListSingleEvent)
+	return m
 }

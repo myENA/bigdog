@@ -62,6 +62,11 @@ type WSGZoneAPModelApModel struct {
 	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty" validate:"omitempty"`
 }
 
+func NewWSGZoneAPModelApModel() *WSGZoneAPModelApModel {
+	m := new(WSGZoneAPModelApModel)
+	return m
+}
+
 type WSGZoneAPModelLanPortSetting struct {
 	// Enabled
 	// Constraints:
@@ -75,4 +80,9 @@ type WSGZoneAPModelLanPortSetting struct {
 	//    - required
 	//    - oneof:[LAN1,LAN2,LAN3,LAN4,LAN5]
 	PortName *string `json:"portName" validate:"required,oneof=LAN1 LAN2 LAN3 LAN4 LAN5"`
+}
+
+func NewWSGZoneAPModelLanPortSetting() *WSGZoneAPModelLanPortSetting {
+	m := new(WSGZoneAPModelLanPortSetting)
+	return m
 }

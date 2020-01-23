@@ -6,21 +6,20 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGAdministrationService struct {
-	apiClient *APIClient
+    apiClient *APIClient
 }
 
-func NewWSGAdministrationService(c *APIClient) *WSGAdministrationService {
-	s := new(WSGAdministrationService)
-	s.apiClient = c
-	return s
+func NewWSGAdministrationService (c *APIClient) *WSGAdministrationService {
+    s := new(WSGAdministrationService)
+    s.apiClient = c
+    return s
 }
 
-func (ss *WSGService) WSGAdministrationService() *WSGAdministrationService {
-	return NewWSGAdministrationService(ss.apiClient)
+func (ss *WSGService) WSGAdministrationService () *WSGAdministrationService {
+    return NewWSGAdministrationService(ss.apiClient)
 }
 
 type WSGAdministrationActiveDirectoryServer struct {
@@ -49,6 +48,11 @@ type WSGAdministrationActiveDirectoryServer struct {
 	WindowsDomainName *string `json:"windowsDomainName" validate:"required"`
 }
 
+func NewWSGAdministrationActiveDirectoryServer() *WSGAdministrationActiveDirectoryServer {
+	m := new(WSGAdministrationActiveDirectoryServer)
+	return m
+}
+
 type WSGAdministrationApPatchHistory struct {
 	// ApFwVersion
 	// apFwVersion of the AP Patch history
@@ -67,6 +71,11 @@ type WSGAdministrationApPatchHistory struct {
 	StartDateTime *string `json:"startDateTime,omitempty"`
 }
 
+func NewWSGAdministrationApPatchHistory() *WSGAdministrationApPatchHistory {
+	m := new(WSGAdministrationApPatchHistory)
+	return m
+}
+
 type WSGAdministrationApPatchHistoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -75,6 +84,11 @@ type WSGAdministrationApPatchHistoryList struct {
 	List []*WSGAdministrationApPatchHistory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAdministrationApPatchHistoryList() *WSGAdministrationApPatchHistoryList {
+	m := new(WSGAdministrationApPatchHistoryList)
+	return m
 }
 
 type WSGAdministrationApPatchInfo struct {
@@ -95,8 +109,18 @@ type WSGAdministrationApPatchInfo struct {
 	FileSize *int `json:"fileSize,omitempty"`
 }
 
+func NewWSGAdministrationApPatchInfo() *WSGAdministrationApPatchInfo {
+	m := new(WSGAdministrationApPatchInfo)
+	return m
+}
+
 type WSGAdministrationApPatchStatus struct {
 	ClusterOperationProgress *WSGClusterBladeClusterOperationProgress `json:"clusterOperationProgress,omitempty"`
+}
+
+func NewWSGAdministrationApPatchStatus() *WSGAdministrationApPatchStatus {
+	m := new(WSGAdministrationApPatchStatus)
+	return m
 }
 
 type WSGAdministrationApplicationLogAndStatus struct {
@@ -121,6 +145,11 @@ type WSGAdministrationApplicationLogAndStatus struct {
 	NumOfLogs *int `json:"numOfLogs,omitempty"`
 }
 
+func NewWSGAdministrationApplicationLogAndStatus() *WSGAdministrationApplicationLogAndStatus {
+	m := new(WSGAdministrationApplicationLogAndStatus)
+	return m
+}
+
 type WSGAdministrationApplicationLogAndStatusList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -131,6 +160,11 @@ type WSGAdministrationApplicationLogAndStatusList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGAdministrationApplicationLogAndStatusList() *WSGAdministrationApplicationLogAndStatusList {
+	m := new(WSGAdministrationApplicationLogAndStatusList)
+	return m
+}
+
 type WSGAdministrationAutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
@@ -139,6 +173,11 @@ type WSGAdministrationAutoExportBackup struct {
 	// FtpServer
 	// FTP server name
 	FtpServer *string `json:"ftpServer,omitempty"`
+}
+
+func NewWSGAdministrationAutoExportBackup() *WSGAdministrationAutoExportBackup {
+	m := new(WSGAdministrationAutoExportBackup)
+	return m
 }
 
 type WSGAdministrationBackupFile struct {
@@ -183,6 +222,11 @@ type WSGAdministrationBackupFile struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewWSGAdministrationBackupFile() *WSGAdministrationBackupFile {
+	m := new(WSGAdministrationBackupFile)
+	return m
+}
+
 type WSGAdministrationClusterBackupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -191,6 +235,11 @@ type WSGAdministrationClusterBackupList struct {
 	List []*WSGAdministrationClusterBackupSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAdministrationClusterBackupList() *WSGAdministrationClusterBackupList {
+	m := new(WSGAdministrationClusterBackupList)
+	return m
 }
 
 type WSGAdministrationClusterBackupSummary struct {
@@ -211,6 +260,11 @@ type WSGAdministrationClusterBackupSummary struct {
 	Version *string `json:"version,omitempty"`
 }
 
+func NewWSGAdministrationClusterBackupSummary() *WSGAdministrationClusterBackupSummary {
+	m := new(WSGAdministrationClusterBackupSummary)
+	return m
+}
+
 type WSGAdministrationConfigurationBackupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -219,6 +273,11 @@ type WSGAdministrationConfigurationBackupList struct {
 	List []*WSGAdministrationBackupFile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAdministrationConfigurationBackupList() *WSGAdministrationConfigurationBackupList {
+	m := new(WSGAdministrationConfigurationBackupList)
+	return m
 }
 
 type WSGAdministrationCreateAdminAAAServer struct {
@@ -245,6 +304,11 @@ type WSGAdministrationCreateAdminAAAServer struct {
 	Type *string `json:"type" validate:"required,oneof=RADIUS TACACS AD LDAP"`
 }
 
+func NewWSGAdministrationCreateAdminAAAServer() *WSGAdministrationCreateAdminAAAServer {
+	m := new(WSGAdministrationCreateAdminAAAServer)
+	return m
+}
+
 type WSGAdministrationDefaultRoleMapping struct {
 	// DefaultAdmin
 	// DefaultAdmin of DefaultRoleMapping object
@@ -257,6 +321,11 @@ type WSGAdministrationDefaultRoleMapping struct {
 	// Constraints:
 	//    - required
 	DefaultUserGroup *string `json:"defaultUserGroup" validate:"required"`
+}
+
+func NewWSGAdministrationDefaultRoleMapping() *WSGAdministrationDefaultRoleMapping {
+	m := new(WSGAdministrationDefaultRoleMapping)
+	return m
 }
 
 type WSGAdministrationLdapServer struct {
@@ -309,6 +378,11 @@ type WSGAdministrationLdapServer struct {
 	SearchFilter *string `json:"searchFilter" validate:"required"`
 }
 
+func NewWSGAdministrationLdapServer() *WSGAdministrationLdapServer {
+	m := new(WSGAdministrationLdapServer)
+	return m
+}
+
 type WSGAdministrationLicenses struct {
 	// Count
 	// number of licenses
@@ -331,6 +405,11 @@ type WSGAdministrationLicenses struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewWSGAdministrationLicenses() *WSGAdministrationLicenses {
+	m := new(WSGAdministrationLicenses)
+	return m
+}
+
 type WSGAdministrationLicenseServer struct {
 	// IpAddress
 	// local license server IP address
@@ -348,6 +427,11 @@ type WSGAdministrationLicenseServer struct {
 	UseCloud *bool `json:"useCloud,omitempty"`
 }
 
+func NewWSGAdministrationLicenseServer() *WSGAdministrationLicenseServer {
+	m := new(WSGAdministrationLicenseServer)
+	return m
+}
+
 type WSGAdministrationLicensesList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -358,12 +442,22 @@ type WSGAdministrationLicensesList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGAdministrationLicensesList() *WSGAdministrationLicensesList {
+	m := new(WSGAdministrationLicensesList)
+	return m
+}
+
 type WSGAdministrationLicensesSummary struct {
 	CapacityControlLicenseCount *WSGAdministrationLicensesSummaryCapacityControlLicenseCountType `json:"capacityControlLicenseCount,omitempty"`
 
 	// LicenseTypeDescription
 	// license type description
 	LicenseTypeDescription *string `json:"licenseTypeDescription,omitempty"`
+}
+
+func NewWSGAdministrationLicensesSummary() *WSGAdministrationLicensesSummary {
+	m := new(WSGAdministrationLicensesSummary)
+	return m
 }
 
 type WSGAdministrationLicensesSummaryCapacityControlLicenseCountType struct {
@@ -376,6 +470,11 @@ type WSGAdministrationLicensesSummaryCapacityControlLicenseCountType struct {
 	UsedCount *int `json:"usedCount,omitempty"`
 }
 
+func NewWSGAdministrationLicensesSummaryCapacityControlLicenseCountType() *WSGAdministrationLicensesSummaryCapacityControlLicenseCountType {
+	m := new(WSGAdministrationLicensesSummaryCapacityControlLicenseCountType)
+	return m
+}
+
 type WSGAdministrationLicensesSummaryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -384,6 +483,11 @@ type WSGAdministrationLicensesSummaryList struct {
 	List []*WSGAdministrationLicensesSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAdministrationLicensesSummaryList() *WSGAdministrationLicensesSummaryList {
+	m := new(WSGAdministrationLicensesSummaryList)
+	return m
 }
 
 type WSGAdministrationLicensesSyncLogs struct {
@@ -398,6 +502,11 @@ type WSGAdministrationLicensesSyncLogs struct {
 	SyncResult *string `json:"syncResult,omitempty" validate:"oneof=SUCCESS FAILURE"`
 }
 
+func NewWSGAdministrationLicensesSyncLogs() *WSGAdministrationLicensesSyncLogs {
+	m := new(WSGAdministrationLicensesSyncLogs)
+	return m
+}
+
 type WSGAdministrationLicensesSyncLogsList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -406,6 +515,11 @@ type WSGAdministrationLicensesSyncLogsList struct {
 	List []*WSGAdministrationLicensesSyncLogs `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAdministrationLicensesSyncLogsList() *WSGAdministrationLicensesSyncLogsList {
+	m := new(WSGAdministrationLicensesSyncLogsList)
+	return m
 }
 
 type WSGAdministrationModfiyLicenseServer struct {
@@ -421,6 +535,11 @@ type WSGAdministrationModfiyLicenseServer struct {
 	// Constraints:
 	//    - required
 	UseCloud *bool `json:"useCloud" validate:"required"`
+}
+
+func NewWSGAdministrationModfiyLicenseServer() *WSGAdministrationModfiyLicenseServer {
+	m := new(WSGAdministrationModfiyLicenseServer)
+	return m
 }
 
 type WSGAdministrationModifyAdminAAAServer struct {
@@ -447,6 +566,11 @@ type WSGAdministrationModifyAdminAAAServer struct {
 	Type *string `json:"type" validate:"required,oneof=RADIUS TACACS AD LDAP"`
 }
 
+func NewWSGAdministrationModifyAdminAAAServer() *WSGAdministrationModifyAdminAAAServer {
+	m := new(WSGAdministrationModifyAdminAAAServer)
+	return m
+}
+
 type WSGAdministrationModifyAutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
@@ -455,6 +579,11 @@ type WSGAdministrationModifyAutoExportBackup struct {
 	// FtpServer
 	// ftp server name
 	FtpServer *string `json:"ftpServer,omitempty"`
+}
+
+func NewWSGAdministrationModifyAutoExportBackup() *WSGAdministrationModifyAutoExportBackup {
+	m := new(WSGAdministrationModifyAutoExportBackup)
+	return m
 }
 
 type WSGAdministrationModifyLogLevel struct {
@@ -467,6 +596,11 @@ type WSGAdministrationModifyLogLevel struct {
 	// Constraints:
 	//    - oneof:[DEBUG,INFO,WARN,ERROR]
 	LogLevel *string `json:"logLevel,omitempty" validate:"oneof=DEBUG INFO WARN ERROR"`
+}
+
+func NewWSGAdministrationModifyLogLevel() *WSGAdministrationModifyLogLevel {
+	m := new(WSGAdministrationModifyLogLevel)
+	return m
 }
 
 type WSGAdministrationModifyScheduleBackup struct {
@@ -499,6 +633,11 @@ type WSGAdministrationModifyScheduleBackup struct {
 	Minute *int `json:"minute,omitempty"`
 }
 
+func NewWSGAdministrationModifyScheduleBackup() *WSGAdministrationModifyScheduleBackup {
+	m := new(WSGAdministrationModifyScheduleBackup)
+	return m
+}
+
 type WSGAdministrationRadiusServer struct {
 	// Ip
 	// Constraints:
@@ -527,6 +666,11 @@ type WSGAdministrationRadiusServer struct {
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
+func NewWSGAdministrationRadiusServer() *WSGAdministrationRadiusServer {
+	m := new(WSGAdministrationRadiusServer)
+	return m
+}
+
 type WSGAdministrationRetrieveAdminAAAServer struct {
 	ActiveDirectoryServer *WSGAdministrationActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
 
@@ -551,6 +695,11 @@ type WSGAdministrationRetrieveAdminAAAServer struct {
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
 }
 
+func NewWSGAdministrationRetrieveAdminAAAServer() *WSGAdministrationRetrieveAdminAAAServer {
+	m := new(WSGAdministrationRetrieveAdminAAAServer)
+	return m
+}
+
 type WSGAdministrationRetrieveAdminAAAServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -559,6 +708,11 @@ type WSGAdministrationRetrieveAdminAAAServerList struct {
 	List []*WSGAdministrationRetrieveAdminAAAServerListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAdministrationRetrieveAdminAAAServerList() *WSGAdministrationRetrieveAdminAAAServerList {
+	m := new(WSGAdministrationRetrieveAdminAAAServerList)
+	return m
 }
 
 type WSGAdministrationRetrieveAdminAAAServerListType struct {
@@ -570,6 +724,11 @@ type WSGAdministrationRetrieveAdminAAAServerListType struct {
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS,AD,LDAP]
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
+}
+
+func NewWSGAdministrationRetrieveAdminAAAServerListType() *WSGAdministrationRetrieveAdminAAAServerListType {
+	m := new(WSGAdministrationRetrieveAdminAAAServerListType)
+	return m
 }
 
 type WSGAdministrationScheduleBackup struct {
@@ -600,6 +759,11 @@ type WSGAdministrationScheduleBackup struct {
 	// Minute
 	// minute
 	Minute *int `json:"minute,omitempty"`
+}
+
+func NewWSGAdministrationScheduleBackup() *WSGAdministrationScheduleBackup {
+	m := new(WSGAdministrationScheduleBackup)
+	return m
 }
 
 type WSGAdministrationSecondaryRadiusServer struct {
@@ -650,6 +814,11 @@ type WSGAdministrationSecondaryRadiusServer struct {
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
+func NewWSGAdministrationSecondaryRadiusServer() *WSGAdministrationSecondaryRadiusServer {
+	m := new(WSGAdministrationSecondaryRadiusServer)
+	return m
+}
+
 type WSGAdministrationTacacsServer struct {
 	// Ip
 	// Constraints:
@@ -676,6 +845,11 @@ type WSGAdministrationTacacsServer struct {
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
+func NewWSGAdministrationTacacsServer() *WSGAdministrationTacacsServer {
+	m := new(WSGAdministrationTacacsServer)
+	return m
+}
+
 type WSGAdministrationUpgradeHistoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -684,6 +858,11 @@ type WSGAdministrationUpgradeHistoryList struct {
 	List []*WSGAdministrationUpgradeHistorySummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAdministrationUpgradeHistoryList() *WSGAdministrationUpgradeHistoryList {
+	m := new(WSGAdministrationUpgradeHistoryList)
+	return m
 }
 
 type WSGAdministrationUpgradeHistorySummary struct {
@@ -732,14 +911,29 @@ type WSGAdministrationUpgradeHistorySummary struct {
 	Version *string `json:"version,omitempty"`
 }
 
+func NewWSGAdministrationUpgradeHistorySummary() *WSGAdministrationUpgradeHistorySummary {
+	m := new(WSGAdministrationUpgradeHistorySummary)
+	return m
+}
+
 type WSGAdministrationUpgradePatchInfo struct {
 	ClusterOperationProgress *WSGClusterBladeClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 
 	UploadPatchInfo *WSGClusterBladeUploadPatchInfo `json:"uploadPatchInfo,omitempty"`
 }
 
+func NewWSGAdministrationUpgradePatchInfo() *WSGAdministrationUpgradePatchInfo {
+	m := new(WSGAdministrationUpgradePatchInfo)
+	return m
+}
+
 type WSGAdministrationUpgradeStatus struct {
 	ClusterOperationProgress *WSGClusterBladeClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
+}
+
+func NewWSGAdministrationUpgradeStatus() *WSGAdministrationUpgradeStatus {
+	m := new(WSGAdministrationUpgradeStatus)
+	return m
 }
 
 type WSGAdministrationZdAP struct {
@@ -752,6 +946,11 @@ type WSGAdministrationZdAP struct {
 	Mac *string `json:"mac,omitempty"`
 }
 
+func NewWSGAdministrationZdAP() *WSGAdministrationZdAP {
+	m := new(WSGAdministrationZdAP)
+	return m
+}
+
 type WSGAdministrationZdAPList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -762,6 +961,11 @@ type WSGAdministrationZdAPList struct {
 	List []*WSGAdministrationZdAP `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAdministrationZdAPList() *WSGAdministrationZdAPList {
+	m := new(WSGAdministrationZdAPList)
+	return m
 }
 
 type WSGAdministrationZdImport struct {
@@ -782,6 +986,11 @@ type WSGAdministrationZdImport struct {
 	User *string `json:"user,omitempty"`
 }
 
+func NewWSGAdministrationZdImport() *WSGAdministrationZdImport {
+	m := new(WSGAdministrationZdImport)
+	return m
+}
+
 type WSGAdministrationZdImportStatus struct {
 	// Details
 	// Details
@@ -800,42 +1009,49 @@ type WSGAdministrationZdImportStatus struct {
 	State *string `json:"state,omitempty"`
 }
 
+func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
+	m := new(WSGAdministrationZdImportStatus)
+	return m
+}
+
 // AddAdminaaa
 //
 // Use this API command to create a new Admin AAA server
 //
 // Request Body:
 //	 - body *WSGAdministrationCreateAdminAAAServer
-func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGAdministrationService) AddAdminaaa (ctx context.Context, body *WSGAdministrationCreateAdminAAAServer) (*WSGCommonCreateResult, error){
+	var (
+		resp *WSGCommonCreateResult
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
 // AddRestart
 //
 // Use this API command to restart the controller.
-func (s *WSGAdministrationService) AddRestart(ctx context.Context) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+func (s *WSGAdministrationService) AddRestart (ctx context.Context) error{
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
 }
 
 // AddShutdown
 //
 // Use this API command to shut down the controller.
-func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+func (s *WSGAdministrationService) AddShutdown (ctx context.Context) error{
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
 }
 
@@ -843,15 +1059,19 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
 //
 // Use this API command to delete an existing Admin AAA server
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGAdministrationService) DeleteAdminaaaById (ctx context.Context, id string) (*WSGCommonEmptyResult, error){
+	var (
+		resp *WSGCommonEmptyResult
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -859,15 +1079,19 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, pId s
 //
 // Use this API command to retrieve the list of Admin AAA server
 //
-// Query Parameters:
-// - qType string
+// Required Parameters:
+// - type string
 //		- required
-func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, qType string) (*WSGAdministrationRetrieveAdminAAAServerList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGAdministrationService) FindAdminaaa (ctx context.Context, type string) (*WSGAdministrationRetrieveAdminAAAServerList, error){
+	var (
+		resp *WSGAdministrationRetrieveAdminAAAServerList
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, type, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -875,63 +1099,71 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, qType strin
 //
 // Use this API command to retrieve an existing Admin AAA server
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, pId string) (*WSGAdministrationRetrieveAdminAAAServer, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGAdministrationService) FindAdminaaaById (ctx context.Context, id string) (*WSGAdministrationRetrieveAdminAAAServer, error){
+	var (
+		resp *WSGAdministrationRetrieveAdminAAAServer
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
 // FindLicenses
 //
 // Use this API command to get all licenses currently assign in SCG.
-func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdministrationLicensesList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGAdministrationService) FindLicenses (ctx context.Context) (*WSGAdministrationLicensesList, error){
+	var (
+		resp *WSGAdministrationLicensesList
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
 // FindLicenseServer
 //
 // Use this API command to get license server configuration.
-func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGAdministrationLicenseServer, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGAdministrationService) FindLicenseServer (ctx context.Context) (*WSGAdministrationLicenseServer, error){
+	var (
+		resp *WSGAdministrationLicenseServer
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
 // FindLicensesSummary
 //
 // Use this API command to get licenses summary information.
-func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WSGAdministrationLicensesSummaryList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGAdministrationService) FindLicensesSummary (ctx context.Context) (*WSGAdministrationLicensesSummaryList, error){
+	var (
+		resp *WSGAdministrationLicensesSummaryList
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
 // FindLicensesSyncLogs
 //
 // Use this API command to get licenses synchronize logs.
-func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*WSGAdministrationLicensesSyncLogsList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGAdministrationService) FindLicensesSyncLogs (ctx context.Context) (*WSGAdministrationLicensesSyncLogsList, error){
+	var (
+		resp *WSGAdministrationLicensesSyncLogsList
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -942,15 +1174,24 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*W
 // Request Body:
 //	 - body *WSGAdministrationModifyAdminAAAServer
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGAdministrationService) UpdateAdminaaaById (ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string) (*WSGCommonEmptyResult, error){
+	var (
+		resp *WSGCommonEmptyResult
+		err error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -960,23 +1201,25 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *WSGAdministrationModfiyLicenseServer
-func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGAdministrationService) UpdateLicenseServer (ctx context.Context, body *WSGAdministrationModfiyLicenseServer) error{
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
 // UpdateLicensesSync
 //
 // Use this API command to ask all SCG in cluster to sync licenses from license server.
-func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+func (s *WSGAdministrationService) UpdateLicensesSync (ctx context.Context) error{
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
 }
+

@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMGroupModelConfigService struct {
@@ -32,6 +31,11 @@ type SwitchMGroupModelConfigGroupConfigAuditId struct {
 	// Name
 	// The name of the Group Model Config
 	Name *string `json:"name,omitempty"`
+}
+
+func NewSwitchMGroupModelConfigGroupConfigAuditId() *SwitchMGroupModelConfigGroupConfigAuditId {
+	m := new(SwitchMGroupModelConfigGroupConfigAuditId)
+	return m
 }
 
 type SwitchMGroupModelConfig struct {
@@ -76,6 +80,11 @@ type SwitchMGroupModelConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewSwitchMGroupModelConfig() *SwitchMGroupModelConfig {
+	m := new(SwitchMGroupModelConfig)
+	return m
+}
+
 type SwitchMGroupModelConfigQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -98,6 +107,11 @@ type SwitchMGroupModelConfigQueryResult struct {
 	// TotalCount
 	// Total Group Model Configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMGroupModelConfigQueryResult() *SwitchMGroupModelConfigQueryResult {
+	m := new(SwitchMGroupModelConfigQueryResult)
+	return m
 }
 
 // SwitchMGroupModelConfigQueryResultExtraType
@@ -123,8 +137,18 @@ func (t *SwitchMGroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, err
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMGroupModelConfigQueryResultExtraType() *SwitchMGroupModelConfigQueryResultExtraType {
+	m := new(SwitchMGroupModelConfigQueryResultExtraType)
+	return m
+}
+
 type SwitchMGroupModelConfigSelectedIds struct {
 	SelectedIdList []string `json:"selectedIdList,omitempty"`
+}
+
+func NewSwitchMGroupModelConfigSelectedIds() *SwitchMGroupModelConfigSelectedIds {
+	m := new(SwitchMGroupModelConfigSelectedIds)
+	return m
 }
 
 type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
@@ -151,6 +175,11 @@ type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelConfigUpdateGroupConfigResultList {
+	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultList)
+	return m
+}
+
 // SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType
 //
 // Any additional response data
@@ -174,6 +203,11 @@ func (t *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType) MarshalJSO
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMGroupModelConfigUpdateGroupConfigResultListExtraType() *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType {
+	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType)
+	return m
+}
+
 // FindGroupModelConfigsByQueryCriteria
 //
 // Use this API command to retrieve the list of group model configs.
@@ -181,11 +215,17 @@ func (t *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType) MarshalJSO
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMGroupModelConfigQueryResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMGroupModelConfigQueryResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -196,14 +236,23 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 // Request Body:
 //	 - body *SwitchMGroupModelConfigSelectedIds
 //
-// Path Parameters:
-// - pGroupId string
+// Required Parameters:
+// - groupId string
 //		- required
-func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *SwitchMGroupModelConfigSelectedIds, pGroupId string) (*SwitchMGroupModelConfigUpdateGroupConfigResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *SwitchMGroupModelConfigSelectedIds, groupId string) (*SwitchMGroupModelConfigUpdateGroupConfigResultList, error) {
+	var (
+		resp *SwitchMGroupModelConfigUpdateGroupConfigResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
 	}
 }

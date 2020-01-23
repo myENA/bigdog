@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMJobandScheduleService struct {
@@ -30,11 +29,17 @@ func (ss *SwitchMService) SwitchMJobandScheduleService() *SwitchMJobandScheduleS
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMJobList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMJobList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -42,11 +47,12 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 //
 // Use this API command to delete a selected schedule.
 func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -57,15 +63,24 @@ func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (i
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 //
-// Path Parameters:
-// - pJobId string
+// Required Parameters:
+// - jobId string
 //		- required
-func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, pJobId string) (*SwitchMJob, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, jobId string) (*SwitchMJob, error) {
+	var (
+		resp *SwitchMJob
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, jobId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -73,14 +88,18 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 //
 // Use this API command to retrieve a given schedule.
 //
-// Path Parameters:
-// - pScheduleId string
+// Required Parameters:
+// - scheduleId string
 //		- required
-func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.Context, pScheduleId string) (*SwitchMJobScheduleResponse, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.Context, scheduleId string) (*SwitchMJobScheduleResponse, error) {
+	var (
+		resp *SwitchMJobScheduleResponse
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, scheduleId, "required"); err != nil {
+		return resp, err
 	}
 }

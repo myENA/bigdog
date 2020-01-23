@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMAAAServersService struct {
@@ -100,6 +99,11 @@ type SwitchMAAAServersAAAServer struct {
 	Username *string `json:"username,omitempty"`
 }
 
+func NewSwitchMAAAServersAAAServer() *SwitchMAAAServersAAAServer {
+	m := new(SwitchMAAAServersAAAServer)
+	return m
+}
+
 type SwitchMAAAServersQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -124,6 +128,11 @@ type SwitchMAAAServersQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMAAAServersQueryResult() *SwitchMAAAServersQueryResult {
+	m := new(SwitchMAAAServersQueryResult)
+	return m
+}
+
 // SwitchMAAAServersQueryResultExtraType
 //
 // Any additional response data
@@ -145,6 +154,11 @@ func (t *SwitchMAAAServersQueryResultExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMAAAServersQueryResultExtraType() *SwitchMAAAServersQueryResultExtraType {
+	m := new(SwitchMAAAServersQueryResultExtraType)
+	return m
 }
 
 type SwitchMAAAServersCreateAdminAAAServer struct {
@@ -195,6 +209,11 @@ type SwitchMAAAServersCreateAdminAAAServer struct {
 	Username *string `json:"username,omitempty"`
 }
 
+func NewSwitchMAAAServersCreateAdminAAAServer() *SwitchMAAAServersCreateAdminAAAServer {
+	m := new(SwitchMAAAServersCreateAdminAAAServer)
+	return m
+}
+
 type SwitchMAAAServersEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -215,6 +234,11 @@ func (t *SwitchMAAAServersEmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMAAAServersEmptyResult() *SwitchMAAAServersEmptyResult {
+	m := new(SwitchMAAAServersEmptyResult)
+	return m
+}
+
 // AddAaaServersAdmin
 //
 // Use this API command to create a new AAA server.
@@ -222,11 +246,17 @@ func (t *SwitchMAAAServersEmptyResult) MarshalJSON() ([]byte, error) {
 // Request Body:
 //	 - body *SwitchMAAAServersCreateAdminAAAServer
 func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer) (*SwitchMCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -237,11 +267,14 @@ func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body 
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -249,15 +282,19 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, bo
 //
 // Use this API command to delete a AAA server.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context, pId string) (*SwitchMAAAServersEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context, id string) (*SwitchMAAAServersEmptyResult, error) {
+	var (
+		resp *SwitchMAAAServersEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -265,11 +302,12 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context
 //
 // Use this API command to retrieve a list of AAA server.
 func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*SwitchMAAAServersQueryResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *SwitchMAAAServersQueryResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -277,15 +315,19 @@ func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*Sw
 //
 // Use this API command to retrieve a AAA server.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, pId string) (*SwitchMAAAServersAAAServer, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, id string) (*SwitchMAAAServersAAAServer, error) {
+	var (
+		resp *SwitchMAAAServersAAAServer
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -296,14 +338,23 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 // Request Body:
 //	 - body *SwitchMAAAServersCreateAdminAAAServer
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, pId string) (*SwitchMAAAServersEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, id string) (*SwitchMAAAServersEmptyResult, error) {
+	var (
+		resp *SwitchMAAAServersEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

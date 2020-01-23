@@ -10,11 +10,26 @@ type SwitchMCommonBulkDeleteRequest struct {
 	IdList SwitchMCommonIdList `json:"idList,omitempty"`
 }
 
+func NewSwitchMCommonBulkDeleteRequest() *SwitchMCommonBulkDeleteRequest {
+	m := new(SwitchMCommonBulkDeleteRequest)
+	return m
+}
+
 type SwitchMCommonCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
 
+func NewSwitchMCommonCreateResult() *SwitchMCommonCreateResult {
+	m := new(SwitchMCommonCreateResult)
+	return m
+}
+
 type SwitchMCommonFilterOperator string
+
+func NewSwitchMCommonFilterOperator() *SwitchMCommonFilterOperator {
+	m := new(SwitchMCommonFilterOperator)
+	return m
+}
 
 type SwitchMCommonFullTextSearch struct {
 	// Fields
@@ -32,7 +47,17 @@ type SwitchMCommonFullTextSearch struct {
 	Value *string `json:"value,omitempty"`
 }
 
+func NewSwitchMCommonFullTextSearch() *SwitchMCommonFullTextSearch {
+	m := new(SwitchMCommonFullTextSearch)
+	return m
+}
+
 type SwitchMCommonIdList []string
+
+func MakeSwitchMCommonIdList() SwitchMCommonIdList {
+	m := make(SwitchMCommonIdList, 0)
+	return m
+}
 
 type SwitchMCommonQueryCriteria struct {
 	// Attributes
@@ -88,6 +113,11 @@ type SwitchMCommonQueryCriteria struct {
 	SortInfo *SwitchMCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
+func NewSwitchMCommonQueryCriteria() *SwitchMCommonQueryCriteria {
+	m := new(SwitchMCommonQueryCriteria)
+	return m
+}
+
 type SwitchMCommonQueryCriteriaExtraFiltersType struct {
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
@@ -100,6 +130,11 @@ type SwitchMCommonQueryCriteriaExtraFiltersType struct {
 	Value *string `json:"value,omitempty"`
 }
 
+func NewSwitchMCommonQueryCriteriaExtraFiltersType() *SwitchMCommonQueryCriteriaExtraFiltersType {
+	m := new(SwitchMCommonQueryCriteriaExtraFiltersType)
+	return m
+}
+
 type SwitchMCommonQueryCriteriaExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
@@ -108,6 +143,11 @@ type SwitchMCommonQueryCriteriaExtraNotFiltersType struct {
 	// Value
 	// value not to search
 	Value *string `json:"value,omitempty"`
+}
+
+func NewSwitchMCommonQueryCriteriaExtraNotFiltersType() *SwitchMCommonQueryCriteriaExtraNotFiltersType {
+	m := new(SwitchMCommonQueryCriteriaExtraNotFiltersType)
+	return m
 }
 
 type SwitchMCommonQueryCriteriaFiltersType struct {
@@ -120,6 +160,11 @@ type SwitchMCommonQueryCriteriaFiltersType struct {
 	// Value
 	// Group ID
 	Value *string `json:"value,omitempty"`
+}
+
+func NewSwitchMCommonQueryCriteriaFiltersType() *SwitchMCommonQueryCriteriaFiltersType {
+	m := new(SwitchMCommonQueryCriteriaFiltersType)
+	return m
 }
 
 // SwitchMCommonQueryCriteriaOptionsType
@@ -145,6 +190,11 @@ func (t *SwitchMCommonQueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMCommonQueryCriteriaOptionsType() *SwitchMCommonQueryCriteriaOptionsType {
+	m := new(SwitchMCommonQueryCriteriaOptionsType)
+	return m
+}
+
 // SwitchMCommonQueryCriteriaSortInfoType
 //
 // About sorting
@@ -155,6 +205,11 @@ type SwitchMCommonQueryCriteriaSortInfoType struct {
 	Dir *string `json:"dir,omitempty" validate:"oneof=ASC DESC"`
 
 	SortColumn *string `json:"sortColumn,omitempty"`
+}
+
+func NewSwitchMCommonQueryCriteriaSortInfoType() *SwitchMCommonQueryCriteriaSortInfoType {
+	m := new(SwitchMCommonQueryCriteriaSortInfoType)
+	return m
 }
 
 type SwitchMCommonQueryCriteriaSuperSet struct {
@@ -211,8 +266,18 @@ type SwitchMCommonQueryCriteriaSuperSet struct {
 	SortInfo *SwitchMCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
+func NewSwitchMCommonQueryCriteriaSuperSet() *SwitchMCommonQueryCriteriaSuperSet {
+	m := new(SwitchMCommonQueryCriteriaSuperSet)
+	return m
+}
+
 type SwitchMCommonRbacMetadata struct {
 	RbacMetadata []string `json:"rbacMetadata,omitempty"`
+}
+
+func NewSwitchMCommonRbacMetadata() *SwitchMCommonRbacMetadata {
+	m := new(SwitchMCommonRbacMetadata)
+	return m
 }
 
 type SwitchMCommonTimeRange struct {
@@ -233,4 +298,9 @@ type SwitchMCommonTimeRange struct {
 	// Start
 	// start time for collecting data
 	Start *float64 `json:"start,omitempty"`
+}
+
+func NewSwitchMCommonTimeRange() *SwitchMCommonTimeRange {
+	m := new(SwitchMCommonTimeRange)
+	return m
 }

@@ -78,6 +78,11 @@ type SwitchMVlanConfigCreateVlanConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+func NewSwitchMVlanConfigCreateVlanConfig() *SwitchMVlanConfigCreateVlanConfig {
+	m := new(SwitchMVlanConfigCreateVlanConfig)
+	return m
+}
+
 type SwitchMVlanConfigEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -96,6 +101,11 @@ func (t *SwitchMVlanConfigEmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMVlanConfigEmptyResult() *SwitchMVlanConfigEmptyResult {
+	m := new(SwitchMVlanConfigEmptyResult)
+	return m
 }
 
 type SwitchMVlanConfigUpdateVlanConfig struct {
@@ -154,6 +164,11 @@ type SwitchMVlanConfigUpdateVlanConfig struct {
 	SpanningTreePriority *int `json:"spanningTreePriority,omitempty"`
 }
 
+func NewSwitchMVlanConfigUpdateVlanConfig() *SwitchMVlanConfigUpdateVlanConfig {
+	m := new(SwitchMVlanConfigUpdateVlanConfig)
+	return m
+}
+
 type SwitchMVlanConfigVlanArpInspections struct {
 	// Ip
 	// The IP of ArpInspections
@@ -162,6 +177,11 @@ type SwitchMVlanConfigVlanArpInspections struct {
 	// Mac
 	// The MAC of ArpInspections
 	Mac *string `json:"mac,omitempty"`
+}
+
+func NewSwitchMVlanConfigVlanArpInspections() *SwitchMVlanConfigVlanArpInspections {
+	m := new(SwitchMVlanConfigVlanArpInspections)
+	return m
 }
 
 type SwitchMVlanConfig struct {
@@ -246,6 +266,11 @@ type SwitchMVlanConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+func NewSwitchMVlanConfig() *SwitchMVlanConfig {
+	m := new(SwitchMVlanConfig)
+	return m
+}
+
 type SwitchMVlanConfigQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -268,6 +293,11 @@ type SwitchMVlanConfigQueryResult struct {
 	// TotalCount
 	// Total Vlan Configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMVlanConfigQueryResult() *SwitchMVlanConfigQueryResult {
+	m := new(SwitchMVlanConfigQueryResult)
+	return m
 }
 
 // SwitchMVlanConfigQueryResultExtraType
@@ -293,6 +323,11 @@ func (t *SwitchMVlanConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMVlanConfigQueryResultExtraType() *SwitchMVlanConfigQueryResultExtraType {
+	m := new(SwitchMVlanConfigQueryResultExtraType)
+	return m
+}
+
 type SwitchMVlanConfigVlanPorts struct {
 	// SwitchModel
 	// The Switch Model of Ports
@@ -305,4 +340,9 @@ type SwitchMVlanConfigVlanPorts struct {
 	// UntaggedPorts
 	// The Untagged Ports of Ports
 	UntaggedPorts *string `json:"untaggedPorts,omitempty"`
+}
+
+func NewSwitchMVlanConfigVlanPorts() *SwitchMVlanConfigVlanPorts {
+	m := new(SwitchMVlanConfigVlanPorts)
+	return m
 }

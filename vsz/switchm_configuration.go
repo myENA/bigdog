@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMConfigurationService struct {
@@ -30,11 +29,17 @@ func (ss *SwitchMService) SwitchMConfigurationService() *SwitchMConfigurationSer
 // Request Body:
 //	 - body *SwitchMConfigBackupQueryCriteria
 func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body *SwitchMConfigBackupQueryCriteria) (*SwitchMConfigBackupList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMConfigBackupList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,11 +50,15 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 // Request Body:
 //	 - body SwitchMConfigBackupSwitchIds
 func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context, body SwitchMConfigBackupSwitchIds) (*SwitchMConfigBackupCreateBackupResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMConfigBackupCreateBackupResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -60,11 +69,17 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 // Request Body:
 //	 - body *SwitchMConfigBackupDiffInput
 func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Context, body *SwitchMConfigBackupDiffInput) (*SwitchMConfigBackupDiff, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMConfigBackupDiff
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -75,11 +90,12 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 // Request Body:
 //	 - body SwitchMConfigBackupBackupIds
 func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, body SwitchMConfigBackupBackupIds) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
 	}
 }
 
@@ -87,15 +103,16 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, bo
 //
 // Use this API command to delete the configuration backup.
 //
-// Path Parameters:
-// - pConfigId string
+// Required Parameters:
+// - configId string
 //		- required
-func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.Context, pConfigId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.Context, configId string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
+		return err
 	}
 }
 
@@ -103,15 +120,19 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 //
 // Use this API command to retrieve configuration backup content.
 //
-// Path Parameters:
-// - pConfigId string
+// Required Parameters:
+// - configId string
 //		- required
-func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Context, pConfigId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Context, configId string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -119,15 +140,19 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 //
 // Use this API command to download configuration backup content as plain text.
 //
-// Path Parameters:
-// - pConfigId string
+// Required Parameters:
+// - configId string
 //		- required
-func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx context.Context, pConfigId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx context.Context, configId string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -138,11 +163,12 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 // Request Body:
 //	 - body SwitchMConfigBackupSwitchIds
 func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Context, body SwitchMConfigBackupSwitchIds) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
 	}
 }
 
@@ -150,17 +176,21 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Conte
 //
 // Use this API command to backup configurations for all switches under a group.
 //
-// Path Parameters:
-// - pGroupId string
+// Required Parameters:
+// - groupId string
 //		- required
-// - pGroupType string
+// - groupType string
 //		- required
-func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx context.Context, pGroupId string, pGroupType string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx context.Context, groupId string, groupType string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, groupType, "required"); err != nil {
+		return err
+	}
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return err
 	}
 }
 
@@ -168,14 +198,18 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 //
 // Restore a configuration backup to the switch.
 //
-// Path Parameters:
-// - pBackupId string
+// Required Parameters:
+// - backupId string
 //		- required
-func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(ctx context.Context, pBackupId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(ctx context.Context, backupId string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, backupId, "required"); err != nil {
+		return resp, err
 	}
 }

@@ -12,6 +12,11 @@ type WSGIdentityAaaServer struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewWSGIdentityAaaServer() *WSGIdentityAaaServer {
+	m := new(WSGIdentityAaaServer)
+	return m
+}
+
 type WSGIdentityAaaServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -20,6 +25,11 @@ type WSGIdentityAaaServerList struct {
 	List []*WSGIdentityAaaServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGIdentityAaaServerList() *WSGIdentityAaaServerList {
+	m := new(WSGIdentityAaaServerList)
+	return m
 }
 
 type WSGIdentityAuthenticationServerConfig struct {
@@ -52,6 +62,11 @@ type WSGIdentityAuthenticationServerConfig struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewWSGIdentityAuthenticationServerConfig() *WSGIdentityAuthenticationServerConfig {
+	m := new(WSGIdentityAuthenticationServerConfig)
+	return m
+}
+
 type WSGIdentityCountryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -62,6 +77,11 @@ type WSGIdentityCountryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGIdentityCountryList() *WSGIdentityCountryList {
+	m := new(WSGIdentityCountryList)
+	return m
+}
+
 type WSGIdentityCountrySummary struct {
 	// CountryName
 	// Full name of country
@@ -70,6 +90,11 @@ type WSGIdentityCountrySummary struct {
 	// CountryShortName
 	// Short name of country
 	CountryShortName *string `json:"countryShortName,omitempty"`
+}
+
+func NewWSGIdentityCountrySummary() *WSGIdentityCountrySummary {
+	m := new(WSGIdentityCountrySummary)
+	return m
 }
 
 type WSGIdentityCreateIdentityGuestPass struct {
@@ -133,6 +158,11 @@ type WSGIdentityCreateIdentityGuestPass struct {
 	Zone *WSGCommonGenericRef `json:"zone" validate:"required"`
 }
 
+func NewWSGIdentityCreateIdentityGuestPass() *WSGIdentityCreateIdentityGuestPass {
+	m := new(WSGIdentityCreateIdentityGuestPass)
+	return m
+}
+
 type WSGIdentityCreateIdentityUserRole struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -165,6 +195,11 @@ type WSGIdentityCreateIdentityUserRole struct {
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 
+func NewWSGIdentityCreateIdentityUserRole() *WSGIdentityCreateIdentityUserRole {
+	m := new(WSGIdentityCreateIdentityUserRole)
+	return m
+}
+
 type WSGIdentityCreateSubscriptionPackage struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -189,6 +224,11 @@ type WSGIdentityCreateSubscriptionPackage struct {
 	// Constraints:
 	//    - required
 	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewWSGIdentityCreateSubscriptionPackage() *WSGIdentityCreateSubscriptionPackage {
+	m := new(WSGIdentityCreateSubscriptionPackage)
+	return m
 }
 
 type WSGIdentityCreateUser struct {
@@ -266,8 +306,18 @@ type WSGIdentityCreateUser struct {
 	ZipCode *string `json:"zipCode,omitempty"`
 }
 
+func NewWSGIdentityCreateUser() *WSGIdentityCreateUser {
+	m := new(WSGIdentityCreateUser)
+	return m
+}
+
 type WSGIdentityDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGIdentityDeleteBulk() *WSGIdentityDeleteBulk {
+	m := new(WSGIdentityDeleteBulk)
+	return m
 }
 
 type WSGIdentityGuestPassConfiguration struct {
@@ -334,6 +384,11 @@ type WSGIdentityGuestPassConfiguration struct {
 	Zone *WSGCommonGenericRef `json:"zone,omitempty"`
 }
 
+func NewWSGIdentityGuestPassConfiguration() *WSGIdentityGuestPassConfiguration {
+	m := new(WSGIdentityGuestPassConfiguration)
+	return m
+}
+
 type WSGIdentityGuestPassList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -346,6 +401,11 @@ type WSGIdentityGuestPassList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGIdentityGuestPassList() *WSGIdentityGuestPassList {
+	m := new(WSGIdentityGuestPassList)
+	return m
+}
+
 type WSGIdentityList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -356,6 +416,11 @@ type WSGIdentityList struct {
 	List []*WSGIdentityListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGIdentityList() *WSGIdentityList {
+	m := new(WSGIdentityList)
+	return m
 }
 
 type WSGIdentityListType struct {
@@ -406,6 +471,11 @@ type WSGIdentityListType struct {
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 
+func NewWSGIdentityListType() *WSGIdentityListType {
+	m := new(WSGIdentityListType)
+	return m
+}
+
 type WSGIdentityUserRole struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -450,6 +520,11 @@ type WSGIdentityUserRole struct {
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 
+func NewWSGIdentityUserRole() *WSGIdentityUserRole {
+	m := new(WSGIdentityUserRole)
+	return m
+}
+
 type WSGIdentityUserSummary struct {
 	// CreatedOn
 	// Created on
@@ -480,6 +555,11 @@ type WSGIdentityUserSummary struct {
 	// UserType
 	// User Type
 	UserType *string `json:"userType,omitempty"`
+}
+
+func NewWSGIdentityUserSummary() *WSGIdentityUserSummary {
+	m := new(WSGIdentityUserSummary)
+	return m
 }
 
 type WSGIdentityImportIdentityGuestPass struct {
@@ -520,6 +600,11 @@ type WSGIdentityImportIdentityGuestPass struct {
 	Zone *WSGCommonGenericRef `json:"zone" validate:"required"`
 }
 
+func NewWSGIdentityImportIdentityGuestPass() *WSGIdentityImportIdentityGuestPass {
+	m := new(WSGIdentityImportIdentityGuestPass)
+	return m
+}
+
 type WSGIdentityMaxDevices struct {
 	// MaxDevicesAllowed
 	// Max devices allowed
@@ -535,6 +620,11 @@ type WSGIdentityMaxDevices struct {
 	//    - min:1
 	//    - max:10
 	MaxDevicesNumber *int `json:"maxDevicesNumber,omitempty" validate:"gte=1,lte=10"`
+}
+
+func NewWSGIdentityMaxDevices() *WSGIdentityMaxDevices {
+	m := new(WSGIdentityMaxDevices)
+	return m
 }
 
 type WSGIdentityModifyIdentityUserRole struct {
@@ -564,6 +654,11 @@ type WSGIdentityModifyIdentityUserRole struct {
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 
+func NewWSGIdentityModifyIdentityUserRole() *WSGIdentityModifyIdentityUserRole {
+	m := new(WSGIdentityModifyIdentityUserRole)
+	return m
+}
+
 type WSGIdentityModifySubscriptionPackage struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -586,6 +681,11 @@ type WSGIdentityModifySubscriptionPackage struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGIdentityModifySubscriptionPackage() *WSGIdentityModifySubscriptionPackage {
+	m := new(WSGIdentityModifySubscriptionPackage)
+	return m
 }
 
 type WSGIdentityModifyUser struct {
@@ -654,12 +754,22 @@ type WSGIdentityModifyUser struct {
 	ZipCode *string `json:"zipCode,omitempty"`
 }
 
+func NewWSGIdentityModifyUser() *WSGIdentityModifyUser {
+	m := new(WSGIdentityModifyUser)
+	return m
+}
+
 type WSGIdentityPackageConfiguration struct {
 	// PackageExpiration
 	// Package expiration interval and value
 	PackageExpiration *string `json:"packageExpiration,omitempty"`
 
 	SubscriberPackage *WSGCommonGenericRef `json:"subscriberPackage,omitempty"`
+}
+
+func NewWSGIdentityPackageConfiguration() *WSGIdentityPackageConfiguration {
+	m := new(WSGIdentityPackageConfiguration)
+	return m
 }
 
 type WSGIdentityPackageList struct {
@@ -672,6 +782,11 @@ type WSGIdentityPackageList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGIdentityPackageList() *WSGIdentityPackageList {
+	m := new(WSGIdentityPackageList)
+	return m
+}
+
 type WSGIdentityPassValidFor struct {
 	// ExpirationUnit
 	// Constraints:
@@ -679,6 +794,11 @@ type WSGIdentityPassValidFor struct {
 	ExpirationUnit *string `json:"expirationUnit,omitempty" validate:"oneof=HOUR DAY WEEK"`
 
 	ExpirationValue *int `json:"expirationValue,omitempty"`
+}
+
+func NewWSGIdentityPassValidFor() *WSGIdentityPassValidFor {
+	m := new(WSGIdentityPassValidFor)
+	return m
 }
 
 type WSGIdentityQueryCriteria struct {
@@ -735,6 +855,11 @@ type WSGIdentityQueryCriteria struct {
 	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
+func NewWSGIdentityQueryCriteria() *WSGIdentityQueryCriteria {
+	m := new(WSGIdentityQueryCriteria)
+	return m
+}
+
 type WSGIdentitySessionDuration struct {
 	RequireLoginAgain *bool `json:"requireLoginAgain,omitempty"`
 
@@ -744,6 +869,11 @@ type WSGIdentitySessionDuration struct {
 	SessionUnit *string `json:"sessionUnit,omitempty" validate:"oneof=MIN HOUR DAY WEEK"`
 
 	SessionValue *int `json:"sessionValue,omitempty"`
+}
+
+func NewWSGIdentitySessionDuration() *WSGIdentitySessionDuration {
+	m := new(WSGIdentitySessionDuration)
+	return m
 }
 
 type WSGIdentitySubscriptionPackage struct {
@@ -790,6 +920,11 @@ type WSGIdentitySubscriptionPackage struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
+func NewWSGIdentitySubscriptionPackage() *WSGIdentitySubscriptionPackage {
+	m := new(WSGIdentitySubscriptionPackage)
+	return m
+}
+
 type WSGIdentitySubscriptionPackageList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -800,6 +935,11 @@ type WSGIdentitySubscriptionPackageList struct {
 	List []*WSGIdentitySubscriptionPackageListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGIdentitySubscriptionPackageList() *WSGIdentitySubscriptionPackageList {
+	m := new(WSGIdentitySubscriptionPackageList)
+	return m
 }
 
 type WSGIdentitySubscriptionPackageListType struct {
@@ -824,6 +964,11 @@ type WSGIdentitySubscriptionPackageListType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGIdentitySubscriptionPackageListType() *WSGIdentitySubscriptionPackageListType {
+	m := new(WSGIdentitySubscriptionPackageListType)
+	return m
 }
 
 type WSGIdentityUserConfiguration struct {
@@ -959,6 +1104,11 @@ type WSGIdentityUserConfiguration struct {
 	ZipCode *string `json:"zipCode,omitempty" validate:"max=32,min=2"`
 }
 
+func NewWSGIdentityUserConfiguration() *WSGIdentityUserConfiguration {
+	m := new(WSGIdentityUserConfiguration)
+	return m
+}
+
 type WSGIdentityUserConfigurationCredentialsGuestPassDtoType struct {
 	// AuthenticationMethod
 	// Authentication method of credential
@@ -1047,6 +1197,11 @@ type WSGIdentityUserConfigurationCredentialsGuestPassDtoType struct {
 	WlanName *string `json:"wlanName,omitempty"`
 }
 
+func NewWSGIdentityUserConfigurationCredentialsGuestPassDtoType() *WSGIdentityUserConfigurationCredentialsGuestPassDtoType {
+	m := new(WSGIdentityUserConfigurationCredentialsGuestPassDtoType)
+	return m
+}
+
 type WSGIdentityUserList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -1057,6 +1212,11 @@ type WSGIdentityUserList struct {
 	List []*WSGIdentityUserSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGIdentityUserList() *WSGIdentityUserList {
+	m := new(WSGIdentityUserList)
+	return m
 }
 
 type WSGIdentityUsernamePasswordCredentialsImplDto struct {
@@ -1099,4 +1259,9 @@ type WSGIdentityUsernamePasswordCredentialsImplDto struct {
 	// ServiceProviderId
 	// Service Provider Id
 	ServiceProviderId *string `json:"serviceProviderId,omitempty"`
+}
+
+func NewWSGIdentityUsernamePasswordCredentialsImplDto() *WSGIdentityUsernamePasswordCredentialsImplDto {
+	m := new(WSGIdentityUsernamePasswordCredentialsImplDto)
+	return m
 }

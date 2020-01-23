@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGSessionManagementService struct {
@@ -53,6 +52,11 @@ type WSGSessionManagementRuckusSession struct {
 	UserUUID *string `json:"userUUID,omitempty"`
 }
 
+func NewWSGSessionManagementRuckusSession() *WSGSessionManagementRuckusSession {
+	m := new(WSGSessionManagementRuckusSession)
+	return m
+}
+
 type WSGSessionManagementRuckusSessions struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -63,14 +67,20 @@ type WSGSessionManagementRuckusSessions struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGSessionManagementRuckusSessions() *WSGSessionManagementRuckusSessions {
+	m := new(WSGSessionManagementRuckusSessions)
+	return m
+}
+
 // FindSessionManagement
 //
 // Use this API command to retrieve information about the current logon sessions.
 func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context) (*WSGSessionManagementRuckusSessions, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGSessionManagementRuckusSessions
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }

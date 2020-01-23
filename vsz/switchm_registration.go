@@ -24,6 +24,11 @@ type SwitchMRegistrationClientObjectID struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewSwitchMRegistrationClientObjectID() *SwitchMRegistrationClientObjectID {
+	m := new(SwitchMRegistrationClientObjectID)
+	return m
+}
+
 // SwitchMRegistrationClientObjectIDExtraValuesType
 //
 // Extra values of the client
@@ -47,6 +52,11 @@ func (t *SwitchMRegistrationClientObjectIDExtraValuesType) MarshalJSON() ([]byte
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationClientObjectIDExtraValuesType() *SwitchMRegistrationClientObjectIDExtraValuesType {
+	m := new(SwitchMRegistrationClientObjectIDExtraValuesType)
+	return m
+}
+
 type SwitchMRegistrationCreateResult struct {
 	Data *SwitchMRegistrationClientObjectID `json:"data,omitempty"`
 
@@ -63,6 +73,11 @@ type SwitchMRegistrationCreateResult struct {
 	// Success
 	// Create result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewSwitchMRegistrationCreateResult() *SwitchMRegistrationCreateResult {
+	m := new(SwitchMRegistrationCreateResult)
+	return m
 }
 
 // SwitchMRegistrationCreateResultExtraType
@@ -88,6 +103,11 @@ func (t *SwitchMRegistrationCreateResultExtraType) MarshalJSON() ([]byte, error)
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationCreateResultExtraType() *SwitchMRegistrationCreateResultExtraType {
+	m := new(SwitchMRegistrationCreateResultExtraType)
+	return m
+}
+
 // SwitchMRegistrationCreateResultMetaDataType
 //
 // Matadata of Rule create result
@@ -111,6 +131,11 @@ func (t *SwitchMRegistrationCreateResultMetaDataType) MarshalJSON() ([]byte, err
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationCreateResultMetaDataType() *SwitchMRegistrationCreateResultMetaDataType {
+	m := new(SwitchMRegistrationCreateResultMetaDataType)
+	return m
+}
+
 type SwitchMRegistrationDeleteMultipleResult struct {
 	Data *SwitchMRegistrationList `json:"data,omitempty"`
 
@@ -127,6 +152,11 @@ type SwitchMRegistrationDeleteMultipleResult struct {
 	// Success
 	// Delete multiple result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewSwitchMRegistrationDeleteMultipleResult() *SwitchMRegistrationDeleteMultipleResult {
+	m := new(SwitchMRegistrationDeleteMultipleResult)
+	return m
 }
 
 // SwitchMRegistrationDeleteMultipleResultExtraType
@@ -152,6 +182,11 @@ func (t *SwitchMRegistrationDeleteMultipleResultExtraType) MarshalJSON() ([]byte
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationDeleteMultipleResultExtraType() *SwitchMRegistrationDeleteMultipleResultExtraType {
+	m := new(SwitchMRegistrationDeleteMultipleResultExtraType)
+	return m
+}
+
 // SwitchMRegistrationDeleteMultipleResultMetaDataType
 //
 // Matadata of delete multiple rules result
@@ -175,6 +210,11 @@ func (t *SwitchMRegistrationDeleteMultipleResultMetaDataType) MarshalJSON() ([]b
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationDeleteMultipleResultMetaDataType() *SwitchMRegistrationDeleteMultipleResultMetaDataType {
+	m := new(SwitchMRegistrationDeleteMultipleResultMetaDataType)
+	return m
+}
+
 type SwitchMRegistrationDeleteResult struct {
 	Data *SwitchMRegistrationClientObjectID `json:"data,omitempty"`
 
@@ -191,6 +231,11 @@ type SwitchMRegistrationDeleteResult struct {
 	// Success
 	// Delete result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewSwitchMRegistrationDeleteResult() *SwitchMRegistrationDeleteResult {
+	m := new(SwitchMRegistrationDeleteResult)
+	return m
 }
 
 // SwitchMRegistrationDeleteResultExtraType
@@ -216,6 +261,11 @@ func (t *SwitchMRegistrationDeleteResultExtraType) MarshalJSON() ([]byte, error)
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationDeleteResultExtraType() *SwitchMRegistrationDeleteResultExtraType {
+	m := new(SwitchMRegistrationDeleteResultExtraType)
+	return m
+}
+
 // SwitchMRegistrationDeleteResultMetaDataType
 //
 // Matadata of Rule delete result
@@ -239,12 +289,22 @@ func (t *SwitchMRegistrationDeleteResultMetaDataType) MarshalJSON() ([]byte, err
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationDeleteResultMetaDataType() *SwitchMRegistrationDeleteResultMetaDataType {
+	m := new(SwitchMRegistrationDeleteResultMetaDataType)
+	return m
+}
+
 type SwitchMRegistrationErrorObject struct {
 	List []string `json:"list,omitempty"`
 
 	Message *string `json:"message,omitempty"`
 
 	MsgKey *string `json:"msgKey,omitempty"`
+}
+
+func NewSwitchMRegistrationErrorObject() *SwitchMRegistrationErrorObject {
+	m := new(SwitchMRegistrationErrorObject)
+	return m
 }
 
 type SwitchMRegistrationList struct {
@@ -271,6 +331,11 @@ type SwitchMRegistrationList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMRegistrationList() *SwitchMRegistrationList {
+	m := new(SwitchMRegistrationList)
+	return m
+}
+
 // SwitchMRegistrationListExtraType
 //
 // Any additional response data
@@ -294,6 +359,11 @@ func (t *SwitchMRegistrationListExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationListExtraType() *SwitchMRegistrationListExtraType {
+	m := new(SwitchMRegistrationListExtraType)
+	return m
+}
+
 type SwitchMRegistrationModifyResult struct {
 	Data *SwitchMRegistrationClientObjectID `json:"data,omitempty"`
 
@@ -310,6 +380,11 @@ type SwitchMRegistrationModifyResult struct {
 	// Success
 	// Modify result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewSwitchMRegistrationModifyResult() *SwitchMRegistrationModifyResult {
+	m := new(SwitchMRegistrationModifyResult)
+	return m
 }
 
 // SwitchMRegistrationModifyResultExtraType
@@ -335,6 +410,11 @@ func (t *SwitchMRegistrationModifyResultExtraType) MarshalJSON() ([]byte, error)
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationModifyResultExtraType() *SwitchMRegistrationModifyResultExtraType {
+	m := new(SwitchMRegistrationModifyResultExtraType)
+	return m
+}
+
 // SwitchMRegistrationModifyResultMetaDataType
 //
 // Matadata of rule modify result
@@ -356,6 +436,11 @@ func (t *SwitchMRegistrationModifyResultMetaDataType) MarshalJSON() ([]byte, err
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMRegistrationModifyResultMetaDataType() *SwitchMRegistrationModifyResultMetaDataType {
+	m := new(SwitchMRegistrationModifyResultMetaDataType)
+	return m
 }
 
 type SwitchMRegistrationRule struct {
@@ -426,6 +511,11 @@ type SwitchMRegistrationRule struct {
 	Type *string `json:"type,omitempty" validate:"oneof=IP_RANGE SUBNET MODEL_NUMBER"`
 }
 
+func NewSwitchMRegistrationRule() *SwitchMRegistrationRule {
+	m := new(SwitchMRegistrationRule)
+	return m
+}
+
 type SwitchMRegistrationRuleQueryResultList struct {
 	Data *SwitchMRegistrationList `json:"data,omitempty"`
 
@@ -442,6 +532,11 @@ type SwitchMRegistrationRuleQueryResultList struct {
 	// Success
 	// Rule query result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewSwitchMRegistrationRuleQueryResultList() *SwitchMRegistrationRuleQueryResultList {
+	m := new(SwitchMRegistrationRuleQueryResultList)
+	return m
 }
 
 // SwitchMRegistrationRuleQueryResultListExtraType
@@ -467,6 +562,11 @@ func (t *SwitchMRegistrationRuleQueryResultListExtraType) MarshalJSON() ([]byte,
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationRuleQueryResultListExtraType() *SwitchMRegistrationRuleQueryResultListExtraType {
+	m := new(SwitchMRegistrationRuleQueryResultListExtraType)
+	return m
+}
+
 // SwitchMRegistrationRuleQueryResultListMetaDataType
 //
 // Matadata of Rule query result
@@ -490,4 +590,14 @@ func (t *SwitchMRegistrationRuleQueryResultListMetaDataType) MarshalJSON() ([]by
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMRegistrationRuleQueryResultListMetaDataType() *SwitchMRegistrationRuleQueryResultListMetaDataType {
+	m := new(SwitchMRegistrationRuleQueryResultListMetaDataType)
+	return m
+}
+
 type SwitchMRegistrationRuleUUIDs []string
+
+func MakeSwitchMRegistrationRuleUUIDs() SwitchMRegistrationRuleUUIDs {
+	m := make(SwitchMRegistrationRuleUUIDs, 0)
+	return m
+}

@@ -20,6 +20,11 @@ type SwitchMDeployLogItemConfigurationHistoryDetailQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult() *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult {
+	m := new(SwitchMDeployLogItemConfigurationHistoryDetailQueryResult)
+	return m
+}
+
 type SwitchMDeployLogItem struct {
 	// Clis
 	// CLI Command
@@ -64,6 +69,11 @@ type SwitchMDeployLogItem struct {
 	TransactionId *string `json:"transactionId,omitempty"`
 }
 
+func NewSwitchMDeployLogItem() *SwitchMDeployLogItem {
+	m := new(SwitchMDeployLogItem)
+	return m
+}
+
 // SwitchMDeployLogItemDispatchFailedReasonType
 //
 // Deployment Fail Description
@@ -75,4 +85,9 @@ type SwitchMDeployLogItemDispatchFailedReasonType struct {
 	// Message
 	// Status
 	Message *int `json:"message,omitempty"`
+}
+
+func NewSwitchMDeployLogItemDispatchFailedReasonType() *SwitchMDeployLogItemDispatchFailedReasonType {
+	m := new(SwitchMDeployLogItemDispatchFailedReasonType)
+	return m
 }

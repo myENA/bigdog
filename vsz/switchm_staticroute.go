@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMStaticRouteService struct {
@@ -60,6 +59,11 @@ type SwitchMStaticRouteCreateStaticRoute struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+func NewSwitchMStaticRouteCreateStaticRoute() *SwitchMStaticRouteCreateStaticRoute {
+	m := new(SwitchMStaticRouteCreateStaticRoute)
+	return m
+}
+
 type SwitchMStaticRouteEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -78,6 +82,11 @@ func (t *SwitchMStaticRouteEmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMStaticRouteEmptyResult() *SwitchMStaticRouteEmptyResult {
+	m := new(SwitchMStaticRouteEmptyResult)
+	return m
 }
 
 type SwitchMStaticRoute struct {
@@ -128,6 +137,11 @@ type SwitchMStaticRoute struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewSwitchMStaticRoute() *SwitchMStaticRoute {
+	m := new(SwitchMStaticRoute)
+	return m
+}
+
 type SwitchMStaticRoutesQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -152,6 +166,11 @@ type SwitchMStaticRoutesQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMStaticRoutesQueryResult() *SwitchMStaticRoutesQueryResult {
+	m := new(SwitchMStaticRoutesQueryResult)
+	return m
+}
+
 // SwitchMStaticRoutesQueryResultExtraType
 //
 // Any additional response data
@@ -173,6 +192,11 @@ func (t *SwitchMStaticRoutesQueryResultExtraType) MarshalJSON() ([]byte, error) 
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMStaticRoutesQueryResultExtraType() *SwitchMStaticRoutesQueryResultExtraType {
+	m := new(SwitchMStaticRoutesQueryResultExtraType)
+	return m
 }
 
 type SwitchMStaticRouteUpdateStaticRoute struct {
@@ -199,6 +223,11 @@ type SwitchMStaticRouteUpdateStaticRoute struct {
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 }
 
+func NewSwitchMStaticRouteUpdateStaticRoute() *SwitchMStaticRouteUpdateStaticRoute {
+	m := new(SwitchMStaticRouteUpdateStaticRoute)
+	return m
+}
+
 // AddStaticRoutes
 //
 // Use this API command to Create Static Route.
@@ -206,11 +235,17 @@ type SwitchMStaticRouteUpdateStaticRoute struct {
 // Request Body:
 //	 - body *SwitchMStaticRouteCreateStaticRoute
 func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *SwitchMStaticRouteCreateStaticRoute) (*SwitchMCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -221,11 +256,14 @@ func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *S
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -233,15 +271,16 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body
 //
 // Use this API command to Delete Static Route.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
@@ -249,15 +288,19 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, 
 //
 // Use this API command to Retrieve Static Route.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, pId string) (*SwitchMStaticRoute, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id string) (*SwitchMStaticRoute, error) {
+	var (
+		resp *SwitchMStaticRoute
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -268,11 +311,17 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, pI
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMStaticRoutesQueryResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMStaticRoutesQueryResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -283,14 +332,23 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 // Request Body:
 //	 - body *SwitchMStaticRouteUpdateStaticRoute
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteUpdateStaticRoute, pId string) (*SwitchMStaticRouteEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteUpdateStaticRoute, id string) (*SwitchMStaticRouteEmptyResult, error) {
+	var (
+		resp *SwitchMStaticRouteEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

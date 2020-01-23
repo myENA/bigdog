@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGVLANPoolingService struct {
@@ -50,8 +49,18 @@ type WSGVLANPoolingCreateVlanPooling struct {
 	Pool *string `json:"pool" validate:"required"`
 }
 
+func NewWSGVLANPoolingCreateVlanPooling() *WSGVLANPoolingCreateVlanPooling {
+	m := new(WSGVLANPoolingCreateVlanPooling)
+	return m
+}
+
 type WSGVLANPoolingDeleteBulkVlanPooling struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGVLANPoolingDeleteBulkVlanPooling() *WSGVLANPoolingDeleteBulkVlanPooling {
+	m := new(WSGVLANPoolingDeleteBulkVlanPooling)
+	return m
 }
 
 type WSGVLANPoolingModifyVlanPooling struct {
@@ -72,6 +81,11 @@ type WSGVLANPoolingModifyVlanPooling struct {
 	// Pool
 	// VLANs of the VLAN pooling profile
 	Pool *string `json:"pool,omitempty"`
+}
+
+func NewWSGVLANPoolingModifyVlanPooling() *WSGVLANPoolingModifyVlanPooling {
+	m := new(WSGVLANPoolingModifyVlanPooling)
+	return m
 }
 
 type WSGVLANPooling struct {
@@ -98,6 +112,11 @@ type WSGVLANPooling struct {
 	Pool *string `json:"pool,omitempty"`
 }
 
+func NewWSGVLANPooling() *WSGVLANPooling {
+	m := new(WSGVLANPooling)
+	return m
+}
+
 type WSGVLANPoolingList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -108,6 +127,11 @@ type WSGVLANPoolingList struct {
 	List []*WSGVLANPoolingListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGVLANPoolingList() *WSGVLANPoolingList {
+	m := new(WSGVLANPoolingList)
+	return m
 }
 
 type WSGVLANPoolingListType struct {
@@ -137,6 +161,11 @@ type WSGVLANPoolingListType struct {
 	Pool *string `json:"pool,omitempty"`
 }
 
+func NewWSGVLANPoolingListType() *WSGVLANPoolingListType {
+	m := new(WSGVLANPoolingListType)
+	return m
+}
+
 // AddVlanpoolings
 //
 // Use this API command to create new VLAN pooling.
@@ -144,11 +173,17 @@ type WSGVLANPoolingListType struct {
 // Request Body:
 //	 - body *WSGVLANPoolingCreateVlanPooling
 func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVLANPoolingCreateVlanPooling) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -159,11 +194,17 @@ func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVL
 // Request Body:
 //	 - body *WSGVLANPoolingDeleteBulkVlanPooling
 func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WSGVLANPoolingDeleteBulkVlanPooling) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -171,15 +212,19 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WS
 //
 // Use this API command to delete VLAN pooling.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -187,15 +232,19 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, pId 
 //
 // Use this API command to retrieve VLAN pooling.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, pId string) (*WSGVLANPooling, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id string) (*WSGVLANPooling, error) {
+	var (
+		resp *WSGVLANPooling
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -206,11 +255,17 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, pId st
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGVLANPoolingList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGVLANPoolingList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -221,14 +276,23 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 // Request Body:
 //	 - body *WSGVLANPoolingModifyVlanPooling
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Context, body *WSGVLANPoolingModifyVlanPooling, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Context, body *WSGVLANPoolingModifyVlanPooling, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

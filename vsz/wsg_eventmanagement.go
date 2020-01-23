@@ -12,6 +12,11 @@ type WSGEventManagementEventDataList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGEventManagementEventDataList() *WSGEventManagementEventDataList {
+	m := new(WSGEventManagementEventDataList)
+	return m
+}
+
 type WSGEventManagementEventDataResponse struct {
 	Data *WSGEventManagementEventDataList `json:"data,omitempty"`
 
@@ -28,6 +33,11 @@ type WSGEventManagementEventDataResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+func NewWSGEventManagementEventDataResponse() *WSGEventManagementEventDataResponse {
+	m := new(WSGEventManagementEventDataResponse)
+	return m
+}
+
 type WSGEventManagementEventEmailSetting struct {
 	// EmailEnabled
 	// Enable/Disable Email sending function
@@ -38,7 +48,17 @@ type WSGEventManagementEventEmailSetting struct {
 	MailTo *string `json:"mailTo,omitempty"`
 }
 
+func NewWSGEventManagementEventEmailSetting() *WSGEventManagementEventEmailSetting {
+	m := new(WSGEventManagementEventEmailSetting)
+	return m
+}
+
 type WSGEventManagementEventSettingList []*WSGEventManagementSingleEventSetting
+
+func MakeWSGEventManagementEventSettingList() WSGEventManagementEventSettingList {
+	m := make(WSGEventManagementEventSettingList, 0)
+	return m
+}
 
 type WSGEventManagementSingleEventSetting struct {
 	// Category
@@ -80,4 +100,9 @@ type WSGEventManagementSingleEventSetting struct {
 	// ZoneOverride
 	// Enable/Disable override event system settings
 	ZoneOverride *bool `json:"zoneOverride,omitempty"`
+}
+
+func NewWSGEventManagementSingleEventSetting() *WSGEventManagementSingleEventSetting {
+	m := new(WSGEventManagementSingleEventSetting)
+	return m
 }

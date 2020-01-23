@@ -70,6 +70,11 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	X8021X *WSGAPModelLanPort8021X `json:"_8021X" validate:"required"`
 }
 
+func NewWSGEthernetPortCreateEthernetPortProfile() *WSGEthernetPortCreateEthernetPortProfile {
+	m := new(WSGEthernetPortCreateEthernetPortProfile)
+	return m
+}
+
 type WSGEthernetPortProfile struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
@@ -133,6 +138,11 @@ type WSGEthernetPortProfile struct {
 	X8021X *WSGAPModelLanPort8021X `json:"_8021X,omitempty"`
 }
 
+func NewWSGEthernetPortProfile() *WSGEthernetPortProfile {
+	m := new(WSGEthernetPortProfile)
+	return m
+}
+
 type WSGEthernetPortModifyEthernetPortProfile struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
@@ -187,6 +197,11 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	X8021X *WSGAPModelLanPort8021X `json:"_8021X,omitempty"`
 }
 
+func NewWSGEthernetPortModifyEthernetPortProfile() *WSGEthernetPortModifyEthernetPortProfile {
+	m := new(WSGEthernetPortModifyEthernetPortProfile)
+	return m
+}
+
 type WSGEthernetPortProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -197,10 +212,20 @@ type WSGEthernetPortProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGEthernetPortProfileList() *WSGEthernetPortProfileList {
+	m := new(WSGEthernetPortProfileList)
+	return m
+}
+
 type WSGEthernetPortProfileListType struct {
 	// Id
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGEthernetPortProfileListType() *WSGEthernetPortProfileListType {
+	m := new(WSGEthernetPortProfileListType)
+	return m
 }

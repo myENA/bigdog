@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGClusterManagementService struct {
@@ -27,23 +26,28 @@ func (ss *WSGService) WSGClusterManagementService() *WSGClusterManagementService
 //
 // Use this API command to apply AP patch.
 func (s *WSGClusterManagementService) AddApPatch(ctx context.Context) (*WSGAdministrationApPatchStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAdministrationApPatchStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
 // AddApPatchFile
 //
 // Use this API command to upload AP Patch File.
-func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+//
+// Request Body:
+//	 - body []byte
+func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, body []byte) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
 	}
 }
 
@@ -51,11 +55,9 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context) error 
 //
 // Backup cluster.
 func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
 }
 
@@ -63,15 +65,16 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context) erro
 //
 // Restore cluster backup by ID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
@@ -79,11 +82,12 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 //
 // Backup system configuration.
 func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -91,27 +95,32 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 //
 // Restore system configuration with specified backupUUID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Context, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Context, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
 // AddConfigurationUpload
 //
 // Upload system configuration file.
-func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+//
+// Request Body:
+//	 - body []byte
+func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context, body []byte) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
 	}
 }
 
@@ -119,23 +128,31 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 //
 // Use this API command to do system upgrade.
 func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context) (*WSGAdministrationUpgradeStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAdministrationUpgradeStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
 // AddUpgradeUpload
 //
 // Use this API command to upload patch file.
-func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context) (*WSGAdministrationUpgradeStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+//
+// Request Body:
+//	 - body []byte
+func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, body []byte) (*WSGAdministrationUpgradeStatus, error) {
+	var (
+		resp *WSGAdministrationUpgradeStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -143,15 +160,16 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context) (*WS
 //
 // Delete cluster backup by ID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
@@ -159,15 +177,16 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, pId
 //
 // Delete system configuration file.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Context, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Context, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
@@ -175,11 +194,12 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 //
 // Use this API command to retrive uploaded AP patch file info.
 func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*WSGAdministrationApPatchInfo, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAdministrationApPatchInfo
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -187,19 +207,20 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*WSGAdmi
 //
 // Use this API command to retrive AP patch history.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-// - qTimezone string
+// - timezone string
 //		- nullable
-func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*WSGAdministrationApPatchHistoryList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationApPatchHistoryList, error) {
+	var (
+		resp *WSGAdministrationApPatchHistoryList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -207,11 +228,12 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, qI
 //
 // Use this API command to retrive cluster progress status.
 func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*WSGAdministrationApPatchStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAdministrationApPatchStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -219,19 +241,20 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*W
 //
 // Retrive cluster backup list.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-// - qTimezone string
+// - timezone string
 //		- nullable
-func (s *WSGClusterManagementService) FindCluster(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*WSGAdministrationClusterBackupList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationClusterBackupList, error) {
+	var (
+		resp *WSGAdministrationClusterBackupList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -239,11 +262,12 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, qIndex st
 //
 // Get cluster redundancy settings.
 func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Context) (*WSGClusterRedundancySettings, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGClusterRedundancySettings
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -251,11 +275,12 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 //
 // Use this API command to get Control node Status.
 func (s *WSGClusterManagementService) FindClusterNodeStatus(ctx context.Context) (*WSGClusterBladeControlNodeStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGClusterBladeControlNodeStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -263,11 +288,12 @@ func (s *WSGClusterManagementService) FindClusterNodeStatus(ctx context.Context)
 //
 // Use this API command to get current cluster, blade, and management service states
 func (s *WSGClusterManagementService) FindClusterState(ctx context.Context) (*WSGClusterBladeClusterState, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGClusterBladeClusterState
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -275,11 +301,12 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context) (*WS
 //
 // Use this API command to get Cluster Status.
 func (s *WSGClusterManagementService) FindClusterStatus(ctx context.Context) (*WSGClusterBladeClusterStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGClusterBladeClusterStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -287,17 +314,18 @@ func (s *WSGClusterManagementService) FindClusterStatus(ctx context.Context) (*W
 //
 // Retrive system configuration list.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, qIndex string, qListSize string) (*WSGAdministrationConfigurationBackupList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationConfigurationBackupList, error) {
+	var (
+		resp *WSGAdministrationConfigurationBackupList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -305,17 +333,23 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, qIn
 //
 // Download system configuration file.
 //
-// Query Parameters:
-// - qBackupUUID string
+// Required Parameters:
+// - backupUUID string
 //		- required
-// - qTimeZone string
+//
+// Optional Parameters:
+// - timeZone string
 //		- nullable
-func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, qBackupUUID string, qTimeZone string) ([]byte, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, backupUUID string, optionalParams map[string]interface{}) ([]byte, error) {
+	var (
+		resp []byte
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, backupUUID, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -323,11 +357,12 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 //
 // Get Auto Export Backup Settings.
 func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(ctx context.Context) (*WSGAdministrationAutoExportBackup, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAdministrationAutoExportBackup
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -335,11 +370,12 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 //
 // Get Schedule Backup Setting.
 func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ctx context.Context) (*WSGAdministrationScheduleBackup, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAdministrationScheduleBackup
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -347,19 +383,20 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 //
 // Use this API command to retrive upgrade history.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-// - qTimezone string
+// - timezone string
 //		- nullable
-func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, qIndex string, qListSize string, qTimezone string) (*WSGAdministrationUpgradeHistoryList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationUpgradeHistoryList, error) {
+	var (
+		resp *WSGAdministrationUpgradeHistoryList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -367,11 +404,12 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, qI
 //
 // Use this API command to retrive upload file Info.
 func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context) (*WSGAdministrationUpgradePatchInfo, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAdministrationUpgradePatchInfo
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -379,11 +417,12 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context) (*WS
 //
 // Use this API command to retrive cluster progress status.
 func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context) (*WSGAdministrationUpgradeStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAdministrationUpgradeStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -394,11 +433,17 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context) (*W
 // Request Body:
 //	 - body *WSGAdministrationModifyAutoExportBackup
 func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExportBackup(ctx context.Context, body *WSGAdministrationModifyAutoExportBackup) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -409,11 +454,17 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 // Request Body:
 //	 - body *WSGAdministrationModifyScheduleBackup
 func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsScheduleBackup(ctx context.Context, body *WSGAdministrationModifyScheduleBackup) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -424,10 +475,16 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 // Request Body:
 //	 - body *WSGClusterRedundancyUpdateClusterRedundancy
 func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Context, body *WSGClusterRedundancyUpdateClusterRedundancy) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

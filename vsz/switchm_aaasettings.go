@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMAAASettingsService struct {
@@ -38,6 +37,11 @@ type SwitchMAAASettings struct {
 	Authorization *SwitchMAAASettingsAuthorizationType `json:"authorization,omitempty"`
 }
 
+func NewSwitchMAAASettings() *SwitchMAAASettings {
+	m := new(SwitchMAAASettings)
+	return m
+}
+
 // SwitchMAAASettingsAccountingType
 //
 // Accounting service
@@ -57,6 +61,11 @@ type SwitchMAAASettingsAccountingType struct {
 	// Exec
 	// Exec service
 	Exec *SwitchMAAASettingsAccountingTypeExecType `json:"exec,omitempty"`
+}
+
+func NewSwitchMAAASettingsAccountingType() *SwitchMAAASettingsAccountingType {
+	m := new(SwitchMAAASettingsAccountingType)
+	return m
 }
 
 // SwitchMAAASettingsAccountingTypeCommandsType
@@ -82,6 +91,11 @@ type SwitchMAAASettingsAccountingTypeCommandsType struct {
 	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
+func NewSwitchMAAASettingsAccountingTypeCommandsType() *SwitchMAAASettingsAccountingTypeCommandsType {
+	m := new(SwitchMAAASettingsAccountingTypeCommandsType)
+	return m
+}
+
 // SwitchMAAASettingsAccountingTypeExecType
 //
 // Exec service
@@ -97,6 +111,11 @@ type SwitchMAAASettingsAccountingTypeExecType struct {
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+}
+
+func NewSwitchMAAASettingsAccountingTypeExecType() *SwitchMAAASettingsAccountingTypeExecType {
+	m := new(SwitchMAAASettingsAccountingTypeExecType)
+	return m
 }
 
 // SwitchMAAASettingsAuthenticationType
@@ -130,6 +149,11 @@ type SwitchMAAASettingsAuthenticationType struct {
 	ThirdPref *string `json:"thirdPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 }
 
+func NewSwitchMAAASettingsAuthenticationType() *SwitchMAAASettingsAuthenticationType {
+	m := new(SwitchMAAASettingsAuthenticationType)
+	return m
+}
+
 // SwitchMAAASettingsAuthorizationType
 //
 // Authorization service
@@ -149,6 +173,11 @@ type SwitchMAAASettingsAuthorizationType struct {
 	// Exec
 	// Exec Service
 	Exec *SwitchMAAASettingsAuthorizationTypeExecType `json:"exec,omitempty"`
+}
+
+func NewSwitchMAAASettingsAuthorizationType() *SwitchMAAASettingsAuthorizationType {
+	m := new(SwitchMAAASettingsAuthorizationType)
+	return m
 }
 
 // SwitchMAAASettingsAuthorizationTypeCommandsType
@@ -174,6 +203,11 @@ type SwitchMAAASettingsAuthorizationTypeCommandsType struct {
 	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
+func NewSwitchMAAASettingsAuthorizationTypeCommandsType() *SwitchMAAASettingsAuthorizationTypeCommandsType {
+	m := new(SwitchMAAASettingsAuthorizationTypeCommandsType)
+	return m
+}
+
 // SwitchMAAASettingsAuthorizationTypeExecType
 //
 // Exec Service
@@ -189,6 +223,11 @@ type SwitchMAAASettingsAuthorizationTypeExecType struct {
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
+}
+
+func NewSwitchMAAASettingsAuthorizationTypeExecType() *SwitchMAAASettingsAuthorizationTypeExecType {
+	m := new(SwitchMAAASettingsAuthorizationTypeExecType)
+	return m
 }
 
 type SwitchMAAASettingsEmptyResult struct {
@@ -211,15 +250,21 @@ func (t *SwitchMAAASettingsEmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMAAASettingsEmptyResult() *SwitchMAAASettingsEmptyResult {
+	m := new(SwitchMAAASettingsEmptyResult)
+	return m
+}
+
 // FindAaaSettings
 //
 // Use this API command to retrieve the AAA settings.
 func (s *SwitchMAAASettingsService) FindAaaSettings(ctx context.Context) (*SwitchMAAASettings, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *SwitchMAAASettings
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -230,10 +275,16 @@ func (s *SwitchMAAASettingsService) FindAaaSettings(ctx context.Context) (*Switc
 // Request Body:
 //	 - body *SwitchMAAASettings
 func (s *SwitchMAAASettingsService) UpdateAaaSettings(ctx context.Context, body *SwitchMAAASettings) (*SwitchMAAASettingsEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMAAASettingsEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

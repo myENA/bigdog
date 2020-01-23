@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMPortSettingsService struct {
@@ -108,6 +107,11 @@ type SwitchMPortSettingsCreateBulk struct {
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
 }
 
+func NewSwitchMPortSettingsCreateBulk() *SwitchMPortSettingsCreateBulk {
+	m := new(SwitchMPortSettingsCreateBulk)
+	return m
+}
+
 type SwitchMPortSettingsEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -126,6 +130,11 @@ func (t *SwitchMPortSettingsEmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMPortSettingsEmptyResult() *SwitchMPortSettingsEmptyResult {
+	m := new(SwitchMPortSettingsEmptyResult)
+	return m
 }
 
 type SwitchMPortSettings struct {
@@ -224,6 +233,11 @@ type SwitchMPortSettings struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewSwitchMPortSettings() *SwitchMPortSettings {
+	m := new(SwitchMPortSettings)
+	return m
+}
+
 type SwitchMPortSettingsQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -248,6 +262,11 @@ type SwitchMPortSettingsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMPortSettingsQueryResult() *SwitchMPortSettingsQueryResult {
+	m := new(SwitchMPortSettingsQueryResult)
+	return m
+}
+
 // SwitchMPortSettingsQueryResultExtraType
 //
 // Any additional response data
@@ -269,6 +288,11 @@ func (t *SwitchMPortSettingsQueryResultExtraType) MarshalJSON() ([]byte, error) 
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMPortSettingsQueryResultExtraType() *SwitchMPortSettingsQueryResultExtraType {
+	m := new(SwitchMPortSettingsQueryResultExtraType)
+	return m
 }
 
 type SwitchMPortSettingsUpdatePortSettings struct {
@@ -341,6 +365,11 @@ type SwitchMPortSettingsUpdatePortSettings struct {
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
 }
 
+func NewSwitchMPortSettingsUpdatePortSettings() *SwitchMPortSettingsUpdatePortSettings {
+	m := new(SwitchMPortSettingsUpdatePortSettings)
+	return m
+}
+
 // AddPortSettingsBulk
 //
 // Use this API command to Bulk update the port setting
@@ -348,11 +377,17 @@ type SwitchMPortSettingsUpdatePortSettings struct {
 // Request Body:
 //	 - body *SwitchMPortSettingsCreateBulk
 func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, body *SwitchMPortSettingsCreateBulk) (*SwitchMPortSettingsEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMPortSettingsEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -360,11 +395,12 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 //
 // Use this API command to Retrieve all Port Settings list.
 func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*SwitchMPortSettingsQueryResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *SwitchMPortSettingsQueryResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -372,15 +408,19 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*Swi
 //
 // Use this API command to Retrieve Port Settings.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, pId string) (*SwitchMPortSettings, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, id string) (*SwitchMPortSettings, error) {
+	var (
+		resp *SwitchMPortSettings
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -391,11 +431,17 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, p
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMPortSettingsQueryResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMPortSettingsQueryResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -406,14 +452,23 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 // Request Body:
 //	 - body *SwitchMPortSettingsUpdatePortSettings
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortSettingsUpdatePortSettings, pId string) (*SwitchMPortSettingsEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortSettingsUpdatePortSettings, id string) (*SwitchMPortSettingsEmptyResult, error) {
+	var (
+		resp *SwitchMPortSettingsEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

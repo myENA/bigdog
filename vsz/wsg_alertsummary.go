@@ -12,6 +12,11 @@ type WSGAlertSummaryAlarmSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
+func NewWSGAlertSummaryAlarmSummary() *WSGAlertSummaryAlarmSummary {
+	m := new(WSGAlertSummaryAlarmSummary)
+	return m
+}
+
 type WSGAlertSummaryEventSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`
 
@@ -24,4 +29,9 @@ type WSGAlertSummaryEventSummary struct {
 	MinorCount *int `json:"minorCount,omitempty"`
 
 	WarningCount *int `json:"warningCount,omitempty"`
+}
+
+func NewWSGAlertSummaryEventSummary() *WSGAlertSummaryEventSummary {
+	m := new(WSGAlertSummaryEventSummary)
+	return m
 }

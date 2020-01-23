@@ -48,6 +48,11 @@ type WSGRogueInfo struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewWSGRogueInfo() *WSGRogueInfo {
+	m := new(WSGRogueInfo)
+	return m
+}
+
 type WSGRogueInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -72,6 +77,11 @@ type WSGRogueInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGRogueInfoList() *WSGRogueInfoList {
+	m := new(WSGRogueInfoList)
+	return m
+}
+
 // WSGRogueInfoListExtraType
 //
 // Any additional response data.
@@ -93,4 +103,9 @@ func (t *WSGRogueInfoListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewWSGRogueInfoListExtraType() *WSGRogueInfoListExtraType {
+	m := new(WSGRogueInfoListExtraType)
+	return m
 }

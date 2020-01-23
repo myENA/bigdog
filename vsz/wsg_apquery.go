@@ -14,6 +14,11 @@ type WSGAPQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGAPQueryList() *WSGAPQueryList {
+	m := new(WSGAPQueryList)
+	return m
+}
+
 type WSGAPQueryCreateApQuery struct {
 	AdministrativeState *string `json:"administrativeState,omitempty"`
 
@@ -279,6 +284,11 @@ type WSGAPQueryCreateApQuery struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewWSGAPQueryCreateApQuery() *WSGAPQueryCreateApQuery {
+	m := new(WSGAPQueryCreateApQuery)
+	return m
+}
+
 type WSGAPQueryCreateApQueryCellularGpsHistoryType struct {
 	Latitude *string `json:"latitude,omitempty"`
 
@@ -287,8 +297,18 @@ type WSGAPQueryCreateApQueryCellularGpsHistoryType struct {
 	Timestamp *int `json:"timestamp,omitempty"`
 }
 
+func NewWSGAPQueryCreateApQueryCellularGpsHistoryType() *WSGAPQueryCreateApQueryCellularGpsHistoryType {
+	m := new(WSGAPQueryCreateApQueryCellularGpsHistoryType)
+	return m
+}
+
 type WSGAPQueryCreateApQueryIndoorMapXyType struct {
 	X *float64 `json:"x,omitempty"`
 
 	Y *float64 `json:"y,omitempty"`
+}
+
+func NewWSGAPQueryCreateApQueryIndoorMapXyType() *WSGAPQueryCreateApQueryIndoorMapXyType {
+	m := new(WSGAPQueryCreateApQueryIndoorMapXyType)
+	return m
 }

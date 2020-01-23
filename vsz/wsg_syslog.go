@@ -56,6 +56,11 @@ type WSGSyslogModifySyslogSettings struct {
 	SecondaryServer *WSGSyslogSecondaryServer `json:"secondaryServer,omitempty"`
 }
 
+func NewWSGSyslogModifySyslogSettings() *WSGSyslogModifySyslogSettings {
+	m := new(WSGSyslogModifySyslogSettings)
+	return m
+}
+
 type WSGSyslogPrimaryServer struct {
 	// Host
 	// address of the syslog server.
@@ -70,6 +75,11 @@ type WSGSyslogPrimaryServer struct {
 	// Constraints:
 	//    - oneof:[UDP,TCP]
 	Protocol *string `json:"protocol,omitempty" validate:"oneof=UDP TCP"`
+}
+
+func NewWSGSyslogPrimaryServer() *WSGSyslogPrimaryServer {
+	m := new(WSGSyslogPrimaryServer)
+	return m
 }
 
 type WSGSyslogPriority struct {
@@ -110,6 +120,11 @@ type WSGSyslogPriority struct {
 	Warning *string `json:"warning,omitempty" validate:"oneof=ERROR WARN INFO DEBUG"`
 }
 
+func NewWSGSyslogPriority() *WSGSyslogPriority {
+	m := new(WSGSyslogPriority)
+	return m
+}
+
 type WSGSyslogSecondaryServer struct {
 	// Host
 	// address of the syslog server.
@@ -130,6 +145,11 @@ type WSGSyslogSecondaryServer struct {
 	// Constraints:
 	//    - oneof:[active_active,primary_backup]
 	RedundancyMode *string `json:"redundancyMode,omitempty" validate:"oneof=active_active primary_backup"`
+}
+
+func NewWSGSyslogSecondaryServer() *WSGSyslogSecondaryServer {
+	m := new(WSGSyslogSecondaryServer)
+	return m
 }
 
 type WSGSyslogServerSetting struct {
@@ -183,4 +203,9 @@ type WSGSyslogServerSetting struct {
 	Priority *WSGSyslogPriority `json:"priority,omitempty"`
 
 	SecondaryServer *WSGSyslogSecondaryServer `json:"secondaryServer,omitempty"`
+}
+
+func NewWSGSyslogServerSetting() *WSGSyslogServerSetting {
+	m := new(WSGSyslogServerSetting)
+	return m
 }

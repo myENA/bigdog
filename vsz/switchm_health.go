@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMHealthService struct {
@@ -48,6 +47,11 @@ type SwitchMHealthAggMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMHealthAggMetrics() *SwitchMHealthAggMetrics {
+	m := new(SwitchMHealthAggMetrics)
+	return m
+}
+
 // SwitchMHealthAggMetricsExtraType
 //
 // Extra information for Aggregation Metrics
@@ -71,6 +75,11 @@ func (t *SwitchMHealthAggMetricsExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMHealthAggMetricsExtraType() *SwitchMHealthAggMetricsExtraType {
+	m := new(SwitchMHealthAggMetricsExtraType)
+	return m
+}
+
 type SwitchMHealthAggs struct {
 	// Id
 	// Identifier of the aggregation value
@@ -83,6 +92,11 @@ type SwitchMHealthAggs struct {
 	// Value
 	// Metrics of the aggregation value
 	Value *float64 `json:"value,omitempty"`
+}
+
+func NewSwitchMHealthAggs() *SwitchMHealthAggs {
+	m := new(SwitchMHealthAggs)
+	return m
 }
 
 type SwitchMHealthIcxMetrics struct {
@@ -109,6 +123,11 @@ type SwitchMHealthIcxMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMHealthIcxMetrics() *SwitchMHealthIcxMetrics {
+	m := new(SwitchMHealthIcxMetrics)
+	return m
+}
+
 // SwitchMHealthIcxMetricsExtraType
 //
 // Extra information for ICX Metrics
@@ -132,6 +151,11 @@ func (t *SwitchMHealthIcxMetricsExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMHealthIcxMetricsExtraType() *SwitchMHealthIcxMetricsExtraType {
+	m := new(SwitchMHealthIcxMetricsExtraType)
+	return m
+}
+
 type SwitchMHealthMetrics struct {
 	// Avg
 	// Average metrics
@@ -148,6 +172,11 @@ type SwitchMHealthMetrics struct {
 	// Timestamp
 	// Timestamp
 	Timestamp *string `json:"timestamp,omitempty"`
+}
+
+func NewSwitchMHealthMetrics() *SwitchMHealthMetrics {
+	m := new(SwitchMHealthMetrics)
+	return m
 }
 
 type SwitchMHealthStatus struct {
@@ -176,6 +205,11 @@ type SwitchMHealthStatus struct {
 	Temperature []*SwitchMHealthStatusTemperatureType `json:"temperature,omitempty"`
 }
 
+func NewSwitchMHealthStatus() *SwitchMHealthStatus {
+	m := new(SwitchMHealthStatus)
+	return m
+}
+
 type SwitchMHealthStatusFanType struct {
 	// SlotNumber
 	// Fan slot number
@@ -188,6 +222,11 @@ type SwitchMHealthStatusFanType struct {
 	// Type
 	// Fan type
 	Type *string `json:"type,omitempty"`
+}
+
+func NewSwitchMHealthStatusFanType() *SwitchMHealthStatusFanType {
+	m := new(SwitchMHealthStatusFanType)
+	return m
 }
 
 type SwitchMHealthStatusPowerSupplyType struct {
@@ -204,6 +243,11 @@ type SwitchMHealthStatusPowerSupplyType struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewSwitchMHealthStatusPowerSupplyType() *SwitchMHealthStatusPowerSupplyType {
+	m := new(SwitchMHealthStatusPowerSupplyType)
+	return m
+}
+
 type SwitchMHealthStatusTemperatureType struct {
 	// SlotNumber
 	// Solt number
@@ -214,6 +258,11 @@ type SwitchMHealthStatusTemperatureType struct {
 	TemperatureValue *float64 `json:"temperatureValue,omitempty"`
 }
 
+func NewSwitchMHealthStatusTemperatureType() *SwitchMHealthStatusTemperatureType {
+	m := new(SwitchMHealthStatusTemperatureType)
+	return m
+}
+
 // AddHealthCpuAgg
 //
 // Use this API command to retrieve aggregated CPU (min, max, avg, curr) data based on the time duration.
@@ -221,11 +270,17 @@ type SwitchMHealthStatusTemperatureType struct {
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthAggMetrics, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMHealthAggMetrics
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -236,11 +291,17 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthIcxMetrics, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMHealthIcxMetrics
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -251,11 +312,17 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthAggMetrics, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMHealthAggMetrics
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -266,11 +333,17 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthIcxMetrics, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMHealthIcxMetrics
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -281,11 +354,17 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMHealthStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -296,10 +375,16 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMHealthStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

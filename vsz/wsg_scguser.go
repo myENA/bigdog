@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGSCGUserService struct {
@@ -116,6 +115,11 @@ type WSGSCGUserCreateScgUser struct {
 	// Constraints:
 	//    - required
 	UserName *string `json:"userName" validate:"required"`
+}
+
+func NewWSGSCGUserCreateScgUser() *WSGSCGUserCreateScgUser {
+	m := new(WSGSCGUserCreateScgUser)
+	return m
 }
 
 type WSGSCGUserGetScgUser struct {
@@ -238,6 +242,11 @@ type WSGSCGUserGetScgUser struct {
 	UserName *string `json:"userName,omitempty"`
 }
 
+func NewWSGSCGUserGetScgUser() *WSGSCGUserGetScgUser {
+	m := new(WSGSCGUserGetScgUser)
+	return m
+}
+
 type WSGSCGUserModifyScgUser struct {
 	// AccountLockout
 	// Constraints:
@@ -332,6 +341,11 @@ type WSGSCGUserModifyScgUser struct {
 	UserName *string `json:"userName,omitempty"`
 }
 
+func NewWSGSCGUserModifyScgUser() *WSGSCGUserModifyScgUser {
+	m := new(WSGSCGUserModifyScgUser)
+	return m
+}
+
 type WSGSCGUserPatchScgUserGroup struct {
 	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty"`
 
@@ -385,6 +399,11 @@ type WSGSCGUserPatchScgUserGroup struct {
 	// Constraints:
 	//    - nullable
 	Users []*WSGSCGUserGetScgUser `json:"users,omitempty" validate:"omitempty,dive"`
+}
+
+func NewWSGSCGUserPatchScgUserGroup() *WSGSCGUserPatchScgUserGroup {
+	m := new(WSGSCGUserPatchScgUserGroup)
+	return m
 }
 
 type WSGSCGUserQueryCriteria struct {
@@ -441,10 +460,20 @@ type WSGSCGUserQueryCriteria struct {
 	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
+func NewWSGSCGUserQueryCriteria() *WSGSCGUserQueryCriteria {
+	m := new(WSGSCGUserQueryCriteria)
+	return m
+}
+
 type WSGSCGUserAuditId struct {
 	// Id
 	// the identifier of the SCG user
 	Id *string `json:"id,omitempty"`
+}
+
+func NewWSGSCGUserAuditId() *WSGSCGUserAuditId {
+	m := new(WSGSCGUserAuditId)
+	return m
 }
 
 type WSGSCGUserGroup struct {
@@ -537,10 +566,20 @@ type WSGSCGUserGroup struct {
 	Users []*WSGSCGUserGetScgUser `json:"users,omitempty" validate:"omitempty,dive"`
 }
 
+func NewWSGSCGUserGroup() *WSGSCGUserGroup {
+	m := new(WSGSCGUserGroup)
+	return m
+}
+
 type WSGSCGUserGroupAuditId struct {
 	// Id
 	// the identifier of the SCG user group
 	Id *string `json:"id,omitempty"`
+}
+
+func NewWSGSCGUserGroupAuditId() *WSGSCGUserGroupAuditId {
+	m := new(WSGSCGUserGroupAuditId)
+	return m
 }
 
 type WSGSCGUserGroupList struct {
@@ -553,6 +592,11 @@ type WSGSCGUserGroupList struct {
 	List []*WSGSCGUserGroup `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSCGUserGroupList() *WSGSCGUserGroupList {
+	m := new(WSGSCGUserGroupList)
+	return m
 }
 
 type WSGSCGUserGroupPermission struct {
@@ -589,6 +633,11 @@ type WSGSCGUserGroupPermission struct {
 	Resource *string `json:"resource,omitempty"`
 }
 
+func NewWSGSCGUserGroupPermission() *WSGSCGUserGroupPermission {
+	m := new(WSGSCGUserGroupPermission)
+	return m
+}
+
 type WSGSCGUserGroupPermissionItemsType struct {
 	// Access
 	// Constraints:
@@ -598,6 +647,11 @@ type WSGSCGUserGroupPermissionItemsType struct {
 	Display *string `json:"display,omitempty"`
 
 	Resource *string `json:"resource,omitempty"`
+}
+
+func NewWSGSCGUserGroupPermissionItemsType() *WSGSCGUserGroupPermissionItemsType {
+	m := new(WSGSCGUserGroupPermissionItemsType)
+	return m
 }
 
 type WSGSCGUserGroupPermissionList struct {
@@ -614,6 +668,11 @@ type WSGSCGUserGroupPermissionList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGSCGUserGroupPermissionList() *WSGSCGUserGroupPermissionList {
+	m := new(WSGSCGUserGroupPermissionList)
+	return m
+}
+
 // WSGSCGUserGroupPermissionListExtraType
 //
 // Any additional response data.
@@ -625,6 +684,11 @@ type WSGSCGUserGroupPermissionListExtraType struct {
 	// IsSuperAdminOfDomain
 	// whether or not current user is a 'Super Admin of Partner Domain' that possesses all 6 permission categories with 'FULL_ACCESS'
 	IsSuperAdminOfDomain *bool `json:"isSuperAdminOfDomain,omitempty"`
+}
+
+func NewWSGSCGUserGroupPermissionListExtraType() *WSGSCGUserGroupPermissionListExtraType {
+	m := new(WSGSCGUserGroupPermissionListExtraType)
+	return m
 }
 
 type WSGSCGUserGroupPermissionWithoutDetailItems struct {
@@ -649,6 +713,11 @@ type WSGSCGUserGroupPermissionWithoutDetailItems struct {
 	Resource *string `json:"resource,omitempty"`
 }
 
+func NewWSGSCGUserGroupPermissionWithoutDetailItems() *WSGSCGUserGroupPermissionWithoutDetailItems {
+	m := new(WSGSCGUserGroupPermissionWithoutDetailItems)
+	return m
+}
+
 type WSGSCGUserGroupResourceGroup struct {
 	// Id
 	// the identifier of the SCG resource group
@@ -665,6 +734,11 @@ type WSGSCGUserGroupResourceGroup struct {
 	Type *string `json:"type,omitempty" validate:"oneof=DOMAIN ZONE APGROUP"`
 }
 
+func NewWSGSCGUserGroupResourceGroup() *WSGSCGUserGroupResourceGroup {
+	m := new(WSGSCGUserGroupResourceGroup)
+	return m
+}
+
 type WSGSCGUserGroupRoleLabelValue struct {
 	// Label
 	// Role display name
@@ -675,6 +749,11 @@ type WSGSCGUserGroupRoleLabelValue struct {
 	Value *string `json:"value,omitempty"`
 }
 
+func NewWSGSCGUserGroupRoleLabelValue() *WSGSCGUserGroupRoleLabelValue {
+	m := new(WSGSCGUserGroupRoleLabelValue)
+	return m
+}
+
 type WSGSCGUserGroupRoleLabelValueList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -683,6 +762,11 @@ type WSGSCGUserGroupRoleLabelValueList struct {
 	List []*WSGSCGUserGroupRoleLabelValue `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSCGUserGroupRoleLabelValueList() *WSGSCGUserGroupRoleLabelValueList {
+	m := new(WSGSCGUserGroupRoleLabelValueList)
+	return m
 }
 
 type WSGSCGUserList struct {
@@ -697,6 +781,11 @@ type WSGSCGUserList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGSCGUserList() *WSGSCGUserList {
+	m := new(WSGSCGUserList)
+	return m
+}
+
 // AddUsers
 //
 // Add SCG user.
@@ -704,11 +793,17 @@ type WSGSCGUserList struct {
 // Request Body:
 //	 - body *WSGSCGUserCreateScgUser
 func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreateScgUser) (*WSGSCGUserAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGSCGUserAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -719,11 +814,17 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -731,15 +832,19 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 //
 // Delete SCG user.
 //
-// Path Parameters:
-// - pUserId string
+// Required Parameters:
+// - userId string
 //		- required
-func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, pUserId string) (*WSGSCGUserAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string) (*WSGSCGUserAuditId, error) {
+	var (
+		resp *WSGSCGUserAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -750,11 +855,17 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, pUserId str
 // Request Body:
 //	 - body *WSGSCGUserQueryCriteria
 func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria) (*WSGSCGUserList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGSCGUserList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -762,15 +873,19 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 //
 // Get SCG user.
 //
-// Path Parameters:
-// - pUserId string
+// Required Parameters:
+// - userId string
 //		- required
-func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, pUserId string) (*WSGSCGUserGetScgUser, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string) (*WSGSCGUserGetScgUser, error) {
+	var (
+		resp *WSGSCGUserGetScgUser
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -781,14 +896,23 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, pUserId strin
 // Request Body:
 //	 - body *WSGSCGUserModifyScgUser
 //
-// Path Parameters:
-// - pUserId string
+// Required Parameters:
+// - userId string
 //		- required
-func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body *WSGSCGUserModifyScgUser, pUserId string) (*WSGSCGUserAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body *WSGSCGUserModifyScgUser, userId string) (*WSGSCGUserAuditId, error) {
+	var (
+		resp *WSGSCGUserAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
+		return resp, err
 	}
 }

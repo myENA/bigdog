@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGVendorSpecificAttributeProfileService struct {
@@ -26,8 +25,18 @@ func (ss *WSGService) WSGVendorSpecificAttributeProfileService() *WSGVendorSpeci
 
 type WSGVendorSpecificAttributeProfileCreateResult interface{}
 
+func NewWSGVendorSpecificAttributeProfileCreateResult() WSGVendorSpecificAttributeProfileCreateResult {
+	m := new(WSGVendorSpecificAttributeProfileCreateResult)
+	return m
+}
+
 type WSGVendorSpecificAttributeProfileDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGVendorSpecificAttributeProfileDeleteBulk() *WSGVendorSpecificAttributeProfileDeleteBulk {
+	m := new(WSGVendorSpecificAttributeProfileDeleteBulk)
+	return m
 }
 
 type WSGVendorSpecificAttributeProfileEmptyResult struct {
@@ -48,6 +57,11 @@ func (t *WSGVendorSpecificAttributeProfileEmptyResult) MarshalJSON() ([]byte, er
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewWSGVendorSpecificAttributeProfileEmptyResult() *WSGVendorSpecificAttributeProfileEmptyResult {
+	m := new(WSGVendorSpecificAttributeProfileEmptyResult)
+	return m
 }
 
 type WSGVendorSpecificAttributeProfileGet struct {
@@ -72,6 +86,11 @@ type WSGVendorSpecificAttributeProfileGet struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGVendorSpecificAttributeProfileGet() *WSGVendorSpecificAttributeProfileGet {
+	m := new(WSGVendorSpecificAttributeProfileGet)
+	return m
+}
+
 type WSGVendorSpecificAttributeProfileList struct {
 	// FirstIndex
 	// Index of the first profile returned out of the profile list
@@ -90,12 +109,22 @@ type WSGVendorSpecificAttributeProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGVendorSpecificAttributeProfileList() *WSGVendorSpecificAttributeProfileList {
+	m := new(WSGVendorSpecificAttributeProfileList)
+	return m
+}
+
 type WSGVendorSpecificAttributeProfileListType struct {
 	// Id
 	// Identifier of the vendor specific attribute profile
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGVendorSpecificAttributeProfileListType() *WSGVendorSpecificAttributeProfileListType {
+	m := new(WSGVendorSpecificAttributeProfileListType)
+	return m
 }
 
 type WSGVendorSpecificAttributeProfilePersist struct {
@@ -113,6 +142,11 @@ type WSGVendorSpecificAttributeProfilePersist struct {
 	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 }
 
+func NewWSGVendorSpecificAttributeProfilePersist() *WSGVendorSpecificAttributeProfilePersist {
+	m := new(WSGVendorSpecificAttributeProfilePersist)
+	return m
+}
+
 type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -123,6 +157,11 @@ type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
 	List []*WSGVendorSpecificAttributeProfileGet `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGVendorSpecificAttributeProfileQueryCriteriaResult() *WSGVendorSpecificAttributeProfileQueryCriteriaResult {
+	m := new(WSGVendorSpecificAttributeProfileQueryCriteriaResult)
+	return m
 }
 
 type WSGVendorSpecificAttributeProfileVendorSpecificAttribute struct {
@@ -159,6 +198,11 @@ type WSGVendorSpecificAttributeProfileVendorSpecificAttribute struct {
 	VendorId *int `json:"vendorId" validate:"required"`
 }
 
+func NewWSGVendorSpecificAttributeProfileVendorSpecificAttribute() *WSGVendorSpecificAttributeProfileVendorSpecificAttribute {
+	m := new(WSGVendorSpecificAttributeProfileVendorSpecificAttribute)
+	return m
+}
+
 // AddRkszonesVendorSpecificAttributeProfilesByZoneId
 //
 // Create a vendor specific attribute profile.
@@ -166,15 +210,24 @@ type WSGVendorSpecificAttributeProfileVendorSpecificAttribute struct {
 // Request Body:
 //	 - body *WSGVendorSpecificAttributeProfilePersist
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, pZoneId string) (WSGVendorSpecificAttributeProfileCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, zoneId string) (WSGVendorSpecificAttributeProfileCreateResult, error) {
+	var (
+		resp WSGVendorSpecificAttributeProfileCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -182,17 +235,24 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 //
 // Use this API command to delete a vendor specific attribute profile by ID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, pId string, pZoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
+	var (
+		resp *WSGVendorSpecificAttributeProfileEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -203,15 +263,24 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 // Request Body:
 //	 - body *WSGVendorSpecificAttributeProfileDeleteBulk
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfileDeleteBulk, pZoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfileDeleteBulk, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
+	var (
+		resp *WSGVendorSpecificAttributeProfileEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -219,17 +288,24 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 //
 // Get a vendor specific attribute profile by ID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, pId string, pZoneId string) (*WSGVendorSpecificAttributeProfileGet, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*WSGVendorSpecificAttributeProfileGet, error) {
+	var (
+		resp *WSGVendorSpecificAttributeProfileGet
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -240,11 +316,17 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGVendorSpecificAttributeProfileQueryCriteriaResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGVendorSpecificAttributeProfileQueryCriteriaResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -252,15 +334,19 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 //
 // Get a ID list of vendor specific attribute profile in this Zone.
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, pZoneId string) (*WSGVendorSpecificAttributeProfileList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, zoneId string) (*WSGVendorSpecificAttributeProfileList, error) {
+	var (
+		resp *WSGVendorSpecificAttributeProfileList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -271,16 +357,28 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 // Request Body:
 //	 - body *WSGVendorSpecificAttributeProfilePersist
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, pId string, pZoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, id string, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
+	var (
+		resp *WSGVendorSpecificAttributeProfileEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

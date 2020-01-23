@@ -14,8 +14,18 @@ type WSGClientDeAuthClient struct {
 	Mac *WSGCommonMac `json:"mac" validate:"required"`
 }
 
+func NewWSGClientDeAuthClient() *WSGClientDeAuthClient {
+	m := new(WSGClientDeAuthClient)
+	return m
+}
+
 type WSGClientDeAuthClientList struct {
 	ClientList []*WSGClientDeAuthClient `json:"clientList,omitempty"`
+}
+
+func NewWSGClientDeAuthClientList() *WSGClientDeAuthClientList {
+	m := new(WSGClientDeAuthClientList)
+	return m
 }
 
 type WSGClientDisconnectClient struct {
@@ -30,8 +40,18 @@ type WSGClientDisconnectClient struct {
 	Mac *WSGCommonMac `json:"mac" validate:"required"`
 }
 
+func NewWSGClientDisconnectClient() *WSGClientDisconnectClient {
+	m := new(WSGClientDisconnectClient)
+	return m
+}
+
 type WSGClientDisconnectClientList struct {
 	ClientList []*WSGClientDisconnectClient `json:"clientList,omitempty"`
+}
+
+func NewWSGClientDisconnectClientList() *WSGClientDisconnectClientList {
+	m := new(WSGClientDisconnectClientList)
+	return m
 }
 
 type WSGClientHistoricalClient struct {
@@ -104,6 +124,11 @@ type WSGClientHistoricalClient struct {
 	TxFrames *int `json:"txFrames,omitempty"`
 }
 
+func NewWSGClientHistoricalClient() *WSGClientHistoricalClient {
+	m := new(WSGClientHistoricalClient)
+	return m
+}
+
 type WSGClientHistoricalClientList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -114,4 +139,9 @@ type WSGClientHistoricalClientList struct {
 	List []*WSGClientHistoricalClient `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGClientHistoricalClientList() *WSGClientHistoricalClientList {
+	m := new(WSGClientHistoricalClientList)
+	return m
 }

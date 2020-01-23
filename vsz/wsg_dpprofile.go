@@ -6,6 +6,11 @@ type WSGDPProfileBulkDelete struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
+func NewWSGDPProfileBulkDelete() *WSGDPProfileBulkDelete {
+	m := new(WSGDPProfileBulkDelete)
+	return m
+}
+
 type WSGDPProfileDpDhcpProfileBasicBO struct {
 	// DefaultLeaseTime
 	// defaultLeaseTime
@@ -36,6 +41,11 @@ type WSGDPProfileDpDhcpProfileBasicBO struct {
 	SecondaryDnsServer *string `json:"secondaryDnsServer,omitempty"`
 }
 
+func NewWSGDPProfileDpDhcpProfileBasicBO() *WSGDPProfileDpDhcpProfileBasicBO {
+	m := new(WSGDPProfileDpDhcpProfileBasicBO)
+	return m
+}
+
 type WSGDPProfileDpDhcpProfileBasicBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -44,6 +54,11 @@ type WSGDPProfileDpDhcpProfileBasicBOList struct {
 	List []*WSGDPProfileDpDhcpProfileBasicBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDPProfileDpDhcpProfileBasicBOList() *WSGDPProfileDpDhcpProfileBasicBOList {
+	m := new(WSGDPProfileDpDhcpProfileBasicBOList)
+	return m
 }
 
 type WSGDPProfileDpDhcpProfileHostBO struct {
@@ -96,6 +111,11 @@ type WSGDPProfileDpDhcpProfileHostBO struct {
 	Routers []string `json:"routers,omitempty"`
 }
 
+func NewWSGDPProfileDpDhcpProfileHostBO() *WSGDPProfileDpDhcpProfileHostBO {
+	m := new(WSGDPProfileDpDhcpProfileHostBO)
+	return m
+}
+
 type WSGDPProfileDpDhcpProfileHostBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -104,6 +124,11 @@ type WSGDPProfileDpDhcpProfileHostBOList struct {
 	List []*WSGDPProfileDpDhcpProfileHostBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDPProfileDpDhcpProfileHostBOList() *WSGDPProfileDpDhcpProfileHostBOList {
+	m := new(WSGDPProfileDpDhcpProfileHostBOList)
+	return m
 }
 
 type WSGDPProfileDpDhcpProfileOptionBO struct {
@@ -124,10 +149,20 @@ type WSGDPProfileDpDhcpProfileOptionBO struct {
 	Value *string `json:"value,omitempty"`
 }
 
+func NewWSGDPProfileDpDhcpProfileOptionBO() *WSGDPProfileDpDhcpProfileOptionBO {
+	m := new(WSGDPProfileDpDhcpProfileOptionBO)
+	return m
+}
+
 type WSGDPProfileDpDhcpProfileOptionInstance struct {
 	FunctionName *string `json:"functionName,omitempty"`
 
 	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGDPProfileDpDhcpProfileOptionInstance() *WSGDPProfileDpDhcpProfileOptionInstance {
+	m := new(WSGDPProfileDpDhcpProfileOptionInstance)
+	return m
 }
 
 type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO struct {
@@ -150,6 +185,11 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO struct {
 	SpaceId *string `json:"spaceId,omitempty"`
 }
 
+func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBO() *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO {
+	m := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO)
+	return m
+}
+
 type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -158,6 +198,11 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList struct {
 	List []*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList() *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList {
+	m := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList)
+	return m
 }
 
 type WSGDPProfileDpDhcpProfileOptionSpaceBO struct {
@@ -178,6 +223,11 @@ type WSGDPProfileDpDhcpProfileOptionSpaceBO struct {
 	SpaceId *string `json:"spaceId,omitempty"`
 }
 
+func NewWSGDPProfileDpDhcpProfileOptionSpaceBO() *WSGDPProfileDpDhcpProfileOptionSpaceBO {
+	m := new(WSGDPProfileDpDhcpProfileOptionSpaceBO)
+	return m
+}
+
 type WSGDPProfileDpDhcpProfileOptionSpaceInstance struct {
 	Description *string `json:"description,omitempty"`
 
@@ -186,6 +236,11 @@ type WSGDPProfileDpDhcpProfileOptionSpaceInstance struct {
 	Options []*WSGDPProfileDpDhcpProfileOptionInstance `json:"options,omitempty"`
 
 	SpaceId *string `json:"spaceId,omitempty"`
+}
+
+func NewWSGDPProfileDpDhcpProfileOptionSpaceInstance() *WSGDPProfileDpDhcpProfileOptionSpaceInstance {
+	m := new(WSGDPProfileDpDhcpProfileOptionSpaceInstance)
+	return m
 }
 
 type WSGDPProfileDpDhcpProfilePoolBO struct {
@@ -266,6 +321,11 @@ type WSGDPProfileDpDhcpProfilePoolBO struct {
 	VlanRange *string `json:"vlanRange,omitempty"`
 }
 
+func NewWSGDPProfileDpDhcpProfilePoolBO() *WSGDPProfileDpDhcpProfilePoolBO {
+	m := new(WSGDPProfileDpDhcpProfilePoolBO)
+	return m
+}
+
 type WSGDPProfileDpDhcpProfilePoolBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -276,6 +336,11 @@ type WSGDPProfileDpDhcpProfilePoolBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGDPProfileDpDhcpProfilePoolBOList() *WSGDPProfileDpDhcpProfilePoolBOList {
+	m := new(WSGDPProfileDpDhcpProfilePoolBOList)
+	return m
+}
+
 type WSGDPProfileDpDhcpProfileQinqVlanRangeBO struct {
 	// Cvlan
 	// cvlan
@@ -284,6 +349,11 @@ type WSGDPProfileDpDhcpProfileQinqVlanRangeBO struct {
 	// Svlan
 	// svlan
 	Svlan *string `json:"svlan,omitempty"`
+}
+
+func NewWSGDPProfileDpDhcpProfileQinqVlanRangeBO() *WSGDPProfileDpDhcpProfileQinqVlanRangeBO {
+	m := new(WSGDPProfileDpDhcpProfileQinqVlanRangeBO)
+	return m
 }
 
 type WSGDPProfileDpNatProfileBasicBO struct {
@@ -318,6 +388,11 @@ type WSGDPProfileDpNatProfileBasicBO struct {
 	SecondaryNatDefaultRouteGateway *string `json:"secondaryNatDefaultRouteGateway,omitempty"`
 }
 
+func NewWSGDPProfileDpNatProfileBasicBO() *WSGDPProfileDpNatProfileBasicBO {
+	m := new(WSGDPProfileDpNatProfileBasicBO)
+	return m
+}
+
 type WSGDPProfileDpNatProfileBasicBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -326,6 +401,11 @@ type WSGDPProfileDpNatProfileBasicBOList struct {
 	List []*WSGDPProfileDpNatProfileBasicBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDPProfileDpNatProfileBasicBOList() *WSGDPProfileDpNatProfileBasicBOList {
+	m := new(WSGDPProfileDpNatProfileBasicBOList)
+	return m
 }
 
 type WSGDPProfileDpNatProfilePoolBO struct {
@@ -370,6 +450,11 @@ type WSGDPProfileDpNatProfilePoolBO struct {
 	PublicVlan *int `json:"publicVlan,omitempty"`
 }
 
+func NewWSGDPProfileDpNatProfilePoolBO() *WSGDPProfileDpNatProfilePoolBO {
+	m := new(WSGDPProfileDpNatProfilePoolBO)
+	return m
+}
+
 type WSGDPProfileDpNatProfilePoolBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -378,6 +463,11 @@ type WSGDPProfileDpNatProfilePoolBOList struct {
 	List []*WSGDPProfileDpNatProfilePoolBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDPProfileDpNatProfilePoolBOList() *WSGDPProfileDpNatProfilePoolBOList {
+	m := new(WSGDPProfileDpNatProfilePoolBOList)
+	return m
 }
 
 type WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO struct {
@@ -390,6 +480,11 @@ type WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO struct {
 	Svlan *string `json:"svlan,omitempty"`
 }
 
+func NewWSGDPProfileDpNatProfilePrivateQinqVlanRangeBO() *WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO {
+	m := new(WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO)
+	return m
+}
+
 type WSGDPProfileDpNatProfilePublicSubnetIdBO struct {
 	// Ip
 	// ip
@@ -398,6 +493,11 @@ type WSGDPProfileDpNatProfilePublicSubnetIdBO struct {
 	// PrefixLength
 	// prefixLength
 	PrefixLength *int `json:"prefixLength,omitempty"`
+}
+
+func NewWSGDPProfileDpNatProfilePublicSubnetIdBO() *WSGDPProfileDpNatProfilePublicSubnetIdBO {
+	m := new(WSGDPProfileDpNatProfilePublicSubnetIdBO)
+	return m
 }
 
 type WSGDPProfileSettingBO struct {
@@ -434,6 +534,11 @@ type WSGDPProfileSettingBO struct {
 	NatProfileName *string `json:"natProfileName,omitempty"`
 }
 
+func NewWSGDPProfileSettingBO() *WSGDPProfileSettingBO {
+	m := new(WSGDPProfileSettingBO)
+	return m
+}
+
 type WSGDPProfileSettingBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -442,4 +547,9 @@ type WSGDPProfileSettingBOList struct {
 	List []*WSGDPProfileSettingBO `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDPProfileSettingBOList() *WSGDPProfileSettingBOList {
+	m := new(WSGDPProfileSettingBOList)
+	return m
 }

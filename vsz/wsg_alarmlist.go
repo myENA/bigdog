@@ -14,6 +14,11 @@ type WSGAlarmListAlarmQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGAlarmListAlarmQueryResultList() *WSGAlarmListAlarmQueryResultList {
+	m := new(WSGAlarmListAlarmQueryResultList)
+	return m
+}
+
 type WSGAlarmListSingleAlarm struct {
 	Acknowledged *string `json:"acknowledged,omitempty"`
 
@@ -42,4 +47,9 @@ type WSGAlarmListSingleAlarm struct {
 	InsertionTime *float64 `json:"insertionTime,omitempty"`
 
 	Severity *string `json:"severity,omitempty"`
+}
+
+func NewWSGAlarmListSingleAlarm() *WSGAlarmListSingleAlarm {
+	m := new(WSGAlarmListSingleAlarm)
+	return m
 }

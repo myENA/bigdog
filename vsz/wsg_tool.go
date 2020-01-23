@@ -36,6 +36,11 @@ type WSGToolSpeedFlex struct {
 	Tool *string `json:"tool" validate:"required,oneof=ZAP_DOWN ZAP_UP"`
 }
 
+func NewWSGToolSpeedFlex() *WSGToolSpeedFlex {
+	m := new(WSGToolSpeedFlex)
+	return m
+}
+
 type WSGToolTestResult struct {
 	// Downlink
 	// Downlink
@@ -62,4 +67,9 @@ type WSGToolTestResult struct {
 	Uplink *int `json:"uplink,omitempty"`
 
 	Wcid *string `json:"wcid,omitempty"`
+}
+
+func NewWSGToolTestResult() *WSGToolTestResult {
+	m := new(WSGToolTestResult)
+	return m
 }

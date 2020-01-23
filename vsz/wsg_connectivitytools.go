@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGConnectivityToolsService struct {
@@ -30,11 +29,17 @@ func (ss *WSGService) WSGConnectivityToolsService() *WSGConnectivityToolsService
 // Request Body:
 //	 - body *WSGToolSpeedFlex
 func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body *WSGToolSpeedFlex) (*WSGToolTestResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGToolTestResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -42,17 +47,24 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 //
 // Use this API command to run the PING test on an AP.
 //
-// Query Parameters:
-// - qApMac string
+// Required Parameters:
+// - apMac string
 //		- required
-// - qTargetIP string
+// - targetIP string
 //		- required
-func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, qApMac string, qTargetIP string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac string, targetIP string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, targetIP, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -60,15 +72,19 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, qApMac s
 //
 // Use this API command to retrieve existing SpeedFlex test results.
 //
-// Path Parameters:
-// - pWcid string
+// Required Parameters:
+// - wcid string
 //		- required
-func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, pWcid string) (*WSGToolTestResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, wcid string) (*WSGToolTestResult, error) {
+	var (
+		resp *WSGToolTestResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, wcid, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -76,18 +92,27 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 //
 // Use this API command to run the traceroute test on an AP.
 //
-// Query Parameters:
-// - qApMac string
+// Required Parameters:
+// - apMac string
 //		- required
-// - qTargetIP string
+// - targetIP string
 //		- required
-// - qTimeoutInSec string
+//
+// Optional Parameters:
+// - timeoutInSec string
 //		- nullable
-func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, qApMac string, qTargetIP string, qTimeoutInSec string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string]interface{}) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, targetIP, "required"); err != nil {
+		return resp, err
 	}
 }

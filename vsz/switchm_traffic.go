@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMTrafficService struct {
@@ -48,6 +47,11 @@ type SwitchMTrafficTopPortErrorQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMTrafficTopPortErrorQueryResultList() *SwitchMTrafficTopPortErrorQueryResultList {
+	m := new(SwitchMTrafficTopPortErrorQueryResultList)
+	return m
+}
+
 // SwitchMTrafficTopPortErrorQueryResultListExtraType
 //
 // Extra information for top port error
@@ -69,6 +73,11 @@ func (t *SwitchMTrafficTopPortErrorQueryResultListExtraType) MarshalJSON() ([]by
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMTrafficTopPortErrorQueryResultListExtraType() *SwitchMTrafficTopPortErrorQueryResultListExtraType {
+	m := new(SwitchMTrafficTopPortErrorQueryResultListExtraType)
+	return m
 }
 
 type SwitchMTrafficTopPortTrafficUsageQueryResultList struct {
@@ -95,6 +104,11 @@ type SwitchMTrafficTopPortTrafficUsageQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMTrafficTopPortTrafficUsageQueryResultList() *SwitchMTrafficTopPortTrafficUsageQueryResultList {
+	m := new(SwitchMTrafficTopPortTrafficUsageQueryResultList)
+	return m
+}
+
 // SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType
 //
 // Extra information for top port traffic usage
@@ -116,6 +130,11 @@ func (t *SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType) MarshalJSON(
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMTrafficTopPortTrafficUsageQueryResultListExtraType() *SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType {
+	m := new(SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType)
+	return m
 }
 
 type SwitchMTrafficTopSwitchPoEUtilizationQueryResultList struct {
@@ -142,6 +161,11 @@ type SwitchMTrafficTopSwitchPoEUtilizationQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList() *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList {
+	m := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultList)
+	return m
+}
+
 // SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType
 //
 // Extra information for top PoE utilization
@@ -163,6 +187,11 @@ func (t *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType) MarshalJ
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType() *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType {
+	m := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType)
+	return m
 }
 
 type SwitchMTrafficTopTrafficUsageQueryResultList struct {
@@ -189,6 +218,11 @@ type SwitchMTrafficTopTrafficUsageQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMTrafficTopTrafficUsageQueryResultList() *SwitchMTrafficTopTrafficUsageQueryResultList {
+	m := new(SwitchMTrafficTopTrafficUsageQueryResultList)
+	return m
+}
+
 // SwitchMTrafficTopTrafficUsageQueryResultListExtraType
 //
 // Extra information for top traffic usage
@@ -212,6 +246,11 @@ func (t *SwitchMTrafficTopTrafficUsageQueryResultListExtraType) MarshalJSON() ([
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMTrafficTopTrafficUsageQueryResultListExtraType() *SwitchMTrafficTopTrafficUsageQueryResultListExtraType {
+	m := new(SwitchMTrafficTopTrafficUsageQueryResultListExtraType)
+	return m
+}
+
 type SwitchMTraffic struct {
 	// Rx
 	// RX traffic of the switch
@@ -228,6 +267,11 @@ type SwitchMTraffic struct {
 	// Tx
 	// TX traffic of the switch
 	Tx *string `json:"tx,omitempty"`
+}
+
+func NewSwitchMTraffic() *SwitchMTraffic {
+	m := new(SwitchMTraffic)
+	return m
 }
 
 type SwitchMTrafficQueryResultList struct {
@@ -254,6 +298,11 @@ type SwitchMTrafficQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMTrafficQueryResultList() *SwitchMTrafficQueryResultList {
+	m := new(SwitchMTrafficQueryResultList)
+	return m
+}
+
 // SwitchMTrafficQueryResultListExtraType
 //
 // Extra information for traffic list
@@ -277,6 +326,11 @@ func (t *SwitchMTrafficQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMTrafficQueryResultListExtraType() *SwitchMTrafficQueryResultListExtraType {
+	m := new(SwitchMTrafficQueryResultListExtraType)
+	return m
+}
+
 type SwitchMTrafficUsage struct {
 	// Id
 	// Identifier of the Traffic Usage
@@ -291,6 +345,11 @@ type SwitchMTrafficUsage struct {
 	Value *float64 `json:"value,omitempty"`
 }
 
+func NewSwitchMTrafficUsage() *SwitchMTrafficUsage {
+	m := new(SwitchMTrafficUsage)
+	return m
+}
+
 // AddTrafficTopPoeutilization
 //
 // Use this API command retrieve the top 10 switches by the PoE utilization.
@@ -298,11 +357,17 @@ type SwitchMTrafficUsage struct {
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopSwitchPoEUtilizationQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -313,11 +378,17 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopPortErrorQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMTrafficTopPortErrorQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -328,11 +399,17 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopPortTrafficUsageQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMTrafficTopPortTrafficUsageQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -343,11 +420,17 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopTrafficUsageQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMTrafficTopTrafficUsageQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -358,10 +441,16 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMTrafficQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

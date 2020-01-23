@@ -80,6 +80,11 @@ type WSGAAAActiveDirectory struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGAAAActiveDirectory() *WSGAAAActiveDirectory {
+	m := new(WSGAAAActiveDirectory)
+	return m
+}
+
 type WSGAAAActiveDirectoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -88,6 +93,11 @@ type WSGAAAActiveDirectoryList struct {
 	List []*WSGAAAActiveDirectory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAAAActiveDirectoryList() *WSGAAAActiveDirectoryList {
+	m := new(WSGAAAActiveDirectoryList)
+	return m
 }
 
 type WSGAAAAuthenticationServer struct {
@@ -126,6 +136,11 @@ type WSGAAAAuthenticationServer struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGAAAAuthenticationServer() *WSGAAAAuthenticationServer {
+	m := new(WSGAAAAuthenticationServer)
+	return m
+}
+
 type WSGAAAAuthenticationServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -134,6 +149,11 @@ type WSGAAAAuthenticationServerList struct {
 	List []*WSGAAAAuthenticationServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAAAAuthenticationServerList() *WSGAAAAuthenticationServerList {
+	m := new(WSGAAAAuthenticationServerList)
+	return m
 }
 
 type WSGAAACreateActiveDirectoryServer struct {
@@ -205,6 +225,11 @@ type WSGAAACreateActiveDirectoryServer struct {
 	WindowsDomainName *WSGCommonNormalNameAllowBlank `json:"windowsDomainName,omitempty"`
 }
 
+func NewWSGAAACreateActiveDirectoryServer() *WSGAAACreateActiveDirectoryServer {
+	m := new(WSGAAACreateActiveDirectoryServer)
+	return m
+}
+
 type WSGAAACreateAuthenticationServer struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -229,6 +254,11 @@ type WSGAAACreateAuthenticationServer struct {
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
+}
+
+func NewWSGAAACreateAuthenticationServer() *WSGAAACreateAuthenticationServer {
+	m := new(WSGAAACreateAuthenticationServer)
+	return m
 }
 
 type WSGAAACreateLDAPServer struct {
@@ -316,8 +346,18 @@ type WSGAAACreateLDAPServer struct {
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
+func NewWSGAAACreateLDAPServer() *WSGAAACreateLDAPServer {
+	m := new(WSGAAACreateLDAPServer)
+	return m
+}
+
 type WSGAAADeleteBulkAAAServerList struct {
 	AaadeleteBulkAAAServerList *string `json:"aaa_deleteBulkAAAServerList,omitempty"`
+}
+
+func NewWSGAAADeleteBulkAAAServerList() *WSGAAADeleteBulkAAAServerList {
+	m := new(WSGAAADeleteBulkAAAServerList)
+	return m
 }
 
 // WSGAAAGroupAttrIdentityUserRoleMapping
@@ -341,6 +381,11 @@ type WSGAAAGroupAttrIdentityUserRoleMapping struct {
 	UserRole *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
+func NewWSGAAAGroupAttrIdentityUserRoleMapping() *WSGAAAGroupAttrIdentityUserRoleMapping {
+	m := new(WSGAAAGroupAttrIdentityUserRoleMapping)
+	return m
+}
+
 // WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
@@ -356,6 +401,11 @@ type WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	UserTrafficProfile *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType `json:"userTrafficProfile,omitempty"`
 }
 
+func NewWSGAAAGroupAttrIdentityUserRoleMappingUserRoleType() *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType {
+	m := new(WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType)
+	return m
+}
+
 // WSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
 //
 // Identity user role
@@ -367,6 +417,11 @@ type WSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType st
 	// Name
 	// User traffic profile name
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
+	m := new(WSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType)
+	return m
 }
 
 type WSGAAALDAPServer struct {
@@ -455,6 +510,11 @@ type WSGAAALDAPServer struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGAAALDAPServer() *WSGAAALDAPServer {
+	m := new(WSGAAALDAPServer)
+	return m
+}
+
 type WSGAAALDAPServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -463,6 +523,11 @@ type WSGAAALDAPServerList struct {
 	List []*WSGAAALDAPServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAAALDAPServerList() *WSGAAALDAPServerList {
+	m := new(WSGAAALDAPServerList)
+	return m
 }
 
 type WSGAAAModifyActiveDirectoryServer struct {
@@ -525,6 +590,11 @@ type WSGAAAModifyActiveDirectoryServer struct {
 	WindowsDomainName *WSGCommonNormalNameAllowBlank `json:"windowsDomainName,omitempty"`
 }
 
+func NewWSGAAAModifyActiveDirectoryServer() *WSGAAAModifyActiveDirectoryServer {
+	m := new(WSGAAAModifyActiveDirectoryServer)
+	return m
+}
+
 type WSGAAAModifyAuthenticationServer struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -545,6 +615,11 @@ type WSGAAAModifyAuthenticationServer struct {
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
+func NewWSGAAAModifyAuthenticationServer() *WSGAAAModifyAuthenticationServer {
+	m := new(WSGAAAModifyAuthenticationServer)
+	return m
+}
+
 // WSGAAAModifyGroupAttrIdentityUserRoleMapping
 //
 // User traffic profile mapping
@@ -562,6 +637,11 @@ type WSGAAAModifyGroupAttrIdentityUserRoleMapping struct {
 	UserRole *WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
+func NewWSGAAAModifyGroupAttrIdentityUserRoleMapping() *WSGAAAModifyGroupAttrIdentityUserRoleMapping {
+	m := new(WSGAAAModifyGroupAttrIdentityUserRoleMapping)
+	return m
+}
+
 // WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
@@ -571,6 +651,11 @@ type WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName2to64 `json:"name,omitempty"`
+}
+
+func NewWSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType() *WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType {
+	m := new(WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType)
+	return m
 }
 
 type WSGAAAModifyLDAPServer struct {
@@ -637,6 +722,11 @@ type WSGAAAModifyLDAPServer struct {
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
+func NewWSGAAAModifyLDAPServer() *WSGAAAModifyLDAPServer {
+	m := new(WSGAAAModifyLDAPServer)
+	return m
+}
+
 type WSGAAATestAAAServerResult struct {
 	// PrimaryServer
 	// Primary server test result
@@ -645,6 +735,11 @@ type WSGAAATestAAAServerResult struct {
 	// SecondaryServer
 	// Secondary server test result
 	SecondaryServer *string `json:"secondaryServer,omitempty"`
+}
+
+func NewWSGAAATestAAAServerResult() *WSGAAATestAAAServerResult {
+	m := new(WSGAAATestAAAServerResult)
+	return m
 }
 
 type WSGAAATestAuthenticationServer struct {
@@ -683,4 +778,9 @@ type WSGAAATestAuthenticationServer struct {
 	// Constraints:
 	//    - required
 	UserName *string `json:"userName" validate:"required"`
+}
+
+func NewWSGAAATestAuthenticationServer() *WSGAAATestAuthenticationServer {
+	m := new(WSGAAATestAuthenticationServer)
+	return m
 }

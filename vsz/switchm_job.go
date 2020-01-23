@@ -14,6 +14,11 @@ type SwitchMJobErrorObject struct {
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
+func NewSwitchMJobErrorObject() *SwitchMJobErrorObject {
+	m := new(SwitchMJobErrorObject)
+	return m
+}
+
 type SwitchMJob struct {
 	// Action
 	// Action of the job
@@ -74,6 +79,11 @@ type SwitchMJob struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewSwitchMJob() *SwitchMJob {
+	m := new(SwitchMJob)
+	return m
+}
+
 type SwitchMJobCsvDataMapType struct {
 	XAdditionalProperties map[string]string `json:"-"`
 }
@@ -94,6 +104,11 @@ func (t *SwitchMJobCsvDataMapType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMJobCsvDataMapType() *SwitchMJobCsvDataMapType {
+	m := new(SwitchMJobCsvDataMapType)
+	return m
+}
+
 type SwitchMJobSchedule struct {
 	// CreatedTimestamp
 	// Created timestamp of job schedule
@@ -106,6 +121,11 @@ type SwitchMJobSchedule struct {
 	// TriggerValue
 	// Trigger value of job schedule
 	TriggerValue *string `json:"triggerValue,omitempty"`
+}
+
+func NewSwitchMJobSchedule() *SwitchMJobSchedule {
+	m := new(SwitchMJobSchedule)
+	return m
 }
 
 type SwitchMJobScheduleResponse struct {
@@ -124,6 +144,11 @@ type SwitchMJobScheduleResponse struct {
 	// Success
 	// Success response of job schedule
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewSwitchMJobScheduleResponse() *SwitchMJobScheduleResponse {
+	m := new(SwitchMJobScheduleResponse)
+	return m
 }
 
 // SwitchMJobScheduleResponseExtraType
@@ -149,6 +174,11 @@ func (t *SwitchMJobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMJobScheduleResponseExtraType() *SwitchMJobScheduleResponseExtraType {
+	m := new(SwitchMJobScheduleResponseExtraType)
+	return m
+}
+
 // SwitchMJobScheduleResponseMetaDataType
 //
 // metaData of job schedule
@@ -170,6 +200,11 @@ func (t *SwitchMJobScheduleResponseMetaDataType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMJobScheduleResponseMetaDataType() *SwitchMJobScheduleResponseMetaDataType {
+	m := new(SwitchMJobScheduleResponseMetaDataType)
+	return m
 }
 
 type SwitchMJobList struct {
@@ -196,6 +231,11 @@ type SwitchMJobList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMJobList() *SwitchMJobList {
+	m := new(SwitchMJobList)
+	return m
+}
+
 // SwitchMJobListExtraType
 //
 // Extra information for job list
@@ -217,4 +257,9 @@ func (t *SwitchMJobListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMJobListExtraType() *SwitchMJobListExtraType {
+	m := new(SwitchMJobListExtraType)
+	return m
 }

@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGCertificateService struct {
@@ -65,6 +64,11 @@ type WSGCertificate struct {
 	RootData *string `json:"rootData,omitempty"`
 }
 
+func NewWSGCertificate() *WSGCertificate {
+	m := new(WSGCertificate)
+	return m
+}
+
 type WSGCertificateList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -75,6 +79,11 @@ type WSGCertificateList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGCertificateList() *WSGCertificateList {
+	m := new(WSGCertificateList)
+	return m
+}
+
 type WSGCertificateListType struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -83,6 +92,11 @@ type WSGCertificateListType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGCertificateListType() *WSGCertificateListType {
+	m := new(WSGCertificateListType)
+	return m
 }
 
 type WSGCertificatesSigningRequest struct {
@@ -123,10 +137,20 @@ type WSGCertificatesSigningRequest struct {
 	State *string `json:"state,omitempty"`
 }
 
+func NewWSGCertificatesSigningRequest() *WSGCertificatesSigningRequest {
+	m := new(WSGCertificatesSigningRequest)
+	return m
+}
+
 type WSGCertificateCertSetting struct {
 	// ServiceCertificates
 	// Certificate Setting of the service
 	ServiceCertificates []*WSGCertificateServiceCertificate `json:"serviceCertificates,omitempty"`
+}
+
+func NewWSGCertificateCertSetting() *WSGCertificateCertSetting {
+	m := new(WSGCertificateCertSetting)
+	return m
 }
 
 type WSGCertificateClientCert struct {
@@ -165,6 +189,11 @@ type WSGCertificateClientCert struct {
 	RootData *string `json:"rootData,omitempty"`
 }
 
+func NewWSGCertificateClientCert() *WSGCertificateClientCert {
+	m := new(WSGCertificateClientCert)
+	return m
+}
+
 type WSGCertificateClientCertList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -175,6 +204,11 @@ type WSGCertificateClientCertList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGCertificateClientCertList() *WSGCertificateClientCertList {
+	m := new(WSGCertificateClientCertList)
+	return m
+}
+
 type WSGCertificateClientCertListType struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -183,6 +217,11 @@ type WSGCertificateClientCertListType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGCertificateClientCertListType() *WSGCertificateClientCertListType {
+	m := new(WSGCertificateClientCertListType)
+	return m
 }
 
 type WSGCertificateCreateCert struct {
@@ -220,6 +259,11 @@ type WSGCertificateCreateCert struct {
 	RootData *string `json:"rootData,omitempty"`
 }
 
+func NewWSGCertificateCreateCert() *WSGCertificateCreateCert {
+	m := new(WSGCertificateCreateCert)
+	return m
+}
+
 type WSGCertificateCreateClientCert struct {
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
@@ -249,6 +293,11 @@ type WSGCertificateCreateClientCert struct {
 	// RootData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
 	RootData *string `json:"rootData,omitempty"`
+}
+
+func NewWSGCertificateCreateClientCert() *WSGCertificateCreateClientCert {
+	m := new(WSGCertificateCreateClientCert)
+	return m
 }
 
 type WSGCertificateCreateCSR struct {
@@ -303,6 +352,11 @@ type WSGCertificateCreateCSR struct {
 	State *string `json:"state" validate:"required,max=128"`
 }
 
+func NewWSGCertificateCreateCSR() *WSGCertificateCreateCSR {
+	m := new(WSGCertificateCreateCSR)
+	return m
+}
+
 type WSGCertificateCreateTrustedCAChain struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -324,6 +378,11 @@ type WSGCertificateCreateTrustedCAChain struct {
 	RootCertData *string `json:"rootCertData" validate:"required"`
 }
 
+func NewWSGCertificateCreateTrustedCAChain() *WSGCertificateCreateTrustedCAChain {
+	m := new(WSGCertificateCreateTrustedCAChain)
+	return m
+}
+
 type WSGCertificateCsrList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -332,6 +391,11 @@ type WSGCertificateCsrList struct {
 	List []*WSGCertificateCsrListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGCertificateCsrList() *WSGCertificateCsrList {
+	m := new(WSGCertificateCsrList)
+	return m
 }
 
 type WSGCertificateCsrListType struct {
@@ -344,8 +408,18 @@ type WSGCertificateCsrListType struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
+func NewWSGCertificateCsrListType() *WSGCertificateCsrListType {
+	m := new(WSGCertificateCsrListType)
+	return m
+}
+
 type WSGCertificateDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGCertificateDeleteBulk() *WSGCertificateDeleteBulk {
+	m := new(WSGCertificateDeleteBulk)
+	return m
 }
 
 type WSGCertificateModifyTrustedCAChain struct {
@@ -368,6 +442,11 @@ type WSGCertificateModifyTrustedCAChain struct {
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 
+func NewWSGCertificateModifyTrustedCAChain() *WSGCertificateModifyTrustedCAChain {
+	m := new(WSGCertificateModifyTrustedCAChain)
+	return m
+}
+
 type WSGCertificateServiceCertificate struct {
 	Certificate *WSGCommonGenericRef `json:"certificate,omitempty"`
 
@@ -379,7 +458,17 @@ type WSGCertificateServiceCertificate struct {
 	Service *string `json:"service" validate:"required,oneof=MANAGEMENT_WEB AP_PORTAL HOTSPOT COMMUNICATOR"`
 }
 
+func NewWSGCertificateServiceCertificate() *WSGCertificateServiceCertificate {
+	m := new(WSGCertificateServiceCertificate)
+	return m
+}
+
 type WSGCertificateServiceCertificates []*WSGCertificateServiceCertificate
+
+func MakeWSGCertificateServiceCertificates() WSGCertificateServiceCertificates {
+	m := make(WSGCertificateServiceCertificates, 0)
+	return m
+}
 
 type WSGCertificateTrustedCAChain struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
@@ -401,6 +490,11 @@ type WSGCertificateTrustedCAChain struct {
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 
+func NewWSGCertificateTrustedCAChain() *WSGCertificateTrustedCAChain {
+	m := new(WSGCertificateTrustedCAChain)
+	return m
+}
+
 type WSGCertificateTrustedCAChainCertList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -409,6 +503,11 @@ type WSGCertificateTrustedCAChainCertList struct {
 	List []*WSGCertificateTrustedCAChainCertListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGCertificateTrustedCAChainCertList() *WSGCertificateTrustedCAChainCertList {
+	m := new(WSGCertificateTrustedCAChainCertList)
+	return m
 }
 
 type WSGCertificateTrustedCAChainCertListType struct {
@@ -439,6 +538,11 @@ type WSGCertificateTrustedCAChainCertListType struct {
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 
+func NewWSGCertificateTrustedCAChainCertListType() *WSGCertificateTrustedCAChainCertListType {
+	m := new(WSGCertificateTrustedCAChainCertListType)
+	return m
+}
+
 // AddCertstoreCertificate
 //
 // Use this API command to create an installed certificate.
@@ -446,11 +550,17 @@ type WSGCertificateTrustedCAChainCertListType struct {
 // Request Body:
 //	 - body *WSGCertificateCreateCert
 func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, body *WSGCertificateCreateCert) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -461,11 +571,17 @@ func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, bod
 // Request Body:
 //	 - body *WSGCertificateCreateClientCert
 func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body *WSGCertificateCreateClientCert) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -476,11 +592,17 @@ func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body
 // Request Body:
 //	 - body *WSGCertificateCreateCSR
 func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCertificateCreateCSR) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -491,11 +613,17 @@ func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCe
 // Request Body:
 //	 - body *WSGCertificateCreateTrustedCAChain
 func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Context, body *WSGCertificateCreateTrustedCAChain) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -503,15 +631,19 @@ func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Conte
 //
 // Use this API command to delete an installed certificate.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -519,15 +651,19 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 //
 // Use this API command to delete a client certificate.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -535,15 +671,19 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 //
 // Use this API command to delete a certificates signing request.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -554,11 +694,17 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, pId 
 // Request Body:
 //	 - body *WSGCertificateDeleteBulk
 func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Context, body *WSGCertificateDeleteBulk) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -566,15 +712,19 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Co
 //
 // Use this API command to delete a trusted CA chain certificate.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx context.Context, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -582,17 +732,18 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 //
 // Use this API command to retrieve list of installed certificates.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, qIndex string, qListSize string) (*WSGCertificateList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, optionalParams map[string]interface{}) (*WSGCertificateList, error) {
+	var (
+		resp *WSGCertificateList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -600,15 +751,19 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, qI
 //
 // Use this API command to retrieve an installed certificate.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context, pId string) (*WSGCertificate, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context, id string) (*WSGCertificate, error) {
+	var (
+		resp *WSGCertificate
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -616,17 +771,18 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 //
 // Use this API command to retrieve list of client certificates.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, qIndex string, qListSize string) (*WSGCertificateClientCertList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, optionalParams map[string]interface{}) (*WSGCertificateClientCertList, error) {
+	var (
+		resp *WSGCertificateClientCertList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -634,15 +790,19 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, qIn
 //
 // Use this API command to retrieve a client certificate.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context, pId string) (*WSGCertificateClientCert, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context, id string) (*WSGCertificateClientCert, error) {
+	var (
+		resp *WSGCertificateClientCert
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -650,17 +810,18 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 //
 // Use this API command to retrieve list of certificates signing request.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, qIndex string, qListSize string) (*WSGCertificateCsrList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalParams map[string]interface{}) (*WSGCertificateCsrList, error) {
+	var (
+		resp *WSGCertificateCsrList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -668,15 +829,19 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, qIndex str
 //
 // Use this API command to retrieve a certificates signing request.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, pId string) (*WSGCertificatesSigningRequest, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id string) (*WSGCertificatesSigningRequest, error) {
+	var (
+		resp *WSGCertificatesSigningRequest
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -684,11 +849,12 @@ func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, pId st
 //
 // Use this API command to retrieve certificate setting.
 func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context) (*WSGCertificateCertSetting, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGCertificateCertSetting
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -696,17 +862,18 @@ func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context) (*WSGC
 //
 // Use this API command to retrieve list of installed trusted CA chain certificates.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Context, qIndex string, qListSize string) (*WSGCertificateTrustedCAChainCertList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Context, optionalParams map[string]interface{}) (*WSGCertificateTrustedCAChainCertList, error) {
+	var (
+		resp *WSGCertificateTrustedCAChainCertList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -714,15 +881,19 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 //
 // Use this API command to retrieve an installed trusted CA chain certificates.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.Context, pId string) (*WSGCertificateTrustedCAChain, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.Context, id string) (*WSGCertificateTrustedCAChain, error) {
+	var (
+		resp *WSGCertificateTrustedCAChain
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -733,11 +904,17 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 // Request Body:
 //	 - body *WSGCertificateCertSetting
 func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Context, body *WSGCertificateCertSetting) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -748,11 +925,15 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Contex
 // Request Body:
 //	 - body WSGCertificateServiceCertificates
 func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates(ctx context.Context, body WSGCertificateServiceCertificates) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -763,14 +944,23 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates
 // Request Body:
 //	 - body *WSGCertificateModifyTrustedCAChain
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx context.Context, body *WSGCertificateModifyTrustedCAChain, pId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx context.Context, body *WSGCertificateModifyTrustedCAChain, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

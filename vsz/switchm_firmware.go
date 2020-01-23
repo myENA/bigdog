@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMFirmwareService struct {
@@ -52,6 +51,11 @@ type SwitchMFirmwaresQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMFirmwaresQueryResultList() *SwitchMFirmwaresQueryResultList {
+	m := new(SwitchMFirmwaresQueryResultList)
+	return m
+}
+
 // SwitchMFirmwaresQueryResultListExtraType
 //
 // Extra information for Firmware list
@@ -73,6 +77,11 @@ func (t *SwitchMFirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error)
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMFirmwaresQueryResultListExtraType() *SwitchMFirmwaresQueryResultListExtraType {
+	m := new(SwitchMFirmwaresQueryResultListExtraType)
+	return m
 }
 
 type SwitchMFirmwareScheduleIds struct {
@@ -99,6 +108,11 @@ type SwitchMFirmwareScheduleIds struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMFirmwareScheduleIds() *SwitchMFirmwareScheduleIds {
+	m := new(SwitchMFirmwareScheduleIds)
+	return m
+}
+
 // SwitchMFirmwareScheduleIdsExtraType
 //
 // Extra information for Schedule Ids list
@@ -122,12 +136,22 @@ func (t *SwitchMFirmwareScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMFirmwareScheduleIdsExtraType() *SwitchMFirmwareScheduleIdsExtraType {
+	m := new(SwitchMFirmwareScheduleIdsExtraType)
+	return m
+}
+
 type SwitchMFirmwareSwitchFirmware struct {
 	SwitchModels []*SwitchMFirmwareSwitchModel `json:"switchModels,omitempty"`
 
 	// Version
 	// Firmware version of the Switch
 	Version *string `json:"version,omitempty"`
+}
+
+func NewSwitchMFirmwareSwitchFirmware() *SwitchMFirmwareSwitchFirmware {
+	m := new(SwitchMFirmwareSwitchFirmware)
+	return m
 }
 
 type SwitchMFirmwareSwitchModel struct {
@@ -140,6 +164,11 @@ type SwitchMFirmwareSwitchModel struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewSwitchMFirmwareSwitchModel() *SwitchMFirmwareSwitchModel {
+	m := new(SwitchMFirmwareSwitchModel)
+	return m
+}
+
 // AddFirmware
 //
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
@@ -147,23 +176,36 @@ type SwitchMFirmwareSwitchModel struct {
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMFirmwaresQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMFirmwaresQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
 // AddFirmwareUpload
 //
 // Use this API command to upload a firmware image zip file to SmartZone.
-func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+//
+// Request Body:
+//	 - body []byte
+func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []byte) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -171,15 +213,19 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context) (interfa
 //
 // Use this API command to deletes a firmware image file from SmartZone.
 //
-// Path Parameters:
-// - pVersion string
+// Required Parameters:
+// - version string
 //		- required
-func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, pVersion string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, version string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, version, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -187,11 +233,12 @@ func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, pV
 //
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
 func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirmwareAllFirmwaresQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *SwitchMFirmwareAllFirmwaresQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -202,14 +249,23 @@ func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirm
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 //
-// Path Parameters:
-// - pVersion string
+// Required Parameters:
+// - version string
 //		- required
-func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, pVersion string) (*SwitchMFirmwareScheduleIds, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, version string) (*SwitchMFirmwareScheduleIds, error) {
+	var (
+		resp *SwitchMFirmwareScheduleIds
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, version, "required"); err != nil {
+		return resp, err
 	}
 }

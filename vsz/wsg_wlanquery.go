@@ -10,6 +10,11 @@ type WSGWLANQueryApWlanBssid struct {
 	WlanBssids []*WSGWLANQueryWlanBssid `json:"wlanBssids,omitempty"`
 }
 
+func NewWSGWLANQueryApWlanBssid() *WSGWLANQueryApWlanBssid {
+	m := new(WSGWLANQueryApWlanBssid)
+	return m
+}
+
 type WSGWLANQueryApWlanBssidQueryList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -26,6 +31,11 @@ type WSGWLANQueryApWlanBssidQueryList struct {
 	// TotalCount
 	// Total matched AP count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGWLANQueryApWlanBssidQueryList() *WSGWLANQueryApWlanBssidQueryList {
+	m := new(WSGWLANQueryApWlanBssidQueryList)
+	return m
 }
 
 type WSGWLANQueryCreateWlanQuery struct {
@@ -105,6 +115,11 @@ type WSGWLANQueryCreateWlanQuery struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewWSGWLANQueryCreateWlanQuery() *WSGWLANQueryCreateWlanQuery {
+	m := new(WSGWLANQueryCreateWlanQuery)
+	return m
+}
+
 type WSGWLANQueryWlanBssid struct {
 	Bssid *string `json:"bssid,omitempty"`
 
@@ -113,6 +128,11 @@ type WSGWLANQueryWlanBssid struct {
 	WlanId *int `json:"wlanId,omitempty"`
 
 	WlanName *string `json:"wlanName,omitempty"`
+}
+
+func NewWSGWLANQueryWlanBssid() *WSGWLANQueryWlanBssid {
+	m := new(WSGWLANQueryWlanBssid)
+	return m
 }
 
 type WSGWLANQueryList struct {
@@ -125,4 +145,9 @@ type WSGWLANQueryList struct {
 	List []*WSGWLANQueryCreateWlanQuery `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGWLANQueryList() *WSGWLANQueryList {
+	m := new(WSGWLANQueryList)
+	return m
 }

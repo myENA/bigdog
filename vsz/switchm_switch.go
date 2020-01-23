@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMSwitchService struct {
@@ -34,6 +33,11 @@ type SwitchMSwitchAuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewSwitchMSwitchAuditId() *SwitchMSwitchAuditId {
+	m := new(SwitchMSwitchAuditId)
+	return m
+}
+
 type SwitchMSwitchBarChart struct {
 	// Id
 	// Identifier of the barchart
@@ -46,6 +50,11 @@ type SwitchMSwitchBarChart struct {
 	// Value
 	// Metrics of the barchart
 	Value *float64 `json:"value,omitempty"`
+}
+
+func NewSwitchMSwitchBarChart() *SwitchMSwitchBarChart {
+	m := new(SwitchMSwitchBarChart)
+	return m
 }
 
 type SwitchMSwitchConnectedAPsQueryList struct {
@@ -72,6 +81,11 @@ type SwitchMSwitchConnectedAPsQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMSwitchConnectedAPsQueryList() *SwitchMSwitchConnectedAPsQueryList {
+	m := new(SwitchMSwitchConnectedAPsQueryList)
+	return m
+}
+
 // SwitchMSwitchConnectedAPsQueryListExtraType
 //
 // Any additional response data
@@ -93,6 +107,11 @@ func (t *SwitchMSwitchConnectedAPsQueryListExtraType) MarshalJSON() ([]byte, err
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMSwitchConnectedAPsQueryListExtraType() *SwitchMSwitchConnectedAPsQueryListExtraType {
+	m := new(SwitchMSwitchConnectedAPsQueryListExtraType)
+	return m
 }
 
 type SwitchMSwitchConnectedDevice struct {
@@ -173,6 +192,11 @@ type SwitchMSwitchConnectedDevice struct {
 	UnitId *string `json:"unitId,omitempty"`
 }
 
+func NewSwitchMSwitchConnectedDevice() *SwitchMSwitchConnectedDevice {
+	m := new(SwitchMSwitchConnectedDevice)
+	return m
+}
+
 // SwitchMSwitchConnectedDeviceSampledInstantType
 //
 // Sampled instant
@@ -194,6 +218,11 @@ func (t *SwitchMSwitchConnectedDeviceSampledInstantType) MarshalJSON() ([]byte, 
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMSwitchConnectedDeviceSampledInstantType() *SwitchMSwitchConnectedDeviceSampledInstantType {
+	m := new(SwitchMSwitchConnectedDeviceSampledInstantType)
+	return m
 }
 
 type SwitchMSwitchConnectedDevicesQueryList struct {
@@ -220,6 +249,11 @@ type SwitchMSwitchConnectedDevicesQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMSwitchConnectedDevicesQueryList() *SwitchMSwitchConnectedDevicesQueryList {
+	m := new(SwitchMSwitchConnectedDevicesQueryList)
+	return m
+}
+
 // SwitchMSwitchConnectedDevicesQueryListExtraType
 //
 // Any additional response data
@@ -241,6 +275,11 @@ func (t *SwitchMSwitchConnectedDevicesQueryListExtraType) MarshalJSON() ([]byte,
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMSwitchConnectedDevicesQueryListExtraType() *SwitchMSwitchConnectedDevicesQueryListExtraType {
+	m := new(SwitchMSwitchConnectedDevicesQueryListExtraType)
+	return m
 }
 
 type SwitchMSwitchDeleteSwitchesResultList struct {
@@ -267,6 +306,11 @@ type SwitchMSwitchDeleteSwitchesResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMSwitchDeleteSwitchesResultList() *SwitchMSwitchDeleteSwitchesResultList {
+	m := new(SwitchMSwitchDeleteSwitchesResultList)
+	return m
+}
+
 // SwitchMSwitchDeleteSwitchesResultListExtraType
 //
 // Any additional response data
@@ -290,6 +334,11 @@ func (t *SwitchMSwitchDeleteSwitchesResultListExtraType) MarshalJSON() ([]byte, 
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMSwitchDeleteSwitchesResultListExtraType() *SwitchMSwitchDeleteSwitchesResultListExtraType {
+	m := new(SwitchMSwitchDeleteSwitchesResultListExtraType)
+	return m
+}
+
 type SwitchMSwitchFirmware struct {
 	// FromVersion
 	// Original fireware version before firmware update
@@ -302,6 +351,11 @@ type SwitchMSwitchFirmware struct {
 	// ToVersion
 	// Firmware version after firmware update
 	ToVersion *string `json:"toVersion,omitempty"`
+}
+
+func NewSwitchMSwitchFirmware() *SwitchMSwitchFirmware {
+	m := new(SwitchMSwitchFirmware)
+	return m
 }
 
 type SwitchMSwitchFirmwareHistoryQueryResultList struct {
@@ -328,6 +382,11 @@ type SwitchMSwitchFirmwareHistoryQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMSwitchFirmwareHistoryQueryResultList() *SwitchMSwitchFirmwareHistoryQueryResultList {
+	m := new(SwitchMSwitchFirmwareHistoryQueryResultList)
+	return m
+}
+
 // SwitchMSwitchFirmwareHistoryQueryResultListExtraType
 //
 // Any additional response data
@@ -349,6 +408,11 @@ func (t *SwitchMSwitchFirmwareHistoryQueryResultListExtraType) MarshalJSON() ([]
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMSwitchFirmwareHistoryQueryResultListExtraType() *SwitchMSwitchFirmwareHistoryQueryResultListExtraType {
+	m := new(SwitchMSwitchFirmwareHistoryQueryResultListExtraType)
+	return m
 }
 
 type SwitchMSwitchNetworkSwitch struct {
@@ -475,6 +539,11 @@ type SwitchMSwitchNetworkSwitch struct {
 	UpTime *string `json:"upTime,omitempty"`
 }
 
+func NewSwitchMSwitchNetworkSwitch() *SwitchMSwitchNetworkSwitch {
+	m := new(SwitchMSwitchNetworkSwitch)
+	return m
+}
+
 // SwitchMSwitchNetworkSwitchFirmwareUpdateType
 //
 // Information of firmware update
@@ -500,6 +569,11 @@ type SwitchMSwitchNetworkSwitchFirmwareUpdateType struct {
 	ToVersion *string `json:"toVersion,omitempty"`
 }
 
+func NewSwitchMSwitchNetworkSwitchFirmwareUpdateType() *SwitchMSwitchNetworkSwitchFirmwareUpdateType {
+	m := new(SwitchMSwitchNetworkSwitchFirmwareUpdateType)
+	return m
+}
+
 // SwitchMSwitchNetworkSwitchPoeType
 //
 // Information of PoE
@@ -515,6 +589,11 @@ type SwitchMSwitchNetworkSwitchPoeType struct {
 	// Total
 	// Total power capacity of a switch
 	Total *int `json:"total,omitempty"`
+}
+
+func NewSwitchMSwitchNetworkSwitchPoeType() *SwitchMSwitchNetworkSwitchPoeType {
+	m := new(SwitchMSwitchNetworkSwitchPoeType)
+	return m
 }
 
 // SwitchMSwitchNetworkSwitchPortStatusType
@@ -548,6 +627,11 @@ type SwitchMSwitchNetworkSwitchPortStatusType struct {
 	// Warning
 	// Count for port status is warring of switch
 	Warning *int `json:"warning,omitempty"`
+}
+
+func NewSwitchMSwitchNetworkSwitchPortStatusType() *SwitchMSwitchNetworkSwitchPortStatusType {
+	m := new(SwitchMSwitchNetworkSwitchPortStatusType)
+	return m
 }
 
 type SwitchMSwitchPortDetails struct {
@@ -660,6 +744,11 @@ type SwitchMSwitchPortDetails struct {
 	Vlans *string `json:"vlans,omitempty"`
 }
 
+func NewSwitchMSwitchPortDetails() *SwitchMSwitchPortDetails {
+	m := new(SwitchMSwitchPortDetails)
+	return m
+}
+
 // SwitchMSwitchPortDetailsConnectedDeviceType
 //
 // Connected device information
@@ -737,6 +826,11 @@ type SwitchMSwitchPortDetailsConnectedDeviceType struct {
 	UnitId *string `json:"unitId,omitempty"`
 }
 
+func NewSwitchMSwitchPortDetailsConnectedDeviceType() *SwitchMSwitchPortDetailsConnectedDeviceType {
+	m := new(SwitchMSwitchPortDetailsConnectedDeviceType)
+	return m
+}
+
 // SwitchMSwitchPortDetailsPacketsType
 //
 // Port packet transmit information
@@ -758,6 +852,11 @@ type SwitchMSwitchPortDetailsPacketsType struct {
 	MulticastOut *int `json:"multicastOut,omitempty"`
 }
 
+func NewSwitchMSwitchPortDetailsPacketsType() *SwitchMSwitchPortDetailsPacketsType {
+	m := new(SwitchMSwitchPortDetailsPacketsType)
+	return m
+}
+
 // SwitchMSwitchPortDetailsPoeType
 //
 // POE information of switch port
@@ -773,6 +872,11 @@ type SwitchMSwitchPortDetailsPoeType struct {
 	// Total
 	// Total power capacity of switch port
 	Total *int `json:"total,omitempty"`
+}
+
+func NewSwitchMSwitchPortDetailsPoeType() *SwitchMSwitchPortDetailsPoeType {
+	m := new(SwitchMSwitchPortDetailsPoeType)
+	return m
 }
 
 // SwitchMSwitchPortDetailsPortErrorType
@@ -794,6 +898,11 @@ type SwitchMSwitchPortDetailsPortErrorType struct {
 	// OutError
 	// Switch port traffic out error count
 	OutError *int `json:"outError,omitempty"`
+}
+
+func NewSwitchMSwitchPortDetailsPortErrorType() *SwitchMSwitchPortDetailsPortErrorType {
+	m := new(SwitchMSwitchPortDetailsPortErrorType)
+	return m
 }
 
 type SwitchMSwitchPortDetailsQueryResultList struct {
@@ -820,6 +929,11 @@ type SwitchMSwitchPortDetailsQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMSwitchPortDetailsQueryResultList() *SwitchMSwitchPortDetailsQueryResultList {
+	m := new(SwitchMSwitchPortDetailsQueryResultList)
+	return m
+}
+
 // SwitchMSwitchPortDetailsQueryResultListExtraType
 //
 // Any additional response data
@@ -843,6 +957,11 @@ func (t *SwitchMSwitchPortDetailsQueryResultListExtraType) MarshalJSON() ([]byte
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMSwitchPortDetailsQueryResultListExtraType() *SwitchMSwitchPortDetailsQueryResultListExtraType {
+	m := new(SwitchMSwitchPortDetailsQueryResultListExtraType)
+	return m
+}
+
 // SwitchMSwitchPortDetailsTrafficUsageType
 //
 // Traffic usage information
@@ -854,6 +973,11 @@ type SwitchMSwitchPortDetailsTrafficUsageType struct {
 	// Tx
 	// Tx traffic usage of switch port
 	Tx *int `json:"tx,omitempty"`
+}
+
+func NewSwitchMSwitchPortDetailsTrafficUsageType() *SwitchMSwitchPortDetailsTrafficUsageType {
+	m := new(SwitchMSwitchPortDetailsTrafficUsageType)
+	return m
 }
 
 type SwitchMSwitchPortStatus struct {
@@ -884,6 +1008,11 @@ type SwitchMSwitchPortStatus struct {
 	// Warning
 	// Warring port count
 	Warning *int `json:"warning,omitempty"`
+}
+
+func NewSwitchMSwitchPortStatus() *SwitchMSwitchPortStatus {
+	m := new(SwitchMSwitchPortStatus)
+	return m
 }
 
 type SwitchMSwitchStackMember struct {
@@ -920,6 +1049,11 @@ type SwitchMSwitchStackMember struct {
 	SwitchUnit *string `json:"switchUnit,omitempty"`
 }
 
+func NewSwitchMSwitchStackMember() *SwitchMSwitchStackMember {
+	m := new(SwitchMSwitchStackMember)
+	return m
+}
+
 type SwitchMSwitchStackMemberQueryResult struct {
 	// Extra
 	// Extra information for stack member list
@@ -942,6 +1076,11 @@ type SwitchMSwitchStackMemberQueryResult struct {
 	// TotalCount
 	// Current stack member count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMSwitchStackMemberQueryResult() *SwitchMSwitchStackMemberQueryResult {
+	m := new(SwitchMSwitchStackMemberQueryResult)
+	return m
 }
 
 // SwitchMSwitchStackMemberQueryResultExtraType
@@ -967,7 +1106,17 @@ func (t *SwitchMSwitchStackMemberQueryResultExtraType) MarshalJSON() ([]byte, er
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMSwitchStackMemberQueryResultExtraType() *SwitchMSwitchStackMemberQueryResultExtraType {
+	m := new(SwitchMSwitchStackMemberQueryResultExtraType)
+	return m
+}
+
 type SwitchMSwitchIdList []string
+
+func MakeSwitchMSwitchIdList() SwitchMSwitchIdList {
+	m := make(SwitchMSwitchIdList, 0)
+	return m
+}
 
 type SwitchMSwitchPortsSummaryQueryResultList struct {
 	// Extra
@@ -993,6 +1142,11 @@ type SwitchMSwitchPortsSummaryQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMSwitchPortsSummaryQueryResultList() *SwitchMSwitchPortsSummaryQueryResultList {
+	m := new(SwitchMSwitchPortsSummaryQueryResultList)
+	return m
+}
+
 // SwitchMSwitchPortsSummaryQueryResultListExtraType
 //
 // Any additional response data
@@ -1016,6 +1170,11 @@ func (t *SwitchMSwitchPortsSummaryQueryResultListExtraType) MarshalJSON() ([]byt
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMSwitchPortsSummaryQueryResultListExtraType() *SwitchMSwitchPortsSummaryQueryResultListExtraType {
+	m := new(SwitchMSwitchPortsSummaryQueryResultListExtraType)
+	return m
+}
+
 type SwitchMSwitchQueryResultList struct {
 	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -1036,6 +1195,11 @@ type SwitchMSwitchQueryResultList struct {
 	// TotalCount
 	// Total switch query result list count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMSwitchQueryResultList() *SwitchMSwitchQueryResultList {
+	m := new(SwitchMSwitchQueryResultList)
+	return m
 }
 
 type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
@@ -1062,6 +1226,11 @@ type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultList() *SwitchMSwitchTopSwitchesByFirmwareQueryResultList {
+	m := new(SwitchMSwitchTopSwitchesByFirmwareQueryResultList)
+	return m
+}
+
 // SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType
 //
 // Any additional response data
@@ -1083,6 +1252,11 @@ func (t *SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType) MarshalJSON
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType() *SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType {
+	m := new(SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType)
+	return m
 }
 
 type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
@@ -1109,6 +1283,11 @@ type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMSwitchTopSwitchesByModelQueryResultList() *SwitchMSwitchTopSwitchesByModelQueryResultList {
+	m := new(SwitchMSwitchTopSwitchesByModelQueryResultList)
+	return m
+}
+
 // SwitchMSwitchTopSwitchesByModelQueryResultListExtraType
 //
 // Any additional response data
@@ -1132,6 +1311,11 @@ func (t *SwitchMSwitchTopSwitchesByModelQueryResultListExtraType) MarshalJSON() 
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMSwitchTopSwitchesByModelQueryResultListExtraType() *SwitchMSwitchTopSwitchesByModelQueryResultListExtraType {
+	m := new(SwitchMSwitchTopSwitchesByModelQueryResultListExtraType)
+	return m
+}
+
 // AddSwitch
 //
 // Use this API command to retrieve all the switches currently managed by SmartZone.
@@ -1139,11 +1323,17 @@ func (t *SwitchMSwitchTopSwitchesByModelQueryResultListExtraType) MarshalJSON() 
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMSwitchQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -1154,11 +1344,17 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMSwitchQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -1169,11 +1365,17 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchStackMemberQueryResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMSwitchStackMemberQueryResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -1184,11 +1386,15 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 // Request Body:
 //	 - body SwitchMSwitchIdList
 func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwitchIdList) (*SwitchMSwitchDeleteSwitchesResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMSwitchDeleteSwitchesResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -1196,15 +1402,19 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 //
 // Use this API command to delete a switch managed by SmartZone.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, pId string) (*SwitchMSwitchAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) (*SwitchMSwitchAuditId, error) {
+	var (
+		resp *SwitchMSwitchAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -1212,15 +1422,19 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, pId string)
 //
 // Use this API command to retrieve a switch status.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, pId string) (*SwitchMSwitchNetworkSwitch, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*SwitchMSwitchNetworkSwitch, error) {
+	var (
+		resp *SwitchMSwitchNetworkSwitch
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -1228,15 +1442,19 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, pId string) (
 //
 // Use this API command to get a list of firmware update history.
 //
-// Path Parameters:
-// - pSwitchId string
+// Required Parameters:
+// - switchId string
 //		- required
-func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context, pSwitchId string) (*SwitchMSwitchFirmwareHistoryQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context, switchId string) (*SwitchMSwitchFirmwareHistoryQueryResultList, error) {
+	var (
+		resp *SwitchMSwitchFirmwareHistoryQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -1247,14 +1465,21 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 // Request Body:
 //	 - body SwitchMSwitchIdList
 //
-// Path Parameters:
-// - pDestinationSwitchGroupId string
+// Required Parameters:
+// - destinationSwitchGroupId string
 //		- required
-func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, pDestinationSwitchGroupId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, destinationSwitchGroupId string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, destinationSwitchGroupId, "required"); err != nil {
+		return resp, err
 	}
 }

@@ -15,6 +15,11 @@ type WSGPortalDetectionProfileCreatePortalDetectionProfile struct {
 	PortalDetectionPatterns []*WSGPortalDetectionProfilePortalDetectionPattern `json:"portalDetectionPatterns,omitempty"`
 }
 
+func NewWSGPortalDetectionProfileCreatePortalDetectionProfile() *WSGPortalDetectionProfileCreatePortalDetectionProfile {
+	m := new(WSGPortalDetectionProfileCreatePortalDetectionProfile)
+	return m
+}
+
 type WSGPortalDetectionProfilePortalDetectionPattern struct {
 	// HttpCode
 	// HTTP status codes
@@ -47,6 +52,11 @@ type WSGPortalDetectionProfilePortalDetectionPattern struct {
 	//    - required
 	//    - max:256
 	UserAgentPattern *string `json:"userAgentPattern" validate:"required,max=256"`
+}
+
+func NewWSGPortalDetectionProfilePortalDetectionPattern() *WSGPortalDetectionProfilePortalDetectionPattern {
+	m := new(WSGPortalDetectionProfilePortalDetectionPattern)
+	return m
 }
 
 type WSGPortalDetectionProfile struct {
@@ -93,6 +103,11 @@ type WSGPortalDetectionProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGPortalDetectionProfile() *WSGPortalDetectionProfile {
+	m := new(WSGPortalDetectionProfile)
+	return m
+}
+
 type WSGPortalDetectionProfileList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -103,4 +118,9 @@ type WSGPortalDetectionProfileList struct {
 	List []*WSGPortalDetectionProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGPortalDetectionProfileList() *WSGPortalDetectionProfileList {
+	m := new(WSGPortalDetectionProfileList)
+	return m
 }

@@ -30,7 +30,17 @@ type SwitchMLagConfigCreate struct {
 	Type *string `json:"type,omitempty" validate:"oneof=STATIC DYNAMIC"`
 }
 
+func NewSwitchMLagConfigCreate() *SwitchMLagConfigCreate {
+	m := new(SwitchMLagConfigCreate)
+	return m
+}
+
 type SwitchMLagConfigCreateResult interface{}
+
+func NewSwitchMLagConfigCreateResult() SwitchMLagConfigCreateResult {
+	m := new(SwitchMLagConfigCreateResult)
+	return m
+}
 
 type SwitchMLagConfigEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -50,6 +60,11 @@ func (t *SwitchMLagConfigEmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMLagConfigEmptyResult() *SwitchMLagConfigEmptyResult {
+	m := new(SwitchMLagConfigEmptyResult)
+	return m
 }
 
 type SwitchMLagConfig struct {
@@ -88,6 +103,11 @@ type SwitchMLagConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewSwitchMLagConfig() *SwitchMLagConfig {
+	m := new(SwitchMLagConfig)
+	return m
+}
+
 type SwitchMLagConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -106,6 +126,11 @@ type SwitchMLagConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMLagConfigList() *SwitchMLagConfigList {
+	m := new(SwitchMLagConfigList)
+	return m
+}
+
 type SwitchMLagConfigModify struct {
 	// Name
 	// The Name of LAG Config
@@ -114,4 +139,9 @@ type SwitchMLagConfigModify struct {
 	// Ports
 	// The Switch ports would like to join together
 	Ports []string `json:"ports,omitempty"`
+}
+
+func NewSwitchMLagConfigModify() *SwitchMLagConfigModify {
+	m := new(SwitchMLagConfigModify)
+	return m
 }

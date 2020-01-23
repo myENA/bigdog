@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGSystemService struct {
@@ -41,6 +40,11 @@ type WSGSystemApNumberLimitSettingOfDomain struct {
 	Shared *bool `json:"shared,omitempty"`
 }
 
+func NewWSGSystemApNumberLimitSettingOfDomain() *WSGSystemApNumberLimitSettingOfDomain {
+	m := new(WSGSystemApNumberLimitSettingOfDomain)
+	return m
+}
+
 type WSGSystemApNumberLimitSettingOfZone struct {
 	// DomainId
 	// Admin Domain Id
@@ -67,6 +71,11 @@ type WSGSystemApNumberLimitSettingOfZone struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewWSGSystemApNumberLimitSettingOfZone() *WSGSystemApNumberLimitSettingOfZone {
+	m := new(WSGSystemApNumberLimitSettingOfZone)
+	return m
+}
+
 type WSGSystemAuthenticationKey struct {
 	// Key
 	// Authentication Key value
@@ -83,10 +92,20 @@ type WSGSystemAuthenticationKey struct {
 	KeyType *string `json:"keyType,omitempty" validate:"oneof=SHA1 MD5"`
 }
 
+func NewWSGSystemAuthenticationKey() *WSGSystemAuthenticationKey {
+	m := new(WSGSystemAuthenticationKey)
+	return m
+}
+
 type WSGSystemCaptchaSetting struct {
 	// CaptchaEnabled
 	// Captcha setting
 	CaptchaEnabled *bool `json:"captchaEnabled,omitempty"`
+}
+
+func NewWSGSystemCaptchaSetting() *WSGSystemCaptchaSetting {
+	m := new(WSGSystemCaptchaSetting)
+	return m
 }
 
 type WSGSystemControllerList struct {
@@ -97,6 +116,11 @@ type WSGSystemControllerList struct {
 	List []*WSGSystemControllerListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSystemControllerList() *WSGSystemControllerList {
+	m := new(WSGSystemControllerList)
+	return m
 }
 
 type WSGSystemControllerListType struct {
@@ -173,6 +197,11 @@ type WSGSystemControllerListType struct {
 	Version *string `json:"version,omitempty"`
 }
 
+func NewWSGSystemControllerListType() *WSGSystemControllerListType {
+	m := new(WSGSystemControllerListType)
+	return m
+}
+
 type WSGSystemControlPlaneConfiguration struct {
 	// IpMode
 	// IP support version
@@ -195,6 +224,11 @@ type WSGSystemControlPlaneConfiguration struct {
 	Ipv6ManagementInterface *WSGSystemIpv6ManagementInterface `json:"ipv6ManagementInterface,omitempty"`
 }
 
+func NewWSGSystemControlPlaneConfiguration() *WSGSystemControlPlaneConfiguration {
+	m := new(WSGSystemControlPlaneConfiguration)
+	return m
+}
+
 type WSGSystemControlPlaneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -203,6 +237,11 @@ type WSGSystemControlPlaneList struct {
 	List []*WSGSystemControlPlaneListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSystemControlPlaneList() *WSGSystemControlPlaneList {
+	m := new(WSGSystemControlPlaneList)
+	return m
 }
 
 type WSGSystemControlPlaneListType struct {
@@ -253,6 +292,11 @@ type WSGSystemControlPlaneListType struct {
 	UpTime *string `json:"upTime,omitempty"`
 }
 
+func NewWSGSystemControlPlaneListType() *WSGSystemControlPlaneListType {
+	m := new(WSGSystemControlPlaneListType)
+	return m
+}
+
 type WSGSystemCpStaticRoute struct {
 	// Gateway
 	// Gateway
@@ -276,6 +320,11 @@ type WSGSystemCpStaticRoute struct {
 	// SubnetMask
 	// Subnet Mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
+}
+
+func NewWSGSystemCpStaticRoute() *WSGSystemCpStaticRoute {
+	m := new(WSGSystemCpStaticRoute)
+	return m
 }
 
 type WSGSystemCpUserDefinedInterface struct {
@@ -312,6 +361,11 @@ type WSGSystemCpUserDefinedInterface struct {
 	Vlan *string `json:"vlan,omitempty"`
 }
 
+func NewWSGSystemCpUserDefinedInterface() *WSGSystemCpUserDefinedInterface {
+	m := new(WSGSystemCpUserDefinedInterface)
+	return m
+}
+
 type WSGSystemDataPlaneConfiguration struct {
 	// InterfaceMode
 	// Constraints:
@@ -331,6 +385,11 @@ type WSGSystemDataPlaneConfiguration struct {
 	StaticRoute []*WSGSystemStaticRoute `json:"staticRoute,omitempty"`
 }
 
+func NewWSGSystemDataPlaneConfiguration() *WSGSystemDataPlaneConfiguration {
+	m := new(WSGSystemDataPlaneConfiguration)
+	return m
+}
+
 type WSGSystemDataPlaneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -339,6 +398,11 @@ type WSGSystemDataPlaneList struct {
 	List []*WSGSystemDataPlaneListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSystemDataPlaneList() *WSGSystemDataPlaneList {
+	m := new(WSGSystemDataPlaneList)
+	return m
 }
 
 type WSGSystemDataPlaneListType struct {
@@ -397,8 +461,18 @@ type WSGSystemDataPlaneListType struct {
 	Uptime *string `json:"uptime,omitempty"`
 }
 
+func NewWSGSystemDataPlaneListType() *WSGSystemDataPlaneListType {
+	m := new(WSGSystemDataPlaneListType)
+	return m
+}
+
 type WSGSystemDeleteBulkFtp struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGSystemDeleteBulkFtp() *WSGSystemDeleteBulkFtp {
+	m := new(WSGSystemDeleteBulkFtp)
+	return m
 }
 
 type WSGSystemFriendlyNameLang struct {
@@ -409,6 +483,11 @@ type WSGSystemFriendlyNameLang struct {
 	// Value
 	// value of language used on create Hotspot 2.0 Identity provider (Language in OSU Service Description) profile
 	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGSystemFriendlyNameLang() *WSGSystemFriendlyNameLang {
+	m := new(WSGSystemFriendlyNameLang)
+	return m
 }
 
 type WSGSystemFriendlyNameLangList struct {
@@ -425,6 +504,11 @@ type WSGSystemFriendlyNameLangList struct {
 	// TotalCount
 	// Total count of FriendlyName of language
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSystemFriendlyNameLangList() *WSGSystemFriendlyNameLangList {
+	m := new(WSGSystemFriendlyNameLangList)
+	return m
 }
 
 type WSGSystemFtp struct {
@@ -490,6 +574,11 @@ type WSGSystemFtp struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+func NewWSGSystemFtp() *WSGSystemFtp {
+	m := new(WSGSystemFtp)
+	return m
+}
+
 type WSGSystemFtpGlobalSetting struct {
 	// Enabled
 	// enable logging to remote syslog server
@@ -504,6 +593,11 @@ type WSGSystemFtpGlobalSetting struct {
 	// Constraints:
 	//    - oneof:[Hourly]
 	FtpInterval *string `json:"ftpInterval,omitempty" validate:"oneof=Hourly"`
+}
+
+func NewWSGSystemFtpGlobalSetting() *WSGSystemFtpGlobalSetting {
+	m := new(WSGSystemFtpGlobalSetting)
+	return m
 }
 
 type WSGSystemFtpList struct {
@@ -524,6 +618,11 @@ type WSGSystemFtpList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGSystemFtpList() *WSGSystemFtpList {
+	m := new(WSGSystemFtpList)
+	return m
+}
+
 type WSGSystemFtpTestResponse struct {
 	// Data
 	// The testing result
@@ -540,6 +639,11 @@ type WSGSystemFtpTestResponse struct {
 	// Success
 	// The status of http request
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewWSGSystemFtpTestResponse() *WSGSystemFtpTestResponse {
+	m := new(WSGSystemFtpTestResponse)
+	return m
 }
 
 type WSGSystemGatewayAdvanced struct {
@@ -581,10 +685,20 @@ type WSGSystemGatewayAdvanced struct {
 	TaiInGtpV2 *bool `json:"taiInGtpV2,omitempty"`
 }
 
+func NewWSGSystemGatewayAdvanced() *WSGSystemGatewayAdvanced {
+	m := new(WSGSystemGatewayAdvanced)
+	return m
+}
+
 type WSGSystemGetDataPlaneMeshTunnelSetting struct {
 	// Encrypted
 	// Data Plane mesh tunnel encrypted.
 	Encrypted *bool `json:"encrypted,omitempty"`
+}
+
+func NewWSGSystemGetDataPlaneMeshTunnelSetting() *WSGSystemGetDataPlaneMeshTunnelSetting {
+	m := new(WSGSystemGetDataPlaneMeshTunnelSetting)
+	return m
 }
 
 type WSGSystemInventoryList struct {
@@ -595,6 +709,11 @@ type WSGSystemInventoryList struct {
 	List []*WSGSystemInventoryListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSystemInventoryList() *WSGSystemInventoryList {
+	m := new(WSGSystemInventoryList)
+	return m
 }
 
 type WSGSystemInventoryListType struct {
@@ -649,6 +768,11 @@ type WSGSystemInventoryListType struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewWSGSystemInventoryListType() *WSGSystemInventoryListType {
+	m := new(WSGSystemInventoryListType)
+	return m
+}
+
 type WSGSystemIpv4AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
@@ -663,6 +787,11 @@ type WSGSystemIpv4AccessAndCoreSeparation struct {
 	// SecondaryDNSServer
 	// Secondary DNS server
 	SecondaryDNSServer *string `json:"secondaryDNSServer,omitempty"`
+}
+
+func NewWSGSystemIpv4AccessAndCoreSeparation() *WSGSystemIpv4AccessAndCoreSeparation {
+	m := new(WSGSystemIpv4AccessAndCoreSeparation)
+	return m
 }
 
 type WSGSystemIpv4ClusterInterface struct {
@@ -683,6 +812,11 @@ type WSGSystemIpv4ClusterInterface struct {
 	// SubnetMask
 	// Subnet mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
+}
+
+func NewWSGSystemIpv4ClusterInterface() *WSGSystemIpv4ClusterInterface {
+	m := new(WSGSystemIpv4ClusterInterface)
+	return m
 }
 
 type WSGSystemIpv4ControlInterface struct {
@@ -709,6 +843,11 @@ type WSGSystemIpv4ControlInterface struct {
 	SubnetMask *string `json:"subnetMask,omitempty"`
 }
 
+func NewWSGSystemIpv4ControlInterface() *WSGSystemIpv4ControlInterface {
+	m := new(WSGSystemIpv4ControlInterface)
+	return m
+}
+
 type WSGSystemIpv4ManagementInterface struct {
 	// Gateway
 	// Gateway
@@ -729,6 +868,11 @@ type WSGSystemIpv4ManagementInterface struct {
 	SubnetMask *string `json:"subnetMask,omitempty"`
 }
 
+func NewWSGSystemIpv4ManagementInterface() *WSGSystemIpv4ManagementInterface {
+	m := new(WSGSystemIpv4ManagementInterface)
+	return m
+}
+
 type WSGSystemIpv6AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
@@ -743,6 +887,11 @@ type WSGSystemIpv6AccessAndCoreSeparation struct {
 	// SecondaryDNSServer
 	// Secondary DNS server
 	SecondaryDNSServer *string `json:"secondaryDNSServer,omitempty"`
+}
+
+func NewWSGSystemIpv6AccessAndCoreSeparation() *WSGSystemIpv6AccessAndCoreSeparation {
+	m := new(WSGSystemIpv6AccessAndCoreSeparation)
+	return m
 }
 
 type WSGSystemIpv6ControlInterface struct {
@@ -761,6 +910,11 @@ type WSGSystemIpv6ControlInterface struct {
 	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC AUTO"`
 }
 
+func NewWSGSystemIpv6ControlInterface() *WSGSystemIpv6ControlInterface {
+	m := new(WSGSystemIpv6ControlInterface)
+	return m
+}
+
 type WSGSystemIpv6ManagementInterface struct {
 	// Gateway
 	// Gateway
@@ -775,6 +929,11 @@ type WSGSystemIpv6ManagementInterface struct {
 	// Constraints:
 	//    - oneof:[STATIC,AUTO]
 	IpMode *string `json:"ipMode,omitempty" validate:"oneof=STATIC AUTO"`
+}
+
+func NewWSGSystemIpv6ManagementInterface() *WSGSystemIpv6ManagementInterface {
+	m := new(WSGSystemIpv6ManagementInterface)
+	return m
 }
 
 type WSGSystemIpv6PrimaryInterface struct {
@@ -804,6 +963,11 @@ type WSGSystemIpv6PrimaryInterface struct {
 	// SecondaryDNSServer
 	// Secondary DNS server
 	SecondaryDNSServer *string `json:"secondaryDNSServer,omitempty"`
+}
+
+func NewWSGSystemIpv6PrimaryInterface() *WSGSystemIpv6PrimaryInterface {
+	m := new(WSGSystemIpv6PrimaryInterface)
+	return m
 }
 
 type WSGSystemLwapp2scgConfiguration struct {
@@ -840,6 +1004,11 @@ type WSGSystemLwapp2scgConfiguration struct {
 	Policy *string `json:"policy,omitempty" validate:"oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
+func NewWSGSystemLwapp2scgConfiguration() *WSGSystemLwapp2scgConfiguration {
+	m := new(WSGSystemLwapp2scgConfiguration)
+	return m
+}
+
 type WSGSystemModifyControlPlane struct {
 	// EnableAccessAndCoreSeparation
 	// Enable Access & Core Separation
@@ -858,6 +1027,11 @@ type WSGSystemModifyControlPlane struct {
 	Ipv6ControlInterface *WSGSystemIpv6ControlInterface `json:"ipv6ControlInterface,omitempty"`
 
 	Ipv6ManagementInterface *WSGSystemIpv6ManagementInterface `json:"ipv6ManagementInterface,omitempty"`
+}
+
+func NewWSGSystemModifyControlPlane() *WSGSystemModifyControlPlane {
+	m := new(WSGSystemModifyControlPlane)
+	return m
 }
 
 type WSGSystemModifyDataPlane struct {
@@ -887,10 +1061,20 @@ type WSGSystemModifyDataPlane struct {
 	StaticRoute []*WSGSystemStaticRoute `json:"staticRoute,omitempty"`
 }
 
+func NewWSGSystemModifyDataPlane() *WSGSystemModifyDataPlane {
+	m := new(WSGSystemModifyDataPlane)
+	return m
+}
+
 type WSGSystemModifyDataPlaneState struct {
 	// IsDataCenter
 	// Mark this Data Plane as a CALEA Relay
 	IsDataCenter *bool `json:"isDataCenter,omitempty"`
+}
+
+func NewWSGSystemModifyDataPlaneState() *WSGSystemModifyDataPlaneState {
+	m := new(WSGSystemModifyDataPlaneState)
+	return m
 }
 
 type WSGSystemModifyGatewayAdvanced struct {
@@ -932,6 +1116,11 @@ type WSGSystemModifyGatewayAdvanced struct {
 	TaiInGtpV2 *bool `json:"taiInGtpV2,omitempty"`
 }
 
+func NewWSGSystemModifyGatewayAdvanced() *WSGSystemModifyGatewayAdvanced {
+	m := new(WSGSystemModifyGatewayAdvanced)
+	return m
+}
+
 type WSGSystemModifyIpSupportType struct {
 	// IpMode
 	// IP support version
@@ -939,6 +1128,11 @@ type WSGSystemModifyIpSupportType struct {
 	//    - required
 	//    - oneof:[IPV4,IPV4_IPV6]
 	IpMode *string `json:"ipMode" validate:"required,oneof=IPV4 IPV4_IPV6"`
+}
+
+func NewWSGSystemModifyIpSupportType() *WSGSystemModifyIpSupportType {
+	m := new(WSGSystemModifyIpSupportType)
+	return m
 }
 
 type WSGSystemModifyLwapp2scg struct {
@@ -971,6 +1165,11 @@ type WSGSystemModifyLwapp2scg struct {
 	Policy *string `json:"policy,omitempty" validate:"oneof=DENY ACCEPT DENY_ALL ACCEPT_ALL"`
 }
 
+func NewWSGSystemModifyLwapp2scg() *WSGSystemModifyLwapp2scg {
+	m := new(WSGSystemModifyLwapp2scg)
+	return m
+}
+
 type WSGSystemModifySnmpAgent struct {
 	// SnmpNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message is sent out.)
@@ -987,6 +1186,11 @@ type WSGSystemModifySnmpAgent struct {
 	SnmpV3Agent []*WSGCommonSnmpUser `json:"snmpV3Agent,omitempty"`
 }
 
+func NewWSGSystemModifySnmpAgent() *WSGSystemModifySnmpAgent {
+	m := new(WSGSystemModifySnmpAgent)
+	return m
+}
+
 type WSGSystemModifySystemTimeSetting struct {
 	AuthenticationKey *WSGSystemAuthenticationKey `json:"authenticationKey,omitempty"`
 
@@ -997,6 +1201,11 @@ type WSGSystemModifySystemTimeSetting struct {
 	// Timezone
 	// System defined time zone, please refer to the “Overview > Time Zone” list
 	Timezone *string `json:"timezone,omitempty"`
+}
+
+func NewWSGSystemModifySystemTimeSetting() *WSGSystemModifySystemTimeSetting {
+	m := new(WSGSystemModifySystemTimeSetting)
+	return m
 }
 
 type WSGSystemNorthboundInterface struct {
@@ -1011,6 +1220,11 @@ type WSGSystemNorthboundInterface struct {
 	UserName *WSGCommonApLoginName `json:"userName,omitempty"`
 }
 
+func NewWSGSystemNorthboundInterface() *WSGSystemNorthboundInterface {
+	m := new(WSGSystemNorthboundInterface)
+	return m
+}
+
 type WSGSystemPortalLang struct {
 	// Display
 	// Display name
@@ -1019,6 +1233,11 @@ type WSGSystemPortalLang struct {
 	// Value
 	// value of language used on create Hotspot 2.0 Identity provider (Language in OSU Service Description) profile
 	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGSystemPortalLang() *WSGSystemPortalLang {
+	m := new(WSGSystemPortalLang)
+	return m
 }
 
 type WSGSystemPortalLangList struct {
@@ -1035,6 +1254,11 @@ type WSGSystemPortalLangList struct {
 	// TotalCount
 	// Total portal name count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSystemPortalLangList() *WSGSystemPortalLangList {
+	m := new(WSGSystemPortalLangList)
+	return m
 }
 
 type WSGSystemPortStatistic struct {
@@ -1087,6 +1311,11 @@ type WSGSystemPortStatistic struct {
 	TxPackets *float64 `json:"txPackets,omitempty"`
 }
 
+func NewWSGSystemPortStatistic() *WSGSystemPortStatistic {
+	m := new(WSGSystemPortStatistic)
+	return m
+}
+
 type WSGSystemPrimaryInterface struct {
 	// Gateway
 	// Gateway
@@ -1130,6 +1359,11 @@ type WSGSystemPrimaryInterface struct {
 	Vlan *string `json:"vlan,omitempty"`
 }
 
+func NewWSGSystemPrimaryInterface() *WSGSystemPrimaryInterface {
+	m := new(WSGSystemPrimaryInterface)
+	return m
+}
+
 type WSGSystemSaveApNumberLimitSettingOfDomain struct {
 	// DomainId
 	// Constraints:
@@ -1145,6 +1379,11 @@ type WSGSystemSaveApNumberLimitSettingOfDomain struct {
 	// Constraints:
 	//    - required
 	Shared *bool `json:"shared" validate:"required"`
+}
+
+func NewWSGSystemSaveApNumberLimitSettingOfDomain() *WSGSystemSaveApNumberLimitSettingOfDomain {
+	m := new(WSGSystemSaveApNumberLimitSettingOfDomain)
+	return m
 }
 
 type WSGSystemSaveApNumberLimitSettingOfZone struct {
@@ -1169,12 +1408,22 @@ type WSGSystemSaveApNumberLimitSettingOfZone struct {
 	ZoneId *string `json:"zoneId" validate:"required"`
 }
 
+func NewWSGSystemSaveApNumberLimitSettingOfZone() *WSGSystemSaveApNumberLimitSettingOfZone {
+	m := new(WSGSystemSaveApNumberLimitSettingOfZone)
+	return m
+}
+
 type WSGSystemSaveSystemSettings struct {
 	ApNumberLimitEnabled *bool `json:"apNumberLimitEnabled,omitempty"`
 
 	ApNumberLimitSettingsOfDomain []*WSGSystemSaveApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
 
 	ApNumberLimitSettingsOfZone []*WSGSystemSaveApNumberLimitSettingOfZone `json:"apNumberLimitSettingsOfZone,omitempty"`
+}
+
+func NewWSGSystemSaveSystemSettings() *WSGSystemSaveSystemSettings {
+	m := new(WSGSystemSaveSystemSettings)
+	return m
 }
 
 type WSGSystemSecondaryInterface struct {
@@ -1193,6 +1442,11 @@ type WSGSystemSecondaryInterface struct {
 	// Vlan
 	// vlan
 	Vlan *string `json:"vlan,omitempty"`
+}
+
+func NewWSGSystemSecondaryInterface() *WSGSystemSecondaryInterface {
+	m := new(WSGSystemSecondaryInterface)
+	return m
 }
 
 type WSGSystemSms struct {
@@ -1235,6 +1489,11 @@ type WSGSystemSms struct {
 	ServerType *string `json:"serverType,omitempty" validate:"oneof=Twilio"`
 }
 
+func NewWSGSystemSms() *WSGSystemSms {
+	m := new(WSGSystemSms)
+	return m
+}
+
 type WSGSystemSmsList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -1253,6 +1512,11 @@ type WSGSystemSmsList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGSystemSmsList() *WSGSystemSmsList {
+	m := new(WSGSystemSmsList)
+	return m
+}
+
 type WSGSystemSnmpAgentConfiguration struct {
 	// SnmpNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message is sent out.)
@@ -1265,6 +1529,11 @@ type WSGSystemSnmpAgentConfiguration struct {
 	// SnmpV3Agent
 	// User List of the SNMP V2 Agent.
 	SnmpV3Agent []*WSGCommonSnmpUser `json:"snmpV3Agent,omitempty"`
+}
+
+func NewWSGSystemSnmpAgentConfiguration() *WSGSystemSnmpAgentConfiguration {
+	m := new(WSGSystemSnmpAgentConfiguration)
+	return m
 }
 
 type WSGSystemStaticRoute struct {
@@ -1287,13 +1556,28 @@ type WSGSystemStaticRoute struct {
 	SubnetMask *string `json:"subnetMask" validate:"required"`
 }
 
+func NewWSGSystemStaticRoute() *WSGSystemStaticRoute {
+	m := new(WSGSystemStaticRoute)
+	return m
+}
+
 type WSGSystemStaticRouteList struct {
 	// StaticRoutes
 	// Static route for Control Plane
 	StaticRoutes []*WSGSystemCpStaticRoute `json:"staticRoutes,omitempty"`
 }
 
+func NewWSGSystemStaticRouteList() *WSGSystemStaticRouteList {
+	m := new(WSGSystemStaticRouteList)
+	return m
+}
+
 type WSGSystemStatisticList []*WSGSystemStatisticListType
+
+func MakeWSGSystemStatisticList() WSGSystemStatisticList {
+	m := make(WSGSystemStatisticList, 0)
+	return m
+}
 
 type WSGSystemStatisticListType struct {
 	Cluster *WSGSystemPortStatistic `json:"cluster,omitempty"`
@@ -1325,6 +1609,11 @@ type WSGSystemStatisticListType struct {
 	Timestamp *float64 `json:"timestamp,omitempty"`
 }
 
+func NewWSGSystemStatisticListType() *WSGSystemStatisticListType {
+	m := new(WSGSystemStatisticListType)
+	return m
+}
+
 type WSGSystemStatisticListTypeCpuType struct {
 	// MaxPercent
 	// maxPercent
@@ -1337,6 +1626,11 @@ type WSGSystemStatisticListTypeCpuType struct {
 	// Percent
 	// percent
 	Percent *float64 `json:"percent,omitempty"`
+}
+
+func NewWSGSystemStatisticListTypeCpuType() *WSGSystemStatisticListTypeCpuType {
+	m := new(WSGSystemStatisticListTypeCpuType)
+	return m
 }
 
 type WSGSystemStatisticListTypeDiskType struct {
@@ -1357,6 +1651,11 @@ type WSGSystemStatisticListTypeDiskType struct {
 	Total *float64 `json:"total,omitempty"`
 }
 
+func NewWSGSystemStatisticListTypeDiskType() *WSGSystemStatisticListTypeDiskType {
+	m := new(WSGSystemStatisticListTypeDiskType)
+	return m
+}
+
 type WSGSystemStatisticListTypeMemoryType struct {
 	// MaxPercent
 	// maxPercent
@@ -1371,6 +1670,11 @@ type WSGSystemStatisticListTypeMemoryType struct {
 	Percent *float64 `json:"percent,omitempty"`
 }
 
+func NewWSGSystemStatisticListTypeMemoryType() *WSGSystemStatisticListTypeMemoryType {
+	m := new(WSGSystemStatisticListTypeMemoryType)
+	return m
+}
+
 type WSGSystemSettings struct {
 	// ApNumberLimitEnabled
 	// Enabled AP number limit feature or not
@@ -1379,6 +1683,11 @@ type WSGSystemSettings struct {
 	ApNumberLimitSettingsOfDomain []*WSGSystemApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
 
 	ApNumberLimitSettingsOfZone []*WSGSystemApNumberLimitSettingOfZone `json:"apNumberLimitSettingsOfZone,omitempty"`
+}
+
+func NewWSGSystemSettings() *WSGSystemSettings {
+	m := new(WSGSystemSettings)
+	return m
 }
 
 type WSGSystemTimeSetting struct {
@@ -1401,10 +1710,20 @@ type WSGSystemTimeSetting struct {
 	Timezone *string `json:"timezone,omitempty"`
 }
 
+func NewWSGSystemTimeSetting() *WSGSystemTimeSetting {
+	m := new(WSGSystemTimeSetting)
+	return m
+}
+
 type WSGSystemUpdateDpMeshTunnelSetting struct {
 	// Encrypted
 	// Data Plane mesh tunnel encrypted.
 	Encrypted *bool `json:"encrypted,omitempty"`
+}
+
+func NewWSGSystemUpdateDpMeshTunnelSetting() *WSGSystemUpdateDpMeshTunnelSetting {
+	m := new(WSGSystemUpdateDpMeshTunnelSetting)
+	return m
 }
 
 type WSGSystemUserDefinedInterfaceList struct {
@@ -1413,15 +1732,21 @@ type WSGSystemUserDefinedInterfaceList struct {
 	UserDefinedInterface []*WSGSystemCpUserDefinedInterface `json:"userDefinedInterface,omitempty"`
 }
 
+func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {
+	m := new(WSGSystemUserDefinedInterfaceList)
+	return m
+}
+
 // AddSystemAp_balance
 //
 // Execute ap balance.
 func (s *WSGSystemService) AddSystemAp_balance(ctx context.Context) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1432,11 +1757,14 @@ func (s *WSGSystemService) AddSystemAp_balance(ctx context.Context) (interface{}
 // Request Body:
 //	 - body *WSGAPRoutineConfigIntervalReq
 func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context, body *WSGAPRoutineConfigIntervalReq) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -1444,11 +1772,9 @@ func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context,
 //
 // Use this API command to set AP routine status interval setting to 900 seconds.
 func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.Context) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
 }
 
@@ -1456,11 +1782,9 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 //
 // Use this API command to set AP routine status interval setting to 180 seconds.
 func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.Context) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
 }
 
@@ -1468,15 +1792,16 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 //
 // Use this API command to disable the user information by Northbound Portal Interface.
 //
-// Query Parameters:
-// - qDomainId string
+// Optional Parameters:
+// - domainId string
 //		- nullable
-func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, qDomainId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams map[string]interface{}) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1484,11 +1809,12 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, qDomainId string
 //
 // Use this API command to retrieve the system summary.
 func (s *WSGSystemService) FindController(ctx context.Context) (*WSGSystemControllerList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGSystemControllerList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1496,21 +1822,25 @@ func (s *WSGSystemService) FindController(ctx context.Context) (*WSGSystemContro
 //
 // Use this API command to retrieve the system statistics.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
 //
-// Query Parameters:
-// - qInterval string
+// Optional Parameters:
+// - interval string
 //		- nullable
-// - qSize float64
+// - size float64
 //		- nullable
-func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, pId string, qInterval string, qSize float64) (WSGSystemStatisticList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id string, optionalParams map[string]interface{}) (WSGSystemStatisticList, error) {
+	var (
+		resp WSGSystemStatisticList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -1518,11 +1848,12 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, pId
 //
 // Use this API command to get settings of system. Currently, Only can get settings about AP number limit.
 func (s *WSGSystemService) FindSystem(ctx context.Context) (*WSGSystemSettings, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGSystemSettings
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1530,11 +1861,12 @@ func (s *WSGSystemService) FindSystem(ctx context.Context) (*WSGSystemSettings, 
 //
 // Use this API command to retrieve support AP models for the current installed SZ version's default AP firmware.
 func (s *WSGSystemService) FindSystemApmodels(ctx context.Context) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1542,15 +1874,19 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context) (interface{},
 //
 // Use this API command to retrieve support AP models from input firmware version.
 //
-// Path Parameters:
-// - pFirmwareVersion string
+// Required Parameters:
+// - firmwareVersion string
 //		- required
-func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, pFirmwareVersion string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, firmwareVersion string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, firmwareVersion, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -1558,11 +1894,12 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 //
 // Use this API command to get AP routine configuration interval setting.
 func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context) (*WSGAPRoutineConfigIntervalRsp, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAPRoutineConfigIntervalRsp
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1570,11 +1907,12 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 //
 // Use this API command to get AP routine status interval setting.
 func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context) (*WSGAPRoutineStatusIntervalRsp, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGAPRoutineStatusIntervalRsp
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1585,11 +1923,17 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSystemSettings, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGSystemSettings
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -1597,11 +1941,12 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 //
 // Use this API command to retrieve devices summary.
 func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context) (*WSGDeviceCapacityDevicesSummary, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGDeviceCapacityDevicesSummary
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1609,11 +1954,12 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context) (*WSGDe
 //
 // Use this API command to retrieve gateway advanced setting.
 func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context) (*WSGSystemGatewayAdvanced, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGSystemGatewayAdvanced
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1621,17 +1967,18 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context) (*WSGS
 //
 // Use this API command to retrieve the system inventory with current logon user domain.
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGSystemService) FindSystemInventory(ctx context.Context, qIndex string, qListSize string) (*WSGSystemInventoryList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalParams map[string]interface{}) (*WSGSystemInventoryList, error) {
+	var (
+		resp *WSGSystemInventoryList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1639,15 +1986,16 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, qIndex strin
 //
 // Use this API command to retrieve user information by Northbound Portal Interface.
 //
-// Query Parameters:
-// - qDomainId string
+// Optional Parameters:
+// - domainId string
 //		- nullable
-func (s *WSGSystemService) FindSystemNbi(ctx context.Context, qDomainId string) (*WSGSystemNorthboundInterface, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map[string]interface{}) (*WSGSystemNorthboundInterface, error) {
+	var (
+		resp *WSGSystemNorthboundInterface
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1655,11 +2003,12 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, qDomainId string) 
 //
 // Retrieve System Time Setting.
 func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context) (*WSGSystemTimeSetting, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGSystemTimeSetting
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -1670,11 +2019,14 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context) (*WSGSystem
 // Request Body:
 //	 - body *WSGSystemSaveSystemSettings
 func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSystemSaveSystemSettings) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -1685,11 +2037,14 @@ func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSys
 // Request Body:
 //	 - body *WSGSystemCaptchaSetting
 func (s *WSGSystemService) PartialUpdateSystemCaptcha(ctx context.Context, body *WSGSystemCaptchaSetting) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -1700,11 +2055,14 @@ func (s *WSGSystemService) PartialUpdateSystemCaptcha(ctx context.Context, body 
 // Request Body:
 //	 - body *WSGSystemModifyGatewayAdvanced
 func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Context, body *WSGSystemModifyGatewayAdvanced) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -1715,15 +2073,18 @@ func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Contex
 // Request Body:
 //	 - body *WSGSystemNorthboundInterface
 //
-// Query Parameters:
-// - qDomainId string
+// Optional Parameters:
+// - domainId string
 //		- nullable
-func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSGSystemNorthboundInterface, qDomainId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSGSystemNorthboundInterface, optionalParams map[string]interface{}) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
 	}
 }
 
@@ -1734,10 +2095,16 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 // Request Body:
 //	 - body *WSGSystemModifySystemTimeSetting
 func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *WSGSystemModifySystemTimeSetting) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

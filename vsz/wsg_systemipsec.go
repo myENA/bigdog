@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGSystemIPsecService struct {
@@ -93,6 +92,11 @@ type WSGSystemIPsecGetResult struct {
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
+func NewWSGSystemIPsecGetResult() *WSGSystemIPsecGetResult {
+	m := new(WSGSystemIPsecGetResult)
+	return m
+}
+
 type WSGSystemIPsecProposal struct {
 	// AuthAlg
 	// Authentication algorithm
@@ -105,6 +109,11 @@ type WSGSystemIPsecProposal struct {
 	// Constraints:
 	//    - required
 	EncAlg *string `json:"encAlg" validate:"required"`
+}
+
+func NewWSGSystemIPsecProposal() *WSGSystemIPsecProposal {
+	m := new(WSGSystemIPsecProposal)
+	return m
 }
 
 type WSGSystemIPsecUpdate struct {
@@ -179,15 +188,21 @@ type WSGSystemIPsecUpdate struct {
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
+func NewWSGSystemIPsecUpdate() *WSGSystemIPsecUpdate {
+	m := new(WSGSystemIPsecUpdate)
+	return m
+}
+
 // FindSystemIpsec
 //
 // Use this API command to retrieve the System IPSec.
 func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystemIPsecGetResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGSystemIPsecGetResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -198,10 +213,16 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 // Request Body:
 //	 - body *WSGSystemIPsecUpdate
 func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

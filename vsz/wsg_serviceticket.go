@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGServiceTicketService struct {
@@ -37,12 +36,22 @@ type WSGServiceTicketLoginRequest struct {
 	Username *string `json:"username" validate:"required"`
 }
 
+func NewWSGServiceTicketLoginRequest() *WSGServiceTicketLoginRequest {
+	m := new(WSGServiceTicketLoginRequest)
+	return m
+}
+
 type WSGServiceTicketLoginResponse struct {
 	ControllerVersion *string `json:"controllerVersion,omitempty"`
 
 	// ServiceTicket
 	// Logon authentication successful, the server generates a service ticket
 	ServiceTicket *string `json:"serviceTicket,omitempty"`
+}
+
+func NewWSGServiceTicketLoginResponse() *WSGServiceTicketLoginResponse {
+	m := new(WSGServiceTicketLoginResponse)
+	return m
 }
 
 // AddServiceTicket
@@ -52,11 +61,17 @@ type WSGServiceTicketLoginResponse struct {
 // Request Body:
 //	 - body *WSGServiceTicketLoginRequest
 func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WSGServiceTicketLoginRequest) (*WSGServiceTicketLoginResponse, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGServiceTicketLoginResponse
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -64,14 +79,18 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 //
 // Use this API command to log off of the controller.
 //
-// Query Parameters:
-// - qServiceTicket string
+// Required Parameters:
+// - serviceTicket string
 //		- required
-func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, qServiceTicket string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, serviceTicket string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, serviceTicket, "required"); err != nil {
+		return resp, err
 	}
 }

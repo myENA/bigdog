@@ -52,7 +52,17 @@ type SwitchMVeConfigCreate struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+func NewSwitchMVeConfigCreate() *SwitchMVeConfigCreate {
+	m := new(SwitchMVeConfigCreate)
+	return m
+}
+
 type SwitchMVeConfigCreateResult interface{}
+
+func NewSwitchMVeConfigCreateResult() SwitchMVeConfigCreateResult {
+	m := new(SwitchMVeConfigCreateResult)
+	return m
+}
 
 type SwitchMVeConfigEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -74,6 +84,11 @@ func (t *SwitchMVeConfigEmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMVeConfigEmptyResult() *SwitchMVeConfigEmptyResult {
+	m := new(SwitchMVeConfigEmptyResult)
+	return m
+}
+
 type SwitchMVeConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -90,6 +105,11 @@ type SwitchMVeConfigList struct {
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMVeConfigList() *SwitchMVeConfigList {
+	m := new(SwitchMVeConfigList)
+	return m
 }
 
 type SwitchMVeConfigModify struct {
@@ -128,6 +148,11 @@ type SwitchMVeConfigModify struct {
 	// VlanId
 	// VLAN ID
 	VlanId *int `json:"vlanId,omitempty"`
+}
+
+func NewSwitchMVeConfigModify() *SwitchMVeConfigModify {
+	m := new(SwitchMVeConfigModify)
+	return m
 }
 
 type SwitchMVeConfig struct {
@@ -198,4 +223,9 @@ type SwitchMVeConfig struct {
 	// VlanId
 	// VLAN ID
 	VlanId *int `json:"vlanId,omitempty"`
+}
+
+func NewSwitchMVeConfig() *SwitchMVeConfig {
+	m := new(SwitchMVeConfig)
+	return m
 }

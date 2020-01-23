@@ -118,6 +118,11 @@ type WSGServiceActiveDirectoryService struct {
 	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
+func NewWSGServiceActiveDirectoryService() *WSGServiceActiveDirectoryService {
+	m := new(WSGServiceActiveDirectoryService)
+	return m
+}
+
 type WSGServiceActiveDirectoryServiceList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -128,6 +133,11 @@ type WSGServiceActiveDirectoryServiceList struct {
 	List []*WSGServiceActiveDirectoryService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGServiceActiveDirectoryServiceList() *WSGServiceActiveDirectoryServiceList {
+	m := new(WSGServiceActiveDirectoryServiceList)
+	return m
 }
 
 type WSGServiceCommonAccountingService struct {
@@ -184,6 +194,11 @@ type WSGServiceCommonAccountingService struct {
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS CGF"`
 }
 
+func NewWSGServiceCommonAccountingService() *WSGServiceCommonAccountingService {
+	m := new(WSGServiceCommonAccountingService)
+	return m
+}
+
 type WSGServiceCommonAccountingServiceList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -194,6 +209,11 @@ type WSGServiceCommonAccountingServiceList struct {
 	List []*WSGServiceCommonAccountingService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGServiceCommonAccountingServiceList() *WSGServiceCommonAccountingServiceList {
+	m := new(WSGServiceCommonAccountingServiceList)
+	return m
 }
 
 type WSGServiceCommonAuthenticationService struct {
@@ -256,6 +276,11 @@ type WSGServiceCommonAuthenticationService struct {
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS AD LDAP FACEBOOK LINKEDIN GOOGLE GENERICOAUTH SOAP HLR LOCAL_DB GUEST"`
 }
 
+func NewWSGServiceCommonAuthenticationService() *WSGServiceCommonAuthenticationService {
+	m := new(WSGServiceCommonAuthenticationService)
+	return m
+}
+
 type WSGServiceCommonAuthenticationServiceList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -266,6 +291,11 @@ type WSGServiceCommonAuthenticationServiceList struct {
 	List []*WSGServiceCommonAuthenticationService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGServiceCommonAuthenticationServiceList() *WSGServiceCommonAuthenticationServiceList {
+	m := new(WSGServiceCommonAuthenticationServiceList)
+	return m
 }
 
 type WSGServiceCreateActiveDirectoryAuthentication struct {
@@ -362,6 +392,11 @@ type WSGServiceCreateActiveDirectoryAuthentication struct {
 	// Constraints:
 	//    - required
 	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName" validate:"required,max=64,min=2"`
+}
+
+func NewWSGServiceCreateActiveDirectoryAuthentication() *WSGServiceCreateActiveDirectoryAuthentication {
+	m := new(WSGServiceCreateActiveDirectoryAuthentication)
+	return m
 }
 
 type WSGServiceCreateHlrAuthentication struct {
@@ -501,6 +536,11 @@ type WSGServiceCreateHlrAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"oneof=HLR"`
 }
 
+func NewWSGServiceCreateHlrAuthentication() *WSGServiceCreateHlrAuthentication {
+	m := new(WSGServiceCreateHlrAuthentication)
+	return m
+}
+
 type WSGServiceCreateLDAPAuthentication struct {
 	// AdminDomainName
 	// Constraints:
@@ -606,6 +646,11 @@ type WSGServiceCreateLDAPAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"oneof=LDAP"`
 }
 
+func NewWSGServiceCreateLDAPAuthentication() *WSGServiceCreateLDAPAuthentication {
+	m := new(WSGServiceCreateLDAPAuthentication)
+	return m
+}
+
 type WSGServiceCreateRadiusAccounting struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -646,6 +691,11 @@ type WSGServiceCreateRadiusAccounting struct {
 	// Constraints:
 	//    - oneof:[RADIUS]
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+}
+
+func NewWSGServiceCreateRadiusAccounting() *WSGServiceCreateRadiusAccounting {
+	m := new(WSGServiceCreateRadiusAccounting)
+	return m
 }
 
 type WSGServiceCreateRadiusAuthentication struct {
@@ -699,12 +749,27 @@ type WSGServiceCreateRadiusAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
 }
 
+func NewWSGServiceCreateRadiusAuthentication() *WSGServiceCreateRadiusAuthentication {
+	m := new(WSGServiceCreateRadiusAuthentication)
+	return m
+}
+
 type WSGServiceDeleteBulkAccountingService struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
+func NewWSGServiceDeleteBulkAccountingService() *WSGServiceDeleteBulkAccountingService {
+	m := new(WSGServiceDeleteBulkAccountingService)
+	return m
+}
+
 type WSGServiceDeleteBulkAuthenticationService struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGServiceDeleteBulkAuthenticationService() *WSGServiceDeleteBulkAuthenticationService {
+	m := new(WSGServiceDeleteBulkAuthenticationService)
+	return m
 }
 
 type WSGServiceDnsServer struct {
@@ -713,7 +778,17 @@ type WSGServiceDnsServer struct {
 	Ip *string `json:"ip,omitempty"`
 }
 
+func NewWSGServiceDnsServer() *WSGServiceDnsServer {
+	m := new(WSGServiceDnsServer)
+	return m
+}
+
 type WSGServiceDnsServerList []*WSGServiceDnsServer
+
+func MakeWSGServiceDnsServerList() WSGServiceDnsServerList {
+	m := make(WSGServiceDnsServerList, 0)
+	return m
+}
 
 type WSGServiceGgsn struct {
 	// DomainName
@@ -725,6 +800,11 @@ type WSGServiceGgsn struct {
 	GgsnIPAddress *string `json:"ggsnIPAddress,omitempty"`
 }
 
+func NewWSGServiceGgsn() *WSGServiceGgsn {
+	m := new(WSGServiceGgsn)
+	return m
+}
+
 type WSGServiceGgsnConfig struct {
 	DnsServerList WSGServiceDnsServerList `json:"dnsServerList,omitempty"`
 
@@ -733,7 +813,17 @@ type WSGServiceGgsnConfig struct {
 	GtpSettings *WSGServiceGtpSettings `json:"gtpSettings,omitempty"`
 }
 
+func NewWSGServiceGgsnConfig() *WSGServiceGgsnConfig {
+	m := new(WSGServiceGgsnConfig)
+	return m
+}
+
 type WSGServiceGgsnList []*WSGServiceGgsn
+
+func MakeWSGServiceGgsnList() WSGServiceGgsnList {
+	m := make(WSGServiceGgsnList, 0)
+	return m
+}
 
 // WSGServiceGroupAttrIdentityUserRoleMapping
 //
@@ -756,6 +846,11 @@ type WSGServiceGroupAttrIdentityUserRoleMapping struct {
 	UserRole *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
+func NewWSGServiceGroupAttrIdentityUserRoleMapping() *WSGServiceGroupAttrIdentityUserRoleMapping {
+	m := new(WSGServiceGroupAttrIdentityUserRoleMapping)
+	return m
+}
+
 // WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
@@ -771,6 +866,11 @@ type WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	UserTrafficProfile *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType `json:"userTrafficProfile,omitempty"`
 }
 
+func NewWSGServiceGroupAttrIdentityUserRoleMappingUserRoleType() *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType {
+	m := new(WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType)
+	return m
+}
+
 // WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
 //
 // Identity user role
@@ -782,6 +882,11 @@ type WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileTyp
 	// Name
 	// User traffic profile name
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType() *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType {
+	m := new(WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType)
+	return m
 }
 
 type WSGServiceGtpSettings struct {
@@ -819,6 +924,11 @@ type WSGServiceGtpSettings struct {
 	//    - min:2
 	//    - max:5
 	T3ResponseTimer *int `json:"t3ResponseTimer,omitempty" validate:"gte=2,lte=5"`
+}
+
+func NewWSGServiceGtpSettings() *WSGServiceGtpSettings {
+	m := new(WSGServiceGtpSettings)
+	return m
 }
 
 type WSGServiceHlrService struct {
@@ -1031,6 +1141,11 @@ type WSGServiceHlrService struct {
 	Type *string `json:"type,omitempty" validate:"oneof=HLR"`
 }
 
+func NewWSGServiceHlrService() *WSGServiceHlrService {
+	m := new(WSGServiceHlrService)
+	return m
+}
+
 type WSGServiceHlrServiceList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -1041,6 +1156,11 @@ type WSGServiceHlrServiceList struct {
 	List []*WSGServiceHlrService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGServiceHlrServiceList() *WSGServiceHlrServiceList {
+	m := new(WSGServiceHlrServiceList)
+	return m
 }
 
 type WSGServiceLDAPService struct {
@@ -1159,6 +1279,11 @@ type WSGServiceLDAPService struct {
 	Type *string `json:"type,omitempty" validate:"oneof=LDAP"`
 }
 
+func NewWSGServiceLDAPService() *WSGServiceLDAPService {
+	m := new(WSGServiceLDAPService)
+	return m
+}
+
 type WSGServiceLDAPServiceList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -1169,6 +1294,11 @@ type WSGServiceLDAPServiceList struct {
 	List []*WSGServiceLDAPService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGServiceLDAPServiceList() *WSGServiceLDAPServiceList {
+	m := new(WSGServiceLDAPServiceList)
+	return m
 }
 
 type WSGServiceMncNdc struct {
@@ -1191,6 +1321,11 @@ type WSGServiceMncNdc struct {
 	// ProfileId
 	// Profile ID
 	ProfileId *string `json:"profileId,omitempty"`
+}
+
+func NewWSGServiceMncNdc() *WSGServiceMncNdc {
+	m := new(WSGServiceMncNdc)
+	return m
 }
 
 type WSGServiceModifyActiveDirectoryAuthentication struct {
@@ -1275,6 +1410,11 @@ type WSGServiceModifyActiveDirectoryAuthentication struct {
 	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
+func NewWSGServiceModifyActiveDirectoryAuthentication() *WSGServiceModifyActiveDirectoryAuthentication {
+	m := new(WSGServiceModifyActiveDirectoryAuthentication)
+	return m
+}
+
 // WSGServiceModifyGroupAttrIdentityUserRoleMapping
 //
 // User traffic profile mapping
@@ -1292,6 +1432,11 @@ type WSGServiceModifyGroupAttrIdentityUserRoleMapping struct {
 	UserRole *WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
 }
 
+func NewWSGServiceModifyGroupAttrIdentityUserRoleMapping() *WSGServiceModifyGroupAttrIdentityUserRoleMapping {
+	m := new(WSGServiceModifyGroupAttrIdentityUserRoleMapping)
+	return m
+}
+
 // WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
@@ -1301,6 +1446,11 @@ type WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName2to64 `json:"name,omitempty"`
+}
+
+func NewWSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType() *WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType {
+	m := new(WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType)
+	return m
 }
 
 type WSGServiceModifyHlrAuthentication struct {
@@ -1437,6 +1587,11 @@ type WSGServiceModifyHlrAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"oneof=HLR"`
 }
 
+func NewWSGServiceModifyHlrAuthentication() *WSGServiceModifyHlrAuthentication {
+	m := new(WSGServiceModifyHlrAuthentication)
+	return m
+}
+
 type WSGServiceModifyLDAPAuthentication struct {
 	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
@@ -1519,6 +1674,11 @@ type WSGServiceModifyLDAPAuthentication struct {
 	Type *string `json:"type,omitempty" validate:"oneof=LDAP"`
 }
 
+func NewWSGServiceModifyLDAPAuthentication() *WSGServiceModifyLDAPAuthentication {
+	m := new(WSGServiceModifyLDAPAuthentication)
+	return m
+}
+
 type WSGServiceModifyLocalDbAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1553,6 +1713,11 @@ type WSGServiceModifyLocalDbAuthentication struct {
 	// Constraints:
 	//    - oneof:[LOCAL_DB]
 	Type *string `json:"type,omitempty" validate:"oneof=LOCAL_DB"`
+}
+
+func NewWSGServiceModifyLocalDbAuthentication() *WSGServiceModifyLocalDbAuthentication {
+	m := new(WSGServiceModifyLocalDbAuthentication)
+	return m
 }
 
 type WSGServiceModifyRadiusAccounting struct {
@@ -1593,6 +1758,11 @@ type WSGServiceModifyRadiusAccounting struct {
 	// Constraints:
 	//    - oneof:[RADIUS]
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+}
+
+func NewWSGServiceModifyRadiusAccounting() *WSGServiceModifyRadiusAccounting {
+	m := new(WSGServiceModifyRadiusAccounting)
+	return m
 }
 
 type WSGServiceModifyRadiusAuthentication struct {
@@ -1637,6 +1807,11 @@ type WSGServiceModifyRadiusAuthentication struct {
 	// Constraints:
 	//    - oneof:[RADIUS]
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
+}
+
+func NewWSGServiceModifyRadiusAuthentication() *WSGServiceModifyRadiusAuthentication {
+	m := new(WSGServiceModifyRadiusAuthentication)
+	return m
 }
 
 type WSGServiceRadiusAccountingService struct {
@@ -1707,6 +1882,11 @@ type WSGServiceRadiusAccountingService struct {
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
 }
 
+func NewWSGServiceRadiusAccountingService() *WSGServiceRadiusAccountingService {
+	m := new(WSGServiceRadiusAccountingService)
+	return m
+}
+
 type WSGServiceRadiusAccountingServiceList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -1717,6 +1897,11 @@ type WSGServiceRadiusAccountingServiceList struct {
 	List []*WSGServiceRadiusAccountingService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGServiceRadiusAccountingServiceList() *WSGServiceRadiusAccountingServiceList {
+	m := new(WSGServiceRadiusAccountingServiceList)
+	return m
 }
 
 type WSGServiceRadiusAuthenticationService struct {
@@ -1797,6 +1982,11 @@ type WSGServiceRadiusAuthenticationService struct {
 	Type *string `json:"type,omitempty" validate:"oneof=RADIUS"`
 }
 
+func NewWSGServiceRadiusAuthenticationService() *WSGServiceRadiusAuthenticationService {
+	m := new(WSGServiceRadiusAuthenticationService)
+	return m
+}
+
 type WSGServiceRadiusAuthenticationServiceList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -1807,6 +1997,11 @@ type WSGServiceRadiusAuthenticationServiceList struct {
 	List []*WSGServiceRadiusAuthenticationService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGServiceRadiusAuthenticationServiceList() *WSGServiceRadiusAuthenticationServiceList {
+	m := new(WSGServiceRadiusAuthenticationServiceList)
+	return m
 }
 
 type WSGServiceSccpGtt struct {
@@ -1859,6 +2054,11 @@ type WSGServiceSccpGtt struct {
 	TransType *int `json:"transType,omitempty"`
 }
 
+func NewWSGServiceSccpGtt() *WSGServiceSccpGtt {
+	m := new(WSGServiceSccpGtt)
+	return m
+}
+
 type WSGServiceSctpAssociation struct {
 	// AdjPointCode
 	// Adj Pointcode
@@ -1891,6 +2091,11 @@ type WSGServiceSctpAssociation struct {
 	SourcePort *int `json:"sourcePort,omitempty"`
 }
 
+func NewWSGServiceSctpAssociation() *WSGServiceSctpAssociation {
+	m := new(WSGServiceSctpAssociation)
+	return m
+}
+
 type WSGServiceSecondaryRadiusServer struct {
 	// AutoFallbackDisable
 	// Automatic fallback enabled or disabled
@@ -1919,12 +2124,22 @@ type WSGServiceSecondaryRadiusServer struct {
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
 }
 
+func NewWSGServiceSecondaryRadiusServer() *WSGServiceSecondaryRadiusServer {
+	m := new(WSGServiceSecondaryRadiusServer)
+	return m
+}
+
 type WSGServiceTestingConfig struct {
 	// Id
 	// Identifier of the authentication service
 	Id *string `json:"id,omitempty"`
 
 	LoginRequest *WSGServiceTestingConfigLoginRequestType `json:"loginRequest,omitempty"`
+}
+
+func NewWSGServiceTestingConfig() *WSGServiceTestingConfig {
+	m := new(WSGServiceTestingConfig)
+	return m
 }
 
 type WSGServiceTestingConfigLoginRequestType struct {
@@ -1941,4 +2156,9 @@ type WSGServiceTestingConfigLoginRequestType struct {
 	// UserName
 	// name for test user
 	UserName *string `json:"userName,omitempty"`
+}
+
+func NewWSGServiceTestingConfigLoginRequestType() *WSGServiceTestingConfigLoginRequestType {
+	m := new(WSGServiceTestingConfigLoginRequestType)
+	return m
 }

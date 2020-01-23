@@ -14,6 +14,11 @@ type WSGAAAServerQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGAAAServerQueryList() *WSGAAAServerQueryList {
+	m := new(WSGAAAServerQueryList)
+	return m
+}
+
 type WSGAAAServerQueryCreateAaaServer struct {
 	AdminDomainName *string `json:"adminDomainName,omitempty"`
 
@@ -80,4 +85,9 @@ type WSGAAAServerQueryCreateAaaServer struct {
 	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
 
 	ZoneUUID *string `json:"zoneUUID,omitempty"`
+}
+
+func NewWSGAAAServerQueryCreateAaaServer() *WSGAAAServerQueryCreateAaaServer {
+	m := new(WSGAAAServerQueryCreateAaaServer)
+	return m
 }

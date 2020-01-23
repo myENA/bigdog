@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGGDPRService struct {
@@ -54,6 +53,11 @@ type WSGGDPRFtp struct {
 	FtpUserName *string `json:"ftpUserName,omitempty"`
 }
 
+func NewWSGGDPRFtp() *WSGGDPRFtp {
+	m := new(WSGGDPRFtp)
+	return m
+}
+
 type WSGGDPRReport struct {
 	// Action
 	// Request action
@@ -68,6 +72,11 @@ type WSGGDPRReport struct {
 	Ftp *WSGGDPRFtp `json:"ftp,omitempty"`
 }
 
+func NewWSGGDPRReport() *WSGGDPRReport {
+	m := new(WSGGDPRReport)
+	return m
+}
+
 // AddGdprReport
 //
 // Use this API command to execute a client-related data search or delete task and upload a report to FTP. Also use this API to check task progress or to interrupt it.
@@ -75,10 +84,16 @@ type WSGGDPRReport struct {
 // Request Body:
 //	 - body *WSGGDPRReport
 func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

@@ -12,6 +12,11 @@ type WSGMeshNodeInfoHelperZoneInfo struct {
 	HelperAPZoneName *string `json:"helperAPZoneName,omitempty"`
 }
 
+func NewWSGMeshNodeInfoHelperZoneInfo() *WSGMeshNodeInfoHelperZoneInfo {
+	m := new(WSGMeshNodeInfoHelperZoneInfo)
+	return m
+}
+
 type WSGMeshNodeInfo struct {
 	// ApMac
 	// The MAC of the mesh AP
@@ -64,7 +69,17 @@ type WSGMeshNodeInfo struct {
 	UplinkRssi *int `json:"uplinkRssi,omitempty"`
 }
 
+func NewWSGMeshNodeInfo() *WSGMeshNodeInfo {
+	m := new(WSGMeshNodeInfo)
+	return m
+}
+
 type WSGMeshNodeInfoArray []*WSGMeshNodeInfo
+
+func MakeWSGMeshNodeInfoArray() WSGMeshNodeInfoArray {
+	m := make(WSGMeshNodeInfoArray, 0)
+	return m
+}
 
 type WSGMeshNodeInfoList struct {
 	// Extra
@@ -90,6 +105,11 @@ type WSGMeshNodeInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGMeshNodeInfoList() *WSGMeshNodeInfoList {
+	m := new(WSGMeshNodeInfoList)
+	return m
+}
+
 // WSGMeshNodeInfoListExtraType
 //
 // Any additional response data.
@@ -113,6 +133,11 @@ func (t *WSGMeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewWSGMeshNodeInfoListExtraType() *WSGMeshNodeInfoListExtraType {
+	m := new(WSGMeshNodeInfoListExtraType)
+	return m
+}
+
 type WSGMeshNodeInfoUpdateAPZeroTouch struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -124,4 +149,9 @@ type WSGMeshNodeInfoUpdateAPZeroTouch struct {
 	// Constraints:
 	//    - oneof:[Accept,Reject]
 	Status *string `json:"status,omitempty" validate:"oneof=Accept Reject"`
+}
+
+func NewWSGMeshNodeInfoUpdateAPZeroTouch() *WSGMeshNodeInfoUpdateAPZeroTouch {
+	m := new(WSGMeshNodeInfoUpdateAPZeroTouch)
+	return m
 }

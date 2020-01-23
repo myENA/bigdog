@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGZDImportService struct {
@@ -30,11 +29,17 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 // Request Body:
 //	 - body *WSGAdministrationZdImport
 func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationZdImport) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -45,11 +50,17 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 // Request Body:
 //	 - body *WSGAdministrationZdImport
 func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAdministrationZdImport) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -57,15 +68,19 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 //
 // Get ZD AP.
 //
-// Query Parameters:
-// - qIp string
+// Required Parameters:
+// - ip string
 //		- required
-func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, qIp string) (*WSGAdministrationZdAPList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string) (*WSGAdministrationZdAPList, error) {
+	var (
+		resp *WSGAdministrationZdAPList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, ip, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -73,14 +88,15 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, qIp strin
 //
 // Get Migrate Status.
 //
-// Query Parameters:
-// - qDetails string
+// Optional Parameters:
+// - details string
 //		- nullable
-func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, qDetails string) (*WSGAdministrationZdImportStatus, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationZdImportStatus, error) {
+	var (
+		resp *WSGAdministrationZdImportStatus
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }

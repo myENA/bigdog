@@ -48,7 +48,17 @@ type SwitchMIpConfigCreate struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+func NewSwitchMIpConfigCreate() *SwitchMIpConfigCreate {
+	m := new(SwitchMIpConfigCreate)
+	return m
+}
+
 type SwitchMIpConfigCreateResult interface{}
+
+func NewSwitchMIpConfigCreateResult() SwitchMIpConfigCreateResult {
+	m := new(SwitchMIpConfigCreateResult)
+	return m
+}
 
 type SwitchMIpConfigEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -68,6 +78,11 @@ func (t *SwitchMIpConfigEmptyResult) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMIpConfigEmptyResult() *SwitchMIpConfigEmptyResult {
+	m := new(SwitchMIpConfigEmptyResult)
+	return m
 }
 
 type SwitchMIpConfig struct {
@@ -136,6 +151,11 @@ type SwitchMIpConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewSwitchMIpConfig() *SwitchMIpConfig {
+	m := new(SwitchMIpConfig)
+	return m
+}
+
 type SwitchMIpConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -152,6 +172,11 @@ type SwitchMIpConfigList struct {
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMIpConfigList() *SwitchMIpConfigList {
+	m := new(SwitchMIpConfigList)
+	return m
 }
 
 type SwitchMIpConfigModify struct {
@@ -186,4 +211,9 @@ type SwitchMIpConfigModify struct {
 	// SubnetMask
 	// Subnet mask
 	SubnetMask *string `json:"subnetMask,omitempty"`
+}
+
+func NewSwitchMIpConfigModify() *SwitchMIpConfigModify {
+	m := new(SwitchMIpConfigModify)
+	return m
 }

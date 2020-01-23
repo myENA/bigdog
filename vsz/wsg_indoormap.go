@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGIndoorMapService struct {
@@ -24,6 +23,11 @@ func (ss *WSGService) WSGIndoorMapService() *WSGIndoorMapService {
 }
 
 type WSGIndoorMapAccessPointList []*WSGIndoorMapAp
+
+func MakeWSGIndoorMapAccessPointList() WSGIndoorMapAccessPointList {
+	m := make(WSGIndoorMapAccessPointList, 0)
+	return m
+}
 
 type WSGIndoorMapBasicIndoorMap struct {
 	Address *string `json:"address,omitempty"`
@@ -68,6 +72,11 @@ type WSGIndoorMapBasicIndoorMap struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGIndoorMapBasicIndoorMap() *WSGIndoorMapBasicIndoorMap {
+	m := new(WSGIndoorMapBasicIndoorMap)
+	return m
+}
+
 type WSGIndoorMapIndooMapAuditId struct {
 	// Id
 	// the identifier of the indoor map
@@ -76,6 +85,11 @@ type WSGIndoorMapIndooMapAuditId struct {
 	// Name
 	// the name of the indoor map
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGIndoorMapIndooMapAuditId() *WSGIndoorMapIndooMapAuditId {
+	m := new(WSGIndoorMapIndooMapAuditId)
+	return m
 }
 
 type WSGIndoorMap struct {
@@ -145,12 +159,22 @@ type WSGIndoorMap struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGIndoorMap() *WSGIndoorMap {
+	m := new(WSGIndoorMap)
+	return m
+}
+
 type WSGIndoorMapAp struct {
 	IndoorMapXy *WSGIndoorMapXy `json:"indoorMapXy,omitempty"`
 
 	// Mac
 	// the identifier of the create object
 	Mac *string `json:"mac,omitempty"`
+}
+
+func NewWSGIndoorMapAp() *WSGIndoorMapAp {
+	m := new(WSGIndoorMapAp)
+	return m
 }
 
 type WSGIndoorMapList struct {
@@ -169,6 +193,11 @@ type WSGIndoorMapList struct {
 	// TotalCount
 	// Total indoor maps count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGIndoorMapList() *WSGIndoorMapList {
+	m := new(WSGIndoorMapList)
+	return m
 }
 
 type WSGIndoorMapSummary struct {
@@ -236,6 +265,11 @@ type WSGIndoorMapSummary struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGIndoorMapSummary() *WSGIndoorMapSummary {
+	m := new(WSGIndoorMapSummary)
+	return m
+}
+
 type WSGIndoorMapSummaryList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -254,6 +288,11 @@ type WSGIndoorMapSummaryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGIndoorMapSummaryList() *WSGIndoorMapSummaryList {
+	m := new(WSGIndoorMapSummaryList)
+	return m
+}
+
 type WSGIndoorMapXy struct {
 	// X
 	// x
@@ -262,6 +301,11 @@ type WSGIndoorMapXy struct {
 	// Y
 	// y
 	Y *float64 `json:"y,omitempty"`
+}
+
+func NewWSGIndoorMapXy() *WSGIndoorMapXy {
+	m := new(WSGIndoorMapXy)
+	return m
 }
 
 type WSGIndoorMapScale struct {
@@ -280,6 +324,11 @@ type WSGIndoorMapScale struct {
 	Unit *string `json:"unit,omitempty" validate:"oneof=MM CM M Foot Yard"`
 }
 
+func NewWSGIndoorMapScale() *WSGIndoorMapScale {
+	m := new(WSGIndoorMapScale)
+	return m
+}
+
 // AddMaps
 //
 // Use this API command to create indoorMap.
@@ -287,11 +336,17 @@ type WSGIndoorMapScale struct {
 // Request Body:
 //	 - body *WSGIndoorMap
 func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (*WSGIndoorMapIndooMapAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGIndoorMapIndooMapAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -299,15 +354,19 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (
 //
 // Use this API command to delete indoor map.
 //
-// Path Parameters:
-// - pIndoorMapId string
+// Required Parameters:
+// - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, pIndoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
+	var (
+		resp *WSGIndoorMapIndooMapAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -315,17 +374,24 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, pIndo
 //
 // Use this API command to get indoor map list.
 //
-// Query Parameters:
-// - qGroupId string
+// Required Parameters:
+// - groupId string
 //		- required
-// - qGroupType string
+// - groupType string
 //		- required
-func (s *WSGIndoorMapService) FindMaps(ctx context.Context, qGroupId string, qGroupType string) (*WSGIndoorMapList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, groupType string) (*WSGIndoorMapList, error) {
+	var (
+		resp *WSGIndoorMapList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, groupType, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -333,15 +399,19 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, qGroupId string, qGr
 //
 // Use this API command to get indoor maps.
 //
-// Path Parameters:
-// - pIndoorMapId string
+// Required Parameters:
+// - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, pIndoorMapId string) (*WSGIndoorMap, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorMapId string) (*WSGIndoorMap, error) {
+	var (
+		resp *WSGIndoorMap
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -352,11 +422,17 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, pIndoor
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGIndoorMapList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGIndoorMapList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -367,15 +443,24 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 // Request Body:
 //	 - body *WSGIndoorMap
 //
-// Path Parameters:
-// - pIndoorMapId string
+// Required Parameters:
+// - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, pIndoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
+	var (
+		resp *WSGIndoorMapIndooMapAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -386,14 +471,21 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 // Request Body:
 //	 - body WSGIndoorMapAccessPointList
 //
-// Path Parameters:
-// - pIndoorMapId string
+// Required Parameters:
+// - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, pIndoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
+	var (
+		resp *WSGIndoorMapIndooMapAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
+		return resp, err
 	}
 }

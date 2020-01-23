@@ -51,3 +51,8 @@ type WSGDeviceCapacityDevicesSummary struct {
 	// total connected switches in the cluster.
 	TotalSwitches *int `json:"totalSwitches,omitempty"`
 }
+
+func NewWSGDeviceCapacityDevicesSummary() *WSGDeviceCapacityDevicesSummary {
+	m := new(WSGDeviceCapacityDevicesSummary)
+	return m
+}

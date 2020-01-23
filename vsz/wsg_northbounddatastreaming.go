@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGNorthboundDataStreamingService struct {
@@ -62,8 +61,18 @@ type WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile struct {
 	User *string `json:"user" validate:"required"`
 }
 
+func NewWSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile {
+	m := new(WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile)
+	return m
+}
+
 type WSGNorthboundDataStreamingEmptyResult struct {
 	NorthboundDataStreamingemptyResult *string `json:"northboundDataStreaming_emptyResult,omitempty"`
+}
+
+func NewWSGNorthboundDataStreamingEmptyResult() *WSGNorthboundDataStreamingEmptyResult {
+	m := new(WSGNorthboundDataStreamingEmptyResult)
+	return m
 }
 
 type WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes struct {
@@ -71,6 +80,11 @@ type WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes struct {
 	// Constraints:
 	//    - required
 	NorthboundDataStreamingAcceptedEventCodes []int `json:"northboundDataStreamingAcceptedEventCodes" validate:"required,dive"`
+}
+
+func NewWSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes() *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes {
+	m := new(WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes)
+	return m
 }
 
 type WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile struct {
@@ -111,6 +125,11 @@ type WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile struct {
 	User *string `json:"user" validate:"required"`
 }
 
+func NewWSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile {
+	m := new(WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile)
+	return m
+}
+
 type WSGNorthboundDataStreamingEventCodes struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
@@ -127,6 +146,11 @@ type WSGNorthboundDataStreamingEventCodes struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGNorthboundDataStreamingEventCodes() *WSGNorthboundDataStreamingEventCodes {
+	m := new(WSGNorthboundDataStreamingEventCodes)
+	return m
+}
+
 type WSGNorthboundDataStreamingEventCodesListType struct {
 	// Code
 	// Northbound Data Streaming accepted event code
@@ -135,6 +159,11 @@ type WSGNorthboundDataStreamingEventCodesListType struct {
 	// Type
 	// Northbound Data Streaming accepted event type
 	Type *string `json:"type,omitempty"`
+}
+
+func NewWSGNorthboundDataStreamingEventCodesListType() *WSGNorthboundDataStreamingEventCodesListType {
+	m := new(WSGNorthboundDataStreamingEventCodesListType)
+	return m
 }
 
 type WSGNorthboundDataStreamingProfile struct {
@@ -165,6 +194,11 @@ type WSGNorthboundDataStreamingProfile struct {
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	User *string `json:"user,omitempty"`
+}
+
+func NewWSGNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingProfile {
+	m := new(WSGNorthboundDataStreamingProfile)
+	return m
 }
 
 type WSGNorthboundDataStreamingProfileList struct {
@@ -210,6 +244,11 @@ func (t *WSGNorthboundDataStreamingProfileList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
+func NewWSGNorthboundDataStreamingProfileList() *WSGNorthboundDataStreamingProfileList {
+	m := new(WSGNorthboundDataStreamingProfileList)
+	return m
+}
+
 type WSGNorthboundDataStreamingProfileListExtraType struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled
@@ -226,6 +265,11 @@ type WSGNorthboundDataStreamingProfileListExtraType struct {
 	// StreamingZoneIds
 	// Zone Ids for 'streamingByDomainZoneEnabled' settings
 	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
+}
+
+func NewWSGNorthboundDataStreamingProfileListExtraType() *WSGNorthboundDataStreamingProfileListExtraType {
+	m := new(WSGNorthboundDataStreamingProfileListExtraType)
+	return m
 }
 
 type WSGNorthboundDataStreamingSettings struct {
@@ -250,6 +294,11 @@ type WSGNorthboundDataStreamingSettings struct {
 	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
 }
 
+func NewWSGNorthboundDataStreamingSettings() *WSGNorthboundDataStreamingSettings {
+	m := new(WSGNorthboundDataStreamingSettings)
+	return m
+}
+
 // AddNorthboundDataStreamingProfile
 //
 // Use this API command to create northbound Data Streaming Profile
@@ -257,11 +306,17 @@ type WSGNorthboundDataStreamingSettings struct {
 // Request Body:
 //	 - body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile
 func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -269,15 +324,19 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 //
 // Use this API command to delete northbound Data Streaming Profile
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, pId string) (*WSGNorthboundDataStreamingEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingEmptyResult, error) {
+	var (
+		resp *WSGNorthboundDataStreamingEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -285,11 +344,12 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 //
 // Use this API command to retrieve NorthboundDataStreamingEventCodes.
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context) (*WSGNorthboundDataStreamingEventCodes, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGNorthboundDataStreamingEventCodes
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -297,15 +357,19 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 //
 // Use this API command to retrieve northbound Data Streaming Profile
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, pId string) (*WSGNorthboundDataStreamingProfile, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingProfile, error) {
+	var (
+		resp *WSGNorthboundDataStreamingProfile
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -313,11 +377,12 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 //
 // Use this API command to retrieve northbound Data Streaming Profile List
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*WSGNorthboundDataStreamingProfileList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGNorthboundDataStreamingProfileList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -328,11 +393,17 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 // Request Body:
 //	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -343,15 +414,24 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 // Request Body:
 //	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile, pId string) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile, id string) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -362,10 +442,16 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 // Request Body:
 //	 - body *WSGNorthboundDataStreamingSettings
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *WSGNorthboundDataStreamingSettings) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }

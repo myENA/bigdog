@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGCALEAService struct {
@@ -33,6 +32,11 @@ type WSGCALEACommonSettingRq struct {
 	Dcip *string `json:"dc_ip,omitempty"`
 }
 
+func NewWSGCALEACommonSettingRq() *WSGCALEACommonSettingRq {
+	m := new(WSGCALEACommonSettingRq)
+	return m
+}
+
 type WSGCALEACommonSettingRsp struct {
 	// CaleaServerIp
 	// CARLEA Server IP
@@ -43,8 +47,18 @@ type WSGCALEACommonSettingRsp struct {
 	Dcip *string `json:"dc_ip,omitempty"`
 }
 
+func NewWSGCALEACommonSettingRsp() *WSGCALEACommonSettingRsp {
+	m := new(WSGCALEACommonSettingRsp)
+	return m
+}
+
 type WSGCALEAMacListRq struct {
 	MacList []string `json:"macList,omitempty"`
+}
+
+func NewWSGCALEAMacListRq() *WSGCALEAMacListRq {
+	m := new(WSGCALEAMacListRq)
+	return m
 }
 
 type WSGCALEAMacListRsp struct {
@@ -57,6 +71,11 @@ type WSGCALEAMacListRsp struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGCALEAMacListRsp() *WSGCALEAMacListRsp {
+	m := new(WSGCALEAMacListRsp)
+	return m
+}
+
 // AddSystemCaleaCommonSetting
 //
 // Use this API command to set CALEA common setting.
@@ -64,11 +83,17 @@ type WSGCALEAMacListRsp struct {
 // Request Body:
 //	 - body *WSGCALEACommonSettingRq
 func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body *WSGCALEACommonSettingRq) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -79,23 +104,36 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 // Request Body:
 //	 - body *WSGCALEAMacListRq
 func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
 // AddSystemCaleaMacList
 //
 // Use this API command to upload csv file of CALEA UE MACs.
-func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context) (interface{}, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+//
+// Request Body:
+//	 - body []byte
+func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte) (interface{}, error) {
+	var (
+		resp interface{}
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -106,11 +144,17 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context) (interface{
 // Request Body:
 //	 - body *WSGCALEAMacListRq
 func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -118,11 +162,12 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 //
 // Use this API command to delete all CALEA UE MACs.
 func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -130,11 +175,12 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*WSGCom
 //
 // Use this API command to get CALEA common setting.
 func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WSGCALEACommonSettingRsp, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGCALEACommonSettingRsp
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -142,10 +188,11 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WS
 //
 // Use this API command to get all CALEA UE MACs.
 func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context) (*WSGCALEAMacListRsp, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	var (
+		resp *WSGCALEAMacListRsp
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }

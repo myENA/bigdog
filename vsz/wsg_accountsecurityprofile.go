@@ -65,14 +65,29 @@ type WSGAccountSecurityProfileCreate struct {
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
 
+func NewWSGAccountSecurityProfileCreate() *WSGAccountSecurityProfileCreate {
+	m := new(WSGAccountSecurityProfileCreate)
+	return m
+}
+
 type WSGAccountSecurityProfileDelete struct {
 	// Id
 	// Profile id
 	Id *string `json:"id,omitempty"`
 }
 
+func NewWSGAccountSecurityProfileDelete() *WSGAccountSecurityProfileDelete {
+	m := new(WSGAccountSecurityProfileDelete)
+	return m
+}
+
 type WSGAccountSecurityProfileDeleteList struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGAccountSecurityProfileDeleteList() *WSGAccountSecurityProfileDeleteList {
+	m := new(WSGAccountSecurityProfileDeleteList)
+	return m
 }
 
 type WSGAccountSecurityProfileGetById struct {
@@ -81,6 +96,11 @@ type WSGAccountSecurityProfileGetById struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGAccountSecurityProfileGetById() *WSGAccountSecurityProfileGetById {
+	m := new(WSGAccountSecurityProfileGetById)
+	return m
 }
 
 type WSGAccountSecurityProfileGetByIdResult struct {
@@ -116,6 +136,11 @@ type WSGAccountSecurityProfileGetByIdResult struct {
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
 
+func NewWSGAccountSecurityProfileGetByIdResult() *WSGAccountSecurityProfileGetByIdResult {
+	m := new(WSGAccountSecurityProfileGetByIdResult)
+	return m
+}
+
 type WSGAccountSecurityProfileProfileListResult struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -124,6 +149,11 @@ type WSGAccountSecurityProfileProfileListResult struct {
 	List []*WSGAccountSecurityProfileGetById `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAccountSecurityProfileProfileListResult() *WSGAccountSecurityProfileProfileListResult {
+	m := new(WSGAccountSecurityProfileProfileListResult)
+	return m
 }
 
 type WSGAccountSecurityProfileUpdate struct {
@@ -185,4 +215,9 @@ type WSGAccountSecurityProfileUpdate struct {
 	// TwoFactorAuthEnabled
 	// Enable the two-factor authentication. (This configuration can only be enabled from Web GUI.)
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
+}
+
+func NewWSGAccountSecurityProfileUpdate() *WSGAccountSecurityProfileUpdate {
+	m := new(WSGAccountSecurityProfileUpdate)
+	return m
 }

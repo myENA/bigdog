@@ -14,6 +14,11 @@ type WSGClientQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGClientQueryList() *WSGClientQueryList {
+	m := new(WSGClientQueryList)
+	return m
+}
+
 type WSGClientQueryCreateClientQuery struct {
 	Alerts *int `json:"alerts,omitempty"`
 
@@ -102,10 +107,20 @@ type WSGClientQueryCreateClientQuery struct {
 	ZoneVersion *string `json:"zoneVersion,omitempty"`
 }
 
+func NewWSGClientQueryCreateClientQuery() *WSGClientQueryCreateClientQuery {
+	m := new(WSGClientQueryCreateClientQuery)
+	return m
+}
+
 type WSGClientQueryTcWithQuota struct {
 	TcMaxQuota *string `json:"tcMaxQuota,omitempty"`
 
 	TcName *string `json:"tcName,omitempty"`
 
 	TcRemainingQuota *string `json:"tcRemainingQuota,omitempty"`
+}
+
+func NewWSGClientQueryTcWithQuota() *WSGClientQueryTcWithQuota {
+	m := new(WSGClientQueryTcWithQuota)
+	return m
 }

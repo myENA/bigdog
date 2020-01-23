@@ -28,4 +28,14 @@ type WSGAPInfo struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewWSGAPInfo() *WSGAPInfo {
+	m := new(WSGAPInfo)
+	return m
+}
+
 type WSGAPInfoApName string
+
+func NewWSGAPInfoApName() *WSGAPInfoApName {
+	m := new(WSGAPInfoApName)
+	return m
+}

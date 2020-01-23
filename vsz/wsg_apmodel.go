@@ -62,6 +62,11 @@ type WSGAPModel struct {
 	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty" validate:"omitempty"`
 }
 
+func NewWSGAPModel() *WSGAPModel {
+	m := new(WSGAPModel)
+	return m
+}
+
 type WSGAPModelAuthenticatorAAAServer struct {
 	// EnableUseSCGasProxy
 	// Constraints:
@@ -69,6 +74,11 @@ type WSGAPModelAuthenticatorAAAServer struct {
 	EnableUseSCGasProxy *bool `json:"enableUseSCGasProxy" validate:"required"`
 
 	Server *WSGCommonGenericRef `json:"server,omitempty"`
+}
+
+func NewWSGAPModelAuthenticatorAAAServer() *WSGAPModelAuthenticatorAAAServer {
+	m := new(WSGAPModelAuthenticatorAAAServer)
+	return m
 }
 
 type WSGAPModelCellularSettings struct {
@@ -132,6 +142,11 @@ type WSGAPModelCellularSettings struct {
 	//    - min:10
 	//    - max:300
 	WanRecoveryTimer *int `json:"wanRecoveryTimer" validate:"required,gte=10,lte=300"`
+}
+
+func NewWSGAPModelCellularSettings() *WSGAPModelCellularSettings {
+	m := new(WSGAPModelCellularSettings)
+	return m
 }
 
 type WSGAPModelCommonAttribute struct {
@@ -248,6 +263,11 @@ type WSGAPModelCommonAttribute struct {
 	SupportResetCablemodem *bool `json:"supportResetCablemodem,omitempty" validate:"omitempty"`
 }
 
+func NewWSGAPModelCommonAttribute() *WSGAPModelCommonAttribute {
+	m := new(WSGAPModelCommonAttribute)
+	return m
+}
+
 type WSGAPModelExternalAntenna struct {
 	// ChainMask
 	// Constraints:
@@ -268,8 +288,18 @@ type WSGAPModelExternalAntenna struct {
 	Enabled *bool `json:"enabled" validate:"required"`
 }
 
+func NewWSGAPModelExternalAntenna() *WSGAPModelExternalAntenna {
+	m := new(WSGAPModelExternalAntenna)
+	return m
+}
+
 type WSGAPModelLacpSetting struct {
 	Enabled *bool `json:"enabled,omitempty"`
+}
+
+func NewWSGAPModelLacpSetting() *WSGAPModelLacpSetting {
+	m := new(WSGAPModelLacpSetting)
+	return m
 }
 
 type WSGAPModelLanPort8021X struct {
@@ -284,6 +314,11 @@ type WSGAPModelLanPort8021X struct {
 	Type *string `json:"type" validate:"required,oneof=Disable Supplicant PortBasedAuthenticator MACBasedAuthenticator"`
 }
 
+func NewWSGAPModelLanPort8021X() *WSGAPModelLanPort8021X {
+	m := new(WSGAPModelLanPort8021X)
+	return m
+}
+
 type WSGAPModelLanPortAuthenticator struct {
 	Accounting *WSGAPModelAuthenticatorAAAServer `json:"accounting,omitempty"`
 
@@ -295,6 +330,11 @@ type WSGAPModelLanPortAuthenticator struct {
 	// Constraints:
 	//    - required
 	MacAuthByPassEnabled *bool `json:"macAuthByPassEnabled" validate:"required"`
+}
+
+func NewWSGAPModelLanPortAuthenticator() *WSGAPModelLanPortAuthenticator {
+	m := new(WSGAPModelLanPortAuthenticator)
+	return m
 }
 
 type WSGAPModelLanPortSetting struct {
@@ -326,6 +366,11 @@ type WSGAPModelLanPortSetting struct {
 	VlanUntagId *int `json:"vlanUntagId,omitempty" validate:"omitempty,gte=0,lte=4094"`
 }
 
+func NewWSGAPModelLanPortSetting() *WSGAPModelLanPortSetting {
+	m := new(WSGAPModelLanPortSetting)
+	return m
+}
+
 type WSGAPModelLanPortSupplicant struct {
 	// Password
 	// Constraints:
@@ -344,6 +389,11 @@ type WSGAPModelLanPortSupplicant struct {
 	//    - nullable
 	//    - max:64
 	UserName *string `json:"userName,omitempty" validate:"omitempty,max=64"`
+}
+
+func NewWSGAPModelLanPortSupplicant() *WSGAPModelLanPortSupplicant {
+	m := new(WSGAPModelLanPortSupplicant)
+	return m
 }
 
 type WSGAPModelLldpSetting struct {
@@ -371,4 +421,9 @@ type WSGAPModelLldpSetting struct {
 	// Constraints:
 	//    - nullable
 	ManagementIPTLVEnabled *bool `json:"managementIPTLVEnabled,omitempty" validate:"omitempty"`
+}
+
+func NewWSGAPModelLldpSetting() *WSGAPModelLldpSetting {
+	m := new(WSGAPModelLldpSetting)
+	return m
 }

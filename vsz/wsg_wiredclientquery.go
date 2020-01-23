@@ -14,6 +14,11 @@ type WSGWiredClientQueryClientQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGWiredClientQueryClientQueryList() *WSGWiredClientQueryClientQueryList {
+	m := new(WSGWiredClientQueryClientQueryList)
+	return m
+}
+
 type WSGWiredClientQueryCreateClientQuery struct {
 	ApEthID *int `json:"apEthID,omitempty"`
 
@@ -58,4 +63,9 @@ type WSGWiredClientQueryCreateClientQuery struct {
 	Vlan *int `json:"vlan,omitempty"`
 
 	WlanType *string `json:"wlanType,omitempty"`
+}
+
+func NewWSGWiredClientQueryCreateClientQuery() *WSGWiredClientQueryCreateClientQuery {
+	m := new(WSGWiredClientQueryCreateClientQuery)
+	return m
 }

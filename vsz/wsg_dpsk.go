@@ -26,12 +26,27 @@ type WSGDPSKBatchGenUnbound struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+func NewWSGDPSKBatchGenUnbound() *WSGDPSKBatchGenUnbound {
+	m := new(WSGDPSKBatchGenUnbound)
+	return m
+}
+
 type WSGDPSKDeleteDpskResult struct {
 	ResultCount *int `json:"resultCount,omitempty"`
 }
 
+func NewWSGDPSKDeleteDpskResult() *WSGDPSKDeleteDpskResult {
+	m := new(WSGDPSKDeleteDpskResult)
+	return m
+}
+
 type WSGDPSKDeleteDPSKs struct {
 	IdList []string `json:"idList,omitempty"`
+}
+
+func NewWSGDPSKDeleteDPSKs() *WSGDPSKDeleteDPSKs {
+	m := new(WSGDPSKDeleteDPSKs)
+	return m
 }
 
 type WSGDPSKDeleteExpiredDpskConfig struct {
@@ -42,10 +57,20 @@ type WSGDPSKDeleteExpiredDpskConfig struct {
 	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
 }
 
+func NewWSGDPSKDeleteExpiredDpskConfig() *WSGDPSKDeleteExpiredDpskConfig {
+	m := new(WSGDPSKDeleteExpiredDpskConfig)
+	return m
+}
+
 // WSGDPSKInfo
 //
 // Information list of DPSK
 type WSGDPSKInfo []*WSGDPSKInfoType
+
+func MakeWSGDPSKInfo() WSGDPSKInfo {
+	m := make(WSGDPSKInfo, 0)
+	return m
+}
 
 type WSGDPSKInfoType struct {
 	// CreationDateTime
@@ -89,6 +114,11 @@ type WSGDPSKInfoType struct {
 	WlanId *string `json:"wlanId,omitempty"`
 }
 
+func NewWSGDPSKInfoType() *WSGDPSKInfoType {
+	m := new(WSGDPSKInfoType)
+	return m
+}
+
 type WSGDPSKQueryList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -101,6 +131,11 @@ type WSGDPSKQueryList struct {
 	List []*WSGDPSKQueryListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDPSKQueryList() *WSGDPSKQueryList {
+	m := new(WSGDPSKQueryList)
+	return m
 }
 
 type WSGDPSKQueryListType struct {
@@ -165,6 +200,11 @@ type WSGDPSKQueryListType struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGDPSKQueryListType() *WSGDPSKQueryListType {
+	m := new(WSGDPSKQueryListType)
+	return m
+}
+
 type WSGDPSKGetDpskEnabledWlans struct {
 	// FirstIndex
 	// Index of the first DPSK enabled WLAN returned out of the complete WLAN list
@@ -181,6 +221,11 @@ type WSGDPSKGetDpskEnabledWlans struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGDPSKGetDpskEnabledWlans() *WSGDPSKGetDpskEnabledWlans {
+	m := new(WSGDPSKGetDpskEnabledWlans)
+	return m
+}
+
 type WSGDPSKGetDpskEnabledWlansListType struct {
 	// Ssid
 	// SSID of the DPSK enabled WLAN
@@ -195,6 +240,11 @@ type WSGDPSKGetDpskEnabledWlansListType struct {
 	WlanName *string `json:"wlanName,omitempty"`
 }
 
+func NewWSGDPSKGetDpskEnabledWlansListType() *WSGDPSKGetDpskEnabledWlansListType {
+	m := new(WSGDPSKGetDpskEnabledWlansListType)
+	return m
+}
+
 type WSGDPSKGetDpskInfoList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -205,10 +255,20 @@ type WSGDPSKGetDpskInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGDPSKGetDpskInfoList() *WSGDPSKGetDpskInfoList {
+	m := new(WSGDPSKGetDpskInfoList)
+	return m
+}
+
 type WSGDPSKGetDpskResult struct {
 	DpskInfoList WSGDPSKInfo `json:"dpskInfoList,omitempty"`
 
 	ResultCount *int `json:"resultCount,omitempty"`
+}
+
+func NewWSGDPSKGetDpskResult() *WSGDPSKGetDpskResult {
+	m := new(WSGDPSKGetDpskResult)
+	return m
 }
 
 type WSGDPSKModifyDeleteExpiredDpsk struct {
@@ -219,10 +279,20 @@ type WSGDPSKModifyDeleteExpiredDpsk struct {
 	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty" validate:"oneof=Never AfterOneDay AfterSixMonths"`
 }
 
+func NewWSGDPSKModifyDeleteExpiredDpsk() *WSGDPSKModifyDeleteExpiredDpsk {
+	m := new(WSGDPSKModifyDeleteExpiredDpsk)
+	return m
+}
+
 type WSGDPSKUpdateDpsk struct {
 	// UserName
 	// User Name of DPSK
 	UserName *string `json:"userName,omitempty"`
+}
+
+func NewWSGDPSKUpdateDpsk() *WSGDPSKUpdateDpsk {
+	m := new(WSGDPSKUpdateDpsk)
+	return m
 }
 
 type WSGDPSKWlanDpskSetting struct {
@@ -256,6 +326,11 @@ type WSGDPSKWlanDpskSetting struct {
 	Length *int `json:"length,omitempty"`
 }
 
+func NewWSGDPSKWlanDpskSetting() *WSGDPSKWlanDpskSetting {
+	m := new(WSGDPSKWlanDpskSetting)
+	return m
+}
+
 type WSGDPSKWlanExternalDpsk struct {
 	// AuthService
 	// Autentication of the WLAN relate to external DPSK
@@ -273,6 +348,11 @@ type WSGDPSKWlanExternalDpsk struct {
 	Encryption *WSGDPSKWlanExternalDpskEncryptionType `json:"encryption,omitempty"`
 }
 
+func NewWSGDPSKWlanExternalDpsk() *WSGDPSKWlanExternalDpsk {
+	m := new(WSGDPSKWlanExternalDpsk)
+	return m
+}
+
 // WSGDPSKWlanExternalDpskAuthServiceType
 //
 // Autentication of the WLAN relate to external DPSK
@@ -284,6 +364,11 @@ type WSGDPSKWlanExternalDpskAuthServiceType struct {
 	// Name
 	// Name of the authentication service. At least one ID or name is required in the request.
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGDPSKWlanExternalDpskAuthServiceType() *WSGDPSKWlanExternalDpskAuthServiceType {
+	m := new(WSGDPSKWlanExternalDpskAuthServiceType)
+	return m
 }
 
 // WSGDPSKWlanExternalDpskEncryptionType
@@ -301,4 +386,9 @@ type WSGDPSKWlanExternalDpskEncryptionType struct {
 	// Constraints:
 	//    - oneof:[WPA2,WPA_Mixed,None]
 	Method *string `json:"method,omitempty" validate:"oneof=WPA2 WPA_Mixed None"`
+}
+
+func NewWSGDPSKWlanExternalDpskEncryptionType() *WSGDPSKWlanExternalDpskEncryptionType {
+	m := new(WSGDPSKWlanExternalDpskEncryptionType)
+	return m
 }

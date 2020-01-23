@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGDevicePolicyService struct {
@@ -39,6 +38,11 @@ type WSGDevicePolicyCreateDevicePolicy struct {
 	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
 }
 
+func NewWSGDevicePolicyCreateDevicePolicy() *WSGDevicePolicyCreateDevicePolicy {
+	m := new(WSGDevicePolicyCreateDevicePolicy)
+	return m
+}
+
 type WSGDevicePolicyPorfile struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -57,6 +61,11 @@ type WSGDevicePolicyPorfile struct {
 	// Rule
 	// rule of the device policy cofig
 	Rule []*WSGDevicePolicyRule `json:"rule,omitempty"`
+}
+
+func NewWSGDevicePolicyPorfile() *WSGDevicePolicyPorfile {
+	m := new(WSGDevicePolicyPorfile)
+	return m
 }
 
 type WSGDevicePolicyRule struct {
@@ -97,6 +106,11 @@ type WSGDevicePolicyRule struct {
 	Vlan *int `json:"vlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 }
 
+func NewWSGDevicePolicyRule() *WSGDevicePolicyRule {
+	m := new(WSGDevicePolicyRule)
+	return m
+}
+
 type WSGDevicePolicyModifyDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -113,6 +127,11 @@ type WSGDevicePolicyModifyDevicePolicy struct {
 	Rule []*WSGDevicePolicyRule `json:"rule,omitempty"`
 }
 
+func NewWSGDevicePolicyModifyDevicePolicy() *WSGDevicePolicyModifyDevicePolicy {
+	m := new(WSGDevicePolicyModifyDevicePolicy)
+	return m
+}
+
 type WSGDevicePolicyPorfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -123,12 +142,22 @@ type WSGDevicePolicyPorfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGDevicePolicyPorfileList() *WSGDevicePolicyPorfileList {
+	m := new(WSGDevicePolicyPorfileList)
+	return m
+}
+
 type WSGDevicePolicyPorfileListType struct {
 	// Id
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGDevicePolicyPorfileListType() *WSGDevicePolicyPorfileListType {
+	m := new(WSGDevicePolicyPorfileListType)
+	return m
 }
 
 // AddRkszonesDevicePolicyByZoneId
@@ -138,15 +167,24 @@ type WSGDevicePolicyPorfileListType struct {
 // Request Body:
 //	 - body *WSGDevicePolicyCreateDevicePolicy
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
-func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Context, body *WSGDevicePolicyCreateDevicePolicy, pZoneId string) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Context, body *WSGDevicePolicyCreateDevicePolicy, zoneId string) (*WSGCommonCreateResult, error) {
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -154,17 +192,24 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 //
 // Delete Device Policy Porfile.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -172,17 +217,24 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 //
 // Retrieve a Device Policy Porfile.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Context, pId string, pZoneId string) (*WSGDevicePolicyPorfile, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string) (*WSGDevicePolicyPorfile, error) {
+	var (
+		resp *WSGDevicePolicyPorfile
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -190,21 +242,25 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 //
 // Retrieve a list of Device Policy Porfiles within a zone.
 //
-// Path Parameters:
-// - pZoneId string
+// Required Parameters:
+// - zoneId string
 //		- required
 //
-// Query Parameters:
-// - qIndex string
+// Optional Parameters:
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, pZoneId string, qIndex string, qListSize string) (*WSGDevicePolicyPorfileList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGDevicePolicyPorfileList, error) {
+	var (
+		resp *WSGDevicePolicyPorfileList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -215,16 +271,28 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 // Request Body:
 //	 - body *WSGDevicePolicyModifyDevicePolicy
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-// - pZoneId string
+// - zoneId string
 //		- required
-func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx context.Context, body *WSGDevicePolicyModifyDevicePolicy, pId string, pZoneId string) (*WSGCommonEmptyResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx context.Context, body *WSGDevicePolicyModifyDevicePolicy, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		resp *WSGCommonEmptyResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }

@@ -19,6 +19,11 @@ type WSGDHCPPoolsDhcpClientInfo struct {
 	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty"`
 }
 
+func NewWSGDHCPPoolsDhcpClientInfo() *WSGDHCPPoolsDhcpClientInfo {
+	m := new(WSGDHCPPoolsDhcpClientInfo)
+	return m
+}
+
 // WSGDHCPPoolsDhcpPoolInfo
 //
 // DHCP Pool Information List
@@ -46,6 +51,11 @@ type WSGDHCPPoolsDhcpPoolInfo struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+func NewWSGDHCPPoolsDhcpPoolInfo() *WSGDHCPPoolsDhcpPoolInfo {
+	m := new(WSGDHCPPoolsDhcpPoolInfo)
+	return m
+}
+
 type WSGDHCPPoolsDhcpPoolInfoClientInfoListType struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -54,6 +64,11 @@ type WSGDHCPPoolsDhcpPoolInfoClientInfoListType struct {
 	List []*WSGDHCPPoolsDhcpClientInfo `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDHCPPoolsDhcpPoolInfoClientInfoListType() *WSGDHCPPoolsDhcpPoolInfoClientInfoListType {
+	m := new(WSGDHCPPoolsDhcpPoolInfoClientInfoListType)
+	return m
 }
 
 // WSGDHCPPools
@@ -83,4 +98,9 @@ type WSGDHCPPools struct {
 	// Constraints:
 	//    - nullable
 	TenantId *string `json:"tenantId,omitempty" validate:"omitempty"`
+}
+
+func NewWSGDHCPPools() *WSGDHCPPools {
+	m := new(WSGDHCPPools)
+	return m
 }

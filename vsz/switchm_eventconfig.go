@@ -58,6 +58,11 @@ type SwitchMEventConfig struct {
 	Type *string `json:"type,omitempty" validate:"oneof=CPU Memory TextPattern"`
 }
 
+func NewSwitchMEventConfig() *SwitchMEventConfig {
+	m := new(SwitchMEventConfig)
+	return m
+}
+
 type SwitchMEventConfigGetEventConfigList struct {
 	// Extra
 	// Extra information of responsed Switch custom event config list
@@ -80,6 +85,11 @@ type SwitchMEventConfigGetEventConfigList struct {
 	// TotalCount
 	// Count of  responsed Switch custom event config
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMEventConfigGetEventConfigList() *SwitchMEventConfigGetEventConfigList {
+	m := new(SwitchMEventConfigGetEventConfigList)
+	return m
 }
 
 // SwitchMEventConfigGetEventConfigListExtraType
@@ -105,6 +115,11 @@ func (t *SwitchMEventConfigGetEventConfigListExtraType) MarshalJSON() ([]byte, e
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMEventConfigGetEventConfigListExtraType() *SwitchMEventConfigGetEventConfigListExtraType {
+	m := new(SwitchMEventConfigGetEventConfigListExtraType)
+	return m
+}
+
 type SwitchMEventConfigQueryResponse struct {
 	// Data
 	// Response data message of Public API
@@ -125,6 +140,11 @@ type SwitchMEventConfigQueryResponse struct {
 	// Success
 	// Response success message of Public API
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewSwitchMEventConfigQueryResponse() *SwitchMEventConfigQueryResponse {
+	m := new(SwitchMEventConfigQueryResponse)
+	return m
 }
 
 // SwitchMEventConfigQueryResponseDataType
@@ -150,6 +170,11 @@ func (t *SwitchMEventConfigQueryResponseDataType) MarshalJSON() ([]byte, error) 
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMEventConfigQueryResponseDataType() *SwitchMEventConfigQueryResponseDataType {
+	m := new(SwitchMEventConfigQueryResponseDataType)
+	return m
+}
+
 // SwitchMEventConfigQueryResponseErrorType
 //
 // Response error message of Public API
@@ -171,6 +196,11 @@ func (t *SwitchMEventConfigQueryResponseErrorType) MarshalJSON() ([]byte, error)
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMEventConfigQueryResponseErrorType() *SwitchMEventConfigQueryResponseErrorType {
+	m := new(SwitchMEventConfigQueryResponseErrorType)
+	return m
 }
 
 // SwitchMEventConfigQueryResponseExtraType
@@ -196,6 +226,11 @@ func (t *SwitchMEventConfigQueryResponseExtraType) MarshalJSON() ([]byte, error)
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMEventConfigQueryResponseExtraType() *SwitchMEventConfigQueryResponseExtraType {
+	m := new(SwitchMEventConfigQueryResponseExtraType)
+	return m
+}
+
 // SwitchMEventConfigQueryResponseMetaDataType
 //
 // Meta-data of Public API response
@@ -217,6 +252,11 @@ func (t *SwitchMEventConfigQueryResponseMetaDataType) MarshalJSON() ([]byte, err
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMEventConfigQueryResponseMetaDataType() *SwitchMEventConfigQueryResponseMetaDataType {
+	m := new(SwitchMEventConfigQueryResponseMetaDataType)
+	return m
 }
 
 type SwitchMEventConfigUpdateEventConfig struct {

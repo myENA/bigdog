@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMStackService struct {
@@ -24,6 +23,11 @@ func (ss *SwitchMService) SwitchMStackService() *SwitchMStackService {
 }
 
 type SwitchMStackAuditIdList []*SwitchMSwitchAuditId
+
+func MakeSwitchMStackAuditIdList() SwitchMStackAuditIdList {
+	m := make(SwitchMStackAuditIdList, 0)
+	return m
+}
 
 type SwitchMStackList struct {
 	// FirstIndex
@@ -45,6 +49,11 @@ type SwitchMStackList struct {
 	// TotalCount
 	// Total Stack count
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMStackList() *SwitchMStackList {
+	m := new(SwitchMStackList)
+	return m
 }
 
 type SwitchMStackMember struct {
@@ -85,6 +94,11 @@ type SwitchMStackMember struct {
 	SwitchUnit *string `json:"switchUnit,omitempty"`
 }
 
+func NewSwitchMStackMember() *SwitchMStackMember {
+	m := new(SwitchMStackMember)
+	return m
+}
+
 // SwitchMStackMemberPortStatusType
 //
 // Port status Information
@@ -112,6 +126,11 @@ type SwitchMStackMemberPortStatusType struct {
 	// Warning
 	// Count for port status is warring of stack
 	Warning *int `json:"warning,omitempty"`
+}
+
+func NewSwitchMStackMemberPortStatusType() *SwitchMStackMemberPortStatusType {
+	m := new(SwitchMStackMemberPortStatusType)
+	return m
 }
 
 type SwitchMStackMemberSwitchPortsType struct {
@@ -212,6 +231,11 @@ type SwitchMStackMemberSwitchPortsType struct {
 	Vlans *string `json:"vlans,omitempty"`
 }
 
+func NewSwitchMStackMemberSwitchPortsType() *SwitchMStackMemberSwitchPortsType {
+	m := new(SwitchMStackMemberSwitchPortsType)
+	return m
+}
+
 // SwitchMStackMemberSwitchPortsTypeConnectedDeviceType
 //
 // Connected device information
@@ -289,6 +313,11 @@ type SwitchMStackMemberSwitchPortsTypeConnectedDeviceType struct {
 	UnitId *string `json:"unitId,omitempty"`
 }
 
+func NewSwitchMStackMemberSwitchPortsTypeConnectedDeviceType() *SwitchMStackMemberSwitchPortsTypeConnectedDeviceType {
+	m := new(SwitchMStackMemberSwitchPortsTypeConnectedDeviceType)
+	return m
+}
+
 // SwitchMStackMemberSwitchPortsTypePoeType
 //
 // POE information of switch port
@@ -306,6 +335,11 @@ type SwitchMStackMemberSwitchPortsTypePoeType struct {
 	Total *int `json:"total,omitempty"`
 }
 
+func NewSwitchMStackMemberSwitchPortsTypePoeType() *SwitchMStackMemberSwitchPortsTypePoeType {
+	m := new(SwitchMStackMemberSwitchPortsTypePoeType)
+	return m
+}
+
 // SwitchMStackMemberSwitchPortsTypeTrafficUsageType
 //
 // Traffic usage information
@@ -317,6 +351,11 @@ type SwitchMStackMemberSwitchPortsTypeTrafficUsageType struct {
 	// Tx
 	// Tx traffic usage of switch port
 	Tx *int `json:"tx,omitempty"`
+}
+
+func NewSwitchMStackMemberSwitchPortsTypeTrafficUsageType() *SwitchMStackMemberSwitchPortsTypeTrafficUsageType {
+	m := new(SwitchMStackMemberSwitchPortsTypeTrafficUsageType)
+	return m
 }
 
 type SwitchMStackConfig struct {
@@ -337,7 +376,17 @@ type SwitchMStackConfig struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+func NewSwitchMStackConfig() *SwitchMStackConfig {
+	m := new(SwitchMStackConfig)
+	return m
+}
+
 type SwitchMStackConfigList []*SwitchMStackConfig
+
+func MakeSwitchMStackConfigList() SwitchMStackConfigList {
+	m := make(SwitchMStackConfigList, 0)
+	return m
+}
 
 // AddStack
 //
@@ -346,11 +395,15 @@ type SwitchMStackConfigList []*SwitchMStackConfig
 // Request Body:
 //	 - body SwitchMStackConfigList
 func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackConfigList) (SwitchMStackAuditIdList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp SwitchMStackAuditIdList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -358,15 +411,19 @@ func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackCon
 //
 // Use this API command to retrieve a stack configuration configured via SZ.
 //
-// Path Parameters:
-// - pSwitchId string
+// Required Parameters:
+// - switchId string
 //		- required
-func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, pSwitchId string) (*SwitchMStackConfig, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId string) (*SwitchMStackConfig, error) {
+	var (
+		resp *SwitchMStackConfig
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -374,14 +431,18 @@ func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, pSwitchId
 //
 // Use this API command to retrieve the member of switches in a stack.
 //
-// Path Parameters:
-// - pSerialNumber string
+// Required Parameters:
+// - serialNumber string
 //		- required
-func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context, pSerialNumber string) (*SwitchMStackList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context, serialNumber string) (*SwitchMStackList, error) {
+	var (
+		resp *SwitchMStackList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, serialNumber, "required"); err != nil {
+		return resp, err
 	}
 }

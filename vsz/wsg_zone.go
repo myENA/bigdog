@@ -16,6 +16,11 @@ type WSGZoneApFirmware struct {
 	UnsupportedApModelSummary []*WSGZoneUnsupportedApModel `json:"unsupportedApModelSummary,omitempty"`
 }
 
+func NewWSGZoneApFirmware() *WSGZoneApFirmware {
+	m := new(WSGZoneApFirmware)
+	return m
+}
+
 type WSGZoneApFirmwareList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -24,6 +29,11 @@ type WSGZoneApFirmwareList struct {
 	List []*WSGZoneApFirmware `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGZoneApFirmwareList() *WSGZoneApFirmwareList {
+	m := new(WSGZoneApFirmwareList)
+	return m
 }
 
 type WSGZoneApLogin struct {
@@ -38,6 +48,11 @@ type WSGZoneApLogin struct {
 	ApLoginPassword *WSGCommonApLoginPassword `json:"apLoginPassword" validate:"required,max=64"`
 }
 
+func NewWSGZoneApLogin() *WSGZoneApLogin {
+	m := new(WSGZoneApLogin)
+	return m
+}
+
 type WSGZoneApSnmpOptions struct {
 	// ApSnmpEnabled
 	// Enable AP SNMP
@@ -50,6 +65,11 @@ type WSGZoneApSnmpOptions struct {
 	// SnmpV3Agent
 	// User List of the SNMP V3 Agent.
 	SnmpV3Agent []*WSGZoneSnmpUser `json:"snmpV3Agent,omitempty"`
+}
+
+func NewWSGZoneApSnmpOptions() *WSGZoneApSnmpOptions {
+	m := new(WSGZoneApSnmpOptions)
+	return m
 }
 
 type WSGZoneAvailableTunnelProfile struct {
@@ -74,6 +94,11 @@ type WSGZoneAvailableTunnelProfile struct {
 	TunnelType *string `json:"tunnelType,omitempty" validate:"oneof=RuckusGRE SoftGRE Ipsec"`
 }
 
+func NewWSGZoneAvailableTunnelProfile() *WSGZoneAvailableTunnelProfile {
+	m := new(WSGZoneAvailableTunnelProfile)
+	return m
+}
+
 type WSGZoneAvailableTunnelProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -84,6 +109,11 @@ type WSGZoneAvailableTunnelProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGZoneAvailableTunnelProfileList() *WSGZoneAvailableTunnelProfileList {
+	m := new(WSGZoneAvailableTunnelProfileList)
+	return m
+}
+
 type WSGZoneBackgroundScanning struct {
 	// FrequencyInSec
 	// Frequency in second
@@ -92,6 +122,11 @@ type WSGZoneBackgroundScanning struct {
 	//    - min:1
 	//    - max:65535
 	FrequencyInSec *int `json:"frequencyInSec,omitempty" validate:"gte=1,lte=65535"`
+}
+
+func NewWSGZoneBackgroundScanning() *WSGZoneBackgroundScanning {
+	m := new(WSGZoneBackgroundScanning)
+	return m
 }
 
 type WSGZoneBandBalancing struct {
@@ -111,6 +146,11 @@ type WSGZoneBandBalancing struct {
 	Wifi24Percentage *int `json:"wifi24Percentage,omitempty" validate:"gte=0,lte=100"`
 }
 
+func NewWSGZoneBandBalancing() *WSGZoneBandBalancing {
+	m := new(WSGZoneBandBalancing)
+	return m
+}
+
 type WSGZoneBonjourGatewayPolicyConfiguration struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
@@ -121,6 +161,11 @@ type WSGZoneBonjourGatewayPolicyConfiguration struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
+func NewWSGZoneBonjourGatewayPolicyConfiguration() *WSGZoneBonjourGatewayPolicyConfiguration {
+	m := new(WSGZoneBonjourGatewayPolicyConfiguration)
+	return m
+}
+
 type WSGZoneBonjourGatewayPolicyList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -129,6 +174,11 @@ type WSGZoneBonjourGatewayPolicyList struct {
 	List []*WSGZoneBonjourGatewayPolicySummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGZoneBonjourGatewayPolicyList() *WSGZoneBonjourGatewayPolicyList {
+	m := new(WSGZoneBonjourGatewayPolicyList)
+	return m
 }
 
 type WSGZoneBonjourGatewayPolicySummary struct {
@@ -151,6 +201,11 @@ type WSGZoneBonjourGatewayPolicySummary struct {
 	// Name
 	// Name of the bonjour gateway policy
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGZoneBonjourGatewayPolicySummary() *WSGZoneBonjourGatewayPolicySummary {
+	m := new(WSGZoneBonjourGatewayPolicySummary)
+	return m
 }
 
 // WSGZoneBonjourPolicyRule
@@ -189,6 +244,11 @@ type WSGZoneBonjourPolicyRule struct {
 	ToVlan *int `json:"toVlan" validate:"required,gte=1,lte=4094"`
 }
 
+func NewWSGZoneBonjourPolicyRule() *WSGZoneBonjourPolicyRule {
+	m := new(WSGZoneBonjourPolicyRule)
+	return m
+}
+
 // WSGZoneBonjourPolicyRuleConfiguration
 //
 // Bonjour policy rule
@@ -218,6 +278,11 @@ type WSGZoneBonjourPolicyRuleConfiguration struct {
 	ToVlan *int `json:"toVlan,omitempty"`
 }
 
+func NewWSGZoneBonjourPolicyRuleConfiguration() *WSGZoneBonjourPolicyRuleConfiguration {
+	m := new(WSGZoneBonjourPolicyRuleConfiguration)
+	return m
+}
+
 type WSGZoneClientLoadBalancing struct {
 	// AdjacentRadioThreshold
 	// Adjacent radio threshold
@@ -225,6 +290,11 @@ type WSGZoneClientLoadBalancing struct {
 	//    - min:1
 	//    - max:100
 	AdjacentRadioThreshold *int `json:"adjacentRadioThreshold,omitempty" validate:"gte=1,lte=100"`
+}
+
+func NewWSGZoneClientLoadBalancing() *WSGZoneClientLoadBalancing {
+	m := new(WSGZoneClientLoadBalancing)
+	return m
 }
 
 type WSGZoneCreateBonjourGatewayPolicy struct {
@@ -238,6 +308,11 @@ type WSGZoneCreateBonjourGatewayPolicy struct {
 	// Constraints:
 	//    - required
 	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewWSGZoneCreateBonjourGatewayPolicy() *WSGZoneCreateBonjourGatewayPolicy {
+	m := new(WSGZoneCreateBonjourGatewayPolicy)
+	return m
 }
 
 type WSGZoneCreateDiffServProfile struct {
@@ -255,6 +330,11 @@ type WSGZoneCreateDiffServProfile struct {
 	PreservedList []string `json:"preservedList,omitempty"`
 
 	UplinkDiffServ *WSGZoneUplinkDiffServ `json:"uplinkDiffServ,omitempty"`
+}
+
+func NewWSGZoneCreateDiffServProfile() *WSGZoneCreateDiffServProfile {
+	m := new(WSGZoneCreateDiffServProfile)
+	return m
 }
 
 type WSGZoneCreateZone struct {
@@ -492,6 +572,11 @@ type WSGZoneCreateZone struct {
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
+func NewWSGZoneCreateZone() *WSGZoneCreateZone {
+	m := new(WSGZoneCreateZone)
+	return m
+}
+
 type WSGZoneCustomizedTimeZone struct {
 	// Abbreviation
 	// Time zone abbreviation
@@ -518,6 +603,11 @@ type WSGZoneCustomizedTimeZone struct {
 	GmtOffsetMinute *int `json:"gmtOffsetMinute" validate:"required,gte=0,lte=59"`
 
 	Start *WSGZoneDaylightSavingTime `json:"start,omitempty"`
+}
+
+func NewWSGZoneCustomizedTimeZone() *WSGZoneCustomizedTimeZone {
+	m := new(WSGZoneCustomizedTimeZone)
+	return m
 }
 
 type WSGZoneDaylightSavingTime struct {
@@ -551,6 +641,11 @@ type WSGZoneDaylightSavingTime struct {
 	Week *int `json:"week" validate:"required,oneof=1 2 3 4 5"`
 }
 
+func NewWSGZoneDaylightSavingTime() *WSGZoneDaylightSavingTime {
+	m := new(WSGZoneDaylightSavingTime)
+	return m
+}
+
 type WSGZoneDhcpSiteConfigList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -559,6 +654,11 @@ type WSGZoneDhcpSiteConfigList struct {
 	List []*WSGCommonDhcpSiteConfigListRef `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGZoneDhcpSiteConfigList() *WSGZoneDhcpSiteConfigList {
+	m := new(WSGZoneDhcpSiteConfigList)
+	return m
 }
 
 type WSGZoneDiffServConfiguration struct {
@@ -579,6 +679,11 @@ type WSGZoneDiffServConfiguration struct {
 	UplinkDiffServ *WSGZoneUplinkDiffServ `json:"uplinkDiffServ,omitempty"`
 }
 
+func NewWSGZoneDiffServConfiguration() *WSGZoneDiffServConfiguration {
+	m := new(WSGZoneDiffServConfiguration)
+	return m
+}
+
 type WSGZoneDiffServList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -587,6 +692,11 @@ type WSGZoneDiffServList struct {
 	List []*WSGZoneDiffServSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGZoneDiffServList() *WSGZoneDiffServList {
+	m := new(WSGZoneDiffServList)
+	return m
 }
 
 type WSGZoneDiffServSummary struct {
@@ -599,6 +709,11 @@ type WSGZoneDiffServSummary struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewWSGZoneDiffServSummary() *WSGZoneDiffServSummary {
+	m := new(WSGZoneDiffServSummary)
+	return m
+}
+
 type WSGZoneDownlinkDiffServ struct {
 	// Downlink
 	// Downlink
@@ -607,6 +722,11 @@ type WSGZoneDownlinkDiffServ struct {
 	// DownlinkEnable
 	// Downlink enable
 	DownlinkEnable *bool `json:"downlinkEnable,omitempty"`
+}
+
+func NewWSGZoneDownlinkDiffServ() *WSGZoneDownlinkDiffServ {
+	m := new(WSGZoneDownlinkDiffServ)
+	return m
 }
 
 type WSGZoneMeshConfiguration struct {
@@ -628,10 +748,20 @@ type WSGZoneMeshConfiguration struct {
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
 
+func NewWSGZoneMeshConfiguration() *WSGZoneMeshConfiguration {
+	m := new(WSGZoneMeshConfiguration)
+	return m
+}
+
 type WSGZoneModfiyApFirmware struct {
 	// FirmwareVersion
 	// new version of the AP firmare
 	FirmwareVersion *string `json:"firmwareVersion,omitempty"`
+}
+
+func NewWSGZoneModfiyApFirmware() *WSGZoneModfiyApFirmware {
+	m := new(WSGZoneModfiyApFirmware)
+	return m
 }
 
 type WSGZoneModifyBonjourGatewayPolicy struct {
@@ -642,6 +772,11 @@ type WSGZoneModifyBonjourGatewayPolicy struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGZoneModifyBonjourGatewayPolicy() *WSGZoneModifyBonjourGatewayPolicy {
+	m := new(WSGZoneModifyBonjourGatewayPolicy)
+	return m
 }
 
 type WSGZoneModifyDiffServProfile struct {
@@ -659,6 +794,11 @@ type WSGZoneModifyDiffServProfile struct {
 	PreservedList []string `json:"preservedList,omitempty"`
 
 	UplinkDiffServ *WSGZoneUplinkDiffServ `json:"uplinkDiffServ,omitempty"`
+}
+
+func NewWSGZoneModifyDiffServProfile() *WSGZoneModifyDiffServProfile {
+	m := new(WSGZoneModifyDiffServProfile)
+	return m
 }
 
 type WSGZoneModifyZone struct {
@@ -889,6 +1029,11 @@ type WSGZoneModifyZone struct {
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
+func NewWSGZoneModifyZone() *WSGZoneModifyZone {
+	m := new(WSGZoneModifyZone)
+	return m
+}
+
 type WSGZoneQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
@@ -943,6 +1088,11 @@ type WSGZoneQueryCriteria struct {
 	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
+func NewWSGZoneQueryCriteria() *WSGZoneQueryCriteria {
+	m := new(WSGZoneQueryCriteria)
+	return m
+}
+
 type WSGZoneRogue struct {
 	// MaliciousTypes
 	// Malicious type when reportType is Malicious
@@ -959,6 +1109,11 @@ type WSGZoneRogue struct {
 	// Constraints:
 	//    - oneof:[All,Malicious]
 	ReportType *string `json:"reportType,omitempty" validate:"oneof=All Malicious"`
+}
+
+func NewWSGZoneRogue() *WSGZoneRogue {
+	m := new(WSGZoneRogue)
+	return m
 }
 
 type WSGZoneSnmpUser struct {
@@ -1015,12 +1170,22 @@ type WSGZoneSnmpUser struct {
 	WriteEnabled *bool `json:"writeEnabled,omitempty"`
 }
 
+func NewWSGZoneSnmpUser() *WSGZoneSnmpUser {
+	m := new(WSGZoneSnmpUser)
+	return m
+}
+
 type WSGZoneSoftGreRef struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGZoneSoftGreRef() *WSGZoneSoftGreRef {
+	m := new(WSGZoneSoftGreRef)
+	return m
 }
 
 type WSGZoneSyslog struct {
@@ -1080,12 +1245,22 @@ type WSGZoneSyslog struct {
 	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"oneof=IPPROTO_TCP IPPROTO_UDP"`
 }
 
+func NewWSGZoneSyslog() *WSGZoneSyslog {
+	m := new(WSGZoneSyslog)
+	return m
+}
+
 type WSGZoneTimezoneSetting struct {
 	CustomizedTimezone *WSGZoneCustomizedTimeZone `json:"customizedTimezone,omitempty"`
 
 	// SystemTimezone
 	// System defined time zone, please refer to the “Overview > Time Zone” list
 	SystemTimezone *string `json:"systemTimezone,omitempty"`
+}
+
+func NewWSGZoneTimezoneSetting() *WSGZoneTimezoneSetting {
+	m := new(WSGZoneTimezoneSetting)
+	return m
 }
 
 type WSGZoneUnsupportedApModel struct {
@@ -1098,6 +1273,11 @@ type WSGZoneUnsupportedApModel struct {
 	Model *string `json:"model,omitempty"`
 }
 
+func NewWSGZoneUnsupportedApModel() *WSGZoneUnsupportedApModel {
+	m := new(WSGZoneUnsupportedApModel)
+	return m
+}
+
 type WSGZoneUplinkDiffServ struct {
 	// Uplink
 	// Uplink
@@ -1106,6 +1286,11 @@ type WSGZoneUplinkDiffServ struct {
 	// UplinkEnable
 	// Uplink enable
 	UplinkEnable *bool `json:"uplinkEnable,omitempty"`
+}
+
+func NewWSGZoneUplinkDiffServ() *WSGZoneUplinkDiffServ {
+	m := new(WSGZoneUplinkDiffServ)
+	return m
 }
 
 type WSGZoneConfiguration struct {
@@ -1344,6 +1529,11 @@ type WSGZoneConfiguration struct {
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
+func NewWSGZoneConfiguration() *WSGZoneConfiguration {
+	m := new(WSGZoneConfiguration)
+	return m
+}
+
 type WSGZoneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1352,6 +1542,11 @@ type WSGZoneList struct {
 	List []*WSGZoneSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGZoneList() *WSGZoneList {
+	m := new(WSGZoneList)
+	return m
 }
 
 type WSGZoneSummary struct {
@@ -1366,4 +1561,9 @@ type WSGZoneSummary struct {
 	// ServiceName
 	// Name of the zone
 	ServiceName *string `json:"serviceName,omitempty"`
+}
+
+func NewWSGZoneSummary() *WSGZoneSummary {
+	m := new(WSGZoneSummary)
+	return m
 }

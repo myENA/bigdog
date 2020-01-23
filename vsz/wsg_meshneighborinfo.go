@@ -48,6 +48,11 @@ type WSGMeshNeighborInfo struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewWSGMeshNeighborInfo() *WSGMeshNeighborInfo {
+	m := new(WSGMeshNeighborInfo)
+	return m
+}
+
 type WSGMeshNeighborInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -72,6 +77,11 @@ type WSGMeshNeighborInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewWSGMeshNeighborInfoList() *WSGMeshNeighborInfoList {
+	m := new(WSGMeshNeighborInfoList)
+	return m
+}
+
 // WSGMeshNeighborInfoListExtraType
 //
 // Any additional response data.
@@ -93,4 +103,9 @@ func (t *WSGMeshNeighborInfoListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewWSGMeshNeighborInfoListExtraType() *WSGMeshNeighborInfoListExtraType {
+	m := new(WSGMeshNeighborInfoListExtraType)
+	return m
 }

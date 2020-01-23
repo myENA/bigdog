@@ -32,6 +32,11 @@ type WSGDHCPMsgStats struct {
 	TenantId *string `json:"tenantId,omitempty" validate:"omitempty"`
 }
 
+func NewWSGDHCPMsgStats() *WSGDHCPMsgStats {
+	m := new(WSGDHCPMsgStats)
+	return m
+}
+
 // WSGDHCPMsgStatsDhcpMsgRecvdStatsType
 //
 // DHCP Message Received Statistic
@@ -47,6 +52,11 @@ type WSGDHCPMsgStatsDhcpMsgRecvdStatsType struct {
 	DhcpRequest *int `json:"dhcpRequest,omitempty"`
 }
 
+func NewWSGDHCPMsgStatsDhcpMsgRecvdStatsType() *WSGDHCPMsgStatsDhcpMsgRecvdStatsType {
+	m := new(WSGDHCPMsgStatsDhcpMsgRecvdStatsType)
+	return m
+}
+
 // WSGDHCPMsgStatsDhcpMsgSentStatsType
 //
 // DHCP Message Sent Statistic
@@ -56,4 +66,9 @@ type WSGDHCPMsgStatsDhcpMsgSentStatsType struct {
 	DhcpNak *int `json:"dhcpNak,omitempty"`
 
 	DhcpOffer *int `json:"dhcpOffer,omitempty"`
+}
+
+func NewWSGDHCPMsgStatsDhcpMsgSentStatsType() *WSGDHCPMsgStatsDhcpMsgSentStatsType {
+	m := new(WSGDHCPMsgStatsDhcpMsgSentStatsType)
+	return m
 }

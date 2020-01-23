@@ -24,6 +24,11 @@ type WSGClusterBladeBladeProgress struct {
 	State *string `json:"state,omitempty"`
 }
 
+func NewWSGClusterBladeBladeProgress() *WSGClusterBladeBladeProgress {
+	m := new(WSGClusterBladeBladeProgress)
+	return m
+}
+
 type WSGClusterBladeClusterOperationProgress struct {
 	Operation *WSGClusterBladeOperation `json:"operation,omitempty"`
 
@@ -32,6 +37,11 @@ type WSGClusterBladeClusterOperationProgress struct {
 	OverallProgress *int `json:"overallProgress,omitempty"`
 
 	PreviousOperationRecord *WSGClusterBladePreviousOperationRecord `json:"previousOperationRecord,omitempty"`
+}
+
+func NewWSGClusterBladeClusterOperationProgress() *WSGClusterBladeClusterOperationProgress {
+	m := new(WSGClusterBladeClusterOperationProgress)
+	return m
 }
 
 type WSGClusterBladeClusterState struct {
@@ -64,6 +74,11 @@ type WSGClusterBladeClusterState struct {
 	NodeStateList []*WSGClusterBladeClusterStateNodeStateListType `json:"nodeStateList,omitempty"`
 }
 
+func NewWSGClusterBladeClusterState() *WSGClusterBladeClusterState {
+	m := new(WSGClusterBladeClusterState)
+	return m
+}
+
 type WSGClusterBladeClusterStateManagementServiceStateListType struct {
 	// ManagementServiceState
 	// management service state
@@ -80,6 +95,11 @@ type WSGClusterBladeClusterStateManagementServiceStateListType struct {
 	NodeName *string `json:"nodeName,omitempty"`
 }
 
+func NewWSGClusterBladeClusterStateManagementServiceStateListType() *WSGClusterBladeClusterStateManagementServiceStateListType {
+	m := new(WSGClusterBladeClusterStateManagementServiceStateListType)
+	return m
+}
+
 type WSGClusterBladeClusterStateNodeStateListType struct {
 	// NodeId
 	// Identifier of the controller node
@@ -94,12 +114,22 @@ type WSGClusterBladeClusterStateNodeStateListType struct {
 	NodeState *string `json:"nodeState,omitempty" validate:"oneof=Out_Of_Service In_Service"`
 }
 
+func NewWSGClusterBladeClusterStateNodeStateListType() *WSGClusterBladeClusterStateNodeStateListType {
+	m := new(WSGClusterBladeClusterStateNodeStateListType)
+	return m
+}
+
 type WSGClusterBladeClusterStatus struct {
 	// ClusterStatus
 	// progress of bladeProgress
 	// Constraints:
 	//    - oneof:[In_Service,Out_Of_Service,Maintenance,Read_Only,NetworkPartitionSuspected]
 	ClusterStatus *string `json:"clusterStatus,omitempty" validate:"oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
+}
+
+func NewWSGClusterBladeClusterStatus() *WSGClusterBladeClusterStatus {
+	m := new(WSGClusterBladeClusterStatus)
+	return m
 }
 
 type WSGClusterBladeClusterUpgradeProgress struct {
@@ -134,8 +164,18 @@ type WSGClusterBladeClusterUpgradeProgress struct {
 	PreviousOperationRecord *WSGClusterBladePreviousOperationRecord `json:"previousOperationRecord,omitempty"`
 }
 
+func NewWSGClusterBladeClusterUpgradeProgress() *WSGClusterBladeClusterUpgradeProgress {
+	m := new(WSGClusterBladeClusterUpgradeProgress)
+	return m
+}
+
 type WSGClusterBladeControlNodeStatus struct {
 	NodeStatusList []*WSGClusterBladeControlNodeStatusNodeStatusListType `json:"nodeStatusList,omitempty"`
+}
+
+func NewWSGClusterBladeControlNodeStatus() *WSGClusterBladeControlNodeStatus {
+	m := new(WSGClusterBladeControlNodeStatus)
+	return m
 }
 
 type WSGClusterBladeControlNodeStatusNodeStatusListType struct {
@@ -150,7 +190,17 @@ type WSGClusterBladeControlNodeStatusNodeStatusListType struct {
 	NodeStatus *string `json:"nodeStatus,omitempty" validate:"oneof=Out_Of_Service Bootstrapping Got_WSG_Version WSG_FW_Upgrading Initializing_Database Syncing_Configurations Changing_Configurations Launching_Apps In_Service Shutting_Down_Apps"`
 }
 
+func NewWSGClusterBladeControlNodeStatusNodeStatusListType() *WSGClusterBladeControlNodeStatusNodeStatusListType {
+	m := new(WSGClusterBladeControlNodeStatusNodeStatusListType)
+	return m
+}
+
 type WSGClusterBladeOperation string
+
+func NewWSGClusterBladeOperation() *WSGClusterBladeOperation {
+	m := new(WSGClusterBladeOperation)
+	return m
+}
 
 type WSGClusterBladePreviousOperationRecord struct {
 	// ErrorMsg
@@ -162,6 +212,11 @@ type WSGClusterBladePreviousOperationRecord struct {
 	// Success
 	// success of previousOperationRecord
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewWSGClusterBladePreviousOperationRecord() *WSGClusterBladePreviousOperationRecord {
+	m := new(WSGClusterBladePreviousOperationRecord)
+	return m
 }
 
 type WSGClusterBladeUploadPatchInfo struct {
@@ -196,4 +251,9 @@ type WSGClusterBladeUploadPatchInfo struct {
 	// Version
 	// version of uploadPatchInfo
 	Version *string `json:"version,omitempty"`
+}
+
+func NewWSGClusterBladeUploadPatchInfo() *WSGClusterBladeUploadPatchInfo {
+	m := new(WSGClusterBladeUploadPatchInfo)
+	return m
 }

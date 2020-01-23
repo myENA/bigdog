@@ -12,6 +12,11 @@ type WSGAVCAppCategory struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewWSGAVCAppCategory() *WSGAVCAppCategory {
+	m := new(WSGAVCAppCategory)
+	return m
+}
+
 type WSGAVCAppCategoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -20,6 +25,11 @@ type WSGAVCAppCategoryList struct {
 	List []*WSGAVCAppCategory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAVCAppCategoryList() *WSGAVCAppCategoryList {
+	m := new(WSGAVCAppCategoryList)
+	return m
 }
 
 type WSGAVCApplication struct {
@@ -36,6 +46,11 @@ type WSGAVCApplication struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewWSGAVCApplication() *WSGAVCApplication {
+	m := new(WSGAVCApplication)
+	return m
+}
+
 type WSGAVCApplicationList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -44,6 +59,11 @@ type WSGAVCApplicationList struct {
 	List []*WSGAVCApplication `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAVCApplicationList() *WSGAVCApplicationList {
+	m := new(WSGAVCApplicationList)
+	return m
 }
 
 type WSGAVCApplicationPolicyProfile struct {
@@ -98,6 +118,11 @@ type WSGAVCApplicationPolicyProfile struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+func NewWSGAVCApplicationPolicyProfile() *WSGAVCApplicationPolicyProfile {
+	m := new(WSGAVCApplicationPolicyProfile)
+	return m
+}
+
 type WSGAVCApplicationPolicyProfileList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -108,6 +133,11 @@ type WSGAVCApplicationPolicyProfileList struct {
 	List []*WSGAVCApplicationPolicyProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAVCApplicationPolicyProfileList() *WSGAVCApplicationPolicyProfileList {
+	m := new(WSGAVCApplicationPolicyProfileList)
+	return m
 }
 
 type WSGAVCApplicationRule struct {
@@ -168,6 +198,11 @@ type WSGAVCApplicationRule struct {
 	Uplink *int `json:"uplink,omitempty"`
 }
 
+func NewWSGAVCApplicationRule() *WSGAVCApplicationRule {
+	m := new(WSGAVCApplicationRule)
+	return m
+}
+
 type WSGAVCCreateApplicationPolicyProfile struct {
 	// ApplicationRules
 	// Constraints:
@@ -192,6 +227,11 @@ type WSGAVCCreateApplicationPolicyProfile struct {
 	// Constraints:
 	//    - required
 	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewWSGAVCCreateApplicationPolicyProfile() *WSGAVCCreateApplicationPolicyProfile {
+	m := new(WSGAVCCreateApplicationPolicyProfile)
+	return m
 }
 
 type WSGAVCCreateUserDefinedProfile struct {
@@ -231,8 +271,18 @@ type WSGAVCCreateUserDefinedProfile struct {
 	Type *string `json:"type" validate:"required,oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
+func NewWSGAVCCreateUserDefinedProfile() *WSGAVCCreateUserDefinedProfile {
+	m := new(WSGAVCCreateUserDefinedProfile)
+	return m
+}
+
 type WSGAVCDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGAVCDeleteBulk() *WSGAVCDeleteBulk {
+	m := new(WSGAVCDeleteBulk)
+	return m
 }
 
 type WSGAVCModifyApplicationPolicyProfile struct {
@@ -249,6 +299,11 @@ type WSGAVCModifyApplicationPolicyProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+}
+
+func NewWSGAVCModifyApplicationPolicyProfile() *WSGAVCModifyApplicationPolicyProfile {
+	m := new(WSGAVCModifyApplicationPolicyProfile)
+	return m
 }
 
 type WSGAVCModifyUserDefinedProfile struct {
@@ -278,6 +333,11 @@ type WSGAVCModifyUserDefinedProfile struct {
 	Type *string `json:"type,omitempty" validate:"oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
+func NewWSGAVCModifyUserDefinedProfile() *WSGAVCModifyUserDefinedProfile {
+	m := new(WSGAVCModifyUserDefinedProfile)
+	return m
+}
+
 type WSGAVCSignaturePackage struct {
 	// FileName
 	// Name of the Signature Package
@@ -294,6 +354,11 @@ type WSGAVCSignaturePackage struct {
 	// Version
 	// Version of the Signature Package
 	Version *string `json:"version,omitempty"`
+}
+
+func NewWSGAVCSignaturePackage() *WSGAVCSignaturePackage {
+	m := new(WSGAVCSignaturePackage)
+	return m
 }
 
 type WSGAVCUserDefinedProfile struct {
@@ -363,6 +428,11 @@ type WSGAVCUserDefinedProfile struct {
 	Type *string `json:"type,omitempty" validate:"oneof=IP_WITH_PORT PORT_ONLY"`
 }
 
+func NewWSGAVCUserDefinedProfile() *WSGAVCUserDefinedProfile {
+	m := new(WSGAVCUserDefinedProfile)
+	return m
+}
+
 type WSGAVCUserDefinedProfileList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
@@ -373,4 +443,9 @@ type WSGAVCUserDefinedProfileList struct {
 	List []*WSGAVCUserDefinedProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAVCUserDefinedProfileList() *WSGAVCUserDefinedProfileList {
+	m := new(WSGAVCUserDefinedProfileList)
+	return m
 }

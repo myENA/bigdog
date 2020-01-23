@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type SwitchMGroupService struct {
@@ -34,6 +33,11 @@ type SwitchMGroupAuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewSwitchMGroupAuditId() *SwitchMGroupAuditId {
+	m := new(SwitchMGroupAuditId)
+	return m
+}
+
 type SwitchMGroupClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
@@ -50,6 +54,11 @@ type SwitchMGroupClientObjectID struct {
 	// Type
 	// Type of the client
 	Type *string `json:"type,omitempty"`
+}
+
+func NewSwitchMGroupClientObjectID() *SwitchMGroupClientObjectID {
+	m := new(SwitchMGroupClientObjectID)
+	return m
 }
 
 // SwitchMGroupClientObjectIDExtraValuesType
@@ -75,12 +84,22 @@ func (t *SwitchMGroupClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMGroupClientObjectIDExtraValuesType() *SwitchMGroupClientObjectIDExtraValuesType {
+	m := new(SwitchMGroupClientObjectIDExtraValuesType)
+	return m
+}
+
 type SwitchMGroupCloneConfigByGroup struct {
 	Destination []string `json:"destination,omitempty"`
 
 	// Source
 	// Source
 	Source *string `json:"source,omitempty"`
+}
+
+func NewSwitchMGroupCloneConfigByGroup() *SwitchMGroupCloneConfigByGroup {
+	m := new(SwitchMGroupCloneConfigByGroup)
+	return m
 }
 
 type SwitchMGroupCloneConfigBySwitch struct {
@@ -95,6 +114,11 @@ type SwitchMGroupCloneConfigBySwitch struct {
 	Source *string `json:"source,omitempty"`
 }
 
+func NewSwitchMGroupCloneConfigBySwitch() *SwitchMGroupCloneConfigBySwitch {
+	m := new(SwitchMGroupCloneConfigBySwitch)
+	return m
+}
+
 type SwitchMGroupDeleteSwitchGroupResult struct {
 	*SwitchMGroupAuditId
 }
@@ -107,6 +131,11 @@ type SwitchMGroupErrorObject struct {
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
+func NewSwitchMGroupErrorObject() *SwitchMGroupErrorObject {
+	m := new(SwitchMGroupErrorObject)
+	return m
+}
+
 type SwitchMGroupGetConfigBySwitch struct {
 	// Id
 	// ID
@@ -115,6 +144,11 @@ type SwitchMGroupGetConfigBySwitch struct {
 	// Source
 	// Source
 	Source *string `json:"source,omitempty"`
+}
+
+func NewSwitchMGroupGetConfigBySwitch() *SwitchMGroupGetConfigBySwitch {
+	m := new(SwitchMGroupGetConfigBySwitch)
+	return m
 }
 
 type SwitchMGroupsByIdsQueryResultList struct {
@@ -133,6 +167,11 @@ type SwitchMGroupsByIdsQueryResultList struct {
 	// Success
 	// Query result success or not
 	Success *bool `json:"success,omitempty"`
+}
+
+func NewSwitchMGroupsByIdsQueryResultList() *SwitchMGroupsByIdsQueryResultList {
+	m := new(SwitchMGroupsByIdsQueryResultList)
+	return m
 }
 
 // SwitchMGroupsByIdsQueryResultListExtraType
@@ -158,6 +197,11 @@ func (t *SwitchMGroupsByIdsQueryResultListExtraType) MarshalJSON() ([]byte, erro
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMGroupsByIdsQueryResultListExtraType() *SwitchMGroupsByIdsQueryResultListExtraType {
+	m := new(SwitchMGroupsByIdsQueryResultListExtraType)
+	return m
+}
+
 // SwitchMGroupsByIdsQueryResultListMetaDataType
 //
 // Metadata of query result list
@@ -179,6 +223,11 @@ func (t *SwitchMGroupsByIdsQueryResultListMetaDataType) MarshalJSON() ([]byte, e
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMGroupsByIdsQueryResultListMetaDataType() *SwitchMGroupsByIdsQueryResultListMetaDataType {
+	m := new(SwitchMGroupsByIdsQueryResultListMetaDataType)
+	return m
 }
 
 type SwitchMGroupQueryResultList struct {
@@ -205,6 +254,11 @@ type SwitchMGroupQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMGroupQueryResultList() *SwitchMGroupQueryResultList {
+	m := new(SwitchMGroupQueryResultList)
+	return m
+}
+
 // SwitchMGroupQueryResultListExtraType
 //
 // Extra information for query result list
@@ -226,6 +280,11 @@ func (t *SwitchMGroupQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMGroupQueryResultListExtraType() *SwitchMGroupQueryResultListExtraType {
+	m := new(SwitchMGroupQueryResultListExtraType)
+	return m
 }
 
 type SwitchMGroupSwitchGroup struct {
@@ -282,6 +341,11 @@ type SwitchMGroupSwitchGroup struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+func NewSwitchMGroupSwitchGroup() *SwitchMGroupSwitchGroup {
+	m := new(SwitchMGroupSwitchGroup)
+	return m
+}
+
 type SwitchMGroupSwitchGroupQueryResult struct {
 	*SwitchMGroupSwitchGroup
 }
@@ -309,6 +373,11 @@ func (t *SwitchMGroupSwitchGroupSampledInstantType) MarshalJSON() ([]byte, error
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMGroupSwitchGroupSampledInstantType() *SwitchMGroupSwitchGroupSampledInstantType {
+	m := new(SwitchMGroupSwitchGroupSampledInstantType)
+	return m
+}
+
 type SwitchMGroupUpdateSwitchGroup struct {
 	*SwitchMGroupSwitchGroup
 }
@@ -324,11 +393,17 @@ type SwitchMGroupUpdateSwitchGroupResult struct {
 // Request Body:
 //	 - body *SwitchMGroupSwitchGroup
 func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSwitchGroup) (*SwitchMGroupAuditId, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+	var (
+		resp *SwitchMGroupAuditId
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -336,15 +411,19 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 //
 // Use this API command to delete a switch group.
 //
-// Path Parameters:
-// - pSwitchGroupId string
+// Required Parameters:
+// - switchGroupId string
 //		- required
-func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, pSwitchGroupId string) (*SwitchMGroupDeleteSwitchGroupResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMGroupDeleteSwitchGroupResult, error) {
+	var (
+		resp *SwitchMGroupDeleteSwitchGroupResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -352,15 +431,19 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, pS
 //
 // Use this API command to retrieve switch group detail.
 //
-// Path Parameters:
-// - pSwitchGroupId string
+// Required Parameters:
+// - switchGroupId string
 //		- required
-func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, pSwitchGroupId string) (*SwitchMGroupSwitchGroupQueryResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMGroupSwitchGroupQueryResult, error) {
+	var (
+		resp *SwitchMGroupSwitchGroupQueryResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -368,15 +451,19 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, pSwi
 //
 // Use this API command to retrieve the switch groups by domain ID.
 //
-// Path Parameters:
-// - pDomainId string
+// Required Parameters:
+// - domainId string
 //		- required
-func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, pDomainId string) (*SwitchMGroupsByIdsQueryResultList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, domainId string) (*SwitchMGroupsByIdsQueryResultList, error) {
+	var (
+		resp *SwitchMGroupsByIdsQueryResultList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, domainId, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -387,14 +474,18 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 // Request Body:
 //	 - body *SwitchMGroupUpdateSwitchGroup
 //
-// Path Parameters:
-// - pSwitchGroupId string
+// Required Parameters:
+// - switchGroupId string
 //		- required
-func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Context, body *SwitchMGroupUpdateSwitchGroup, pSwitchGroupId string) (*SwitchMGroupUpdateSwitchGroupResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Context, body *SwitchMGroupUpdateSwitchGroup, switchGroupId string) (*SwitchMGroupUpdateSwitchGroupResult, error) {
+	var (
+		resp *SwitchMGroupUpdateSwitchGroupResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
+		return resp, err
 	}
 }

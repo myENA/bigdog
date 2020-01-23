@@ -54,6 +54,11 @@ type SwitchMACLConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+func NewSwitchMACLConfig() *SwitchMACLConfig {
+	m := new(SwitchMACLConfig)
+	return m
+}
+
 type SwitchMACLConfigsQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -78,6 +83,11 @@ type SwitchMACLConfigsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMACLConfigsQueryResult() *SwitchMACLConfigsQueryResult {
+	m := new(SwitchMACLConfigsQueryResult)
+	return m
+}
+
 // SwitchMACLConfigsQueryResultExtraType
 //
 // Any additional response data
@@ -99,6 +109,11 @@ func (t *SwitchMACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMACLConfigsQueryResultExtraType() *SwitchMACLConfigsQueryResultExtraType {
+	m := new(SwitchMACLConfigsQueryResultExtraType)
+	return m
 }
 
 type SwitchMACLConfigACLRule struct {
@@ -133,6 +148,11 @@ type SwitchMACLConfigACLRule struct {
 	// SrcPort
 	// The source port of AccessControl Rule
 	SrcPort *string `json:"srcPort,omitempty"`
+}
+
+func NewSwitchMACLConfigACLRule() *SwitchMACLConfigACLRule {
+	m := new(SwitchMACLConfigACLRule)
+	return m
 }
 
 type SwitchMACLConfigCreateACLConfig struct {
@@ -171,6 +191,11 @@ type SwitchMACLConfigCreateACLConfig struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+func NewSwitchMACLConfigCreateACLConfig() *SwitchMACLConfigCreateACLConfig {
+	m := new(SwitchMACLConfigCreateACLConfig)
+	return m
+}
+
 type SwitchMACLConfigEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -191,6 +216,11 @@ func (t *SwitchMACLConfigEmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewSwitchMACLConfigEmptyResult() *SwitchMACLConfigEmptyResult {
+	m := new(SwitchMACLConfigEmptyResult)
+	return m
+}
+
 type SwitchMACLConfigUpdateACLConfig struct {
 	AclRule []*SwitchMACLConfigACLRule `json:"aclRule,omitempty"`
 
@@ -209,4 +239,9 @@ type SwitchMACLConfigUpdateACLConfig struct {
 	// Constraints:
 	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+}
+
+func NewSwitchMACLConfigUpdateACLConfig() *SwitchMACLConfigUpdateACLConfig {
+	m := new(SwitchMACLConfigUpdateACLConfig)
+	return m
 }

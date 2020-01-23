@@ -50,6 +50,11 @@ type WSGCommonAlarm struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewWSGCommonAlarm() *WSGCommonAlarm {
+	m := new(WSGCommonAlarm)
+	return m
+}
+
 type WSGCommonAltitude struct {
 	// AltitudeUnit
 	// altitude unit
@@ -63,6 +68,11 @@ type WSGCommonAltitude struct {
 	AltitudeValue *int `json:"altitudeValue,omitempty"`
 }
 
+func NewWSGCommonAltitude() *WSGCommonAltitude {
+	m := new(WSGCommonAltitude)
+	return m
+}
+
 // WSGCommonApGpsSource
 //
 // GPS Source of the AP
@@ -70,15 +80,35 @@ type WSGCommonAltitude struct {
 //    - oneof:[GPS,MANUAL]
 type WSGCommonApGpsSource string
 
+func NewWSGCommonApGpsSource() *WSGCommonApGpsSource {
+	m := new(WSGCommonApGpsSource)
+	return m
+}
+
 type WSGCommonApLatencyInterval struct {
 	// PingEnabled
 	// AP ping latency enabled
 	PingEnabled *bool `json:"pingEnabled,omitempty"`
 }
 
+func NewWSGCommonApLatencyInterval() *WSGCommonApLatencyInterval {
+	m := new(WSGCommonApLatencyInterval)
+	return m
+}
+
 type WSGCommonApLoginName string
 
+func NewWSGCommonApLoginName() *WSGCommonApLoginName {
+	m := new(WSGCommonApLoginName)
+	return m
+}
+
 type WSGCommonApLoginPassword string
+
+func NewWSGCommonApLoginPassword() *WSGCommonApLoginPassword {
+	m := new(WSGCommonApLoginPassword)
+	return m
+}
 
 type WSGCommonApManagementVlan struct {
 	// Id
@@ -91,6 +121,11 @@ type WSGCommonApManagementVlan struct {
 	//    - default:'KEEP'
 	//    - oneof:[KEEP,USER_DEFINED]
 	Mode *string `json:"mode,omitempty" validate:"oneof=KEEP USER_DEFINED"`
+}
+
+func NewWSGCommonApManagementVlan() *WSGCommonApManagementVlan {
+	m := new(WSGCommonApManagementVlan)
+	return m
 }
 
 type WSGCommonApRadio50 struct {
@@ -119,6 +154,11 @@ type WSGCommonApRadio50 struct {
 	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
 }
 
+func NewWSGCommonApRadio50() *WSGCommonApRadio50 {
+	m := new(WSGCommonApRadio50)
+	return m
+}
+
 type WSGCommonApRebootTimeout struct {
 	// GatewayLossTimeoutInSec
 	// Gateway loss timeout in second
@@ -133,6 +173,11 @@ type WSGCommonApRebootTimeout struct {
 	//    - default:7200
 	//    - oneof:[0,7200,14400,21600,28800,36000,43200,50400,57600,64800,72000,79200,86400]
 	ServerLossTimeoutInSec *int `json:"serverLossTimeoutInSec,omitempty" validate:"oneof=0 7200 14400 21600 28800 36000 43200 50400 57600 64800 72000 79200 86400"`
+}
+
+func NewWSGCommonApRebootTimeout() *WSGCommonApRebootTimeout {
+	m := new(WSGCommonApRebootTimeout)
+	return m
 }
 
 type WSGCommonAutoChannelSelection struct {
@@ -150,6 +195,11 @@ type WSGCommonAutoChannelSelection struct {
 	//    - default:'BackgroundScanning'
 	//    - oneof:[None,BackgroundScanning,ChannelFly]
 	ChannelSelectMode *string `json:"channelSelectMode,omitempty" validate:"oneof=None BackgroundScanning ChannelFly"`
+}
+
+func NewWSGCommonAutoChannelSelection() *WSGCommonAutoChannelSelection {
+	m := new(WSGCommonAutoChannelSelection)
+	return m
 }
 
 type WSGCommonBaseServiceInfo struct {
@@ -170,8 +220,18 @@ type WSGCommonBaseServiceInfo struct {
 	ServiceType *string `json:"serviceType,omitempty"`
 }
 
+func NewWSGCommonBaseServiceInfo() *WSGCommonBaseServiceInfo {
+	m := new(WSGCommonBaseServiceInfo)
+	return m
+}
+
 type WSGCommonBulkDeleteRequest struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
+}
+
+func NewWSGCommonBulkDeleteRequest() *WSGCommonBulkDeleteRequest {
+	m := new(WSGCommonBulkDeleteRequest)
+	return m
 }
 
 type WSGCommonClient struct {
@@ -274,6 +334,11 @@ type WSGCommonClient struct {
 	WlanId *string `json:"wlanId,omitempty"`
 }
 
+func NewWSGCommonClient() *WSGCommonClient {
+	m := new(WSGCommonClient)
+	return m
+}
+
 type WSGCommonClientAdmissionControl struct {
 	// MaxRadioLoadPercent
 	// Maximum radio load percentage.
@@ -300,8 +365,18 @@ type WSGCommonClientAdmissionControl struct {
 	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"gte=0.000000,lte=100.000000"`
 }
 
+func NewWSGCommonClientAdmissionControl() *WSGCommonClientAdmissionControl {
+	m := new(WSGCommonClientAdmissionControl)
+	return m
+}
+
 type WSGCommonCreateResult struct {
 	Id *string `json:"id,omitempty"`
+}
+
+func NewWSGCommonCreateResult() *WSGCommonCreateResult {
+	m := new(WSGCommonCreateResult)
+	return m
 }
 
 type WSGCommonCreateResultIdName struct {
@@ -310,9 +385,24 @@ type WSGCommonCreateResultIdName struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func NewWSGCommonCreateResultIdName() *WSGCommonCreateResultIdName {
+	m := new(WSGCommonCreateResultIdName)
+	return m
+}
+
 type WSGCommonDescription string
 
+func NewWSGCommonDescription() *WSGCommonDescription {
+	m := new(WSGCommonDescription)
+	return m
+}
+
 type WSGCommonDescriptionTo128 string
+
+func NewWSGCommonDescriptionTo128() *WSGCommonDescriptionTo128 {
+	m := new(WSGCommonDescriptionTo128)
+	return m
+}
 
 type WSGCommonDhcpProfileRef struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
@@ -361,6 +451,11 @@ type WSGCommonDhcpProfileRef struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGCommonDhcpProfileRef() *WSGCommonDhcpProfileRef {
+	m := new(WSGCommonDhcpProfileRef)
+	return m
+}
+
 type WSGCommonDhcpSiteConfigListRef struct {
 	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
@@ -393,6 +488,11 @@ type WSGCommonDhcpSiteConfigListRef struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+func NewWSGCommonDhcpSiteConfigListRef() *WSGCommonDhcpSiteConfigListRef {
+	m := new(WSGCommonDhcpSiteConfigListRef)
+	return m
+}
+
 // WSGCommonDhcpSiteConfigListRefSiteApsType
 //
 // DHCP Site selected APs
@@ -415,6 +515,11 @@ type WSGCommonDhcpSiteConfigListRefSiteApsType struct {
 	// Constraints:
 	//    - oneof:[Online,Offline,Flagged]
 	ApStatus *string `json:"apStatus,omitempty" validate:"oneof=Online Offline Flagged"`
+}
+
+func NewWSGCommonDhcpSiteConfigListRefSiteApsType() *WSGCommonDhcpSiteConfigListRefSiteApsType {
+	m := new(WSGCommonDhcpSiteConfigListRefSiteApsType)
+	return m
 }
 
 type WSGCommonDhcpSiteConfigRef struct {
@@ -445,6 +550,11 @@ type WSGCommonDhcpSiteConfigRef struct {
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
 
+func NewWSGCommonDhcpSiteConfigRef() *WSGCommonDhcpSiteConfigRef {
+	m := new(WSGCommonDhcpSiteConfigRef)
+	return m
+}
+
 // WSGCommonDhcpSiteConfigRefSiteApsType
 //
 // DHCP Site selected APs. The content is effective when the siteMode is EnableOnMultipleAPs.
@@ -472,6 +582,11 @@ type WSGCommonDhcpSiteConfigRefSiteApsType struct {
 	ApStatus *string `json:"apStatus,omitempty" validate:"oneof=Online Offline Flagged"`
 }
 
+func NewWSGCommonDhcpSiteConfigRefSiteApsType() *WSGCommonDhcpSiteConfigRefSiteApsType {
+	m := new(WSGCommonDhcpSiteConfigRefSiteApsType)
+	return m
+}
+
 type WSGCommonDoAssignIp struct {
 	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
@@ -496,6 +611,11 @@ type WSGCommonDoAssignIp struct {
 	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
 
+func NewWSGCommonDoAssignIp() *WSGCommonDoAssignIp {
+	m := new(WSGCommonDoAssignIp)
+	return m
+}
+
 // WSGCommonDoAssignIpSiteApsType
 //
 // DHCP Site selected APs. The content is effective when the siteMode is EnableOnMultipleAPs.
@@ -507,7 +627,17 @@ type WSGCommonDoAssignIpSiteApsType struct {
 	ApServerPrimary *bool `json:"apServerPrimary,omitempty"`
 }
 
+func NewWSGCommonDoAssignIpSiteApsType() *WSGCommonDoAssignIpSiteApsType {
+	m := new(WSGCommonDoAssignIpSiteApsType)
+	return m
+}
+
 type WSGCommonEmail string
+
+func NewWSGCommonEmail() *WSGCommonEmail {
+	m := new(WSGCommonEmail)
+	return m
+}
 
 type WSGCommonEmptyResult struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -529,11 +659,31 @@ func (t *WSGCommonEmptyResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewWSGCommonEmptyResult() *WSGCommonEmptyResult {
+	m := new(WSGCommonEmptyResult)
+	return m
+}
+
 type WSGCommonFilterOperator string
+
+func NewWSGCommonFilterOperator() *WSGCommonFilterOperator {
+	m := new(WSGCommonFilterOperator)
+	return m
+}
 
 type WSGCommonFirmwareVersion string
 
+func NewWSGCommonFirmwareVersion() *WSGCommonFirmwareVersion {
+	m := new(WSGCommonFirmwareVersion)
+	return m
+}
+
 type WSGCommonFQDN string
+
+func NewWSGCommonFQDN() *WSGCommonFQDN {
+	m := new(WSGCommonFQDN)
+	return m
+}
 
 type WSGCommonFullTextSearch struct {
 	// Fields
@@ -551,10 +701,20 @@ type WSGCommonFullTextSearch struct {
 	Value *string `json:"value,omitempty"`
 }
 
+func NewWSGCommonFullTextSearch() *WSGCommonFullTextSearch {
+	m := new(WSGCommonFullTextSearch)
+	return m
+}
+
 type WSGCommonGenericRef struct {
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGCommonGenericRef() *WSGCommonGenericRef {
+	m := new(WSGCommonGenericRef)
+	return m
 }
 
 type WSGCommonHealthCheckPolicy struct {
@@ -590,23 +750,73 @@ type WSGCommonHealthCheckPolicy struct {
 	ZombiePeriod *int `json:"zombiePeriod" validate:"required,gte=30,lte=120"`
 }
 
+func NewWSGCommonHealthCheckPolicy() *WSGCommonHealthCheckPolicy {
+	m := new(WSGCommonHealthCheckPolicy)
+	return m
+}
+
 type WSGCommonHTTPS string
+
+func NewWSGCommonHTTPS() *WSGCommonHTTPS {
+	m := new(WSGCommonHTTPS)
+	return m
+}
 
 type WSGCommonIdList []string
 
+func MakeWSGCommonIdList() WSGCommonIdList {
+	m := make(WSGCommonIdList, 0)
+	return m
+}
+
 type WSGCommonIpAddress string
+
+func NewWSGCommonIpAddress() *WSGCommonIpAddress {
+	m := new(WSGCommonIpAddress)
+	return m
+}
 
 type WSGCommonIpMode string
 
+func NewWSGCommonIpMode() *WSGCommonIpMode {
+	m := new(WSGCommonIpMode)
+	return m
+}
+
 type WSGCommonLanguageName string
+
+func NewWSGCommonLanguageName() *WSGCommonLanguageName {
+	m := new(WSGCommonLanguageName)
+	return m
+}
 
 type WSGCommonLatitude float64
 
+func NewWSGCommonLatitude() *WSGCommonLatitude {
+	m := new(WSGCommonLatitude)
+	return m
+}
+
 type WSGCommonLocation string
+
+func NewWSGCommonLocation() *WSGCommonLocation {
+	m := new(WSGCommonLocation)
+	return m
+}
 
 type WSGCommonLocationAdditionalInfo string
 
+func NewWSGCommonLocationAdditionalInfo() *WSGCommonLocationAdditionalInfo {
+	m := new(WSGCommonLocationAdditionalInfo)
+	return m
+}
+
 type WSGCommonLongitude float64
+
+func NewWSGCommonLongitude() *WSGCommonLongitude {
+	m := new(WSGCommonLongitude)
+	return m
+}
 
 type WSGCommonLteBandLockChannel struct {
 	// Channel3g
@@ -626,17 +836,52 @@ type WSGCommonLteBandLockChannel struct {
 	Type *string `json:"type,omitempty"`
 }
 
+func NewWSGCommonLteBandLockChannel() *WSGCommonLteBandLockChannel {
+	m := new(WSGCommonLteBandLockChannel)
+	return m
+}
+
 type WSGCommonMac string
+
+func NewWSGCommonMac() *WSGCommonMac {
+	m := new(WSGCommonMac)
+	return m
+}
 
 type WSGCommonNormalName string
 
+func NewWSGCommonNormalName() *WSGCommonNormalName {
+	m := new(WSGCommonNormalName)
+	return m
+}
+
 type WSGCommonNormalName2to64 string
+
+func NewWSGCommonNormalName2to64() *WSGCommonNormalName2to64 {
+	m := new(WSGCommonNormalName2to64)
+	return m
+}
 
 type WSGCommonNormalName2to128 string
 
+func NewWSGCommonNormalName2to128() *WSGCommonNormalName2to128 {
+	m := new(WSGCommonNormalName2to128)
+	return m
+}
+
 type WSGCommonNormalNameAllowBlank string
 
+func NewWSGCommonNormalNameAllowBlank() *WSGCommonNormalNameAllowBlank {
+	m := new(WSGCommonNormalNameAllowBlank)
+	return m
+}
+
 type WSGCommonNormalURL string
+
+func NewWSGCommonNormalURL() *WSGCommonNormalURL {
+	m := new(WSGCommonNormalURL)
+	return m
+}
 
 type WSGCommonOverrideClientAdmissionControl struct {
 	Enabled *bool `json:"enabled,omitempty"`
@@ -666,12 +911,22 @@ type WSGCommonOverrideClientAdmissionControl struct {
 	MinClientThroughputMbps *float64 `json:"minClientThroughputMbps,omitempty" validate:"gte=0.000000,lte=100.000000"`
 }
 
+func NewWSGCommonOverrideClientAdmissionControl() *WSGCommonOverrideClientAdmissionControl {
+	m := new(WSGCommonOverrideClientAdmissionControl)
+	return m
+}
+
 type WSGCommonOverrideGenericRef struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
 	Id *string `json:"id,omitempty"`
 
 	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGCommonOverrideGenericRef() *WSGCommonOverrideGenericRef {
+	m := new(WSGCommonOverrideGenericRef)
+	return m
 }
 
 type WSGCommonOverrideSmartMonitor struct {
@@ -692,6 +947,11 @@ type WSGCommonOverrideSmartMonitor struct {
 	//    - min:1
 	//    - max:10
 	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"gte=1,lte=10"`
+}
+
+func NewWSGCommonOverrideSmartMonitor() *WSGCommonOverrideSmartMonitor {
+	m := new(WSGCommonOverrideSmartMonitor)
+	return m
 }
 
 type WSGCommonPortalCustomization struct {
@@ -731,6 +991,11 @@ type WSGCommonPortalCustomization struct {
 	Title *string `json:"title,omitempty" validate:"max=63,min=0"`
 }
 
+func NewWSGCommonPortalCustomization() *WSGCommonPortalCustomization {
+	m := new(WSGCommonPortalCustomization)
+	return m
+}
+
 // WSGCommonPortalLanguage
 //
 // Language
@@ -739,7 +1004,17 @@ type WSGCommonPortalCustomization struct {
 //    - oneof:[en_US,zh_TW,zh_CN,nl_NL,fr_FR,de_DE,ja_JP,es_ES,se_SE,ar_SA,cz_CZ,da_DK,tr_TR,pt_BR]
 type WSGCommonPortalLanguage string
 
+func NewWSGCommonPortalLanguage() *WSGCommonPortalLanguage {
+	m := new(WSGCommonPortalLanguage)
+	return m
+}
+
 type WSGCommonProtectionMode string
+
+func NewWSGCommonProtectionMode() *WSGCommonProtectionMode {
+	m := new(WSGCommonProtectionMode)
+	return m
+}
 
 type WSGCommonQueryCriteria struct {
 	// Attributes
@@ -795,6 +1070,11 @@ type WSGCommonQueryCriteria struct {
 	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
+func NewWSGCommonQueryCriteria() *WSGCommonQueryCriteria {
+	m := new(WSGCommonQueryCriteria)
+	return m
+}
+
 type WSGCommonQueryCriteriaExtraFiltersType struct {
 	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
@@ -807,6 +1087,11 @@ type WSGCommonQueryCriteriaExtraFiltersType struct {
 	Value *string `json:"value,omitempty"`
 }
 
+func NewWSGCommonQueryCriteriaExtraFiltersType() *WSGCommonQueryCriteriaExtraFiltersType {
+	m := new(WSGCommonQueryCriteriaExtraFiltersType)
+	return m
+}
+
 type WSGCommonQueryCriteriaExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
@@ -815,6 +1100,11 @@ type WSGCommonQueryCriteriaExtraNotFiltersType struct {
 	// Value
 	// value not to search
 	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGCommonQueryCriteriaExtraNotFiltersType() *WSGCommonQueryCriteriaExtraNotFiltersType {
+	m := new(WSGCommonQueryCriteriaExtraNotFiltersType)
+	return m
 }
 
 type WSGCommonQueryCriteriaFiltersType struct {
@@ -827,6 +1117,11 @@ type WSGCommonQueryCriteriaFiltersType struct {
 	// Value
 	// Group ID
 	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGCommonQueryCriteriaFiltersType() *WSGCommonQueryCriteriaFiltersType {
+	m := new(WSGCommonQueryCriteriaFiltersType)
+	return m
 }
 
 // WSGCommonQueryCriteriaOptionsType
@@ -852,6 +1147,11 @@ func (t *WSGCommonQueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.XAdditionalProperties)
 }
 
+func NewWSGCommonQueryCriteriaOptionsType() *WSGCommonQueryCriteriaOptionsType {
+	m := new(WSGCommonQueryCriteriaOptionsType)
+	return m
+}
+
 // WSGCommonQueryCriteriaSortInfoType
 //
 // About sorting
@@ -862,6 +1162,11 @@ type WSGCommonQueryCriteriaSortInfoType struct {
 	Dir *string `json:"dir,omitempty" validate:"oneof=ASC DESC"`
 
 	SortColumn *string `json:"sortColumn,omitempty"`
+}
+
+func NewWSGCommonQueryCriteriaSortInfoType() *WSGCommonQueryCriteriaSortInfoType {
+	m := new(WSGCommonQueryCriteriaSortInfoType)
+	return m
 }
 
 type WSGCommonQueryCriteriaSuperSet struct {
@@ -918,6 +1223,11 @@ type WSGCommonQueryCriteriaSuperSet struct {
 	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
+func NewWSGCommonQueryCriteriaSuperSet() *WSGCommonQueryCriteriaSuperSet {
+	m := new(WSGCommonQueryCriteriaSuperSet)
+	return m
+}
+
 type WSGCommonRadio24 struct {
 	// AutoCellSizing
 	// Auto Cell Sizing
@@ -939,6 +1249,11 @@ type WSGCommonRadio24 struct {
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"oneof=0 20 40"`
 
 	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
+}
+
+func NewWSGCommonRadio24() *WSGCommonRadio24 {
+	m := new(WSGCommonRadio24)
+	return m
 }
 
 type WSGCommonRadio24SuperSet struct {
@@ -965,6 +1280,11 @@ type WSGCommonRadio24SuperSet struct {
 	ChannelWidth *int `json:"channelWidth,omitempty" validate:"oneof=0 20 40"`
 
 	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
+}
+
+func NewWSGCommonRadio24SuperSet() *WSGCommonRadio24SuperSet {
+	m := new(WSGCommonRadio24SuperSet)
+	return m
 }
 
 type WSGCommonRadio50 struct {
@@ -1004,6 +1324,11 @@ type WSGCommonRadio50 struct {
 	OutdoorSecondaryChannel *int `json:"outdoorSecondaryChannel,omitempty"`
 
 	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
+}
+
+func NewWSGCommonRadio50() *WSGCommonRadio50 {
+	m := new(WSGCommonRadio50)
+	return m
 }
 
 type WSGCommonRadio50SuperSet struct {
@@ -1052,6 +1377,11 @@ type WSGCommonRadio50SuperSet struct {
 	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
 }
 
+func NewWSGCommonRadio50SuperSet() *WSGCommonRadio50SuperSet {
+	m := new(WSGCommonRadio50SuperSet)
+	return m
+}
+
 type WSGCommonRadiusServer struct {
 	// Ip
 	// Constraints:
@@ -1071,6 +1401,11 @@ type WSGCommonRadiusServer struct {
 	// Constraints:
 	//    - required
 	SharedSecret *string `json:"sharedSecret" validate:"required"`
+}
+
+func NewWSGCommonRadiusServer() *WSGCommonRadiusServer {
+	m := new(WSGCommonRadiusServer)
+	return m
 }
 
 type WSGCommonRateLimiting struct {
@@ -1098,16 +1433,36 @@ type WSGCommonRateLimiting struct {
 	Threshold *int `json:"threshold" validate:"required"`
 }
 
+func NewWSGCommonRateLimiting() *WSGCommonRateLimiting {
+	m := new(WSGCommonRateLimiting)
+	return m
+}
+
 type WSGCommonRbacMetadata struct {
 	RbacMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
+func NewWSGCommonRbacMetadata() *WSGCommonRbacMetadata {
+	m := new(WSGCommonRbacMetadata)
+	return m
+}
+
 type WSGCommonRealm string
+
+func NewWSGCommonRealm() *WSGCommonRealm {
+	m := new(WSGCommonRealm)
+	return m
+}
 
 type WSGCommonRecoverySsid struct {
 	// RecoverySsidEnabled
 	// recovery ssid enable/disable
 	RecoverySsidEnabled *bool `json:"recoverySsidEnabled,omitempty"`
+}
+
+func NewWSGCommonRecoverySsid() *WSGCommonRecoverySsid {
+	m := new(WSGCommonRecoverySsid)
+	return m
 }
 
 type WSGCommonSmartMonitor struct {
@@ -1126,6 +1481,11 @@ type WSGCommonSmartMonitor struct {
 	//    - min:1
 	//    - max:10
 	RetryThreshold *int `json:"retryThreshold,omitempty" validate:"gte=1,lte=10"`
+}
+
+func NewWSGCommonSmartMonitor() *WSGCommonSmartMonitor {
+	m := new(WSGCommonSmartMonitor)
+	return m
 }
 
 type WSGCommonSnmpCommunity struct {
@@ -1156,6 +1516,11 @@ type WSGCommonSnmpCommunity struct {
 	// WriteEnabled
 	// write privilege of the SNMP Coummunity
 	WriteEnabled *bool `json:"writeEnabled,omitempty"`
+}
+
+func NewWSGCommonSnmpCommunity() *WSGCommonSnmpCommunity {
+	m := new(WSGCommonSnmpCommunity)
+	return m
 }
 
 type WSGCommonSnmpUser struct {
@@ -1212,7 +1577,17 @@ type WSGCommonSnmpUser struct {
 	WriteEnabled *bool `json:"writeEnabled,omitempty"`
 }
 
+func NewWSGCommonSnmpUser() *WSGCommonSnmpUser {
+	m := new(WSGCommonSnmpUser)
+	return m
+}
+
 type WSGCommonSubNetMask string
+
+func NewWSGCommonSubNetMask() *WSGCommonSubNetMask {
+	m := new(WSGCommonSubNetMask)
+	return m
+}
 
 type WSGCommonTargetConfig struct {
 	// Address
@@ -1228,6 +1603,11 @@ type WSGCommonTargetConfig struct {
 	//    - min:1
 	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
+}
+
+func NewWSGCommonTargetConfig() *WSGCommonTargetConfig {
+	m := new(WSGCommonTargetConfig)
+	return m
 }
 
 type WSGCommonTimeRange struct {
@@ -1250,12 +1630,22 @@ type WSGCommonTimeRange struct {
 	Start *float64 `json:"start,omitempty"`
 }
 
+func NewWSGCommonTimeRange() *WSGCommonTimeRange {
+	m := new(WSGCommonTimeRange)
+	return m
+}
+
 // WSGCommonTimeUnitStore
 //
 // time unit
 // Constraints:
 //    - oneof:[second,minute,hour,day]
 type WSGCommonTimeUnitStore string
+
+func NewWSGCommonTimeUnitStore() *WSGCommonTimeUnitStore {
+	m := new(WSGCommonTimeUnitStore)
+	return m
+}
 
 type WSGCommonTrafficClassProfileRef struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
@@ -1273,6 +1663,11 @@ type WSGCommonTrafficClassProfileRef struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+func NewWSGCommonTrafficClassProfileRef() *WSGCommonTrafficClassProfileRef {
+	m := new(WSGCommonTrafficClassProfileRef)
+	return m
+}
+
 type WSGCommonTrafficClassRef struct {
 	// Id
 	// Identifier of the Traffic Class
@@ -1283,7 +1678,17 @@ type WSGCommonTrafficClassRef struct {
 	Whitelists *string `json:"whitelists,omitempty"`
 }
 
+func NewWSGCommonTrafficClassRef() *WSGCommonTrafficClassRef {
+	m := new(WSGCommonTrafficClassRef)
+	return m
+}
+
 type WSGCommonTxPower string
+
+func NewWSGCommonTxPower() *WSGCommonTxPower {
+	m := new(WSGCommonTxPower)
+	return m
+}
 
 type WSGCommonWebAuthenticationPortalCustomization struct {
 	// Logo
@@ -1300,10 +1705,20 @@ type WSGCommonWebAuthenticationPortalCustomization struct {
 	Title *string `json:"title,omitempty" validate:"max=63,min=0"`
 }
 
+func NewWSGCommonWebAuthenticationPortalCustomization() *WSGCommonWebAuthenticationPortalCustomization {
+	m := new(WSGCommonWebAuthenticationPortalCustomization)
+	return m
+}
+
 // WSGCommonWildFQDN
 //
 // Compare with FQDN, it could start with '*.'
 type WSGCommonWildFQDN string
+
+func NewWSGCommonWildFQDN() *WSGCommonWildFQDN {
+	m := new(WSGCommonWildFQDN)
+	return m
+}
 
 // WSGCommonZoneTunnelType
 //
@@ -1312,3 +1727,8 @@ type WSGCommonWildFQDN string
 //    - default:'RuckusGRE'
 //    - oneof:[No_Tunneled,RuckusGRE,SoftGRE,SoftGREIpsec]
 type WSGCommonZoneTunnelType string
+
+func NewWSGCommonZoneTunnelType() *WSGCommonZoneTunnelType {
+	m := new(WSGCommonZoneTunnelType)
+	return m
+}

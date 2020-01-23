@@ -20,6 +20,11 @@ type SwitchMDeployLogConfigurationHistoryQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+func NewSwitchMDeployLogConfigurationHistoryQueryResult() *SwitchMDeployLogConfigurationHistoryQueryResult {
+	m := new(SwitchMDeployLogConfigurationHistoryQueryResult)
+	return m
+}
+
 type SwitchMDeployLog struct {
 	// ConfigType
 	// Config Type
@@ -78,6 +83,11 @@ type SwitchMDeployLog struct {
 	Yang *string `json:"yang,omitempty"`
 }
 
+func NewSwitchMDeployLog() *SwitchMDeployLog {
+	m := new(SwitchMDeployLog)
+	return m
+}
+
 type SwitchMDeployLogStatusSummary struct {
 	// Failed
 	// Deployment Fail Counter
@@ -94,4 +104,9 @@ type SwitchMDeployLogStatusSummary struct {
 	// Success
 	// Deployment Success Counter
 	Success *int `json:"success,omitempty"`
+}
+
+func NewSwitchMDeployLogStatusSummary() *SwitchMDeployLogStatusSummary {
+	m := new(SwitchMDeployLogStatusSummary)
+	return m
 }

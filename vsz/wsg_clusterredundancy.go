@@ -16,6 +16,11 @@ type WSGClusterRedundancyActiveCluster struct {
 	TargetClusterAdminPassword *string `json:"targetClusterAdminPassword,omitempty"`
 }
 
+func NewWSGClusterRedundancyActiveCluster() *WSGClusterRedundancyActiveCluster {
+	m := new(WSGClusterRedundancyActiveCluster)
+	return m
+}
+
 type WSGClusterRedundancySettings struct {
 	// ActiveClusterList
 	// A list of target active clusters (Active-Active only)
@@ -66,6 +71,11 @@ type WSGClusterRedundancySettings struct {
 	StandbyAdminPassword *string `json:"standbyAdminPassword,omitempty"`
 }
 
+func NewWSGClusterRedundancySettings() *WSGClusterRedundancySettings {
+	m := new(WSGClusterRedundancySettings)
+	return m
+}
+
 type WSGClusterRedundancyManagementEntry struct {
 	// Ip
 	// Management IP
@@ -74,6 +84,11 @@ type WSGClusterRedundancyManagementEntry struct {
 	// Port
 	// Management port
 	Port *string `json:"port,omitempty"`
+}
+
+func NewWSGClusterRedundancyManagementEntry() *WSGClusterRedundancyManagementEntry {
+	m := new(WSGClusterRedundancyManagementEntry)
+	return m
 }
 
 type WSGClusterRedundancyUpdateClusterRedundancy struct {
@@ -126,4 +141,9 @@ type WSGClusterRedundancyUpdateClusterRedundancy struct {
 	// StandbyAdminPassword
 	// Password of admin account of standby cluster (Active-Standby only)
 	StandbyAdminPassword *string `json:"standbyAdminPassword,omitempty"`
+}
+
+func NewWSGClusterRedundancyUpdateClusterRedundancy() *WSGClusterRedundancyUpdateClusterRedundancy {
+	m := new(WSGClusterRedundancyUpdateClusterRedundancy)
+	return m
 }

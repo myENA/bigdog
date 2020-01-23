@@ -6,7 +6,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"gopkg.in/go-playground/validator.v9"
 )
 
 type WSGDomainService struct {
@@ -43,6 +42,11 @@ type WSGDomainCreateDomain struct {
 	ParentDomainId *string `json:"parentDomainId,omitempty"`
 
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
+}
+
+func NewWSGDomainCreateDomain() *WSGDomainCreateDomain {
+	m := new(WSGDomainCreateDomain)
+	return m
 }
 
 type WSGDomainConfiguration struct {
@@ -89,6 +93,11 @@ type WSGDomainConfiguration struct {
 	ZoneCount *int `json:"zoneCount,omitempty"`
 }
 
+func NewWSGDomainConfiguration() *WSGDomainConfiguration {
+	m := new(WSGDomainConfiguration)
+	return m
+}
+
 type WSGDomainList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -97,6 +106,11 @@ type WSGDomainList struct {
 	List []*WSGDomainConfiguration `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGDomainList() *WSGDomainList {
+	m := new(WSGDomainList)
+	return m
 }
 
 type WSGDomainModifyDomain struct {
@@ -117,6 +131,11 @@ type WSGDomainModifyDomain struct {
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
 
+func NewWSGDomainModifyDomain() *WSGDomainModifyDomain {
+	m := new(WSGDomainModifyDomain)
+	return m
+}
+
 // AddDomains
 //
 // Use this API command to create new domain.
@@ -124,15 +143,21 @@ type WSGDomainModifyDomain struct {
 // Request Body:
 //	 - body *WSGDomainCreateDomain
 //
-// Query Parameters:
-// - qParentDomainId string
+// Optional Parameters:
+// - parentDomainId string
 //		- nullable
-func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, qParentDomainId string) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string]interface{}) (*WSGCommonCreateResult, error) {
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -143,15 +168,21 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 // Request Body:
 //	 - body *WSGDomainCreateDomain
 //
-// Query Parameters:
-// - qParentDomainId string
+// Optional Parameters:
+// - parentDomainId string
 //		- nullable
-func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDomainCreateDomain, qParentDomainId string) (*WSGCommonCreateResult, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string]interface{}) (*WSGCommonCreateResult, error) {
+	var (
+		resp *WSGCommonCreateResult
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
 	}
 }
 
@@ -159,15 +190,16 @@ func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDoma
 //
 // Use this API command to delete domain.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
@@ -175,15 +207,16 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, pId string) er
 //
 // Use this API command to delete domain.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
@@ -191,23 +224,24 @@ func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, pId st
 //
 // Use this API command to retrieve a list of domain under Administration Domain.
 //
-// Query Parameters:
-// - qExcludeRegularDomain string
+// Optional Parameters:
+// - excludeRegularDomain string
 //		- nullable
-// - qIncludeSelf string
+// - includeSelf string
 //		- nullable
-// - qIndex string
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-// - qRecursively string
+// - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomains(ctx context.Context, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*WSGDomainList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string]interface{}) (*WSGDomainList, error) {
+	var (
+		resp *WSGDomainList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -215,19 +249,23 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, qExcludeRegularDomai
 //
 // Use this API command to retrieve domain by specified Domain ID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
 //
-// Query Parameters:
-// - qRecursively string
+// Optional Parameters:
+// - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsById(ctx context.Context, pId string, qRecursively string) (*WSGDomainConfiguration, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string]interface{}) (*WSGDomainConfiguration, error) {
+	var (
+		resp *WSGDomainConfiguration
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -235,27 +273,31 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, pId string, qRec
 //
 // Use this API command to retrieve a list of subdomain by specified Domain ID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
 //
-// Query Parameters:
-// - qExcludeRegularDomain string
+// Optional Parameters:
+// - excludeRegularDomain string
 //		- nullable
-// - qIncludeSelf string
+// - includeSelf string
 //		- nullable
-// - qIndex string
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-// - qRecursively string
+// - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, pId string, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*WSGDomainList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string]interface{}) (*WSGDomainList, error) {
+	var (
+		resp *WSGDomainList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -263,23 +305,24 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, pId str
 //
 // Use this API command to retrieve a list of domain under Administration Domain.
 //
-// Query Parameters:
-// - qExcludeRegularDomain string
+// Optional Parameters:
+// - excludeRegularDomain string
 //		- nullable
-// - qIncludeSelf string
+// - includeSelf string
 //		- nullable
-// - qIndex string
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-// - qRecursively string
+// - recursively string
 //		- nullable
-func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*WSGDomainList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, optionalParams map[string]interface{}) (*WSGDomainList, error) {
+	var (
+		resp *WSGDomainList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
 }
 
@@ -287,19 +330,23 @@ func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, qExcludeRegu
 //
 // Use this API command to retrieve domain by specified Domain ID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
 //
-// Query Parameters:
-// - qRecursively string
+// Optional Parameters:
+// - recursively string
 //		- nullable
-func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, pId string, qRecursively string) (*WSGDomainConfiguration, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, id string, optionalParams map[string]interface{}) (*WSGDomainConfiguration, error) {
+	var (
+		resp *WSGDomainConfiguration
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -307,27 +354,31 @@ func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, pId stri
 //
 // Use this API command to retrieve a list of subdomain by specified Domain ID.
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
 //
-// Query Parameters:
-// - qExcludeRegularDomain string
+// Optional Parameters:
+// - excludeRegularDomain string
 //		- nullable
-// - qIncludeSelf string
+// - includeSelf string
 //		- nullable
-// - qIndex string
+// - index string
 //		- nullable
-// - qListSize string
+// - listSize string
 //		- nullable
-// - qRecursively string
+// - recursively string
 //		- nullable
-func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context, pId string, qExcludeRegularDomain string, qIncludeSelf string, qIndex string, qListSize string, qRecursively string) (*WSGDomainList, error) {
-	if ctx == nil {
-		return nil, errors.New("ctx cannot be empty")
+func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string]interface{}) (*WSGDomainList, error) {
+	var (
+		resp *WSGDomainList
+		err  error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
 	}
-	if err := ctx.Err(); err != nil {
-		return nil, fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
 	}
 }
 
@@ -338,15 +389,21 @@ func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context,
 // Request Body:
 //	 - body *WSGDomainModifyDomain
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }
 
@@ -357,14 +414,20 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 // Request Body:
 //	 - body *WSGDomainModifyDomain
 //
-// Path Parameters:
-// - pId string
+// Required Parameters:
+// - id string
 //		- required
-func (s *WSGDomainService) PartialUpdateRkszonesDomainsById(ctx context.Context, body *WSGDomainModifyDomain, pId string) error {
-	if ctx == nil {
-		return errors.New("ctx cannot be empty")
+func (s *WSGDomainService) PartialUpdateRkszonesDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string) error {
+	var err error
+	if err = ctx.Err(); err != nil {
+		return err
 	}
-	if err := ctx.Err(); err != nil {
-		return fmt.Errorf("provided context is done: %s", err)
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return err
 	}
 }

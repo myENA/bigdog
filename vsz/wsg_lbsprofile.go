@@ -29,6 +29,7 @@ func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 //	 - body *WSGProfileLbsProfile
 func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProfileLbsProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesLbs, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesLbs, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesLbs
@@ -51,6 +55,7 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGC
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesLbs, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesLbs, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesLbsById
@@ -74,6 +82,7 @@ func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGC
 //		- required
 func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -83,7 +92,7 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesLbsById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesLbsById, true)
 }
 
 // FindProfilesLbsById
@@ -95,6 +104,7 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 //		- required
 func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id string) (*WSGProfileLbsProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileLbsProfile
 		err  error
 	)
@@ -104,7 +114,7 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesLbsById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesLbsById, true)
 }
 
 // FindProfilesLbsByQueryCriteria
@@ -115,6 +125,7 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileLbsProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileLbsProfileList
 		err  error
 	)
@@ -126,7 +137,10 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesLbsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesLbsByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesLbsById
@@ -141,6 +155,7 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 //		- required
 func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *WSGProfileLbsProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -155,5 +170,8 @@ func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesLbsById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesLbsById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

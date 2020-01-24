@@ -246,6 +246,7 @@ func NewSwitchMAAAServersEmptyResult() *SwitchMAAAServersEmptyResult {
 //	 - body *SwitchMAAAServersCreateAdminAAAServer
 func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer) (*SwitchMCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMCommonCreateResult
 		err  error
 	)
@@ -257,7 +258,10 @@ func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddAaaServersAdmin, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddAaaServersAdmin, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteAaaServersAdmin
@@ -267,7 +271,10 @@ func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body 
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -276,7 +283,10 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdmin, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdmin, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteAaaServersAdminById
@@ -288,6 +298,7 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, bo
 //		- required
 func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context, id string) (*SwitchMAAAServersEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMAAAServersEmptyResult
 		err  error
 	)
@@ -297,7 +308,7 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdminById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdminById, true)
 }
 
 // FindAaaServersAdmin
@@ -305,13 +316,14 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context
 // Use this API command to retrieve a list of AAA server.
 func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*SwitchMAAAServersQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMAAAServersQueryResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdmin, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdmin, true)
 }
 
 // FindAaaServersAdminById
@@ -323,6 +335,7 @@ func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*Sw
 //		- required
 func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, id string) (*SwitchMAAAServersAAAServer, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMAAAServersAAAServer
 		err  error
 	)
@@ -332,7 +345,7 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdminById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdminById, true)
 }
 
 // UpdateAaaServersAdminById
@@ -347,6 +360,7 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 //		- required
 func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, id string) (*SwitchMAAAServersEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMAAAServersEmptyResult
 		err  error
 	)
@@ -361,5 +375,8 @@ func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateAaaServersAdminById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateAaaServersAdminById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

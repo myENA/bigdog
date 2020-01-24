@@ -177,6 +177,7 @@ func NewWSGWLANGroupWlanMember() *WSGWLANGroupWlanMember {
 //		- required
 func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context, body *WSGWLANGroupCreateWlanGroup, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -191,7 +192,10 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlangroupsByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlangroupsByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesWlangroupsMembersById
@@ -208,6 +212,7 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context,
 //		- required
 func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Context, body *WSGWLANGroupWlanMember, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -225,7 +230,10 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlangroupsMembersById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlangroupsMembersById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesWlangroupsById
@@ -239,6 +247,7 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Conte
 //		- required
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -251,7 +260,7 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsById, true)
 }
 
 // DeleteRkszonesWlangroupsMembersByMemberId
@@ -267,6 +276,7 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, 
 //		- required
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -282,7 +292,7 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx cont
 	if err = pkgValidator.VarCtx(ctx, memberId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersByMemberId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersByMemberId, true)
 }
 
 // DeleteRkszonesWlangroupsMembersNasIdByMemberId
@@ -298,6 +308,7 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx cont
 //		- required
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -313,7 +324,7 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx
 	if err = pkgValidator.VarCtx(ctx, memberId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersNasIdByMemberId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersNasIdByMemberId, true)
 }
 
 // DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId
@@ -329,6 +340,7 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx
 //		- required
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -344,7 +356,7 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMembe
 	if err = pkgValidator.VarCtx(ctx, memberId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersVlanOverrideByMemberId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersVlanOverrideByMemberId, true)
 }
 
 // FindRkszonesWlangroupsById
@@ -358,6 +370,7 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMembe
 //		- required
 func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id string, zoneId string) (*WSGWLANGroup, error) {
 	var (
+		req  *APIRequest
 		resp *WSGWLANGroup
 		err  error
 	)
@@ -370,7 +383,7 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlangroupsById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlangroupsById, true)
 }
 
 // FindRkszonesWlangroupsByZoneId
@@ -388,6 +401,7 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id
 //		- nullable
 func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGWLANGroupList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGWLANGroupList
 		err  error
 	)
@@ -397,7 +411,7 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlangroupsByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlangroupsByZoneId, true)
 }
 
 // PartialUpdateRkszonesWlangroupsById
@@ -414,6 +428,7 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context
 //		- required
 func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Context, body *WSGWLANGroupModifyWlanGroup, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -431,7 +446,10 @@ func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlangroupsById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlangroupsById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateRkszonesWlangroupsMembersByMemberId
@@ -450,6 +468,7 @@ func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Co
 //		- required
 func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsMembersByMemberId(ctx context.Context, body *WSGWLANGroupModifyWlanGroupMember, id string, memberId string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -470,5 +489,8 @@ func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsMembersByMemberId(c
 	if err = pkgValidator.VarCtx(ctx, memberId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlangroupsMembersByMemberId, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlangroupsMembersByMemberId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

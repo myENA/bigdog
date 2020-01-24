@@ -28,7 +28,10 @@ func (ss *WSGService) WSGDPDHCPNATProfileService() *WSGDPDHCPNATProfileService {
 // Request Body:
 //	 - body *WSGDPProfileSettingBO
 func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, body *WSGDPProfileSettingBO) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -37,7 +40,10 @@ func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddDpProfileSettings, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddDpProfileSettings, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteDpProfileSettings
@@ -47,7 +53,10 @@ func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, b
 // Request Body:
 //	 - body *WSGDPProfileBulkDelete
 func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context, body *WSGDPProfileBulkDelete) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -56,7 +65,10 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettings, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettings, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteDpProfileSettingsByDpKey
@@ -67,14 +79,17 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context
 // - dpKey string
 //		- required
 func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.Context, dpKey string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
 }
 
 // FindDpProfileSettings
@@ -82,13 +97,14 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 // Use this API command to retrieve DP DHCP & NAT profile setting list.
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) (*WSGDPProfileSettingBOList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPProfileSettingBOList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettings, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettings, true)
 }
 
 // FindDpProfileSettingsByDpKey
@@ -100,6 +116,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) 
 //		- required
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Context, dpKey string) (*WSGDPProfileSettingBO, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPProfileSettingBO
 		err  error
 	)
@@ -109,7 +126,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettingsByDpKey, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettingsByDpKey, true)
 }
 
 // UpdateDpProfileSettingsByDpKey
@@ -123,7 +140,10 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 // - dpKey string
 //		- required
 func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.Context, body *WSGDPProfileSettingBO, dpKey string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -135,5 +155,8 @@ func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateDpProfileSettingsByDpKey, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateDpProfileSettingsByDpKey, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }

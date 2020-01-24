@@ -29,6 +29,7 @@ func (ss *WSGService) WSGWiredClientService() *WSGWiredClientService {
 //	 - body *WSGClientDeAuthClientList
 func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddWiredClientsBulkDeauth, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddWiredClientsBulkDeauth, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddWiredClientsDeauth
@@ -51,6 +55,7 @@ func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 //	 - body *WSGClientDeAuthClient
 func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddWiredClientsDeauth, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddWiredClientsDeauth, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindWiredclientByQueryCriteria
@@ -73,6 +81,7 @@ func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWiredClientQueryClientQueryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGWiredClientQueryClientQueryList
 		err  error
 	)
@@ -84,5 +93,8 @@ func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindWiredclientByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindWiredclientByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

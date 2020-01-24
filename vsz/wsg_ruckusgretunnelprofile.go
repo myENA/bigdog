@@ -29,6 +29,7 @@ func (ss *WSGService) WSGRuckusGRETunnelProfileService() *WSGRuckusGRETunnelProf
 //	 - body *WSGProfileCreateRuckusGREProfile
 func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx context.Context, body *WSGProfileCreateRuckusGREProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelRuckusgre, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelRuckusgre, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesTunnelRuckusgre
@@ -51,6 +55,7 @@ func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx contex
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelRuckusgre, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelRuckusgre, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesTunnelRuckusgreById
@@ -73,14 +81,17 @@ func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx con
 // - id string
 //		- required
 func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelRuckusgreById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelRuckusgreById, true)
 }
 
 // FindProfilesTunnelRuckusgre
@@ -88,13 +99,14 @@ func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx
 // Use this API command to retrieve a list of RuckusGRE tunnel profile.
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx context.Context) (*WSGProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelRuckusgre, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelRuckusgre, true)
 }
 
 // FindProfilesTunnelRuckusgreById
@@ -106,6 +118,7 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx conte
 //		- required
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx context.Context, id string) (*WSGProfileRuckusGREProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileRuckusGREProfile
 		err  error
 	)
@@ -115,7 +128,7 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelRuckusgreById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelRuckusgreById, true)
 }
 
 // FindProfilesTunnelRuckusgreByQueryCriteria
@@ -126,6 +139,7 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileRuckusGREProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileRuckusGREProfileList
 		err  error
 	)
@@ -137,7 +151,10 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCri
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelRuckusgreByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelRuckusgreByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesTunnelRuckusgreById
@@ -152,6 +169,7 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCri
 //		- required
 func (s *WSGRuckusGRETunnelProfileService) PartialUpdateProfilesTunnelRuckusgreById(ctx context.Context, body *WSGProfileModifyRuckusGREProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -166,5 +184,8 @@ func (s *WSGRuckusGRETunnelProfileService) PartialUpdateProfilesTunnelRuckusgreB
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelRuckusgreById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelRuckusgreById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

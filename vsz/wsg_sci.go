@@ -335,6 +335,7 @@ func NewWSGSCIProfileListExtraType() *WSGSCIProfileListExtraType {
 //	 - body *WSGSCIModifyEventCode
 func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModifyEventCode) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -346,7 +347,10 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddSciSciEventCode, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSciSciEventCode, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSciSciProfile
@@ -357,6 +361,7 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 //	 - body *WSGSCICreateSciProfile
 func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreateSciProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -368,7 +373,10 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddSciSciProfile, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSciSciProfile, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSciSciProfileSciPriority
@@ -379,6 +387,7 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 //	 - body *WSGSCIModifySciPriorityList
 func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *WSGSCIModifySciPriorityList) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -390,7 +399,10 @@ func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddSciSciProfileSciPriority, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSciSciProfileSciPriority, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteSciSciProfile
@@ -401,6 +413,7 @@ func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *W
 //	 - body *WSGSCIDeleteSciProfileList
 func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDeleteSciProfileList) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -412,7 +425,10 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfile, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfile, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteSciSciProfileById
@@ -424,6 +440,7 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 //		- required
 func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -433,7 +450,7 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
 }
 
 // FindSciSciEventCode
@@ -441,13 +458,14 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) 
 // Use this API command to retrieve SciAcceptedEventCodes.
 func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCode, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCIEventCode
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindSciSciEventCode, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciEventCode, true)
 }
 
 // FindSciSciProfile
@@ -455,13 +473,14 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCo
 // Use this API command to retrieve sciProfile list.
 func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCIProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfile, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfile, true)
 }
 
 // FindSciSciProfileById
@@ -473,6 +492,7 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileLi
 //		- required
 func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*WSGSCIProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCIProfile
 		err  error
 	)
@@ -482,7 +502,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfileById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfileById, true)
 }
 
 // PartialUpdateSciSciEnabled
@@ -493,6 +513,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*
 //	 - body *WSGSCIModifySciEnabled
 func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WSGSCIModifySciEnabled) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -504,7 +525,10 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSciSciEnabled, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSciSciEnabled, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateSciSciProfileById
@@ -519,6 +543,7 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 //		- required
 func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, id string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -533,5 +558,8 @@ func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSciSciProfileById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSciSciProfileById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

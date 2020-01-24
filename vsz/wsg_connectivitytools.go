@@ -29,6 +29,7 @@ func (ss *WSGService) WSGConnectivityToolsService() *WSGConnectivityToolsService
 //	 - body *WSGToolSpeedFlex
 func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body *WSGToolSpeedFlex) (*WSGToolTestResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGToolTestResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddToolSpeedflex, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddToolSpeedflex, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindToolPing
@@ -54,6 +58,7 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 //		- required
 func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac string, targetIP string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -66,7 +71,7 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 	if err = pkgValidator.VarCtx(ctx, targetIP, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
 }
 
 // FindToolSpeedflexByWcid
@@ -78,6 +83,7 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 //		- required
 func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, wcid string) (*WSGToolTestResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGToolTestResult
 		err  error
 	)
@@ -87,7 +93,7 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, wcid, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
 }
 
 // FindToolTraceRoute
@@ -105,6 +111,7 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 //		- nullable
 func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string]interface{}) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -117,5 +124,5 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 	if err = pkgValidator.VarCtx(ctx, targetIP, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
 }

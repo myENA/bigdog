@@ -393,6 +393,7 @@ type SwitchMGroupUpdateSwitchGroupResult struct {
 //	 - body *SwitchMGroupSwitchGroup
 func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSwitchGroup) (*SwitchMGroupAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMGroupAuditId
 		err  error
 	)
@@ -404,7 +405,10 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddGroup, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddGroup, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteGroupBySwitchGroupId
@@ -416,6 +420,7 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 //		- required
 func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMGroupDeleteSwitchGroupResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMGroupDeleteSwitchGroupResult
 		err  error
 	)
@@ -425,7 +430,7 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteGroupBySwitchGroupId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteGroupBySwitchGroupId, true)
 }
 
 // FindGroupBySwitchGroupId
@@ -437,6 +442,7 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 //		- required
 func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMGroupSwitchGroupQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMGroupSwitchGroupQueryResult
 		err  error
 	)
@@ -446,7 +452,7 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupBySwitchGroupId, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupBySwitchGroupId, true)
 }
 
 // FindGroupIdsByDomainByDomainId
@@ -458,6 +464,7 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 //		- required
 func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, domainId string) (*SwitchMGroupsByIdsQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMGroupsByIdsQueryResultList
 		err  error
 	)
@@ -467,7 +474,7 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, domainId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupIdsByDomainByDomainId, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupIdsByDomainByDomainId, true)
 }
 
 // PartialUpdateGroupBySwitchGroupId
@@ -482,6 +489,7 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 //		- required
 func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Context, body *SwitchMGroupUpdateSwitchGroup, switchGroupId string) (*SwitchMGroupUpdateSwitchGroupResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMGroupUpdateSwitchGroupResult
 		err  error
 	)
@@ -491,5 +499,8 @@ func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteSwitchMPartialUpdateGroupBySwitchGroupId, true)
+	req = NewAPIRequest(http.MethodPatch, RouteSwitchMPartialUpdateGroupBySwitchGroupId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

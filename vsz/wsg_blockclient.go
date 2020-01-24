@@ -29,6 +29,7 @@ func (ss *WSGService) WSGBlockClientService() *WSGBlockClientService {
 //	 - body *WSGProfileBulkBlockClient
 func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGProfileBulkBlockClient) (WSGProfileCreateResultList, error) {
 	var (
+		req  *APIRequest
 		resp WSGProfileCreateResultList
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddBlockClient, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddBlockClient, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddBlockClientByApMacByApMac
@@ -55,6 +59,7 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 //		- required
 func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context, body *WSGProfileBlockClient, apMac string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -69,7 +74,10 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddBlockClientByApMacByApMac, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddBlockClientByApMacByApMac, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteBlockClient
@@ -80,6 +88,7 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -91,7 +100,10 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteBlockClient, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteBlockClient, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteBlockClientById
@@ -103,6 +115,7 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 //		- required
 func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -112,7 +125,7 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteBlockClientById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteBlockClientById, true)
 }
 
 // FindBlockClientById
@@ -124,6 +137,7 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 //		- required
 func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id string) (*WSGProfileBlockClient, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileBlockClient
 		err  error
 	)
@@ -133,7 +147,7 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientById, true)
 }
 
 // FindBlockClientByQueryCriteria
@@ -144,6 +158,7 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBlockClientList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileBlockClientList
 		err  error
 	)
@@ -155,7 +170,10 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindBlockClientByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindBlockClientByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindBlockClientByZoneByZoneId
@@ -167,6 +185,7 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 //		- required
 func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Context, zoneId string) (*WSGProfileBlockClientList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileBlockClientList
 		err  error
 	)
@@ -176,7 +195,7 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientByZoneByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientByZoneByZoneId, true)
 }
 
 // PartialUpdateBlockClientById
@@ -191,6 +210,7 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 //		- required
 func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -205,7 +225,10 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateBlockClientById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateBlockClientById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateBlockClientById
@@ -220,6 +243,7 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 //		- required
 func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -234,5 +258,8 @@ func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateBlockClientById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateBlockClientById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

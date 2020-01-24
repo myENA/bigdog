@@ -84,6 +84,7 @@ func NewWSGGDPRReport() *WSGGDPRReport {
 //	 - body *WSGGDPRReport
 func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -95,5 +96,8 @@ func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport)
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddGdprReport, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddGdprReport, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

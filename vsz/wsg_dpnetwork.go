@@ -30,6 +30,7 @@ func (ss *WSGService) WSGDPNetworkService() *WSGDPNetworkService {
 //		- required
 func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Context, bladeUUID string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -39,7 +40,7 @@ func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeletePlanesStaticRouteByBladeUUID, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeletePlanesStaticRouteByBladeUUID, true)
 }
 
 // FindPlanes
@@ -47,13 +48,14 @@ func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Con
 // Use this API command to retrieve a list of data planes.
 func (s *WSGDPNetworkService) FindPlanes(ctx context.Context) (*WSGSystemDataPlaneList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemDataPlaneList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindPlanes, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanes, true)
 }
 
 // FindPlanesByBladeUUID
@@ -65,6 +67,7 @@ func (s *WSGDPNetworkService) FindPlanes(ctx context.Context) (*WSGSystemDataPla
 //		- required
 func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemDataPlaneConfiguration, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemDataPlaneConfiguration
 		err  error
 	)
@@ -74,7 +77,7 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindPlanesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesByBladeUUID, true)
 }
 
 // FindPlanesDpTunnelSetting
@@ -82,13 +85,14 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 // Use this API command to get DP mesh tunnel setting.
 func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*WSGSystemGetDataPlaneMeshTunnelSetting, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemGetDataPlaneMeshTunnelSetting
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindPlanesDpTunnelSetting, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesDpTunnelSetting, true)
 }
 
 // PartialUpdatePlanesByBladeUUID
@@ -103,6 +107,7 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*W
 //		- required
 func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlane, bladeUUID string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -117,7 +122,10 @@ func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdatePlanesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdatePlanesByBladeUUID, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdatePlaneStatesByBladeUUID
@@ -132,6 +140,7 @@ func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context
 //		- required
 func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlaneState, bladeUUID string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -146,7 +155,10 @@ func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdatePlaneStatesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdatePlaneStatesByBladeUUID, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdatePlanesDpTunnelSetting
@@ -157,6 +169,7 @@ func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Co
 //	 - body *WSGSystemUpdateDpMeshTunnelSetting
 func (s *WSGDPNetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, body *WSGSystemUpdateDpMeshTunnelSetting) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -168,5 +181,8 @@ func (s *WSGDPNetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdatePlanesDpTunnelSetting, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdatePlanesDpTunnelSetting, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

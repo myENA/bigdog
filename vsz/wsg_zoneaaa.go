@@ -33,6 +33,7 @@ func (ss *WSGService) WSGZoneAAAService() *WSGZoneAAAService {
 //		- required
 func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *WSGAAACreateActiveDirectoryServer, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesAaaAdByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesAaaAdByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesAaaLdapByZoneId
@@ -62,6 +66,7 @@ func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *
 //		- required
 func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body *WSGAAACreateLDAPServer, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -76,7 +81,10 @@ func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesAaaLdapByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesAaaLdapByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesAaaRadiusByZoneId
@@ -95,6 +103,7 @@ func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body
 //		- nullable
 func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *WSGAAACreateAuthenticationServer, zoneId string, optionalParams map[string]interface{}) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -109,7 +118,10 @@ func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, bo
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesAaaRadiusByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesAaaRadiusByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesAaaAdById
@@ -123,6 +135,7 @@ func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, bo
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -135,7 +148,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaAdById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaAdById, true)
 }
 
 // DeleteRkszonesAaaById
@@ -149,6 +162,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id stri
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -161,7 +175,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaById, true)
 }
 
 // DeleteRkszonesAaaByZoneId
@@ -176,6 +190,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGAAADeleteBulkAAAServerList, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -190,7 +205,10 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaByZoneId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesAaaLdapById
@@ -204,6 +222,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body 
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -216,7 +235,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaLdapById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaLdapById, true)
 }
 
 // DeleteRkszonesAaaRadiusById
@@ -230,6 +249,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id st
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -242,7 +262,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusById, true)
 }
 
 // DeleteRkszonesAaaRadiusSecondaryById
@@ -256,6 +276,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id 
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -268,7 +289,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusSecondaryById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusSecondaryById, true)
 }
 
 // DeleteRkszonesAaaRadiusStandbyPrimaryById
@@ -282,6 +303,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Con
 //		- required
 func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -294,7 +316,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusStandbyPrimaryById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusStandbyPrimaryById, true)
 }
 
 // FindRkszonesAaaAdById
@@ -308,6 +330,7 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx contex
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, id string, zoneId string) (*WSGAAAActiveDirectory, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAAAActiveDirectory
 		err  error
 	)
@@ -320,7 +343,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaAdById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaAdById, true)
 }
 
 // FindRkszonesAaaAdByZoneId
@@ -332,6 +355,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, id string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneId string) (*WSGAAAActiveDirectoryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAAAActiveDirectoryList
 		err  error
 	)
@@ -341,7 +365,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneI
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaAdByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaAdByZoneId, true)
 }
 
 // FindRkszonesAaaLdapById
@@ -355,6 +379,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneI
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, id string, zoneId string) (*WSGAAALDAPServer, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAAALDAPServer
 		err  error
 	)
@@ -367,7 +392,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaLdapById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaLdapById, true)
 }
 
 // FindRkszonesAaaLdapByZoneId
@@ -379,6 +404,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, id stri
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zoneId string) (*WSGAAALDAPServerList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAAALDAPServerList
 		err  error
 	)
@@ -388,7 +414,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zon
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaLdapByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaLdapByZoneId, true)
 }
 
 // FindRkszonesAaaRadiusById
@@ -402,6 +428,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zon
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string) (*WSGAAAAuthenticationServer, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAAAAuthenticationServer
 		err  error
 	)
@@ -414,7 +441,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaRadiusById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaRadiusById, true)
 }
 
 // FindRkszonesAaaRadiusByZoneId
@@ -426,6 +453,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, id st
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, zoneId string) (*WSGAAAAuthenticationServerList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAAAAuthenticationServerList
 		err  error
 	)
@@ -435,7 +463,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, z
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaRadiusByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaRadiusByZoneId, true)
 }
 
 // PartialUpdateRkszonesAaaAdById
@@ -452,6 +480,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, z
 //		- required
 func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -469,7 +498,10 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaAdById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaAdById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateRkszonesAaaLdapById
@@ -486,6 +518,7 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, 
 //		- required
 func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -503,7 +536,10 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaLdapById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaLdapById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateRkszonesAaaRadiusById
@@ -520,6 +556,7 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context
 //		- required
 func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -537,7 +574,10 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaRadiusById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaRadiusById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesAaaAdById
@@ -554,6 +594,7 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Conte
 //		- required
 func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -571,7 +612,10 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *W
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesAaaAdById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesAaaAdById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesAaaLdapById
@@ -588,6 +632,7 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *W
 //		- required
 func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -605,7 +650,10 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesAaaLdapById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesAaaLdapById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesAaaRadiusById
@@ -622,6 +670,7 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body 
 //		- required
 func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -639,5 +688,8 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, bod
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesAaaRadiusById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesAaaRadiusById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

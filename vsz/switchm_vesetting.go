@@ -29,6 +29,7 @@ func (ss *SwitchMService) SwitchMVESettingService() *SwitchMVESettingService {
 //	 - body *SwitchMVeConfigCreate
 func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *SwitchMVeConfigCreate) (SwitchMVeConfigCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp SwitchMVeConfigCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddVeConfigs, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddVeConfigs, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteVeConfigs
@@ -50,7 +54,10 @@ func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *Switch
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -59,7 +66,10 @@ func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *Swi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigs, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigs, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteVeConfigsById
@@ -70,14 +80,17 @@ func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *Swi
 // - id string
 //		- required
 func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
 }
 
 // FindVeConfigs
@@ -85,13 +98,14 @@ func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id st
 // Use this API command to Retrieve VE Config List.
 func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVeConfigList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMVeConfigList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigs, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigs, true)
 }
 
 // FindVeConfigsById
@@ -103,6 +117,7 @@ func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVe
 //		- required
 func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id string) (*SwitchMVeConfig, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMVeConfig
 		err  error
 	)
@@ -112,7 +127,7 @@ func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
 }
 
 // FindVeConfigsByQueryCriteria
@@ -123,6 +138,7 @@ func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id stri
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVeConfigList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMVeConfigList
 		err  error
 	)
@@ -134,7 +150,10 @@ func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindVeConfigsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindVeConfigsByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateVeConfigsById
@@ -149,6 +168,7 @@ func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 //		- required
 func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVeConfigModify, id string) (*SwitchMVeConfigEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMVeConfigEmptyResult
 		err  error
 	)
@@ -163,5 +183,8 @@ func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVeConfigsById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVeConfigsById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

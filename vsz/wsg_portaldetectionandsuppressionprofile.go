@@ -33,6 +33,7 @@ func (ss *WSGService) WSGPortalDetectionandSuppressionProfileService() *WSGPorta
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) AddRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGPortalDetectionandSuppressionProfileService) AddRkszonesPortalDetect
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalDetectionProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalDetectionProfilesByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesPortalDetectionProfilesById
@@ -61,6 +65,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) AddRkszonesPortalDetect
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDetectionProfilesById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -73,7 +78,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDet
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalDetectionProfilesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalDetectionProfilesById, true)
 }
 
 // DeleteRkszonesPortalDetectionProfilesByZoneId
@@ -88,6 +93,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDet
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -102,7 +108,10 @@ func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDet
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalDetectionProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalDetectionProfilesByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindRkszonesPortalDetectionProfilesById
@@ -116,6 +125,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDet
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesById(ctx context.Context, id string, zoneId string) (*WSGPortalDetectionProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGPortalDetectionProfile
 		err  error
 	)
@@ -128,7 +138,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalDetectionProfilesById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalDetectionProfilesById, true)
 }
 
 // FindRkszonesPortalDetectionProfilesByQueryCriteria
@@ -139,6 +149,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGPortalDetectionProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGPortalDetectionProfileList
 		err  error
 	)
@@ -150,7 +161,10 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesPortalDetectionProfilesByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesPortalDetectionProfilesByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindRkszonesPortalDetectionProfilesByZoneId
@@ -162,6 +176,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, zoneId string) (*WSGPortalDetectionProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGPortalDetectionProfileList
 		err  error
 	)
@@ -171,7 +186,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalDetectionProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalDetectionProfilesByZoneId, true)
 }
 
 // PartialUpdateRkszonesPortalDetectionProfilesById
@@ -188,6 +203,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) PartialUpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -205,7 +221,10 @@ func (s *WSGPortalDetectionandSuppressionProfileService) PartialUpdateRkszonesPo
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalDetectionProfilesById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalDetectionProfilesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesPortalDetectionProfilesById
@@ -222,6 +241,7 @@ func (s *WSGPortalDetectionandSuppressionProfileService) PartialUpdateRkszonesPo
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) UpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -239,5 +259,8 @@ func (s *WSGPortalDetectionandSuppressionProfileService) UpdateRkszonesPortalDet
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesPortalDetectionProfilesById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesPortalDetectionProfilesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

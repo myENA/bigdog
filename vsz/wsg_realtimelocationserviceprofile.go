@@ -33,6 +33,7 @@ func (ss *WSGService) WSGRealTimeLocationServiceProfileService() *WSGRealTimeLoc
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, body *WSGProfileCreateRtlsProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationSe
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesRealTimeLocationServiceByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesRealTimeLocationServiceByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesRealTimeLocationServiceById
@@ -61,6 +65,7 @@ func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationSe
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -73,7 +78,7 @@ func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocatio
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRealTimeLocationServiceById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRealTimeLocationServiceById, true)
 }
 
 // FindRkszonesRealTimeLocationServiceById
@@ -87,6 +92,7 @@ func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocatio
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string) (*WSGProfileCreateRtlsProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileCreateRtlsProfile
 		err  error
 	)
@@ -99,7 +105,7 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRealTimeLocationServiceById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRealTimeLocationServiceById, true)
 }
 
 // FindRkszonesRealTimeLocationServiceByZoneId
@@ -111,6 +117,7 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, zoneId string) (*WSGProfileRtlsProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileRtlsProfileList
 		err  error
 	)
@@ -120,7 +127,7 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRealTimeLocationServiceByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRealTimeLocationServiceByZoneId, true)
 }
 
 // UpdateRkszonesRealTimeLocationServiceById
@@ -137,6 +144,7 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) UpdateRkszonesRealTimeLocationServiceById(ctx context.Context, body *WSGProfileUpdateRtlsProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -154,5 +162,8 @@ func (s *WSGRealTimeLocationServiceProfileService) UpdateRkszonesRealTimeLocatio
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesRealTimeLocationServiceById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesRealTimeLocationServiceById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

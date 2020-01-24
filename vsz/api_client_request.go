@@ -5,6 +5,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
@@ -183,20 +185,30 @@ func (r *APIRequest) PathParameters() map[string]string {
 	return r.pathParameters
 }
 
-func (r *APIRequest) SetBody(body []byte) {
-	r.body = body
-}
-
-func (r *APIRequest) SetBodyModel(model interface{}) error {
-	if model == nil {
-		r.body = nil
+func (r *APIRequest) SetBody(body interface{}) error {
+	// first, is this already a byte slice?
+	if b, ok := body.([]byte); ok {
+		r.body = b
 		return nil
 	}
-	var err error
-	if r.body, err = json.Marshal(model); err != nil {
-		return err
+
+	// next, is an io.Reader being passed?
+	if asReader, ok := body.(io.Reader); ok {
+		if b, err := ioutil.ReadAll(asReader); err != nil {
+			return err
+		} else {
+			r.body = b
+			return nil
+		}
 	}
-	return nil
+
+	// finally, assume we gotta json serialize this thing.
+	if b, err := json.Marshal(body); err != nil {
+		return err
+	} else {
+		r.body = b
+		return nil
+	}
 }
 
 func (r *APIRequest) Body() []byte {

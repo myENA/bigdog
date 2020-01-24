@@ -29,6 +29,7 @@ func (ss *WSGService) WSGWirelessClientService() *WSGWirelessClientService {
 //	 - body *WSGClientDeAuthClientList
 func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsBulkDeauth, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsBulkDeauth, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddClientsBulkDisconnect
@@ -51,6 +55,7 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 //	 - body *WSGClientDisconnectClientList
 func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context, body *WSGClientDisconnectClientList) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsBulkDisconnect, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsBulkDisconnect, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddClientsByWlanNameByWlanname
@@ -77,6 +85,7 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 //		- required
 func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, wlanname string) (*WSGClientQueryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGClientQueryList
 		err  error
 	)
@@ -91,7 +100,10 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, wlanname, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsByWlanNameByWlanname, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsByWlanNameByWlanname, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddClientsDeauth
@@ -102,6 +114,7 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 //	 - body *WSGClientDeAuthClient
 func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -113,7 +126,10 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsDeauth, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsDeauth, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddClientsDisconnect
@@ -124,6 +140,7 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 //	 - body *WSGClientDisconnectClient
 func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, body *WSGClientDisconnectClient) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -135,7 +152,10 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsDisconnect, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsDisconnect, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindApsOperationalClientByApMac
@@ -153,6 +173,7 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 //		- nullable
 func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.Context, apMac string, optionalParams map[string]interface{}) (*WSGAPClientList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPClientList
 		err  error
 	)
@@ -162,7 +183,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientByApMac, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientByApMac, true)
 }
 
 // FindApsOperationalClientTotalCountByApMac
@@ -174,6 +195,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.C
 //		- required
 func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx context.Context, apMac string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -183,7 +205,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientTotalCountByApMac, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientTotalCountByApMac, true)
 }
 
 // FindHistoricalclientByQueryCriteria
@@ -194,6 +216,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientHistoricalClientList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGClientHistoricalClientList
 		err  error
 	)
@@ -205,5 +228,8 @@ func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindHistoricalclientByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindHistoricalclientByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

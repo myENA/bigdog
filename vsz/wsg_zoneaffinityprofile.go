@@ -29,6 +29,7 @@ func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileSer
 //	 - body *WSGProfileCreateZoneAffinityProfile
 func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Context, body *WSGProfileCreateZoneAffinityProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesZoneAffinity, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesZoneAffinity, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesZoneAffinityById
@@ -51,14 +55,17 @@ func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Cont
 // - id string
 //		- required
 func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesZoneAffinityById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesZoneAffinityById, true)
 }
 
 // FindProfilesZoneAffinity
@@ -70,13 +77,14 @@ func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx conte
 //		- nullable
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileZoneAffinityProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileZoneAffinityProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesZoneAffinity, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesZoneAffinity, true)
 }
 
 // FindProfilesZoneAffinityById
@@ -88,6 +96,7 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 //		- required
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context.Context, id string) (*WSGProfileReturnZoneAffinityProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileReturnZoneAffinityProfile
 		err  error
 	)
@@ -97,7 +106,7 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesZoneAffinityById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesZoneAffinityById, true)
 }
 
 // PartialUpdateProfilesZoneAffinityById
@@ -112,6 +121,7 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context
 //		- required
 func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ctx context.Context, body *WSGProfileModifyZoneAffinityProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -126,5 +136,8 @@ func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesZoneAffinityById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesZoneAffinityById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

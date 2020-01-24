@@ -26,13 +26,14 @@ func (ss *WSGService) WSGGGSNPGWServiceService() *WSGGGSNPGWServiceService {
 // Use this API command to Disable the dns server list of GGSN/PGW.
 func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.Context) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesGgsnDnsServerList, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesGgsnDnsServerList, true)
 }
 
 // DeleteServicesGgsnGgsnList
@@ -40,13 +41,14 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.C
 // Use this API command to disable the ggsn server list of GGSN/PGW.
 func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Context) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesGgsnGgsnList, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesGgsnGgsnList, true)
 }
 
 // FindServicesGgsn
@@ -54,13 +56,14 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Contex
 // Use this API command to retrieve GGSN/PGW setting.
 func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context) (*WSGServiceGgsnConfig, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceGgsnConfig
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesGgsn, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesGgsn, true)
 }
 
 // PartialUpdateServicesGgsn
@@ -71,6 +74,7 @@ func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context) (*WSGSe
 //	 - body *WSGServiceGgsnConfig
 func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context, body *WSGServiceGgsnConfig) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -82,7 +86,10 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsn, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsn, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateServicesGgsnDnsServerList
@@ -93,6 +100,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context
 //	 - body WSGServiceDnsServerList
 func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx context.Context, body WSGServiceDnsServerList) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -102,7 +110,10 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx co
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnDnsServerList, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnDnsServerList, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateServicesGgsnGgsnList
@@ -113,6 +124,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx co
 //	 - body WSGServiceGgsnList
 func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context.Context, body WSGServiceGgsnList) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -122,7 +134,10 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGgsnList, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGgsnList, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateServicesGgsnGtpSettings
@@ -133,6 +148,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context
 //	 - body *WSGServiceGtpSettings
 func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings(ctx context.Context, body *WSGServiceGtpSettings) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -144,5 +160,8 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGtpSettings, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGtpSettings, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

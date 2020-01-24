@@ -29,6 +29,7 @@ func (ss *SwitchMService) SwitchMRegistrationRulesService() *SwitchMRegistration
 //	 - body *SwitchMRegistrationRule
 func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Context, body *SwitchMRegistrationRule) (*SwitchMRegistrationCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMRegistrationCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddRegistrationRules, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddRegistrationRules, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRegistrationRules
@@ -51,6 +55,7 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 //	 - body SwitchMRegistrationRuleUUIDs
 func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Context, body SwitchMRegistrationRuleUUIDs) (*SwitchMRegistrationDeleteMultipleResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMRegistrationDeleteMultipleResult
 		err  error
 	)
@@ -60,7 +65,10 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRules, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRules, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRegistrationRulesById
@@ -72,6 +80,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 //		- required
 func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx context.Context, id string) (*SwitchMRegistrationDeleteResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMRegistrationDeleteResult
 		err  error
 	)
@@ -81,7 +90,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRulesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRulesById, true)
 }
 
 // FindRegistrationRules
@@ -89,13 +98,14 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 // Use this API command to retrieves all the registration rules configured in SmartZone.
 func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Context) (*SwitchMRegistrationRuleQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMRegistrationRuleQueryResultList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindRegistrationRules, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindRegistrationRules, true)
 }
 
 // UpdateRegistrationRulesById
@@ -110,6 +120,7 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 //		- required
 func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx context.Context, body *SwitchMRegistrationRule, id string) (*SwitchMRegistrationModifyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMRegistrationModifyResult
 		err  error
 	)
@@ -124,5 +135,8 @@ func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateRegistrationRulesById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateRegistrationRulesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

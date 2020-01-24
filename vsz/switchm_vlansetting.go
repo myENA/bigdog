@@ -29,6 +29,7 @@ func (ss *SwitchMService) SwitchMVLANSettingService() *SwitchMVLANSettingService
 //	 - body *SwitchMVlanConfigCreateVlanConfig
 func (s *SwitchMVLANSettingService) AddVlans(ctx context.Context, body *SwitchMVlanConfigCreateVlanConfig) (*SwitchMCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *SwitchMVLANSettingService) AddVlans(ctx context.Context, body *SwitchMV
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddVlans, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddVlans, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteVlans
@@ -50,7 +54,10 @@ func (s *SwitchMVLANSettingService) AddVlans(ctx context.Context, body *SwitchMV
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMVLANSettingService) DeleteVlans(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -59,7 +66,10 @@ func (s *SwitchMVLANSettingService) DeleteVlans(ctx context.Context, body *Switc
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlans, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlans, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteVlansById
@@ -70,14 +80,17 @@ func (s *SwitchMVLANSettingService) DeleteVlans(ctx context.Context, body *Switc
 // - id string
 //		- required
 func (s *SwitchMVLANSettingService) DeleteVlansById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlansById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlansById, true)
 }
 
 // FindVlans
@@ -85,13 +98,14 @@ func (s *SwitchMVLANSettingService) DeleteVlansById(ctx context.Context, id stri
 // Use this API command to Retrieve the VLAN Config List.
 func (s *SwitchMVLANSettingService) FindVlans(ctx context.Context) (*SwitchMVlanConfigQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMVlanConfigQueryResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindVlans, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlans, true)
 }
 
 // FindVlansById
@@ -103,6 +117,7 @@ func (s *SwitchMVLANSettingService) FindVlans(ctx context.Context) (*SwitchMVlan
 //		- required
 func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string) (*SwitchMVlanConfig, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMVlanConfig
 		err  error
 	)
@@ -112,7 +127,7 @@ func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindVlansById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlansById, true)
 }
 
 // FindVlansByQueryCriteria
@@ -123,6 +138,7 @@ func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVlanConfigQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMVlanConfigQueryResult
 		err  error
 	)
@@ -134,7 +150,10 @@ func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindVlansByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindVlansByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateVlansById
@@ -149,6 +168,7 @@ func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context
 //		- required
 func (s *SwitchMVLANSettingService) UpdateVlansById(ctx context.Context, body *SwitchMVlanConfigUpdateVlanConfig, id string) (*SwitchMVlanConfigEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMVlanConfigEmptyResult
 		err  error
 	)
@@ -163,5 +183,8 @@ func (s *SwitchMVLANSettingService) UpdateVlansById(ctx context.Context, body *S
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVlansById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVlansById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

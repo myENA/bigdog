@@ -26,13 +26,14 @@ func (ss *WSGService) WSGL3RoamingService() *WSGL3RoamingService {
 // Use this API command to retrieve L3 Roaming basic configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (*WSGProfileGetL3RoamingConfig, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileGetL3RoamingConfig
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelL3Roaming, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelL3Roaming, true)
 }
 
 // FindProfilesTunnelL3RoamingByQueryCriteria
@@ -40,13 +41,14 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (
 // Use this API command to retrieve L3 Roaming configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria(ctx context.Context) (*WSGProfileGetL3RoamingConfig, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileGetL3RoamingConfig
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelL3RoamingByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelL3RoamingByQueryCriteria, true)
 }
 
 // PartialUpdateProfilesTunnelL3Roaming
@@ -57,6 +59,7 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria(ctx con
 //	 - body *WSGProfileUpdateL3RoamingConfig
 func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.Context, body *WSGProfileUpdateL3RoamingConfig) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -68,5 +71,8 @@ func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelL3Roaming, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelL3Roaming, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

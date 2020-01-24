@@ -29,6 +29,7 @@ func (ss *WSGService) WSGEventandAlarmService() *WSGEventandAlarmService {
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlarmListAlarmQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAlarmListAlarmQueryResultList
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmList, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmList, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddAlertAlarmSummary
@@ -51,6 +55,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlertSummaryAlarmSummary, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAlertSummaryAlarmSummary
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmSummary, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmSummary, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddAlertEventList
@@ -73,6 +81,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGEventListEventQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGEventListEventQueryResultList
 		err  error
 	)
@@ -84,7 +93,10 @@ func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventList, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventList, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddAlertEventSummary
@@ -95,6 +107,7 @@ func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *W
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlertSummaryEventSummary, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAlertSummaryEventSummary
 		err  error
 	)
@@ -106,7 +119,10 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventSummary, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventSummary, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateAlertAlarmAck
@@ -117,6 +133,7 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 //	 - body *WSGAlertAckBulkAlarms
 func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body *WSGAlertAckBulkAlarms) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -128,7 +145,10 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAck, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAck, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateAlertAlarmAckByAlarmID
@@ -140,6 +160,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 //		- required
 func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Context, alarmID string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -149,7 +170,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, alarmID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
 }
 
 // UpdateAlertAlarmClear
@@ -160,6 +181,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 //	 - body *WSGAlertClearBulkAlarms
 func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, body *WSGAlertClearBulkAlarms) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -171,7 +193,10 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClear, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClear, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateAlertAlarmClearByAlarmID
@@ -183,6 +208,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 //		- required
 func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Context, alarmID string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -192,5 +218,5 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, alarmID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
 }

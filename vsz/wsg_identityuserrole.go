@@ -29,6 +29,7 @@ func (ss *WSGService) WSGIdentityUserRoleService() *WSGIdentityUserRoleService {
 //	 - body *WSGIdentityCreateIdentityUserRole
 func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, body *WSGIdentityCreateIdentityUserRole) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserrole, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserrole, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddIdentityUserRoleList
@@ -51,6 +55,7 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityList
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserRoleList, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserRoleList, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteIdentityUserrole
@@ -72,7 +80,10 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 // Request Body:
 //	 - body *WSGIdentityDeleteBulk
 func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context, body *WSGIdentityDeleteBulk) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -81,7 +92,10 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUserrole, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUserrole, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteIdentityUserroleById
@@ -93,6 +107,7 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 //		- required
 func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -102,7 +117,7 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUserroleById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUserroleById, true)
 }
 
 // FindIdentityUserrole
@@ -110,13 +125,14 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 // Use this API command to retrieve a list of identity user role.
 func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (*WSGIdentityList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserrole, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserrole, true)
 }
 
 // FindIdentityUserroleById
@@ -128,6 +144,7 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (
 //		- required
 func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Context, id string) (*WSGIdentityUserRole, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityUserRole
 		err  error
 	)
@@ -137,7 +154,7 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserroleById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserroleById, true)
 }
 
 // PartialUpdateIdentityUserroleById
@@ -152,6 +169,7 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 //		- required
 func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx context.Context, body *WSGIdentityModifyIdentityUserRole, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -166,5 +184,8 @@ func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityUserroleById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityUserroleById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

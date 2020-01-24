@@ -33,6 +33,7 @@ func (ss *WSGService) WSGTrafficClassProfileService() *WSGTrafficClassProfileSer
 //		- required
 func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(c
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesTrafficClassProfileByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesTrafficClassProfileByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesTrafficClassProfileById
@@ -61,6 +65,7 @@ func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(c
 //		- required
 func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -73,7 +78,7 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileById, true)
 }
 
 // DeleteRkszonesTrafficClassProfileByZoneId
@@ -88,6 +93,7 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ct
 //		- required
 func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -102,7 +108,10 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneI
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileByZoneId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindRkszonesTrafficClassProfileById
@@ -116,6 +125,7 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneI
 //		- required
 func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonTrafficClassProfileRef, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonTrafficClassProfileRef
 		err  error
 	)
@@ -128,7 +138,7 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileById, true)
 }
 
 // FindRkszonesTrafficClassProfileByZoneId
@@ -140,6 +150,7 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx 
 //		- required
 func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(ctx context.Context, zoneId string) (*WSGProfileTrafficClassProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileTrafficClassProfileList
 		err  error
 	)
@@ -149,7 +160,7 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileByZoneId, true)
 }
 
 // FindServicesTrafficClassProfileByQueryCriteria
@@ -160,6 +171,7 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileTrafficClassProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileTrafficClassProfileList
 		err  error
 	)
@@ -171,7 +183,10 @@ func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCr
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesTrafficClassProfileByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesTrafficClassProfileByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateRkszonesTrafficClassProfileById
@@ -188,6 +203,7 @@ func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCr
 //		- required
 func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfileById(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -205,5 +221,8 @@ func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfile
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesTrafficClassProfileById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesTrafficClassProfileById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

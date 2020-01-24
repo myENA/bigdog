@@ -29,6 +29,7 @@ func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
 //	 - body *WSGAAATestAuthenticationServer
 func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WSGAAATestAuthenticationServer) (*WSGAAATestAAAServerResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAAATestAAAServerResult
 		err  error
 	)
@@ -40,5 +41,8 @@ func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemAaaTest, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemAaaTest, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

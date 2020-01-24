@@ -29,14 +29,17 @@ func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
 // - bladeUUID string
 //		- required
 func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID, true)
 }
 
 // DeleteControlPlanesUserDefinedInterfaceByBladeUUID
@@ -47,14 +50,17 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 // - bladeUUID string
 //		- required
 func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID, true)
 }
 
 // FindControlPlanes
@@ -62,13 +68,14 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 // Use this API command to retrieve the list of control plane.
 func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*WSGSystemControlPlaneList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemControlPlaneList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanes, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanes, true)
 }
 
 // FindControlPlanesByBladeUUID
@@ -80,6 +87,7 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*WSGSy
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemControlPlaneConfiguration, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemControlPlaneConfiguration
 		err  error
 	)
@@ -89,7 +97,7 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesByBladeUUID, true)
 }
 
 // FindControlPlanesStaticRoutesByBladeUUID
@@ -101,6 +109,7 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemStaticRouteList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemStaticRouteList
 		err  error
 	)
@@ -110,7 +119,7 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesStaticRoutesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesStaticRoutesByBladeUUID, true)
 }
 
 // FindControlPlanesUserDefinedInterfaceByBladeUUID
@@ -122,6 +131,7 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemUserDefinedInterfaceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemUserDefinedInterfaceList
 		err  error
 	)
@@ -131,7 +141,7 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID, true)
 }
 
 // PartialUpdateControlPlanesByBladeUUID
@@ -146,6 +156,7 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 //		- required
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyControlPlane, bladeUUID string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -160,7 +171,10 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateControlPlanesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateControlPlanesByBladeUUID, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateControlPlanesIpSupport
@@ -171,6 +185,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 //	 - body *WSGSystemModifyIpSupportType
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context, body *WSGSystemModifyIpSupportType) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -182,5 +197,8 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateControlPlanesIpSupport, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateControlPlanesIpSupport, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

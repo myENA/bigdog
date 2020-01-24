@@ -249,14 +249,17 @@ func NewSwitchMSpecificSettingsUpdateSpecificSettings() *SwitchMSpecificSettings
 // - id string
 //		- required
 func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
 }
 
 // FindSpecificSettings
@@ -264,13 +267,14 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 // Use this API command to Retrieve all Specific Setting list.
 func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Context) (*SwitchMSpecificSettingsAllResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSpecificSettingsAllResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettings, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettings, true)
 }
 
 // FindSpecificSettingsById
@@ -282,6 +286,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 //		- required
 func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Context, id string) (*SwitchMSpecificSettings, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSpecificSettings
 		err  error
 	)
@@ -291,7 +296,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
 }
 
 // UpdateSpecificSettingsById
@@ -306,6 +311,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 //		- required
 func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.Context, body *SwitchMSpecificSettingsUpdateSpecificSettings, id string) (*SwitchMSpecificSettingsEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSpecificSettingsEmptyResult
 		err  error
 	)
@@ -320,5 +326,8 @@ func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSpecificSettingsById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSpecificSettingsById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

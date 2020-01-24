@@ -38,13 +38,14 @@ func (ss *WSGService) WSGAccessPointAPPService() *WSGAccessPointAPPService {
 //		- nullable
 func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalParams map[string]interface{}) (*WSGAPLinemanSummary, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPLinemanSummary
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
 }
 
 // FindApsTotalCount
@@ -58,13 +59,14 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 //		- nullable
 func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, optionalParams map[string]interface{}) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
 }
 
 // FindLinemanWorkflow
@@ -72,13 +74,14 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, option
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
 func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]byte, error) {
 	var (
+		req  *APIRequest
 		resp []byte
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
 }
 
 // UpdateLinemanWorkflow
@@ -88,12 +91,18 @@ func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]b
 // Request Body:
 //	 - body []byte
 func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context, body []byte) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }

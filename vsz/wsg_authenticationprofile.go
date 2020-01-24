@@ -29,6 +29,7 @@ func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfil
 //	 - body *WSGProfileCreateAuthenticationProfile
 func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, body *WSGProfileCreateAuthenticationProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAuth, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAuth, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddProfilesAuthCloneById
@@ -55,6 +59,7 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 //		- required
 func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *WSGProfileCloneRequest, id string) (*WSGProfileCloneResponse, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileCloneResponse
 		err  error
 	)
@@ -69,7 +74,10 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAuthCloneById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAuthCloneById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesAuth
@@ -80,6 +88,7 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 //	 - body *WSGProfileDeleteBulkAuthenticationProfile
 func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context, body *WSGProfileDeleteBulkAuthenticationProfile) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -91,7 +100,10 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAuth, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAuth, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesAuthById
@@ -103,6 +115,7 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context
 //		- required
 func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -112,7 +125,7 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAuthById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAuthById, true)
 }
 
 // FindProfilesAuth
@@ -120,13 +133,14 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Con
 // Use this API command to retrieve a list of authentication profiles.
 func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context) (*WSGProfileAuthenticationProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileAuthenticationProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuth, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuth, true)
 }
 
 // FindProfilesAuthAuthorizationList
@@ -138,6 +152,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context) 
 //		- required
 func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx context.Context, type_ string) (*WSGProfileBaseServiceInfoList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileBaseServiceInfoList
 		err  error
 	)
@@ -147,7 +162,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 	if err = pkgValidator.VarCtx(ctx, type_, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuthAuthorizationList, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuthAuthorizationList, true)
 }
 
 // FindProfilesAuthAuthServiceListByQueryCriteria
@@ -158,6 +173,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBaseServiceInfoList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileBaseServiceInfoList
 		err  error
 	)
@@ -169,7 +185,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesAuthAuthServiceListByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesAuthAuthServiceListByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindProfilesAuthById
@@ -181,6 +200,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 //		- required
 func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Context, id string) (*WSGProfileAuthenticationProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileAuthenticationProfile
 		err  error
 	)
@@ -190,7 +210,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuthById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuthById, true)
 }
 
 // FindProfilesAuthByQueryCriteria
@@ -201,6 +221,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileAuthenticationProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileAuthenticationProfileList
 		err  error
 	)
@@ -212,7 +233,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesAuthByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesAuthByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesAuthById
@@ -227,6 +251,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 //		- required
 func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx context.Context, body *WSGProfileModifyAuthenticationProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -241,5 +266,8 @@ func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesAuthById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesAuthById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

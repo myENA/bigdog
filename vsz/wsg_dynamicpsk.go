@@ -35,6 +35,7 @@ func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
 //		- required
 func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx context.Context, body *WSGDPSKBatchGenUnbound, id string, zoneId string) (*WSGDPSKGetDpskResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPSKGetDpskResult
 		err  error
 	)
@@ -52,7 +53,10 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansDpskBatchGenUnboundById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansDpskBatchGenUnboundById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesWlansDpskById
@@ -69,6 +73,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx conte
 //		- required
 func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, body *WSGDPSKDeleteDPSKs, id string, zoneId string) (*WSGDPSKDeleteDpskResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPSKDeleteDpskResult
 		err  error
 	)
@@ -86,7 +91,10 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansDpskById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansDpskById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesWlansDpskUploadById
@@ -103,6 +111,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 //		- required
 func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Context, body []byte, id string, zoneId string) (*WSGDPSKGetDpskResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPSKGetDpskResult
 		err  error
 	)
@@ -118,7 +127,10 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansDpskUploadById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansDpskUploadById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindRkszonesDeleteExpiredDpskByZoneId
@@ -130,6 +142,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, zoneId string) (*WSGDPSKDeleteExpiredDpskConfig, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPSKDeleteExpiredDpskConfig
 		err  error
 	)
@@ -139,7 +152,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDeleteExpiredDpskByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDeleteExpiredDpskByZoneId, true)
 }
 
 // FindRkszonesDownloadDpskCsvSample
@@ -151,13 +164,14 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 //		- nullable
 func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Context, optionalParams map[string]interface{}) ([]byte, error) {
 	var (
+		req  *APIRequest
 		resp []byte
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDownloadDpskCsvSample, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDownloadDpskCsvSample, true)
 }
 
 // FindRkszonesDpskByZoneId
@@ -169,6 +183,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Con
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zoneId string) (*WSGDPSKGetDpskInfoList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPSKGetDpskInfoList
 		err  error
 	)
@@ -178,7 +193,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zon
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDpskByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDpskByZoneId, true)
 }
 
 // FindRkszonesDpskEnabledWlansByZoneId
@@ -190,6 +205,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zon
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.Context, zoneId string) (*WSGDPSKGetDpskEnabledWlans, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPSKGetDpskEnabledWlans
 		err  error
 	)
@@ -199,7 +215,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDpskEnabledWlansByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDpskEnabledWlansByZoneId, true)
 }
 
 // FindRkszonesWlansDpskByDpskId
@@ -215,6 +231,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context, dpskId string, id string, zoneId string) (*WSGDPSKGetDpskInfoList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPSKGetDpskInfoList
 		err  error
 	)
@@ -230,7 +247,7 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, dpskId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlansDpskByDpskId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlansDpskByDpskId, true)
 }
 
 // FindRkszonesWlansDpskById
@@ -244,6 +261,7 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, id string, zoneId string) (*WSGDPSKGetDpskInfoList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDPSKGetDpskInfoList
 		err  error
 	)
@@ -256,7 +274,7 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlansDpskById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlansDpskById, true)
 }
 
 // PartialUpdateRkszonesWlansDpskByDpskId
@@ -275,6 +293,7 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, id
 //		- required
 func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx context.Context, body *WSGDPSKUpdateDpsk, dpskId string, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -295,7 +314,10 @@ func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx contex
 	if err = pkgValidator.VarCtx(ctx, dpskId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlansDpskByDpskId, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlansDpskByDpskId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesDeleteExpiredDpskByZoneId
@@ -310,6 +332,7 @@ func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx contex
 //		- required
 func (s *WSGDynamicPSKService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, body *WSGDPSKModifyDeleteExpiredDpsk, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -324,5 +347,8 @@ func (s *WSGDynamicPSKService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx conte
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesDeleteExpiredDpskByZoneId, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesDeleteExpiredDpskByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

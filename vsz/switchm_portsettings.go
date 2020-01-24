@@ -377,6 +377,7 @@ func NewSwitchMPortSettingsUpdatePortSettings() *SwitchMPortSettingsUpdatePortSe
 //	 - body *SwitchMPortSettingsCreateBulk
 func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, body *SwitchMPortSettingsCreateBulk) (*SwitchMPortSettingsEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMPortSettingsEmptyResult
 		err  error
 	)
@@ -388,7 +389,10 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddPortSettingsBulk, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddPortSettingsBulk, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindPortSettings
@@ -396,13 +400,14 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 // Use this API command to Retrieve all Port Settings list.
 func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*SwitchMPortSettingsQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMPortSettingsQueryResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettings, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettings, true)
 }
 
 // FindPortSettingsById
@@ -414,6 +419,7 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*Swi
 //		- required
 func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, id string) (*SwitchMPortSettings, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMPortSettings
 		err  error
 	)
@@ -423,7 +429,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettingsById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettingsById, true)
 }
 
 // FindPortSettingsByQueryCriteria
@@ -434,6 +440,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMPortSettingsQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMPortSettingsQueryResult
 		err  error
 	)
@@ -445,7 +452,10 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindPortSettingsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindPortSettingsByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdatePortSettingsById
@@ -460,6 +470,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 //		- required
 func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortSettingsUpdatePortSettings, id string) (*SwitchMPortSettingsEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMPortSettingsEmptyResult
 		err  error
 	)
@@ -474,5 +485,8 @@ func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdatePortSettingsById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdatePortSettingsById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

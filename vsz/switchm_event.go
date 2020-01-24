@@ -29,13 +29,17 @@ func (ss *SwitchMService) SwitchMEventService() *SwitchMEventService {
 //	 - body *SwitchMEventConfigAddEventConfig
 func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfigAddEventConfig) (*SwitchMEventConfigAddEventConfigResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMEventConfigAddEventConfigResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddCustomEvent, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddCustomEvent, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteCustomEventById
@@ -47,6 +51,7 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 //		- required
 func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string) (*SwitchMEventConfigDeleteEventConfigResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMEventConfigDeleteEventConfigResult
 		err  error
 	)
@@ -56,7 +61,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteCustomEventById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteCustomEventById, true)
 }
 
 // FindCustomEvent
@@ -64,13 +69,14 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 // Use this API command to retrieve switch event config list
 func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEventConfigGetEventConfigList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMEventConfigGetEventConfigList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEvent, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEvent, true)
 }
 
 // FindCustomEventById
@@ -82,6 +88,7 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEven
 //		- required
 func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string) (*SwitchMEventConfig, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMEventConfig
 		err  error
 	)
@@ -91,7 +98,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEventById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEventById, true)
 }
 
 // UpdateCustomEventById
@@ -106,6 +113,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 //		- required
 func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfigUpdateEventConfig, id string) (*SwitchMEventConfigUpdateEventConfigResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMEventConfigUpdateEventConfigResult
 		err  error
 	)
@@ -115,5 +123,8 @@ func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *S
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateCustomEventById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateCustomEventById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

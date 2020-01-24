@@ -33,6 +33,7 @@ func (ss *WSGService) WSGBonjourGatewayPoliciesService() *WSGBonjourGatewayPolic
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, body *WSGZoneCreateBonjourGatewayPolicy, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZo
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesBonjourGatewayPoliciesByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesBonjourGatewayPoliciesByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesBonjourGatewayPoliciesById
@@ -60,7 +64,10 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZo
 // - zoneId string
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -70,7 +77,7 @@ func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesB
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourGatewayPoliciesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourGatewayPoliciesById, true)
 }
 
 // FindRkszonesBonjourGatewayPoliciesById
@@ -84,6 +91,7 @@ func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesB
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string) (*WSGZoneBonjourGatewayPolicyConfiguration, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneBonjourGatewayPolicyConfiguration
 		err  error
 	)
@@ -96,7 +104,7 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByI
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesById, true)
 }
 
 // FindRkszonesBonjourGatewayPoliciesByZoneId
@@ -108,6 +116,7 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByI
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, zoneId string) (*WSGZoneBonjourGatewayPolicyList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneBonjourGatewayPolicyList
 		err  error
 	)
@@ -117,7 +126,7 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZ
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesByZoneId, true)
 }
 
 // PartialUpdateRkszonesBonjourGatewayPoliciesById
@@ -134,6 +143,7 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZ
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) PartialUpdateRkszonesBonjourGatewayPoliciesById(ctx context.Context, body *WSGZoneModifyBonjourGatewayPolicy, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -151,5 +161,8 @@ func (s *WSGBonjourGatewayPoliciesService) PartialUpdateRkszonesBonjourGatewayPo
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourGatewayPoliciesById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourGatewayPoliciesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

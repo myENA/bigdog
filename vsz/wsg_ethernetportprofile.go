@@ -33,6 +33,7 @@ func (ss *WSGService) WSGEthernetPortProfileService() *WSGEthernetPortProfileSer
 //		- required
 func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(ctx context.Context, body *WSGEthernetPortCreateEthernetPortProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(c
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesProfileEthernetPortByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesProfileEthernetPortByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesProfileEthernetPortById
@@ -61,6 +65,7 @@ func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(c
 //		- required
 func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -73,7 +78,7 @@ func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesProfileEthernetPortById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesProfileEthernetPortById, true)
 }
 
 // FindRkszonesProfileEthernetPortById
@@ -87,6 +92,7 @@ func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ct
 //		- required
 func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string) (*WSGEthernetPortProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGEthernetPortProfile
 		err  error
 	)
@@ -99,7 +105,7 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesProfileEthernetPortById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesProfileEthernetPortById, true)
 }
 
 // FindRkszonesProfileEthernetPortByZoneId
@@ -117,6 +123,7 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx 
 //		- nullable
 func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGEthernetPortProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGEthernetPortProfileList
 		err  error
 	)
@@ -126,7 +133,7 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesProfileEthernetPortByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesProfileEthernetPortByZoneId, true)
 }
 
 // PartialUpdateRkszonesProfileEthernetPortById
@@ -143,6 +150,7 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(
 //		- required
 func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -160,5 +168,8 @@ func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPort
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesProfileEthernetPortById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesProfileEthernetPortById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

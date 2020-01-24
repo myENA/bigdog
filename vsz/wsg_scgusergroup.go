@@ -29,6 +29,7 @@ func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
 //	 - body *WSGSCGUserGroup
 func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCGUserGroup) (*WSGSCGUserGroupAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGroupAuditId
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddUserGroups, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddUserGroups, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteUserGroups
@@ -51,6 +55,7 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroups, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroups, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteUserGroupsByUserGroupId
@@ -74,6 +82,7 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 //		- required
 func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string) (*WSGSCGUserGroupAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGroupAuditId
 		err  error
 	)
@@ -83,7 +92,7 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, userGroupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroupsByUserGroupId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroupsByUserGroupId, true)
 }
 
 // FindUserGroupsByQueryCriteria
@@ -94,6 +103,7 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 //	 - body *WSGSCGUserQueryCriteria
 func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria) (*WSGSCGUserGroupList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGroupList
 		err  error
 	)
@@ -105,7 +115,10 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindUserGroupsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindUserGroupsByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindUserGroupsByUserGroupId
@@ -121,6 +134,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 //		- nullable
 func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, userGroupId string, optionalParams map[string]interface{}) (*WSGSCGUserGroup, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGroup
 		err  error
 	)
@@ -130,7 +144,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, userGroupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsByUserGroupId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsByUserGroupId, true)
 }
 
 // FindUserGroupsCurrentUserPermissionCategories
@@ -138,13 +152,14 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 // Get permitted categories of current user.
 func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(ctx context.Context) (*WSGSCGUserGroupPermissionList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGroupPermissionList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsCurrentUserPermissionCategories, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsCurrentUserPermissionCategories, true)
 }
 
 // FindUserGroupsRoles
@@ -152,13 +167,14 @@ func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(c
 // Get pre-defined roles.
 func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*WSGSCGUserGroupRoleLabelValueList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGroupRoleLabelValueList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRoles, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRoles, true)
 }
 
 // FindUserGroupsRolesPermissionsByRole
@@ -174,6 +190,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*WSGS
 //		- nullable
 func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, role string, optionalParams map[string]interface{}) (*WSGSCGUserGroupPermissionList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGroupPermissionList
 		err  error
 	)
@@ -183,7 +200,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 	if err = pkgValidator.VarCtx(ctx, role, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRolesPermissionsByRole, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRolesPermissionsByRole, true)
 }
 
 // PartialUpdateUserGroupsByUserGroupId
@@ -198,6 +215,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 //		- required
 func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string) (*WSGSCGUserGroupAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGroupAuditId
 		err  error
 	)
@@ -212,5 +230,8 @@ func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx contex
 	if err = pkgValidator.VarCtx(ctx, userGroupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUserGroupsByUserGroupId, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUserGroupsByUserGroupId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

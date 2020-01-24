@@ -32,13 +32,14 @@ func (ss *WSGService) WSGSyslogServerService() *WSGSyslogServerService {
 //		- nullable
 func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalParams map[string]interface{}) (*WSGSyslogServerSetting, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSyslogServerSetting
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemSyslog, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSyslog, true)
 }
 
 // PartialUpdateSystemSyslog
@@ -48,7 +49,10 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 // Request Body:
 //	 - body *WSGSyslogModifySyslogSettings
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, body *WSGSyslogModifySyslogSettings) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -57,7 +61,10 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslog, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslog, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // PartialUpdateSystemSyslogPrimaryServer
@@ -67,7 +74,10 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 // Request Body:
 //	 - body *WSGSyslogPrimaryServer
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx context.Context, body *WSGSyslogPrimaryServer) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -76,7 +86,10 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPrimaryServer, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPrimaryServer, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // PartialUpdateSystemSyslogPriority
@@ -86,7 +99,10 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 // Request Body:
 //	 - body *WSGSyslogPriority
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.Context, body *WSGSyslogPriority) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -95,7 +111,10 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPriority, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPriority, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // PartialUpdateSystemSyslogSecondaryServer
@@ -105,7 +124,10 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 // Request Body:
 //	 - body *WSGSyslogSecondaryServer
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx context.Context, body *WSGSyslogSecondaryServer) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -114,5 +136,8 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogSecondaryServer, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogSecondaryServer, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }

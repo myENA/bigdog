@@ -29,6 +29,7 @@ func (ss *WSGService) WSGHotspot20IdentityProviderProfileService() *WSGHotspot20
 //	 - body *WSGProfileHs20Provider
 func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityproviders(ctx context.Context, body *WSGProfileHs20Provider) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityprov
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesHs20Identityproviders, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesHs20Identityproviders, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesHs20Identityproviders
@@ -51,6 +55,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityprov
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityproviders(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20Identityproviders, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20Identityproviders, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesHs20IdentityprovidersAccountingsById
@@ -74,6 +82,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 //		- required
 func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersAccountingsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -83,7 +92,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersAccountingsById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersAccountingsById, true)
 }
 
 // DeleteProfilesHs20IdentityprovidersById
@@ -95,6 +104,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 //		- required
 func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -104,7 +114,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersById, true)
 }
 
 // DeleteProfilesHs20IdentityprovidersOsuById
@@ -116,6 +126,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 //		- required
 func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersOsuById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -125,7 +136,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersOsuById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersOsuById, true)
 }
 
 // FindProfilesHs20Identityproviders
@@ -139,13 +150,14 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 //		- nullable
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identityproviders(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileHs20ProviderList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileHs20ProviderList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20Identityproviders, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20Identityproviders, true)
 }
 
 // FindProfilesHs20IdentityprovidersById
@@ -157,6 +169,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 //		- required
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersById(ctx context.Context, id string) (*WSGProfileHs20Provider, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileHs20Provider
 		err  error
 	)
@@ -166,7 +179,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20IdentityprovidersById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20IdentityprovidersById, true)
 }
 
 // FindProfilesHs20IdentityprovidersByQueryCriteria
@@ -177,6 +190,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileHs20ProviderList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileHs20ProviderList
 		err  error
 	)
@@ -188,7 +202,10 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesHs20IdentityprovidersByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesHs20IdentityprovidersByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesHs20IdentityprovidersById
@@ -203,6 +220,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 //		- required
 func (s *WSGHotspot20IdentityProviderProfileService) PartialUpdateProfilesHs20IdentityprovidersById(ctx context.Context, body *WSGProfileHs20Provider, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -217,5 +235,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) PartialUpdateProfilesHs20Id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesHs20IdentityprovidersById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesHs20IdentityprovidersById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

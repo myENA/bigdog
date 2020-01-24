@@ -44,7 +44,10 @@ func NewWSGFlexiVPNSetting() *WSGFlexiVPNSetting {
 // - zoneId string
 //		- required
 func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.Context, id string, zoneId string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -54,7 +57,7 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansFlexiVpnProfileById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansFlexiVpnProfileById, true)
 }
 
 // FindServicesFlexiVpnProfileByQueryCriteria
@@ -65,6 +68,7 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileFlexiVpnProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileFlexiVpnProfileList
 		err  error
 	)
@@ -76,5 +80,8 @@ func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesFlexiVpnProfileByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesFlexiVpnProfileByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

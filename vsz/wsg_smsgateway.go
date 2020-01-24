@@ -30,13 +30,14 @@ func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
 //		- nullable
 func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParams map[string]interface{}) (*WSGSystemSms, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemSms
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindSmsGateway, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSmsGateway, true)
 }
 
 // FindSmsGatewayByQueryCriteria
@@ -47,6 +48,7 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSystemSmsList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemSmsList
 		err  error
 	)
@@ -58,7 +60,10 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindSmsGatewayByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindSmsGatewayByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateSmsGateway
@@ -69,6 +74,7 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 //	 - body *WSGSystemSms
 func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body *WSGSystemSms) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -80,5 +86,8 @@ func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSmsGateway, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSmsGateway, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

@@ -36,6 +36,7 @@ func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndS
 //		- nullable
 func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx context.Context, bladeUUID string, optionalParams map[string]interface{}) (*WSGAdministrationApplicationLogAndStatusList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationApplicationLogAndStatusList
 		err  error
 	)
@@ -45,7 +46,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsByBladeUUID, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsByBladeUUID, true)
 }
 
 // FindApplicationsDownloadByBladeUUID
@@ -63,6 +64,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 //		- nullable
 func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, appName string, bladeUUID string, optionalParams map[string]interface{}) ([]byte, error) {
 	var (
+		req  *APIRequest
 		resp []byte
 		err  error
 	)
@@ -75,7 +77,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 	if err = pkgValidator.VarCtx(ctx, appName, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
 }
 
 // FindApplicationsDownloadsnapByBladeUUID
@@ -87,6 +89,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 //		- required
 func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, bladeUUID string) ([]byte, error) {
 	var (
+		req  *APIRequest
 		resp []byte
 		err  error
 	)
@@ -96,7 +99,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadsnapByBladeUUID, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadsnapByBladeUUID, true)
 }
 
 // PartialUpdateApplications
@@ -106,7 +109,10 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 // Request Body:
 //	 - body *WSGAdministrationModifyLogLevel
 func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx context.Context, body *WSGAdministrationModifyLogLevel) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -115,5 +121,8 @@ func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateApplications, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateApplications, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }

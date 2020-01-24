@@ -29,6 +29,7 @@ func (ss *WSGService) WSGAPRegistrationRulesService() *WSGAPRegistrationRulesSer
 //	 - body *WSGAPRulesCreateApRule
 func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WSGAPRulesCreateApRule) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApRules, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApRules, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteApRulesById
@@ -51,14 +55,17 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 // - id string
 //		- required
 func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteApRulesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApRulesById, true)
 }
 
 // FindApRules
@@ -66,13 +73,14 @@ func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, i
 // Use this API command to retrieve a list of AP Registration Rules profile.
 func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*WSGAPRulesApRuleList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPRulesApRuleList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApRules, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRules, true)
 }
 
 // FindApRulesById
@@ -84,6 +92,7 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*WSGAP
 //		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id string) (*WSGAPRulesApRuleConfiguration, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPRulesApRuleConfiguration
 		err  error
 	)
@@ -93,7 +102,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApRulesById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesById, true)
 }
 
 // FindApRulesPriorityDownById
@@ -104,14 +113,17 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 // - id string
 //		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityDownById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityDownById, true)
 }
 
 // FindApRulesPriorityUpById
@@ -122,14 +134,17 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 // - id string
 //		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityUpById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityUpById, true)
 }
 
 // PartialUpdateApRulesById
@@ -144,6 +159,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 //		- required
 func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Context, body *WSGAPRulesModifyApRule, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -158,5 +174,8 @@ func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateApRulesById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateApRulesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

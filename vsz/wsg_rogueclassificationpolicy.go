@@ -33,6 +33,7 @@ func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificat
 //		- required
 func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGProfileCreateRogueApPolicy, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesRogueApPoliciesByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesRogueApPoliciesByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesRogueApPoliciesById
@@ -61,6 +65,7 @@ func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId
 //		- required
 func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -73,7 +78,7 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRogueApPoliciesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRogueApPoliciesById, true)
 }
 
 // DeleteRkszonesRogueApPoliciesByZoneId
@@ -88,6 +93,7 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(
 //		- required
 func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -102,7 +108,10 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZon
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRogueApPoliciesByZoneId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRogueApPoliciesByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindRkszonesRogueApPoliciesById
@@ -116,6 +125,7 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZon
 //		- required
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string) (*WSGProfileRogueApPolicy, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileRogueApPolicy
 		err  error
 	)
@@ -128,7 +138,7 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRogueApPoliciesById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRogueApPoliciesById, true)
 }
 
 // FindRkszonesRogueApPoliciesByZoneId
@@ -140,6 +150,7 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ct
 //		- required
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId(ctx context.Context, zoneId string) (*WSGProfileRogueApPolicyList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileRogueApPolicyList
 		err  error
 	)
@@ -149,7 +160,7 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneI
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRogueApPoliciesByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRogueApPoliciesByZoneId, true)
 }
 
 // PartialUpdateRkszonesRogueApPoliciesById
@@ -166,6 +177,7 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneI
 //		- required
 func (s *WSGRogueClassificationPolicyService) PartialUpdateRkszonesRogueApPoliciesById(ctx context.Context, body *WSGProfileUpdateRogueApPolicy, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -183,5 +195,8 @@ func (s *WSGRogueClassificationPolicyService) PartialUpdateRkszonesRogueApPolici
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesRogueApPoliciesById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesRogueApPoliciesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

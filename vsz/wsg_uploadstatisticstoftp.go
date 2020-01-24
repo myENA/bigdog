@@ -26,13 +26,14 @@ func (ss *WSGService) WSGUploadStatisticstoFTPService() *WSGUploadStatisticstoFT
 // Use this API command to retrieve the uploading statistical data to FTP server setting.
 func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context.Context) (*WSGSystemFtpGlobalSetting, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemFtpGlobalSetting
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsStatsFtp, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsStatsFtp, true)
 }
 
 // PartialUpdateGlobalSettingsStatsFtp
@@ -43,6 +44,7 @@ func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context
 //	 - body *WSGSystemFtpGlobalSetting
 func (s *WSGUploadStatisticstoFTPService) PartialUpdateGlobalSettingsStatsFtp(ctx context.Context, body *WSGSystemFtpGlobalSetting) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -54,5 +56,8 @@ func (s *WSGUploadStatisticstoFTPService) PartialUpdateGlobalSettingsStatsFtp(ct
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateGlobalSettingsStatsFtp, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateGlobalSettingsStatsFtp, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

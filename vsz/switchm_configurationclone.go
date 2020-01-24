@@ -29,6 +29,7 @@ func (ss *SwitchMService) SwitchMConfigurationCloneService() *SwitchMConfigurati
 //	 - body *SwitchMGroupGetConfigBySwitch
 func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Context, body *SwitchMGroupGetConfigBySwitch) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddCloneConfiguration, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddCloneConfiguration, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddCloneConfigurationByGroup
@@ -51,6 +55,7 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Con
 //	 - body *SwitchMGroupCloneConfigByGroup
 func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx context.Context, body *SwitchMGroupCloneConfigByGroup) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddCloneConfigurationByGroup, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddCloneConfigurationByGroup, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateCloneConfiguration
@@ -73,6 +81,7 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx cont
 //	 - body *SwitchMGroupCloneConfigBySwitch
 func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.Context, body *SwitchMGroupCloneConfigBySwitch) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -84,5 +93,8 @@ func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateCloneConfiguration, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateCloneConfiguration, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

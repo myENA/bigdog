@@ -29,6 +29,7 @@ func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 //	 - body *WSGProfileCreateIpsecProfile
 func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, body *WSGProfileCreateIpsecProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelIpsec, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelIpsec, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesTunnelIpsec
@@ -51,6 +55,7 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsec, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsec, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesTunnelIpsecById
@@ -74,6 +82,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 //		- required
 func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -83,7 +92,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
 }
 
 // FindProfilesTunnelIpsec
@@ -97,13 +106,14 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 //		- nullable
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsec, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsec, true)
 }
 
 // FindProfilesTunnelIpsecById
@@ -115,6 +125,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 //		- required
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context, id string) (*WSGProfileIpsecProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileIpsecProfile
 		err  error
 	)
@@ -124,7 +135,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsecById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsecById, true)
 }
 
 // FindProfilesTunnelIpsecByQueryCriteria
@@ -135,6 +146,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileIpsecProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileIpsecProfileList
 		err  error
 	)
@@ -146,7 +158,10 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelIpsecByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelIpsecByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesTunnelIpsecById
@@ -161,6 +176,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 //		- required
 func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *WSGProfileModifyIpsecProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -175,5 +191,8 @@ func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelIpsecById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelIpsecById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

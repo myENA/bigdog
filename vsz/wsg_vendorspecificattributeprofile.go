@@ -214,6 +214,7 @@ func NewWSGVendorSpecificAttributeProfileVendorSpecificAttribute() *WSGVendorSpe
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, zoneId string) (WSGVendorSpecificAttributeProfileCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp WSGVendorSpecificAttributeProfileCreateResult
 		err  error
 	)
@@ -228,7 +229,10 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesVendorSpecificAttributeProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesVendorSpecificAttributeProfilesByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesVendorSpecificAttributeProfilesById
@@ -242,6 +246,7 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGVendorSpecificAttributeProfileEmptyResult
 		err  error
 	)
@@ -254,7 +259,7 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesById, true)
 }
 
 // DeleteRkszonesVendorSpecificAttributeProfilesByZoneId
@@ -269,6 +274,7 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfileDeleteBulk, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGVendorSpecificAttributeProfileEmptyResult
 		err  error
 	)
@@ -283,7 +289,10 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindRkszonesVendorSpecificAttributeProfilesById
@@ -297,6 +306,7 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*WSGVendorSpecificAttributeProfileGet, error) {
 	var (
+		req  *APIRequest
 		resp *WSGVendorSpecificAttributeProfileGet
 		err  error
 	)
@@ -309,7 +319,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesById, true)
 }
 
 // FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria
@@ -320,6 +330,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGVendorSpecificAttributeProfileQueryCriteriaResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGVendorSpecificAttributeProfileQueryCriteriaResult
 		err  error
 	)
@@ -331,7 +342,10 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindRkszonesVendorSpecificAttributeProfilesByZoneId
@@ -343,6 +357,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, zoneId string) (*WSGVendorSpecificAttributeProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGVendorSpecificAttributeProfileList
 		err  error
 	)
@@ -352,7 +367,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByZoneId, true)
 }
 
 // UpdateRkszonesVendorSpecificAttributeProfilesById
@@ -369,6 +384,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, id string, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGVendorSpecificAttributeProfileEmptyResult
 		err  error
 	)
@@ -386,5 +402,8 @@ func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificA
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesVendorSpecificAttributeProfilesById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesVendorSpecificAttributeProfilesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

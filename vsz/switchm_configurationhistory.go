@@ -26,13 +26,14 @@ func (ss *SwitchMService) SwitchMConfigurationHistoryService() *SwitchMConfigura
 // Use this API command to Retrieve Configuration History List.
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx context.Context) (*SwitchMDeployLogConfigurationHistoryQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMDeployLogConfigurationHistoryQueryResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
 }
 
 // FindConfigurationHistoryByQueryCriteria
@@ -43,6 +44,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeployLogConfigurationHistoryQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMDeployLogConfigurationHistoryQueryResult
 		err  error
 	)
@@ -54,7 +56,10 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindConfigurationHistoryByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindConfigurationHistoryByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindConfigurationHistoryDetail
@@ -62,13 +67,14 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 // Use this API command to Retrieve Configuration History List.
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
 }
 
 // FindConfigurationHistoryDetailByQueryCriteria
@@ -79,6 +85,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
 		err  error
 	)
@@ -90,5 +97,8 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

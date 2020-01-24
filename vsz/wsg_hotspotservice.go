@@ -33,6 +33,7 @@ func (ss *WSGService) WSGHotspotServiceService() *WSGHotspotServiceService {
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotExternal, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalsHotspotExternalByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalsHotspotExternalByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesPortalsHotspotInternalByZoneId
@@ -62,6 +66,7 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotInternal, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -76,7 +81,10 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalsHotspotInternalByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalsHotspotInternalByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesPortalsHotspotSmartClientOnlyByZoneId
@@ -91,6 +99,7 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotSmartClientOnly, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -105,7 +114,10 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZon
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalsHotspotSmartClientOnlyByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalsHotspotSmartClientOnlyByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesPortalsHotspotById
@@ -119,6 +131,7 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZon
 //		- required
 func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -131,7 +144,7 @@ func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsHotspotById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsHotspotById, true)
 }
 
 // FindRkszonesPortalsHotspotById
@@ -145,6 +158,7 @@ func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.
 //		- required
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot, error) {
 	var (
+		req  *APIRequest
 		resp *WSGPortalServiceHotspot
 		err  error
 	)
@@ -157,7 +171,7 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsHotspotById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsHotspotById, true)
 }
 
 // FindRkszonesPortalsHotspotByZoneId
@@ -169,6 +183,7 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Co
 //		- required
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGPortalServiceList
 		err  error
 	)
@@ -178,7 +193,7 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx contex
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsHotspotByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsHotspotByZoneId, true)
 }
 
 // PartialUpdateRkszonesPortalsHotspotById
@@ -195,6 +210,7 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx contex
 //		- required
 func (s *WSGHotspotServiceService) PartialUpdateRkszonesPortalsHotspotById(ctx context.Context, body *WSGPortalServiceModifyHotspot, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -212,5 +228,8 @@ func (s *WSGHotspotServiceService) PartialUpdateRkszonesPortalsHotspotById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsHotspotById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsHotspotById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

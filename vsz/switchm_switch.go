@@ -1323,6 +1323,7 @@ func NewSwitchMSwitchTopSwitchesByModelQueryResultListExtraType() *SwitchMSwitch
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchQueryResultList
 		err  error
 	)
@@ -1334,7 +1335,10 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitch, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitch, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSwitchSnmpSyncedSwitch
@@ -1345,6 +1349,7 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchQueryResultList
 		err  error
 	)
@@ -1356,7 +1361,10 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchSnmpSyncedSwitch, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchSnmpSyncedSwitch, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSwitchViewDetails
@@ -1367,6 +1375,7 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchStackMemberQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchStackMemberQueryResult
 		err  error
 	)
@@ -1378,7 +1387,10 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchViewDetails, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchViewDetails, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteSwitch
@@ -1389,6 +1401,7 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 //	 - body SwitchMSwitchIdList
 func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwitchIdList) (*SwitchMSwitchDeleteSwitchesResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchDeleteSwitchesResultList
 		err  error
 	)
@@ -1398,7 +1411,10 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitch, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitch, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteSwitchById
@@ -1410,6 +1426,7 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 //		- required
 func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) (*SwitchMSwitchAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchAuditId
 		err  error
 	)
@@ -1419,7 +1436,7 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchById, true)
 }
 
 // FindSwitchById
@@ -1431,6 +1448,7 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) 
 //		- required
 func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*SwitchMSwitchNetworkSwitch, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchNetworkSwitch
 		err  error
 	)
@@ -1440,7 +1458,7 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchById, true)
 }
 
 // FindSwitchFirmwareBySwitchId
@@ -1452,6 +1470,7 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*
 //		- required
 func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context, switchId string) (*SwitchMSwitchFirmwareHistoryQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchFirmwareHistoryQueryResultList
 		err  error
 	)
@@ -1461,7 +1480,7 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchFirmwareBySwitchId, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchFirmwareBySwitchId, true)
 }
 
 // UpdateSwitchMoveByDestinationSwitchGroupId
@@ -1476,6 +1495,7 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 //		- required
 func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, destinationSwitchGroupId string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -1488,5 +1508,8 @@ func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx co
 	if err = pkgValidator.VarCtx(ctx, destinationSwitchGroupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchMoveByDestinationSwitchGroupId, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchMoveByDestinationSwitchGroupId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

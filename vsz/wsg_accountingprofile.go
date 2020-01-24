@@ -29,6 +29,7 @@ func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService
 //	 - body *WSGProfileCreateAccountingProfile
 func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body *WSGProfileCreateAccountingProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAcct, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAcct, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddProfilesAcctCloneById
@@ -55,6 +59,7 @@ func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body 
 //		- required
 func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Context, body *WSGProfileCloneRequest, id string) (*WSGProfileCloneResponse, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileCloneResponse
 		err  error
 	)
@@ -69,7 +74,10 @@ func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAcctCloneById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAcctCloneById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesAcct
@@ -80,6 +88,7 @@ func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Conte
 //	 - body *WSGProfileDeleteBulkAccountingProfile
 func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, body *WSGProfileDeleteBulkAccountingProfile) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -91,7 +100,10 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAcct, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAcct, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesAcctById
@@ -103,6 +115,7 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, bo
 //		- required
 func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -112,7 +125,7 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAcctById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAcctById, true)
 }
 
 // FindProfilesAcct
@@ -120,13 +133,14 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context
 // Use this API command to retrieve a list of accounting profiles.
 func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*WSGProfileAccountingProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileAccountingProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAcct, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAcct, true)
 }
 
 // FindProfilesAcctById
@@ -138,6 +152,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*WS
 //		- required
 func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, id string) (*WSGProfileAccountingProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileAccountingProfile
 		err  error
 	)
@@ -147,7 +162,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAcctById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAcctById, true)
 }
 
 // FindProfilesAcctByQueryCriteria
@@ -158,6 +173,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileAccountingProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileAccountingProfileList
 		err  error
 	)
@@ -169,7 +185,10 @@ func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesAcctByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesAcctByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesAcctById
@@ -184,6 +203,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx contex
 //		- required
 func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.Context, body *WSGProfileModifyAccountingProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -198,5 +218,8 @@ func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesAcctById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesAcctById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

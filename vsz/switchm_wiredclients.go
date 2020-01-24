@@ -29,6 +29,7 @@ func (ss *SwitchMService) SwitchMWiredClientsService() *SwitchMWiredClientsServi
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedDevicesQueryList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchConnectedDevicesQueryList
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClients, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClients, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSwitchClientsAp
@@ -51,6 +55,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedAPsQueryList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchConnectedAPsQueryList
 		err  error
 	)
@@ -62,5 +67,8 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClientsAp, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClientsAp, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

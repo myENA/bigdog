@@ -171,6 +171,7 @@ func NewWSGDevicePolicyPorfileListType() *WSGDevicePolicyPorfileListType {
 //		- required
 func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Context, body *WSGDevicePolicyCreateDevicePolicy, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -185,7 +186,10 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDevicePolicyByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDevicePolicyByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesDevicePolicyById
@@ -199,6 +203,7 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 //		- required
 func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -211,7 +216,7 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDevicePolicyById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDevicePolicyById, true)
 }
 
 // FindRkszonesDevicePolicyById
@@ -225,6 +230,7 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 //		- required
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string) (*WSGDevicePolicyPorfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDevicePolicyPorfile
 		err  error
 	)
@@ -237,7 +243,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDevicePolicyById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDevicePolicyById, true)
 }
 
 // FindRkszonesDevicePolicyByZoneId
@@ -255,6 +261,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 //		- nullable
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGDevicePolicyPorfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGDevicePolicyPorfileList
 		err  error
 	)
@@ -264,7 +271,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDevicePolicyByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDevicePolicyByZoneId, true)
 }
 
 // PartialUpdateRkszonesDevicePolicyById
@@ -281,6 +288,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 //		- required
 func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx context.Context, body *WSGDevicePolicyModifyDevicePolicy, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -298,5 +306,8 @@ func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesDevicePolicyById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesDevicePolicyById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

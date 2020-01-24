@@ -29,6 +29,7 @@ func (ss *WSGService) WSGBridgeService() *WSGBridgeService {
 //	 - body *WSGProfileCreateBridgeProfile
 func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfileCreateBridgeProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesBridge, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesBridge, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesBridge
@@ -51,6 +55,7 @@ func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfi
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridge, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridge, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesBridgeById
@@ -73,14 +81,17 @@ func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCo
 // - id string
 //		- required
 func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridgeById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridgeById, true)
 }
 
 // FindProfilesBridge
@@ -88,13 +99,14 @@ func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id stri
 // Use this API command to retrieve a list of Bridge profile.
 func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*WSGProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridge, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridge, true)
 }
 
 // FindProfilesBridgeById
@@ -106,6 +118,7 @@ func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*WSGProfileL
 //		- required
 func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string) (*WSGProfileBridgeProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileBridgeProfile
 		err  error
 	)
@@ -115,7 +128,7 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridgeById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridgeById, true)
 }
 
 // FindProfilesBridgeByQueryCriteria
@@ -126,6 +139,7 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBridgeProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileBridgeProfileList
 		err  error
 	)
@@ -137,7 +151,10 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesBridgeByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesBridgeByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesBridgeById
@@ -152,6 +169,7 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 //		- required
 func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, body *WSGProfileModifyBridgeProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -166,5 +184,8 @@ func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesBridgeById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesBridgeById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

@@ -29,6 +29,7 @@ func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRogueMarkIgnore, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRogueMarkIgnore, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRogueMarkKnown
@@ -51,6 +55,7 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRogueMarkKnown, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRogueMarkKnown, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRogueMarkMalicious
@@ -73,6 +81,7 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -84,7 +93,10 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRogueMarkMalicious, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRogueMarkMalicious, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRogueMarkRogue
@@ -95,6 +107,7 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -106,7 +119,10 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRogueMarkRogue, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRogueMarkRogue, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRogueUnMark
@@ -117,6 +133,7 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -128,7 +145,10 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRogueUnMark, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRogueUnMark, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindRogueMarkKnown
@@ -136,11 +156,12 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 // Get Known Rogue AP list.
 func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context) (*WSGAPModifyRogueType, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPModifyRogueType
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRogueMarkKnown, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRogueMarkKnown, true)
 }

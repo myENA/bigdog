@@ -29,6 +29,7 @@ func (ss *SwitchMService) SwitchMTopReportsService() *SwitchMTopReportsService {
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchTopSwitchesByFirmwareQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchTopSwitchesByFirmwareQueryResultList
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchTopByFirmware, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchTopByFirmware, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSwitchTopByModel
@@ -51,6 +55,7 @@ func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, b
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTopReportsService) AddSwitchTopByModel(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchTopSwitchesByModelQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchTopSwitchesByModelQueryResultList
 		err  error
 	)
@@ -62,5 +67,8 @@ func (s *SwitchMTopReportsService) AddSwitchTopByModel(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchTopByModel, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchTopByModel, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

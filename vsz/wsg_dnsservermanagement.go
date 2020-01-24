@@ -29,6 +29,7 @@ func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementSer
 //	 - body *WSGProfileCreateDnsServerProfile
 func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context, body *WSGProfileCreateDnsServerProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesDnsserver, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesDnsserver, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddProfilesDnsserverCloneById
@@ -55,6 +59,7 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context
 //		- required
 func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *WSGProfileCloneRequest, id string) (*WSGProfileCloneResponse, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileCloneResponse
 		err  error
 	)
@@ -69,7 +74,10 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesDnsserverCloneById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesDnsserverCloneById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesDnsserver
@@ -80,6 +88,7 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx contex
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -91,7 +100,10 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesDnsserver, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesDnsserver, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesDnsserverById
@@ -103,6 +115,7 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Cont
 //		- required
 func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -112,7 +125,7 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesDnsserverById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesDnsserverById, true)
 }
 
 // FindProfilesDnsserver
@@ -126,13 +139,14 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.
 //		- nullable
 func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileDnsServerProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileDnsServerProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserver, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserver, true)
 }
 
 // FindProfilesDnsserverById
@@ -144,6 +158,7 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Contex
 //		- required
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Context, id string) (*WSGProfileDnsServerProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileDnsServerProfile
 		err  error
 	)
@@ -153,7 +168,7 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserverById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserverById, true)
 }
 
 // FindProfilesDnsserverByQueryCriteria
@@ -164,6 +179,7 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Co
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDnsServerProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileDnsServerProfileList
 		err  error
 	)
@@ -175,7 +191,10 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesDnsserverByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesDnsserverByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesDnsserverById
@@ -190,6 +209,7 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx
 //		- required
 func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *WSGProfileModifyDnsServerProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -204,5 +224,8 @@ func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesDnsserverById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesDnsserverById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

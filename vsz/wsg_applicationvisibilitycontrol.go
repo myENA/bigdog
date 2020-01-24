@@ -29,6 +29,7 @@ func (ss *WSGService) WSGApplicationVisibilityControlService() *WSGApplicationVi
 //	 - body *WSGAVCCreateApplicationPolicyProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx context.Context, body *WSGAVCCreateApplicationPolicyProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAvcApplicationPolicy, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcApplicationPolicy, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddAvcApplicationPolicyV2
@@ -51,6 +55,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx con
 //	 - body *WSGAVCCreateApplicationPolicyProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx context.Context, body *WSGAVCCreateApplicationPolicyProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAvcApplicationPolicyV2, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcApplicationPolicyV2, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddAvcSignaturePackageUpload
@@ -73,6 +81,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx c
 //	 - body []byte
 func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ctx context.Context, body []byte) (*WSGAVCSignaturePackage, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCSignaturePackage
 		err  error
 	)
@@ -82,7 +91,10 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ct
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAvcSignaturePackageUpload, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcSignaturePackageUpload, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddAvcSignaturePackageV2Upload
@@ -93,6 +105,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ct
 //	 - body []byte
 func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(ctx context.Context, body []byte) (*WSGAVCSignaturePackage, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCSignaturePackage
 		err  error
 	)
@@ -102,7 +115,10 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAvcSignaturePackageV2Upload, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcSignaturePackageV2Upload, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddAvcUserDefined
@@ -113,6 +129,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 //	 - body *WSGAVCCreateUserDefinedProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.Context, body *WSGAVCCreateUserDefinedProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -124,7 +141,10 @@ func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAvcUserDefined, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcUserDefined, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteAvcApplicationPolicy
@@ -135,6 +155,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.C
 //	 - body *WSGAVCDeleteBulk
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx context.Context, body *WSGAVCDeleteBulk) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -146,7 +167,10 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicy, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicy, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteAvcApplicationPolicyById
@@ -158,6 +182,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx 
 //		- required
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -167,7 +192,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyById, true)
 }
 
 // DeleteAvcApplicationPolicyV2
@@ -178,6 +203,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(
 //	 - body *WSGAVCDeleteBulk
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ctx context.Context, body *WSGAVCDeleteBulk) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -189,7 +215,10 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ct
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteAvcApplicationPolicyV2ById
@@ -201,6 +230,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ct
 //		- required
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -210,7 +240,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ByI
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2ById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2ById, true)
 }
 
 // DeleteAvcUserDefined
@@ -221,6 +251,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ByI
 //	 - body *WSGAVCDeleteBulk
 func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx context.Context, body *WSGAVCDeleteBulk) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -232,7 +263,10 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcUserDefined, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcUserDefined, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteAvcUserDefinedById
@@ -244,6 +278,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx contex
 //		- required
 func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -253,7 +288,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcUserDefinedById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcUserDefinedById, true)
 }
 
 // FindApplicationPolicyByQueryCriteria
@@ -264,6 +299,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx co
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCApplicationPolicyProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCApplicationPolicyProfileList
 		err  error
 	)
@@ -275,7 +311,10 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCri
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindApplicationPolicyByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindApplicationPolicyByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindApplicationPolicyV2ByQueryCriteria
@@ -286,6 +325,7 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCri
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCApplicationPolicyProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCApplicationPolicyProfileList
 		err  error
 	)
@@ -297,7 +337,10 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindApplicationPolicyV2ByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindApplicationPolicyV2ByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindAvcApplicationPolicyById
@@ -309,6 +352,7 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ctx context.Context, id string) (*WSGAVCApplicationPolicyProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCApplicationPolicyProfile
 		err  error
 	)
@@ -318,7 +362,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyById, true)
 }
 
 // FindAvcApplicationPolicyV2ById
@@ -330,6 +374,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(ctx context.Context, id string) (*WSGAVCApplicationPolicyProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCApplicationPolicyProfile
 		err  error
 	)
@@ -339,7 +384,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyV2ById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyV2ById, true)
 }
 
 // FindAvcSignaturePackage
@@ -347,13 +392,14 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(
 // Get current Signature Package info (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx context.Context) (*WSGAVCSignaturePackage, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCSignaturePackage
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackage, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackage, true)
 }
 
 // FindAvcSignaturePackageApplicationByApplicationName
@@ -365,6 +411,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx con
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicationByApplicationName(ctx context.Context, applicationName string) (*WSGAVCApplication, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCApplication
 		err  error
 	)
@@ -374,7 +421,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 	if err = pkgValidator.VarCtx(ctx, applicationName, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplicationByApplicationName, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplicationByApplicationName, true)
 }
 
 // FindAvcSignaturePackageApplications
@@ -382,13 +429,14 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 // Get Application list from current Signature Package (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplications(ctx context.Context) (*WSGAVCApplicationList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCApplicationList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplications, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplications, true)
 }
 
 // FindAvcSignaturePackageCategories
@@ -396,13 +444,14 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 // Get Application Category list from current Signature Package (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategories(ctx context.Context) (*WSGAVCAppCategoryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCAppCategoryList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategories, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategories, true)
 }
 
 // FindAvcSignaturePackageCategoryByCategoryName
@@ -414,6 +463,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategori
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategoryByCategoryName(ctx context.Context, categoryName string) (*WSGAVCAppCategory, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCAppCategory
 		err  error
 	)
@@ -423,7 +473,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategory
 	if err = pkgValidator.VarCtx(ctx, categoryName, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategoryByCategoryName, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategoryByCategoryName, true)
 }
 
 // FindAvcSignaturePackageV2
@@ -431,13 +481,14 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategory
 // Get current Signature Package info.
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx context.Context) (*WSGAVCSignaturePackage, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCSignaturePackage
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2, true)
 }
 
 // FindAvcSignaturePackageV2Applications
@@ -449,13 +500,14 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 //		- nullable
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applications(ctx context.Context, optionalParams map[string]interface{}) (*WSGAVCApplicationList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCApplicationList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Applications, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Applications, true)
 }
 
 // FindAvcSignaturePackageV2Categories
@@ -467,13 +519,14 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 //		- nullable
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Categories(ctx context.Context, optionalParams map[string]interface{}) (*WSGAVCAppCategoryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCAppCategoryList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Categories, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Categories, true)
 }
 
 // FindAvcUserDefinedById
@@ -485,6 +538,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx context.Context, id string) (*WSGAVCUserDefinedProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCUserDefinedProfile
 		err  error
 	)
@@ -494,7 +548,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAvcUserDefinedById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcUserDefinedById, true)
 }
 
 // FindUserDefinedByQueryCriteria
@@ -505,6 +559,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCUserDefinedProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAVCUserDefinedProfileList
 		err  error
 	)
@@ -516,7 +571,10 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindUserDefinedByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindUserDefinedByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateAvcApplicationPolicyById
@@ -531,6 +589,7 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 //		- required
 func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -545,7 +604,10 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateAvcApplicationPolicyV2ById
@@ -560,6 +622,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 //		- required
 func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyV2ById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -574,7 +637,10 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyV2ById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyV2ById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateAvcUserDefinedById
@@ -589,6 +655,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 //		- required
 func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *WSGAVCModifyUserDefinedProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -603,5 +670,8 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcUserDefinedById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcUserDefinedById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

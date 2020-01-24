@@ -29,6 +29,7 @@ func (ss *WSGService) WSGSoftGRETunnelProfileService() *WSGSoftGRETunnelProfileS
 //	 - body *WSGProfileCreateSoftGREProfile
 func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Context, body *WSGProfileCreateSoftGREProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelSoftgre, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelSoftgre, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesTunnelSoftgre
@@ -51,6 +55,7 @@ func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Co
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgre, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgre, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesTunnelSoftgreById
@@ -74,6 +82,7 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context
 //		- required
 func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -83,7 +92,7 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgreById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgreById, true)
 }
 
 // FindProfilesTunnelSoftgre
@@ -91,13 +100,14 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx con
 // Use this API command to retrieve a list of SoftGRE tunnel profile.
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.Context) (*WSGProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgre, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgre, true)
 }
 
 // FindProfilesTunnelSoftgreById
@@ -109,6 +119,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.C
 //		- required
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx context.Context, id string) (*WSGProfileSoftGREProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileSoftGREProfile
 		err  error
 	)
@@ -118,7 +129,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgreById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgreById, true)
 }
 
 // FindProfilesTunnelSoftgreByQueryCriteria
@@ -129,6 +140,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileSoftGREProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileSoftGREProfileList
 		err  error
 	)
@@ -140,7 +152,10 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelSoftgreByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelSoftgreByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesTunnelSoftgreById
@@ -155,6 +170,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 //		- required
 func (s *WSGSoftGRETunnelProfileService) PartialUpdateProfilesTunnelSoftgreById(ctx context.Context, body *WSGProfileModifySoftGREProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -169,5 +185,8 @@ func (s *WSGSoftGRETunnelProfileService) PartialUpdateProfilesTunnelSoftgreById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelSoftgreById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelSoftgreById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

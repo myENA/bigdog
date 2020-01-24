@@ -29,6 +29,7 @@ func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileServi
 //	 - body *WSGProfileCreateUserTrafficProfile
 func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body *WSGProfileCreateUserTrafficProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesUtp, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesUtp, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddProfilesUtpCloneById
@@ -55,6 +59,7 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body 
 //		- required
 func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Context, body *WSGProfileCloneRequest, id string) (*WSGProfileCloneResponse, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileCloneResponse
 		err  error
 	)
@@ -69,7 +74,10 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesUtpCloneById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesUtpCloneById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesUtp
@@ -80,6 +88,7 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Conte
 //	 - body *WSGProfileDeleteBulkUserTrafficProfile
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, body *WSGProfileDeleteBulkUserTrafficProfile) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -91,7 +100,10 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesUtp, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesUtp, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesUtpById
@@ -103,6 +115,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, bo
 //		- required
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -112,7 +125,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesUtpById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesUtpById, true)
 }
 
 // DeleteProfilesUtpDownlinkRateLimitingById
@@ -124,6 +137,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context
 //		- required
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -133,7 +147,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesUtpDownlinkRateLimitingById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesUtpDownlinkRateLimitingById, true)
 }
 
 // DeleteProfilesUtpUplinkRateLimitingById
@@ -145,6 +159,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById
 //		- required
 func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -154,7 +169,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesUtpUplinkRateLimitingById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesUtpUplinkRateLimitingById, true)
 }
 
 // FindProfilesUtp
@@ -168,13 +183,14 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(c
 //		- nullable
 func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesUtp, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesUtp, true)
 }
 
 // FindProfilesUtpById
@@ -186,6 +202,7 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, opti
 //		- required
 func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, id string) (*WSGProfileUserTrafficProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileUserTrafficProfile
 		err  error
 	)
@@ -195,7 +212,7 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesUtpById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesUtpById, true)
 }
 
 // FindProfilesUtpByQueryCriteria
@@ -206,6 +223,7 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileUserTrafficProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileUserTrafficProfileList
 		err  error
 	)
@@ -217,7 +235,10 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesUtpByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesUtpByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesUtpById
@@ -232,6 +253,7 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx contex
 //		- required
 func (s *WSGUserTrafficProfileService) PartialUpdateProfilesUtpById(ctx context.Context, body *WSGProfileModifyUserTrafficProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -246,5 +268,8 @@ func (s *WSGUserTrafficProfileService) PartialUpdateProfilesUtpById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesUtpById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesUtpById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

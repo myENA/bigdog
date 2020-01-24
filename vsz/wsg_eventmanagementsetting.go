@@ -30,6 +30,7 @@ func (ss *WSGService) WSGEventManagementSettingService() *WSGEventManagementSett
 //		- required
 func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneId(ctx context.Context, zoneId string) (*WSGEventManagementEventEmailSetting, error) {
 	var (
+		req  *APIRequest
 		resp *WSGEventManagementEventEmailSetting
 		err  error
 	)
@@ -39,7 +40,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneI
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesEventEmailSettingsByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesEventEmailSettingsByZoneId, true)
 }
 
 // FindRkszonesEventNotificationSettingsByZoneId
@@ -51,6 +52,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneI
 //		- required
 func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettingsByZoneId(ctx context.Context, zoneId string) (*WSGEventManagementEventDataResponse, error) {
 	var (
+		req  *APIRequest
 		resp *WSGEventManagementEventDataResponse
 		err  error
 	)
@@ -60,7 +62,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettings
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesEventNotificationSettingsByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesEventNotificationSettingsByZoneId, true)
 }
 
 // UpdateRkszonesEventEmailSettingsByZoneId
@@ -75,6 +77,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettings
 //		- required
 func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZoneId(ctx context.Context, body *WSGEventManagementEventEmailSetting, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -89,7 +92,10 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZon
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesEventEmailSettingsByZoneId, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesEventEmailSettingsByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesEventNotificationSettingsByZoneId
@@ -104,6 +110,7 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZon
 //		- required
 func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettingsByZoneId(ctx context.Context, body WSGEventManagementEventSettingList, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -116,5 +123,8 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettin
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesEventNotificationSettingsByZoneId, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesEventNotificationSettingsByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

@@ -176,6 +176,7 @@ func NewSwitchMFirmwareSwitchModel() *SwitchMFirmwareSwitchModel {
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMFirmwaresQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMFirmwaresQueryResultList
 		err  error
 	)
@@ -187,7 +188,10 @@ func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMC
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmware, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmware, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddFirmwareUpload
@@ -198,6 +202,7 @@ func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMC
 //	 - body []byte
 func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []byte) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -207,7 +212,10 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []b
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmwareUpload, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmwareUpload, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteFirmwareByVersion
@@ -219,6 +227,7 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []b
 //		- required
 func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, version string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -228,7 +237,7 @@ func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, ve
 	if err = pkgValidator.VarCtx(ctx, version, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteFirmwareByVersion, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteFirmwareByVersion, true)
 }
 
 // FindFirmware
@@ -236,13 +245,14 @@ func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, ve
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
 func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirmwareAllFirmwaresQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMFirmwareAllFirmwaresQueryResultList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
 }
 
 // PartialUpdateFirmwareByVersion
@@ -257,6 +267,7 @@ func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirm
 //		- required
 func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, version string) (*SwitchMFirmwareScheduleIds, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMFirmwareScheduleIds
 		err  error
 	)
@@ -271,5 +282,8 @@ func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, version, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteSwitchMPartialUpdateFirmwareByVersion, true)
+	req = NewAPIRequest(http.MethodPatch, RouteSwitchMPartialUpdateFirmwareByVersion, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

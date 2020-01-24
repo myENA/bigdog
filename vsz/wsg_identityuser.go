@@ -29,6 +29,7 @@ func (ss *WSGService) WSGIdentityUserService() *WSGIdentityUserService {
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityUserList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityUserList
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserList, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserList, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddIdentityUsers
@@ -51,6 +55,7 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 //	 - body *WSGIdentityCreateUser
 func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSGIdentityCreateUser) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUsers, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUsers, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteIdentityUsers
@@ -72,7 +80,10 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 // Request Body:
 //	 - body *WSGIdentityDeleteBulk
 func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *WSGIdentityDeleteBulk) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -81,7 +92,10 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsers, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsers, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteIdentityUsersById
@@ -93,6 +107,7 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 //		- required
 func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -102,7 +117,7 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
 }
 
 // FindIdentityUsers
@@ -140,13 +155,14 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 //		- nullable
 func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optionalParams map[string]interface{}) (*WSGIdentityUserList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityUserList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsers, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsers, true)
 }
 
 // FindIdentityUsersAaaserver
@@ -154,13 +170,14 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 // Use this API command to retrieve a list of aaa server.
 func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context) (*WSGIdentityAaaServerList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityAaaServerList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
 }
 
 // FindIdentityUsersById
@@ -172,6 +189,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context)
 //		- required
 func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id string) (*WSGIdentityUserConfiguration, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityUserConfiguration
 		err  error
 	)
@@ -181,7 +199,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersById, true)
 }
 
 // FindIdentityUsersCountries
@@ -189,13 +207,14 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 // Use this API command to retrieve a list of countries.
 func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context) (*WSGIdentityCountryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityCountryList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
 }
 
 // FindIdentityUsersPackages
@@ -203,13 +222,14 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context)
 // Use this API command to retrieve a list of packages.
 func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) (*WSGIdentityPackageList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIdentityPackageList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
 }
 
 // PartialUpdateIdentityUsersById
@@ -224,6 +244,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) 
 //		- required
 func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Context, body *WSGIdentityModifyUser, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -238,5 +259,8 @@ func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityUsersById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityUsersById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

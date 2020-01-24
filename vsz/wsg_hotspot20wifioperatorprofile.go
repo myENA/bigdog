@@ -29,6 +29,7 @@ func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService() *WSGHotspot20WiFi
 //	 - body *WSGProfileHs20Operator
 func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx context.Context, body *WSGProfileHs20Operator) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesHs20Operators, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesHs20Operators, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesHs20Operators
@@ -51,6 +55,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx co
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20Operators, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20Operators, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteProfilesHs20OperatorsById
@@ -74,6 +82,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -83,7 +92,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20OperatorsById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20OperatorsById, true)
 }
 
 // DeleteProfilesHs20OperatorsCertificateById
@@ -95,6 +104,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCertificateById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -104,7 +114,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCert
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20OperatorsCertificateById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20OperatorsCertificateById, true)
 }
 
 // FindProfilesHs20Operators
@@ -118,13 +128,14 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCert
 //		- nullable
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileHs20OperatorList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileHs20OperatorList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20Operators, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20Operators, true)
 }
 
 // FindProfilesHs20OperatorsById
@@ -136,6 +147,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx c
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(ctx context.Context, id string) (*WSGProfileHs20Operator, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileHs20Operator
 		err  error
 	)
@@ -145,7 +157,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20OperatorsById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20OperatorsById, true)
 }
 
 // FindProfilesHs20OperatorsByQueryCriteria
@@ -156,6 +168,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileHs20OperatorList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileHs20OperatorList
 		err  error
 	)
@@ -167,7 +180,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQuer
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesHs20OperatorsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesHs20OperatorsByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateProfilesHs20OperatorsById
@@ -182,6 +198,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQuer
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileModifyHS20Operator, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -196,7 +213,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20Operat
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesHs20OperatorsById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesHs20OperatorsById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateProfilesHs20OperatorsById
@@ -211,6 +231,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20Operat
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) UpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileHs20Operator, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -225,5 +246,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) UpdateProfilesHs20OperatorsById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateProfilesHs20OperatorsById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateProfilesHs20OperatorsById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

@@ -95,11 +95,12 @@ func NewSwitchMPortCapacityResultExtraType() *SwitchMPortCapacityResultExtraType
 // Use this API command to Retrieve Switch Port Capacity List.
 func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context) (*SwitchMPortCapacityResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMPortCapacityResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindPortCapacity, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortCapacity, true)
 }

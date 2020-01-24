@@ -29,6 +29,7 @@ func (ss *WSGService) WSGURLFilteringPolicyService() *WSGURLFilteringPolicyServi
 //	 - body *WSGURLFilteringCreateUrlFilteringPolicy
 func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx context.Context, body *WSGURLFilteringCreateUrlFilteringPolicy) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddUrlFilteringUrlFilteringPolicy, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddUrlFilteringUrlFilteringPolicy, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteUrlFilteringUrlFilteringPolicy
@@ -51,6 +55,7 @@ func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx con
 //	 - body *WSGURLFilteringDeleteBulk
 func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx context.Context, body *WSGURLFilteringDeleteBulk) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicy, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicy, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteUrlFilteringUrlFilteringPolicyById
@@ -74,6 +82,7 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx 
 //		- required
 func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -83,7 +92,7 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicyById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicyById, true)
 }
 
 // FindUrlFilteringBlockCategories
@@ -91,13 +100,14 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(
 // Use this API command to retrieve the block categories of URL Filtering.
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx context.Context) (*WSGURLFilteringBlockCategoriesList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGURLFilteringBlockCategoriesList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUrlFilteringBlockCategories, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUrlFilteringBlockCategories, true)
 }
 
 // FindUrlFilteringByQueryCriteria
@@ -108,6 +118,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx conte
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGURLFilteringPolicyList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGURLFilteringPolicyList
 		err  error
 	)
@@ -119,7 +130,10 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindUrlFilteringByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindUrlFilteringByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindUrlFilteringUrlFilteringPolicy
@@ -135,13 +149,14 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx conte
 //		- nullable
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx context.Context, optionalParams map[string]interface{}) (*WSGURLFilteringPolicyList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGURLFilteringPolicyList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUrlFilteringUrlFilteringPolicy, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUrlFilteringUrlFilteringPolicy, true)
 }
 
 // FindUrlFilteringUrlFilteringPolicyById
@@ -153,6 +168,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx co
 //		- required
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string) (*WSGURLFilteringPolicy, error) {
 	var (
+		req  *APIRequest
 		resp *WSGURLFilteringPolicy
 		err  error
 	)
@@ -162,7 +178,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUrlFilteringUrlFilteringPolicyById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUrlFilteringUrlFilteringPolicyById, true)
 }
 
 // PartialUpdateUrlFilteringUrlFilteringPolicyById
@@ -177,6 +193,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ct
 //		- required
 func (s *WSGURLFilteringPolicyService) PartialUpdateUrlFilteringUrlFilteringPolicyById(ctx context.Context, body *WSGURLFilteringModifyUrlFilteringPolicy, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -191,5 +208,8 @@ func (s *WSGURLFilteringPolicyService) PartialUpdateUrlFilteringUrlFilteringPoli
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUrlFilteringUrlFilteringPolicyById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUrlFilteringUrlFilteringPolicyById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

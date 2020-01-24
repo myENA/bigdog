@@ -26,13 +26,14 @@ func (ss *WSGService) WSGClusterManagementService() *WSGClusterManagementService
 // Use this API command to apply AP patch.
 func (s *WSGClusterManagementService) AddApPatch(ctx context.Context) (*WSGAdministrationApPatchStatus, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationApPatchStatus
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApPatch, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApPatch, true)
 }
 
 // AddApPatchFile
@@ -42,25 +43,34 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context) (*WSGAdmin
 // Request Body:
 //	 - body []byte
 func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, body []byte) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApPatchFile, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApPatchFile, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // AddClusterBackup
 //
 // Backup cluster.
 func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddClusterBackup, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClusterBackup, true)
 }
 
 // AddClusterRestoreById
@@ -71,14 +81,17 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context) erro
 // - id string
 //		- required
 func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddClusterRestoreById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClusterRestoreById, true)
 }
 
 // AddConfigurationBackup
@@ -86,13 +99,14 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 // Backup system configuration.
 func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationBackup, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationBackup, true)
 }
 
 // AddConfigurationRestoreById
@@ -103,14 +117,17 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 // - id string
 //		- required
 func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationRestoreById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationRestoreById, true)
 }
 
 // AddConfigurationUpload
@@ -120,14 +137,20 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 // Request Body:
 //	 - body []byte
 func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context, body []byte) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationUpload, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationUpload, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // AddUpgrade
@@ -135,13 +158,14 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 // Use this API command to do system upgrade.
 func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context) (*WSGAdministrationUpgradeStatus, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationUpgradeStatus
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddUpgrade, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddUpgrade, true)
 }
 
 // AddUpgradeUpload
@@ -152,6 +176,7 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context) (*WSGAdmin
 //	 - body []byte
 func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, body []byte) (*WSGAdministrationUpgradeStatus, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationUpgradeStatus
 		err  error
 	)
@@ -161,7 +186,10 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddUpgradeUpload, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddUpgradeUpload, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteClusterById
@@ -172,14 +200,17 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, body
 // - id string
 //		- required
 func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteClusterById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteClusterById, true)
 }
 
 // DeleteConfigurationById
@@ -190,14 +221,17 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 // - id string
 //		- required
 func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteConfigurationById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteConfigurationById, true)
 }
 
 // FindApPatch
@@ -205,13 +239,14 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 // Use this API command to retrive uploaded AP patch file info.
 func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*WSGAdministrationApPatchInfo, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationApPatchInfo
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApPatch, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatch, true)
 }
 
 // FindApPatchHistory
@@ -227,13 +262,14 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*WSGAdmi
 //		- nullable
 func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationApPatchHistoryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationApPatchHistoryList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApPatchHistory, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchHistory, true)
 }
 
 // FindApPatchStatus
@@ -241,13 +277,14 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 // Use this API command to retrive cluster progress status.
 func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*WSGAdministrationApPatchStatus, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationApPatchStatus
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApPatchStatus, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchStatus, true)
 }
 
 // FindCluster
@@ -263,13 +300,14 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*W
 //		- nullable
 func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationClusterBackupList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationClusterBackupList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindCluster, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindCluster, true)
 }
 
 // FindClusterGeoRedundancy
@@ -277,13 +315,14 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 // Get cluster redundancy settings.
 func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Context) (*WSGClusterRedundancySettings, error) {
 	var (
+		req  *APIRequest
 		resp *WSGClusterRedundancySettings
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindClusterGeoRedundancy, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterGeoRedundancy, true)
 }
 
 // FindClusterNodeStatus
@@ -291,13 +330,14 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 // Use this API command to get Control node Status.
 func (s *WSGClusterManagementService) FindClusterNodeStatus(ctx context.Context) (*WSGClusterBladeControlNodeStatus, error) {
 	var (
+		req  *APIRequest
 		resp *WSGClusterBladeControlNodeStatus
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindClusterNodeStatus, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterNodeStatus, true)
 }
 
 // FindClusterState
@@ -305,13 +345,14 @@ func (s *WSGClusterManagementService) FindClusterNodeStatus(ctx context.Context)
 // Use this API command to get current cluster, blade, and management service states
 func (s *WSGClusterManagementService) FindClusterState(ctx context.Context) (*WSGClusterBladeClusterState, error) {
 	var (
+		req  *APIRequest
 		resp *WSGClusterBladeClusterState
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindClusterState, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterState, true)
 }
 
 // FindClusterStatus
@@ -319,13 +360,14 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context) (*WS
 // Use this API command to get Cluster Status.
 func (s *WSGClusterManagementService) FindClusterStatus(ctx context.Context) (*WSGClusterBladeClusterStatus, error) {
 	var (
+		req  *APIRequest
 		resp *WSGClusterBladeClusterStatus
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindClusterStatus, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterStatus, true)
 }
 
 // FindConfiguration
@@ -339,13 +381,14 @@ func (s *WSGClusterManagementService) FindClusterStatus(ctx context.Context) (*W
 //		- nullable
 func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationConfigurationBackupList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationConfigurationBackupList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindConfiguration, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfiguration, true)
 }
 
 // FindConfigurationDownload
@@ -361,6 +404,7 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 //		- nullable
 func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, backupUUID string, optionalParams map[string]interface{}) ([]byte, error) {
 	var (
+		req  *APIRequest
 		resp []byte
 		err  error
 	)
@@ -370,7 +414,7 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, backupUUID, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationDownload, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationDownload, true)
 }
 
 // FindConfigurationSettingsAutoExportBackup
@@ -378,13 +422,14 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 // Get Auto Export Backup Settings.
 func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(ctx context.Context) (*WSGAdministrationAutoExportBackup, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationAutoExportBackup
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsAutoExportBackup, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsAutoExportBackup, true)
 }
 
 // FindConfigurationSettingsScheduleBackup
@@ -392,13 +437,14 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 // Get Schedule Backup Setting.
 func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ctx context.Context) (*WSGAdministrationScheduleBackup, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationScheduleBackup
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsScheduleBackup, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsScheduleBackup, true)
 }
 
 // FindUpgradeHistory
@@ -414,13 +460,14 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 //		- nullable
 func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationUpgradeHistoryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationUpgradeHistoryList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeHistory, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeHistory, true)
 }
 
 // FindUpgradePatch
@@ -428,13 +475,14 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 // Use this API command to retrive upload file Info.
 func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context) (*WSGAdministrationUpgradePatchInfo, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationUpgradePatchInfo
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUpgradePatch, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradePatch, true)
 }
 
 // FindUpgradeStatus
@@ -442,13 +490,14 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context) (*WS
 // Use this API command to retrive cluster progress status.
 func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context) (*WSGAdministrationUpgradeStatus, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationUpgradeStatus
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeStatus, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeStatus, true)
 }
 
 // PartialUpdateConfigurationSettingsAutoExportBackup
@@ -459,6 +508,7 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context) (*W
 //	 - body *WSGAdministrationModifyAutoExportBackup
 func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExportBackup(ctx context.Context, body *WSGAdministrationModifyAutoExportBackup) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -470,7 +520,10 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateConfigurationSettingsScheduleBackup
@@ -481,6 +534,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 //	 - body *WSGAdministrationModifyScheduleBackup
 func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsScheduleBackup(ctx context.Context, body *WSGAdministrationModifyScheduleBackup) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -492,7 +546,10 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateClusterGeoRedundancy
@@ -503,6 +560,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 //	 - body *WSGClusterRedundancyUpdateClusterRedundancy
 func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Context, body *WSGClusterRedundancyUpdateClusterRedundancy) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -514,5 +572,8 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateClusterGeoRedundancy, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateClusterGeoRedundancy, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

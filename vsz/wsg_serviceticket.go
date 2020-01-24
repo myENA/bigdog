@@ -61,6 +61,7 @@ func NewWSGServiceTicketLoginResponse() *WSGServiceTicketLoginResponse {
 //	 - body *WSGServiceTicketLoginRequest
 func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WSGServiceTicketLoginRequest) (*WSGServiceTicketLoginResponse, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceTicketLoginResponse
 		err  error
 	)
@@ -72,7 +73,10 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddServiceTicket, false)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServiceTicket, false)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteServiceTicket
@@ -84,6 +88,7 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 //		- required
 func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, serviceTicket string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -93,5 +98,5 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 	if err = pkgValidator.VarCtx(ctx, serviceTicket, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
 }

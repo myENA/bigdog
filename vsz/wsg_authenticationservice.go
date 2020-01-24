@@ -29,6 +29,7 @@ func (ss *WSGService) WSGAuthenticationServiceService() *WSGAuthenticationServic
 //	 - body *WSGServiceCreateActiveDirectoryAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context, body *WSGServiceCreateActiveDirectoryAuthentication) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthAd, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthAd, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddServicesAuthHlr
@@ -51,6 +55,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context,
 //	 - body *WSGServiceCreateHlrAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context, body *WSGServiceCreateHlrAuthentication) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -62,7 +67,10 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthHlr, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthHlr, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddServicesAuthLdap
@@ -73,6 +81,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context
 //	 - body *WSGServiceCreateLDAPAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Context, body *WSGServiceCreateLDAPAuthentication) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -84,7 +93,10 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthLdap, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthLdap, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddServicesAuthRadius
@@ -95,6 +107,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Contex
 //	 - body *WSGServiceCreateRadiusAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Context, body *WSGServiceCreateRadiusAuthentication) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -106,7 +119,10 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthRadius, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthRadius, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddServicesAuthTestById
@@ -120,7 +136,10 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Cont
 // - id string
 //		- required
 func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Context, body *WSGServiceTestingConfig, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -132,7 +151,10 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthTestById, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServicesAuthTestById, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteServicesAuth
@@ -143,6 +165,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 //	 - body *WSGServiceDeleteBulkAuthenticationService
 func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context, body *WSGServiceDeleteBulkAuthenticationService) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -154,7 +177,10 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuth, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuth, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteServicesAuthAdById
@@ -166,6 +192,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -175,7 +202,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthAdById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthAdById, true)
 }
 
 // DeleteServicesAuthById
@@ -187,6 +214,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -196,7 +224,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthById, true)
 }
 
 // DeleteServicesAuthHlrById
@@ -208,6 +236,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -217,7 +246,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthHlrById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthHlrById, true)
 }
 
 // DeleteServicesAuthLdapById
@@ -229,6 +258,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -238,7 +268,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthLdapById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthLdapById, true)
 }
 
 // DeleteServicesAuthRadiusById
@@ -250,6 +280,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -259,7 +290,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusById, true)
 }
 
 // DeleteServicesAuthRadiusSecondaryById
@@ -271,6 +302,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -280,7 +312,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusSecondaryById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusSecondaryById, true)
 }
 
 // DeleteServicesAuthRadiusStandbyPrimaryById
@@ -292,6 +324,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 //		- required
 func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimaryById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -301,7 +334,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusStandbyPrimaryById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusStandbyPrimaryById, true)
 }
 
 // FindServicesAuthAd
@@ -309,13 +342,14 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 // Use this API command to retrieve a list of active directory authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context) (*WSGServiceActiveDirectoryServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceActiveDirectoryServiceList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthAd, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthAd, true)
 }
 
 // FindServicesAuthAdById
@@ -327,6 +361,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Context, id string) (*WSGServiceActiveDirectoryService, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceActiveDirectoryService
 		err  error
 	)
@@ -336,7 +371,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthAdById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthAdById, true)
 }
 
 // FindServicesAuthAdByQueryCriteria
@@ -347,6 +382,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceActiveDirectoryServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceActiveDirectoryServiceList
 		err  error
 	)
@@ -358,7 +394,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthAdByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthAdByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindServicesAuthByQueryCriteria
@@ -369,6 +408,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceCommonAuthenticationServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceCommonAuthenticationServiceList
 		err  error
 	)
@@ -380,7 +420,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindServicesAuthGuestById
@@ -392,6 +435,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.Context, id string) (*WSGServiceCommonAuthenticationService, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceCommonAuthenticationService
 		err  error
 	)
@@ -401,7 +445,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthGuestById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthGuestById, true)
 }
 
 // FindServicesAuthHlr
@@ -409,13 +453,14 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 // Use this API command to retrieve a list of hlr authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Context) (*WSGServiceHlrServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceHlrServiceList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthHlr, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthHlr, true)
 }
 
 // FindServicesAuthHlrById
@@ -427,6 +472,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Context, id string) (*WSGServiceHlrService, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceHlrService
 		err  error
 	)
@@ -436,7 +482,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthHlrById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthHlrById, true)
 }
 
 // FindServicesAuthHlrByQueryCriteria
@@ -447,6 +493,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceHlrServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceHlrServiceList
 		err  error
 	)
@@ -458,7 +505,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthHlrByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthHlrByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindServicesAuthLdap
@@ -466,13 +516,14 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx
 // Use this API command to retrieve a list of LDAP authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Context) (*WSGServiceLDAPServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceLDAPServiceList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLdap, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLdap, true)
 }
 
 // FindServicesAuthLdapById
@@ -484,6 +535,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.Context, id string) (*WSGServiceLDAPService, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceLDAPService
 		err  error
 	)
@@ -493,7 +545,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLdapById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLdapById, true)
 }
 
 // FindServicesAuthLdapByQueryCriteria
@@ -504,6 +556,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceLDAPServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceLDAPServiceList
 		err  error
 	)
@@ -515,7 +568,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthLdapByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthLdapByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindServicesAuthLocal_dbById
@@ -527,6 +583,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthLocal_dbById(ctx context.Context, id string) (*WSGServiceCommonAuthenticationService, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceCommonAuthenticationService
 		err  error
 	)
@@ -536,7 +593,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocal_dbById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLocal_dbById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLocal_dbById, true)
 }
 
 // FindServicesAuthRadius
@@ -544,13 +601,14 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocal_dbById(ctx conte
 // Use this API command to retrieve a list of RADIUS authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Context) (*WSGServiceRadiusAuthenticationServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceRadiusAuthenticationServiceList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthRadius, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthRadius, true)
 }
 
 // FindServicesAuthRadiusById
@@ -562,6 +620,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context.Context, id string) (*WSGServiceRadiusAuthenticationService, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceRadiusAuthenticationService
 		err  error
 	)
@@ -571,7 +630,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthRadiusById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthRadiusById, true)
 }
 
 // FindServicesAuthRadiusByQueryCriteria
@@ -582,6 +641,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceRadiusAuthenticationServiceList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGServiceRadiusAuthenticationServiceList
 		err  error
 	)
@@ -593,7 +653,10 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthRadiusByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAuthRadiusByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateServicesAuthAdById
@@ -608,6 +671,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx context.Context, body *WSGServiceModifyActiveDirectoryAuthentication, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -622,7 +686,10 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthAdById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthAdById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateServicesAuthHlrById
@@ -637,6 +704,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx context.Context, body *WSGServiceModifyHlrAuthentication, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -651,7 +719,10 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthHlrById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthHlrById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateServicesAuthLdapById
@@ -666,6 +737,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx context.Context, body *WSGServiceModifyLDAPAuthentication, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -680,7 +752,10 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthLdapById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthLdapById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateServicesAuthLocal_dbById
@@ -695,6 +770,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx 
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocal_dbById(ctx context.Context, body *WSGServiceModifyLocalDbAuthentication, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -709,7 +785,10 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocal_dbById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthLocal_dbById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthLocal_dbById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateServicesAuthRadiusById
@@ -724,6 +803,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocal_dbById(
 //		- required
 func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAuthentication, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -738,5 +818,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthRadiusById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAuthRadiusById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

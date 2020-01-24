@@ -33,6 +33,7 @@ func (ss *WSGService) WSGDiffServService() *WSGDiffServService {
 //		- required
 func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, body *WSGZoneCreateDiffServProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -47,7 +48,10 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDiffservByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDiffservByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesDiffservById
@@ -60,7 +64,10 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 // - zoneId string
 //		- required
 func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id string, zoneId string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -70,7 +77,7 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDiffservById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDiffservById, true)
 }
 
 // FindRkszonesDiffservById
@@ -84,6 +91,7 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id 
 //		- required
 func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id string, zoneId string) (*WSGZoneDiffServConfiguration, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneDiffServConfiguration
 		err  error
 	)
@@ -96,7 +104,7 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservById, true)
 }
 
 // FindRkszonesDiffservByZoneId
@@ -108,6 +116,7 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 //		- required
 func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, zoneId string) (*WSGZoneDiffServList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneDiffServList
 		err  error
 	)
@@ -117,7 +126,7 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservByZoneId, true)
 }
 
 // PartialUpdateRkszonesDiffservById
@@ -133,7 +142,10 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 // - zoneId string
 //		- required
 func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Context, body *WSGZoneModifyDiffServProfile, id string, zoneId string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -148,5 +160,8 @@ func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesDiffservById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesDiffservById, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }

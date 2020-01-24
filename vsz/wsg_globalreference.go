@@ -26,13 +26,14 @@ func (ss *WSGService) WSGGlobalreferenceService() *WSGGlobalreferenceService {
 // Use this API command to get friendly name of usable language for profile: Hotspot2.0 Identity Provider.
 func (s *WSGGlobalreferenceService) FindGlobalSettingsFriendlyNameLang(ctx context.Context) (*WSGSystemFriendlyNameLangList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemFriendlyNameLangList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsFriendlyNameLang, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsFriendlyNameLang, true)
 }
 
 // FindGlobalSettingsPortalLang
@@ -40,11 +41,12 @@ func (s *WSGGlobalreferenceService) FindGlobalSettingsFriendlyNameLang(ctx conte
 // Use this API command to get friendly name of usable language for profile: Guest Access (Language in General Options), Web Auth (Language in General Options).
 func (s *WSGGlobalreferenceService) FindGlobalSettingsPortalLang(ctx context.Context) (*WSGSystemPortalLangList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSystemPortalLangList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsPortalLang, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsPortalLang, true)
 }

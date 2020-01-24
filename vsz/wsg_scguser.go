@@ -793,6 +793,7 @@ func NewWSGSCGUserList() *WSGSCGUserList {
 //	 - body *WSGSCGUserCreateScgUser
 func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreateScgUser) (*WSGSCGUserAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserAuditId
 		err  error
 	)
@@ -804,7 +805,10 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddUsers, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddUsers, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteUsers
@@ -815,6 +819,7 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -826,7 +831,10 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsers, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsers, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteUsersByUserId
@@ -838,6 +846,7 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 //		- required
 func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string) (*WSGSCGUserAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserAuditId
 		err  error
 	)
@@ -847,7 +856,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
 }
 
 // FindUsersByQueryCriteria
@@ -858,6 +867,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 //	 - body *WSGSCGUserQueryCriteria
 func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria) (*WSGSCGUserList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserList
 		err  error
 	)
@@ -869,7 +879,10 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindUsersByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindUsersByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindUsersByUserId
@@ -881,6 +894,7 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 //		- required
 func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string) (*WSGSCGUserGetScgUser, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserGetScgUser
 		err  error
 	)
@@ -890,7 +904,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindUsersByUserId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUsersByUserId, true)
 }
 
 // PartialUpdateUsersByUserId
@@ -905,6 +919,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 //		- required
 func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body *WSGSCGUserModifyScgUser, userId string) (*WSGSCGUserAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGSCGUserAuditId
 		err  error
 	)
@@ -919,5 +934,8 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUsersByUserId, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUsersByUserId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

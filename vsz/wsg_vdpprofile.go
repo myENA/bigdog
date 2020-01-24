@@ -30,6 +30,7 @@ func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
 //		- required
 func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -39,7 +40,7 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
 }
 
 // FindProfilesVdp
@@ -53,13 +54,14 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 //		- nullable
 func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdp, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdp, true)
 }
 
 // FindProfilesVdpById
@@ -71,6 +73,7 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 //		- required
 func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id string) (*WSGProfileVdpProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGProfileVdpProfile
 		err  error
 	)
@@ -80,7 +83,7 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdpById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdpById, true)
 }
 
 // UpdateProfilesVdpApproveById
@@ -91,12 +94,15 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 // - id string
 //		- required
 func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)
 }

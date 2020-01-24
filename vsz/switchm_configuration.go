@@ -29,6 +29,7 @@ func (ss *SwitchMService) SwitchMConfigurationService() *SwitchMConfigurationSer
 //	 - body *SwitchMConfigBackupQueryCriteria
 func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body *SwitchMConfigBackupQueryCriteria) (*SwitchMConfigBackupList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMConfigBackupList
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfig, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfig, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSwitchconfigBackup
@@ -51,6 +55,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 //	 - body SwitchMConfigBackupSwitchIds
 func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context, body SwitchMConfigBackupSwitchIds) (*SwitchMConfigBackupCreateBackupResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMConfigBackupCreateBackupResultList
 		err  error
 	)
@@ -60,7 +65,10 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfigBackup, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfigBackup, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSwitchconfigBackupDiff
@@ -71,6 +79,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 //	 - body *SwitchMConfigBackupDiffInput
 func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Context, body *SwitchMConfigBackupDiffInput) (*SwitchMConfigBackupDiff, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMConfigBackupDiff
 		err  error
 	)
@@ -82,7 +91,10 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfigBackupDiff, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfigBackupDiff, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteSwitchconfig
@@ -92,14 +104,20 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 // Request Body:
 //	 - body SwitchMConfigBackupBackupIds
 func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, body SwitchMConfigBackupBackupIds) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfig, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfig, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteSwitchconfigByConfigId
@@ -110,14 +128,17 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, bo
 // - configId string
 //		- required
 func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.Context, configId string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
 }
 
 // FindSwitchconfigByConfigId
@@ -129,6 +150,7 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 //		- required
 func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Context, configId string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -138,7 +160,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
 }
 
 // FindSwitchconfigDownloadByConfigId
@@ -150,6 +172,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 //		- required
 func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx context.Context, configId string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -159,7 +182,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigDownloadByConfigId, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigDownloadByConfigId, true)
 }
 
 // UpdateSwitchconfigBackup
@@ -169,14 +192,20 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 // Request Body:
 //	 - body SwitchMConfigBackupSwitchIds
 func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Context, body SwitchMConfigBackupSwitchIds) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackup, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackup, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // UpdateSwitchconfigBackupByGroupId
@@ -189,7 +218,10 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Conte
 // - groupType string
 //		- required
 func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx context.Context, groupId string, groupType string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -199,7 +231,7 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
 }
 
 // UpdateSwitchconfigBackupRestoreByBackupId
@@ -211,6 +243,7 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 //		- required
 func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(ctx context.Context, backupId string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -220,5 +253,5 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(
 	if err = pkgValidator.VarCtx(ctx, backupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupRestoreByBackupId, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupRestoreByBackupId, true)
 }

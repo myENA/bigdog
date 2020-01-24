@@ -29,6 +29,7 @@ func (ss *SwitchMService) SwitchMPortsService() *SwitchMPortsService {
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchPortDetailsQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchPortDetailsQueryResultList
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchPortsDetails, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchPortsDetails, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSwitchPortsSummary
@@ -51,6 +55,7 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchPortsSummaryQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMSwitchPortsSummaryQueryResultList
 		err  error
 	)
@@ -62,5 +67,8 @@ func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchPortsSummary, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchPortsSummary, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

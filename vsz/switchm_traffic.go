@@ -357,6 +357,7 @@ func NewSwitchMTrafficUsage() *SwitchMTrafficUsage {
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopSwitchPoEUtilizationQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
 		err  error
 	)
@@ -368,7 +369,10 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPoeutilization, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPoeutilization, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddTrafficTopPorterror
@@ -379,6 +383,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopPortErrorQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMTrafficTopPortErrorQueryResultList
 		err  error
 	)
@@ -390,7 +395,10 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPorterror, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPorterror, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddTrafficTopPortusage
@@ -401,6 +409,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopPortTrafficUsageQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMTrafficTopPortTrafficUsageQueryResultList
 		err  error
 	)
@@ -412,7 +421,10 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPortusage, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPortusage, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddTrafficTopUsage
@@ -423,6 +435,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopTrafficUsageQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMTrafficTopTrafficUsageQueryResultList
 		err  error
 	)
@@ -434,7 +447,10 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopUsage, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopUsage, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddTrafficTotalTrend
@@ -445,6 +461,7 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficQueryResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMTrafficQueryResultList
 		err  error
 	)
@@ -456,5 +473,8 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTotalTrend, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTotalTrend, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

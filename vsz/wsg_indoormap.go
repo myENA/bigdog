@@ -336,6 +336,7 @@ func NewWSGIndoorMapScale() *WSGIndoorMapScale {
 //	 - body *WSGIndoorMap
 func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (*WSGIndoorMapIndooMapAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIndoorMapIndooMapAuditId
 		err  error
 	)
@@ -347,7 +348,10 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddMaps, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddMaps, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteMapsByIndoorMapId
@@ -359,6 +363,7 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (
 //		- required
 func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIndoorMapIndooMapAuditId
 		err  error
 	)
@@ -368,7 +373,7 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteMapsByIndoorMapId, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteMapsByIndoorMapId, true)
 }
 
 // FindMaps
@@ -382,6 +387,7 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 //		- required
 func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, groupType string) (*WSGIndoorMapList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIndoorMapList
 		err  error
 	)
@@ -394,7 +400,7 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 	if err = pkgValidator.VarCtx(ctx, groupType, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindMaps, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindMaps, true)
 }
 
 // FindMapsByIndoorMapId
@@ -406,6 +412,7 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 //		- required
 func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorMapId string) (*WSGIndoorMap, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIndoorMap
 		err  error
 	)
@@ -415,7 +422,7 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindMapsByIndoorMapId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindMapsByIndoorMapId, true)
 }
 
 // FindMapsByQueryCriteria
@@ -426,6 +433,7 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGIndoorMapList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIndoorMapList
 		err  error
 	)
@@ -437,7 +445,10 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindMapsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindMapsByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateMapsByIndoorMapId
@@ -452,6 +463,7 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 //		- required
 func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIndoorMapIndooMapAuditId
 		err  error
 	)
@@ -466,7 +478,10 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateMapsByIndoorMapId, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateMapsByIndoorMapId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateMapsApsByIndoorMapId
@@ -481,6 +496,7 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 //		- required
 func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	var (
+		req  *APIRequest
 		resp *WSGIndoorMapIndooMapAuditId
 		err  error
 	)
@@ -493,5 +509,8 @@ func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, bo
 	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateMapsApsByIndoorMapId, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateMapsApsByIndoorMapId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

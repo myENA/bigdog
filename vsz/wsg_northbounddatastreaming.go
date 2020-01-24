@@ -306,6 +306,7 @@ func NewWSGNorthboundDataStreamingSettings() *WSGNorthboundDataStreamingSettings
 //	 - body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile
 func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -317,7 +318,10 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddNorthboundDataStreamingProfile, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddNorthboundDataStreamingProfile, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteNorthboundDataStreamingProfileById
@@ -329,6 +333,7 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 //		- required
 func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGNorthboundDataStreamingEmptyResult
 		err  error
 	)
@@ -338,7 +343,7 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
 }
 
 // FindNorthboundDataStreamingEventCodes
@@ -346,13 +351,14 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 // Use this API command to retrieve NorthboundDataStreamingEventCodes.
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context) (*WSGNorthboundDataStreamingEventCodes, error) {
 	var (
+		req  *APIRequest
 		resp *WSGNorthboundDataStreamingEventCodes
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
 }
 
 // FindNorthboundDataStreamingProfileById
@@ -364,6 +370,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 //		- required
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingProfile, error) {
 	var (
+		req  *APIRequest
 		resp *WSGNorthboundDataStreamingProfile
 		err  error
 	)
@@ -373,7 +380,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
 }
 
 // FindNorthboundDataStreamingProfileList
@@ -381,13 +388,14 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 // Use this API command to retrieve northbound Data Streaming Profile List
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*WSGNorthboundDataStreamingProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGNorthboundDataStreamingProfileList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
 }
 
 // UpdateNorthboundDataStreamingEventCodes
@@ -398,6 +406,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 //	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -409,7 +418,10 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingEventCodes, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingEventCodes, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateNorthboundDataStreamingProfileById
@@ -424,6 +436,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 //		- required
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile, id string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -438,7 +451,10 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingProfileById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingProfileById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateNorthboundDataStreamingSettings
@@ -449,6 +465,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 //	 - body *WSGNorthboundDataStreamingSettings
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *WSGNorthboundDataStreamingSettings) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -460,5 +477,8 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSetting
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingSettings, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingSettings, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

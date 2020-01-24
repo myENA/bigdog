@@ -83,6 +83,7 @@ func NewWSGCALEAMacListRsp() *WSGCALEAMacListRsp {
 //	 - body *WSGCALEACommonSettingRq
 func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body *WSGCALEACommonSettingRq) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -94,7 +95,10 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaCommonSetting, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaCommonSetting, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSystemCaleaMac
@@ -105,6 +109,7 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 //	 - body *WSGCALEAMacListRq
 func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -116,7 +121,10 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaMac, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaMac, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddSystemCaleaMacList
@@ -127,6 +135,7 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 //	 - body []byte
 func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -136,7 +145,10 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaMacList, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaMacList, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteSystemCaleaMac
@@ -147,6 +159,7 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte
 //	 - body *WSGCALEAMacListRq
 func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -158,7 +171,10 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMac, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMac, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteSystemCaleaMacList
@@ -166,13 +182,14 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 // Use this API command to delete all CALEA UE MACs.
 func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMacList, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMacList, true)
 }
 
 // FindSystemCaleaCommonSetting
@@ -180,13 +197,14 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*WSGCom
 // Use this API command to get CALEA common setting.
 func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WSGCALEACommonSettingRsp, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCALEACommonSettingRsp
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaCommonSetting, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaCommonSetting, true)
 }
 
 // FindSystemCaleaMacList
@@ -194,11 +212,12 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WS
 // Use this API command to get all CALEA UE MACs.
 func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context) (*WSGCALEAMacListRsp, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCALEAMacListRsp
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaMacList, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaMacList, true)
 }

@@ -270,6 +270,7 @@ func NewSwitchMHealthStatusTemperatureType() *SwitchMHealthStatusTemperatureType
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthAggMetrics, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMHealthAggMetrics
 		err  error
 	)
@@ -281,7 +282,10 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthCpuAgg, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthCpuAgg, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddHealthCpuLine
@@ -292,6 +296,7 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthIcxMetrics, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMHealthIcxMetrics
 		err  error
 	)
@@ -303,7 +308,10 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthCpuLine, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthCpuLine, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddHealthMemAgg
@@ -314,6 +322,7 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthAggMetrics, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMHealthAggMetrics
 		err  error
 	)
@@ -325,7 +334,10 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthMemAgg, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthMemAgg, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddHealthMemLine
@@ -336,6 +348,7 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthIcxMetrics, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMHealthIcxMetrics
 		err  error
 	)
@@ -347,7 +360,10 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthMemLine, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthMemLine, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddHealthStatus
@@ -358,6 +374,7 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthStatus, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMHealthStatus
 		err  error
 	)
@@ -369,7 +386,10 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatus, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatus, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddHealthStatusAll
@@ -380,6 +400,7 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthStatus, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMHealthStatus
 		err  error
 	)
@@ -391,5 +412,8 @@ func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *Swi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatusAll, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatusAll, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

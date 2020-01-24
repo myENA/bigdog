@@ -215,6 +215,7 @@ func NewSwitchMGroupModelConfigUpdateGroupConfigResultListExtraType() *SwitchMGr
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMGroupModelConfigQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMGroupModelConfigQueryResult
 		err  error
 	)
@@ -226,7 +227,10 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindGroupModelConfigsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindGroupModelConfigsByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateGroupModelConfigsByGroupId
@@ -241,6 +245,7 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 //		- required
 func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *SwitchMGroupModelConfigSelectedIds, groupId string) (*SwitchMGroupModelConfigUpdateGroupConfigResultList, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMGroupModelConfigUpdateGroupConfigResultList
 		err  error
 	)
@@ -255,5 +260,8 @@ func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx co
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupModelConfigsByGroupId, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupModelConfigsByGroupId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

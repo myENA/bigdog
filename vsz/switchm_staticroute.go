@@ -235,6 +235,7 @@ func NewSwitchMStaticRouteUpdateStaticRoute() *SwitchMStaticRouteUpdateStaticRou
 //	 - body *SwitchMStaticRouteCreateStaticRoute
 func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *SwitchMStaticRouteCreateStaticRoute) (*SwitchMCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMCommonCreateResult
 		err  error
 	)
@@ -246,7 +247,10 @@ func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddStaticRoutes, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddStaticRoutes, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteStaticRoutes
@@ -256,7 +260,10 @@ func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *S
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -265,7 +272,10 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteStaticRoutes, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteStaticRoutes, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // DeleteStaticRoutesById
@@ -276,14 +286,17 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body
 // - id string
 //		- required
 func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, id string) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteStaticRoutesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteStaticRoutesById, true)
 }
 
 // FindStaticRoutesById
@@ -295,6 +308,7 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, 
 //		- required
 func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id string) (*SwitchMStaticRoute, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMStaticRoute
 		err  error
 	)
@@ -304,7 +318,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindStaticRoutesById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStaticRoutesById, true)
 }
 
 // FindStaticRoutesByQueryCriteria
@@ -315,6 +329,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMStaticRoutesQueryResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMStaticRoutesQueryResult
 		err  error
 	)
@@ -326,7 +341,10 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindStaticRoutesByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindStaticRoutesByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateStaticRoutesById
@@ -341,6 +359,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 //		- required
 func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteUpdateStaticRoute, id string) (*SwitchMStaticRouteEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *SwitchMStaticRouteEmptyResult
 		err  error
 	)
@@ -355,5 +374,8 @@ func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateStaticRoutesById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateStaticRoutesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

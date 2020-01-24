@@ -30,6 +30,7 @@ func (ss *WSGService) WSGAccessPointOperationalService() *WSGAccessPointOperatio
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(ctx context.Context, apMac string) ([]byte, error) {
 	var (
+		req  *APIRequest
 		resp []byte
 		err  error
 	)
@@ -39,7 +40,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureDownloadByApMac, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureDownloadByApMac, true)
 }
 
 // AddApsApPacketCaptureStartFileCaptureByApMac
@@ -54,6 +55,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCaptureByApMac(ctx context.Context, body *WSGAPPackCaptureApPacketCaptureReq, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPPackCaptureApPacketCaptureRes
 		err  error
 	)
@@ -68,7 +70,10 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCapture
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureStartFileCaptureByApMac, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureStartFileCaptureByApMac, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddApsApPacketCaptureStartStreamingByApMac
@@ -83,6 +88,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCapture
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingByApMac(ctx context.Context, body *WSGAPPackCaptureApPacketCaptureReq, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPPackCaptureApPacketCaptureRes
 		err  error
 	)
@@ -97,7 +103,10 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingBy
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureStartStreamingByApMac, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureStartStreamingByApMac, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddApsApPacketCaptureStopByApMac
@@ -109,6 +118,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingBy
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx context.Context, apMac string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -118,7 +128,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureStopByApMac, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureStopByApMac, true)
 }
 
 // AddApsOperationalBlinkLedByApMac
@@ -130,6 +140,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx context.Context, apMac string) (interface{}, error) {
 	var (
+		req  *APIRequest
 		resp interface{}
 		err  error
 	)
@@ -139,7 +150,7 @@ func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApsOperationalBlinkLedByApMac, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsOperationalBlinkLedByApMac, true)
 }
 
 // AddApsSwitchoverCluster
@@ -150,6 +161,7 @@ func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 //	 - body *WSGAPSwitchoverAP
 func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.Context, body *WSGAPSwitchoverAP) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -161,7 +173,10 @@ func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddApsSwitchoverCluster, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsSwitchoverCluster, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // FindApsApPacketCaptureByApMac
@@ -173,6 +188,7 @@ func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.C
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx context.Context, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPPackCaptureApPacketCaptureRes
 		err  error
 	)
@@ -182,7 +198,7 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsApPacketCaptureByApMac, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsApPacketCaptureByApMac, true)
 }
 
 // FindApsOperationalAlarmsByApMac
@@ -212,6 +228,7 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 //		- nullable
 func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmsByApMac(ctx context.Context, apMac string, optionalParams map[string]interface{}) (*WSGAPAlarmList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPAlarmList
 		err  error
 	)
@@ -221,7 +238,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmsByApMac(ctx c
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalAlarmsByApMac, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalAlarmsByApMac, true)
 }
 
 // FindApsOperationalAlarmSummaryByApMac
@@ -233,6 +250,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmsByApMac(ctx c
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmSummaryByApMac(ctx context.Context, apMac string) (*WSGAPAlarmSummary, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPAlarmSummary
 		err  error
 	)
@@ -242,7 +260,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmSummaryByApMac
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalAlarmSummaryByApMac, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalAlarmSummaryByApMac, true)
 }
 
 // FindApsOperationalEventSummaryByApMac
@@ -254,6 +272,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmSummaryByApMac
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsOperationalEventSummaryByApMac(ctx context.Context, apMac string) (*WSGAPEventSummary, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPEventSummary
 		err  error
 	)
@@ -263,7 +282,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalEventSummaryByApMac
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalEventSummaryByApMac, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalEventSummaryByApMac, true)
 }
 
 // FindApsOperationalNeighborByApMac
@@ -281,6 +300,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalEventSummaryByApMac
 //		- nullable
 func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx context.Context, apMac string, optionalParams map[string]interface{}) (*WSGAPNeighborAPList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPNeighborAPList
 		err  error
 	)
@@ -290,7 +310,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalNeighborByApMac, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalNeighborByApMac, true)
 }
 
 // FindApsOperationalSummaryByApMac
@@ -302,6 +322,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx context.Context, apMac string) (*WSGAPOperationalSummary, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPOperationalSummary
 		err  error
 	)
@@ -311,5 +332,5 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx 
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalSummaryByApMac, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalSummaryByApMac, true)
 }

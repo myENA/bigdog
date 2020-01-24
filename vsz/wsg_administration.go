@@ -1021,6 +1021,7 @@ func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 //	 - body *WSGAdministrationCreateAdminAAAServer
 func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -1032,29 +1033,38 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddAdminaaa, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAdminaaa, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRestart
 //
 // Use this API command to restart the controller.
 func (s *WSGAdministrationService) AddRestart(ctx context.Context) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRestart, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRestart, true)
 }
 
 // AddShutdown
 //
 // Use this API command to shut down the controller.
 func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddShutdown, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddShutdown, true)
 }
 
 // DeleteAdminaaaById
@@ -1066,6 +1076,7 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
 //		- required
 func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -1075,7 +1086,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
 }
 
 // FindAdminaaa
@@ -1087,6 +1098,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 //		- required
 func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string) (*WSGAdministrationRetrieveAdminAAAServerList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationRetrieveAdminAAAServerList
 		err  error
 	)
@@ -1096,7 +1108,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 	if err = pkgValidator.VarCtx(ctx, type_, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
 }
 
 // FindAdminaaaById
@@ -1108,6 +1120,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 //		- required
 func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string) (*WSGAdministrationRetrieveAdminAAAServer, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationRetrieveAdminAAAServer
 		err  error
 	)
@@ -1117,7 +1130,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaaById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaaById, true)
 }
 
 // FindLicenses
@@ -1125,13 +1138,14 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 // Use this API command to get all licenses currently assign in SCG.
 func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdministrationLicensesList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationLicensesList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindLicenses, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenses, true)
 }
 
 // FindLicenseServer
@@ -1139,13 +1153,14 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdmini
 // Use this API command to get license server configuration.
 func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGAdministrationLicenseServer, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationLicenseServer
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindLicenseServer, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenseServer, true)
 }
 
 // FindLicensesSummary
@@ -1153,13 +1168,14 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGA
 // Use this API command to get licenses summary information.
 func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WSGAdministrationLicensesSummaryList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationLicensesSummaryList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSummary, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSummary, true)
 }
 
 // FindLicensesSyncLogs
@@ -1167,13 +1183,14 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WS
 // Use this API command to get licenses synchronize logs.
 func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*WSGAdministrationLicensesSyncLogsList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAdministrationLicensesSyncLogsList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
 }
 
 // UpdateAdminaaaById
@@ -1188,6 +1205,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*W
 //		- required
 func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -1202,7 +1220,10 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAdminaaaById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAdminaaaById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateLicenseServer
@@ -1212,7 +1233,10 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 // Request Body:
 //	 - body *WSGAdministrationModfiyLicenseServer
 func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
@@ -1221,16 +1245,22 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateLicenseServer, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLicenseServer, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 }
 
 // UpdateLicensesSync
 //
 // Use this API command to ask all SCG in cluster to sync licenses from license server.
 func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context) error {
-	var err error
+	var (
+		req *APIRequest
+		err error
+	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateLicensesSync, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLicensesSync, true)
 }

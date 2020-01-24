@@ -29,6 +29,7 @@ func (ss *WSGService) WSGRuckusWirelessAPZoneService() *WSGRuckusWirelessAPZoneS
 //	 - body *WSGZoneCreateZone
 func (s *WSGRuckusWirelessAPZoneService) AddRkszones(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -40,7 +41,10 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszones(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszones, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszones, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
@@ -55,6 +59,7 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszones(ctx context.Context, body *
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx context.Context, body *WSGCommonDoAssignIp, zoneId string) (*WSGCommonDhcpSiteConfigListRef, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonDhcpSiteConfigListRef
 		err  error
 	)
@@ -69,7 +74,10 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssi
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesDual
@@ -80,6 +88,7 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssi
 //	 - body *WSGZoneCreateZone
 func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDual(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -91,7 +100,10 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDual(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDual, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDual, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // AddRkszonesIpv6
@@ -102,6 +114,7 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDual(ctx context.Context, bo
 //	 - body *WSGZoneCreateZone
 func (s *WSGRuckusWirelessAPZoneService) AddRkszonesIpv6(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonCreateResult
 		err  error
 	)
@@ -113,7 +126,10 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesIpv6(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesIpv6, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesIpv6, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // DeleteRkszonesAltitudeById
@@ -125,6 +141,7 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesIpv6(ctx context.Context, bo
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesAltitudeById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -134,7 +151,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesAltitudeById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAltitudeById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAltitudeById, true)
 }
 
 // DeleteRkszonesBackgroundScanning24ById
@@ -146,6 +163,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesAltitudeById(ctx context.
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning24ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -155,7 +173,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning24ById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBackgroundScanning24ById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBackgroundScanning24ById, true)
 }
 
 // DeleteRkszonesBackgroundScanning50ById
@@ -167,6 +185,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning24ById(
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -176,7 +195,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBackgroundScanning50ById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBackgroundScanning50ById, true)
 }
 
 // DeleteRkszonesBandBalancingById
@@ -188,6 +207,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBandBalancingById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -197,7 +217,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBandBalancingById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBandBalancingById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBandBalancingById, true)
 }
 
 // DeleteRkszonesById
@@ -209,6 +229,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBandBalancingById(ctx con
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -218,7 +239,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesById, true)
 }
 
 // DeleteRkszonesClientAdmissionControl24ById
@@ -230,6 +251,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesById(ctx context.Context,
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl24ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -239,7 +261,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl24B
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientAdmissionControl24ById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientAdmissionControl24ById, true)
 }
 
 // DeleteRkszonesClientAdmissionControl50ById
@@ -251,6 +273,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl24B
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl50ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -260,7 +283,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl50B
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientAdmissionControl50ById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientAdmissionControl50ById, true)
 }
 
 // DeleteRkszonesClientLoadBalancing24ById
@@ -272,6 +295,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl50B
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing24ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -281,7 +305,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing24ById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientLoadBalancing24ById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientLoadBalancing24ById, true)
 }
 
 // DeleteRkszonesClientLoadBalancing50ById
@@ -293,6 +317,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing24ById
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing50ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -302,7 +327,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing50ById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientLoadBalancing50ById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientLoadBalancing50ById, true)
 }
 
 // DeleteRkszonesIpsecProfilesById
@@ -314,6 +339,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing50ById
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -323,7 +349,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesIpsecProfilesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesIpsecProfilesById, true)
 }
 
 // DeleteRkszonesLocationBasedServiceById
@@ -335,6 +361,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx con
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLocationBasedServiceById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -344,7 +371,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLocationBasedServiceById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesLocationBasedServiceById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesLocationBasedServiceById, true)
 }
 
 // DeleteRkszonesMeshById
@@ -356,6 +383,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLocationBasedServiceById(
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesMeshById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -365,7 +393,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesMeshById(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesMeshById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesMeshById, true)
 }
 
 // DeleteRkszonesRecoverySsidById
@@ -377,6 +405,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesMeshById(ctx context.Cont
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRecoverySsidById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -386,7 +415,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRecoverySsidById(ctx cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRecoverySsidById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRecoverySsidById, true)
 }
 
 // DeleteRkszonesRogueById
@@ -398,6 +427,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRecoverySsidById(ctx cont
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRogueById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -407,7 +437,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRogueById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRogueById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRogueById, true)
 }
 
 // DeleteRkszonesSmartMonitorById
@@ -419,6 +449,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRogueById(ctx context.Con
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSmartMonitorById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -428,7 +459,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSmartMonitorById(ctx cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSmartMonitorById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSmartMonitorById, true)
 }
 
 // DeleteRkszonesSnmpAgentById
@@ -440,6 +471,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSmartMonitorById(ctx cont
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSnmpAgentById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -449,7 +481,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSnmpAgentById(ctx context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSnmpAgentById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSnmpAgentById, true)
 }
 
 // DeleteRkszonesSoftGreTunnelProfliesById
@@ -461,6 +493,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSnmpAgentById(ctx context
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSoftGreTunnelProfliesById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -470,7 +503,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSoftGreTunnelProfliesById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSoftGreTunnelProfliesById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSoftGreTunnelProfliesById, true)
 }
 
 // DeleteRkszonesSyslogById
@@ -482,6 +515,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSoftGreTunnelProfliesById
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSyslogById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -491,7 +525,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSyslogById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSyslogById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSyslogById, true)
 }
 
 // DeleteRkszonesVenueProfileById
@@ -503,6 +537,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSyslogById(ctx context.Co
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesVenueProfileById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -512,7 +547,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesVenueProfileById(ctx cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesVenueProfileById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesVenueProfileById, true)
 }
 
 // FindRkszones
@@ -528,13 +563,14 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesVenueProfileById(ctx cont
 //		- nullable
 func (s *WSGRuckusWirelessAPZoneService) FindRkszones(ctx context.Context, optionalParams map[string]interface{}) (*WSGZoneList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneList
 		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszones, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszones, true)
 }
 
 // FindRkszonesApFirmwareByZoneId
@@ -546,6 +582,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszones(ctx context.Context, optio
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApFirmwareByZoneId(ctx context.Context, zoneId string) (*WSGZoneApFirmwareList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneApFirmwareList
 		err  error
 	)
@@ -555,7 +592,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApFirmwareByZoneId(ctx cont
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApFirmwareByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApFirmwareByZoneId, true)
 }
 
 // FindRkszonesApmodelByModel
@@ -569,6 +606,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApFirmwareByZoneId(ctx cont
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelByModel(ctx context.Context, model string, zoneId string) (*WSGZoneAPModelApModel, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneAPModelApModel
 		err  error
 	)
@@ -581,7 +619,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelByModel(ctx context.
 	if err = pkgValidator.VarCtx(ctx, model, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApmodelByModel, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApmodelByModel, true)
 }
 
 // FindRkszonesApmodelCommonAttributeByModel
@@ -595,6 +633,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelByModel(ctx context.
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelCommonAttributeByModel(ctx context.Context, model string, zoneId string) (*WSGAPModelCommonAttribute, error) {
 	var (
+		req  *APIRequest
 		resp *WSGAPModelCommonAttribute
 		err  error
 	)
@@ -607,7 +646,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelCommonAttributeByMod
 	if err = pkgValidator.VarCtx(ctx, model, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApmodelCommonAttributeByModel, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApmodelCommonAttributeByModel, true)
 }
 
 // FindRkszonesAvailableIpsecProfilesByZoneId
@@ -619,6 +658,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelCommonAttributeByMod
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableIpsecProfilesByZoneId(ctx context.Context, zoneId string) (*WSGZoneAvailableTunnelProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneAvailableTunnelProfileList
 		err  error
 	)
@@ -628,7 +668,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableIpsecProfilesByZon
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAvailableIpsecProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAvailableIpsecProfilesByZoneId, true)
 }
 
 // FindRkszonesAvailableTunnelProfilesByZoneId
@@ -640,6 +680,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableIpsecProfilesByZon
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableTunnelProfilesByZoneId(ctx context.Context, zoneId string) (*WSGZoneAvailableTunnelProfileList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneAvailableTunnelProfileList
 		err  error
 	)
@@ -649,7 +690,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableTunnelProfilesByZo
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAvailableTunnelProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAvailableTunnelProfilesByZoneId, true)
 }
 
 // FindRkszonesById
@@ -661,6 +702,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableTunnelProfilesByZo
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesById(ctx context.Context, id string) (*WSGZoneConfiguration, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneConfiguration
 		err  error
 	)
@@ -670,7 +712,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesById(ctx context.Context, i
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesById, true)
 }
 
 // FindRkszonesMeshById
@@ -682,6 +724,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesById(ctx context.Context, i
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Context, id string) (*WSGZoneMeshConfiguration, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneMeshConfiguration
 		err  error
 	)
@@ -691,7 +734,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesMeshById, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesMeshById, true)
 }
 
 // FindRkszonesServicesDhcpSiteConfigByQueryCriteria
@@ -702,6 +745,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Contex
 //	 - body *WSGZoneQueryCriteria
 func (s *WSGRuckusWirelessAPZoneService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx context.Context, body *WSGZoneQueryCriteria) (*WSGZoneDhcpSiteConfigList, error) {
 	var (
+		req  *APIRequest
 		resp *WSGZoneDhcpSiteConfigList
 		err  error
 	)
@@ -713,7 +757,10 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesServicesDhcpSiteConfigByQue
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesServicesDhcpSiteConfigByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesServicesDhcpSiteConfigByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // PartialUpdateRkszonesById
@@ -728,6 +775,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesServicesDhcpSiteConfigByQue
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) PartialUpdateRkszonesById(ctx context.Context, body *WSGZoneModifyZone, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -742,7 +790,10 @@ func (s *WSGRuckusWirelessAPZoneService) PartialUpdateRkszonesById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesById, true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesApFirmwareByZoneId
@@ -757,6 +808,7 @@ func (s *WSGRuckusWirelessAPZoneService) PartialUpdateRkszonesById(ctx context.C
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApFirmwareByZoneId(ctx context.Context, body *WSGZoneModfiyApFirmware, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -771,7 +823,10 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApFirmwareByZoneId(ctx co
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesApFirmwareByZoneId, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesApFirmwareByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesApmodelByModel
@@ -788,6 +843,7 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApFirmwareByZoneId(ctx co
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApmodelByModel(ctx context.Context, body *WSGZoneAPModelApModel, model string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -805,7 +861,10 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApmodelByModel(ctx contex
 	if err = pkgValidator.VarCtx(ctx, model, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesApmodelByModel, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesApmodelByModel, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }
 
 // UpdateRkszonesById
@@ -820,6 +879,7 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApmodelByModel(ctx contex
 //		- required
 func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesById(ctx context.Context, body *WSGZoneModifyZone, id string) (*WSGCommonEmptyResult, error) {
 	var (
+		req  *APIRequest
 		resp *WSGCommonEmptyResult
 		err  error
 	)
@@ -834,5 +894,8 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesById, true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 }

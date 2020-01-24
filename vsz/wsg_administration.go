@@ -9,17 +9,17 @@ import (
 )
 
 type WSGAdministrationService struct {
-    apiClient *APIClient
+	apiClient *APIClient
 }
 
-func NewWSGAdministrationService (c *APIClient) *WSGAdministrationService {
-    s := new(WSGAdministrationService)
-    s.apiClient = c
-    return s
+func NewWSGAdministrationService(c *APIClient) *WSGAdministrationService {
+	s := new(WSGAdministrationService)
+	s.apiClient = c
+	return s
 }
 
-func (ss *WSGService) WSGAdministrationService () *WSGAdministrationService {
-    return NewWSGAdministrationService(ss.apiClient)
+func (ss *WSGService) WSGAdministrationService() *WSGAdministrationService {
+	return NewWSGAdministrationService(ss.apiClient)
 }
 
 type WSGAdministrationActiveDirectoryServer struct {
@@ -1020,10 +1020,10 @@ func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 //
 // Request Body:
 //	 - body *WSGAdministrationCreateAdminAAAServer
-func (s *WSGAdministrationService) AddAdminaaa (ctx context.Context, body *WSGAdministrationCreateAdminAAAServer) (*WSGCommonCreateResult, error){
+func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer) (*WSGCommonCreateResult, error) {
 	var (
 		resp *WSGCommonCreateResult
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1038,7 +1038,7 @@ func (s *WSGAdministrationService) AddAdminaaa (ctx context.Context, body *WSGAd
 // AddRestart
 //
 // Use this API command to restart the controller.
-func (s *WSGAdministrationService) AddRestart (ctx context.Context) error{
+func (s *WSGAdministrationService) AddRestart(ctx context.Context) error {
 	var err error
 	if err = ctx.Err(); err != nil {
 		return err
@@ -1048,7 +1048,7 @@ func (s *WSGAdministrationService) AddRestart (ctx context.Context) error{
 // AddShutdown
 //
 // Use this API command to shut down the controller.
-func (s *WSGAdministrationService) AddShutdown (ctx context.Context) error{
+func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
 	var err error
 	if err = ctx.Err(); err != nil {
 		return err
@@ -1062,10 +1062,10 @@ func (s *WSGAdministrationService) AddShutdown (ctx context.Context) error{
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) DeleteAdminaaaById (ctx context.Context, id string) (*WSGCommonEmptyResult, error){
+func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
 		resp *WSGCommonEmptyResult
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1080,17 +1080,17 @@ func (s *WSGAdministrationService) DeleteAdminaaaById (ctx context.Context, id s
 // Use this API command to retrieve the list of Admin AAA server
 //
 // Required Parameters:
-// - type string
+// - type_ string
 //		- required
-func (s *WSGAdministrationService) FindAdminaaa (ctx context.Context, type string) (*WSGAdministrationRetrieveAdminAAAServerList, error){
+func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string) (*WSGAdministrationRetrieveAdminAAAServerList, error) {
 	var (
 		resp *WSGAdministrationRetrieveAdminAAAServerList
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	if err = pkgValidator.VarCtx(ctx, type, "required"); err != nil {
+	if err = pkgValidator.VarCtx(ctx, type_, "required"); err != nil {
 		return resp, err
 	}
 }
@@ -1102,10 +1102,10 @@ func (s *WSGAdministrationService) FindAdminaaa (ctx context.Context, type strin
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) FindAdminaaaById (ctx context.Context, id string) (*WSGAdministrationRetrieveAdminAAAServer, error){
+func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string) (*WSGAdministrationRetrieveAdminAAAServer, error) {
 	var (
 		resp *WSGAdministrationRetrieveAdminAAAServer
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1118,10 +1118,10 @@ func (s *WSGAdministrationService) FindAdminaaaById (ctx context.Context, id str
 // FindLicenses
 //
 // Use this API command to get all licenses currently assign in SCG.
-func (s *WSGAdministrationService) FindLicenses (ctx context.Context) (*WSGAdministrationLicensesList, error){
+func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdministrationLicensesList, error) {
 	var (
 		resp *WSGAdministrationLicensesList
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1131,10 +1131,10 @@ func (s *WSGAdministrationService) FindLicenses (ctx context.Context) (*WSGAdmin
 // FindLicenseServer
 //
 // Use this API command to get license server configuration.
-func (s *WSGAdministrationService) FindLicenseServer (ctx context.Context) (*WSGAdministrationLicenseServer, error){
+func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGAdministrationLicenseServer, error) {
 	var (
 		resp *WSGAdministrationLicenseServer
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1144,10 +1144,10 @@ func (s *WSGAdministrationService) FindLicenseServer (ctx context.Context) (*WSG
 // FindLicensesSummary
 //
 // Use this API command to get licenses summary information.
-func (s *WSGAdministrationService) FindLicensesSummary (ctx context.Context) (*WSGAdministrationLicensesSummaryList, error){
+func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WSGAdministrationLicensesSummaryList, error) {
 	var (
 		resp *WSGAdministrationLicensesSummaryList
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1157,10 +1157,10 @@ func (s *WSGAdministrationService) FindLicensesSummary (ctx context.Context) (*W
 // FindLicensesSyncLogs
 //
 // Use this API command to get licenses synchronize logs.
-func (s *WSGAdministrationService) FindLicensesSyncLogs (ctx context.Context) (*WSGAdministrationLicensesSyncLogsList, error){
+func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*WSGAdministrationLicensesSyncLogsList, error) {
 	var (
 		resp *WSGAdministrationLicensesSyncLogsList
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1177,10 +1177,10 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs (ctx context.Context) (*
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) UpdateAdminaaaById (ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string) (*WSGCommonEmptyResult, error){
+func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string) (*WSGCommonEmptyResult, error) {
 	var (
 		resp *WSGCommonEmptyResult
-		err error
+		err  error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1201,7 +1201,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById (ctx context.Context, body
 //
 // Request Body:
 //	 - body *WSGAdministrationModfiyLicenseServer
-func (s *WSGAdministrationService) UpdateLicenseServer (ctx context.Context, body *WSGAdministrationModfiyLicenseServer) error{
+func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer) error {
 	var err error
 	if err = ctx.Err(); err != nil {
 		return err
@@ -1216,10 +1216,9 @@ func (s *WSGAdministrationService) UpdateLicenseServer (ctx context.Context, bod
 // UpdateLicensesSync
 //
 // Use this API command to ask all SCG in cluster to sync licenses from license server.
-func (s *WSGAdministrationService) UpdateLicensesSync (ctx context.Context) error{
+func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context) error {
 	var err error
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 }
-

@@ -144,7 +144,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 // Use this API command to download DPSK CSV sample.
 //
 // Optional Parameters:
-// - type string
+// - type_ string
 //		- nullable
 func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Context, optionalParams map[string]interface{}) ([]byte, error) {
 	var (

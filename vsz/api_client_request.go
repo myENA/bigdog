@@ -17,7 +17,7 @@ const (
 	uriQueryParameterPrefixFormat     = "%s?"
 	uriQueryParameterAddNoValueFormat = "%s%s&"
 	uriQueryParameterAddValueFormat   = "%s%s=%s&"
-	uriQueryParameterCutset           = "&"
+	uriQueryParameterCutSet           = "&"
 
 	apiRequestURLFormat = "https://%s:%d%s"
 
@@ -227,7 +227,7 @@ func (r *APIRequest) CompiledURI() string {
 					}
 				}
 			}
-			uri = strings.TrimRight(uri, uriQueryParameterCutset)
+			uri = strings.TrimRight(uri, uriQueryParameterCutSet)
 		}
 		r.compiledURI = uri
 	}

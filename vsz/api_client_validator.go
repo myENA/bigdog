@@ -1,7 +1,5 @@
 package vsz
 
-// API Version: v8_1
-
 import (
 	"gopkg.in/go-playground/validator.v9"
 )

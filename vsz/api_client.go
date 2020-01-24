@@ -7,9 +7,8 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"runtime"
 	"time"
-
-	"gopkg.in/go-playground/validator.v9"
 )
 
 const (
@@ -69,8 +68,6 @@ type APIClient struct {
 	auth        Authenticator
 
 	client *http.Client
-
-	validator *validator.Validate
 }
 
 func NewAPIClient(conf *APIConfig) (*APIClient, error) {
@@ -95,7 +92,7 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 	if conf.HTTPClient != nil {
 		c.client = conf.HTTPClient
 	} else {
-		// shamelessly borrowed from https://github.com/hashicorp/go-cleanhttp/blob/master/cleanhttp.go
+		// pooled transport config shamelessly borrowed from https://github.com/hashicorp/go-cleanhttp/blob/v0.5.1/cleanhttp.go
 		c.client = &http.Client{
 			Transport: &http.Transport{
 				Proxy: http.ProxyFromEnvironment,
@@ -107,8 +104,7 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 				IdleConnTimeout:       90 * time.Second,
 				TLSHandshakeTimeout:   10 * time.Second,
 				ExpectContinueTimeout: 1 * time.Second,
-				DisableKeepAlives:     true,
-				MaxIdleConnsPerHost:   -1,
+				MaxIdleConnsPerHost:   runtime.GOMAXPROCS(0) + 1,
 			},
 		}
 	}
@@ -129,8 +125,6 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 		c.switchMPath = DefaultSwitchMPathPrefix
 	}
 
-	c.validator = validator.New()
-
 	return c, nil
 }
 
@@ -144,10 +138,6 @@ func (c *APIClient) WSG() *WSGService {
 
 func (c *APIClient) SwitchM() *SwitchMService {
 	return NewSwitchMService(c)
-}
-
-func (c *APIClient) Validator() *validator.Validate {
-	return c.validator
 }
 
 func (c *APIClient) Do(ctx context.Context, request *APIRequest) (*http.Response, error) {

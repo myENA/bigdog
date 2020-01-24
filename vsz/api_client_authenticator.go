@@ -6,11 +6,13 @@ import (
 	"fmt"
 	"log"
 	"sync"
+	"sync/atomic"
 	"time"
 )
 
 const (
-	serviceTicketQueryParameter = "serviceTicket"
+	serviceTicketQueryParameter    = "serviceTicket"
+	serviceTicketAuthLogSlugFormat = "[ticket-auth-%s] %s"
 )
 
 type (
@@ -117,7 +119,7 @@ func (st *ServiceTicketAuthenticator) Decorate(ctx context.Context, request *API
 		return AuthCAS(cas), errors.New("request cannot be nil")
 	}
 
-	st.log(true, "Decorate called for request \"%s %s\"", request.Method(), request.CompiledURI())
+	st.log(true, "Decorate() - called for request \"%s %s\"", request.Method(), request.CompiledURI())
 
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
@@ -138,7 +140,7 @@ func (st *ServiceTicketAuthenticator) Decorate(ctx context.Context, request *API
 
 // Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
 func (st *ServiceTicketAuthenticator) Refresh(ctx context.Context, client *APIClient, cas AuthCAS) (AuthCAS, error) {
-	st.log(true, "Refresh called")
+	st.log(true, "Refresh() - called")
 
 	st.mu.Lock()
 	ccas := st.cas
@@ -149,7 +151,7 @@ func (st *ServiceTicketAuthenticator) Refresh(ctx context.Context, client *APICl
 	}
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
-		st.log(true, "Context error seen: %s", err)
+		st.log(true, "Refresh() - Context error seen: %s", err)
 		st.mu.Unlock()
 		return AuthCAS(ccas), err
 	}
@@ -173,27 +175,24 @@ func (st *ServiceTicketAuthenticator) Refresh(ctx context.Context, client *APICl
 	loginRequest := &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
 	resp, err := client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
 	if err != nil {
-		st.log(true, "Error seen calling Login: %s", err)
+		st.log(true, "Refresh() - Error seen calling Login: %s", err)
 		st.serviceTicket = ""
-		st.cas++
-		ncas := st.cas
+		ncas := st.iterateCAS()
 		st.mu.Unlock()
 		return AuthCAS(ncas), err
 	}
 
 	if resp == nil || resp.ServiceTicket == nil || *resp.ServiceTicket == "" {
-		st.log(true, "%q empty in response: %v", serviceTicketQueryParameter, resp)
+		st.log(true, "Refresh() - %q empty in response: %v", serviceTicketQueryParameter, resp)
 		st.serviceTicket = ""
-		st.cas++
-		ncas := st.cas
+		ncas := st.iterateCAS()
 		st.mu.Unlock()
 		return AuthCAS(ncas), errors.New("nil response from login request seen")
 	}
 
 	st.serviceTicket = *resp.ServiceTicket
 	st.refreshed = time.Now()
-	st.cas++
-	ncas := st.cas
+	ncas := st.iterateCAS()
 	st.mu.Unlock()
 	return AuthCAS(ncas), nil
 }
@@ -223,29 +222,32 @@ func (st *ServiceTicketAuthenticator) Invalidate(ctx context.Context, client *AP
 
 	// if we have a service ticket stored, attempt to invalidate it at the VSZ
 	if st.serviceTicket != "" {
-		st.log(true, "Calling Logout...")
-		err := client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, st.serviceTicket)
+		resp, err := client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, st.serviceTicket)
+		st.log(true, "Invalidate() - DeleteServiceTicket response: %v", resp)
 		if err != nil {
-			st.log(false, "Error calling Logout: %s", err)
+			st.log(false, "Invalidate() - Error calling DeleteServiceTicket: %s", err)
 		} else {
-			st.log(true, "Logout called successfully")
+			st.log(true, "Invalidate() - DeleteServiceTicket called successfully")
 		}
 	}
 
-	st.cas++
-	ncas := st.cas
+	ncas := st.iterateCAS()
 	st.serviceTicket = ""
 	st.refreshed = time.Now()
 	st.mu.Unlock()
 	return AuthCAS(ncas), nil
 }
 
+func (st *ServiceTicketAuthenticator) iterateCAS() uint64 {
+	return atomic.AddUint64(&st.cas, uint64(time.Now().UnixNano()))
+}
+
 func (st *ServiceTicketAuthenticator) log(debug bool, f string, v ...interface{}) {
 	if debug {
 		if st.debug {
-			st.logger.Printf(fmt.Sprintf("[pw-auth-%s] %s", st.username, f), v...)
+			st.logger.Printf(fmt.Sprintf(serviceTicketAuthLogSlugFormat, st.username, f), v...)
 		}
 	} else {
-		st.logger.Printf(fmt.Sprintf("[pw-auth-%s] %s", st.username, f), v...)
+		st.logger.Printf(fmt.Sprintf(serviceTicketAuthLogSlugFormat, st.username, f), v...)
 	}
 }

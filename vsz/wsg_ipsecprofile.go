@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGIPSECProfileService struct {
@@ -41,6 +40,7 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelIpsec, true)
 }
 
 // DeleteProfilesTunnelIpsec
@@ -62,6 +62,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsec, true)
 }
 
 // DeleteProfilesTunnelIpsecById
@@ -82,6 +83,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
 }
 
 // FindProfilesTunnelIpsec
@@ -101,6 +103,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsec, true)
 }
 
 // FindProfilesTunnelIpsecById
@@ -121,6 +124,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsecById, true)
 }
 
 // FindProfilesTunnelIpsecByQueryCriteria
@@ -142,6 +146,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelIpsecByQueryCriteria, true)
 }
 
 // PartialUpdateProfilesTunnelIpsecById
@@ -170,4 +175,5 @@ func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelIpsecById, true)
 }

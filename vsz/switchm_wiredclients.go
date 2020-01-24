@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMWiredClientsService struct {
@@ -41,6 +40,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClients, true)
 }
 
 // AddSwitchClientsAp
@@ -62,4 +62,5 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClientsAp, true)
 }

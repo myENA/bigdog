@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGIdentityUserRoleService struct {
@@ -41,6 +40,7 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserrole, true)
 }
 
 // AddIdentityUserRoleList
@@ -62,6 +62,7 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserRoleList, true)
 }
 
 // DeleteIdentityUserrole
@@ -80,6 +81,7 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUserrole, true)
 }
 
 // DeleteIdentityUserroleById
@@ -100,6 +102,7 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUserroleById, true)
 }
 
 // FindIdentityUserrole
@@ -113,6 +116,7 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserrole, true)
 }
 
 // FindIdentityUserroleById
@@ -133,6 +137,7 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserroleById, true)
 }
 
 // PartialUpdateIdentityUserroleById
@@ -161,4 +166,5 @@ func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityUserroleById, true)
 }

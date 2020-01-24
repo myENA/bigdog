@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMConfigurationHistoryService struct {
@@ -33,6 +32,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
 }
 
 // FindConfigurationHistoryByQueryCriteria
@@ -54,6 +54,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindConfigurationHistoryByQueryCriteria, true)
 }
 
 // FindConfigurationHistoryDetail
@@ -67,6 +68,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
 }
 
 // FindConfigurationHistoryDetailByQueryCriteria
@@ -88,4 +90,5 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria, true)
 }

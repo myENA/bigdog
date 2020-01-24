@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMConfigurationService struct {
@@ -41,6 +40,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfig, true)
 }
 
 // AddSwitchconfigBackup
@@ -60,6 +60,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfigBackup, true)
 }
 
 // AddSwitchconfigBackupDiff
@@ -81,6 +82,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfigBackupDiff, true)
 }
 
 // DeleteSwitchconfig
@@ -97,6 +99,7 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, bo
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfig, true)
 }
 
 // DeleteSwitchconfigByConfigId
@@ -114,6 +117,7 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
 }
 
 // FindSwitchconfigByConfigId
@@ -134,6 +138,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
 }
 
 // FindSwitchconfigDownloadByConfigId
@@ -154,6 +159,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 	if err = pkgValidator.VarCtx(ctx, configId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigDownloadByConfigId, true)
 }
 
 // UpdateSwitchconfigBackup
@@ -170,6 +176,7 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackup, true)
 }
 
 // UpdateSwitchconfigBackupByGroupId
@@ -192,6 +199,7 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
 }
 
 // UpdateSwitchconfigBackupRestoreByBackupId
@@ -212,4 +220,5 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(
 	if err = pkgValidator.VarCtx(ctx, backupId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupRestoreByBackupId, true)
 }

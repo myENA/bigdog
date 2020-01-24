@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGSNMPAgentService struct {
@@ -33,6 +32,7 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSyst
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemSnmpAgent, true)
 }
 
 // UpdateSystemSnmpAgent
@@ -54,4 +54,5 @@ func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateSystemSnmpAgent, true)
 }

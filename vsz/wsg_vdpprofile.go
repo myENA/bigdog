@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGVDPProfileService struct {
@@ -40,6 +39,7 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
 }
 
 // FindProfilesVdp
@@ -59,6 +59,7 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdp, true)
 }
 
 // FindProfilesVdpById
@@ -79,6 +80,7 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdpById, true)
 }
 
 // UpdateProfilesVdpApproveById
@@ -96,4 +98,5 @@ func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)
 }

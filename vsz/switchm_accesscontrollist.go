@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMAccessControlListService struct {
@@ -41,6 +40,7 @@ func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddAccessControls, true)
 }
 
 // DeleteAccessControls
@@ -59,6 +59,7 @@ func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAccessControls, true)
 }
 
 // DeleteAccessControlsById
@@ -76,6 +77,7 @@ func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAccessControlsById, true)
 }
 
 // FindAccessControlsById
@@ -96,6 +98,7 @@ func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindAccessControlsById, true)
 }
 
 // FindAccessControlsByQueryCriteria
@@ -117,6 +120,7 @@ func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindAccessControlsByQueryCriteria, true)
 }
 
 // UpdateAccessControlsById
@@ -145,4 +149,5 @@ func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateAccessControlsById, true)
 }

@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGIdentitySubscriptionPackageService struct {
@@ -41,6 +40,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityPackageList, true)
 }
 
 // AddIdentityPackages
@@ -62,6 +62,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityPackages, true)
 }
 
 // DeleteIdentityPackages
@@ -80,6 +81,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityPackages, true)
 }
 
 // DeleteIdentityPackagesById
@@ -100,6 +102,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityPackagesById, true)
 }
 
 // FindIdentityPackages
@@ -113,6 +116,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityPackages, true)
 }
 
 // FindIdentityPackagesById
@@ -133,6 +137,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityPackagesById, true)
 }
 
 // PartialUpdateIdentityPackagesById
@@ -161,4 +166,5 @@ func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesByI
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityPackagesById, true)
 }

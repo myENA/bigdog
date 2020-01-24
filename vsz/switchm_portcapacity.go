@@ -5,8 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMPortCapacityService struct {
@@ -102,4 +101,5 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context) (*Swi
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindPortCapacity, true)
 }

@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGCALEAService struct {
@@ -95,6 +94,7 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaCommonSetting, true)
 }
 
 // AddSystemCaleaMac
@@ -116,6 +116,7 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaMac, true)
 }
 
 // AddSystemCaleaMacList
@@ -135,6 +136,7 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaMacList, true)
 }
 
 // DeleteSystemCaleaMac
@@ -156,6 +158,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMac, true)
 }
 
 // DeleteSystemCaleaMacList
@@ -169,6 +172,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*WSGCom
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMacList, true)
 }
 
 // FindSystemCaleaCommonSetting
@@ -182,6 +186,7 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaCommonSetting, true)
 }
 
 // FindSystemCaleaMacList
@@ -195,4 +200,5 @@ func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context) (*WSGCALEA
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaMacList, true)
 }

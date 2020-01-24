@@ -5,8 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMAAASettingsService struct {
@@ -266,6 +265,7 @@ func (s *SwitchMAAASettingsService) FindAaaSettings(ctx context.Context) (*Switc
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaSettings, true)
 }
 
 // UpdateAaaSettings
@@ -287,4 +287,5 @@ func (s *SwitchMAAASettingsService) UpdateAaaSettings(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateAaaSettings, true)
 }

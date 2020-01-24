@@ -5,8 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMTrafficService struct {
@@ -369,6 +368,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPoeutilization, true)
 }
 
 // AddTrafficTopPorterror
@@ -390,6 +390,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPorterror, true)
 }
 
 // AddTrafficTopPortusage
@@ -411,6 +412,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopPortusage, true)
 }
 
 // AddTrafficTopUsage
@@ -432,6 +434,7 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTopUsage, true)
 }
 
 // AddTrafficTotalTrend
@@ -453,4 +456,5 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTotalTrend, true)
 }

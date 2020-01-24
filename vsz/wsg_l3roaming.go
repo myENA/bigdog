@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGL3RoamingService struct {
@@ -33,6 +32,7 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelL3Roaming, true)
 }
 
 // FindProfilesTunnelL3RoamingByQueryCriteria
@@ -46,6 +46,7 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelL3RoamingByQueryCriteria, true)
 }
 
 // PartialUpdateProfilesTunnelL3Roaming
@@ -67,4 +68,5 @@ func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelL3Roaming, true)
 }

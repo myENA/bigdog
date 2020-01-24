@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGSyslogServerService struct {
@@ -39,6 +38,7 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemSyslog, true)
 }
 
 // PartialUpdateSystemSyslog
@@ -57,6 +57,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslog, true)
 }
 
 // PartialUpdateSystemSyslogPrimaryServer
@@ -75,6 +76,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPrimaryServer, true)
 }
 
 // PartialUpdateSystemSyslogPriority
@@ -93,6 +95,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPriority, true)
 }
 
 // PartialUpdateSystemSyslogSecondaryServer
@@ -111,4 +114,5 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogSecondaryServer, true)
 }

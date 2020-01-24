@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGAccountingProfileService struct {
@@ -41,6 +40,7 @@ func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAcct, true)
 }
 
 // AddProfilesAcctCloneById
@@ -69,6 +69,7 @@ func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddProfilesAcctCloneById, true)
 }
 
 // DeleteProfilesAcct
@@ -90,6 +91,7 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAcct, true)
 }
 
 // DeleteProfilesAcctById
@@ -110,6 +112,7 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAcctById, true)
 }
 
 // FindProfilesAcct
@@ -123,6 +126,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAcct, true)
 }
 
 // FindProfilesAcctById
@@ -143,6 +147,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAcctById, true)
 }
 
 // FindProfilesAcctByQueryCriteria
@@ -164,6 +169,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindProfilesAcctByQueryCriteria, true)
 }
 
 // PartialUpdateProfilesAcctById
@@ -192,4 +198,5 @@ func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesAcctById, true)
 }

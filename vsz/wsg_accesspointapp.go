@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGAccessPointAPPService struct {
@@ -45,6 +44,7 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
 }
 
 // FindApsTotalCount
@@ -64,6 +64,7 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, option
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
 }
 
 // FindLinemanWorkflow
@@ -77,6 +78,7 @@ func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]b
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
 }
 
 // UpdateLinemanWorkflow
@@ -93,4 +95,5 @@ func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context, bo
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
 }

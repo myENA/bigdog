@@ -5,8 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMSpecificSettingsService struct {
@@ -257,6 +256,7 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
 }
 
 // FindSpecificSettings
@@ -270,6 +270,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettings, true)
 }
 
 // FindSpecificSettingsById
@@ -290,6 +291,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
 }
 
 // UpdateSpecificSettingsById
@@ -318,4 +320,5 @@ func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSpecificSettingsById, true)
 }

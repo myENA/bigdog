@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGWirelessClientService struct {
@@ -41,6 +40,7 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsBulkDeauth, true)
 }
 
 // AddClientsBulkDisconnect
@@ -62,6 +62,7 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsBulkDisconnect, true)
 }
 
 // AddClientsByWlanNameByWlanname
@@ -90,6 +91,7 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, wlanname, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsByWlanNameByWlanname, true)
 }
 
 // AddClientsDeauth
@@ -111,6 +113,7 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsDeauth, true)
 }
 
 // AddClientsDisconnect
@@ -132,6 +135,7 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddClientsDisconnect, true)
 }
 
 // FindApsOperationalClientByApMac
@@ -158,6 +162,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientByApMac, true)
 }
 
 // FindApsOperationalClientTotalCountByApMac
@@ -178,6 +183,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientTotalCountByApMac, true)
 }
 
 // FindHistoricalclientByQueryCriteria
@@ -199,4 +205,5 @@ func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindHistoricalclientByQueryCriteria, true)
 }

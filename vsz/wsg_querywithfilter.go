@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGQueryWithFilterService struct {
@@ -41,6 +40,7 @@ func (s *WSGQueryWithFilterService) FindApByQueryCriteria(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindApByQueryCriteria, true)
 }
 
 // FindApWlanByQueryCriteria
@@ -62,6 +62,7 @@ func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindApWlanByQueryCriteria, true)
 }
 
 // FindClientByQueryCriteria
@@ -83,6 +84,7 @@ func (s *WSGQueryWithFilterService) FindClientByQueryCriteria(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindClientByQueryCriteria, true)
 }
 
 // FindDpskByQueryCriteria
@@ -104,6 +106,7 @@ func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindDpskByQueryCriteria, true)
 }
 
 // FindIndoorMapByQueryCriteria
@@ -125,6 +128,7 @@ func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria(ctx context.Con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindIndoorMapByQueryCriteria, true)
 }
 
 // FindMeshNeighborByApMacByQueryCriteria
@@ -153,6 +157,7 @@ func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx c
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindMeshNeighborByApMacByQueryCriteria, true)
 }
 
 // FindMeshTopologyByApMacByQueryCriteria
@@ -181,6 +186,7 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx c
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindMeshTopologyByApMacByQueryCriteria, true)
 }
 
 // FindMeshTopologyByQueryCriteria
@@ -202,6 +208,7 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindMeshTopologyByQueryCriteria, true)
 }
 
 // FindRoguesInfoListByQueryCriteria
@@ -223,6 +230,7 @@ func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindRoguesInfoListByQueryCriteria, true)
 }
 
 // FindServicesAaaServerAcctByQueryCriteria
@@ -244,6 +252,7 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesAaaServerAcctByQueryCriteria, true)
 }
 
 // FindServicesAaaServerAuthByQueryCriteria
@@ -265,6 +274,7 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesAaaServerAuthByQueryCriteria, true)
 }
 
 // FindServicesAaaServerByQueryCriteria
@@ -286,6 +296,7 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria(ctx con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesAaaServerByQueryCriteria, true)
 }
 
 // FindServicesBonjourPolicyByQueryCriteria
@@ -307,6 +318,7 @@ func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesBonjourPolicyByQueryCriteria, true)
 }
 
 // FindServicesDevicePolicyByQueryCriteria
@@ -328,6 +340,7 @@ func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesDevicePolicyByQueryCriteria, true)
 }
 
 // FindServicesDhcpProfileByQueryCriteria
@@ -349,6 +362,7 @@ func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria(ctx c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesDhcpProfileByQueryCriteria, true)
 }
 
 // FindServicesDscpProfileByQueryCriteria
@@ -370,6 +384,7 @@ func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria(ctx c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesDscpProfileByQueryCriteria, true)
 }
 
 // FindServicesEthernetPortProfileByQueryCriteria
@@ -391,6 +406,7 @@ func (s *WSGQueryWithFilterService) FindServicesEthernetPortProfileByQueryCriter
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesEthernetPortProfileByQueryCriteria, true)
 }
 
 // FindServicesGuessAccessByQueryCriteria
@@ -412,6 +428,7 @@ func (s *WSGQueryWithFilterService) FindServicesGuessAccessByQueryCriteria(ctx c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesGuessAccessByQueryCriteria, true)
 }
 
 // FindServicesGuestAccessByQueryCriteria
@@ -433,6 +450,7 @@ func (s *WSGQueryWithFilterService) FindServicesGuestAccessByQueryCriteria(ctx c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesGuestAccessByQueryCriteria, true)
 }
 
 // FindServicesHotspot20ProfileByQueryCriteria
@@ -454,6 +472,7 @@ func (s *WSGQueryWithFilterService) FindServicesHotspot20ProfileByQueryCriteria(
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesHotspot20ProfileByQueryCriteria, true)
 }
 
 // FindServicesHotspotByQueryCriteria
@@ -475,6 +494,7 @@ func (s *WSGQueryWithFilterService) FindServicesHotspotByQueryCriteria(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesHotspotByQueryCriteria, true)
 }
 
 // FindServicesL2AccessControlByQueryCriteria
@@ -496,6 +516,7 @@ func (s *WSGQueryWithFilterService) FindServicesL2AccessControlByQueryCriteria(c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesL2AccessControlByQueryCriteria, true)
 }
 
 // FindServicesVenueProfileByQueryCriteria
@@ -517,6 +538,7 @@ func (s *WSGQueryWithFilterService) FindServicesVenueProfileByQueryCriteria(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesVenueProfileByQueryCriteria, true)
 }
 
 // FindServicesVlanPoolingByQueryCriteria
@@ -538,6 +560,7 @@ func (s *WSGQueryWithFilterService) FindServicesVlanPoolingByQueryCriteria(ctx c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesVlanPoolingByQueryCriteria, true)
 }
 
 // FindServicesWebAuthenticationByQueryCriteria
@@ -559,6 +582,7 @@ func (s *WSGQueryWithFilterService) FindServicesWebAuthenticationByQueryCriteria
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesWebAuthenticationByQueryCriteria, true)
 }
 
 // FindServicesWechatProfileByQueryCriteria
@@ -580,6 +604,7 @@ func (s *WSGQueryWithFilterService) FindServicesWechatProfileByQueryCriteria(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesWechatProfileByQueryCriteria, true)
 }
 
 // FindServicesWlanSchedulerByQueryCriteria
@@ -601,6 +626,7 @@ func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindServicesWlanSchedulerByQueryCriteria, true)
 }
 
 // FindUserByQueryCriteria
@@ -622,6 +648,7 @@ func (s *WSGQueryWithFilterService) FindUserByQueryCriteria(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindUserByQueryCriteria, true)
 }
 
 // FindWlanByQueryCriteria
@@ -643,4 +670,5 @@ func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindWlanByQueryCriteria, true)
 }

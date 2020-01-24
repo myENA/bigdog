@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGEventandAlarmService struct {
@@ -41,6 +40,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmList, true)
 }
 
 // AddAlertAlarmSummary
@@ -62,6 +62,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmSummary, true)
 }
 
 // AddAlertEventList
@@ -83,6 +84,7 @@ func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventList, true)
 }
 
 // AddAlertEventSummary
@@ -104,6 +106,7 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventSummary, true)
 }
 
 // UpdateAlertAlarmAck
@@ -125,6 +128,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAck, true)
 }
 
 // UpdateAlertAlarmAckByAlarmID
@@ -145,6 +149,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, alarmID, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
 }
 
 // UpdateAlertAlarmClear
@@ -166,6 +171,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClear, true)
 }
 
 // UpdateAlertAlarmClearByAlarmID
@@ -186,4 +192,5 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, alarmID, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
 }

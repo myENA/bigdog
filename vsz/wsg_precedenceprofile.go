@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGPrecedenceProfileService struct {
@@ -41,6 +40,7 @@ func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddPrecedence, true)
 }
 
 // DeletePrecedence
@@ -62,6 +62,7 @@ func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeletePrecedence, true)
 }
 
 // DeletePrecedenceById
@@ -82,6 +83,7 @@ func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeletePrecedenceById, true)
 }
 
 // FindPrecedence
@@ -101,6 +103,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, option
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindPrecedence, true)
 }
 
 // FindPrecedenceById
@@ -121,6 +124,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindPrecedenceById, true)
 }
 
 // FindPrecedenceByQueryCriteria
@@ -142,6 +146,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindPrecedenceByQueryCriteria, true)
 }
 
 // PartialUpdatePrecedenceById
@@ -170,4 +175,5 @@ func (s *WSGPrecedenceProfileService) PartialUpdatePrecedenceById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdatePrecedenceById, true)
 }

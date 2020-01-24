@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMVESettingService struct {
@@ -41,6 +40,7 @@ func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddVeConfigs, true)
 }
 
 // DeleteVeConfigs
@@ -59,6 +59,7 @@ func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *Swi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigs, true)
 }
 
 // DeleteVeConfigsById
@@ -76,6 +77,7 @@ func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
 }
 
 // FindVeConfigs
@@ -89,6 +91,7 @@ func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVe
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigs, true)
 }
 
 // FindVeConfigsById
@@ -109,6 +112,7 @@ func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
 }
 
 // FindVeConfigsByQueryCriteria
@@ -130,6 +134,7 @@ func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindVeConfigsByQueryCriteria, true)
 }
 
 // UpdateVeConfigsById
@@ -158,4 +163,5 @@ func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVeConfigsById, true)
 }

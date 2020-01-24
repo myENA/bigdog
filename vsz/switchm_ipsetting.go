@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMIPSettingService struct {
@@ -41,6 +40,7 @@ func (s *SwitchMIPSettingService) AddIpConfigs(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddIpConfigs, true)
 }
 
 // DeleteIpConfigs
@@ -59,6 +59,7 @@ func (s *SwitchMIPSettingService) DeleteIpConfigs(ctx context.Context, body *Swi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteIpConfigs, true)
 }
 
 // DeleteIpConfigsById
@@ -76,6 +77,7 @@ func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteIpConfigsById, true)
 }
 
 // FindIpConfigs
@@ -89,6 +91,7 @@ func (s *SwitchMIPSettingService) FindIpConfigs(ctx context.Context) (*SwitchMIp
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigs, true)
 }
 
 // FindIpConfigsById
@@ -109,6 +112,7 @@ func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigsById, true)
 }
 
 // FindIpConfigsByQueryCriteria
@@ -130,6 +134,7 @@ func (s *SwitchMIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindIpConfigsByQueryCriteria, true)
 }
 
 // UpdateIpConfigsById
@@ -158,4 +163,5 @@ func (s *SwitchMIPSettingService) UpdateIpConfigsById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateIpConfigsById, true)
 }

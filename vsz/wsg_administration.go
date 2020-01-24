@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGAdministrationService struct {
@@ -1033,6 +1032,7 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddAdminaaa, true)
 }
 
 // AddRestart
@@ -1043,6 +1043,7 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context) error {
 	if err = ctx.Err(); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddRestart, true)
 }
 
 // AddShutdown
@@ -1053,6 +1054,7 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
 	if err = ctx.Err(); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddShutdown, true)
 }
 
 // DeleteAdminaaaById
@@ -1073,6 +1075,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
 }
 
 // FindAdminaaa
@@ -1093,6 +1096,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 	if err = pkgValidator.VarCtx(ctx, type_, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
 }
 
 // FindAdminaaaById
@@ -1113,6 +1117,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaaById, true)
 }
 
 // FindLicenses
@@ -1126,6 +1131,7 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdmini
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindLicenses, true)
 }
 
 // FindLicenseServer
@@ -1139,6 +1145,7 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGA
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindLicenseServer, true)
 }
 
 // FindLicensesSummary
@@ -1152,6 +1159,7 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSummary, true)
 }
 
 // FindLicensesSyncLogs
@@ -1165,6 +1173,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
 }
 
 // UpdateAdminaaaById
@@ -1193,6 +1202,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAdminaaaById, true)
 }
 
 // UpdateLicenseServer
@@ -1211,6 +1221,7 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateLicenseServer, true)
 }
 
 // UpdateLicensesSync
@@ -1221,4 +1232,5 @@ func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context) error
 	if err = ctx.Err(); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateLicensesSync, true)
 }

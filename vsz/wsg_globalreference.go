@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGGlobalreferenceService struct {
@@ -33,6 +32,7 @@ func (s *WSGGlobalreferenceService) FindGlobalSettingsFriendlyNameLang(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsFriendlyNameLang, true)
 }
 
 // FindGlobalSettingsPortalLang
@@ -46,4 +46,5 @@ func (s *WSGGlobalreferenceService) FindGlobalSettingsPortalLang(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsPortalLang, true)
 }

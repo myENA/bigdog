@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGClusterManagementService struct {
@@ -33,6 +32,7 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context) (*WSGAdmin
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddApPatch, true)
 }
 
 // AddApPatchFile
@@ -49,6 +49,7 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, body [
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddApPatchFile, true)
 }
 
 // AddClusterBackup
@@ -59,6 +60,7 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context) erro
 	if err = ctx.Err(); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddClusterBackup, true)
 }
 
 // AddClusterRestoreById
@@ -76,6 +78,7 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddClusterRestoreById, true)
 }
 
 // AddConfigurationBackup
@@ -89,6 +92,7 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationBackup, true)
 }
 
 // AddConfigurationRestoreById
@@ -106,6 +110,7 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationRestoreById, true)
 }
 
 // AddConfigurationUpload
@@ -122,6 +127,7 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationUpload, true)
 }
 
 // AddUpgrade
@@ -135,6 +141,7 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context) (*WSGAdmin
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddUpgrade, true)
 }
 
 // AddUpgradeUpload
@@ -154,6 +161,7 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddUpgradeUpload, true)
 }
 
 // DeleteClusterById
@@ -171,6 +179,7 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteClusterById, true)
 }
 
 // DeleteConfigurationById
@@ -188,6 +197,7 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteConfigurationById, true)
 }
 
 // FindApPatch
@@ -201,6 +211,7 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*WSGAdmi
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApPatch, true)
 }
 
 // FindApPatchHistory
@@ -222,6 +233,7 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApPatchHistory, true)
 }
 
 // FindApPatchStatus
@@ -235,6 +247,7 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApPatchStatus, true)
 }
 
 // FindCluster
@@ -256,6 +269,7 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindCluster, true)
 }
 
 // FindClusterGeoRedundancy
@@ -269,6 +283,7 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindClusterGeoRedundancy, true)
 }
 
 // FindClusterNodeStatus
@@ -282,6 +297,7 @@ func (s *WSGClusterManagementService) FindClusterNodeStatus(ctx context.Context)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindClusterNodeStatus, true)
 }
 
 // FindClusterState
@@ -295,6 +311,7 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindClusterState, true)
 }
 
 // FindClusterStatus
@@ -308,6 +325,7 @@ func (s *WSGClusterManagementService) FindClusterStatus(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindClusterStatus, true)
 }
 
 // FindConfiguration
@@ -327,6 +345,7 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindConfiguration, true)
 }
 
 // FindConfigurationDownload
@@ -351,6 +370,7 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, backupUUID, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationDownload, true)
 }
 
 // FindConfigurationSettingsAutoExportBackup
@@ -364,6 +384,7 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsAutoExportBackup, true)
 }
 
 // FindConfigurationSettingsScheduleBackup
@@ -377,6 +398,7 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsScheduleBackup, true)
 }
 
 // FindUpgradeHistory
@@ -398,6 +420,7 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeHistory, true)
 }
 
 // FindUpgradePatch
@@ -411,6 +434,7 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindUpgradePatch, true)
 }
 
 // FindUpgradeStatus
@@ -424,6 +448,7 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeStatus, true)
 }
 
 // PartialUpdateConfigurationSettingsAutoExportBackup
@@ -445,6 +470,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup, true)
 }
 
 // PartialUpdateConfigurationSettingsScheduleBackup
@@ -466,6 +492,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup, true)
 }
 
 // UpdateClusterGeoRedundancy
@@ -487,4 +514,5 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateClusterGeoRedundancy, true)
 }

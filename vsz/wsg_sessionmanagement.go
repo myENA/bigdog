@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGSessionManagementService struct {
@@ -83,4 +82,5 @@ func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSessionManagement, true)
 }

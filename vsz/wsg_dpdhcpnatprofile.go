@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGDPDHCPNATProfileService struct {
@@ -38,6 +37,7 @@ func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddDpProfileSettings, true)
 }
 
 // DeleteDpProfileSettings
@@ -56,6 +56,7 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettings, true)
 }
 
 // DeleteDpProfileSettingsByDpKey
@@ -73,6 +74,7 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
 }
 
 // FindDpProfileSettings
@@ -86,6 +88,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) 
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettings, true)
 }
 
 // FindDpProfileSettingsByDpKey
@@ -106,6 +109,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettingsByDpKey, true)
 }
 
 // UpdateDpProfileSettingsByDpKey
@@ -131,4 +135,5 @@ func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateDpProfileSettingsByDpKey, true)
 }

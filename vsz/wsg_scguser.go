@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGSCGUserService struct {
@@ -805,6 +804,7 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddUsers, true)
 }
 
 // DeleteUsers
@@ -826,6 +826,7 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsers, true)
 }
 
 // DeleteUsersByUserId
@@ -846,6 +847,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
 }
 
 // FindUsersByQueryCriteria
@@ -867,6 +869,7 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindUsersByQueryCriteria, true)
 }
 
 // FindUsersByUserId
@@ -887,6 +890,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindUsersByUserId, true)
 }
 
 // PartialUpdateUsersByUserId
@@ -915,4 +919,5 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUsersByUserId, true)
 }

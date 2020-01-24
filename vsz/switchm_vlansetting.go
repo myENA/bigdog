@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMVLANSettingService struct {
@@ -41,6 +40,7 @@ func (s *SwitchMVLANSettingService) AddVlans(ctx context.Context, body *SwitchMV
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddVlans, true)
 }
 
 // DeleteVlans
@@ -59,6 +59,7 @@ func (s *SwitchMVLANSettingService) DeleteVlans(ctx context.Context, body *Switc
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlans, true)
 }
 
 // DeleteVlansById
@@ -76,6 +77,7 @@ func (s *SwitchMVLANSettingService) DeleteVlansById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlansById, true)
 }
 
 // FindVlans
@@ -89,6 +91,7 @@ func (s *SwitchMVLANSettingService) FindVlans(ctx context.Context) (*SwitchMVlan
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindVlans, true)
 }
 
 // FindVlansById
@@ -109,6 +112,7 @@ func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindVlansById, true)
 }
 
 // FindVlansByQueryCriteria
@@ -130,6 +134,7 @@ func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMFindVlansByQueryCriteria, true)
 }
 
 // UpdateVlansById
@@ -158,4 +163,5 @@ func (s *SwitchMVLANSettingService) UpdateVlansById(ctx context.Context, body *S
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVlansById, true)
 }

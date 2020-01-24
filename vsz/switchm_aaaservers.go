@@ -5,8 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMAAAServersService struct {
@@ -258,6 +257,7 @@ func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddAaaServersAdmin, true)
 }
 
 // DeleteAaaServersAdmin
@@ -276,6 +276,7 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdmin, true)
 }
 
 // DeleteAaaServersAdminById
@@ -296,6 +297,7 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdminById, true)
 }
 
 // FindAaaServersAdmin
@@ -309,6 +311,7 @@ func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*Sw
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdmin, true)
 }
 
 // FindAaaServersAdminById
@@ -329,6 +332,7 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdminById, true)
 }
 
 // UpdateAaaServersAdminById
@@ -357,4 +361,5 @@ func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateAaaServersAdminById, true)
 }

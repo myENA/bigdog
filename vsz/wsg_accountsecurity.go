@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGAccountSecurityService struct {
@@ -41,6 +40,7 @@ func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddAccountSecurity, true)
 }
 
 // DeleteAccountSecurity
@@ -62,6 +62,7 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAccountSecurity, true)
 }
 
 // DeleteAccountSecurityById
@@ -90,6 +91,7 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteAccountSecurityById, true)
 }
 
 // FindAccountSecurity
@@ -103,6 +105,7 @@ func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindAccountSecurity, true)
 }
 
 // FindAccountSecurityById
@@ -131,6 +134,7 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindAccountSecurityById, true)
 }
 
 // PartialUpdateAccountSecurityById
@@ -159,6 +163,7 @@ func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAccountSecurityById, true)
 }
 
 // UpdateAccountSecurityById
@@ -187,4 +192,5 @@ func (s *WSGAccountSecurityService) UpdateAccountSecurityById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteWSGUpdateAccountSecurityById, true)
 }

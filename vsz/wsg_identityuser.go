@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGIdentityUserService struct {
@@ -41,6 +40,7 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserList, true)
 }
 
 // AddIdentityUsers
@@ -62,6 +62,7 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUsers, true)
 }
 
 // DeleteIdentityUsers
@@ -80,6 +81,7 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsers, true)
 }
 
 // DeleteIdentityUsersById
@@ -100,6 +102,7 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
 }
 
 // FindIdentityUsers
@@ -143,6 +146,7 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsers, true)
 }
 
 // FindIdentityUsersAaaserver
@@ -156,6 +160,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
 }
 
 // FindIdentityUsersById
@@ -176,6 +181,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersById, true)
 }
 
 // FindIdentityUsersCountries
@@ -189,6 +195,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
 }
 
 // FindIdentityUsersPackages
@@ -202,6 +209,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) 
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
 }
 
 // PartialUpdateIdentityUsersById
@@ -230,4 +238,5 @@ func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityUsersById, true)
 }

@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGServiceTicketService struct {
@@ -73,6 +72,7 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddServiceTicket, false)
 }
 
 // DeleteServiceTicket
@@ -93,4 +93,5 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 	if err = pkgValidator.VarCtx(ctx, serviceTicket, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
 }

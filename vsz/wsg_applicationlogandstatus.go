@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGApplicationLogAndStatusService struct {
@@ -46,6 +45,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsByBladeUUID, true)
 }
 
 // FindApplicationsDownloadByBladeUUID
@@ -75,6 +75,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 	if err = pkgValidator.VarCtx(ctx, appName, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
 }
 
 // FindApplicationsDownloadsnapByBladeUUID
@@ -95,6 +96,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadsnapByBladeUUID, true)
 }
 
 // PartialUpdateApplications
@@ -113,4 +115,5 @@ func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateApplications, true)
 }

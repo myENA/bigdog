@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGSystemService struct {
@@ -1748,6 +1747,7 @@ func (s *WSGSystemService) AddSystemAp_balance(ctx context.Context) (interface{}
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemAp_balance, true)
 }
 
 // AddSystemApRoutineConfigInterval
@@ -1766,6 +1766,7 @@ func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemApRoutineConfigInterval, true)
 }
 
 // AddSystemApRoutineStatusIntervalSlowdown
@@ -1776,6 +1777,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 	if err = ctx.Err(); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSlowdown, true)
 }
 
 // AddSystemApRoutineStatusIntervalSpeedup
@@ -1786,6 +1788,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSpeedup, true)
 }
 
 // DeleteSystemNbi
@@ -1803,6 +1806,7 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemNbi, true)
 }
 
 // FindController
@@ -1816,6 +1820,7 @@ func (s *WSGSystemService) FindController(ctx context.Context) (*WSGSystemContro
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindController, true)
 }
 
 // FindControllerStatisticsById
@@ -1842,6 +1847,7 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindControllerStatisticsById, true)
 }
 
 // FindSystem
@@ -1855,6 +1861,7 @@ func (s *WSGSystemService) FindSystem(ctx context.Context) (*WSGSystemSettings, 
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystem, true)
 }
 
 // FindSystemApmodels
@@ -1868,6 +1875,7 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context) (interface{},
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemApmodels, true)
 }
 
 // FindSystemApmodelsByFirmwareVersion
@@ -1888,6 +1896,7 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, firmwareVersion, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemApmodelsByFirmwareVersion, true)
 }
 
 // FindSystemApRoutineConfigInterval
@@ -1901,6 +1910,7 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemApRoutineConfigInterval, true)
 }
 
 // FindSystemApRoutineStatusInterval
@@ -1914,6 +1924,7 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemApRoutineStatusInterval, true)
 }
 
 // FindSystemByQueryCriteria
@@ -1935,6 +1946,7 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindSystemByQueryCriteria, true)
 }
 
 // FindSystemDevicesSummary
@@ -1948,6 +1960,7 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context) (*WSGDe
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemDevicesSummary, true)
 }
 
 // FindSystemGatewayAdvanced
@@ -1961,6 +1974,7 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context) (*WSGS
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemGatewayAdvanced, true)
 }
 
 // FindSystemInventory
@@ -1980,6 +1994,7 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemInventory, true)
 }
 
 // FindSystemNbi
@@ -1997,6 +2012,7 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemNbi, true)
 }
 
 // FindSystemSystemTime
@@ -2010,6 +2026,7 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context) (*WSGSystem
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSystemSystemTime, true)
 }
 
 // PartialUpdateSystem
@@ -2028,6 +2045,7 @@ func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSys
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystem, true)
 }
 
 // PartialUpdateSystemCaptcha
@@ -2046,6 +2064,7 @@ func (s *WSGSystemService) PartialUpdateSystemCaptcha(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemCaptcha, true)
 }
 
 // PartialUpdateSystemGatewayAdvanced
@@ -2064,6 +2083,7 @@ func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemGatewayAdvanced, true)
 }
 
 // PartialUpdateSystemNbi
@@ -2086,6 +2106,7 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemNbi, true)
 }
 
 // PartialUpdateSystemSystemTime
@@ -2107,4 +2128,5 @@ func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSystemTime, true)
 }

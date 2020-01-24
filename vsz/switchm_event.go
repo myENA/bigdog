@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMEventService struct {
@@ -36,6 +35,7 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddCustomEvent, true)
 }
 
 // DeleteCustomEventById
@@ -56,6 +56,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteCustomEventById, true)
 }
 
 // FindCustomEvent
@@ -69,6 +70,7 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEven
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEvent, true)
 }
 
 // FindCustomEventById
@@ -89,6 +91,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEventById, true)
 }
 
 // UpdateCustomEventById
@@ -112,4 +115,5 @@ func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *S
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPut, RouteSwitchMUpdateCustomEventById, true)
 }

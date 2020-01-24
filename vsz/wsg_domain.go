@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGDomainService struct {
@@ -159,6 +158,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddDomains, true)
 }
 
 // AddRkszonesDomains
@@ -184,6 +184,7 @@ func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDoma
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDomains, true)
 }
 
 // DeleteDomainsById
@@ -201,6 +202,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) err
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteDomainsById, true)
 }
 
 // DeleteRkszonesDomainsById
@@ -218,6 +220,7 @@ func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, id str
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDomainsById, true)
 }
 
 // FindDomains
@@ -243,6 +246,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindDomains, true)
 }
 
 // FindDomainsById
@@ -267,6 +271,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindDomainsById, true)
 }
 
 // FindDomainsSubdomainById
@@ -299,6 +304,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
 }
 
 // FindRkszonesDomains
@@ -324,6 +330,7 @@ func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, optionalPara
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomains, true)
 }
 
 // FindRkszonesDomainsById
@@ -348,6 +355,7 @@ func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, id strin
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomainsById, true)
 }
 
 // FindRkszonesDomainsSubdomainById
@@ -380,6 +388,7 @@ func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomainsSubdomainById, true)
 }
 
 // PartialUpdateDomainsById
@@ -405,6 +414,7 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)
 }
 
 // PartialUpdateRkszonesDomainsById
@@ -430,4 +440,5 @@ func (s *WSGDomainService) PartialUpdateRkszonesDomainsById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesDomainsById, true)
 }

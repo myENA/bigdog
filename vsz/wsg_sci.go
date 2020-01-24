@@ -5,8 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGSCIService struct {
@@ -347,6 +346,7 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSciSciEventCode, true)
 }
 
 // AddSciSciProfile
@@ -368,6 +368,7 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSciSciProfile, true)
 }
 
 // AddSciSciProfileSciPriority
@@ -389,6 +390,7 @@ func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddSciSciProfileSciPriority, true)
 }
 
 // DeleteSciSciProfile
@@ -410,6 +412,7 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfile, true)
 }
 
 // DeleteSciSciProfileById
@@ -430,6 +433,7 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
 }
 
 // FindSciSciEventCode
@@ -443,6 +447,7 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCo
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSciSciEventCode, true)
 }
 
 // FindSciSciProfile
@@ -456,6 +461,7 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileLi
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfile, true)
 }
 
 // FindSciSciProfileById
@@ -476,6 +482,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfileById, true)
 }
 
 // PartialUpdateSciSciEnabled
@@ -497,6 +504,7 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSciSciEnabled, true)
 }
 
 // PartialUpdateSciSciProfileById
@@ -525,4 +533,5 @@ func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSciSciProfileById, true)
 }

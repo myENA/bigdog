@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMStackService struct {
@@ -405,6 +404,7 @@ func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackCon
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddStack, true)
 }
 
 // FindStackBySwitchId
@@ -425,6 +425,7 @@ func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId 
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
 }
 
 // FindStackMemberBySerialNumber
@@ -445,4 +446,5 @@ func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, serialNumber, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
 }

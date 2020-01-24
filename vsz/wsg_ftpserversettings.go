@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type WSGFtpServerSettingsService struct {
@@ -41,6 +40,7 @@ func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *WSGSyst
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGAddFtps, true)
 }
 
 // DeleteFtps
@@ -62,6 +62,7 @@ func (s *WSGFtpServerSettingsService) DeleteFtps(ctx context.Context, body *WSGS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteFtps, true)
 }
 
 // DeleteFtpsByFtpId
@@ -79,6 +80,7 @@ func (s *WSGFtpServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftp
 	if err = pkgValidator.VarCtx(ctx, ftpId, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteWSGDeleteFtpsByFtpId, true)
 }
 
 // FindFtpsByFtpId
@@ -99,6 +101,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 	if err = pkgValidator.VarCtx(ctx, ftpId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindFtpsByFtpId, true)
 }
 
 // FindFtpsByQueryCriteria
@@ -120,6 +123,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteWSGFindFtpsByQueryCriteria, true)
 }
 
 // FindFtpsTest
@@ -141,6 +145,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindFtpsTest, true)
 }
 
 // FindFtpsTestByFtpId
@@ -161,6 +166,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 	if err = pkgValidator.VarCtx(ctx, ftpId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteWSGFindFtpsTestByFtpId, true)
 }
 
 // PartialUpdateFtpsByFtpId
@@ -186,4 +192,5 @@ func (s *WSGFtpServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, ftpId, "required"); err != nil {
 		return err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateFtpsByFtpId, true)
 }

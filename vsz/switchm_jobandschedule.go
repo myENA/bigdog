@@ -4,8 +4,7 @@ package vsz
 
 import (
 	"context"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMJobandScheduleService struct {
@@ -41,6 +40,7 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddJob, true)
 }
 
 // DeleteJobSchedule
@@ -54,6 +54,7 @@ func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (i
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteJobSchedule, true)
 }
 
 // FindJobByJobId
@@ -82,6 +83,7 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, jobId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindJobByJobId, true)
 }
 
 // FindJobScheduleByScheduleId
@@ -102,4 +104,5 @@ func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, scheduleId, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)
 }

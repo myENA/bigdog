@@ -5,8 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"errors"
-	"fmt"
+	"net/http"
 )
 
 type SwitchMFirmwareService struct {
@@ -188,6 +187,7 @@ func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMC
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmware, true)
 }
 
 // AddFirmwareUpload
@@ -207,6 +207,7 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []b
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmwareUpload, true)
 }
 
 // DeleteFirmwareByVersion
@@ -227,6 +228,7 @@ func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, ve
 	if err = pkgValidator.VarCtx(ctx, version, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteFirmwareByVersion, true)
 }
 
 // FindFirmware
@@ -240,6 +242,7 @@ func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirm
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
 }
 
 // PartialUpdateFirmwareByVersion
@@ -268,4 +271,5 @@ func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, version, "required"); err != nil {
 		return resp, err
 	}
+	req := NewAPIRequest(http.MethodPatch, RouteSwitchMPartialUpdateFirmwareByVersion, true)
 }

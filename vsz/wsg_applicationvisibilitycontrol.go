@@ -193,6 +193,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteAvcApplicationPolicyV2
@@ -241,6 +242,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ByI
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2ById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteAvcUserDefined
@@ -289,6 +291,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcUserDefinedById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindApplicationPolicyByQueryCriteria
@@ -363,6 +366,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindAvcApplicationPolicyV2ById
@@ -385,6 +389,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyV2ById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindAvcSignaturePackage
@@ -422,6 +427,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplicationByApplicationName, true)
+	req.SetPathParameter("applicationName", applicationName)
 }
 
 // FindAvcSignaturePackageApplications
@@ -474,6 +480,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategory
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategoryByCategoryName, true)
+	req.SetPathParameter("categoryName", categoryName)
 }
 
 // FindAvcSignaturePackageV2
@@ -508,6 +515,9 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Applications, true)
+	if v, ok := optionalParams["appName"]; ok {
+		req.AddQueryParameter("appName", v)
+	}
 }
 
 // FindAvcSignaturePackageV2Categories
@@ -527,6 +537,9 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Categories, true)
+	if v, ok := optionalParams["catName"]; ok {
+		req.AddQueryParameter("catName", v)
+	}
 }
 
 // FindAvcUserDefinedById
@@ -549,6 +562,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcUserDefinedById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindUserDefinedByQueryCriteria
@@ -608,6 +622,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateAvcApplicationPolicyV2ById
@@ -641,6 +656,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateAvcUserDefinedById
@@ -674,4 +690,5 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

@@ -52,6 +52,7 @@ func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // DeleteRkszonesHs20sById
@@ -79,6 +80,8 @@ func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesHs20sById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesHs20sById
@@ -106,6 +109,8 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20sById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesHs20sByZoneId
@@ -128,6 +133,7 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20sByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // PartialUpdateRkszonesHs20sById
@@ -166,4 +172,6 @@ func (s *WSGHotspot20WLANServiceService) PartialUpdateRkszonesHs20sById(ctx cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }

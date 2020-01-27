@@ -190,6 +190,7 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // DeleteRkszonesDevicePolicyById
@@ -217,6 +218,8 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDevicePolicyById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesDevicePolicyById
@@ -244,6 +247,8 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDevicePolicyById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesDevicePolicyByZoneId
@@ -272,6 +277,13 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDevicePolicyByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // PartialUpdateRkszonesDevicePolicyById
@@ -310,4 +322,6 @@ func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }

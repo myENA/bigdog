@@ -41,6 +41,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneI
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesEventEmailSettingsByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesEventNotificationSettingsByZoneId
@@ -63,6 +64,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettings
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesEventNotificationSettingsByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // UpdateRkszonesEventEmailSettingsByZoneId
@@ -96,6 +98,7 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZon
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // UpdateRkszonesEventNotificationSettingsByZoneId
@@ -127,4 +130,5 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettin
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("zoneId", zoneId)
 }

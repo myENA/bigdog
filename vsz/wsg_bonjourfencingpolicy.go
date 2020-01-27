@@ -52,6 +52,7 @@ func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // DeleteRkszonesBonjourFencingPolicy
@@ -99,6 +100,7 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicyById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindApsBonjourFencingStatisticByApMac
@@ -121,6 +123,7 @@ func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsBonjourFencingStatisticByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindRkszonesBonjourFencingPolicyById
@@ -148,6 +151,8 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ct
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesBonjourFencingPolicyByZoneId
@@ -170,6 +175,7 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindServicesBonjourFencingPolicyByQueryCriteria
@@ -234,4 +240,6 @@ func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPoli
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }

@@ -260,6 +260,7 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindSpecificSettings
@@ -297,6 +298,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // UpdateSpecificSettingsById
@@ -330,4 +332,5 @@ func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

@@ -66,6 +66,7 @@ func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx conte
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesZoneAffinityById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesZoneAffinity
@@ -85,6 +86,9 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesZoneAffinity, true)
+	if v, ok := optionalParams["vdpId"]; ok {
+		req.AddQueryParameter("vdpId", v)
+	}
 }
 
 // FindProfilesZoneAffinityById
@@ -107,6 +111,7 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesZoneAffinityById, true)
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateProfilesZoneAffinityById
@@ -140,4 +145,5 @@ func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ct
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

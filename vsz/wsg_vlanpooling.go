@@ -237,6 +237,7 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id s
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteVlanpoolingsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindVlanpoolingsById
@@ -259,6 +260,7 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id str
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindVlanpoolingsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindVlanpoolingsByQueryCriteria
@@ -318,4 +320,5 @@ func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

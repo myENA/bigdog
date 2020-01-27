@@ -91,6 +91,7 @@ func (s *SwitchMVLANSettingService) DeleteVlansById(ctx context.Context, id stri
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlansById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindVlans
@@ -128,6 +129,7 @@ func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlansById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindVlansByQueryCriteria
@@ -187,4 +189,5 @@ func (s *SwitchMVLANSettingService) UpdateVlansById(ctx context.Context, body *S
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

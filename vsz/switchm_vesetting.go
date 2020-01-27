@@ -91,6 +91,7 @@ func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id st
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindVeConfigs
@@ -128,6 +129,7 @@ func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id stri
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindVeConfigsByQueryCriteria
@@ -187,4 +189,5 @@ func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

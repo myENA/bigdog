@@ -1821,6 +1821,9 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemNbi, true)
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
+	}
 }
 
 // FindController
@@ -1864,6 +1867,13 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControllerStatisticsById, true)
+	req.SetPathParameter("id", id)
+	if v, ok := optionalParams["interval"]; ok {
+		req.AddQueryParameter("interval", v)
+	}
+	if v, ok := optionalParams["size"]; ok {
+		req.AddQueryParameter("size", v)
+	}
 }
 
 // FindSystem
@@ -1916,6 +1926,7 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApmodelsByFirmwareVersion, true)
+	req.SetPathParameter("firmwareVersion", firmwareVersion)
 }
 
 // FindSystemApRoutineConfigInterval
@@ -2023,6 +2034,12 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemInventory, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindSystemNbi
@@ -2042,6 +2059,9 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemNbi, true)
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
+	}
 }
 
 // FindSystemSystemTime
@@ -2160,6 +2180,9 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemNbi, true)
 	if err = req.SetBody(body); err != nil {
 		return err
+	}
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
 	}
 }
 

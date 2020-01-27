@@ -93,6 +93,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesTunnelIpsec
@@ -114,6 +115,12 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsec, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindProfilesTunnelIpsecById
@@ -136,6 +143,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsecById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesTunnelIpsecByQueryCriteria
@@ -195,4 +203,5 @@ func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

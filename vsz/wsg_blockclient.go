@@ -78,6 +78,7 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteBlockClient
@@ -126,6 +127,7 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteBlockClientById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindBlockClientById
@@ -148,6 +150,7 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindBlockClientByQueryCriteria
@@ -196,6 +199,7 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientByZoneByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // PartialUpdateBlockClientById
@@ -229,6 +233,7 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // UpdateBlockClientById
@@ -262,4 +267,5 @@ func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

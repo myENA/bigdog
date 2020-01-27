@@ -857,6 +857,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
+	req.SetPathParameter("userId", userId)
 }
 
 // FindUsersByQueryCriteria
@@ -905,6 +906,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUsersByUserId, true)
+	req.SetPathParameter("userId", userId)
 }
 
 // PartialUpdateUsersByUserId
@@ -938,4 +940,5 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("userId", userId)
 }

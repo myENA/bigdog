@@ -41,6 +41,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureDownloadByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // AddApsApPacketCaptureStartFileCaptureByApMac
@@ -74,6 +75,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCapture
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("apMac", apMac)
 }
 
 // AddApsApPacketCaptureStartStreamingByApMac
@@ -107,6 +109,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingBy
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("apMac", apMac)
 }
 
 // AddApsApPacketCaptureStopByApMac
@@ -129,6 +132,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsApPacketCaptureStopByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // AddApsOperationalBlinkLedByApMac
@@ -151,6 +155,7 @@ func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsOperationalBlinkLedByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // AddApsSwitchoverCluster
@@ -199,6 +204,7 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsApPacketCaptureByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindApsOperationalAlarmsByApMac
@@ -239,6 +245,31 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmsByApMac(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalAlarmsByApMac, true)
+	req.SetPathParameter("apMac", apMac)
+	if v, ok := optionalParams["category"]; ok {
+		req.AddQueryParameter("category", v)
+	}
+	if v, ok := optionalParams["code"]; ok {
+		req.AddQueryParameter("code", v)
+	}
+	if v, ok := optionalParams["endTime"]; ok {
+		req.AddQueryParameter("endTime", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["severity"]; ok {
+		req.AddQueryParameter("severity", v)
+	}
+	if v, ok := optionalParams["startTime"]; ok {
+		req.AddQueryParameter("startTime", v)
+	}
+	if v, ok := optionalParams["status"]; ok {
+		req.AddQueryParameter("status", v)
+	}
 }
 
 // FindApsOperationalAlarmSummaryByApMac
@@ -261,6 +292,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmSummaryByApMac
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalAlarmSummaryByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindApsOperationalEventSummaryByApMac
@@ -283,6 +315,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalEventSummaryByApMac
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalEventSummaryByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindApsOperationalNeighborByApMac
@@ -311,6 +344,13 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalNeighborByApMac, true)
+	req.SetPathParameter("apMac", apMac)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindApsOperationalSummaryByApMac
@@ -333,4 +373,5 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalSummaryByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }

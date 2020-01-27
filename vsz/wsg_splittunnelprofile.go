@@ -52,6 +52,7 @@ func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ct
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // DeleteRkszonesSplitTunnelProfilesById
@@ -79,6 +80,8 @@ func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSplitTunnelProfilesById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesSplitTunnelProfilesById
@@ -106,6 +109,8 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesSplitTunnelProfilesById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesSplitTunnelProfilesByQueryCriteria
@@ -154,6 +159,7 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesSplitTunnelProfilesByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // PartialUpdateRkszonesSplitTunnelProfilesById
@@ -192,6 +198,8 @@ func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesB
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // UpdateRkszonesSplitTunnelProfilesById
@@ -230,4 +238,6 @@ func (s *WSGSplitTunnelProfileService) UpdateRkszonesSplitTunnelProfilesById(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
 }

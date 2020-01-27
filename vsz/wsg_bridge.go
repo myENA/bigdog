@@ -92,6 +92,7 @@ func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id stri
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridgeById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesBridge
@@ -129,6 +130,7 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridgeById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesBridgeByQueryCriteria
@@ -188,4 +190,5 @@ func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

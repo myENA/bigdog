@@ -78,6 +78,7 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssi
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // AddRkszonesDual
@@ -152,6 +153,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesAltitudeById(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesAltitudeById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesBackgroundScanning24ById
@@ -174,6 +176,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning24ById(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBackgroundScanning24ById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesBackgroundScanning50ById
@@ -196,6 +199,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBackgroundScanning50ById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesBandBalancingById
@@ -218,6 +222,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBandBalancingById(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBandBalancingById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesById
@@ -240,6 +245,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesById(ctx context.Context,
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesClientAdmissionControl24ById
@@ -262,6 +268,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl24B
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientAdmissionControl24ById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesClientAdmissionControl50ById
@@ -284,6 +291,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl50B
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientAdmissionControl50ById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesClientLoadBalancing24ById
@@ -306,6 +314,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing24ById
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientLoadBalancing24ById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesClientLoadBalancing50ById
@@ -328,6 +337,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing50ById
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientLoadBalancing50ById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesIpsecProfilesById
@@ -350,6 +360,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesIpsecProfilesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesLocationBasedServiceById
@@ -372,6 +383,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLocationBasedServiceById(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesLocationBasedServiceById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesMeshById
@@ -394,6 +406,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesMeshById(ctx context.Cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesMeshById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesRecoverySsidById
@@ -416,6 +429,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRecoverySsidById(ctx cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRecoverySsidById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesRogueById
@@ -438,6 +452,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRogueById(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRogueById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesSmartMonitorById
@@ -460,6 +475,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSmartMonitorById(ctx cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSmartMonitorById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesSnmpAgentById
@@ -482,6 +498,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSnmpAgentById(ctx context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSnmpAgentById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesSoftGreTunnelProfliesById
@@ -504,6 +521,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSoftGreTunnelProfliesById
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSoftGreTunnelProfliesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesSyslogById
@@ -526,6 +544,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSyslogById(ctx context.Co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSyslogById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesVenueProfileById
@@ -548,6 +567,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesVenueProfileById(ctx cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesVenueProfileById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindRkszones
@@ -571,6 +591,15 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszones(ctx context.Context, optio
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszones, true)
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindRkszonesApFirmwareByZoneId
@@ -593,6 +622,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApFirmwareByZoneId(ctx cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApFirmwareByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesApmodelByModel
@@ -620,6 +650,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelByModel(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApmodelByModel, true)
+	req.SetPathParameter("model", model)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesApmodelCommonAttributeByModel
@@ -647,6 +679,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelCommonAttributeByMod
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApmodelCommonAttributeByModel, true)
+	req.SetPathParameter("model", model)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesAvailableIpsecProfilesByZoneId
@@ -669,6 +703,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableIpsecProfilesByZon
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAvailableIpsecProfilesByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesAvailableTunnelProfilesByZoneId
@@ -691,6 +726,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableTunnelProfilesByZo
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAvailableTunnelProfilesByZoneId, true)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // FindRkszonesById
@@ -713,6 +749,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesById(ctx context.Context, i
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindRkszonesMeshById
@@ -735,6 +772,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesMeshById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindRkszonesServicesDhcpSiteConfigByQueryCriteria
@@ -794,6 +832,7 @@ func (s *WSGRuckusWirelessAPZoneService) PartialUpdateRkszonesById(ctx context.C
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // UpdateRkszonesApFirmwareByZoneId
@@ -827,6 +866,7 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApFirmwareByZoneId(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // UpdateRkszonesApmodelByModel
@@ -865,6 +905,8 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApmodelByModel(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("model", model)
+	req.SetPathParameter("zoneId", zoneId)
 }
 
 // UpdateRkszonesById
@@ -898,4 +940,5 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesById(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

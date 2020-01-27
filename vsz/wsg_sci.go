@@ -451,6 +451,7 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindSciSciEventCode
@@ -503,6 +504,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfileById, true)
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateSciSciEnabled
@@ -562,4 +564,5 @@ func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

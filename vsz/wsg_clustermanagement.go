@@ -92,6 +92,7 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 		return err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddClusterRestoreById, true)
+	req.SetPathParameter("id", id)
 }
 
 // AddConfigurationBackup
@@ -128,6 +129,7 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 		return err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationRestoreById, true)
+	req.SetPathParameter("id", id)
 }
 
 // AddConfigurationUpload
@@ -211,6 +213,7 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteClusterById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteConfigurationById
@@ -232,6 +235,7 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteConfigurationById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindApPatch
@@ -270,6 +274,15 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchHistory, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["timezone"]; ok {
+		req.AddQueryParameter("timezone", v)
+	}
 }
 
 // FindApPatchStatus
@@ -308,6 +321,15 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCluster, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["timezone"]; ok {
+		req.AddQueryParameter("timezone", v)
+	}
 }
 
 // FindClusterGeoRedundancy
@@ -389,6 +411,12 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfiguration, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindConfigurationDownload
@@ -415,6 +443,10 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationDownload, true)
+	req.SetQueryParameter("backupUUID", backupUUID)
+	if v, ok := optionalParams["timeZone"]; ok {
+		req.AddQueryParameter("timeZone", v)
+	}
 }
 
 // FindConfigurationSettingsAutoExportBackup
@@ -468,6 +500,15 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeHistory, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["timezone"]; ok {
+		req.AddQueryParameter("timezone", v)
+	}
 }
 
 // FindUpgradePatch

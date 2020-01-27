@@ -46,6 +46,21 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["showAlarm"]; ok {
+		req.AddQueryParameter("showAlarm", v)
+	}
+	if v, ok := optionalParams["zoneId"]; ok {
+		req.AddQueryParameter("zoneId", v)
+	}
 }
 
 // FindApsTotalCount
@@ -67,6 +82,12 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, option
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
+	}
+	if v, ok := optionalParams["zoneId"]; ok {
+		req.AddQueryParameter("zoneId", v)
+	}
 }
 
 // FindLinemanWorkflow

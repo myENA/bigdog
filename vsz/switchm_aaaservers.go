@@ -309,6 +309,7 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdminById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindAaaServersAdmin
@@ -346,6 +347,7 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdminById, true)
+	req.SetPathParameter("id", id)
 }
 
 // UpdateAaaServersAdminById
@@ -379,4 +381,5 @@ func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

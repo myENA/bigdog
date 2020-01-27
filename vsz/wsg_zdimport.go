@@ -93,6 +93,7 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindZdImportGetZDAPs, true)
+	req.SetQueryParameter("ip", ip)
 }
 
 // FindZdImportStatus
@@ -112,4 +113,7 @@ func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalPar
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindZdImportStatus, true)
+	if v, ok := optionalParams["details"]; ok {
+		req.AddQueryParameter("details", v)
+	}
 }

@@ -431,6 +431,7 @@ func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
+	req.SetPathParameter("switchId", switchId)
 }
 
 // FindStackMemberBySerialNumber
@@ -453,4 +454,5 @@ func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context,
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
+	req.SetPathParameter("serialNumber", serialNumber)
 }

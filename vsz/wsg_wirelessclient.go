@@ -104,6 +104,7 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("wlanname", wlanname)
 }
 
 // AddClientsDeauth
@@ -184,6 +185,13 @@ func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientByApMac, true)
+	req.SetPathParameter("apMac", apMac)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindApsOperationalClientTotalCountByApMac
@@ -206,6 +214,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientTotalCountByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindHistoricalclientByQueryCriteria

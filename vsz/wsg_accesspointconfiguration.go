@@ -75,6 +75,7 @@ func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsAltitudeByApMac
@@ -97,6 +98,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsAltitudeByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsApMgmtVlanByApMac
@@ -119,6 +121,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsApMgmtVlanByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsAutoChannelSelection24ByApMac
@@ -141,6 +144,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByAp
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsAutoChannelSelection24ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsAutoChannelSelection50ByApMac
@@ -163,6 +167,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByAp
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsAutoChannelSelection50ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsBonjourGatewayByApMac
@@ -185,6 +190,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsBonjourGatewayByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsByApMac
@@ -207,6 +213,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsChannelEvaluationIntervalByApMac
@@ -229,6 +236,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalB
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsChannelEvaluationIntervalByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsClientAdmissionControl24ByApMac
@@ -251,6 +259,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24By
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsClientAdmissionControl24ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsClientAdmissionControl50ByApMac
@@ -273,6 +282,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50By
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsClientAdmissionControl50ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsDirectedMulticastFromNetworkEnabledByApMac
@@ -295,6 +305,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetwo
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromNetworkEnabledByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsDirectedMulticastFromWiredClientEnabledByApMac
@@ -317,6 +328,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWired
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromWiredClientEnabledByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac
@@ -339,6 +351,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirel
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromWirelessClientEnabledByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsGpsCoordinatesByApMac
@@ -361,6 +374,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsGpsCoordinatesByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsLocationAdditionalInfoByApMac
@@ -383,6 +397,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByAp
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsLocationAdditionalInfoByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsLocationByApMac
@@ -405,6 +420,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsLocationByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsLoginByApMac
@@ -427,6 +443,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsLoginByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsLteBandLockChannelsByApMac
@@ -449,6 +466,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsLteBandLockChannelsByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsMeshOptionsByApMac
@@ -471,6 +489,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsMeshOptionsByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsPictureByApMac
@@ -492,6 +511,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsPictureByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsProtectionMode24ByApMac
@@ -514,6 +534,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ct
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsProtectionMode24ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsRecoverySsidByApMac
@@ -536,6 +557,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsRecoverySsidByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsRogueApAggressivenessModeByApMac
@@ -558,6 +580,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeB
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsRogueApAggressivenessModeByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsRogueApJammingThresholdByApMac
@@ -580,6 +603,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByA
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsRogueApJammingThresholdByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsRogueApReportThresholdByApMac
@@ -602,6 +626,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByAp
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsRogueApReportThresholdByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsSmartMonitorByApMac
@@ -624,6 +649,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsSmartMonitorByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsSpecificByApMac
@@ -646,6 +672,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsSpecificByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsSyslogByApMac
@@ -668,6 +695,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsSyslogByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsVenueProfileByApMac
@@ -690,6 +718,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsVenueProfileByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi24ByApMac
@@ -712,6 +741,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi24ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi24ChannelByApMac
@@ -734,6 +764,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi24ChannelRangeByApMac
@@ -756,6 +787,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelRangeByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi24ChannelWidthByApMac
@@ -778,6 +810,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelWidthByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi24TxPowerByApMac
@@ -800,6 +833,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi24TxPowerByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi50ByApMac
@@ -822,6 +856,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi50ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi50ChannelByApMac
@@ -844,6 +879,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi50ChannelRangeByApMac
@@ -866,6 +902,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelRangeByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi50ChannelWidthByApMac
@@ -888,6 +925,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelWidthByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWifi50TxPowerByApMac
@@ -910,6 +948,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWifi50TxPowerByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWlanGroup24ByApMac
@@ -932,6 +971,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWlanGroup24ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // DeleteApsWlanGroup50ByApMac
@@ -954,6 +994,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsWlanGroup50ByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindAps
@@ -979,6 +1020,18 @@ func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, option
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAps, true)
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["zoneId"]; ok {
+		req.AddQueryParameter("zoneId", v)
+	}
 }
 
 // FindApsByApMac
@@ -1001,6 +1054,7 @@ func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context,
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindApsPictureByApMac
@@ -1023,6 +1077,7 @@ func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsPictureByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindApsSupportLogByApMac
@@ -1045,6 +1100,7 @@ func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsSupportLogByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindMeshZeroTouch
@@ -1093,6 +1149,7 @@ func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("apMac", apMac)
 }
 
 // UpdateApsRebootByApMac
@@ -1114,6 +1171,7 @@ func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.
 		return err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateApsRebootByApMac, true)
+	req.SetPathParameter("apMac", apMac)
 }
 
 // UpdateApsSpecificByApMac
@@ -1147,6 +1205,7 @@ func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("apMac", apMac)
 }
 
 // UpdateMeshZeroTouch

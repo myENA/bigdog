@@ -72,6 +72,8 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
+	req.SetQueryParameter("apMac", apMac)
+	req.SetQueryParameter("targetIP", targetIP)
 }
 
 // FindToolSpeedflexByWcid
@@ -94,6 +96,7 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
+	req.SetPathParameter("wcid", wcid)
 }
 
 // FindToolTraceRoute
@@ -125,4 +128,9 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
+	req.SetQueryParameter("apMac", apMac)
+	req.SetQueryParameter("targetIP", targetIP)
+	if v, ok := optionalParams["timeoutInSec"]; ok {
+		req.AddQueryParameter("timeoutInSec", v)
+	}
 }

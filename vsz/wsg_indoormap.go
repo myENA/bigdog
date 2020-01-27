@@ -374,6 +374,7 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteMapsByIndoorMapId, true)
+	req.SetPathParameter("indoorMapId", indoorMapId)
 }
 
 // FindMaps
@@ -401,6 +402,8 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMaps, true)
+	req.SetQueryParameter("groupId", groupId)
+	req.SetQueryParameter("groupType", groupType)
 }
 
 // FindMapsByIndoorMapId
@@ -423,6 +426,7 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMapsByIndoorMapId, true)
+	req.SetPathParameter("indoorMapId", indoorMapId)
 }
 
 // FindMapsByQueryCriteria
@@ -482,6 +486,7 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("indoorMapId", indoorMapId)
 }
 
 // UpdateMapsApsByIndoorMapId
@@ -513,4 +518,5 @@ func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("indoorMapId", indoorMapId)
 }

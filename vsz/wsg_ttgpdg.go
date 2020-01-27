@@ -93,6 +93,7 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgApnRealmsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteProfilesTtgpdgById
@@ -114,6 +115,7 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id stri
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteProfilesTtgpdgDhcpRelayById
@@ -136,6 +138,7 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgDhcpRelayById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesTtgpdg
@@ -173,6 +176,7 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, id string
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTtgpdgById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesTtgpdgByQueryCriteria
@@ -232,4 +236,5 @@ func (s *WSGTTGPDGService) PartialUpdateProfilesTtgpdgById(ctx context.Context, 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

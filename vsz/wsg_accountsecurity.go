@@ -104,6 +104,7 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // FindAccountSecurity
@@ -152,6 +153,7 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateAccountSecurityById
@@ -185,6 +187,7 @@ func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // UpdateAccountSecurityById
@@ -218,4 +221,5 @@ func (s *WSGAccountSecurityService) UpdateAccountSecurityById(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

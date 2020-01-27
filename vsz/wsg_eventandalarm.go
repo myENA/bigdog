@@ -171,6 +171,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
+	req.SetPathParameter("alarmID", alarmID)
 }
 
 // UpdateAlertAlarmClear
@@ -219,4 +220,5 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
+	req.SetPathParameter("alarmID", alarmID)
 }

@@ -92,6 +92,7 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id stri
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesL2ogreById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesL2ogre
@@ -129,6 +130,7 @@ func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesL2ogreById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesL2ogreByQueryCriteria
@@ -188,4 +190,5 @@ func (s *WSGL2oGREService) PartialUpdateProfilesL2ogreById(ctx context.Context, 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

@@ -41,6 +41,7 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesVdp
@@ -62,6 +63,12 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdp, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindProfilesVdpById
@@ -84,6 +91,7 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdpById, true)
+	req.SetPathParameter("id", id)
 }
 
 // UpdateProfilesVdpApproveById
@@ -105,4 +113,5 @@ func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context,
 		return err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)
+	req.SetPathParameter("id", id)
 }

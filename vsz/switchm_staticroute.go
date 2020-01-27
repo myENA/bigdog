@@ -297,6 +297,7 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, 
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteStaticRoutesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindStaticRoutesById
@@ -319,6 +320,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStaticRoutesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindStaticRoutesByQueryCriteria
@@ -378,4 +380,5 @@ func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

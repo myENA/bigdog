@@ -155,6 +155,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAuth
@@ -203,6 +204,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthAdById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAuthById
@@ -225,6 +227,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAuthHlrById
@@ -247,6 +250,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthHlrById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAuthLdapById
@@ -269,6 +273,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthLdapById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAuthRadiusById
@@ -291,6 +296,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAuthRadiusSecondaryById
@@ -313,6 +319,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusSecondaryById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAuthRadiusStandbyPrimaryById
@@ -335,6 +342,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusStandbyPrimaryById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAuthAd
@@ -372,6 +380,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthAdById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAuthAdByQueryCriteria
@@ -446,6 +455,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthGuestById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAuthHlr
@@ -483,6 +493,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthHlrById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAuthHlrByQueryCriteria
@@ -546,6 +557,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLdapById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAuthLdapByQueryCriteria
@@ -594,6 +606,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocal_dbById(ctx conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLocal_dbById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAuthRadius
@@ -631,6 +644,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthRadiusById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAuthRadiusByQueryCriteria
@@ -690,6 +704,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateServicesAuthHlrById
@@ -723,6 +738,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateServicesAuthLdapById
@@ -756,6 +772,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateServicesAuthLocal_dbById
@@ -789,6 +806,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocal_dbById(
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateServicesAuthRadiusById
@@ -822,4 +840,5 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ct
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

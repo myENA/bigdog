@@ -93,6 +93,7 @@ func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeletePrecedenceById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindPrecedence
@@ -114,6 +115,12 @@ func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, option
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPrecedence, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindPrecedenceById
@@ -136,6 +143,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPrecedenceById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindPrecedenceByQueryCriteria
@@ -195,4 +203,5 @@ func (s *WSGPrecedenceProfileService) PartialUpdatePrecedenceById(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

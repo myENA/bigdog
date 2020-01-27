@@ -93,6 +93,7 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesLbsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesLbsById
@@ -115,6 +116,7 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesLbsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesLbsByQueryCriteria
@@ -174,4 +176,5 @@ func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

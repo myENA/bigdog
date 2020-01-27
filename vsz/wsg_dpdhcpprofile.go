@@ -78,6 +78,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
@@ -111,6 +112,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // AddDpDhcpProfilesDpDhcpProfilePoolsById
@@ -144,6 +146,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpDhcpProfiles
@@ -192,6 +195,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpDhcpProfilesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
@@ -219,6 +223,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileHostsByHostId, true)
+	req.SetPathParameter("hostId", hostId)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileHostsById
@@ -252,6 +258,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById
@@ -285,6 +292,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
@@ -312,6 +320,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("spaceId", spaceId)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfilePoolsById
@@ -345,6 +355,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
@@ -372,6 +383,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("poolId", poolId)
 }
 
 // FindDpDhcpProfiles
@@ -409,6 +422,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindDpDhcpProfilesDpDhcpProfileHostsByHostId
@@ -436,6 +450,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsByHostId, true)
+	req.SetPathParameter("hostId", hostId)
+	req.SetPathParameter("id", id)
 }
 
 // FindDpDhcpProfilesDpDhcpProfileHostsById
@@ -458,6 +474,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindDpDhcpProfilesDpDhcpProfileOptionSpacesById
@@ -480,6 +497,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByI
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
@@ -507,6 +525,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByS
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("spaceId", spaceId)
 }
 
 // FindDpDhcpProfilesDpDhcpProfilePoolsById
@@ -529,6 +549,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId
@@ -556,6 +577,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsByPoolId, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("poolId", poolId)
 }
 
 // UpdateDpDhcpProfilesById
@@ -589,6 +612,7 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
@@ -627,6 +651,8 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("hostId", hostId)
+	req.SetPathParameter("id", id)
 }
 
 // UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
@@ -665,6 +691,8 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesB
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("spaceId", spaceId)
 }
 
 // UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
@@ -703,4 +731,6 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("poolId", poolId)
 }

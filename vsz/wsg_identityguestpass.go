@@ -168,6 +168,7 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityGuestpassByUserId, true)
+	req.SetPathParameter("userId", userId)
 }
 
 // FindIdentityGuestpass
@@ -203,4 +204,31 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityGuestpass, true)
+	if v, ok := optionalParams["displayName"]; ok {
+		req.AddQueryParameter("displayName", v)
+	}
+	if v, ok := optionalParams["expirationFrom"]; ok {
+		req.AddQueryParameter("expirationFrom", v)
+	}
+	if v, ok := optionalParams["expirationTo"]; ok {
+		req.AddQueryParameter("expirationTo", v)
+	}
+	if v, ok := optionalParams["generatedTimeFrom"]; ok {
+		req.AddQueryParameter("generatedTimeFrom", v)
+	}
+	if v, ok := optionalParams["generatedTimeTo"]; ok {
+		req.AddQueryParameter("generatedTimeTo", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["timeZone"]; ok {
+		req.AddQueryParameter("timeZone", v)
+	}
+	if v, ok := optionalParams["wlan"]; ok {
+		req.AddQueryParameter("wlan", v)
+	}
 }

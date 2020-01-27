@@ -91,6 +91,7 @@ func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, id st
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteIpConfigsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindIpConfigs
@@ -128,6 +129,7 @@ func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, id stri
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindIpConfigsByQueryCriteria
@@ -187,4 +189,5 @@ func (s *SwitchMIPSettingService) UpdateIpConfigsById(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

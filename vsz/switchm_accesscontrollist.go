@@ -91,6 +91,7 @@ func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.C
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAccessControlsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindAccessControlsById
@@ -113,6 +114,7 @@ func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAccessControlsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindAccessControlsByQueryCriteria
@@ -172,4 +174,5 @@ func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.C
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

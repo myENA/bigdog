@@ -40,6 +40,12 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSyslog, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // PartialUpdateSystemSyslog

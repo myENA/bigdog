@@ -666,6 +666,7 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreCertificateById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteCertstoreClientCertById
@@ -688,6 +689,7 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreClientCertById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteCertstoreCsrById
@@ -710,6 +712,7 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id s
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreCsrById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteCertstoreTrustedCAChainCert
@@ -758,6 +761,7 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCertById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindCertstoreCertificate
@@ -779,6 +783,12 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCertificate, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindCertstoreCertificateById
@@ -801,6 +811,7 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCertificateById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindCertstoreClientCert
@@ -822,6 +833,12 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreClientCert, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindCertstoreClientCertById
@@ -844,6 +861,7 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreClientCertById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindCertstoreCsr
@@ -865,6 +883,12 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCsr, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindCertstoreCsrById
@@ -887,6 +911,7 @@ func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id str
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCsrById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindCertstoreSetting
@@ -923,6 +948,12 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCert, true)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindCertstoreTrustedCAChainCertById
@@ -945,6 +976,7 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCertById, true)
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateCertstoreSetting
@@ -1028,4 +1060,5 @@ func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

@@ -78,6 +78,7 @@ func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteProfilesAcct
@@ -126,6 +127,7 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAcctById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesAcct
@@ -163,6 +165,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAcctById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindProfilesAcctByQueryCriteria
@@ -222,4 +225,5 @@ func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

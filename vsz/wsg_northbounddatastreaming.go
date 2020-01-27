@@ -344,6 +344,7 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindNorthboundDataStreamingEventCodes
@@ -381,6 +382,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindNorthboundDataStreamingProfileList
@@ -455,6 +457,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // UpdateNorthboundDataStreamingSettings

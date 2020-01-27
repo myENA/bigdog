@@ -182,6 +182,7 @@ func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindMeshTopologyByApMacByQueryCriteria
@@ -215,6 +216,7 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("apMac", apMac)
 }
 
 // FindMeshTopologyByQueryCriteria

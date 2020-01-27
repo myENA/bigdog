@@ -163,6 +163,9 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	if v, ok := optionalParams["parentDomainId"]; ok {
+		req.AddQueryParameter("parentDomainId", v)
+	}
 }
 
 // AddRkszonesDomains
@@ -193,6 +196,9 @@ func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDoma
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	if v, ok := optionalParams["parentDomainId"]; ok {
+		req.AddQueryParameter("parentDomainId", v)
+	}
 }
 
 // DeleteDomainsById
@@ -214,6 +220,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) err
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDomainsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteRkszonesDomainsById
@@ -235,6 +242,7 @@ func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, id str
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDomainsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindDomains
@@ -262,6 +270,21 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomains, true)
+	if v, ok := optionalParams["excludeRegularDomain"]; ok {
+		req.AddQueryParameter("excludeRegularDomain", v)
+	}
+	if v, ok := optionalParams["includeSelf"]; ok {
+		req.AddQueryParameter("includeSelf", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["recursively"]; ok {
+		req.AddQueryParameter("recursively", v)
+	}
 }
 
 // FindDomainsById
@@ -288,6 +311,10 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsById, true)
+	req.SetPathParameter("id", id)
+	if v, ok := optionalParams["recursively"]; ok {
+		req.AddQueryParameter("recursively", v)
+	}
 }
 
 // FindDomainsSubdomainById
@@ -322,6 +349,22 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
+	req.SetPathParameter("id", id)
+	if v, ok := optionalParams["excludeRegularDomain"]; ok {
+		req.AddQueryParameter("excludeRegularDomain", v)
+	}
+	if v, ok := optionalParams["includeSelf"]; ok {
+		req.AddQueryParameter("includeSelf", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["recursively"]; ok {
+		req.AddQueryParameter("recursively", v)
+	}
 }
 
 // FindRkszonesDomains
@@ -349,6 +392,21 @@ func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, optionalPara
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomains, true)
+	if v, ok := optionalParams["excludeRegularDomain"]; ok {
+		req.AddQueryParameter("excludeRegularDomain", v)
+	}
+	if v, ok := optionalParams["includeSelf"]; ok {
+		req.AddQueryParameter("includeSelf", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["recursively"]; ok {
+		req.AddQueryParameter("recursively", v)
+	}
 }
 
 // FindRkszonesDomainsById
@@ -375,6 +433,10 @@ func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, id strin
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomainsById, true)
+	req.SetPathParameter("id", id)
+	if v, ok := optionalParams["recursively"]; ok {
+		req.AddQueryParameter("recursively", v)
+	}
 }
 
 // FindRkszonesDomainsSubdomainById
@@ -409,6 +471,22 @@ func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context,
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomainsSubdomainById, true)
+	req.SetPathParameter("id", id)
+	if v, ok := optionalParams["excludeRegularDomain"]; ok {
+		req.AddQueryParameter("excludeRegularDomain", v)
+	}
+	if v, ok := optionalParams["includeSelf"]; ok {
+		req.AddQueryParameter("includeSelf", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["recursively"]; ok {
+		req.AddQueryParameter("recursively", v)
+	}
 }
 
 // PartialUpdateDomainsById
@@ -441,6 +519,7 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateRkszonesDomainsById
@@ -473,4 +552,5 @@ func (s *WSGDomainService) PartialUpdateRkszonesDomainsById(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	req.SetPathParameter("id", id)
 }

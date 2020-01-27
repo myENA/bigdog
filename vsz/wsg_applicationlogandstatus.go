@@ -47,6 +47,13 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
 }
 
 // FindApplicationsDownloadByBladeUUID
@@ -78,6 +85,11 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
+	req.SetQueryParameter("appName", appName)
+	req.SetPathParameter("bladeUUID", bladeUUID)
+	if v, ok := optionalParams["logFileName"]; ok {
+		req.AddQueryParameter("logFileName", v)
+	}
 }
 
 // FindApplicationsDownloadsnapByBladeUUID
@@ -100,6 +112,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadsnapByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // PartialUpdateApplications

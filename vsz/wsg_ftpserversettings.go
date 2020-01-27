@@ -92,6 +92,7 @@ func (s *WSGFtpServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftp
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteFtpsByFtpId, true)
+	req.SetPathParameter("ftpId", ftpId)
 }
 
 // FindFtpsByFtpId
@@ -114,6 +115,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindFtpsByFtpId, true)
+	req.SetPathParameter("ftpId", ftpId)
 }
 
 // FindFtpsByQueryCriteria
@@ -188,6 +190,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindFtpsTestByFtpId, true)
+	req.SetPathParameter("ftpId", ftpId)
 }
 
 // PartialUpdateFtpsByFtpId
@@ -220,4 +223,5 @@ func (s *WSGFtpServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	req.SetPathParameter("ftpId", ftpId)
 }

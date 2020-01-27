@@ -1437,6 +1437,7 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindSwitchById
@@ -1459,6 +1460,7 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindSwitchFirmwareBySwitchId
@@ -1481,6 +1483,7 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchFirmwareBySwitchId, true)
+	req.SetPathParameter("switchId", switchId)
 }
 
 // UpdateSwitchMoveByDestinationSwitchGroupId
@@ -1512,4 +1515,5 @@ func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("destinationSwitchGroupId", destinationSwitchGroupId)
 }

@@ -90,6 +90,7 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
+	req.SetPathParameter("dpKey", dpKey)
 }
 
 // FindDpProfileSettings
@@ -127,6 +128,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettingsByDpKey, true)
+	req.SetPathParameter("dpKey", dpKey)
 }
 
 // UpdateDpProfileSettingsByDpKey
@@ -159,4 +161,5 @@ func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	req.SetPathParameter("dpKey", dpKey)
 }

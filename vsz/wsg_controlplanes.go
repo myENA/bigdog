@@ -40,6 +40,7 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // DeleteControlPlanesUserDefinedInterfaceByBladeUUID
@@ -61,6 +62,7 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // FindControlPlanes
@@ -98,6 +100,7 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // FindControlPlanesStaticRoutesByBladeUUID
@@ -120,6 +123,7 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesStaticRoutesByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // FindControlPlanesUserDefinedInterfaceByBladeUUID
@@ -142,6 +146,7 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // PartialUpdateControlPlanesByBladeUUID
@@ -175,6 +180,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // PartialUpdateControlPlanesIpSupport

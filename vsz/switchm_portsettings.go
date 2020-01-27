@@ -430,6 +430,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettingsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindPortSettingsByQueryCriteria
@@ -489,4 +490,5 @@ func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

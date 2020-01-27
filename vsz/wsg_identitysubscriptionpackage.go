@@ -118,6 +118,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityPackagesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindIdentityPackages
@@ -155,6 +156,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityPackagesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateIdentityPackagesById
@@ -188,4 +190,5 @@ func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesByI
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

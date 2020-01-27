@@ -431,6 +431,7 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteGroupBySwitchGroupId, true)
+	req.SetPathParameter("switchGroupId", switchGroupId)
 }
 
 // FindGroupBySwitchGroupId
@@ -453,6 +454,7 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupBySwitchGroupId, true)
+	req.SetPathParameter("switchGroupId", switchGroupId)
 }
 
 // FindGroupIdsByDomainByDomainId
@@ -475,6 +477,7 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupIdsByDomainByDomainId, true)
+	req.SetPathParameter("domainId", domainId)
 }
 
 // PartialUpdateGroupBySwitchGroupId
@@ -503,4 +506,5 @@ func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("switchGroupId", switchGroupId)
 }

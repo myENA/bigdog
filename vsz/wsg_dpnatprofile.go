@@ -78,6 +78,7 @@ func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpNatProfiles
@@ -126,6 +127,7 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, id
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpNatProfilesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpNatProfilesDpNatPoolsById
@@ -159,6 +161,7 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.C
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteDpNatProfilesDpNatPoolsByPoolId
@@ -186,6 +189,8 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpNatProfilesDpNatPoolsByPoolId, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("poolId", poolId)
 }
 
 // FindDpNatProfiles
@@ -223,6 +228,7 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, id s
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpNatProfilesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindDpNatProfilesDpNatPoolsById
@@ -245,6 +251,7 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpNatProfilesDpNatPoolsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindDpNatProfilesDpNatPoolsByPoolId
@@ -272,6 +279,8 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpNatProfilesDpNatPoolsByPoolId, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("poolId", poolId)
 }
 
 // UpdateDpNatProfilesById
@@ -305,6 +314,7 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // UpdateDpNatProfilesDpNatPoolsByPoolId
@@ -343,4 +353,6 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesDpNatPoolsByPoolId(ctx conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("poolId", poolId)
 }

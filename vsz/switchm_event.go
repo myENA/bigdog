@@ -62,6 +62,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteCustomEventById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindCustomEvent
@@ -99,6 +100,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEventById, true)
+	req.SetPathParameter("id", id)
 }
 
 // UpdateCustomEventById
@@ -127,4 +129,5 @@ func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *S
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

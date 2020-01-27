@@ -139,6 +139,7 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
+	req.SetPathParameter("configId", configId)
 }
 
 // FindSwitchconfigByConfigId
@@ -161,6 +162,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
+	req.SetPathParameter("configId", configId)
 }
 
 // FindSwitchconfigDownloadByConfigId
@@ -183,6 +185,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigDownloadByConfigId, true)
+	req.SetPathParameter("configId", configId)
 }
 
 // UpdateSwitchconfigBackup
@@ -232,6 +235,8 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 		return err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
+	req.SetPathParameter("groupId", groupId)
+	req.SetPathParameter("groupType", groupType)
 }
 
 // UpdateSwitchconfigBackupRestoreByBackupId
@@ -254,4 +259,5 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupRestoreByBackupId, true)
+	req.SetPathParameter("backupId", backupId)
 }

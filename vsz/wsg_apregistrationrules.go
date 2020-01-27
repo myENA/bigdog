@@ -66,6 +66,7 @@ func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, i
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApRulesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindApRules
@@ -103,6 +104,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindApRulesPriorityDownById
@@ -124,6 +126,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 		return err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityDownById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindApRulesPriorityUpById
@@ -145,6 +148,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 		return err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityUpById, true)
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateApRulesById
@@ -178,4 +182,5 @@ func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

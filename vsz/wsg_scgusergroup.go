@@ -93,6 +93,7 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroupsByUserGroupId, true)
+	req.SetPathParameter("userGroupId", userGroupId)
 }
 
 // FindUserGroupsByQueryCriteria
@@ -145,6 +146,10 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsByUserGroupId, true)
+	req.SetPathParameter("userGroupId", userGroupId)
+	if v, ok := optionalParams["includeUsers"]; ok {
+		req.AddQueryParameter("includeUsers", v)
+	}
 }
 
 // FindUserGroupsCurrentUserPermissionCategories
@@ -201,6 +206,10 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRolesPermissionsByRole, true)
+	req.SetPathParameter("role", role)
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
+	}
 }
 
 // PartialUpdateUserGroupsByUserGroupId
@@ -234,4 +243,5 @@ func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("userGroupId", userGroupId)
 }

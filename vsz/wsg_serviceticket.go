@@ -99,4 +99,5 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
+	req.SetQueryParameter("serviceTicket", serviceTicket)
 }

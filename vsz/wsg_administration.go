@@ -1087,6 +1087,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindAdminaaa
@@ -1109,6 +1110,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
+	req.SetQueryParameter("type_", type_)
 }
 
 // FindAdminaaaById
@@ -1131,6 +1133,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaaById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindLicenses
@@ -1224,6 +1227,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // UpdateLicenseServer

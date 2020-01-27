@@ -66,6 +66,7 @@ func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteDnsConfigBySwitchGroupId, true)
+	req.SetPathParameter("switchGroupId", switchGroupId)
 }
 
 // FindDnsConfigBySwitchGroupId
@@ -88,6 +89,7 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindDnsConfigBySwitchGroupId, true)
+	req.SetPathParameter("switchGroupId", switchGroupId)
 }
 
 // UpdateDnsConfigBySwitchGroupId
@@ -121,4 +123,5 @@ func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("switchGroupId", switchGroupId)
 }

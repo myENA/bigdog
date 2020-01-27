@@ -118,6 +118,7 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUserroleById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindIdentityUserrole
@@ -155,6 +156,7 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserroleById, true)
+	req.SetPathParameter("id", id)
 }
 
 // PartialUpdateIdentityUserroleById
@@ -188,4 +190,5 @@ func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

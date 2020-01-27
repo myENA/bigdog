@@ -41,6 +41,7 @@ func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeletePlanesStaticRouteByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // FindPlanes
@@ -78,6 +79,7 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesByBladeUUID, true)
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // FindPlanesDpTunnelSetting
@@ -126,6 +128,7 @@ func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // PartialUpdatePlaneStatesByBladeUUID
@@ -159,6 +162,7 @@ func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("bladeUUID", bladeUUID)
 }
 
 // UpdatePlanesDpTunnelSetting

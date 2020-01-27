@@ -118,6 +118,7 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindIdentityUsers
@@ -163,6 +164,48 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsers, true)
+	if v, ok := optionalParams["createdOnFrom"]; ok {
+		req.AddQueryParameter("createdOnFrom", v)
+	}
+	if v, ok := optionalParams["createdOnTo"]; ok {
+		req.AddQueryParameter("createdOnTo", v)
+	}
+	if v, ok := optionalParams["displayName"]; ok {
+		req.AddQueryParameter("displayName", v)
+	}
+	if v, ok := optionalParams["email"]; ok {
+		req.AddQueryParameter("email", v)
+	}
+	if v, ok := optionalParams["firstName"]; ok {
+		req.AddQueryParameter("firstName", v)
+	}
+	if v, ok := optionalParams["index"]; ok {
+		req.AddQueryParameter("index", v)
+	}
+	if v, ok := optionalParams["isDisabled"]; ok {
+		req.AddQueryParameter("isDisabled", v)
+	}
+	if v, ok := optionalParams["lastName"]; ok {
+		req.AddQueryParameter("lastName", v)
+	}
+	if v, ok := optionalParams["listSize"]; ok {
+		req.AddQueryParameter("listSize", v)
+	}
+	if v, ok := optionalParams["phone"]; ok {
+		req.AddQueryParameter("phone", v)
+	}
+	if v, ok := optionalParams["timeZone"]; ok {
+		req.AddQueryParameter("timeZone", v)
+	}
+	if v, ok := optionalParams["userName"]; ok {
+		req.AddQueryParameter("userName", v)
+	}
+	if v, ok := optionalParams["userSource"]; ok {
+		req.AddQueryParameter("userSource", v)
+	}
+	if v, ok := optionalParams["userType"]; ok {
+		req.AddQueryParameter("userType", v)
+	}
 }
 
 // FindIdentityUsersAaaserver
@@ -200,6 +243,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindIdentityUsersCountries
@@ -263,4 +307,5 @@ func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

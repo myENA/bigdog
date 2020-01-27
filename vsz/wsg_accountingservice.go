@@ -78,6 +78,7 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAcct
@@ -126,6 +127,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAcctRadiusById
@@ -148,6 +150,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAcctRadiusSecondaryById
@@ -170,6 +173,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusSecondaryById, true)
+	req.SetPathParameter("id", id)
 }
 
 // DeleteServicesAcctRadiusStandbyPrimaryById
@@ -192,6 +196,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusStandbyPrimaryById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAcctByQueryCriteria
@@ -255,6 +260,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAcctRadiusById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindServicesAcctRadiusByQueryCriteria
@@ -314,4 +320,5 @@ func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

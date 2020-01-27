@@ -93,6 +93,7 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("jobId", jobId)
 }
 
 // FindJobScheduleByScheduleId
@@ -115,4 +116,5 @@ func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)
+	req.SetPathParameter("scheduleId", scheduleId)
 }

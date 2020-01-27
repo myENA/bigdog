@@ -38,6 +38,9 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSmsGateway, true)
+	if v, ok := optionalParams["domainId"]; ok {
+		req.AddQueryParameter("domainId", v)
+	}
 }
 
 // FindSmsGatewayByQueryCriteria

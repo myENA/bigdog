@@ -91,6 +91,7 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id 
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteLagConfigsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindLagConfigs
@@ -128,6 +129,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindLagConfigsById, true)
+	req.SetPathParameter("id", id)
 }
 
 // FindLagConfigsByQueryCriteria
@@ -187,4 +189,5 @@ func (s *SwitchMLAGSettingService) UpdateLagConfigsById(ctx context.Context, bod
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("id", id)
 }

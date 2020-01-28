@@ -29,9 +29,10 @@ func (ss *WSGService) WSGAccountSecurityService() *WSGAccountSecurityService {
 //	 - body *WSGAccountSecurityProfileCreate
 func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body *WSGAccountSecurityProfileCreate) (*WSGCommonCreateResultIdName, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResultIdName
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResultIdName
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResultIdName()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteAccountSecurity
@@ -55,9 +59,10 @@ func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body
 //	 - body *WSGAccountSecurityProfileDeleteList
 func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, body *WSGAccountSecurityProfileDeleteList) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, b
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteAccountSecurityById
@@ -85,9 +93,10 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, b
 //		- required
 func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileDelete, id string) (*WSGCommonCreateResultIdName, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResultIdName
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResultIdName
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -105,6 +114,9 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Contex
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResultIdName()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindAccountSecurity
@@ -112,14 +124,18 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Contex
 // Use this API command to get account security profiles.
 func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*WSGAccountSecurityProfileProfileListResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAccountSecurityProfileProfileListResult
-		err  error
+		req      *APIRequest
+		resp     *WSGAccountSecurityProfileProfileListResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAccountSecurity, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAccountSecurityProfileProfileListResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindAccountSecurityById
@@ -134,9 +150,10 @@ func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*W
 //		- required
 func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileGetById, id string) (*WSGAccountSecurityProfileGetByIdResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAccountSecurityProfileGetByIdResult
-		err  error
+		req      *APIRequest
+		resp     *WSGAccountSecurityProfileGetByIdResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -154,6 +171,9 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAccountSecurityProfileGetByIdResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateAccountSecurityById
@@ -168,9 +188,10 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 //		- required
 func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileUpdate, id string) (*WSGCommonCreateResultIdName, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResultIdName
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResultIdName
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -188,6 +209,9 @@ func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResultIdName()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateAccountSecurityById
@@ -202,9 +226,10 @@ func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context
 //		- required
 func (s *WSGAccountSecurityService) UpdateAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileUpdate, id string) (*WSGCommonCreateResultIdName, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResultIdName
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResultIdName
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -222,4 +247,7 @@ func (s *WSGAccountSecurityService) UpdateAccountSecurityById(ctx context.Contex
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResultIdName()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

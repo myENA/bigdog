@@ -79,16 +79,21 @@ func (r *APIRequest) Authenticated() bool {
 	return r.authenticated
 }
 
-func (r *APIRequest) SetHeaders(headers url.Values) {
-	r.headers = headers
-}
-
 func (r *APIRequest) AddHeader(name, value string) {
 	r.headers.Add(name, value)
 }
 
 func (r *APIRequest) SetHeader(name, value string) {
 	r.headers.Set(name, value)
+}
+
+func (r *APIRequest) SetHeaders(headers url.Values) {
+	r.headers = make(url.Values)
+	for k, vs := range headers {
+		for _, v := range vs {
+			r.AddHeader(k, v)
+		}
+	}
 }
 
 func (r *APIRequest) RemoveHeader(name string) {
@@ -131,31 +136,33 @@ func (r *APIRequest) Cookies() []*http.Cookie {
 	return r.cookies
 }
 
-// SetQueryParameters will override any / all existing query parameters
-func (r *APIRequest) SetQueryParameters(params map[string][]string) {
-	r.queryParameters = params
-	r.compiledURI = ""
-}
-
-// SetQueryParameter will set a query param to a specific value, overriding any previously set value
-func (r *APIRequest) SetQueryParameter(param, value string) {
-	r.queryParameters[param] = []string{value}
-	r.compiledURI = ""
-}
-
 // AddQueryParameter will add a value to the specified param
-func (r *APIRequest) AddQueryParameter(param, value string) {
+func (r *APIRequest) AddQueryParameter(param string, value []string) {
+	r.compiledURI = ""
 	if _, ok := r.queryParameters[param]; !ok {
 		r.queryParameters[param] = make([]string, 0)
 	}
-	r.queryParameters[param] = append(r.queryParameters[param], value)
-	r.compiledURI = ""
+	r.queryParameters[param] = append(r.queryParameters[param], value...)
+}
+
+// SetQueryParameter will set a query param to a specific value, overriding any previously set value
+func (r *APIRequest) SetQueryParameter(param string, value []string) {
+	delete(r.queryParameters, param)
+	r.AddQueryParameter(param, value)
+}
+
+// SetQueryParameters will override any / all existing query parameters
+func (r *APIRequest) SetQueryParameters(params map[string][]string) {
+	r.queryParameters = make(map[string][]string)
+	for k, v := range params {
+		r.AddQueryParameter(k, v)
+	}
 }
 
 // RemoveQueryParameter will attempt to delete all values for a specific query parameter from this request.
 func (r *APIRequest) RemoveQueryParameter(param string) {
-	delete(r.queryParameters, param)
 	r.compiledURI = ""
+	delete(r.queryParameters, param)
 }
 
 // QueryParameters will return all values of currently set query parameters
@@ -163,16 +170,18 @@ func (r *APIRequest) QueryParameters() map[string][]string {
 	return r.queryParameters
 }
 
-// SetPathParameters will re-define all path parameters, overriding any / all existing ones
-func (r *APIRequest) SetPathParameters(params map[string]string) {
-	r.pathParameters = params
-	r.compiledURI = ""
-}
-
 // SetPathParameter will define a path parameter value, overriding any existing value
 func (r *APIRequest) SetPathParameter(param, value string) {
-	r.pathParameters[param] = value
 	r.compiledURI = ""
+	r.pathParameters[param] = value
+}
+
+// SetPathParameters will re-define all path parameters, overriding any / all existing ones
+func (r *APIRequest) SetPathParameters(params map[string]string) {
+	r.pathParameters = make(map[string]string)
+	for k, v := range params {
+		r.SetPathParameter(k, v)
+	}
 }
 
 // RemovePathParameter will attempt to remove a single parameter from the current list of path parameters

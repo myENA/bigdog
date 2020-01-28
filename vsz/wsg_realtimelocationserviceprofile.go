@@ -33,9 +33,10 @@ func (ss *WSGService) WSGRealTimeLocationServiceProfileService() *WSGRealTimeLoc
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, body *WSGProfileCreateRtlsProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationSe
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesRealTimeLocationServiceById
@@ -66,9 +70,10 @@ func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationSe
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocatio
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRealTimeLocationServiceById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesRealTimeLocationServiceById
@@ -95,9 +103,10 @@ func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocatio
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string) (*WSGProfileCreateRtlsProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileCreateRtlsProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileCreateRtlsProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRealTimeLocationServiceById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileCreateRtlsProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesRealTimeLocationServiceByZoneId
@@ -122,9 +134,10 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, zoneId string) (*WSGProfileRtlsProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileRtlsProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileRtlsProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -134,6 +147,9 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRealTimeLocationServiceByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileRtlsProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateRkszonesRealTimeLocationServiceById
@@ -150,9 +166,10 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) UpdateRkszonesRealTimeLocationServiceById(ctx context.Context, body *WSGProfileUpdateRtlsProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -174,4 +191,7 @@ func (s *WSGRealTimeLocationServiceProfileService) UpdateRkszonesRealTimeLocatio
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

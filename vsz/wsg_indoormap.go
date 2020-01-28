@@ -336,9 +336,10 @@ func NewWSGIndoorMapScale() *WSGIndoorMapScale {
 //	 - body *WSGIndoorMap
 func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (*WSGIndoorMapIndooMapAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIndoorMapIndooMapAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGIndoorMapIndooMapAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -352,6 +353,9 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMapIndooMapAuditId()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteMapsByIndoorMapId
@@ -363,9 +367,10 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (
 //		- required
 func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIndoorMapIndooMapAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGIndoorMapIndooMapAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -375,6 +380,9 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteMapsByIndoorMapId, true)
 	req.SetPathParameter("indoorMapId", indoorMapId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMapIndooMapAuditId()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindMaps
@@ -388,9 +396,10 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 //		- required
 func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, groupType string) (*WSGIndoorMapList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIndoorMapList
-		err  error
+		req      *APIRequest
+		resp     *WSGIndoorMapList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -402,8 +411,11 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMaps, true)
-	req.SetQueryParameter("groupId", groupId)
-	req.SetQueryParameter("groupType", groupType)
+	req.SetQueryParameter("groupId", []string{groupId})
+	req.SetQueryParameter("groupType", []string{groupType})
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMapList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindMapsByIndoorMapId
@@ -415,9 +427,10 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 //		- required
 func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorMapId string) (*WSGIndoorMap, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIndoorMap
-		err  error
+		req      *APIRequest
+		resp     *WSGIndoorMap
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -427,6 +440,9 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMapsByIndoorMapId, true)
 	req.SetPathParameter("indoorMapId", indoorMapId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMap()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindMapsByQueryCriteria
@@ -437,9 +453,10 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGIndoorMapList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIndoorMapList
-		err  error
+		req      *APIRequest
+		resp     *WSGIndoorMapList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -453,6 +470,9 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMapList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateMapsByIndoorMapId
@@ -467,9 +487,10 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 //		- required
 func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIndoorMapIndooMapAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGIndoorMapIndooMapAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -487,6 +508,9 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 		return resp, err
 	}
 	req.SetPathParameter("indoorMapId", indoorMapId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMapIndooMapAuditId()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // UpdateMapsApsByIndoorMapId
@@ -501,9 +525,10 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 //		- required
 func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIndoorMapIndooMapAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGIndoorMapIndooMapAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -519,4 +544,7 @@ func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, bo
 		return resp, err
 	}
 	req.SetPathParameter("indoorMapId", indoorMapId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMapIndooMapAuditId()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

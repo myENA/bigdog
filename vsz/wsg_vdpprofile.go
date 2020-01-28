@@ -30,9 +30,10 @@ func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
 //		- required
 func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -42,6 +43,9 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindProfilesVdp
@@ -53,11 +57,12 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileList, error) {
+func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalParams map[string][]string) (*WSGProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -69,6 +74,9 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesVdpById
@@ -80,9 +88,10 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 //		- required
 func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id string) (*WSGProfileVdpProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileVdpProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileVdpProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -92,6 +101,9 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdpById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileVdpProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateProfilesVdpApproveById
@@ -103,8 +115,9 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 //		- required
 func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -114,4 +127,6 @@ func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context,
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

@@ -55,7 +55,7 @@ func NewSwitchMIpConfigCreate() *SwitchMIpConfigCreate {
 
 type SwitchMIpConfigCreateResult interface{}
 
-func NewSwitchMIpConfigCreateResult() SwitchMIpConfigCreateResult {
+func MakeSwitchMIpConfigCreateResult() SwitchMIpConfigCreateResult {
 	m := new(SwitchMIpConfigCreateResult)
 	return m
 }

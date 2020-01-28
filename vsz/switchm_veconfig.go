@@ -59,7 +59,7 @@ func NewSwitchMVeConfigCreate() *SwitchMVeConfigCreate {
 
 type SwitchMVeConfigCreateResult interface{}
 
-func NewSwitchMVeConfigCreateResult() SwitchMVeConfigCreateResult {
+func MakeSwitchMVeConfigCreateResult() SwitchMVeConfigCreateResult {
 	m := new(SwitchMVeConfigCreateResult)
 	return m
 }

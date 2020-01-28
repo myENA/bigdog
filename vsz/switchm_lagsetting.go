@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMLAGSettingService() *SwitchMLAGSettingService {
 //	 - body *SwitchMLagConfigCreate
 func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *SwitchMLagConfigCreate) (SwitchMLagConfigCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp SwitchMLagConfigCreateResult
-		err  error
+		req      *APIRequest
+		resp     SwitchMLagConfigCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = MakeSwitchMLagConfigCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, resp, err)
 }
 
 // DeleteLagConfigs
@@ -55,8 +59,9 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -70,6 +75,8 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *S
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteLagConfigsById
@@ -81,8 +88,9 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *S
 //		- required
 func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -92,6 +100,8 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id 
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteLagConfigsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindLagConfigs
@@ -99,14 +109,18 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id 
 // Use this API command to Retrieve all LAG Config list.
 func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context) (*SwitchMLagConfigList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMLagConfigList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMLagConfigList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindLagConfigs, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMLagConfigList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindLagConfigsById
@@ -118,9 +132,10 @@ func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context) (*SwitchM
 //		- required
 func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id string) (*SwitchMLagConfig, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMLagConfig
-		err  error
+		req      *APIRequest
+		resp     *SwitchMLagConfig
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -130,6 +145,9 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindLagConfigsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMLagConfig()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindLagConfigsByQueryCriteria
@@ -140,9 +158,10 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMLagConfigList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMLagConfigList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMLagConfigList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -156,6 +175,9 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMLagConfigList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateLagConfigsById
@@ -170,9 +192,10 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 //		- required
 func (s *SwitchMLAGSettingService) UpdateLagConfigsById(ctx context.Context, body *SwitchMLagConfigModify, id string) (*SwitchMLagConfigEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMLagConfigEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMLagConfigEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -190,4 +213,7 @@ func (s *SwitchMLAGSettingService) UpdateLagConfigsById(ctx context.Context, bod
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMLagConfigEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

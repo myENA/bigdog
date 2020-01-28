@@ -33,9 +33,10 @@ func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificat
 //		- required
 func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGProfileCreateRogueApPolicy, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesRogueApPoliciesById
@@ -66,9 +70,10 @@ func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId
 //		- required
 func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRogueApPoliciesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteRkszonesRogueApPoliciesByZoneId
@@ -96,9 +104,10 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(
 //		- required
 func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -116,6 +125,9 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZon
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesRogueApPoliciesById
@@ -129,9 +141,10 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZon
 //		- required
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string) (*WSGProfileRogueApPolicy, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileRogueApPolicy
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileRogueApPolicy
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -145,6 +158,9 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ct
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRogueApPoliciesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileRogueApPolicy()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesRogueApPoliciesByZoneId
@@ -156,9 +172,10 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ct
 //		- required
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId(ctx context.Context, zoneId string) (*WSGProfileRogueApPolicyList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileRogueApPolicyList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileRogueApPolicyList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -168,6 +185,9 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneI
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRogueApPoliciesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileRogueApPolicyList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesRogueApPoliciesById
@@ -184,9 +204,10 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneI
 //		- required
 func (s *WSGRogueClassificationPolicyService) PartialUpdateRkszonesRogueApPoliciesById(ctx context.Context, body *WSGProfileUpdateRogueApPolicy, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -208,4 +229,7 @@ func (s *WSGRogueClassificationPolicyService) PartialUpdateRkszonesRogueApPolici
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

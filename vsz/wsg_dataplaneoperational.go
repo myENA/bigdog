@@ -29,9 +29,10 @@ func (ss *WSGService) WSGDataPlaneOperationalService() *WSGDataPlaneOperationalS
 //	 - body *WSGDPSwitchoverDp
 func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *WSGDPSwitchoverDp) (*WSGDPEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGDPEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,4 +46,7 @@ func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

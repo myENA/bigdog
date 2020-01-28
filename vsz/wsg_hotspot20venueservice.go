@@ -33,9 +33,10 @@ func (ss *WSGService) WSGHotspot20VenueServiceService() *WSGHotspot20VenueServic
 //		- required
 func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20VenueProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx cont
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesHs20VenuesById
@@ -66,9 +70,10 @@ func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx cont
 //		- required
 func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesHs20VenuesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesHs20VenuesById
@@ -95,9 +103,10 @@ func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx conte
 //		- required
 func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot20VeuneProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceHotspot20VeuneProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceHotspot20VeuneProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20VenuesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceHotspot20VeuneProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesHs20VenuesByZoneId
@@ -122,9 +134,10 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context
 //		- required
 func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -134,6 +147,9 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20VenuesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesHs20VenuesById
@@ -150,9 +166,10 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx con
 //		- required
 func (s *WSGHotspot20VenueServiceService) PartialUpdateRkszonesHs20VenuesById(ctx context.Context, body *WSGPortalServiceModifyHotspot20VenueProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -174,4 +191,7 @@ func (s *WSGHotspot20VenueServiceService) PartialUpdateRkszonesHs20VenuesById(ct
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -1021,9 +1021,10 @@ func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 //	 - body *WSGAdministrationCreateAdminAAAServer
 func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1037,6 +1038,9 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRestart
@@ -1044,13 +1048,16 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 // Use this API command to restart the controller.
 func (s *WSGAdministrationService) AddRestart(ctx context.Context) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRestart, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // AddShutdown
@@ -1058,13 +1065,16 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context) error {
 // Use this API command to shut down the controller.
 func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddShutdown, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteAdminaaaById
@@ -1076,9 +1086,10 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) error {
 //		- required
 func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1088,6 +1099,9 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindAdminaaa
@@ -1099,9 +1113,10 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 //		- required
 func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string) (*WSGAdministrationRetrieveAdminAAAServerList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationRetrieveAdminAAAServerList
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationRetrieveAdminAAAServerList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1110,7 +1125,10 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
-	req.SetQueryParameter("type_", type_)
+	req.SetQueryParameter("type_", []string{type_})
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationRetrieveAdminAAAServerList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindAdminaaaById
@@ -1122,9 +1140,10 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 //		- required
 func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string) (*WSGAdministrationRetrieveAdminAAAServer, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationRetrieveAdminAAAServer
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationRetrieveAdminAAAServer
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1134,6 +1153,9 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaaById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationRetrieveAdminAAAServer()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindLicenses
@@ -1141,14 +1163,18 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 // Use this API command to get all licenses currently assign in SCG.
 func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdministrationLicensesList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationLicensesList
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationLicensesList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenses, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationLicensesList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindLicenseServer
@@ -1156,14 +1182,18 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdmini
 // Use this API command to get license server configuration.
 func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGAdministrationLicenseServer, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationLicenseServer
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationLicenseServer
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenseServer, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationLicenseServer()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindLicensesSummary
@@ -1171,14 +1201,18 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGA
 // Use this API command to get licenses summary information.
 func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WSGAdministrationLicensesSummaryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationLicensesSummaryList
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationLicensesSummaryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSummary, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationLicensesSummaryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindLicensesSyncLogs
@@ -1186,14 +1220,18 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WS
 // Use this API command to get licenses synchronize logs.
 func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*WSGAdministrationLicensesSyncLogsList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationLicensesSyncLogsList
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationLicensesSyncLogsList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationLicensesSyncLogsList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateAdminaaaById
@@ -1208,9 +1246,10 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*W
 //		- required
 func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1228,6 +1267,9 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateLicenseServer
@@ -1238,8 +1280,9 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 //	 - body *WSGAdministrationModfiyLicenseServer
 func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -1253,6 +1296,8 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // UpdateLicensesSync
@@ -1260,11 +1305,14 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 // Use this API command to ask all SCG in cluster to sync licenses from license server.
 func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLicensesSync, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

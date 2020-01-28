@@ -33,9 +33,10 @@ func (ss *WSGService) WSGSplitTunnelProfileService() *WSGSplitTunnelProfileServi
 //		- required
 func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ct
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteRkszonesSplitTunnelProfilesById
@@ -66,9 +70,10 @@ func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ct
 //		- required
 func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSplitTunnelProfilesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesSplitTunnelProfilesById
@@ -95,9 +103,10 @@ func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx
 //		- required
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx context.Context, id string, zoneId string) (*WSGSplitTunnelProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSplitTunnelProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGSplitTunnelProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx c
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesSplitTunnelProfilesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSplitTunnelProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesSplitTunnelProfilesByQueryCriteria
@@ -121,9 +133,10 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSplitTunnelProfileQuery, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSplitTunnelProfileQuery
-		err  error
+		req      *APIRequest
+		resp     *WSGSplitTunnelProfileQuery
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -137,6 +150,9 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCri
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSplitTunnelProfileQuery()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesSplitTunnelProfilesByZoneId
@@ -148,9 +164,10 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCri
 //		- required
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, zoneId string) (*WSGSplitTunnelProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSplitTunnelProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGSplitTunnelProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -160,6 +177,9 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(c
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesSplitTunnelProfilesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSplitTunnelProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesSplitTunnelProfilesById
@@ -176,9 +196,10 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(c
 //		- required
 func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelModifySplitTunnelProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -200,6 +221,9 @@ func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesB
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // UpdateRkszonesSplitTunnelProfilesById
@@ -216,9 +240,10 @@ func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesB
 //		- required
 func (s *WSGSplitTunnelProfileService) UpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -240,4 +265,7 @@ func (s *WSGSplitTunnelProfileService) UpdateRkszonesSplitTunnelProfilesById(ctx
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

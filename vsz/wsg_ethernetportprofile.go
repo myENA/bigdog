@@ -33,9 +33,10 @@ func (ss *WSGService) WSGEthernetPortProfileService() *WSGEthernetPortProfileSer
 //		- required
 func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(ctx context.Context, body *WSGEthernetPortCreateEthernetPortProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(c
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesProfileEthernetPortById
@@ -66,9 +70,10 @@ func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(c
 //		- required
 func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ct
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesProfileEthernetPortById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesProfileEthernetPortById
@@ -95,9 +103,10 @@ func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ct
 //		- required
 func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string) (*WSGEthernetPortProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGEthernetPortProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGEthernetPortProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx 
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesProfileEthernetPortById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGEthernetPortProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesProfileEthernetPortByZoneId
@@ -126,11 +138,12 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx 
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGEthernetPortProfileList, error) {
+func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGEthernetPortProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGEthernetPortProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGEthernetPortProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -146,6 +159,9 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGEthernetPortProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesProfileEthernetPortById
@@ -162,9 +178,10 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(
 //		- required
 func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -186,4 +203,7 @@ func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPort
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -176,9 +176,10 @@ func NewWSGWLANSchedulerWlanScheduleList() *WSGWLANSchedulerWlanScheduleList {
 //		- required
 func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.Context, body *WSGWLANSchedulerCreateWlanScheduler, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -196,6 +197,9 @@ func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlanSchedulersById
@@ -209,9 +213,10 @@ func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.
 //		- required
 func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -225,6 +230,9 @@ func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.C
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlanSchedulersById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesWlanSchedulersById
@@ -238,9 +246,10 @@ func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.C
 //		- required
 func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Context, id string, zoneId string) (*WSGWLANSchedulerWlanSchedule, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWLANSchedulerWlanSchedule
-		err  error
+		req      *APIRequest
+		resp     *WSGWLANSchedulerWlanSchedule
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -254,6 +263,9 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlanSchedulersById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANSchedulerWlanSchedule()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesWlanSchedulersByZoneId
@@ -269,11 +281,12 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGWLANSchedulerWlanScheduleList, error) {
+func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGWLANSchedulerWlanScheduleList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWLANSchedulerWlanScheduleList
-		err  error
+		req      *APIRequest
+		resp     *WSGWLANSchedulerWlanScheduleList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -289,6 +302,9 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANSchedulerWlanScheduleList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesWlanSchedulersById
@@ -305,9 +321,10 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context
 //		- required
 func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx context.Context, body *WSGWLANSchedulerModifyWlanScheduler, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -329,4 +346,7 @@ func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx co
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

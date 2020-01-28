@@ -34,11 +34,12 @@ func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndS
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx context.Context, bladeUUID string, optionalParams map[string]interface{}) (*WSGAdministrationApplicationLogAndStatusList, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx context.Context, bladeUUID string, optionalParams map[string][]string) (*WSGAdministrationApplicationLogAndStatusList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationApplicationLogAndStatusList
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationApplicationLogAndStatusList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -54,6 +55,9 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationApplicationLogAndStatusList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindApplicationsDownloadByBladeUUID
@@ -69,11 +73,12 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 // Optional Parameters:
 // - logFileName string
 //		- nullable
-func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, appName string, bladeUUID string, optionalParams map[string]interface{}) ([]byte, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, appName string, bladeUUID string, optionalParams map[string][]string) ([]byte, error) {
 	var (
-		req  *APIRequest
-		resp []byte
-		err  error
+		req      *APIRequest
+		resp     []byte
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -85,11 +90,14 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
-	req.SetQueryParameter("appName", appName)
+	req.SetQueryParameter("appName", []string{appName})
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	if v, ok := optionalParams["logFileName"]; ok {
 		req.AddQueryParameter("logFileName", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = make([]byte, 0)
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindApplicationsDownloadsnapByBladeUUID
@@ -101,9 +109,10 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 //		- required
 func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, bladeUUID string) ([]byte, error) {
 	var (
-		req  *APIRequest
-		resp []byte
-		err  error
+		req      *APIRequest
+		resp     []byte
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -113,6 +122,9 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadsnapByBladeUUID, true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = make([]byte, 0)
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // PartialUpdateApplications
@@ -123,8 +135,9 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 //	 - body *WSGAdministrationModifyLogLevel
 func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx context.Context, body *WSGAdministrationModifyLogLevel) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -138,4 +151,6 @@ func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

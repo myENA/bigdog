@@ -29,9 +29,10 @@ func (ss *WSGService) WSGWirelessClientService() *WSGWirelessClientService {
 //	 - body *WSGClientDeAuthClientList
 func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddClientsBulkDisconnect
@@ -55,9 +59,10 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 //	 - body *WSGClientDisconnectClientList
 func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context, body *WSGClientDisconnectClientList) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddClientsByWlanNameByWlanname
@@ -85,9 +93,10 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 //		- required
 func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, wlanname string) (*WSGClientQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGClientQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGClientQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -105,6 +114,9 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 		return resp, err
 	}
 	req.SetPathParameter("wlanname", wlanname)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGClientQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddClientsDeauth
@@ -115,9 +127,10 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 //	 - body *WSGClientDeAuthClient
 func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -131,6 +144,9 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddClientsDisconnect
@@ -141,9 +157,10 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 //	 - body *WSGClientDisconnectClient
 func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, body *WSGClientDisconnectClient) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -157,6 +174,9 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindApsOperationalClientByApMac
@@ -172,11 +192,12 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.Context, apMac string, optionalParams map[string]interface{}) (*WSGAPClientList, error) {
+func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.Context, apMac string, optionalParams map[string][]string) (*WSGAPClientList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPClientList
-		err  error
+		req      *APIRequest
+		resp     *WSGAPClientList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -192,6 +213,9 @@ func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.C
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPClientList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindApsOperationalClientTotalCountByApMac
@@ -203,9 +227,10 @@ func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.C
 //		- required
 func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx context.Context, apMac string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -215,6 +240,9 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientTotalCountByApMac, true)
 	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindHistoricalclientByQueryCriteria
@@ -225,9 +253,10 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientHistoricalClientList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGClientHistoricalClientList
-		err  error
+		req      *APIRequest
+		resp     *WSGClientHistoricalClientList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -241,4 +270,7 @@ func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGClientHistoricalClientList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

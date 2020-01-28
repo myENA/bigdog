@@ -29,9 +29,10 @@ func (ss *WSGService) WSGDPDHCPProfileService() *WSGDPDHCPProfileService {
 //	 - body *WSGDPProfileDpDhcpProfileBasicBO
 func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *WSGDPProfileDpDhcpProfileBasicBO) (*WSGDPProfileDpDhcpProfileBasicBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileBasicBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileBasicBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *W
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileBasicBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddDpDhcpProfilesDpDhcpProfileHostsById
@@ -59,9 +63,10 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *W
 //		- required
 func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx context.Context, body *WSGDPProfileDpDhcpProfileHostBO, id string) (*WSGDPProfileDpDhcpProfileHostBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileHostBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileHostBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -79,6 +84,9 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx co
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileHostBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
@@ -93,9 +101,10 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx co
 //		- required
 func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById(ctx context.Context, body *WSGDPProfileDpDhcpProfileOptionSpaceBO, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -113,6 +122,9 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // AddDpDhcpProfilesDpDhcpProfilePoolsById
@@ -127,9 +139,10 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 //		- required
 func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx context.Context, body *WSGDPProfileDpDhcpProfilePoolBO, id string) (*WSGDPProfileDpDhcpProfilePoolBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfilePoolBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfilePoolBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -147,6 +160,9 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx co
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfilePoolBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteDpDhcpProfiles
@@ -157,9 +173,10 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx co
 //	 - body *WSGDPProfileBulkDelete
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfiles(ctx context.Context, body *WSGDPProfileBulkDelete) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -173,6 +190,9 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfiles(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpDhcpProfilesById
@@ -184,9 +204,10 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfiles(ctx context.Context, body
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -196,6 +217,9 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, 
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpDhcpProfilesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
@@ -209,9 +233,10 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, 
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId(ctx context.Context, hostId string, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -225,6 +250,9 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileHostsByHostId, true)
 	req.SetPathParameter("hostId", hostId)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileHostsById
@@ -239,9 +267,10 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx context.Context, body *WSGDPProfileBulkDelete, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -259,6 +288,9 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById
@@ -273,9 +305,10 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById(ctx context.Context, body *WSGDPProfileBulkDelete, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -293,6 +326,9 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
@@ -306,9 +342,10 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId(ctx context.Context, id string, spaceId string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -322,6 +359,9 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("spaceId", spaceId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfilePoolsById
@@ -336,9 +376,10 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -356,6 +397,9 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
@@ -369,9 +413,10 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId(ctx context.Context, id string, poolId string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -385,6 +430,9 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("poolId", poolId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindDpDhcpProfiles
@@ -392,14 +440,18 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 // Use this API command to retrieve DP profile - basic list.
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context) (*WSGDPProfileDpDhcpProfileBasicBOList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileBasicBOList
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileBasicBOList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfiles, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileBasicBOList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpDhcpProfilesById
@@ -411,9 +463,10 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context) (*WSGD
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id string) (*WSGDPProfileDpDhcpProfileBasicBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileBasicBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileBasicBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -423,6 +476,9 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileBasicBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpDhcpProfilesDpDhcpProfileHostsByHostId
@@ -436,9 +492,10 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(ctx context.Context, hostId string, id string) (*WSGDPProfileDpDhcpProfileHostBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileHostBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileHostBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -452,6 +509,9 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(c
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsByHostId, true)
 	req.SetPathParameter("hostId", hostId)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileHostBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpDhcpProfilesDpDhcpProfileHostsById
@@ -463,9 +523,10 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(c
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx context.Context, id string) (*WSGDPProfileDpDhcpProfileHostBOList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileHostBOList
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileHostBOList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -475,6 +536,9 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx c
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileHostBOList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpDhcpProfilesDpDhcpProfileOptionSpacesById
@@ -486,9 +550,10 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx c
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesById(ctx context.Context, id string) (*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -498,6 +563,9 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByI
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
@@ -511,9 +579,10 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByI
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId(ctx context.Context, id string, spaceId string) (*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -527,6 +596,9 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("spaceId", spaceId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpDhcpProfilesDpDhcpProfilePoolsById
@@ -538,9 +610,10 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByS
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx context.Context, id string) (*WSGDPProfileDpDhcpProfilePoolBOList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfilePoolBOList
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfilePoolBOList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -550,6 +623,9 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx c
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfilePoolBOList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId
@@ -563,9 +639,10 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx c
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(ctx context.Context, id string, poolId string) (*WSGDPProfileDpDhcpProfilePoolBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfilePoolBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfilePoolBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -579,6 +656,9 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(c
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsByPoolId, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("poolId", poolId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfilePoolBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateDpDhcpProfilesById
@@ -593,9 +673,10 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(c
 //		- required
 func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, body *WSGDPProfileDpDhcpProfileBasicBO, id string) (*WSGDPProfileDpDhcpProfileBasicBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileBasicBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileBasicBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -613,6 +694,9 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, 
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileBasicBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
@@ -629,9 +713,10 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, 
 //		- required
 func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId(ctx context.Context, body *WSGDPProfileDpDhcpProfileHostBO, hostId string, id string) (*WSGDPProfileDpDhcpProfileHostBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfileHostBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfileHostBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -653,6 +738,9 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 	}
 	req.SetPathParameter("hostId", hostId)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfileHostBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
@@ -669,9 +757,10 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 //		- required
 func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId(ctx context.Context, body *WSGDPProfileDpDhcpProfileOptionSpaceBO, id string, spaceId string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -693,6 +782,9 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesB
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("spaceId", spaceId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
@@ -709,9 +801,10 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesB
 //		- required
 func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId(ctx context.Context, body *WSGDPProfileDpDhcpProfilePoolBO, id string, poolId string) (*WSGDPProfileDpDhcpProfilePoolBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpDhcpProfilePoolBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpDhcpProfilePoolBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -733,4 +826,7 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("poolId", poolId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpDhcpProfilePoolBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

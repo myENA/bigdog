@@ -29,9 +29,10 @@ func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddRogueMarkKnown
@@ -55,9 +59,10 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddRogueMarkMalicious
@@ -81,9 +89,10 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -97,6 +106,9 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddRogueMarkRogue
@@ -107,9 +119,10 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -123,6 +136,9 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddRogueUnMark
@@ -133,9 +149,10 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 //	 - body *WSGAPModifyRogueType
 func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPModifyRogueType) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -149,6 +166,9 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRogueMarkKnown
@@ -156,12 +176,16 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 // Get Known Rogue AP list.
 func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context) (*WSGAPModifyRogueType, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPModifyRogueType
-		err  error
+		req      *APIRequest
+		resp     *WSGAPModifyRogueType
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRogueMarkKnown, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPModifyRogueType()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

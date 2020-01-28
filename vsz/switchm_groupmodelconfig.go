@@ -215,9 +215,10 @@ func NewSwitchMGroupModelConfigUpdateGroupConfigResultListExtraType() *SwitchMGr
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMGroupModelConfigQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMGroupModelConfigQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMGroupModelConfigQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -231,6 +232,9 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMGroupModelConfigQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateGroupModelConfigsByGroupId
@@ -245,9 +249,10 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 //		- required
 func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *SwitchMGroupModelConfigSelectedIds, groupId string) (*SwitchMGroupModelConfigUpdateGroupConfigResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMGroupModelConfigUpdateGroupConfigResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMGroupModelConfigUpdateGroupConfigResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -265,4 +270,7 @@ func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx co
 		return resp, err
 	}
 	req.SetPathParameter("groupId", groupId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMGroupModelConfigUpdateGroupConfigResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

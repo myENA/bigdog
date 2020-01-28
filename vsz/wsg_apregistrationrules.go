@@ -29,9 +29,10 @@ func (ss *WSGService) WSGAPRegistrationRulesService() *WSGAPRegistrationRulesSer
 //	 - body *WSGAPRulesCreateApRule
 func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WSGAPRulesCreateApRule) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteApRulesById
@@ -56,8 +60,9 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 //		- required
 func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -67,6 +72,8 @@ func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, i
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApRulesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindApRules
@@ -74,14 +81,18 @@ func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, i
 // Use this API command to retrieve a list of AP Registration Rules profile.
 func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*WSGAPRulesApRuleList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPRulesApRuleList
-		err  error
+		req      *APIRequest
+		resp     *WSGAPRulesApRuleList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRules, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPRulesApRuleList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindApRulesById
@@ -93,9 +104,10 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*WSGAP
 //		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id string) (*WSGAPRulesApRuleConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPRulesApRuleConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGAPRulesApRuleConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -105,6 +117,9 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPRulesApRuleConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindApRulesPriorityDownById
@@ -116,8 +131,9 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 //		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -127,6 +143,8 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityDownById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindApRulesPriorityUpById
@@ -138,8 +156,9 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 //		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -149,6 +168,8 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityUpById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // PartialUpdateApRulesById
@@ -163,9 +184,10 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 //		- required
 func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Context, body *WSGAPRulesModifyApRule, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -183,4 +205,7 @@ func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Con
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

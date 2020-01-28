@@ -26,14 +26,18 @@ func (ss *SwitchMService) SwitchMConfigurationHistoryService() *SwitchMConfigura
 // Use this API command to Retrieve Configuration History List.
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx context.Context) (*SwitchMDeployLogConfigurationHistoryQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMDeployLogConfigurationHistoryQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMDeployLogConfigurationHistoryQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindConfigurationHistoryByQueryCriteria
@@ -44,9 +48,10 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeployLogConfigurationHistoryQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMDeployLogConfigurationHistoryQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMDeployLogConfigurationHistoryQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -60,6 +65,9 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindConfigurationHistoryDetail
@@ -67,14 +75,18 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 // Use this API command to Retrieve Configuration History List.
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindConfigurationHistoryDetailByQueryCriteria
@@ -85,9 +97,10 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -101,4 +114,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

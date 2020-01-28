@@ -306,9 +306,10 @@ func NewWSGNorthboundDataStreamingSettings() *WSGNorthboundDataStreamingSettings
 //	 - body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile
 func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -322,6 +323,9 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteNorthboundDataStreamingProfileById
@@ -333,9 +337,10 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 //		- required
 func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGNorthboundDataStreamingEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGNorthboundDataStreamingEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -345,6 +350,9 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGNorthboundDataStreamingEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindNorthboundDataStreamingEventCodes
@@ -352,14 +360,18 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 // Use this API command to retrieve NorthboundDataStreamingEventCodes.
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context) (*WSGNorthboundDataStreamingEventCodes, error) {
 	var (
-		req  *APIRequest
-		resp *WSGNorthboundDataStreamingEventCodes
-		err  error
+		req      *APIRequest
+		resp     *WSGNorthboundDataStreamingEventCodes
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGNorthboundDataStreamingEventCodes()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindNorthboundDataStreamingProfileById
@@ -371,9 +383,10 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 //		- required
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGNorthboundDataStreamingProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGNorthboundDataStreamingProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -383,6 +396,9 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGNorthboundDataStreamingProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindNorthboundDataStreamingProfileList
@@ -390,14 +406,18 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 // Use this API command to retrieve northbound Data Streaming Profile List
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*WSGNorthboundDataStreamingProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGNorthboundDataStreamingProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGNorthboundDataStreamingProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGNorthboundDataStreamingProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateNorthboundDataStreamingEventCodes
@@ -408,9 +428,10 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 //	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -424,6 +445,9 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // UpdateNorthboundDataStreamingProfileById
@@ -438,9 +462,10 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 //		- required
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -458,6 +483,9 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // UpdateNorthboundDataStreamingSettings
@@ -468,9 +496,10 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 //	 - body *WSGNorthboundDataStreamingSettings
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *WSGNorthboundDataStreamingSettings) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -484,4 +513,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSetting
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

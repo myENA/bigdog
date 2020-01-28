@@ -145,11 +145,12 @@ func NewWSGDomainModifyDomain() *WSGDomainModifyDomain {
 // Optional Parameters:
 // - parentDomainId string
 //		- nullable
-func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string]interface{}) (*WSGCommonCreateResult, error) {
+func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -166,6 +167,9 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	if v, ok := optionalParams["parentDomainId"]; ok {
 		req.AddQueryParameter("parentDomainId", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesDomains
@@ -178,11 +182,12 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 // Optional Parameters:
 // - parentDomainId string
 //		- nullable
-func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string]interface{}) (*WSGCommonCreateResult, error) {
+func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -199,6 +204,9 @@ func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDoma
 	if v, ok := optionalParams["parentDomainId"]; ok {
 		req.AddQueryParameter("parentDomainId", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteDomainsById
@@ -210,8 +218,9 @@ func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDoma
 //		- required
 func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -221,6 +230,8 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDomainsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteRkszonesDomainsById
@@ -232,8 +243,9 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) err
 //		- required
 func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -243,6 +255,8 @@ func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, id str
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDomainsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindDomains
@@ -260,11 +274,12 @@ func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, id str
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string]interface{}) (*WSGDomainList, error) {
+func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string][]string) (*WSGDomainList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDomainList
-		err  error
+		req      *APIRequest
+		resp     *WSGDomainList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -285,6 +300,9 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	if v, ok := optionalParams["recursively"]; ok {
 		req.AddQueryParameter("recursively", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDomainList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDomainsById
@@ -298,11 +316,12 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 // Optional Parameters:
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string]interface{}) (*WSGDomainConfiguration, error) {
+func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDomainConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGDomainConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -315,6 +334,9 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	if v, ok := optionalParams["recursively"]; ok {
 		req.AddQueryParameter("recursively", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDomainConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDomainsSubdomainById
@@ -336,11 +358,12 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string]interface{}) (*WSGDomainList, error) {
+func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDomainList
-		err  error
+		req      *APIRequest
+		resp     *WSGDomainList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -365,6 +388,9 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	if v, ok := optionalParams["recursively"]; ok {
 		req.AddQueryParameter("recursively", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDomainList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDomains
@@ -382,11 +408,12 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, optionalParams map[string]interface{}) (*WSGDomainList, error) {
+func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, optionalParams map[string][]string) (*WSGDomainList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDomainList
-		err  error
+		req      *APIRequest
+		resp     *WSGDomainList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -407,6 +434,9 @@ func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, optionalPara
 	if v, ok := optionalParams["recursively"]; ok {
 		req.AddQueryParameter("recursively", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDomainList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDomainsById
@@ -420,11 +450,12 @@ func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, optionalPara
 // Optional Parameters:
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, id string, optionalParams map[string]interface{}) (*WSGDomainConfiguration, error) {
+func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDomainConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGDomainConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -437,6 +468,9 @@ func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, id strin
 	if v, ok := optionalParams["recursively"]; ok {
 		req.AddQueryParameter("recursively", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDomainConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDomainsSubdomainById
@@ -458,11 +492,12 @@ func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, id strin
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string]interface{}) (*WSGDomainList, error) {
+func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDomainList
-		err  error
+		req      *APIRequest
+		resp     *WSGDomainList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -487,6 +522,9 @@ func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context,
 	if v, ok := optionalParams["recursively"]; ok {
 		req.AddQueryParameter("recursively", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDomainList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateDomainsById
@@ -501,8 +539,9 @@ func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context,
 //		- required
 func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -520,6 +559,8 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 		return err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // PartialUpdateRkszonesDomainsById
@@ -534,8 +575,9 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 //		- required
 func (s *WSGDomainService) PartialUpdateRkszonesDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -553,4 +595,6 @@ func (s *WSGDomainService) PartialUpdateRkszonesDomainsById(ctx context.Context,
 		return err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

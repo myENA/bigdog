@@ -357,9 +357,10 @@ func NewSwitchMTrafficUsage() *SwitchMTrafficUsage {
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopSwitchPoEUtilizationQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -373,6 +374,9 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddTrafficTopPorterror
@@ -383,9 +387,10 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopPortErrorQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMTrafficTopPortErrorQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMTrafficTopPortErrorQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -399,6 +404,9 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMTrafficTopPortErrorQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddTrafficTopPortusage
@@ -409,9 +417,10 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopPortTrafficUsageQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMTrafficTopPortTrafficUsageQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMTrafficTopPortTrafficUsageQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -425,6 +434,9 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMTrafficTopPortTrafficUsageQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddTrafficTopUsage
@@ -435,9 +447,10 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficTopTrafficUsageQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMTrafficTopTrafficUsageQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMTrafficTopTrafficUsageQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -451,6 +464,9 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMTrafficTopTrafficUsageQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddTrafficTotalTrend
@@ -461,9 +477,10 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMTrafficQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMTrafficQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMTrafficQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -477,4 +494,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMTrafficQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

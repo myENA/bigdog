@@ -33,9 +33,10 @@ func (ss *WSGService) WSGClientIsolationWhitelistService() *WSGClientIsolationWh
 //		- required
 func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, body *WSGProfileCreateClientIsolationWhitelist, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelist
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesClientIsolationWhitelist
@@ -63,9 +67,10 @@ func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelist
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -79,6 +84,9 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesClientIsolationWhitelistById
@@ -90,9 +98,10 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 //		- required
 func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -102,6 +111,9 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientIsolationWhitelistById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesClientIsolationWhitelistById
@@ -115,9 +127,10 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 //		- required
 func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistById(ctx context.Context, id string, zoneId string) (*WSGProfileClientIsolationWhitelist, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileClientIsolationWhitelist
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileClientIsolationWhitelist
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -131,6 +144,9 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesClientIsolationWhitelistById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileClientIsolationWhitelist()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesClientIsolationWhitelistByZoneId
@@ -142,9 +158,10 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 //		- required
 func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, zoneId string) (*WSGProfileClientIsolationWhitelistArray, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileClientIsolationWhitelistArray
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileClientIsolationWhitelistArray
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -154,6 +171,9 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesClientIsolationWhitelistByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileClientIsolationWhitelistArray()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesClientIsolationWhitelistByQueryCriteria
@@ -164,9 +184,10 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileClientIsolationWhitelistArray, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileClientIsolationWhitelistArray
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileClientIsolationWhitelistArray
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -180,6 +201,9 @@ func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelis
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileClientIsolationWhitelistArray()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesClientIsolationWhitelistById
@@ -196,9 +220,10 @@ func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelis
 //		- required
 func (s *WSGClientIsolationWhitelistService) PartialUpdateRkszonesClientIsolationWhitelistById(ctx context.Context, body *WSGProfileModifyClientIsolationWhitelist, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -220,4 +245,7 @@ func (s *WSGClientIsolationWhitelistService) PartialUpdateRkszonesClientIsolatio
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

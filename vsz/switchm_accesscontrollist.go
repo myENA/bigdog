@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMAccessControlListService() *SwitchMAccessContro
 //	 - body *SwitchMACLConfigCreateACLConfig
 func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context, body *SwitchMACLConfigCreateACLConfig) (*SwitchMCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMCommonCreateResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteAccessControls
@@ -55,8 +59,9 @@ func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context,
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -70,6 +75,8 @@ func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteAccessControlsById
@@ -81,8 +88,9 @@ func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Conte
 //		- required
 func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -92,6 +100,8 @@ func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.C
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAccessControlsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindAccessControlsById
@@ -103,9 +113,10 @@ func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.C
 //		- required
 func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Context, id string) (*SwitchMACLConfig, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMACLConfig
-		err  error
+		req      *APIRequest
+		resp     *SwitchMACLConfig
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -115,6 +126,9 @@ func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAccessControlsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMACLConfig()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindAccessControlsByQueryCriteria
@@ -125,9 +139,10 @@ func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Con
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMACLConfigsQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMACLConfigsQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMACLConfigsQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -141,6 +156,9 @@ func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMACLConfigsQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateAccessControlsById
@@ -155,9 +173,10 @@ func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx 
 //		- required
 func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.Context, body *SwitchMACLConfigUpdateACLConfig, id string) (*SwitchMACLConfigEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMACLConfigEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMACLConfigEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -175,4 +194,7 @@ func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.C
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMACLConfigEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

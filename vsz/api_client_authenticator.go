@@ -128,7 +128,7 @@ func (st *ServiceTicketAuthenticator) Decorate(ctx context.Context, request *API
 	}
 
 	if st.serviceTicket == "" && !st.refreshed.IsZero() && st.refreshed.Add(st.sessionTTL).After(time.Now()) {
-		request.SetQueryParameter(serviceTicketQueryParameter, st.serviceTicket)
+		request.SetQueryParameter(serviceTicketQueryParameter, []string{st.serviceTicket})
 		st.mu.RUnlock()
 		return AuthCAS(cas), nil
 	}

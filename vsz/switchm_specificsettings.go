@@ -250,8 +250,9 @@ func NewSwitchMSpecificSettingsUpdateSpecificSettings() *SwitchMSpecificSettings
 //		- required
 func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -261,6 +262,8 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindSpecificSettings
@@ -268,14 +271,18 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 // Use this API command to Retrieve all Specific Setting list.
 func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Context) (*SwitchMSpecificSettingsAllResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSpecificSettingsAllResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSpecificSettingsAllResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettings, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSpecificSettingsAllResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSpecificSettingsById
@@ -287,9 +294,10 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 //		- required
 func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Context, id string) (*SwitchMSpecificSettings, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSpecificSettings
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSpecificSettings
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -299,6 +307,9 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSpecificSettings()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateSpecificSettingsById
@@ -313,9 +324,10 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 //		- required
 func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.Context, body *SwitchMSpecificSettingsUpdateSpecificSettings, id string) (*SwitchMSpecificSettingsEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSpecificSettingsEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSpecificSettingsEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -333,4 +345,7 @@ func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSpecificSettingsEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

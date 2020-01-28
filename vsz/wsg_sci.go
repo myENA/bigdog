@@ -335,9 +335,10 @@ func NewWSGSCIProfileListExtraType() *WSGSCIProfileListExtraType {
 //	 - body *WSGSCIModifyEventCode
 func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModifyEventCode) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -351,6 +352,9 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // AddSciSciProfile
@@ -361,9 +365,10 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 //	 - body *WSGSCICreateSciProfile
 func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreateSciProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -377,6 +382,9 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddSciSciProfileSciPriority
@@ -387,9 +395,10 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 //	 - body *WSGSCIModifySciPriorityList
 func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *WSGSCIModifySciPriorityList) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -403,6 +412,9 @@ func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *W
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteSciSciProfile
@@ -413,9 +425,10 @@ func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *W
 //	 - body *WSGSCIDeleteSciProfileList
 func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDeleteSciProfileList) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -429,6 +442,9 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteSciSciProfileById
@@ -440,9 +456,10 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 //		- required
 func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -452,6 +469,9 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) 
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSciSciEventCode
@@ -459,14 +479,18 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) 
 // Use this API command to retrieve SciAcceptedEventCodes.
 func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCode, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCIEventCode
-		err  error
+		req      *APIRequest
+		resp     *WSGSCIEventCode
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciEventCode, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCIEventCode()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSciSciProfile
@@ -474,14 +498,18 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCo
 // Use this API command to retrieve sciProfile list.
 func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCIProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGSCIProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfile, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCIProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSciSciProfileById
@@ -493,9 +521,10 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileLi
 //		- required
 func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*WSGSCIProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCIProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGSCIProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -505,6 +534,9 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfileById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCIProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateSciSciEnabled
@@ -515,9 +547,10 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*
 //	 - body *WSGSCIModifySciEnabled
 func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WSGSCIModifySciEnabled) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -531,6 +564,9 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // PartialUpdateSciSciProfileById
@@ -545,9 +581,10 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 //		- required
 func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -565,4 +602,7 @@ func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

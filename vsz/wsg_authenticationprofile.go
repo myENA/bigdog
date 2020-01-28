@@ -29,9 +29,10 @@ func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfil
 //	 - body *WSGProfileCreateAuthenticationProfile
 func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, body *WSGProfileCreateAuthenticationProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddProfilesAuthCloneById
@@ -59,9 +63,10 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 //		- required
 func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *WSGProfileCloneRequest, id string) (*WSGProfileCloneResponse, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileCloneResponse
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileCloneResponse
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -79,6 +84,9 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileCloneResponse()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteProfilesAuth
@@ -89,9 +97,10 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 //	 - body *WSGProfileDeleteBulkAuthenticationProfile
 func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context, body *WSGProfileDeleteBulkAuthenticationProfile) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -105,6 +114,9 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteProfilesAuthById
@@ -116,9 +128,10 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context
 //		- required
 func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -128,6 +141,9 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Con
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesAuthById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindProfilesAuth
@@ -135,14 +151,18 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Con
 // Use this API command to retrieve a list of authentication profiles.
 func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context) (*WSGProfileAuthenticationProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileAuthenticationProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileAuthenticationProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuth, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileAuthenticationProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesAuthAuthorizationList
@@ -154,9 +174,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context) 
 //		- required
 func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx context.Context, type_ string) (*WSGProfileBaseServiceInfoList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBaseServiceInfoList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBaseServiceInfoList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -165,7 +186,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuthAuthorizationList, true)
-	req.SetQueryParameter("type_", type_)
+	req.SetQueryParameter("type_", []string{type_})
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBaseServiceInfoList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesAuthAuthServiceListByQueryCriteria
@@ -176,9 +200,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBaseServiceInfoList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBaseServiceInfoList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBaseServiceInfoList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -192,6 +217,9 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBaseServiceInfoList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesAuthById
@@ -203,9 +231,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 //		- required
 func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Context, id string) (*WSGProfileAuthenticationProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileAuthenticationProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileAuthenticationProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -215,6 +244,9 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuthById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileAuthenticationProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesAuthByQueryCriteria
@@ -225,9 +257,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileAuthenticationProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileAuthenticationProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileAuthenticationProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -241,6 +274,9 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileAuthenticationProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesAuthById
@@ -255,9 +291,10 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 //		- required
 func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx context.Context, body *WSGProfileModifyAuthenticationProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -275,4 +312,7 @@ func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx cont
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

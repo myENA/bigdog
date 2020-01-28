@@ -354,9 +354,10 @@ func NewWSGAPGroupModifyAPGroup() *WSGAPGroupModifyAPGroup {
 //		- required
 func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, body *WSGAPGroupCreateAPGroup, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -374,6 +375,9 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, bod
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesApgroupsMembersByApMac
@@ -389,9 +393,10 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, bod
 //		- required
 func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Context, apMac string, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -409,6 +414,9 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Contex
 	req.SetPathParameter("apMac", apMac)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesApgroupsMembersById
@@ -425,9 +433,10 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Contex
 //		- required
 func (s *WSGAPGroupService) AddRkszonesApgroupsMembersById(ctx context.Context, body *WSGAPGroupAddMembers, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -449,6 +458,9 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersById(ctx context.Context, 
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsAltitudeById
@@ -462,9 +474,10 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersById(ctx context.Context, 
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -478,6 +491,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAltitudeById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsApMgmtVlanById
@@ -491,9 +507,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Conte
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -507,6 +524,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Con
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsApMgmtVlanById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsApmodelByModel
@@ -522,9 +542,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Con
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Context, id string, model string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -542,6 +563,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Con
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("model", model)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsAutoChannelSelection24ById
@@ -555,9 +579,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Con
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -571,6 +596,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection24ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsAutoChannelSelection50ById
@@ -584,9 +612,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -600,6 +629,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection50ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsById
@@ -613,9 +645,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -629,6 +662,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id s
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsChannelEvaluationIntervalById
@@ -642,9 +678,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id s
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -658,6 +695,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsChannelEvaluationIntervalById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsClientAdmissionControl24ById
@@ -671,9 +711,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -687,6 +728,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(c
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl24ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsClientAdmissionControl50ById
@@ -700,9 +744,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(c
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -716,6 +761,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(c
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl50ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById
@@ -729,9 +777,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(c
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -745,6 +794,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEn
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById
@@ -758,9 +810,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEn
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -774,6 +827,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClie
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById
@@ -787,9 +843,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClie
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -803,6 +860,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessC
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsLocationAdditionalInfoById
@@ -816,9 +876,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessC
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -832,6 +893,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationAdditionalInfoById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsLocationBasedServiceById
@@ -845,9 +909,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -861,6 +926,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx c
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationBasedServiceById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsLocationById
@@ -874,9 +942,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx c
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -890,6 +959,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsLteBandLockChannelsById
@@ -903,9 +975,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Conte
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -919,6 +992,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx co
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLteBandLockChannelsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsMembersByApMac
@@ -934,9 +1010,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx co
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Context, apMac string, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -954,6 +1031,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Con
 	req.SetPathParameter("apMac", apMac)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsProtectionMode24ById
@@ -967,9 +1047,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Con
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -983,6 +1064,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsProtectionMode24ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsRecoverySsidById
@@ -996,9 +1080,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx conte
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1012,6 +1097,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.C
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRecoverySsidById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsRogueApAggressivenessModeById
@@ -1025,9 +1113,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.C
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1041,6 +1130,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApAggressivenessModeById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsRogueApJammingThresholdById
@@ -1054,9 +1146,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1070,6 +1163,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ct
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApJammingThresholdById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsRogueApReportThresholdById
@@ -1083,9 +1179,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ct
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1099,6 +1196,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApReportThresholdById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsVenueProfileById
@@ -1112,9 +1212,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1128,6 +1229,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.C
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsVenueProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi24ById
@@ -1141,9 +1245,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.C
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1157,6 +1262,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi24ChannelById
@@ -1170,9 +1278,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1186,6 +1295,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi24ChannelRangeById
@@ -1199,9 +1311,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1215,6 +1328,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx con
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelRangeById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi24ChannelWidthById
@@ -1228,9 +1344,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx con
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1244,6 +1361,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx con
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelWidthById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi24TxPowerById
@@ -1257,9 +1377,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx con
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1273,6 +1394,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24TxPowerById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi50ById
@@ -1286,9 +1410,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1302,6 +1427,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi50ChannelWidthById
@@ -1315,9 +1443,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1331,6 +1460,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx con
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50ChannelWidthById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi50IndoorChannelById
@@ -1344,9 +1476,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx con
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1360,6 +1493,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx co
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi50IndoorChannelRangeById
@@ -1373,9 +1509,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx co
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1389,6 +1526,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(c
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelRangeById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi50OutdoorChannelById
@@ -1402,9 +1542,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(c
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1418,6 +1559,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx c
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById
@@ -1431,9 +1575,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx c
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1447,6 +1592,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelRangeById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWifi50TxPowerById
@@ -1460,9 +1608,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1476,6 +1625,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50TxPowerById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWlanGroup24ById
@@ -1489,9 +1641,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1505,6 +1658,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Co
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWlanGroup24ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesApgroupsWlanGroup50ById
@@ -1518,9 +1674,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Co
 //		- required
 func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1534,6 +1691,9 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Co
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWlanGroup50ById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesApgroupsApmodelByModel
@@ -1549,9 +1709,10 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Co
 //		- required
 func (s *WSGAPGroupService) FindRkszonesApgroupsApmodelByModel(ctx context.Context, id string, model string, zoneId string) (*WSGZoneAPModelApModel, error) {
 	var (
-		req  *APIRequest
-		resp *WSGZoneAPModelApModel
-		err  error
+		req      *APIRequest
+		resp     *WSGZoneAPModelApModel
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1569,6 +1730,9 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsApmodelByModel(ctx context.Conte
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("model", model)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGZoneAPModelApModel()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesApgroupsById
@@ -1582,9 +1746,10 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsApmodelByModel(ctx context.Conte
 //		- required
 func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, id string, zoneId string) (*WSGAPGroupConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPGroupConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGAPGroupConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1598,6 +1763,9 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, id str
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPGroupConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesApgroupsByZoneId
@@ -1613,11 +1781,12 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, id str
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGAPGroupList, error) {
+func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGAPGroupList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPGroupList
-		err  error
+		req      *APIRequest
+		resp     *WSGAPGroupList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1633,6 +1802,9 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zo
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPGroupList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesApgroupsDefaultByZoneId
@@ -1644,9 +1816,10 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zo
 //		- required
 func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Context, zoneId string) (*WSGAPGroupConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPGroupConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGAPGroupConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1656,6 +1829,9 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Cont
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsDefaultByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPGroupConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesApgroupsById
@@ -1672,9 +1848,10 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Cont
 //		- required
 func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Context, body *WSGAPGroupModifyAPGroup, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1696,6 +1873,9 @@ func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Contex
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // UpdateRkszonesApgroupsApmodelByModel
@@ -1714,9 +1894,10 @@ func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Contex
 //		- required
 func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Context, body *WSGZoneAPModelApModel, id string, model string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1742,4 +1923,7 @@ func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Con
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("model", model)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

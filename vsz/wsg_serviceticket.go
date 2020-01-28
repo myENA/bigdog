@@ -61,9 +61,10 @@ func NewWSGServiceTicketLoginResponse() *WSGServiceTicketLoginResponse {
 //	 - body *WSGServiceTicketLoginRequest
 func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WSGServiceTicketLoginRequest) (*WSGServiceTicketLoginResponse, error) {
 	var (
-		req  *APIRequest
-		resp *WSGServiceTicketLoginResponse
-		err  error
+		req      *APIRequest
+		resp     *WSGServiceTicketLoginResponse
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -77,6 +78,9 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGServiceTicketLoginResponse()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteServiceTicket
@@ -88,9 +92,10 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 //		- required
 func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, serviceTicket string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -99,5 +104,8 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
-	req.SetQueryParameter("serviceTicket", serviceTicket)
+	req.SetQueryParameter("serviceTicket", []string{serviceTicket})
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

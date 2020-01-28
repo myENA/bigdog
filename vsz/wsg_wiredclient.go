@@ -29,9 +29,10 @@ func (ss *WSGService) WSGWiredClientService() *WSGWiredClientService {
 //	 - body *WSGClientDeAuthClientList
 func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddWiredClientsDeauth
@@ -55,9 +59,10 @@ func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 //	 - body *WSGClientDeAuthClient
 func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindWiredclientByQueryCriteria
@@ -81,9 +89,10 @@ func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWiredClientQueryClientQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWiredClientQueryClientQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGWiredClientQueryClientQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -97,4 +106,7 @@ func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWiredClientQueryClientQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

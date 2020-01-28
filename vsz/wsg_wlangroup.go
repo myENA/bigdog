@@ -177,9 +177,10 @@ func NewWSGWLANGroupWlanMember() *WSGWLANGroupWlanMember {
 //		- required
 func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context, body *WSGWLANGroupCreateWlanGroup, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -197,6 +198,9 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context,
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlangroupsMembersById
@@ -213,9 +217,10 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context,
 //		- required
 func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Context, body *WSGWLANGroupWlanMember, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -237,6 +242,9 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Conte
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlangroupsById
@@ -250,9 +258,10 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Conte
 //		- required
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -266,6 +275,9 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, 
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlangroupsMembersByMemberId
@@ -281,9 +293,10 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, 
 //		- required
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -301,6 +314,9 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx cont
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("memberId", memberId)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlangroupsMembersNasIdByMemberId
@@ -316,9 +332,10 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx cont
 //		- required
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -336,6 +353,9 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("memberId", memberId)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId
@@ -351,9 +371,10 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx
 //		- required
 func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId(ctx context.Context, id string, memberId string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -371,6 +392,9 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMembe
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("memberId", memberId)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesWlangroupsById
@@ -384,9 +408,10 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMembe
 //		- required
 func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id string, zoneId string) (*WSGWLANGroup, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWLANGroup
-		err  error
+		req      *APIRequest
+		resp     *WSGWLANGroup
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -400,6 +425,9 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlangroupsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANGroup()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesWlangroupsByZoneId
@@ -415,11 +443,12 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGWLANGroupList, error) {
+func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGWLANGroupList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWLANGroupList
-		err  error
+		req      *APIRequest
+		resp     *WSGWLANGroupList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -435,6 +464,9 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANGroupList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesWlangroupsById
@@ -451,9 +483,10 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context
 //		- required
 func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Context, body *WSGWLANGroupModifyWlanGroup, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -475,6 +508,9 @@ func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Co
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesWlangroupsMembersByMemberId
@@ -493,9 +529,10 @@ func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Co
 //		- required
 func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsMembersByMemberId(ctx context.Context, body *WSGWLANGroupModifyWlanGroupMember, id string, memberId string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -521,4 +558,7 @@ func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsMembersByMemberId(c
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("memberId", memberId)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

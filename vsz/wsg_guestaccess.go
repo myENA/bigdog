@@ -33,9 +33,10 @@ func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
 //		- required
 func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Context, body *WSGPortalServiceCreateGuestAccess, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Cont
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesPortalsGuestById
@@ -66,9 +70,10 @@ func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Cont
 //		- required
 func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsGuestById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesPortalsGuestRedirectById
@@ -95,9 +103,10 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Conte
 //		- required
 func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsGuestRedirectById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesPortalsGuestSmsGatewayById
@@ -124,9 +136,10 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx conte
 //		- required
 func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -140,6 +153,9 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx con
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsGuestSmsGatewayById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesPortalsGuestById
@@ -153,9 +169,10 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx con
 //		- required
 func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceGuestAccess, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceGuestAccess
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceGuestAccess
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -169,6 +186,9 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsGuestById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceGuestAccess()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesPortalsGuestByZoneId
@@ -180,9 +200,10 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context
 //		- required
 func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -192,6 +213,9 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsGuestByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesPortalsGuestById
@@ -208,9 +232,10 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Con
 //		- required
 func (s *WSGGuestAccessService) PartialUpdateRkszonesPortalsGuestById(ctx context.Context, body *WSGPortalServiceModifyGuestAccess, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -232,4 +257,7 @@ func (s *WSGGuestAccessService) PartialUpdateRkszonesPortalsGuestById(ctx contex
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

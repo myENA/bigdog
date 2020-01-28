@@ -37,7 +37,7 @@ func NewSwitchMLagConfigCreate() *SwitchMLagConfigCreate {
 
 type SwitchMLagConfigCreateResult interface{}
 
-func NewSwitchMLagConfigCreateResult() SwitchMLagConfigCreateResult {
+func MakeSwitchMLagConfigCreateResult() SwitchMLagConfigCreateResult {
 	m := new(SwitchMLagConfigCreateResult)
 	return m
 }

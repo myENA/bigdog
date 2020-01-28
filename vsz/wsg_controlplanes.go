@@ -30,8 +30,9 @@ func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
 //		- required
 func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -41,6 +42,8 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID, true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteControlPlanesUserDefinedInterfaceByBladeUUID
@@ -52,8 +55,9 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 //		- required
 func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -63,6 +67,8 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindControlPlanes
@@ -70,14 +76,18 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 // Use this API command to retrieve the list of control plane.
 func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*WSGSystemControlPlaneList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSystemControlPlaneList
-		err  error
+		req      *APIRequest
+		resp     *WSGSystemControlPlaneList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanes, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemControlPlaneList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindControlPlanesByBladeUUID
@@ -89,9 +99,10 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*WSGSy
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemControlPlaneConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSystemControlPlaneConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGSystemControlPlaneConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -101,6 +112,9 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesByBladeUUID, true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemControlPlaneConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindControlPlanesStaticRoutesByBladeUUID
@@ -112,9 +126,10 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemStaticRouteList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSystemStaticRouteList
-		err  error
+		req      *APIRequest
+		resp     *WSGSystemStaticRouteList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -124,6 +139,9 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesStaticRoutesByBladeUUID, true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemStaticRouteList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindControlPlanesUserDefinedInterfaceByBladeUUID
@@ -135,9 +153,10 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemUserDefinedInterfaceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSystemUserDefinedInterfaceList
-		err  error
+		req      *APIRequest
+		resp     *WSGSystemUserDefinedInterfaceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -147,6 +166,9 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemUserDefinedInterfaceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateControlPlanesByBladeUUID
@@ -161,9 +183,10 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 //		- required
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyControlPlane, bladeUUID string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -181,6 +204,9 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 		return resp, err
 	}
 	req.SetPathParameter("bladeUUID", bladeUUID)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // PartialUpdateControlPlanesIpSupport
@@ -191,9 +217,10 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 //	 - body *WSGSystemModifyIpSupportType
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context, body *WSGSystemModifyIpSupportType) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -207,4 +234,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

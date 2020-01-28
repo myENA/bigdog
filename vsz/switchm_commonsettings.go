@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMCommonSettingsService() *SwitchMCommonSettingsS
 //	 - body *SwitchMDnsConfigCreateDnsConfig
 func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *SwitchMDnsConfigCreateDnsConfig) (*SwitchMCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *S
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteDnsConfigBySwitchGroupId
@@ -56,8 +60,9 @@ func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *S
 //		- required
 func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -67,6 +72,8 @@ func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteDnsConfigBySwitchGroupId, true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindDnsConfigBySwitchGroupId
@@ -78,9 +85,10 @@ func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 //		- required
 func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMDnsConfig, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMDnsConfig
-		err  error
+		req      *APIRequest
+		resp     *SwitchMDnsConfig
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -90,6 +98,9 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindDnsConfigBySwitchGroupId, true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMDnsConfig()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateDnsConfigBySwitchGroupId
@@ -104,9 +115,10 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 //		- required
 func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *SwitchMDnsConfigUpdateDnsConfig, switchGroupId string) (*SwitchMDnsConfigEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMDnsConfigEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMDnsConfigEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -124,4 +136,7 @@ func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx contex
 		return resp, err
 	}
 	req.SetPathParameter("switchGroupId", switchGroupId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMDnsConfigEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

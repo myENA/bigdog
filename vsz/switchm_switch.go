@@ -1323,9 +1323,10 @@ func NewSwitchMSwitchTopSwitchesByModelQueryResultListExtraType() *SwitchMSwitch
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1339,6 +1340,9 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddSwitchSnmpSyncedSwitch
@@ -1349,9 +1353,10 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1365,6 +1370,9 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddSwitchViewDetails
@@ -1375,9 +1383,10 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchStackMemberQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchStackMemberQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchStackMemberQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1391,6 +1400,9 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchStackMemberQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteSwitch
@@ -1401,9 +1413,10 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 //	 - body SwitchMSwitchIdList
 func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwitchIdList) (*SwitchMSwitchDeleteSwitchesResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchDeleteSwitchesResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchDeleteSwitchesResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1415,6 +1428,9 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchDeleteSwitchesResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteSwitchById
@@ -1426,9 +1442,10 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 //		- required
 func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) (*SwitchMSwitchAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchAuditId
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1438,6 +1455,9 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) 
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchAuditId()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSwitchById
@@ -1449,9 +1469,10 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) 
 //		- required
 func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*SwitchMSwitchNetworkSwitch, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchNetworkSwitch
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchNetworkSwitch
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1461,6 +1482,9 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchNetworkSwitch()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSwitchFirmwareBySwitchId
@@ -1472,9 +1496,10 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*
 //		- required
 func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context, switchId string) (*SwitchMSwitchFirmwareHistoryQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchFirmwareHistoryQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchFirmwareHistoryQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1484,6 +1509,9 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchFirmwareBySwitchId, true)
 	req.SetPathParameter("switchId", switchId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchFirmwareHistoryQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateSwitchMoveByDestinationSwitchGroupId
@@ -1498,9 +1526,10 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 //		- required
 func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, destinationSwitchGroupId string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1516,4 +1545,7 @@ func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx co
 		return resp, err
 	}
 	req.SetPathParameter("destinationSwitchGroupId", destinationSwitchGroupId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

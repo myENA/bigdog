@@ -84,9 +84,10 @@ func NewWSGGDPRReport() *WSGGDPRReport {
 //	 - body *WSGGDPRReport
 func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -100,4 +101,7 @@ func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport)
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

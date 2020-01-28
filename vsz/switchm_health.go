@@ -270,9 +270,10 @@ func NewSwitchMHealthStatusTemperatureType() *SwitchMHealthStatusTemperatureType
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthAggMetrics, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMHealthAggMetrics
-		err  error
+		req      *APIRequest
+		resp     *SwitchMHealthAggMetrics
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -286,6 +287,9 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMHealthAggMetrics()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddHealthCpuLine
@@ -296,9 +300,10 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthIcxMetrics, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMHealthIcxMetrics
-		err  error
+		req      *APIRequest
+		resp     *SwitchMHealthIcxMetrics
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -312,6 +317,9 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMHealthIcxMetrics()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddHealthMemAgg
@@ -322,9 +330,10 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthAggMetrics, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMHealthAggMetrics
-		err  error
+		req      *APIRequest
+		resp     *SwitchMHealthAggMetrics
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -338,6 +347,9 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMHealthAggMetrics()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddHealthMemLine
@@ -348,9 +360,10 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthIcxMetrics, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMHealthIcxMetrics
-		err  error
+		req      *APIRequest
+		resp     *SwitchMHealthIcxMetrics
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -364,6 +377,9 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMHealthIcxMetrics()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddHealthStatus
@@ -374,9 +390,10 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthStatus, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMHealthStatus
-		err  error
+		req      *APIRequest
+		resp     *SwitchMHealthStatus
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -390,6 +407,9 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMHealthStatus()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddHealthStatusAll
@@ -400,9 +420,10 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthStatus, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMHealthStatus
-		err  error
+		req      *APIRequest
+		resp     *SwitchMHealthStatus
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -416,4 +437,7 @@ func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *Swi
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMHealthStatus()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

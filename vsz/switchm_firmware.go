@@ -26,6 +26,11 @@ type SwitchMFirmwareAllFirmwaresQueryResultList struct {
 	*SwitchMFirmwaresQueryResultList
 }
 
+func NewSwitchMFirmwareAllFirmwaresQueryResultList() *SwitchMFirmwareAllFirmwaresQueryResultList {
+	m := new(SwitchMFirmwareAllFirmwaresQueryResultList)
+	return m
+}
+
 type SwitchMFirmwaresQueryResultList struct {
 	// Extra
 	// Extra information for Firmware list
@@ -176,9 +181,10 @@ func NewSwitchMFirmwareSwitchModel() *SwitchMFirmwareSwitchModel {
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMFirmwaresQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMFirmwaresQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMFirmwaresQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -192,6 +198,9 @@ func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMC
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMFirmwaresQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddFirmwareUpload
@@ -202,9 +211,10 @@ func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMC
 //	 - body []byte
 func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []byte) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -216,6 +226,9 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []b
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteFirmwareByVersion
@@ -227,9 +240,10 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []b
 //		- required
 func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, version string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -239,6 +253,9 @@ func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, ve
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteFirmwareByVersion, true)
 	req.SetPathParameter("version", version)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindFirmware
@@ -246,14 +263,18 @@ func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, ve
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
 func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirmwareAllFirmwaresQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMFirmwareAllFirmwaresQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMFirmwareAllFirmwaresQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMFirmwareAllFirmwaresQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateFirmwareByVersion
@@ -268,9 +289,10 @@ func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirm
 //		- required
 func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, version string) (*SwitchMFirmwareScheduleIds, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMFirmwareScheduleIds
-		err  error
+		req      *APIRequest
+		resp     *SwitchMFirmwareScheduleIds
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -288,4 +310,7 @@ func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Cont
 		return resp, err
 	}
 	req.SetPathParameter("version", version)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMFirmwareScheduleIds()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

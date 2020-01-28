@@ -59,6 +59,11 @@ type WSGWIFICallingModifyEntireWifiCallingPolicy struct {
 	*WSGWIFICallingModifyWifiCallingPolicy
 }
 
+func NewWSGWIFICallingModifyEntireWifiCallingPolicy() *WSGWIFICallingModifyEntireWifiCallingPolicy {
+	m := new(WSGWIFICallingModifyEntireWifiCallingPolicy)
+	return m
+}
+
 type WSGWIFICallingModifyWifiCallingPolicy struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 

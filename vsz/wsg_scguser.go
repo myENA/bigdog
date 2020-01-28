@@ -793,9 +793,10 @@ func NewWSGSCGUserList() *WSGSCGUserList {
 //	 - body *WSGSCGUserCreateScgUser
 func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreateScgUser) (*WSGSCGUserAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -809,6 +810,9 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserAuditId()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteUsers
@@ -819,9 +823,10 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -835,6 +840,9 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteUsersByUserId
@@ -846,9 +854,10 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 //		- required
 func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string) (*WSGSCGUserAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -858,6 +867,9 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
 	req.SetPathParameter("userId", userId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserAuditId()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindUsersByQueryCriteria
@@ -868,9 +880,10 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 //	 - body *WSGSCGUserQueryCriteria
 func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria) (*WSGSCGUserList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserList
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -884,6 +897,9 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindUsersByUserId
@@ -895,9 +911,10 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 //		- required
 func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string) (*WSGSCGUserGetScgUser, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGetScgUser
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGetScgUser
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -907,6 +924,9 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUsersByUserId, true)
 	req.SetPathParameter("userId", userId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGetScgUser()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateUsersByUserId
@@ -921,9 +941,10 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 //		- required
 func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body *WSGSCGUserModifyScgUser, userId string) (*WSGSCGUserAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -941,4 +962,7 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 		return resp, err
 	}
 	req.SetPathParameter("userId", userId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserAuditId()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

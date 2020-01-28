@@ -33,9 +33,10 @@ func (ss *WSGService) WSGBonjourFencingPolicyService() *WSGBonjourFencingPolicyS
 //		- required
 func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId(ctx context.Context, body *WSGProfileCreateBonjourFencingPolicy, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesBonjourFencingPolicy
@@ -63,9 +67,10 @@ func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -79,6 +84,9 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesBonjourFencingPolicyById
@@ -90,8 +98,9 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx 
 //		- required
 func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -101,6 +110,8 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicyById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindApsBonjourFencingStatisticByApMac
@@ -112,9 +123,10 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(
 //		- required
 func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(ctx context.Context, apMac string) (*WSGProfileBonjourFencingStatistic, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBonjourFencingStatistic
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBonjourFencingStatistic
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -124,6 +136,9 @@ func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(c
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsBonjourFencingStatisticByApMac, true)
 	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBonjourFencingStatistic()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesBonjourFencingPolicyById
@@ -137,9 +152,10 @@ func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(c
 //		- required
 func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ctx context.Context, id string, zoneId string) (*WSGProfileBonjourFencingPolicy, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBonjourFencingPolicy
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBonjourFencingPolicy
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -153,6 +169,9 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ct
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBonjourFencingPolicy()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesBonjourFencingPolicyByZoneId
@@ -164,9 +183,10 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ct
 //		- required
 func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneId(ctx context.Context, zoneId string) (*WSGProfileBonjourFencingPolicyList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBonjourFencingPolicyList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBonjourFencingPolicyList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -176,6 +196,9 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBonjourFencingPolicyList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesBonjourFencingPolicyByQueryCriteria
@@ -186,9 +209,10 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBonjourFencingPolicyList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBonjourFencingPolicyList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBonjourFencingPolicyList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -202,6 +226,9 @@ func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQuery
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBonjourFencingPolicyList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesBonjourFencingPolicyById
@@ -218,9 +245,10 @@ func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQuery
 //		- required
 func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPolicyById(ctx context.Context, body *WSGProfileModifyBonjourFencingPolicy, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -242,4 +270,7 @@ func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPoli
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

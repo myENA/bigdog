@@ -29,9 +29,10 @@ func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService
 //	 - body *WSGServiceCreateRadiusAccounting
 func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context, body *WSGServiceCreateRadiusAccounting) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddServicesAcctTestById
@@ -59,9 +63,10 @@ func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context,
 //		- required
 func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Context, body *WSGServiceTestingConfig, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -79,6 +84,9 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteServicesAcct
@@ -89,9 +97,10 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 //	 - body *WSGServiceDeleteBulkAccountingService
 func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, body *WSGServiceDeleteBulkAccountingService) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -105,6 +114,9 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteServicesAcctById
@@ -116,9 +128,10 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -128,6 +141,9 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteServicesAcctRadiusById
@@ -139,9 +155,10 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -151,6 +168,9 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteServicesAcctRadiusSecondaryById
@@ -162,9 +182,10 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -174,6 +195,9 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusSecondaryById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteServicesAcctRadiusStandbyPrimaryById
@@ -185,9 +209,10 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 //		- required
 func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -197,6 +222,9 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusStandbyPrimaryById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindServicesAcctByQueryCriteria
@@ -207,9 +235,10 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceCommonAccountingServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGServiceCommonAccountingServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGServiceCommonAccountingServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -223,6 +252,9 @@ func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGServiceCommonAccountingServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesAcctRadius
@@ -230,14 +262,18 @@ func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx contex
 // Use this API command to retrieve a list of RADIUS accounting services.
 func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context) (*WSGServiceRadiusAccountingServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGServiceRadiusAccountingServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGServiceRadiusAccountingServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAcctRadius, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGServiceRadiusAccountingServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesAcctRadiusById
@@ -249,9 +285,10 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 //		- required
 func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Context, id string) (*WSGServiceRadiusAccountingService, error) {
 	var (
-		req  *APIRequest
-		resp *WSGServiceRadiusAccountingService
-		err  error
+		req      *APIRequest
+		resp     *WSGServiceRadiusAccountingService
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -261,6 +298,9 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAcctRadiusById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGServiceRadiusAccountingService()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesAcctRadiusByQueryCriteria
@@ -271,9 +311,10 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceRadiusAccountingServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGServiceRadiusAccountingServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGServiceRadiusAccountingServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -287,6 +328,9 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGServiceRadiusAccountingServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateServicesAcctRadiusById
@@ -301,9 +345,10 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx 
 //		- required
 func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAccounting, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -321,4 +366,7 @@ func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx co
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

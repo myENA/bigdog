@@ -33,9 +33,10 @@ func (ss *WSGService) WSGDiffServService() *WSGDiffServService {
 //		- required
 func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, body *WSGZoneCreateDiffServProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesDiffservById
@@ -66,8 +70,9 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 //		- required
 func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id string, zoneId string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -81,6 +86,8 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id 
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDiffservById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindRkszonesDiffservById
@@ -94,9 +101,10 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id 
 //		- required
 func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id string, zoneId string) (*WSGZoneDiffServConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGZoneDiffServConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGZoneDiffServConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -110,6 +118,9 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGZoneDiffServConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDiffservByZoneId
@@ -121,9 +132,10 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 //		- required
 func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, zoneId string) (*WSGZoneDiffServList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGZoneDiffServList
-		err  error
+		req      *APIRequest
+		resp     *WSGZoneDiffServList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -133,6 +145,9 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGZoneDiffServList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesDiffservById
@@ -149,8 +164,9 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 //		- required
 func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Context, body *WSGZoneModifyDiffServProfile, id string, zoneId string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -172,4 +188,6 @@ func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Conte
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

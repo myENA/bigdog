@@ -550,9 +550,10 @@ func NewWSGCertificateTrustedCAChainCertListType() *WSGCertificateTrustedCAChain
 //	 - body *WSGCertificateCreateCert
 func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, body *WSGCertificateCreateCert) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -566,6 +567,9 @@ func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, bod
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddCertstoreClientCert
@@ -576,9 +580,10 @@ func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, bod
 //	 - body *WSGCertificateCreateClientCert
 func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body *WSGCertificateCreateClientCert) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -592,6 +597,9 @@ func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddCertstoreCsr
@@ -602,9 +610,10 @@ func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body
 //	 - body *WSGCertificateCreateCSR
 func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCertificateCreateCSR) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -618,6 +627,9 @@ func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCe
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddCertstoreTrustedCAChainCert
@@ -628,9 +640,10 @@ func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCe
 //	 - body *WSGCertificateCreateTrustedCAChain
 func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Context, body *WSGCertificateCreateTrustedCAChain) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -644,6 +657,9 @@ func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteCertstoreCertificateById
@@ -655,9 +671,10 @@ func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Conte
 //		- required
 func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -667,6 +684,9 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreCertificateById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteCertstoreClientCertById
@@ -678,9 +698,10 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 //		- required
 func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -690,6 +711,9 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreClientCertById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteCertstoreCsrById
@@ -701,9 +725,10 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 //		- required
 func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -713,6 +738,9 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id s
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreCsrById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteCertstoreTrustedCAChainCert
@@ -723,9 +751,10 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id s
 //	 - body *WSGCertificateDeleteBulk
 func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Context, body *WSGCertificateDeleteBulk) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -739,6 +768,9 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteCertstoreTrustedCAChainCertById
@@ -750,9 +782,10 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Co
 //		- required
 func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -762,6 +795,9 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCertById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindCertstoreCertificate
@@ -773,11 +809,12 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, optionalParams map[string]interface{}) (*WSGCertificateList, error) {
+func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, optionalParams map[string][]string) (*WSGCertificateList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificateList
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificateList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -789,6 +826,9 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificateList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindCertstoreCertificateById
@@ -800,9 +840,10 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 //		- required
 func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context, id string) (*WSGCertificate, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificate
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificate
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -812,6 +853,9 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCertificateById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificate()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindCertstoreClientCert
@@ -823,11 +867,12 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, optionalParams map[string]interface{}) (*WSGCertificateClientCertList, error) {
+func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, optionalParams map[string][]string) (*WSGCertificateClientCertList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificateClientCertList
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificateClientCertList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -839,6 +884,9 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificateClientCertList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindCertstoreClientCertById
@@ -850,9 +898,10 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 //		- required
 func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context, id string) (*WSGCertificateClientCert, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificateClientCert
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificateClientCert
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -862,6 +911,9 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreClientCertById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificateClientCert()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindCertstoreCsr
@@ -873,11 +925,12 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalParams map[string]interface{}) (*WSGCertificateCsrList, error) {
+func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalParams map[string][]string) (*WSGCertificateCsrList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificateCsrList
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificateCsrList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -889,6 +942,9 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificateCsrList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindCertstoreCsrById
@@ -900,9 +956,10 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 //		- required
 func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id string) (*WSGCertificatesSigningRequest, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificatesSigningRequest
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificatesSigningRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -912,6 +969,9 @@ func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id str
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCsrById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificatesSigningRequest()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindCertstoreSetting
@@ -919,14 +979,18 @@ func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id str
 // Use this API command to retrieve certificate setting.
 func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context) (*WSGCertificateCertSetting, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificateCertSetting
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificateCertSetting
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreSetting, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificateCertSetting()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindCertstoreTrustedCAChainCert
@@ -938,11 +1002,12 @@ func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context) (*WSGC
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Context, optionalParams map[string]interface{}) (*WSGCertificateTrustedCAChainCertList, error) {
+func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Context, optionalParams map[string][]string) (*WSGCertificateTrustedCAChainCertList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificateTrustedCAChainCertList
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificateTrustedCAChainCertList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -954,6 +1019,9 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificateTrustedCAChainCertList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindCertstoreTrustedCAChainCertById
@@ -965,9 +1033,10 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 //		- required
 func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.Context, id string) (*WSGCertificateTrustedCAChain, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCertificateTrustedCAChain
-		err  error
+		req      *APIRequest
+		resp     *WSGCertificateTrustedCAChain
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -977,6 +1046,9 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCertById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCertificateTrustedCAChain()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateCertstoreSetting
@@ -987,9 +1059,10 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 //	 - body *WSGCertificateCertSetting
 func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Context, body *WSGCertificateCertSetting) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1003,6 +1076,9 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // PartialUpdateCertstoreSettingServiceCertificates
@@ -1013,9 +1089,10 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Contex
 //	 - body WSGCertificateServiceCertificates
 func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates(ctx context.Context, body WSGCertificateServiceCertificates) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1027,6 +1104,9 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // PartialUpdateCertstoreTrustedCAChainCertById
@@ -1041,9 +1121,10 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates
 //		- required
 func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx context.Context, body *WSGCertificateModifyTrustedCAChain, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1061,4 +1142,7 @@ func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -171,9 +171,10 @@ func NewWSGDevicePolicyPorfileListType() *WSGDevicePolicyPorfileListType {
 //		- required
 func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Context, body *WSGDevicePolicyCreateDevicePolicy, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -191,6 +192,9 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesDevicePolicyById
@@ -204,9 +208,10 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 //		- required
 func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -220,6 +225,9 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDevicePolicyById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesDevicePolicyById
@@ -233,9 +241,10 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 //		- required
 func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string) (*WSGDevicePolicyPorfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDevicePolicyPorfile
-		err  error
+		req      *APIRequest
+		resp     *WSGDevicePolicyPorfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -249,6 +258,9 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDevicePolicyById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDevicePolicyPorfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDevicePolicyByZoneId
@@ -264,11 +276,12 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGDevicePolicyPorfileList, error) {
+func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGDevicePolicyPorfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDevicePolicyPorfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGDevicePolicyPorfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -284,6 +297,9 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDevicePolicyPorfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesDevicePolicyById
@@ -300,9 +316,10 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 //		- required
 func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx context.Context, body *WSGDevicePolicyModifyDevicePolicy, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -324,4 +341,7 @@ func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx conte
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -173,9 +173,10 @@ func NewWSGVLANPoolingListType() *WSGVLANPoolingListType {
 //	 - body *WSGVLANPoolingCreateVlanPooling
 func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVLANPoolingCreateVlanPooling) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -189,6 +190,9 @@ func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVL
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteVlanpoolings
@@ -199,9 +203,10 @@ func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVL
 //	 - body *WSGVLANPoolingDeleteBulkVlanPooling
 func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WSGVLANPoolingDeleteBulkVlanPooling) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -215,6 +220,9 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WS
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteVlanpoolingsById
@@ -226,9 +234,10 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WS
 //		- required
 func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -238,6 +247,9 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id s
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteVlanpoolingsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindVlanpoolingsById
@@ -249,9 +261,10 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id s
 //		- required
 func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id string) (*WSGVLANPooling, error) {
 	var (
-		req  *APIRequest
-		resp *WSGVLANPooling
-		err  error
+		req      *APIRequest
+		resp     *WSGVLANPooling
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -261,6 +274,9 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id str
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindVlanpoolingsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGVLANPooling()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindVlanpoolingsByQueryCriteria
@@ -271,9 +287,10 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id str
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGVLANPoolingList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGVLANPoolingList
-		err  error
+		req      *APIRequest
+		resp     *WSGVLANPoolingList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -287,6 +304,9 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGVLANPoolingList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateVlanpoolingsById
@@ -301,9 +321,10 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 //		- required
 func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Context, body *WSGVLANPoolingModifyVlanPooling, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -321,4 +342,7 @@ func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Contex
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -29,9 +29,10 @@ func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileSer
 //	 - body *WSGProfileCreateZoneAffinityProfile
 func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Context, body *WSGProfileCreateZoneAffinityProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteProfilesZoneAffinityById
@@ -56,8 +60,9 @@ func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Cont
 //		- required
 func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -67,6 +72,8 @@ func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx conte
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesZoneAffinityById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindProfilesZoneAffinity
@@ -76,11 +83,12 @@ func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx conte
 // Optional Parameters:
 // - vdpId string
 //		- nullable
-func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileZoneAffinityProfileList, error) {
+func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Context, optionalParams map[string][]string) (*WSGProfileZoneAffinityProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileZoneAffinityProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileZoneAffinityProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -89,6 +97,9 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 	if v, ok := optionalParams["vdpId"]; ok {
 		req.AddQueryParameter("vdpId", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileZoneAffinityProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesZoneAffinityById
@@ -100,9 +111,10 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 //		- required
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context.Context, id string) (*WSGProfileReturnZoneAffinityProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileReturnZoneAffinityProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileReturnZoneAffinityProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -112,6 +124,9 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesZoneAffinityById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileReturnZoneAffinityProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesZoneAffinityById
@@ -126,9 +141,10 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context
 //		- required
 func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ctx context.Context, body *WSGProfileModifyZoneAffinityProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -146,4 +162,7 @@ func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ct
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

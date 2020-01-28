@@ -11,3 +11,8 @@ var (
 func init() {
 	pkgValidator = validator.New()
 }
+
+// PackageValidator returns the global validator instance used by this client
+func PackageValidator() *validator.Validate {
+	return pkgValidator
+}

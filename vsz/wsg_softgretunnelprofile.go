@@ -29,9 +29,10 @@ func (ss *WSGService) WSGSoftGRETunnelProfileService() *WSGSoftGRETunnelProfileS
 //	 - body *WSGProfileCreateSoftGREProfile
 func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Context, body *WSGProfileCreateSoftGREProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteProfilesTunnelSoftgre
@@ -55,9 +59,10 @@ func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Co
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteProfilesTunnelSoftgreById
@@ -82,9 +90,10 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context
 //		- required
 func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -94,6 +103,9 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx con
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgreById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindProfilesTunnelSoftgre
@@ -101,14 +113,18 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx con
 // Use this API command to retrieve a list of SoftGRE tunnel profile.
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.Context) (*WSGProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgre, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesTunnelSoftgreById
@@ -120,9 +136,10 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.C
 //		- required
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx context.Context, id string) (*WSGProfileSoftGREProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileSoftGREProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileSoftGREProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -132,6 +149,9 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgreById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileSoftGREProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesTunnelSoftgreByQueryCriteria
@@ -142,9 +162,10 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileSoftGREProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileSoftGREProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileSoftGREProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -158,6 +179,9 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileSoftGREProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesTunnelSoftgreById
@@ -172,9 +196,10 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 //		- required
 func (s *WSGSoftGRETunnelProfileService) PartialUpdateProfilesTunnelSoftgreById(ctx context.Context, body *WSGProfileModifySoftGREProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -192,4 +217,7 @@ func (s *WSGSoftGRETunnelProfileService) PartialUpdateProfilesTunnelSoftgreById(
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

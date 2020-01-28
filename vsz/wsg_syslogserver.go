@@ -30,11 +30,12 @@ func (ss *WSGService) WSGSyslogServerService() *WSGSyslogServerService {
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalParams map[string]interface{}) (*WSGSyslogServerSetting, error) {
+func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalParams map[string][]string) (*WSGSyslogServerSetting, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSyslogServerSetting
-		err  error
+		req      *APIRequest
+		resp     *WSGSyslogServerSetting
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -46,6 +47,9 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSyslogServerSetting()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateSystemSyslog
@@ -56,8 +60,9 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 //	 - body *WSGSyslogModifySyslogSettings
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, body *WSGSyslogModifySyslogSettings) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -71,6 +76,8 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // PartialUpdateSystemSyslogPrimaryServer
@@ -81,8 +88,9 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 //	 - body *WSGSyslogPrimaryServer
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx context.Context, body *WSGSyslogPrimaryServer) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -96,6 +104,8 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // PartialUpdateSystemSyslogPriority
@@ -106,8 +116,9 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 //	 - body *WSGSyslogPriority
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.Context, body *WSGSyslogPriority) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -121,6 +132,8 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // PartialUpdateSystemSyslogSecondaryServer
@@ -131,8 +144,9 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 //	 - body *WSGSyslogSecondaryServer
 func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx context.Context, body *WSGSyslogSecondaryServer) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -146,4 +160,6 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx co
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMIPSettingService() *SwitchMIPSettingService {
 //	 - body *SwitchMIpConfigCreate
 func (s *SwitchMIPSettingService) AddIpConfigs(ctx context.Context, body *SwitchMIpConfigCreate) (SwitchMIpConfigCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp SwitchMIpConfigCreateResult
-		err  error
+		req      *APIRequest
+		resp     SwitchMIpConfigCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMIPSettingService) AddIpConfigs(ctx context.Context, body *Switch
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = MakeSwitchMIpConfigCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, resp, err)
 }
 
 // DeleteIpConfigs
@@ -55,8 +59,9 @@ func (s *SwitchMIPSettingService) AddIpConfigs(ctx context.Context, body *Switch
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMIPSettingService) DeleteIpConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -70,6 +75,8 @@ func (s *SwitchMIPSettingService) DeleteIpConfigs(ctx context.Context, body *Swi
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteIpConfigsById
@@ -81,8 +88,9 @@ func (s *SwitchMIPSettingService) DeleteIpConfigs(ctx context.Context, body *Swi
 //		- required
 func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -92,6 +100,8 @@ func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, id st
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteIpConfigsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindIpConfigs
@@ -99,14 +109,18 @@ func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, id st
 // Use this API command to Retrieve IP Config List.
 func (s *SwitchMIPSettingService) FindIpConfigs(ctx context.Context) (*SwitchMIpConfigList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMIpConfigList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMIpConfigList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigs, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMIpConfigList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIpConfigsById
@@ -118,9 +132,10 @@ func (s *SwitchMIPSettingService) FindIpConfigs(ctx context.Context) (*SwitchMIp
 //		- required
 func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, id string) (*SwitchMIpConfig, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMIpConfig
-		err  error
+		req      *APIRequest
+		resp     *SwitchMIpConfig
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -130,6 +145,9 @@ func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMIpConfig()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIpConfigsByQueryCriteria
@@ -140,9 +158,10 @@ func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, id stri
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMIpConfigList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMIpConfigList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMIpConfigList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -156,6 +175,9 @@ func (s *SwitchMIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMIpConfigList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateIpConfigsById
@@ -170,9 +192,10 @@ func (s *SwitchMIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Conte
 //		- required
 func (s *SwitchMIPSettingService) UpdateIpConfigsById(ctx context.Context, body *SwitchMIpConfigModify, id string) (*SwitchMIpConfigEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMIpConfigEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMIpConfigEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -190,4 +213,7 @@ func (s *SwitchMIPSettingService) UpdateIpConfigsById(ctx context.Context, body 
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMIpConfigEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

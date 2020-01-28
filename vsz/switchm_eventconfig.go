@@ -10,12 +10,27 @@ type SwitchMEventConfigAddEventConfig struct {
 	*SwitchMEventConfig
 }
 
+func NewSwitchMEventConfigAddEventConfig() *SwitchMEventConfigAddEventConfig {
+	m := new(SwitchMEventConfigAddEventConfig)
+	return m
+}
+
 type SwitchMEventConfigAddEventConfigResult struct {
 	*SwitchMEventConfigQueryResponse
 }
 
+func NewSwitchMEventConfigAddEventConfigResult() *SwitchMEventConfigAddEventConfigResult {
+	m := new(SwitchMEventConfigAddEventConfigResult)
+	return m
+}
+
 type SwitchMEventConfigDeleteEventConfigResult struct {
 	*SwitchMEventConfigQueryResponse
+}
+
+func NewSwitchMEventConfigDeleteEventConfigResult() *SwitchMEventConfigDeleteEventConfigResult {
+	m := new(SwitchMEventConfigDeleteEventConfigResult)
+	return m
 }
 
 type SwitchMEventConfig struct {
@@ -263,6 +278,16 @@ type SwitchMEventConfigUpdateEventConfig struct {
 	*SwitchMEventConfig
 }
 
+func NewSwitchMEventConfigUpdateEventConfig() *SwitchMEventConfigUpdateEventConfig {
+	m := new(SwitchMEventConfigUpdateEventConfig)
+	return m
+}
+
 type SwitchMEventConfigUpdateEventConfigResult struct {
 	*SwitchMEventConfigQueryResponse
+}
+
+func NewSwitchMEventConfigUpdateEventConfigResult() *SwitchMEventConfigUpdateEventConfigResult {
+	m := new(SwitchMEventConfigUpdateEventConfigResult)
+	return m
 }

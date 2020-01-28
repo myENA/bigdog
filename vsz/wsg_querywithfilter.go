@@ -29,9 +29,10 @@ func (ss *WSGService) WSGQueryWithFilterService() *WSGQueryWithFilterService {
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindApByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAPQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGAPQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGQueryWithFilterService) FindApByQueryCriteria(ctx context.Context, b
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindApWlanByQueryCriteria
@@ -55,9 +59,10 @@ func (s *WSGQueryWithFilterService) FindApByQueryCriteria(ctx context.Context, b
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWLANQueryApWlanBssidQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWLANQueryApWlanBssidQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGWLANQueryApWlanBssidQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANQueryApWlanBssidQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindClientByQueryCriteria
@@ -81,9 +89,10 @@ func (s *WSGQueryWithFilterService) FindApWlanByQueryCriteria(ctx context.Contex
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGClientQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGClientQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -97,6 +106,9 @@ func (s *WSGQueryWithFilterService) FindClientByQueryCriteria(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGClientQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpskByQueryCriteria
@@ -107,9 +119,10 @@ func (s *WSGQueryWithFilterService) FindClientByQueryCriteria(ctx context.Contex
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGDPSKQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPSKQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGDPSKQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -123,6 +136,9 @@ func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPSKQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIndoorMapByQueryCriteria
@@ -133,9 +149,10 @@ func (s *WSGQueryWithFilterService) FindDpskByQueryCriteria(ctx context.Context,
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGIndoorMapSummaryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIndoorMapSummaryList
-		err  error
+		req      *APIRequest
+		resp     *WSGIndoorMapSummaryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -149,6 +166,9 @@ func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria(ctx context.Con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMapSummaryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindMeshNeighborByApMacByQueryCriteria
@@ -163,9 +183,10 @@ func (s *WSGQueryWithFilterService) FindIndoorMapByQueryCriteria(ctx context.Con
 //		- required
 func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string) (*WSGMeshNeighborInfoList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGMeshNeighborInfoList
-		err  error
+		req      *APIRequest
+		resp     *WSGMeshNeighborInfoList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -183,6 +204,9 @@ func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx c
 		return resp, err
 	}
 	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGMeshNeighborInfoList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindMeshTopologyByApMacByQueryCriteria
@@ -197,9 +221,10 @@ func (s *WSGQueryWithFilterService) FindMeshNeighborByApMacByQueryCriteria(ctx c
 //		- required
 func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string) (WSGMeshNodeInfoArray, error) {
 	var (
-		req  *APIRequest
-		resp WSGMeshNodeInfoArray
-		err  error
+		req      *APIRequest
+		resp     WSGMeshNodeInfoArray
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -217,6 +242,9 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx c
 		return resp, err
 	}
 	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = MakeWSGMeshNodeInfoArray()
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindMeshTopologyByQueryCriteria
@@ -227,9 +255,10 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByApMacByQueryCriteria(ctx c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGMeshNodeInfoList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGMeshNodeInfoList
-		err  error
+		req      *APIRequest
+		resp     *WSGMeshNodeInfoList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -243,6 +272,9 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria(ctx context.
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGMeshNodeInfoList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRoguesInfoListByQueryCriteria
@@ -253,9 +285,10 @@ func (s *WSGQueryWithFilterService) FindMeshTopologyByQueryCriteria(ctx context.
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRogueInfoList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGRogueInfoList
-		err  error
+		req      *APIRequest
+		resp     *WSGRogueInfoList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -269,6 +302,9 @@ func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGRogueInfoList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesAaaServerAcctByQueryCriteria
@@ -279,9 +315,10 @@ func (s *WSGQueryWithFilterService) FindRoguesInfoListByQueryCriteria(ctx contex
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAAAServerQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAAAServerQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGAAAServerQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -295,6 +332,9 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAAAServerQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesAaaServerAuthByQueryCriteria
@@ -305,9 +345,10 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAcctByQueryCriteria(ctx
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAAAServerQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAAAServerQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGAAAServerQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -321,6 +362,9 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAAAServerQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesAaaServerByQueryCriteria
@@ -331,9 +375,10 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerAuthByQueryCriteria(ctx
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAAAServerQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAAAServerQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGAAAServerQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -347,6 +392,9 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria(ctx con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAAAServerQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesBonjourPolicyByQueryCriteria
@@ -357,9 +405,10 @@ func (s *WSGQueryWithFilterService) FindServicesAaaServerByQueryCriteria(ctx con
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -373,6 +422,9 @@ func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesDevicePolicyByQueryCriteria
@@ -383,9 +435,10 @@ func (s *WSGQueryWithFilterService) FindServicesBonjourPolicyByQueryCriteria(ctx
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -399,6 +452,9 @@ func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria(ctx 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesDhcpProfileByQueryCriteria
@@ -409,9 +465,10 @@ func (s *WSGQueryWithFilterService) FindServicesDevicePolicyByQueryCriteria(ctx 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDhcpProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileDhcpProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileDhcpProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -425,6 +482,9 @@ func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria(ctx c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileDhcpProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesDscpProfileByQueryCriteria
@@ -435,9 +495,10 @@ func (s *WSGQueryWithFilterService) FindServicesDhcpProfileByQueryCriteria(ctx c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -451,6 +512,9 @@ func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria(ctx c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesEthernetPortProfileByQueryCriteria
@@ -461,9 +525,10 @@ func (s *WSGQueryWithFilterService) FindServicesDscpProfileByQueryCriteria(ctx c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesEthernetPortProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -477,6 +542,9 @@ func (s *WSGQueryWithFilterService) FindServicesEthernetPortProfileByQueryCriter
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesGuessAccessByQueryCriteria
@@ -487,9 +555,10 @@ func (s *WSGQueryWithFilterService) FindServicesEthernetPortProfileByQueryCriter
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesGuessAccessByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -503,6 +572,9 @@ func (s *WSGQueryWithFilterService) FindServicesGuessAccessByQueryCriteria(ctx c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesGuestAccessByQueryCriteria
@@ -513,9 +585,10 @@ func (s *WSGQueryWithFilterService) FindServicesGuessAccessByQueryCriteria(ctx c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesGuestAccessByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -529,6 +602,9 @@ func (s *WSGQueryWithFilterService) FindServicesGuestAccessByQueryCriteria(ctx c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesHotspot20ProfileByQueryCriteria
@@ -539,9 +615,10 @@ func (s *WSGQueryWithFilterService) FindServicesGuestAccessByQueryCriteria(ctx c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesHotspot20ProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -555,6 +632,9 @@ func (s *WSGQueryWithFilterService) FindServicesHotspot20ProfileByQueryCriteria(
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesHotspotByQueryCriteria
@@ -565,9 +645,10 @@ func (s *WSGQueryWithFilterService) FindServicesHotspot20ProfileByQueryCriteria(
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesHotspotByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -581,6 +662,9 @@ func (s *WSGQueryWithFilterService) FindServicesHotspotByQueryCriteria(ctx conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesL2AccessControlByQueryCriteria
@@ -591,9 +675,10 @@ func (s *WSGQueryWithFilterService) FindServicesHotspotByQueryCriteria(ctx conte
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesL2AccessControlByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -607,6 +692,9 @@ func (s *WSGQueryWithFilterService) FindServicesL2AccessControlByQueryCriteria(c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesVenueProfileByQueryCriteria
@@ -617,9 +705,10 @@ func (s *WSGQueryWithFilterService) FindServicesL2AccessControlByQueryCriteria(c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesVenueProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -633,6 +722,9 @@ func (s *WSGQueryWithFilterService) FindServicesVenueProfileByQueryCriteria(ctx 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesVlanPoolingByQueryCriteria
@@ -643,9 +735,10 @@ func (s *WSGQueryWithFilterService) FindServicesVenueProfileByQueryCriteria(ctx 
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesVlanPoolingByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -659,6 +752,9 @@ func (s *WSGQueryWithFilterService) FindServicesVlanPoolingByQueryCriteria(ctx c
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesWebAuthenticationByQueryCriteria
@@ -669,9 +765,10 @@ func (s *WSGQueryWithFilterService) FindServicesVlanPoolingByQueryCriteria(ctx c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesWebAuthenticationByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -685,6 +782,9 @@ func (s *WSGQueryWithFilterService) FindServicesWebAuthenticationByQueryCriteria
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesWechatProfileByQueryCriteria
@@ -695,9 +795,10 @@ func (s *WSGQueryWithFilterService) FindServicesWebAuthenticationByQueryCriteria
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesWechatProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -711,6 +812,9 @@ func (s *WSGQueryWithFilterService) FindServicesWechatProfileByQueryCriteria(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindServicesWlanSchedulerByQueryCriteria
@@ -721,9 +825,10 @@ func (s *WSGQueryWithFilterService) FindServicesWechatProfileByQueryCriteria(ctx
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -737,6 +842,9 @@ func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindUserByQueryCriteria
@@ -747,9 +855,10 @@ func (s *WSGQueryWithFilterService) FindServicesWlanSchedulerByQueryCriteria(ctx
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindUserByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -763,6 +872,9 @@ func (s *WSGQueryWithFilterService) FindUserByQueryCriteria(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindWlanByQueryCriteria
@@ -773,9 +885,10 @@ func (s *WSGQueryWithFilterService) FindUserByQueryCriteria(ctx context.Context,
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWLANQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWLANQueryList
-		err  error
+		req      *APIRequest
+		resp     *WSGWLANQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -789,4 +902,7 @@ func (s *WSGQueryWithFilterService) FindWlanByQueryCriteria(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

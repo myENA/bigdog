@@ -45,8 +45,9 @@ func NewWSGFlexiVPNSetting() *WSGFlexiVPNSetting {
 //		- required
 func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.Context, id string, zoneId string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -60,6 +61,8 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansFlexiVpnProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindServicesFlexiVpnProfileByQueryCriteria
@@ -70,9 +73,10 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileFlexiVpnProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileFlexiVpnProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileFlexiVpnProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -86,4 +90,7 @@ func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileFlexiVpnProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

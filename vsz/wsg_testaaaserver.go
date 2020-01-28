@@ -29,9 +29,10 @@ func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
 //	 - body *WSGAAATestAuthenticationServer
 func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WSGAAATestAuthenticationServer) (*WSGAAATestAAAServerResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAAATestAAAServerResult
-		err  error
+		req      *APIRequest
+		resp     *WSGAAATestAAAServerResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,4 +46,7 @@ func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WS
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAAATestAAAServerResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

@@ -29,9 +29,10 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 //	 - body *WSGAdministrationZdImport
 func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationZdImport) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddZdImportMigrate
@@ -55,9 +59,10 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 //	 - body *WSGAdministrationZdImport
 func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAdministrationZdImport) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // FindZdImportGetZDAPs
@@ -82,9 +90,10 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 //		- required
 func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string) (*WSGAdministrationZdAPList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationZdAPList
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationZdAPList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -93,7 +102,10 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindZdImportGetZDAPs, true)
-	req.SetQueryParameter("ip", ip)
+	req.SetQueryParameter("ip", []string{ip})
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationZdAPList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindZdImportStatus
@@ -103,11 +115,12 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 // Optional Parameters:
 // - details string
 //		- nullable
-func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalParams map[string]interface{}) (*WSGAdministrationZdImportStatus, error) {
+func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalParams map[string][]string) (*WSGAdministrationZdImportStatus, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAdministrationZdImportStatus
-		err  error
+		req      *APIRequest
+		resp     *WSGAdministrationZdImportStatus
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -116,4 +129,7 @@ func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalPar
 	if v, ok := optionalParams["details"]; ok {
 		req.AddQueryParameter("details", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAdministrationZdImportStatus()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

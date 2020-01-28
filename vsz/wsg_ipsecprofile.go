@@ -29,9 +29,10 @@ func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 //	 - body *WSGProfileCreateIpsecProfile
 func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, body *WSGProfileCreateIpsecProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteProfilesTunnelIpsec
@@ -55,9 +59,10 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteProfilesTunnelIpsecById
@@ -82,9 +90,10 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 //		- required
 func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -94,6 +103,9 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindProfilesTunnelIpsec
@@ -105,11 +117,12 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileList, error) {
+func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, optionalParams map[string][]string) (*WSGProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -121,6 +134,9 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesTunnelIpsecById
@@ -132,9 +148,10 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 //		- required
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context, id string) (*WSGProfileIpsecProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileIpsecProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileIpsecProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -144,6 +161,9 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsecById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileIpsecProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesTunnelIpsecByQueryCriteria
@@ -154,9 +174,10 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileIpsecProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileIpsecProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileIpsecProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -170,6 +191,9 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileIpsecProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesTunnelIpsecById
@@ -184,9 +208,10 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 //		- required
 func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *WSGProfileModifyIpsecProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -204,4 +229,7 @@ func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx contex
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -33,9 +33,10 @@ func (ss *WSGService) WSGDHCPService() *WSGDHCPService {
 //		- required
 func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGProfileCreateDhcpProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Cont
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesDhcpSiteDhcpProfileById
@@ -66,9 +70,10 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Cont
 //		- required
 func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDhcpSiteDhcpProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesDhcpSiteDhcpProfileByZoneId
@@ -96,9 +104,10 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Conte
 //		- required
 func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -116,6 +125,9 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.C
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindDhcpDataDhcpMsgStatsByApMac
@@ -127,9 +139,10 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.C
 //		- required
 func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, apMac string) (*WSGDHCPMsgStats, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDHCPMsgStats
-		err  error
+		req      *APIRequest
+		resp     *WSGDHCPMsgStats
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -139,6 +152,9 @@ func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, ap
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDhcpDataDhcpMsgStatsByApMac, true)
 	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDHCPMsgStats()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDhcpDataDhcpPoolsByApMac
@@ -150,9 +166,10 @@ func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, ap
 //		- required
 func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac string) (*WSGDHCPPools, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDHCPPools
-		err  error
+		req      *APIRequest
+		resp     *WSGDHCPPools
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -162,6 +179,9 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDhcpDataDhcpPoolsByApMac, true)
 	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDHCPPools()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDhcpDataDhcpPoolsByPoolIndex
@@ -175,9 +195,10 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac
 //		- required
 func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, apMac string, poolIndex string) (*WSGDHCPPoolsDhcpPoolInfo, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDHCPPoolsDhcpPoolInfo
-		err  error
+		req      *APIRequest
+		resp     *WSGDHCPPoolsDhcpPoolInfo
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -191,6 +212,9 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, a
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDhcpDataDhcpPoolsByPoolIndex, true)
 	req.SetPathParameter("apMac", apMac)
 	req.SetPathParameter("poolIndex", poolIndex)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDHCPPoolsDhcpPoolInfo()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDhcpSiteDhcpProfileById
@@ -204,9 +228,10 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, a
 //		- required
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonDhcpProfileRef, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonDhcpProfileRef
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonDhcpProfileRef
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -220,6 +245,9 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDhcpSiteDhcpProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonDhcpProfileRef()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDhcpSiteDhcpProfileByZoneId
@@ -231,9 +259,10 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context
 //		- required
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, zoneId string) (*WSGProfileDhcpProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileDhcpProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileDhcpProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -243,6 +272,9 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDhcpSiteDhcpProfileByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileDhcpProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDhcpSiteDhcpSiteConfigByZoneId
@@ -254,9 +286,10 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Con
 //		- required
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.Context, zoneId string) (*WSGCommonDhcpSiteConfigListRef, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonDhcpSiteConfigListRef
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonDhcpSiteConfigListRef
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -266,6 +299,9 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDhcpSiteDhcpSiteConfigByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonDhcpSiteConfigListRef()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesDhcpSiteDhcpProfileById
@@ -282,9 +318,10 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.
 //		- required
 func (s *WSGDHCPService) PartialUpdateRkszonesDhcpSiteDhcpProfileById(ctx context.Context, body *WSGProfileCreateDhcpProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -306,4 +343,7 @@ func (s *WSGDHCPService) PartialUpdateRkszonesDhcpSiteDhcpProfileById(ctx contex
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

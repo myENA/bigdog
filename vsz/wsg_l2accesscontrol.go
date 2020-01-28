@@ -33,9 +33,10 @@ func (ss *WSGService) WSGL2AccessControlService() *WSGL2AccessControlService {
 //		- required
 func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context, body *WSGPortalServiceCreateL2ACL, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesL2ACLById
@@ -66,9 +70,10 @@ func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context
 //		- required
 func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context,
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesL2ACLById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesL2ACLById
@@ -95,9 +103,10 @@ func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context,
 //		- required
 func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceL2ACL, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceL2ACL
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceL2ACL
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, i
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesL2ACLById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceL2ACL()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesL2ACLByZoneId
@@ -126,11 +138,12 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, i
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGPortalServiceList, error) {
+func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGPortalServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -146,6 +159,9 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Contex
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesL2ACLById
@@ -162,9 +178,10 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Contex
 //		- required
 func (s *WSGL2AccessControlService) PartialUpdateRkszonesL2ACLById(ctx context.Context, body *WSGPortalServiceModifyL2ACL, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -186,4 +203,7 @@ func (s *WSGL2AccessControlService) PartialUpdateRkszonesL2ACLById(ctx context.C
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

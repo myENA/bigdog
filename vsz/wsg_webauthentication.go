@@ -33,9 +33,10 @@ func (ss *WSGService) WSGWebAuthenticationService() *WSGWebAuthenticationService
 //		- required
 func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx context.Context, body *WSGPortalServiceCreateWebAuthentication, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx cont
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesPortalsWebauthById
@@ -66,9 +70,10 @@ func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx cont
 //		- required
 func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesPortalsWebauthRedirectById
@@ -95,9 +103,10 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx conte
 //		- required
 func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(c
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthRedirectById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesPortalsWebauthById
@@ -124,9 +136,10 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(c
 //		- required
 func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceWebAuthentication, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceWebAuthentication
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceWebAuthentication
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -140,6 +153,9 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsWebauthById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceWebAuthentication()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesPortalsWebauthByZoneId
@@ -151,9 +167,10 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context
 //		- required
 func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -163,6 +180,9 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsWebauthByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesPortalsWebauthById
@@ -179,9 +199,10 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx con
 //		- required
 func (s *WSGWebAuthenticationService) PartialUpdateRkszonesPortalsWebauthById(ctx context.Context, body *WSGPortalServiceModifyWebAuthentication, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -203,4 +224,7 @@ func (s *WSGWebAuthenticationService) PartialUpdateRkszonesPortalsWebauthById(ct
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

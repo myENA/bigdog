@@ -3185,6 +3185,11 @@ type WSGProfileCloneResponse struct {
 	*WSGProfileCloneRequest
 }
 
+func NewWSGProfileCloneResponse() *WSGProfileCloneResponse {
+	m := new(WSGProfileCloneResponse)
+	return m
+}
+
 type WSGProfileList struct {
 	// CreateDateTime
 	// Timestamp of being created

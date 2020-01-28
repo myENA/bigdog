@@ -33,9 +33,10 @@ func (ss *WSGService) WSGTrafficClassProfileService() *WSGTrafficClassProfileSer
 //		- required
 func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(c
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesTrafficClassProfileById
@@ -66,9 +70,10 @@ func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(c
 //		- required
 func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ct
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesTrafficClassProfileByZoneId
@@ -96,9 +104,10 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ct
 //		- required
 func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -116,6 +125,9 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneI
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesTrafficClassProfileById
@@ -129,9 +141,10 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneI
 //		- required
 func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonTrafficClassProfileRef, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonTrafficClassProfileRef
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonTrafficClassProfileRef
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -145,6 +158,9 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx 
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonTrafficClassProfileRef()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesTrafficClassProfileByZoneId
@@ -156,9 +172,10 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx 
 //		- required
 func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(ctx context.Context, zoneId string) (*WSGProfileTrafficClassProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileTrafficClassProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileTrafficClassProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -168,6 +185,9 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileTrafficClassProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindServicesTrafficClassProfileByQueryCriteria
@@ -178,9 +198,10 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileTrafficClassProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileTrafficClassProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileTrafficClassProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -194,6 +215,9 @@ func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCr
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileTrafficClassProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesTrafficClassProfileById
@@ -210,9 +234,10 @@ func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCr
 //		- required
 func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfileById(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -234,4 +259,7 @@ func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfile
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

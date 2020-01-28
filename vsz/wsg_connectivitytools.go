@@ -29,9 +29,10 @@ func (ss *WSGService) WSGConnectivityToolsService() *WSGConnectivityToolsService
 //	 - body *WSGToolSpeedFlex
 func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body *WSGToolSpeedFlex) (*WSGToolTestResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGToolTestResult
-		err  error
+		req      *APIRequest
+		resp     *WSGToolTestResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGToolTestResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindToolPing
@@ -58,9 +62,10 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 //		- required
 func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac string, targetIP string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -72,8 +77,11 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
-	req.SetQueryParameter("apMac", apMac)
-	req.SetQueryParameter("targetIP", targetIP)
+	req.SetQueryParameter("apMac", []string{apMac})
+	req.SetQueryParameter("targetIP", []string{targetIP})
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindToolSpeedflexByWcid
@@ -85,9 +93,10 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 //		- required
 func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, wcid string) (*WSGToolTestResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGToolTestResult
-		err  error
+		req      *APIRequest
+		resp     *WSGToolTestResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -97,6 +106,9 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
 	req.SetPathParameter("wcid", wcid)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGToolTestResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindToolTraceRoute
@@ -112,11 +124,12 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 // Optional Parameters:
 // - timeoutInSec string
 //		- nullable
-func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string]interface{}) (interface{}, error) {
+func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string][]string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -128,9 +141,12 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
-	req.SetQueryParameter("apMac", apMac)
-	req.SetQueryParameter("targetIP", targetIP)
+	req.SetQueryParameter("apMac", []string{apMac})
+	req.SetQueryParameter("targetIP", []string{targetIP})
 	if v, ok := optionalParams["timeoutInSec"]; ok {
 		req.AddQueryParameter("timeoutInSec", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

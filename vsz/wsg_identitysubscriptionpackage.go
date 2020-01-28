@@ -29,9 +29,10 @@ func (ss *WSGService) WSGIdentitySubscriptionPackageService() *WSGIdentitySubscr
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentitySubscriptionPackageList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentitySubscriptionPackageList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentitySubscriptionPackageList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentitySubscriptionPackageList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddIdentityPackages
@@ -55,9 +59,10 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 //	 - body *WSGIdentityCreateSubscriptionPackage
 func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.Context, body *WSGIdentityCreateSubscriptionPackage) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteIdentityPackages
@@ -81,8 +89,9 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 //	 - body *WSGIdentityDeleteBulk
 func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx context.Context, body *WSGIdentityDeleteBulk) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -96,6 +105,8 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx conte
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteIdentityPackagesById
@@ -107,9 +118,10 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx conte
 //		- required
 func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -119,6 +131,9 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityPackagesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindIdentityPackages
@@ -126,14 +141,18 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 // Use this API command to retrieve a list of subscription package.
 func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context.Context) (*WSGIdentitySubscriptionPackageList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentitySubscriptionPackageList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentitySubscriptionPackageList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityPackages, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentitySubscriptionPackageList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIdentityPackagesById
@@ -145,9 +164,10 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 //		- required
 func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx context.Context, id string) (*WSGIdentitySubscriptionPackage, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentitySubscriptionPackage
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentitySubscriptionPackage
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -157,6 +177,9 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityPackagesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentitySubscriptionPackage()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateIdentityPackagesById
@@ -171,9 +194,10 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 //		- required
 func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesById(ctx context.Context, body *WSGIdentityModifySubscriptionPackage, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -191,4 +215,7 @@ func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesByI
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

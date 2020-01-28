@@ -29,9 +29,10 @@ func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
 //	 - body *WSGProfileCreateTtgpdgProfile
 func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfileCreateTtgpdgProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfi
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteProfilesTtgpdg
@@ -55,9 +59,10 @@ func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfi
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteProfilesTtgpdgApnRealmsById
@@ -82,9 +90,10 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCo
 //		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -94,6 +103,9 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgApnRealmsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteProfilesTtgpdgById
@@ -105,8 +117,9 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context
 //		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -116,6 +129,8 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteProfilesTtgpdgDhcpRelayById
@@ -127,9 +142,10 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id stri
 //		- required
 func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -139,6 +155,9 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgDhcpRelayById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindProfilesTtgpdg
@@ -146,14 +165,18 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context
 // Use this API command to retrieve a list of TTG+PDG profile.
 func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context) (*WSGProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTtgpdg, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesTtgpdgById
@@ -165,9 +188,10 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context) (*WSGProfileL
 //		- required
 func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, id string) (*WSGProfileTtgpdgProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileTtgpdgProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileTtgpdgProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -177,6 +201,9 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, id string
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTtgpdgById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileTtgpdgProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesTtgpdgByQueryCriteria
@@ -187,9 +214,10 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, id string
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileTtgpdgProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileTtgpdgProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileTtgpdgProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -203,6 +231,9 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileTtgpdgProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesTtgpdgById
@@ -217,9 +248,10 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context
 //		- required
 func (s *WSGTTGPDGService) PartialUpdateProfilesTtgpdgById(ctx context.Context, body *WSGProfileTtgpdgProfileConfiguration, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -237,4 +269,7 @@ func (s *WSGTTGPDGService) PartialUpdateProfilesTtgpdgById(ctx context.Context, 
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMVESettingService() *SwitchMVESettingService {
 //	 - body *SwitchMVeConfigCreate
 func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *SwitchMVeConfigCreate) (SwitchMVeConfigCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp SwitchMVeConfigCreateResult
-		err  error
+		req      *APIRequest
+		resp     SwitchMVeConfigCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *Switch
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = MakeSwitchMVeConfigCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, resp, err)
 }
 
 // DeleteVeConfigs
@@ -55,8 +59,9 @@ func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *Switch
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -70,6 +75,8 @@ func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *Swi
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteVeConfigsById
@@ -81,8 +88,9 @@ func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *Swi
 //		- required
 func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -92,6 +100,8 @@ func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id st
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindVeConfigs
@@ -99,14 +109,18 @@ func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id st
 // Use this API command to Retrieve VE Config List.
 func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVeConfigList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMVeConfigList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMVeConfigList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigs, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMVeConfigList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindVeConfigsById
@@ -118,9 +132,10 @@ func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVe
 //		- required
 func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id string) (*SwitchMVeConfig, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMVeConfig
-		err  error
+		req      *APIRequest
+		resp     *SwitchMVeConfig
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -130,6 +145,9 @@ func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMVeConfig()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindVeConfigsByQueryCriteria
@@ -140,9 +158,10 @@ func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id stri
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVeConfigList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMVeConfigList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMVeConfigList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -156,6 +175,9 @@ func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMVeConfigList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateVeConfigsById
@@ -170,9 +192,10 @@ func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 //		- required
 func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVeConfigModify, id string) (*SwitchMVeConfigEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMVeConfigEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMVeConfigEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -190,4 +213,7 @@ func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body 
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMVeConfigEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

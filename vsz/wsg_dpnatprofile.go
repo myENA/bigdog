@@ -29,9 +29,10 @@ func (ss *WSGService) WSGDPNATProfileService() *WSGDPNATProfileService {
 //	 - body *WSGDPProfileDpNatProfileBasicBO
 func (s *WSGDPNATProfileService) AddDpNatProfiles(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO) (*WSGDPProfileDpNatProfileBasicBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpNatProfileBasicBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpNatProfileBasicBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGDPNATProfileService) AddDpNatProfiles(ctx context.Context, body *WSG
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpNatProfileBasicBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddDpNatProfilesDpNatPoolsById
@@ -59,9 +63,10 @@ func (s *WSGDPNATProfileService) AddDpNatProfiles(ctx context.Context, body *WSG
 //		- required
 func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, id string) (*WSGDPProfileDpNatProfilePoolBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpNatProfilePoolBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpNatProfilePoolBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -79,6 +84,9 @@ func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Cont
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpNatProfilePoolBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteDpNatProfiles
@@ -89,9 +97,10 @@ func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Cont
 //	 - body *WSGDPProfileBulkDelete
 func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *WSGDPProfileBulkDelete) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -105,6 +114,9 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpNatProfilesById
@@ -116,9 +128,10 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *
 //		- required
 func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -128,6 +141,9 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, id
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpNatProfilesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpNatProfilesDpNatPoolsById
@@ -142,9 +158,10 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, id
 //		- required
 func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, id string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -162,6 +179,9 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.C
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteDpNatProfilesDpNatPoolsByPoolId
@@ -175,9 +195,10 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.C
 //		- required
 func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, id string, poolId string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -191,6 +212,9 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx conte
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpNatProfilesDpNatPoolsByPoolId, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("poolId", poolId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindDpNatProfiles
@@ -198,14 +222,18 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx conte
 // Use this API command to retrieve DHCP NAT profile - basic list.
 func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context) (*WSGDPProfileDpNatProfileBasicBOList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpNatProfileBasicBOList
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpNatProfileBasicBOList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpNatProfiles, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpNatProfileBasicBOList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpNatProfilesById
@@ -217,9 +245,10 @@ func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context) (*WSGDPP
 //		- required
 func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, id string) (*WSGDPProfileDpNatProfileBasicBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpNatProfileBasicBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpNatProfileBasicBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -229,6 +258,9 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, id s
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpNatProfilesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpNatProfileBasicBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpNatProfilesDpNatPoolsById
@@ -240,9 +272,10 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, id s
 //		- required
 func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Context, id string) (*WSGDPProfileDpNatProfilePoolBOList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpNatProfilePoolBOList
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpNatProfilePoolBOList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -252,6 +285,9 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpNatProfilesDpNatPoolsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpNatProfilePoolBOList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpNatProfilesDpNatPoolsByPoolId
@@ -265,9 +301,10 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Con
 //		- required
 func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, id string, poolId string) (*WSGDPProfileDpNatProfilePoolBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpNatProfilePoolBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpNatProfilePoolBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -281,6 +318,9 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpNatProfilesDpNatPoolsByPoolId, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("poolId", poolId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpNatProfilePoolBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateDpNatProfilesById
@@ -295,9 +335,10 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context
 //		- required
 func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO, id string) (*WSGDPProfileDpNatProfileBasicBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpNatProfileBasicBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpNatProfileBasicBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -315,6 +356,9 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, bo
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpNatProfileBasicBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateDpNatProfilesDpNatPoolsByPoolId
@@ -331,9 +375,10 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, bo
 //		- required
 func (s *WSGDPNATProfileService) UpdateDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, id string, poolId string) (*WSGDPProfileDpNatProfilePoolBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileDpNatProfilePoolBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileDpNatProfilePoolBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -355,4 +400,7 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesDpNatPoolsByPoolId(ctx conte
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("poolId", poolId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileDpNatProfilePoolBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

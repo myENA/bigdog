@@ -29,8 +29,9 @@ func (ss *WSGService) WSGDPDHCPNATProfileService() *WSGDPDHCPNATProfileService {
 //	 - body *WSGDPProfileSettingBO
 func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, body *WSGDPProfileSettingBO) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -44,6 +45,8 @@ func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, b
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteDpProfileSettings
@@ -54,8 +57,9 @@ func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, b
 //	 - body *WSGDPProfileBulkDelete
 func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context, body *WSGDPProfileBulkDelete) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -69,6 +73,8 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteDpProfileSettingsByDpKey
@@ -80,8 +86,9 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context
 //		- required
 func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.Context, dpKey string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -91,6 +98,8 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
 	req.SetPathParameter("dpKey", dpKey)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindDpProfileSettings
@@ -98,14 +107,18 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 // Use this API command to retrieve DP DHCP & NAT profile setting list.
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) (*WSGDPProfileSettingBOList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileSettingBOList
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileSettingBOList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettings, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileSettingBOList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindDpProfileSettingsByDpKey
@@ -117,9 +130,10 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) 
 //		- required
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Context, dpKey string) (*WSGDPProfileSettingBO, error) {
 	var (
-		req  *APIRequest
-		resp *WSGDPProfileSettingBO
-		err  error
+		req      *APIRequest
+		resp     *WSGDPProfileSettingBO
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -129,6 +143,9 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettingsByDpKey, true)
 	req.SetPathParameter("dpKey", dpKey)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPProfileSettingBO()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateDpProfileSettingsByDpKey
@@ -143,8 +160,9 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 //		- required
 func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.Context, body *WSGDPProfileSettingBO, dpKey string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -162,4 +180,6 @@ func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.
 		return err
 	}
 	req.SetPathParameter("dpKey", dpKey)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

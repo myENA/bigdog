@@ -33,9 +33,10 @@ func (ss *WSGService) WSGBonjourGatewayPoliciesService() *WSGBonjourGatewayPolic
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, body *WSGZoneCreateBonjourGatewayPolicy, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZo
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesBonjourGatewayPoliciesById
@@ -66,8 +70,9 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZo
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -81,6 +86,8 @@ func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesB
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourGatewayPoliciesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindRkszonesBonjourGatewayPoliciesById
@@ -94,9 +101,10 @@ func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesB
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string) (*WSGZoneBonjourGatewayPolicyConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGZoneBonjourGatewayPolicyConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGZoneBonjourGatewayPolicyConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -110,6 +118,9 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByI
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGZoneBonjourGatewayPolicyConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesBonjourGatewayPoliciesByZoneId
@@ -121,9 +132,10 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByI
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, zoneId string) (*WSGZoneBonjourGatewayPolicyList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGZoneBonjourGatewayPolicyList
-		err  error
+		req      *APIRequest
+		resp     *WSGZoneBonjourGatewayPolicyList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -133,6 +145,9 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZ
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGZoneBonjourGatewayPolicyList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesBonjourGatewayPoliciesById
@@ -149,9 +164,10 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZ
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) PartialUpdateRkszonesBonjourGatewayPoliciesById(ctx context.Context, body *WSGZoneModifyBonjourGatewayPolicy, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -173,4 +189,7 @@ func (s *WSGBonjourGatewayPoliciesService) PartialUpdateRkszonesBonjourGatewayPo
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

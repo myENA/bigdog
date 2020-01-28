@@ -36,11 +36,12 @@ func (ss *WSGService) WSGAccessPointAPPService() *WSGAccessPointAPPService {
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalParams map[string]interface{}) (*WSGAPLinemanSummary, error) {
+func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalParams map[string][]string) (*WSGAPLinemanSummary, error) {
 	var (
-		req  *APIRequest
-		resp *WSGAPLinemanSummary
-		err  error
+		req      *APIRequest
+		resp     *WSGAPLinemanSummary
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -61,6 +62,9 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 	if v, ok := optionalParams["zoneId"]; ok {
 		req.AddQueryParameter("zoneId", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPLinemanSummary()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindApsTotalCount
@@ -72,11 +76,12 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, optionalParams map[string]interface{}) (interface{}, error) {
+func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -88,6 +93,9 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, option
 	if v, ok := optionalParams["zoneId"]; ok {
 		req.AddQueryParameter("zoneId", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindLinemanWorkflow
@@ -95,14 +103,18 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, option
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
 func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]byte, error) {
 	var (
-		req  *APIRequest
-		resp []byte
-		err  error
+		req      *APIRequest
+		resp     []byte
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = make([]byte, 0)
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // UpdateLinemanWorkflow
@@ -113,8 +125,9 @@ func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]b
 //	 - body []byte
 func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context, body []byte) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -126,4 +139,6 @@ func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

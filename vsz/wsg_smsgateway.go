@@ -28,11 +28,12 @@ func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
 // Optional Parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParams map[string]interface{}) (*WSGSystemSms, error) {
+func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParams map[string][]string) (*WSGSystemSms, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSystemSms
-		err  error
+		req      *APIRequest
+		resp     *WSGSystemSms
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -41,6 +42,9 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemSms()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSmsGatewayByQueryCriteria
@@ -51,9 +55,10 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSystemSmsList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSystemSmsList
-		err  error
+		req      *APIRequest
+		resp     *WSGSystemSmsList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -67,6 +72,9 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemSmsList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateSmsGateway
@@ -77,9 +85,10 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 //	 - body *WSGSystemSms
 func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body *WSGSystemSms) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -93,4 +102,7 @@ func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

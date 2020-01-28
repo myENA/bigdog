@@ -26,14 +26,18 @@ func (ss *WSGService) WSGL3RoamingService() *WSGL3RoamingService {
 // Use this API command to retrieve L3 Roaming basic configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (*WSGProfileGetL3RoamingConfig, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileGetL3RoamingConfig
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileGetL3RoamingConfig
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelL3Roaming, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileGetL3RoamingConfig()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesTunnelL3RoamingByQueryCriteria
@@ -41,14 +45,18 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (
 // Use this API command to retrieve L3 Roaming configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria(ctx context.Context) (*WSGProfileGetL3RoamingConfig, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileGetL3RoamingConfig
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileGetL3RoamingConfig
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelL3RoamingByQueryCriteria, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileGetL3RoamingConfig()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesTunnelL3Roaming
@@ -59,9 +67,10 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3RoamingByQueryCriteria(ctx con
 //	 - body *WSGProfileUpdateL3RoamingConfig
 func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.Context, body *WSGProfileUpdateL3RoamingConfig) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -75,4 +84,7 @@ func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.C
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

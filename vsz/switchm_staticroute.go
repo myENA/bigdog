@@ -235,9 +235,10 @@ func NewSwitchMStaticRouteUpdateStaticRoute() *SwitchMStaticRouteUpdateStaticRou
 //	 - body *SwitchMStaticRouteCreateStaticRoute
 func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *SwitchMStaticRouteCreateStaticRoute) (*SwitchMCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -251,6 +252,9 @@ func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *S
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteStaticRoutes
@@ -261,8 +265,9 @@ func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *S
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -276,6 +281,8 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteStaticRoutesById
@@ -287,8 +294,9 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body
 //		- required
 func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -298,6 +306,8 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, 
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteStaticRoutesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindStaticRoutesById
@@ -309,9 +319,10 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, 
 //		- required
 func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id string) (*SwitchMStaticRoute, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMStaticRoute
-		err  error
+		req      *APIRequest
+		resp     *SwitchMStaticRoute
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -321,6 +332,9 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStaticRoutesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMStaticRoute()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindStaticRoutesByQueryCriteria
@@ -331,9 +345,10 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMStaticRoutesQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMStaticRoutesQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMStaticRoutesQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -347,6 +362,9 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMStaticRoutesQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateStaticRoutesById
@@ -361,9 +379,10 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 //		- required
 func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteUpdateStaticRoute, id string) (*SwitchMStaticRouteEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMStaticRouteEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMStaticRouteEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -381,4 +400,7 @@ func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, 
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMStaticRouteEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

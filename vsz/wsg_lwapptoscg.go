@@ -26,14 +26,18 @@ func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
 // Use this API command to retrieve Lwapp Config.
 func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*WSGSystemLwapp2scgConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSystemLwapp2scgConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGSystemLwapp2scgConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLwapp2scg, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemLwapp2scgConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateLwapp2scg
@@ -44,9 +48,10 @@ func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*WSGSystemLwa
 //	 - body *WSGSystemModifyLwapp2scg
 func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body *WSGSystemModifyLwapp2scg) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -60,6 +65,9 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // PartialUpdateLwapp2scgApList
@@ -70,9 +78,10 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body 
 //	 - body *WSGSystemModifyLwapp2scg
 func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context, body *WSGSystemModifyLwapp2scg) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -86,4 +95,7 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

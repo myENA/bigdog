@@ -2,7 +2,9 @@ package vsz
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net"
@@ -166,4 +168,83 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (AuthCAS, *http
 	}
 	httpResponse, err = c.client.Do(httpRequest)
 	return cas, httpResponse, err
+}
+
+type APIError struct {
+	SourceError error `json:"sourceError"`
+
+	RequestMethod string `json:"requestMethod"`
+	RequestURI    string `json:"requestURI"`
+
+	SuccessCode int `json:"successCode"`
+
+	ResponseCode   int    `json:"responseCode"`
+	ResponseStatus string `json:"responseStatus"`
+	ResponseBody   []byte `json:"responseBody"`
+}
+
+func newAPIError(req *APIRequest, successCode int, httpResp *http.Response, respBytes []byte, err error) error {
+	ae := new(APIError)
+	ae.SourceError = err
+	ae.RequestMethod = req.Method()
+	ae.RequestURI = req.CompiledURI()
+	ae.SuccessCode = successCode
+	if httpResp != nil {
+		ae.ResponseCode = httpResp.StatusCode
+		ae.ResponseStatus = httpResp.Status
+		ae.ResponseBody = respBytes
+	}
+	return ae
+}
+
+func (e *APIError) Error() string {
+	// if there was a client error
+	if e.SourceError != nil {
+		return e.SourceError.Error()
+	}
+	// if there was an api response error
+	if e.ResponseCode != 0 && e.ResponseCode != e.SuccessCode {
+		return fmt.Sprintf("expected code %d from %s %s, saw %d %s", e.SuccessCode, e.RequestMethod, e.RequestURI, e.ResponseCode, e.ResponseStatus)
+	}
+	// if no error
+	return ""
+}
+
+func (e *APIError) Unwrap() error {
+	return e.SourceError
+}
+
+func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, respErr error) error {
+	// todo: do better.
+	var (
+		b   []byte
+		err error
+	)
+
+	// if response is nil and we saw an error
+	if httpResp == nil && respErr != nil {
+		return newAPIError(req, successCode, nil, nil, respErr)
+	}
+
+	// if we get here, we have some kind of response.  queue up body close...
+	defer func() { _ = httpResp.Body.Close() }()
+
+	// attempt to read all bytes from body
+	if b, err = ioutil.ReadAll(httpResp.Body); err != nil {
+		return newAPIError(req, successCode, httpResp, b, err)
+	}
+
+	// if returned code is not what was expected, build error
+	if httpResp.StatusCode != successCode {
+		return newAPIError(req, successCode, httpResp, b, err)
+	}
+
+	// finally, if necessary, attempt to unmarshal into response model
+	if modelPtr != nil {
+		if err = json.Unmarshal(b, modelPtr); err != nil {
+			return newAPIError(req, successCode, httpResp, b, err)
+		}
+	}
+
+	return nil
 }

@@ -29,9 +29,10 @@ func (ss *WSGService) WSGIdentityGuestPassService() *WSGIdentityGuestPassService
 //	 - body *WSGIdentityCreateIdentityGuestPass
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.Context, body *WSGIdentityCreateIdentityGuestPass) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.C
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddIdentityGuestpassList
@@ -55,9 +59,10 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.C
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityGuestPassList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityGuestPassList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityGuestPassList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityGuestPassList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddIdentityGuestpassUpload
@@ -81,9 +89,10 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Conte
 //	 - body []byte
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Context, body []byte) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -95,6 +104,9 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // AddIdentityGuestpassUploadCommon
@@ -105,9 +117,10 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 //	 - body *WSGIdentityImportIdentityGuestPass
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx context.Context, body *WSGIdentityImportIdentityGuestPass) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -121,6 +134,9 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusCreated, httpResp, resp, err)
 }
 
 // DeleteIdentityGuestpass
@@ -131,8 +147,9 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx conte
 //	 - body *WSGIdentityDeleteBulk
 func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Context, body *WSGIdentityDeleteBulk) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -146,6 +163,8 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteIdentityGuestpassByUserId
@@ -157,9 +176,10 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Contex
 //		- required
 func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx context.Context, userId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -169,6 +189,9 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityGuestpassByUserId, true)
 	req.SetPathParameter("userId", userId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindIdentityGuestpass
@@ -194,11 +217,12 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 //		- nullable
 // - wlan string
 //		- nullable
-func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context, optionalParams map[string]interface{}) (*WSGIdentityGuestPassList, error) {
+func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context, optionalParams map[string][]string) (*WSGIdentityGuestPassList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityGuestPassList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityGuestPassList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -231,4 +255,7 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 	if v, ok := optionalParams["wlan"]; ok {
 		req.AddQueryParameter("wlan", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityGuestPassList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

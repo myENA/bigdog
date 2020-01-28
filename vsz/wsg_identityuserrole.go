@@ -29,9 +29,10 @@ func (ss *WSGService) WSGIdentityUserRoleService() *WSGIdentityUserRoleService {
 //	 - body *WSGIdentityCreateIdentityUserRole
 func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, body *WSGIdentityCreateIdentityUserRole) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddIdentityUserRoleList
@@ -55,9 +59,10 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteIdentityUserrole
@@ -81,8 +89,9 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 //	 - body *WSGIdentityDeleteBulk
 func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context, body *WSGIdentityDeleteBulk) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -96,6 +105,8 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteIdentityUserroleById
@@ -107,9 +118,10 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 //		- required
 func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -119,6 +131,9 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUserroleById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindIdentityUserrole
@@ -126,14 +141,18 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 // Use this API command to retrieve a list of identity user role.
 func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (*WSGIdentityList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserrole, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIdentityUserroleById
@@ -145,9 +164,10 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (
 //		- required
 func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Context, id string) (*WSGIdentityUserRole, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityUserRole
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityUserRole
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -157,6 +177,9 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUserroleById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityUserRole()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateIdentityUserroleById
@@ -171,9 +194,10 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 //		- required
 func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx context.Context, body *WSGIdentityModifyIdentityUserRole, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -191,4 +215,7 @@ func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx conte
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

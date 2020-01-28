@@ -33,9 +33,10 @@ func (ss *WSGService) WSGHotspot20WLANServiceService() *WSGHotspot20WLANServiceS
 //		- required
 func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20WlanProfile, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Co
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesHs20sById
@@ -66,9 +70,10 @@ func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Co
 //		- required
 func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Con
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesHs20sById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesHs20sById
@@ -95,9 +103,10 @@ func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Con
 //		- required
 func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot20WlanProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceHotspot20WlanProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceHotspot20WlanProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Conte
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20sById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceHotspot20WlanProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesHs20sByZoneId
@@ -122,9 +134,10 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Conte
 //		- required
 func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -134,6 +147,9 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.C
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20sByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesHs20sById
@@ -150,9 +166,10 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.C
 //		- required
 func (s *WSGHotspot20WLANServiceService) PartialUpdateRkszonesHs20sById(ctx context.Context, body *WSGPortalServiceModifyHotspot20WlanProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -174,4 +191,7 @@ func (s *WSGHotspot20WLANServiceService) PartialUpdateRkszonesHs20sById(ctx cont
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

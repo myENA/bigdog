@@ -29,9 +29,10 @@ func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 //	 - body *WSGProfileLbsProfile
 func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProfileLbsProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteProfilesLbs
@@ -55,9 +59,10 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGC
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteProfilesLbsById
@@ -82,9 +90,10 @@ func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGC
 //		- required
 func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -94,6 +103,9 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesLbsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesLbsById
@@ -105,9 +117,10 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 //		- required
 func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id string) (*WSGProfileLbsProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileLbsProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileLbsProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -117,6 +130,9 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesLbsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileLbsProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesLbsByQueryCriteria
@@ -127,9 +143,10 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileLbsProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileLbsProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileLbsProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -143,6 +160,9 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileLbsProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesLbsById
@@ -157,9 +177,10 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 //		- required
 func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *WSGProfileLbsProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -177,4 +198,7 @@ func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context,
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMConfigurationCloneService() *SwitchMConfigurati
 //	 - body *SwitchMGroupGetConfigBySwitch
 func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Context, body *SwitchMGroupGetConfigBySwitch) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // AddCloneConfigurationByGroup
@@ -55,9 +59,10 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Con
 //	 - body *SwitchMGroupCloneConfigByGroup
 func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx context.Context, body *SwitchMGroupCloneConfigByGroup) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusCreated, httpResp, resp, err)
 }
 
 // UpdateCloneConfiguration
@@ -81,9 +89,10 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx cont
 //	 - body *SwitchMGroupCloneConfigBySwitch
 func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.Context, body *SwitchMGroupCloneConfigBySwitch) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -97,4 +106,7 @@ func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

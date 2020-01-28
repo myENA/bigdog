@@ -29,9 +29,10 @@ func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
 //	 - body *WSGSCGUserGroup
 func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCGUserGroup) (*WSGSCGUserGroupAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGroupAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGroupAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGroupAuditId()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteUserGroups
@@ -55,9 +59,10 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteUserGroupsByUserGroupId
@@ -82,9 +90,10 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 //		- required
 func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string) (*WSGSCGUserGroupAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGroupAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGroupAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -94,6 +103,9 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroupsByUserGroupId, true)
 	req.SetPathParameter("userGroupId", userGroupId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGroupAuditId()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindUserGroupsByQueryCriteria
@@ -104,9 +116,10 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 //	 - body *WSGSCGUserQueryCriteria
 func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria) (*WSGSCGUserGroupList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGroupList
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGroupList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -120,6 +133,9 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGroupList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindUserGroupsByUserGroupId
@@ -133,11 +149,12 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 // Optional Parameters:
 // - includeUsers string
 //		- nullable
-func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, userGroupId string, optionalParams map[string]interface{}) (*WSGSCGUserGroup, error) {
+func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, userGroupId string, optionalParams map[string][]string) (*WSGSCGUserGroup, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGroup
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGroup
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -150,6 +167,9 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 	if v, ok := optionalParams["includeUsers"]; ok {
 		req.AddQueryParameter("includeUsers", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGroup()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindUserGroupsCurrentUserPermissionCategories
@@ -157,14 +177,18 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 // Get permitted categories of current user.
 func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(ctx context.Context) (*WSGSCGUserGroupPermissionList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGroupPermissionList
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGroupPermissionList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsCurrentUserPermissionCategories, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGroupPermissionList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindUserGroupsRoles
@@ -172,14 +196,18 @@ func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(c
 // Get pre-defined roles.
 func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*WSGSCGUserGroupRoleLabelValueList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGroupRoleLabelValueList
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGroupRoleLabelValueList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRoles, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGroupRoleLabelValueList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindUserGroupsRolesPermissionsByRole
@@ -193,11 +221,12 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*WSGS
 // Optional Parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, role string, optionalParams map[string]interface{}) (*WSGSCGUserGroupPermissionList, error) {
+func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, role string, optionalParams map[string][]string) (*WSGSCGUserGroupPermissionList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGroupPermissionList
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGroupPermissionList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -210,6 +239,9 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGroupPermissionList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateUserGroupsByUserGroupId
@@ -224,9 +256,10 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 //		- required
 func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string) (*WSGSCGUserGroupAuditId, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSCGUserGroupAuditId
-		err  error
+		req      *APIRequest
+		resp     *WSGSCGUserGroupAuditId
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -244,4 +277,7 @@ func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx contex
 		return resp, err
 	}
 	req.SetPathParameter("userGroupId", userGroupId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSCGUserGroupAuditId()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

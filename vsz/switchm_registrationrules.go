@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMRegistrationRulesService() *SwitchMRegistration
 //	 - body *SwitchMRegistrationRule
 func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Context, body *SwitchMRegistrationRule) (*SwitchMRegistrationCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMRegistrationCreateResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMRegistrationCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRegistrationRules
@@ -55,9 +59,10 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 //	 - body SwitchMRegistrationRuleUUIDs
 func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Context, body SwitchMRegistrationRuleUUIDs) (*SwitchMRegistrationDeleteMultipleResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMRegistrationDeleteMultipleResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMRegistrationDeleteMultipleResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -69,6 +74,9 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationDeleteMultipleResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteRegistrationRulesById
@@ -80,9 +88,10 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 //		- required
 func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx context.Context, id string) (*SwitchMRegistrationDeleteResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMRegistrationDeleteResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMRegistrationDeleteResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -92,6 +101,9 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRulesById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationDeleteResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRegistrationRules
@@ -99,14 +111,18 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 // Use this API command to retrieves all the registration rules configured in SmartZone.
 func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Context) (*SwitchMRegistrationRuleQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMRegistrationRuleQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMRegistrationRuleQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindRegistrationRules, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationRuleQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateRegistrationRulesById
@@ -121,9 +137,10 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 //		- required
 func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx context.Context, body *SwitchMRegistrationRule, id string) (*SwitchMRegistrationModifyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMRegistrationModifyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMRegistrationModifyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -141,4 +158,7 @@ func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx contex
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationModifyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

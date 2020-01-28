@@ -33,9 +33,10 @@ func (ss *WSGService) WSGHotspotServiceService() *WSGHotspotServiceService {
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotExternal, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesPortalsHotspotInternalByZoneId
@@ -67,9 +71,10 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotInternal, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -87,6 +92,9 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesPortalsHotspotSmartClientOnlyByZoneId
@@ -101,9 +109,10 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotSmartClientOnly, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -121,6 +130,9 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZon
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesPortalsHotspotById
@@ -134,9 +146,10 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZon
 //		- required
 func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -150,6 +163,9 @@ func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsHotspotById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesPortalsHotspotById
@@ -163,9 +179,10 @@ func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.
 //		- required
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceHotspot
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceHotspot
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -179,6 +196,9 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Co
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsHotspotById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceHotspot()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesPortalsHotspotByZoneId
@@ -190,9 +210,10 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Co
 //		- required
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -202,6 +223,9 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx contex
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsHotspotByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesPortalsHotspotById
@@ -218,9 +242,10 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx contex
 //		- required
 func (s *WSGHotspotServiceService) PartialUpdateRkszonesPortalsHotspotById(ctx context.Context, body *WSGPortalServiceModifyHotspot, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -242,4 +267,7 @@ func (s *WSGHotspotServiceService) PartialUpdateRkszonesPortalsHotspotById(ctx c
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

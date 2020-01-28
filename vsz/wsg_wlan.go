@@ -1884,9 +1884,10 @@ func NewWSGWLANVlan() *WSGWLANVlan {
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *WSGWLANCreateStandardOpenWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1904,6 +1905,9 @@ func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *WSG
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansGuestByZoneId
@@ -1918,9 +1922,10 @@ func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *WSG
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body *WSGWLANCreateGuestAccessWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1938,6 +1943,9 @@ func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansHotspot20ByZoneId
@@ -1952,9 +1960,10 @@ func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, body *WSGWLANCreateHotspot20Wlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -1972,6 +1981,9 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, 
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansHotspot20openByZoneId
@@ -1986,9 +1998,10 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, 
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Context, body *WSGWLANCreateHotspot20OpenWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2006,6 +2019,9 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Conte
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansHotspot20osenByZoneId
@@ -2020,9 +2036,10 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Conte
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Context, body *WSGWLANCreateHotspot20OpenWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2040,6 +2057,9 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Conte
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansQosMapsById
@@ -2053,9 +2073,10 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Conte
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2069,6 +2090,9 @@ func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, id str
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansQosMapsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansStandard8021XByZoneId
@@ -2083,9 +2107,10 @@ func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, id str
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Context, body *WSGWLANCreateStandard80211Wlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2103,6 +2128,9 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Conte
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansStandard8021XmacByZoneId
@@ -2117,9 +2145,10 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Conte
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Context, body *WSGWLANCreateStandard80211Wlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2137,6 +2166,9 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Co
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansStandardmacByZoneId
@@ -2151,9 +2183,10 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Co
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context, body *WSGWLANCreateStandard80211Wlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2171,6 +2204,9 @@ func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansWebauthByZoneId
@@ -2185,9 +2221,10 @@ func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, body *WSGWLANCreateWebAuthWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2205,6 +2242,9 @@ func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, bo
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansWechatByZoneId
@@ -2219,9 +2259,10 @@ func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, bo
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, body *WSGWLANCreateWechatWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2239,6 +2280,9 @@ func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, bod
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansWispr8021XByZoneId
@@ -2253,9 +2297,10 @@ func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, bod
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context, body *WSGWLANCreateHotspotWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2273,6 +2318,9 @@ func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context,
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansWisprByZoneId
@@ -2287,9 +2335,10 @@ func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context,
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body *WSGWLANCreateHotspotWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2307,6 +2356,9 @@ func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddRkszonesWlansWisprmacByZoneId
@@ -2321,9 +2373,10 @@ func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, body *WSGWLANCreateHotspotWlan, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2341,6 +2394,9 @@ func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, b
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlansAccountingServiceOrProfileById
@@ -2354,9 +2410,10 @@ func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, b
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2370,6 +2427,9 @@ func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx c
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansAccountingServiceOrProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlansById
@@ -2383,9 +2443,10 @@ func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx c
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2399,6 +2460,9 @@ func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, id string,
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlansDevicePolicyById
@@ -2412,9 +2476,10 @@ func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, id string,
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2428,6 +2493,9 @@ func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansDevicePolicyById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlansDiffServProfileById
@@ -2441,9 +2509,10 @@ func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2457,6 +2526,9 @@ func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Cont
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansDiffServProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlansDnsServerProfileById
@@ -2470,9 +2542,10 @@ func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Cont
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2486,6 +2559,9 @@ func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Con
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansDnsServerProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlansL2ACLById
@@ -2499,9 +2575,10 @@ func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Con
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2515,6 +2592,9 @@ func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, id st
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansL2ACLById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesWlansQosMapsById
@@ -2528,9 +2608,10 @@ func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, id st
 //		- required
 func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2544,6 +2625,9 @@ func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, id 
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansQosMapsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesWlansById
@@ -2557,9 +2641,10 @@ func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, id 
 //		- required
 func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, id string, zoneId string) (*WSGWLANConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWLANConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGWLANConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2573,6 +2658,9 @@ func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, id string, z
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlansById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesWlansByZoneId
@@ -2588,11 +2676,12 @@ func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, id string, z
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGWLANList, error) {
+func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGWLANList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWLANList
-		err  error
+		req      *APIRequest
+		resp     *WSGWLANList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2608,6 +2697,9 @@ func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId s
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesWlansById
@@ -2624,9 +2716,10 @@ func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId s
 //		- required
 func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, body *WSGWLANModifyWlan, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2648,6 +2741,9 @@ func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, bod
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // UpdateRkszonesWlansById
@@ -2664,9 +2760,10 @@ func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, bod
 //		- required
 func (s *WSGWLANService) UpdateRkszonesWlansById(ctx context.Context, body *WSGWLANModifyWlan, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -2688,4 +2785,7 @@ func (s *WSGWLANService) UpdateRkszonesWlansById(ctx context.Context, body *WSGW
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

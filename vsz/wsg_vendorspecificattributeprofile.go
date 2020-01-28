@@ -24,7 +24,7 @@ func (ss *WSGService) WSGVendorSpecificAttributeProfileService() *WSGVendorSpeci
 
 type WSGVendorSpecificAttributeProfileCreateResult interface{}
 
-func NewWSGVendorSpecificAttributeProfileCreateResult() WSGVendorSpecificAttributeProfileCreateResult {
+func MakeWSGVendorSpecificAttributeProfileCreateResult() WSGVendorSpecificAttributeProfileCreateResult {
 	m := new(WSGVendorSpecificAttributeProfileCreateResult)
 	return m
 }
@@ -214,9 +214,10 @@ func NewWSGVendorSpecificAttributeProfileVendorSpecificAttribute() *WSGVendorSpe
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, zoneId string) (WSGVendorSpecificAttributeProfileCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp WSGVendorSpecificAttributeProfileCreateResult
-		err  error
+		req      *APIRequest
+		resp     WSGVendorSpecificAttributeProfileCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -234,6 +235,9 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = MakeWSGVendorSpecificAttributeProfileCreateResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteRkszonesVendorSpecificAttributeProfilesById
@@ -247,9 +251,10 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGVendorSpecificAttributeProfileEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGVendorSpecificAttributeProfileEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -263,6 +268,9 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGVendorSpecificAttributeProfileEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteRkszonesVendorSpecificAttributeProfilesByZoneId
@@ -277,9 +285,10 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfileDeleteBulk, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGVendorSpecificAttributeProfileEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGVendorSpecificAttributeProfileEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -297,6 +306,9 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGVendorSpecificAttributeProfileEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesVendorSpecificAttributeProfilesById
@@ -310,9 +322,10 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*WSGVendorSpecificAttributeProfileGet, error) {
 	var (
-		req  *APIRequest
-		resp *WSGVendorSpecificAttributeProfileGet
-		err  error
+		req      *APIRequest
+		resp     *WSGVendorSpecificAttributeProfileGet
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -326,6 +339,9 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGVendorSpecificAttributeProfileGet()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria
@@ -336,9 +352,10 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGVendorSpecificAttributeProfileQueryCriteriaResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGVendorSpecificAttributeProfileQueryCriteriaResult
-		err  error
+		req      *APIRequest
+		resp     *WSGVendorSpecificAttributeProfileQueryCriteriaResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -352,6 +369,9 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGVendorSpecificAttributeProfileQueryCriteriaResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesVendorSpecificAttributeProfilesByZoneId
@@ -363,9 +383,10 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, zoneId string) (*WSGVendorSpecificAttributeProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGVendorSpecificAttributeProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGVendorSpecificAttributeProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -375,6 +396,9 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGVendorSpecificAttributeProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateRkszonesVendorSpecificAttributeProfilesById
@@ -391,9 +415,10 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, id string, zoneId string) (*WSGVendorSpecificAttributeProfileEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGVendorSpecificAttributeProfileEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGVendorSpecificAttributeProfileEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -415,4 +440,7 @@ func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificA
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGVendorSpecificAttributeProfileEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

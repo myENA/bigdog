@@ -33,9 +33,10 @@ func (ss *WSGService) WSGWechatService() *WSGWechatService {
 //		- required
 func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context, body *WSGPortalServiceCreateWechat, zoneId string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -53,6 +54,9 @@ func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context,
 		return resp, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteRkszonesPortalsWechatById
@@ -66,9 +70,10 @@ func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context,
 //		- required
 func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -82,6 +87,9 @@ func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, 
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWechatById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindRkszonesPortalsWechatById
@@ -95,9 +103,10 @@ func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, 
 //		- required
 func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceWechatConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceWechatConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceWechatConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -111,6 +120,9 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, id
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsWechatById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceWechatConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesPortalsWechatByZoneId
@@ -126,11 +138,12 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, id
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context, zoneId string, optionalParams map[string]interface{}) (*WSGPortalServiceList, error) {
+func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGPortalServiceList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGPortalServiceList
-		err  error
+		req      *APIRequest
+		resp     *WSGPortalServiceList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -146,6 +159,9 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGPortalServiceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateRkszonesPortalsWechatById
@@ -162,9 +178,10 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context
 //		- required
 func (s *WSGWechatService) PartialUpdateRkszonesPortalsWechatById(ctx context.Context, body *WSGPortalServiceModifyWechat, id string, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -186,4 +203,7 @@ func (s *WSGWechatService) PartialUpdateRkszonesPortalsWechatById(ctx context.Co
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -26,14 +26,18 @@ func (ss *WSGService) WSGGGSNPGWServiceService() *WSGGGSNPGWServiceService {
 // Use this API command to Disable the dns server list of GGSN/PGW.
 func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.Context) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesGgsnDnsServerList, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteServicesGgsnGgsnList
@@ -41,14 +45,18 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.C
 // Use this API command to disable the ggsn server list of GGSN/PGW.
 func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Context) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesGgsnGgsnList, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindServicesGgsn
@@ -56,14 +64,18 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Contex
 // Use this API command to retrieve GGSN/PGW setting.
 func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context) (*WSGServiceGgsnConfig, error) {
 	var (
-		req  *APIRequest
-		resp *WSGServiceGgsnConfig
-		err  error
+		req      *APIRequest
+		resp     *WSGServiceGgsnConfig
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesGgsn, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGServiceGgsnConfig()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateServicesGgsn
@@ -74,9 +86,10 @@ func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context) (*WSGSe
 //	 - body *WSGServiceGgsnConfig
 func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context, body *WSGServiceGgsnConfig) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -90,6 +103,9 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // PartialUpdateServicesGgsnDnsServerList
@@ -100,9 +116,10 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context
 //	 - body WSGServiceDnsServerList
 func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx context.Context, body WSGServiceDnsServerList) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -114,6 +131,9 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // PartialUpdateServicesGgsnGgsnList
@@ -124,9 +144,10 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx co
 //	 - body WSGServiceGgsnList
 func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context.Context, body WSGServiceGgsnList) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -138,6 +159,9 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // PartialUpdateServicesGgsnGtpSettings
@@ -148,9 +172,10 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context
 //	 - body *WSGServiceGtpSettings
 func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings(ctx context.Context, body *WSGServiceGtpSettings) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -164,4 +189,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings(ctx cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

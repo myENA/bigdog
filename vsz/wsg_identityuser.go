@@ -29,9 +29,10 @@ func (ss *WSGService) WSGIdentityUserService() *WSGIdentityUserService {
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityUserList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityUserList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityUserList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityUserList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddIdentityUsers
@@ -55,9 +59,10 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 //	 - body *WSGIdentityCreateUser
 func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSGIdentityCreateUser) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteIdentityUsers
@@ -81,8 +89,9 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 //	 - body *WSGIdentityDeleteBulk
 func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *WSGIdentityDeleteBulk) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -96,6 +105,8 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteIdentityUsersById
@@ -107,9 +118,10 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 //		- required
 func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -119,6 +131,9 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindIdentityUsers
@@ -154,11 +169,12 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 //		- nullable
 // - userType string
 //		- nullable
-func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optionalParams map[string]interface{}) (*WSGIdentityUserList, error) {
+func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optionalParams map[string][]string) (*WSGIdentityUserList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityUserList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityUserList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -206,6 +222,9 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 	if v, ok := optionalParams["userType"]; ok {
 		req.AddQueryParameter("userType", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityUserList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIdentityUsersAaaserver
@@ -213,14 +232,18 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 // Use this API command to retrieve a list of aaa server.
 func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context) (*WSGIdentityAaaServerList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityAaaServerList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityAaaServerList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityAaaServerList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIdentityUsersById
@@ -232,9 +255,10 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context)
 //		- required
 func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id string) (*WSGIdentityUserConfiguration, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityUserConfiguration
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityUserConfiguration
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -244,6 +268,9 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityUserConfiguration()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIdentityUsersCountries
@@ -251,14 +278,18 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 // Use this API command to retrieve a list of countries.
 func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context) (*WSGIdentityCountryList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityCountryList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityCountryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityCountryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindIdentityUsersPackages
@@ -266,14 +297,18 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context)
 // Use this API command to retrieve a list of packages.
 func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) (*WSGIdentityPackageList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGIdentityPackageList
-		err  error
+		req      *APIRequest
+		resp     *WSGIdentityPackageList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIdentityPackageList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateIdentityUsersById
@@ -288,9 +323,10 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) 
 //		- required
 func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Context, body *WSGIdentityModifyUser, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -308,4 +344,7 @@ func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Cont
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

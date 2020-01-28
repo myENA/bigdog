@@ -83,9 +83,10 @@ func NewWSGCALEAMacListRsp() *WSGCALEAMacListRsp {
 //	 - body *WSGCALEACommonSettingRq
 func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body *WSGCALEACommonSettingRq) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -99,6 +100,9 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddSystemCaleaMac
@@ -109,9 +113,10 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 //	 - body *WSGCALEAMacListRq
 func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -125,6 +130,9 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // AddSystemCaleaMacList
@@ -135,9 +143,10 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 //	 - body []byte
 func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -149,6 +158,9 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteSystemCaleaMac
@@ -159,9 +171,10 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte
 //	 - body *WSGCALEAMacListRq
 func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -175,6 +188,9 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteSystemCaleaMacList
@@ -182,14 +198,18 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 // Use this API command to delete all CALEA UE MACs.
 func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMacList, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSystemCaleaCommonSetting
@@ -197,14 +217,18 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*WSGCom
 // Use this API command to get CALEA common setting.
 func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WSGCALEACommonSettingRsp, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCALEACommonSettingRsp
-		err  error
+		req      *APIRequest
+		resp     *WSGCALEACommonSettingRsp
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaCommonSetting, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCALEACommonSettingRsp()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindSystemCaleaMacList
@@ -212,12 +236,16 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WS
 // Use this API command to get all CALEA UE MACs.
 func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context) (*WSGCALEAMacListRsp, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCALEAMacListRsp
-		err  error
+		req      *APIRequest
+		resp     *WSGCALEAMacListRsp
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaMacList, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCALEAMacListRsp()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

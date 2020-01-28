@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMConfigurationService() *SwitchMConfigurationSer
 //	 - body *SwitchMConfigBackupQueryCriteria
 func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body *SwitchMConfigBackupQueryCriteria) (*SwitchMConfigBackupList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMConfigBackupList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMConfigBackupList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMConfigBackupList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddSwitchconfigBackup
@@ -55,9 +59,10 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 //	 - body SwitchMConfigBackupSwitchIds
 func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context, body SwitchMConfigBackupSwitchIds) (*SwitchMConfigBackupCreateBackupResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMConfigBackupCreateBackupResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMConfigBackupCreateBackupResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -69,6 +74,9 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMConfigBackupCreateBackupResultList()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // AddSwitchconfigBackupDiff
@@ -79,9 +87,10 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 //	 - body *SwitchMConfigBackupDiffInput
 func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Context, body *SwitchMConfigBackupDiffInput) (*SwitchMConfigBackupDiff, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMConfigBackupDiff
-		err  error
+		req      *APIRequest
+		resp     *SwitchMConfigBackupDiff
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -95,6 +104,9 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMConfigBackupDiff()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteSwitchconfig
@@ -105,8 +117,9 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 //	 - body SwitchMConfigBackupBackupIds
 func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, body SwitchMConfigBackupBackupIds) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -118,6 +131,8 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteSwitchconfigByConfigId
@@ -129,8 +144,9 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, bo
 //		- required
 func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.Context, configId string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -140,6 +156,8 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
 	req.SetPathParameter("configId", configId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindSwitchconfigByConfigId
@@ -151,9 +169,10 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 //		- required
 func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Context, configId string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -163,6 +182,9 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
 	req.SetPathParameter("configId", configId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindSwitchconfigDownloadByConfigId
@@ -174,9 +196,10 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 //		- required
 func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx context.Context, configId string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -186,6 +209,9 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigDownloadByConfigId, true)
 	req.SetPathParameter("configId", configId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // UpdateSwitchconfigBackup
@@ -196,8 +222,9 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 //	 - body SwitchMConfigBackupSwitchIds
 func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Context, body SwitchMConfigBackupSwitchIds) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -209,6 +236,8 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // UpdateSwitchconfigBackupByGroupId
@@ -222,8 +251,9 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Conte
 //		- required
 func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx context.Context, groupId string, groupType string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -237,6 +267,8 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
 	req.SetPathParameter("groupId", groupId)
 	req.SetPathParameter("groupType", groupType)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // UpdateSwitchconfigBackupRestoreByBackupId
@@ -248,9 +280,10 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 //		- required
 func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(ctx context.Context, backupId string) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -260,4 +293,7 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupRestoreByBackupId, true)
 	req.SetPathParameter("backupId", backupId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

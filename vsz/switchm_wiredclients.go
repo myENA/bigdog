@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMWiredClientsService() *SwitchMWiredClientsServi
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedDevicesQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchConnectedDevicesQueryList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchConnectedDevicesQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchConnectedDevicesQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddSwitchClientsAp
@@ -55,9 +59,10 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedAPsQueryList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchConnectedAPsQueryList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchConnectedAPsQueryList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,4 +76,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchConnectedAPsQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

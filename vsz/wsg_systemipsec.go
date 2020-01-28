@@ -197,14 +197,18 @@ func NewWSGSystemIPsecUpdate() *WSGSystemIPsecUpdate {
 // Use this API command to retrieve the System IPSec.
 func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystemIPsecGetResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGSystemIPsecGetResult
-		err  error
+		req      *APIRequest
+		resp     *WSGSystemIPsecGetResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemIpsec, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemIPsecGetResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateSystemIpsec
@@ -215,9 +219,10 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 //	 - body *WSGSystemIPsecUpdate
 func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -231,4 +236,7 @@ func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSG
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

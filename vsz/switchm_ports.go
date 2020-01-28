@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMPortsService() *SwitchMPortsService {
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchPortDetailsQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchPortDetailsQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchPortDetailsQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchPortDetailsQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddSwitchPortsSummary
@@ -55,9 +59,10 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchPortsSummaryQueryResultList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMSwitchPortsSummaryQueryResultList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMSwitchPortsSummaryQueryResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,4 +76,7 @@ func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *S
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchPortsSummaryQueryResultList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

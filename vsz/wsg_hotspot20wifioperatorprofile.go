@@ -29,9 +29,10 @@ func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService() *WSGHotspot20WiFi
 //	 - body *WSGProfileHs20Operator
 func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx context.Context, body *WSGProfileHs20Operator) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx co
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteProfilesHs20Operators
@@ -55,9 +59,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx co
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteProfilesHs20OperatorsById
@@ -82,9 +90,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -94,6 +103,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20OperatorsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteProfilesHs20OperatorsCertificateById
@@ -105,9 +117,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCertificateById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -117,6 +130,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCert
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesHs20OperatorsCertificateById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindProfilesHs20Operators
@@ -128,11 +144,12 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCert
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx context.Context, optionalParams map[string]interface{}) (*WSGProfileHs20OperatorList, error) {
+func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx context.Context, optionalParams map[string][]string) (*WSGProfileHs20OperatorList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileHs20OperatorList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileHs20OperatorList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -144,6 +161,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx c
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileHs20OperatorList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesHs20OperatorsById
@@ -155,9 +175,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx c
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(ctx context.Context, id string) (*WSGProfileHs20Operator, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileHs20Operator
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileHs20Operator
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -167,6 +188,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(c
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20OperatorsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileHs20Operator()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesHs20OperatorsByQueryCriteria
@@ -177,9 +201,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(c
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileHs20OperatorList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileHs20OperatorList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileHs20OperatorList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -193,6 +218,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQuer
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileHs20OperatorList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesHs20OperatorsById
@@ -207,9 +235,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQuer
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileModifyHS20Operator, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -227,6 +256,9 @@ func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20Operat
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // UpdateProfilesHs20OperatorsById
@@ -241,9 +273,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20Operat
 //		- required
 func (s *WSGHotspot20WiFiOperatorProfileService) UpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileHs20Operator, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -261,4 +294,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) UpdateProfilesHs20OperatorsById
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

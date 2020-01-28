@@ -259,14 +259,18 @@ func NewSwitchMAAASettingsEmptyResult() *SwitchMAAASettingsEmptyResult {
 // Use this API command to retrieve the AAA settings.
 func (s *SwitchMAAASettingsService) FindAaaSettings(ctx context.Context) (*SwitchMAAASettings, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMAAASettings
-		err  error
+		req      *APIRequest
+		resp     *SwitchMAAASettings
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaSettings, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMAAASettings()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateAaaSettings
@@ -277,9 +281,10 @@ func (s *SwitchMAAASettingsService) FindAaaSettings(ctx context.Context) (*Switc
 //	 - body *SwitchMAAASettings
 func (s *SwitchMAAASettingsService) UpdateAaaSettings(ctx context.Context, body *SwitchMAAASettings) (*SwitchMAAASettingsEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMAAASettingsEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMAAASettingsEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -293,4 +298,7 @@ func (s *SwitchMAAASettingsService) UpdateAaaSettings(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMAAASettingsEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

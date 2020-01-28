@@ -246,9 +246,10 @@ func NewSwitchMAAAServersEmptyResult() *SwitchMAAAServersEmptyResult {
 //	 - body *SwitchMAAAServersCreateAdminAAAServer
 func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer) (*SwitchMCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -262,6 +263,9 @@ func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteAaaServersAdmin
@@ -272,8 +276,9 @@ func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body 
 //	 - body *SwitchMCommonBulkDeleteRequest
 func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -287,6 +292,8 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // DeleteAaaServersAdminById
@@ -298,9 +305,10 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, bo
 //		- required
 func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context, id string) (*SwitchMAAAServersEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMAAAServersEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMAAAServersEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -310,6 +318,9 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdminById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMAAAServersEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindAaaServersAdmin
@@ -317,14 +328,18 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context
 // Use this API command to retrieve a list of AAA server.
 func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*SwitchMAAAServersQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMAAAServersQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMAAAServersQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdmin, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMAAAServersQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindAaaServersAdminById
@@ -336,9 +351,10 @@ func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*Sw
 //		- required
 func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, id string) (*SwitchMAAAServersAAAServer, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMAAAServersAAAServer
-		err  error
+		req      *APIRequest
+		resp     *SwitchMAAAServersAAAServer
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -348,6 +364,9 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdminById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMAAAServersAAAServer()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdateAaaServersAdminById
@@ -362,9 +381,10 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 //		- required
 func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, id string) (*SwitchMAAAServersEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMAAAServersEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMAAAServersEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -382,4 +402,7 @@ func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMAAAServersEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

@@ -377,9 +377,10 @@ func NewSwitchMPortSettingsUpdatePortSettings() *SwitchMPortSettingsUpdatePortSe
 //	 - body *SwitchMPortSettingsCreateBulk
 func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, body *SwitchMPortSettingsCreateBulk) (*SwitchMPortSettingsEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMPortSettingsEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMPortSettingsEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -393,6 +394,9 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMPortSettingsEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindPortSettings
@@ -400,14 +404,18 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 // Use this API command to Retrieve all Port Settings list.
 func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*SwitchMPortSettingsQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMPortSettingsQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMPortSettingsQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettings, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMPortSettingsQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindPortSettingsById
@@ -419,9 +427,10 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*Swi
 //		- required
 func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, id string) (*SwitchMPortSettings, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMPortSettings
-		err  error
+		req      *APIRequest
+		resp     *SwitchMPortSettings
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -431,6 +440,9 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettingsById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMPortSettings()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindPortSettingsByQueryCriteria
@@ -441,9 +453,10 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMPortSettingsQueryResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMPortSettingsQueryResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMPortSettingsQueryResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -457,6 +470,9 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMPortSettingsQueryResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // UpdatePortSettingsById
@@ -471,9 +487,10 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 //		- required
 func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortSettingsUpdatePortSettings, id string) (*SwitchMPortSettingsEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMPortSettingsEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *SwitchMPortSettingsEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -491,4 +508,7 @@ func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context,
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMPortSettingsEmptyResult()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

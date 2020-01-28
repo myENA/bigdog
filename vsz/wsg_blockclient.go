@@ -29,9 +29,10 @@ func (ss *WSGService) WSGBlockClientService() *WSGBlockClientService {
 //	 - body *WSGProfileBulkBlockClient
 func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGProfileBulkBlockClient) (WSGProfileCreateResultList, error) {
 	var (
-		req  *APIRequest
-		resp WSGProfileCreateResultList
-		err  error
+		req      *APIRequest
+		resp     WSGProfileCreateResultList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = MakeWSGProfileCreateResultList()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, resp, err)
 }
 
 // AddBlockClientByApMacByApMac
@@ -59,9 +63,10 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 //		- required
 func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context, body *WSGProfileBlockClient, apMac string) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -79,6 +84,9 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 		return resp, err
 	}
 	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteBlockClient
@@ -89,9 +97,10 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -105,6 +114,9 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteBlockClientById
@@ -116,9 +128,10 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 //		- required
 func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -128,6 +141,9 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteBlockClientById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindBlockClientById
@@ -139,9 +155,10 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 //		- required
 func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id string) (*WSGProfileBlockClient, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBlockClient
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBlockClient
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -151,6 +168,9 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBlockClient()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindBlockClientByQueryCriteria
@@ -161,9 +181,10 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBlockClientList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBlockClientList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBlockClientList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -177,6 +198,9 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBlockClientList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindBlockClientByZoneByZoneId
@@ -188,9 +212,10 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 //		- required
 func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Context, zoneId string) (*WSGProfileBlockClientList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileBlockClientList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileBlockClientList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -200,6 +225,9 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientByZoneByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileBlockClientList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateBlockClientById
@@ -214,9 +242,10 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 //		- required
 func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -234,6 +263,9 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // UpdateBlockClientById
@@ -248,9 +280,10 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 //		- required
 func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -268,4 +301,7 @@ func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body 
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

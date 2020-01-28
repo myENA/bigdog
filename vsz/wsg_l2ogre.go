@@ -29,9 +29,10 @@ func (ss *WSGService) WSGL2oGREService() *WSGL2oGREService {
 //	 - body *WSGProfileCreateL2oGREProfile
 func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *WSGProfileCreateL2oGREProfile) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *WSGProfi
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteProfilesL2ogre
@@ -55,9 +59,10 @@ func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *WSGProfi
 //	 - body *WSGCommonBulkDeleteRequest
 func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *WSGCo
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // DeleteProfilesL2ogreById
@@ -82,8 +90,9 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *WSGCo
 //		- required
 func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id string) error {
 	var (
-		req *APIRequest
-		err error
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return err
@@ -93,6 +102,8 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesL2ogreById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindProfilesL2ogre
@@ -100,14 +111,18 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id stri
 // Use this API command to retrieve a list of L2oGRE profile.
 func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context) (*WSGProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesL2ogre, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesL2ogreById
@@ -119,9 +134,10 @@ func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context) (*WSGProfileL
 //		- required
 func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string) (*WSGProfileL2oGREProfile, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileL2oGREProfile
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileL2oGREProfile
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -131,6 +147,9 @@ func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesL2ogreById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileL2oGREProfile()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindProfilesL2ogreByQueryCriteria
@@ -141,9 +160,10 @@ func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileL2oGREProfileList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGProfileL2oGREProfileList
-		err  error
+		req      *APIRequest
+		resp     *WSGProfileL2oGREProfileList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -157,6 +177,9 @@ func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileL2oGREProfileList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateProfilesL2ogreById
@@ -171,9 +194,10 @@ func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context
 //		- required
 func (s *WSGL2oGREService) PartialUpdateProfilesL2ogreById(ctx context.Context, body *WSGProfileModifyL2oGREProfile, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -191,4 +215,7 @@ func (s *WSGL2oGREService) PartialUpdateProfilesL2ogreById(ctx context.Context, 
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

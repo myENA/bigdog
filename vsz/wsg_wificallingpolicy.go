@@ -29,9 +29,10 @@ func (ss *WSGService) WSGWiFiCallingPolicyService() *WSGWiFiCallingPolicyService
 //	 - body *WSGWIFICallingCreateWifiCallingPolicy
 func (s *WSGWiFiCallingPolicyService) AddWifiCallingWifiCallingPolicy(ctx context.Context, body *WSGWIFICallingCreateWifiCallingPolicy) (*WSGCommonCreateResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonCreateResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonCreateResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *WSGWiFiCallingPolicyService) AddWifiCallingWifiCallingPolicy(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonCreateResult()
+	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
 // DeleteWifiCallingWifiCallingPolicy
@@ -55,9 +59,10 @@ func (s *WSGWiFiCallingPolicyService) AddWifiCallingWifiCallingPolicy(ctx contex
 //	 - body *WSGWIFICallingDeleteBulk
 func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicy(ctx context.Context, body *WSGWIFICallingDeleteBulk) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -71,6 +76,9 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicy(ctx con
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteWifiCallingWifiCallingPolicyById
@@ -82,9 +90,10 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicy(ctx con
 //		- required
 func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -94,6 +103,9 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteWifiCallingWifiCallingPolicyById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // FindWifiCallingByQueryCriteria
@@ -104,9 +116,10 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWIFICallingPolicyList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWIFICallingPolicyList
-		err  error
+		req      *APIRequest
+		resp     *WSGWIFICallingPolicyList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -120,6 +133,9 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWIFICallingPolicyList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindWifiCallingWifiCallingPolicy
@@ -133,11 +149,12 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx context.Context, optionalParams map[string]interface{}) (*WSGWIFICallingPolicyList, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx context.Context, optionalParams map[string][]string) (*WSGWIFICallingPolicyList, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWIFICallingPolicyList
-		err  error
+		req      *APIRequest
+		resp     *WSGWIFICallingPolicyList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -152,6 +169,9 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx conte
 	if v, ok := optionalParams["listSize"]; ok {
 		req.AddQueryParameter("listSize", v)
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWIFICallingPolicyList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindWifiCallingWifiCallingPolicyById
@@ -163,9 +183,10 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx conte
 //		- required
 func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx context.Context, id string) (*WSGWIFICallingPolicy, error) {
 	var (
-		req  *APIRequest
-		resp *WSGWIFICallingPolicy
-		err  error
+		req      *APIRequest
+		resp     *WSGWIFICallingPolicy
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -175,6 +196,9 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx c
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindWifiCallingWifiCallingPolicyById, true)
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWIFICallingPolicy()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // PartialUpdateWifiCallingWifiCallingPolicyById
@@ -189,9 +213,10 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx c
 //		- required
 func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -209,6 +234,9 @@ func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyB
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
 // UpdateWifiCallingWifiCallingPolicyById
@@ -223,9 +251,10 @@ func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyB
 //		- required
 func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyEntireWifiCallingPolicy, id string) (*WSGCommonEmptyResult, error) {
 	var (
-		req  *APIRequest
-		resp *WSGCommonEmptyResult
-		err  error
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -238,4 +267,7 @@ func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx
 		return resp, err
 	}
 	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

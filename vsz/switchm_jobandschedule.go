@@ -29,9 +29,10 @@ func (ss *SwitchMService) SwitchMJobandScheduleService() *SwitchMJobandScheduleS
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMJobList, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMJobList
-		err  error
+		req      *APIRequest
+		resp     *SwitchMJobList
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -45,6 +46,9 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMJobList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteJobSchedule
@@ -52,14 +56,18 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 // Use this API command to delete a selected schedule.
 func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (interface{}, error) {
 	var (
-		req  *APIRequest
-		resp interface{}
-		err  error
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteJobSchedule, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // FindJobByJobId
@@ -74,9 +82,10 @@ func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (i
 //		- required
 func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, jobId string) (*SwitchMJob, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMJob
-		err  error
+		req      *APIRequest
+		resp     *SwitchMJob
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -94,6 +103,9 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 		return resp, err
 	}
 	req.SetPathParameter("jobId", jobId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMJob()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindJobScheduleByScheduleId
@@ -105,9 +117,10 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 //		- required
 func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.Context, scheduleId string) (*SwitchMJobScheduleResponse, error) {
 	var (
-		req  *APIRequest
-		resp *SwitchMJobScheduleResponse
-		err  error
+		req      *APIRequest
+		resp     *SwitchMJobScheduleResponse
+		httpResp *http.Response
+		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
@@ -117,4 +130,7 @@ func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.C
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)
 	req.SetPathParameter("scheduleId", scheduleId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMJobScheduleResponse()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

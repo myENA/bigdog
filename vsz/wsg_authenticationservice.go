@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -396,6 +396,36 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
+// FindServicesAaaServerAuthByQueryCriteria
+//
+// Query Non-Proxy Authentication AAAServers with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAuthenticationServiceService) FindServicesAaaServerAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAAAServerQueryList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGAAAServerQueryList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAaaServerAuthByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAAAServerQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
 // FindServicesAuthAd
 //
 // Use this API command to retrieve a list of active directory authentication services.
@@ -786,7 +816,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 
 // PartialUpdateServicesAuthAdById
 //
-// Use this API command to modify the basic information of an active directory authentication service.
+// Use this API command to modify the configuration of an active directory authentication service.
 //
 // Request Body:
 //	 - body *WSGServiceModifyActiveDirectoryAuthentication
@@ -824,7 +854,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 
 // PartialUpdateServicesAuthHlrById
 //
-// Use this API command to modify the basic information of a hlr authentication service.
+// Use this API command to modify the configuration of a hlr authentication service.
 //
 // Request Body:
 //	 - body *WSGServiceModifyHlrAuthentication
@@ -862,7 +892,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 
 // PartialUpdateServicesAuthLdapById
 //
-// Use this API command to modify the basic information of a LDAP authentication service.
+// Use this API command to modify the configuration of a LDAP authentication service.
 //
 // Request Body:
 //	 - body *WSGServiceModifyLDAPAuthentication
@@ -938,7 +968,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocal_dbById(
 
 // PartialUpdateServicesAuthRadiusById
 //
-// Use this API command to modify the basic information of a RADIUS authentication service.
+// Use this API command to modify the configuration of a RADIUS authentication service.
 //
 // Request Body:
 //	 - body *WSGServiceModifyRadiusAuthentication

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -109,40 +109,6 @@ type WSGSCIModifySciEnabled struct {
 
 func NewWSGSCIModifySciEnabled() *WSGSCIModifySciEnabled {
 	m := new(WSGSCIModifySciEnabled)
-	return m
-}
-
-type WSGSCIModifySciPriorityList struct {
-	List []*WSGSCIModifySciPriorityListType `json:"list,omitempty"`
-}
-
-func NewWSGSCIModifySciPriorityList() *WSGSCIModifySciPriorityList {
-	m := new(WSGSCIModifySciPriorityList)
-	return m
-}
-
-type WSGSCIModifySciPriorityListType struct {
-	// Id
-	// UUID of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - required
-	Id *string `json:"id" validate:"required"`
-
-	// SciPriority
-	// Priority of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - required
-	SciPriority *int `json:"sciPriority" validate:"required"`
-
-	// SciProfile
-	// Profile name of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - required
-	SciProfile *string `json:"sciProfile" validate:"required"`
-}
-
-func NewWSGSCIModifySciPriorityListType() *WSGSCIModifySciPriorityListType {
-	m := new(WSGSCIModifySciPriorityListType)
 	return m
 }
 
@@ -385,36 +351,6 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
-// AddSciSciProfileSciPriority
-//
-// Use this API command to modify sciPriorities.
-//
-// Request Body:
-//	 - body *WSGSCIModifySciPriorityList
-func (s *WSGSCIService) AddSciSciProfileSciPriority(ctx context.Context, body *WSGSCIModifySciPriorityList) (interface{}, error) {
-	var (
-		req      *APIRequest
-		resp     interface{}
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddSciSciProfileSciPriority, true)
-	if err = req.SetBody(body); err != nil {
-		return resp, err
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = new(interface{})
-	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // DeleteSciSciProfile

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -35,15 +35,17 @@ func NewWSGAPGroupAddMembers() *WSGAPGroupAddMembers {
 type WSGAPGroupConfiguration struct {
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
+	// ApGroupRoguePolicy
+	// Override Rogue AP policy ID (only for monitoring group).
+	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
+
 	ApMgmtVlan *WSGCommonApManagementVlan `json:"apMgmtVlan,omitempty"`
 
 	AutoChannelSelection24 *WSGCommonAutoChannelSelection `json:"autoChannelSelection24,omitempty"`
 
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Venue code
-	AwsVenue *string `json:"awsVenue,omitempty"`
+	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
@@ -89,15 +91,27 @@ type WSGAPGroupConfiguration struct {
 	// Members of the AP group
 	Members []*WSGAPGroupMember `json:"members,omitempty"`
 
+	// MonitoringEnabled
+	// Set AP group as monitoring group.
+	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
+
 	// Name
 	// Name of the AP group
 	// Constraints:
 	//    - required
 	Name *string `json:"name" validate:"required"`
 
+	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
+
+	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
+
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+
+	// RksGreForwardBroadcast
+	// Ruckus GRE tunnel broadcast packet forwarding
+	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
@@ -108,6 +122,12 @@ type WSGAPGroupConfiguration struct {
 	// RogueApReportThreshold
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
+
+	// RogueScanFreq
+	// Set rogue scan frequency (only for monitoring group).
+	// Constraints:
+	//    - oneof:[LOW,MEDIUM,HIGH]
+	RogueScanFreq *string `json:"rogueScanFreq,omitempty" validate:"oneof=LOW MEDIUM HIGH"`
 
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
@@ -175,15 +195,17 @@ func NewWSGAPGroupSummary() *WSGAPGroupSummary {
 type WSGAPGroupCreateAPGroup struct {
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
+	// ApGroupRoguePolicy
+	// Override Rogue AP policy ID (only for monitoring group).
+	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
+
 	ApMgmtVlan *WSGCommonApManagementVlan `json:"apMgmtVlan,omitempty"`
 
 	AutoChannelSelection24 *WSGCommonAutoChannelSelection `json:"autoChannelSelection24,omitempty"`
 
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Venue code
-	AwsVenue *string `json:"awsVenue,omitempty"`
+	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
@@ -225,11 +247,23 @@ type WSGAPGroupCreateAPGroup struct {
 	// LTE band lock channels options
 	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
+	// MonitoringEnabled
+	// Set AP group as monitoring group.
+	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
+
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
+
+	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
 
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+
+	// RksGreForwardBroadcast
+	// Ruckus GRE tunnel broadcast packet forwarding
+	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
@@ -240,6 +274,12 @@ type WSGAPGroupCreateAPGroup struct {
 	// RogueApReportThreshold
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
+
+	// RogueScanFreq
+	// Set rogue scan frequency (only for monitoring group).
+	// Constraints:
+	//    - oneof:[LOW,MEDIUM,HIGH]
+	RogueScanFreq *string `json:"rogueScanFreq,omitempty" validate:"oneof=LOW MEDIUM HIGH"`
 
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
@@ -260,15 +300,17 @@ func NewWSGAPGroupCreateAPGroup() *WSGAPGroupCreateAPGroup {
 type WSGAPGroupModifyAPGroup struct {
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
+	// ApGroupRoguePolicy
+	// Override Rogue AP policy ID (only for monitoring group).
+	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
+
 	ApMgmtVlan *WSGCommonApManagementVlan `json:"apMgmtVlan,omitempty"`
 
 	AutoChannelSelection24 *WSGCommonAutoChannelSelection `json:"autoChannelSelection24,omitempty"`
 
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Venue code
-	AwsVenue *string `json:"awsVenue,omitempty"`
+	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
@@ -310,11 +352,23 @@ type WSGAPGroupModifyAPGroup struct {
 	// LTE band lock channels options
 	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
+	// MonitoringEnabled
+	// Set AP group as monitoring group.
+	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
+
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
+
+	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
 
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+
+	// RksGreForwardBroadcast
+	// Ruckus GRE tunnel broadcast packet forwarding
+	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
@@ -325,6 +379,12 @@ type WSGAPGroupModifyAPGroup struct {
 	// RogueApReportThreshold
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
+
+	// RogueScanFreq
+	// Set rogue scan frequency (only for monitoring group).
+	// Constraints:
+	//    - oneof:[LOW,MEDIUM,HIGH]
+	RogueScanFreq *string `json:"rogueScanFreq,omitempty" validate:"oneof=LOW MEDIUM HIGH"`
 
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
@@ -627,6 +687,39 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection50ById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// DeleteRkszonesApgroupsAwsVenueById
+//
+// Use this API command to disable AWS venue override. The AP will apply its group's or zone's configuration.
+//
+// Required Parameters:
+// - id string
+//		- required
+// - zoneId string
+//		- required
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsAwsVenueById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAwsVenueById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1095,6 +1188,39 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.C
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRecoverySsidById, true)
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// DeleteRkszonesApgroupsRksGreForwardBroadcastById
+//
+// Use this API command to disable Ruckus GRE Broadcast packet forwarding override zone for APs that belong to an AP group.
+//
+// Required Parameters:
+// - id string
+//		- required
+// - zoneId string
+//		- required
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsRksGreForwardBroadcastById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRksGreForwardBroadcastById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1836,7 +1962,7 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Cont
 
 // PartialUpdateRkszonesApgroupsById
 //
-// Use this API command to modify the basic information of an AP group.
+// Use this API command to modify the configuration of an AP group.
 //
 // Request Body:
 //	 - body *WSGAPGroupModifyAPGroup
@@ -1922,6 +2048,50 @@ func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Con
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("model", model)
+	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// UpdateRkszonesApgroupsById
+//
+// Use this API command to modify the entire information of an AP group.
+//
+// Request Body:
+//	 - body *WSGAPGroupModifyAPGroup
+//
+// Required Parameters:
+// - id string
+//		- required
+// - zoneId string
+//		- required
+func (s *WSGAPGroupService) UpdateRkszonesApgroupsById(ctx context.Context, body *WSGAPGroupModifyAPGroup, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesApgroupsById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()

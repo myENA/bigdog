@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGWiredClientQueryClientQueryList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
@@ -30,6 +30,8 @@ type WSGWiredClientQueryCreateClientQuery struct {
 
 	ClientMac *string `json:"clientMac,omitempty"`
 
+	DeviceType *string `json:"deviceType,omitempty"`
+
 	Downlink *int `json:"downlink,omitempty"`
 
 	Hostname *string `json:"hostname,omitempty"`
@@ -38,13 +40,17 @@ type WSGWiredClientQueryCreateClientQuery struct {
 
 	Ipv6Address *string `json:"ipv6Address,omitempty"`
 
+	ModelName *string `json:"modelName,omitempty"`
+
 	OsType *string `json:"osType,omitempty"`
+
+	OsVendorType *string `json:"osVendorType,omitempty"`
 
 	RxBytes *int `json:"rxBytes,omitempty"`
 
 	RxFrames *int `json:"rxFrames,omitempty"`
 
-	SessionStartTime *float64 `json:"sessionStartTime,omitempty"`
+	SessionStartTime *int `json:"sessionStartTime,omitempty"`
 
 	Traffic *int `json:"traffic,omitempty"`
 

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGWLANQueryApWlanBssid struct {
 	ApMac *string `json:"apMac,omitempty"`
@@ -67,6 +67,8 @@ type WSGWLANQueryCreateWlanQuery struct {
 	Enability11r *string `json:"enability11r,omitempty" validate:"oneof=Enabled Disabled"`
 
 	EncryptionMethod *string `json:"encryptionMethod,omitempty"`
+
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 

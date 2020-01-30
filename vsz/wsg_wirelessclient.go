@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -179,45 +179,6 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
-// FindApsOperationalClientByApMac
-//
-// Use this API command to retrieve the client list per AP.
-//
-// Required Parameters:
-// - apMac string
-//		- required
-//
-// Optional Parameters:
-// - index string
-//		- nullable
-// - listSize string
-//		- nullable
-func (s *WSGWirelessClientService) FindApsOperationalClientByApMac(ctx context.Context, apMac string, optionalParams map[string][]string) (*WSGAPClientList, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGAPClientList
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientByApMac, true)
-	req.SetPathParameter("apMac", apMac)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
-	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGAPClientList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
 // FindApsOperationalClientTotalCountByApMac
 //
 // Use this API command to retrieve the total client count per AP.
@@ -243,6 +204,36 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+}
+
+// FindClientByQueryCriteria
+//
+// Query clients with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGWirelessClientService) FindClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientQueryList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGClientQueryList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindClientByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGClientQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindHistoricalclientByQueryCriteria

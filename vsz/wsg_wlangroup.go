@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -471,7 +471,7 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context
 
 // PartialUpdateRkszonesWlangroupsById
 //
-// Use this API command to modify the basic information of a WLAN group.
+// Use this API command to modify the configuration of a WLAN group.
 //
 // Request Body:
 //	 - body *WSGWLANGroupModifyWlanGroup

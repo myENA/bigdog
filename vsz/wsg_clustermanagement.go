@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -404,25 +404,6 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
-// FindClusterNodeStatus
-//
-// Use this API command to get Control node Status.
-func (s *WSGClusterManagementService) FindClusterNodeStatus(ctx context.Context) (*WSGClusterBladeControlNodeStatus, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGClusterBladeControlNodeStatus
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterNodeStatus, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGClusterBladeControlNodeStatus()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
 // FindClusterState
 //
 // Use this API command to get current cluster, blade, and management service states
@@ -439,25 +420,6 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context) (*WS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterState, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGClusterBladeClusterState()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
-// FindClusterStatus
-//
-// Use this API command to get Cluster Status.
-func (s *WSGClusterManagementService) FindClusterStatus(ctx context.Context) (*WSGClusterBladeClusterStatus, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGClusterBladeClusterStatus
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterStatus, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGClusterBladeClusterStatus()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 

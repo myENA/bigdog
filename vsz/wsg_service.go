@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGServiceActiveDirectoryService struct {
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
@@ -742,7 +742,7 @@ type WSGServiceCreateRadiusAuthentication struct {
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// Type
-	// Authentication server type
+	// Authentication protocol
 	// Constraints:
 	//    - default:'RADIUS'
 	//    - oneof:[RADIUS]
@@ -855,6 +855,8 @@ func NewWSGServiceGroupAttrIdentityUserRoleMapping() *WSGServiceGroupAttrIdentit
 //
 // Identity user role
 type WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType struct {
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
 	// Id
 	// Identity user role UUID
 	Id *string `json:"id,omitempty"`
@@ -1273,7 +1275,7 @@ type WSGServiceLDAPService struct {
 	TlsEnabled *bool `json:"tlsEnabled,omitempty"`
 
 	// Type
-	// Authentication protocol.
+	// Authentication protocol same as protocol.
 	// Constraints:
 	//    - oneof:[LDAP]
 	Type *string `json:"type,omitempty" validate:"oneof=LDAP"`
@@ -1668,7 +1670,7 @@ type WSGServiceModifyLDAPAuthentication struct {
 	TlsEnabled *bool `json:"tlsEnabled,omitempty"`
 
 	// Type
-	// Authentication protocol.
+	// Authentication protocol same as protocol.
 	// Constraints:
 	//    - oneof:[LDAP]
 	Type *string `json:"type,omitempty" validate:"oneof=LDAP"`

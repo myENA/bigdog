@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -233,7 +233,7 @@ func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQuery
 
 // PartialUpdateRkszonesBonjourFencingPolicyById
 //
-// Use this API command to modify the basic information of Bonjour Fencing Policy.
+// Use this API command to modify the configuration of Bonjour Fencing Policy.
 //
 // Request Body:
 //	 - body *WSGProfileModifyBonjourFencingPolicy

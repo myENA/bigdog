@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -184,7 +184,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 
 // PartialUpdateIdentityPackagesById
 //
-// Use this API command to modify the basic information of subscription package.
+// Use this API command to modify the configuration of subscription package.
 //
 // Request Body:
 //	 - body *WSGIdentityModifySubscriptionPackage

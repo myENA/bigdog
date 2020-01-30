@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -26,8 +26,8 @@ func (ss *SwitchMService) SwitchMConfigurationService() *SwitchMConfigurationSer
 // Use this API command to retrieve configuration backup list with specified filters.
 //
 // Request Body:
-//	 - body *SwitchMConfigBackupQueryCriteria
-func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body *SwitchMConfigBackupQueryCriteria) (*SwitchMConfigBackupList, error) {
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMConfigBackupList, error) {
 	var (
 		req      *APIRequest
 		resp     *SwitchMConfigBackupList
@@ -212,32 +212,6 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
-}
-
-// UpdateSwitchconfigBackup
-//
-// Use this API command to backup configuration for a list of switches.
-//
-// Request Body:
-//	 - body SwitchMConfigBackupSwitchIds
-func (s *SwitchMConfigurationService) UpdateSwitchconfigBackup(ctx context.Context, body SwitchMConfigBackupSwitchIds) error {
-	var (
-		req      *APIRequest
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return err
-	}
-	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackup, true)
-	if err = req.SetBody(body); err != nil {
-		return err
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // UpdateSwitchconfigBackupByGroupId

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -20,15 +20,6 @@ func NewSwitchMFirmwareService(c *APIClient) *SwitchMFirmwareService {
 
 func (ss *SwitchMService) SwitchMFirmwareService() *SwitchMFirmwareService {
 	return NewSwitchMFirmwareService(ss.apiClient)
-}
-
-type SwitchMFirmwareAllFirmwaresQueryResultList struct {
-	*SwitchMFirmwaresQueryResultList
-}
-
-func NewSwitchMFirmwareAllFirmwaresQueryResultList() *SwitchMFirmwareAllFirmwaresQueryResultList {
-	m := new(SwitchMFirmwareAllFirmwaresQueryResultList)
-	return m
 }
 
 type SwitchMFirmwaresQueryResultList struct {
@@ -261,10 +252,10 @@ func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, ve
 // FindFirmware
 //
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
-func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirmwareAllFirmwaresQueryResultList, error) {
+func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirmwaresQueryResultList, error) {
 	var (
 		req      *APIRequest
-		resp     *SwitchMFirmwareAllFirmwaresQueryResultList
+		resp     *SwitchMFirmwaresQueryResultList
 		httpResp *http.Response
 		err      error
 	)
@@ -273,7 +264,7 @@ func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirm
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMFirmwareAllFirmwaresQueryResultList()
+	resp = NewSwitchMFirmwaresQueryResultList()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGAlarmListAlarmQueryResultList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -22,7 +22,7 @@ func NewWSGAlarmListAlarmQueryResultList() *WSGAlarmListAlarmQueryResultList {
 type WSGAlarmListSingleAlarm struct {
 	Acknowledged *string `json:"acknowledged,omitempty"`
 
-	AckTime *float64 `json:"ackTime,omitempty"`
+	AckTime *int `json:"ackTime,omitempty"`
 
 	AckUser *string `json:"ackUser,omitempty"`
 
@@ -38,13 +38,13 @@ type WSGAlarmListSingleAlarm struct {
 
 	ClearComment *string `json:"clearComment,omitempty"`
 
-	ClearTime *float64 `json:"clearTime,omitempty"`
+	ClearTime *int `json:"clearTime,omitempty"`
 
 	ClearUser *string `json:"clearUser,omitempty"`
 
 	Id *string `json:"id,omitempty"`
 
-	InsertionTime *float64 `json:"insertionTime,omitempty"`
+	InsertionTime *int `json:"insertionTime,omitempty"`
 
 	Severity *string `json:"severity,omitempty"`
 }

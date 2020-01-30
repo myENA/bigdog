@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -26,6 +26,8 @@ type WSGSystemIPsecGetResult struct {
 	// Authentication type
 	AuthType *string `json:"authType,omitempty"`
 
+	// CertSubject
+	// Assign specific cert subject
 	CertSubject *string `json:"certSubject,omitempty"`
 
 	// EspProposals
@@ -64,8 +66,12 @@ type WSGSystemIPsecGetResult struct {
 	// Enable System IPSec
 	IpSecEnabled *bool `json:"ipSecEnabled,omitempty"`
 
+	// OcspEnabled
+	// Enable OCSP
 	OcspEnabled *bool `json:"ocspEnabled,omitempty"`
 
+	// OcspServerUri
+	// The URI of OCSP server
 	OcspServerUri *string `json:"ocspServerUri,omitempty"`
 
 	// PreSharedKey
@@ -88,6 +94,8 @@ type WSGSystemIPsecGetResult struct {
 	// Subnet Mask of security gateway
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
+	// TrustChainProfileId
+	// Assign trust chain profile id
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
@@ -120,6 +128,8 @@ type WSGSystemIPsecUpdate struct {
 	// Authentication type
 	AuthType *string `json:"authType,omitempty"`
 
+	// CertSubject
+	// Assign specific cert subject
 	CertSubject *string `json:"certSubject,omitempty"`
 
 	// EspProposals
@@ -160,8 +170,12 @@ type WSGSystemIPsecUpdate struct {
 	//    - required
 	IpSecEnabled *bool `json:"ipSecEnabled" validate:"required"`
 
+	// OcspEnabled
+	// Enable OCSP
 	OcspEnabled *bool `json:"ocspEnabled,omitempty"`
 
+	// OcspServerUri
+	// The URI of OCSP server
 	OcspServerUri *string `json:"ocspServerUri,omitempty"`
 
 	// PreSharedKey
@@ -184,6 +198,8 @@ type WSGSystemIPsecUpdate struct {
 	// Subnet Mask of security gateway
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
+	// TrustChainProfileId
+	// Assign trust chain profile id
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
@@ -217,10 +233,10 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 //
 // Request Body:
 //	 - body *WSGSystemIPsecUpdate
-func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate) (*WSGCommonCreateResult, error) {
+func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate) (interface{}, error) {
 	var (
 		req      *APIRequest
-		resp     *WSGCommonCreateResult
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -237,6 +253,6 @@ func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSG
 		return resp, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonCreateResult()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

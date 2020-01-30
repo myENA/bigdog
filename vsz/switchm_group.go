@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -115,15 +115,6 @@ type SwitchMGroupCloneConfigBySwitch struct {
 
 func NewSwitchMGroupCloneConfigBySwitch() *SwitchMGroupCloneConfigBySwitch {
 	m := new(SwitchMGroupCloneConfigBySwitch)
-	return m
-}
-
-type SwitchMGroupDeleteSwitchGroupResult struct {
-	*SwitchMGroupAuditId
-}
-
-func NewSwitchMGroupDeleteSwitchGroupResult() *SwitchMGroupDeleteSwitchGroupResult {
-	m := new(SwitchMGroupDeleteSwitchGroupResult)
 	return m
 }
 
@@ -350,15 +341,6 @@ func NewSwitchMGroupSwitchGroup() *SwitchMGroupSwitchGroup {
 	return m
 }
 
-type SwitchMGroupSwitchGroupQueryResult struct {
-	*SwitchMGroupSwitchGroup
-}
-
-func NewSwitchMGroupSwitchGroupQueryResult() *SwitchMGroupSwitchGroupQueryResult {
-	m := new(SwitchMGroupSwitchGroupQueryResult)
-	return m
-}
-
 // SwitchMGroupSwitchGroupSampledInstantType
 //
 // Sampled instant of the switch group
@@ -384,24 +366,6 @@ func (t *SwitchMGroupSwitchGroupSampledInstantType) MarshalJSON() ([]byte, error
 
 func NewSwitchMGroupSwitchGroupSampledInstantType() *SwitchMGroupSwitchGroupSampledInstantType {
 	m := new(SwitchMGroupSwitchGroupSampledInstantType)
-	return m
-}
-
-type SwitchMGroupUpdateSwitchGroup struct {
-	*SwitchMGroupSwitchGroup
-}
-
-func NewSwitchMGroupUpdateSwitchGroup() *SwitchMGroupUpdateSwitchGroup {
-	m := new(SwitchMGroupUpdateSwitchGroup)
-	return m
-}
-
-type SwitchMGroupUpdateSwitchGroupResult struct {
-	*SwitchMGroupAuditId
-}
-
-func NewSwitchMGroupUpdateSwitchGroupResult() *SwitchMGroupUpdateSwitchGroupResult {
-	m := new(SwitchMGroupUpdateSwitchGroupResult)
 	return m
 }
 
@@ -442,10 +406,10 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 // Required Parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMGroupDeleteSwitchGroupResult, error) {
+func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMGroupAuditId, error) {
 	var (
 		req      *APIRequest
-		resp     *SwitchMGroupDeleteSwitchGroupResult
+		resp     *SwitchMGroupAuditId
 		httpResp *http.Response
 		err      error
 	)
@@ -458,7 +422,7 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteGroupBySwitchGroupId, true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMGroupDeleteSwitchGroupResult()
+	resp = NewSwitchMGroupAuditId()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
@@ -469,10 +433,10 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 // Required Parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMGroupSwitchGroupQueryResult, error) {
+func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMGroupSwitchGroup, error) {
 	var (
 		req      *APIRequest
-		resp     *SwitchMGroupSwitchGroupQueryResult
+		resp     *SwitchMGroupSwitchGroup
 		httpResp *http.Response
 		err      error
 	)
@@ -485,7 +449,7 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupBySwitchGroupId, true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMGroupSwitchGroupQueryResult()
+	resp = NewSwitchMGroupSwitchGroup()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
@@ -496,7 +460,11 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 // Required Parameters:
 // - domainId string
 //		- required
-func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, domainId string) (*SwitchMGroupsByIdsQueryResultList, error) {
+//
+// Optional Parameters:
+// - showStagingGroup string
+//		- nullable
+func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, domainId string, optionalParams map[string][]string) (*SwitchMGroupsByIdsQueryResultList, error) {
 	var (
 		req      *APIRequest
 		resp     *SwitchMGroupsByIdsQueryResultList
@@ -511,9 +479,42 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupIdsByDomainByDomainId, true)
 	req.SetPathParameter("domainId", domainId)
+	if v, ok := optionalParams["showStagingGroup"]; ok {
+		req.AddQueryParameter("showStagingGroup", v)
+	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMGroupsByIdsQueryResultList()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindSwitchClientVisibilityByQueryCriteria
+//
+// Use this API command to Retrieve the switch client list.
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) ([]byte, error) {
+	var (
+		req      *APIRequest
+		resp     []byte
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindSwitchClientVisibilityByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = make([]byte, 0)
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }
 
 // PartialUpdateGroupBySwitchGroupId
@@ -521,19 +522,24 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 // Use this API command to update an existing switch group name or description.
 //
 // Request Body:
-//	 - body *SwitchMGroupUpdateSwitchGroup
+//	 - body *SwitchMGroupSwitchGroup
 //
 // Required Parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Context, body *SwitchMGroupUpdateSwitchGroup, switchGroupId string) (*SwitchMGroupUpdateSwitchGroupResult, error) {
+func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Context, body *SwitchMGroupSwitchGroup, switchGroupId string) (*SwitchMGroupAuditId, error) {
 	var (
 		req      *APIRequest
-		resp     *SwitchMGroupUpdateSwitchGroupResult
+		resp     *SwitchMGroupAuditId
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
@@ -545,6 +551,6 @@ func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Cont
 	}
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMGroupUpdateSwitchGroupResult()
+	resp = NewSwitchMGroupAuditId()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

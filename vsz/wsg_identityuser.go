@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -313,7 +313,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) 
 
 // PartialUpdateIdentityUsersById
 //
-// Use this API command to modify the basic information of identity user.
+// Use this API command to modify the configuration of identity user.
 //
 // Request Body:
 //	 - body *WSGIdentityModifyUser

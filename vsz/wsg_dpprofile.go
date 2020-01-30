@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGDPProfileBulkDelete struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`

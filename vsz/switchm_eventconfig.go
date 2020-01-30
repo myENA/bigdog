@@ -1,37 +1,10 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"encoding/json"
 )
-
-type SwitchMEventConfigAddEventConfig struct {
-	*SwitchMEventConfig
-}
-
-func NewSwitchMEventConfigAddEventConfig() *SwitchMEventConfigAddEventConfig {
-	m := new(SwitchMEventConfigAddEventConfig)
-	return m
-}
-
-type SwitchMEventConfigAddEventConfigResult struct {
-	*SwitchMEventConfigQueryResponse
-}
-
-func NewSwitchMEventConfigAddEventConfigResult() *SwitchMEventConfigAddEventConfigResult {
-	m := new(SwitchMEventConfigAddEventConfigResult)
-	return m
-}
-
-type SwitchMEventConfigDeleteEventConfigResult struct {
-	*SwitchMEventConfigQueryResponse
-}
-
-func NewSwitchMEventConfigDeleteEventConfigResult() *SwitchMEventConfigDeleteEventConfigResult {
-	m := new(SwitchMEventConfigDeleteEventConfigResult)
-	return m
-}
 
 type SwitchMEventConfig struct {
 	// Criteria
@@ -271,23 +244,5 @@ func (t *SwitchMEventConfigQueryResponseMetaDataType) MarshalJSON() ([]byte, err
 
 func NewSwitchMEventConfigQueryResponseMetaDataType() *SwitchMEventConfigQueryResponseMetaDataType {
 	m := new(SwitchMEventConfigQueryResponseMetaDataType)
-	return m
-}
-
-type SwitchMEventConfigUpdateEventConfig struct {
-	*SwitchMEventConfig
-}
-
-func NewSwitchMEventConfigUpdateEventConfig() *SwitchMEventConfigUpdateEventConfig {
-	m := new(SwitchMEventConfigUpdateEventConfig)
-	return m
-}
-
-type SwitchMEventConfigUpdateEventConfigResult struct {
-	*SwitchMEventConfigQueryResponse
-}
-
-func NewSwitchMEventConfigUpdateEventConfigResult() *SwitchMEventConfigUpdateEventConfigResult {
-	m := new(SwitchMEventConfigUpdateEventConfigResult)
 	return m
 }

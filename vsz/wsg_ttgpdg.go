@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -238,7 +238,7 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context
 
 // PartialUpdateProfilesTtgpdgById
 //
-// Use this API command to modify the basic information of TTG+PDG profile.
+// Use this API command to modify the configuration of TTG+PDG profile.
 //
 // Request Body:
 //	 - body *WSGProfileTtgpdgProfileConfiguration

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGEventManagementEventDataList struct {
 	HasMore *bool `json:"hasMore,omitempty"`

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGAPModel struct {
 	CellularSettings *WSGAPModelCellularSettings `json:"cellularSettings,omitempty"`
@@ -31,11 +31,7 @@ type WSGAPModel struct {
 
 	Lldp *WSGAPModelLldpSetting `json:"lldp,omitempty"`
 
-	// PoeModeSetting
-	// Constraints:
-	//    - nullable
-	//    - oneof:[Auto,_802_3af,_802_3at,_802_3atPlus]
-	PoeModeSetting *string `json:"poeModeSetting,omitempty" validate:"omitempty,oneof=Auto _802_3af _802_3at _802_3atPlus"`
+	PoeModeSetting *WSGCommonPoeModeSetting `json:"poeModeSetting,omitempty"`
 
 	// PoeOutPortEnabled
 	// Constraints:
@@ -152,7 +148,7 @@ func NewWSGAPModelCellularSettings() *WSGAPModelCellularSettings {
 type WSGAPModelCommonAttribute struct {
 	AllowDfsCountry *string `json:"allowDfsCountry,omitempty"`
 
-	CapabilityScore *float64 `json:"capabilityScore,omitempty"`
+	CapabilityScore *int `json:"capabilityScore,omitempty"`
 
 	CpuFrequency *int `json:"cpuFrequency,omitempty"`
 
@@ -295,6 +291,8 @@ func NewWSGAPModelExternalAntenna() *WSGAPModelExternalAntenna {
 
 type WSGAPModelLacpSetting struct {
 	Enabled *bool `json:"enabled,omitempty"`
+
+	KeepApSetting *bool `json:"keepApSetting,omitempty"`
 }
 
 func NewWSGAPModelLacpSetting() *WSGAPModelLacpSetting {

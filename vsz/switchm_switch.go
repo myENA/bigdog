@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -137,6 +137,8 @@ type SwitchMSwitchConnectedDevice struct {
 	// LocalPortMac
 	// Local port mac address
 	LocalPortMac *string `json:"localPortMac,omitempty"`
+
+	RemoteDeviceMac *string `json:"remoteDeviceMac,omitempty"`
 
 	// RemoteDeviceName
 	// Remote connected device name
@@ -427,6 +429,8 @@ type SwitchMSwitchNetworkSwitch struct {
 	// Identifier of the management domain to which the switch belong
 	DomainId *string `json:"domainId,omitempty"`
 
+	// Family
+	// Switch Model Family
 	Family *string `json:"family,omitempty"`
 
 	// FirmwareUpdate
@@ -679,15 +683,15 @@ type SwitchMSwitchPortDetails struct {
 	Packets *SwitchMSwitchPortDetailsPacketsType `json:"packets,omitempty"`
 
 	// Poe
-	// POE information of switch port
+	// PoE information of switch port
 	Poe *SwitchMSwitchPortDetailsPoeType `json:"poe,omitempty"`
 
 	// PoeEnabled
-	// POE Enabled, True or False
+	// PoE Enabled, True or False
 	PoeEnabled *bool `json:"poeEnabled,omitempty"`
 
 	// PoeType
-	// POE type
+	// PoE type
 	PoeType *string `json:"poeType,omitempty"`
 
 	// PortError
@@ -776,6 +780,8 @@ type SwitchMSwitchPortDetailsConnectedDeviceType struct {
 	// Local port mac address to connected device
 	LocalPortMac *string `json:"localPortMac,omitempty"`
 
+	RemoteDeviceMac *string `json:"remoteDeviceMac,omitempty"`
+
 	// RemoteDeviceName
 	// Remote connected device name
 	RemoteDeviceName *string `json:"remoteDeviceName,omitempty"`
@@ -858,7 +864,7 @@ func NewSwitchMSwitchPortDetailsPacketsType() *SwitchMSwitchPortDetailsPacketsTy
 
 // SwitchMSwitchPortDetailsPoeType
 //
-// POE information of switch port
+// PoE information of switch port
 type SwitchMSwitchPortDetailsPoeType struct {
 	// Free
 	// Free power capacity of switch port
@@ -979,6 +985,9 @@ func NewSwitchMSwitchPortDetailsTrafficUsageType() *SwitchMSwitchPortDetailsTraf
 	return m
 }
 
+// SwitchMSwitchPortStatus
+//
+// $
 type SwitchMSwitchPortStatus struct {
 	// AdminDown
 	// Admin down port count
@@ -1110,6 +1119,9 @@ func NewSwitchMSwitchStackMemberQueryResultExtraType() *SwitchMSwitchStackMember
 	return m
 }
 
+// SwitchMSwitchIdList
+//
+// $
 type SwitchMSwitchIdList []string
 
 func MakeSwitchMSwitchIdList() SwitchMSwitchIdList {

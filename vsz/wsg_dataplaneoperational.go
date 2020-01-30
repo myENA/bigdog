@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -27,10 +27,10 @@ func (ss *WSGService) WSGDataPlaneOperationalService() *WSGDataPlaneOperationalS
 //
 // Request Body:
 //	 - body *WSGDPSwitchoverDp
-func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *WSGDPSwitchoverDp) (*WSGDPEmptyResult, error) {
+func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *WSGDPSwitchoverDp) (*WSGCommonEmptyResult, error) {
 	var (
 		req      *APIRequest
-		resp     *WSGDPEmptyResult
+		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
@@ -47,6 +47,6 @@ func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Con
 		return resp, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGDPEmptyResult()
+	resp = NewWSGCommonEmptyResult()
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }

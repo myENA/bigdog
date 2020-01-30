@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGWIFICallingCreateWifiCallingPolicy struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
@@ -52,15 +52,6 @@ type WSGWIFICallingEpdg struct {
 
 func NewWSGWIFICallingEpdg() *WSGWIFICallingEpdg {
 	m := new(WSGWIFICallingEpdg)
-	return m
-}
-
-type WSGWIFICallingModifyEntireWifiCallingPolicy struct {
-	*WSGWIFICallingModifyWifiCallingPolicy
-}
-
-func NewWSGWIFICallingModifyEntireWifiCallingPolicy() *WSGWIFICallingModifyEntireWifiCallingPolicy {
-	m := new(WSGWIFICallingModifyEntireWifiCallingPolicy)
 	return m
 }
 

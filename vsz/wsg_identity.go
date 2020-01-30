@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGIdentityAaaServer struct {
 	// Id
@@ -125,8 +125,9 @@ type WSGIdentityCreateIdentityGuestPass struct {
 	// PassEffectSince
 	// Pass effective since
 	// Constraints:
+	//    - required
 	//    - oneof:[CREATION_TIME,FIRST_USE]
-	PassEffectSince *string `json:"passEffectSince,omitempty" validate:"oneof=CREATION_TIME FIRST_USE"`
+	PassEffectSince *string `json:"passEffectSince" validate:"required,oneof=CREATION_TIME FIRST_USE"`
 
 	// PassUseDays
 	// Expire new guest pass if not used within
@@ -169,6 +170,11 @@ type WSGIdentityCreateIdentityUserRole struct {
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
+
+	// FirewallProfileId
+	// Constraints:
+	//    - required
+	FirewallProfileId *string `json:"firewallProfileId" validate:"required"`
 
 	// MaxDevices
 	// Constraints:
@@ -442,6 +448,8 @@ type WSGIdentityListType struct {
 	// identifier of the domain
 	DomainId *string `json:"domainId,omitempty"`
 
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
 	// Id
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
@@ -490,6 +498,8 @@ type WSGIdentityUserRole struct {
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// Id
 	// the identifier of the object
@@ -633,6 +643,8 @@ type WSGIdentityModifyIdentityUserRole struct {
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
+
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// Id
 	// ID

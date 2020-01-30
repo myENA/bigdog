@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -244,12 +244,12 @@ func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyB
 // Use this API command to Modify Entire Wi-Fi Calling policy.
 //
 // Request Body:
-//	 - body *WSGWIFICallingModifyEntireWifiCallingPolicy
+//	 - body *WSGWIFICallingModifyWifiCallingPolicy
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyEntireWifiCallingPolicy, id string) (*WSGCommonEmptyResult, error) {
+func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string) (*WSGCommonEmptyResult, error) {
 	var (
 		req      *APIRequest
 		resp     *WSGCommonEmptyResult
@@ -257,6 +257,11 @@ func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {

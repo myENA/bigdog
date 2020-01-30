@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"encoding/json"
@@ -21,6 +21,31 @@ type SwitchMCommonCreateResult struct {
 
 func NewSwitchMCommonCreateResult() *SwitchMCommonCreateResult {
 	m := new(SwitchMCommonCreateResult)
+	return m
+}
+
+type SwitchMCommonEmptyResult struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMCommonEmptyResult) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = SwitchMCommonEmptyResult{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *SwitchMCommonEmptyResult) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMCommonEmptyResult() *SwitchMCommonEmptyResult {
+	m := new(SwitchMCommonEmptyResult)
 	return m
 }
 

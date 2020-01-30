@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -27,7 +27,7 @@ type WSGWLANCreateGuestAccessWlan struct {
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
-	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the data plane, and SoftGRE means AP direct SoftGRE tunnel
+	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
@@ -42,11 +42,11 @@ type WSGWLANCreateGuestAccessWlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile" validate:"required"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
@@ -82,6 +82,42 @@ type WSGWLANCreateGuestAccessWlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -140,7 +176,7 @@ type WSGWLANCreateHotspot20OpenWlan struct {
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
-	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the data plane, and SoftGRE means AP direct SoftGRE tunnel
+	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
@@ -152,11 +188,11 @@ type WSGWLANCreateHotspot20OpenWlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
@@ -188,6 +224,42 @@ type WSGWLANCreateHotspot20OpenWlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -243,7 +315,7 @@ type WSGWLANCreateHotspot20Wlan struct {
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
-	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the data plane, and SoftGRE means AP direct SoftGRE tunnel
+	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
@@ -255,11 +327,11 @@ type WSGWLANCreateHotspot20Wlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
@@ -291,6 +363,42 @@ type WSGWLANCreateHotspot20Wlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
@@ -347,7 +455,7 @@ type WSGWLANCreateHotspotWlan struct {
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
-	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the data plane, and SoftGRE means AP direct SoftGRE tunnel
+	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
@@ -362,11 +470,11 @@ type WSGWLANCreateHotspotWlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile" validate:"required"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
@@ -402,6 +510,42 @@ type WSGWLANCreateHotspotWlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -460,7 +604,7 @@ type WSGWLANCreateStandard80211Wlan struct {
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
-	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the data plane, and SoftGRE means AP direct SoftGRE tunnel
+	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
@@ -475,11 +619,11 @@ type WSGWLANCreateStandard80211Wlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile" validate:"required"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable  for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable  for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
@@ -511,6 +655,42 @@ type WSGWLANCreateStandard80211Wlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
@@ -564,7 +744,7 @@ type WSGWLANCreateStandardOpenWlan struct {
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
-	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the data plane, and SoftGRE means AP direct SoftGRE tunnel
+	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
 	//    - default:'APLBO'
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
@@ -577,11 +757,11 @@ type WSGWLANCreateStandardOpenWlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
@@ -613,6 +793,42 @@ type WSGWLANCreateStandardOpenWlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -668,7 +884,7 @@ type WSGWLANCreateWebAuthWlan struct {
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
-	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the data plane, and SoftGRE means AP direct SoftGRE tunnel
+	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
@@ -683,11 +899,11 @@ type WSGWLANCreateWebAuthWlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile" validate:"required"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
@@ -723,6 +939,42 @@ type WSGWLANCreateWebAuthWlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -781,7 +1033,7 @@ type WSGWLANCreateWechatWlan struct {
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
-	// Access tunnel type of the WLAN. APLBO means AP local breakout, RuckusGRE means RuckusGRE tunnel to the data plane, and SoftGRE means AP direct SoftGRE tunnel
+	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
 	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
@@ -793,11 +1045,11 @@ type WSGWLANCreateWechatWlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
@@ -829,6 +1081,42 @@ type WSGWLANCreateWechatWlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -899,11 +1187,11 @@ type WSGWLANModifyWlan struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
@@ -939,6 +1227,42 @@ type WSGWLANModifyWlan struct {
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -1035,7 +1359,7 @@ type WSGWLANAdvanced struct {
 	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
 
 	// AssocRssiThr
-	// Assoc RSSI threshold.f
+	// Assoc RSSI threshold.
 	// Constraints:
 	//    - min:-90
 	//    - max:-60
@@ -1049,7 +1373,7 @@ type WSGWLANAdvanced struct {
 	AuthRssiThr *int `json:"authRssiThr,omitempty" validate:"gte=-90,lte=-60"`
 
 	// AvcEnabled
-	// Indicator of whether ARC support is enabled or disabled
+	// Indicator of whether AVC support is enabled or disabled
 	AvcEnabled *bool `json:"avcEnabled,omitempty"`
 
 	// BandBalancing
@@ -1070,8 +1394,8 @@ type WSGWLANAdvanced struct {
 	// Constraints:
 	//    - default:120
 	//    - min:60
-	//    - max:1000
-	ClientIdleTimeoutSec *int `json:"clientIdleTimeoutSec,omitempty" validate:"gte=60,lte=1000"`
+	//    - max:86400
+	ClientIdleTimeoutSec *int `json:"clientIdleTimeoutSec,omitempty" validate:"gte=60,lte=86400"`
 
 	// ClientIsolationAutoVrrpEnabled
 	// Indicates whether Automatic support for VRRP of wireless client isolation is enabled or disabled
@@ -1105,17 +1429,23 @@ type WSGWLANAdvanced struct {
 	//    - oneof:[RUCKUS_DEFAULT,RADIUS_DHCP,RADIUS_NAT,RADIUS_DHCP_NAT,RADIUS_NAT_RUCKUS,RADIUS_NAT_SOFTGRE,SOFTGRE_CUSTOMIZED]
 	Dhcp82Format *string `json:"dhcp82Format,omitempty" validate:"oneof=RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
 
+	// Dhcp82MacFormat
+	// AP and Client Mac format. If dhcpOption82Enabled is true, you have to set the dhcp82MacFormat ["COLON","HYPHEN","NODELIMITER"].
+	// Constraints:
+	//    - oneof:[COLON,HYPHEN,NODELIMITER]
+	Dhcp82MacFormat *string `json:"dhcp82MacFormat,omitempty" validate:"oneof=COLON HYPHEN NODELIMITER"`
+
 	// Dhcp82SubOpt1Format
 	// Subopt-1 format
 	// Constraints:
-	//    - oneof:[NONE,SUBOPT1_AP_INFO_LOCATION,SUBOPT1_AP_INFO,SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE,SUBOPT1_AP_MAC_hex,SUBOPT1_AP_MAC_hex_ESSID,SUBOPT1_ESSID]
-	Dhcp82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty" validate:"oneof=NONE SUBOPT1_AP_INFO_LOCATION SUBOPT1_AP_INFO SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE SUBOPT1_AP_MAC_hex SUBOPT1_AP_MAC_hex_ESSID SUBOPT1_ESSID"`
+	//    - oneof:[NONE,SUBOPT1_AP_INFO_LOCATION,SUBOPT1_AP_INFO,SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE,SUBOPT1_AP_MAC_hex,SUBOPT1_AP_MAC_hex_ESSID,SUBOPT1_ESSID,SUBOPT1_AP_MAC,SUBOPT1_AP_MAC_ESSID,SUBOPT1_AP_Name_ESSID]
+	Dhcp82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty" validate:"oneof=NONE SUBOPT1_AP_INFO_LOCATION SUBOPT1_AP_INFO SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE SUBOPT1_AP_MAC_hex SUBOPT1_AP_MAC_hex_ESSID SUBOPT1_ESSID SUBOPT1_AP_MAC SUBOPT1_AP_MAC_ESSID SUBOPT1_AP_Name_ESSID"`
 
 	// Dhcp82SubOpt2Format
 	// Subopt-2 format
 	// Constraints:
-	//    - oneof:[NONE,SUBOPT2_CLIENT_MAC,SUBOPT2_CLIENT_MAC_hex,SUBOPT2_CLIENT_MAC_hex_ESSID,SUBOPT2_AP_MAC,SUBOPT2_AP_MAC_hex,SUBOPT2_AP_MAC_hex_ESSID]
-	Dhcp82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty" validate:"oneof=NONE SUBOPT2_CLIENT_MAC SUBOPT2_CLIENT_MAC_hex SUBOPT2_CLIENT_MAC_hex_ESSID SUBOPT2_AP_MAC SUBOPT2_AP_MAC_hex SUBOPT2_AP_MAC_hex_ESSID"`
+	//    - oneof:[NONE,SUBOPT2_CLIENT_MAC,SUBOPT2_CLIENT_MAC_hex,SUBOPT2_CLIENT_MAC_hex_ESSID,SUBOPT2_AP_MAC,SUBOPT2_AP_MAC_hex,SUBOPT2_AP_MAC_hex_ESSID,SUBOPT2_AP_MAC_ESSID,SUBOPT2_AP_Name]
+	Dhcp82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty" validate:"oneof=NONE SUBOPT2_CLIENT_MAC SUBOPT2_CLIENT_MAC_hex SUBOPT2_CLIENT_MAC_hex_ESSID SUBOPT2_AP_MAC SUBOPT2_AP_MAC_hex SUBOPT2_AP_MAC_hex_ESSID SUBOPT2_AP_MAC_ESSID SUBOPT2_AP_Name"`
 
 	// Dhcp82SubOpt150Format
 	// Subopt-150 with VLAN-Id
@@ -1134,7 +1464,6 @@ type WSGWLANAdvanced struct {
 	Dhcp82SubOpt151Format *string `json:"dhcp82SubOpt151Format,omitempty" validate:"oneof=NONE SUBOPT151_AREA_NAME SUBOPT151_ESSID"`
 
 	// Dhcp82SubOptRadiusFormat
-	// Radius DHCP/NAT option 82 Format
 	// Constraints:
 	//    - oneof:[NONE,RUCKUS_DEFAULT,RADIUS_DHCP,RADIUS_NAT,RADIUS_DHCP_NAT,RADIUS_NAT_RUCKUS,RADIUS_NAT_SOFTGRE,SOFTGRE_CUSTOMIZED]
 	Dhcp82SubOptRadiusFormat *string `json:"dhcp82SubOptRadiusFormat,omitempty" validate:"oneof=NONE RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
@@ -1158,6 +1487,10 @@ type WSGWLANAdvanced struct {
 	//    - max:128
 	DirectedThreshold *int `json:"directedThreshold,omitempty" validate:"gte=0,lte=128"`
 
+	// DnsSpoofingProfileId
+	// DNS Spoofing Profile ID
+	DnsSpoofingProfileId *string `json:"dnsSpoofingProfileId,omitempty"`
+
 	// DownlinkEnabled
 	// SSID Rate Limiting downlink enabled.
 	DownlinkEnabled *bool `json:"downlinkEnabled,omitempty"`
@@ -1178,8 +1511,6 @@ type WSGWLANAdvanced struct {
 	//    - max:255
 	DtimInterval *int `json:"dtimInterval,omitempty" validate:"gte=1,lte=255"`
 
-	EnableRadiusBasedDhcpNat *bool `json:"enableRadiusBasedDhcpNat,omitempty"`
-
 	// FlowLogEnabled
 	// Flow log enabled.
 	FlowLogEnabled *bool `json:"flowLogEnabled,omitempty"`
@@ -1192,7 +1523,7 @@ type WSGWLANAdvanced struct {
 	ForceClientDHCPTimeoutSec *int `json:"forceClientDHCPTimeoutSec,omitempty" validate:"oneof=0 5 6 7 8 9 10 11 12 13 14 15"`
 
 	// HdOverheadOptimizeEnable
-	// Airtime Decongestion enabled.
+	// Airtime decongestion enabled.
 	HdOverheadOptimizeEnable *bool `json:"hdOverheadOptimizeEnable,omitempty"`
 
 	// HideSsidEnabled
@@ -1245,6 +1576,32 @@ type WSGWLANAdvanced struct {
 
 	MgmtTxRateMbps *WSGWLANMgmtTxRateMbps `json:"mgmtTxRateMbps,omitempty"`
 
+	// MulticastDownlinkRateLimit
+	// Multicast Rate Limiting downlink (mbps).
+	// Constraints:
+	//    - min:1
+	//    - max:100
+	MulticastDownlinkRateLimit *int `json:"multicastDownlinkRateLimit,omitempty" validate:"gte=1,lte=100"`
+
+	// MulticastDownlinkRateLimitEnabled
+	// Multicast Rate Limiting downlink enabled.
+	MulticastDownlinkRateLimitEnabled *bool `json:"multicastDownlinkRateLimitEnabled,omitempty"`
+
+	// MulticastFilterDrop
+	// Drop the broadcast/multicast packets from associated clients.
+	MulticastFilterDrop *bool `json:"multicastFilterDrop,omitempty"`
+
+	// MulticastUplinkRateLimit
+	// Multicast Rate Limiting uplink (mbps).
+	// Constraints:
+	//    - min:1
+	//    - max:100
+	MulticastUplinkRateLimit *int `json:"multicastUplinkRateLimit,omitempty" validate:"gte=1,lte=100"`
+
+	// MulticastUplinkRateLimitEnabled
+	// Multicast Rate Limiting uplink enabled.
+	MulticastUplinkRateLimitEnabled *bool `json:"multicastUplinkRateLimitEnabled,omitempty"`
+
 	// NdProxyEnabled
 	// Indicates whether ND Proxy is enabled or disabled
 	NdProxyEnabled *bool `json:"ndProxyEnabled,omitempty"`
@@ -1291,10 +1648,11 @@ type WSGWLANAdvanced struct {
 	// ProbeRssiThr
 	// Join RSSI threshold.
 	// Constraints:
+	//    - nullable
 	//    - default:-85
 	//    - min:-90
 	//    - max:-60
-	ProbeRssiThr *int `json:"probeRssiThr,omitempty" validate:"gte=-90,lte=-60"`
+	ProbeRssiThr *int `json:"probeRssiThr,omitempty" validate:"omitempty,gte=-90,lte=-60"`
 
 	// ProxyARPEnabled
 	// Indicates whether proxy ARP is enabled or disabled
@@ -1450,11 +1808,11 @@ type WSGWLANConfiguration struct {
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
-	// Aws ExtNasIP Enable
+	// Aws ExtNasIP Enable for CALEA
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
-	// Aws Venue Enable
+	// Aws Venue Enable for CALEA
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
@@ -1490,6 +1848,42 @@ type WSGWLANConfiguration struct {
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
+
+	// FirewallAppPolicyId
+	// Firewall Application Policy of WLAN specific
+	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
+
+	// FirewallDevicePolicyId
+	// Firewall Device Policy of WLAN specific
+	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
+
+	// FirewallDownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
+
+	// FirewallL2AccessControlPolicyId
+	// Firewall L2 Access Control Policy of WLAN specific
+	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
+
+	// FirewallL3AccessControlPolicyId
+	// Firewall L3 Access Control Policy of WLAN specific
+	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
+
+	// FirewallProfileId
+	// Firewall profile of the WLAN
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
+
+	// FirewallUrlFilteringPolicyId
+	// Firewall Url Filtering Policy of WLAN specific
+	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
+
+	// FirewallWlanSpecificEnabled
+	// Firewall WLAN specific enabled
+	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
@@ -1617,8 +2011,8 @@ type WSGWLANEncryption struct {
 	// Algorithm
 	// Encryption algorithm. This only applies to WPA2 and WPA mixed mode.
 	// Constraints:
-	//    - oneof:[AES,TKIP_AES]
-	Algorithm *string `json:"algorithm,omitempty" validate:"oneof=AES TKIP_AES"`
+	//    - oneof:[AES,TKIP_AES,AES_GCMP_256]
+	Algorithm *string `json:"algorithm,omitempty" validate:"oneof=AES TKIP_AES AES_GCMP_256"`
 
 	// KeyIndex
 	// Key index. This only applies to WEP64 and WEP128.
@@ -1633,11 +2027,11 @@ type WSGWLANEncryption struct {
 	// Constraints:
 	//    - required
 	//    - default:'None'
-	//    - oneof:[WPA2,WPA_Mixed,WEP_64,WEP_128,None]
-	Method *string `json:"method" validate:"required,oneof=WPA2 WPA_Mixed WEP_64 WEP_128 None"`
+	//    - oneof:[WPA2,WPA_Mixed,WEP_64,WEP_128,None,WPA3,WPA23_Mixed,OWE]
+	Method *string `json:"method" validate:"required,oneof=WPA2 WPA_Mixed WEP_64 WEP_128 None WPA3 WPA23_Mixed OWE"`
 
 	// Mfp
-	// Management frame protection. This only applies to WPA2 + AES
+	// Management frame protection. This only applies to WPA2 + AES or OWE method.
 	// Constraints:
 	//    - oneof:[disabled,capable,required]
 	Mfp *string `json:"mfp,omitempty" validate:"oneof=disabled capable required"`
@@ -1652,6 +2046,10 @@ type WSGWLANEncryption struct {
 	// Passphrase
 	// Passphrase. This only applies to WPA2 and WPA mixed mode.
 	Passphrase *string `json:"passphrase,omitempty"`
+
+	// SaePassphrase
+	// saePassphrase. This only applies to WPA3 and WPA23 mixed mode.
+	SaePassphrase *string `json:"saePassphrase,omitempty"`
 
 	// Support80211rEnabled
 	// Enable 802.11r Fast BSS Transition, fast Romaing.
@@ -1723,8 +2121,8 @@ type WSGWLANRadius struct {
 	// Called station ID type
 	// Constraints:
 	//    - default:'WLAN_BSSID'
-	//    - oneof:[AP_MAC,NONE,WLAN_BSSID]
-	CalledStaIdType *string `json:"calledStaIdType,omitempty" validate:"oneof=AP_MAC NONE WLAN_BSSID"`
+	//    - oneof:[WLAN_BSSID,AP_MAC,NONE,AP_GROUP]
+	CalledStaIdType *string `json:"calledStaIdType,omitempty" validate:"oneof=WLAN_BSSID AP_MAC NONE AP_GROUP"`
 
 	// CustomizedNasId
 	// User defined NAS ID
@@ -1736,8 +2134,8 @@ type WSGWLANRadius struct {
 	// NAS ID type
 	// Constraints:
 	//    - default:'WLAN_BSSID'
-	//    - oneof:[AP_MAC,Customized,WLAN_BSSID]
-	NasIdType *string `json:"nasIdType,omitempty" validate:"oneof=AP_MAC Customized WLAN_BSSID"`
+	//    - oneof:[WLAN_BSSID,AP_MAC,Customized]
+	NasIdType *string `json:"nasIdType,omitempty" validate:"oneof=WLAN_BSSID AP_MAC Customized"`
 
 	// NasIpType
 	// NAS IP type
@@ -2702,9 +3100,39 @@ func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId s
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
+// FindWlanByQueryCriteria
+//
+// Query WLANs with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGWLANService) FindWlanByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWLANQueryList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGWLANQueryList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindWlanByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
 // PartialUpdateRkszonesWlansById
 //
-// Use this API command to modify the basic information of a WLAN.
+// Use this API command to modify the configuration of a WLAN.
 //
 // Request Body:
 //	 - body *WSGWLANModifyWlan

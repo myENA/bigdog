@@ -1,15 +1,6 @@
 package vsz
 
-// API Version: v8_1
-
-type WSGDPEmptyResult struct {
-	DpemptyResult *string `json:"dp_emptyResult,omitempty"`
-}
-
-func NewWSGDPEmptyResult() *WSGDPEmptyResult {
-	m := new(WSGDPEmptyResult)
-	return m
-}
+// API Version: v9_0
 
 type WSGDPSwitchoverDp struct {
 	// ClusterName

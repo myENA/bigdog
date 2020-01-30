@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -54,17 +54,17 @@ type SwitchMPortSettingsCreateBulk struct {
 	OutAclConfigUUID *string `json:"outAclConfigUUID,omitempty"`
 
 	// PoeClass
-	// POE Class
+	// PoE Class
 	// Constraints:
 	//    - oneof:[0,1,2,3,4]
 	PoeClass *string `json:"poeClass,omitempty" validate:"oneof=0 1 2 3 4"`
 
 	// PoeEnabled
-	// POE Enabled
+	// PoE Enabled
 	PoeEnabled *bool `json:"poeEnabled,omitempty"`
 
 	// PoePriority
-	// POE Priority
+	// PoE Priority
 	PoePriority *int `json:"poePriority,omitempty"`
 
 	// Port
@@ -169,20 +169,22 @@ type SwitchMPortSettings struct {
 	// Egress ACL Config UUID
 	OutAclConfigUUID *string `json:"outAclConfigUUID,omitempty"`
 
+	// PoeCapability
+	// PoE Capability
 	PoeCapability *bool `json:"poeCapability,omitempty"`
 
 	// PoeClass
-	// POE Class
+	// PoE Class
 	// Constraints:
 	//    - oneof:[0,1,2,3,4]
 	PoeClass *string `json:"poeClass,omitempty" validate:"oneof=0 1 2 3 4"`
 
 	// PoeEnabled
-	// POE Enabled
+	// PoE Enabled
 	PoeEnabled *bool `json:"poeEnabled,omitempty"`
 
 	// PoePriority
-	// POE Priority
+	// PoE Priority
 	PoePriority *int `json:"poePriority,omitempty"`
 
 	// Port
@@ -316,17 +318,17 @@ type SwitchMPortSettingsUpdatePortSettings struct {
 	OutAclConfigUUID *string `json:"outAclConfigUUID,omitempty"`
 
 	// PoeClass
-	// POE Class
+	// PoE Class
 	// Constraints:
 	//    - oneof:[0,1,2,3,4]
 	PoeClass *string `json:"poeClass,omitempty" validate:"oneof=0 1 2 3 4"`
 
 	// PoeEnabled
-	// POE Enabled
+	// PoE Enabled
 	PoeEnabled *bool `json:"poeEnabled,omitempty"`
 
 	// PoePriority
-	// POE Priority
+	// PoE Priority
 	PoePriority *int `json:"poePriority,omitempty"`
 
 	// PortEnabled

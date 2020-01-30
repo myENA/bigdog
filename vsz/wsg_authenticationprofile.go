@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -56,15 +56,15 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 // Use this API command to clone an authentication profile.
 //
 // Request Body:
-//	 - body *WSGProfileCloneRequest
+//	 - body *WSGProfileClone
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *WSGProfileCloneRequest, id string) (*WSGProfileCloneResponse, error) {
+func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, error) {
 	var (
 		req      *APIRequest
-		resp     *WSGProfileCloneResponse
+		resp     *WSGProfileClone
 		httpResp *http.Response
 		err      error
 	)
@@ -85,7 +85,7 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGProfileCloneResponse()
+	resp = NewWSGProfileClone()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
@@ -279,9 +279,39 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
+// FindRadiusProxyStatsByQueryCriteria
+//
+// Use this API command to retrieve a list of Radius Proxy.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAuthenticationProfileService) FindRadiusProxyStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRacStatsRadiusProxyList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGRacStatsRadiusProxyList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindRadiusProxyStatsByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGRacStatsRadiusProxyList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
 // PartialUpdateProfilesAuthById
 //
-// Use this API command to modify the basic information of an authentication profile.
+// Use this API command to modify the configuration of an authentication profile.
 //
 // Request Body:
 //	 - body *WSGProfileModifyAuthenticationProfile

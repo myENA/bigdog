@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"encoding/json"
@@ -172,6 +172,8 @@ type SwitchMVeConfig struct {
 	// ID
 	Id *string `json:"id,omitempty"`
 
+	// InAclConfigName
+	// Ingress ACL Config Name
 	InAclConfigName *string `json:"inAclConfigName,omitempty"`
 
 	// InAclConfigUUID
@@ -190,6 +192,8 @@ type SwitchMVeConfig struct {
 	// OSPF IP Address
 	OspfArea *string `json:"ospfArea,omitempty"`
 
+	// OutAclConfigName
+	// Egress ACL Config Name
 	OutAclConfigName *string `json:"outAclConfigName,omitempty"`
 
 	// OutAclConfigUUID

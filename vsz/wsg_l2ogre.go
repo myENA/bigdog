@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -184,7 +184,7 @@ func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context
 
 // PartialUpdateProfilesL2ogreById
 //
-// Use this API command to modify the basic information of L2oGRE profile.
+// Use this API command to modify the configuration of L2oGRE profile.
 //
 // Request Body:
 //	 - body *WSGProfileModifyL2oGREProfile

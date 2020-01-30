@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGZoneApFirmware struct {
 	// FirmwareVersion
@@ -130,13 +130,6 @@ func NewWSGZoneBackgroundScanning() *WSGZoneBackgroundScanning {
 }
 
 type WSGZoneBandBalancing struct {
-	// Mode
-	// Band Balancing Mode: BASIC-Withholds probe and authentication responses at connetcion time in heavily loaded band to balance clients to the other band, PROACTIVE-Uses BASIC functionality and actively rebalances clients via 802.11v BTM, STRICT-Uses PROACTIVE functionality and forcefully rebalances clients via 802.11v BTM
-	// Constraints:
-	//    - default:'BASIC'
-	//    - oneof:[BASIC,PROACTIVE,STRICT]
-	Mode *string `json:"mode,omitempty" validate:"oneof=BASIC PROACTIVE STRICT"`
-
 	// Wifi24Percentage
 	// Percentage of client load on 2.4GHz radio band
 	// Constraints:
@@ -213,11 +206,9 @@ func NewWSGZoneBonjourGatewayPolicySummary() *WSGZoneBonjourGatewayPolicySummary
 // Bonjour policy rule
 type WSGZoneBonjourPolicyRule struct {
 	// BridgeService
-	// Bridge service
 	// Constraints:
 	//    - required
-	//    - oneof:[AIRDISK,AIRPLAY,AIRPORT_MANAGEMENT,AIRPRINT,AIRTUNES,APPLE_FILE_SHARING,APPLE_MOBILE_DEVICES,APPLETV,ICLOUD_SYNC,ITUNES_REMOTE,ITUNES_SHARING,OPEN_DIRECTORY_MASTER,OPTICAL_DISK_SHARING,SCREEN_SHARING,SECURE_FILE_SHARING,SECURE_SHELL,WWW_HTTP,WWW_HTTPS,WORKGROUP_MANAGER,XGRID,OTHER]
-	BridgeService *string `json:"bridgeService" validate:"required,oneof=AIRDISK AIRPLAY AIRPORT_MANAGEMENT AIRPRINT AIRTUNES APPLE_FILE_SHARING APPLE_MOBILE_DEVICES APPLETV ICLOUD_SYNC ITUNES_REMOTE ITUNES_SHARING OPEN_DIRECTORY_MASTER OPTICAL_DISK_SHARING SCREEN_SHARING SECURE_FILE_SHARING SECURE_SHELL WWW_HTTP WWW_HTTPS WORKGROUP_MANAGER XGRID OTHER"`
+	BridgeService *WSGProfileBridgeService `json:"bridgeService" validate:"required,oneof=AIRDISK AIRPLAY AIRPORT_MANAGEMENT AIRPRINT AIRTUNES APPLE_FILE_SHARING APPLE_MOBILE_DEVICES APPLETV ICLOUD_SYNC ITUNES_REMOTE ITUNES_SHARING OPEN_DIRECTORY_MASTER OPTICAL_DISK_SHARING SCREEN_SHARING SECURE_FILE_SHARING SECURE_SHELL WWW_HTTP WWW_HTTPS WORKGROUP_MANAGER XGRID GOOGLE_CHROMECAST OTHER"`
 
 	// FromVlan
 	// From VLAN
@@ -362,8 +353,6 @@ type WSGZoneCreateZone struct {
 
 	BackgroundScanning50 *WSGZoneBackgroundScanning `json:"backgroundScanning50,omitempty"`
 
-	BandBalancing *WSGZoneBandBalancing `json:"bandBalancing,omitempty"`
-
 	BonjourFencingPolicy *WSGCommonGenericRef `json:"bonjourFencingPolicy,omitempty"`
 
 	// BonjourFencingPolicyEnabled
@@ -397,10 +386,6 @@ type WSGZoneCreateZone struct {
 	ClientAdmissionControl24 *WSGCommonClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
 	ClientAdmissionControl50 *WSGCommonClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
-
-	ClientLoadBalancing24 *WSGZoneClientLoadBalancing `json:"clientLoadBalancing24,omitempty"`
-
-	ClientLoadBalancing50 *WSGZoneClientLoadBalancing `json:"clientLoadBalancing50,omitempty"`
 
 	// ClusterRedundancyEnabled
 	// Enable Cluster redundancy on zone.
@@ -479,11 +464,7 @@ type WSGZoneCreateZone struct {
 
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// LoadBalancingMethod
-	// Constraints:
-	//    - default:'BASED_ON_CLIENT_COUNT'
-	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancing *WSGZoneLoadBalancing `json:"loadBalancing,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -511,9 +492,15 @@ type WSGZoneCreateZone struct {
 
 	NodeAffinityProfile *WSGCommonGenericRef `json:"nodeAffinityProfile,omitempty"`
 
+	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
+
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+
+	// RksGreForwardBroadcast
+	// Ruckus GRE tunnel broadcast packet forwarding
+	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	Rogue *WSGZoneRogue `json:"rogue,omitempty"`
 
@@ -729,6 +716,32 @@ func NewWSGZoneDownlinkDiffServ() *WSGZoneDownlinkDiffServ {
 	return m
 }
 
+type WSGZoneLoadBalancing struct {
+	BandBalancing *WSGZoneBandBalancing `json:"bandBalancing,omitempty"`
+
+	ClientLoadBalancing24 *WSGZoneClientLoadBalancing `json:"clientLoadBalancing24,omitempty"`
+
+	ClientLoadBalancing50 *WSGZoneClientLoadBalancing `json:"clientLoadBalancing50,omitempty"`
+
+	// LoadBalancingMethod
+	// Constraints:
+	//    - default:'BASED_ON_CLIENT_COUNT'
+	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
+	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+
+	// SteeringMode
+	// Steering Mode: BASIC-Withholds probe and authentication responses at connetcion time in heavily loaded band to balance clients to the other band, PROACTIVE-Uses BASIC functionality and actively rebalances clients via 802.11v BTM, STRICT-Uses PROACTIVE functionality and forcefully rebalances clients via 802.11v BTM
+	// Constraints:
+	//    - default:'BASIC'
+	//    - oneof:[BASIC,PROACTIVE,STRICT]
+	SteeringMode *string `json:"steeringMode,omitempty" validate:"oneof=BASIC PROACTIVE STRICT"`
+}
+
+func NewWSGZoneLoadBalancing() *WSGZoneLoadBalancing {
+	m := new(WSGZoneLoadBalancing)
+	return m
+}
+
 type WSGZoneMeshConfiguration struct {
 	// MeshRadioIdx
 	// Mesh radio index
@@ -761,6 +774,19 @@ type WSGZoneModfiyApFirmware struct {
 
 func NewWSGZoneModfiyApFirmware() *WSGZoneModfiyApFirmware {
 	m := new(WSGZoneModfiyApFirmware)
+	return m
+}
+
+type WSGZoneModifyBonjourGatewayEnable struct {
+	// EnabledBonjourGateway
+	// Enable Bonjour gateway on th AP
+	// Constraints:
+	//    - required
+	EnabledBonjourGateway *bool `json:"enabledBonjourGateway" validate:"required"`
+}
+
+func NewWSGZoneModifyBonjourGatewayEnable() *WSGZoneModifyBonjourGatewayEnable {
+	m := new(WSGZoneModifyBonjourGatewayEnable)
 	return m
 }
 
@@ -806,8 +832,12 @@ type WSGZoneModifyZone struct {
 
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
+	// ApHccdEnabled
+	// Historical Connection Failures allows the AP to report historical client connection failures for this zone.
 	ApHccdEnabled *bool `json:"apHccdEnabled,omitempty"`
 
+	// ApHccdPersist
+	// Allow Historical Connection Failures to be persisted.
 	ApHccdPersist *bool `json:"apHccdPersist,omitempty"`
 
 	ApLatencyInterval *WSGCommonApLatencyInterval `json:"apLatencyInterval,omitempty"`
@@ -820,15 +850,11 @@ type WSGZoneModifyZone struct {
 
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// venue code
-	AwsVenue *string `json:"awsVenue,omitempty"`
+	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	BackgroundScanning24 *WSGZoneBackgroundScanning `json:"backgroundScanning24,omitempty"`
 
 	BackgroundScanning50 *WSGZoneBackgroundScanning `json:"backgroundScanning50,omitempty"`
-
-	BandBalancing *WSGZoneBandBalancing `json:"bandBalancing,omitempty"`
 
 	BonjourFencingPolicy *WSGCommonGenericRef `json:"bonjourFencingPolicy,omitempty"`
 
@@ -864,10 +890,6 @@ type WSGZoneModifyZone struct {
 
 	ClientAdmissionControl50 *WSGCommonClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
-	ClientLoadBalancing24 *WSGZoneClientLoadBalancing `json:"clientLoadBalancing24,omitempty"`
-
-	ClientLoadBalancing50 *WSGZoneClientLoadBalancing `json:"clientLoadBalancing50,omitempty"`
-
 	// ClusterRedundancyEnabled
 	// Enable Cluster redundancy on zone
 	ClusterRedundancyEnabled *bool `json:"clusterRedundancyEnabled,omitempty"`
@@ -893,7 +915,7 @@ type WSGZoneModifyZone struct {
 	DirectedMulticastFromWiredClientEnabled *bool `json:"directedMulticastFromWiredClientEnabled,omitempty"`
 
 	// DirectedMulticastFromWirelessClientEnabled
-	// Directed multicast from wireless client.
+	// Directed multicast from wireless.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
 	// DomainId
@@ -945,11 +967,7 @@ type WSGZoneModifyZone struct {
 
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// LoadBalancingMethod
-	// Constraints:
-	//    - default:'BASED_ON_CLIENT_COUNT'
-	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancing *WSGZoneLoadBalancing `json:"loadBalancing,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -971,9 +989,23 @@ type WSGZoneModifyZone struct {
 
 	NodeAffinityProfile *WSGCommonGenericRef `json:"nodeAffinityProfile,omitempty"`
 
+	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
+
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+
+	// RestrictedApAccessEnabled
+	// Enable Restricted AP Access of the zone.
+	RestrictedApAccessEnabled *bool `json:"restrictedApAccessEnabled,omitempty"`
+
+	// RestrictedApAccessProfileId
+	// Restricted AP Access Profile Id of the zone.
+	RestrictedApAccessProfileId *string `json:"restrictedApAccessProfileId,omitempty"`
+
+	// RksGreForwardBroadcast
+	// Ruckus GRE tunnel broadcast packet forwarding
+	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	Rogue *WSGZoneRogue `json:"rogue,omitempty"`
 
@@ -1025,7 +1057,7 @@ type WSGZoneModifyZone struct {
 	Wifi50 *WSGCommonRadio50 `json:"wifi50,omitempty"`
 
 	// ZoneAffinityProfileId
-	// zone affinity profile Id
+	// Identifier of the ZoneAffinityProfile
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
@@ -1254,7 +1286,7 @@ type WSGZoneTimezoneSetting struct {
 	CustomizedTimezone *WSGZoneCustomizedTimeZone `json:"customizedTimezone,omitempty"`
 
 	// SystemTimezone
-	// System defined time zone, please refer to the “Overview > Time Zone” list
+	// System defined time zone, please refer to the 'Overview > Time Zone' list
 	SystemTimezone *string `json:"systemTimezone,omitempty"`
 }
 
@@ -1298,8 +1330,12 @@ type WSGZoneConfiguration struct {
 
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
+	// ApHccdEnabled
+	// Historical Connection Failures allows the AP to report historical client connection failures for this zone.
 	ApHccdEnabled *bool `json:"apHccdEnabled,omitempty"`
 
+	// ApHccdPersist
+	// Allow Historical Connection Failures to be persisted.
 	ApHccdPersist *bool `json:"apHccdPersist,omitempty"`
 
 	ApLatencyInterval *WSGCommonApLatencyInterval `json:"apLatencyInterval,omitempty"`
@@ -1312,15 +1348,11 @@ type WSGZoneConfiguration struct {
 
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// venue code
-	AwsVenue *string `json:"awsVenue,omitempty"`
+	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	BackgroundScanning24 *WSGZoneBackgroundScanning `json:"backgroundScanning24,omitempty"`
 
 	BackgroundScanning50 *WSGZoneBackgroundScanning `json:"backgroundScanning50,omitempty"`
-
-	BandBalancing *WSGZoneBandBalancing `json:"bandBalancing,omitempty"`
 
 	BonjourFencingPolicy *WSGCommonGenericRef `json:"bonjourFencingPolicy,omitempty"`
 
@@ -1355,10 +1387,6 @@ type WSGZoneConfiguration struct {
 	ClientAdmissionControl24 *WSGCommonClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
 	ClientAdmissionControl50 *WSGCommonClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
-
-	ClientLoadBalancing24 *WSGZoneClientLoadBalancing `json:"clientLoadBalancing24,omitempty"`
-
-	ClientLoadBalancing50 *WSGZoneClientLoadBalancing `json:"clientLoadBalancing50,omitempty"`
 
 	// ClusterRedundancyEnabled
 	// Enable Cluster redundancy on zone
@@ -1408,8 +1436,6 @@ type WSGZoneConfiguration struct {
 	// DoS Protection(Barring UE) threshold of the zone.
 	DosBarringThreshold *int `json:"dosBarringThreshold,omitempty"`
 
-	// EnforcePriorityZoneAffinityEnable
-	// Enforce the priority of zone affinity
 	EnforcePriorityZoneAffinityEnable *bool `json:"enforcePriorityZoneAffinityEnable,omitempty"`
 
 	// HealthCheckSites
@@ -1443,11 +1469,7 @@ type WSGZoneConfiguration struct {
 
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// LoadBalancingMethod
-	// Constraints:
-	//    - default:'BASED_ON_CLIENT_COUNT'
-	//    - oneof:[BASED_ON_CLIENT_COUNT,BASED_ON_CAPACITY,OFF]
-	LoadBalancingMethod *string `json:"loadBalancingMethod,omitempty" validate:"oneof=BASED_ON_CLIENT_COUNT BASED_ON_CAPACITY OFF"`
+	LoadBalancing *WSGZoneLoadBalancing `json:"loadBalancing,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -1469,9 +1491,23 @@ type WSGZoneConfiguration struct {
 
 	NodeAffinityProfile *WSGCommonGenericRef `json:"nodeAffinityProfile,omitempty"`
 
+	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
+
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+
+	// RestrictedApAccessEnabled
+	// Enable Restricted AP Access of the zone.
+	RestrictedApAccessEnabled *bool `json:"restrictedApAccessEnabled,omitempty"`
+
+	// RestrictedApAccessProfileId
+	// Restricted AP Access Profile Id of the zone.
+	RestrictedApAccessProfileId *string `json:"restrictedApAccessProfileId,omitempty"`
+
+	// RksGreForwardBroadcast
+	// Ruckus GRE tunnel broadcast packet forwarding
+	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	Rogue *WSGZoneRogue `json:"rogue,omitempty"`
 

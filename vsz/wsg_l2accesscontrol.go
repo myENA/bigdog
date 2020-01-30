@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -21,9 +21,167 @@ func (ss *WSGService) WSGL2AccessControlService() *WSGL2AccessControlService {
 	return NewWSGL2AccessControlService(ss.apiClient)
 }
 
+type WSGL2AccessControlCreateL2AccessControl struct {
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	DomainId *string `json:"domainId,omitempty"`
+
+	// EtherTypeRestriction
+	// restriction of EtherType rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
+	// Constraints:
+	//    - required
+	//    - oneof:[ALLOW,BLOCK]
+	EtherTypeRestriction *string `json:"etherTypeRestriction" validate:"required,oneof=ALLOW BLOCK"`
+
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
+
+	// Name
+	// Constraints:
+	//    - required
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+
+	// Restriction
+	// restriction of mac rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
+	// Constraints:
+	//    - required
+	//    - oneof:[ALLOW,BLOCK]
+	Restriction *string `json:"restriction" validate:"required,oneof=ALLOW BLOCK"`
+
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+}
+
+func NewWSGL2AccessControlCreateL2AccessControl() *WSGL2AccessControlCreateL2AccessControl {
+	m := new(WSGL2AccessControlCreateL2AccessControl)
+	return m
+}
+
+type WSGL2AccessControlEtherTypeObject struct {
+	EtherType *WSGCommonEtherType `json:"etherType,omitempty"`
+}
+
+func NewWSGL2AccessControlEtherTypeObject() *WSGL2AccessControlEtherTypeObject {
+	m := new(WSGL2AccessControlEtherTypeObject)
+	return m
+}
+
+type WSGL2AccessControl struct {
+	// CreateDateTime
+	// Timestamp of being created
+	CreateDateTime *int `json:"createDateTime,omitempty"`
+
+	// CreatorId
+	// Creator ID
+	CreatorId *string `json:"creatorId,omitempty"`
+
+	// CreatorUsername
+	// Creator name
+	CreatorUsername *string `json:"creatorUsername,omitempty"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	DomainId *string `json:"domainId,omitempty"`
+
+	// EtherTypeRestriction
+	// restriction of EtherType rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
+	// Constraints:
+	//    - oneof:[ALLOW,BLOCK]
+	EtherTypeRestriction *string `json:"etherTypeRestriction,omitempty" validate:"oneof=ALLOW BLOCK"`
+
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
+
+	// Id
+	// identifier of the L2 Access Control
+	Id *string `json:"id,omitempty"`
+
+	// ModifiedDateTime
+	// Timestamp of being modified
+	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
+
+	// ModifierId
+	// Modifier ID
+	ModifierId *string `json:"modifierId,omitempty"`
+
+	// ModifierUsername
+	// Modifier name
+	ModifierUsername *string `json:"modifierUsername,omitempty"`
+
+	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	// Restriction
+	// restriction of mac rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
+	// Constraints:
+	//    - oneof:[ALLOW,BLOCK]
+	Restriction *string `json:"restriction,omitempty" validate:"oneof=ALLOW BLOCK"`
+
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+}
+
+func NewWSGL2AccessControl() *WSGL2AccessControl {
+	m := new(WSGL2AccessControl)
+	return m
+}
+
+type WSGL2AccessControlList struct {
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGL2AccessControl `json:"list,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGL2AccessControlList() *WSGL2AccessControlList {
+	m := new(WSGL2AccessControlList)
+	return m
+}
+
+type WSGL2AccessControlModifyL2AccessControl struct {
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// EtherTypeRestriction
+	// restriction of EtherType rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
+	// Constraints:
+	//    - required
+	//    - oneof:[ALLOW,BLOCK]
+	EtherTypeRestriction *string `json:"etherTypeRestriction" validate:"required,oneof=ALLOW BLOCK"`
+
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
+
+	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	// Restriction
+	// restriction of mac rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
+	// Constraints:
+	//    - required
+	//    - oneof:[ALLOW,BLOCK]
+	Restriction *string `json:"restriction" validate:"required,oneof=ALLOW BLOCK"`
+
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+}
+
+func NewWSGL2AccessControlModifyL2AccessControl() *WSGL2AccessControlModifyL2AccessControl {
+	m := new(WSGL2AccessControlModifyL2AccessControl)
+	return m
+}
+
+type WSGL2AccessControlRuleObject struct {
+	// Mac
+	// Constraints:
+	//    - required
+	Mac *WSGCommonMac `json:"mac" validate:"required"`
+}
+
+func NewWSGL2AccessControlRuleObject() *WSGL2AccessControlRuleObject {
+	m := new(WSGL2AccessControlRuleObject)
+	return m
+}
+
 // AddRkszonesL2ACLByZoneId
 //
-// Create a new L2 Access Control.
+// Create a new L2 Access Control (for Firmware Versions less than 5.2).
 //
 // Request Body:
 //	 - body *WSGPortalServiceCreateL2ACL
@@ -61,7 +219,7 @@ func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context
 
 // DeleteRkszonesL2ACLById
 //
-// Delete an L2 Access Control.
+// Delete an L2 Access Control (for Firmware Versions less than 5.2).
 //
 // Required Parameters:
 // - id string
@@ -94,7 +252,7 @@ func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context,
 
 // FindRkszonesL2ACLById
 //
-// Retrieve an L2 Access Control.
+// Retrieve an L2 Access Control (for Firmware Versions less than 5.2).
 //
 // Required Parameters:
 // - id string
@@ -127,7 +285,7 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, i
 
 // FindRkszonesL2ACLByZoneId
 //
-// Retrieve a list of L2 Access Control.
+// Retrieve a list of L2 Access Control (for Firmware Versions less than 5.2).
 //
 // Required Parameters:
 // - zoneId string
@@ -164,9 +322,39 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Contex
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
+// FindServicesL2AccessControlByQueryCriteria
+//
+// Query L2 AccessControl Profiles with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGL2AccessControlService) FindServicesL2AccessControlByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
+	var (
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesL2AccessControlByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+}
+
 // PartialUpdateRkszonesL2ACLById
 //
-// Modify a specific L2 Access Control basic.
+// Modify a specific L2 Access Control basic (for Firmware Versions less than 5.2).
 //
 // Request Body:
 //	 - body *WSGPortalServiceModifyL2ACL

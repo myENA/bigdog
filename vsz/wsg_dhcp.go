@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -57,6 +57,44 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Cont
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
 	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+}
+
+// AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
+//
+// Use this API command to get the DHCP/NAT service IP assignment when selecting with "Enable on Multiple APs". In the Manually Select AP mode (the manualSelect is true), the body should contain the selected APs (include the siteAps array). Otherwise, there is no need to include the selected APs in the Auto Select AP mode (see samples).
+//
+// Request Body:
+//	 - body *WSGCommonDoAssignIp
+//
+// Required Parameters:
+// - zoneId string
+//		- required
+func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx context.Context, body *WSGCommonDoAssignIp, zoneId string) (*WSGCommonDhcpSiteConfigListRef, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonDhcpSiteConfigListRef
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonDhcpSiteConfigListRef()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // DeleteRkszonesDhcpSiteDhcpProfileById
@@ -301,6 +339,66 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonDhcpSiteConfigListRef()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindRkszonesServicesDhcpSiteConfigByQueryCriteria
+//
+// Use this API command to modify DHCP/NAT service configuration of Domain.
+//
+// Request Body:
+//	 - body *WSGZoneQueryCriteria
+func (s *WSGDHCPService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx context.Context, body *WSGZoneQueryCriteria) (*WSGZoneDhcpSiteConfigList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGZoneDhcpSiteConfigList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesServicesDhcpSiteConfigByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGZoneDhcpSiteConfigList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindServicesDhcpProfileByQueryCriteria
+//
+// Query DHCP Profiles with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGDHCPService) FindServicesDhcpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDhcpProfileList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGProfileDhcpProfileList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesDhcpProfileByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGProfileDhcpProfileList()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 

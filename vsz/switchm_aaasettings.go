@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -22,210 +22,150 @@ func (ss *SwitchMService) SwitchMAAASettingsService() *SwitchMAAASettingsService
 	return NewSwitchMAAASettingsService(ss.apiClient)
 }
 
-type SwitchMAAASettings struct {
-	// Accounting
-	// Accounting service
-	Accounting *SwitchMAAASettingsAccountingType `json:"accounting,omitempty"`
+type SwitchMAAASettingsAAASetting struct {
+	Accounting *SwitchMAAASettingsAAASettingAccountingType `json:"accounting,omitempty"`
 
-	// Authentication
-	// Authentication service
-	Authentication *SwitchMAAASettingsAuthenticationType `json:"authentication,omitempty"`
+	Authentication *SwitchMAAASettingsAAASettingAuthenticationType `json:"authentication,omitempty"`
 
-	// Authorization
-	// Authorization service
-	Authorization *SwitchMAAASettingsAuthorizationType `json:"authorization,omitempty"`
+	Authorization *SwitchMAAASettingsAAASettingAuthorizationType `json:"authorization,omitempty"`
 }
 
-func NewSwitchMAAASettings() *SwitchMAAASettings {
-	m := new(SwitchMAAASettings)
+func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
+	m := new(SwitchMAAASettingsAAASetting)
 	return m
 }
 
-// SwitchMAAASettingsAccountingType
-//
-// Accounting service
-type SwitchMAAASettingsAccountingType struct {
-	// Commands
-	// Commands service
-	Commands *SwitchMAAASettingsAccountingTypeCommandsType `json:"commands,omitempty"`
+type SwitchMAAASettingsAAASettingAccountingType struct {
+	Commands *SwitchMAAASettingsAAASettingAccountingTypeCommandsType `json:"commands,omitempty"`
 
-	// EnabledCommandAccounting
-	// Command Enabled
 	EnabledCommandAccounting *bool `json:"enabledCommandAccounting,omitempty"`
 
-	// EnabledExecAccounting
-	// Exec Enabled
 	EnabledExecAccounting *bool `json:"enabledExecAccounting,omitempty"`
 
-	// Exec
-	// Exec service
-	Exec *SwitchMAAASettingsAccountingTypeExecType `json:"exec,omitempty"`
+	Exec *SwitchMAAASettingsAAASettingAccountingTypeExecType `json:"exec,omitempty"`
 }
 
-func NewSwitchMAAASettingsAccountingType() *SwitchMAAASettingsAccountingType {
-	m := new(SwitchMAAASettingsAccountingType)
+func NewSwitchMAAASettingsAAASettingAccountingType() *SwitchMAAASettingsAAASettingAccountingType {
+	m := new(SwitchMAAASettingsAAASettingAccountingType)
 	return m
 }
 
-// SwitchMAAASettingsAccountingTypeCommandsType
-//
-// Commands service
-type SwitchMAAASettingsAccountingTypeCommandsType struct {
+type SwitchMAAASettingsAAASettingAccountingTypeCommandsType struct {
 	// Level
-	// Access level of command
 	// Constraints:
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
 	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Server1
-	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
-	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
-func NewSwitchMAAASettingsAccountingTypeCommandsType() *SwitchMAAASettingsAccountingTypeCommandsType {
-	m := new(SwitchMAAASettingsAccountingTypeCommandsType)
+func NewSwitchMAAASettingsAAASettingAccountingTypeCommandsType() *SwitchMAAASettingsAAASettingAccountingTypeCommandsType {
+	m := new(SwitchMAAASettingsAAASettingAccountingTypeCommandsType)
 	return m
 }
 
-// SwitchMAAASettingsAccountingTypeExecType
-//
-// Exec service
-type SwitchMAAASettingsAccountingTypeExecType struct {
+type SwitchMAAASettingsAAASettingAccountingTypeExecType struct {
 	// Server1
-	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
-	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
-func NewSwitchMAAASettingsAccountingTypeExecType() *SwitchMAAASettingsAccountingTypeExecType {
-	m := new(SwitchMAAASettingsAccountingTypeExecType)
+func NewSwitchMAAASettingsAAASettingAccountingTypeExecType() *SwitchMAAASettingsAAASettingAccountingTypeExecType {
+	m := new(SwitchMAAASettingsAAASettingAccountingTypeExecType)
 	return m
 }
 
-// SwitchMAAASettingsAuthenticationType
-//
-// Authentication service
-type SwitchMAAASettingsAuthenticationType struct {
-	// EnabledSSHAuthn
-	// SSH Enabled
+type SwitchMAAASettingsAAASettingAuthenticationType struct {
 	EnabledSSHAuthn *bool `json:"enabledSSHAuthn,omitempty"`
 
-	// EnableTelnetAuthn
-	// Telnet Enabled
 	EnableTelnetAuthn *bool `json:"enableTelnetAuthn,omitempty"`
 
 	// FirstPref
-	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
 	FirstPref *string `json:"firstPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// SecondPref
-	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
 	SecondPref *string `json:"secondPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 
 	// ThirdPref
-	// Third server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
 	ThirdPref *string `json:"thirdPref,omitempty" validate:"oneof=RADIUS TACACS_PLUS LOCAL"`
 }
 
-func NewSwitchMAAASettingsAuthenticationType() *SwitchMAAASettingsAuthenticationType {
-	m := new(SwitchMAAASettingsAuthenticationType)
+func NewSwitchMAAASettingsAAASettingAuthenticationType() *SwitchMAAASettingsAAASettingAuthenticationType {
+	m := new(SwitchMAAASettingsAAASettingAuthenticationType)
 	return m
 }
 
-// SwitchMAAASettingsAuthorizationType
-//
-// Authorization service
-type SwitchMAAASettingsAuthorizationType struct {
-	// Commands
-	// Commands service
-	Commands *SwitchMAAASettingsAuthorizationTypeCommandsType `json:"commands,omitempty"`
+type SwitchMAAASettingsAAASettingAuthorizationType struct {
+	Commands *SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType `json:"commands,omitempty"`
 
-	// EnabledCommandAuthz
-	// Command Enabled
 	EnabledCommandAuthz *bool `json:"enabledCommandAuthz,omitempty"`
 
-	// EnabledExecAuthz
-	// Exec Enabled
 	EnabledExecAuthz *bool `json:"enabledExecAuthz,omitempty"`
 
-	// Exec
-	// Exec Service
-	Exec *SwitchMAAASettingsAuthorizationTypeExecType `json:"exec,omitempty"`
+	Exec *SwitchMAAASettingsAAASettingAuthorizationTypeExecType `json:"exec,omitempty"`
 }
 
-func NewSwitchMAAASettingsAuthorizationType() *SwitchMAAASettingsAuthorizationType {
-	m := new(SwitchMAAASettingsAuthorizationType)
+func NewSwitchMAAASettingsAAASettingAuthorizationType() *SwitchMAAASettingsAAASettingAuthorizationType {
+	m := new(SwitchMAAASettingsAAASettingAuthorizationType)
 	return m
 }
 
-// SwitchMAAASettingsAuthorizationTypeCommandsType
-//
-// Commands service
-type SwitchMAAASettingsAuthorizationTypeCommandsType struct {
+type SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType struct {
 	// Level
-	// Access level of command
 	// Constraints:
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
 	Level *string `json:"level,omitempty" validate:"oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
 
 	// Server1
-	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
-	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
-func NewSwitchMAAASettingsAuthorizationTypeCommandsType() *SwitchMAAASettingsAuthorizationTypeCommandsType {
-	m := new(SwitchMAAASettingsAuthorizationTypeCommandsType)
+func NewSwitchMAAASettingsAAASettingAuthorizationTypeCommandsType() *SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType {
+	m := new(SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType)
 	return m
 }
 
-// SwitchMAAASettingsAuthorizationTypeExecType
-//
-// Exec Service
-type SwitchMAAASettingsAuthorizationTypeExecType struct {
+type SwitchMAAASettingsAAASettingAuthorizationTypeExecType struct {
 	// Server1
-	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server1 *string `json:"server1,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 
 	// Server2
-	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty" validate:"oneof=RADIUS TACACS_PLUS"`
 }
 
-func NewSwitchMAAASettingsAuthorizationTypeExecType() *SwitchMAAASettingsAuthorizationTypeExecType {
-	m := new(SwitchMAAASettingsAuthorizationTypeExecType)
+func NewSwitchMAAASettingsAAASettingAuthorizationTypeExecType() *SwitchMAAASettingsAAASettingAuthorizationTypeExecType {
+	m := new(SwitchMAAASettingsAAASettingAuthorizationTypeExecType)
 	return m
 }
 
@@ -254,32 +194,44 @@ func NewSwitchMAAASettingsEmptyResult() *SwitchMAAASettingsEmptyResult {
 	return m
 }
 
-// FindAaaSettings
+// FindGroupAaaSettingsByGroupId
 //
 // Use this API command to retrieve the AAA settings.
-func (s *SwitchMAAASettingsService) FindAaaSettings(ctx context.Context) (*SwitchMAAASettings, error) {
+//
+// Required Parameters:
+// - groupId string
+//		- required
+func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Context, groupId string) (*SwitchMAAASettingsAAASetting, error) {
 	var (
 		req      *APIRequest
-		resp     *SwitchMAAASettings
+		resp     *SwitchMAAASettingsAAASetting
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaSettings, true)
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaSettingsByGroupId, true)
+	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMAAASettings()
+	resp = NewSwitchMAAASettingsAAASetting()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
-// UpdateAaaSettings
+// UpdateGroupAaaSettingsByGroupId
 //
 // Use this API command to modify the AAA settings.
 //
 // Request Body:
-//	 - body *SwitchMAAASettings
-func (s *SwitchMAAASettingsService) UpdateAaaSettings(ctx context.Context, body *SwitchMAAASettings) (*SwitchMAAASettingsEmptyResult, error) {
+//	 - body *SwitchMAAASettingsAAASetting
+//
+// Required Parameters:
+// - groupId string
+//		- required
+func (s *SwitchMAAASettingsService) UpdateGroupAaaSettingsByGroupId(ctx context.Context, body *SwitchMAAASettingsAAASetting, groupId string) (*SwitchMAAASettingsEmptyResult, error) {
 	var (
 		req      *APIRequest
 		resp     *SwitchMAAASettingsEmptyResult
@@ -294,10 +246,14 @@ func (s *SwitchMAAASettingsService) UpdateAaaSettings(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateAaaSettings, true)
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupAaaSettingsByGroupId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAASettingsEmptyResult()
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"encoding/json"
@@ -58,6 +58,8 @@ type SwitchMVlanConfigCreateVlanConfig struct {
 	// Constraints:
 	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+
+	RootBridgeFamilyId *string `json:"rootBridgeFamilyId,omitempty"`
 
 	// SpanningTree
 	// Spanning Tree
@@ -153,6 +155,8 @@ type SwitchMVlanConfigUpdateVlanConfig struct {
 	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
 
+	RootBridgeFamilyId *string `json:"rootBridgeFamilyId,omitempty"`
+
 	// SpanningTree
 	// Spanning Tree
 	// Constraints:
@@ -242,6 +246,8 @@ type SwitchMVlanConfig struct {
 	// Constraints:
 	//    - oneof:[NOW,SCHEDULE]
 	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+
+	RootBridgeFamilyId *string `json:"rootBridgeFamilyId,omitempty"`
 
 	// SpanningTree
 	// Spanning Tree

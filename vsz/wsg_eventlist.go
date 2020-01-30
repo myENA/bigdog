@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGEventListEventQueryResultList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -30,7 +30,7 @@ type WSGEventListSingleEvent struct {
 
 	Id *string `json:"id,omitempty"`
 
-	InsertionTime *float64 `json:"insertionTime,omitempty"`
+	InsertionTime *int `json:"insertionTime,omitempty"`
 
 	Severity *string `json:"severity,omitempty"`
 }

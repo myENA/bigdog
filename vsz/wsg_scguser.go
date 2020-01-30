@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -60,12 +60,24 @@ type WSGSCGUserCreateScgUser struct {
 	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
+	// MinimumPasswordLifetimeEnabled
+	// Enable the password should not be changed twice within the 24 hours.
+	// Constraints:
+	//    - nullable
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty" validate:"omitempty"`
+
 	// NewPassphrase
 	// User login passphrase
 	// Constraints:
 	//    - nullable
 	//    - required
 	NewPassphrase *string `json:"newPassphrase" validate:"omitempty,required"`
+
+	// PasswordComplexityEnabled
+	// Enable the password complexity, should apply the rules as: At least one upper-case character; At least one lower-case character; At least one numeric character:At least one special character; At least 8-chars within the old password should be changed.
+	// Constraints:
+	//    - nullable
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty" validate:"omitempty"`
 
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly. (System default admin ONLY)
@@ -164,8 +176,8 @@ type WSGSCGUserGetScgUser struct {
 	// Locked
 	// User locked or not (0:unlocked/1:locked)
 	// Constraints:
-	//    - oneof:[0,1,2]
-	Locked *int `json:"locked,omitempty" validate:"oneof=0 1 2"`
+	//    - oneof:[0,1,2,3]
+	Locked *int `json:"locked,omitempty" validate:"oneof=0 1 2 3"`
 
 	// LockoutDuration
 	// Constraints:
@@ -181,6 +193,12 @@ type WSGSCGUserGetScgUser struct {
 	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
+	// MinimumPasswordLifetimeEnabled
+	// Enable the password should not be changed twice within the 24 hours.
+	// Constraints:
+	//    - nullable
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty" validate:"omitempty"`
+
 	// ModifiedDateTime
 	// Timestamp of being modified
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
@@ -192,6 +210,12 @@ type WSGSCGUserGetScgUser struct {
 	// ModifierUsername
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
+
+	// PasswordComplexityEnabled
+	// Enable the password complexity, should apply the rules as: At least one upper-case character; At least one lower-case character; At least one numeric character:At least one special character; At least 8-chars within the old password should be changed.
+	// Constraints:
+	//    - nullable
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty" validate:"omitempty"`
 
 	// PasswordExpiration
 	// Constraints:
@@ -284,6 +308,12 @@ type WSGSCGUserModifyScgUser struct {
 	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
+	// MinimumPasswordLifetimeEnabled
+	// Enable the password should not be changed twice within the 24 hours.
+	// Constraints:
+	//    - nullable
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty" validate:"omitempty"`
+
 	// NewPassphrase
 	// User new login passphrase
 	// Constraints:
@@ -295,6 +325,12 @@ type WSGSCGUserModifyScgUser struct {
 	// Constraints:
 	//    - nullable
 	Passphrase *string `json:"passphrase,omitempty" validate:"omitempty"`
+
+	// PasswordComplexityEnabled
+	// Enable the password complexity, should apply the rules as: At least one upper-case character; At least one lower-case character; At least one numeric character:At least one special character; At least 8-chars within the old password should be changed.
+	// Constraints:
+	//    - nullable
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty" validate:"omitempty"`
 
 	// PasswordExpiration
 	// Constraints:

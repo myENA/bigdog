@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -182,7 +182,7 @@ func NewWSGAdministrationAutoExportBackup() *WSGAdministrationAutoExportBackup {
 type WSGAdministrationBackupFile struct {
 	// BackupElapsed
 	// backup elapsed of the configuration backup file
-	BackupElapsed *float64 `json:"backupElapsed,omitempty"`
+	BackupElapsed *int `json:"backupElapsed,omitempty"`
 
 	// ControlPlaneSoftwareVersion
 	// control plane software version of the configuration backup file
@@ -202,7 +202,7 @@ type WSGAdministrationBackupFile struct {
 
 	// FileSize
 	// file size of the backup file
-	FileSize *float64 `json:"fileSize,omitempty"`
+	FileSize *int `json:"fileSize,omitempty"`
 
 	// Id
 	// Identifier of system configuration backup file.
@@ -651,6 +651,12 @@ type WSGAdministrationRadiusServer struct {
 	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
+	// Protocol
+	// Constraints:
+	//    - default:'PAP'
+	//    - oneof:[PAP,CHAP,PEAP]
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=PAP CHAP PEAP"`
+
 	// Realm
 	// Constraints:
 	//    - required
@@ -788,6 +794,12 @@ type WSGAdministrationSecondaryRadiusServer struct {
 	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
+	// Protocol
+	// Constraints:
+	//    - default:'PAP'
+	//    - oneof:[PAP,CHAP,PEAP]
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=PAP CHAP PEAP"`
+
 	// RequestTimeOut
 	// Request timeout(seconds) value of re-connection to primary
 	// Constraints:
@@ -879,7 +891,7 @@ type WSGAdministrationUpgradeHistorySummary struct {
 
 	// ElapsedSeconds
 	// elapsedSeconds of the upgrade history
-	ElapsedSeconds *float64 `json:"elapsedSeconds,omitempty"`
+	ElapsedSeconds *int `json:"elapsedSeconds,omitempty"`
 
 	// FileName
 	// fileName of the upgrade history

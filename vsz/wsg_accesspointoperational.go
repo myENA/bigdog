@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -208,6 +208,36 @@ func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.C
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
+// FindApByQueryCriteria
+//
+// Query APs with specified filters
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAccessPointOperationalService) FindApByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAPQueryList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGAPQueryList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindApByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
 // FindApsApPacketCaptureByApMac
 //
 // Use this API to get AP packet capture status
@@ -232,129 +262,6 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPPackCaptureApPacketCaptureRes()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
-// FindApsOperationalAlarmsByApMac
-//
-// Use this API command to retrieve the list of alarms on an AP.
-//
-// Required Parameters:
-// - apMac string
-//		- required
-//
-// Optional Parameters:
-// - category string
-//		- nullable
-// - code float64
-//		- nullable
-// - endTime string
-//		- nullable
-// - index string
-//		- nullable
-// - listSize string
-//		- nullable
-// - severity string
-//		- nullable
-// - startTime string
-//		- nullable
-// - status string
-//		- nullable
-func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmsByApMac(ctx context.Context, apMac string, optionalParams map[string][]string) (*WSGAPAlarmList, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGAPAlarmList
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalAlarmsByApMac, true)
-	req.SetPathParameter("apMac", apMac)
-	if v, ok := optionalParams["category"]; ok {
-		req.AddQueryParameter("category", v)
-	}
-	if v, ok := optionalParams["code"]; ok {
-		req.AddQueryParameter("code", v)
-	}
-	if v, ok := optionalParams["endTime"]; ok {
-		req.AddQueryParameter("endTime", v)
-	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
-	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
-	}
-	if v, ok := optionalParams["severity"]; ok {
-		req.AddQueryParameter("severity", v)
-	}
-	if v, ok := optionalParams["startTime"]; ok {
-		req.AddQueryParameter("startTime", v)
-	}
-	if v, ok := optionalParams["status"]; ok {
-		req.AddQueryParameter("status", v)
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGAPAlarmList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
-// FindApsOperationalAlarmSummaryByApMac
-//
-// Use this API command to retrieve the alarm summary of an AP.
-//
-// Required Parameters:
-// - apMac string
-//		- required
-func (s *WSGAccessPointOperationalService) FindApsOperationalAlarmSummaryByApMac(ctx context.Context, apMac string) (*WSGAPAlarmSummary, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGAPAlarmSummary
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalAlarmSummaryByApMac, true)
-	req.SetPathParameter("apMac", apMac)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGAPAlarmSummary()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
-// FindApsOperationalEventSummaryByApMac
-//
-// Use this API command to retrieve the event summary of an AP.
-//
-// Required Parameters:
-// - apMac string
-//		- required
-func (s *WSGAccessPointOperationalService) FindApsOperationalEventSummaryByApMac(ctx context.Context, apMac string) (*WSGAPEventSummary, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGAPEventSummary
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalEventSummaryByApMac, true)
-	req.SetPathParameter("apMac", apMac)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGAPEventSummary()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
@@ -399,7 +306,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx
 
 // FindApsOperationalSummaryByApMac
 //
-// Use this API command to retrieve the operational information of an AP.
+// s API provide detailed AP status and configuration, therefore it was designed for single AP information retrieving. If you need to retrieve large number of ap states, please use "POST://query/ap" (refer to the "Query APs" section of the category "Access Point Operational").
 //
 // Required Parameters:
 // - apMac string
@@ -421,5 +328,201 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx 
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPOperationalSummary()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindApWlanByQueryCriteria
+//
+// Use this API command to retrieve AP Wlan list with BSSID information by QueryCriteria
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAccessPointOperationalService) FindApWlanByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWLANQueryApWlanBssidQueryList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGWLANQueryApWlanBssidQueryList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindApWlanByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGWLANQueryApWlanBssidQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindIndoorMapByQueryCriteria
+//
+// Query indoorMap with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAccessPointOperationalService) FindIndoorMapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGIndoorMapSummaryList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGIndoorMapSummaryList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindIndoorMapByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGIndoorMapSummaryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindMeshNeighborByApMacByQueryCriteria
+//
+// Use this API command to retrieve a list of neighbor access points on mesh AP.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+//
+// Required Parameters:
+// - apMac string
+//		- required
+func (s *WSGAccessPointOperationalService) FindMeshNeighborByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string) (*WSGMeshNeighborInfoList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGMeshNeighborInfoList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindMeshNeighborByApMacByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGMeshNeighborInfoList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindMeshTopologyByApMacByQueryCriteria
+//
+// Use this API command to retrieve a list of topology on mesh AP.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+//
+// Required Parameters:
+// - apMac string
+//		- required
+func (s *WSGAccessPointOperationalService) FindMeshTopologyByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string) (WSGMeshNodeInfoArray, error) {
+	var (
+		req      *APIRequest
+		resp     WSGMeshNodeInfoArray
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindMeshTopologyByApMacByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = MakeWSGMeshNodeInfoArray()
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+}
+
+// FindMeshTopologyByQueryCriteria
+//
+// Use this API command to retrieve a list of topology on zone.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAccessPointOperationalService) FindMeshTopologyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGMeshNodeInfoList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGMeshNodeInfoList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindMeshTopologyByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGMeshNodeInfoList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindRoguesInfoListByQueryCriteria
+//
+// Use this API command to retrieve a list of rogue access points.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAccessPointOperationalService) FindRoguesInfoListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRogueInfoList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGRogueInfoList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindRoguesInfoListByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGRogueInfoList()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

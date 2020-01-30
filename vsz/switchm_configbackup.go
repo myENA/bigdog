@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type SwitchMConfigBackupBackupIds []string
 
@@ -129,6 +129,10 @@ type SwitchMConfigBackupCreateBackupResultListType struct {
 	// Identifier of config backup
 	ConfigBackupId *string `json:"configBackupId,omitempty"`
 
+	// ErrorMessage
+	// Error message
+	ErrorMessage *string `json:"errorMessage,omitempty"`
+
 	// SwitchId
 	// Identifier of switch
 	SwitchId *string `json:"switchId,omitempty"`
@@ -163,15 +167,6 @@ type SwitchMConfigBackupList struct {
 
 func NewSwitchMConfigBackupList() *SwitchMConfigBackupList {
 	m := new(SwitchMConfigBackupList)
-	return m
-}
-
-type SwitchMConfigBackupQueryCriteria struct {
-	ConfigBackupqueryCriteria *string `json:"configBackup_queryCriteria,omitempty"`
-}
-
-func NewSwitchMConfigBackupQueryCriteria() *SwitchMConfigBackupQueryCriteria {
-	m := new(SwitchMConfigBackupQueryCriteria)
 	return m
 }
 

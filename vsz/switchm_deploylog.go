@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type SwitchMDeployLogConfigurationHistoryQueryResult struct {
 	// FirstIndex
@@ -29,8 +29,8 @@ type SwitchMDeployLog struct {
 	// ConfigType
 	// Config Type
 	// Constraints:
-	//    - oneof:[PROVISIONING,GLOBAL,COMMON,MODEL,SWITCH_SETTINGS,PORT_SETTINGS]
-	ConfigType *string `json:"configType,omitempty" validate:"oneof=PROVISIONING GLOBAL COMMON MODEL SWITCH_SETTINGS PORT_SETTINGS"`
+	//    - oneof:[PROVISIONING,GLOBAL,AAA_SETTING,AAA_SERVER,COMMON,MODEL,SWITCH_SETTINGS,PORT_SETTINGS]
+	ConfigType *string `json:"configType,omitempty" validate:"oneof=PROVISIONING GLOBAL AAA_SETTING AAA_SERVER COMMON MODEL SWITCH_SETTINGS PORT_SETTINGS"`
 
 	// DeployScope
 	// Deploy Scope
@@ -59,6 +59,10 @@ type SwitchMDeployLog struct {
 	// ModelFamily
 	// Switch Model Family
 	ModelFamily *string `json:"modelFamily,omitempty"`
+
+	NodeId *string `json:"nodeId,omitempty"`
+
+	NodeName *string `json:"nodeName,omitempty"`
 
 	// Scheduled
 	// Schedule

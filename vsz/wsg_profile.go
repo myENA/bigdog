@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGProfileAccountingProfile struct {
 	// CreateDateTime
@@ -360,6 +360,23 @@ func NewWSGProfileBlockClientListType() *WSGProfileBlockClientListType {
 	return m
 }
 
+type WSGProfileBlockedPort struct {
+	// Port
+	// port of the Blocked Port
+	Port *string `json:"port,omitempty"`
+
+	// Protocol
+	// Protocol of the Blocked Port
+	// Constraints:
+	//    - oneof:[BOTH,TCP,UDP]
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=BOTH TCP UDP"`
+}
+
+func NewWSGProfileBlockedPort() *WSGProfileBlockedPort {
+	m := new(WSGProfileBlockedPort)
+	return m
+}
+
 type WSGProfileBonjourFencingPolicy struct {
 	// BonjourFencingRuleList
 	// Bonjour Fencing Rule List
@@ -588,6 +605,11 @@ func NewWSGProfileBridgeProfileList() *WSGProfileBridgeProfileList {
 	return m
 }
 
+// WSGProfileBridgeService
+//
+// Bonjour Service Type
+// Constraints:
+//    - oneof:[AIRDISK,AIRPLAY,AIRPORT_MANAGEMENT,AIRPRINT,AIRTUNES,APPLE_FILE_SHARING,APPLE_MOBILE_DEVICES,APPLETV,ICLOUD_SYNC,ITUNES_REMOTE,ITUNES_SHARING,OPEN_DIRECTORY_MASTER,OPTICAL_DISK_SHARING,SCREEN_SHARING,SECURE_FILE_SHARING,SECURE_SHELL,WWW_HTTP,WWW_HTTPS,WORKGROUP_MANAGER,XGRID,GOOGLE_CHROMECAST,OTHER]
 type WSGProfileBridgeService string
 
 func NewWSGProfileBridgeService() *WSGProfileBridgeService {
@@ -1058,6 +1080,52 @@ func NewWSGProfileCreateDnsServerProfile() *WSGProfileCreateDnsServerProfile {
 	return m
 }
 
+type WSGProfileCreateFirewallProfile struct {
+	// AppPolicyId
+	// Application Policy
+	AppPolicyId *string `json:"appPolicyId,omitempty"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// DevicePolicyId
+	// Device Policy
+	DevicePolicyId *string `json:"devicePolicyId,omitempty"`
+
+	// DomainId
+	// Domain Id of The Firewall Profile
+	DomainId *string `json:"domainId,omitempty"`
+
+	// DownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	DownlinkRateLimitingMbps *float64 `json:"downlinkRateLimitingMbps,omitempty"`
+
+	// L2AccessControlPolicyId
+	// L2 Access Control Policy
+	L2AccessControlPolicyId *string `json:"l2AccessControlPolicyId,omitempty"`
+
+	// L3AccessControlPolicyId
+	// L3 Access Control Policy
+	L3AccessControlPolicyId *string `json:"l3AccessControlPolicyId,omitempty"`
+
+	// Name
+	// Constraints:
+	//    - required
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+
+	// UplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	UplinkRateLimitingMbps *float64 `json:"uplinkRateLimitingMbps,omitempty"`
+
+	// UrlFilteringPolicyId
+	// Url Filtering Policy
+	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
+}
+
+func NewWSGProfileCreateFirewallProfile() *WSGProfileCreateFirewallProfile {
+	m := new(WSGProfileCreateFirewallProfile)
+	return m
+}
+
 type WSGProfileCreateIpsecProfile struct {
 	AdvancedOption *WSGProfileAdvancedOptionContent `json:"advancedOption,omitempty"`
 
@@ -1158,6 +1226,36 @@ func NewWSGProfileCreateL2oGREProfile() *WSGProfileCreateL2oGREProfile {
 	return m
 }
 
+type WSGProfileCreateL3AccessControlPolicy struct {
+	// DefaultAction
+	// Default action
+	// Constraints:
+	//    - required
+	//    - default:'ALLOW'
+	//    - oneof:[BLOCK,ALLOW]
+	DefaultAction *string `json:"defaultAction" validate:"required,oneof=BLOCK ALLOW"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// DomainId
+	// Domain UUID
+	DomainId *string `json:"domainId,omitempty"`
+
+	// L3AclRuleList
+	// L3 access control list
+	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList,omitempty"`
+
+	// Name
+	// Constraints:
+	//    - required
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewWSGProfileCreateL3AccessControlPolicy() *WSGProfileCreateL3AccessControlPolicy {
+	m := new(WSGProfileCreateL3AccessControlPolicy)
+	return m
+}
+
 type WSGProfileCreatePrecedenceProfile struct {
 	// DomainId
 	// Domain UUID
@@ -1176,6 +1274,32 @@ type WSGProfileCreatePrecedenceProfile struct {
 
 func NewWSGProfileCreatePrecedenceProfile() *WSGProfileCreatePrecedenceProfile {
 	m := new(WSGProfileCreatePrecedenceProfile)
+	return m
+}
+
+type WSGProfileCreateRestrictedApAccessProfile struct {
+	// BlockedPortList
+	// Blocked Port List
+	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList,omitempty"`
+
+	// BlockWellKnownPort
+	// Block well known ports
+	BlockWellKnownPort *bool `json:"blockWellKnownPort,omitempty"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// IpAddressWhitelist
+	// IP Address Whitelist
+	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist,omitempty"`
+
+	// Name
+	// Constraints:
+	//    - required
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewWSGProfileCreateRestrictedApAccessProfile() *WSGProfileCreateRestrictedApAccessProfile {
+	m := new(WSGProfileCreateRestrictedApAccessProfile)
 	return m
 }
 
@@ -1825,6 +1949,88 @@ func NewWSGProfileEspSecurityAssociationContent() *WSGProfileEspSecurityAssociat
 	return m
 }
 
+type WSGProfileFirewallProfile struct {
+	// AppPolicyId
+	// Application Policy
+	AppPolicyId *string `json:"appPolicyId,omitempty"`
+
+	// CreateDateTime
+	// Timestamp of being created
+	CreateDateTime *int `json:"createDateTime,omitempty"`
+
+	// CreatorUsername
+	// Creator Name
+	CreatorUsername *string `json:"creatorUsername,omitempty"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// DevicePolicyId
+	// Device Policy
+	DevicePolicyId *string `json:"devicePolicyId,omitempty"`
+
+	// DomainId
+	// Domain Id of The Firewall Profile
+	DomainId *string `json:"domainId,omitempty"`
+
+	// DownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	DownlinkRateLimitingMbps *float64 `json:"downlinkRateLimitingMbps,omitempty"`
+
+	// FactoryDefault
+	// Whether the proFirewall Profile is factory default or not
+	FactoryDefault *bool `json:"factoryDefault,omitempty"`
+
+	// Id
+	// Firewall Profile id
+	Id *string `json:"id,omitempty"`
+
+	// L2AccessControlPolicyId
+	// L2 Access Control Policy
+	L2AccessControlPolicyId *string `json:"l2AccessControlPolicyId,omitempty"`
+
+	// L3AccessControlPolicyId
+	// L3 Access Control Policy
+	L3AccessControlPolicyId *string `json:"l3AccessControlPolicyId,omitempty"`
+
+	// ModifiedDateTime
+	// Timestamp of being modified
+	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
+
+	// ModifierUsername
+	// Modifier Name
+	ModifierUsername *string `json:"modifierUsername,omitempty"`
+
+	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	// UplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	UplinkRateLimitingMbps *float64 `json:"uplinkRateLimitingMbps,omitempty"`
+
+	// UrlFilteringPolicyId
+	// Url Filtering Policy
+	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
+}
+
+func NewWSGProfileFirewallProfile() *WSGProfileFirewallProfile {
+	m := new(WSGProfileFirewallProfile)
+	return m
+}
+
+type WSGProfileFirewallProfileArray struct {
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGProfileFirewallProfile `json:"list,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGProfileFirewallProfileArray() *WSGProfileFirewallProfileArray {
+	m := new(WSGProfileFirewallProfileArray)
+	return m
+}
+
 type WSGProfileFlexiVpnProfile struct {
 	// DestinationZoneAffinityId
 	// Flexi-VPN Profile ID (Destination)
@@ -2454,6 +2660,166 @@ func NewWSGProfileL2oGREProfileList() *WSGProfileL2oGREProfileList {
 	return m
 }
 
+type WSGProfileL3AccessControlPolicy struct {
+	// DefaultAction
+	// Default action
+	// Constraints:
+	//    - required
+	//    - default:'ALLOW'
+	//    - oneof:[BLOCK,ALLOW]
+	DefaultAction *string `json:"defaultAction" validate:"required,oneof=BLOCK ALLOW"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// DomainId
+	// Domain UUID
+	DomainId *string `json:"domainId,omitempty"`
+
+	// Id
+	// ID of the L3 Access Control Policy
+	Id *string `json:"id,omitempty"`
+
+	// L3AclRuleList
+	// L3 access control list
+	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList,omitempty"`
+
+	// Name
+	// Constraints:
+	//    - required
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewWSGProfileL3AccessControlPolicy() *WSGProfileL3AccessControlPolicy {
+	m := new(WSGProfileL3AccessControlPolicy)
+	return m
+}
+
+type WSGProfileL3AccessControlPolicyArray struct {
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGProfileL3AccessControlPolicy `json:"list,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGProfileL3AccessControlPolicyArray() *WSGProfileL3AccessControlPolicyArray {
+	m := new(WSGProfileL3AccessControlPolicyArray)
+	return m
+}
+
+type WSGProfileL3AclRuleList struct {
+	// Action
+	// The access of traffic access control.
+	// Constraints:
+	//    - default:'ALLOW'
+	//    - oneof:[ALLOW,BLOCK]
+	Action *string `json:"action,omitempty" validate:"oneof=ALLOW BLOCK"`
+
+	// CustomProtocol
+	// The protocol of traffic access control. Available if the protocol is set to CUSTOM.
+	// Constraints:
+	//    - min:1
+	//    - max:255
+	CustomProtocol *int `json:"customProtocol,omitempty" validate:"gte=1,lte=255"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// DestinationIp
+	// Subnet network address or ip address of destination IP.
+	DestinationIp *string `json:"destinationIp,omitempty"`
+
+	// DestinationIpMask
+	// Subnet mask of destination IP
+	DestinationIpMask *string `json:"destinationIpMask,omitempty"`
+
+	// DestinationIpV6
+	// Destination IPv6 Address.
+	DestinationIpV6 *string `json:"destinationIpV6,omitempty"`
+
+	// DestinationMaxPort
+	// The maxinum port of destination port range.
+	DestinationMaxPort *int `json:"destinationMaxPort,omitempty"`
+
+	// DestinationMinPort
+	// The mininum port of destination port range.
+	DestinationMinPort *int `json:"destinationMinPort,omitempty"`
+
+	// Direction
+	// The direction of traffic access control.
+	// Constraints:
+	//    - default:'INBOUND'
+	//    - oneof:[INBOUND,OUTBOUND,DUAL]
+	Direction *string `json:"direction,omitempty" validate:"oneof=INBOUND OUTBOUND DUAL"`
+
+	// EnableDestinationIpSubnet
+	// Destination IP subnet enabled or disabled
+	EnableDestinationIpSubnet *bool `json:"enableDestinationIpSubnet,omitempty"`
+
+	// EnableDestinationPortRange
+	// Destincation port range enabled or disabled
+	EnableDestinationPortRange *bool `json:"enableDestinationPortRange,omitempty"`
+
+	// EnableDestinationV6Prefix
+	// Enable Destination IPv6 prefix.
+	EnableDestinationV6Prefix *bool `json:"enableDestinationV6Prefix,omitempty"`
+
+	// EnableSourceIpSubnet
+	// Source IP subnet enabled or disabled
+	EnableSourceIpSubnet *bool `json:"enableSourceIpSubnet,omitempty"`
+
+	// EnableSourcePortRange
+	// Source port range enabled or disabled
+	EnableSourcePortRange *bool `json:"enableSourcePortRange,omitempty"`
+
+	// EnableSourceV6Prefix
+	// Enable Source IPv6 prefix.
+	EnableSourceV6Prefix *bool `json:"enableSourceV6Prefix,omitempty"`
+
+	// IpType
+	// IP Type(IPv4 or IPv6).
+	// Constraints:
+	//    - default:'IPv4'
+	//    - oneof:[IPv4,IPv6]
+	IpType *string `json:"ipType,omitempty" validate:"oneof=IPv4 IPv6"`
+
+	// Priority
+	// Priority
+	Priority *int `json:"priority,omitempty"`
+
+	// Protocol
+	// The protocol of traffic access control.
+	// Constraints:
+	//    - oneof:[TCP,UDP,UDPLITE,ICMP_ICMPV4,ICMPV6,IGMP,ESP,AH,SCTP,CUSTOM]
+	Protocol *string `json:"protocol,omitempty" validate:"oneof=TCP UDP UDPLITE ICMP_ICMPV4 ICMPV6 IGMP ESP AH SCTP CUSTOM"`
+
+	// SourceIp
+	// Subnet network address or ip address of source IP.
+	SourceIp *string `json:"sourceIp,omitempty"`
+
+	// SourceIpMask
+	// Subnet mask of source IP
+	SourceIpMask *string `json:"sourceIpMask,omitempty"`
+
+	// SourceIpV6
+	// Source IPv6 Address.
+	SourceIpV6 *string `json:"sourceIpV6,omitempty"`
+
+	// SourceMaxPort
+	// The maxinum port of source port range.
+	SourceMaxPort *int `json:"sourceMaxPort,omitempty"`
+
+	// SourceMinPort
+	// The minunum port of source port range.
+	SourceMinPort *int `json:"sourceMinPort,omitempty"`
+}
+
+func NewWSGProfileL3AclRuleList() *WSGProfileL3AclRuleList {
+	m := new(WSGProfileL3AclRuleList)
+	return m
+}
+
 type WSGProfileLbsProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -2699,6 +3065,49 @@ func NewWSGProfileModifyDnsServerProfile() *WSGProfileModifyDnsServerProfile {
 	return m
 }
 
+type WSGProfileModifyFirewallProfile struct {
+	// AppPolicyId
+	// Application Policy
+	AppPolicyId *string `json:"appPolicyId,omitempty"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// DevicePolicyId
+	// Device Policy
+	DevicePolicyId *string `json:"devicePolicyId,omitempty"`
+
+	// DomainId
+	// Domain Id of The Firewall Profile
+	DomainId *string `json:"domainId,omitempty"`
+
+	// DownlinkRateLimitingMbps
+	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	DownlinkRateLimitingMbps *float64 `json:"downlinkRateLimitingMbps,omitempty"`
+
+	// L2AccessControlPolicyId
+	// L2 Access Control Policy
+	L2AccessControlPolicyId *string `json:"l2AccessControlPolicyId,omitempty"`
+
+	// L3AccessControlPolicyId
+	// L3 Access Control Policy
+	L3AccessControlPolicyId *string `json:"l3AccessControlPolicyId,omitempty"`
+
+	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	// UplinkRateLimitingMbps
+	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	UplinkRateLimitingMbps *float64 `json:"uplinkRateLimitingMbps,omitempty"`
+
+	// UrlFilteringPolicyId
+	// Url Filtering Policy
+	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
+}
+
+func NewWSGProfileModifyFirewallProfile() *WSGProfileModifyFirewallProfile {
+	m := new(WSGProfileModifyFirewallProfile)
+	return m
+}
+
 type WSGProfileModifyHS20Operator struct {
 	Certificate *WSGCommonGenericRef `json:"certificate,omitempty"`
 
@@ -2938,6 +3347,62 @@ func NewWSGProfileModifyL2oGREProfile() *WSGProfileModifyL2oGREProfile {
 	return m
 }
 
+type WSGProfileModifyL3AccessControlPolicy struct {
+	// DefaultAction
+	// Default action
+	// Constraints:
+	//    - required
+	//    - default:'ALLOW'
+	//    - oneof:[BLOCK,ALLOW]
+	DefaultAction *string `json:"defaultAction" validate:"required,oneof=BLOCK ALLOW"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// DomainId
+	// Domain UUID
+	DomainId *string `json:"domainId,omitempty"`
+
+	// L3AclRuleList
+	// L3 access control list
+	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList,omitempty"`
+
+	// Name
+	// Constraints:
+	//    - required
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewWSGProfileModifyL3AccessControlPolicy() *WSGProfileModifyL3AccessControlPolicy {
+	m := new(WSGProfileModifyL3AccessControlPolicy)
+	return m
+}
+
+type WSGProfileModifyRestrictedApAccessProfile struct {
+	// BlockedPortList
+	// Blocked Port List
+	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList,omitempty"`
+
+	// BlockWellKnownPort
+	// Block well known ports
+	BlockWellKnownPort *bool `json:"blockWellKnownPort,omitempty"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// IpAddressWhitelist
+	// IP Address Whitelist
+	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist,omitempty"`
+
+	// Name
+	// Constraints:
+	//    - required
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+}
+
+func NewWSGProfileModifyRestrictedApAccessProfile() *WSGProfileModifyRestrictedApAccessProfile {
+	m := new(WSGProfileModifyRestrictedApAccessProfile)
+	return m
+}
+
 type WSGProfileModifyRuckusGREProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -3158,7 +3623,7 @@ func NewWSGProfilePrecedenceListType() *WSGProfilePrecedenceListType {
 	return m
 }
 
-type WSGProfileCloneRequest struct {
+type WSGProfileClone struct {
 	// NewId
 	// name for new profile
 	NewId *string `json:"newId,omitempty"`
@@ -3176,17 +3641,23 @@ type WSGProfileCloneRequest struct {
 	OldName *string `json:"oldName,omitempty"`
 }
 
-func NewWSGProfileCloneRequest() *WSGProfileCloneRequest {
-	m := new(WSGProfileCloneRequest)
+func NewWSGProfileClone() *WSGProfileClone {
+	m := new(WSGProfileClone)
 	return m
 }
 
-type WSGProfileCloneResponse struct {
-	*WSGProfileCloneRequest
+type WSGProfileIdList struct {
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGCommonGenericRef `json:"list,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGProfileCloneResponse() *WSGProfileCloneResponse {
-	m := new(WSGProfileCloneResponse)
+func NewWSGProfileIdList() *WSGProfileIdList {
+	m := new(WSGProfileIdList)
 	return m
 }
 
@@ -3714,6 +4185,71 @@ func NewWSGProfileRealmAuthServiceMapping() *WSGProfileRealmAuthServiceMapping {
 	return m
 }
 
+type WSGProfileRestrictedApAccessProfile struct {
+	// BlockedPortList
+	// Blocked Port List
+	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList,omitempty"`
+
+	// BlockWellKnownPort
+	// Block well known ports
+	BlockWellKnownPort *bool `json:"blockWellKnownPort,omitempty"`
+
+	// CreateDateTime
+	// Timestamp of being created
+	CreateDateTime *int `json:"createDateTime,omitempty"`
+
+	// CreatorUsername
+	// Creator Name
+	CreatorUsername *string `json:"creatorUsername,omitempty"`
+
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// Id
+	// Restricted AP Access Profile id
+	Id *string `json:"id,omitempty"`
+
+	// IpAddressWhitelist
+	// IP Address Whitelist
+	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist,omitempty"`
+
+	// ModifiedDateTime
+	// Timestamp of being modified
+	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
+
+	// ModifierUsername
+	// Modifier Name
+	ModifierUsername *string `json:"modifierUsername,omitempty"`
+
+	// Name
+	// Constraints:
+	//    - required
+	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+
+	// ZoneId
+	// Zone Id of The Restricted AP Access Profile for clone in System Domain
+	ZoneId *string `json:"zoneId,omitempty"`
+}
+
+func NewWSGProfileRestrictedApAccessProfile() *WSGProfileRestrictedApAccessProfile {
+	m := new(WSGProfileRestrictedApAccessProfile)
+	return m
+}
+
+type WSGProfileRestrictedApAccessProfileArray struct {
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGProfileRestrictedApAccessProfile `json:"list,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGProfileRestrictedApAccessProfileArray() *WSGProfileRestrictedApAccessProfileArray {
+	m := new(WSGProfileRestrictedApAccessProfileArray)
+	return m
+}
+
 type WSGProfileReturnZoneAffinityProfile struct {
 	// BaseDpVersion
 	// The lowest DP version in an Zone Affinity Profile
@@ -3851,8 +4387,8 @@ type WSGProfileRogueApRuleList struct {
 	// Type
 	// Constraints:
 	//    - required
-	//    - oneof:[AdhocRule,SsidSpoofingRule,MacSpoofingRule,SameNetworkRule,CustomSsidRule,CustomRssiRule,CustomMacOuiRule]
-	Type *string `json:"type" validate:"required,oneof=AdhocRule SsidSpoofingRule MacSpoofingRule SameNetworkRule CustomSsidRule CustomRssiRule CustomMacOuiRule"`
+	//    - oneof:[AdhocRule,SsidSpoofingRule,MacSpoofingRule,SameNetworkRule,CTSAbuseRule,RTSAbuseRule,DeauthFloodRule,DisassocFloodRule,ExcessivePowerRule,NullSSIDRule,CustomSsidRule,CustomRssiRule,CustomMacOuiRule]
+	Type *string `json:"type" validate:"required,oneof=AdhocRule SsidSpoofingRule MacSpoofingRule SameNetworkRule CTSAbuseRule RTSAbuseRule DeauthFloodRule DisassocFloodRule ExcessivePowerRule NullSSIDRule CustomSsidRule CustomRssiRule CustomMacOuiRule"`
 
 	Value interface{} `json:"value,omitempty"`
 }

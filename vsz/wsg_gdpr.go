@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -24,7 +24,9 @@ func (ss *WSGService) WSGGDPRService() *WSGGDPRService {
 type WSGGDPRFtp struct {
 	// FtpHost
 	// IP/DN of FTP
-	FtpHost *string `json:"ftpHost,omitempty"`
+	// Constraints:
+	//    - required
+	FtpHost *string `json:"ftpHost" validate:"required"`
 
 	// FtpPassword
 	// Password for FTP login
@@ -33,9 +35,10 @@ type WSGGDPRFtp struct {
 	// FtpPort
 	// Port used by FTP
 	// Constraints:
+	//    - required
 	//    - min:21
 	//    - max:65535
-	FtpPort *int `json:"ftpPort,omitempty" validate:"gte=21,lte=65535"`
+	FtpPort *int `json:"ftpPort" validate:"required,gte=21,lte=65535"`
 
 	// FtpProtocol
 	// Protocol used
@@ -61,12 +64,15 @@ type WSGGDPRReport struct {
 	// Action
 	// Request action
 	// Constraints:
+	//    - required
 	//    - oneof:[SEARCH,DELETE,INTERRUPT,PROGRESS]
-	Action *string `json:"action,omitempty" validate:"oneof=SEARCH DELETE INTERRUPT PROGRESS"`
+	Action *string `json:"action" validate:"required,oneof=SEARCH DELETE INTERRUPT PROGRESS"`
 
 	// ClientMac
 	// Client mac
-	ClientMac *string `json:"clientMac,omitempty"`
+	// Constraints:
+	//    - required
+	ClientMac *string `json:"clientMac" validate:"required"`
 
 	Ftp *WSGGDPRFtp `json:"ftp,omitempty"`
 }

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGZoneAPModelApModel struct {
 	CellularSettings *WSGAPModelCellularSettings `json:"cellularSettings,omitempty"`
@@ -31,11 +31,7 @@ type WSGZoneAPModelApModel struct {
 
 	Lldp *WSGAPModelLldpSetting `json:"lldp,omitempty"`
 
-	// PoeModeSetting
-	// Constraints:
-	//    - nullable
-	//    - oneof:[Auto,_802_3af,_802_3at,_802_3atPlus]
-	PoeModeSetting *string `json:"poeModeSetting,omitempty" validate:"omitempty,oneof=Auto _802_3af _802_3at _802_3atPlus"`
+	PoeModeSetting *WSGCommonPoeModeSetting `json:"poeModeSetting,omitempty"`
 
 	// PoeOutPortEnabled
 	// Constraints:

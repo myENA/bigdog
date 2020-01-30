@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGClientQueryList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
@@ -38,7 +38,11 @@ type WSGClientQueryCreateClientQuery struct {
 
 	ControlPlaneName *string `json:"controlPlaneName,omitempty"`
 
+	CpeMac *string `json:"cpeMac,omitempty"`
+
 	DataPlaneName *string `json:"dataPlaneName,omitempty"`
+
+	DeviceType *string `json:"deviceType,omitempty"`
 
 	Downlink *int `json:"downlink,omitempty"`
 
@@ -56,7 +60,11 @@ type WSGClientQueryCreateClientQuery struct {
 
 	MedianTxMCSRate *int `json:"medianTxMCSRate,omitempty"`
 
+	ModelName *string `json:"modelName,omitempty"`
+
 	OsType *string `json:"osType,omitempty"`
+
+	OsVendorType *string `json:"osVendorType,omitempty"`
 
 	RadioType *string `json:"radioType,omitempty"`
 
@@ -68,7 +76,7 @@ type WSGClientQueryCreateClientQuery struct {
 
 	RxFrames *int `json:"rxFrames,omitempty"`
 
-	SessionStartTime *float64 `json:"sessionStartTime,omitempty"`
+	SessionStartTime *int `json:"sessionStartTime,omitempty"`
 
 	Snr *int `json:"snr,omitempty"`
 

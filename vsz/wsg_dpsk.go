@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGDPSKBatchGenUnbound struct {
 	// Amount
@@ -386,6 +386,16 @@ type WSGDPSKWlanExternalDpskEncryptionType struct {
 	// Constraints:
 	//    - oneof:[WPA2,WPA_Mixed,None]
 	Method *string `json:"method,omitempty" validate:"oneof=WPA2 WPA_Mixed None"`
+
+	// Mfp
+	// Encryption mfp
+	// Constraints:
+	//    - oneof:[disabled,capable,required]
+	Mfp *string `json:"mfp,omitempty" validate:"oneof=disabled capable required"`
+
+	// Passphrase
+	// Passphrase. This only applies to WPA2 and WPA mixed mode.
+	Passphrase *string `json:"passphrase,omitempty"`
 }
 
 func NewWSGDPSKWlanExternalDpskEncryptionType() *WSGDPSKWlanExternalDpskEncryptionType {

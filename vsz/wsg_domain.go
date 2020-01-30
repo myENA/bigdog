@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -172,43 +172,6 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
-// AddRkszonesDomains
-//
-// Use this API command to create new domain.
-//
-// Request Body:
-//	 - body *WSGDomainCreateDomain
-//
-// Optional Parameters:
-// - parentDomainId string
-//		- nullable
-func (s *WSGDomainService) AddRkszonesDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string) (*WSGCommonCreateResult, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGCommonCreateResult
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDomains, true)
-	if err = req.SetBody(body); err != nil {
-		return resp, err
-	}
-	if v, ok := optionalParams["parentDomainId"]; ok {
-		req.AddQueryParameter("parentDomainId", v)
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonCreateResult()
-	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
-}
-
 // DeleteDomainsById
 //
 // Use this API command to delete domain.
@@ -229,31 +192,6 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) err
 		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDomainsById, true)
-	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
-}
-
-// DeleteRkszonesDomainsById
-//
-// Use this API command to delete domain.
-//
-// Required Parameters:
-// - id string
-//		- required
-func (s *WSGDomainService) DeleteRkszonesDomainsById(ctx context.Context, id string) error {
-	var (
-		req      *APIRequest
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return err
-	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDomainsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -339,6 +277,33 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
+// FindDomainsByNameByDomainName
+//
+// Use this API command to retrieve a list of domain by specified Domain name.
+//
+// Required Parameters:
+// - domainName string
+//		- required
+func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, domainName string) (*WSGDomainList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGDomainList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, domainName, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
+	req.SetPathParameter("domainName", domainName)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDomainList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
 // FindDomainsSubdomainById
 //
 // Use this API command to retrieve a list of subdomain by specified Domain ID.
@@ -393,143 +358,9 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
-// FindRkszonesDomains
-//
-// Use this API command to retrieve a list of domain under Administration Domain.
-//
-// Optional Parameters:
-// - excludeRegularDomain string
-//		- nullable
-// - includeSelf string
-//		- nullable
-// - index string
-//		- nullable
-// - listSize string
-//		- nullable
-// - recursively string
-//		- nullable
-func (s *WSGDomainService) FindRkszonesDomains(ctx context.Context, optionalParams map[string][]string) (*WSGDomainList, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGDomainList
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomains, true)
-	if v, ok := optionalParams["excludeRegularDomain"]; ok {
-		req.AddQueryParameter("excludeRegularDomain", v)
-	}
-	if v, ok := optionalParams["includeSelf"]; ok {
-		req.AddQueryParameter("includeSelf", v)
-	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
-	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
-	}
-	if v, ok := optionalParams["recursively"]; ok {
-		req.AddQueryParameter("recursively", v)
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGDomainList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
-// FindRkszonesDomainsById
-//
-// Use this API command to retrieve domain by specified Domain ID.
-//
-// Required Parameters:
-// - id string
-//		- required
-//
-// Optional Parameters:
-// - recursively string
-//		- nullable
-func (s *WSGDomainService) FindRkszonesDomainsById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainConfiguration, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGDomainConfiguration
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomainsById, true)
-	req.SetPathParameter("id", id)
-	if v, ok := optionalParams["recursively"]; ok {
-		req.AddQueryParameter("recursively", v)
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGDomainConfiguration()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
-// FindRkszonesDomainsSubdomainById
-//
-// Use this API command to retrieve a list of subdomain by specified Domain ID.
-//
-// Required Parameters:
-// - id string
-//		- required
-//
-// Optional Parameters:
-// - excludeRegularDomain string
-//		- nullable
-// - includeSelf string
-//		- nullable
-// - index string
-//		- nullable
-// - listSize string
-//		- nullable
-// - recursively string
-//		- nullable
-func (s *WSGDomainService) FindRkszonesDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainList, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGDomainList
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDomainsSubdomainById, true)
-	req.SetPathParameter("id", id)
-	if v, ok := optionalParams["excludeRegularDomain"]; ok {
-		req.AddQueryParameter("excludeRegularDomain", v)
-	}
-	if v, ok := optionalParams["includeSelf"]; ok {
-		req.AddQueryParameter("includeSelf", v)
-	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
-	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
-	}
-	if v, ok := optionalParams["recursively"]; ok {
-		req.AddQueryParameter("recursively", v)
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGDomainList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
 // PartialUpdateDomainsById
 //
-// Use this API command to modify the basic information of domain.
+// Use this API command to modify the configuration of domain.
 //
 // Request Body:
 //	 - body *WSGDomainModifyDomain
@@ -555,42 +386,6 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 		return err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)
-	if err = req.SetBody(body); err != nil {
-		return err
-	}
-	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
-}
-
-// PartialUpdateRkszonesDomainsById
-//
-// Use this API command to modify the basic information of domain.
-//
-// Request Body:
-//	 - body *WSGDomainModifyDomain
-//
-// Required Parameters:
-// - id string
-//		- required
-func (s *WSGDomainService) PartialUpdateRkszonesDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string) error {
-	var (
-		req      *APIRequest
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return err
-	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesDomainsById, true)
 	if err = req.SetBody(body); err != nil {
 		return err
 	}

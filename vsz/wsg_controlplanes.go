@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -117,6 +117,32 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
+// FindControlPlanesInterfaces
+//
+// Use this API command to retrieve Control Plane Interface list.
+//
+// Optional Parameters:
+// - bladeUUID string
+//		- nullable
+func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Context, optionalParams map[string][]string) (*WSGSystemControlPlaneInterfaceList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGSystemControlPlaneInterfaceList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesInterfaces, true)
+	if v, ok := optionalParams["bladeUUID"]; ok {
+		req.AddQueryParameter("bladeUUID", v)
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemControlPlaneInterfaceList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
 // FindControlPlanesStaticRoutesByBladeUUID
 //
 // Use this API command to retrieve static route of control plane.
@@ -173,7 +199,7 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 
 // PartialUpdateControlPlanesByBladeUUID
 //
-// Use this API command to modify the basic information of control plane.
+// Use this API command to modify the configuration of control plane.
 //
 // Request Body:
 //	 - body *WSGSystemModifyControlPlane
@@ -234,6 +260,82 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// PartialUpdateControlPlanesStaticRoutesByBladeUUID
+//
+// Use this API command to modify the static route of control plane.
+//
+// Request Body:
+//	 - body *WSGSystemModifyCPStaticRoute
+//
+// Required Parameters:
+// - bladeUUID string
+//		- required
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeUUID(ctx context.Context, body *WSGSystemModifyCPStaticRoute, bladeUUID string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateControlPlanesStaticRoutesByBladeUUID, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	req.SetPathParameter("bladeUUID", bladeUUID)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID
+//
+// Use this API command to modify user defined interface of control plane.
+//
+// Request Body:
+//	 - body *WSGSystemModifyCPUserDefinedInterface
+//
+// Required Parameters:
+// - bladeUUID string
+//		- required
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, body *WSGSystemModifyCPUserDefinedInterface, bladeUUID string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)

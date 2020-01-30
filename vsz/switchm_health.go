@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -210,6 +210,8 @@ func NewSwitchMHealthStatus() *SwitchMHealthStatus {
 }
 
 type SwitchMHealthStatusFanType struct {
+	SerialNumber *string `json:"serialNumber,omitempty"`
+
 	// SlotNumber
 	// Fan slot number
 	SlotNumber *int `json:"slotNumber,omitempty"`
@@ -229,6 +231,8 @@ func NewSwitchMHealthStatusFanType() *SwitchMHealthStatusFanType {
 }
 
 type SwitchMHealthStatusPowerSupplyType struct {
+	SerialNumber *string `json:"serialNumber,omitempty"`
+
 	// SlotNumber
 	// Power supply slot number
 	SlotNumber *int `json:"slotNumber,omitempty"`

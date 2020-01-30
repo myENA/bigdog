@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -97,7 +97,10 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 // FindPlanesDpTunnelSetting
 //
 // Use this API command to get DP mesh tunnel setting.
-func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*WSGSystemGetDataPlaneMeshTunnelSetting, error) {
+//
+// Request Body:
+//	 - body []byte
+func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, body []byte) (*WSGSystemGetDataPlaneMeshTunnelSetting, error) {
 	var (
 		req      *APIRequest
 		resp     *WSGSystemGetDataPlaneMeshTunnelSetting
@@ -107,7 +110,13 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesDpTunnelSetting, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemGetDataPlaneMeshTunnelSetting()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -115,7 +124,7 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context) (*W
 
 // PartialUpdatePlanesByBladeUUID
 //
-// Use this API command to modify the basic information of data plane.
+// Use this API command to modify the configuration of data plane.
 //
 // Request Body:
 //	 - body *WSGSystemModifyDataPlane

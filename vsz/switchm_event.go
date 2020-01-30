@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -26,15 +26,20 @@ func (ss *SwitchMService) SwitchMEventService() *SwitchMEventService {
 // Use this API command to create a new text pattern event config
 //
 // Request Body:
-//	 - body *SwitchMEventConfigAddEventConfig
-func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfigAddEventConfig) (*SwitchMEventConfigAddEventConfigResult, error) {
+//	 - body *SwitchMEventConfig
+func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfig) (*SwitchMEventConfigQueryResponse, error) {
 	var (
 		req      *APIRequest
-		resp     *SwitchMEventConfigAddEventConfigResult
+		resp     *SwitchMEventConfigQueryResponse
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddCustomEvent, true)
@@ -42,7 +47,7 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 		return resp, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMEventConfigAddEventConfigResult()
+	resp = NewSwitchMEventConfigQueryResponse()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
@@ -53,10 +58,10 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string) (*SwitchMEventConfigDeleteEventConfigResult, error) {
+func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string) (*SwitchMEventConfigQueryResponse, error) {
 	var (
 		req      *APIRequest
-		resp     *SwitchMEventConfigDeleteEventConfigResult
+		resp     *SwitchMEventConfigQueryResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -69,7 +74,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteCustomEventById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMEventConfigDeleteEventConfigResult()
+	resp = NewSwitchMEventConfigQueryResponse()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
@@ -124,19 +129,24 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 // Use this API command to modify a switch custom event config. The patch variable {id} is same as id attribute in the request payload. For CPU/Memory, only key, type, criteria, and severity attributes are required.
 //
 // Request Body:
-//	 - body *SwitchMEventConfigUpdateEventConfig
+//	 - body *SwitchMEventConfig
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfigUpdateEventConfig, id string) (*SwitchMEventConfigUpdateEventConfigResult, error) {
+func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfig, id string) (*SwitchMEventConfigQueryResponse, error) {
 	var (
 		req      *APIRequest
-		resp     *SwitchMEventConfigUpdateEventConfigResult
+		resp     *SwitchMEventConfigQueryResponse
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
@@ -148,6 +158,6 @@ func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *S
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMEventConfigUpdateEventConfigResult()
+	resp = NewSwitchMEventConfigQueryResponse()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }

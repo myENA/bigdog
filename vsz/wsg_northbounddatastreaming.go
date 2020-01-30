@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -23,6 +23,12 @@ func (ss *WSGService) WSGNorthboundDataStreamingService() *WSGNorthboundDataStre
 }
 
 type WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile struct {
+	// DataTypes
+	// Subscribed data types of the Northbound Data Streaming Profile
+	// Constraints:
+	//    - nullable
+	DataTypes []string `json:"dataTypes,omitempty" validate:"omitempty,dive"`
+
 	// Name
 	// Profile name of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	// Constraints:
@@ -65,15 +71,6 @@ func NewWSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile() *WSGNor
 	return m
 }
 
-type WSGNorthboundDataStreamingEmptyResult struct {
-	NorthboundDataStreamingemptyResult *string `json:"northboundDataStreaming_emptyResult,omitempty"`
-}
-
-func NewWSGNorthboundDataStreamingEmptyResult() *WSGNorthboundDataStreamingEmptyResult {
-	m := new(WSGNorthboundDataStreamingEmptyResult)
-	return m
-}
-
 type WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes struct {
 	// NorthboundDataStreamingAcceptedEventCodes
 	// Constraints:
@@ -87,6 +84,12 @@ func NewWSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes() *WSG
 }
 
 type WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile struct {
+	// DataTypes
+	// Subscribed data types of the Northbound Data Streaming Profile
+	// Constraints:
+	//    - nullable
+	DataTypes []string `json:"dataTypes,omitempty" validate:"omitempty,dive"`
+
 	// Name
 	// Profile name of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	// Constraints:
@@ -166,6 +169,16 @@ func NewWSGNorthboundDataStreamingEventCodesListType() *WSGNorthboundDataStreami
 }
 
 type WSGNorthboundDataStreamingProfile struct {
+	// ConnectionStatus
+	// Connection status of the Northbound Data Streaming Profile
+	ConnectionStatus *string `json:"connectionStatus,omitempty"`
+
+	// DataTypes
+	// Subscribed data types of the Northbound Data Streaming Profile
+	// Constraints:
+	//    - nullable
+	DataTypes []string `json:"dataTypes,omitempty" validate:"omitempty,dive"`
+
 	// Id
 	// UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
 	Id *string `json:"id,omitempty"`
@@ -335,10 +348,10 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingEmptyResult, error) {
+func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
 	var (
 		req      *APIRequest
-		resp     *WSGNorthboundDataStreamingEmptyResult
+		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
@@ -351,7 +364,7 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGNorthboundDataStreamingEmptyResult()
+	resp = NewWSGCommonEmptyResult()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 

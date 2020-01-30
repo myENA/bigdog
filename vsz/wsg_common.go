@@ -1,59 +1,10 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"encoding/json"
 )
-
-type WSGCommonAlarm struct {
-	// AcknowledgedTime
-	// Time the alarm was acknowledged
-	AcknowledgedTime *int `json:"acknowledgedTime,omitempty"`
-
-	// Category
-	// Alarm category
-	Category *string `json:"category,omitempty"`
-
-	// ClearedTime
-	// Time that alarm was cleared
-	ClearedTime *int `json:"clearedTime,omitempty"`
-
-	// Code
-	// Alarm code
-	Code *string `json:"code,omitempty"`
-
-	// Description
-	// Alarm description
-	Description *string `json:"description,omitempty"`
-
-	Id *WSGCommonMac `json:"id,omitempty"`
-
-	// Severity
-	// Alarm severity
-	// Constraints:
-	//    - oneof:[Critical,Major,Minor,Warning,Informational]
-	Severity *string `json:"severity,omitempty" validate:"oneof=Critical Major Minor Warning Informational"`
-
-	// Status
-	// Alarm status
-	// Constraints:
-	//    - oneof:[Outstanding,Acknowledged,Cleared]
-	Status *string `json:"status,omitempty" validate:"oneof=Outstanding Acknowledged Cleared"`
-
-	// Time
-	// Time of the alarm
-	Time *string `json:"time,omitempty"`
-
-	// Type
-	// Alarm type
-	Type *string `json:"type,omitempty"`
-}
-
-func NewWSGCommonAlarm() *WSGCommonAlarm {
-	m := new(WSGCommonAlarm)
-	return m
-}
 
 type WSGCommonAltitude struct {
 	// AltitudeUnit
@@ -202,6 +153,19 @@ func NewWSGCommonAutoChannelSelection() *WSGCommonAutoChannelSelection {
 	return m
 }
 
+// WSGCommonAwsVenue
+//
+// Venue Code
+// Constraints:
+//    - max:64
+//    - min:0
+type WSGCommonAwsVenue string
+
+func NewWSGCommonAwsVenue() *WSGCommonAwsVenue {
+	m := new(WSGCommonAwsVenue)
+	return m
+}
+
 type WSGCommonBaseServiceInfo struct {
 	// Id
 	// ID of service
@@ -231,111 +195,6 @@ type WSGCommonBulkDeleteRequest struct {
 
 func NewWSGCommonBulkDeleteRequest() *WSGCommonBulkDeleteRequest {
 	m := new(WSGCommonBulkDeleteRequest)
-	return m
-}
-
-type WSGCommonClient struct {
-	// ApTxDataRate
-	// AP Tx Data Rate
-	ApTxDataRate *string `json:"apTxDataRate,omitempty"`
-
-	// Channel
-	// Channel
-	Channel *string `json:"channel,omitempty"`
-
-	// ConnectedSince
-	// Connected since (in milliseconds)
-	ConnectedSince *int `json:"connectedSince,omitempty"`
-
-	// FromClientBytes
-	// From client bytes
-	FromClientBytes *int `json:"fromClientBytes,omitempty"`
-
-	// FromClientPkts
-	// From client package frames
-	FromClientPkts *int `json:"fromClientPkts,omitempty"`
-
-	// HostName
-	// Host name
-	HostName *string `json:"hostName,omitempty"`
-
-	IpAddress *WSGCommonIpAddress `json:"ipAddress,omitempty"`
-
-	Ipv6Address *WSGCommonIpAddress `json:"ipv6Address,omitempty"`
-
-	Mac *WSGCommonMac `json:"mac,omitempty"`
-
-	// OsType
-	// OS type
-	OsType *string `json:"osType,omitempty"`
-
-	// RadioId
-	// Radio inditifier
-	RadioId *string `json:"radioId,omitempty"`
-
-	// RadioMode
-	// Radio mode
-	RadioMode *string `json:"radioMode,omitempty"`
-
-	// Rssi
-	// RSSI(dBm)
-	Rssi *string `json:"rssi,omitempty"`
-
-	// RxAvgByteRate
-	// RX Avg Byte Rate
-	RxAvgByteRate *int `json:"rxAvgByteRate,omitempty"`
-
-	// RxByteRate
-	// RX Byte Rate
-	RxByteRate *int `json:"rxByteRate,omitempty"`
-
-	// Snr
-	// SNR(dB)
-	Snr *string `json:"snr,omitempty"`
-
-	// Ssid
-	// SSID
-	Ssid *string `json:"ssid,omitempty"`
-
-	// Status
-	// Status
-	Status *string `json:"status,omitempty"`
-
-	// ToClientBytes
-	// To client bytes
-	ToClientBytes *int `json:"toClientBytes,omitempty"`
-
-	// ToClientDroppedPkts
-	// To client dropped packages
-	ToClientDroppedPkts *int `json:"toClientDroppedPkts,omitempty"`
-
-	// ToClientPkts
-	// To client package frames
-	ToClientPkts *int `json:"toClientPkts,omitempty"`
-
-	// TxAvgByteRate
-	// TX Avg Byte Rate
-	TxAvgByteRate *int `json:"txAvgByteRate,omitempty"`
-
-	// TxByteRate
-	// TX Byte Rate
-	TxByteRate *int `json:"txByteRate,omitempty"`
-
-	// User
-	// User
-	User *string `json:"user,omitempty"`
-
-	// Vlan
-	// VLAN id
-	Vlan *string `json:"vlan,omitempty"`
-
-	// WlanId
-	// WLAN inditifier
-	WlanId *string `json:"wlanId,omitempty"`
-}
-
-func NewWSGCommonClient() *WSGCommonClient {
-	m := new(WSGCommonClient)
 	return m
 }
 
@@ -664,6 +523,13 @@ func NewWSGCommonEmptyResult() *WSGCommonEmptyResult {
 	return m
 }
 
+type WSGCommonEtherType string
+
+func NewWSGCommonEtherType() *WSGCommonEtherType {
+	m := new(WSGCommonEtherType)
+	return m
+}
+
 type WSGCommonFilterOperator string
 
 func NewWSGCommonFilterOperator() *WSGCommonFilterOperator {
@@ -883,6 +749,13 @@ func NewWSGCommonNormalURL() *WSGCommonNormalURL {
 	return m
 }
 
+type WSGCommonOui string
+
+func NewWSGCommonOui() *WSGCommonOui {
+	m := new(WSGCommonOui)
+	return m
+}
+
 type WSGCommonOverrideClientAdmissionControl struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
@@ -954,6 +827,13 @@ func NewWSGCommonOverrideSmartMonitor() *WSGCommonOverrideSmartMonitor {
 	return m
 }
 
+type WSGCommonPoeModeSetting string
+
+func NewWSGCommonPoeModeSetting() *WSGCommonPoeModeSetting {
+	m := new(WSGCommonPoeModeSetting)
+	return m
+}
+
 type WSGCommonPortalCustomization struct {
 	// Language
 	// Constraints:
@@ -979,9 +859,9 @@ type WSGCommonPortalCustomization struct {
 	// (*) The wireless network is provided "as is" without warranties of any kind, either expressed or implied.
 	//
 	// This wireless network is powered by Ruckus Wireless.'
-	//    - max:3999
+	//    - max:16000
 	//    - min:0
-	TermsAndConditionsText *string `json:"termsAndConditionsText,omitempty" validate:"max=3999,min=0"`
+	TermsAndConditionsText *string `json:"termsAndConditionsText,omitempty" validate:"max=16000,min=0"`
 
 	// Title
 	// Title
@@ -1013,6 +893,25 @@ type WSGCommonProtectionMode string
 
 func NewWSGCommonProtectionMode() *WSGCommonProtectionMode {
 	m := new(WSGCommonProtectionMode)
+	return m
+}
+
+type WSGCommonQinq struct {
+	// Cvlan
+	// Constraints:
+	//    - min:2
+	//    - max:4094
+	Cvlan *int `json:"cvlan,omitempty" validate:"gte=2,lte=4094"`
+
+	// Svlan
+	// Constraints:
+	//    - min:2
+	//    - max:4094
+	Svlan *int `json:"svlan,omitempty" validate:"gte=2,lte=4094"`
+}
+
+func NewWSGCommonQinq() *WSGCommonQinq {
+	m := new(WSGCommonQinq)
 	return m
 }
 
@@ -1613,7 +1512,7 @@ func NewWSGCommonTargetConfig() *WSGCommonTargetConfig {
 type WSGCommonTimeRange struct {
 	// End
 	// end time for collecting data
-	End *float64 `json:"end,omitempty"`
+	End *int `json:"end,omitempty"`
 
 	// Field
 	// time field for collecting data
@@ -1623,11 +1522,11 @@ type WSGCommonTimeRange struct {
 
 	// Interval
 	// time interval in second
-	Interval *float64 `json:"interval,omitempty"`
+	Interval *int `json:"interval,omitempty"`
 
 	// Start
 	// start time for collecting data
-	Start *float64 `json:"start,omitempty"`
+	Start *int `json:"start,omitempty"`
 }
 
 func NewWSGCommonTimeRange() *WSGCommonTimeRange {

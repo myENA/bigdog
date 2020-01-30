@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -184,7 +184,7 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 
 // PartialUpdateProfilesBridgeById
 //
-// Use this API command to modify the basic information of Bridge profile.
+// Use this API command to modify the configuration of Bridge profile.
 //
 // Request Body:
 //	 - body *WSGProfileModifyBridgeProfile

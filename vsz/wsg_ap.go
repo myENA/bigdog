@@ -1,27 +1,6 @@
 package vsz
 
-// API Version: v8_1
-
-type WSGAPAlarmList struct {
-	// FirstIndex
-	// Index of the first alarm returned from the complete alarm list
-	FirstIndex *int `json:"firstIndex,omitempty"`
-
-	// HasMore
-	// Indicates whether there are more alarms after the currently displayed list
-	HasMore *bool `json:"hasMore,omitempty"`
-
-	List []*WSGCommonAlarm `json:"list,omitempty"`
-
-	// TotalCount
-	// Total alarm count
-	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewWSGAPAlarmList() *WSGAPAlarmList {
-	m := new(WSGAPAlarmList)
-	return m
-}
+// API Version: v9_0
 
 type WSGAPAlarmSummary struct {
 	// CriticalCount
@@ -64,9 +43,7 @@ type WSGAPConfiguration struct {
 
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Venue code
-	AwsVenue *string `json:"awsVenue,omitempty"`
+	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	BonjourGateway *WSGCommonGenericRef `json:"bonjourGateway,omitempty"`
 
@@ -128,10 +105,18 @@ type WSGAPConfiguration struct {
 
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
 
+	// RksGreForwardBroadcast
+	// Ruckus GRE tunnel broadcast packet forwarding
+	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
+
+	// RogueApAggressivenessMode
+	// Adjust the frequency interval to de-authenticate rogue APs.
 	RogueApAggressivenessMode *int `json:"rogueApAggressivenessMode,omitempty"`
 
 	RogueApJammingThreshold *int `json:"rogueApJammingThreshold,omitempty"`
 
+	// RogueApReportThreshold
+	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
 	// Serial
@@ -141,6 +126,10 @@ type WSGAPConfiguration struct {
 	SmartMonitor *WSGCommonOverrideSmartMonitor `json:"smartMonitor,omitempty"`
 
 	Specific *WSGAPModel `json:"specific,omitempty"`
+
+	SwapInMac *string `json:"swapInMac,omitempty"`
+
+	SwapOutMac *string `json:"swapOutMac,omitempty"`
 
 	Syslog *WSGAPSyslog `json:"syslog,omitempty"`
 
@@ -297,8 +286,8 @@ type WSGAPOperationalSummary struct {
 	// ConfigState
 	// State of the AP configuration.
 	// Constraints:
-	//    - oneof:[completed,configApplied,configFailed,fwApplied,fwDownloaded,fwFailed,newConfig]
-	ConfigState *string `json:"configState,omitempty" validate:"oneof=completed configApplied configFailed fwApplied fwDownloaded fwFailed newConfig"`
+	//    - oneof:[newConfig,fwApplied,fwDownloaded,fwFailed,configApplied,completed,configFailed]
+	ConfigState *string `json:"configState,omitempty" validate:"oneof=newConfig fwApplied fwDownloaded fwFailed configApplied completed configFailed"`
 
 	// ConnectionState
 	// Connection state of the AP (value: 'Discovery','Connect','Rebooting','Disconnect','Provisioned')
@@ -333,8 +322,18 @@ type WSGAPOperationalSummary struct {
 	// IpType
 	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically assigned or kept unchanged.
 	// Constraints:
-	//    - oneof:[Dynamic,Keep,Static]
-	IpType *string `json:"ipType,omitempty" validate:"oneof=Dynamic Keep Static"`
+	//    - oneof:[Static,Dynamic,Keep]
+	IpType *string `json:"ipType,omitempty" validate:"oneof=Static Dynamic Keep"`
+
+	// Ipv6
+	// IP address of the AP
+	Ipv6 *string `json:"ipv6,omitempty"`
+
+	// Ipv6Type
+	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically assigned or kept unchanged.
+	// Constraints:
+	//    - oneof:[Static,Autoconfig,Keep]
+	Ipv6Type *string `json:"ipv6Type,omitempty" validate:"oneof=Static Autoconfig Keep"`
 
 	// IsCriticalAP
 	// Indicates critical APs. Critical AP are APs that were tagged by the controller based on predefined rules.
@@ -365,8 +364,8 @@ type WSGAPOperationalSummary struct {
 	// MeshRole
 	// Mesh role of the AP
 	// Constraints:
-	//    - oneof:[Disabled,Down,Map,Root,Undefined,eMap]
-	MeshRole *string `json:"meshRole,omitempty" validate:"oneof=Disabled Down Map Root Undefined eMap"`
+	//    - oneof:[Disabled,Root,Map,eMap,Down,Undefined]
+	MeshRole *string `json:"meshRole,omitempty" validate:"oneof=Disabled Root Map eMap Down Undefined"`
 
 	// Model
 	// Model name of the AP
@@ -381,7 +380,7 @@ type WSGAPOperationalSummary struct {
 	ProvisionMethod *string `json:"provisionMethod,omitempty" validate:"oneof=Discovered Preprovision Swap"`
 
 	// ProvisionStage
-	// Provisioning stage of the AP. This indicates the stage at which the AP is at in the provisioning process. (value: 'Waiting for Registration','Pre-Provision AP Joined','Waiting for Swap In;Waiting for registration','Waiting for Swap In;Swap In AP Joined','Swapped In;Waiting for registration','Swapped In','Waiting for Swap Out','Swapped Out','Waiting for Swap In, the other AP was deleted','Swapped In, the other AP was deleted','Waiting for Swap Out, the other AP was deleted','Swapped Out, the other AP was deleted')
+	// Provisioning stage of the AP. This indicates the stage at which the AP is at in the provisioning process. (value
 	ProvisionStage *string `json:"provisionStage,omitempty"`
 
 	// RegistrationState
@@ -416,27 +415,6 @@ func NewWSGAPOperationalSummary() *WSGAPOperationalSummary {
 	return m
 }
 
-type WSGAPClientList struct {
-	// FirstIndex
-	// Index of the first client returned out of the complete client list
-	FirstIndex *int `json:"firstIndex,omitempty"`
-
-	// HasMore
-	// Indicates whether there are more clients after the currently displayed list
-	HasMore *bool `json:"hasMore,omitempty"`
-
-	List []*WSGCommonClient `json:"list,omitempty"`
-
-	// TotalCount
-	// Total client count
-	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-func NewWSGAPClientList() *WSGAPClientList {
-	m := new(WSGAPClientList)
-	return m
-}
-
 type WSGAPCreateAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
@@ -449,9 +427,7 @@ type WSGAPCreateAP struct {
 	// Identifier of the AP group to which the AP belongs. If the AP belongs to the default AP group, this property is not needed.
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	// AwsVenue
-	// Venue code
-	AwsVenue *string `json:"awsVenue,omitempty"`
+	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -491,37 +467,6 @@ type WSGAPCreateAP struct {
 
 func NewWSGAPCreateAP() *WSGAPCreateAP {
 	m := new(WSGAPCreateAP)
-	return m
-}
-
-type WSGAPEventSummary struct {
-	// CriticalCount
-	// Critical event count
-	CriticalCount *int `json:"criticalCount,omitempty"`
-
-	// DebugCount
-	// Debug event count
-	DebugCount *int `json:"debugCount,omitempty"`
-
-	// InformationalCount
-	// Informational event count
-	InformationalCount *int `json:"informationalCount,omitempty"`
-
-	// MajorCount
-	// Major event count
-	MajorCount *int `json:"majorCount,omitempty"`
-
-	// MinorCount
-	// Minor event count
-	MinorCount *int `json:"minorCount,omitempty"`
-
-	// WarningCount
-	// Warning event count
-	WarningCount *int `json:"warningCount,omitempty"`
-}
-
-func NewWSGAPEventSummary() *WSGAPEventSummary {
-	m := new(WSGAPEventSummary)
 	return m
 }
 
@@ -584,9 +529,7 @@ type WSGAPModifyAP struct {
 
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Venue code
-	AwsVenue *string `json:"awsVenue,omitempty"`
+	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	BonjourGateway *WSGCommonGenericRef `json:"bonjourGateway,omitempty"`
 
@@ -646,10 +589,18 @@ type WSGAPModifyAP struct {
 
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
 
+	// RksGreForwardBroadcast
+	// Ruckus GRE tunnel broadcast packet forwarding
+	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
+
+	// RogueApAggressivenessMode
+	// Adjust the frequency interval to de-authenticate rogue APs.
 	RogueApAggressivenessMode *int `json:"rogueApAggressivenessMode,omitempty"`
 
 	RogueApJammingThreshold *int `json:"rogueApJammingThreshold,omitempty"`
 
+	// RogueApReportThreshold
+	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
 	// Serial
@@ -810,6 +761,23 @@ type WSGAPNetworkIpv6 struct {
 
 func NewWSGAPNetworkIpv6() *WSGAPNetworkIpv6 {
 	m := new(WSGAPNetworkIpv6)
+	return m
+}
+
+type WSGAPSwapApConfigure struct {
+	// SwapInMac
+	// Constraints:
+	//    - required
+	SwapInMac *WSGCommonMac `json:"swapInMac" validate:"required"`
+
+	// SwapOutMac
+	// Constraints:
+	//    - required
+	SwapOutMac *WSGCommonMac `json:"swapOutMac" validate:"required"`
+}
+
+func NewWSGAPSwapApConfigure() *WSGAPSwapApConfigure {
+	m := new(WSGAPSwapApConfigure)
 	return m
 }
 

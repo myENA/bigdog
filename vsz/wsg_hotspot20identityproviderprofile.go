@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -252,7 +252,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 
 // PartialUpdateProfilesHs20IdentityprovidersById
 //
-// Use this API command to modify the basic information of a Hotspot 2.0 identity provider.
+// Use this API command to modify the configuration of a Hotspot 2.0 identity provider.
 //
 // Request Body:
 //	 - body *WSGProfileHs20Provider

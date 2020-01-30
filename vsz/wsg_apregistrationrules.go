@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -174,7 +174,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 
 // PartialUpdateApRulesById
 //
-// Use this API command to modify the basic information of AP Registration Rules profile.
+// Use this API command to modify the configuration of AP Registration Rules profile.
 //
 // Request Body:
 //	 - body *WSGAPRulesModifyApRule

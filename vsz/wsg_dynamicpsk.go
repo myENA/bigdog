@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -111,7 +111,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 
 // AddRkszonesWlansDpskUploadById
 //
-// Use this API command to upload DPSK file of a WLAN (CSV file and Content-Type multipart/form-data ONLY). In curl, here is an example curl -b /tmp/headers.txt -k -X POST -v -F upload@myDpsk.csv 'https://127.0.0.1:8443/wsg/api/public/v7_0/rkszones/{zoneUuid}/wlans/{wlanId}/dpsk/upload'
+// Use this API command to upload DPSK file of a WLAN (CSV file and Content-Type multipart/form-data ONLY).
 //
 // Request Body:
 //	 - body []byte
@@ -149,6 +149,36 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPSKGetDpskResult()
 	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+}
+
+// FindDpskByQueryCriteria
+//
+// Query DPSKs with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGDynamicPSKService) FindDpskByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGDPSKQueryList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGDPSKQueryList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindDpskByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGDPSKQueryList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindRkszonesDeleteExpiredDpskByZoneId

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -184,7 +184,7 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCri
 
 // PartialUpdateProfilesTunnelRuckusgreById
 //
-// Use this API command to modify the basic information of RuckusGRE tunnel profile.
+// Use this API command to modify the configuration of RuckusGRE tunnel profile.
 //
 // Request Body:
 //	 - body *WSGProfileModifyRuckusGREProfile

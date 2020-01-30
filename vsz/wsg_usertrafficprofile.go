@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -56,15 +56,15 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body 
 // Use this API command to copy a traffic profile.
 //
 // Request Body:
-//	 - body *WSGProfileCloneRequest
+//	 - body *WSGProfileClone
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Context, body *WSGProfileCloneRequest, id string) (*WSGProfileCloneResponse, error) {
+func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, error) {
 	var (
 		req      *APIRequest
-		resp     *WSGProfileCloneResponse
+		resp     *WSGProfileClone
 		httpResp *http.Response
 		err      error
 	)
@@ -85,7 +85,7 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Conte
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGProfileCloneResponse()
+	resp = NewWSGProfileClone()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
@@ -290,7 +290,7 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx contex
 
 // PartialUpdateProfilesUtpById
 //
-// Use this API command to modify the basic information of user traffic profile.
+// Use this API command to modify the configuration of user traffic profile.
 //
 // Request Body:
 //	 - body *WSGProfileModifyUserTrafficProfile

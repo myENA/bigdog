@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -252,6 +252,36 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id s
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
+// FindServicesVlanPoolingByQueryCriteria
+//
+// Query Vlan Pooling Profiles with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGVLANPoolingService) FindServicesVlanPoolingByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
+	var (
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesVlanPoolingByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+}
+
 // FindVlanpoolingsById
 //
 // Use this API command to retrieve VLAN pooling.
@@ -311,7 +341,7 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 
 // PartialUpdateVlanpoolingsById
 //
-// Use this API command to modify the basic information on VLAN pooling.
+// Use this API command to modify the configuration on VLAN pooling.
 //
 // Request Body:
 //	 - body *WSGVLANPoolingModifyVlanPooling

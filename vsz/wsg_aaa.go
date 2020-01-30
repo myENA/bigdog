@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGAAAActiveDirectory struct {
 	// AdminDomainName
@@ -43,32 +43,18 @@ type WSGAAAActiveDirectory struct {
 	// Port
 	Port *int `json:"port,omitempty"`
 
-	// StandbyAdminDomainName
-	// Admin domain name - Standby Cluster settings
 	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyGlobalCatalogEnabled
-	// Enable global catalog support - Standby Cluster settings
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
-	// IP address - Standby Cluster settings
 	StandbyIp *string `json:"standbyIp,omitempty"`
 
-	// StandbyPassword
-	// Admin password - Standby Cluster settings
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
-	// StandbyPort
-	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
-	// StandbyWindowsDomainName
-	// Windows domain name - Standby Cluster settings
 	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
 
 	// WindowsDomainName
@@ -121,14 +107,22 @@ type WSGAAAAuthenticationServer struct {
 	// Name of the RADIUS server
 	Name *string `json:"name,omitempty"`
 
+	// PartnerDomainId
+	// Identifier of the partner domain which the RADIUS server belongs to
+	PartnerDomainId *string `json:"partnerDomainId,omitempty"`
+
 	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
 	Secondary *WSGCommonRadiusServer `json:"secondary,omitempty"`
 
+	// ServiceType
+	// Identify the RADIUS server is belong to Accounting or Authentication
+	// Constraints:
+	//    - oneof:[Authentication,Accounting]
+	ServiceType *string `json:"serviceType,omitempty" validate:"oneof=Authentication Accounting"`
+
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// ZoneId
@@ -194,32 +188,18 @@ type WSGAAACreateActiveDirectoryServer struct {
 	//    - max:65535
 	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
 
-	// StandbyAdminDomainName
-	// Admin domain name - Standby Cluster settings
 	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyGlobalCatalogEnabled
-	// Enable global catalog support - Standby Cluster settings
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
-	// IP address - Standby Cluster settings
 	StandbyIp *string `json:"standbyIp,omitempty"`
 
-	// StandbyPassword
-	// Admin password - Standby Cluster settings
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
-	// StandbyPort
-	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
-	// StandbyWindowsDomainName
-	// Windows domain name - Standby Cluster settings
 	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
 
 	WindowsDomainName *WSGCommonNormalNameAllowBlank `json:"windowsDomainName,omitempty"`
@@ -251,8 +231,6 @@ type WSGAAACreateAuthenticationServer struct {
 
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
@@ -313,50 +291,25 @@ type WSGAAACreateLDAPServer struct {
 	//    - required
 	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter" validate:"required,max=64,min=2"`
 
-	// StandbyAdminDomainName
-	// Admin domain name - Standby Cluster settings
 	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyBaseDomainName
-	// Base domain name - Standby Cluster settings
 	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
-	// IP address - Standby Cluster settings
 	StandbyIp *string `json:"standbyIp,omitempty"`
 
-	// StandbyKeyAttribute
-	// Key attribute - Standby Cluster settings
 	StandbyKeyAttribute *string `json:"standbyKeyAttribute,omitempty"`
 
-	// StandbyPassword
-	// Admin password - Standby Cluster settings
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
-	// StandbyPort
-	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbySearchFilter
-	// Search filter - Standby Cluster settings
 	StandbySearchFilter *string `json:"standbySearchFilter,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
 func NewWSGAAACreateLDAPServer() *WSGAAACreateLDAPServer {
 	m := new(WSGAAACreateLDAPServer)
-	return m
-}
-
-type WSGAAADeleteBulkAAAServerList struct {
-	AaadeleteBulkAAAServerList *string `json:"aaa_deleteBulkAAAServerList,omitempty"`
-}
-
-func NewWSGAAADeleteBulkAAAServerList() *WSGAAADeleteBulkAAAServerList {
-	m := new(WSGAAADeleteBulkAAAServerList)
 	return m
 }
 
@@ -390,6 +343,8 @@ func NewWSGAAAGroupAttrIdentityUserRoleMapping() *WSGAAAGroupAttrIdentityUserRol
 //
 // Identity user role
 type WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType struct {
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
 	// Id
 	// Identity user role UUID
 	Id *string `json:"id,omitempty"`
@@ -473,36 +428,20 @@ type WSGAAALDAPServer struct {
 	// Search filter
 	SearchFilter *string `json:"searchFilter,omitempty"`
 
-	// StandbyAdminDomainName
-	// Admin domain name - Standby Cluster settings
 	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyBaseDomainName
-	// Base domain name - Standby Cluster settings
 	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
-	// IP address - Standby Cluster settings
 	StandbyIp *string `json:"standbyIp,omitempty"`
 
-	// StandbyKeyAttribute
-	// Key attribute - Standby Cluster settings
 	StandbyKeyAttribute *string `json:"standbyKeyAttribute,omitempty"`
 
-	// StandbyPassword
-	// Admin password - Standby Cluster settings
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
-	// StandbyPort
-	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbySearchFilter
-	// Search filter - Standby Cluster settings
 	StandbySearchFilter *string `json:"standbySearchFilter,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// ZoneId
@@ -559,32 +498,18 @@ type WSGAAAModifyActiveDirectoryServer struct {
 	//    - max:65535
 	Port *int `json:"port,omitempty" validate:"gte=1,lte=65535"`
 
-	// StandbyAdminDomainName
-	// Admin domain name - Standby Cluster settings
 	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyGlobalCatalogEnabled
-	// Enable global catalog support - Standby Cluster settings
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
-	// IP address - Standby Cluster settings
 	StandbyIp *string `json:"standbyIp,omitempty"`
 
-	// StandbyPassword
-	// Admin password - Standby Cluster settings
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
-	// StandbyPort
-	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
-	// StandbyWindowsDomainName
-	// Windows domain name - Standby Cluster settings
 	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
 
 	WindowsDomainName *WSGCommonNormalNameAllowBlank `json:"windowsDomainName,omitempty"`
@@ -610,8 +535,6 @@ type WSGAAAModifyAuthenticationServer struct {
 
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 
@@ -689,36 +612,20 @@ type WSGAAAModifyLDAPServer struct {
 
 	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter,omitempty"`
 
-	// StandbyAdminDomainName
-	// Admin domain name - Standby Cluster settings
 	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyBaseDomainName
-	// Base domain name - Standby Cluster settings
 	StandbyBaseDomainName *string `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
-	// IP address - Standby Cluster settings
 	StandbyIp *string `json:"standbyIp,omitempty"`
 
-	// StandbyKeyAttribute
-	// Key attribute - Standby Cluster settings
 	StandbyKeyAttribute *string `json:"standbyKeyAttribute,omitempty"`
 
-	// StandbyPassword
-	// Admin password - Standby Cluster settings
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
-	// StandbyPort
-	// Port - Standby Cluster settings
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbySearchFilter
-	// Search filter - Standby Cluster settings
 	StandbySearchFilter *string `json:"standbySearchFilter,omitempty"`
 
-	// StandbyServerEnabled
-	// StandbyCluster different AAA Settings Enabled
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
 

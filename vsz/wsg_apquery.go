@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGAPQueryList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
@@ -172,6 +172,8 @@ type WSGAPQueryCreateApQuery struct {
 
 	Ipv6Address *string `json:"ipv6Address,omitempty"`
 
+	Ipv6Type *string `json:"ipv6Type,omitempty"`
+
 	IsAirtimeUtilization24GFlagged *bool `json:"isAirtimeUtilization24GFlagged,omitempty"`
 
 	IsAirtimeUtilization50GFlagged *bool `json:"isAirtimeUtilization50GFlagged,omitempty"`
@@ -222,6 +224,8 @@ type WSGAPQueryCreateApQuery struct {
 
 	Model *string `json:"model,omitempty"`
 
+	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
+
 	Noise5G *int `json:"noise5G,omitempty"`
 
 	Noise24G *int `json:"noise24G,omitempty"`
@@ -248,6 +252,10 @@ type WSGAPQueryCreateApQuery struct {
 
 	Rx *int `json:"rx,omitempty"`
 
+	Rx24G *int `json:"rx24G,omitempty"`
+
+	Rx50G *int `json:"rx50G,omitempty"`
+
 	Serial *string `json:"serial,omitempty"`
 
 	// Status
@@ -263,7 +271,15 @@ type WSGAPQueryCreateApQuery struct {
 
 	Tx *int `json:"tx,omitempty"`
 
+	Tx24G *int `json:"tx24G,omitempty"`
+
+	Tx50G *int `json:"tx50G,omitempty"`
+
 	TxRx *int `json:"txRx,omitempty"`
+
+	TxRx24G *int `json:"txRx24G,omitempty"`
+
+	TxRx50G *int `json:"txRx50G,omitempty"`
 
 	Uptime *int `json:"uptime,omitempty"`
 

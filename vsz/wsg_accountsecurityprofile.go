@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGAccountSecurityProfileCreate struct {
 	// AccountLockout
@@ -9,6 +9,22 @@ type WSGAccountSecurityProfileCreate struct {
 	//    - min:1
 	//    - max:100
 	AccountLockout *int `json:"accountLockout,omitempty" validate:"gte=1,lte=100"`
+
+	AttemptsLockEnabled *bool `json:"attemptsLockEnabled,omitempty"`
+
+	// AttemptsLockoutPeriod
+	// A period of attempts times.
+	// Constraints:
+	//    - min:1
+	//    - max:1440
+	AttemptsLockoutPeriod *int `json:"attemptsLockoutPeriod,omitempty" validate:"gte=1,lte=1440"`
+
+	// AttemptsLockoutTimes
+	// The attempts times.
+	// Constraints:
+	//    - min:1
+	//    - max:100
+	AttemptsLockoutTimes *int `json:"attemptsLockoutTimes,omitempty" validate:"gte=1,lte=100"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -37,7 +53,15 @@ type WSGAccountSecurityProfileCreate struct {
 	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
+	// MinimumPasswordLifetimeEnabled
+	// Control minimum password life time.
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
+
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	// PasswordComplexityEnabled
+	// Control password complexity mechanism.
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty"`
 
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly.
@@ -106,6 +130,12 @@ func NewWSGAccountSecurityProfileGetById() *WSGAccountSecurityProfileGetById {
 type WSGAccountSecurityProfileGetByIdResult struct {
 	AccountLockout *int `json:"accountLockout,omitempty"`
 
+	AttemptsLockEnabled *bool `json:"attemptsLockEnabled,omitempty"`
+
+	AttemptsLockoutPeriod *int `json:"attemptsLockoutPeriod,omitempty"`
+
+	AttemptsLockoutTimes *int `json:"attemptsLockoutTimes,omitempty"`
+
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty"`
@@ -123,7 +153,11 @@ type WSGAccountSecurityProfileGetByIdResult struct {
 	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
+
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty"`
 
 	PasswordExpiration *int `json:"passwordExpiration,omitempty"`
 
@@ -164,6 +198,22 @@ type WSGAccountSecurityProfileUpdate struct {
 	//    - max:100
 	AccountLockout *int `json:"accountLockout,omitempty" validate:"gte=1,lte=100"`
 
+	AttemptsLockEnabled *bool `json:"attemptsLockEnabled,omitempty"`
+
+	// AttemptsLockoutPeriod
+	// A period of attempts times.
+	// Constraints:
+	//    - min:1
+	//    - max:1440
+	AttemptsLockoutPeriod *int `json:"attemptsLockoutPeriod,omitempty" validate:"gte=1,lte=1440"`
+
+	// AttemptsLockoutTimes
+	// The attempts times.
+	// Constraints:
+	//    - min:1
+	//    - max:100
+	AttemptsLockoutTimes *int `json:"attemptsLockoutTimes,omitempty" validate:"gte=1,lte=100"`
+
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DisableInactiveAccounts
@@ -189,7 +239,15 @@ type WSGAccountSecurityProfileUpdate struct {
 	//    - max:64
 	MinimumPasswordLength *int `json:"minimumPasswordLength,omitempty" validate:"omitempty,gte=8,lte=64"`
 
+	// MinimumPasswordLifetimeEnabled
+	// Control minimum password life time.
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
+
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	// PasswordComplexityEnabled
+	// Control password complexity mechanism.
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty"`
 
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly.

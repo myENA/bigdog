@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -21,6 +21,38 @@ func (ss *WSGService) WSGSystemService() *WSGSystemService {
 	return NewWSGSystemService(ss.apiClient)
 }
 
+type WSGSystemApMacOUI struct {
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	Oui *WSGCommonOui `json:"oui,omitempty"`
+}
+
+func NewWSGSystemApMacOUI() *WSGSystemApMacOUI {
+	m := new(WSGSystemApMacOUI)
+	return m
+}
+
+type WSGSystemApMacOUIList struct {
+	// FirstIndex
+	// Index of the first AP MAC OUI returned out of the complete AP MAC OUI list
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	// HasMore
+	// Indicates whether there are more AP MAC OUIs after the list that is currently displayed
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGSystemApMacOUI `json:"list,omitempty"`
+
+	// TotalCount
+	// Total AP MAC OUI count
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGSystemApMacOUIList() *WSGSystemApMacOUIList {
+	m := new(WSGSystemApMacOUIList)
+	return m
+}
+
 type WSGSystemApNumberLimitSettingOfDomain struct {
 	// DomainId
 	// Domain Id
@@ -32,7 +64,7 @@ type WSGSystemApNumberLimitSettingOfDomain struct {
 
 	// NumberLimit
 	// Number of Limit
-	NumberLimit *float64 `json:"numberLimit,omitempty"`
+	NumberLimit *int `json:"numberLimit,omitempty"`
 
 	// Shared
 	// Share mode
@@ -55,7 +87,7 @@ type WSGSystemApNumberLimitSettingOfZone struct {
 
 	// NumberLimit
 	// Number of Limit
-	NumberLimit *float64 `json:"numberLimit,omitempty"`
+	NumberLimit *int `json:"numberLimit,omitempty"`
 
 	// Shared
 	// Share mode
@@ -93,17 +125,6 @@ type WSGSystemAuthenticationKey struct {
 
 func NewWSGSystemAuthenticationKey() *WSGSystemAuthenticationKey {
 	m := new(WSGSystemAuthenticationKey)
-	return m
-}
-
-type WSGSystemCaptchaSetting struct {
-	// CaptchaEnabled
-	// Captcha setting
-	CaptchaEnabled *bool `json:"captchaEnabled,omitempty"`
-}
-
-func NewWSGSystemCaptchaSetting() *WSGSystemCaptchaSetting {
-	m := new(WSGSystemCaptchaSetting)
 	return m
 }
 
@@ -183,6 +204,8 @@ type WSGSystemControllerListType struct {
 	// Name of the controller
 	Name *string `json:"name,omitempty"`
 
+	ReservedPorts []*WSGSystemReservedPort `json:"reservedPorts,omitempty"`
+
 	// SerialNumber
 	// Serial number of the controller
 	SerialNumber *string `json:"serialNumber,omitempty"`
@@ -225,6 +248,32 @@ type WSGSystemControlPlaneConfiguration struct {
 
 func NewWSGSystemControlPlaneConfiguration() *WSGSystemControlPlaneConfiguration {
 	m := new(WSGSystemControlPlaneConfiguration)
+	return m
+}
+
+type WSGSystemControlPlaneInterface struct {
+	// Id
+	// Interface Id
+	Id *string `json:"id,omitempty"`
+
+	// Name
+	// Interface Name
+	Name *string `json:"name,omitempty"`
+}
+
+func NewWSGSystemControlPlaneInterface() *WSGSystemControlPlaneInterface {
+	m := new(WSGSystemControlPlaneInterface)
+	return m
+}
+
+type WSGSystemControlPlaneInterfaceList struct {
+	// ControlPlaneInterfaces
+	// Interface list
+	ControlPlaneInterfaces []*WSGSystemControlPlaneInterface `json:"controlPlaneInterfaces,omitempty"`
+}
+
+func NewWSGSystemControlPlaneInterfaceList() *WSGSystemControlPlaneInterfaceList {
+	m := new(WSGSystemControlPlaneInterfaceList)
 	return m
 }
 
@@ -302,7 +351,7 @@ type WSGSystemCpStaticRoute struct {
 	Gateway *string `json:"gateway,omitempty"`
 
 	// InterfaceMode
-	// Interface Mode
+	// Interface Type or UserDefined Interface Name
 	InterfaceMode *string `json:"interfaceMode,omitempty"`
 
 	// Metric
@@ -348,8 +397,8 @@ type WSGSystemCpUserDefinedInterface struct {
 	// Service
 	// Service
 	// Constraints:
-	//    - oneof:[NotSpecified,Hotspot]
-	Service *string `json:"service,omitempty" validate:"oneof=NotSpecified Hotspot"`
+	//    - oneof:[NotSpecified,Hotspot,SecondManagementInterface]
+	Service *string `json:"service,omitempty" validate:"oneof=NotSpecified Hotspot SecondManagementInterface"`
 
 	// SubnetMask
 	// Subnet Mask
@@ -365,8 +414,23 @@ func NewWSGSystemCpUserDefinedInterface() *WSGSystemCpUserDefinedInterface {
 	return m
 }
 
+type WSGSystemCreateApMacOUI struct {
+	Description *WSGCommonDescription `json:"description,omitempty"`
+
+	// Oui
+	// Constraints:
+	//    - required
+	Oui *WSGCommonOui `json:"oui" validate:"required"`
+}
+
+func NewWSGSystemCreateApMacOUI() *WSGSystemCreateApMacOUI {
+	m := new(WSGSystemCreateApMacOUI)
+	return m
+}
+
 type WSGSystemDataPlaneConfiguration struct {
 	// InterfaceMode
+	// Interface mode
 	// Constraints:
 	//    - oneof:[SINGLE,ACCESS_AND_CORE]
 	InterfaceMode *string `json:"interfaceMode,omitempty" validate:"oneof=SINGLE ACCESS_AND_CORE"`
@@ -381,6 +445,8 @@ type WSGSystemDataPlaneConfiguration struct {
 
 	SecondaryInterface *WSGSystemSecondaryInterface `json:"secondaryInterface,omitempty"`
 
+	// StaticRoute
+	// Primary(Access) interface
 	StaticRoute []*WSGSystemStaticRoute `json:"staticRoute,omitempty"`
 }
 
@@ -420,7 +486,7 @@ type WSGSystemDataPlaneListType struct {
 	GreTunnels *string `json:"greTunnels,omitempty"`
 
 	// Id
-	// Identifier of the data plane
+	// Identifier of data plane
 	Id *string `json:"id,omitempty"`
 
 	// Ip
@@ -538,9 +604,9 @@ type WSGSystemFtp struct {
 	// FtpPort
 	// Port used by FTP
 	// Constraints:
-	//    - min:21
+	//    - min:20
 	//    - max:65535
-	FtpPort *int `json:"ftpPort,omitempty" validate:"gte=21,lte=65535"`
+	FtpPort *int `json:"ftpPort,omitempty" validate:"gte=20,lte=65535"`
 
 	// FtpProtocol
 	// Protocol used
@@ -952,8 +1018,8 @@ type WSGSystemIpv6PrimaryInterface struct {
 	// IP mode
 	// Constraints:
 	//    - required
-	//    - oneof:[AUTO,STATIC]
-	IpMode *string `json:"ipMode" validate:"required,oneof=AUTO STATIC"`
+	//    - oneof:[STATIC,AUTO]
+	IpMode *string `json:"ipMode" validate:"required,oneof=STATIC AUTO"`
 
 	// PrimaryDNSServer
 	// Primary DNS server
@@ -1033,18 +1099,42 @@ func NewWSGSystemModifyControlPlane() *WSGSystemModifyControlPlane {
 	return m
 }
 
+type WSGSystemModifyCPStaticRoute struct {
+	// StaticRoutes
+	// Static route for control plane.
+	StaticRoutes []*WSGSystemCpStaticRoute `json:"staticRoutes,omitempty"`
+}
+
+func NewWSGSystemModifyCPStaticRoute() *WSGSystemModifyCPStaticRoute {
+	m := new(WSGSystemModifyCPStaticRoute)
+	return m
+}
+
+type WSGSystemModifyCPUserDefinedInterface struct {
+	// UserDefinedInterface
+	// User defined interface for Control Plane
+	UserDefinedInterface []*WSGSystemCpUserDefinedInterface `json:"userDefinedInterface,omitempty"`
+}
+
+func NewWSGSystemModifyCPUserDefinedInterface() *WSGSystemModifyCPUserDefinedInterface {
+	m := new(WSGSystemModifyCPUserDefinedInterface)
+	return m
+}
+
 type WSGSystemModifyDataPlane struct {
 	// InterfaceMode
 	// Interface mode
 	// Constraints:
 	//    - required
-	//    - oneof:[ACCESS_AND_CORE,SINGLE]
-	InterfaceMode *string `json:"interfaceMode" validate:"required,oneof=ACCESS_AND_CORE SINGLE"`
+	//    - oneof:[SINGLE,ACCESS_AND_CORE]
+	InterfaceMode *string `json:"interfaceMode" validate:"required,oneof=SINGLE ACCESS_AND_CORE"`
 
 	// Ipv6PrimaryInterface
 	// Constraints:
 	//    - required
 	Ipv6PrimaryInterface *WSGSystemIpv6PrimaryInterface `json:"ipv6PrimaryInterface" validate:"required"`
+
+	IsDataCenter *bool `json:"isDataCenter,omitempty"`
 
 	KeepConfig *bool `json:"keepConfig,omitempty"`
 
@@ -1197,8 +1287,14 @@ type WSGSystemModifySystemTimeSetting struct {
 	// NtpServer address
 	NtpServer *string `json:"ntpServer,omitempty"`
 
+	SecondaryAuthenticationKey *WSGSystemAuthenticationKey `json:"secondaryAuthenticationKey,omitempty"`
+
+	// SecondaryNtpServer
+	// Backup NtpServer address
+	SecondaryNtpServer *string `json:"secondaryNtpServer,omitempty"`
+
 	// Timezone
-	// System defined time zone, please refer to the “Overview > Time Zone” list
+	// System defined time zone, please refer to the 'Overview > Time Zone' list
 	Timezone *string `json:"timezone,omitempty"`
 }
 
@@ -1221,6 +1317,32 @@ type WSGSystemNorthboundInterface struct {
 
 func NewWSGSystemNorthboundInterface() *WSGSystemNorthboundInterface {
 	m := new(WSGSystemNorthboundInterface)
+	return m
+}
+
+type WSGSystemNtpServerValidation struct {
+	AuthenticationKey *WSGSystemAuthenticationKey `json:"authenticationKey,omitempty"`
+
+	// NtpServer
+	// NTP Server address for validation
+	// Constraints:
+	//    - required
+	NtpServer *string `json:"ntpServer" validate:"required"`
+}
+
+func NewWSGSystemNtpServerValidation() *WSGSystemNtpServerValidation {
+	m := new(WSGSystemNtpServerValidation)
+	return m
+}
+
+type WSGSystemNtpServerValidationMessage struct {
+	// Message
+	// NTP Server Validation Message
+	Message *string `json:"message,omitempty"`
+}
+
+func NewWSGSystemNtpServerValidationMessage() *WSGSystemNtpServerValidationMessage {
+	m := new(WSGSystemNtpServerValidationMessage)
 	return m
 }
 
@@ -1332,8 +1454,8 @@ type WSGSystemPrimaryInterface struct {
 	// IP mode
 	// Constraints:
 	//    - required
-	//    - oneof:[DHCP,STATIC]
-	IpMode *string `json:"ipMode" validate:"required,oneof=DHCP STATIC"`
+	//    - oneof:[STATIC,DHCP]
+	IpMode *string `json:"ipMode" validate:"required,oneof=STATIC DHCP"`
 
 	// NatIp
 	// NAT IP
@@ -1363,65 +1485,38 @@ func NewWSGSystemPrimaryInterface() *WSGSystemPrimaryInterface {
 	return m
 }
 
-type WSGSystemSaveApNumberLimitSettingOfDomain struct {
-	// DomainId
-	// Constraints:
-	//    - required
-	DomainId *string `json:"domainId" validate:"required"`
+type WSGSystemReservedPort struct {
+	// BindingInterface
+	// The binding interfaces, ["Control", "Cluster", "Management"]
+	BindingInterface *string `json:"bindingInterface,omitempty"`
 
-	// NumberLimit
-	// Constraints:
-	//    - required
-	NumberLimit *float64 `json:"numberLimit" validate:"required"`
+	// Description
+	// The purpose of reserved port range
+	Description *string `json:"description,omitempty"`
 
-	// Shared
-	// Constraints:
-	//    - required
-	Shared *bool `json:"shared" validate:"required"`
+	// Destination
+	// The traffic destination (IP Address)
+	Destination *string `json:"destination,omitempty"`
+
+	// From
+	// Rule from System or User
+	From *string `json:"from,omitempty"`
+
+	// PortRange
+	// Reserved port range for SZ service
+	PortRange *string `json:"portRange,omitempty"`
+
+	// Protocol
+	// TCP/UDP
+	Protocol *string `json:"protocol,omitempty"`
+
+	// TrafficDirection
+	// Inbound/Outbound
+	TrafficDirection *string `json:"trafficDirection,omitempty"`
 }
 
-func NewWSGSystemSaveApNumberLimitSettingOfDomain() *WSGSystemSaveApNumberLimitSettingOfDomain {
-	m := new(WSGSystemSaveApNumberLimitSettingOfDomain)
-	return m
-}
-
-type WSGSystemSaveApNumberLimitSettingOfZone struct {
-	// DomainId
-	// Constraints:
-	//    - required
-	DomainId *string `json:"domainId" validate:"required"`
-
-	// NumberLimit
-	// Constraints:
-	//    - required
-	NumberLimit *float64 `json:"numberLimit" validate:"required"`
-
-	// Shared
-	// Constraints:
-	//    - required
-	Shared *bool `json:"shared" validate:"required"`
-
-	// ZoneId
-	// Constraints:
-	//    - required
-	ZoneId *string `json:"zoneId" validate:"required"`
-}
-
-func NewWSGSystemSaveApNumberLimitSettingOfZone() *WSGSystemSaveApNumberLimitSettingOfZone {
-	m := new(WSGSystemSaveApNumberLimitSettingOfZone)
-	return m
-}
-
-type WSGSystemSaveSystemSettings struct {
-	ApNumberLimitEnabled *bool `json:"apNumberLimitEnabled,omitempty"`
-
-	ApNumberLimitSettingsOfDomain []*WSGSystemSaveApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
-
-	ApNumberLimitSettingsOfZone []*WSGSystemSaveApNumberLimitSettingOfZone `json:"apNumberLimitSettingsOfZone,omitempty"`
-}
-
-func NewWSGSystemSaveSystemSettings() *WSGSystemSaveSystemSettings {
-	m := new(WSGSystemSaveSystemSettings)
+func NewWSGSystemReservedPort() *WSGSystemReservedPort {
+	m := new(WSGSystemReservedPort)
 	return m
 }
 
@@ -1445,6 +1540,38 @@ type WSGSystemSecondaryInterface struct {
 
 func NewWSGSystemSecondaryInterface() *WSGSystemSecondaryInterface {
 	m := new(WSGSystemSecondaryInterface)
+	return m
+}
+
+type WSGSystemSecuritySetting struct {
+	// AbsoluteSessionTimeout
+	// Constraints:
+	//    - nullable
+	//    - min:0
+	//    - max:1440
+	AbsoluteSessionTimeout *int `json:"absoluteSessionTimeout,omitempty" validate:"omitempty,gte=0,lte=1440"`
+
+	// CaptchaEnabled
+	// Captcha setting
+	CaptchaEnabled *bool `json:"captchaEnabled,omitempty"`
+
+	// MaxInteractiveConcurrentSessions
+	// Constraints:
+	//    - nullable
+	//    - min:3
+	//    - max:10
+	MaxInteractiveConcurrentSessions *int `json:"maxInteractiveConcurrentSessions,omitempty" validate:"omitempty,gte=3,lte=10"`
+
+	// MaxPublicApiConcurrentSessions
+	// Constraints:
+	//    - nullable
+	//    - min:64
+	//    - max:2048
+	MaxPublicApiConcurrentSessions *int `json:"maxPublicApiConcurrentSessions,omitempty" validate:"omitempty,gte=64,lte=2048"`
+}
+
+func NewWSGSystemSecuritySetting() *WSGSystemSecuritySetting {
+	m := new(WSGSystemSecuritySetting)
 	return m
 }
 
@@ -1675,6 +1802,10 @@ func NewWSGSystemStatisticListTypeMemoryType() *WSGSystemStatisticListTypeMemory
 }
 
 type WSGSystemSettings struct {
+	// ApMacOUIEnabled
+	// Enabled AP Mac OUI feature or no
+	ApMacOUIEnabled *bool `json:"apMacOUIEnabled,omitempty"`
+
 	// ApNumberLimitEnabled
 	// Enabled AP number limit feature or not
 	ApNumberLimitEnabled *bool `json:"apNumberLimitEnabled,omitempty"`
@@ -1704,13 +1835,28 @@ type WSGSystemTimeSetting struct {
 	// NtpServer address
 	NtpServer *string `json:"ntpServer,omitempty"`
 
+	SecondaryAuthenticationKey *WSGSystemAuthenticationKey `json:"secondaryAuthenticationKey,omitempty"`
+
+	// SecondaryNtpServer
+	// Backup NtpServer address
+	SecondaryNtpServer *string `json:"secondaryNtpServer,omitempty"`
+
 	// Timezone
-	// System defined time zone, please refer to the “Overview > Time Zone” list
+	// System defined time zone, please refer to the 'Overview > Time Zone' list
 	Timezone *string `json:"timezone,omitempty"`
 }
 
 func NewWSGSystemTimeSetting() *WSGSystemTimeSetting {
 	m := new(WSGSystemTimeSetting)
+	return m
+}
+
+type WSGSystemUpdateApMacOUI struct {
+	Description *WSGCommonDescription `json:"description,omitempty"`
+}
+
+func NewWSGSystemUpdateApMacOUI() *WSGSystemUpdateApMacOUI {
+	m := new(WSGSystemUpdateApMacOUI)
 	return m
 }
 
@@ -1736,6 +1882,36 @@ func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {
 	return m
 }
 
+// AddGlobalSettingsSystemTimeValidate
+//
+// Use this API command to validate a NTP server.
+//
+// Request Body:
+//	 - body *WSGSystemNtpServerValidation
+func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Context, body *WSGSystemNtpServerValidation) (*WSGSystemNtpServerValidationMessage, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGSystemNtpServerValidationMessage
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddGlobalSettingsSystemTimeValidate, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemNtpServerValidationMessage()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
 // AddSystemAp_balance
 //
 // Execute ap balance.
@@ -1753,6 +1929,34 @@ func (s *WSGSystemService) AddSystemAp_balance(ctx context.Context) (interface{}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+}
+
+// AddSystemApMacOUIs
+//
+// Use this API command to create AP Mac OUI.
+//
+// Request Body:
+//	 - body *WSGSystemCreateApMacOUI
+func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSystemCreateApMacOUI) error {
+	var (
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemApMacOUIs, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // AddSystemApRoutineConfigInterval
@@ -1813,6 +2017,31 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 		return err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSpeedup, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+}
+
+// DeleteSystemApMacOUIsByOUI
+//
+// Use this API command to delete AP Mac OUI.
+//
+// Required Parameters:
+// - OUI string
+//		- required
+func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI string) error {
+	var (
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return err
+	}
+	if err = pkgValidator.VarCtx(ctx, OUI, "required"); err != nil {
+		return err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemApMacOUIsByOUI, true)
+	req.SetPathParameter("OUI", OUI)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
@@ -1917,6 +2146,25 @@ func (s *WSGSystemService) FindSystem(ctx context.Context) (*WSGSystemSettings, 
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystem, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemSettings()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
+// FindSystemApMacOUIs
+//
+// Use this API command to retrieve a list of AP Mac OUIs.
+func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context) (*WSGSystemApMacOUIList, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGSystemApMacOUIList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApMacOUIs, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemApMacOUIList()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
@@ -2129,6 +2377,25 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
+// FindSystemSecuritySetting
+//
+// Use this API command to retrieve the security setting.
+func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context) (*WSGSystemSecuritySetting, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGSystemSecuritySetting
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSecuritySetting, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGSystemSecuritySetting()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+}
+
 // FindSystemSystemTime
 //
 // Retrieve System Time Setting.
@@ -2153,8 +2420,8 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context) (*WSGSystem
 // Use this API command to modify settings of system. Currently, Only can modify settings about AP number limit by query criteria with domain and zone filters.
 //
 // Request Body:
-//	 - body *WSGSystemSaveSystemSettings
-func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSystemSaveSystemSettings) error {
+//	 - body *WSGSystemSettings
+func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSystemSettings) error {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
@@ -2169,34 +2436,6 @@ func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSys
 		return err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystem, true)
-	if err = req.SetBody(body); err != nil {
-		return err
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
-}
-
-// PartialUpdateSystemCaptcha
-//
-// Use this API command to modify the CAPTCHA setting.
-//
-// Request Body:
-//	 - body *WSGSystemCaptchaSetting
-func (s *WSGSystemService) PartialUpdateSystemCaptcha(ctx context.Context, body *WSGSystemCaptchaSetting) error {
-	var (
-		req      *APIRequest
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return err
-	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemCaptcha, true)
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
@@ -2295,4 +2534,70 @@ func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, bo
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// UpdateSystemApMacOUIsByOUI
+//
+// Use this API command to update AP Mac OUI.
+//
+// Request Body:
+//	 - body *WSGSystemUpdateApMacOUI
+//
+// Required Parameters:
+// - OUI string
+//		- required
+func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body *WSGSystemUpdateApMacOUI, OUI string) error {
+	var (
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
+	}
+	if err = pkgValidator.VarCtx(ctx, OUI, "required"); err != nil {
+		return err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateSystemApMacOUIsByOUI, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
+	req.SetPathParameter("OUI", OUI)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+}
+
+// UpdateSystemSecuritySetting
+//
+// Use this API command to retrieve the security setting.
+//
+// Request Body:
+//	 - body *WSGSystemSecuritySetting
+func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body *WSGSystemSecuritySetting) (interface{}, error) {
+	var (
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateSystemSecuritySetting, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
 }

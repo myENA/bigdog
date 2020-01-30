@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -318,24 +318,22 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx context.Context, id string) error {
 	var (
 		req      *APIRequest
-		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcUserDefinedById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
 // FindApplicationPolicyByQueryCriteria
@@ -693,7 +691,7 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 
 // PartialUpdateAvcApplicationPolicyById
 //
-// Use this API command to modify the basic information on AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
+// Use this API command to modify the configuration on AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
 //
 // Request Body:
 //	 - body *WSGAVCModifyApplicationPolicyProfile
@@ -731,7 +729,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 
 // PartialUpdateAvcApplicationPolicyV2ById
 //
-// Use this API command to modify the basic information on AVC Application Policy profile.
+// Use this API command to modify the configuration on AVC Application Policy profile.
 //
 // Request Body:
 //	 - body *WSGAVCModifyApplicationPolicyProfile
@@ -769,7 +767,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 
 // PartialUpdateAvcUserDefinedById
 //
-// Use this API command to modify the basic information on AVC User Defined profile.
+// Use this API command to modify the configuration on AVC User Defined profile.
 //
 // Request Body:
 //	 - body *WSGAVCModifyUserDefinedProfile
@@ -777,30 +775,28 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *WSGAVCModifyUserDefinedProfile, id string) (*WSGCommonEmptyResult, error) {
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *WSGAVCModifyUserDefinedProfile, id string) error {
 	var (
 		req      *APIRequest
-		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcUserDefinedById, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return err
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }

@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -164,6 +164,36 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
+// FindServicesEthernetPortProfileByQueryCriteria
+//
+// Query Ethernet Port Profiles with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGEthernetPortProfileService) FindServicesEthernetPortProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
+	var (
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesEthernetPortProfileByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+}
+
 // PartialUpdateRkszonesProfileEthernetPortById
 //
 // Modify a specific Ethernet Port Porfile.
@@ -198,6 +228,50 @@ func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPort
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesProfileEthernetPortById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	req.SetPathParameter("id", id)
+	req.SetPathParameter("zoneId", zoneId)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// UpdateRkszonesProfileEthernetPortById
+//
+// Modify a specific Ethernet Port Porfile.
+//
+// Request Body:
+//	 - body *WSGEthernetPortModifyEthernetPortProfile
+//
+// Required Parameters:
+// - id string
+//		- required
+// - zoneId string
+//		- required
+func (s *WSGEthernetPortProfileService) UpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesProfileEthernetPortById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}

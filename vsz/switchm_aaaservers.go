@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -42,6 +42,8 @@ type SwitchMAAAServersAAAServer struct {
 	// CreatorUsername
 	// AAA server creator name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
+
+	GroupId *string `json:"groupId,omitempty"`
 
 	// Id
 	// AAA server ID
@@ -238,13 +240,17 @@ func NewSwitchMAAAServersEmptyResult() *SwitchMAAAServersEmptyResult {
 	return m
 }
 
-// AddAaaServersAdmin
+// AddGroupAaaServersByGroupId
 //
 // Use this API command to create a new AAA server.
 //
 // Request Body:
 //	 - body *SwitchMAAAServersCreateAdminAAAServer
-func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer) (*SwitchMCommonCreateResult, error) {
+//
+// Required Parameters:
+// - groupId string
+//		- required
+func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string) (*SwitchMCommonCreateResult, error) {
 	var (
 		req      *APIRequest
 		resp     *SwitchMCommonCreateResult
@@ -259,22 +265,30 @@ func (s *SwitchMAAAServersService) AddAaaServersAdmin(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddAaaServersAdmin, true)
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddGroupAaaServersByGroupId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMCommonCreateResult()
 	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 }
 
-// DeleteAaaServersAdmin
+// DeleteGroupAaaServersByGroupId
 //
 // Use this API command to delete AAA Servers.
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
+//
+// Required Parameters:
+// - groupId string
+//		- required
+func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, groupId string) error {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
@@ -288,22 +302,28 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdmin(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdmin, true)
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteGroupAaaServersByGroupId, true)
 	if err = req.SetBody(body); err != nil {
 		return err
 	}
+	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
 
-// DeleteAaaServersAdminById
+// DeleteGroupAaaServersById
 //
 // Use this API command to delete a AAA server.
 //
 // Required Parameters:
+// - groupId string
+//		- required
 // - id string
 //		- required
-func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context, id string) (*SwitchMAAAServersEmptyResult, error) {
+func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context, groupId string, id string) (*SwitchMAAAServersEmptyResult, error) {
 	var (
 		req      *APIRequest
 		resp     *SwitchMAAAServersEmptyResult
@@ -313,20 +333,28 @@ func (s *SwitchMAAAServersService) DeleteAaaServersAdminById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
+	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAaaServersAdminById, true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteGroupAaaServersById, true)
+	req.SetPathParameter("groupId", groupId)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAAServersEmptyResult()
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
-// FindAaaServersAdmin
+// FindGroupAaaServersByGroupId
 //
 // Use this API command to retrieve a list of AAA server.
-func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*SwitchMAAAServersQueryResult, error) {
+//
+// Required Parameters:
+// - groupId string
+//		- required
+func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Context, groupId string) (*SwitchMAAAServersQueryResult, error) {
 	var (
 		req      *APIRequest
 		resp     *SwitchMAAAServersQueryResult
@@ -336,20 +364,26 @@ func (s *SwitchMAAAServersService) FindAaaServersAdmin(ctx context.Context) (*Sw
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdmin, true)
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaServersByGroupId, true)
+	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAAServersQueryResult()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
-// FindAaaServersAdminById
+// FindGroupAaaServersById
 //
 // Use this API command to retrieve a AAA server.
 //
 // Required Parameters:
+// - groupId string
+//		- required
 // - id string
 //		- required
-func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, id string) (*SwitchMAAAServersAAAServer, error) {
+func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, groupId string, id string) (*SwitchMAAAServersAAAServer, error) {
 	var (
 		req      *APIRequest
 		resp     *SwitchMAAAServersAAAServer
@@ -359,17 +393,21 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp, err
 	}
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
+	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAaaServersAdminById, true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaServersById, true)
+	req.SetPathParameter("groupId", groupId)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAAServersAAAServer()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
-// UpdateAaaServersAdminById
+// UpdateGroupAaaServersById
 //
 // Use this API command to modify the basic information on a AAA server by complete attributes.
 //
@@ -377,9 +415,11 @@ func (s *SwitchMAAAServersService) FindAaaServersAdminById(ctx context.Context, 
 //	 - body *SwitchMAAAServersCreateAdminAAAServer
 //
 // Required Parameters:
+// - groupId string
+//		- required
 // - id string
 //		- required
-func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, id string) (*SwitchMAAAServersEmptyResult, error) {
+func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string, id string) (*SwitchMAAAServersEmptyResult, error) {
 	var (
 		req      *APIRequest
 		resp     *SwitchMAAAServersEmptyResult
@@ -394,13 +434,17 @@ func (s *SwitchMAAAServersService) UpdateAaaServersAdminById(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, err
 	}
+	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
+		return resp, err
+	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateAaaServersAdminById, true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupAaaServersById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}
+	req.SetPathParameter("groupId", groupId)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAAServersEmptyResult()

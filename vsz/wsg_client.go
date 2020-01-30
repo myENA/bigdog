@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGClientDeAuthClient struct {
 	// ApMac
@@ -78,6 +78,10 @@ type WSGClientHistoricalClient struct {
 	// Ipv6Address
 	// Client IPv6 address
 	Ipv6Address *string `json:"ipv6Address,omitempty"`
+
+	// ModelName
+	// Model Name of the client
+	ModelName *string `json:"modelName,omitempty"`
 
 	// MvnoName
 	// MVNO name of the client

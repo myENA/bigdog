@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -161,7 +161,7 @@ func NewWSGDevicePolicyPorfileListType() *WSGDevicePolicyPorfileListType {
 
 // AddRkszonesDevicePolicyByZoneId
 //
-// Create a new Device Policy Porfile.
+// Create a new Device Policy Profile (for Firmware Versions less than 5.2).
 //
 // Request Body:
 //	 - body *WSGDevicePolicyCreateDevicePolicy
@@ -199,7 +199,7 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 
 // DeleteRkszonesDevicePolicyById
 //
-// Delete Device Policy Porfile.
+// Delete Device Policy Profile (for Firmware Versions less than 5.2).
 //
 // Required Parameters:
 // - id string
@@ -232,7 +232,7 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 
 // FindRkszonesDevicePolicyById
 //
-// Retrieve a Device Policy Porfile.
+// Retrieve a Device Policy Profile (for Firmware Versions less than 5.2).
 //
 // Required Parameters:
 // - id string
@@ -265,7 +265,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 
 // FindRkszonesDevicePolicyByZoneId
 //
-// Retrieve a list of Device Policy Porfiles within a zone.
+// Retrieve a list of Device Policy Profiles within a zone (for Firmware Versions less than 5.2).
 //
 // Required Parameters:
 // - zoneId string
@@ -302,9 +302,39 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
+// FindServicesDevicePolicyByQueryCriteria
+//
+// Query Device Policy Profiles with specified filters.
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGDevicePolicyService) FindServicesDevicePolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
+	var (
+		req      *APIRequest
+		resp     interface{}
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesDevicePolicyByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = new(interface{})
+	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+}
+
 // PartialUpdateRkszonesDevicePolicyById
 //
-// Modify a specific Device Policy Porfile.
+// Modify a specific Device Policy Profile (for Firmware Versions less than 5.2).
 //
 // Request Body:
 //	 - body *WSGDevicePolicyModifyDevicePolicy

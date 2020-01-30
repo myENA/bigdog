@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGClusterBladeBladeProgress struct {
 	// BladeUUID
@@ -119,19 +119,6 @@ func NewWSGClusterBladeClusterStateNodeStateListType() *WSGClusterBladeClusterSt
 	return m
 }
 
-type WSGClusterBladeClusterStatus struct {
-	// ClusterStatus
-	// progress of bladeProgress
-	// Constraints:
-	//    - oneof:[In_Service,Out_Of_Service,Maintenance,Read_Only,NetworkPartitionSuspected]
-	ClusterStatus *string `json:"clusterStatus,omitempty" validate:"oneof=In_Service Out_Of_Service Maintenance Read_Only NetworkPartitionSuspected"`
-}
-
-func NewWSGClusterBladeClusterStatus() *WSGClusterBladeClusterStatus {
-	m := new(WSGClusterBladeClusterStatus)
-	return m
-}
-
 type WSGClusterBladeClusterUpgradeProgress struct {
 	// BladeProgresss
 	// bladeProgressMap of clusterOperationProgress
@@ -166,32 +153,6 @@ type WSGClusterBladeClusterUpgradeProgress struct {
 
 func NewWSGClusterBladeClusterUpgradeProgress() *WSGClusterBladeClusterUpgradeProgress {
 	m := new(WSGClusterBladeClusterUpgradeProgress)
-	return m
-}
-
-type WSGClusterBladeControlNodeStatus struct {
-	NodeStatusList []*WSGClusterBladeControlNodeStatusNodeStatusListType `json:"nodeStatusList,omitempty"`
-}
-
-func NewWSGClusterBladeControlNodeStatus() *WSGClusterBladeControlNodeStatus {
-	m := new(WSGClusterBladeControlNodeStatus)
-	return m
-}
-
-type WSGClusterBladeControlNodeStatusNodeStatusListType struct {
-	// NodeId
-	// Identifier of the controller node
-	NodeId *string `json:"nodeId,omitempty"`
-
-	// NodeStatus
-	// node status
-	// Constraints:
-	//    - oneof:[Out_Of_Service,Bootstrapping,Got_WSG_Version,WSG_FW_Upgrading,Initializing_Database,Syncing_Configurations,Changing_Configurations,Launching_Apps,In_Service,Shutting_Down_Apps]
-	NodeStatus *string `json:"nodeStatus,omitempty" validate:"oneof=Out_Of_Service Bootstrapping Got_WSG_Version WSG_FW_Upgrading Initializing_Database Syncing_Configurations Changing_Configurations Launching_Apps In_Service Shutting_Down_Apps"`
-}
-
-func NewWSGClusterBladeControlNodeStatusNodeStatusListType() *WSGClusterBladeControlNodeStatusNodeStatusListType {
-	m := new(WSGClusterBladeControlNodeStatusNodeStatusListType)
 	return m
 }
 

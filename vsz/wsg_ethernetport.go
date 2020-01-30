@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 type WSGEthernetPortCreateEthernetPortProfile struct {
 	// AntiSpoofingEnabled
@@ -25,6 +25,10 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
+	// FirewallProfileId
+	// Firewall Profile Id
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
 	// GuestVlan
 	// Constraints:
 	//    - min:1
@@ -37,6 +41,8 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	// Constraints:
 	//    - required
 	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+
+	Qinq *WSGCommonQinq `json:"qinq,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
@@ -59,6 +65,18 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	//    - min:1
 	//    - max:4094
 	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
+
+	// UserSidePortEnabled
+	// User side port enabled.
+	UserSidePortEnabled *bool `json:"userSidePortEnabled,omitempty"`
+
+	// UserSidePortMaxClient
+	// Number of wired clients allowed to connect to a particular user side port, default value will be 8 if the value not being set.
+	// Constraints:
+	//    - default:8
+	//    - min:1
+	//    - max:32
+	UserSidePortMaxClient *int `json:"userSidePortMaxClient,omitempty" validate:"gte=1,lte=32"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile
@@ -98,6 +116,10 @@ type WSGEthernetPortProfile struct {
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
+	// FirewallProfileId
+	// Firewall Profile Id
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
 	// GuestVlan
 	// Constraints:
 	//    - min:1
@@ -111,6 +133,8 @@ type WSGEthernetPortProfile struct {
 	IpsecProfile *WSGCommonGenericRef `json:"ipsecProfile,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	Qinq *WSGCommonQinq `json:"qinq,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
@@ -130,6 +154,18 @@ type WSGEthernetPortProfile struct {
 	//    - min:1
 	//    - max:4094
 	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
+
+	// UserSidePortEnabled
+	// User side port enabled.
+	UserSidePortEnabled *bool `json:"userSidePortEnabled,omitempty"`
+
+	// UserSidePortMaxClient
+	// Number of wired clients allowed to connect to a particular user side port, default value will be 8 if the value not being set.
+	// Constraints:
+	//    - default:8
+	//    - min:1
+	//    - max:32
+	UserSidePortMaxClient *int `json:"userSidePortMaxClient,omitempty" validate:"gte=1,lte=32"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile
@@ -167,6 +203,10 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
+	// FirewallProfileId
+	// Firewall Profile Id
+	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
 	// GuestVlan
 	// Constraints:
 	//    - min:1
@@ -176,6 +216,8 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	IpsecProfile *WSGCommonGenericRef `json:"ipsecProfile,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
+
+	Qinq *WSGCommonQinq `json:"qinq,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
@@ -189,6 +231,18 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	//    - min:1
 	//    - max:4094
 	UntagId *int `json:"untagId,omitempty" validate:"gte=1,lte=4094"`
+
+	// UserSidePortEnabled
+	// User side port enabled.
+	UserSidePortEnabled *bool `json:"userSidePortEnabled,omitempty"`
+
+	// UserSidePortMaxClient
+	// Number of wired clients allowed to connect to a particular user side port, default value will be 8 if the value not being set.
+	// Constraints:
+	//    - default:8
+	//    - min:1
+	//    - max:32
+	UserSidePortMaxClient *int `json:"userSidePortMaxClient,omitempty" validate:"gte=1,lte=32"`
 
 	// VlanMembers
 	// VLAN Members of the ethernet port profile

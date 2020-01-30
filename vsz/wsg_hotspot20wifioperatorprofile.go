@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -225,7 +225,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQuer
 
 // PartialUpdateProfilesHs20OperatorsById
 //
-// Use this API command to modify the basic information of a Hotspot 2.0 Wi-Fi operator.
+// Use this API command to modify the configuration of a Hotspot 2.0 Wi-Fi operator.
 //
 // Request Body:
 //	 - body *WSGProfileModifyHS20Operator

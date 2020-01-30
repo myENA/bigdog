@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -81,6 +81,34 @@ func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Co
 		return err
 	}
 	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+}
+
+// AddSwapAps
+//
+// Use this API command to swap in specific AP
+//
+// Request Body:
+//	 - body *WSGAPSwapApConfigure
+func (s *WSGAccessPointConfigurationService) AddSwapAps(ctx context.Context, body *WSGAPSwapApConfigure) error {
+	var (
+		req      *APIRequest
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSwapAps, true)
+	if err = req.SetBody(body); err != nil {
+		return err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 }
@@ -644,6 +672,33 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx co
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsRecoverySsidByApMac, true)
+	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// DeleteApsRksGreForwardBroadcastByApMac
+//
+// Use this API command to disable Ruckus GRE Broadcast packet forwarding override. The AP will apply its group's or zone's configuration.
+//
+// Required Parameters:
+// - apMac string
+//		- required
+func (s *WSGAccessPointConfigurationService) DeleteApsRksGreForwardBroadcastByApMac(ctx context.Context, apMac string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteApsRksGreForwardBroadcastByApMac, true)
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -1306,7 +1361,7 @@ func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Conte
 
 // PartialUpdateApsByApMac
 //
-// Use this API command to modify the basic information of an AP.
+// Use this API command to modify the configuration of an AP.
 //
 // Request Body:
 //	 - body *WSGAPModifyAP
@@ -1333,6 +1388,44 @@ func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateApsByApMac, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, err
+	}
+	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// UpdateApsByApMac
+//
+// Use this API command to modify the entire information of an AP.
+//
+// Request Body:
+//	 - body *WSGAPModifyAP
+//
+// Required Parameters:
+// - apMac string
+//		- required
+func (s *WSGAccessPointConfigurationService) UpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateApsByApMac, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, err
 	}

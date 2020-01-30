@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -213,12 +213,12 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string
 // Use this API command to delete a list of AAA server.
 //
 // Request Body:
-//	 - body *WSGAAADeleteBulkAAAServerList
+//	 - body *WSGCommonBulkDeleteRequest
 //
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGAAADeleteBulkAAAServerList, zoneId string) (*WSGCommonEmptyResult, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*WSGCommonEmptyResult, error) {
 	var (
 		req      *APIRequest
 		resp     *WSGCommonEmptyResult
@@ -538,7 +538,11 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, id st
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, zoneId string) (*WSGAAAAuthenticationServerList, error) {
+//
+// Optional Parameters:
+// - forAccounting string
+//		- nullable
+func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGAAAAuthenticationServerList, error) {
 	var (
 		req      *APIRequest
 		resp     *WSGAAAAuthenticationServerList
@@ -553,6 +557,9 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, z
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesAaaRadiusByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
+	if v, ok := optionalParams["forAccounting"]; ok {
+		req.AddQueryParameter("forAccounting", v)
+	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAAAAuthenticationServerList()
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -560,7 +567,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, z
 
 // PartialUpdateRkszonesAaaAdById
 //
-// Use this API command to modify the basic information on active directory server of a zone.
+// Use this API command to modify the configuration on active directory server of a zone.
 //
 // Request Body:
 //	 - body *WSGAAAModifyActiveDirectoryServer
@@ -604,7 +611,7 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, 
 
 // PartialUpdateRkszonesAaaLdapById
 //
-// Use this API command to modify the basic information on LDAP server of a zone.
+// Use this API command to modify the configuration on LDAP server of a zone.
 //
 // Request Body:
 //	 - body *WSGAAAModifyLDAPServer
@@ -648,7 +655,7 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context
 
 // PartialUpdateRkszonesAaaRadiusById
 //
-// Use this API command to modify the basic information on radius server of a zone.
+// Use this API command to modify the configuration on radius server of a zone.
 //
 // Request Body:
 //	 - body *WSGAAAModifyAuthenticationServer
@@ -692,7 +699,7 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Conte
 
 // UpdateRkszonesAaaAdById
 //
-// Use this API command to modify the basic information on active directory server of a zone by complete attributes.
+// Use this API command to modify the configuration on active directory server of a zone by complete attributes.
 //
 // Request Body:
 //	 - body *WSGAAAModifyActiveDirectoryServer
@@ -736,7 +743,7 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *W
 
 // UpdateRkszonesAaaLdapById
 //
-// Use this API command to modify the basic information on LDAP server of a zone by complete attributes.
+// Use this API command to modify the configuration on LDAP server of a zone by complete attributes.
 //
 // Request Body:
 //	 - body *WSGAAAModifyLDAPServer
@@ -780,7 +787,7 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body 
 
 // UpdateRkszonesAaaRadiusById
 //
-// Use this API command to modify the basic information on radius server of a zone by complete attributes.
+// Use this API command to modify the configuration on radius server of a zone by complete attributes.
 //
 // Request Body:
 //	 - body *WSGAAAModifyAuthenticationServer

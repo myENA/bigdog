@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -49,44 +49,6 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszones(ctx context.Context, body *
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
 	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
-}
-
-// AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
-//
-// Use this API command to get the DHCP/NAT service IP assignment when selecting with "Enable on Multiple APs". In the Manually Select AP mode (the manualSelect is true), the body should contain the selected APs (include the siteAps array). Otherwise, there is no need to include the selected APs in the Auto Select AP mode (see samples).
-//
-// Request Body:
-//	 - body *WSGCommonDoAssignIp
-//
-// Required Parameters:
-// - zoneId string
-//		- required
-func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx context.Context, body *WSGCommonDoAssignIp, zoneId string) (*WSGCommonDhcpSiteConfigListRef, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGCommonDhcpSiteConfigListRef
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId, true)
-	if err = req.SetBody(body); err != nil {
-		return resp, err
-	}
-	req.SetPathParameter("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonDhcpSiteConfigListRef()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // AddRkszonesDual
@@ -230,33 +192,6 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
-// DeleteRkszonesBandBalancingById
-//
-// Use this API command to disable band balancing for APs that belong to a zone.
-//
-// Required Parameters:
-// - id string
-//		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBandBalancingById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGCommonEmptyResult
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBandBalancingById, true)
-	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
-}
-
 // DeleteRkszonesById
 //
 // Use this API command to delete a zone.
@@ -338,60 +273,6 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl50B
 	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
 }
 
-// DeleteRkszonesClientLoadBalancing24ById
-//
-// Use this API command to disable client load balancing 2.4GHz radio configuration for APs that belong to a zone.
-//
-// Required Parameters:
-// - id string
-//		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing24ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGCommonEmptyResult
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientLoadBalancing24ById, true)
-	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
-}
-
-// DeleteRkszonesClientLoadBalancing50ById
-//
-// Use this API command to disable client load balancing 5GHz radio configuration for APs that belong to a zone.
-//
-// Required Parameters:
-// - id string
-//		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientLoadBalancing50ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGCommonEmptyResult
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesClientLoadBalancing50ById, true)
-	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
-}
-
 // DeleteRkszonesIpsecProfilesById
 //
 // Use this API command to Delete IPsec profiles.
@@ -413,6 +294,114 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx con
 		return resp, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesIpsecProfilesById, true)
+	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// DeleteRkszonesLoadBalancingBandBalancingById
+//
+// Use this API command to disable band balancing for APs that belong to a zone.
+//
+// Required Parameters:
+// - id string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingBandBalancingById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesLoadBalancingBandBalancingById, true)
+	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// DeleteRkszonesLoadBalancingById
+//
+// Use this API command to disable overall load balancing configuration for APs that belong to a zone.
+//
+// Required Parameters:
+// - id string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesLoadBalancingById, true)
+	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// DeleteRkszonesLoadBalancingClientLoadBalancing24ById
+//
+// Use this API command to disable client load balancing 2.4GHz radio configuration for APs that belong to a zone.
+//
+// Required Parameters:
+// - id string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingClientLoadBalancing24ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesLoadBalancingClientLoadBalancing24ById, true)
+	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGCommonEmptyResult()
+	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+}
+
+// DeleteRkszonesLoadBalancingClientLoadBalancing50ById
+//
+// Use this API command to disable client load balancing 5GHz radio configuration for APs that belong to a zone.
+//
+// Required Parameters:
+// - id string
+//		- required
+func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingClientLoadBalancing50ById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+	var (
+		req      *APIRequest
+		resp     *WSGCommonEmptyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, err
+	}
+	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
+		return resp, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesLoadBalancingClientLoadBalancing50ById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -899,39 +888,9 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Contex
 	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
-// FindRkszonesServicesDhcpSiteConfigByQueryCriteria
-//
-// Use this API command to modify DHCP/NAT service configuration of Domain.
-//
-// Request Body:
-//	 - body *WSGZoneQueryCriteria
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx context.Context, body *WSGZoneQueryCriteria) (*WSGZoneDhcpSiteConfigList, error) {
-	var (
-		req      *APIRequest
-		resp     *WSGZoneDhcpSiteConfigList
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
-	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesServicesDhcpSiteConfigByQueryCriteria, true)
-	if err = req.SetBody(body); err != nil {
-		return resp, err
-	}
-	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGZoneDhcpSiteConfigList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
-}
-
 // PartialUpdateRkszonesById
 //
-// Use this API command to modify the basic information of a zone.
+// Use this API command to modify the configuration of a zone.
 //
 // Request Body:
 //	 - body *WSGZoneModifyZone

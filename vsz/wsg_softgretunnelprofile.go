@@ -1,6 +1,6 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
@@ -186,7 +186,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 
 // PartialUpdateProfilesTunnelSoftgreById
 //
-// Use this API command to modify the basic information of SoftGRE tunnel profile.
+// Use this API command to modify the configuration of SoftGRE tunnel profile.
 //
 // Request Body:
 //	 - body *WSGProfileModifySoftGREProfile

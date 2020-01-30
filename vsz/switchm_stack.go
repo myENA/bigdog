@@ -1,9 +1,10 @@
 package vsz
 
-// API Version: v8_1
+// API Version: v9_0
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -21,10 +22,47 @@ func (ss *SwitchMService) SwitchMStackService() *SwitchMStackService {
 	return NewSwitchMStackService(ss.apiClient)
 }
 
-type SwitchMStackAuditIdList []*SwitchMSwitchAuditId
+type SwitchMStackAuditIdList struct {
+	Extra *SwitchMStackAuditIdListExtraType `json:"extra,omitempty"`
 
-func MakeSwitchMStackAuditIdList() SwitchMStackAuditIdList {
-	m := make(SwitchMStackAuditIdList, 0)
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*SwitchMSwitchAuditId `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMStackAuditIdList() *SwitchMStackAuditIdList {
+	m := new(SwitchMStackAuditIdList)
+	return m
+}
+
+type SwitchMStackAuditIdListExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMStackAuditIdListExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = SwitchMStackAuditIdListExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *SwitchMStackAuditIdListExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewSwitchMStackAuditIdListExtraType() *SwitchMStackAuditIdListExtraType {
+	m := new(SwitchMStackAuditIdListExtraType)
 	return m
 }
 
@@ -91,6 +129,10 @@ type SwitchMStackMember struct {
 	// SwitchUnit
 	// Switch unit of stack
 	SwitchUnit *string `json:"switchUnit,omitempty"`
+
+	// SwitchUnitState
+	// Switch unit state of stack
+	SwitchUnitState *string `json:"switchUnitState,omitempty"`
 }
 
 func NewSwitchMStackMember() *SwitchMStackMember {
@@ -174,11 +216,11 @@ type SwitchMStackMemberSwitchPortsType struct {
 	OutUtilization *float64 `json:"outUtilization,omitempty"`
 
 	// Poe
-	// POE information of switch port
+	// PoE information of switch port
 	Poe *SwitchMStackMemberSwitchPortsTypePoeType `json:"poe,omitempty"`
 
 	// PoeEnabled
-	// POE Enabled, True or False
+	// PoE Enabled, True or False
 	PoeEnabled *bool `json:"poeEnabled,omitempty"`
 
 	// PortIdentifier
@@ -319,7 +361,7 @@ func NewSwitchMStackMemberSwitchPortsTypeConnectedDeviceType() *SwitchMStackMemb
 
 // SwitchMStackMemberSwitchPortsTypePoeType
 //
-// POE information of switch port
+// PoE information of switch port
 type SwitchMStackMemberSwitchPortsTypePoeType struct {
 	// Free
 	// Free power capacity of switch port
@@ -393,10 +435,10 @@ func MakeSwitchMStackConfigList() SwitchMStackConfigList {
 //
 // Request Body:
 //	 - body SwitchMStackConfigList
-func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackConfigList) (SwitchMStackAuditIdList, error) {
+func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackConfigList) (*SwitchMStackAuditIdList, error) {
 	var (
 		req      *APIRequest
-		resp     SwitchMStackAuditIdList
+		resp     *SwitchMStackAuditIdList
 		httpResp *http.Response
 		err      error
 	)
@@ -411,8 +453,8 @@ func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackCon
 		return resp, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = MakeSwitchMStackAuditIdList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = NewSwitchMStackAuditIdList()
+	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
 }
 
 // FindStackBySwitchId

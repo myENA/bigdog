@@ -31,32 +31,34 @@ func (ss *WSGService) WSGHotspot20WLANServiceService() *WSGHotspot20WLANServiceS
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20WlanProfile, zoneId string) (*WSGCommonCreateResult, error) {
+func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20WlanProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonCreateResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesHs20sByZoneId, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // DeleteRkszonesHs20sById
@@ -68,28 +70,30 @@ func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Co
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesHs20sById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindRkszonesHs20sById
@@ -101,28 +105,30 @@ func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Con
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot20WlanProfile, error) {
+func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot20WlanProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGPortalServiceHotspot20WlanProfile
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20sById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGPortalServiceHotspot20WlanProfile()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindRkszonesHs20sByZoneId
@@ -132,24 +138,26 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Conte
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, error) {
+func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGPortalServiceList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20sByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGPortalServiceList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindServicesHotspot20ProfileByQueryCriteria
@@ -158,28 +166,30 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.C
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGHotspot20WLANServiceService) FindServicesHotspot20ProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, error) {
+func (s *WSGHotspot20WLANServiceService) FindServicesHotspot20ProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesHotspot20ProfileByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
-	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // PartialUpdateRkszonesHs20sById
@@ -194,34 +204,36 @@ func (s *WSGHotspot20WLANServiceService) FindServicesHotspot20ProfileByQueryCrit
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) PartialUpdateRkszonesHs20sById(ctx context.Context, body *WSGPortalServiceModifyHotspot20WlanProfile, id string, zoneId string) (*WSGCommonEmptyResult, error) {
+func (s *WSGHotspot20WLANServiceService) PartialUpdateRkszonesHs20sById(ctx context.Context, body *WSGPortalServiceModifyHotspot20WlanProfile, id string, zoneId string) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesHs20sById, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	return resp, rm, err
 }

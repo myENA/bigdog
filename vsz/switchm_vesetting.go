@@ -27,28 +27,30 @@ func (ss *SwitchMService) SwitchMVESettingService() *SwitchMVESettingService {
 //
 // Request Body:
 //	 - body *SwitchMVeConfigCreate
-func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *SwitchMVeConfigCreate) (SwitchMVeConfigCreateResult, error) {
+func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *SwitchMVeConfigCreate) (SwitchMVeConfigCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     SwitchMVeConfigCreateResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddVeConfigs, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = MakeSwitchMVeConfigCreateResult()
-	return resp, handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // DeleteVeConfigs
@@ -57,26 +59,28 @@ func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *Switch
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) error {
+func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return err
+		return rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigs, true)
 	if err = req.SetBody(body); err != nil {
-		return err
+		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // DeleteVeConfigsById
@@ -86,41 +90,45 @@ func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *Swi
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id string) error {
+func (s *SwitchMVESettingService) DeleteVeConfigsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // FindVeConfigs
 //
 // Use this API command to Retrieve VE Config List.
-func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVeConfigList, error) {
+func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVeConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMVeConfigList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVeConfigList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindVeConfigsById
@@ -130,24 +138,26 @@ func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVe
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id string) (*SwitchMVeConfig, error) {
+func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id string) (*SwitchMVeConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMVeConfig
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVeConfig()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindVeConfigsByQueryCriteria
@@ -156,28 +166,30 @@ func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id stri
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVeConfigList, error) {
+func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVeConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMVeConfigList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindVeConfigsByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVeConfigList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // UpdateVeConfigsById
@@ -190,30 +202,32 @@ func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVeConfigModify, id string) (*SwitchMVeConfigEmptyResult, error) {
+func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVeConfigModify, id string) (*SwitchMVeConfigEmptyResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMVeConfigEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVeConfigsById, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVeConfigEmptyResult()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }

@@ -201,24 +201,26 @@ func NewSwitchMAAASettingsEmptyResult() *SwitchMAAASettingsEmptyResult {
 // Required Parameters:
 // - groupId string
 //		- required
-func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Context, groupId string) (*SwitchMAAASettingsAAASetting, error) {
+func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Context, groupId string) (*SwitchMAAASettingsAAASetting, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMAAASettingsAAASetting
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaSettingsByGroupId, true)
 	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAASettingsAAASetting()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // UpdateGroupAaaSettingsByGroupId
@@ -231,30 +233,32 @@ func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Co
 // Required Parameters:
 // - groupId string
 //		- required
-func (s *SwitchMAAASettingsService) UpdateGroupAaaSettingsByGroupId(ctx context.Context, body *SwitchMAAASettingsAAASetting, groupId string) (*SwitchMAAASettingsEmptyResult, error) {
+func (s *SwitchMAAASettingsService) UpdateGroupAaaSettingsByGroupId(ctx context.Context, body *SwitchMAAASettingsAAASetting, groupId string) (*SwitchMAAASettingsEmptyResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMAAASettingsEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupAaaSettingsByGroupId, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAASettingsEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	return resp, rm, err
 }

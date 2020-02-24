@@ -317,28 +317,30 @@ func NewWSGNorthboundDataStreamingSettings() *WSGNorthboundDataStreamingSettings
 //
 // Request Body:
 //	 - body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile
-func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile) (*WSGCommonCreateResult, error) {
+func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonCreateResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddNorthboundDataStreamingProfile, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // DeleteNorthboundDataStreamingProfileById
@@ -348,43 +350,47 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindNorthboundDataStreamingEventCodes
 //
 // Use this API command to retrieve NorthboundDataStreamingEventCodes.
-func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context) (*WSGNorthboundDataStreamingEventCodes, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context) (*WSGNorthboundDataStreamingEventCodes, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGNorthboundDataStreamingEventCodes
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGNorthboundDataStreamingEventCodes()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindNorthboundDataStreamingProfileById
@@ -394,43 +400,47 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingProfile, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGNorthboundDataStreamingProfile
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGNorthboundDataStreamingProfile()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindNorthboundDataStreamingProfileList
 //
 // Use this API command to retrieve northbound Data Streaming Profile List
-func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*WSGNorthboundDataStreamingProfileList, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*WSGNorthboundDataStreamingProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGNorthboundDataStreamingProfileList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGNorthboundDataStreamingProfileList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // UpdateNorthboundDataStreamingEventCodes
@@ -439,28 +449,30 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 //
 // Request Body:
 //	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes
-func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes) (interface{}, error) {
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingEventCodes, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
-	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // UpdateNorthboundDataStreamingProfileById
@@ -473,32 +485,34 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile, id string) (interface{}, error) {
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile, id string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingProfileById, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
-	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // UpdateNorthboundDataStreamingSettings
@@ -507,26 +521,28 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 //
 // Request Body:
 //	 - body *WSGNorthboundDataStreamingSettings
-func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *WSGNorthboundDataStreamingSettings) (interface{}, error) {
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *WSGNorthboundDataStreamingSettings) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingSettings, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
-	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }

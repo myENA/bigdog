@@ -27,28 +27,30 @@ func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementSer
 //
 // Request Body:
 //	 - body *WSGProfileCreateDnsServerProfile
-func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context, body *WSGProfileCreateDnsServerProfile) (*WSGCommonCreateResult, error) {
+func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context, body *WSGProfileCreateDnsServerProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonCreateResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesDnsserver, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // AddProfilesDnsserverCloneById
@@ -61,32 +63,34 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, error) {
+func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGProfileClone
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesDnsserverCloneById, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileClone()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // DeleteProfilesDnsserver
@@ -95,28 +99,30 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx contex
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, error) {
+func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesDnsserver, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // DeleteProfilesDnsserverById
@@ -126,24 +132,26 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.Context, id string) (*WSGCommonEmptyResult, error) {
+func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.Context, id string) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesDnsserverById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindProfilesDnsserver
@@ -155,15 +163,16 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Context, optionalParams map[string][]string) (*WSGProfileDnsServerProfileList, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Context, optionalParams map[string][]string) (*WSGProfileDnsServerProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGProfileDnsServerProfileList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserver, true)
 	if v, ok := optionalParams["index"]; ok {
@@ -174,7 +183,8 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Contex
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileDnsServerProfileList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindProfilesDnsserverById
@@ -184,24 +194,26 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Context, id string) (*WSGProfileDnsServerProfile, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Context, id string) (*WSGProfileDnsServerProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGProfileDnsServerProfile
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserverById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileDnsServerProfile()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindProfilesDnsserverByQueryCriteria
@@ -210,28 +222,30 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Co
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDnsServerProfileList, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDnsServerProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGProfileDnsServerProfileList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesDnsserverByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileDnsServerProfileList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // PartialUpdateProfilesDnsserverById
@@ -244,30 +258,32 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *WSGProfileModifyDnsServerProfile, id string) (*WSGCommonEmptyResult, error) {
+func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *WSGProfileModifyDnsServerProfile, id string) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesDnsserverById, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
-	return resp, handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	return resp, rm, err
 }

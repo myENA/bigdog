@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net"
@@ -170,9 +171,7 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (AuthCAS, *http
 	return cas, httpResponse, err
 }
 
-type APIError struct {
-	SourceError error `json:"sourceError"`
-
+type APIResponseMeta struct {
 	RequestMethod string `json:"requestMethod"`
 	RequestURI    string `json:"requestURI"`
 
@@ -180,71 +179,82 @@ type APIError struct {
 
 	ResponseCode   int    `json:"responseCode"`
 	ResponseStatus string `json:"responseStatus"`
-	ResponseBody   []byte `json:"responseBody"`
 }
 
-func newAPIError(req *APIRequest, successCode int, httpResp *http.Response, respBytes []byte, err error) error {
-	ae := new(APIError)
-	ae.SourceError = err
-	ae.RequestMethod = req.Method()
-	ae.RequestURI = req.CompiledURI()
-	ae.SuccessCode = successCode
-	if httpResp != nil {
-		ae.ResponseCode = httpResp.StatusCode
-		ae.ResponseStatus = httpResp.Status
-		ae.ResponseBody = respBytes
+func newAPIResponseMeta(req *APIRequest, successCode, responseCode int, responseStatus string) *APIResponseMeta {
+	rm := new(APIResponseMeta)
+	rm.RequestMethod = req.Method()
+	rm.RequestURI = req.CompiledURI()
+	rm.SuccessCode = successCode
+	rm.ResponseCode = responseCode
+	rm.ResponseStatus = responseStatus
+	return rm
+}
+
+func (rm *APIResponseMeta) String() string {
+	var msg string
+	if rm.SuccessCode == rm.ResponseCode {
+		msg = "Successful"
+	} else {
+		msg = "Failed"
 	}
-	return ae
+	return fmt.Sprintf("%s response from request %s %s", msg, rm.RequestMethod, rm.RequestURI)
 }
 
-func (e *APIError) Error() string {
-	// if there was a client error
-	if e.SourceError != nil {
-		return e.SourceError.Error()
+func wrapErr(err, prev error) error {
+	if prev != nil {
+		// i want to retain the most recent error context as unwrap-able.
+		return fmt.Errorf("%v; %w", prev, err)
 	}
-	// if there was an api response error
-	if e.ResponseCode != 0 && e.ResponseCode != e.SuccessCode {
-		return fmt.Sprintf("expected code %d from %s %s, saw %d %s", e.SuccessCode, e.RequestMethod, e.RequestURI, e.ResponseCode, e.ResponseStatus)
-	}
-	// if no error
-	return ""
+	return err
 }
 
-func (e *APIError) Unwrap() error {
-	return e.SourceError
-}
-
-func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, respErr error) error {
+// handleResponse will attempt to:
+// - wrap errors nicely
+// - if a response model is provided, unmarshal response into it
+// -- in this case, the first value of the response tuple will be nil
+// - if no response model is provided, simply read out all body bytes and return them
+// - construct response meta type
+func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
 	// todo: do better.
 	var (
-		b   []byte
-		err error
+		responseCode   int
+		responseStatus string
+		apiErr         error
+		err            error
 	)
 
-	// if response is nil and we saw an error
-	if httpResp == nil && respErr != nil {
-		return newAPIError(req, successCode, nil, nil, respErr)
+	// if we saw any kind of upstream error, immediately wrap in APIError type
+	// todo: flesh out with more error types
+	if sourceErr != nil {
+		apiErr = err
 	}
 
-	// if we get here, we have some kind of response.  queue up body close...
-	defer func() { _ = httpResp.Body.Close() }()
+	// if a response was received store the code, status, and response bytes for later use constructing the meta type
+	if httpResp != nil {
 
-	// attempt to read all bytes from body
-	if b, err = ioutil.ReadAll(httpResp.Body); err != nil {
-		return newAPIError(req, successCode, httpResp, b, err)
-	}
+		responseCode = httpResp.StatusCode
+		responseStatus = httpResp.Status
 
-	// if returned code is not what was expected, build error
-	if httpResp.StatusCode != successCode {
-		return newAPIError(req, successCode, httpResp, b, err)
-	}
+		// if we get here, we have some kind of response.  queue up body close...
+		defer func() { _ = httpResp.Body.Close() }()
 
-	// finally, if necessary, attempt to unmarshal into response model
-	if modelPtr != nil {
-		if err = json.Unmarshal(b, modelPtr); err != nil {
-			return newAPIError(req, successCode, httpResp, b, err)
+		if responseCode == successCode {
+			// if the response code matches the expected "success" code...
+			if modelPtr != nil {
+				// ... and this query has a modeled response, attempt to unmarshal into that type
+				if err = json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil {
+					apiErr = wrapErr(fmt.Errorf("error unmarshalling resoonse body into %T: %w", modelPtr, err), apiErr)
+				}
+			} else {
+				// todo: record bytes from here?
+				_, err = io.Copy(ioutil.Discard, httpResp.Body)
+			}
+		} else {
+			apiErr = wrapErr(fmt.Errorf("expected response code %d, saw %d (%s)", successCode, responseCode, responseStatus), apiErr)
 		}
 	}
 
-	return nil
+	// build response.
+	return newAPIResponseMeta(req, successCode, responseCode, responseStatus), apiErr
 }

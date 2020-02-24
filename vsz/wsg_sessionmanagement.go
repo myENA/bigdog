@@ -74,18 +74,20 @@ func NewWSGSessionManagementRuckusSessions() *WSGSessionManagementRuckusSessions
 // FindSessionManagement
 //
 // Use this API command to retrieve information about the current logon sessions.
-func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context) (*WSGSessionManagementRuckusSessions, error) {
+func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context) (*WSGSessionManagementRuckusSessions, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGSessionManagementRuckusSessions
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSessionManagement, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSessionManagementRuckusSessions()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }

@@ -173,7 +173,7 @@ func (st *ServiceTicketAuthenticator) Refresh(ctx context.Context, client *APICl
 	username := st.username
 	password := st.password
 	loginRequest := &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
-	resp, err := client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
+	resp, _, err := client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
 	if err != nil {
 		st.log(true, "Refresh() - Error seen calling Login: %s", err)
 		st.serviceTicket = ""
@@ -222,7 +222,7 @@ func (st *ServiceTicketAuthenticator) Invalidate(ctx context.Context, client *AP
 
 	// if we have a service ticket stored, attempt to invalidate it at the VSZ
 	if st.serviceTicket != "" {
-		resp, err := client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, st.serviceTicket)
+		resp, _, err := client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, st.serviceTicket)
 		st.log(true, "Invalidate() - DeleteServiceTicket response: %v", resp)
 		if err != nil {
 			st.log(false, "Invalidate() - Error calling DeleteServiceTicket: %s", err)

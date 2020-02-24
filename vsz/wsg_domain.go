@@ -145,31 +145,33 @@ func NewWSGDomainModifyDomain() *WSGDomainModifyDomain {
 // Optional Parameters:
 // - parentDomainId string
 //		- nullable
-func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string) (*WSGCommonCreateResult, error) {
+func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGCommonCreateResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddDomains, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if v, ok := optionalParams["parentDomainId"]; ok {
 		req.AddQueryParameter("parentDomainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	return resp, handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // DeleteDomainsById
@@ -179,22 +181,24 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) error {
+func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDomainsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // FindDomains
@@ -212,15 +216,16 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) err
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string][]string) (*WSGDomainList, error) {
+func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string][]string) (*WSGDomainList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGDomainList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomains, true)
 	if v, ok := optionalParams["excludeRegularDomain"]; ok {
@@ -240,7 +245,8 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindDomainsById
@@ -254,18 +260,19 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 // Optional Parameters:
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainConfiguration, error) {
+func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGDomainConfiguration
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsById, true)
 	req.SetPathParameter("id", id)
@@ -274,7 +281,8 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainConfiguration()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindDomainsByNameByDomainName
@@ -284,24 +292,26 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 // Required Parameters:
 // - domainName string
 //		- required
-func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, domainName string) (*WSGDomainList, error) {
+func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, domainName string) (*WSGDomainList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGDomainList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, domainName, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
 	req.SetPathParameter("domainName", domainName)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindDomainsSubdomainById
@@ -323,18 +333,19 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainList, error) {
+func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGDomainList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
 	req.SetPathParameter("id", id)
@@ -355,7 +366,8 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // PartialUpdateDomainsById
@@ -368,28 +380,30 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string) error {
+func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return err
+		return rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)
 	if err = req.SetBody(body); err != nil {
-		return err
+		return rm, err
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }

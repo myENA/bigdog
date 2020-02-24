@@ -435,26 +435,28 @@ func MakeSwitchMStackConfigList() SwitchMStackConfigList {
 //
 // Request Body:
 //	 - body SwitchMStackConfigList
-func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackConfigList) (*SwitchMStackAuditIdList, error) {
+func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackConfigList) (*SwitchMStackAuditIdList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMStackAuditIdList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddStack, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackAuditIdList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindStackBySwitchId
@@ -464,24 +466,26 @@ func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackCon
 // Required Parameters:
 // - switchId string
 //		- required
-func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId string) (*SwitchMStackConfig, error) {
+func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId string) (*SwitchMStackConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMStackConfig
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackConfig()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindStackMemberBySerialNumber
@@ -491,22 +495,24 @@ func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId 
 // Required Parameters:
 // - serialNumber string
 //		- required
-func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context, serialNumber string) (*SwitchMStackList, error) {
+func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context, serialNumber string) (*SwitchMStackList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *SwitchMStackList
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, serialNumber, "required"); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
 	req.SetPathParameter("serialNumber", serialNumber)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackList()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }

@@ -36,15 +36,16 @@ func (ss *WSGService) WSGAccessPointAPPService() *WSGAccessPointAPPService {
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalParams map[string][]string) (*WSGAPLinemanSummary, error) {
+func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalParams map[string][]string) (*WSGAPLinemanSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     *WSGAPLinemanSummary
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
 	if v, ok := optionalParams["domainId"]; ok {
@@ -64,7 +65,8 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPLinemanSummary()
-	return resp, handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	return resp, rm, err
 }
 
 // FindApsTotalCount
@@ -76,15 +78,16 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string) (interface{}, error) {
+func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
 	if v, ok := optionalParams["domainId"]; ok {
@@ -95,26 +98,29 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, option
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
-	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // FindLinemanWorkflow
 //
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
-func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]byte, error) {
+func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]byte, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		resp     []byte
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = make([]byte, 0)
-	return resp, handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // UpdateLinemanWorkflow
@@ -123,22 +129,24 @@ func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]b
 //
 // Request Body:
 //	 - body []byte
-func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context, body []byte) error {
+func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context, body []byte) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
+		rm       *APIResponseMeta
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
 	if err = req.SetBody(body); err != nil {
-		return err
+		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	return handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }

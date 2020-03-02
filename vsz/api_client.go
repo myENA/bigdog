@@ -131,6 +131,11 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 	return c, nil
 }
 
+// Address returns the address of the VSZ node currently being connected to
+func (c *APIClient) Address() string {
+	return c.addr
+}
+
 func (c *APIClient) Debug() bool {
 	return c.debug
 }
@@ -252,6 +257,8 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 			}
 		} else {
 			apiErr = wrapErr(fmt.Errorf("expected response code %d, saw %d (%s)", successCode, responseCode, responseStatus), apiErr)
+			// todo: record bytes from here?
+			_, err = io.Copy(ioutil.Discard, httpResp.Body)
 		}
 	}
 

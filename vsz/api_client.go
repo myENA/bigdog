@@ -13,6 +13,8 @@ import (
 	"net/url"
 	"runtime"
 	"time"
+
+	"gopkg.in/go-playground/validator.v9"
 )
 
 const (
@@ -23,6 +25,19 @@ const (
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
 	logDebugAPIRequestWithBodyFormat = "%s with body: %s"
 )
+
+var (
+	pkgValidator *validator.Validate
+)
+
+func init() {
+	pkgValidator = validator.New()
+}
+
+// PackageValidator returns the global validator instance used by this client
+func PackageValidator() *validator.Validate {
+	return pkgValidator
+}
 
 type APIConfig struct {
 	// Address [required]
@@ -187,6 +202,23 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (AuthCAS, *http
 	return cas, httpResponse, err
 }
 
+type APIResponseError struct {
+	Success   bool   `json:"success"`
+	Message   string `json:"message"`
+	ErrorCode int    `json:"errorCode"`
+	ErrorType string `json:"errorType"`
+
+	Err error `json:"err"`
+}
+
+func (e *APIResponseError) Error() string {
+	return fmt.Sprintf("success=%t; errorCode=%d; errorType=%s; message=%s; err=%v", e.Success, e.ErrorCode, e.ErrorType, e.Message, e.Err)
+}
+
+func (e *APIResponseError) Unwrap() error {
+	return e.Err
+}
+
 type APIResponseMeta struct {
 	RequestMethod string `json:"requestMethod"`
 	RequestURI    string `json:"requestURI"`
@@ -231,25 +263,27 @@ func wrapErr(err, prev error) error {
 // -- in this case, the first value of the response tuple will be nil
 // - if no response model is provided, simply read out all body bytes and return them
 // - construct response meta type
-func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
+func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, *APIResponseError) {
 	// todo: do better.
 	var (
 		responseCode   int
 		responseStatus string
-		apiErr         error
+		apiErr         *APIResponseError
+		finalErr       error
 	)
+
+	if sourceErr != nil {
+		finalErr = sourceErr
+	}
 
 	// if we saw any kind of upstream error, immediately wrap in APIError type
 	// todo: flesh out with more error types
-	if sourceErr != nil {
-		apiErr = sourceErr
-	}
 
 	// if a response was received store the code, status, and response bytes for later use constructing the meta type
 	if httpResp != nil {
 
 		responseCode = httpResp.StatusCode
-		responseStatus = httpResp.Status
+		responseStatus = http.StatusText(httpResp.StatusCode)
 
 		// if we get here, we have some kind of response.  queue up body close...
 		defer func() { _ = httpResp.Body.Close() }()
@@ -259,17 +293,28 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 			if modelPtr != nil {
 				// ... and this query has a modeled response, attempt to unmarshal into that type
 				if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil {
-					apiErr = wrapErr(fmt.Errorf("error unmarshalling resoonse body into %T: %w", modelPtr, err), apiErr)
+					finalErr = wrapErr(fmt.Errorf("error unmarshalling resoonse body into %T: %w", modelPtr, err), finalErr)
 				}
 			} else {
 				// todo: record bytes from here?
 				_, _ = io.Copy(ioutil.Discard, httpResp.Body)
 			}
 		} else {
-			apiErr = wrapErr(fmt.Errorf("expected response code %d, saw %d (%s)", successCode, responseCode, responseStatus), apiErr)
+			apiErr = new(APIResponseError)
+			if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
+				finalErr = wrapErr(fmt.Errorf("error unmarshalling error body into %T: %w", apiErr, err), finalErr)
+			}
+			finalErr = wrapErr(fmt.Errorf("expected response code %d, saw %d (%s)", successCode, responseCode, responseStatus), finalErr)
 			// todo: record bytes from here?
 			_, _ = io.Copy(ioutil.Discard, httpResp.Body)
 		}
+	}
+
+	if finalErr != nil {
+		if apiErr == nil {
+			apiErr = new(APIResponseError)
+		}
+		apiErr.Err = finalErr
 	}
 
 	// build response.

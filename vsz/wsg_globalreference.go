@@ -36,7 +36,7 @@ func (s *WSGGlobalreferenceService) FindGlobalSettingsFriendlyNameLang(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindGlobalSettingsFriendlyNameLang), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindGlobalSettingsFriendlyNameLang), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFriendlyNameLangList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -57,7 +57,7 @@ func (s *WSGGlobalreferenceService) FindGlobalSettingsPortalLang(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindGlobalSettingsPortalLang), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindGlobalSettingsPortalLang), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemPortalLangList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)

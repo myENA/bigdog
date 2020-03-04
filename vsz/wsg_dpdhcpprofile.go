@@ -44,7 +44,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddDpDhcpProfiles), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddDpDhcpProfiles), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -83,7 +83,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddDpDhcpProfilesDpDhcpProfileHostsById), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddDpDhcpProfilesDpDhcpProfileHostsById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -123,7 +123,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddDpDhcpProfilesDpDhcpProfileOptionSpacesById), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddDpDhcpProfilesDpDhcpProfileOptionSpacesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -163,7 +163,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddDpDhcpProfilesDpDhcpProfilePoolsById), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddDpDhcpProfilesDpDhcpProfilePoolsById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -196,7 +196,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfiles(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfiles), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfiles), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -227,7 +227,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
@@ -261,7 +261,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 	if err = pkgValidator.VarCtx(ctx, hostId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileHostsByHostId), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileHostsByHostId), true)
 	req.SetPathParameter("hostId", hostId)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -299,7 +299,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileHostsById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileHostsById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -339,7 +339,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -376,7 +376,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 	if err = pkgValidator.VarCtx(ctx, spaceId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("spaceId", spaceId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -414,7 +414,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfilePoolsById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfilePoolsById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -451,7 +451,7 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 	if err = pkgValidator.VarCtx(ctx, poolId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("poolId", poolId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -474,7 +474,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context) (*WSGD
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfiles), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfiles), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileBasicBOList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -502,7 +502,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileBasicBO()
@@ -536,7 +536,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(c
 	if err = pkgValidator.VarCtx(ctx, hostId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsByHostId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsByHostId), true)
 	req.SetPathParameter("hostId", hostId)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -566,7 +566,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileHostBOList()
@@ -595,7 +595,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByI
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList()
@@ -629,7 +629,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByS
 	if err = pkgValidator.VarCtx(ctx, spaceId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("spaceId", spaceId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -659,7 +659,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfilePoolBOList()
@@ -693,7 +693,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(c
 	if err = pkgValidator.VarCtx(ctx, poolId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsByPoolId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsByPoolId), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("poolId", poolId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -731,7 +731,7 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpDhcpProfilesById), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpDhcpProfilesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -776,7 +776,7 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 	if err = pkgValidator.VarCtx(ctx, hostId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpDhcpProfilesDpDhcpProfileHostsByHostId), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpDhcpProfilesDpDhcpProfileHostsByHostId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -822,7 +822,7 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesB
 	if err = pkgValidator.VarCtx(ctx, spaceId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -868,7 +868,7 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 	if err = pkgValidator.VarCtx(ctx, poolId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

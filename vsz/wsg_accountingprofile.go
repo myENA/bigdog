@@ -44,7 +44,7 @@ func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesAcct), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesAcct), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -83,7 +83,7 @@ func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesAcctCloneById), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesAcctCloneById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -116,7 +116,7 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesAcct), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesAcct), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -147,7 +147,7 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesAcctById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesAcctById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -169,7 +169,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesAcct), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesAcct), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileAccountingProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -197,7 +197,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesAcctById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesAcctById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileAccountingProfile()
@@ -227,7 +227,7 @@ func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesAcctByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesAcctByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -266,7 +266,7 @@ func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateProfilesAcctById), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateProfilesAcctById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

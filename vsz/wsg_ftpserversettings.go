@@ -44,7 +44,7 @@ func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *WSGSyst
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddFtps), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddFtps), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -76,7 +76,7 @@ func (s *WSGFtpServerSettingsService) DeleteFtps(ctx context.Context, body *WSGS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteFtps), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteFtps), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -106,7 +106,7 @@ func (s *WSGFtpServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftp
 	if err = pkgValidator.VarCtx(ctx, ftpId, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteFtpsByFtpId), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteFtpsByFtpId), true)
 	req.SetPathParameter("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -134,7 +134,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 	if err = pkgValidator.VarCtx(ctx, ftpId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFtpsByFtpId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindFtpsByFtpId), true)
 	req.SetPathParameter("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtp()
@@ -164,7 +164,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFtpsByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindFtpsByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -196,7 +196,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFtpsTest), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindFtpsTest), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -227,7 +227,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 	if err = pkgValidator.VarCtx(ctx, ftpId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFtpsTestByFtpId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindFtpsTestByFtpId), true)
 	req.SetPathParameter("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtpTestResponse()
@@ -263,7 +263,7 @@ func (s *WSGFtpServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, ftpId, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateFtpsByFtpId), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateFtpsByFtpId), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

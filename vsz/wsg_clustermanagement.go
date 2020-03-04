@@ -36,7 +36,7 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context) (*WSGAdmin
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddApPatch), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddApPatch), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationApPatchStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -62,7 +62,7 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, body [
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddApPatchFile), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddApPatchFile), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -84,7 +84,7 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context) (*AP
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddClusterBackup), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddClusterBackup), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -110,7 +110,7 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddClusterRestoreById), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddClusterRestoreById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -131,7 +131,7 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddConfigurationBackup), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddConfigurationBackup), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
@@ -158,7 +158,7 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddConfigurationRestoreById), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddConfigurationRestoreById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -184,7 +184,7 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddConfigurationUpload), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddConfigurationUpload), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -207,7 +207,7 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context) (*WSGAdmin
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddUpgrade), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddUpgrade), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationUpgradeStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -234,7 +234,7 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddUpgradeUpload), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddUpgradeUpload), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -264,7 +264,7 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteClusterById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteClusterById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -291,7 +291,7 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteConfigurationById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteConfigurationById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -312,7 +312,7 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*WSGAdmi
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApPatch), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApPatch), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationApPatchInfo()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -341,7 +341,7 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApPatchHistory), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApPatchHistory), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -371,7 +371,7 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApPatchStatus), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApPatchStatus), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationApPatchStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -400,7 +400,7 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCluster), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindCluster), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -430,7 +430,7 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindClusterGeoRedundancy), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindClusterGeoRedundancy), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGClusterRedundancySettings()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -451,7 +451,7 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindClusterState), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindClusterState), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGClusterBladeClusterState()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -478,7 +478,7 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindConfiguration), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindConfiguration), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -516,7 +516,7 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, backupUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindConfigurationDownload), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindConfigurationDownload), true)
 	req.SetQueryParameter("backupUUID", []string{backupUUID})
 	if v, ok := optionalParams["timeZone"]; ok {
 		req.AddQueryParameter("timeZone", v)
@@ -541,7 +541,7 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindConfigurationSettingsAutoExportBackup), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindConfigurationSettingsAutoExportBackup), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationAutoExportBackup()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -562,7 +562,7 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindConfigurationSettingsScheduleBackup), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindConfigurationSettingsScheduleBackup), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationScheduleBackup()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -591,7 +591,7 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindUpgradeHistory), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindUpgradeHistory), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -621,7 +621,7 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindUpgradePatch), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindUpgradePatch), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationUpgradePatchInfo()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -642,7 +642,7 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindUpgradeStatus), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindUpgradeStatus), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationUpgradeStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -671,7 +671,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -703,7 +703,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -735,7 +735,7 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateClusterGeoRedundancy), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateClusterGeoRedundancy), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

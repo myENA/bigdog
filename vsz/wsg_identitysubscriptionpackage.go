@@ -44,7 +44,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddIdentityPackageList), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddIdentityPackageList), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -76,7 +76,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddIdentityPackages), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddIdentityPackages), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -107,7 +107,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteIdentityPackages), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteIdentityPackages), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -137,7 +137,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteIdentityPackagesById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteIdentityPackagesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -159,7 +159,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindIdentityPackages), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindIdentityPackages), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentitySubscriptionPackageList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -187,7 +187,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindIdentityPackagesById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindIdentityPackagesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentitySubscriptionPackage()
@@ -224,7 +224,7 @@ func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesByI
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateIdentityPackagesById), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateIdentityPackagesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

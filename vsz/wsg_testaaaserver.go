@@ -44,7 +44,7 @@ func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddSystemAaaTest), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddSystemAaaTest), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

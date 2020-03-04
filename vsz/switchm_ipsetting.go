@@ -44,7 +44,7 @@ func (s *SwitchMIPSettingService) AddIpConfigs(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddIpConfigs), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddIpConfigs), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +75,7 @@ func (s *SwitchMIPSettingService) DeleteIpConfigs(ctx context.Context, body *Swi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteIpConfigs), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteIpConfigs), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -104,7 +104,7 @@ func (s *SwitchMIPSettingService) DeleteIpConfigsById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteIpConfigsById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteIpConfigsById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -125,7 +125,7 @@ func (s *SwitchMIPSettingService) FindIpConfigs(ctx context.Context) (*SwitchMIp
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindIpConfigs), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindIpConfigs), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMIpConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -153,7 +153,7 @@ func (s *SwitchMIPSettingService) FindIpConfigsById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindIpConfigsById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindIpConfigsById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMIpConfig()
@@ -183,7 +183,7 @@ func (s *SwitchMIPSettingService) FindIpConfigsByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindIpConfigsByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindIpConfigsByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -222,7 +222,7 @@ func (s *SwitchMIPSettingService) UpdateIpConfigsById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateIpConfigsById), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateIpConfigsById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

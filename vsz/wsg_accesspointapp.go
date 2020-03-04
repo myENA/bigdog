@@ -48,7 +48,7 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApsLineman), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApsLineman), true)
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
@@ -90,7 +90,7 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, option
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApsTotalCount), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApsTotalCount), true)
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
@@ -117,7 +117,7 @@ func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]b
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindLinemanWorkflow), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindLinemanWorkflow), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = make([]byte, 0)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -143,7 +143,7 @@ func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context, bo
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateLinemanWorkflow), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateLinemanWorkflow), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

@@ -1048,7 +1048,7 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddAdminaaa), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddAdminaaa), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1071,7 +1071,7 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context) (*APIResponse
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRestart), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddRestart), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -1090,7 +1090,7 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) (*APIRespons
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddShutdown), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddShutdown), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -1117,7 +1117,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteAdminaaaById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteAdminaaaById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -1146,7 +1146,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 	if err = pkgValidator.VarCtx(ctx, type_, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAdminaaa), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindAdminaaa), true)
 	req.SetQueryParameter("type_", []string{type_})
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationRetrieveAdminAAAServerList()
@@ -1175,7 +1175,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAdminaaaById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindAdminaaaById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationRetrieveAdminAAAServer()
@@ -1197,7 +1197,7 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdmini
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindLicenses), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindLicenses), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationLicensesList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -1218,7 +1218,7 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGA
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindLicenseServer), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindLicenseServer), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationLicenseServer()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -1239,7 +1239,7 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindLicensesSummary), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindLicensesSummary), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationLicensesSummaryList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -1260,7 +1260,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindLicensesSyncLogs), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindLicensesSyncLogs), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationLicensesSyncLogsList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -1296,7 +1296,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateAdminaaaById), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateAdminaaaById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1328,7 +1328,7 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateLicenseServer), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateLicenseServer), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -1350,7 +1350,7 @@ func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context) (*API
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateLicensesSync), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateLicensesSync), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

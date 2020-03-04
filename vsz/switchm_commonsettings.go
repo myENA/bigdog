@@ -44,7 +44,7 @@ func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddDnsConfig), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddDnsConfig), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -74,7 +74,7 @@ func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteDnsConfigBySwitchGroupId), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteDnsConfigBySwitchGroupId), true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -102,7 +102,7 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindDnsConfigBySwitchGroupId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindDnsConfigBySwitchGroupId), true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDnsConfig()
@@ -139,7 +139,7 @@ func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx contex
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateDnsConfigBySwitchGroupId), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateDnsConfigBySwitchGroupId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

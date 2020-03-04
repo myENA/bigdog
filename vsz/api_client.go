@@ -16,8 +16,8 @@ import (
 )
 
 const (
-	DefaultWSGPathPrefix     = "wsg/api"
-	DefaultSwitchMPathPrefix = "switchm/api"
+	DefaultWSGPathPrefix     = "/wsg/api/public"
+	DefaultSwitchMPathPrefix = "/switchm/api"
 
 	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"

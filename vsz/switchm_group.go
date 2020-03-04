@@ -392,7 +392,7 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddGroup), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddGroup), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -423,7 +423,7 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteGroupBySwitchGroupId), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteGroupBySwitchGroupId), true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMGroupAuditId()
@@ -452,7 +452,7 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindGroupBySwitchGroupId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindGroupBySwitchGroupId), true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMGroupSwitchGroup()
@@ -485,7 +485,7 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, domainId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindGroupIdsByDomainByDomainId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindGroupIdsByDomainByDomainId), true)
 	req.SetPathParameter("domainId", domainId)
 	if v, ok := optionalParams["showStagingGroup"]; ok {
 		req.AddQueryParameter("showStagingGroup", v)
@@ -518,7 +518,7 @@ func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindSwitchClientVisibilityByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSwitchClientVisibilityByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -557,7 +557,7 @@ func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, switchGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMPartialUpdateGroupBySwitchGroupId), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMPartialUpdateGroupBySwitchGroupId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

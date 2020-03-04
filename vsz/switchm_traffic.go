@@ -372,7 +372,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTopPoeutilization), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTopPoeutilization), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -404,7 +404,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTopPorterror), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTopPorterror), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -436,7 +436,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTopPortusage), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTopPortusage), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -468,7 +468,7 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTopUsage), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTopUsage), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -500,7 +500,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTotalTrend), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddTrafficTotalTrend), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

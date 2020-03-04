@@ -42,7 +42,7 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -69,7 +69,7 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -90,7 +90,7 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*WSGSy
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanes), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanes), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemControlPlaneList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -118,7 +118,7 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanesByBladeUUID), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanesByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemControlPlaneConfiguration()
@@ -144,7 +144,7 @@ func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanesInterfaces), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanesInterfaces), true)
 	if v, ok := optionalParams["bladeUUID"]; ok {
 		req.AddQueryParameter("bladeUUID", v)
 	}
@@ -175,7 +175,7 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanesStaticRoutesByBladeUUID), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanesStaticRoutesByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemStaticRouteList()
@@ -204,7 +204,7 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemUserDefinedInterfaceList()
@@ -241,7 +241,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateControlPlanesByBladeUUID), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateControlPlanesByBladeUUID), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -274,7 +274,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateControlPlanesIpSupport), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateControlPlanesIpSupport), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -313,7 +313,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeU
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateControlPlanesStaticRoutesByBladeUUID), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateControlPlanesStaticRoutesByBladeUUID), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -353,7 +353,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesUserDefinedInterface
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

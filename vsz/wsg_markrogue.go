@@ -44,7 +44,7 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRogueMarkIgnore), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddRogueMarkIgnore), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -76,7 +76,7 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRogueMarkKnown), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddRogueMarkKnown), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -108,7 +108,7 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRogueMarkMalicious), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddRogueMarkMalicious), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -140,7 +140,7 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRogueMarkRogue), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddRogueMarkRogue), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -172,7 +172,7 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRogueUnMark), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddRogueUnMark), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -196,7 +196,7 @@ func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context) (*WSGAPMod
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRogueMarkKnown), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindRogueMarkKnown), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPModifyRogueType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)

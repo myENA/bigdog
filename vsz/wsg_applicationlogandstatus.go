@@ -49,7 +49,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApplicationsByBladeUUID), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApplicationsByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
@@ -93,7 +93,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 	if err = pkgValidator.VarCtx(ctx, appName, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApplicationsDownloadByBladeUUID), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApplicationsDownloadByBladeUUID), true)
 	req.SetQueryParameter("appName", []string{appName})
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	if v, ok := optionalParams["logFileName"]; ok {
@@ -126,7 +126,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApplicationsDownloadsnapByBladeUUID), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApplicationsDownloadsnapByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = make([]byte, 0)
@@ -155,7 +155,7 @@ func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateApplications), true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateApplications), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

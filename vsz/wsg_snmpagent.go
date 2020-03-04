@@ -36,7 +36,7 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSyst
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemSnmpAgent), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindSystemSnmpAgent), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemSnmpAgentConfiguration()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -65,7 +65,7 @@ func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateSystemSnmpAgent), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateSystemSnmpAgent), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

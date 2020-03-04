@@ -1350,7 +1350,7 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddSwitch), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddSwitch), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1382,7 +1382,7 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddSwitchSnmpSyncedSwitch), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddSwitchSnmpSyncedSwitch), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1414,7 +1414,7 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddSwitchViewDetails), true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddSwitchViewDetails), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1444,7 +1444,7 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteSwitch), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteSwitch), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1475,7 +1475,7 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string) 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteSwitchById), true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteSwitchById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchAuditId()
@@ -1504,7 +1504,7 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string) (*
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindSwitchById), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSwitchById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchNetworkSwitch()
@@ -1533,7 +1533,7 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindSwitchFirmwareBySwitchId), true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSwitchFirmwareBySwitchId), true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchFirmwareHistoryQueryResultList()
@@ -1568,7 +1568,7 @@ func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx co
 	if err = pkgValidator.VarCtx(ctx, destinationSwitchGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateSwitchMoveByDestinationSwitchGroupId), true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateSwitchMoveByDestinationSwitchGroupId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

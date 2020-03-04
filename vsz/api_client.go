@@ -263,12 +263,12 @@ func wrapErr(err, prev error) error {
 // -- in this case, the first value of the response tuple will be nil
 // - if no response model is provided, simply read out all body bytes and return them
 // - construct response meta type
-func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, *APIResponseError) {
+func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
 	// todo: do better.
 	var (
 		responseCode   int
 		responseStatus string
-		apiErr         *APIResponseError
+		respErr        *APIResponseError
 		finalErr       error
 	)
 
@@ -300,23 +300,21 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 				_, _ = io.Copy(ioutil.Discard, httpResp.Body)
 			}
 		} else {
-			apiErr = new(APIResponseError)
-			if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
-				finalErr = wrapErr(fmt.Errorf("error unmarshalling error body into %T: %w", apiErr, err), finalErr)
+			respErr = new(APIResponseError)
+			if err := json.NewDecoder(httpResp.Body).Decode(respErr); err != nil {
+				finalErr = wrapErr(fmt.Errorf("error unmarshalling error body into %T: %w", respErr, err), finalErr)
 			}
 			finalErr = wrapErr(fmt.Errorf("expected response code %d, saw %d (%s)", successCode, responseCode, responseStatus), finalErr)
-			// todo: record bytes from here?
-			_, _ = io.Copy(ioutil.Discard, httpResp.Body)
 		}
 	}
 
 	if finalErr != nil {
-		if apiErr == nil {
-			apiErr = new(APIResponseError)
+		if respErr == nil {
+			respErr = new(APIResponseError)
 		}
-		apiErr.Err = finalErr
+		respErr.Err = finalErr
 	}
 
 	// build response.
-	return newAPIResponseMeta(req, successCode, responseCode, responseStatus), apiErr
+	return newAPIResponseMeta(req, successCode, responseCode, responseStatus), respErr
 }

@@ -10,12 +10,12 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"net/url"
 	"runtime"
 	"time"
 )
 
 const (
-	DefaultAPIPort           = 8443
 	DefaultWSGPathPrefix     = "wsg/api"
 	DefaultSwitchMPathPrefix = "switchm/api"
 
@@ -27,7 +27,7 @@ const (
 type APIConfig struct {
 	// Address [required]
 	//
-	// Address or hostname of your VSZ instance
+	// Full address of VSZ, including scheme and port
 	Address string `json:"address"`
 
 	// WSGPathPrefix [optional]
@@ -39,11 +39,6 @@ type APIConfig struct {
 	//
 	// Path prefix to access Switch Management API endpoints
 	SwitchMPathPrefix string `json:"switchMPathPrefix"`
-
-	// APIPort [optional]
-	//
-	// APIPort to use when executing API calls.
-	APIPort int `json:"port"`
 
 	// Debug [optional]
 	//
@@ -71,7 +66,6 @@ type APIClient struct {
 	addr        string
 	wsgPath     string
 	switchMPath string
-	port        int
 	auth        Authenticator
 
 	client *http.Client
@@ -83,6 +77,10 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 	}
 	if conf.Authenticator == nil {
 		return nil, errors.New("authenticator must be defined")
+	}
+
+	if _, err := url.Parse(conf.Address); err != nil {
+		return nil, fmt.Errorf("invalid address specified: %w", err)
 	}
 
 	c := new(APIClient)
@@ -116,11 +114,6 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 		}
 	}
 
-	if conf.APIPort != 0 {
-		c.port = conf.APIPort
-	} else {
-		c.port = DefaultAPIPort
-	}
 	if conf.WSGPathPrefix != "" {
 		c.wsgPath = conf.WSGPathPrefix
 	} else {
@@ -187,7 +180,7 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (AuthCAS, *http
 
 		c.log.Print(logMsg)
 	}
-	if httpRequest, err = request.toHTTP(ctx, c.addr, c.port); err != nil {
+	if httpRequest, err = request.toHTTP(ctx, c.addr); err != nil {
 		return cas, nil, err
 	}
 	httpResponse, err = c.client.Do(httpRequest)

@@ -20,7 +20,7 @@ const (
 	uriQueryParameterAddValueFormat   = "%s%s=%s&"
 	uriQueryParameterCutSet           = "&"
 
-	apiRequestURLFormat = "%s:%d%s"
+	apiRequestURLFormat = "%s%s"
 
 	headerKeyContentType       = "Content-Type"
 	headerKeyAccept            = "Accept"
@@ -251,13 +251,13 @@ func (r *APIRequest) CompiledURI() string {
 }
 
 // toHTTP will attempt to construct an executable http.request
-func (r *APIRequest) toHTTP(ctx context.Context, addr string, port int) (*http.Request, error) {
+func (r *APIRequest) toHTTP(ctx context.Context, addr string) (*http.Request, error) {
 	var err error
 	var httpRequest *http.Request
 
 	body := r.Body()
 	bodyLen := len(body)
-	compiledURL := fmt.Sprintf(apiRequestURLFormat, addr, port, r.CompiledURI())
+	compiledURL := fmt.Sprintf(apiRequestURLFormat, addr, r.CompiledURI())
 
 	if bodyLen == 0 {
 		httpRequest, err = http.NewRequest(r.method, compiledURL, nil)

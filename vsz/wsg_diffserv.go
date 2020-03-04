@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -50,7 +51,7 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDiffservByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesDiffservByZoneId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -86,7 +87,7 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDiffservById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesDiffservById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -120,7 +121,7 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesDiffservById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -150,7 +151,7 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesDiffservByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGZoneDiffServList()
@@ -180,7 +181,7 @@ func (s *WSGDiffServService) FindServicesDscpProfileByQueryCriteria(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesDscpProfileByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindServicesDscpProfileByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -223,7 +224,7 @@ func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesDiffservById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateRkszonesDiffservById), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

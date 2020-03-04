@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *SwitchMVLANSettingService) AddVlans(ctx context.Context, body *SwitchMV
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddVlans, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddVlans), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -74,7 +75,7 @@ func (s *SwitchMVLANSettingService) DeleteVlans(ctx context.Context, body *Switc
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlans, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteVlans), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -103,7 +104,7 @@ func (s *SwitchMVLANSettingService) DeleteVlansById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVlansById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteVlansById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -124,7 +125,7 @@ func (s *SwitchMVLANSettingService) FindVlans(ctx context.Context) (*SwitchMVlan
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlans, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindVlans), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVlanConfigQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -152,7 +153,7 @@ func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlansById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindVlansById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVlanConfig()
@@ -182,7 +183,7 @@ func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindVlansByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindVlansByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -221,7 +222,7 @@ func (s *SwitchMVLANSettingService) UpdateVlansById(ctx context.Context, body *S
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVlansById, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateVlansById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

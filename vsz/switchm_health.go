@@ -5,6 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -288,7 +289,7 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthCpuAgg, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddHealthCpuAgg), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -320,7 +321,7 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthCpuLine, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddHealthCpuLine), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -352,7 +353,7 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthMemAgg, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddHealthMemAgg), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -384,7 +385,7 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthMemLine, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddHealthMemLine), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -416,7 +417,7 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatus, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddHealthStatus), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -448,7 +449,7 @@ func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *Swi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatusAll, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddHealthStatusAll), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

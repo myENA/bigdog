@@ -5,6 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -393,7 +394,7 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddPortSettingsBulk, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddPortSettingsBulk), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -417,7 +418,7 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*Swi
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettings, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindPortSettings), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMPortSettingsQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -445,7 +446,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettingsById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindPortSettingsById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMPortSettings()
@@ -475,7 +476,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindPortSettingsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindPortSettingsByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -514,7 +515,7 @@ func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdatePortSettingsById, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMUpdatePortSettingsById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

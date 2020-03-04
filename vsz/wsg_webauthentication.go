@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -50,7 +51,7 @@ func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx cont
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesPortalsWebauthByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesPortalsWebauthByZoneId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -87,7 +88,7 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesPortalsWebauthById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -122,7 +123,7 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthRedirectById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesPortalsWebauthRedirectById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -157,7 +158,7 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsWebauthById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesPortalsWebauthById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -187,7 +188,7 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx con
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesPortalsWebauthByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesPortalsWebauthByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGPortalServiceList()
@@ -217,7 +218,7 @@ func (s *WSGWebAuthenticationService) FindServicesWebAuthenticationByQueryCriter
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesWebAuthenticationByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindServicesWebAuthenticationByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -261,7 +262,7 @@ func (s *WSGWebAuthenticationService) PartialUpdateRkszonesPortalsWebauthById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsWebauthById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateRkszonesPortalsWebauthById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

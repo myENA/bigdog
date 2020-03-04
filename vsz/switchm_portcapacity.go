@@ -5,6 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -104,7 +105,7 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context) (*Swi
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortCapacity, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindPortCapacity), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMPortCapacityResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)

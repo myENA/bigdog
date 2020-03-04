@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -42,7 +43,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneI
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesEventEmailSettingsByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesEventEmailSettingsByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGEventManagementEventEmailSetting()
@@ -71,7 +72,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettings
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesEventNotificationSettingsByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesEventNotificationSettingsByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGEventManagementEventDataResponse()
@@ -108,7 +109,7 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZon
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesEventEmailSettingsByZoneId, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateRkszonesEventEmailSettingsByZoneId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -146,7 +147,7 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettin
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesEventNotificationSettingsByZoneId, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateRkszonesEventNotificationSettingsByZoneId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

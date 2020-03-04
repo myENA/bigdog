@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -431,7 +432,7 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, bod
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesApgroupsByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesApgroupsByZoneId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -473,7 +474,7 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesApgroupsMembersByApMac, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesApgroupsMembersByApMac), true)
 	req.SetPathParameter("apMac", apMac)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -517,7 +518,7 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesApgroupsMembersById, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesApgroupsMembersById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -555,7 +556,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAltitudeById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsAltitudeById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -590,7 +591,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsApMgmtVlanById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsApMgmtVlanById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -630,7 +631,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, model, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsApmodelByModel, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsApmodelByModel), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("model", model)
 	req.SetPathParameter("zoneId", zoneId)
@@ -666,7 +667,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection24ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection24ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -701,7 +702,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection50ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection50ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -736,7 +737,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAwsVenueById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAwsVenueById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsAwsVenueById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -771,7 +772,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id s
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -806,7 +807,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsChannelEvaluationIntervalById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsChannelEvaluationIntervalById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -841,7 +842,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl24ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl24ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -876,7 +877,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl50ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl50ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -911,7 +912,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEn
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -946,7 +947,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClie
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -981,7 +982,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessC
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1016,7 +1017,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationAdditionalInfoById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsLocationAdditionalInfoById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1051,7 +1052,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationBasedServiceById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsLocationBasedServiceById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1086,7 +1087,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsLocationById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1121,7 +1122,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLteBandLockChannelsById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsLteBandLockChannelsById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1161,7 +1162,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsMembersByApMac, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsMembersByApMac), true)
 	req.SetPathParameter("apMac", apMac)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -1197,7 +1198,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsProtectionMode24ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsProtectionMode24ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1232,7 +1233,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRecoverySsidById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsRecoverySsidById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1267,7 +1268,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRksGreForwardBroadcastById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRksGreForwardBroadcastById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsRksGreForwardBroadcastById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1302,7 +1303,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApAggressivenessModeById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsRogueApAggressivenessModeById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1337,7 +1338,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApJammingThresholdById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsRogueApJammingThresholdById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1372,7 +1373,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApReportThresholdById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsRogueApReportThresholdById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1407,7 +1408,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsVenueProfileById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsVenueProfileById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1442,7 +1443,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi24ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1477,7 +1478,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi24ChannelById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1512,7 +1513,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelRangeById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi24ChannelRangeById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1547,7 +1548,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelWidthById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi24ChannelWidthById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1582,7 +1583,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24TxPowerById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi24TxPowerById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1617,7 +1618,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi50ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1652,7 +1653,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50ChannelWidthById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi50ChannelWidthById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1687,7 +1688,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1722,7 +1723,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelRangeById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelRangeById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1757,7 +1758,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1792,7 +1793,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelRangeById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelRangeById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1827,7 +1828,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50TxPowerById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWifi50TxPowerById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1862,7 +1863,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWlanGroup24ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWlanGroup24ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1897,7 +1898,7 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWlanGroup50ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesApgroupsWlanGroup50ById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -1937,7 +1938,7 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsApmodelByModel(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, model, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsApmodelByModel, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesApgroupsApmodelByModel), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("model", model)
 	req.SetPathParameter("zoneId", zoneId)
@@ -1973,7 +1974,7 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, id str
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesApgroupsById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -2009,7 +2010,7 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zo
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesApgroupsByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
@@ -2044,7 +2045,7 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsDefaultByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesApgroupsDefaultByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPGroupConfiguration()
@@ -2086,7 +2087,7 @@ func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesApgroupsById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateRkszonesApgroupsById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -2137,7 +2138,7 @@ func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, model, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesApgroupsApmodelByModel, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateRkszonesApgroupsApmodelByModel), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -2184,7 +2185,7 @@ func (s *WSGAPGroupService) UpdateRkszonesApgroupsById(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesApgroupsById, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateRkszonesApgroupsById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

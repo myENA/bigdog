@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -162,7 +163,7 @@ func (s *WSGDNSSpoofingProfileService) AddRkszonesDnsSpoofingProfilesByZoneId(ct
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDnsSpoofingProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesDnsSpoofingProfilesByZoneId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -195,7 +196,7 @@ func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfiles(ctx con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDnsSpoofingProfiles, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesDnsSpoofingProfiles), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -231,7 +232,7 @@ func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfilesById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDnsSpoofingProfilesById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesDnsSpoofingProfilesById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -266,7 +267,7 @@ func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDnsSpoofingProfilesById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesDnsSpoofingProfilesById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -296,7 +297,7 @@ func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesByZoneId(c
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDnsSpoofingProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesDnsSpoofingProfilesByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDNSSpoofingProfileGetDnsSpoofingProfileList()
@@ -338,7 +339,7 @@ func (s *WSGDNSSpoofingProfileService) UpdateRkszonesDnsSpoofingProfilesById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesDnsSpoofingProfilesById, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateRkszonesDnsSpoofingProfilesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

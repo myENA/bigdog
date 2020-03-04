@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *WSGFirewallProfileService) AddFirewallProfiles(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddFirewallProfiles, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddFirewallProfiles), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +76,7 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfiles(ctx context.Context, 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteFirewallProfiles, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteFirewallProfiles), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -105,7 +106,7 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfilesById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteFirewallProfilesById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteFirewallProfilesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -134,7 +135,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfiles(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindFirewallProfiles, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFirewallProfiles), true)
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
@@ -171,7 +172,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindFirewallProfilesById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFirewallProfilesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileFirewallProfile()
@@ -201,7 +202,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesByQueryCriteria(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindFirewallProfilesByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFirewallProfilesByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -232,7 +233,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesEthernetPortProfilesById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindFirewallProfilesEthernetPortProfilesById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFirewallProfilesEthernetPortProfilesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGEthernetPortProfileList()
@@ -261,7 +262,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesWlansById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindFirewallProfilesWlansById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindFirewallProfilesWlansById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGWLANQueryList()
@@ -298,7 +299,7 @@ func (s *WSGFirewallProfileService) UpdateFirewallProfilesById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateFirewallProfilesById, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateFirewallProfilesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

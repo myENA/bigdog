@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -50,7 +51,7 @@ func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesBonjourFencingPolicyByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesBonjourFencingPolicyByZoneId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -83,7 +84,7 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicy, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesBonjourFencingPolicy), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -113,7 +114,7 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicyById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesBonjourFencingPolicyById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -141,7 +142,7 @@ func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(c
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsBonjourFencingStatisticByApMac, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApsBonjourFencingStatisticByApMac), true)
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileBonjourFencingStatistic()
@@ -175,7 +176,7 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesBonjourFencingPolicyById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -205,7 +206,7 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesBonjourFencingPolicyByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileBonjourFencingPolicyList()
@@ -235,7 +236,7 @@ func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQuery
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesBonjourFencingPolicyByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindServicesBonjourFencingPolicyByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -279,7 +280,7 @@ func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPoli
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourFencingPolicyById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateRkszonesBonjourFencingPolicyById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

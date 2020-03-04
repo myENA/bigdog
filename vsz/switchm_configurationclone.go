@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddCloneConfiguration, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddCloneConfiguration), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +76,7 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddCloneConfigurationByGroup, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddCloneConfigurationByGroup), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -107,7 +108,7 @@ func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateCloneConfiguration, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateCloneConfiguration), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

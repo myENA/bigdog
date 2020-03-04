@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -50,7 +51,7 @@ func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ct
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesSplitTunnelProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesSplitTunnelProfilesByZoneId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -87,7 +88,7 @@ func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSplitTunnelProfilesById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesSplitTunnelProfilesById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -122,7 +123,7 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesSplitTunnelProfilesById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesSplitTunnelProfilesById), true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -153,7 +154,7 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCri
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesSplitTunnelProfilesByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesSplitTunnelProfilesByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -184,7 +185,7 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(c
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesSplitTunnelProfilesByZoneId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesSplitTunnelProfilesByZoneId), true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSplitTunnelProfileList()
@@ -226,7 +227,7 @@ func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesB
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesSplitTunnelProfilesById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateRkszonesSplitTunnelProfilesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -272,7 +273,7 @@ func (s *WSGSplitTunnelProfileService) UpdateRkszonesSplitTunnelProfilesById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesSplitTunnelProfilesById, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateRkszonesSplitTunnelProfilesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

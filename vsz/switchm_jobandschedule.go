@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddJob, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddJob), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -67,7 +68,7 @@ func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (i
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteJobSchedule, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteJobSchedule), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -103,7 +104,7 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, jobId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobByJobId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindJobByJobId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -135,7 +136,7 @@ func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, scheduleId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindJobScheduleByScheduleId), true)
 	req.SetPathParameter("scheduleId", scheduleId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMJobScheduleResponse()

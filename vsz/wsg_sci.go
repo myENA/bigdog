@@ -5,6 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -315,7 +316,7 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddSciSciEventCode, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddSciSciEventCode), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -347,7 +348,7 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddSciSciProfile, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddSciSciProfile), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -379,7 +380,7 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfile, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteSciSciProfile), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -410,7 +411,7 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string) 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteSciSciProfileById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -432,7 +433,7 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCo
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciEventCode, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSciSciEventCode), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCIEventCode()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -453,7 +454,7 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileLi
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfile, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSciSciProfile), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCIProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -481,7 +482,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfileById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSciSciProfileById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCIProfile()
@@ -511,7 +512,7 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSciSciEnabled, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSciSciEnabled), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -550,7 +551,7 @@ func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSciSciProfileById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSciSciProfileById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

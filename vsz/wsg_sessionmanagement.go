@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -85,7 +86,7 @@ func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context)
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSessionManagement, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSessionManagement), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSessionManagementRuckusSessions()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)

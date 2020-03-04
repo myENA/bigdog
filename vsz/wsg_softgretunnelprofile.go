@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelSoftgre, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesTunnelSoftgre), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +76,7 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgre, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesTunnelSoftgre), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -106,7 +107,7 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgreById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesTunnelSoftgreById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -128,7 +129,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgre, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesTunnelSoftgre), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -156,7 +157,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgreById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesTunnelSoftgreById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileSoftGREProfile()
@@ -186,7 +187,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelSoftgreByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesTunnelSoftgreByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -225,7 +226,7 @@ func (s *WSGSoftGRETunnelProfileService) PartialUpdateProfilesTunnelSoftgreById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelSoftgreById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateProfilesTunnelSoftgreById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

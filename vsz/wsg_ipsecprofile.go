@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelIpsec, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesTunnelIpsec), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +76,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsec, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesTunnelIpsec), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -106,7 +107,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesTunnelIpsecById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -134,7 +135,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsec, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesTunnelIpsec), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -168,7 +169,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelIpsecById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesTunnelIpsecById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileIpsecProfile()
@@ -198,7 +199,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelIpsecByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesTunnelIpsecByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -237,7 +238,7 @@ func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelIpsecById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateProfilesTunnelIpsecById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

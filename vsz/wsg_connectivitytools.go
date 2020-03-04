@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddToolSpeedflex, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddToolSpeedflex), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -79,7 +80,7 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 	if err = pkgValidator.VarCtx(ctx, targetIP, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindToolPing), true)
 	req.SetQueryParameter("apMac", []string{apMac})
 	req.SetQueryParameter("targetIP", []string{targetIP})
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -109,7 +110,7 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, wcid, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindToolSpeedflexByWcid), true)
 	req.SetPathParameter("wcid", wcid)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGToolTestResult()
@@ -147,7 +148,7 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 	if err = pkgValidator.VarCtx(ctx, targetIP, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindToolTraceRoute), true)
 	req.SetQueryParameter("apMac", []string{apMac})
 	req.SetQueryParameter("targetIP", []string{targetIP})
 	if v, ok := optionalParams["timeoutInSec"]; ok {

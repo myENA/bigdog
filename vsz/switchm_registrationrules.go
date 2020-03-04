@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddRegistrationRules, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddRegistrationRules), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -73,7 +74,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRules, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteRegistrationRules), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -104,7 +105,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRulesById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteRegistrationRulesById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMRegistrationDeleteResult()
@@ -126,7 +127,7 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindRegistrationRules, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindRegistrationRules), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMRegistrationRuleQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -162,7 +163,7 @@ func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateRegistrationRulesById, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateRegistrationRulesById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

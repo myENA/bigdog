@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -39,7 +40,7 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSmsGateway, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSmsGateway), true)
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
@@ -71,7 +72,7 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindSmsGatewayByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSmsGatewayByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -103,7 +104,7 @@ func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSmsGateway, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSmsGateway), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

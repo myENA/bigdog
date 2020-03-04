@@ -244,7 +244,6 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 		responseCode   int
 		responseStatus string
 		apiErr         error
-		err            error
 	)
 
 	// if we saw any kind of upstream error, immediately wrap in APIError type
@@ -266,7 +265,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 			// if the response code matches the expected "success" code...
 			if modelPtr != nil {
 				// ... and this query has a modeled response, attempt to unmarshal into that type
-				if err = json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil {
+				if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil {
 					apiErr = wrapErr(fmt.Errorf("error unmarshalling resoonse body into %T: %w", modelPtr, err), apiErr)
 				}
 			} else {

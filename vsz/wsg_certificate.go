@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -564,7 +565,7 @@ func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddCertstoreCertificate, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddCertstoreCertificate), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -596,7 +597,7 @@ func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddCertstoreClientCert, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddCertstoreClientCert), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -628,7 +629,7 @@ func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCe
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddCertstoreCsr, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddCertstoreCsr), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -660,7 +661,7 @@ func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddCertstoreTrustedCAChainCert, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddCertstoreTrustedCAChainCert), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -691,7 +692,7 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreCertificateById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteCertstoreCertificateById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -720,7 +721,7 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreClientCertById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteCertstoreClientCertById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -749,7 +750,7 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id s
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreCsrById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteCertstoreCsrById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -779,7 +780,7 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCert, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteCertstoreTrustedCAChainCert), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -810,7 +811,7 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCertById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteCertstoreTrustedCAChainCertById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -838,7 +839,7 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCertificate, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreCertificate), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -872,7 +873,7 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCertificateById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreCertificateById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificate()
@@ -900,7 +901,7 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreClientCert, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreClientCert), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -934,7 +935,7 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreClientCertById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreClientCertById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificateClientCert()
@@ -962,7 +963,7 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCsr, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreCsr), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -996,7 +997,7 @@ func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id str
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCsrById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreCsrById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificatesSigningRequest()
@@ -1018,7 +1019,7 @@ func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context) (*WSGC
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreSetting, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreSetting), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificateCertSetting()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -1045,7 +1046,7 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCert, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreTrustedCAChainCert), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -1079,7 +1080,7 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCertById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindCertstoreTrustedCAChainCertById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificateTrustedCAChain()
@@ -1109,7 +1110,7 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateCertstoreSetting, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateCertstoreSetting), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1139,7 +1140,7 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateCertstoreSettingServiceCertificates, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateCertstoreSettingServiceCertificates), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1178,7 +1179,7 @@ func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateCertstoreTrustedCAChainCertById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateCertstoreTrustedCAChainCertById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

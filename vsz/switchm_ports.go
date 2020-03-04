@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchPortsDetails, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddSwitchPortsDetails), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +76,7 @@ func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchPortsSummary, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddSwitchPortsSummary), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

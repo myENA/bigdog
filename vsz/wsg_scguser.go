@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -843,7 +844,7 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddUsers, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddUsers), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -875,7 +876,7 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsers, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteUsers), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -906,7 +907,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteUsersByUserId), true)
 	req.SetPathParameter("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserAuditId()
@@ -936,7 +937,7 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindUsersByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindUsersByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -967,7 +968,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindUsersByUserId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindUsersByUserId), true)
 	req.SetPathParameter("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGetScgUser()
@@ -1004,7 +1005,7 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUsersByUserId, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateUsersByUserId), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

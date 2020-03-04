@@ -5,6 +5,7 @@ package vsz
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -449,7 +450,7 @@ func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackCon
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddStack, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMAddStack), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -480,7 +481,7 @@ func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId 
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindStackBySwitchId), true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackConfig()
@@ -509,7 +510,7 @@ func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, serialNumber, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.switchMPath, RouteSwitchMFindStackMemberBySerialNumber), true)
 	req.SetPathParameter("serialNumber", serialNumber)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackList()

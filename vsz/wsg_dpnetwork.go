@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -42,7 +43,7 @@ func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeletePlanesStaticRouteByBladeUUID, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeletePlanesStaticRouteByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -64,7 +65,7 @@ func (s *WSGDPNetworkService) FindPlanes(ctx context.Context) (*WSGSystemDataPla
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanes, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindPlanes), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemDataPlaneList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -92,7 +93,7 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindPlanesByBladeUUID), true)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemDataPlaneConfiguration()
@@ -120,7 +121,7 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, bod
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesDpTunnelSetting, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindPlanesDpTunnelSetting), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -159,7 +160,7 @@ func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdatePlanesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdatePlanesByBladeUUID), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -199,7 +200,7 @@ func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, bladeUUID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdatePlaneStatesByBladeUUID, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdatePlaneStatesByBladeUUID), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -232,7 +233,7 @@ func (s *WSGDPNetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdatePlanesDpTunnelSetting, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdatePlanesDpTunnelSetting), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

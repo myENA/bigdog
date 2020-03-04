@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -43,7 +44,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcApplicationPolicy, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddAvcApplicationPolicy), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +76,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcApplicationPolicyV2, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddAvcApplicationPolicyV2), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -105,7 +106,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ct
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcSignaturePackageUpload, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddAvcSignaturePackageUpload), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -135,7 +136,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcSignaturePackageV2Upload, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddAvcSignaturePackageV2Upload), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -167,7 +168,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcUserDefined, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddAvcUserDefined), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -199,7 +200,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicy, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteAvcApplicationPolicy), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -230,7 +231,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteAvcApplicationPolicyById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -260,7 +261,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ct
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteAvcApplicationPolicyV2), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -291,7 +292,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ByI
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2ById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteAvcApplicationPolicyV2ById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonEmptyResult()
@@ -321,7 +322,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcUserDefined, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteAvcUserDefined), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -351,7 +352,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAvcUserDefinedById, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteAvcUserDefinedById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -380,7 +381,7 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCri
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindApplicationPolicyByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApplicationPolicyByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -412,7 +413,7 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindApplicationPolicyV2ByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindApplicationPolicyV2ByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -443,7 +444,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcApplicationPolicyById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCApplicationPolicyProfile()
@@ -472,7 +473,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyV2ById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcApplicationPolicyV2ById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCApplicationPolicyProfile()
@@ -494,7 +495,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackage, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcSignaturePackage), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCSignaturePackage()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -522,7 +523,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 	if err = pkgValidator.VarCtx(ctx, applicationName, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplicationByApplicationName, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcSignaturePackageApplicationByApplicationName), true)
 	req.SetPathParameter("applicationName", applicationName)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCApplication()
@@ -544,7 +545,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplications, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcSignaturePackageApplications), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCApplicationList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -565,7 +566,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategori
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategories, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcSignaturePackageCategories), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCAppCategoryList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -593,7 +594,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategory
 	if err = pkgValidator.VarCtx(ctx, categoryName, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategoryByCategoryName, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcSignaturePackageCategoryByCategoryName), true)
 	req.SetPathParameter("categoryName", categoryName)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCAppCategory()
@@ -615,7 +616,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcSignaturePackageV2), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCSignaturePackage()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -640,7 +641,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Applications, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcSignaturePackageV2Applications), true)
 	if v, ok := optionalParams["appName"]; ok {
 		req.AddQueryParameter("appName", v)
 	}
@@ -668,7 +669,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Categories, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcSignaturePackageV2Categories), true)
 	if v, ok := optionalParams["catName"]; ok {
 		req.AddQueryParameter("catName", v)
 	}
@@ -699,7 +700,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcUserDefinedById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindAvcUserDefinedById), true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCUserDefinedProfile()
@@ -729,7 +730,7 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindUserDefinedByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindUserDefinedByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -768,7 +769,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateAvcApplicationPolicyById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -808,7 +809,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyV2ById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateAvcApplicationPolicyV2ById), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -847,7 +848,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAvcUserDefinedById, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateAvcUserDefinedById), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

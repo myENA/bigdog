@@ -4,6 +4,7 @@ package vsz
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -1904,7 +1905,7 @@ func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddGlobalSettingsSystemTimeValidate, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddGlobalSettingsSystemTimeValidate), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -1928,7 +1929,7 @@ func (s *WSGSystemService) AddSystemAp_balance(ctx context.Context) (interface{}
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemAp_balance, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddSystemAp_balance), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -1956,7 +1957,7 @@ func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSyst
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemApMacOUIs, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddSystemApMacOUIs), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -1986,7 +1987,7 @@ func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemApRoutineConfigInterval, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddSystemApRoutineConfigInterval), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -2008,7 +2009,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSlowdown, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddSystemApRoutineStatusIntervalSlowdown), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -2027,7 +2028,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSpeedup, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGAddSystemApRoutineStatusIntervalSpeedup), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -2053,7 +2054,7 @@ func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI s
 	if err = pkgValidator.VarCtx(ctx, OUI, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemApMacOUIsByOUI, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteSystemApMacOUIsByOUI), true)
 	req.SetPathParameter("OUI", OUI)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -2078,7 +2079,7 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemNbi, true)
+	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGDeleteSystemNbi), true)
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
@@ -2102,7 +2103,7 @@ func (s *WSGSystemService) FindController(ctx context.Context) (*WSGSystemContro
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindController, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindController), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemControllerList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2136,7 +2137,7 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindControllerStatisticsById, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindControllerStatisticsById), true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["interval"]; ok {
 		req.AddQueryParameter("interval", v)
@@ -2164,7 +2165,7 @@ func (s *WSGSystemService) FindSystem(ctx context.Context) (*WSGSystemSettings, 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystem, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystem), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemSettings()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2185,7 +2186,7 @@ func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context) (*WSGSystemA
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApMacOUIs, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemApMacOUIs), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemApMacOUIList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2206,7 +2207,7 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context) (interface{},
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApmodels, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemApmodels), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -2234,7 +2235,7 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, firmwareVersion, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApmodelsByFirmwareVersion, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemApmodelsByFirmwareVersion), true)
 	req.SetPathParameter("firmwareVersion", firmwareVersion)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
@@ -2256,7 +2257,7 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApRoutineConfigInterval, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemApRoutineConfigInterval), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPRoutineConfigIntervalRsp()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2277,7 +2278,7 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApRoutineStatusInterval, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemApRoutineStatusInterval), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPRoutineStatusIntervalRsp()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2306,7 +2307,7 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindSystemByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemByQueryCriteria), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -2330,7 +2331,7 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context) (*WSGDe
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemDevicesSummary, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemDevicesSummary), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDeviceCapacityDevicesSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2351,7 +2352,7 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context) (*WSGS
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemGatewayAdvanced, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemGatewayAdvanced), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemGatewayAdvanced()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2378,7 +2379,7 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemInventory, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemInventory), true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -2409,7 +2410,7 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemNbi, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemNbi), true)
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
@@ -2433,7 +2434,7 @@ func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context) (*WSGS
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSecuritySetting, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemSecuritySetting), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemSecuritySetting()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2454,7 +2455,7 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context) (*WSGSystem
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSystemTime, true)
+	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGFindSystemSystemTime), true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemTimeSetting()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -2482,7 +2483,7 @@ func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSys
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystem, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystem), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -2512,7 +2513,7 @@ func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemGatewayAdvanced, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystemGatewayAdvanced), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -2546,7 +2547,7 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemNbi, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystemNbi), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -2580,7 +2581,7 @@ func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSystemTime, true)
+	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystemSystemTime), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -2618,7 +2619,7 @@ func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, OUI, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateSystemApMacOUIsByOUI, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateSystemApMacOUIsByOUI), true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -2650,7 +2651,7 @@ func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateSystemSecuritySetting, true)
+	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("/%s%s", s.apiClient.wsgPath, RouteWSGUpdateSystemSecuritySetting), true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

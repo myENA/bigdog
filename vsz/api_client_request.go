@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -21,15 +20,11 @@ const (
 	uriQueryParameterAddValueFormat   = "%s%s=%s&"
 	uriQueryParameterCutSet           = "&"
 
-	apiRequestURLFormat = "https://%s:%d%s"
+	apiRequestURLFormat = "%s:%d%s"
 
 	headerKeyContentType       = "Content-Type"
 	headerKeyAccept            = "Accept"
 	headerValueApplicationJSON = "application/json"
-
-	logDebugAPIRequestPrepFormat     = "[request-%d] Preparing api request \"%s %s\""
-	logDebugAPIRequestNoBodyFormat   = "%s without body"
-	logDebugAPIRequestWithBodyFormat = "%s with body: %s"
 )
 
 var apiRequestID uint64
@@ -256,26 +251,13 @@ func (r *APIRequest) CompiledURI() string {
 }
 
 // toHTTP will attempt to construct an executable http.request
-func (r *APIRequest) toHTTP(ctx context.Context, addr string, port int, debug bool) (*http.Request, error) {
+func (r *APIRequest) toHTTP(ctx context.Context, addr string, port int) (*http.Request, error) {
 	var err error
 	var httpRequest *http.Request
 
 	body := r.Body()
 	bodyLen := len(body)
 	compiledURL := fmt.Sprintf(apiRequestURLFormat, addr, port, r.CompiledURI())
-
-	// if debug mode is enabled, prepare a big'ol log statement.
-	if debug {
-		logMsg := fmt.Sprintf(logDebugAPIRequestPrepFormat, r.id, r.method, compiledURL)
-
-		if bodyLen == 0 {
-			logMsg = fmt.Sprintf(logDebugAPIRequestNoBodyFormat, logMsg)
-		} else {
-			logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg, string(body))
-		}
-
-		log.Print(logMsg)
-	}
 
 	if bodyLen == 0 {
 		httpRequest, err = http.NewRequest(r.method, compiledURL, nil)

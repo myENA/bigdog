@@ -18,6 +18,10 @@ const (
 	DefaultAPIPort           = 8443
 	DefaultWSGPathPrefix     = "wsg/api"
 	DefaultSwitchMPathPrefix = "switchm/api"
+
+	logDebugAPIRequestPrepFormat     = "Preparing api request \"%s %s\""
+	logDebugAPIRequestNoBodyFormat   = "%s without body"
+	logDebugAPIRequestWithBodyFormat = "%s with body: %s"
 )
 
 type APIConfig struct {
@@ -169,7 +173,21 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (AuthCAS, *http
 			}
 		}
 	}
-	if httpRequest, err = request.toHTTP(ctx, c.addr, c.port, c.debug); err != nil {
+	if c.debug {
+		// if debug mode is enabled, prepare a big'ol log statement.
+		logMsg := fmt.Sprintf(logDebugAPIRequestPrepFormat, request.ID(), request.Method(), request.CompiledURI())
+
+		body := request.Body()
+
+		if len(body) == 0 {
+			logMsg = fmt.Sprintf(logDebugAPIRequestNoBodyFormat, logMsg)
+		} else {
+			logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg, string(body))
+		}
+
+		c.log.Print(logMsg)
+	}
+	if httpRequest, err = request.toHTTP(ctx, c.addr, c.port); err != nil {
 		return cas, nil, err
 	}
 	httpResponse, err = c.client.Do(httpRequest)

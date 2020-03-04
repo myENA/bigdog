@@ -250,7 +250,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 	// if we saw any kind of upstream error, immediately wrap in APIError type
 	// todo: flesh out with more error types
 	if sourceErr != nil {
-		apiErr = err
+		apiErr = sourceErr
 	}
 
 	// if a response was received store the code, status, and response bytes for later use constructing the meta type
@@ -271,12 +271,12 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 				}
 			} else {
 				// todo: record bytes from here?
-				_, err = io.Copy(ioutil.Discard, httpResp.Body)
+				_, _ = io.Copy(ioutil.Discard, httpResp.Body)
 			}
 		} else {
 			apiErr = wrapErr(fmt.Errorf("expected response code %d, saw %d (%s)", successCode, responseCode, responseStatus), apiErr)
 			// todo: record bytes from here?
-			_, err = io.Copy(ioutil.Discard, httpResp.Body)
+			_, _ = io.Copy(ioutil.Discard, httpResp.Body)
 		}
 	}
 

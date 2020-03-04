@@ -19,7 +19,7 @@ const (
 	DefaultWSGPathPrefix     = "wsg/api"
 	DefaultSwitchMPathPrefix = "switchm/api"
 
-	logDebugAPIRequestPrepFormat     = "Preparing api request \"%s %s\""
+	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
 	logDebugAPIRequestWithBodyFormat = "%s with body: %s"
 )

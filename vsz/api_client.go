@@ -24,6 +24,8 @@ const (
 	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
 	logDebugAPIRequestWithBodyFormat = "%s with body: %s"
+
+	serviceTicketQueryParameter = "serviceTicket"
 )
 
 var (
@@ -60,10 +62,10 @@ type APIConfig struct {
 	// Set to true to enable debug logging
 	Debug bool `json:"debug"`
 
-	// Authenticator [required]
+	// ServiceTicketProvider [required]
 	//
-	// Authenticator to use to handle request auth session
-	Authenticator Authenticator `json:"-"`
+	// ServiceTicketProvider to use to handle request auth session
+	ServiceTicketProvider ServiceTicketProvider `json:"-"`
 
 	// Logger [optional]
 	//
@@ -81,7 +83,7 @@ type APIClient struct {
 	addr        string
 	wsgPath     string
 	switchMPath string
-	auth        Authenticator
+	stp         ServiceTicketProvider
 
 	client *http.Client
 }
@@ -90,7 +92,7 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 	if conf.Address == "" {
 		return nil, errors.New("address must be defined")
 	}
-	if conf.Authenticator == nil {
+	if conf.ServiceTicketProvider == nil {
 		return nil, errors.New("authenticator must be defined")
 	}
 
@@ -100,7 +102,7 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 
 	c := new(APIClient)
 	c.addr = conf.Address
-	c.auth = conf.Authenticator
+	c.stp = conf.ServiceTicketProvider
 	c.debug = conf.Debug
 
 	if conf.Logger != nil {
@@ -148,8 +150,9 @@ func (c *APIClient) Address() string {
 	return c.addr
 }
 
-func (c *APIClient) Debug() bool {
-	return c.debug
+// ServiceTicketProvider returns the provider used by this client
+func (c *APIClient) ServiceTicketProvider() ServiceTicketProvider {
+	return c.stp
 }
 
 func (c *APIClient) WSG() *WSGService {
@@ -165,24 +168,25 @@ func (c *APIClient) Do(ctx context.Context, request *APIRequest) (*http.Response
 	return httpResponse, err
 }
 
-func (c *APIClient) do(ctx context.Context, request *APIRequest) (AuthCAS, *http.Response, error) {
+func (c *APIClient) do(ctx context.Context, request *APIRequest) (ServiceTicketCAS, *http.Response, error) {
 	var (
-		httpRequest  *http.Request
-		httpResponse *http.Response
-		cas          AuthCAS
-		err          error
+		httpRequest   *http.Request
+		httpResponse  *http.Response
+		cas           ServiceTicketCAS
+		serviceTicket string
+		err           error
 	)
 	if request.authenticated {
-		if cas, err = c.auth.Decorate(ctx, request); err != nil {
-			if cas, err = c.auth.Refresh(ctx, c, cas); err != nil {
+		if cas, serviceTicket, err = c.stp.Current(); err != nil {
+			if cas, err = c.stp.Refresh(ctx, c, cas); err != nil {
 				return cas, nil, err
-			} else if cas, err = c.auth.Decorate(ctx, request); err != nil {
+			} else if cas, _, err = c.stp.Current(); err != nil {
 				return cas, nil, err
 			}
 		}
 	}
+
 	if c.debug {
-		// if debug mode is enabled, prepare a big'ol log statement.
 		logMsg := fmt.Sprintf(logDebugAPIRequestPrepFormat, request.ID(), request.Method(), request.CompiledURI())
 
 		body := request.Body()
@@ -195,30 +199,11 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (AuthCAS, *http
 
 		c.log.Print(logMsg)
 	}
-	if httpRequest, err = request.toHTTP(ctx, c.addr); err != nil {
+	if httpRequest, err = request.toHTTP(ctx, c.addr, serviceTicket); err != nil {
 		return cas, nil, err
 	}
 	httpResponse, err = c.client.Do(httpRequest)
 	return cas, httpResponse, err
-}
-
-type APIResponseError struct {
-	Success   bool   `json:"success"`
-	Message   string `json:"message"`
-	ErrorCode int    `json:"errorCode"`
-	ErrorType string `json:"errorType"`
-
-	Err error `json:"err"`
-
-	errMeta *APIResponseMeta
-}
-
-func (e *APIResponseError) Error() string {
-	return fmt.Sprintf("success=%t; errorCode=%d; errorType=%s; message=%s; err=%v", e.Success, e.ErrorCode, e.ErrorType, e.Message, e.Err)
-}
-
-func (e *APIResponseError) Unwrap() error {
-	return e.Err
 }
 
 type APIResponseMeta struct {
@@ -265,17 +250,18 @@ func wrapErr(err, prev error) error {
 // -- in this case, the first value of the response tuple will be nil
 // - if no response model is provided, simply read out all body bytes and return them
 // - construct response meta type
-func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, *APIResponseError) {
+func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
 	// todo: do better.
 	var (
 		responseCode   int
 		responseStatus string
-		respErr        *APIResponseError
+		apiErr         *APIError
 		finalErr       error
 	)
 
-	if _, ok := sourceErr.(*APIResponseError); ok {
-
+	// if the incoming error is from a service ticket provider, return as-is
+	if spErr, ok := sourceErr.(*ServiceTicketProviderError); ok {
+		return spErr.ResponseMeta(), spErr
 	}
 
 	if sourceErr != nil {
@@ -303,21 +289,21 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 				_, _ = io.Copy(ioutil.Discard, httpResp.Body)
 			}
 		} else {
-			respErr = new(APIResponseError)
-			if err := json.NewDecoder(httpResp.Body).Decode(respErr); err != nil {
-				finalErr = wrapErr(fmt.Errorf("error unmarshalling error body into %T: %w", respErr, err), finalErr)
+			apiErr = new(APIError)
+			if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
+				finalErr = wrapErr(fmt.Errorf("error unmarshalling error body into %T: %w", apiErr, err), finalErr)
 			}
 			finalErr = wrapErr(fmt.Errorf("expected response code %d, saw %d (%s)", successCode, responseCode, responseStatus), finalErr)
 		}
 	}
 
 	if finalErr != nil {
-		if respErr == nil {
-			respErr = new(APIResponseError)
+		if apiErr == nil {
+			apiErr = new(APIError)
 		}
-		respErr.Err = finalErr
+		apiErr.Err = finalErr
 	}
 
 	// build response.
-	return newAPIResponseMeta(req, successCode, responseCode, responseStatus), respErr
+	return newAPIResponseMeta(req, successCode, responseCode, responseStatus), apiErr
 }

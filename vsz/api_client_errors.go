@@ -43,7 +43,7 @@ func (e *APIError) Unwrap() error {
 
 func IsAPIError(err error) bool {
 	for err != nil {
-		if _, ok := err.(*APIError); ok {
+		if aerr, ok := err.(*APIError); ok && aerr != nil {
 			return true
 		}
 		err = errors.Unwrap(err)
@@ -80,7 +80,7 @@ func (e *ServiceTicketProviderError) Unwrap() error {
 
 func IsServiceTicketProviderError(err error) bool {
 	for err != nil {
-		if _, ok := err.(*ServiceTicketProviderError); ok {
+		if serr, ok := err.(*ServiceTicketProviderError); ok && serr != nil {
 			return true
 		}
 		err = errors.Unwrap(err)

@@ -260,7 +260,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 	)
 
 	// if the incoming error is from a service ticket provider, return as-is
-	if spErr, ok := sourceErr.(*ServiceTicketProviderError); ok {
+	if spErr, ok := sourceErr.(*ServiceTicketProviderError); ok && spErr != nil {
 		return spErr.ResponseMeta(), spErr
 	}
 

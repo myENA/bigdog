@@ -2068,25 +2068,23 @@ func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI s
 // Optional Parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams map[string][]string) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
+func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams map[string][]string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteSystemNbi), true)
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonEmptyResult()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // FindController
@@ -2565,30 +2563,28 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 //
 // Request Body:
 //	 - body *WSGSystemModifySystemTimeSetting
-func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *WSGSystemModifySystemTimeSetting) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
+func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *WSGSystemModifySystemTimeSetting) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystemSystemTime), true)
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonEmptyResult()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // UpdateSystemApMacOUIsByOUI

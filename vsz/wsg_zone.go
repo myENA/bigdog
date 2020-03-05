@@ -1081,7 +1081,7 @@ type WSGZoneQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
+	ExtraFilters []*WSGZoneQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
@@ -1091,7 +1091,7 @@ type WSGZoneQueryCriteria struct {
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGCommonQueryCriteriaFiltersType `json:"filters,omitempty"`
+	Filters []*WSGZoneQueryCriteriaFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -1102,8 +1102,8 @@ type WSGZoneQueryCriteria struct {
 	Limit *int `json:"limit,omitempty" validate:"gte=1"`
 
 	// Options
-	// Specified feature required information
-	Options *WSGCommonQueryCriteriaOptionsType `json:"options,omitempty"`
+	// Specified feature required information.
+	Options *WSGZoneQueryCriteriaOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -1122,6 +1122,70 @@ type WSGZoneQueryCriteria struct {
 
 func NewWSGZoneQueryCriteria() *WSGZoneQueryCriteria {
 	m := new(WSGZoneQueryCriteria)
+	return m
+}
+
+type WSGZoneQueryCriteriaExtraFiltersType struct {
+	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
+
+	// Type
+	// Filters for specific attribute
+	// Constraints:
+	//    - required
+	//    - oneof:[VERSION]
+	Type *string `json:"type" validate:"required,oneof=VERSION"`
+
+	// Value
+	// Value for filtering
+	// Constraints:
+	//    - required
+	Value *string `json:"value" validate:"required"`
+}
+
+func NewWSGZoneQueryCriteriaExtraFiltersType() *WSGZoneQueryCriteriaExtraFiltersType {
+	m := new(WSGZoneQueryCriteriaExtraFiltersType)
+	return m
+}
+
+type WSGZoneQueryCriteriaFiltersType struct {
+	// Operator
+	// Operator for filtering
+	// Constraints:
+	//    - oneof:[eq]
+	Operator *string `json:"operator,omitempty" validate:"oneof=eq"`
+
+	// Type
+	// Group type
+	// Constraints:
+	//    - required
+	//    - oneof:[SYSTEM,CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,SWITCH_GROUP]
+	Type *string `json:"type" validate:"required,oneof=SYSTEM CONTROLBLADE DATABLADE DOMAIN ZONE THIRD_PARTY_ZONE APGROUP WLANGROUP INDOORMAP AP WLAN SWITCH_GROUP"`
+
+	// Value
+	// Group ID
+	// Constraints:
+	//    - required
+	Value *string `json:"value" validate:"required"`
+}
+
+func NewWSGZoneQueryCriteriaFiltersType() *WSGZoneQueryCriteriaFiltersType {
+	m := new(WSGZoneQueryCriteriaFiltersType)
+	return m
+}
+
+// WSGZoneQueryCriteriaOptionsType
+//
+// Specified feature required information.
+type WSGZoneQueryCriteriaOptionsType struct {
+	// IncludeSharedResources
+	// Include the resources of parent domain as well while querying.
+	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
+
+	Zoneipmode *WSGCommonIpMode `json:"zone_ipmode,omitempty"`
+}
+
+func NewWSGZoneQueryCriteriaOptionsType() *WSGZoneQueryCriteriaOptionsType {
+	m := new(WSGZoneQueryCriteriaOptionsType)
 	return m
 }
 

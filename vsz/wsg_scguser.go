@@ -467,7 +467,7 @@ type WSGSCGUserQueryCriteria struct {
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGCommonQueryCriteriaFiltersType `json:"filters,omitempty"`
+	Filters []*WSGSCGUserQueryCriteriaFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -498,6 +498,32 @@ type WSGSCGUserQueryCriteria struct {
 
 func NewWSGSCGUserQueryCriteria() *WSGSCGUserQueryCriteria {
 	m := new(WSGSCGUserQueryCriteria)
+	return m
+}
+
+type WSGSCGUserQueryCriteriaFiltersType struct {
+	// Operator
+	// operator
+	// Constraints:
+	//    - oneof:[eq]
+	Operator *string `json:"operator,omitempty" validate:"oneof=eq"`
+
+	// Type
+	// Group type
+	// Constraints:
+	//    - required
+	//    - oneof:[DOMAIN]
+	Type *string `json:"type" validate:"required,oneof=DOMAIN"`
+
+	// Value
+	// DOMAIN ID
+	// Constraints:
+	//    - required
+	Value *string `json:"value" validate:"required"`
+}
+
+func NewWSGSCGUserQueryCriteriaFiltersType() *WSGSCGUserQueryCriteriaFiltersType {
+	m := new(WSGSCGUserQueryCriteriaFiltersType)
 	return m
 }
 
@@ -860,30 +886,28 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*WSGCommonEmptyResult, *APIResponseMeta, error) {
+func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteUsers), true)
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGCommonEmptyResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	return rm, err
 }
 
 // DeleteUsersByUserId

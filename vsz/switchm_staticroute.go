@@ -64,31 +64,6 @@ func NewSwitchMStaticRouteCreateStaticRoute() *SwitchMStaticRouteCreateStaticRou
 	return m
 }
 
-type SwitchMStaticRouteEmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMStaticRouteEmptyResult) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMStaticRouteEmptyResult{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMStaticRouteEmptyResult) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMStaticRouteEmptyResult() *SwitchMStaticRouteEmptyResult {
-	m := new(SwitchMStaticRouteEmptyResult)
-	return m
-}
-
 type SwitchMStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
@@ -388,32 +363,30 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteUpdateStaticRoute, id string) (*SwitchMStaticRouteEmptyResult, *APIResponseMeta, error) {
+func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteUpdateStaticRoute, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMStaticRouteEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateStaticRoutesById), true)
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMStaticRouteEmptyResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	return rm, err
 }

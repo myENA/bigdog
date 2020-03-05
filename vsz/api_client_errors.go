@@ -9,7 +9,7 @@ var (
 	ErrServiceTicketRequiresRefresh = errors.New("service ticket requires refresh")
 	ErrServiceTicketCASInvalid      = errors.New("invalid CAS provided")
 	ErrServiceTicketClientNil       = errors.New("client cannot be nil")
-	ErrServiceTicketResponseEmpty   = errors.New("empty response from login request')")
+	ErrServiceTicketResponseEmpty   = errors.New("empty response from login request")
 )
 
 func IsServiceTicketRequiresRefreshErr(err error) bool {
@@ -22,6 +22,10 @@ func IsServiceTicketCASInvalidErr(err error) bool {
 
 func IsServiceTicketClientNilErr(err error) bool {
 	return errors.Is(err, ErrServiceTicketClientNil)
+}
+
+func IsServiceTicketResponseEmptyErr(err error) bool {
+	return errors.Is(err, ErrServiceTicketResponseEmpty)
 }
 
 type APIError struct {

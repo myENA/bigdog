@@ -2,10 +2,6 @@ package vsz
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 type SwitchMIpConfigCreate struct {
 	// DhcpRelayAgent
 	// DHCP Relay IP Address
@@ -57,31 +53,6 @@ type SwitchMIpConfigCreateResult interface{}
 
 func MakeSwitchMIpConfigCreateResult() SwitchMIpConfigCreateResult {
 	m := new(SwitchMIpConfigCreateResult)
-	return m
-}
-
-type SwitchMIpConfigEmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMIpConfigEmptyResult) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMIpConfigEmptyResult{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMIpConfigEmptyResult) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMIpConfigEmptyResult() *SwitchMIpConfigEmptyResult {
-	m := new(SwitchMIpConfigEmptyResult)
 	return m
 }
 

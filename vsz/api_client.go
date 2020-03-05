@@ -180,7 +180,7 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (ServiceTicketC
 		if cas, serviceTicket, err = c.stp.Current(); err != nil {
 			if cas, err = c.stp.Refresh(ctx, c, cas); err != nil {
 				return cas, nil, err
-			} else if cas, _, err = c.stp.Current(); err != nil {
+			} else if cas, serviceTicket, err = c.stp.Current(); err != nil {
 				return cas, nil, err
 			}
 		}
@@ -216,13 +216,15 @@ type APIResponseMeta struct {
 	ResponseStatus string `json:"responseStatus"`
 }
 
-func newAPIResponseMeta(req *APIRequest, successCode, responseCode int, responseStatus string) *APIResponseMeta {
+func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response) *APIResponseMeta {
 	rm := new(APIResponseMeta)
 	rm.RequestMethod = req.Method()
 	rm.RequestURI = req.CompiledURI()
 	rm.SuccessCode = successCode
-	rm.ResponseCode = responseCode
-	rm.ResponseStatus = responseStatus
+	if httpResp != nil {
+		rm.ResponseCode = httpResp.StatusCode
+		rm.ResponseStatus = http.StatusText(httpResp.StatusCode)
+	}
 	return rm
 }
 
@@ -236,74 +238,60 @@ func (rm *APIResponseMeta) String() string {
 	return fmt.Sprintf("%s response from request %s %s", msg, rm.RequestMethod, rm.RequestURI)
 }
 
-func wrapErr(err, prev error) error {
-	if prev != nil {
-		// i want to retain the most recent error context as unwrap-able.
-		return fmt.Errorf("%v; %w", prev, err)
+func cleanupHTTPResponseBody(hp *http.Response, drain bool) {
+	if hp == nil {
+		return
 	}
-	return err
+	if drain {
+		_, _ = io.Copy(ioutil.Discard, hp.Body)
+	}
+	_ = hp.Body.Close()
 }
 
-// handleResponse will attempt to:
-// - wrap errors nicely
-// - if a response model is provided, unmarshal response into it
-// -- in this case, the first value of the response tuple will be nil
-// - if no response model is provided, simply read out all body bytes and return them
-// - construct response meta type
 func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
-	// todo: do better.
-	var (
-		responseCode   int
-		responseStatus string
-		apiErr         *APIError
-		finalErr       error
-	)
-
-	// if the incoming error is from a service ticket provider, return as-is
-	if spErr, ok := sourceErr.(*ServiceTicketProviderError); ok && spErr != nil {
-		return spErr.ResponseMeta(), spErr
-	}
+	var finalErr error
 
 	if sourceErr != nil {
-		finalErr = sourceErr
+		// just in case
+		defer cleanupHTTPResponseBody(httpResp, true)
+
+		// if the incoming error is from a service ticket provider, return as-is
+		if sterr, ok := sourceErr.(*ServiceTicketProviderError); ok {
+			return sterr.ResponseMeta(), sterr
+		}
+
+		// otherwise, build response meta and return source error
+		return newAPIResponseMeta(req, successCode, httpResp), sourceErr
 	}
 
-	// if a response was received store the code, status, and response bytes for later use constructing the meta type
-	if httpResp != nil {
+	if httpResp == nil {
+		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp)))
+	}
 
-		responseCode = httpResp.StatusCode
-		responseStatus = http.StatusText(httpResp.StatusCode)
+	if httpResp.StatusCode == successCode {
+		// if the response code matches the expected "success" code...
+		if modelPtr != nil {
+			// ... and this query has a modeled response, attempt to unmarshal into that type
 
-		// if we get here, we have some kind of response.  queue up body close...
-		defer func() { _ = httpResp.Body.Close() }()
+			defer cleanupHTTPResponseBody(httpResp, false)
 
-		if responseCode == successCode {
-			// if the response code matches the expected "success" code...
-			if modelPtr != nil {
-				// ... and this query has a modeled response, attempt to unmarshal into that type
-				if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil {
-					finalErr = wrapErr(fmt.Errorf("error unmarshalling resoonse body into %T: %w", modelPtr, err), finalErr)
-				}
-			} else {
-				// todo: record bytes from here?
-				_, _ = io.Copy(ioutil.Discard, httpResp.Body)
+			if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil {
+				finalErr = fmt.Errorf("error unmarshalling response body into %T: %w", modelPtr, err)
 			}
 		} else {
-			apiErr = new(APIError)
-			if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
-				finalErr = wrapErr(fmt.Errorf("error unmarshalling error body into %T: %w", apiErr, err), finalErr)
-			}
-			finalErr = wrapErr(fmt.Errorf("expected response code %d, saw %d (%s)", successCode, responseCode, responseStatus), finalErr)
+			defer cleanupHTTPResponseBody(httpResp, true)
 		}
-	}
+	} else {
+		defer cleanupHTTPResponseBody(httpResp, false)
 
-	if finalErr != nil {
-		if apiErr == nil {
-			apiErr = new(APIError)
+		apiErr := new(APIError)
+		if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
+			finalErr = fmt.Errorf("error unmarshalling error body into %T: %w", finalErr, err)
+		} else {
+			finalErr = apiErr
 		}
-		apiErr.Err = finalErr
 	}
 
 	// build response.
-	return newAPIResponseMeta(req, successCode, responseCode, responseStatus), apiErr
+	return newAPIResponseMeta(req, successCode, httpResp), finalErr
 }

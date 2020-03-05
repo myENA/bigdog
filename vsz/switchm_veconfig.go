@@ -2,10 +2,6 @@ package vsz
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 type SwitchMVeConfigCreate struct {
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
@@ -61,31 +57,6 @@ type SwitchMVeConfigCreateResult interface{}
 
 func MakeSwitchMVeConfigCreateResult() SwitchMVeConfigCreateResult {
 	m := new(SwitchMVeConfigCreateResult)
-	return m
-}
-
-type SwitchMVeConfigEmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMVeConfigEmptyResult) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMVeConfigEmptyResult{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMVeConfigEmptyResult) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMVeConfigEmptyResult() *SwitchMVeConfigEmptyResult {
-	m := new(SwitchMVeConfigEmptyResult)
 	return m
 }
 

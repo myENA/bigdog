@@ -2,10 +2,6 @@ package vsz
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 type SwitchMDnsConfigCreateDnsConfig struct {
 	Dns *SwitchMDnsConfigObject `json:"dns,omitempty"`
 
@@ -44,31 +40,6 @@ type SwitchMDnsConfigObject struct {
 
 func NewSwitchMDnsConfigObject() *SwitchMDnsConfigObject {
 	m := new(SwitchMDnsConfigObject)
-	return m
-}
-
-type SwitchMDnsConfigEmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMDnsConfigEmptyResult) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMDnsConfigEmptyResult{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMDnsConfigEmptyResult) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMDnsConfigEmptyResult() *SwitchMDnsConfigEmptyResult {
-	m := new(SwitchMDnsConfigEmptyResult)
 	return m
 }
 

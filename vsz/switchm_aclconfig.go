@@ -196,31 +196,6 @@ func NewSwitchMACLConfigCreateACLConfig() *SwitchMACLConfigCreateACLConfig {
 	return m
 }
 
-type SwitchMACLConfigEmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMACLConfigEmptyResult) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMACLConfigEmptyResult{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMACLConfigEmptyResult) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMACLConfigEmptyResult() *SwitchMACLConfigEmptyResult {
-	m := new(SwitchMACLConfigEmptyResult)
-	return m
-}
-
 type SwitchMACLConfigUpdateACLConfig struct {
 	AclRule []*SwitchMACLConfigACLRule `json:"aclRule,omitempty"`
 

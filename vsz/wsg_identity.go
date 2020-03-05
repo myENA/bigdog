@@ -838,7 +838,7 @@ type WSGIdentityQueryCriteria struct {
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGCommonQueryCriteriaFiltersType `json:"filters,omitempty"`
+	Filters []*WSGIdentityQueryCriteriaFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -850,7 +850,7 @@ type WSGIdentityQueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options *WSGCommonQueryCriteriaOptionsType `json:"options,omitempty"`
+	Options *WSGIdentityQueryCriteriaOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -869,6 +869,154 @@ type WSGIdentityQueryCriteria struct {
 
 func NewWSGIdentityQueryCriteria() *WSGIdentityQueryCriteria {
 	m := new(WSGIdentityQueryCriteria)
+	return m
+}
+
+type WSGIdentityQueryCriteriaFiltersType struct {
+	// Operator
+	// operator
+	// Constraints:
+	//    - oneof:[eq]
+	Operator *string `json:"operator,omitempty" validate:"oneof=eq"`
+
+	// Type
+	// Group type
+	// Constraints:
+	//    - required
+	//    - oneof:[SYSTEM,CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,SWITCH_GROUP]
+	Type *string `json:"type" validate:"required,oneof=SYSTEM CONTROLBLADE DATABLADE DOMAIN ZONE THIRD_PARTY_ZONE APGROUP WLANGROUP INDOORMAP AP WLAN SWITCH_GROUP"`
+
+	// Value
+	// Group ID
+	// Constraints:
+	//    - required
+	Value *string `json:"value" validate:"required"`
+}
+
+func NewWSGIdentityQueryCriteriaFiltersType() *WSGIdentityQueryCriteriaFiltersType {
+	m := new(WSGIdentityQueryCriteriaFiltersType)
+	return m
+}
+
+// WSGIdentityQueryCriteriaOptionsType
+//
+// Specified feature required information
+type WSGIdentityQueryCriteriaOptionsType struct {
+	// GlobalFilterId
+	// Specify GlobalFilter ID for query
+	GlobalFilterId *string `json:"globalFilterId,omitempty"`
+
+	// GuestPassdisplayName
+	// Display name of guest pass
+	GuestPassdisplayName *string `json:"guestPass_displayName,omitempty"`
+
+	// GuestPassexpiration
+	// Expiration time of guest pass
+	GuestPassexpiration *WSGIdentityQueryCriteriaOptionsTypeGuestPassexpirationType `json:"guestPass_expiration,omitempty"`
+
+	// GuestPasswlan
+	// WLAN which used by quest pass
+	GuestPasswlan *string `json:"guestPass_wlan,omitempty"`
+
+	// IncludeSharedResources
+	// Whether to include the resources of parent domain or not
+	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
+
+	// INCLUDERBACMETADATA
+	// Whether to include RBAC metadata or not
+	INCLUDERBACMETADATA *bool `json:"INCLUDE_RBAC_METADATA,omitempty"`
+
+	// LocalUserauditTime
+	// Audit time of local users
+	LocalUserauditTime *WSGIdentityQueryCriteriaOptionsTypeLocalUserauditTimeType `json:"localUser_auditTime,omitempty"`
+
+	// LocalUserdisplayName
+	// Display name of local users
+	LocalUserdisplayName *string `json:"localUser_displayName,omitempty"`
+
+	// LocalUserfirstName
+	// First name of local users
+	LocalUserfirstName *string `json:"localUser_firstName,omitempty"`
+
+	// LocalUserlastName
+	// Last name of local users
+	LocalUserlastName *string `json:"localUser_lastName,omitempty"`
+
+	// LocalUsermailAddress
+	// Mail address of local users
+	LocalUsermailAddress *string `json:"localUser_mailAddress,omitempty"`
+
+	// LocalUserprimaryPhoneNumber
+	// Primary phone number of local users
+	LocalUserprimaryPhoneNumber *string `json:"localUser_primaryPhoneNumber,omitempty"`
+
+	// LocalUserstatus
+	// Status of local users
+	LocalUserstatus *string `json:"localUser_status,omitempty"`
+
+	// LocalUsersubscriberType
+	// Subscriber type of local users
+	LocalUsersubscriberType *string `json:"localUser_subscriberType,omitempty"`
+
+	// LocalUseruserName
+	// User name of local users
+	LocalUseruserName *string `json:"localUser_userName,omitempty"`
+
+	// LocalUseruserSource
+	// User source of local users
+	LocalUseruserSource *string `json:"localUser_userSource,omitempty"`
+
+	// TENANTID
+	// Specify Tenant ID for query
+	TENANTID *string `json:"TENANT_ID,omitempty"`
+}
+
+func NewWSGIdentityQueryCriteriaOptionsType() *WSGIdentityQueryCriteriaOptionsType {
+	m := new(WSGIdentityQueryCriteriaOptionsType)
+	return m
+}
+
+// WSGIdentityQueryCriteriaOptionsTypeGuestPassexpirationType
+//
+// Expiration time of guest pass
+type WSGIdentityQueryCriteriaOptionsTypeGuestPassexpirationType struct {
+	// End
+	// end time of expiration
+	End *float64 `json:"end,omitempty"`
+
+	// Interval
+	// time interval in second
+	Interval *float64 `json:"interval,omitempty"`
+
+	// Start
+	// start time of expiration
+	Start *float64 `json:"start,omitempty"`
+}
+
+func NewWSGIdentityQueryCriteriaOptionsTypeGuestPassexpirationType() *WSGIdentityQueryCriteriaOptionsTypeGuestPassexpirationType {
+	m := new(WSGIdentityQueryCriteriaOptionsTypeGuestPassexpirationType)
+	return m
+}
+
+// WSGIdentityQueryCriteriaOptionsTypeLocalUserauditTimeType
+//
+// Audit time of local users
+type WSGIdentityQueryCriteriaOptionsTypeLocalUserauditTimeType struct {
+	// End
+	// end time for auditTime
+	End *float64 `json:"end,omitempty"`
+
+	// Interval
+	// time interval in second
+	Interval *float64 `json:"interval,omitempty"`
+
+	// Start
+	// start time for auditTime
+	Start *float64 `json:"start,omitempty"`
+}
+
+func NewWSGIdentityQueryCriteriaOptionsTypeLocalUserauditTimeType() *WSGIdentityQueryCriteriaOptionsTypeLocalUserauditTimeType {
+	m := new(WSGIdentityQueryCriteriaOptionsTypeLocalUserauditTimeType)
 	return m
 }
 

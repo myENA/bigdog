@@ -83,26 +83,24 @@ func (s *SwitchMTroubleShootingService) FindSupportLogBySwitchId(ctx context.Con
 // Required Parameters:
 // - switchId string
 //		- required
-func (s *SwitchMTroubleShootingService) FindSupportLogDownloadBySwitchId(ctx context.Context, switchId string) (*SwitchMCommonEmptyResult, *APIResponseMeta, error) {
+func (s *SwitchMTroubleShootingService) FindSupportLogDownloadBySwitchId(ctx context.Context, switchId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMCommonEmptyResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSupportLogDownloadBySwitchId), true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMCommonEmptyResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	return rm, err
 }
 
 // FindSupportLogStatusBySwitchId

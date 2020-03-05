@@ -498,31 +498,6 @@ func NewWSGCommonEmail() *WSGCommonEmail {
 	return m
 }
 
-type WSGCommonEmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGCommonEmptyResult) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGCommonEmptyResult{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGCommonEmptyResult) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGCommonEmptyResult() *WSGCommonEmptyResult {
-	m := new(WSGCommonEmptyResult)
-	return m
-}
-
 type WSGCommonEtherType string
 
 func NewWSGCommonEtherType() *WSGCommonEtherType {
@@ -1083,17 +1058,17 @@ type WSGCommonQueryCriteriaSuperSet struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
+	ExtraFilters []*WSGCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+	ExtraNotFilters []*WSGCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
 	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGCommonQueryCriteriaFiltersType `json:"filters,omitempty"`
+	Filters []*WSGCommonQueryCriteriaSuperSetFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -1105,7 +1080,7 @@ type WSGCommonQueryCriteriaSuperSet struct {
 
 	// Options
 	// Specified feature required information
-	Options *WSGCommonQueryCriteriaOptionsType `json:"options,omitempty"`
+	Options *WSGCommonQueryCriteriaSuperSetOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -1124,6 +1099,153 @@ type WSGCommonQueryCriteriaSuperSet struct {
 
 func NewWSGCommonQueryCriteriaSuperSet() *WSGCommonQueryCriteriaSuperSet {
 	m := new(WSGCommonQueryCriteriaSuperSet)
+	return m
+}
+
+type WSGCommonQueryCriteriaSuperSetExtraFiltersType struct {
+	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
+
+	// Type
+	// Filters for specific attribute
+	// Constraints:
+	//    - oneof:[CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,ProtocolType,TIMERANGE,RADIOID,WLANID,CATEGORY,CLIENT,CP,DP,CLUSTER,NODE,BLADE,SYNCEDSTATUS,OSTYPE,APP,PORT,STATUS,REGISTRATIONSTATE,GATEWAY,APIPADDRESS,CLIENTIPADDRESS,CLIENTIPV6ADDRESS,SEVERITY,ACKNOWLEDGED,MVNOID,USER,USERID,WLANNAME,AUDITIPADDRESS,AUDITUSERUUID,AUDITOBJECT,AUDITACTION,AUDITTENANTUUID,AUDITOBJECTUUID,AUTHTYPE,AUDITTYPE,H20SuppportEnabled,AaaSuppportEnabled,GppSuppportEnabled,Type,RogueMac,SSID,ALARMSTATE,DEVICENAME,SWITCH,ZoneAffinityProfileId,MONITORINGENABLED]
+	Type *string `json:"type,omitempty" validate:"oneof=CONTROLBLADE DATABLADE DOMAIN ZONE THIRD_PARTY_ZONE APGROUP WLANGROUP INDOORMAP AP WLAN ProtocolType TIMERANGE RADIOID WLANID CATEGORY CLIENT CP DP CLUSTER NODE BLADE SYNCEDSTATUS OSTYPE APP PORT STATUS REGISTRATIONSTATE GATEWAY APIPADDRESS CLIENTIPADDRESS CLIENTIPV6ADDRESS SEVERITY ACKNOWLEDGED MVNOID USER USERID WLANNAME AUDITIPADDRESS AUDITUSERUUID AUDITOBJECT AUDITACTION AUDITTENANTUUID AUDITOBJECTUUID AUTHTYPE AUDITTYPE H20SuppportEnabled AaaSuppportEnabled GppSuppportEnabled Type RogueMac SSID ALARMSTATE DEVICENAME SWITCH ZoneAffinityProfileId MONITORINGENABLED"`
+
+	// Value
+	// value to search
+	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGCommonQueryCriteriaSuperSetExtraFiltersType() *WSGCommonQueryCriteriaSuperSetExtraFiltersType {
+	m := new(WSGCommonQueryCriteriaSuperSetExtraFiltersType)
+	return m
+}
+
+type WSGCommonQueryCriteriaSuperSetExtraNotFiltersType struct {
+	// Type
+	// Filters for specific attribute
+	// Constraints:
+	//    - oneof:[CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,ProtocolType,TIMERANGE,RADIOID,WLANID,CATEGORY,CLIENT,CP,DP,CLUSTER,NODE,BLADE,SYNCEDSTATUS,OSTYPE,APP,PORT,STATUS,REGISTRATIONSTATE,GATEWAY,APIPADDRESS,CLIENTIPADDRESS,SEVERITY,ACKNOWLEDGED,MVNOID,USER,USERID,WLANNAME,AUDITIPADDRESS,AUDITUSERUUID,AUDITOBJECT,AUDITACTION,AUDITTENANTUUID,AUDITOBJECTUUID,AUTHTYPE,AUDITTYPE,H20SuppportEnabled,AaaSuppportEnabled,GppSuppportEnabled,MONITORINGENABLED]
+	Type *string `json:"type,omitempty" validate:"oneof=CONTROLBLADE DATABLADE DOMAIN ZONE THIRD_PARTY_ZONE APGROUP WLANGROUP INDOORMAP AP WLAN ProtocolType TIMERANGE RADIOID WLANID CATEGORY CLIENT CP DP CLUSTER NODE BLADE SYNCEDSTATUS OSTYPE APP PORT STATUS REGISTRATIONSTATE GATEWAY APIPADDRESS CLIENTIPADDRESS SEVERITY ACKNOWLEDGED MVNOID USER USERID WLANNAME AUDITIPADDRESS AUDITUSERUUID AUDITOBJECT AUDITACTION AUDITTENANTUUID AUDITOBJECTUUID AUTHTYPE AUDITTYPE H20SuppportEnabled AaaSuppportEnabled GppSuppportEnabled MONITORINGENABLED"`
+
+	// Value
+	// value not to search
+	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGCommonQueryCriteriaSuperSetExtraNotFiltersType() *WSGCommonQueryCriteriaSuperSetExtraNotFiltersType {
+	m := new(WSGCommonQueryCriteriaSuperSetExtraNotFiltersType)
+	return m
+}
+
+type WSGCommonQueryCriteriaSuperSetFiltersType struct {
+	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
+
+	// Type
+	// Group type
+	// Constraints:
+	//    - oneof:[SYSTEM,CATEGORY,CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,BLADE,SYNCEDSTATUS,REGISTRATIONSTATE,STATUS,SWITCH_GROUP]
+	Type *string `json:"type,omitempty" validate:"oneof=SYSTEM CATEGORY CONTROLBLADE DATABLADE DOMAIN ZONE THIRD_PARTY_ZONE APGROUP WLANGROUP INDOORMAP AP WLAN BLADE SYNCEDSTATUS REGISTRATIONSTATE STATUS SWITCH_GROUP"`
+
+	// Value
+	// Group ID
+	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGCommonQueryCriteriaSuperSetFiltersType() *WSGCommonQueryCriteriaSuperSetFiltersType {
+	m := new(WSGCommonQueryCriteriaSuperSetFiltersType)
+	return m
+}
+
+// WSGCommonQueryCriteriaSuperSetOptionsType
+//
+// Specified feature required information
+type WSGCommonQueryCriteriaSuperSetOptionsType struct {
+	// AcctincludeNa
+	// include Not Available acct service option while returning result
+	AcctincludeNa *bool `json:"acct_includeNa,omitempty"`
+
+	// AccttestableOnly
+	// only get testable service type
+	AccttestableOnly *bool `json:"acct_testableOnly,omitempty"`
+
+	// Accttype
+	// accounting service types to get, use comma to separate, Ex: RADIUS,CGF
+	Accttype *string `json:"acct_type,omitempty"`
+
+	// AuthhostedAaaSupportedEnabled
+	// Indicate if Hosted AAA Support is enabled
+	AuthhostedAaaSupportedEnabled *bool `json:"auth_hostedAaaSupportedEnabled,omitempty"`
+
+	// AuthincludeAdGlobal
+	// If AD is in list, include only AD with Global Catalog configured
+	AuthincludeAdGlobal *bool `json:"auth_includeAdGlobal,omitempty"`
+
+	// AuthincludeGuest
+	// include Guest auth service while returning result
+	AuthincludeGuest *bool `json:"auth_includeGuest,omitempty"`
+
+	// AuthincludeLocalDb
+	// include LocalDB auth service while returning result
+	AuthincludeLocalDb *bool `json:"auth_includeLocalDb,omitempty"`
+
+	// AuthincludeNa
+	// include Not Available auth service option while returning result
+	AuthincludeNa *bool `json:"auth_includeNa,omitempty"`
+
+	// AuthplmnIdentifierEnabled
+	// Indicate if Configure PLMN identifier is enabled
+	AuthplmnIdentifierEnabled *bool `json:"auth_plmnIdentifierEnabled,omitempty"`
+
+	// AuthrealmType
+	// To get specific authentication service information for configuring realm based authentication profile
+	// Constraints:
+	//    - oneof:[ALL,RADIUS]
+	AuthrealmType *string `json:"auth_realmType,omitempty" validate:"oneof=ALL RADIUS"`
+
+	// AuthtestableOnly
+	// only get testable service type
+	AuthtestableOnly *bool `json:"auth_testableOnly,omitempty"`
+
+	// Authtype
+	// authentication service types to get, use comma to separate, Ex: RADIUS,AD
+	Authtype *string `json:"auth_type,omitempty"`
+
+	// Forwardingtype
+	// forwarding service types to get, use comma to separate, Ex: L2oGRE,TTGPDG,Bridge,Advanced
+	Forwardingtype *string `json:"forwarding_type,omitempty"`
+
+	// GlobalFilterId
+	// Specify GlobalFilter ID for query.
+	GlobalFilterId *string `json:"globalFilterId,omitempty"`
+
+	// IncludeSharedResources
+	// Whether to include the resources of parent domain or not.
+	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
+
+	// IncludeUserClickNode
+	// Can be used when group tree rendering needs include user clicked node.
+	IncludeUserClickNode *bool `json:"includeUserClickNode,omitempty"`
+
+	// IncludeUsers
+	// Should also retrieve users or not
+	IncludeUsers *bool `json:"includeUsers,omitempty"`
+
+	// INCLUDERBACMETADATA
+	// Whether to include RBAC metadata or not.
+	INCLUDERBACMETADATA *bool `json:"INCLUDE_RBAC_METADATA,omitempty"`
+
+	// InMap
+	// Specify inMap status for query.
+	InMap *bool `json:"inMap,omitempty"`
+
+	// TENANTID
+	// Specify Tenant ID for query.
+	TENANTID *string `json:"TENANT_ID,omitempty"`
+}
+
+func NewWSGCommonQueryCriteriaSuperSetOptionsType() *WSGCommonQueryCriteriaSuperSetOptionsType {
+	m := new(WSGCommonQueryCriteriaSuperSetOptionsType)
 	return m
 }
 

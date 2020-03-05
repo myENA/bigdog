@@ -85,31 +85,6 @@ func NewSwitchMVlanConfigCreateVlanConfig() *SwitchMVlanConfigCreateVlanConfig {
 	return m
 }
 
-type SwitchMVlanConfigEmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMVlanConfigEmptyResult) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMVlanConfigEmptyResult{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMVlanConfigEmptyResult) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMVlanConfigEmptyResult() *SwitchMVlanConfigEmptyResult {
-	m := new(SwitchMVlanConfigEmptyResult)
-	return m
-}
-
 type SwitchMVlanConfigUpdateVlanConfig struct {
 	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections,omitempty"`
 

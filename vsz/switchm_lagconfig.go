@@ -2,10 +2,6 @@ package vsz
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 type SwitchMLagConfigCreate struct {
 	// GroupId
 	// Switch Group Id
@@ -39,31 +35,6 @@ type SwitchMLagConfigCreateResult interface{}
 
 func MakeSwitchMLagConfigCreateResult() SwitchMLagConfigCreateResult {
 	m := new(SwitchMLagConfigCreateResult)
-	return m
-}
-
-type SwitchMLagConfigEmptyResult struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMLagConfigEmptyResult) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMLagConfigEmptyResult{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMLagConfigEmptyResult) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMLagConfigEmptyResult() *SwitchMLagConfigEmptyResult {
-	m := new(SwitchMLagConfigEmptyResult)
 	return m
 }
 

@@ -209,6 +209,8 @@ type APIResponseError struct {
 	ErrorType string `json:"errorType"`
 
 	Err error `json:"err"`
+
+	errMeta *APIResponseMeta
 }
 
 func (e *APIResponseError) Error() string {
@@ -263,7 +265,7 @@ func wrapErr(err, prev error) error {
 // -- in this case, the first value of the response tuple will be nil
 // - if no response model is provided, simply read out all body bytes and return them
 // - construct response meta type
-func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
+func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, *APIResponseError) {
 	// todo: do better.
 	var (
 		responseCode   int
@@ -272,12 +274,13 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 		finalErr       error
 	)
 
+	if _, ok := sourceErr.(*APIResponseError); ok {
+
+	}
+
 	if sourceErr != nil {
 		finalErr = sourceErr
 	}
-
-	// if we saw any kind of upstream error, immediately wrap in APIError type
-	// todo: flesh out with more error types
 
 	// if a response was received store the code, status, and response bytes for later use constructing the meta type
 	if httpResp != nil {

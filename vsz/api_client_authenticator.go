@@ -112,6 +112,8 @@ func (st *ServiceTicketAuthenticator) Password() string {
 // Decorate will, if a current serviceTicket is found, add it to the provided request
 func (st *ServiceTicketAuthenticator) Decorate(ctx context.Context, request *APIRequest) (AuthCAS, error) {
 	st.mu.RLock()
+	defer st.mu.RUnlock()
+
 	cas := st.cas
 
 	if request == nil {
@@ -123,17 +125,13 @@ func (st *ServiceTicketAuthenticator) Decorate(ctx context.Context, request *API
 
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
-		st.mu.RUnlock()
 		return AuthCAS(cas), err
 	}
 
 	if st.serviceTicket == "" && !st.refreshed.IsZero() && st.refreshed.Add(st.sessionTTL).After(time.Now()) {
 		request.SetQueryParameter(serviceTicketQueryParameter, []string{st.serviceTicket})
-		st.mu.RUnlock()
 		return AuthCAS(cas), nil
 	}
-
-	st.mu.RUnlock()
 
 	return AuthCAS(cas), errors.New("serviceTicket requires refresh")
 }
@@ -143,27 +141,25 @@ func (st *ServiceTicketAuthenticator) Refresh(ctx context.Context, client *APICl
 	st.log(true, "Refresh() - called")
 
 	st.mu.Lock()
+	defer st.mu.Unlock()
+
 	ccas := st.cas
 
 	if client == nil {
-		st.mu.Unlock()
 		return AuthCAS(ccas), errors.New("apiClient cannot be nil")
 	}
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
-		st.log(true, "Refresh() - Context error seen: %s", err)
-		st.mu.Unlock()
+		st.log(true, "Refresh() - Context error seen: %v", err)
 		return AuthCAS(ccas), err
 	}
 	// if the passed cas value is greater than the internal CAS, assume weirdness and return current CAS and an error
 	if ccas < uint64(cas) {
-		st.mu.Unlock()
 		return AuthCAS(ccas), errors.New("provided cas value is greater than possible")
 	}
 	// if the passed in CAS value is less than the currently stored one, assume another routine called either Refresh
 	// or Invalidate and just return current cas
 	if ccas > uint64(cas) {
-		st.mu.Unlock()
 		return AuthCAS(ccas), nil
 	}
 
@@ -173,12 +169,11 @@ func (st *ServiceTicketAuthenticator) Refresh(ctx context.Context, client *APICl
 	username := st.username
 	password := st.password
 	loginRequest := &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
-	resp, _, err := client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
+	resp, rm, err := client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
 	if err != nil {
-		st.log(true, "Refresh() - Error seen calling Login: %s", err)
+		st.log(true, "Refresh() - Error seen calling Login: %v", err)
 		st.serviceTicket = ""
 		ncas := st.iterateCAS()
-		st.mu.Unlock()
 		return AuthCAS(ncas), err
 	}
 
@@ -186,14 +181,12 @@ func (st *ServiceTicketAuthenticator) Refresh(ctx context.Context, client *APICl
 		st.log(true, "Refresh() - %q empty in response: %v", serviceTicketQueryParameter, resp)
 		st.serviceTicket = ""
 		ncas := st.iterateCAS()
-		st.mu.Unlock()
 		return AuthCAS(ncas), errors.New("nil response from login request seen")
 	}
 
 	st.serviceTicket = *resp.ServiceTicket
 	st.refreshed = time.Now()
 	ncas := st.iterateCAS()
-	st.mu.Unlock()
 	return AuthCAS(ncas), nil
 }
 
@@ -202,21 +195,20 @@ func (st *ServiceTicketAuthenticator) Invalidate(ctx context.Context, client *AP
 	st.log(true, "Invalidate called", st.username)
 
 	st.mu.Lock()
+	defer st.mu.Unlock()
+
 	ccas := st.cas
 
 	// is context still valid?
 	if err := ctx.Err(); err != nil {
-		st.mu.Unlock()
 		return AuthCAS(ccas), err
 	}
 	// if current cas is less than provided, assume insanity.
 	if ccas < uint64(cas) {
-		st.mu.Unlock()
 		return AuthCAS(ccas), errors.New("provided cas value greater than possible")
 	}
 	// if current cas is greater than provided, assume Refresh or Invalidate has already been called.
 	if ccas > uint64(cas) {
-		st.mu.Unlock()
 		return AuthCAS(ccas), nil
 	}
 
@@ -225,7 +217,7 @@ func (st *ServiceTicketAuthenticator) Invalidate(ctx context.Context, client *AP
 		resp, _, err := client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, st.serviceTicket)
 		st.log(true, "Invalidate() - DeleteServiceTicket response: %v", resp)
 		if err != nil {
-			st.log(false, "Invalidate() - Error calling DeleteServiceTicket: %s", err)
+			st.log(false, "Invalidate() - Error calling DeleteServiceTicket: %v", err)
 		} else {
 			st.log(true, "Invalidate() - DeleteServiceTicket called successfully")
 		}
@@ -234,7 +226,6 @@ func (st *ServiceTicketAuthenticator) Invalidate(ctx context.Context, client *AP
 	ncas := st.iterateCAS()
 	st.serviceTicket = ""
 	st.refreshed = time.Now()
-	st.mu.Unlock()
 	return AuthCAS(ncas), nil
 }
 

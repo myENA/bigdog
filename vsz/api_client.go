@@ -18,6 +18,30 @@ import (
 )
 
 const (
+	ResourceNameCluster       = "CLUSTER_CATEGORY"
+	ResourceNameAP            = "AP_CATEGORY"
+	ResourceNameWLAN          = "WLAN_CATEGORY"
+	ResourceNameDevice        = "DEVICE_CATEGORY"
+	ResourceNameAdministrator = "ADMINISTRATOR_CATEGORY"
+	ResourceNameTenant        = "TENANT_CATEGORY"
+	ResourceNameICX           = "ICX_CATEGORY"
+
+	ResourceDisplayCluster       = "SZ"
+	ResourceDisplayAP            = "AP"
+	ResourceDisplayWLAN          = "WLAN"
+	ResourceDisplayDevice        = "User/Device/App"
+	ResourceDisplayAdministrator = "Admin"
+	ResourceDisplayTenant        = "MVNO"
+	ResourceDisplayICX           = "ICX Switch"
+
+	ResourceAccessFullAccess = "FULL_ACCESS"
+	ResourceAccessModify     = "MODIFY"
+	ResourceAccessReadOnly   = "READ_ONLY"
+	ResourceAccessNoAccess   = "NO_ACCESS"
+
+	PermissionDefaultName    = "Default"
+	PermissionMoreSecureName = "More Secure"
+
 	DefaultWSGPathPrefix     = "/wsg/api/public"
 	DefaultSwitchMPathPrefix = "/switchm/api"
 

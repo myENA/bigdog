@@ -39,8 +39,26 @@ const (
 	ResourceAccessReadOnly   = "READ_ONLY"
 	ResourceAccessNoAccess   = "NO_ACCESS"
 
-	PermissionDefaultName    = "Default"
-	PermissionMoreSecureName = "More Secure"
+	RoleNameSuperAdmin           = "SUPER_ADMIN"
+	RoleNameSystemAdmin          = "SYSTEM_ADMIN"
+	RoleNameReadOnlySystemAdmin  = "RO_SYSTEM_ADMIN"
+	RoleNameNetworkAdmin         = "NETWORK_ADMIN"
+	RoleNameReadOnlyNetworkAdmin = "RO_NETWORK_ADMIN"
+	RoleNameAPAdmin              = "AP_ADMIN"
+	RoleNameGuestPassAdmin       = "GUEST_PASS_ADMIN"
+	RoleNameCustom               = "CUSTOM"
+
+	RoleLabelSuperAdmin           = "Super Admin"
+	RoleLabelSystemAdmin          = "System Admin"
+	RoleLabelReadOnlySystemAdmin  = "Read-Only System Admin"
+	RoleLabelNetworkAdmin         = "Network Admin"
+	RoleLabelReadOnlyNetworkAdmin = "Read-Only Network Admin"
+	RoleLabelAPAdmin              = "AP Admin"
+	RoleLabelGuestPassAdmin       = "Guest Pass Admin"
+	RoleLabelCustom               = "Custom"
+
+	SecurityProfileNameDefault    = "Default"
+	SecurityProfileNameMoreSecure = "More Secure"
 
 	DefaultWSGPathPrefix     = "/wsg/api/public"
 	DefaultSwitchMPathPrefix = "/switchm/api"

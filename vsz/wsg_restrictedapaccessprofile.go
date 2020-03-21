@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -51,7 +50,7 @@ func (s *WSGRestrictedAPAccessProfileService) AddRkszonesRestrictedApAccessProfi
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddRkszonesRestrictedApAccessProfilesByZoneId), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesRestrictedApAccessProfilesByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -83,7 +82,7 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesRestrictedApAccessProfiles), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRestrictedApAccessProfiles, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -117,7 +116,7 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteRkszonesRestrictedApAccessProfilesById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesRestrictedApAccessProfilesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -151,7 +150,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesRestrictedApAccessProfilesById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRestrictedApAccessProfilesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -182,7 +181,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesRestrictedApAccessProfilesByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindRkszonesRestrictedApAccessProfilesByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -219,7 +218,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindRkszonesRestrictedApAccessProfilesByZoneId), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRestrictedApAccessProfilesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
@@ -266,7 +265,7 @@ func (s *WSGRestrictedAPAccessProfileService) UpdateRkszonesRestrictedApAccessPr
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateRkszonesRestrictedApAccessProfilesById), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesRestrictedApAccessProfilesById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -162,7 +161,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddDomains), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddDomains, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -195,7 +194,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) (*A
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDomainsById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDomainsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -228,7 +227,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDomains), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomains, true)
 	if v, ok := optionalParams["excludeRegularDomain"]; ok {
 		req.AddQueryParameter("excludeRegularDomain", v)
 	}
@@ -275,7 +274,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDomainsById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["recursively"]; ok {
 		req.AddQueryParameter("recursively", v)
@@ -307,7 +306,7 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 	if err = pkgValidator.VarCtx(ctx, domainName, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDomainsByNameByDomainName), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
 	req.SetPathParameter("domainName", domainName)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()
@@ -348,7 +347,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDomainsSubdomainById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["excludeRegularDomain"]; ok {
 		req.AddQueryParameter("excludeRegularDomain", v)
@@ -399,7 +398,7 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateDomainsById), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

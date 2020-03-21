@@ -5,7 +5,6 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -245,7 +244,7 @@ func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddGroupAaaServersByGroupId), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddGroupAaaServersByGroupId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -284,7 +283,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteGroupAaaServersByGroupId), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteGroupAaaServersByGroupId, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -319,7 +318,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteGroupAaaServersById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteGroupAaaServersById, true)
 	req.SetPathParameter("groupId", groupId)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -348,7 +347,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindGroupAaaServersByGroupId), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaServersByGroupId, true)
 	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAAServersQueryResult()
@@ -382,7 +381,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindGroupAaaServersById), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaServersById, true)
 	req.SetPathParameter("groupId", groupId)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -424,7 +423,7 @@ func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateGroupAaaServersById), true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupAaaServersById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

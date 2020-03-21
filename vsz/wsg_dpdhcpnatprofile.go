@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -43,7 +42,7 @@ func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddDpProfileSettings), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddDpProfileSettings, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -73,7 +72,7 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpProfileSettings), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettings, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -102,7 +101,7 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteDpProfileSettingsByDpKey), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
 	req.SetPathParameter("dpKey", dpKey)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -123,7 +122,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpProfileSettings), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettings, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileSettingBOList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -151,7 +150,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindDpProfileSettingsByDpKey), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettingsByDpKey, true)
 	req.SetPathParameter("dpKey", dpKey)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileSettingBO()
@@ -187,7 +186,7 @@ func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.
 	if err = pkgValidator.VarCtx(ctx, dpKey, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateDpProfileSettingsByDpKey), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateDpProfileSettingsByDpKey, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

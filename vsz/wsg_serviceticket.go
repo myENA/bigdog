@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -76,7 +75,7 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddServiceTicket), false)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServiceTicket, false)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -107,7 +106,7 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 	if err = pkgValidator.VarCtx(ctx, serviceTicket, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteServiceTicket), false)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
 	req.SetQueryParameter("serviceTicket", []string{serviceTicket})
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})

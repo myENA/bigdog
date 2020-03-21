@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -190,7 +189,7 @@ func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindGroupAaaSettingsByGroupId), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaSettingsByGroupId, true)
 	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMAAASettingsAAASetting()
@@ -226,7 +225,7 @@ func (s *SwitchMAAASettingsService) UpdateGroupAaaSettingsByGroupId(ctx context.
 	if err = pkgValidator.VarCtx(ctx, groupId, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateGroupAaaSettingsByGroupId), true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupAaaSettingsByGroupId, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

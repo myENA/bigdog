@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddServicesAcctRadius), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServicesAcctRadius, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -83,7 +82,7 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddServicesAcctTestById), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddServicesAcctTestById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -115,7 +114,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteServicesAcct), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcct, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -144,7 +143,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteServicesAcctById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -171,7 +170,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteServicesAcctRadiusById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -198,7 +197,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteServicesAcctRadiusSecondaryById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusSecondaryById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -225,7 +224,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteServicesAcctRadiusStandbyPrimaryById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusStandbyPrimaryById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -254,7 +253,7 @@ func (s *WSGAccountingServiceService) FindServicesAaaServerAcctByQueryCriteria(c
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindServicesAaaServerAcctByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAaaServerAcctByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -286,7 +285,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindServicesAcctByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAcctByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -310,7 +309,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindServicesAcctRadius), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAcctRadius, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGServiceRadiusAccountingServiceList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -338,7 +337,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindServicesAcctRadiusById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAcctRadiusById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGServiceRadiusAccountingService()
@@ -368,7 +367,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindServicesAcctRadiusByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesAcctRadiusByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -406,7 +405,7 @@ func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateServicesAcctRadiusById), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesAcctRadiusById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

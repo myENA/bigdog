@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -223,7 +222,7 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindSystemIpsec), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemIpsec, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemIPsecGetResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -252,7 +251,7 @@ func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateSystemIpsec), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateSystemIpsec, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

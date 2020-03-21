@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -97,7 +96,7 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddSystemCaleaCommonSetting), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaCommonSetting, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -127,7 +126,7 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddSystemCaleaMac), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaMac, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -156,7 +155,7 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddSystemCaleaMacList), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddSystemCaleaMacList, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -187,7 +186,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteSystemCaleaMac), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMac, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -209,7 +208,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context) (*APIRes
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteSystemCaleaMacList), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemCaleaMacList, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
@@ -229,7 +228,7 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WS
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindSystemCaleaCommonSetting), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaCommonSetting, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCALEACommonSettingRsp()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -250,7 +249,7 @@ func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context) (*WSGCALEA
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindSystemCaleaMacList), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaMacList, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCALEAMacListRsp()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)

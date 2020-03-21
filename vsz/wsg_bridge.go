@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesBridge), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesBridge, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +74,7 @@ func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesBridge), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridge, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -104,7 +103,7 @@ func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesBridgeById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridgeById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -125,7 +124,7 @@ func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*WSGProfileL
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesBridge), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridge, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -153,7 +152,7 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesBridgeById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridgeById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileBridgeProfile()
@@ -183,7 +182,7 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesBridgeByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesBridgeByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -221,7 +220,7 @@ func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateProfilesBridgeById), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesBridgeById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

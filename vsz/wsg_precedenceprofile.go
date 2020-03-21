@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddPrecedence), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddPrecedence, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +74,7 @@ func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeletePrecedence), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeletePrecedence, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -104,7 +103,7 @@ func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeletePrecedenceById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeletePrecedenceById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -131,7 +130,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, option
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindPrecedence), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindPrecedence, true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -165,7 +164,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindPrecedenceById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindPrecedenceById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileCreatePrecedenceProfile()
@@ -195,7 +194,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindPrecedenceByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindPrecedenceByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -233,7 +232,7 @@ func (s *WSGPrecedenceProfileService) PartialUpdatePrecedenceById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdatePrecedenceById), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdatePrecedenceById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

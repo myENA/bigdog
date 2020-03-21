@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddIdentityGuestpassGenerate), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityGuestpassGenerate, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -76,7 +75,7 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddIdentityGuestpassList), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityGuestpassList, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -106,7 +105,7 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddIdentityGuestpassUpload), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityGuestpassUpload, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -138,7 +137,7 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddIdentityGuestpassUploadCommon), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityGuestpassUploadCommon, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -169,7 +168,7 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Contex
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteIdentityGuestpass), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityGuestpass, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -198,7 +197,7 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteIdentityGuestpassByUserId), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityGuestpassByUserId, true)
 	req.SetPathParameter("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -239,7 +238,7 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindIdentityGuestpass), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityGuestpass, true)
 	if v, ok := optionalParams["displayName"]; ok {
 		req.AddQueryParameter("displayName", v)
 	}

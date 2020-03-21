@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddBlockClient), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddBlockClient, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -83,7 +82,7 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddBlockClientByApMacByApMac), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddBlockClientByApMacByApMac, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -115,7 +114,7 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteBlockClient), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteBlockClient, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -144,7 +143,7 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteBlockClientById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteBlockClientById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -172,7 +171,7 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindBlockClientById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileBlockClient()
@@ -202,7 +201,7 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindBlockClientByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindBlockClientByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -233,7 +232,7 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindBlockClientByZoneByZoneId), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindBlockClientByZoneByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileBlockClientList()
@@ -269,7 +268,7 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateBlockClientById), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateBlockClientById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -307,7 +306,7 @@ func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateBlockClientById), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateBlockClientById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddAccessControls), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddAccessControls, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +74,7 @@ func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteAccessControls), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAccessControls, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -104,7 +103,7 @@ func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteAccessControlsById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteAccessControlsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -132,7 +131,7 @@ func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindAccessControlsById), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindAccessControlsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMACLConfig()
@@ -162,7 +161,7 @@ func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindAccessControlsByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindAccessControlsByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -200,7 +199,7 @@ func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.C
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateAccessControlsById), true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateAccessControlsById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

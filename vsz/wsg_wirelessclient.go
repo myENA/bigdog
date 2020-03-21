@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -43,7 +42,7 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddClientsBulkDeauth), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsBulkDeauth, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -73,7 +72,7 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddClientsBulkDisconnect), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsBulkDisconnect, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -111,7 +110,7 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, wlanname, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddClientsByWlanNameByWlanname), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsByWlanNameByWlanname, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -143,7 +142,7 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddClientsDeauth), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsDeauth, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -173,7 +172,7 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddClientsDisconnect), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddClientsDisconnect, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -203,7 +202,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindApsOperationalClientTotalCountByApMac), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsOperationalClientTotalCountByApMac, true)
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
@@ -233,7 +232,7 @@ func (s *WSGWirelessClientService) FindClientByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindClientByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindClientByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -265,7 +264,7 @@ func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindHistoricalclientByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindHistoricalclientByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -43,7 +42,7 @@ func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddDpsSwitchoverCluster), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddDpsSwitchoverCluster, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

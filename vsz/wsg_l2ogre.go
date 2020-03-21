@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *WSGProfi
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesL2ogre), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesL2ogre, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +74,7 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *WSGCo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesL2ogre), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesL2ogre, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -104,7 +103,7 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id stri
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesL2ogreById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesL2ogreById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -125,7 +124,7 @@ func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context) (*WSGProfileL
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesL2ogre), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesL2ogre, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -153,7 +152,7 @@ func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesL2ogreById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesL2ogreById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileL2oGREProfile()
@@ -183,7 +182,7 @@ func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesL2ogreByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesL2ogreByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -221,7 +220,7 @@ func (s *WSGL2oGREService) PartialUpdateProfilesL2ogreById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateProfilesL2ogreById), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesL2ogreById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

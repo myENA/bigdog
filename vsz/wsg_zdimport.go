@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -43,7 +42,7 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddZdImportConnectZD), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddZdImportConnectZD, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -73,7 +72,7 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddZdImportMigrate), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddZdImportMigrate, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -103,7 +102,7 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 	if err = pkgValidator.VarCtx(ctx, ip, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindZdImportGetZDAPs), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindZdImportGetZDAPs, true)
 	req.SetQueryParameter("ip", []string{ip})
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationZdAPList()
@@ -129,7 +128,7 @@ func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalPar
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindZdImportStatus), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindZdImportStatus, true)
 	if v, ok := optionalParams["details"]; ok {
 		req.AddQueryParameter("details", v)
 	}

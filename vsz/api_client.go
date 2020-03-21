@@ -60,9 +60,6 @@ const (
 	SecurityProfileNameDefault    = "Default"
 	SecurityProfileNameMoreSecure = "More Secure"
 
-	DefaultWSGPathPrefix     = "/wsg/api/public"
-	DefaultSwitchMPathPrefix = "/switchm/api"
-
 	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
 	logDebugAPIRequestWithBodyFormat = "%s with body: %s"
@@ -89,15 +86,10 @@ type APIConfig struct {
 	// Full address of VSZ, including scheme and port
 	Address string `json:"address"`
 
-	// WSGPathPrefix [optional]
+	// PathPrefix [optional]
 	//
-	// Path prefix to access Wireless Security Gateway API endpoints
-	WSGPathPrefix string `json:"wsgPathPrefix"`
-
-	// SwitchMPathPrefix [optional]
-	//
-	// Path prefix to access Switch Management API endpoints
-	SwitchMPathPrefix string `json:"switchMPathPrefix"`
+	// Custom path prefix to prepend to all api calls.  Default is to leave this blank.
+	PathPrefix string `json:"pathPrefix"`
 
 	// Debug [optional]
 	//
@@ -122,41 +114,42 @@ type APIClient struct {
 	log   *log.Logger
 	debug bool
 
-	addr        string
-	wsgPath     string
-	switchMPath string
-	stp         ServiceTicketProvider
+	addr       string
+	pathPrefix string
+	stp        ServiceTicketProvider
 
 	client *http.Client
 }
 
-func NewAPIClient(conf *APIConfig) (*APIClient, error) {
-	if conf.Address == "" {
+func NewAPIClient(config *APIConfig) (*APIClient, error) {
+	if config.Address == "" {
 		return nil, errors.New("address must be defined")
 	}
-	if conf.ServiceTicketProvider == nil {
+	if config.ServiceTicketProvider == nil {
 		return nil, errors.New("authenticator must be defined")
 	}
 
-	if _, err := url.Parse(conf.Address); err != nil {
+	if _, err := url.Parse(config.Address); err != nil {
 		return nil, fmt.Errorf("invalid address specified: %w", err)
 	}
 
 	c := new(APIClient)
-	c.addr = conf.Address
-	c.stp = conf.ServiceTicketProvider
-	c.debug = conf.Debug
+	c.addr = config.Address
+	c.stp = config.ServiceTicketProvider
+	c.pathPrefix = config.PathPrefix
+	c.debug = config.Debug
 
-	if conf.Logger != nil {
-		c.log = conf.Logger
+	if config.Logger != nil {
+		c.log = config.Logger
 	} else {
 		c.log = log.New(ioutil.Discard, "", 0)
 	}
 
-	if conf.HTTPClient != nil {
-		c.client = conf.HTTPClient
+	if config.HTTPClient != nil {
+		c.client = config.HTTPClient
 	} else {
-		// pooled transport config shamelessly borrowed from https://github.com/hashicorp/go-cleanhttp/blob/v0.5.1/cleanhttp.go
+		// pooled transport config shamelessly borrowed from
+		// https://github.com/hashicorp/go-cleanhttp/blob/v0.5.1/cleanhttp.go
 		c.client = &http.Client{
 			Transport: &http.Transport{
 				Proxy: http.ProxyFromEnvironment,
@@ -173,23 +166,18 @@ func NewAPIClient(conf *APIConfig) (*APIClient, error) {
 		}
 	}
 
-	if conf.WSGPathPrefix != "" {
-		c.wsgPath = conf.WSGPathPrefix
-	} else {
-		c.wsgPath = DefaultWSGPathPrefix
-	}
-	if conf.SwitchMPathPrefix != "" {
-		c.switchMPath = conf.SwitchMPathPrefix
-	} else {
-		c.switchMPath = DefaultSwitchMPathPrefix
-	}
-
 	return c, nil
 }
 
 // Address returns the address of the VSZ node currently being connected to
 func (c *APIClient) Address() string {
 	return c.addr
+}
+
+// PathPrefix returns the prefix that will be applied to all api calls.  It is valid for this to be blank, and is by
+// default
+func (c *APIClient) PathPrefix() string {
+	return c.pathPrefix
 }
 
 // ServiceTicketProvider returns the provider used by this client
@@ -241,7 +229,7 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (ServiceTicketC
 
 		c.log.Print(logMsg)
 	}
-	if httpRequest, err = request.toHTTP(ctx, c.addr, serviceTicket); err != nil {
+	if httpRequest, err = request.toHTTP(ctx, c.addr, c.pathPrefix, serviceTicket); err != nil {
 		return cas, nil, err
 	}
 	httpResponse, err = c.client.Do(httpRequest)

@@ -5,7 +5,6 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -187,7 +186,7 @@ func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMC
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddFirmware), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmware, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -217,7 +216,7 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []b
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddFirmwareUpload), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmwareUpload, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -248,7 +247,7 @@ func (s *SwitchMFirmwareService) DeleteFirmwareByVersion(ctx context.Context, ve
 	if err = pkgValidator.VarCtx(ctx, version, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteFirmwareByVersion), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteFirmwareByVersion, true)
 	req.SetPathParameter("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
@@ -270,7 +269,7 @@ func (s *SwitchMFirmwareService) FindFirmware(ctx context.Context) (*SwitchMFirm
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindFirmware), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMFirmwaresQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -306,7 +305,7 @@ func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Cont
 	if err = pkgValidator.VarCtx(ctx, version, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMPartialUpdateFirmwareByVersion), true)
+	req = NewAPIRequest(http.MethodPatch, RouteSwitchMPartialUpdateFirmwareByVersion, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

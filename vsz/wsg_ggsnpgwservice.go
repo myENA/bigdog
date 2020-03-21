@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -35,7 +34,7 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteServicesGgsnDnsServerList), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesGgsnDnsServerList, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -54,7 +53,7 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteServicesGgsnGgsnList), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServicesGgsnGgsnList, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -82,7 +81,7 @@ func (s *WSGGGSNPGWServiceService) FindGgsnGtpcConStatsByQueryCriteria(ctx conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindGgsnGtpcConStatsByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindGgsnGtpcConStatsByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -114,7 +113,7 @@ func (s *WSGGGSNPGWServiceService) FindGgsnGtpStatsByQueryCriteria(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindGgsnGtpStatsByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindGgsnGtpStatsByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -138,7 +137,7 @@ func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context) (*WSGSe
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindServicesGgsn), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesGgsn, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGServiceGgsnConfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -166,7 +165,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateServicesGgsn), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsn, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -194,7 +193,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx co
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateServicesGgsnDnsServerList), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnDnsServerList, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -222,7 +221,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateServicesGgsnGgsnList), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGgsnList, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -252,7 +251,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateServicesGgsnGtpSettings), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGtpSettings, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

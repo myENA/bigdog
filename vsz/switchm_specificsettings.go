@@ -5,7 +5,6 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -237,7 +236,7 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteSpecificSettingsById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -258,7 +257,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSpecificSettings), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettings, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSpecificSettingsAllResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -286,7 +285,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSpecificSettingsById), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSpecificSettings()
@@ -322,7 +321,7 @@ func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateSpecificSettingsById), true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSpecificSettingsById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

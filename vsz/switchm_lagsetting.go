@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddLagConfigs), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddLagConfigs, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +74,7 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteLagConfigs), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteLagConfigs, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -104,7 +103,7 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteLagConfigsById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteLagConfigsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -125,7 +124,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context) (*SwitchM
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindLagConfigs), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindLagConfigs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMLagConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -153,7 +152,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindLagConfigsById), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindLagConfigsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMLagConfig()
@@ -183,7 +182,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindLagConfigsByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindLagConfigsByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -221,7 +220,7 @@ func (s *SwitchMLAGSettingService) UpdateLagConfigsById(ctx context.Context, bod
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateLagConfigsById), true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateLagConfigsById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

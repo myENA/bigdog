@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -36,7 +35,7 @@ func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*WSGSystemLwa
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindLwapp2scg), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindLwapp2scg, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemLwapp2scgConfiguration()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -64,7 +63,7 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateLwapp2scg), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateLwapp2scg, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -94,7 +93,7 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context,
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateLwapp2scgApList), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateLwapp2scgApList, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

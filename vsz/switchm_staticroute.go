@@ -5,7 +5,6 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -225,7 +224,7 @@ func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *S
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMAddStaticRoutes), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddStaticRoutes, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -256,7 +255,7 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteStaticRoutes), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteStaticRoutes, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -285,7 +284,7 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMDeleteStaticRoutesById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteStaticRoutesById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -313,7 +312,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindStaticRoutesById), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStaticRoutesById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStaticRoute()
@@ -343,7 +342,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindStaticRoutesByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindStaticRoutesByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -381,7 +380,7 @@ func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, 
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMUpdateStaticRoutesById), true)
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateStaticRoutesById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

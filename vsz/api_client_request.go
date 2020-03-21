@@ -20,7 +20,7 @@ const (
 	uriQueryParameterAddValueFormat   = "%s%s=%s&"
 	uriQueryParameterCutSet           = "&"
 
-	apiRequestURLFormat = "%s%s"
+	apiRequestURLFormat = "%s%s%s"
 
 	headerKeyContentType       = "Content-Type"
 	headerKeyAccept            = "Accept"
@@ -219,48 +219,56 @@ func (r *APIRequest) Body() []byte {
 	return r.body
 }
 
+func (r *APIRequest) compileURI() string {
+	pathParams := r.PathParameters()
+	queryParams := r.QueryParameters()
+	uri := r.uri
+	if len(pathParams) > 0 {
+		for k, v := range pathParams {
+			uri = strings.Replace(uri, fmt.Sprintf(uriPathParameterSearchFormat, k), v, 1)
+		}
+	}
+	// TODO: could probably be made more efficient.
+	if len(queryParams) > 0 {
+		uri = fmt.Sprintf(uriQueryParameterPrefixFormat, uri)
+		for param, values := range queryParams {
+			for _, value := range values {
+				if value == "" {
+					uri = fmt.Sprintf(uriQueryParameterAddNoValueFormat, uri, param)
+				} else {
+					uri = fmt.Sprintf(uriQueryParameterAddValueFormat, uri, param, value)
+				}
+			}
+		}
+		uri = strings.TrimRight(uri, uriQueryParameterCutSet)
+	}
+	return uri
+}
+
 // CompiledURI will return to you the full request URI, not including scheme, hostname, and port.  This method is not
 // thread safe, as you shouldn't be calling this asynchronously anyway.
 func (r *APIRequest) CompiledURI() string {
 	if r.compiledURI == "" {
-		pathParams := r.PathParameters()
-		queryParams := r.QueryParameters()
-		uri := r.uri
-		if len(pathParams) > 0 {
-			for k, v := range pathParams {
-				uri = strings.Replace(uri, fmt.Sprintf(uriPathParameterSearchFormat, k), v, 1)
-			}
-		}
-		// TODO: could probably be made more efficient.
-		if len(queryParams) > 0 {
-			uri = fmt.Sprintf(uriQueryParameterPrefixFormat, uri)
-			for param, values := range queryParams {
-				for _, value := range values {
-					if value == "" {
-						uri = fmt.Sprintf(uriQueryParameterAddNoValueFormat, uri, param)
-					} else {
-						uri = fmt.Sprintf(uriQueryParameterAddValueFormat, uri, param, value)
-					}
-				}
-			}
-			uri = strings.TrimRight(uri, uriQueryParameterCutSet)
-		}
-		r.compiledURI = uri
+		r.compiledURI = r.compileURI()
 	}
 	return r.compiledURI
 }
 
 // toHTTP will attempt to construct an executable http.request
-func (r *APIRequest) toHTTP(ctx context.Context, addr, serviceTicket string) (*http.Request, error) {
-	var err error
-	var httpRequest *http.Request
+func (r *APIRequest) toHTTP(ctx context.Context, addr, pathPrefix, serviceTicket string) (*http.Request, error) {
+	var (
+		httpRequest *http.Request
+		err         error
+	)
 
 	body := r.Body()
 	bodyLen := len(body)
 	if r.authenticated {
-		r.SetQueryParameter(serviceTicketQueryParameter, []string{serviceTicket})
+		param := make([]string, 1, 1)
+		param[0] = serviceTicket
+		r.SetQueryParameter(serviceTicketQueryParameter, param)
 	}
-	compiledURL := fmt.Sprintf(apiRequestURLFormat, addr, r.CompiledURI())
+	compiledURL := fmt.Sprintf(apiRequestURLFormat, addr, pathPrefix, r.CompiledURI())
 
 	if bodyLen == 0 {
 		httpRequest, err = http.NewRequest(r.method, compiledURL, nil)

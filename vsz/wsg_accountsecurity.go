@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddAccountSecurity), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAccountSecurity, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -76,7 +75,7 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, b
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteAccountSecurity), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAccountSecurity, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -115,7 +114,7 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteAccountSecurityById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAccountSecurityById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -140,7 +139,7 @@ func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*W
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindAccountSecurity), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAccountSecurity, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAccountSecurityProfileProfileListResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -176,7 +175,7 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindAccountSecurityById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindAccountSecurityById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -216,7 +215,7 @@ func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateAccountSecurityById), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateAccountSecurityById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -256,7 +255,7 @@ func (s *WSGAccountSecurityService) UpdateAccountSecurityById(ctx context.Contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateAccountSecurityById), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAccountSecurityById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

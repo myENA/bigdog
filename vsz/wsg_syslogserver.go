@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -42,7 +41,7 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindSystemSyslog), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSyslog, true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -76,7 +75,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystemSyslog), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslog, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -106,7 +105,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystemSyslogPrimaryServer), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPrimaryServer, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -136,7 +135,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystemSyslogPriority), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPriority, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -166,7 +165,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx co
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateSystemSyslogSecondaryServer), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogSecondaryServer, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddAlertAlarmList), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmList, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -76,7 +75,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddAlertAlarmSummary), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmSummary, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -108,7 +107,7 @@ func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *W
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddAlertEventList), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventList, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -140,7 +139,7 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddAlertEventSummary), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventSummary, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -171,7 +170,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateAlertAlarmAck), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAck, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -201,7 +200,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, alarmID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateAlertAlarmAckByAlarmID), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
 	req.SetPathParameter("alarmID", alarmID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
@@ -230,7 +229,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateAlertAlarmClear), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClear, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -260,7 +259,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, alarmID, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateAlertAlarmClearByAlarmID), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
 	req.SetPathParameter("alarmID", alarmID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})

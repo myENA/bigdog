@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -68,7 +67,7 @@ func (s *SwitchMTroubleShootingService) FindSupportLogBySwitchId(ctx context.Con
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSupportLogBySwitchId), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSupportLogBySwitchId, true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMCommonCreateResult()
@@ -96,7 +95,7 @@ func (s *SwitchMTroubleShootingService) FindSupportLogDownloadBySwitchId(ctx con
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSupportLogDownloadBySwitchId), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSupportLogDownloadBySwitchId, true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
@@ -124,7 +123,7 @@ func (s *SwitchMTroubleShootingService) FindSupportLogStatusBySwitchId(ctx conte
 	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindSupportLogStatusBySwitchId), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSupportLogStatusBySwitchId, true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTroubleShootingSupportLogStatus()

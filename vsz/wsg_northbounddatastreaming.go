@@ -5,7 +5,6 @@ package vsz
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -334,7 +333,7 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddNorthboundDataStreamingProfile), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddNorthboundDataStreamingProfile, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -364,7 +363,7 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteNorthboundDataStreamingProfileById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
@@ -385,7 +384,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindNorthboundDataStreamingEventCodes), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGNorthboundDataStreamingEventCodes()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -413,7 +412,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindNorthboundDataStreamingProfileById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGNorthboundDataStreamingProfile()
@@ -435,7 +434,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindNorthboundDataStreamingProfileList), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGNorthboundDataStreamingProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -464,7 +463,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateNorthboundDataStreamingEventCodes), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingEventCodes, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -503,7 +502,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateNorthboundDataStreamingProfileById), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingProfileById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -536,7 +535,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSetting
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGUpdateNorthboundDataStreamingSettings), true)
+	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingSettings, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

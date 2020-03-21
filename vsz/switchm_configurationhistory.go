@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -36,7 +35,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindConfigurationHistory), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -65,7 +64,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindConfigurationHistoryByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindConfigurationHistoryByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -89,7 +88,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindConfigurationHistoryDetail), true)
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -118,7 +117,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.switchMPath, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddUserGroups), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddUserGroups, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -75,7 +74,7 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteUserGroups), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroups, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -105,7 +104,7 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 	if err = pkgValidator.VarCtx(ctx, userGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteUserGroupsByUserGroupId), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroupsByUserGroupId, true)
 	req.SetPathParameter("userGroupId", userGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupAuditId()
@@ -135,7 +134,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindUserGroupsByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindUserGroupsByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -170,7 +169,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 	if err = pkgValidator.VarCtx(ctx, userGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindUserGroupsByUserGroupId), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsByUserGroupId, true)
 	req.SetPathParameter("userGroupId", userGroupId)
 	if v, ok := optionalParams["includeUsers"]; ok {
 		req.AddQueryParameter("includeUsers", v)
@@ -195,7 +194,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(c
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindUserGroupsCurrentUserPermissionCategories), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsCurrentUserPermissionCategories, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupPermissionList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -216,7 +215,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*WSGS
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindUserGroupsRoles), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRoles, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupRoleLabelValueList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -248,7 +247,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 	if err = pkgValidator.VarCtx(ctx, role, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindUserGroupsRolesPermissionsByRole), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRolesPermissionsByRole, true)
 	req.SetPathParameter("role", role)
 	if v, ok := optionalParams["domainId"]; ok {
 		req.AddQueryParameter("domainId", v)
@@ -288,7 +287,7 @@ func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx contex
 	if err = pkgValidator.VarCtx(ctx, userGroupId, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateUserGroupsByUserGroupId), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUserGroupsByUserGroupId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}

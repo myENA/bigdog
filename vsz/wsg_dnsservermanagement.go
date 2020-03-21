@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -44,7 +43,7 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesDnsserver), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesDnsserver, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -83,7 +82,7 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx contex
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGAddProfilesDnsserverCloneById), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesDnsserverCloneById, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -115,7 +114,7 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Cont
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesDnsserver), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesDnsserver, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -144,7 +143,7 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGDeleteProfilesDnsserverById), true)
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesDnsserverById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -171,7 +170,7 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesDnsserver), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserver, true)
 	if v, ok := optionalParams["index"]; ok {
 		req.AddQueryParameter("index", v)
 	}
@@ -205,7 +204,7 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Co
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesDnsserverById), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserverById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileDnsServerProfile()
@@ -235,7 +234,7 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindProfilesDnsserverByQueryCriteria), true)
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesDnsserverByQueryCriteria, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -273,7 +272,7 @@ func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx c
 	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateProfilesDnsserverById), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesDnsserverById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

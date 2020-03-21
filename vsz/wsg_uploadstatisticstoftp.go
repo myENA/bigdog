@@ -4,7 +4,6 @@ package vsz
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -36,7 +35,7 @@ func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGFindGlobalSettingsStatsFtp), true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsStatsFtp, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtpGlobalSetting()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -64,7 +63,7 @@ func (s *WSGUploadStatisticstoFTPService) PartialUpdateGlobalSettingsStatsFtp(ct
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, fmt.Sprintf("%s%s", s.apiClient.wsgPath, RouteWSGPartialUpdateGlobalSettingsStatsFtp), true)
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateGlobalSettingsStatsFtp, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

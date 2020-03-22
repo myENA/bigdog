@@ -193,6 +193,10 @@ func (c *APIClient) SwitchM() *SwitchMService {
 	return NewSwitchMService(c)
 }
 
+func (c *APIClient) Custom() *CustomService {
+	return NewCustomService(c)
+}
+
 func (c *APIClient) Do(ctx context.Context, request *APIRequest) (*http.Response, error) {
 	_, httpResponse, err := c.do(ctx, request)
 	return httpResponse, err

@@ -380,7 +380,7 @@ type WSGAPModelLanPortSupplicant struct {
 	// Constraints:
 	//    - required
 	//    - oneof:[MACAddress,Custom]
-	Type *string `json:"type" validate:"required,oneof=MACAddress Custom"`
+	Type *string `json:"type" validate:"required,oneof=MACAddress SCGAdmin"`
 
 	// UserName
 	// Constraints:

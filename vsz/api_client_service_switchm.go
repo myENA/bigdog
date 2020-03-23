@@ -5,7 +5,7 @@ type SwitchMService struct {
 }
 
 func NewSwitchMService(c *APIClient) *SwitchMService {
-	ss := new(SwitchMService)
-	ss.apiClient = c
-	return ss
+	s := new(SwitchMService)
+	s.apiClient = c
+	return s
 }

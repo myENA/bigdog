@@ -55,7 +55,7 @@ const (
 	RoleLabelReadOnlyNetworkAdmin = "Read-Only Network Admin"
 	RoleLabelAPAdmin              = "AP Admin"
 	RoleLabelGuestPassAdmin       = "Guest Pass Admin"
-	RoleLabelCustom               = "Custom"
+	RoleLabelCustom               = "SCGAdmin"
 
 	SecurityProfileNameDefault    = "Default"
 	SecurityProfileNameMoreSecure = "More Secure"
@@ -193,8 +193,8 @@ func (c *APIClient) SwitchM() *SwitchMService {
 	return NewSwitchMService(c)
 }
 
-func (c *APIClient) Custom() *CustomService {
-	return NewCustomService(c)
+func (c *APIClient) SCGAdmin() *SCGAdminService {
+	return NewSCGAdminService(c)
 }
 
 func (c *APIClient) Do(ctx context.Context, request *APIRequest) (*http.Response, error) {

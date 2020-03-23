@@ -5,7 +5,7 @@ type WSGService struct {
 }
 
 func NewWSGService(c *APIClient) *WSGService {
-	ws := new(WSGService)
-	ws.apiClient = c
-	return ws
+	s := new(WSGService)
+	s.apiClient = c
+	return s
 }

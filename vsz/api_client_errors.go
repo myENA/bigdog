@@ -31,6 +31,7 @@ func IsServiceTicketResponseEmptyErr(err error) bool {
 type APIError struct {
 	Success   bool   `json:"success"`
 	Message   string `json:"message"`
+	NoSession string `json:"noSession"`
 	ErrorCode int    `json:"errorCode"`
 	ErrorType string `json:"errorType"`
 

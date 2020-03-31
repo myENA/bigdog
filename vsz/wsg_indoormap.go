@@ -367,26 +367,24 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (
 // Required Parameters:
 // - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, *APIResponseMeta, error) {
+func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoorMapId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGIndoorMapIndooMapAuditId
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteMapsByIndoorMapId, true)
 	req.SetPathParameter("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGIndoorMapIndooMapAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // FindMaps
@@ -495,34 +493,32 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 // Required Parameters:
 // - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, *APIResponseMeta, error) {
+func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, indoorMapId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGIndoorMapIndooMapAuditId
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateMapsByIndoorMapId, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req.SetPathParameter("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGIndoorMapIndooMapAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // UpdateMapsApsByIndoorMapId
@@ -535,30 +531,28 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 // Required Parameters:
 // - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, indoorMapId string) (*WSGIndoorMapIndooMapAuditId, *APIResponseMeta, error) {
+func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, indoorMapId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGIndoorMapIndooMapAuditId
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, indoorMapId, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateMapsApsByIndoorMapId, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req.SetPathParameter("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGIndoorMapIndooMapAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }

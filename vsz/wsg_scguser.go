@@ -916,26 +916,24 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 // Required Parameters:
 // - userId string
 //		- required
-func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string) (*WSGSCGUserAuditId, *APIResponseMeta, error) {
+func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGSCGUserAuditId
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, userId, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
 	req.SetPathParameter("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGSCGUserAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // FindUsersByQueryCriteria

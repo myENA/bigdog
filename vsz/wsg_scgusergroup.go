@@ -90,26 +90,24 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 // Required Parameters:
 // - userGroupId string
 //		- required
-func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string) (*WSGSCGUserGroupAuditId, *APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGSCGUserGroupAuditId
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, userGroupId, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteUserGroupsByUserGroupId, true)
 	req.SetPathParameter("userGroupId", userGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGSCGUserGroupAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // FindUserGroupsByQueryCriteria
@@ -268,32 +266,30 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 // Required Parameters:
 // - userGroupId string
 //		- required
-func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string) (*WSGSCGUserGroupAuditId, *APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGSCGUserGroupAuditId
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	if err = pkgValidator.VarCtx(ctx, userGroupId, "required"); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateUserGroupsByUserGroupId, true)
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return rm, err
 	}
 	req.SetPathParameter("userGroupId", userGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGSCGUserGroupAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
-	return resp, rm, err
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }

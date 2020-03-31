@@ -49,7 +49,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAlarmListAlarmQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -81,7 +81,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAlertSummaryAlarmSummary()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -113,7 +113,7 @@ func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *W
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGEventListEventQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -145,7 +145,7 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAlertSummaryEventSummary()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

@@ -2306,7 +2306,7 @@ func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *WSG
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2346,7 +2346,7 @@ func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2386,7 +2386,7 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, 
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2426,7 +2426,7 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Conte
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2466,7 +2466,7 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Conte
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2539,7 +2539,7 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Conte
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2579,7 +2579,7 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Co
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2619,7 +2619,7 @@ func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2659,7 +2659,7 @@ func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, bo
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2699,7 +2699,7 @@ func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, bod
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2739,7 +2739,7 @@ func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context,
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2779,7 +2779,7 @@ func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2819,7 +2819,7 @@ func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, b
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -3085,7 +3085,7 @@ func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, id string, z
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGWLANConfiguration()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -3126,7 +3126,7 @@ func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId s
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGWLANList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -3158,7 +3158,7 @@ func (s *WSGWLANService) FindWlanByQueryCriteria(ctx context.Context, body *WSGC
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGWLANQueryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

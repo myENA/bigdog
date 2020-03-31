@@ -49,7 +49,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *W
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileBasicBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -89,7 +89,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx co
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileHostBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -169,7 +169,7 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx co
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfilePoolBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -476,7 +476,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context) (*WSGD
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpDhcpProfiles, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileBasicBOList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -505,7 +505,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileBasicBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -540,7 +540,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(c
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileHostBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -569,7 +569,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx c
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileHostBOList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -598,7 +598,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByI
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -633,7 +633,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByS
 	req.SetPathParameter("spaceId", spaceId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -662,7 +662,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx c
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfilePoolBOList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -697,7 +697,7 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(c
 	req.SetPathParameter("poolId", poolId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfilePoolBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -737,7 +737,7 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, 
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileBasicBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -783,7 +783,7 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfileHostBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -875,6 +875,6 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 	req.SetPathParameter("poolId", poolId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileDpDhcpProfilePoolBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

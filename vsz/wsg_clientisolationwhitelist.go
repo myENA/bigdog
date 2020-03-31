@@ -57,7 +57,7 @@ func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelist
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -149,7 +149,7 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileClientIsolationWhitelist()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -178,7 +178,7 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileClientIsolationWhitelistArray()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -210,7 +210,7 @@ func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelis
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileClientIsolationWhitelistArray()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

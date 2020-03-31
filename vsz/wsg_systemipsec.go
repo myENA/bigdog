@@ -225,7 +225,7 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemIpsec, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemIPsecGetResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

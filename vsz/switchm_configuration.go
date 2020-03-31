@@ -49,7 +49,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMConfigBackupList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -79,7 +79,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMConfigBackupCreateBackupResultList()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -111,7 +111,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMConfigBackupDiff()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

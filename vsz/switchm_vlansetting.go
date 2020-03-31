@@ -49,7 +49,7 @@ func (s *SwitchMVLANSettingService) AddVlans(ctx context.Context, body *SwitchMV
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -127,7 +127,7 @@ func (s *SwitchMVLANSettingService) FindVlans(ctx context.Context) (*SwitchMVlan
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlans, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVlanConfigQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -156,7 +156,7 @@ func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVlanConfig()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -188,7 +188,7 @@ func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVlanConfigQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

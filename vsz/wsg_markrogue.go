@@ -188,6 +188,6 @@ func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context) (*WSGAPMod
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRogueMarkKnown, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPModifyRogueType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -109,6 +109,6 @@ func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGWiredClientQueryClientQueryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

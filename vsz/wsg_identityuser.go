@@ -49,7 +49,7 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentityUserList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -81,7 +81,7 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -231,7 +231,7 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentityUserList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -252,7 +252,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context)
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentityAaaServerList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -281,7 +281,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentityUserConfiguration()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -302,7 +302,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context)
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentityCountryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -323,7 +323,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) 
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentityPackageList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

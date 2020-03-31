@@ -137,7 +137,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 	req.SetPathParameter("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -169,7 +169,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtpList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -201,7 +201,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtpTestResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -230,7 +230,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 	req.SetPathParameter("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtpTestResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

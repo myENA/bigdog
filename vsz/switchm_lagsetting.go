@@ -49,7 +49,7 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = MakeSwitchMLagConfigCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -127,7 +127,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context) (*SwitchM
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindLagConfigs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMLagConfigList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -156,7 +156,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMLagConfig()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -188,7 +188,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMLagConfigList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

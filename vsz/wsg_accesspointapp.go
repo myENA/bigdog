@@ -65,7 +65,7 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPLinemanSummary()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -119,7 +119,7 @@ func (s *WSGAccessPointAPPService) FindLinemanWorkflow(ctx context.Context) ([]b
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = make([]byte, 0)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 

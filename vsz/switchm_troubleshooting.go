@@ -71,7 +71,7 @@ func (s *SwitchMTroubleShootingService) FindSupportLogBySwitchId(ctx context.Con
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -127,6 +127,6 @@ func (s *SwitchMTroubleShootingService) FindSupportLogStatusBySwitchId(ctx conte
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTroubleShootingSupportLogStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

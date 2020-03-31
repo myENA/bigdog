@@ -87,7 +87,7 @@ func (s *WSGGGSNPGWServiceService) FindGgsnGtpcConStatsByQueryCriteria(ctx conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGRacStatsGgsnGtpcConList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -119,7 +119,7 @@ func (s *WSGGGSNPGWServiceService) FindGgsnGtpStatsByQueryCriteria(ctx context.C
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGRacStatsGgsnGtpList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -140,7 +140,7 @@ func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context) (*WSGSe
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesGgsn, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGServiceGgsnConfig()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

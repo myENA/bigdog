@@ -377,7 +377,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -409,7 +409,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTrafficTopPortErrorQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -441,7 +441,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTrafficTopPortTrafficUsageQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -473,7 +473,7 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTrafficTopTrafficUsageQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -505,6 +505,6 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTrafficQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

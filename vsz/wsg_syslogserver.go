@@ -50,7 +50,7 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSyslogServerSetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

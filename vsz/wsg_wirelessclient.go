@@ -117,7 +117,7 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 	req.SetPathParameter("wlanname", wlanname)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGClientQueryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -238,7 +238,7 @@ func (s *WSGWirelessClientService) FindClientByQueryCriteria(ctx context.Context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGClientQueryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -270,6 +270,6 @@ func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGClientHistoricalClientList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -81,7 +81,7 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGServiceTicketLoginResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

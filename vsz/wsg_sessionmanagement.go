@@ -88,6 +88,6 @@ func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context)
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSessionManagement, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSessionManagementRuckusSessions()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

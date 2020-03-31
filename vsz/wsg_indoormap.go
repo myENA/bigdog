@@ -356,7 +356,7 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap) (
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIndoorMapIndooMapAuditId()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -385,7 +385,7 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 	req.SetPathParameter("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIndoorMapIndooMapAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -420,7 +420,7 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 	req.SetQueryParameter("groupType", []string{groupType})
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIndoorMapList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -449,7 +449,7 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 	req.SetPathParameter("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIndoorMap()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -481,7 +481,7 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIndoorMapList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -521,7 +521,7 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 	req.SetPathParameter("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIndoorMapIndooMapAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -559,6 +559,6 @@ func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, bo
 	req.SetPathParameter("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIndoorMapIndooMapAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -49,7 +49,7 @@ func (s *WSGDevicePolicyinDomainLevelService) AddDevicePolicy(ctx context.Contex
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -144,7 +144,7 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicy(ctx context.Conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainDevicePolicyProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -173,7 +173,7 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicyById(ctx context.C
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainDevicePolicyProfile()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

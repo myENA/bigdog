@@ -231,7 +231,7 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context) (*WS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaCommonSetting, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCALEACommonSettingRsp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -252,6 +252,6 @@ func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context) (*WSGCALEA
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemCaleaMacList, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCALEAMacListRsp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

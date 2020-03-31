@@ -455,7 +455,7 @@ func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackCon
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackAuditIdList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -484,7 +484,7 @@ func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId 
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackConfig()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -513,6 +513,6 @@ func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context,
 	req.SetPathParameter("serialNumber", serialNumber)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

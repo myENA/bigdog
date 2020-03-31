@@ -49,7 +49,7 @@ func (s *WSGFirewallProfileService) AddFirewallProfiles(ctx context.Context, bod
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -144,7 +144,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfiles(ctx context.Context, op
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileIdList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -173,7 +173,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesById(ctx context.Context
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileFirewallProfile()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -205,7 +205,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesByQueryCriteria(ctx cont
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileFirewallProfileArray()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -234,7 +234,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesEthernetPortProfilesById
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGEthernetPortProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -263,7 +263,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesWlansById(ctx context.Co
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGWLANQueryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

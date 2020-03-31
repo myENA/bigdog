@@ -49,7 +49,7 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -97,7 +97,7 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*WSGAP
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRules, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPRulesApRuleList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -126,7 +126,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPRulesApRuleConfiguration()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

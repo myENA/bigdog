@@ -38,7 +38,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -70,7 +70,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -91,7 +91,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -123,6 +123,6 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

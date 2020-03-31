@@ -49,7 +49,7 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupAuditId()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -108,7 +108,7 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 	req.SetPathParameter("userGroupId", userGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -140,7 +140,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -176,7 +176,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroup()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -197,7 +197,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(c
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsCurrentUserPermissionCategories, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupPermissionList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -218,7 +218,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*WSGS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUserGroupsRoles, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupRoleLabelValueList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -254,7 +254,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupPermissionList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -294,6 +294,6 @@ func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx contex
 	req.SetPathParameter("userGroupId", userGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGroupAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
 	return resp, rm, err
 }

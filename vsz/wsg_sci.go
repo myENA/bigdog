@@ -353,7 +353,7 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -433,7 +433,7 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context) (*WSGSCIEventCo
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciEventCode, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCIEventCode()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -454,7 +454,7 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context) (*WSGSCIProfileLi
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfile, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCIProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -483,7 +483,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string) (*
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCIProfile()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

@@ -38,7 +38,7 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSyst
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSnmpAgent, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemSnmpAgentConfiguration()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

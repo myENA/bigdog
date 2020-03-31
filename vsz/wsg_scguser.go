@@ -875,7 +875,7 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserAuditId()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -934,7 +934,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 	req.SetPathParameter("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserAuditId()
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -966,7 +966,7 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -995,7 +995,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 	req.SetPathParameter("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserGetScgUser()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1035,6 +1035,6 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 	req.SetPathParameter("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSCGUserAuditId()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

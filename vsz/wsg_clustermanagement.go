@@ -38,7 +38,7 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context) (*WSGAdmin
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddApPatch, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationApPatchStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -207,7 +207,7 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context) (*WSGAdmin
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddUpgrade, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationUpgradeStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -237,7 +237,7 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, body
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationUpgradeStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -312,7 +312,7 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context) (*WSGAdmi
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatch, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationApPatchInfo()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -350,7 +350,7 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationApPatchHistoryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -371,7 +371,7 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context) (*W
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchStatus, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationApPatchStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -409,7 +409,7 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationClusterBackupList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -430,7 +430,7 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterGeoRedundancy, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGClusterRedundancySettings()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -451,7 +451,7 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context) (*WS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterState, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGClusterBladeClusterState()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -484,7 +484,7 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationConfigurationBackupList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -520,7 +520,7 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = make([]byte, 0)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -541,7 +541,7 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsAutoExportBackup, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationAutoExportBackup()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -562,7 +562,7 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsScheduleBackup, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationScheduleBackup()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -600,7 +600,7 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationUpgradeHistoryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -621,7 +621,7 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context) (*WS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradePatch, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationUpgradePatchInfo()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -642,7 +642,7 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context) (*W
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeStatus, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationUpgradeStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

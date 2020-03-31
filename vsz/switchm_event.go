@@ -49,7 +49,7 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMEventConfigQueryResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -78,7 +78,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMEventConfigQueryResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -99,7 +99,7 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEven
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEvent, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMEventConfigGetEventConfigList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -128,7 +128,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMEventConfig()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -168,6 +168,6 @@ func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *S
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMEventConfigQueryResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -1910,7 +1910,7 @@ func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemNtpServerValidationMessage()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2103,7 +2103,7 @@ func (s *WSGSystemService) FindController(ctx context.Context) (*WSGSystemContro
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindController, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemControllerList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2144,7 +2144,7 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = MakeWSGSystemStatisticList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -2165,7 +2165,7 @@ func (s *WSGSystemService) FindSystem(ctx context.Context) (*WSGSystemSettings, 
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystem, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemSettings()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2186,7 +2186,7 @@ func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context) (*WSGSystemA
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApMacOUIs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemApMacOUIList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2257,7 +2257,7 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApRoutineConfigInterval, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPRoutineConfigIntervalRsp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2278,7 +2278,7 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemApRoutineStatusInterval, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPRoutineStatusIntervalRsp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2310,7 +2310,7 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemSettings()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2331,7 +2331,7 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context) (*WSGDe
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemDevicesSummary, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDeviceCapacityDevicesSummary()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2352,7 +2352,7 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context) (*WSGS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemGatewayAdvanced, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemGatewayAdvanced()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2385,7 +2385,7 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemInventoryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2413,7 +2413,7 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemNorthboundInterface()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2434,7 +2434,7 @@ func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context) (*WSGS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSecuritySetting, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemSecuritySetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2455,7 +2455,7 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context) (*WSGSystem
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSystemTime, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemTimeSetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

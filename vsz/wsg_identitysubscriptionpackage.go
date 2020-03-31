@@ -49,7 +49,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentitySubscriptionPackageList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -81,7 +81,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -159,7 +159,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityPackages, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentitySubscriptionPackageList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -188,7 +188,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentitySubscriptionPackage()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

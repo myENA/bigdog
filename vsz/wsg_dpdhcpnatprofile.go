@@ -125,7 +125,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) 
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDpProfileSettings, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileSettingBOList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -154,7 +154,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 	req.SetPathParameter("dpKey", dpKey)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDPProfileSettingBO()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

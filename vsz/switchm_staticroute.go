@@ -230,7 +230,7 @@ func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *S
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -316,7 +316,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStaticRoute()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -348,7 +348,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStaticRoutesQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

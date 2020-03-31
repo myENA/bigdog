@@ -106,7 +106,7 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 	req.SetQueryParameter("ip", []string{ip})
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationZdAPList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -134,6 +134,6 @@ func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalPar
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationZdImportStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

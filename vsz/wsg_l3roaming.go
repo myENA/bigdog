@@ -38,7 +38,7 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelL3Roaming, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileGetL3RoamingConfig()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

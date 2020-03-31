@@ -49,7 +49,7 @@ func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *W
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -139,7 +139,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, option
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfilePrecedenceList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -168,7 +168,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileCreatePrecedenceProfile()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -200,7 +200,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfilePrecedenceList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

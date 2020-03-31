@@ -49,7 +49,7 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMJobList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -110,7 +110,7 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 	req.SetPathParameter("jobId", jobId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMJob()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -139,6 +139,6 @@ func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.C
 	req.SetPathParameter("scheduleId", scheduleId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMJobScheduleResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

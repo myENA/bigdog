@@ -1053,7 +1053,7 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1147,7 +1147,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 	req.SetQueryParameter("type_", []string{type_})
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationRetrieveAdminAAAServerList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1176,7 +1176,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationRetrieveAdminAAAServer()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1197,7 +1197,7 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdmini
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenses, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationLicensesList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1218,7 +1218,7 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGA
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenseServer, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationLicenseServer()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1239,7 +1239,7 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WS
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSummary, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationLicensesSummaryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1260,7 +1260,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*W
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationLicensesSyncLogsList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

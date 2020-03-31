@@ -107,6 +107,6 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context) (*Swi
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortCapacity, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMPortCapacityResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

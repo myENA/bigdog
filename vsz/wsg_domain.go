@@ -170,7 +170,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -245,7 +245,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -281,7 +281,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainConfiguration()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -310,7 +310,7 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 	req.SetPathParameter("domainName", domainName)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -366,7 +366,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

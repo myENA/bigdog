@@ -38,7 +38,7 @@ func (s *WSGGlobalreferenceService) FindGlobalSettingsFriendlyNameLang(ctx conte
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsFriendlyNameLang, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFriendlyNameLangList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -59,6 +59,6 @@ func (s *WSGGlobalreferenceService) FindGlobalSettingsPortalLang(ctx context.Con
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindGlobalSettingsPortalLang, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemPortalLangList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

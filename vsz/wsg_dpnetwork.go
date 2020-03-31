@@ -65,7 +65,7 @@ func (s *WSGDPNetworkService) FindPlanes(ctx context.Context) (*WSGSystemDataPla
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanes, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemDataPlaneList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -94,7 +94,7 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemDataPlaneConfiguration()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -124,7 +124,7 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, bod
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemGetDataPlaneMeshTunnelSetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

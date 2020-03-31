@@ -393,7 +393,7 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*Swi
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettings, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMPortSettingsQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -422,7 +422,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMPortSettings()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -454,7 +454,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMPortSettingsQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

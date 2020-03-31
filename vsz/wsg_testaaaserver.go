@@ -49,6 +49,6 @@ func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAAATestAAAServerResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

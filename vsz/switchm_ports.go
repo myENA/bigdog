@@ -49,7 +49,7 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchPortDetailsQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -81,6 +81,6 @@ func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *S
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchPortsSummaryQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

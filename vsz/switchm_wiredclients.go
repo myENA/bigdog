@@ -49,7 +49,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchConnectedDevicesQueryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -81,6 +81,6 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchConnectedAPsQueryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

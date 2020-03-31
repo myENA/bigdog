@@ -49,7 +49,7 @@ func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *Switch
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = MakeSwitchMVeConfigCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -127,7 +127,7 @@ func (s *SwitchMVESettingService) FindVeConfigs(ctx context.Context) (*SwitchMVe
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVeConfigList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -156,7 +156,7 @@ func (s *SwitchMVESettingService) FindVeConfigsById(ctx context.Context, id stri
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVeConfig()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -188,7 +188,7 @@ func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVeConfigList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

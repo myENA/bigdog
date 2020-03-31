@@ -95,6 +95,6 @@ func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx cont
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileFlexiVpnProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

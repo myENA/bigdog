@@ -37,6 +37,7 @@ const (
 	ResourceAccessFullAccess = "FULL_ACCESS"
 	ResourceAccessModify     = "MODIFY"
 	ResourceAccessReadOnly   = "READ_ONLY"
+	ResourceAccessRead       = "READ"
 	ResourceAccessNoAccess   = "NO_ACCESS"
 
 	RoleNameSuperAdmin           = "SUPER_ADMIN"

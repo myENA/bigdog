@@ -16,7 +16,7 @@ type WSGAPModel struct {
 
 	Lacp *WSGAPModelLacpSetting `json:"lacp,omitempty"`
 
-	LanPorts []*WSGAPModelLanPortSetting `json:"lanPorts,omitempty"`
+	LanPorts []*WSGAPModelLanPortSetting `json:"lanPorts"`
 
 	// LedMode
 	// Constraints:
@@ -204,9 +204,9 @@ type WSGAPModelCommonAttribute struct {
 	//    - nullable
 	NoMesh *bool `json:"noMesh,omitempty" validate:"omitempty"`
 
-	NonEditablePorts []int `json:"nonEditablePorts,omitempty"`
+	NonEditablePorts []int `json:"nonEditablePorts"`
 
-	NonVisiblePorts []int `json:"nonVisiblePorts,omitempty"`
+	NonVisiblePorts []int `json:"nonVisiblePorts"`
 
 	NumOfCores *int `json:"numOfCores,omitempty"`
 

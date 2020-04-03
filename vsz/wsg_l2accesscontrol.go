@@ -33,7 +33,7 @@ type WSGL2AccessControlCreateL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction" validate:"required,oneof=ALLOW BLOCK"`
 
-	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes"`
 
 	// Name
 	// Constraints:
@@ -47,7 +47,7 @@ type WSGL2AccessControlCreateL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction" validate:"required,oneof=ALLOW BLOCK"`
 
-	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules"`
 }
 
 func NewWSGL2AccessControlCreateL2AccessControl() *WSGL2AccessControlCreateL2AccessControl {
@@ -87,7 +87,7 @@ type WSGL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction,omitempty" validate:"oneof=ALLOW BLOCK"`
 
-	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes"`
 
 	// Id
 	// identifier of the L2 Access Control
@@ -113,7 +113,7 @@ type WSGL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction,omitempty" validate:"oneof=ALLOW BLOCK"`
 
-	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules"`
 }
 
 func NewWSGL2AccessControl() *WSGL2AccessControl {
@@ -128,7 +128,7 @@ type WSGL2AccessControlList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGL2AccessControl `json:"list,omitempty"`
+	List []*WSGL2AccessControl `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -148,7 +148,7 @@ type WSGL2AccessControlModifyL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction" validate:"required,oneof=ALLOW BLOCK"`
 
-	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -159,7 +159,7 @@ type WSGL2AccessControlModifyL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction" validate:"required,oneof=ALLOW BLOCK"`
 
-	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules"`
 }
 
 func NewWSGL2AccessControlModifyL2AccessControl() *WSGL2AccessControlModifyL2AccessControl {

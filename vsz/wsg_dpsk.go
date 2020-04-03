@@ -11,7 +11,7 @@ type WSGDPSKBatchGenUnbound struct {
 	// Using group DPSK or not
 	GroupDpsk *bool `json:"groupDpsk,omitempty"`
 
-	PassphraseList []string `json:"passphraseList,omitempty"`
+	PassphraseList []string `json:"passphraseList"`
 
 	// UserName
 	// User Name of DPSK
@@ -41,7 +41,7 @@ func NewWSGDPSKDeleteDpskResult() *WSGDPSKDeleteDpskResult {
 }
 
 type WSGDPSKDeleteDPSKs struct {
-	IdList []string `json:"idList,omitempty"`
+	IdList []string `json:"idList"`
 }
 
 func NewWSGDPSKDeleteDPSKs() *WSGDPSKDeleteDPSKs {
@@ -128,7 +128,7 @@ type WSGDPSKQueryList struct {
 
 	// List
 	// Information list of DPSK
-	List []*WSGDPSKQueryListType `json:"list,omitempty"`
+	List []*WSGDPSKQueryListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -214,7 +214,7 @@ type WSGDPSKGetDpskEnabledWlans struct {
 	// Indicates whether there are more DPSK enabled WLANs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPSKGetDpskEnabledWlansListType `json:"list,omitempty"`
+	List []*WSGDPSKGetDpskEnabledWlansListType `json:"list"`
 
 	// TotalCount
 	// Total DPSK enabled WLAN count of the zone

@@ -69,9 +69,9 @@ type WSGClusterBladeClusterState struct {
 	// The name of the current controller node
 	CurrentNodeName *string `json:"currentNodeName,omitempty"`
 
-	ManagementServiceStateList []*WSGClusterBladeClusterStateManagementServiceStateListType `json:"managementServiceStateList,omitempty"`
+	ManagementServiceStateList []*WSGClusterBladeClusterStateManagementServiceStateListType `json:"managementServiceStateList"`
 
-	NodeStateList []*WSGClusterBladeClusterStateNodeStateListType `json:"nodeStateList,omitempty"`
+	NodeStateList []*WSGClusterBladeClusterStateNodeStateListType `json:"nodeStateList"`
 }
 
 func NewWSGClusterBladeClusterState() *WSGClusterBladeClusterState {
@@ -122,7 +122,7 @@ func NewWSGClusterBladeClusterStateNodeStateListType() *WSGClusterBladeClusterSt
 type WSGClusterBladeClusterUpgradeProgress struct {
 	// BladeProgresss
 	// bladeProgressMap of clusterOperationProgress
-	BladeProgresss []*WSGClusterBladeBladeProgress `json:"bladeProgresss,omitempty"`
+	BladeProgresss []*WSGClusterBladeBladeProgress `json:"bladeProgresss"`
 
 	// ClusterOperationBlockUI
 	// clusterOperationBlockUI of clusterOperationProgress
@@ -183,7 +183,7 @@ func NewWSGClusterBladePreviousOperationRecord() *WSGClusterBladePreviousOperati
 type WSGClusterBladeUploadPatchInfo struct {
 	// AllowVersions
 	// allowVersions of uploadPatchInfo
-	AllowVersions []string `json:"allowVersions,omitempty"`
+	AllowVersions []string `json:"allowVersions"`
 
 	// ApVersion
 	// apVersion of uploadPatchInfo

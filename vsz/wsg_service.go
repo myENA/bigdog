@@ -37,7 +37,7 @@ type WSGServiceActiveDirectoryService struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -130,7 +130,7 @@ type WSGServiceActiveDirectoryServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceActiveDirectoryService `json:"list,omitempty"`
+	List []*WSGServiceActiveDirectoryService `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -206,7 +206,7 @@ type WSGServiceCommonAccountingServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceCommonAccountingService `json:"list,omitempty"`
+	List []*WSGServiceCommonAccountingService `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -243,7 +243,7 @@ type WSGServiceCommonAuthenticationService struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -288,7 +288,7 @@ type WSGServiceCommonAuthenticationServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceCommonAuthenticationService `json:"list,omitempty"`
+	List []*WSGServiceCommonAuthenticationService `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -326,7 +326,7 @@ type WSGServiceCreateActiveDirectoryAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	// Name
 	// Constraints:
@@ -481,7 +481,7 @@ type WSGServiceCreateHlrAuthentication struct {
 
 	MaxReuseTimes *int `json:"maxReuseTimes,omitempty"`
 
-	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList"`
 
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
@@ -507,9 +507,9 @@ type WSGServiceCreateHlrAuthentication struct {
 
 	RoutingContext *int `json:"routingContext,omitempty"`
 
-	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList"`
 
-	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList"`
 
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
@@ -576,7 +576,7 @@ type WSGServiceCreateLDAPAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	// Name
 	// Constraints:
@@ -719,7 +719,7 @@ type WSGServiceCreateRadiusAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	// Name
 	// Constraints:
@@ -1066,7 +1066,7 @@ type WSGServiceHlrService struct {
 
 	// MncNdcList
 	// - For HLR Authentiaction server
-	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -1105,11 +1105,11 @@ type WSGServiceHlrService struct {
 
 	// SccpGttList
 	// - For HLR Authentiaction server
-	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList"`
 
 	// SctpAssociationsList
 	// - For HLR Authentiaction server
-	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList"`
 
 	// SgsnIsdnAddress
 	// - For HLR Authentiaction server
@@ -1155,7 +1155,7 @@ type WSGServiceHlrServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceHlrService `json:"list,omitempty"`
+	List []*WSGServiceHlrService `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1200,7 +1200,7 @@ type WSGServiceLDAPService struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -1293,7 +1293,7 @@ type WSGServiceLDAPServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceLDAPService `json:"list,omitempty"`
+	List []*WSGServiceLDAPService `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1353,7 +1353,7 @@ type WSGServiceModifyActiveDirectoryAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -1537,7 +1537,7 @@ type WSGServiceModifyHlrAuthentication struct {
 
 	MaxReuseTimes *int `json:"maxReuseTimes,omitempty"`
 
-	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList"`
 
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
@@ -1560,9 +1560,9 @@ type WSGServiceModifyHlrAuthentication struct {
 
 	RoutingContext *int `json:"routingContext,omitempty"`
 
-	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList"`
 
-	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList"`
 
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
@@ -1617,7 +1617,7 @@ type WSGServiceModifyLDAPAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -1696,7 +1696,7 @@ type WSGServiceModifyLocalDbAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	// MvnoId
 	// Tenant UUID
@@ -1788,7 +1788,7 @@ type WSGServiceModifyRadiusAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -1896,7 +1896,7 @@ type WSGServiceRadiusAccountingServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceRadiusAccountingService `json:"list,omitempty"`
+	List []*WSGServiceRadiusAccountingService `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1939,7 +1939,7 @@ type WSGServiceRadiusAuthenticationService struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -1996,7 +1996,7 @@ type WSGServiceRadiusAuthenticationServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceRadiusAuthenticationService `json:"list,omitempty"`
+	List []*WSGServiceRadiusAuthenticationService `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

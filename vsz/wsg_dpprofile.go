@@ -51,7 +51,7 @@ type WSGDPProfileDpDhcpProfileBasicBOList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpDhcpProfileBasicBO `json:"list,omitempty"`
+	List []*WSGDPProfileDpDhcpProfileBasicBO `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -72,7 +72,7 @@ type WSGDPProfileDpDhcpProfileHostBO struct {
 
 	// DnsServers
 	// dnsServers
-	DnsServers []string `json:"dnsServers,omitempty"`
+	DnsServers []string `json:"dnsServers"`
 
 	// DomainName
 	// domainName
@@ -108,7 +108,7 @@ type WSGDPProfileDpDhcpProfileHostBO struct {
 
 	// Routers
 	// routers
-	Routers []string `json:"routers,omitempty"`
+	Routers []string `json:"routers"`
 }
 
 func NewWSGDPProfileDpDhcpProfileHostBO() *WSGDPProfileDpDhcpProfileHostBO {
@@ -121,7 +121,7 @@ type WSGDPProfileDpDhcpProfileHostBOList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpDhcpProfileHostBO `json:"list,omitempty"`
+	List []*WSGDPProfileDpDhcpProfileHostBO `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -168,7 +168,7 @@ func NewWSGDPProfileDpDhcpProfileOptionInstance() *WSGDPProfileDpDhcpProfileOpti
 type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO struct {
 	// AppliedPoolNames
 	// appliedPoolNames
-	AppliedPoolNames []string `json:"appliedPoolNames,omitempty"`
+	AppliedPoolNames []string `json:"appliedPoolNames"`
 
 	// Description
 	// description
@@ -180,7 +180,7 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO struct {
 
 	// Options
 	// options
-	Options []*WSGDPProfileDpDhcpProfileOptionBO `json:"options,omitempty"`
+	Options []*WSGDPProfileDpDhcpProfileOptionBO `json:"options"`
 
 	SpaceId *string `json:"spaceId,omitempty"`
 }
@@ -195,7 +195,7 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO `json:"list,omitempty"`
+	List []*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -216,7 +216,7 @@ type WSGDPProfileDpDhcpProfileOptionSpaceBO struct {
 
 	// Options
 	// options
-	Options []*WSGDPProfileDpDhcpProfileOptionBO `json:"options,omitempty"`
+	Options []*WSGDPProfileDpDhcpProfileOptionBO `json:"options"`
 
 	// SpaceId
 	// spaceId
@@ -233,7 +233,7 @@ type WSGDPProfileDpDhcpProfileOptionSpaceInstance struct {
 
 	Name *string `json:"name,omitempty"`
 
-	Options []*WSGDPProfileDpDhcpProfileOptionInstance `json:"options,omitempty"`
+	Options []*WSGDPProfileDpDhcpProfileOptionInstance `json:"options"`
 
 	SpaceId *string `json:"spaceId,omitempty"`
 }
@@ -302,7 +302,7 @@ type WSGDPProfileDpDhcpProfilePoolBO struct {
 
 	// QinqVlanRanges
 	// qinqVlanRanges
-	QinqVlanRanges []*WSGDPProfileDpDhcpProfileQinqVlanRangeBO `json:"qinqVlanRanges,omitempty"`
+	QinqVlanRanges []*WSGDPProfileDpDhcpProfileQinqVlanRangeBO `json:"qinqVlanRanges"`
 
 	// SecondaryDnsServer
 	// secondaryDnsServer
@@ -314,7 +314,7 @@ type WSGDPProfileDpDhcpProfilePoolBO struct {
 
 	// SubOptionSpaces
 	// subOptionSpaces
-	SubOptionSpaces []*WSGDPProfileDpDhcpProfileOptionSpaceInstance `json:"subOptionSpaces,omitempty"`
+	SubOptionSpaces []*WSGDPProfileDpDhcpProfileOptionSpaceInstance `json:"subOptionSpaces"`
 
 	// VlanRange
 	// vlanRange
@@ -331,7 +331,7 @@ type WSGDPProfileDpDhcpProfilePoolBOList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpDhcpProfilePoolBO `json:"list,omitempty"`
+	List []*WSGDPProfileDpDhcpProfilePoolBO `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -398,7 +398,7 @@ type WSGDPProfileDpNatProfileBasicBOList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpNatProfileBasicBO `json:"list,omitempty"`
+	List []*WSGDPProfileDpNatProfileBasicBO `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -427,11 +427,11 @@ type WSGDPProfileDpNatProfilePoolBO struct {
 
 	// PrivateQinqVlanRange
 	// privateQinqVlanRange
-	PrivateQinqVlanRange []*WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO `json:"privateQinqVlanRange,omitempty"`
+	PrivateQinqVlanRange []*WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO `json:"privateQinqVlanRange"`
 
 	// PrivateVlanRange
 	// privateVlanRange
-	PrivateVlanRange []string `json:"privateVlanRange,omitempty"`
+	PrivateVlanRange []string `json:"privateVlanRange"`
 
 	// ProfileId
 	// profileId
@@ -439,7 +439,7 @@ type WSGDPProfileDpNatProfilePoolBO struct {
 
 	// PublicAddressRange
 	// publicAddressRange
-	PublicAddressRange []string `json:"publicAddressRange,omitempty"`
+	PublicAddressRange []string `json:"publicAddressRange"`
 
 	// PublicPrefix
 	// publicPrefix
@@ -460,7 +460,7 @@ type WSGDPProfileDpNatProfilePoolBOList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpNatProfilePoolBO `json:"list,omitempty"`
+	List []*WSGDPProfileDpNatProfilePoolBO `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -544,7 +544,7 @@ type WSGDPProfileSettingBOList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileSettingBO `json:"list,omitempty"`
+	List []*WSGDPProfileSettingBO `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

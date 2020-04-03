@@ -129,7 +129,7 @@ type SwitchMStaticRoutesQueryResult struct {
 	// Indicator of whether there are more Static Routes after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMStaticRoute `json:"list,omitempty"`
+	List []*SwitchMStaticRoute `json:"list"`
 
 	// RawDataTotalCount
 	// Total Static Route count

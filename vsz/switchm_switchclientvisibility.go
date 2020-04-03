@@ -40,7 +40,7 @@ type SwitchMSwitchClientVisibilityList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchClientVisibilityClient `json:"list,omitempty"`
+	List []*SwitchMSwitchClientVisibilityClient `json:"list"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 

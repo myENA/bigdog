@@ -16,7 +16,7 @@ type WSGAPPackCaptureApPacketCaptureReq struct {
 
 	// IncludedFrameTypes
 	// Frame type filter
-	IncludedFrameTypes []string `json:"includedFrameTypes,omitempty"`
+	IncludedFrameTypes []string `json:"includedFrameTypes"`
 
 	// IncludedMac
 	// MAC filter
@@ -55,7 +55,7 @@ type WSGAPPackCaptureApPacketCaptureRes struct {
 
 	// IncludedFrameTypes
 	// Frame type filter
-	IncludedFrameTypes []string `json:"includedFrameTypes,omitempty"`
+	IncludedFrameTypes []string `json:"includedFrameTypes"`
 
 	// IncludedMac
 	// MAC filter

@@ -5,7 +5,7 @@ package vsz
 type WSGEventManagementEventDataList struct {
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGEventManagementSingleEventSetting `json:"list,omitempty"`
+	List []*WSGEventManagementSingleEventSetting `json:"list"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 

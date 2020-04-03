@@ -45,7 +45,7 @@ type WSGProfileAccountingProfile struct {
 
 	// RealmMappings
 	// Accounting service per realm
-	RealmMappings []*WSGProfileAcctServiceRealmMapping `json:"realmMappings,omitempty"`
+	RealmMappings []*WSGProfileAcctServiceRealmMapping `json:"realmMappings"`
 }
 
 func NewWSGProfileAccountingProfile() *WSGProfileAccountingProfile {
@@ -60,7 +60,7 @@ type WSGProfileAccountingProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileAccountingProfile `json:"list,omitempty"`
+	List []*WSGProfileAccountingProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -234,7 +234,7 @@ type WSGProfileAuthenticationProfile struct {
 
 	// RealmMappings
 	// Realm based authentication service mappings
-	RealmMappings []*WSGProfileRealmAuthServiceMapping `json:"realmMappings,omitempty"`
+	RealmMappings []*WSGProfileRealmAuthServiceMapping `json:"realmMappings"`
 
 	TtgCommonSetting *WSGProfileTtgCommonSetting `json:"ttgCommonSetting,omitempty"`
 }
@@ -251,7 +251,7 @@ type WSGProfileAuthenticationProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileAuthenticationProfile `json:"list,omitempty"`
+	List []*WSGProfileAuthenticationProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -266,7 +266,7 @@ type WSGProfileBaseServiceInfoList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCommonBaseServiceInfo `json:"list,omitempty"`
+	List []*WSGCommonBaseServiceInfo `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -323,7 +323,7 @@ type WSGProfileBlockClientList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileBlockClientListType `json:"list,omitempty"`
+	List []*WSGProfileBlockClientListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -386,7 +386,7 @@ type WSGProfileBonjourFencingPolicy struct {
 
 	// BonjourFencingRuleMappingList
 	// Bonjour Fencing Rule Mapping List
-	BonjourFencingRuleMappingList []*WSGProfileBonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList,omitempty"`
+	BonjourFencingRuleMappingList []*WSGProfileBonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList"`
 
 	// CreateDateTime
 	// Timestamp of being created
@@ -438,7 +438,7 @@ type WSGProfileBonjourFencingPolicyList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileBonjourFencingPolicy `json:"list,omitempty"`
+	List []*WSGProfileBonjourFencingPolicy `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -457,7 +457,7 @@ type WSGProfileBonjourFencingRule struct {
 
 	// DeviceMacList
 	// Specify the device list providing Bonjour Service
-	DeviceMacList []*WSGProfileBonjourFencingRuleDeviceMac `json:"deviceMacList,omitempty"`
+	DeviceMacList []*WSGProfileBonjourFencingRuleDeviceMac `json:"deviceMacList"`
 
 	// DeviceType
 	// Name of the Bonjour Fencing Rule
@@ -498,7 +498,7 @@ type WSGProfileBonjourFencingRuleMapping struct {
 
 	// CustomStringList
 	// The array of mdns string
-	CustomStringList []string `json:"customStringList,omitempty"`
+	CustomStringList []string `json:"customStringList"`
 
 	ServiceType *WSGProfileBridgeService `json:"serviceType,omitempty"`
 }
@@ -535,7 +535,7 @@ type WSGProfileBonjourFencingStatistic struct {
 
 	ForwardedPackets *int `json:"forwardedPackets,omitempty"`
 
-	ServiceList []*WSGProfileBonjourFencingService `json:"serviceList,omitempty"`
+	ServiceList []*WSGProfileBonjourFencingService `json:"serviceList"`
 }
 
 func NewWSGProfileBonjourFencingStatistic() *WSGProfileBonjourFencingStatistic {
@@ -595,7 +595,7 @@ type WSGProfileBridgeProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileBridgeProfile `json:"list,omitempty"`
+	List []*WSGProfileBridgeProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -618,7 +618,7 @@ func NewWSGProfileBridgeService() *WSGProfileBridgeService {
 }
 
 type WSGProfileBulkBlockClient struct {
-	BlockClientList []*WSGProfileBulkBlockClientBlockClientListType `json:"blockClientList,omitempty"`
+	BlockClientList []*WSGProfileBulkBlockClientBlockClientListType `json:"blockClientList"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 }
@@ -744,7 +744,7 @@ type WSGProfileClientIsolationWhitelistArray struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileClientIsolationWhitelist `json:"list,omitempty"`
+	List []*WSGProfileClientIsolationWhitelist `json:"list"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -861,7 +861,7 @@ type WSGProfileCreateAccountingProfile struct {
 
 	// RealmMappings
 	// Accounting service per realm
-	RealmMappings []*WSGProfileAcctServiceRealmMapping `json:"realmMappings,omitempty"`
+	RealmMappings []*WSGProfileAcctServiceRealmMapping `json:"realmMappings"`
 }
 
 func NewWSGProfileCreateAccountingProfile() *WSGProfileCreateAccountingProfile {
@@ -898,7 +898,7 @@ type WSGProfileCreateAuthenticationProfile struct {
 
 	// RealmMappings
 	// Realm based authentication service mappings
-	RealmMappings []*WSGProfileRealmAuthServiceMapping `json:"realmMappings,omitempty"`
+	RealmMappings []*WSGProfileRealmAuthServiceMapping `json:"realmMappings"`
 
 	TtgCommonSetting *WSGProfileTtgCommonSetting `json:"ttgCommonSetting,omitempty"`
 }
@@ -917,7 +917,7 @@ type WSGProfileCreateBonjourFencingPolicy struct {
 
 	// BonjourFencingRuleMappingList
 	// Bonjour Fencing Rule Mapping List
-	BonjourFencingRuleMappingList []*WSGProfileBonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList,omitempty"`
+	BonjourFencingRuleMappingList []*WSGProfileBonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1243,7 +1243,7 @@ type WSGProfileCreateL3AccessControlPolicy struct {
 
 	// L3AclRuleList
 	// L3 access control list
-	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList,omitempty"`
+	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList"`
 
 	// Name
 	// Constraints:
@@ -1265,11 +1265,11 @@ type WSGProfileCreatePrecedenceProfile struct {
 
 	// RateLimitingPrecedence
 	// rate limiting precedence
-	RateLimitingPrecedence []*WSGProfileRateLimitingPrecedenceItem `json:"rateLimitingPrecedence,omitempty"`
+	RateLimitingPrecedence []*WSGProfileRateLimitingPrecedenceItem `json:"rateLimitingPrecedence"`
 
 	// VlanPrecedence
 	// vlan precedence
-	VlanPrecedence []*WSGProfileVlanPrecedenceItem `json:"vlanPrecedence,omitempty"`
+	VlanPrecedence []*WSGProfileVlanPrecedenceItem `json:"vlanPrecedence"`
 }
 
 func NewWSGProfileCreatePrecedenceProfile() *WSGProfileCreatePrecedenceProfile {
@@ -1280,7 +1280,7 @@ func NewWSGProfileCreatePrecedenceProfile() *WSGProfileCreatePrecedenceProfile {
 type WSGProfileCreateRestrictedApAccessProfile struct {
 	// BlockedPortList
 	// Blocked Port List
-	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList,omitempty"`
+	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList"`
 
 	// BlockWellKnownPort
 	// Block well known ports
@@ -1290,7 +1290,7 @@ type WSGProfileCreateRestrictedApAccessProfile struct {
 
 	// IpAddressWhitelist
 	// IP Address Whitelist
-	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist,omitempty"`
+	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist"`
 
 	// Name
 	// Constraints:
@@ -1502,7 +1502,7 @@ type WSGProfileCreateTtgpdgProfile struct {
 
 	// ApnRealms
 	// List of the Default APN
-	ApnRealms []*WSGProfileApnRealm `json:"apnRealms,omitempty"`
+	ApnRealms []*WSGProfileApnRealm `json:"apnRealms"`
 
 	// CommonSetting
 	// Constraints:
@@ -1567,7 +1567,7 @@ type WSGProfileCreateUserTrafficProfile struct {
 
 	// IpAclRules
 	// Traffic access control list
-	IpAclRules []*WSGProfileIpAclRules `json:"ipAclRules,omitempty"`
+	IpAclRules []*WSGProfileIpAclRules `json:"ipAclRules"`
 
 	// MvnoId
 	// Tenant UUID
@@ -1760,7 +1760,7 @@ type WSGProfileDhcpProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCommonDhcpProfileRef `json:"list,omitempty"`
+	List []*WSGCommonDhcpProfileRef `json:"list"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -1873,7 +1873,7 @@ type WSGProfileDnsServerProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileDnsServerProfile `json:"list,omitempty"`
+	List []*WSGProfileDnsServerProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1935,7 +1935,7 @@ func NewWSGProfileEspProposal() *WSGProfileEspProposal {
 type WSGProfileEspSecurityAssociationContent struct {
 	// EspProposals
 	// espProposal list of the ipsec profile
-	EspProposals []*WSGProfileEspProposal `json:"espProposals,omitempty"`
+	EspProposals []*WSGProfileEspProposal `json:"espProposals"`
 
 	// EspProposalType
 	// espProposal Type of the ipsec profile
@@ -2021,7 +2021,7 @@ type WSGProfileFirewallProfileArray struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileFirewallProfile `json:"list,omitempty"`
+	List []*WSGProfileFirewallProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -2091,7 +2091,7 @@ type WSGProfileFlexiVpnProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileFlexiVpnProfile `json:"list,omitempty"`
+	List []*WSGProfileFlexiVpnProfile `json:"list"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -2116,7 +2116,7 @@ func NewWSGProfileFlexiVpnProfileList() *WSGProfileFlexiVpnProfileList {
 type WSGProfileGetL3RoamingConfig struct {
 	// DataPlanes
 	// L3 roaming configuration for DPs
-	DataPlanes []*WSGProfileDataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
+	DataPlanes []*WSGProfileDataPlaneL3RoamingData `json:"dataPlanes"`
 }
 
 func NewWSGProfileGetL3RoamingConfig() *WSGProfileGetL3RoamingConfig {
@@ -2211,7 +2211,7 @@ type WSGProfileHs20OperatorList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileHs20Operator `json:"list,omitempty"`
+	List []*WSGProfileHs20Operator `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -2224,11 +2224,11 @@ func NewWSGProfileHs20OperatorList() *WSGProfileHs20OperatorList {
 type WSGProfileHs20Provider struct {
 	// Accountings
 	// Accountings
-	Accountings []*WSGProfileProviderAccounting `json:"accountings,omitempty"`
+	Accountings []*WSGProfileProviderAccounting `json:"accountings"`
 
 	// Authentications
 	// Authentications
-	Authentications []*WSGProfileProviderAuthentication `json:"authentications,omitempty"`
+	Authentications []*WSGProfileProviderAuthentication `json:"authentications"`
 
 	// CreateDateTime
 	// Timestamp of being created
@@ -2250,7 +2250,7 @@ type WSGProfileHs20Provider struct {
 
 	// HomeOis
 	// Home OIs
-	HomeOis []*WSGProfileProviderHomeOIs `json:"homeOis,omitempty"`
+	HomeOis []*WSGProfileProviderHomeOIs `json:"homeOis"`
 
 	// Id
 	// Identifier of the Hotspot 2.0 identity provider profile
@@ -2274,11 +2274,11 @@ type WSGProfileHs20Provider struct {
 
 	// Plmns
 	// PLMNs
-	Plmns []*WSGProfileProviderPLMN `json:"plmns,omitempty"`
+	Plmns []*WSGProfileProviderPLMN `json:"plmns"`
 
 	// Realms
 	// Realms
-	Realms []*WSGProfileProviderRealm `json:"realms,omitempty"`
+	Realms []*WSGProfileProviderRealm `json:"realms"`
 }
 
 func NewWSGProfileHs20Provider() *WSGProfileHs20Provider {
@@ -2293,7 +2293,7 @@ type WSGProfileHs20ProviderList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileHs20Provider `json:"list,omitempty"`
+	List []*WSGProfileHs20Provider `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -2346,7 +2346,7 @@ func NewWSGProfileIkeProposal() *WSGProfileIkeProposal {
 type WSGProfileIkeSecurityAssociationContent struct {
 	// IkeProposals
 	// ikeProposal list of the ipsec profile
-	IkeProposals []*WSGProfileIkeProposal `json:"ikeProposals,omitempty"`
+	IkeProposals []*WSGProfileIkeProposal `json:"ikeProposals"`
 
 	// IkeProposalType
 	// ikeProposal Type of the ipsec profile
@@ -2586,7 +2586,7 @@ type WSGProfileIpsecProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileIpsecProfile `json:"list,omitempty"`
+	List []*WSGProfileIpsecProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -2650,7 +2650,7 @@ type WSGProfileL2oGREProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileL2oGREProfile `json:"list,omitempty"`
+	List []*WSGProfileL2oGREProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -2681,7 +2681,7 @@ type WSGProfileL3AccessControlPolicy struct {
 
 	// L3AclRuleList
 	// L3 access control list
-	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList,omitempty"`
+	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList"`
 
 	// Name
 	// Constraints:
@@ -2699,7 +2699,7 @@ type WSGProfileL3AccessControlPolicyArray struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileL3AccessControlPolicy `json:"list,omitempty"`
+	List []*WSGProfileL3AccessControlPolicy `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -2886,7 +2886,7 @@ type WSGProfileLbsProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileLbsProfile `json:"list,omitempty"`
+	List []*WSGProfileLbsProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -2915,7 +2915,7 @@ type WSGProfileModifyAccountingProfile struct {
 
 	// RealmMappings
 	// Accounting service per realm
-	RealmMappings []*WSGProfileAcctServiceRealmMapping `json:"realmMappings,omitempty"`
+	RealmMappings []*WSGProfileAcctServiceRealmMapping `json:"realmMappings"`
 }
 
 func NewWSGProfileModifyAccountingProfile() *WSGProfileModifyAccountingProfile {
@@ -2950,7 +2950,7 @@ type WSGProfileModifyAuthenticationProfile struct {
 
 	// RealmMappings
 	// Realm based authentication service mappings
-	RealmMappings []*WSGProfileRealmAuthServiceMapping `json:"realmMappings,omitempty"`
+	RealmMappings []*WSGProfileRealmAuthServiceMapping `json:"realmMappings"`
 
 	TtgCommonSetting *WSGProfileTtgCommonSetting `json:"ttgCommonSetting,omitempty"`
 }
@@ -2974,11 +2974,11 @@ func NewWSGProfileModifyBlockClient() *WSGProfileModifyBlockClient {
 type WSGProfileModifyBonjourFencingPolicy struct {
 	// BonjourFencingRuleList
 	// Bonjour Fencing Rule List
-	BonjourFencingRuleList []*WSGProfileBonjourFencingRule `json:"bonjourFencingRuleList,omitempty"`
+	BonjourFencingRuleList []*WSGProfileBonjourFencingRule `json:"bonjourFencingRuleList"`
 
 	// BonjourFencingRuleMappingList
 	// Bonjour Fencing Rule Mapping List
-	BonjourFencingRuleMappingList []*WSGProfileBonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList,omitempty"`
+	BonjourFencingRuleMappingList []*WSGProfileBonjourFencingRuleMapping `json:"bonjourFencingRuleMappingList"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -3022,7 +3022,7 @@ type WSGProfileModifyClientIsolationWhitelist struct {
 
 	// Whitelist
 	// Client Isolation Whitelist array
-	Whitelist []*WSGProfileClientIsolationEntry `json:"whitelist,omitempty"`
+	Whitelist []*WSGProfileClientIsolationEntry `json:"whitelist"`
 }
 
 func NewWSGProfileModifyClientIsolationWhitelist() *WSGProfileModifyClientIsolationWhitelist {
@@ -3119,11 +3119,11 @@ type WSGProfileModifyHS20Operator struct {
 
 	// DomainNames
 	// Domain names
-	DomainNames []WSGCommonWildFQDN `json:"domainNames,omitempty"`
+	DomainNames []WSGCommonWildFQDN `json:"domainNames"`
 
 	// FriendlyNames
 	// Friendly names
-	FriendlyNames []*WSGProfileHs20FriendlyName `json:"friendlyNames,omitempty"`
+	FriendlyNames []*WSGProfileHs20FriendlyName `json:"friendlyNames"`
 
 	// Id
 	// Identifier of the profile
@@ -3364,7 +3364,7 @@ type WSGProfileModifyL3AccessControlPolicy struct {
 
 	// L3AclRuleList
 	// L3 access control list
-	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList,omitempty"`
+	L3AclRuleList []*WSGProfileL3AclRuleList `json:"l3AclRuleList"`
 
 	// Name
 	// Constraints:
@@ -3380,7 +3380,7 @@ func NewWSGProfileModifyL3AccessControlPolicy() *WSGProfileModifyL3AccessControl
 type WSGProfileModifyRestrictedApAccessProfile struct {
 	// BlockedPortList
 	// Blocked Port List
-	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList,omitempty"`
+	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList"`
 
 	// BlockWellKnownPort
 	// Block well known ports
@@ -3390,7 +3390,7 @@ type WSGProfileModifyRestrictedApAccessProfile struct {
 
 	// IpAddressWhitelist
 	// IP Address Whitelist
-	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist,omitempty"`
+	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist"`
 
 	// Name
 	// Constraints:
@@ -3535,7 +3535,7 @@ type WSGProfileModifyUserTrafficProfile struct {
 
 	// IpAclRules
 	// Traffic access control list
-	IpAclRules []*WSGProfileModifyIpAclRules `json:"ipAclRules,omitempty"`
+	IpAclRules []*WSGProfileModifyIpAclRules `json:"ipAclRules"`
 
 	// MvnoId
 	// Tenant UUID
@@ -3573,7 +3573,7 @@ type WSGProfileModifyZoneAffinityProfile struct {
 	//    - min:1
 	Name *string `json:"name,omitempty" validate:"max=64,min=1"`
 
-	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
+	ZoneAffinityList []string `json:"zoneAffinityList"`
 }
 
 func NewWSGProfileModifyZoneAffinityProfile() *WSGProfileModifyZoneAffinityProfile {
@@ -3588,7 +3588,7 @@ type WSGProfilePrecedenceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfilePrecedenceListType `json:"list,omitempty"`
+	List []*WSGProfilePrecedenceListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -3611,11 +3611,11 @@ type WSGProfilePrecedenceListType struct {
 
 	// RateLimitingPrecedence
 	// rate limiting precedence
-	RateLimitingPrecedence []*WSGProfileRateLimitingPrecedenceItem `json:"rateLimitingPrecedence,omitempty"`
+	RateLimitingPrecedence []*WSGProfileRateLimitingPrecedenceItem `json:"rateLimitingPrecedence"`
 
 	// VlanPrecedence
 	// vlan precedence
-	VlanPrecedence []*WSGProfileVlanPrecedenceItem `json:"vlanPrecedence,omitempty"`
+	VlanPrecedence []*WSGProfileVlanPrecedenceItem `json:"vlanPrecedence"`
 }
 
 func NewWSGProfilePrecedenceListType() *WSGProfilePrecedenceListType {
@@ -3651,7 +3651,7 @@ type WSGProfileIdList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCommonGenericRef `json:"list,omitempty"`
+	List []*WSGCommonGenericRef `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -3680,7 +3680,7 @@ type WSGProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileListType `json:"list,omitempty"`
+	List []*WSGProfileListType `json:"list"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -3822,9 +3822,7 @@ func NewWSGProfileProviderEAPAuthSetting() *WSGProfileProviderEAPAuthSetting {
 type WSGProfileProviderEAPMethod struct {
 	// AuthSettings
 	// EAP method auth settings
-	// Constraints:
-	//    - nullable
-	AuthSettings []*WSGProfileProviderEAPAuthSetting `json:"authSettings,omitempty" validate:"omitempty,dive"`
+	AuthSettings []*WSGProfileProviderEAPAuthSetting `json:"authSettings"`
 
 	// Type
 	// EAP method type
@@ -3871,7 +3869,7 @@ type WSGProfileProviderExternalOSU struct {
 
 	// WhitelistedDomains
 	// Whitelisted domains
-	WhitelistedDomains []WSGCommonWildFQDN `json:"whitelistedDomains,omitempty"`
+	WhitelistedDomains []WSGCommonWildFQDN `json:"whitelistedDomains"`
 }
 
 func NewWSGProfileProviderExternalOSU() *WSGProfileProviderExternalOSU {
@@ -3950,7 +3948,7 @@ type WSGProfileProviderInternalOSU struct {
 
 	// WhitelistedDomains
 	// whitelisted domains
-	WhitelistedDomains []WSGCommonWildFQDN `json:"whitelistedDomains,omitempty"`
+	WhitelistedDomains []WSGCommonWildFQDN `json:"whitelistedDomains"`
 }
 
 func NewWSGProfileProviderInternalOSU() *WSGProfileProviderInternalOSU {
@@ -4188,7 +4186,7 @@ func NewWSGProfileRealmAuthServiceMapping() *WSGProfileRealmAuthServiceMapping {
 type WSGProfileRestrictedApAccessProfile struct {
 	// BlockedPortList
 	// Blocked Port List
-	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList,omitempty"`
+	BlockedPortList []*WSGProfileBlockedPort `json:"blockedPortList"`
 
 	// BlockWellKnownPort
 	// Block well known ports
@@ -4210,7 +4208,7 @@ type WSGProfileRestrictedApAccessProfile struct {
 
 	// IpAddressWhitelist
 	// IP Address Whitelist
-	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist,omitempty"`
+	IpAddressWhitelist []WSGCommonIpAddress `json:"ipAddressWhitelist"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -4240,7 +4238,7 @@ type WSGProfileRestrictedApAccessProfileArray struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileRestrictedApAccessProfile `json:"list,omitempty"`
+	List []*WSGProfileRestrictedApAccessProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -4298,9 +4296,9 @@ type WSGProfileReturnZoneAffinityProfile struct {
 	//    - min:1
 	Name *string `json:"name,omitempty" validate:"max=64,min=1"`
 
-	ZoneAffinityList []string `json:"zoneAffinityList,omitempty"`
+	ZoneAffinityList []string `json:"zoneAffinityList"`
 
-	ZoneAffinityListWithPriority []*WSGProfileReturnZoneAffinityProfileZoneAffinityListWithPriorityType `json:"zoneAffinityListWithPriority,omitempty"`
+	ZoneAffinityListWithPriority []*WSGProfileReturnZoneAffinityProfileZoneAffinityListWithPriorityType `json:"zoneAffinityListWithPriority"`
 }
 
 func NewWSGProfileReturnZoneAffinityProfile() *WSGProfileReturnZoneAffinityProfile {
@@ -4342,7 +4340,7 @@ type WSGProfileRogueApPolicy struct {
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Rules []*WSGProfileRogueApRuleList `json:"rules,omitempty"`
+	Rules []*WSGProfileRogueApRuleList `json:"rules"`
 
 	ZoneId *string `json:"zoneId,omitempty"`
 }
@@ -4357,7 +4355,7 @@ type WSGProfileRogueApPolicyList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileRogueApPolicy `json:"list,omitempty"`
+	List []*WSGProfileRogueApPolicy `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -4405,7 +4403,7 @@ type WSGProfileRtlsProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileCreateRtlsProfile `json:"list,omitempty"`
+	List []*WSGProfileCreateRtlsProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -4487,7 +4485,7 @@ type WSGProfileRuckusGREProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileRuckusGREProfile `json:"list,omitempty"`
+	List []*WSGProfileRuckusGREProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -4579,7 +4577,7 @@ type WSGProfileSoftGREProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileSoftGREProfile `json:"list,omitempty"`
+	List []*WSGProfileSoftGREProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -4606,7 +4604,7 @@ type WSGProfileTrafficClassProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCommonTrafficClassProfileRef `json:"list,omitempty"`
+	List []*WSGCommonTrafficClassProfileRef `json:"list"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -4707,11 +4705,11 @@ func NewWSGProfileTtgpdgCommonSetting() *WSGProfileTtgpdgCommonSetting {
 type WSGProfileTtgpdgProfile struct {
 	// ApnForwardingRealms
 	// List of the APN Forwarding Policy Per Realm
-	ApnForwardingRealms []*WSGProfileTtgpdgApnForwardingRealm `json:"apnForwardingRealms,omitempty"`
+	ApnForwardingRealms []*WSGProfileTtgpdgApnForwardingRealm `json:"apnForwardingRealms"`
 
 	// ApnRealms
 	// List of the Default APN
-	ApnRealms []*WSGProfileApnRealm `json:"apnRealms,omitempty"`
+	ApnRealms []*WSGProfileApnRealm `json:"apnRealms"`
 
 	CommonSetting *WSGProfileTtgpdgCommonSetting `json:"commonSetting,omitempty"`
 
@@ -4770,11 +4768,11 @@ func NewWSGProfileTtgpdgProfile() *WSGProfileTtgpdgProfile {
 type WSGProfileTtgpdgProfileConfiguration struct {
 	// ApnForwardingRealms
 	// List of the APN Forwarding Policy Per Realm
-	ApnForwardingRealms []*WSGProfileTtgpdgApnForwardingRealm `json:"apnForwardingRealms,omitempty"`
+	ApnForwardingRealms []*WSGProfileTtgpdgApnForwardingRealm `json:"apnForwardingRealms"`
 
 	// ApnRealms
 	// List of the Default APN
-	ApnRealms []*WSGProfileApnRealm `json:"apnRealms,omitempty"`
+	ApnRealms []*WSGProfileApnRealm `json:"apnRealms"`
 
 	CommonSetting *WSGProfileTtgpdgCommonSetting `json:"commonSetting,omitempty"`
 
@@ -4809,7 +4807,7 @@ type WSGProfileTtgpdgProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileTtgpdgProfile `json:"list,omitempty"`
+	List []*WSGProfileTtgpdgProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -4822,7 +4820,7 @@ func NewWSGProfileTtgpdgProfileList() *WSGProfileTtgpdgProfileList {
 type WSGProfileUpdateL3RoamingConfig struct {
 	// DataPlanes
 	// L3 roaming configuration for DPs
-	DataPlanes []*WSGProfileDataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
+	DataPlanes []*WSGProfileDataPlaneL3RoamingData `json:"dataPlanes"`
 }
 
 func NewWSGProfileUpdateL3RoamingConfig() *WSGProfileUpdateL3RoamingConfig {
@@ -4839,11 +4837,11 @@ type WSGProfileUpdatePrecedenceProfile struct {
 
 	// RateLimitingPrecedence
 	// rate limiting precedence
-	RateLimitingPrecedence []*WSGProfileRateLimitingPrecedenceItem `json:"rateLimitingPrecedence,omitempty"`
+	RateLimitingPrecedence []*WSGProfileRateLimitingPrecedenceItem `json:"rateLimitingPrecedence"`
 
 	// VlanPrecedence
 	// vlan precedence
-	VlanPrecedence []*WSGProfileVlanPrecedenceItem `json:"vlanPrecedence,omitempty"`
+	VlanPrecedence []*WSGProfileVlanPrecedenceItem `json:"vlanPrecedence"`
 }
 
 func NewWSGProfileUpdatePrecedenceProfile() *WSGProfileUpdatePrecedenceProfile {
@@ -4856,7 +4854,7 @@ type WSGProfileUpdateRogueApPolicy struct {
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Rules []*WSGProfileRogueApRuleList `json:"rules,omitempty"`
+	Rules []*WSGProfileRogueApRuleList `json:"rules"`
 }
 
 func NewWSGProfileUpdateRogueApPolicy() *WSGProfileUpdateRogueApPolicy {
@@ -4934,7 +4932,7 @@ type WSGProfileUserTrafficProfile struct {
 
 	// IpAclRules
 	// Traffic access control list
-	IpAclRules []*WSGProfileIpAclRules `json:"ipAclRules,omitempty"`
+	IpAclRules []*WSGProfileIpAclRules `json:"ipAclRules"`
 
 	// IsFactoryDefault
 	// Whether the UTP is factory default or not
@@ -4981,7 +4979,7 @@ type WSGProfileUserTrafficProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGProfileUserTrafficProfile `json:"list,omitempty"`
+	List []*WSGProfileUserTrafficProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -5115,7 +5113,7 @@ func NewWSGProfileVlanPrecedenceItem() *WSGProfileVlanPrecedenceItem {
 }
 
 type WSGProfileZoneAffinityProfileList struct {
-	List []*WSGProfileReturnZoneAffinityProfile `json:"list,omitempty"`
+	List []*WSGProfileReturnZoneAffinityProfile `json:"list"`
 }
 
 func NewWSGProfileZoneAffinityProfileList() *WSGProfileZoneAffinityProfileList {

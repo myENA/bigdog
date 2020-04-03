@@ -29,7 +29,7 @@ type SwitchMStackAuditIdList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchAuditId `json:"list,omitempty"`
+	List []*SwitchMSwitchAuditId `json:"list"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
@@ -77,7 +77,7 @@ type SwitchMStackList struct {
 
 	// List
 	// List of stack
-	List []*SwitchMStackMember `json:"list,omitempty"`
+	List []*SwitchMStackMember `json:"list"`
 
 	// RawDataTotalCount
 	// Stack count
@@ -124,7 +124,7 @@ type SwitchMStackMember struct {
 
 	// SwitchPorts
 	// Switch port information of stack
-	SwitchPorts []*SwitchMStackMemberSwitchPortsType `json:"switchPorts,omitempty"`
+	SwitchPorts []*SwitchMStackMemberSwitchPortsType `json:"switchPorts"`
 
 	// SwitchUnit
 	// Switch unit of stack

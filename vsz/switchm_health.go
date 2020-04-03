@@ -35,7 +35,7 @@ type SwitchMHealthAggMetrics struct {
 	// Indicates if there are more Aggregation Metrics after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMHealthAggs `json:"list,omitempty"`
+	List []*SwitchMHealthAggs `json:"list"`
 
 	// RawDataTotalCount
 	// Aggregation Metrics count
@@ -111,7 +111,7 @@ type SwitchMHealthIcxMetrics struct {
 	// Indicates if there are more ICX Metrics after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMHealthMetrics `json:"list,omitempty"`
+	List []*SwitchMHealthMetrics `json:"list"`
 
 	// RawDataTotalCount
 	// ICX Metrics count
@@ -181,7 +181,7 @@ func NewSwitchMHealthMetrics() *SwitchMHealthMetrics {
 type SwitchMHealthStatus struct {
 	// Fan
 	// Fan
-	Fan []*SwitchMHealthStatusFanType `json:"fan,omitempty"`
+	Fan []*SwitchMHealthStatusFanType `json:"fan"`
 
 	// FlaggedCount
 	// Flagged status count
@@ -197,11 +197,11 @@ type SwitchMHealthStatus struct {
 
 	// PowerSupply
 	// Powersupply
-	PowerSupply []*SwitchMHealthStatusPowerSupplyType `json:"powerSupply,omitempty"`
+	PowerSupply []*SwitchMHealthStatusPowerSupplyType `json:"powerSupply"`
 
 	// Temperature
 	// Temperature
-	Temperature []*SwitchMHealthStatusTemperatureType `json:"temperature,omitempty"`
+	Temperature []*SwitchMHealthStatusTemperatureType `json:"temperature"`
 }
 
 func NewSwitchMHealthStatus() *SwitchMHealthStatus {

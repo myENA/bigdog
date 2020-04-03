@@ -9,7 +9,7 @@ type WSGClientQueryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGClientQueryCreateClientQuery `json:"list,omitempty"`
+	List []*WSGClientQueryCreateClientQuery `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -86,7 +86,7 @@ type WSGClientQueryCreateClientQuery struct {
 
 	Status *string `json:"status,omitempty"`
 
-	TcWithQuotaList []*WSGClientQueryTcWithQuota `json:"tcWithQuotaList,omitempty"`
+	TcWithQuotaList []*WSGClientQueryTcWithQuota `json:"tcWithQuotaList"`
 
 	Traffic *int `json:"traffic,omitempty"`
 

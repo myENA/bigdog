@@ -118,7 +118,7 @@ type SwitchMAAAServersQueryResult struct {
 	// Indicator of whether there are more AAA Servers after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMAAAServersAAAServer `json:"list,omitempty"`
+	List []*SwitchMAAAServersAAAServer `json:"list"`
 
 	// RawDataTotalCount
 	// Total AAA Servers count

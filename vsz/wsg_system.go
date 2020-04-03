@@ -41,7 +41,7 @@ type WSGSystemApMacOUIList struct {
 	// Indicates whether there are more AP MAC OUIs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemApMacOUI `json:"list,omitempty"`
+	List []*WSGSystemApMacOUI `json:"list"`
 
 	// TotalCount
 	// Total AP MAC OUI count
@@ -133,7 +133,7 @@ type WSGSystemControllerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemControllerListType `json:"list,omitempty"`
+	List []*WSGSystemControllerListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -204,7 +204,7 @@ type WSGSystemControllerListType struct {
 	// Name of the controller
 	Name *string `json:"name,omitempty"`
 
-	ReservedPorts []*WSGSystemReservedPort `json:"reservedPorts,omitempty"`
+	ReservedPorts []*WSGSystemReservedPort `json:"reservedPorts"`
 
 	// SerialNumber
 	// Serial number of the controller
@@ -269,7 +269,7 @@ func NewWSGSystemControlPlaneInterface() *WSGSystemControlPlaneInterface {
 type WSGSystemControlPlaneInterfaceList struct {
 	// ControlPlaneInterfaces
 	// Interface list
-	ControlPlaneInterfaces []*WSGSystemControlPlaneInterface `json:"controlPlaneInterfaces,omitempty"`
+	ControlPlaneInterfaces []*WSGSystemControlPlaneInterface `json:"controlPlaneInterfaces"`
 }
 
 func NewWSGSystemControlPlaneInterfaceList() *WSGSystemControlPlaneInterfaceList {
@@ -282,7 +282,7 @@ type WSGSystemControlPlaneList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemControlPlaneListType `json:"list,omitempty"`
+	List []*WSGSystemControlPlaneListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -447,7 +447,7 @@ type WSGSystemDataPlaneConfiguration struct {
 
 	// StaticRoute
 	// Primary(Access) interface
-	StaticRoute []*WSGSystemStaticRoute `json:"staticRoute,omitempty"`
+	StaticRoute []*WSGSystemStaticRoute `json:"staticRoute"`
 }
 
 func NewWSGSystemDataPlaneConfiguration() *WSGSystemDataPlaneConfiguration {
@@ -460,7 +460,7 @@ type WSGSystemDataPlaneList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemDataPlaneListType `json:"list,omitempty"`
+	List []*WSGSystemDataPlaneListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -564,7 +564,7 @@ type WSGSystemFriendlyNameLangList struct {
 	// Indicates whether there are more FriendlyName of language after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemFriendlyNameLang `json:"list,omitempty"`
+	List []*WSGSystemFriendlyNameLang `json:"list"`
 
 	// TotalCount
 	// Total count of FriendlyName of language
@@ -676,7 +676,7 @@ type WSGSystemFtpList struct {
 	// Indicates whether there are more FTPs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemFtp `json:"list,omitempty"`
+	List []*WSGSystemFtp `json:"list"`
 
 	// TotalCount
 	// Total FTP count
@@ -771,7 +771,7 @@ type WSGSystemInventoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemInventoryListType `json:"list,omitempty"`
+	List []*WSGSystemInventoryListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1042,7 +1042,7 @@ type WSGSystemLwapp2scgConfiguration struct {
 
 	// ApList
 	// accessPoint List  of the lwapp
-	ApList []string `json:"apList,omitempty"`
+	ApList []string `json:"apList"`
 
 	// NatIpTranslation
 	// natIpTranslation of the lwapp
@@ -1102,7 +1102,7 @@ func NewWSGSystemModifyControlPlane() *WSGSystemModifyControlPlane {
 type WSGSystemModifyCPStaticRoute struct {
 	// StaticRoutes
 	// Static route for control plane.
-	StaticRoutes []*WSGSystemCpStaticRoute `json:"staticRoutes,omitempty"`
+	StaticRoutes []*WSGSystemCpStaticRoute `json:"staticRoutes"`
 }
 
 func NewWSGSystemModifyCPStaticRoute() *WSGSystemModifyCPStaticRoute {
@@ -1113,7 +1113,7 @@ func NewWSGSystemModifyCPStaticRoute() *WSGSystemModifyCPStaticRoute {
 type WSGSystemModifyCPUserDefinedInterface struct {
 	// UserDefinedInterface
 	// User defined interface for Control Plane
-	UserDefinedInterface []*WSGSystemCpUserDefinedInterface `json:"userDefinedInterface,omitempty"`
+	UserDefinedInterface []*WSGSystemCpUserDefinedInterface `json:"userDefinedInterface"`
 }
 
 func NewWSGSystemModifyCPUserDefinedInterface() *WSGSystemModifyCPUserDefinedInterface {
@@ -1147,7 +1147,7 @@ type WSGSystemModifyDataPlane struct {
 
 	// StaticRoute
 	// Primary(Access) interface
-	StaticRoute []*WSGSystemStaticRoute `json:"staticRoute,omitempty"`
+	StaticRoute []*WSGSystemStaticRoute `json:"staticRoute"`
 }
 
 func NewWSGSystemModifyDataPlane() *WSGSystemModifyDataPlane {
@@ -1227,7 +1227,7 @@ func NewWSGSystemModifyIpSupportType() *WSGSystemModifyIpSupportType {
 type WSGSystemModifyLwapp2scg struct {
 	// ApList
 	// accessPoint List  of the lwapp
-	ApList []string `json:"apList,omitempty"`
+	ApList []string `json:"apList"`
 
 	// NatIpTranslation
 	// natIpTranslation of the lwapp
@@ -1268,11 +1268,11 @@ type WSGSystemModifySnmpAgent struct {
 
 	// SnmpV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []*WSGCommonSnmpCommunity `json:"snmpV2Agent,omitempty"`
+	SnmpV2Agent []*WSGCommonSnmpCommunity `json:"snmpV2Agent"`
 
 	// SnmpV3Agent
 	// User List of the SNMP V2 Agent.
-	SnmpV3Agent []*WSGCommonSnmpUser `json:"snmpV3Agent,omitempty"`
+	SnmpV3Agent []*WSGCommonSnmpUser `json:"snmpV3Agent"`
 }
 
 func NewWSGSystemModifySnmpAgent() *WSGSystemModifySnmpAgent {
@@ -1370,7 +1370,7 @@ type WSGSystemPortalLangList struct {
 	// Indicates whether there are more portal names after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemPortalLang `json:"list,omitempty"`
+	List []*WSGSystemPortalLang `json:"list"`
 
 	// TotalCount
 	// Total portal name count
@@ -1631,7 +1631,7 @@ type WSGSystemSmsList struct {
 	// Indicates whether there are more SMS gateway after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSystemSms `json:"list,omitempty"`
+	List []*WSGSystemSms `json:"list"`
 
 	// TotalCount
 	// Total SMS gateway count
@@ -1650,11 +1650,11 @@ type WSGSystemSnmpAgentConfiguration struct {
 
 	// SnmpV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []*WSGCommonSnmpCommunity `json:"snmpV2Agent,omitempty"`
+	SnmpV2Agent []*WSGCommonSnmpCommunity `json:"snmpV2Agent"`
 
 	// SnmpV3Agent
 	// User List of the SNMP V2 Agent.
-	SnmpV3Agent []*WSGCommonSnmpUser `json:"snmpV3Agent,omitempty"`
+	SnmpV3Agent []*WSGCommonSnmpUser `json:"snmpV3Agent"`
 }
 
 func NewWSGSystemSnmpAgentConfiguration() *WSGSystemSnmpAgentConfiguration {
@@ -1690,7 +1690,7 @@ func NewWSGSystemStaticRoute() *WSGSystemStaticRoute {
 type WSGSystemStaticRouteList struct {
 	// StaticRoutes
 	// Static route for Control Plane
-	StaticRoutes []*WSGSystemCpStaticRoute `json:"staticRoutes,omitempty"`
+	StaticRoutes []*WSGSystemCpStaticRoute `json:"staticRoutes"`
 }
 
 func NewWSGSystemStaticRouteList() *WSGSystemStaticRouteList {
@@ -1810,9 +1810,9 @@ type WSGSystemSettings struct {
 	// Enabled AP number limit feature or not
 	ApNumberLimitEnabled *bool `json:"apNumberLimitEnabled,omitempty"`
 
-	ApNumberLimitSettingsOfDomain []*WSGSystemApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain,omitempty"`
+	ApNumberLimitSettingsOfDomain []*WSGSystemApNumberLimitSettingOfDomain `json:"apNumberLimitSettingsOfDomain"`
 
-	ApNumberLimitSettingsOfZone []*WSGSystemApNumberLimitSettingOfZone `json:"apNumberLimitSettingsOfZone,omitempty"`
+	ApNumberLimitSettingsOfZone []*WSGSystemApNumberLimitSettingOfZone `json:"apNumberLimitSettingsOfZone"`
 }
 
 func NewWSGSystemSettings() *WSGSystemSettings {
@@ -1874,7 +1874,7 @@ func NewWSGSystemUpdateDpMeshTunnelSetting() *WSGSystemUpdateDpMeshTunnelSetting
 type WSGSystemUserDefinedInterfaceList struct {
 	// UserDefinedInterface
 	// User defined interface for Control Plane
-	UserDefinedInterface []*WSGSystemCpUserDefinedInterface `json:"userDefinedInterface,omitempty"`
+	UserDefinedInterface []*WSGSystemCpUserDefinedInterface `json:"userDefinedInterface"`
 }
 
 func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {

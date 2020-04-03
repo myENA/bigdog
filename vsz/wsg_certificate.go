@@ -40,9 +40,7 @@ type WSGCertificate struct {
 
 	// IntermediateData
 	// Intermediate data of the certificate
-	// Constraints:
-	//    - nullable
-	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
+	IntermediateData []string `json:"intermediateData"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -73,7 +71,7 @@ type WSGCertificateList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCertificateListType `json:"list,omitempty"`
+	List []*WSGCertificateListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -144,7 +142,7 @@ func NewWSGCertificatesSigningRequest() *WSGCertificatesSigningRequest {
 type WSGCertificateCertSetting struct {
 	// ServiceCertificates
 	// Certificate Setting of the service
-	ServiceCertificates []*WSGCertificateServiceCertificate `json:"serviceCertificates,omitempty"`
+	ServiceCertificates []*WSGCertificateServiceCertificate `json:"serviceCertificates"`
 }
 
 func NewWSGCertificateCertSetting() *WSGCertificateCertSetting {
@@ -169,9 +167,7 @@ type WSGCertificateClientCert struct {
 
 	// IntermediateData
 	// Intermediate data of the client certificate
-	// Constraints:
-	//    - nullable
-	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
+	IntermediateData []string `json:"intermediateData"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -198,7 +194,7 @@ type WSGCertificateClientCertList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCertificateClientCertListType `json:"list,omitempty"`
+	List []*WSGCertificateClientCertListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -236,9 +232,7 @@ type WSGCertificateCreateCert struct {
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
-	// Constraints:
-	//    - nullable
-	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
+	IntermediateData []string `json:"intermediateData"`
 
 	// Name
 	// Constraints:
@@ -274,9 +268,7 @@ type WSGCertificateCreateClientCert struct {
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
-	// Constraints:
-	//    - nullable
-	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
+	IntermediateData []string `json:"intermediateData"`
 
 	// Name
 	// Constraints:
@@ -361,9 +353,7 @@ type WSGCertificateCreateTrustedCAChain struct {
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
-	// Constraints:
-	//    - nullable
-	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
+	InterCertData []string `json:"interCertData"`
 
 	// Name
 	// Constraints:
@@ -387,7 +377,7 @@ type WSGCertificateCsrList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCertificateCsrListType `json:"list,omitempty"`
+	List []*WSGCertificateCsrListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -430,9 +420,7 @@ type WSGCertificateModifyTrustedCAChain struct {
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
-	// Constraints:
-	//    - nullable
-	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
+	InterCertData []string `json:"interCertData"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -478,9 +466,7 @@ type WSGCertificateTrustedCAChain struct {
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
-	// Constraints:
-	//    - nullable
-	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
+	InterCertData []string `json:"interCertData"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -499,7 +485,7 @@ type WSGCertificateTrustedCAChainCertList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCertificateTrustedCAChainCertListType `json:"list,omitempty"`
+	List []*WSGCertificateTrustedCAChainCertListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -522,9 +508,7 @@ type WSGCertificateTrustedCAChainCertListType struct {
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
-	// Constraints:
-	//    - nullable
-	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
+	InterCertData []string `json:"interCertData"`
 
 	ModifiedDateTime *WSGCommonNormalNameAllowBlank `json:"modifiedDateTime,omitempty"`
 

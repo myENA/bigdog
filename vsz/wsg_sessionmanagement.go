@@ -61,7 +61,7 @@ type WSGSessionManagementRuckusSessions struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSessionManagementRuckusSession `json:"list,omitempty"`
+	List []*WSGSessionManagementRuckusSession `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

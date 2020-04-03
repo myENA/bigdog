@@ -89,7 +89,7 @@ func NewSwitchMGroupClientObjectIDExtraValuesType() *SwitchMGroupClientObjectIDE
 }
 
 type SwitchMGroupCloneConfigByGroup struct {
-	Destination []string `json:"destination,omitempty"`
+	Destination []string `json:"destination"`
 
 	// Source
 	// Source
@@ -106,7 +106,7 @@ type SwitchMGroupCloneConfigBySwitch struct {
 	// Config
 	Config *string `json:"config,omitempty"`
 
-	Destination []string `json:"destination,omitempty"`
+	Destination []string `json:"destination"`
 
 	// Source
 	// Source
@@ -119,7 +119,7 @@ func NewSwitchMGroupCloneConfigBySwitch() *SwitchMGroupCloneConfigBySwitch {
 }
 
 type SwitchMGroupErrorObject struct {
-	List []string `json:"list,omitempty"`
+	List []string `json:"list"`
 
 	Message *string `json:"message,omitempty"`
 
@@ -238,7 +238,7 @@ type SwitchMGroupQueryResultList struct {
 	// Indicates if there are more query result after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMGroupClientObjectID `json:"list,omitempty"`
+	List []*SwitchMGroupClientObjectID `json:"list"`
 
 	// RawDataTotalCount
 	// Query result count

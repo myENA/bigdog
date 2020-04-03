@@ -142,7 +142,7 @@ type SwitchMIpConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMIpConfig `json:"list,omitempty"`
+	List []*SwitchMIpConfig `json:"list"`
 
 	// TotalCount
 	// Total configs count in this response

@@ -46,7 +46,7 @@ type SwitchMPortCapacityResult struct {
 	// Indicator of remaining data
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMPortCapacityCapacities `json:"list,omitempty"`
+	List []*SwitchMPortCapacityCapacities `json:"list"`
 
 	// RawDataTotalCount
 	// Total Data Count

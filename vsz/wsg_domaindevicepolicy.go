@@ -50,7 +50,7 @@ type WSGDomainDevicePolicyProfile struct {
 
 	// Rule
 	// rule of the device policy cofig
-	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
+	Rule []*WSGDomainDevicePolicyRule `json:"rule"`
 }
 
 func NewWSGDomainDevicePolicyProfile() *WSGDomainDevicePolicyProfile {
@@ -116,7 +116,7 @@ type WSGDomainDevicePolicyModifyDomainDevicePolicy struct {
 
 	// Rule
 	// rule of the device policy cofig
-	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
+	Rule []*WSGDomainDevicePolicyRule `json:"rule"`
 }
 
 func NewWSGDomainDevicePolicyModifyDomainDevicePolicy() *WSGDomainDevicePolicyModifyDomainDevicePolicy {
@@ -129,7 +129,7 @@ type WSGDomainDevicePolicyProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDomainDevicePolicyProfileListType `json:"list,omitempty"`
+	List []*WSGDomainDevicePolicyProfileListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

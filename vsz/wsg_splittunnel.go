@@ -29,7 +29,7 @@ type WSGSplitTunnelModifySplitTunnelProfile struct {
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []*WSGSplitTunnelIpMaskRule `json:"rules,omitempty"`
+	Rules []*WSGSplitTunnelIpMaskRule `json:"rules"`
 }
 
 func NewWSGSplitTunnelModifySplitTunnelProfile() *WSGSplitTunnelModifySplitTunnelProfile {
@@ -67,7 +67,7 @@ type WSGSplitTunnelProfile struct {
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []*WSGSplitTunnelIpMaskRule `json:"rules,omitempty"`
+	Rules []*WSGSplitTunnelIpMaskRule `json:"rules"`
 
 	TenantId *string `json:"tenantId,omitempty"`
 
@@ -84,7 +84,7 @@ type WSGSplitTunnelProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSplitTunnelProfileListType `json:"list,omitempty"`
+	List []*WSGSplitTunnelProfileListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -112,7 +112,7 @@ type WSGSplitTunnelProfileQuery struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSplitTunnelProfile `json:"list,omitempty"`
+	List []*WSGSplitTunnelProfile `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

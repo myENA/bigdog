@@ -89,7 +89,7 @@ type WSGWLANGroup struct {
 
 	// Members
 	// Members of the WLAN group
-	Members []*WSGWLANGroupWlanMember `json:"members,omitempty"`
+	Members []*WSGWLANGroupWlanMember `json:"members"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -123,7 +123,7 @@ type WSGWLANGroupList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWLANGroup `json:"list,omitempty"`
+	List []*WSGWLANGroup `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

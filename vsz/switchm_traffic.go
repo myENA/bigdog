@@ -35,7 +35,7 @@ type SwitchMTrafficTopPortErrorQueryResultList struct {
 	// Indicates if there are more top port error after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTrafficUsage `json:"list,omitempty"`
+	List []*SwitchMTrafficUsage `json:"list"`
 
 	// RawDataTotalCount
 	// Top port error count
@@ -92,7 +92,7 @@ type SwitchMTrafficTopPortTrafficUsageQueryResultList struct {
 	// Indicates if there are more top port traffic usage after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTrafficUsage `json:"list,omitempty"`
+	List []*SwitchMTrafficUsage `json:"list"`
 
 	// RawDataTotalCount
 	// Top port traffic usage count
@@ -149,7 +149,7 @@ type SwitchMTrafficTopSwitchPoEUtilizationQueryResultList struct {
 	// Indicates if there are more top PoE usage after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTrafficUsage `json:"list,omitempty"`
+	List []*SwitchMTrafficUsage `json:"list"`
 
 	// RawDataTotalCount
 	// PoE utilization count
@@ -206,7 +206,7 @@ type SwitchMTrafficTopTrafficUsageQueryResultList struct {
 	// Indicates if there are more top traffic usage after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTrafficUsage `json:"list,omitempty"`
+	List []*SwitchMTrafficUsage `json:"list"`
 
 	// RawDataTotalCount
 	// Top traffic usage count
@@ -286,7 +286,7 @@ type SwitchMTrafficQueryResultList struct {
 	// Indicates if there are more traffic list after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTraffic `json:"list,omitempty"`
+	List []*SwitchMTraffic `json:"list"`
 
 	// RawDataTotalCount
 	// Total traffic count

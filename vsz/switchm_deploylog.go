@@ -13,7 +13,7 @@ type SwitchMDeployLogConfigurationHistoryQueryResult struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMDeployLog `json:"list,omitempty"`
+	List []*SwitchMDeployLog `json:"list"`
 
 	// TotalCount
 	// Total records count in this response

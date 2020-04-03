@@ -180,7 +180,7 @@ type WSGAccountSecurityProfileProfileListResult struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAccountSecurityProfileGetById `json:"list,omitempty"`
+	List []*WSGAccountSecurityProfileGetById `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

@@ -7,7 +7,7 @@ import (
 )
 
 type SwitchMVlanConfigCreateVlanConfig struct {
-	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections,omitempty"`
+	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -47,7 +47,7 @@ type SwitchMVlanConfigCreateVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []*SwitchMVlanConfigVlanPorts `json:"ports,omitempty"`
+	Ports []*SwitchMVlanConfigVlanPorts `json:"ports"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -86,7 +86,7 @@ func NewSwitchMVlanConfigCreateVlanConfig() *SwitchMVlanConfigCreateVlanConfig {
 }
 
 type SwitchMVlanConfigUpdateVlanConfig struct {
-	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections,omitempty"`
+	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -118,7 +118,7 @@ type SwitchMVlanConfigUpdateVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []*SwitchMVlanConfigVlanPorts `json:"ports,omitempty"`
+	Ports []*SwitchMVlanConfigVlanPorts `json:"ports"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -164,7 +164,7 @@ func NewSwitchMVlanConfigVlanArpInspections() *SwitchMVlanConfigVlanArpInspectio
 }
 
 type SwitchMVlanConfig struct {
-	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections,omitempty"`
+	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -210,7 +210,7 @@ type SwitchMVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []*SwitchMVlanConfigVlanPorts `json:"ports,omitempty"`
+	Ports []*SwitchMVlanConfigVlanPorts `json:"ports"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -265,7 +265,7 @@ type SwitchMVlanConfigQueryResult struct {
 	// Indicator of whether there are more Vlan Configs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMVlanConfig `json:"list,omitempty"`
+	List []*SwitchMVlanConfig `json:"list"`
 
 	// RawDataTotalCount
 	// Total Vlan Configs count

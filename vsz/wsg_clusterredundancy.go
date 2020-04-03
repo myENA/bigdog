@@ -5,7 +5,7 @@ package vsz
 type WSGClusterRedundancyActiveCluster struct {
 	// ManagementEntryList
 	// Management entry list of target active cluster
-	ManagementEntryList []*WSGClusterRedundancyManagementEntry `json:"managementEntryList,omitempty"`
+	ManagementEntryList []*WSGClusterRedundancyManagementEntry `json:"managementEntryList"`
 
 	// Priority
 	// Priority of target active cluster
@@ -24,7 +24,7 @@ func NewWSGClusterRedundancyActiveCluster() *WSGClusterRedundancyActiveCluster {
 type WSGClusterRedundancySettings struct {
 	// ActiveClusterList
 	// A list of target active clusters (Active-Active only)
-	ActiveClusterList []*WSGClusterRedundancyActiveCluster `json:"activeClusterList,omitempty"`
+	ActiveClusterList []*WSGClusterRedundancyActiveCluster `json:"activeClusterList"`
 
 	// ClusterRedundancyEnabled
 	// Cluster redundancy enabled
@@ -56,7 +56,7 @@ type WSGClusterRedundancySettings struct {
 
 	// ManagementEntryList
 	// Management entry list of standby cluster (Active-Standby only)
-	ManagementEntryList []*WSGClusterRedundancyManagementEntry `json:"managementEntryList,omitempty"`
+	ManagementEntryList []*WSGClusterRedundancyManagementEntry `json:"managementEntryList"`
 
 	// Minute
 	// Schedule sync time in minute (Active-Active only)
@@ -94,7 +94,7 @@ func NewWSGClusterRedundancyManagementEntry() *WSGClusterRedundancyManagementEnt
 type WSGClusterRedundancyUpdateClusterRedundancy struct {
 	// ActiveClusterList
 	// A list of target active clusters (Active-Active only)
-	ActiveClusterList []*WSGClusterRedundancyActiveCluster `json:"activeClusterList,omitempty"`
+	ActiveClusterList []*WSGClusterRedundancyActiveCluster `json:"activeClusterList"`
 
 	// ClusterRedundancyEnabled
 	// Cluster redundancy enabled
@@ -128,7 +128,7 @@ type WSGClusterRedundancyUpdateClusterRedundancy struct {
 
 	// ManagementEntryList
 	// Management entry list of standby cluster (Active-Standby only)
-	ManagementEntryList []*WSGClusterRedundancyManagementEntry `json:"managementEntryList,omitempty"`
+	ManagementEntryList []*WSGClusterRedundancyManagementEntry `json:"managementEntryList"`
 
 	// Minute
 	// Schedule sync time in minute (Active-Active only)

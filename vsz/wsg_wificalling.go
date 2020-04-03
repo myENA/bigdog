@@ -60,7 +60,7 @@ type WSGWIFICallingModifyWifiCallingPolicy struct {
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
-	Epdgs []*WSGWIFICallingEpdg `json:"epdgs,omitempty"`
+	Epdgs []*WSGWIFICallingEpdg `json:"epdgs"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -97,7 +97,7 @@ type WSGWIFICallingPolicy struct {
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
-	Epdgs []*WSGWIFICallingEpdg `json:"epdgs,omitempty"`
+	Epdgs []*WSGWIFICallingEpdg `json:"epdgs"`
 
 	// Id
 	// Identifier of the Wi-Fi calling policy
@@ -140,7 +140,7 @@ type WSGWIFICallingPolicyList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWIFICallingPolicy `json:"list,omitempty"`
+	List []*WSGWIFICallingPolicy `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

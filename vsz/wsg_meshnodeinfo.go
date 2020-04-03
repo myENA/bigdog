@@ -50,7 +50,7 @@ type WSGMeshNodeInfo struct {
 	// The hasDownLink of the mesh AP
 	HasDownLink *bool `json:"hasDownLink,omitempty"`
 
-	HelperZoneInfo []*WSGMeshNodeInfoHelperZoneInfo `json:"helperZoneInfo,omitempty"`
+	HelperZoneInfo []*WSGMeshNodeInfoHelperZoneInfo `json:"helperZoneInfo"`
 
 	// Hops
 	// The hop count of this mesh AP
@@ -94,7 +94,7 @@ type WSGMeshNodeInfoList struct {
 	// Indicator of whether there are more MeshNodeInfo after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGMeshNodeInfo `json:"list,omitempty"`
+	List []*WSGMeshNodeInfo `json:"list"`
 
 	// RawDataTotalCount
 	// MeshNodeInfos count.

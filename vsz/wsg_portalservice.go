@@ -116,7 +116,7 @@ type WSGPortalServiceCreateHotspot20WlanProfile struct {
 
 	// IdentityProviders
 	// Ddentity providers of the Hotspot 2.0 WLAN profile
-	IdentityProviders []*WSGCommonGenericRef `json:"identityProviders,omitempty"`
+	IdentityProviders []*WSGCommonGenericRef `json:"identityProviders"`
 
 	// InternetOption
 	// Internet option of the Hotspot 2.0 WLAN profile
@@ -211,7 +211,7 @@ type WSGPortalServiceCreateHotspotExternal struct {
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
-	WalledGardens []string `json:"walledGardens,omitempty"`
+	WalledGardens []string `json:"walledGardens"`
 }
 
 func NewWSGPortalServiceCreateHotspotExternal() *WSGPortalServiceCreateHotspotExternal {
@@ -251,7 +251,7 @@ type WSGPortalServiceCreateHotspotInternal struct {
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
-	WalledGardens []string `json:"walledGardens,omitempty"`
+	WalledGardens []string `json:"walledGardens"`
 }
 
 func NewWSGPortalServiceCreateHotspotInternal() *WSGPortalServiceCreateHotspotInternal {
@@ -302,7 +302,7 @@ type WSGPortalServiceCreateHotspotSmartClientOnly struct {
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
-	WalledGardens []string `json:"walledGardens,omitempty"`
+	WalledGardens []string `json:"walledGardens"`
 }
 
 func NewWSGPortalServiceCreateHotspotSmartClientOnly() *WSGPortalServiceCreateHotspotSmartClientOnly {
@@ -325,7 +325,7 @@ type WSGPortalServiceCreateL2ACL struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction" validate:"required,oneof=ALLOW BLOCK"`
 
-	RuleMacs []WSGCommonMac `json:"ruleMacs,omitempty"`
+	RuleMacs []WSGCommonMac `json:"ruleMacs"`
 }
 
 func NewWSGPortalServiceCreateL2ACL() *WSGPortalServiceCreateL2ACL {
@@ -374,7 +374,7 @@ type WSGPortalServiceCreateWechat struct {
 
 	// DnatPortMapping
 	// DNAT Port Mapping of the wechat profile
-	DnatPortMapping []*WSGPortalServiceDnatPortMapping `json:"dnatPortMapping,omitempty"`
+	DnatPortMapping []*WSGPortalServiceDnatPortMapping `json:"dnatPortMapping"`
 
 	// GracePeriod
 	// Grace period of the wechat profile
@@ -545,7 +545,7 @@ type WSGPortalServiceHotspot struct {
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
-	WalledGardens []string `json:"walledGardens,omitempty"`
+	WalledGardens []string `json:"walledGardens"`
 
 	// ZoneId
 	// Identifier of the zone which the Hotspot belongs to
@@ -580,7 +580,7 @@ type WSGPortalServiceHotspot20VeuneProfile struct {
 
 	UplinkSpeedInKbps *WSGPortalServiceLinkSpeedInKbps `json:"uplinkSpeedInKbps,omitempty"`
 
-	VenueNames []*WSGPortalServiceVenueName `json:"venueNames,omitempty"`
+	VenueNames []*WSGPortalServiceVenueName `json:"venueNames"`
 
 	// ZoneId
 	// Identifier of the zone which the Hotspot 2.0 venue profile belongs to
@@ -601,11 +601,11 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 
 	// ConnectionCapabilities
 	// Default connection capabilities of the Hotspot 2.0 WLAN profile
-	ConnectionCapabilities []*WSGPortalServiceDefaultConnectionCapability `json:"connectionCapabilities,omitempty"`
+	ConnectionCapabilities []*WSGPortalServiceDefaultConnectionCapability `json:"connectionCapabilities"`
 
 	// CustomConnectionCapabilities
 	// Custom connection capabilities of the Hotspot 2.0 WLAN profile
-	CustomConnectionCapabilities []*WSGPortalServiceConnectionCapability `json:"customConnectionCapabilities,omitempty"`
+	CustomConnectionCapabilities []*WSGPortalServiceConnectionCapability `json:"customConnectionCapabilities"`
 
 	DefaultIdentityProvider *WSGCommonGenericRef `json:"defaultIdentityProvider,omitempty"`
 
@@ -617,7 +617,7 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 
 	// IdentityProviders
 	// Identity providers of the Hotspot 2.0 WLAN profile
-	IdentityProviders []*WSGCommonGenericRef `json:"identityProviders,omitempty"`
+	IdentityProviders []*WSGCommonGenericRef `json:"identityProviders"`
 
 	// InternetOption
 	// Internet option of the Hotspot 2.0 WLAN profile
@@ -666,7 +666,7 @@ type WSGPortalServiceL2ACL struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction,omitempty" validate:"oneof=ALLOW BLOCK"`
 
-	RuleMacs []WSGCommonMac `json:"ruleMacs,omitempty"`
+	RuleMacs []WSGCommonMac `json:"ruleMacs"`
 
 	// ZoneId
 	// identifier of the zone which the L2 Access Control belongs to
@@ -774,7 +774,7 @@ type WSGPortalServiceModifyHotspot struct {
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
-	WalledGardens []string `json:"walledGardens,omitempty"`
+	WalledGardens []string `json:"walledGardens"`
 }
 
 func NewWSGPortalServiceModifyHotspot() *WSGPortalServiceModifyHotspot {
@@ -801,7 +801,7 @@ type WSGPortalServiceModifyHotspot20VenueProfile struct {
 
 	UplinkSpeedInKbps *WSGPortalServiceLinkSpeedInKbps `json:"uplinkSpeedInKbps,omitempty"`
 
-	VenueNames []*WSGPortalServiceVenueName `json:"venueNames,omitempty"`
+	VenueNames []*WSGPortalServiceVenueName `json:"venueNames"`
 }
 
 func NewWSGPortalServiceModifyHotspot20VenueProfile() *WSGPortalServiceModifyHotspot20VenueProfile {
@@ -818,11 +818,11 @@ type WSGPortalServiceModifyHotspot20WlanProfile struct {
 
 	// ConnectionCapabilities
 	// Default connection capabilities of the Hotspot 2.0 WLAN profile
-	ConnectionCapabilities []*WSGPortalServiceDefaultConnectionCapability `json:"connectionCapabilities,omitempty"`
+	ConnectionCapabilities []*WSGPortalServiceDefaultConnectionCapability `json:"connectionCapabilities"`
 
 	// CustomConnectionCapabilities
 	// Custom connection capabilities of the Hotspot 2.0 WLAN profile
-	CustomConnectionCapabilities []*WSGPortalServiceConnectionCapability `json:"customConnectionCapabilities,omitempty"`
+	CustomConnectionCapabilities []*WSGPortalServiceConnectionCapability `json:"customConnectionCapabilities"`
 
 	DefaultIdentityProvider *WSGCommonGenericRef `json:"defaultIdentityProvider,omitempty"`
 
@@ -830,7 +830,7 @@ type WSGPortalServiceModifyHotspot20WlanProfile struct {
 
 	// IdentityProviders
 	// Identity providers of the Hotspot 2.0 WLAN profile
-	IdentityProviders []*WSGCommonGenericRef `json:"identityProviders,omitempty"`
+	IdentityProviders []*WSGCommonGenericRef `json:"identityProviders"`
 
 	// InternetOption
 	// Internet option of the Hotspot 2.0 WLAN profile
@@ -871,7 +871,7 @@ type WSGPortalServiceModifyL2ACL struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction,omitempty" validate:"oneof=ALLOW BLOCK"`
 
-	RuleMacs []WSGCommonMac `json:"ruleMacs,omitempty"`
+	RuleMacs []WSGCommonMac `json:"ruleMacs"`
 }
 
 func NewWSGPortalServiceModifyL2ACL() *WSGPortalServiceModifyL2ACL {
@@ -915,7 +915,7 @@ type WSGPortalServiceModifyWechat struct {
 
 	// DnatPortMapping
 	// DNAT Port Mapping of the wechat profile
-	DnatPortMapping []*WSGPortalServiceDnatPortMapping `json:"dnatPortMapping,omitempty"`
+	DnatPortMapping []*WSGPortalServiceDnatPortMapping `json:"dnatPortMapping"`
 
 	// GracePeriod
 	// Grace period of the wechat profile
@@ -929,7 +929,7 @@ type WSGPortalServiceModifyWechat struct {
 
 	// WhiteList
 	// White list of the wechat profile
-	WhiteList []string `json:"whiteList,omitempty"`
+	WhiteList []string `json:"whiteList"`
 }
 
 func NewWSGPortalServiceModifyWechat() *WSGPortalServiceModifyWechat {
@@ -966,7 +966,7 @@ type WSGPortalServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGPortalServiceListType `json:"list,omitempty"`
+	List []*WSGPortalServiceListType `json:"list"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1074,7 +1074,7 @@ type WSGPortalServiceWechatConfiguration struct {
 
 	// DnatPortMapping
 	// DNAT Port Mapping of the wechat profile
-	DnatPortMapping []*WSGPortalServiceDnatPortMapping `json:"dnatPortMapping,omitempty"`
+	DnatPortMapping []*WSGPortalServiceDnatPortMapping `json:"dnatPortMapping"`
 
 	// GracePeriod
 	// Grace period of the wechat profile
@@ -1088,7 +1088,7 @@ type WSGPortalServiceWechatConfiguration struct {
 
 	// WhiteList
 	// White list of the wechat profile
-	WhiteList []string `json:"whiteList,omitempty"`
+	WhiteList []string `json:"whiteList"`
 }
 
 func NewWSGPortalServiceWechatConfiguration() *WSGPortalServiceWechatConfiguration {

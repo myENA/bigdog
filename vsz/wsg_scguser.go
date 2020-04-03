@@ -431,8 +431,8 @@ type WSGSCGUserPatchScgUserGroup struct {
 
 	// Users
 	// Constraints:
-	//    - nullable
-	Users []*WSGSCGUserGetScgUser `json:"users,omitempty" validate:"omitempty,dive"`
+	//    - required
+	Users []*WSGSCGUserGetScgUser `json:"users" validate:"required,dive"`
 }
 
 func NewWSGSCGUserPatchScgUserGroup() *WSGSCGUserPatchScgUserGroup {

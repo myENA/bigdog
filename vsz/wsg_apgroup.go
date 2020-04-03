@@ -24,7 +24,7 @@ func (ss *WSGService) WSGAPGroupService() *WSGAPGroupService {
 type WSGAPGroupAddMembers struct {
 	// MemberList
 	// List of apMac
-	MemberList []*WSGAPGroupMember `json:"memberList"`
+	MemberList []*WSGAPGroupMember `json:"memberList,omitempty"`
 }
 
 func NewWSGAPGroupAddMembers() *WSGAPGroupAddMembers {
@@ -85,11 +85,11 @@ type WSGAPGroupConfiguration struct {
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	// Members
 	// Members of the AP group
-	Members []*WSGAPGroupMember `json:"members"`
+	Members []*WSGAPGroupMember `json:"members,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.
@@ -154,7 +154,7 @@ type WSGAPGroupList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAPGroupSummary `json:"list"`
+	List []*WSGAPGroupSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -245,7 +245,7 @@ type WSGAPGroupCreateAPGroup struct {
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.
@@ -350,7 +350,7 @@ type WSGAPGroupModifyAPGroup struct {
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.

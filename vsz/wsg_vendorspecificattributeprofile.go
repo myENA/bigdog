@@ -40,7 +40,7 @@ func NewWSGVendorSpecificAttributeProfileDeleteBulk() *WSGVendorSpecificAttribut
 type WSGVendorSpecificAttributeProfileGet struct {
 	// Attributes
 	// Vendor specific attribute list for Radius protocol
-	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes"`
+	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -75,7 +75,7 @@ type WSGVendorSpecificAttributeProfileList struct {
 
 	// List
 	// Information list of the vendor specific attribute profile
-	List []*WSGVendorSpecificAttributeProfileListType `json:"list"`
+	List []*WSGVendorSpecificAttributeProfileListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total number of the profiles
@@ -127,7 +127,7 @@ type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGVendorSpecificAttributeProfileGet `json:"list"`
+	List []*WSGVendorSpecificAttributeProfileGet `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

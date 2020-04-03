@@ -13,7 +13,7 @@ type SwitchMDeployLogItemConfigurationHistoryDetailQueryResult struct {
 
 	// List
 	// Indicator of whether there are more configs after the current displayed list
-	List []*SwitchMDeployLogItem `json:"list"`
+	List []*SwitchMDeployLogItem `json:"list,omitempty"`
 
 	// TotalCount
 	// Total records count in this response

@@ -71,7 +71,7 @@ type SwitchMVeConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMVeConfig `json:"list"`
+	List []*SwitchMVeConfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response

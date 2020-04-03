@@ -16,7 +16,7 @@ type WSGZoneAPModelApModel struct {
 
 	Lacp *WSGAPModelLacpSetting `json:"lacp,omitempty"`
 
-	LanPorts []*WSGZoneAPModelLanPortSetting `json:"lanPorts"`
+	LanPorts []*WSGZoneAPModelLanPortSetting `json:"lanPorts,omitempty"`
 
 	// LedMode
 	// Constraints:

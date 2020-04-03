@@ -261,7 +261,7 @@ type WSGEthernetPortProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGEthernetPortProfileListType `json:"list"`
+	List []*WSGEthernetPortProfileListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

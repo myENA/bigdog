@@ -46,7 +46,7 @@ type SwitchMSpecificSettingsDHCPServer struct {
 	// Default Router Ip
 	DefaultRouterIp *string `json:"defaultRouterIp,omitempty"`
 
-	DhcpOptions []*SwitchMSpecificSettingsDHCPOption `json:"dhcpOptions"`
+	DhcpOptions []*SwitchMSpecificSettingsDHCPOption `json:"dhcpOptions,omitempty"`
 
 	// ExcludedEnd
 	// Excluded range end
@@ -106,7 +106,7 @@ type SwitchMSpecificSettings struct {
 	// DHCP server enabled
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers"`
+	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers,omitempty"`
 
 	// Hostname
 	// Hostname
@@ -147,7 +147,7 @@ type SwitchMSpecificSettingsAllResult struct {
 	// Indicator of whether there are more Specific Settings after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSpecificSettingsIdList `json:"list"`
+	List []*SwitchMSpecificSettingsIdList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Specific Settings count
@@ -196,7 +196,7 @@ type SwitchMSpecificSettingsUpdateSpecificSettings struct {
 	// DHCP server enabled
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers"`
+	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers,omitempty"`
 
 	// Hostname
 	// Hostname

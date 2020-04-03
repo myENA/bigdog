@@ -13,7 +13,7 @@ type SwitchMLagConfigCreate struct {
 
 	// Ports
 	// The Switch ports would like to join together
-	Ports []string `json:"ports"`
+	Ports []string `json:"ports,omitempty"`
 
 	// SwitchId
 	// Switch Id
@@ -57,7 +57,7 @@ type SwitchMLagConfig struct {
 
 	// Ports
 	// The Switch ports would like to join together
-	Ports []string `json:"ports"`
+	Ports []string `json:"ports,omitempty"`
 
 	// SwitchId
 	// The ID of Switch
@@ -90,7 +90,7 @@ type SwitchMLagConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMLagConfig `json:"list"`
+	List []*SwitchMLagConfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response
@@ -109,7 +109,7 @@ type SwitchMLagConfigModify struct {
 
 	// Ports
 	// The Switch ports would like to join together
-	Ports []string `json:"ports"`
+	Ports []string `json:"ports,omitempty"`
 }
 
 func NewSwitchMLagConfigModify() *SwitchMLagConfigModify {

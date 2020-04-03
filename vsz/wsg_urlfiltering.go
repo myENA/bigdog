@@ -5,11 +5,11 @@ package vsz
 type WSGURLFilteringCreateUrlFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
-	Blacklist []string `json:"blacklist"`
+	Blacklist []string `json:"blacklist,omitempty"`
 
 	// BlockCategories
 	// The block category IDs of the URL Filtering policy
-	BlockCategories []int `json:"blockCategories"`
+	BlockCategories []int `json:"blockCategories,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -55,7 +55,7 @@ type WSGURLFilteringCreateUrlFilteringPolicy struct {
 
 	// Whitelist
 	// The whitelist of the URL Filtering policy
-	Whitelist []string `json:"whitelist"`
+	Whitelist []string `json:"whitelist,omitempty"`
 }
 
 func NewWSGURLFilteringCreateUrlFilteringPolicy() *WSGURLFilteringCreateUrlFilteringPolicy {
@@ -75,11 +75,11 @@ func NewWSGURLFilteringDeleteBulk() *WSGURLFilteringDeleteBulk {
 type WSGURLFilteringModifyUrlFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
-	Blacklist []string `json:"blacklist"`
+	Blacklist []string `json:"blacklist,omitempty"`
 
 	// BlockCategories
 	// The block category IDs of the URL Filtering policy
-	BlockCategories []int `json:"blockCategories"`
+	BlockCategories []int `json:"blockCategories,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -117,7 +117,7 @@ type WSGURLFilteringModifyUrlFilteringPolicy struct {
 
 	// Whitelist
 	// The whitelist of the URL Filtering policy
-	Whitelist []string `json:"whitelist"`
+	Whitelist []string `json:"whitelist,omitempty"`
 }
 
 func NewWSGURLFilteringModifyUrlFilteringPolicy() *WSGURLFilteringModifyUrlFilteringPolicy {
@@ -130,7 +130,7 @@ type WSGURLFilteringBlockCategoriesList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGURLFilteringBlockCategory `json:"list"`
+	List []*WSGURLFilteringBlockCategory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -158,11 +158,11 @@ func NewWSGURLFilteringBlockCategory() *WSGURLFilteringBlockCategory {
 type WSGURLFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
-	Blacklist []string `json:"blacklist"`
+	Blacklist []string `json:"blacklist,omitempty"`
 
 	// BlockCategories
 	// The block category IDs of the URL Filtering policy
-	BlockCategories []int `json:"blockCategories"`
+	BlockCategories []int `json:"blockCategories,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
@@ -236,7 +236,7 @@ type WSGURLFilteringPolicy struct {
 
 	// Whitelist
 	// The whitelist of the URL Filtering policy
-	Whitelist []string `json:"whitelist"`
+	Whitelist []string `json:"whitelist,omitempty"`
 }
 
 func NewWSGURLFilteringPolicy() *WSGURLFilteringPolicy {
@@ -251,7 +251,7 @@ type WSGURLFilteringPolicyList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGURLFilteringPolicy `json:"list"`
+	List []*WSGURLFilteringPolicy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

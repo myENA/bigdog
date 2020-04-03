@@ -69,7 +69,7 @@ type SwitchMSwitchConnectedAPsQueryList struct {
 	// Indicator of whether there are more switch connected AP after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchConnectedDevice `json:"list"`
+	List []*SwitchMSwitchConnectedDevice `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Connected AP list count
@@ -239,7 +239,7 @@ type SwitchMSwitchConnectedDevicesQueryList struct {
 	// Indicator of whether there are more switch connected devices after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchConnectedDevice `json:"list"`
+	List []*SwitchMSwitchConnectedDevice `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Connected devices list count
@@ -296,7 +296,7 @@ type SwitchMSwitchDeleteSwitchesResultList struct {
 	// Indicator of whether there are more delete switches after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchAuditId `json:"list"`
+	List []*SwitchMSwitchAuditId `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Delete switches list count
@@ -372,7 +372,7 @@ type SwitchMSwitchFirmwareHistoryQueryResultList struct {
 	// Indicator of whether there are more firmware history after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchFirmware `json:"list"`
+	List []*SwitchMSwitchFirmware `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Firmware history list count
@@ -923,7 +923,7 @@ type SwitchMSwitchPortDetailsQueryResultList struct {
 	// Indicator of whether there are more switch port detail after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchPortDetails `json:"list"`
+	List []*SwitchMSwitchPortDetails `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Switch port detail list count
@@ -1075,7 +1075,7 @@ type SwitchMSwitchStackMemberQueryResult struct {
 	// Indicator of whether there are more stack member after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchStackMember `json:"list"`
+	List []*SwitchMSwitchStackMember `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total stack member count
@@ -1142,7 +1142,7 @@ type SwitchMSwitchPortsSummaryQueryResultList struct {
 	// Indicator of whether there are more switch ports summary after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchPortStatus `json:"list"`
+	List []*SwitchMSwitchPortStatus `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Switch ports summary list count
@@ -1197,7 +1197,7 @@ type SwitchMSwitchQueryResultList struct {
 	// Indicator of whether there are more  after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchNetworkSwitch `json:"list"`
+	List []*SwitchMSwitchNetworkSwitch `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Switch query result list count
@@ -1226,7 +1226,7 @@ type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
 	// Indicator of whether there are more top switches by firmware after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchBarChart `json:"list"`
+	List []*SwitchMSwitchBarChart `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Top switches by firmware list count
@@ -1283,7 +1283,7 @@ type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
 	// Indicator of whether there are top switches by model after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchBarChart `json:"list"`
+	List []*SwitchMSwitchBarChart `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Top switches by model list count

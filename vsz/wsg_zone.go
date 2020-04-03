@@ -13,7 +13,7 @@ type WSGZoneApFirmware struct {
 
 	// UnsupportedApModelSummary
 	// summary of the AP Model is unsupported for AP firmware version.
-	UnsupportedApModelSummary []*WSGZoneUnsupportedApModel `json:"unsupportedApModelSummary"`
+	UnsupportedApModelSummary []*WSGZoneUnsupportedApModel `json:"unsupportedApModelSummary,omitempty"`
 }
 
 func NewWSGZoneApFirmware() *WSGZoneApFirmware {
@@ -26,7 +26,7 @@ type WSGZoneApFirmwareList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGZoneApFirmware `json:"list"`
+	List []*WSGZoneApFirmware `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -60,11 +60,11 @@ type WSGZoneApSnmpOptions struct {
 
 	// SnmpV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []*WSGCommonSnmpCommunity `json:"snmpV2Agent"`
+	SnmpV2Agent []*WSGCommonSnmpCommunity `json:"snmpV2Agent,omitempty"`
 
 	// SnmpV3Agent
 	// User List of the SNMP V3 Agent.
-	SnmpV3Agent []*WSGZoneSnmpUser `json:"snmpV3Agent"`
+	SnmpV3Agent []*WSGZoneSnmpUser `json:"snmpV3Agent,omitempty"`
 }
 
 func NewWSGZoneApSnmpOptions() *WSGZoneApSnmpOptions {
@@ -104,7 +104,7 @@ type WSGZoneAvailableTunnelProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGZoneAvailableTunnelProfile `json:"list"`
+	List []*WSGZoneAvailableTunnelProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -147,7 +147,7 @@ func NewWSGZoneBandBalancing() *WSGZoneBandBalancing {
 type WSGZoneBonjourGatewayPolicyConfiguration struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
-	BonjourPolicyRuleList []*WSGZoneBonjourPolicyRuleConfiguration `json:"bonjourPolicyRuleList"`
+	BonjourPolicyRuleList []*WSGZoneBonjourPolicyRuleConfiguration `json:"bonjourPolicyRuleList,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -164,7 +164,7 @@ type WSGZoneBonjourGatewayPolicyList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGZoneBonjourGatewayPolicySummary `json:"list"`
+	List []*WSGZoneBonjourGatewayPolicySummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -291,7 +291,7 @@ func NewWSGZoneClientLoadBalancing() *WSGZoneClientLoadBalancing {
 type WSGZoneCreateBonjourGatewayPolicy struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
-	BonjourPolicyRuleList []*WSGZoneBonjourPolicyRule `json:"bonjourPolicyRuleList"`
+	BonjourPolicyRuleList []*WSGZoneBonjourPolicyRule `json:"bonjourPolicyRuleList,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -318,7 +318,7 @@ type WSGZoneCreateDiffServProfile struct {
 
 	// PreservedList
 	// Preserved list
-	PreservedList []string `json:"preservedList"`
+	PreservedList []string `json:"preservedList,omitempty"`
 
 	UplinkDiffServ *WSGZoneUplinkDiffServ `json:"uplinkDiffServ,omitempty"`
 }
@@ -441,7 +441,7 @@ type WSGZoneCreateZone struct {
 
 	// HealthCheckSites
 	// Health Check Sites.
-	HealthCheckSites []string `json:"healthCheckSites"`
+	HealthCheckSites []string `json:"healthCheckSites,omitempty"`
 
 	// HealthCheckSitesEnabled
 	// Enabled Health Check Sites.
@@ -451,7 +451,7 @@ type WSGZoneCreateZone struct {
 
 	// IpsecProfiles
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
-	IpsecProfiles []*WSGCommonGenericRef `json:"ipsecProfiles"`
+	IpsecProfiles []*WSGCommonGenericRef `json:"ipsecProfiles,omitempty"`
 
 	// IpsecTunnelMode
 	// Constraints:
@@ -481,7 +481,7 @@ type WSGZoneCreateZone struct {
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Mesh *WSGZoneMeshConfiguration `json:"mesh,omitempty"`
 
@@ -526,7 +526,7 @@ type WSGZoneCreateZone struct {
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
-	SoftGreTunnelProflies []*WSGZoneSoftGreRef `json:"softGreTunnelProflies"`
+	SoftGreTunnelProflies []*WSGZoneSoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
 	// SshTunnelEncryption
 	// Constraints:
@@ -638,7 +638,7 @@ type WSGZoneDhcpSiteConfigList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCommonDhcpSiteConfigListRef `json:"list"`
+	List []*WSGCommonDhcpSiteConfigListRef `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -661,7 +661,7 @@ type WSGZoneDiffServConfiguration struct {
 
 	// PreservedList
 	// Preserved list
-	PreservedList []string `json:"preservedList"`
+	PreservedList []string `json:"preservedList,omitempty"`
 
 	UplinkDiffServ *WSGZoneUplinkDiffServ `json:"uplinkDiffServ,omitempty"`
 }
@@ -676,7 +676,7 @@ type WSGZoneDiffServList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGZoneDiffServSummary `json:"list"`
+	List []*WSGZoneDiffServSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -793,7 +793,7 @@ func NewWSGZoneModifyBonjourGatewayEnable() *WSGZoneModifyBonjourGatewayEnable {
 type WSGZoneModifyBonjourGatewayPolicy struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
-	BonjourPolicyRuleList []*WSGZoneBonjourPolicyRule `json:"bonjourPolicyRuleList"`
+	BonjourPolicyRuleList []*WSGZoneBonjourPolicyRule `json:"bonjourPolicyRuleList,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -817,7 +817,7 @@ type WSGZoneModifyDiffServProfile struct {
 
 	// PreservedList
 	// Preserved list
-	PreservedList []string `json:"preservedList"`
+	PreservedList []string `json:"preservedList,omitempty"`
 
 	UplinkDiffServ *WSGZoneUplinkDiffServ `json:"uplinkDiffServ,omitempty"`
 }
@@ -944,7 +944,7 @@ type WSGZoneModifyZone struct {
 
 	// HealthCheckSites
 	// Health Check Sites.
-	HealthCheckSites []string `json:"healthCheckSites"`
+	HealthCheckSites []string `json:"healthCheckSites,omitempty"`
 
 	// HealthCheckSitesEnabled
 	// Enabled Health Check Sites.
@@ -954,7 +954,7 @@ type WSGZoneModifyZone struct {
 
 	// IpsecProfiles
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
-	IpsecProfiles []*WSGCommonGenericRef `json:"ipsecProfiles"`
+	IpsecProfiles []*WSGCommonGenericRef `json:"ipsecProfiles,omitempty"`
 
 	// IpsecTunnelMode
 	// Constraints:
@@ -981,7 +981,7 @@ type WSGZoneModifyZone struct {
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Mesh *WSGZoneMeshConfiguration `json:"mesh,omitempty"`
 
@@ -1031,7 +1031,7 @@ type WSGZoneModifyZone struct {
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
-	SoftGreTunnelProflies []*WSGZoneSoftGreRef `json:"softGreTunnelProflies"`
+	SoftGreTunnelProflies []*WSGZoneSoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
 	// SshTunnelEncryption
 	// Constraints:
@@ -1069,7 +1069,7 @@ func NewWSGZoneModifyZone() *WSGZoneModifyZone {
 type WSGZoneQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
-	Attributes []string `json:"attributes"`
+	Attributes []string `json:"attributes,omitempty"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
@@ -1081,17 +1081,17 @@ type WSGZoneQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGZoneQueryCriteriaExtraFiltersType `json:"extraFilters"`
+	ExtraFilters []*WSGZoneQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters"`
+	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
 	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGZoneQueryCriteriaFiltersType `json:"filters"`
+	Filters []*WSGZoneQueryCriteriaFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -1192,7 +1192,9 @@ func NewWSGZoneQueryCriteriaOptionsType() *WSGZoneQueryCriteriaOptionsType {
 type WSGZoneRogue struct {
 	// MaliciousTypes
 	// Malicious type when reportType is Malicious
-	MaliciousTypes []string `json:"maliciousTypes"`
+	// Constraints:
+	//    - nullable
+	MaliciousTypes []string `json:"maliciousTypes,omitempty" validate:"omitempty,dive"`
 
 	// ProtectionEnabled
 	// Protection enabled
@@ -1229,7 +1231,7 @@ type WSGZoneSnmpUser struct {
 
 	// NotificationTarget
 	// Trap List of the SNMP User
-	NotificationTarget []*WSGCommonTargetConfig `json:"notificationTarget"`
+	NotificationTarget []*WSGCommonTargetConfig `json:"notificationTarget,omitempty"`
 
 	// NotificationType
 	// type of the notification privilege
@@ -1502,7 +1504,7 @@ type WSGZoneConfiguration struct {
 
 	// HealthCheckSites
 	// Health Check Sites.
-	HealthCheckSites []string `json:"healthCheckSites"`
+	HealthCheckSites []string `json:"healthCheckSites,omitempty"`
 
 	// HealthCheckSitesEnabled
 	// Enabled Health Check Sites.
@@ -1518,7 +1520,7 @@ type WSGZoneConfiguration struct {
 
 	// IpsecProfiles
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
-	IpsecProfiles []*WSGCommonGenericRef `json:"ipsecProfiles"`
+	IpsecProfiles []*WSGCommonGenericRef `json:"ipsecProfiles,omitempty"`
 
 	// IpsecTunnelMode
 	// Constraints:
@@ -1545,7 +1547,7 @@ type WSGZoneConfiguration struct {
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Mesh *WSGZoneMeshConfiguration `json:"mesh,omitempty"`
 
@@ -1595,7 +1597,7 @@ type WSGZoneConfiguration struct {
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
-	SoftGreTunnelProflies []*WSGZoneSoftGreRef `json:"softGreTunnelProflies"`
+	SoftGreTunnelProflies []*WSGZoneSoftGreRef `json:"softGreTunnelProflies,omitempty"`
 
 	// SshTunnelEncryption
 	// Constraints:
@@ -1637,7 +1639,7 @@ type WSGZoneList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGZoneSummary `json:"list"`
+	List []*WSGZoneSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

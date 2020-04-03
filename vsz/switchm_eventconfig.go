@@ -64,7 +64,7 @@ type SwitchMEventConfigGetEventConfigList struct {
 	// Indicator of whether there are more Switch event config
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMEventConfig `json:"list"`
+	List []*SwitchMEventConfig `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// List of responsed Switch custom event config

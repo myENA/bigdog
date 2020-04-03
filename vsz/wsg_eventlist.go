@@ -7,7 +7,7 @@ type WSGEventListEventQueryResultList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGEventListSingleEvent `json:"list"`
+	List []*WSGEventListSingleEvent `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 

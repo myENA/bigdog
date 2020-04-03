@@ -7,7 +7,7 @@ type WSGWLANQueryApWlanBssid struct {
 
 	DeviceName *string `json:"deviceName,omitempty"`
 
-	WlanBssids []*WSGWLANQueryWlanBssid `json:"wlanBssids"`
+	WlanBssids []*WSGWLANQueryWlanBssid `json:"wlanBssids,omitempty"`
 }
 
 func NewWSGWLANQueryApWlanBssid() *WSGWLANQueryApWlanBssid {
@@ -26,7 +26,7 @@ type WSGWLANQueryApWlanBssidQueryList struct {
 	// Has more data or not
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWLANQueryApWlanBssid `json:"list"`
+	List []*WSGWLANQueryApWlanBssid `json:"list,omitempty"`
 
 	// TotalCount
 	// Total matched AP count
@@ -144,7 +144,7 @@ type WSGWLANQueryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWLANQueryCreateWlanQuery `json:"list"`
+	List []*WSGWLANQueryCreateWlanQuery `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

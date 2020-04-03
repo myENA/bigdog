@@ -108,7 +108,7 @@ type SwitchMConfigBackupCreateBackupResultList struct {
 	// Has more data or not
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMConfigBackupCreateBackupResultListType `json:"list"`
+	List []*SwitchMConfigBackupCreateBackupResultListType `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total ConfigBackupInfo count
@@ -154,7 +154,7 @@ type SwitchMConfigBackupList struct {
 	// Indicator of whether there are more ConfigBackup after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMConfigBackupCfgbk `json:"list"`
+	List []*SwitchMConfigBackupCfgbk `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// ConfigBackup count

@@ -9,7 +9,7 @@ type WSGWiredClientQueryClientQueryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWiredClientQueryCreateClientQuery `json:"list"`
+	List []*WSGWiredClientQueryCreateClientQuery `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

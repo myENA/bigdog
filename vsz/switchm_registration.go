@@ -295,7 +295,7 @@ func NewSwitchMRegistrationDeleteResultMetaDataType() *SwitchMRegistrationDelete
 }
 
 type SwitchMRegistrationErrorObject struct {
-	List []string `json:"list"`
+	List []string `json:"list,omitempty"`
 
 	Message *string `json:"message,omitempty"`
 
@@ -320,7 +320,7 @@ type SwitchMRegistrationList struct {
 	// Indicator of whether there are more registration rule after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMRegistrationRule `json:"list"`
+	List []*SwitchMRegistrationRule `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Registration rule list count

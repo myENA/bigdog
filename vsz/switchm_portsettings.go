@@ -35,7 +35,7 @@ type SwitchMPortSettingsCreateBulk struct {
 
 	// IgnoreList
 	// attributes not to overwrite
-	IgnoreList []string `json:"ignoreList"`
+	IgnoreList []string `json:"ignoreList,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
@@ -227,7 +227,7 @@ type SwitchMPortSettingsQueryResult struct {
 	// Indicator of whether there are more Port Settings after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMPortSettings `json:"list"`
+	List []*SwitchMPortSettings `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Port Settings count

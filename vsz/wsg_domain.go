@@ -102,7 +102,7 @@ type WSGDomainList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDomainConfiguration `json:"list"`
+	List []*WSGDomainConfiguration `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

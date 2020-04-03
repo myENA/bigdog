@@ -66,7 +66,7 @@ type WSGMeshNeighborInfoList struct {
 	// Indicator of whether there are more MeshNeighborInfo after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGMeshNeighborInfo `json:"list"`
+	List []*WSGMeshNeighborInfo `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// MeshNeighborInfos count.

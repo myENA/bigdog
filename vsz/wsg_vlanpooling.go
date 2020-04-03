@@ -123,7 +123,7 @@ type WSGVLANPoolingList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGVLANPoolingListType `json:"list"`
+	List []*WSGVLANPoolingListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

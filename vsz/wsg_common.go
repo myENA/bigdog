@@ -90,7 +90,7 @@ type WSGCommonApRadio50 struct {
 
 	// ChannelRange
 	// channel range options
-	ChannelRange []int `json:"channelRange"`
+	ChannelRange []int `json:"channelRange,omitempty"`
 
 	// ChannelWidth
 	// channel width, 0 mean Auto, 8080 means 80+80MHz
@@ -328,7 +328,7 @@ type WSGCommonDhcpSiteConfigListRef struct {
 	// DHCP Service AP Selection Mode
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*WSGCommonDhcpSiteConfigListRefSiteApsType `json:"siteAps"`
+	SiteAps []*WSGCommonDhcpSiteConfigListRefSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -340,7 +340,7 @@ type WSGCommonDhcpSiteConfigListRef struct {
 	//    - oneof:[EnableOnEachAPs,EnableOnMultipleAPs,EnableOnHierarchicalAPs]
 	SiteMode *string `json:"siteMode,omitempty" validate:"oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
-	SiteProfiles []*WSGCommonDhcpProfileRef `json:"siteProfiles"`
+	SiteProfiles []*WSGCommonDhcpProfileRef `json:"siteProfiles,omitempty"`
 
 	// ZoneName
 	// DHCP Service Zone Name
@@ -394,7 +394,7 @@ type WSGCommonDhcpSiteConfigRef struct {
 	// DHCP Service AP Selection Mode. This value is effective when the siteMode is EnableOnMultipleAPs.
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*WSGCommonDhcpSiteConfigRefSiteApsType `json:"siteAps"`
+	SiteAps []*WSGCommonDhcpSiteConfigRefSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -406,7 +406,7 @@ type WSGCommonDhcpSiteConfigRef struct {
 	//    - oneof:[EnableOnEachAPs,EnableOnMultipleAPs,EnableOnHierarchicalAPs]
 	SiteMode *string `json:"siteMode,omitempty" validate:"oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
-	SiteProfileIds []string `json:"siteProfileIds"`
+	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
 
 func NewWSGCommonDhcpSiteConfigRef() *WSGCommonDhcpSiteConfigRef {
@@ -455,7 +455,7 @@ type WSGCommonDoAssignIp struct {
 	// DHCP Service AP Selection Mode. This value is effective when the siteMode is EnableOnMultipleAPs.
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*WSGCommonDoAssignIpSiteApsType `json:"siteAps"`
+	SiteAps []*WSGCommonDoAssignIpSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -467,7 +467,7 @@ type WSGCommonDoAssignIp struct {
 	//    - oneof:[EnableOnEachAPs,EnableOnMultipleAPs,EnableOnHierarchicalAPs]
 	SiteMode *string `json:"siteMode,omitempty" validate:"oneof=EnableOnEachAPs EnableOnMultipleAPs EnableOnHierarchicalAPs"`
 
-	SiteProfileIds []string `json:"siteProfileIds"`
+	SiteProfileIds []string `json:"siteProfileIds,omitempty"`
 }
 
 func NewWSGCommonDoAssignIp() *WSGCommonDoAssignIp {
@@ -529,7 +529,7 @@ func NewWSGCommonFQDN() *WSGCommonFQDN {
 type WSGCommonFullTextSearch struct {
 	// Fields
 	// Specific fields to search
-	Fields []string `json:"fields"`
+	Fields []string `json:"fields,omitempty"`
 
 	// Type
 	// Search logic operator
@@ -893,7 +893,7 @@ func NewWSGCommonQinq() *WSGCommonQinq {
 type WSGCommonQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
-	Attributes []string `json:"attributes"`
+	Attributes []string `json:"attributes,omitempty"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
@@ -905,17 +905,17 @@ type WSGCommonQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters"`
+	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters"`
+	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
 	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGCommonQueryCriteriaFiltersType `json:"filters"`
+	Filters []*WSGCommonQueryCriteriaFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -1046,7 +1046,7 @@ func NewWSGCommonQueryCriteriaSortInfoType() *WSGCommonQueryCriteriaSortInfoType
 type WSGCommonQueryCriteriaSuperSet struct {
 	// Attributes
 	// Get specific columns only
-	Attributes []string `json:"attributes"`
+	Attributes []string `json:"attributes,omitempty"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
@@ -1058,17 +1058,17 @@ type WSGCommonQueryCriteriaSuperSet struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters"`
+	ExtraFilters []*WSGCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters"`
+	ExtraNotFilters []*WSGCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
 	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGCommonQueryCriteriaSuperSetFiltersType `json:"filters"`
+	Filters []*WSGCommonQueryCriteriaSuperSetFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -1260,7 +1260,7 @@ type WSGCommonRadio24 struct {
 
 	// ChannelRange
 	// Channel range options
-	ChannelRange []int `json:"channelRange"`
+	ChannelRange []int `json:"channelRange,omitempty"`
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto.
@@ -1284,7 +1284,7 @@ type WSGCommonRadio24SuperSet struct {
 
 	// AvailableChannelRange
 	// Available channel range options
-	AvailableChannelRange []int `json:"availableChannelRange"`
+	AvailableChannelRange []int `json:"availableChannelRange,omitempty"`
 
 	// Channel
 	// Channel number
@@ -1292,7 +1292,7 @@ type WSGCommonRadio24SuperSet struct {
 
 	// ChannelRange
 	// Channel range options
-	ChannelRange []int `json:"channelRange"`
+	ChannelRange []int `json:"channelRange,omitempty"`
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto.
@@ -1326,7 +1326,7 @@ type WSGCommonRadio50 struct {
 
 	// IndoorChannelRange
 	// Channel range options for Indoor AP
-	IndoorChannelRange []int `json:"indoorChannelRange"`
+	IndoorChannelRange []int `json:"indoorChannelRange,omitempty"`
 
 	// IndoorSecondaryChannel
 	// Secondary channel number for Indoor AP (channelWidth is 80+80MHz only)
@@ -1338,7 +1338,7 @@ type WSGCommonRadio50 struct {
 
 	// OutdoorChannelRange
 	// Channel range options for outdoor AP
-	OutdoorChannelRange []int `json:"outdoorChannelRange"`
+	OutdoorChannelRange []int `json:"outdoorChannelRange,omitempty"`
 
 	// OutdoorSecondaryChannel
 	// Secondary channel number for outdoor AP (channelWidth is 80+80MHz only)
@@ -1359,11 +1359,11 @@ type WSGCommonRadio50SuperSet struct {
 
 	// AvailableIndoorChannelRange
 	// Available channel range options
-	AvailableIndoorChannelRange []int `json:"availableIndoorChannelRange"`
+	AvailableIndoorChannelRange []int `json:"availableIndoorChannelRange,omitempty"`
 
 	// AvailableOutdoorChannelRange
 	// Available channel range options
-	AvailableOutdoorChannelRange []int `json:"availableOutdoorChannelRange"`
+	AvailableOutdoorChannelRange []int `json:"availableOutdoorChannelRange,omitempty"`
 
 	// ChannelWidth
 	// Channel width. Zero (0) means Auto. 8080 means 80+80MHz
@@ -1377,7 +1377,7 @@ type WSGCommonRadio50SuperSet struct {
 
 	// IndoorChannelRange
 	// Channel range options for Indoor AP
-	IndoorChannelRange []int `json:"indoorChannelRange"`
+	IndoorChannelRange []int `json:"indoorChannelRange,omitempty"`
 
 	// IndoorSecondaryChannel
 	// Secondary channel number for Indoor AP (channelWidth is 80+80MHz only)
@@ -1389,7 +1389,7 @@ type WSGCommonRadio50SuperSet struct {
 
 	// OutdoorChannelRange
 	// Channel range options for outdoor AP
-	OutdoorChannelRange []int `json:"outdoorChannelRange"`
+	OutdoorChannelRange []int `json:"outdoorChannelRange,omitempty"`
 
 	// OutdoorSecondaryChannel
 	// Secondary channel number for outdoor AP (channelWidth is 80+80MHz only)
@@ -1460,7 +1460,7 @@ func NewWSGCommonRateLimiting() *WSGCommonRateLimiting {
 }
 
 type WSGCommonRbacMetadata struct {
-	RbacMetadata []string `json:"rbacMetadata"`
+	RbacMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
 func NewWSGCommonRbacMetadata() *WSGCommonRbacMetadata {
@@ -1522,7 +1522,7 @@ type WSGCommonSnmpCommunity struct {
 
 	// NotificationTarget
 	// Trap List of the SNMP Coummunity
-	NotificationTarget []*WSGCommonTargetConfig `json:"notificationTarget"`
+	NotificationTarget []*WSGCommonTargetConfig `json:"notificationTarget,omitempty"`
 
 	// NotificationType
 	// type of the notification privilege
@@ -1563,7 +1563,7 @@ type WSGCommonSnmpUser struct {
 
 	// NotificationTarget
 	// Trap List of the SNMP User
-	NotificationTarget []*WSGCommonTargetConfig `json:"notificationTarget"`
+	NotificationTarget []*WSGCommonTargetConfig `json:"notificationTarget,omitempty"`
 
 	// NotificationType
 	// type of the notification privilege
@@ -1677,7 +1677,7 @@ type WSGCommonTrafficClassProfileRef struct {
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	TrafficClasses []*WSGCommonTrafficClassRef `json:"trafficClasses"`
+	TrafficClasses []*WSGCommonTrafficClassRef `json:"trafficClasses,omitempty"`
 
 	// ZoneId
 	// Zone Id of Traffic Class Profile

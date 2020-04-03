@@ -34,7 +34,7 @@ func NewSwitchMCommonFilterOperator() *SwitchMCommonFilterOperator {
 type SwitchMCommonFullTextSearch struct {
 	// Fields
 	// Specific fields to search
-	Fields []string `json:"fields"`
+	Fields []string `json:"fields,omitempty"`
 
 	// Type
 	// Search logic operator
@@ -62,7 +62,7 @@ func MakeSwitchMCommonIdList() SwitchMCommonIdList {
 type SwitchMCommonQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
-	Attributes []string `json:"attributes"`
+	Attributes []string `json:"attributes,omitempty"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
@@ -74,17 +74,17 @@ type SwitchMCommonQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*SwitchMCommonQueryCriteriaExtraFiltersType `json:"extraFilters"`
+	ExtraFilters []*SwitchMCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*SwitchMCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters"`
+	ExtraNotFilters []*SwitchMCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
 	ExtraTimeRange *SwitchMCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*SwitchMCommonQueryCriteriaFiltersType `json:"filters"`
+	Filters []*SwitchMCommonQueryCriteriaFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *SwitchMCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -215,7 +215,7 @@ func NewSwitchMCommonQueryCriteriaSortInfoType() *SwitchMCommonQueryCriteriaSort
 type SwitchMCommonQueryCriteriaSuperSet struct {
 	// Attributes
 	// Get specific columns only
-	Attributes []string `json:"attributes"`
+	Attributes []string `json:"attributes,omitempty"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
@@ -227,17 +227,17 @@ type SwitchMCommonQueryCriteriaSuperSet struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*SwitchMCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters"`
+	ExtraFilters []*SwitchMCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters"`
+	ExtraNotFilters []*SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
 	ExtraTimeRange *SwitchMCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*SwitchMCommonQueryCriteriaSuperSetFiltersType `json:"filters"`
+	Filters []*SwitchMCommonQueryCriteriaSuperSetFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *SwitchMCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -415,7 +415,7 @@ func NewSwitchMCommonQueryCriteriaSuperSetOptionsType() *SwitchMCommonQueryCrite
 }
 
 type SwitchMCommonRbacMetadata struct {
-	RbacMetadata []string `json:"rbacMetadata"`
+	RbacMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
 func NewSwitchMCommonRbacMetadata() *SwitchMCommonRbacMetadata {

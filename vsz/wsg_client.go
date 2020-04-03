@@ -20,7 +20,7 @@ func NewWSGClientDeAuthClient() *WSGClientDeAuthClient {
 }
 
 type WSGClientDeAuthClientList struct {
-	ClientList []*WSGClientDeAuthClient `json:"clientList"`
+	ClientList []*WSGClientDeAuthClient `json:"clientList,omitempty"`
 }
 
 func NewWSGClientDeAuthClientList() *WSGClientDeAuthClientList {
@@ -46,7 +46,7 @@ func NewWSGClientDisconnectClient() *WSGClientDisconnectClient {
 }
 
 type WSGClientDisconnectClientList struct {
-	ClientList []*WSGClientDisconnectClient `json:"clientList"`
+	ClientList []*WSGClientDisconnectClient `json:"clientList,omitempty"`
 }
 
 func NewWSGClientDisconnectClientList() *WSGClientDisconnectClientList {
@@ -140,7 +140,7 @@ type WSGClientHistoricalClientList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGClientHistoricalClient `json:"list"`
+	List []*WSGClientHistoricalClient `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

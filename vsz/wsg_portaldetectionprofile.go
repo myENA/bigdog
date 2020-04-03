@@ -12,7 +12,7 @@ type WSGPortalDetectionProfileCreatePortalDetectionProfile struct {
 
 	// PortalDetectionPatterns
 	// The pattern profiles for portal detection and suppression
-	PortalDetectionPatterns []*WSGPortalDetectionProfilePortalDetectionPattern `json:"portalDetectionPatterns"`
+	PortalDetectionPatterns []*WSGPortalDetectionProfilePortalDetectionPattern `json:"portalDetectionPatterns,omitempty"`
 }
 
 func NewWSGPortalDetectionProfileCreatePortalDetectionProfile() *WSGPortalDetectionProfileCreatePortalDetectionProfile {
@@ -96,7 +96,7 @@ type WSGPortalDetectionProfile struct {
 
 	// PortalDetectionPatterns
 	// The pattern profiles for portal detection and suppression
-	PortalDetectionPatterns []*WSGPortalDetectionProfilePortalDetectionPattern `json:"portalDetectionPatterns"`
+	PortalDetectionPatterns []*WSGPortalDetectionProfilePortalDetectionPattern `json:"portalDetectionPatterns,omitempty"`
 
 	// ZoneId
 	// Zone ID
@@ -115,7 +115,7 @@ type WSGPortalDetectionProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGPortalDetectionProfile `json:"list"`
+	List []*WSGPortalDetectionProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

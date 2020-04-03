@@ -9,7 +9,7 @@ type WSGAAAServerQueryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAAAServerQueryCreateAaaServer `json:"list"`
+	List []*WSGAAAServerQueryCreateAaaServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

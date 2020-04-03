@@ -22,7 +22,7 @@ type WSGIdentityAaaServerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIdentityAaaServer `json:"list"`
+	List []*WSGIdentityAaaServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -72,7 +72,7 @@ type WSGIdentityCountryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIdentityCountrySummary `json:"list"`
+	List []*WSGIdentityCountrySummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -402,7 +402,7 @@ type WSGIdentityGuestPassList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIdentityGuestPassConfiguration `json:"list"`
+	List []*WSGIdentityGuestPassConfiguration `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -419,7 +419,7 @@ type WSGIdentityList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIdentityListType `json:"list"`
+	List []*WSGIdentityListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -789,7 +789,7 @@ type WSGIdentityPackageList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIdentityPackageConfiguration `json:"list"`
+	List []*WSGIdentityPackageConfiguration `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -816,7 +816,7 @@ func NewWSGIdentityPassValidFor() *WSGIdentityPassValidFor {
 type WSGIdentityQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
-	Attributes []string `json:"attributes"`
+	Attributes []string `json:"attributes,omitempty"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
@@ -828,17 +828,17 @@ type WSGIdentityQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters"`
+	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters"`
+	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
 	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGIdentityQueryCriteriaFiltersType `json:"filters"`
+	Filters []*WSGIdentityQueryCriteriaFiltersType `json:"filters,omitempty"`
 
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
@@ -1092,7 +1092,7 @@ type WSGIdentitySubscriptionPackageList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIdentitySubscriptionPackageListType `json:"list"`
+	List []*WSGIdentitySubscriptionPackageListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1323,7 +1323,7 @@ type WSGIdentityUserConfigurationCredentialsGuestPassDtoType struct {
 	// Login Password
 	LoginPassword *string `json:"loginPassword,omitempty"`
 
-	MacAddressList []string `json:"macAddressList"`
+	MacAddressList []string `json:"macAddressList,omitempty"`
 
 	// MaxDevices
 	// Maximum number of allowed device
@@ -1369,7 +1369,7 @@ type WSGIdentityUserList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIdentityUserSummary `json:"list"`
+	List []*WSGIdentityUserSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

@@ -22,7 +22,7 @@ type WSGAVCAppCategoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAVCAppCategory `json:"list"`
+	List []*WSGAVCAppCategory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -56,7 +56,7 @@ type WSGAVCApplicationList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAVCApplication `json:"list"`
+	List []*WSGAVCApplication `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -67,7 +67,7 @@ func NewWSGAVCApplicationList() *WSGAVCApplicationList {
 }
 
 type WSGAVCApplicationPolicyProfile struct {
-	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules"`
+	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules,omitempty"`
 
 	// AvcEventEnable
 	// Send ARC logs from AP to SmartZone
@@ -130,7 +130,7 @@ type WSGAVCApplicationPolicyProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAVCApplicationPolicyProfile `json:"list"`
+	List []*WSGAVCApplicationPolicyProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -286,7 +286,7 @@ func NewWSGAVCDeleteBulk() *WSGAVCDeleteBulk {
 }
 
 type WSGAVCModifyApplicationPolicyProfile struct {
-	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules"`
+	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules,omitempty"`
 
 	// AvcEventEnable
 	// Send ARC logs from AP to SmartZone
@@ -440,7 +440,7 @@ type WSGAVCUserDefinedProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAVCUserDefinedProfile `json:"list"`
+	List []*WSGAVCUserDefinedProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

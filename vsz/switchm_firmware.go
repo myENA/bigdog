@@ -35,7 +35,7 @@ type SwitchMFirmwaresQueryResultList struct {
 	// Indicator of whether there are more Firmwares after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMFirmwareSwitchFirmware `json:"list"`
+	List []*SwitchMFirmwareSwitchFirmware `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Firmware list count
@@ -92,7 +92,7 @@ type SwitchMFirmwareScheduleIds struct {
 	// Indicator of whether there are more Schedule Ids after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []string `json:"list"`
+	List []string `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Firmware list count
@@ -137,7 +137,7 @@ func NewSwitchMFirmwareScheduleIdsExtraType() *SwitchMFirmwareScheduleIdsExtraTy
 }
 
 type SwitchMFirmwareSwitchFirmware struct {
-	SwitchModels []*SwitchMFirmwareSwitchModel `json:"switchModels"`
+	SwitchModels []*SwitchMFirmwareSwitchModel `json:"switchModels,omitempty"`
 
 	// Version
 	// Firmware version of the Switch
@@ -152,7 +152,7 @@ func NewSwitchMFirmwareSwitchFirmware() *SwitchMFirmwareSwitchFirmware {
 type SwitchMFirmwareSwitchModel struct {
 	// ImageFileNames
 	// Name of the Switch Image File
-	ImageFileNames []string `json:"imageFileNames"`
+	ImageFileNames []string `json:"imageFileNames,omitempty"`
 
 	// Name
 	// Name of the Switch Model

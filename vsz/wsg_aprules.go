@@ -42,7 +42,7 @@ type WSGAPRulesApRuleList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAPRulesApRuleListType `json:"list"`
+	List []*WSGAPRulesApRuleListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

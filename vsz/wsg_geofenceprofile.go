@@ -76,7 +76,7 @@ type WSGGeofenceProfileGetGeofenceProfile struct {
 
 	// LocationList
 	// Geofence Profile's location list
-	LocationList []*WSGGeofenceProfileLocationData `json:"locationList"`
+	LocationList []*WSGGeofenceProfileLocationData `json:"locationList,omitempty"`
 
 	// Name
 	// Geofence Profile's name
@@ -101,7 +101,7 @@ type WSGGeofenceProfileGetGeofenceProfileProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGGeofenceProfileGetGeofenceProfile `json:"list"`
+	List []*WSGGeofenceProfileGetGeofenceProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

@@ -9,7 +9,7 @@ type WSGAPQueryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAPQueryCreateApQuery `json:"list"`
+	List []*WSGAPQueryCreateApQuery `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -56,7 +56,7 @@ type WSGAPQueryCreateApQuery struct {
 
 	CellularDefaultGateway *string `json:"cellularDefaultGateway,omitempty"`
 
-	CellularGpsHistory []*WSGAPQueryCreateApQueryCellularGpsHistoryType `json:"cellularGpsHistory"`
+	CellularGpsHistory []*WSGAPQueryCreateApQueryCellularGpsHistoryType `json:"cellularGpsHistory,omitempty"`
 
 	CellularICCIDSIM0 *string `json:"cellularICCIDSIM0,omitempty"`
 

@@ -25,7 +25,7 @@ type WSGAAAActiveDirectory struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
@@ -76,7 +76,7 @@ type WSGAAAActiveDirectoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAAAActiveDirectory `json:"list"`
+	List []*WSGAAAActiveDirectory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -97,7 +97,7 @@ type WSGAAAAuthenticationServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
@@ -140,7 +140,7 @@ type WSGAAAAuthenticationServerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAAAAuthenticationServer `json:"list"`
+	List []*WSGAAAAuthenticationServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -168,7 +168,7 @@ type WSGAAACreateActiveDirectoryServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
@@ -215,7 +215,7 @@ type WSGAAACreateAuthenticationServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
@@ -264,7 +264,7 @@ type WSGAAACreateLDAPServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
@@ -406,7 +406,7 @@ type WSGAAALDAPServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
@@ -459,7 +459,7 @@ type WSGAAALDAPServerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAAALDAPServer `json:"list"`
+	List []*WSGAAALDAPServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -482,7 +482,7 @@ type WSGAAAModifyActiveDirectoryServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -525,7 +525,7 @@ type WSGAAAModifyAuthenticationServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -594,7 +594,7 @@ type WSGAAAModifyLDAPServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 

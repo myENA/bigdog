@@ -191,7 +191,7 @@ type WSGRacStatsGgsnGtpcConList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacStatsGgsnGtpcCon `json:"list"`
+	List []*WSGRacStatsGgsnGtpcCon `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -208,7 +208,7 @@ type WSGRacStatsGgsnGtpList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacStatsGgsnGtp `json:"list"`
+	List []*WSGRacStatsGgsnGtp `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -420,7 +420,7 @@ type WSGRacStatsRadiusProxyList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacStatsRadiusProxy `json:"list"`
+	List []*WSGRacStatsRadiusProxy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

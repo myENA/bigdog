@@ -7,7 +7,7 @@ import (
 )
 
 type SwitchMJobErrorObject struct {
-	List []string `json:"list"`
+	List []string `json:"list,omitempty"`
 
 	Message *string `json:"message,omitempty"`
 
@@ -116,7 +116,7 @@ type SwitchMJobSchedule struct {
 
 	// JobId
 	// Job Id of job schedule
-	JobId []string `json:"jobId"`
+	JobId []string `json:"jobId,omitempty"`
 
 	// TriggerValue
 	// Trigger value of job schedule
@@ -220,7 +220,7 @@ type SwitchMJobList struct {
 	// Indicates if there are more jobs after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMJob `json:"list"`
+	List []*SwitchMJob `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// List count

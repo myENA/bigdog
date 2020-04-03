@@ -52,7 +52,7 @@ func NewWSGCALEACommonSettingRsp() *WSGCALEACommonSettingRsp {
 }
 
 type WSGCALEAMacListRq struct {
-	MacList []string `json:"macList"`
+	MacList []string `json:"macList,omitempty"`
 }
 
 func NewWSGCALEAMacListRq() *WSGCALEAMacListRq {
@@ -65,7 +65,7 @@ type WSGCALEAMacListRsp struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []string `json:"list"`
+	List []string `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

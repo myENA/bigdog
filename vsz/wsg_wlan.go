@@ -149,7 +149,7 @@ type WSGWLANCreateGuestAccessWlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -288,7 +288,7 @@ type WSGWLANCreateHotspot20OpenWlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -428,7 +428,7 @@ type WSGWLANCreateHotspot20Wlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -577,7 +577,7 @@ type WSGWLANCreateHotspotWlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -717,7 +717,7 @@ type WSGWLANCreateStandard80211Wlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -857,7 +857,7 @@ type WSGWLANCreateStandardOpenWlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -1006,7 +1006,7 @@ type WSGWLANCreateWebAuthWlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -1148,7 +1148,7 @@ type WSGWLANCreateWechatWlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -1288,7 +1288,7 @@ type WSGWLANModifyWlan struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -1728,7 +1728,7 @@ type WSGWLANAdvanced struct {
 
 	// WifiCallingPolicyIds
 	// The Wi-Fi Calling policy IDs. (Maximum allowed number is 5)
-	WifiCallingPolicyIds []string `json:"wifiCallingPolicyIds"`
+	WifiCallingPolicyIds []string `json:"wifiCallingPolicyIds,omitempty"`
 }
 
 func NewWSGWLANAdvanced() *WSGWLANAdvanced {
@@ -1915,7 +1915,7 @@ type WSGWLANConfiguration struct {
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps"`
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
 
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
@@ -1974,7 +1974,10 @@ type WSGWLANDSCPSetting struct {
 	//    - required
 	Enable *bool `json:"enable" validate:"required"`
 
-	Excepts []int `json:"excepts"`
+	// Excepts
+	// Constraints:
+	//    - nullable
+	Excepts []int `json:"excepts,omitempty" validate:"omitempty,dive"`
 
 	// High
 	// DSCP range - high
@@ -2070,7 +2073,7 @@ type WSGWLANList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWLANSummary `json:"list"`
+	List []*WSGWLANSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

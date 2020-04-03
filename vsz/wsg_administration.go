@@ -59,7 +59,7 @@ type WSGAdministrationApPatchHistory struct {
 
 	// ApModelList
 	// AP Models of the AP Patch history
-	ApModelList []string `json:"apModelList"`
+	ApModelList []string `json:"apModelList,omitempty"`
 
 	// FileName
 	// file name of the AP Patch history
@@ -80,7 +80,7 @@ type WSGAdministrationApPatchHistoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationApPatchHistory `json:"list"`
+	List []*WSGAdministrationApPatchHistory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -93,7 +93,7 @@ func NewWSGAdministrationApPatchHistoryList() *WSGAdministrationApPatchHistoryLi
 type WSGAdministrationApPatchInfo struct {
 	// ApModels
 	// AP Models of the upload file
-	ApModels []string `json:"apModels"`
+	ApModels []string `json:"apModels,omitempty"`
 
 	// ApVersion
 	// ApFwVersion of the upload file
@@ -133,7 +133,7 @@ type WSGAdministrationApplicationLogAndStatus struct {
 
 	// LogFileNames
 	// List of log file name
-	LogFileNames []string `json:"logFileNames"`
+	LogFileNames []string `json:"logFileNames,omitempty"`
 
 	// LogLevel
 	// Log level
@@ -154,7 +154,7 @@ type WSGAdministrationApplicationLogAndStatusList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationApplicationLogAndStatus `json:"list"`
+	List []*WSGAdministrationApplicationLogAndStatus `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -231,7 +231,7 @@ type WSGAdministrationClusterBackupList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationClusterBackupSummary `json:"list"`
+	List []*WSGAdministrationClusterBackupSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -269,7 +269,7 @@ type WSGAdministrationConfigurationBackupList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationBackupFile `json:"list"`
+	List []*WSGAdministrationBackupFile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -436,7 +436,7 @@ type WSGAdministrationLicensesList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationLicenses `json:"list"`
+	List []*WSGAdministrationLicenses `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -479,7 +479,7 @@ type WSGAdministrationLicensesSummaryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationLicensesSummary `json:"list"`
+	List []*WSGAdministrationLicensesSummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -511,7 +511,7 @@ type WSGAdministrationLicensesSyncLogsList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationLicensesSyncLogs `json:"list"`
+	List []*WSGAdministrationLicensesSyncLogs `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -710,7 +710,7 @@ type WSGAdministrationRetrieveAdminAAAServerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationRetrieveAdminAAAServerListType `json:"list"`
+	List []*WSGAdministrationRetrieveAdminAAAServerListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -866,7 +866,7 @@ type WSGAdministrationUpgradeHistoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationUpgradeHistorySummary `json:"list"`
+	List []*WSGAdministrationUpgradeHistorySummary `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -969,7 +969,7 @@ type WSGAdministrationZdAPList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationZdAP `json:"list"`
+	List []*WSGAdministrationZdAP `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -982,7 +982,7 @@ func NewWSGAdministrationZdAPList() *WSGAdministrationZdAPList {
 type WSGAdministrationZdImport struct {
 	// ApMacList
 	// List of AP MAC
-	ApMacList []string `json:"apMacList"`
+	ApMacList []string `json:"apMacList,omitempty"`
 
 	// Ip
 	// ZD IP address

@@ -81,7 +81,7 @@ type WSGAPConfiguration struct {
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 
@@ -170,7 +170,7 @@ type WSGAPLinemanSummary struct {
 	// Indicates if there are more APs after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAPLinemanSummaryListType `json:"list"`
+	List []*WSGAPLinemanSummaryListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total AP count
@@ -218,7 +218,7 @@ type WSGAPListEntry struct {
 	// Indicates whether there are more APs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAPListEntryListType `json:"list"`
+	List []*WSGAPListEntryListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total AP count
@@ -496,7 +496,7 @@ type WSGAPMesh struct {
 
 	// MeshUplinkEntryList
 	// MAC address of the neighbor AP
-	MeshUplinkEntryList []WSGCommonMac `json:"meshUplinkEntryList"`
+	MeshUplinkEntryList []WSGCommonMac `json:"meshUplinkEntryList,omitempty"`
 
 	// UplinkSelection
 	// Uplink selection
@@ -567,7 +567,7 @@ type WSGAPModifyAP struct {
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	MeshOptions *WSGAPMesh `json:"meshOptions,omitempty"`
 
@@ -642,7 +642,7 @@ func NewWSGAPModifyAP() *WSGAPModifyAP {
 type WSGAPModifyRogueType struct {
 	// RogueMacList
 	// rogue mac list
-	RogueMacList []WSGCommonMac `json:"rogueMacList"`
+	RogueMacList []WSGCommonMac `json:"rogueMacList,omitempty"`
 }
 
 func NewWSGAPModifyRogueType() *WSGAPModifyRogueType {
@@ -659,7 +659,7 @@ type WSGAPNeighborAPList struct {
 	// Indicator of whether there are more Mesh Neighbor APs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAPNeighborAPListType `json:"list"`
+	List []*WSGAPNeighborAPListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total mesh neighbor APs count
@@ -784,7 +784,7 @@ func NewWSGAPSwapApConfigure() *WSGAPSwapApConfigure {
 type WSGAPSwitchoverAP struct {
 	// ApMacList
 	// AP MAC address list
-	ApMacList []WSGCommonMac `json:"apMacList"`
+	ApMacList []WSGCommonMac `json:"apMacList,omitempty"`
 
 	// ClusterName
 	// Name of destination cluster, Notice: Once user has set ipOrFqdn, this value will be ignored.
@@ -800,7 +800,7 @@ type WSGAPSwitchoverAP struct {
 
 	// ZoneIdList
 	// Zone ID list for which APs attached to will be switchovered.
-	ZoneIdList []string `json:"zoneIdList"`
+	ZoneIdList []string `json:"zoneIdList,omitempty"`
 }
 
 func NewWSGAPSwitchoverAP() *WSGAPSwitchoverAP {

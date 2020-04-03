@@ -187,7 +187,7 @@ type WSGIndoorMapList struct {
 	// Indicates whether there are more indoor maps after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIndoorMapBasicIndoorMap `json:"list"`
+	List []*WSGIndoorMapBasicIndoorMap `json:"list,omitempty"`
 
 	// TotalCount
 	// Total indoor maps count
@@ -280,7 +280,7 @@ type WSGIndoorMapSummaryList struct {
 	// Indicates whether there are more indoor maps after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGIndoorMapSummary `json:"list"`
+	List []*WSGIndoorMapSummary `json:"list,omitempty"`
 
 	// TotalCount
 	// Total indoor maps count

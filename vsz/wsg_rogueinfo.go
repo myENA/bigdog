@@ -17,7 +17,7 @@ type WSGRogueInfo struct {
 
 	// DetectedByAP
 	// The list of the AP found this Rogue AP.
-	DetectedByAP []*WSGAPInfo `json:"detectedByAP"`
+	DetectedByAP []*WSGAPInfo `json:"detectedByAP,omitempty"`
 
 	// Encryption
 	// Encryption of the rogue AP
@@ -66,7 +66,7 @@ type WSGRogueInfoList struct {
 	// Indicator of whether there are more Rogue AP after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRogueInfo `json:"list"`
+	List []*WSGRogueInfo `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Rogue APs count.

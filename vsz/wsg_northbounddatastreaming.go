@@ -135,16 +135,25 @@ func NewWSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile() *WSGNor
 type WSGNorthboundDataStreamingEventCodes struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates whether there are more Northbound Data Streaming accepted event codes after the currently displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGNorthboundDataStreamingEventCodesListType `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGNorthboundDataStreamingEventCodesListType `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// TotalCount
 	// Total Northbound Data Streaming accepted event code count
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -156,10 +165,14 @@ func NewWSGNorthboundDataStreamingEventCodes() *WSGNorthboundDataStreamingEventC
 type WSGNorthboundDataStreamingEventCodesListType struct {
 	// Code
 	// Northbound Data Streaming accepted event code
+	// Constraints:
+	//    - nullable
 	Code *int `json:"code,omitempty"`
 
 	// Type
 	// Northbound Data Streaming accepted event type
+	// Constraints:
+	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -171,6 +184,8 @@ func NewWSGNorthboundDataStreamingEventCodesListType() *WSGNorthboundDataStreami
 type WSGNorthboundDataStreamingProfile struct {
 	// ConnectionStatus
 	// Connection status of the Northbound Data Streaming Profile
+	// Constraints:
+	//    - nullable
 	ConnectionStatus *string `json:"connectionStatus,omitempty"`
 
 	// DataTypes
@@ -181,30 +196,44 @@ type WSGNorthboundDataStreamingProfile struct {
 
 	// Id
 	// UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Profile name of the Northbound Data Streaming profile for Northbound Data Streaming interface
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Password
 	// Password of the Northbound Data Streaming profile for Northbound Data Streaming interface
+	// Constraints:
+	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// ServerHost
 	// Server host of the Northbound Data Streaming profile for Northbound Data Streaming interface
+	// Constraints:
+	//    - nullable
 	ServerHost *string `json:"serverHost,omitempty"`
 
 	// ServerPort
 	// Server port of the Northbound Data Streaming profile for Northbound Data Streaming interface
+	// Constraints:
+	//    - nullable
 	ServerPort *string `json:"serverPort,omitempty"`
 
 	// SystemId
 	// System UUID of the Northbound Data Streaming profile for Northbound Data Streaming interface
+	// Constraints:
+	//    - nullable
 	SystemId *string `json:"systemId,omitempty"`
 
 	// User
 	// User name of the Northbound Data Streaming profile for Northbound Data Streaming interface
+	// Constraints:
+	//    - nullable
 	User *string `json:"user,omitempty"`
 }
 
@@ -214,9 +243,15 @@ func NewWSGNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingProfile {
 }
 
 type WSGNorthboundDataStreamingProfileList struct {
+	// Extra
+	// Constraints:
+	//    - nullable
 	Extra *WSGNorthboundDataStreamingProfileListExtraType `json:"extra,omitempty"`
 
-	List []*WSGNorthboundDataStreamingProfile `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGNorthboundDataStreamingProfile `json:"list,omitempty" validate:"omitempty,dive"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -264,19 +299,27 @@ func NewWSGNorthboundDataStreamingProfileList() *WSGNorthboundDataStreamingProfi
 type WSGNorthboundDataStreamingProfileListExtraType struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled
+	// Constraints:
+	//    - nullable
 	NorthboundDataStreamingEnabled *bool `json:"northboundDataStreamingEnabled,omitempty"`
 
 	// StreamingByDomainZoneEnabled
 	// Is Northbound Data Streaming enabled by domain/zone settings
+	// Constraints:
+	//    - nullable
 	StreamingByDomainZoneEnabled *bool `json:"streamingByDomainZoneEnabled,omitempty"`
 
 	// StreamingDomainIds
 	// Domain Ids for 'streamingByDomainZoneEnabled' settings
-	StreamingDomainIds []string `json:"streamingDomainIds,omitempty"`
+	// Constraints:
+	//    - nullable
+	StreamingDomainIds []string `json:"streamingDomainIds,omitempty" validate:"omitempty,dive"`
 
 	// StreamingZoneIds
 	// Zone Ids for 'streamingByDomainZoneEnabled' settings
-	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
+	// Constraints:
+	//    - nullable
+	StreamingZoneIds []string `json:"streamingZoneIds,omitempty" validate:"omitempty,dive"`
 }
 
 func NewWSGNorthboundDataStreamingProfileListExtraType() *WSGNorthboundDataStreamingProfileListExtraType {
@@ -299,11 +342,15 @@ type WSGNorthboundDataStreamingSettings struct {
 
 	// StreamingDomainIds
 	// Domain Ids for 'streamingByDomainZoneEnabled' settings
-	StreamingDomainIds []string `json:"streamingDomainIds,omitempty"`
+	// Constraints:
+	//    - nullable
+	StreamingDomainIds []string `json:"streamingDomainIds,omitempty" validate:"omitempty,dive"`
 
 	// StreamingZoneIds
 	// Zone Ids for 'streamingByDomainZoneEnabled' settings
-	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
+	// Constraints:
+	//    - nullable
+	StreamingZoneIds []string `json:"streamingZoneIds,omitempty" validate:"omitempty,dive"`
 }
 
 func NewWSGNorthboundDataStreamingSettings() *WSGNorthboundDataStreamingSettings {

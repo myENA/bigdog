@@ -25,36 +25,51 @@ func (ss *SwitchMService) SwitchMStaticRouteService() *SwitchMStaticRouteService
 type SwitchMStaticRouteCreateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
+	// Constraints:
+	//    - nullable
 	AdminDistance *int `json:"adminDistance,omitempty"`
 
 	// DestinationIp
 	// Destination IP
+	// Constraints:
+	//    - nullable
 	DestinationIp *string `json:"destinationIp,omitempty"`
 
 	// FamilyId
 	// Family Id
+	// Constraints:
+	//    - nullable
 	FamilyId *string `json:"familyId,omitempty"`
 
 	// GroupId
 	// Switch Group Id
+	// Constraints:
+	//    - nullable
 	GroupId *string `json:"groupId,omitempty"`
 
 	// NextHop
 	// Next Hop
+	// Constraints:
+	//    - nullable
 	NextHop *string `json:"nextHop,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
+	// Constraints:
+	//    - nullable
 	PushTime *int `json:"pushTime,omitempty"`
 
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SwitchId
 	// Switch Id
+	// Constraints:
+	//    - nullable
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
@@ -66,48 +81,69 @@ func NewSwitchMStaticRouteCreateStaticRoute() *SwitchMStaticRouteCreateStaticRou
 type SwitchMStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
+	// Constraints:
+	//    - nullable
 	AdminDistance *string `json:"adminDistance,omitempty"`
 
 	// CreatedTime
 	// The create time of the Static Route
+	// Constraints:
+	//    - nullable
 	CreatedTime *int `json:"createdTime,omitempty"`
 
 	// DestinationIp
 	// Destination IP
+	// Constraints:
+	//    - nullable
 	DestinationIp *string `json:"destinationIp,omitempty"`
 
 	// FamilyId
 	// Family Id
+	// Constraints:
+	//    - nullable
 	FamilyId *string `json:"familyId,omitempty"`
 
 	// GroupId
 	// Switch Group Id
+	// Constraints:
+	//    - nullable
 	GroupId *string `json:"groupId,omitempty"`
 
 	// Id
 	// Static Route Id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// NextHop
 	// Next Hop
+	// Constraints:
+	//    - nullable
 	NextHop *string `json:"nextHop,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
+	// Constraints:
+	//    - nullable
 	PushTime *int `json:"pushTime,omitempty"`
 
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 
 	// SwitchId
 	// Switch Id
+	// Constraints:
+	//    - nullable
 	SwitchId *string `json:"switchId,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the Static Route
+	// Constraints:
+	//    - nullable
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
@@ -119,24 +155,37 @@ func NewSwitchMStaticRoute() *SwitchMStaticRoute {
 type SwitchMStaticRoutesQueryResult struct {
 	// Extra
 	// Any additional response data
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMStaticRoutesQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Static Route returned out of the complete Static Route list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more Static Routes after the current displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMStaticRoute `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMStaticRoute `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// Total Static Route count
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total Static Route Servers count in this response
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -148,6 +197,8 @@ func NewSwitchMStaticRoutesQueryResult() *SwitchMStaticRoutesQueryResult {
 // SwitchMStaticRoutesQueryResultExtraType
 //
 // Any additional response data
+// Constraints:
+//    - nullable
 type SwitchMStaticRoutesQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -176,25 +227,34 @@ func NewSwitchMStaticRoutesQueryResultExtraType() *SwitchMStaticRoutesQueryResul
 type SwitchMStaticRouteUpdateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
+	// Constraints:
+	//    - nullable
 	AdminDistance *int `json:"adminDistance,omitempty"`
 
 	// DestinationIp
 	// Destination IP
+	// Constraints:
+	//    - nullable
 	DestinationIp *string `json:"destinationIp,omitempty"`
 
 	// NextHop
 	// Next Hop
+	// Constraints:
+	//    - nullable
 	NextHop *string `json:"nextHop,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
+	// Constraints:
+	//    - nullable
 	PushTime *int `json:"pushTime,omitempty"`
 
 	// PushTimeType
 	// Puch Config Type
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NOW,SCHEDULE]
-	PushTimeType *string `json:"pushTimeType,omitempty" validate:"oneof=NOW SCHEDULE"`
+	PushTimeType *string `json:"pushTimeType,omitempty" validate:"omitempty,oneof=NOW SCHEDULE"`
 }
 
 func NewSwitchMStaticRouteUpdateStaticRoute() *SwitchMStaticRouteUpdateStaticRoute {

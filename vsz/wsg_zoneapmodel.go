@@ -3,20 +3,35 @@ package vsz
 // API Version: v9_0
 
 type WSGZoneAPModelApModel struct {
+	// CellularSettings
+	// Constraints:
+	//    - nullable
 	CellularSettings *WSGAPModelCellularSettings `json:"cellularSettings,omitempty"`
 
+	// ExternalAntenna24
+	// Constraints:
+	//    - nullable
 	ExternalAntenna24 *WSGAPModelExternalAntenna `json:"externalAntenna24,omitempty"`
 
+	// ExternalAntenna50
+	// Constraints:
+	//    - nullable
 	ExternalAntenna50 *WSGAPModelExternalAntenna `json:"externalAntenna50,omitempty"`
 
 	// InternalHeaterEnabled
 	// Constraints:
 	//    - nullable
-	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty" validate:"omitempty"`
+	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty"`
 
+	// Lacp
+	// Constraints:
+	//    - nullable
 	Lacp *WSGAPModelLacpSetting `json:"lacp,omitempty"`
 
-	LanPorts []*WSGZoneAPModelLanPortSetting `json:"lanPorts,omitempty"`
+	// LanPorts
+	// Constraints:
+	//    - nullable
+	LanPorts []*WSGZoneAPModelLanPortSetting `json:"lanPorts,omitempty" validate:"omitempty,dive"`
 
 	// LedMode
 	// Constraints:
@@ -27,23 +42,29 @@ type WSGZoneAPModelApModel struct {
 	// LedStatusEnabled
 	// Constraints:
 	//    - nullable
-	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty" validate:"omitempty"`
+	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty"`
 
+	// Lldp
+	// Constraints:
+	//    - nullable
 	Lldp *WSGAPModelLldpSetting `json:"lldp,omitempty"`
 
+	// PoeModeSetting
+	// Constraints:
+	//    - nullable
 	PoeModeSetting *WSGCommonPoeModeSetting `json:"poeModeSetting,omitempty"`
 
 	// PoeOutPortEnabled
 	// Constraints:
 	//    - nullable
-	PoeOutPortEnabled *bool `json:"poeOutPortEnabled,omitempty" validate:"omitempty"`
+	PoeOutPortEnabled *bool `json:"poeOutPortEnabled,omitempty"`
 
 	// PoeTxChain
 	// Option to use 1, 2 or 4 Tx chains while AP power source is 802.3af PoE
 	// Constraints:
 	//    - nullable
 	//    - default:2
-	PoeTxChain *int `json:"poeTxChain,omitempty" validate:"omitempty"`
+	PoeTxChain *int `json:"poeTxChain,omitempty"`
 
 	// RadioBand
 	// Band switch between 2.4GHz and 5GHz is provided in single radio AP ZF-7321, ZF-7321-U, and ZF-7441.
@@ -55,7 +76,7 @@ type WSGZoneAPModelApModel struct {
 	// UsbPowerEnable
 	// Constraints:
 	//    - nullable
-	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty" validate:"omitempty"`
+	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty"`
 }
 
 func NewWSGZoneAPModelApModel() *WSGZoneAPModelApModel {
@@ -69,6 +90,9 @@ type WSGZoneAPModelLanPortSetting struct {
 	//    - required
 	Enabled *bool `json:"enabled" validate:"required"`
 
+	// EthPortProfile
+	// Constraints:
+	//    - nullable
 	EthPortProfile *WSGCommonGenericRef `json:"ethPortProfile,omitempty"`
 
 	// PortName

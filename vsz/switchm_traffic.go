@@ -25,24 +25,37 @@ func (ss *SwitchMService) SwitchMTrafficService() *SwitchMTrafficService {
 type SwitchMTrafficTopPortErrorQueryResultList struct {
 	// Extra
 	// Extra information for top port error
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMTrafficTopPortErrorQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top port error returned out of the complete list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more top port error after the currently displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTrafficUsage `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMTrafficUsage `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// Top port error count
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total of top port error count
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -54,6 +67,8 @@ func NewSwitchMTrafficTopPortErrorQueryResultList() *SwitchMTrafficTopPortErrorQ
 // SwitchMTrafficTopPortErrorQueryResultListExtraType
 //
 // Extra information for top port error
+// Constraints:
+//    - nullable
 type SwitchMTrafficTopPortErrorQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -82,24 +97,37 @@ func NewSwitchMTrafficTopPortErrorQueryResultListExtraType() *SwitchMTrafficTopP
 type SwitchMTrafficTopPortTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top port traffic usage
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top port traffic usage returned out of the complete list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more top port traffic usage after the currently displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTrafficUsage `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMTrafficUsage `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// Top port traffic usage count
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total of top port traffic usage count
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -111,6 +139,8 @@ func NewSwitchMTrafficTopPortTrafficUsageQueryResultList() *SwitchMTrafficTopPor
 // SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType
 //
 // Extra information for top port traffic usage
+// Constraints:
+//    - nullable
 type SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -139,24 +169,37 @@ func NewSwitchMTrafficTopPortTrafficUsageQueryResultListExtraType() *SwitchMTraf
 type SwitchMTrafficTopSwitchPoEUtilizationQueryResultList struct {
 	// Extra
 	// Extra information for top PoE utilization
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top PoE usage returned out of the complete list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more top PoE usage after the currently displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTrafficUsage `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMTrafficUsage `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// PoE utilization count
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total PoE utilization count
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -168,6 +211,8 @@ func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList() *SwitchMTrafficTo
 // SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType
 //
 // Extra information for top PoE utilization
+// Constraints:
+//    - nullable
 type SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -196,24 +241,37 @@ func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType() *SwitchM
 type SwitchMTrafficTopTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top traffic usage
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMTrafficTopTrafficUsageQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top traffic usage returned out of the complete list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more top traffic usage after the currently displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTrafficUsage `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMTrafficUsage `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// Top traffic usage count
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total of top traffic usage count
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -225,6 +283,8 @@ func NewSwitchMTrafficTopTrafficUsageQueryResultList() *SwitchMTrafficTopTraffic
 // SwitchMTrafficTopTrafficUsageQueryResultListExtraType
 //
 // Extra information for top traffic usage
+// Constraints:
+//    - nullable
 type SwitchMTrafficTopTrafficUsageQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -253,18 +313,26 @@ func NewSwitchMTrafficTopTrafficUsageQueryResultListExtraType() *SwitchMTrafficT
 type SwitchMTraffic struct {
 	// Rx
 	// RX traffic of the switch
+	// Constraints:
+	//    - nullable
 	Rx *string `json:"rx,omitempty"`
 
 	// Timestamp
 	// Timestamp of the switch traffic
+	// Constraints:
+	//    - nullable
 	Timestamp *string `json:"timestamp,omitempty"`
 
 	// Total
 	// Total traffic of the switch
+	// Constraints:
+	//    - nullable
 	Total *int `json:"total,omitempty"`
 
 	// Tx
 	// TX traffic of the switch
+	// Constraints:
+	//    - nullable
 	Tx *string `json:"tx,omitempty"`
 }
 
@@ -276,24 +344,37 @@ func NewSwitchMTraffic() *SwitchMTraffic {
 type SwitchMTrafficQueryResultList struct {
 	// Extra
 	// Extra information for traffic list
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMTrafficQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first traffic list returned out of the complete traffic list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more traffic list after the currently displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMTraffic `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMTraffic `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// Total traffic count
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total of traffic list count
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -305,6 +386,8 @@ func NewSwitchMTrafficQueryResultList() *SwitchMTrafficQueryResultList {
 // SwitchMTrafficQueryResultListExtraType
 //
 // Extra information for traffic list
+// Constraints:
+//    - nullable
 type SwitchMTrafficQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -333,14 +416,20 @@ func NewSwitchMTrafficQueryResultListExtraType() *SwitchMTrafficQueryResultListE
 type SwitchMTrafficUsage struct {
 	// Id
 	// Identifier of the Traffic Usage
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Key
 	// Interface of the Traffic Usage
+	// Constraints:
+	//    - nullable
 	Key *string `json:"key,omitempty"`
 
 	// Value
 	// Total Tx and Rx of Traffic Usage
+	// Constraints:
+	//    - nullable
 	Value *float64 `json:"value,omitempty"`
 }
 

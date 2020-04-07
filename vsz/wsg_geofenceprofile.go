@@ -24,6 +24,8 @@ func (ss *WSGService) WSGGeofenceProfileService() *WSGGeofenceProfileService {
 type WSGGeofenceProfile struct {
 	// Description
 	// Geofence Profile's description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// LocationList
@@ -51,12 +53,20 @@ func NewWSGGeofenceProfile() *WSGGeofenceProfile {
 }
 
 type WSGGeofenceProfileLocationData struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Location
 	// Geofence Profile's location Latitude and longitude
+	// Constraints:
+	//    - nullable
 	Location *string `json:"location,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
@@ -68,26 +78,38 @@ func NewWSGGeofenceProfileLocationData() *WSGGeofenceProfileLocationData {
 type WSGGeofenceProfileGetGeofenceProfile struct {
 	// Description
 	// Geofence Profile's description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// Id
 	// Geofence Profile's id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LocationList
 	// Geofence Profile's location list
-	LocationList []*WSGGeofenceProfileLocationData `json:"locationList,omitempty"`
+	// Constraints:
+	//    - nullable
+	LocationList []*WSGGeofenceProfileLocationData `json:"locationList,omitempty" validate:"omitempty,dive"`
 
 	// Name
 	// Geofence Profile's name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// RadiusMeter
 	// Geofence Profile's radius
+	// Constraints:
+	//    - nullable
 	RadiusMeter *int `json:"radiusMeter,omitempty"`
 
 	// ZoneId
 	// The zone which Geofence Profile belong to
+	// Constraints:
+	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -97,12 +119,24 @@ func NewWSGGeofenceProfileGetGeofenceProfile() *WSGGeofenceProfileGetGeofencePro
 }
 
 type WSGGeofenceProfileGetGeofenceProfileProfileList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGGeofenceProfileGetGeofenceProfile `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGGeofenceProfileGetGeofenceProfile `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

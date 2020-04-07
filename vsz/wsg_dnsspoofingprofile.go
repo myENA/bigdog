@@ -24,16 +24,20 @@ func (ss *WSGService) WSGDNSSpoofingProfileService() *WSGDNSSpoofingProfileServi
 type WSGDNSSpoofingProfile struct {
 	// Description
 	// DNS Spoofing Profile's description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName2to64 `json:"name" validate:"required,max=64,min=2"`
+	Name *WSGCommonNormalName2to64 `json:"name" validate:"required"`
 
 	// Rules
 	// DNS Spoofing Profile's rules (At least one rule)
-	Rules []*WSGDNSSpoofingProfileDnsSpoofingRule `json:"rules,omitempty"`
+	// Constraints:
+	//    - nullable
+	Rules []*WSGDNSSpoofingProfileDnsSpoofingRule `json:"rules,omitempty" validate:"omitempty,dive"`
 }
 
 func NewWSGDNSSpoofingProfile() *WSGDNSSpoofingProfile {
@@ -44,38 +48,56 @@ func NewWSGDNSSpoofingProfile() *WSGDNSSpoofingProfile {
 type WSGDNSSpoofingProfileDetail struct {
 	// CreateDateTime
 	// The user who create the DNS Spoofing Profile
+	// Constraints:
+	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorUsername
 	// The time when the user create the DNS Spoofing Profile
+	// Constraints:
+	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
 	// Description
 	// DNS Spoofing Profile's description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// Id
 	// DNS Spoofing Profile's id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// The time when the user modify the DNS Spoofing Profile
+	// Constraints:
+	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierUsername
 	// The user who modify the DNS Spoofing Profile
+	// Constraints:
+	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// Name
 	// DNS Spoofing Profile's name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Rules
 	// DNS Spoofing Profile's rules (At least one rule)
-	Rules []*WSGDNSSpoofingProfileDnsSpoofingRule `json:"rules,omitempty"`
+	// Constraints:
+	//    - nullable
+	Rules []*WSGDNSSpoofingProfileDnsSpoofingRule `json:"rules,omitempty" validate:"omitempty,dive"`
 
 	// ZoneId
 	// The zone which DNS Spoofing Profile belong to
+	// Constraints:
+	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -87,10 +109,14 @@ func NewWSGDNSSpoofingProfileDetail() *WSGDNSSpoofingProfileDetail {
 type WSGDNSSpoofingProfileSummary struct {
 	// Id
 	// DNS Spoofing Profile's id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// DNS Spoofing Profile's name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 
@@ -119,12 +145,24 @@ func NewWSGDNSSpoofingProfileDnsSpoofingRule() *WSGDNSSpoofingProfileDnsSpoofing
 }
 
 type WSGDNSSpoofingProfileGetDnsSpoofingProfileList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDNSSpoofingProfileSummary `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDNSSpoofingProfileSummary `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

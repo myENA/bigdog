@@ -7,10 +7,19 @@ import (
 )
 
 type SwitchMJobErrorObject struct {
-	List []string `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []string `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// Message
+	// Constraints:
+	//    - nullable
 	Message *string `json:"message,omitempty"`
 
+	// MsgKey
+	// Constraints:
+	//    - nullable
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
@@ -22,60 +31,91 @@ func NewSwitchMJobErrorObject() *SwitchMJobErrorObject {
 type SwitchMJob struct {
 	// Action
 	// Action of the job
+	// Constraints:
+	//    - nullable
 	Action *string `json:"action,omitempty"`
 
 	// CreatedTimestamp
 	// Created timestamp of the job
+	// Constraints:
+	//    - nullable
 	CreatedTimestamp *int `json:"createdTimestamp,omitempty"`
 
+	// CsvDataMap
+	// Constraints:
+	//    - nullable
 	CsvDataMap *SwitchMJobCsvDataMapType `json:"csvDataMap,omitempty"`
 
 	// DomainId
 	// Identifier of the management domain to which the job belong
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// FailureReason
 	// Failure reason of the job
+	// Constraints:
+	//    - nullable
 	FailureReason *string `json:"failureReason,omitempty"`
 
 	// Id
 	// Identifier of the job
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// ModifiedTimestamp
 	// Modified timestamp of the job
+	// Constraints:
+	//    - nullable
 	ModifiedTimestamp *int `json:"modifiedTimestamp,omitempty"`
 
 	// ScheduleId
 	// Schedule Id of the job
+	// Constraints:
+	//    - nullable
 	ScheduleId *string `json:"scheduleId,omitempty"`
 
 	// Status
 	// Status of the job
+	// Constraints:
+	//    - nullable
 	Status *string `json:"status,omitempty"`
 
 	// StickyNodeId
 	// Sticky node Id of the job
+	// Constraints:
+	//    - nullable
 	StickyNodeId *string `json:"stickyNodeId,omitempty"`
 
 	// SwitchGroupLevelOneId
 	// Switch group level one Id of the job
+	// Constraints:
+	//    - nullable
 	SwitchGroupLevelOneId *string `json:"switchGroupLevelOneId,omitempty"`
 
 	// SwitchGroupLevelTwoId
 	// Switch group level two Id of the job
+	// Constraints:
+	//    - nullable
 	SwitchGroupLevelTwoId *string `json:"switchGroupLevelTwoId,omitempty"`
 
 	// SwitchId
 	// Switch Id of the job
+	// Constraints:
+	//    - nullable
 	SwitchId *string `json:"switchId,omitempty"`
 
 	// TenantId
 	// Tenant Id of the job
+	// Constraints:
+	//    - nullable
 	TenantId *string `json:"tenantId,omitempty"`
 
 	// Type
 	// Type of the job
+	// Constraints:
+	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -112,14 +152,20 @@ func NewSwitchMJobCsvDataMapType() *SwitchMJobCsvDataMapType {
 type SwitchMJobSchedule struct {
 	// CreatedTimestamp
 	// Created timestamp of job schedule
+	// Constraints:
+	//    - nullable
 	CreatedTimestamp *int `json:"createdTimestamp,omitempty"`
 
 	// JobId
 	// Job Id of job schedule
-	JobId []string `json:"jobId,omitempty"`
+	// Constraints:
+	//    - nullable
+	JobId []string `json:"jobId,omitempty" validate:"omitempty,dive"`
 
 	// TriggerValue
 	// Trigger value of job schedule
+	// Constraints:
+	//    - nullable
 	TriggerValue *string `json:"triggerValue,omitempty"`
 }
 
@@ -129,20 +175,32 @@ func NewSwitchMJobSchedule() *SwitchMJobSchedule {
 }
 
 type SwitchMJobScheduleResponse struct {
+	// Data
+	// Constraints:
+	//    - nullable
 	Data *SwitchMJobSchedule `json:"data,omitempty"`
 
+	// Error
+	// Constraints:
+	//    - nullable
 	Error *SwitchMJobErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Extra response of job schedule
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMJobScheduleResponseExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// metaData of job schedule
+	// Constraints:
+	//    - nullable
 	MetaData *SwitchMJobScheduleResponseMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Success response of job schedule
+	// Constraints:
+	//    - nullable
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -154,6 +212,8 @@ func NewSwitchMJobScheduleResponse() *SwitchMJobScheduleResponse {
 // SwitchMJobScheduleResponseExtraType
 //
 // Extra response of job schedule
+// Constraints:
+//    - nullable
 type SwitchMJobScheduleResponseExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -182,6 +242,8 @@ func NewSwitchMJobScheduleResponseExtraType() *SwitchMJobScheduleResponseExtraTy
 // SwitchMJobScheduleResponseMetaDataType
 //
 // metaData of job schedule
+// Constraints:
+//    - nullable
 type SwitchMJobScheduleResponseMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -210,24 +272,37 @@ func NewSwitchMJobScheduleResponseMetaDataType() *SwitchMJobScheduleResponseMeta
 type SwitchMJobList struct {
 	// Extra
 	// Extra information for job list
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMJobListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first job returned out of the complete job list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more jobs after the currently displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMJob `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMJob `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// List count
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total list count
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -239,6 +314,8 @@ func NewSwitchMJobList() *SwitchMJobList {
 // SwitchMJobListExtraType
 //
 // Extra information for job list
+// Constraints:
+//    - nullable
 type SwitchMJobListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

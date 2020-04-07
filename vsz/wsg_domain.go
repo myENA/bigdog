@@ -22,24 +22,34 @@ func (ss *WSGService) WSGDomainService() *WSGDomainService {
 }
 
 type WSGDomainCreateDomain struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainType
 	// domain type
 	// Constraints:
+	//    - nullable
 	//    - default:'REGULAR'
 	//    - oneof:[PARTNER,MVNO,REGULAR]
-	DomainType *string `json:"domainType,omitempty" validate:"oneof=PARTNER MVNO REGULAR"`
+	DomainType *string `json:"domainType,omitempty" validate:"omitempty,oneof=PARTNER MVNO REGULAR"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+	Name *WSGCommonNormalName `json:"name" validate:"required"`
 
 	// ParentDomainId
 	// parent domain id
+	// Constraints:
+	//    - nullable
 	ParentDomainId *string `json:"parentDomainId,omitempty"`
 
+	// ZeroTouchStatus
+	// Constraints:
+	//    - nullable
+	//    - default:true
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
 
@@ -51,44 +61,71 @@ func NewWSGDomainCreateDomain() *WSGDomainCreateDomain {
 type WSGDomainConfiguration struct {
 	// AdministratorCount
 	// # of Subdomains
+	// Constraints:
+	//    - nullable
 	AdministratorCount *int `json:"administratorCount,omitempty"`
 
 	// ApCount
 	// # of Subdomains
+	// Constraints:
+	//    - nullable
 	ApCount *int `json:"apCount,omitempty"`
 
 	// CreateDatetime
 	// Created by
+	// Constraints:
+	//    - nullable
 	CreateDatetime *string `json:"createDatetime,omitempty"`
 
 	// CreatedBy
 	// Created by
+	// Constraints:
+	//    - nullable
 	CreatedBy *string `json:"createdBy,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainType
 	// domain type
+	// Constraints:
+	//    - nullable
 	DomainType *string `json:"domainType,omitempty"`
 
 	// Id
 	// Identifier of the domain
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// ParentDomainId
 	// Parent Domain Id
+	// Constraints:
+	//    - nullable
 	ParentDomainId *string `json:"parentDomainId,omitempty"`
 
 	// SubDomainCount
 	// # of Subdomains
+	// Constraints:
+	//    - nullable
 	SubDomainCount *int `json:"subDomainCount,omitempty"`
 
+	// ZeroTouchStatus
+	// Constraints:
+	//    - nullable
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 
 	// ZoneCount
 	// # of Zones
+	// Constraints:
+	//    - nullable
 	ZoneCount *int `json:"zoneCount,omitempty"`
 }
 
@@ -98,12 +135,24 @@ func NewWSGDomainConfiguration() *WSGDomainConfiguration {
 }
 
 type WSGDomainList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDomainConfiguration `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDomainConfiguration `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -113,20 +162,32 @@ func NewWSGDomainList() *WSGDomainList {
 }
 
 type WSGDomainModifyDomain struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainType
 	// domain type
+	// Constraints:
+	//    - nullable
 	DomainType *string `json:"domainType,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// ParentDomainId
 	// parent domain id
+	// Constraints:
+	//    - nullable
 	ParentDomainId *string `json:"parentDomainId,omitempty"`
 
 	// ZeroTouchStatus
 	// Zero Touch enable/disable
+	// Constraints:
+	//    - nullable
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
 

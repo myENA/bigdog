@@ -3,6 +3,9 @@ package vsz
 // API Version: v9_0
 
 type WSGDPProfileBulkDelete struct {
+	// IdList
+	// Constraints:
+	//    - nullable
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
@@ -14,30 +17,44 @@ func NewWSGDPProfileBulkDelete() *WSGDPProfileBulkDelete {
 type WSGDPProfileDpDhcpProfileBasicBO struct {
 	// DefaultLeaseTime
 	// defaultLeaseTime
+	// Constraints:
+	//    - nullable
 	DefaultLeaseTime *int `json:"defaultLeaseTime,omitempty"`
 
 	// Description
 	// description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// DomainName
 	// domainName
+	// Constraints:
+	//    - nullable
 	DomainName *string `json:"domainName,omitempty"`
 
 	// PrimaryDnsServer
 	// primaryDnsServer
+	// Constraints:
+	//    - nullable
 	PrimaryDnsServer *string `json:"primaryDnsServer,omitempty"`
 
 	// ProfileId
 	// profileId
+	// Constraints:
+	//    - nullable
 	ProfileId *string `json:"profileId,omitempty"`
 
 	// ProfileName
 	// profileName
+	// Constraints:
+	//    - nullable
 	ProfileName *string `json:"profileName,omitempty"`
 
 	// SecondaryDnsServer
 	// secondaryDnsServer
+	// Constraints:
+	//    - nullable
 	SecondaryDnsServer *string `json:"secondaryDnsServer,omitempty"`
 }
 
@@ -47,12 +64,24 @@ func NewWSGDPProfileDpDhcpProfileBasicBO() *WSGDPProfileDpDhcpProfileBasicBO {
 }
 
 type WSGDPProfileDpDhcpProfileBasicBOList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpDhcpProfileBasicBO `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDPProfileDpDhcpProfileBasicBO `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -64,51 +93,75 @@ func NewWSGDPProfileDpDhcpProfileBasicBOList() *WSGDPProfileDpDhcpProfileBasicBO
 type WSGDPProfileDpDhcpProfileHostBO struct {
 	// BroadcastAddress
 	// broadcastAddress
+	// Constraints:
+	//    - nullable
 	BroadcastAddress *string `json:"broadcastAddress,omitempty"`
 
 	// Description
 	// description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// DnsServers
 	// dnsServers
-	DnsServers []string `json:"dnsServers,omitempty"`
+	// Constraints:
+	//    - nullable
+	DnsServers []string `json:"dnsServers,omitempty" validate:"omitempty,dive"`
 
 	// DomainName
 	// domainName
+	// Constraints:
+	//    - nullable
 	DomainName *string `json:"domainName,omitempty"`
 
 	// FixedAddress
 	// fixedAddress
+	// Constraints:
+	//    - nullable
 	FixedAddress *string `json:"fixedAddress,omitempty"`
 
 	// HardwareEthernet
 	// hardwareEthernet
+	// Constraints:
+	//    - nullable
 	HardwareEthernet *string `json:"hardwareEthernet,omitempty"`
 
 	// HostId
 	// hostId
+	// Constraints:
+	//    - nullable
 	HostId *string `json:"hostId,omitempty"`
 
 	// HostName
 	// hostName
+	// Constraints:
+	//    - nullable
 	HostName *string `json:"hostName,omitempty"`
 
 	// LeaseTime
 	// leaseTime
+	// Constraints:
+	//    - nullable
 	LeaseTime *int `json:"leaseTime,omitempty"`
 
 	// Name
 	// name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// ProfileId
 	// profileId
+	// Constraints:
+	//    - nullable
 	ProfileId *string `json:"profileId,omitempty"`
 
 	// Routers
 	// routers
-	Routers []string `json:"routers,omitempty"`
+	// Constraints:
+	//    - nullable
+	Routers []string `json:"routers,omitempty" validate:"omitempty,dive"`
 }
 
 func NewWSGDPProfileDpDhcpProfileHostBO() *WSGDPProfileDpDhcpProfileHostBO {
@@ -117,12 +170,24 @@ func NewWSGDPProfileDpDhcpProfileHostBO() *WSGDPProfileDpDhcpProfileHostBO {
 }
 
 type WSGDPProfileDpDhcpProfileHostBOList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpDhcpProfileHostBO `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDPProfileDpDhcpProfileHostBO `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -134,18 +199,26 @@ func NewWSGDPProfileDpDhcpProfileHostBOList() *WSGDPProfileDpDhcpProfileHostBOLi
 type WSGDPProfileDpDhcpProfileOptionBO struct {
 	// CodeNumber
 	// codeNumber
+	// Constraints:
+	//    - nullable
 	CodeNumber *int `json:"codeNumber,omitempty"`
 
 	// FunctionName
 	// functionName
+	// Constraints:
+	//    - nullable
 	FunctionName *string `json:"functionName,omitempty"`
 
 	// Type
 	// type
+	// Constraints:
+	//    - nullable
 	Type *string `json:"type,omitempty"`
 
 	// Value
 	// value
+	// Constraints:
+	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -155,8 +228,14 @@ func NewWSGDPProfileDpDhcpProfileOptionBO() *WSGDPProfileDpDhcpProfileOptionBO {
 }
 
 type WSGDPProfileDpDhcpProfileOptionInstance struct {
+	// FunctionName
+	// Constraints:
+	//    - nullable
 	FunctionName *string `json:"functionName,omitempty"`
 
+	// Value
+	// Constraints:
+	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -168,20 +247,31 @@ func NewWSGDPProfileDpDhcpProfileOptionInstance() *WSGDPProfileDpDhcpProfileOpti
 type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO struct {
 	// AppliedPoolNames
 	// appliedPoolNames
-	AppliedPoolNames []string `json:"appliedPoolNames,omitempty"`
+	// Constraints:
+	//    - nullable
+	AppliedPoolNames []string `json:"appliedPoolNames,omitempty" validate:"omitempty,dive"`
 
 	// Description
 	// description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// Name
 	// name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Options
 	// options
-	Options []*WSGDPProfileDpDhcpProfileOptionBO `json:"options,omitempty"`
+	// Constraints:
+	//    - nullable
+	Options []*WSGDPProfileDpDhcpProfileOptionBO `json:"options,omitempty" validate:"omitempty,dive"`
 
+	// SpaceId
+	// Constraints:
+	//    - nullable
 	SpaceId *string `json:"spaceId,omitempty"`
 }
 
@@ -191,12 +281,24 @@ func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBO() *WSGDPProfileDpDhcpProfi
 }
 
 type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -208,18 +310,26 @@ func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList() *WSGDPProfileDpDhcpP
 type WSGDPProfileDpDhcpProfileOptionSpaceBO struct {
 	// Description
 	// description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// Name
 	// name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Options
 	// options
-	Options []*WSGDPProfileDpDhcpProfileOptionBO `json:"options,omitempty"`
+	// Constraints:
+	//    - nullable
+	Options []*WSGDPProfileDpDhcpProfileOptionBO `json:"options,omitempty" validate:"omitempty,dive"`
 
 	// SpaceId
 	// spaceId
+	// Constraints:
+	//    - nullable
 	SpaceId *string `json:"spaceId,omitempty"`
 }
 
@@ -229,12 +339,24 @@ func NewWSGDPProfileDpDhcpProfileOptionSpaceBO() *WSGDPProfileDpDhcpProfileOptio
 }
 
 type WSGDPProfileDpDhcpProfileOptionSpaceInstance struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
-	Options []*WSGDPProfileDpDhcpProfileOptionInstance `json:"options,omitempty"`
+	// Options
+	// Constraints:
+	//    - nullable
+	Options []*WSGDPProfileDpDhcpProfileOptionInstance `json:"options,omitempty" validate:"omitempty,dive"`
 
+	// SpaceId
+	// Constraints:
+	//    - nullable
 	SpaceId *string `json:"spaceId,omitempty"`
 }
 
@@ -246,78 +368,116 @@ func NewWSGDPProfileDpDhcpProfileOptionSpaceInstance() *WSGDPProfileDpDhcpProfil
 type WSGDPProfileDpDhcpProfilePoolBO struct {
 	// BroadcastAddress
 	// broadcastAddress
+	// Constraints:
+	//    - nullable
 	BroadcastAddress *string `json:"broadcastAddress,omitempty"`
 
 	// Description
 	// description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// DomainName
 	// domainName
+	// Constraints:
+	//    - nullable
 	DomainName *string `json:"domainName,omitempty"`
 
 	// ExcludeAddressRange
 	// excludeAddressRange
+	// Constraints:
+	//    - nullable
 	ExcludeAddressRange *string `json:"excludeAddressRange,omitempty"`
 
 	// HostName
 	// hostName
+	// Constraints:
+	//    - nullable
 	HostName *string `json:"hostName,omitempty"`
 
 	// Ip
 	// ip
+	// Constraints:
+	//    - nullable
 	Ip *string `json:"ip,omitempty"`
 
 	// IpRange
 	// ipRange
+	// Constraints:
+	//    - nullable
 	IpRange *string `json:"ipRange,omitempty"`
 
 	// LeaseTime
 	// leaseTime
+	// Constraints:
+	//    - nullable
 	LeaseTime *int `json:"leaseTime,omitempty"`
 
 	// NetMask
 	// netMask
+	// Constraints:
+	//    - nullable
 	NetMask *string `json:"netMask,omitempty"`
 
 	// PoolId
 	// poolId
+	// Constraints:
+	//    - nullable
 	PoolId *string `json:"poolId,omitempty"`
 
 	// PoolName
 	// poolName
+	// Constraints:
+	//    - nullable
 	PoolName *string `json:"poolName,omitempty"`
 
 	// PrimaryDnsServer
 	// primaryDnsServer
+	// Constraints:
+	//    - nullable
 	PrimaryDnsServer *string `json:"primaryDnsServer,omitempty"`
 
 	// PrimaryRouter
 	// primaryRouter
+	// Constraints:
+	//    - nullable
 	PrimaryRouter *string `json:"primaryRouter,omitempty"`
 
 	// ProfileId
 	// profileId
+	// Constraints:
+	//    - nullable
 	ProfileId *string `json:"profileId,omitempty"`
 
 	// QinqVlanRanges
 	// qinqVlanRanges
-	QinqVlanRanges []*WSGDPProfileDpDhcpProfileQinqVlanRangeBO `json:"qinqVlanRanges,omitempty"`
+	// Constraints:
+	//    - nullable
+	QinqVlanRanges []*WSGDPProfileDpDhcpProfileQinqVlanRangeBO `json:"qinqVlanRanges,omitempty" validate:"omitempty,dive"`
 
 	// SecondaryDnsServer
 	// secondaryDnsServer
+	// Constraints:
+	//    - nullable
 	SecondaryDnsServer *string `json:"secondaryDnsServer,omitempty"`
 
 	// SecondaryRouter
 	// secondaryRouter
+	// Constraints:
+	//    - nullable
 	SecondaryRouter *string `json:"secondaryRouter,omitempty"`
 
 	// SubOptionSpaces
 	// subOptionSpaces
-	SubOptionSpaces []*WSGDPProfileDpDhcpProfileOptionSpaceInstance `json:"subOptionSpaces,omitempty"`
+	// Constraints:
+	//    - nullable
+	SubOptionSpaces []*WSGDPProfileDpDhcpProfileOptionSpaceInstance `json:"subOptionSpaces,omitempty" validate:"omitempty,dive"`
 
 	// VlanRange
 	// vlanRange
+	// Constraints:
+	//    - nullable
 	VlanRange *string `json:"vlanRange,omitempty"`
 }
 
@@ -327,12 +487,24 @@ func NewWSGDPProfileDpDhcpProfilePoolBO() *WSGDPProfileDpDhcpProfilePoolBO {
 }
 
 type WSGDPProfileDpDhcpProfilePoolBOList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpDhcpProfilePoolBO `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDPProfileDpDhcpProfilePoolBO `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -344,10 +516,14 @@ func NewWSGDPProfileDpDhcpProfilePoolBOList() *WSGDPProfileDpDhcpProfilePoolBOLi
 type WSGDPProfileDpDhcpProfileQinqVlanRangeBO struct {
 	// Cvlan
 	// cvlan
+	// Constraints:
+	//    - nullable
 	Cvlan *string `json:"cvlan,omitempty"`
 
 	// Svlan
 	// svlan
+	// Constraints:
+	//    - nullable
 	Svlan *string `json:"svlan,omitempty"`
 }
 
@@ -359,32 +535,49 @@ func NewWSGDPProfileDpDhcpProfileQinqVlanRangeBO() *WSGDPProfileDpDhcpProfileQin
 type WSGDPProfileDpNatProfileBasicBO struct {
 	// AppliedDpKey
 	// The applied DP keys
+	// Constraints:
+	//    - nullable
 	AppliedDpKey *string `json:"appliedDpKey,omitempty"`
 
 	// Description
 	// description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
+	// NatPublicSubnetId
+	// Constraints:
+	//    - nullable
 	NatPublicSubnetId *WSGDPProfileDpNatProfilePublicSubnetIdBO `json:"natPublicSubnetId,omitempty"`
 
 	// NatPublicVlanId
 	// natPublicVlanId
+	// Constraints:
+	//    - nullable
 	NatPublicVlanId *int `json:"natPublicVlanId,omitempty"`
 
 	// PrimaryNatDefaultRouteGateway
 	// primaryNatDefaultRouteGateway
+	// Constraints:
+	//    - nullable
 	PrimaryNatDefaultRouteGateway *string `json:"primaryNatDefaultRouteGateway,omitempty"`
 
 	// ProfileId
 	// profileId
+	// Constraints:
+	//    - nullable
 	ProfileId *string `json:"profileId,omitempty"`
 
 	// ProfileName
 	// profileName
+	// Constraints:
+	//    - nullable
 	ProfileName *string `json:"profileName,omitempty"`
 
 	// SecondaryNatDefaultRouteGateway
 	// secondaryNatDefaultRouteGateway
+	// Constraints:
+	//    - nullable
 	SecondaryNatDefaultRouteGateway *string `json:"secondaryNatDefaultRouteGateway,omitempty"`
 }
 
@@ -394,12 +587,24 @@ func NewWSGDPProfileDpNatProfileBasicBO() *WSGDPProfileDpNatProfileBasicBO {
 }
 
 type WSGDPProfileDpNatProfileBasicBOList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpNatProfileBasicBO `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDPProfileDpNatProfileBasicBO `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -411,42 +616,62 @@ func NewWSGDPProfileDpNatProfileBasicBOList() *WSGDPProfileDpNatProfileBasicBOLi
 type WSGDPProfileDpNatProfilePoolBO struct {
 	// Description
 	// description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// NatPortRange
 	// natPortRange
+	// Constraints:
+	//    - nullable
 	NatPortRange *string `json:"natPortRange,omitempty"`
 
 	// PoolId
 	// poolId
+	// Constraints:
+	//    - nullable
 	PoolId *string `json:"poolId,omitempty"`
 
 	// PoolName
 	// poolName
+	// Constraints:
+	//    - nullable
 	PoolName *string `json:"poolName,omitempty"`
 
 	// PrivateQinqVlanRange
 	// privateQinqVlanRange
-	PrivateQinqVlanRange []*WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO `json:"privateQinqVlanRange,omitempty"`
+	// Constraints:
+	//    - nullable
+	PrivateQinqVlanRange []*WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO `json:"privateQinqVlanRange,omitempty" validate:"omitempty,dive"`
 
 	// PrivateVlanRange
 	// privateVlanRange
-	PrivateVlanRange []string `json:"privateVlanRange,omitempty"`
+	// Constraints:
+	//    - nullable
+	PrivateVlanRange []string `json:"privateVlanRange,omitempty" validate:"omitempty,dive"`
 
 	// ProfileId
 	// profileId
+	// Constraints:
+	//    - nullable
 	ProfileId *string `json:"profileId,omitempty"`
 
 	// PublicAddressRange
 	// publicAddressRange
-	PublicAddressRange []string `json:"publicAddressRange,omitempty"`
+	// Constraints:
+	//    - nullable
+	PublicAddressRange []string `json:"publicAddressRange,omitempty" validate:"omitempty,dive"`
 
 	// PublicPrefix
 	// publicPrefix
+	// Constraints:
+	//    - nullable
 	PublicPrefix *int `json:"publicPrefix,omitempty"`
 
 	// PublicVlan
 	// publicVlan
+	// Constraints:
+	//    - nullable
 	PublicVlan *int `json:"publicVlan,omitempty"`
 }
 
@@ -456,12 +681,24 @@ func NewWSGDPProfileDpNatProfilePoolBO() *WSGDPProfileDpNatProfilePoolBO {
 }
 
 type WSGDPProfileDpNatProfilePoolBOList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileDpNatProfilePoolBO `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDPProfileDpNatProfilePoolBO `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -473,10 +710,14 @@ func NewWSGDPProfileDpNatProfilePoolBOList() *WSGDPProfileDpNatProfilePoolBOList
 type WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO struct {
 	// Cvlan
 	// cvlan
+	// Constraints:
+	//    - nullable
 	Cvlan *string `json:"cvlan,omitempty"`
 
 	// Svlan
 	// svlan
+	// Constraints:
+	//    - nullable
 	Svlan *string `json:"svlan,omitempty"`
 }
 
@@ -488,10 +729,14 @@ func NewWSGDPProfileDpNatProfilePrivateQinqVlanRangeBO() *WSGDPProfileDpNatProfi
 type WSGDPProfileDpNatProfilePublicSubnetIdBO struct {
 	// Ip
 	// ip
+	// Constraints:
+	//    - nullable
 	Ip *string `json:"ip,omitempty"`
 
 	// PrefixLength
 	// prefixLength
+	// Constraints:
+	//    - nullable
 	PrefixLength *int `json:"prefixLength,omitempty"`
 }
 
@@ -503,34 +748,50 @@ func NewWSGDPProfileDpNatProfilePublicSubnetIdBO() *WSGDPProfileDpNatProfilePubl
 type WSGDPProfileSettingBO struct {
 	// Description
 	// description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// DhcpProfileId
 	// dhcpProfileId
+	// Constraints:
+	//    - nullable
 	DhcpProfileId *string `json:"dhcpProfileId,omitempty"`
 
 	// DhcpProfileName
 	// dhcpProfileName
+	// Constraints:
+	//    - nullable
 	DhcpProfileName *string `json:"dhcpProfileName,omitempty"`
 
 	// DpKey
 	// dpKey
+	// Constraints:
+	//    - nullable
 	DpKey *string `json:"dpKey,omitempty"`
 
 	// DpName
 	// dpName
+	// Constraints:
+	//    - nullable
 	DpName *string `json:"dpName,omitempty"`
 
 	// DpVersion
 	// dpVersion
+	// Constraints:
+	//    - nullable
 	DpVersion *string `json:"dpVersion,omitempty"`
 
 	// NatProfileId
 	// natProfileId
+	// Constraints:
+	//    - nullable
 	NatProfileId *string `json:"natProfileId,omitempty"`
 
 	// NatProfileName
 	// natProfileName
+	// Constraints:
+	//    - nullable
 	NatProfileName *string `json:"natProfileName,omitempty"`
 }
 
@@ -540,12 +801,24 @@ func NewWSGDPProfileSettingBO() *WSGDPProfileSettingBO {
 }
 
 type WSGDPProfileSettingBOList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPProfileSettingBO `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGDPProfileSettingBO `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

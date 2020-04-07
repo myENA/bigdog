@@ -9,41 +9,54 @@ import (
 type SwitchMEventConfig struct {
 	// Criteria
 	// Threshold of each Switch custom event config
+	// Constraints:
+	//    - nullable
 	Criteria *int `json:"criteria,omitempty"`
 
 	// Description
 	// Description of each Switch custom event config
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// Id
 	// Identifier of event config
+	// Constraints:
+	//    - nullable
 	Id *int `json:"id,omitempty"`
 
 	// Name
 	// Name of each Switch custom event config
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Severity
 	// Severity of each Switch custom event config
 	// Constraints:
+	//    - nullable
 	//    - oneof:[Warning,Major,Critical]
-	Severity *string `json:"severity,omitempty" validate:"oneof=Warning Major Critical"`
+	Severity *string `json:"severity,omitempty" validate:"omitempty,oneof=Warning Major Critical"`
 
 	// TextPattern
 	// User defined text pattern of each Switch custom event config
+	// Constraints:
+	//    - nullable
 	TextPattern *string `json:"textPattern,omitempty"`
 
 	// TimeWindow
 	// Detection time woindow of each Switch custom event config
 	// Constraints:
+	//    - nullable
 	//    - oneof:[60,120,240,480,720,1440,2880]
-	TimeWindow *int `json:"timeWindow,omitempty" validate:"oneof=60 120 240 480 720 1440 2880"`
+	TimeWindow *int `json:"timeWindow,omitempty" validate:"omitempty,oneof=60 120 240 480 720 1440 2880"`
 
 	// Type
 	// Type of each Switch custom event config
 	// Constraints:
+	//    - nullable
 	//    - oneof:[CPU,Memory,TextPattern]
-	Type *string `json:"type,omitempty" validate:"oneof=CPU Memory TextPattern"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=CPU Memory TextPattern"`
 }
 
 func NewSwitchMEventConfig() *SwitchMEventConfig {
@@ -54,24 +67,37 @@ func NewSwitchMEventConfig() *SwitchMEventConfig {
 type SwitchMEventConfigGetEventConfigList struct {
 	// Extra
 	// Extra information of responsed Switch custom event config list
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMEventConfigGetEventConfigListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// First index of responsed Switch custom event config list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more Switch event config
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMEventConfig `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMEventConfig `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// List of responsed Switch custom event config
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Count of  responsed Switch custom event config
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -83,6 +109,8 @@ func NewSwitchMEventConfigGetEventConfigList() *SwitchMEventConfigGetEventConfig
 // SwitchMEventConfigGetEventConfigListExtraType
 //
 // Extra information of responsed Switch custom event config list
+// Constraints:
+//    - nullable
 type SwitchMEventConfigGetEventConfigListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -111,22 +139,32 @@ func NewSwitchMEventConfigGetEventConfigListExtraType() *SwitchMEventConfigGetEv
 type SwitchMEventConfigQueryResponse struct {
 	// Data
 	// Response data message of Public API
+	// Constraints:
+	//    - nullable
 	Data *SwitchMEventConfigQueryResponseDataType `json:"data,omitempty"`
 
 	// Error
 	// Response error message of Public API
+	// Constraints:
+	//    - nullable
 	Error *SwitchMEventConfigQueryResponseErrorType `json:"error,omitempty"`
 
 	// Extra
 	// Extra information of Public API response
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMEventConfigQueryResponseExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Meta-data of Public API response
+	// Constraints:
+	//    - nullable
 	MetaData *SwitchMEventConfigQueryResponseMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Response success message of Public API
+	// Constraints:
+	//    - nullable
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -138,6 +176,8 @@ func NewSwitchMEventConfigQueryResponse() *SwitchMEventConfigQueryResponse {
 // SwitchMEventConfigQueryResponseDataType
 //
 // Response data message of Public API
+// Constraints:
+//    - nullable
 type SwitchMEventConfigQueryResponseDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -166,6 +206,8 @@ func NewSwitchMEventConfigQueryResponseDataType() *SwitchMEventConfigQueryRespon
 // SwitchMEventConfigQueryResponseErrorType
 //
 // Response error message of Public API
+// Constraints:
+//    - nullable
 type SwitchMEventConfigQueryResponseErrorType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -194,6 +236,8 @@ func NewSwitchMEventConfigQueryResponseErrorType() *SwitchMEventConfigQueryRespo
 // SwitchMEventConfigQueryResponseExtraType
 //
 // Extra information of Public API response
+// Constraints:
+//    - nullable
 type SwitchMEventConfigQueryResponseExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -222,6 +266,8 @@ func NewSwitchMEventConfigQueryResponseExtraType() *SwitchMEventConfigQueryRespo
 // SwitchMEventConfigQueryResponseMetaDataType
 //
 // Meta-data of Public API response
+// Constraints:
+//    - nullable
 type SwitchMEventConfigQueryResponseMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

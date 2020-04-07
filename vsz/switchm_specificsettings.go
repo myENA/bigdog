@@ -25,14 +25,20 @@ func (ss *SwitchMService) SwitchMSpecificSettingsService() *SwitchMSpecificSetti
 type SwitchMSpecificSettingsDHCPOption struct {
 	// Seq
 	// Seq of Option
+	// Constraints:
+	//    - nullable
 	Seq *int `json:"seq,omitempty"`
 
 	// Type
 	// Type of Option
+	// Constraints:
+	//    - nullable
 	Type *string `json:"type,omitempty"`
 
 	// Value
 	// Value of Option
+	// Constraints:
+	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -44,36 +50,55 @@ func NewSwitchMSpecificSettingsDHCPOption() *SwitchMSpecificSettingsDHCPOption {
 type SwitchMSpecificSettingsDHCPServer struct {
 	// DefaultRouterIp
 	// Default Router Ip
+	// Constraints:
+	//    - nullable
 	DefaultRouterIp *string `json:"defaultRouterIp,omitempty"`
 
-	DhcpOptions []*SwitchMSpecificSettingsDHCPOption `json:"dhcpOptions,omitempty"`
+	// DhcpOptions
+	// Constraints:
+	//    - nullable
+	DhcpOptions []*SwitchMSpecificSettingsDHCPOption `json:"dhcpOptions,omitempty" validate:"omitempty,dive"`
 
 	// ExcludedEnd
 	// Excluded range end
+	// Constraints:
+	//    - nullable
 	ExcludedEnd *string `json:"excludedEnd,omitempty"`
 
 	// ExcludedStart
 	// Excluded range start
+	// Constraints:
+	//    - nullable
 	ExcludedStart *string `json:"excludedStart,omitempty"`
 
 	// LeaseDays
 	// Lease Days
+	// Constraints:
+	//    - nullable
 	LeaseDays *int `json:"leaseDays,omitempty"`
 
 	// LeaseHrs
 	// Lease Hours
+	// Constraints:
+	//    - nullable
 	LeaseHrs *int `json:"leaseHrs,omitempty"`
 
 	// LeaseMins
 	// Lease Mins
+	// Constraints:
+	//    - nullable
 	LeaseMins *int `json:"leaseMins,omitempty"`
 
 	// Network
 	// Network/Mask
+	// Constraints:
+	//    - nullable
 	Network *string `json:"network,omitempty"`
 
 	// PoolName
 	// Pool Name
+	// Constraints:
+	//    - nullable
 	PoolName *string `json:"poolName,omitempty"`
 }
 
@@ -85,10 +110,14 @@ func NewSwitchMSpecificSettingsDHCPServer() *SwitchMSpecificSettingsDHCPServer {
 type SwitchMSpecificSettingsIdList struct {
 	// Hostname
 	// Hostname
+	// Constraints:
+	//    - nullable
 	Hostname *string `json:"hostname,omitempty"`
 
 	// Id
 	// Id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 }
 
@@ -100,32 +129,49 @@ func NewSwitchMSpecificSettingsIdList() *SwitchMSpecificSettingsIdList {
 type SwitchMSpecificSettings struct {
 	// CreatedTime
 	// The create time of the Specific Settings
+	// Constraints:
+	//    - nullable
 	CreatedTime *int `json:"createdTime,omitempty"`
 
 	// DhcpServerEnabled
 	// DHCP server enabled
+	// Constraints:
+	//    - nullable
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers,omitempty"`
+	// DhcpServers
+	// Constraints:
+	//    - nullable
+	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers,omitempty" validate:"omitempty,dive"`
 
 	// Hostname
 	// Hostname
+	// Constraints:
+	//    - nullable
 	Hostname *string `json:"hostname,omitempty"`
 
 	// Id
 	// Id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// IgmpSnooping
 	// IGMP snopping
+	// Constraints:
+	//    - nullable
 	IgmpSnooping *string `json:"igmpSnooping,omitempty"`
 
 	// JumboMode
 	// JumboMode
+	// Constraints:
+	//    - nullable
 	JumboMode *bool `json:"jumboMode,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the Specific Settings
+	// Constraints:
+	//    - nullable
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
@@ -137,24 +183,37 @@ func NewSwitchMSpecificSettings() *SwitchMSpecificSettings {
 type SwitchMSpecificSettingsAllResult struct {
 	// Extra
 	// Any additional response data
+	// Constraints:
+	//    - nullable
 	Extra *SwitchMSpecificSettingsAllResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Specific Settings returned out of the complete Specific Settings list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more Specific Settings after the current displayed list
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSpecificSettingsIdList `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*SwitchMSpecificSettingsIdList `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// RawDataTotalCount
 	// Total Specific Settings count
+	// Constraints:
+	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total Specific Settings count in this response
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -166,6 +225,8 @@ func NewSwitchMSpecificSettingsAllResult() *SwitchMSpecificSettingsAllResult {
 // SwitchMSpecificSettingsAllResultExtraType
 //
 // Any additional response data
+// Constraints:
+//    - nullable
 type SwitchMSpecificSettingsAllResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -194,20 +255,31 @@ func NewSwitchMSpecificSettingsAllResultExtraType() *SwitchMSpecificSettingsAllR
 type SwitchMSpecificSettingsUpdateSpecificSettings struct {
 	// DhcpServerEnabled
 	// DHCP server enabled
+	// Constraints:
+	//    - nullable
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers,omitempty"`
+	// DhcpServers
+	// Constraints:
+	//    - nullable
+	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers,omitempty" validate:"omitempty,dive"`
 
 	// Hostname
 	// Hostname
+	// Constraints:
+	//    - nullable
 	Hostname *string `json:"hostname,omitempty"`
 
 	// IgmpSnooping
 	// IGMP snopping
+	// Constraints:
+	//    - nullable
 	IgmpSnooping *string `json:"igmpSnooping,omitempty"`
 
 	// JumboMode
 	// JumboMode
+	// Constraints:
+	//    - nullable
 	JumboMode *bool `json:"jumboMode,omitempty"`
 }
 

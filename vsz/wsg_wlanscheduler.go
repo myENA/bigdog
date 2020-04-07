@@ -22,40 +22,57 @@ func (ss *WSGService) WSGWLANSchedulerService() *WSGWLANSchedulerService {
 }
 
 type WSGWLANSchedulerCreateWlanScheduler struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
-	Fri []string `json:"fri,omitempty"`
+	// Constraints:
+	//    - nullable
+	Fri []string `json:"fri,omitempty" validate:"omitempty,dive"`
 
 	// Mon
 	// Schedules on Monday
-	Mon []string `json:"mon,omitempty"`
+	// Constraints:
+	//    - nullable
+	Mon []string `json:"mon,omitempty" validate:"omitempty,dive"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+	Name *WSGCommonNormalName `json:"name" validate:"required"`
 
 	// Sat
 	// Schedules on Saturday
-	Sat []string `json:"sat,omitempty"`
+	// Constraints:
+	//    - nullable
+	Sat []string `json:"sat,omitempty" validate:"omitempty,dive"`
 
 	// Sun
 	// Schedules on Sunday
-	Sun []string `json:"sun,omitempty"`
+	// Constraints:
+	//    - nullable
+	Sun []string `json:"sun,omitempty" validate:"omitempty,dive"`
 
 	// Thu
 	// Schedules on Thursday
-	Thu []string `json:"thu,omitempty"`
+	// Constraints:
+	//    - nullable
+	Thu []string `json:"thu,omitempty" validate:"omitempty,dive"`
 
 	// Tue
 	// Schedules on Tuesday
-	Tue []string `json:"tue,omitempty"`
+	// Constraints:
+	//    - nullable
+	Tue []string `json:"tue,omitempty" validate:"omitempty,dive"`
 
 	// Wed
 	// Schedules on Wednesday
-	Wed []string `json:"wed,omitempty"`
+	// Constraints:
+	//    - nullable
+	Wed []string `json:"wed,omitempty" validate:"omitempty,dive"`
 }
 
 func NewWSGWLANSchedulerCreateWlanScheduler() *WSGWLANSchedulerCreateWlanScheduler {
@@ -64,37 +81,57 @@ func NewWSGWLANSchedulerCreateWlanScheduler() *WSGWLANSchedulerCreateWlanSchedul
 }
 
 type WSGWLANSchedulerModifyWlanScheduler struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
-	Fri []string `json:"fri,omitempty"`
+	// Constraints:
+	//    - nullable
+	Fri []string `json:"fri,omitempty" validate:"omitempty,dive"`
 
 	// Mon
 	// Schedules on Monday
-	Mon []string `json:"mon,omitempty"`
+	// Constraints:
+	//    - nullable
+	Mon []string `json:"mon,omitempty" validate:"omitempty,dive"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Sat
 	// Schedules on Saturday
-	Sat []string `json:"sat,omitempty"`
+	// Constraints:
+	//    - nullable
+	Sat []string `json:"sat,omitempty" validate:"omitempty,dive"`
 
 	// Sun
 	// Schedules on Sunday
-	Sun []string `json:"sun,omitempty"`
+	// Constraints:
+	//    - nullable
+	Sun []string `json:"sun,omitempty" validate:"omitempty,dive"`
 
 	// Thu
 	// Schedules on Thursday
-	Thu []string `json:"thu,omitempty"`
+	// Constraints:
+	//    - nullable
+	Thu []string `json:"thu,omitempty" validate:"omitempty,dive"`
 
 	// Tue
 	// Schedules on Tuesday
-	Tue []string `json:"tue,omitempty"`
+	// Constraints:
+	//    - nullable
+	Tue []string `json:"tue,omitempty" validate:"omitempty,dive"`
 
 	// Wed
 	// schedules on Wednesday
-	Wed []string `json:"wed,omitempty"`
+	// Constraints:
+	//    - nullable
+	Wed []string `json:"wed,omitempty" validate:"omitempty,dive"`
 }
 
 func NewWSGWLANSchedulerModifyWlanScheduler() *WSGWLANSchedulerModifyWlanScheduler {
@@ -103,44 +140,68 @@ func NewWSGWLANSchedulerModifyWlanScheduler() *WSGWLANSchedulerModifyWlanSchedul
 }
 
 type WSGWLANSchedulerWlanSchedule struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
-	Fri []string `json:"fri,omitempty"`
+	// Constraints:
+	//    - nullable
+	Fri []string `json:"fri,omitempty" validate:"omitempty,dive"`
 
 	// Id
 	// Identifier of the WLAN schedule
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Mon
 	// Schedules on Monday
-	Mon []string `json:"mon,omitempty"`
+	// Constraints:
+	//    - nullable
+	Mon []string `json:"mon,omitempty" validate:"omitempty,dive"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Sat
 	// Schedules on Saturday
-	Sat []string `json:"sat,omitempty"`
+	// Constraints:
+	//    - nullable
+	Sat []string `json:"sat,omitempty" validate:"omitempty,dive"`
 
 	// Sun
 	// Schedules on Sunday
-	Sun []string `json:"sun,omitempty"`
+	// Constraints:
+	//    - nullable
+	Sun []string `json:"sun,omitempty" validate:"omitempty,dive"`
 
 	// Thu
 	// Schedules on Thursday
-	Thu []string `json:"thu,omitempty"`
+	// Constraints:
+	//    - nullable
+	Thu []string `json:"thu,omitempty" validate:"omitempty,dive"`
 
 	// Tue
 	// Schedules on Tuesday
-	Tue []string `json:"tue,omitempty"`
+	// Constraints:
+	//    - nullable
+	Tue []string `json:"tue,omitempty" validate:"omitempty,dive"`
 
 	// Wed
 	// Schedules on Wednesday
-	Wed []string `json:"wed,omitempty"`
+	// Constraints:
+	//    - nullable
+	Wed []string `json:"wed,omitempty" validate:"omitempty,dive"`
 
 	// ZoneId
 	// Identifier of the zone to which the WLAN schedule belongs
+	// Constraints:
+	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -150,12 +211,24 @@ func NewWSGWLANSchedulerWlanSchedule() *WSGWLANSchedulerWlanSchedule {
 }
 
 type WSGWLANSchedulerWlanScheduleList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWLANSchedulerWlanSchedule `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGWLANSchedulerWlanSchedule `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

@@ -29,6 +29,9 @@ func MakeWSGVendorSpecificAttributeProfileCreateResult() WSGVendorSpecificAttrib
 }
 
 type WSGVendorSpecificAttributeProfileDeleteBulk struct {
+	// IdList
+	// Constraints:
+	//    - nullable
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
@@ -40,22 +43,36 @@ func NewWSGVendorSpecificAttributeProfileDeleteBulk() *WSGVendorSpecificAttribut
 type WSGVendorSpecificAttributeProfileGet struct {
 	// Attributes
 	// Vendor specific attribute list for Radius protocol
-	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes,omitempty"`
+	// Constraints:
+	//    - nullable
+	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes,omitempty" validate:"omitempty,dive"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Id
 	// Identifier of the vendor specific attribute profile
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// ZoneId
 	// Zone Id
+	// Constraints:
+	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -67,18 +84,26 @@ func NewWSGVendorSpecificAttributeProfileGet() *WSGVendorSpecificAttributeProfil
 type WSGVendorSpecificAttributeProfileList struct {
 	// FirstIndex
 	// Index of the first profile returned out of the profile list
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates whether there are more profiles after the list that is currently displayed
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
 	// List
 	// Information list of the vendor specific attribute profile
-	List []*WSGVendorSpecificAttributeProfileListType `json:"list,omitempty"`
+	// Constraints:
+	//    - nullable
+	List []*WSGVendorSpecificAttributeProfileListType `json:"list,omitempty" validate:"omitempty,dive"`
 
 	// TotalCount
 	// Total number of the profiles
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -90,8 +115,13 @@ func NewWSGVendorSpecificAttributeProfileList() *WSGVendorSpecificAttributeProfi
 type WSGVendorSpecificAttributeProfileListType struct {
 	// Id
 	// Identifier of the vendor specific attribute profile
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
@@ -107,12 +137,15 @@ type WSGVendorSpecificAttributeProfilePersist struct {
 	//    - required
 	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes" validate:"required,dive"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+	Name *WSGCommonNormalName `json:"name" validate:"required"`
 }
 
 func NewWSGVendorSpecificAttributeProfilePersist() *WSGVendorSpecificAttributeProfilePersist {
@@ -121,14 +154,29 @@ func NewWSGVendorSpecificAttributeProfilePersist() *WSGVendorSpecificAttributePr
 }
 
 type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
+	// Extra
+	// Constraints:
+	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGVendorSpecificAttributeProfileGet `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGVendorSpecificAttributeProfileGet `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

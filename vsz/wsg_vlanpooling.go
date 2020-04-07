@@ -30,16 +30,21 @@ type WSGVLANPoolingCreateVlanPooling struct {
 	//    - oneof:[MAC_HASH]
 	Algo *string `json:"algo" validate:"required,oneof=MAC_HASH"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// identifier of the domain
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+	Name *WSGCommonNormalName `json:"name" validate:"required"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
@@ -54,6 +59,9 @@ func NewWSGVLANPoolingCreateVlanPooling() *WSGVLANPoolingCreateVlanPooling {
 }
 
 type WSGVLANPoolingDeleteBulkVlanPooling struct {
+	// IdList
+	// Constraints:
+	//    - nullable
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
@@ -66,19 +74,30 @@ type WSGVLANPoolingModifyVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
 	// Constraints:
+	//    - nullable
 	//    - oneof:[MAC_HASH]
-	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// identifier of the domain
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
+	// Constraints:
+	//    - nullable
 	Pool *string `json:"pool,omitempty"`
 }
 
@@ -91,23 +110,36 @@ type WSGVLANPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
 	// Constraints:
+	//    - nullable
 	//    - oneof:[MAC_HASH]
-	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the domain which the VLAN pooling profile belongs to
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Id
 	// Identifier of the VLAN pooling profile
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
+	// Constraints:
+	//    - nullable
 	Pool *string `json:"pool,omitempty"`
 }
 
@@ -117,14 +149,29 @@ func NewWSGVLANPooling() *WSGVLANPooling {
 }
 
 type WSGVLANPoolingList struct {
+	// Extra
+	// Constraints:
+	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGVLANPoolingListType `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGVLANPoolingListType `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -137,26 +184,38 @@ type WSGVLANPoolingListType struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
 	// Constraints:
+	//    - nullable
 	//    - default:'MAC_HASH'
 	//    - oneof:[MAC_HASH]
-	Algo *string `json:"algo,omitempty" validate:"oneof=MAC_HASH"`
+	Algo *string `json:"algo,omitempty" validate:"omitempty,oneof=MAC_HASH"`
 
 	// Description
 	// Description of the service
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// DomainId
 	// identifier of the domain
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Id
 	// Identifier of the service
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
+	// Constraints:
+	//    - nullable
 	Pool *string `json:"pool,omitempty"`
 }
 

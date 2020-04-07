@@ -32,16 +32,20 @@ type WSGSCGUserCreateScgUser struct {
 
 	// DomainId
 	// Domain id
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Email
 	// User email
 	// Constraints:
 	//    - nullable
-	Email *string `json:"email,omitempty" validate:"omitempty"`
+	Email *string `json:"email,omitempty"`
 
 	// Id
 	// User id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LockoutDuration
@@ -64,7 +68,7 @@ type WSGSCGUserCreateScgUser struct {
 	// Enable the password should not be changed twice within the 24 hours.
 	// Constraints:
 	//    - nullable
-	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty" validate:"omitempty"`
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
 
 	// NewPassphrase
 	// User login passphrase
@@ -76,7 +80,7 @@ type WSGSCGUserCreateScgUser struct {
 	// Enable the password complexity, should apply the rules as: At least one upper-case character; At least one lower-case character; At least one numeric character:At least one special character; At least 8-chars within the old password should be changed.
 	// Constraints:
 	//    - nullable
-	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty" validate:"omitempty"`
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty"`
 
 	// PasswordExpiration
 	// A simple timer that forces the administrator to change their password regularly. (System default admin ONLY)
@@ -98,13 +102,13 @@ type WSGSCGUserCreateScgUser struct {
 	// User phone
 	// Constraints:
 	//    - nullable
-	Phone *string `json:"phone,omitempty" validate:"omitempty"`
+	Phone *string `json:"phone,omitempty"`
 
 	// RealName
 	// User real name
 	// Constraints:
 	//    - nullable
-	RealName *string `json:"realName,omitempty" validate:"omitempty"`
+	RealName *string `json:"realName,omitempty"`
 
 	// SessionIdle
 	// A period of idle used to invalid that session. (System default admin ONLY)
@@ -118,7 +122,7 @@ type WSGSCGUserCreateScgUser struct {
 	// User title
 	// Constraints:
 	//    - nullable
-	Title *string `json:"title,omitempty" validate:"omitempty"`
+	Title *string `json:"title,omitempty"`
 
 	// UserName
 	// User name
@@ -142,41 +146,53 @@ type WSGSCGUserGetScgUser struct {
 
 	// CreateDateTime
 	// Timestamp of being created
+	// Constraints:
+	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
+	// Constraints:
+	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
+	// Constraints:
+	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
 	// DomainId
 	// Domain id
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Email
 	// User email
 	// Constraints:
 	//    - nullable
-	Email *string `json:"email,omitempty" validate:"omitempty"`
+	Email *string `json:"email,omitempty"`
 
 	// Enabled
 	// User enabled or not
 	// Constraints:
+	//    - nullable
 	//    - oneof:[0,1]
-	Enabled *int `json:"enabled,omitempty" validate:"oneof=0 1"`
+	Enabled *int `json:"enabled,omitempty" validate:"omitempty,oneof=0 1"`
 
 	// Id
 	// User id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Locked
 	// User locked or not (0:unlocked/1:locked)
 	// Constraints:
+	//    - nullable
 	//    - oneof:[0,1,2,3]
-	Locked *int `json:"locked,omitempty" validate:"oneof=0 1 2 3"`
+	Locked *int `json:"locked,omitempty" validate:"omitempty,oneof=0 1 2 3"`
 
 	// LockoutDuration
 	// Constraints:
@@ -196,25 +212,31 @@ type WSGSCGUserGetScgUser struct {
 	// Enable the password should not be changed twice within the 24 hours.
 	// Constraints:
 	//    - nullable
-	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty" validate:"omitempty"`
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
+	// Constraints:
+	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
+	// Constraints:
+	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
+	// Constraints:
+	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// PasswordComplexityEnabled
 	// Enable the password complexity, should apply the rules as: At least one upper-case character; At least one lower-case character; At least one numeric character:At least one special character; At least 8-chars within the old password should be changed.
 	// Constraints:
 	//    - nullable
-	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty" validate:"omitempty"`
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty"`
 
 	// PasswordExpiration
 	// Constraints:
@@ -234,13 +256,13 @@ type WSGSCGUserGetScgUser struct {
 	// User phone
 	// Constraints:
 	//    - nullable
-	Phone *string `json:"phone,omitempty" validate:"omitempty"`
+	Phone *string `json:"phone,omitempty"`
 
 	// RealName
 	// User real name
 	// Constraints:
 	//    - nullable
-	RealName *string `json:"realName,omitempty" validate:"omitempty"`
+	RealName *string `json:"realName,omitempty"`
 
 	// SessionIdle
 	// Constraints:
@@ -251,16 +273,20 @@ type WSGSCGUserGetScgUser struct {
 
 	// TenantUUID
 	// Tenant id
+	// Constraints:
+	//    - nullable
 	TenantUUID *string `json:"tenantUUID,omitempty"`
 
 	// Title
 	// User title
 	// Constraints:
 	//    - nullable
-	Title *string `json:"title,omitempty" validate:"omitempty"`
+	Title *string `json:"title,omitempty"`
 
 	// UserName
 	// User name
+	// Constraints:
+	//    - nullable
 	UserName *string `json:"userName,omitempty"`
 }
 
@@ -279,13 +305,15 @@ type WSGSCGUserModifyScgUser struct {
 
 	// DomainId
 	// Domain id
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Email
 	// User email
 	// Constraints:
 	//    - nullable
-	Email *string `json:"email,omitempty" validate:"omitempty"`
+	Email *string `json:"email,omitempty"`
 
 	// Id
 	// User id
@@ -311,25 +339,25 @@ type WSGSCGUserModifyScgUser struct {
 	// Enable the password should not be changed twice within the 24 hours.
 	// Constraints:
 	//    - nullable
-	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty" validate:"omitempty"`
+	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
 
 	// NewPassphrase
 	// User new login passphrase
 	// Constraints:
 	//    - nullable
-	NewPassphrase *string `json:"newPassphrase,omitempty" validate:"omitempty"`
+	NewPassphrase *string `json:"newPassphrase,omitempty"`
 
 	// Passphrase
 	// User login passphrase
 	// Constraints:
 	//    - nullable
-	Passphrase *string `json:"passphrase,omitempty" validate:"omitempty"`
+	Passphrase *string `json:"passphrase,omitempty"`
 
 	// PasswordComplexityEnabled
 	// Enable the password complexity, should apply the rules as: At least one upper-case character; At least one lower-case character; At least one numeric character:At least one special character; At least 8-chars within the old password should be changed.
 	// Constraints:
 	//    - nullable
-	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty" validate:"omitempty"`
+	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty"`
 
 	// PasswordExpiration
 	// Constraints:
@@ -349,13 +377,13 @@ type WSGSCGUserModifyScgUser struct {
 	// User phone
 	// Constraints:
 	//    - nullable
-	Phone *string `json:"phone,omitempty" validate:"omitempty"`
+	Phone *string `json:"phone,omitempty"`
 
 	// RealName
 	// User real name
 	// Constraints:
 	//    - nullable
-	RealName *string `json:"realName,omitempty" validate:"omitempty"`
+	RealName *string `json:"realName,omitempty"`
 
 	// SessionIdle
 	// Constraints:
@@ -368,10 +396,12 @@ type WSGSCGUserModifyScgUser struct {
 	// User title
 	// Constraints:
 	//    - nullable
-	Title *string `json:"title,omitempty" validate:"omitempty"`
+	Title *string `json:"title,omitempty"`
 
 	// UserName
 	// User name
+	// Constraints:
+	//    - nullable
 	UserName *string `json:"userName,omitempty"`
 }
 
@@ -381,32 +411,59 @@ func NewWSGSCGUserModifyScgUser() *WSGSCGUserModifyScgUser {
 }
 
 type WSGSCGUserPatchScgUserGroup struct {
+	// AccountSecurityProfileId
+	// Constraints:
+	//    - nullable
 	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty"`
 
+	// CreateDateTime
+	// Constraints:
+	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
+	// CreatorId
+	// Constraints:
+	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
+	// CreatorUsername
+	// Constraints:
+	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
 	// Description
 	// Constraints:
 	//    - nullable
-	Description *string `json:"description,omitempty" validate:"omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// DomainId
 	// Constraints:
 	//    - nullable
-	DomainId *string `json:"domainId,omitempty" validate:"omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
+	// Id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// ModifiedDateTime
+	// Constraints:
+	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
+	// ModifierId
+	// Constraints:
+	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
+	// ModifierUsername
+	// Constraints:
+	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Permissions
@@ -422,12 +479,12 @@ type WSGSCGUserPatchScgUserGroup struct {
 	// Role
 	// Constraints:
 	//    - nullable
-	Role *string `json:"role,omitempty" validate:"omitempty"`
+	Role *string `json:"role,omitempty"`
 
 	// TenantId
 	// Constraints:
 	//    - nullable
-	TenantId *string `json:"tenantId,omitempty" validate:"omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
 	// Users
 	// Constraints:
@@ -443,54 +500,80 @@ func NewWSGSCGUserPatchScgUserGroup() *WSGSCGUserPatchScgUserGroup {
 type WSGSCGUserQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
-	Attributes []string `json:"attributes,omitempty"`
+	// Constraints:
+	//    - nullable
+	Attributes []string `json:"attributes,omitempty" validate:"omitempty,dive"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
+	// Constraints:
+	//    - nullable
 	Criteria *string `json:"criteria,omitempty"`
 
 	// ExpandDomains
 	// Whether to expand domains into sub domains/ zones or not
+	// Constraints:
+	//    - nullable
 	ExpandDomains *bool `json:"expandDomains,omitempty"`
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
+	// Constraints:
+	//    - nullable
+	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty" validate:"omitempty,dive"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+	// Constraints:
+	//    - nullable
+	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty" validate:"omitempty,dive"`
 
+	// ExtraTimeRange
+	// Constraints:
+	//    - nullable
 	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGSCGUserQueryCriteriaFiltersType `json:"filters,omitempty"`
+	// Constraints:
+	//    - nullable
+	Filters []*WSGSCGUserQueryCriteriaFiltersType `json:"filters,omitempty" validate:"omitempty,dive"`
 
+	// FullTextSearch
+	// Constraints:
+	//    - nullable
 	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
 	// Constraints:
+	//    - nullable
 	//    - min:1
-	Limit *int `json:"limit,omitempty" validate:"gte=1"`
+	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
 
 	// Options
 	// Specified feature required information
+	// Constraints:
+	//    - nullable
 	Options *WSGCommonQueryCriteriaOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
 	// Constraints:
+	//    - nullable
 	//    - min:1
-	Page *int `json:"page,omitempty" validate:"gte=1"`
+	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
 
 	// Query
 	// Add backward compatibility for UI framework
+	// Constraints:
+	//    - nullable
 	Query *string `json:"query,omitempty"`
 
 	// SortInfo
 	// About sorting
+	// Constraints:
+	//    - nullable
 	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
@@ -503,8 +586,9 @@ type WSGSCGUserQueryCriteriaFiltersType struct {
 	// Operator
 	// operator
 	// Constraints:
+	//    - nullable
 	//    - oneof:[eq]
-	Operator *string `json:"operator,omitempty" validate:"oneof=eq"`
+	Operator *string `json:"operator,omitempty" validate:"omitempty,oneof=eq"`
 
 	// Type
 	// Group type
@@ -528,6 +612,8 @@ func NewWSGSCGUserQueryCriteriaFiltersType() *WSGSCGUserQueryCriteriaFiltersType
 type WSGSCGUserAuditId struct {
 	// Id
 	// the identifier of the SCG user
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 }
 
@@ -542,48 +628,68 @@ type WSGSCGUserGroup struct {
 	//    - required
 	AccountSecurityProfileId *string `json:"accountSecurityProfileId" validate:"required"`
 
+	// AccountSecurityProfileName
+	// Constraints:
+	//    - nullable
 	AccountSecurityProfileName *string `json:"accountSecurityProfileName,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
+	// Constraints:
+	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
+	// Constraints:
+	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
+	// Constraints:
+	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
 	// Description
 	// User group description
 	// Constraints:
 	//    - nullable
-	Description *string `json:"description,omitempty" validate:"omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	// Constraints:
 	//    - nullable
-	DomainId *string `json:"domainId,omitempty" validate:"omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	// Id
 	// User group Id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// IsFactoryDefault
+	// Constraints:
+	//    - nullable
 	IsFactoryDefault *bool `json:"isFactoryDefault,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
+	// Constraints:
+	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
+	// Constraints:
+	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
+	// Constraints:
+	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// Name
@@ -614,7 +720,7 @@ type WSGSCGUserGroup struct {
 	// Tenant Id
 	// Constraints:
 	//    - nullable
-	TenantId *string `json:"tenantId,omitempty" validate:"omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 
 	// Users
 	// Users in this user group
@@ -631,6 +737,8 @@ func NewWSGSCGUserGroup() *WSGSCGUserGroup {
 type WSGSCGUserGroupAuditId struct {
 	// Id
 	// the identifier of the SCG user group
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 }
 
@@ -640,14 +748,29 @@ func NewWSGSCGUserGroupAuditId() *WSGSCGUserGroupAuditId {
 }
 
 type WSGSCGUserGroupList struct {
+	// Extra
+	// Constraints:
+	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCGUserGroup `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGSCGUserGroup `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -660,11 +783,14 @@ type WSGSCGUserGroupPermission struct {
 	// Access
 	// Access level
 	// Constraints:
+	//    - nullable
 	//    - oneof:[READ,MODIFY,FULL_ACCESS]
-	Access *string `json:"access,omitempty" validate:"oneof=READ MODIFY FULL_ACCESS"`
+	Access *string `json:"access,omitempty" validate:"omitempty,oneof=READ MODIFY FULL_ACCESS"`
 
 	// Display
 	// Resource display name
+	// Constraints:
+	//    - nullable
 	Display *string `json:"display,omitempty"`
 
 	// Ids
@@ -687,6 +813,8 @@ type WSGSCGUserGroupPermission struct {
 
 	// Resource
 	// Resource type
+	// Constraints:
+	//    - nullable
 	Resource *string `json:"resource,omitempty"`
 }
 
@@ -698,11 +826,18 @@ func NewWSGSCGUserGroupPermission() *WSGSCGUserGroupPermission {
 type WSGSCGUserGroupPermissionItemsType struct {
 	// Access
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NA,READ,MODIFY,FULL_ACCESS]
-	Access *string `json:"access,omitempty" validate:"oneof=NA READ MODIFY FULL_ACCESS"`
+	Access *string `json:"access,omitempty" validate:"omitempty,oneof=NA READ MODIFY FULL_ACCESS"`
 
+	// Display
+	// Constraints:
+	//    - nullable
 	Display *string `json:"display,omitempty"`
 
+	// Resource
+	// Constraints:
+	//    - nullable
 	Resource *string `json:"resource,omitempty"`
 }
 
@@ -714,14 +849,28 @@ func NewWSGSCGUserGroupPermissionItemsType() *WSGSCGUserGroupPermissionItemsType
 type WSGSCGUserGroupPermissionList struct {
 	// Extra
 	// Any additional response data.
+	// Constraints:
+	//    - nullable
 	Extra *WSGSCGUserGroupPermissionListExtraType `json:"extra,omitempty"`
 
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCGUserGroupPermission `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGSCGUserGroupPermission `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -733,13 +882,19 @@ func NewWSGSCGUserGroupPermissionList() *WSGSCGUserGroupPermissionList {
 // WSGSCGUserGroupPermissionListExtraType
 //
 // Any additional response data.
+// Constraints:
+//    - nullable
 type WSGSCGUserGroupPermissionListExtraType struct {
 	// IsSuperAdmin
 	// whether or not current user is a 'Super Admin' that possesses all 6 permission categories with 'FULL_ACCESS'
+	// Constraints:
+	//    - nullable
 	IsSuperAdmin *bool `json:"isSuperAdmin,omitempty"`
 
 	// IsSuperAdminOfDomain
 	// whether or not current user is a 'Super Admin of Partner Domain' that possesses all 6 permission categories with 'FULL_ACCESS'
+	// Constraints:
+	//    - nullable
 	IsSuperAdminOfDomain *bool `json:"isSuperAdminOfDomain,omitempty"`
 }
 
@@ -752,11 +907,14 @@ type WSGSCGUserGroupPermissionWithoutDetailItems struct {
 	// Access
 	// Access level
 	// Constraints:
+	//    - nullable
 	//    - oneof:[READ,MODIFY,FULL_ACCESS]
-	Access *string `json:"access,omitempty" validate:"oneof=READ MODIFY FULL_ACCESS"`
+	Access *string `json:"access,omitempty" validate:"omitempty,oneof=READ MODIFY FULL_ACCESS"`
 
 	// Display
 	// Resource display name
+	// Constraints:
+	//    - nullable
 	Display *string `json:"display,omitempty"`
 
 	// Ids
@@ -767,6 +925,8 @@ type WSGSCGUserGroupPermissionWithoutDetailItems struct {
 
 	// Resource
 	// Resource type
+	// Constraints:
+	//    - nullable
 	Resource *string `json:"resource,omitempty"`
 }
 
@@ -778,17 +938,22 @@ func NewWSGSCGUserGroupPermissionWithoutDetailItems() *WSGSCGUserGroupPermission
 type WSGSCGUserGroupResourceGroup struct {
 	// Id
 	// the identifier of the SCG resource group
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// the name of the SCG resource group
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Type
 	// the type of SCG resource group
 	// Constraints:
+	//    - nullable
 	//    - oneof:[DOMAIN,ZONE,APGROUP]
-	Type *string `json:"type,omitempty" validate:"oneof=DOMAIN ZONE APGROUP"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=DOMAIN ZONE APGROUP"`
 }
 
 func NewWSGSCGUserGroupResourceGroup() *WSGSCGUserGroupResourceGroup {
@@ -799,10 +964,14 @@ func NewWSGSCGUserGroupResourceGroup() *WSGSCGUserGroupResourceGroup {
 type WSGSCGUserGroupRoleLabelValue struct {
 	// Label
 	// Role display name
+	// Constraints:
+	//    - nullable
 	Label *string `json:"label,omitempty"`
 
 	// Value
 	// Role value
+	// Constraints:
+	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -812,12 +981,24 @@ func NewWSGSCGUserGroupRoleLabelValue() *WSGSCGUserGroupRoleLabelValue {
 }
 
 type WSGSCGUserGroupRoleLabelValueList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCGUserGroupRoleLabelValue `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGSCGUserGroupRoleLabelValue `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -827,14 +1008,29 @@ func NewWSGSCGUserGroupRoleLabelValueList() *WSGSCGUserGroupRoleLabelValueList {
 }
 
 type WSGSCGUserList struct {
+	// Extra
+	// Constraints:
+	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCGUserGetScgUser `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGSCGUserGetScgUser `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

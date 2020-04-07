@@ -3,12 +3,15 @@ package vsz
 // API Version: v9_0
 
 type WSGSplitTunnelCreateSplitTunnelProfile struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+	Name *WSGCommonNormalName `json:"name" validate:"required"`
 
 	// Rules
 	// Destination rule of split tunnel profile
@@ -23,13 +26,21 @@ func NewWSGSplitTunnelCreateSplitTunnelProfile() *WSGSplitTunnelCreateSplitTunne
 }
 
 type WSGSplitTunnelModifySplitTunnelProfile struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []*WSGSplitTunnelIpMaskRule `json:"rules,omitempty"`
+	// Constraints:
+	//    - nullable
+	Rules []*WSGSplitTunnelIpMaskRule `json:"rules,omitempty" validate:"omitempty,dive"`
 }
 
 func NewWSGSplitTunnelModifySplitTunnelProfile() *WSGSplitTunnelModifySplitTunnelProfile {
@@ -57,20 +68,40 @@ func NewWSGSplitTunnelIpMaskRule() *WSGSplitTunnelIpMaskRule {
 }
 
 type WSGSplitTunnelProfile struct {
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DomainId
+	// Constraints:
+	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
+	// Id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []*WSGSplitTunnelIpMaskRule `json:"rules,omitempty"`
+	// Constraints:
+	//    - nullable
+	Rules []*WSGSplitTunnelIpMaskRule `json:"rules,omitempty" validate:"omitempty,dive"`
 
+	// TenantId
+	// Constraints:
+	//    - nullable
 	TenantId *string `json:"tenantId,omitempty"`
 
+	// ZoneId
+	// Constraints:
+	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -80,12 +111,24 @@ func NewWSGSplitTunnelProfile() *WSGSplitTunnelProfile {
 }
 
 type WSGSplitTunnelProfileList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSplitTunnelProfileListType `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGSplitTunnelProfileListType `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -95,8 +138,14 @@ func NewWSGSplitTunnelProfileList() *WSGSplitTunnelProfileList {
 }
 
 type WSGSplitTunnelProfileListType struct {
+	// Id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
@@ -106,14 +155,29 @@ func NewWSGSplitTunnelProfileListType() *WSGSplitTunnelProfileListType {
 }
 
 type WSGSplitTunnelProfileQuery struct {
+	// Extra
+	// Constraints:
+	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSplitTunnelProfile `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGSplitTunnelProfile `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

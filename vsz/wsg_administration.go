@@ -38,7 +38,7 @@ type WSGAdministrationActiveDirectoryServer struct {
 	// Realm
 	// Constraints:
 	//    - required
-	Realm *WSGCommonRealm `json:"realm" validate:"required,max=255"`
+	Realm *WSGCommonRealm `json:"realm" validate:"required"`
 
 	// WindowsDomainName
 	// Windows Domain Name of Active Directory Server object
@@ -55,18 +55,26 @@ func NewWSGAdministrationActiveDirectoryServer() *WSGAdministrationActiveDirecto
 type WSGAdministrationApPatchHistory struct {
 	// ApFwVersion
 	// apFwVersion of the AP Patch history
+	// Constraints:
+	//    - nullable
 	ApFwVersion *string `json:"apFwVersion,omitempty"`
 
 	// ApModelList
 	// AP Models of the AP Patch history
-	ApModelList []string `json:"apModelList,omitempty"`
+	// Constraints:
+	//    - nullable
+	ApModelList []string `json:"apModelList,omitempty" validate:"omitempty,dive"`
 
 	// FileName
 	// file name of the AP Patch history
+	// Constraints:
+	//    - nullable
 	FileName *string `json:"fileName,omitempty"`
 
 	// StartDateTime
 	// startDateTime of the AP Patch history
+	// Constraints:
+	//    - nullable
 	StartDateTime *string `json:"startDateTime,omitempty"`
 }
 
@@ -76,12 +84,24 @@ func NewWSGAdministrationApPatchHistory() *WSGAdministrationApPatchHistory {
 }
 
 type WSGAdministrationApPatchHistoryList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationApPatchHistory `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationApPatchHistory `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -93,18 +113,26 @@ func NewWSGAdministrationApPatchHistoryList() *WSGAdministrationApPatchHistoryLi
 type WSGAdministrationApPatchInfo struct {
 	// ApModels
 	// AP Models of the upload file
-	ApModels []string `json:"apModels,omitempty"`
+	// Constraints:
+	//    - nullable
+	ApModels []string `json:"apModels,omitempty" validate:"omitempty,dive"`
 
 	// ApVersion
 	// ApFwVersion of the upload file
+	// Constraints:
+	//    - nullable
 	ApVersion *string `json:"apVersion,omitempty"`
 
 	// FileName
 	// file name of the upload file
+	// Constraints:
+	//    - nullable
 	FileName *string `json:"fileName,omitempty"`
 
 	// FileSize
 	// file size(Byte) of the upload file
+	// Constraints:
+	//    - nullable
 	FileSize *int `json:"fileSize,omitempty"`
 }
 
@@ -114,6 +142,9 @@ func NewWSGAdministrationApPatchInfo() *WSGAdministrationApPatchInfo {
 }
 
 type WSGAdministrationApPatchStatus struct {
+	// ClusterOperationProgress
+	// Constraints:
+	//    - nullable
 	ClusterOperationProgress *WSGClusterBladeClusterOperationProgress `json:"clusterOperationProgress,omitempty"`
 }
 
@@ -125,22 +156,32 @@ func NewWSGAdministrationApPatchStatus() *WSGAdministrationApPatchStatus {
 type WSGAdministrationApplicationLogAndStatus struct {
 	// ApplicationName
 	// Application name
+	// Constraints:
+	//    - nullable
 	ApplicationName *string `json:"applicationName,omitempty"`
 
 	// HealthStatus
 	// Health status
+	// Constraints:
+	//    - nullable
 	HealthStatus *string `json:"healthStatus,omitempty"`
 
 	// LogFileNames
 	// List of log file name
-	LogFileNames []string `json:"logFileNames,omitempty"`
+	// Constraints:
+	//    - nullable
+	LogFileNames []string `json:"logFileNames,omitempty" validate:"omitempty,dive"`
 
 	// LogLevel
 	// Log level
+	// Constraints:
+	//    - nullable
 	LogLevel *string `json:"logLevel,omitempty"`
 
 	// NumOfLogs
 	// # of Logs
+	// Constraints:
+	//    - nullable
 	NumOfLogs *int `json:"numOfLogs,omitempty"`
 }
 
@@ -150,12 +191,24 @@ func NewWSGAdministrationApplicationLogAndStatus() *WSGAdministrationApplication
 }
 
 type WSGAdministrationApplicationLogAndStatusList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationApplicationLogAndStatus `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationApplicationLogAndStatus `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -167,10 +220,14 @@ func NewWSGAdministrationApplicationLogAndStatusList() *WSGAdministrationApplica
 type WSGAdministrationAutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
+	// Constraints:
+	//    - nullable
 	EnableAutoExportBackup *bool `json:"enableAutoExportBackup,omitempty"`
 
 	// FtpServer
 	// FTP server name
+	// Constraints:
+	//    - nullable
 	FtpServer *string `json:"ftpServer,omitempty"`
 }
 
@@ -182,42 +239,62 @@ func NewWSGAdministrationAutoExportBackup() *WSGAdministrationAutoExportBackup {
 type WSGAdministrationBackupFile struct {
 	// BackupElapsed
 	// backup elapsed of the configuration backup file
+	// Constraints:
+	//    - nullable
 	BackupElapsed *int `json:"backupElapsed,omitempty"`
 
 	// ControlPlaneSoftwareVersion
 	// control plane software version of the configuration backup file
+	// Constraints:
+	//    - nullable
 	ControlPlaneSoftwareVersion *string `json:"controlPlaneSoftwareVersion,omitempty"`
 
 	// CreatedBy
 	// creator of the configuration backup file.
+	// Constraints:
+	//    - nullable
 	CreatedBy *string `json:"createdBy,omitempty"`
 
 	// CreatedOn
 	// the create time of the configuration backup file.
+	// Constraints:
+	//    - nullable
 	CreatedOn *float64 `json:"createdOn,omitempty"`
 
 	// DataPlaneSoftwareVersion
 	// data plane software version of the configuration backup file
+	// Constraints:
+	//    - nullable
 	DataPlaneSoftwareVersion *string `json:"dataPlaneSoftwareVersion,omitempty"`
 
 	// FileSize
 	// file size of the backup file
+	// Constraints:
+	//    - nullable
 	FileSize *int `json:"fileSize,omitempty"`
 
 	// Id
 	// Identifier of system configuration backup file.
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Md5
 	// file md5 of the backup file
+	// Constraints:
+	//    - nullable
 	Md5 *string `json:"md5,omitempty"`
 
 	// ScgVersion
 	// SCG version of the configuration backup file.
+	// Constraints:
+	//    - nullable
 	ScgVersion *string `json:"scgVersion,omitempty"`
 
 	// Type
 	// type of the configuration backup file
+	// Constraints:
+	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -227,12 +304,24 @@ func NewWSGAdministrationBackupFile() *WSGAdministrationBackupFile {
 }
 
 type WSGAdministrationClusterBackupList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationClusterBackupSummary `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationClusterBackupSummary `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -244,18 +333,26 @@ func NewWSGAdministrationClusterBackupList() *WSGAdministrationClusterBackupList
 type WSGAdministrationClusterBackupSummary struct {
 	// CreatedOn
 	// Created date and time of the cluster backup file
+	// Constraints:
+	//    - nullable
 	CreatedOn *string `json:"createdOn,omitempty"`
 
 	// Filesize
 	// filesize of the cluster backup file.
+	// Constraints:
+	//    - nullable
 	Filesize *float64 `json:"filesize,omitempty"`
 
 	// Id
 	// Identifier of cluster backup file.
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Version
 	// the patch version of the cluster backup file.
+	// Constraints:
+	//    - nullable
 	Version *string `json:"version,omitempty"`
 }
 
@@ -265,12 +362,24 @@ func NewWSGAdministrationClusterBackupSummary() *WSGAdministrationClusterBackupS
 }
 
 type WSGAdministrationConfigurationBackupList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationBackupFile `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationBackupFile `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -280,19 +389,34 @@ func NewWSGAdministrationConfigurationBackupList() *WSGAdministrationConfigurati
 }
 
 type WSGAdministrationCreateAdminAAAServer struct {
+	// ActiveDirectoryServer
+	// Constraints:
+	//    - nullable
 	ActiveDirectoryServer *WSGAdministrationActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
 
+	// DefaultRoleMapping
+	// Constraints:
+	//    - nullable
 	DefaultRoleMapping *WSGAdministrationDefaultRoleMapping `json:"defaultRoleMapping,omitempty"`
 
+	// LdapServer
+	// Constraints:
+	//    - nullable
 	LdapServer *WSGAdministrationLdapServer `json:"ldapServer,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+	Name *WSGCommonNormalName `json:"name" validate:"required"`
 
+	// RadiusServer
+	// Constraints:
+	//    - nullable
 	RadiusServer *WSGAdministrationRadiusServer `json:"radiusServer,omitempty"`
 
+	// TacacsServer
+	// Constraints:
+	//    - nullable
 	TacacsServer *WSGAdministrationTacacsServer `json:"tacacsServer,omitempty"`
 
 	// Type
@@ -368,7 +492,7 @@ type WSGAdministrationLdapServer struct {
 	// Realm
 	// Constraints:
 	//    - required
-	Realm *WSGCommonRealm `json:"realm" validate:"required,max=255"`
+	Realm *WSGCommonRealm `json:"realm" validate:"required"`
 
 	// SearchFilter
 	// Search filter of LDAP Server object
@@ -385,22 +509,32 @@ func NewWSGAdministrationLdapServer() *WSGAdministrationLdapServer {
 type WSGAdministrationLicenses struct {
 	// Count
 	// number of licenses
+	// Constraints:
+	//    - nullable
 	Count *int `json:"count,omitempty"`
 
 	// CreateTime
 	// license effective date
+	// Constraints:
+	//    - nullable
 	CreateTime *string `json:"createTime,omitempty"`
 
 	// Description
 	// license description
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// ExpireDate
 	// license expiry date
+	// Constraints:
+	//    - nullable
 	ExpireDate *string `json:"expireDate,omitempty"`
 
 	// Name
 	// license name
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 
@@ -412,17 +546,22 @@ func NewWSGAdministrationLicenses() *WSGAdministrationLicenses {
 type WSGAdministrationLicenseServer struct {
 	// IpAddress
 	// local license server IP address
+	// Constraints:
+	//    - nullable
 	IpAddress *string `json:"ipAddress,omitempty"`
 
 	// Port
 	// local license server port
 	// Constraints:
+	//    - nullable
 	//    - min:0
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=0,lte=65535"`
 
 	// UseCloud
 	// use cloud license server
+	// Constraints:
+	//    - nullable
 	UseCloud *bool `json:"useCloud,omitempty"`
 }
 
@@ -432,12 +571,24 @@ func NewWSGAdministrationLicenseServer() *WSGAdministrationLicenseServer {
 }
 
 type WSGAdministrationLicensesList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationLicenses `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationLicenses `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -447,10 +598,15 @@ func NewWSGAdministrationLicensesList() *WSGAdministrationLicensesList {
 }
 
 type WSGAdministrationLicensesSummary struct {
+	// CapacityControlLicenseCount
+	// Constraints:
+	//    - nullable
 	CapacityControlLicenseCount *WSGAdministrationLicensesSummaryCapacityControlLicenseCountType `json:"capacityControlLicenseCount,omitempty"`
 
 	// LicenseTypeDescription
 	// license type description
+	// Constraints:
+	//    - nullable
 	LicenseTypeDescription *string `json:"licenseTypeDescription,omitempty"`
 }
 
@@ -462,10 +618,14 @@ func NewWSGAdministrationLicensesSummary() *WSGAdministrationLicensesSummary {
 type WSGAdministrationLicensesSummaryCapacityControlLicenseCountType struct {
 	// TotalCount
 	// total count of licenses
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 
 	// UsedCount
 	// consumed count of licenses
+	// Constraints:
+	//    - nullable
 	UsedCount *int `json:"usedCount,omitempty"`
 }
 
@@ -475,12 +635,24 @@ func NewWSGAdministrationLicensesSummaryCapacityControlLicenseCountType() *WSGAd
 }
 
 type WSGAdministrationLicensesSummaryList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationLicensesSummary `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationLicensesSummary `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -492,13 +664,16 @@ func NewWSGAdministrationLicensesSummaryList() *WSGAdministrationLicensesSummary
 type WSGAdministrationLicensesSyncLogs struct {
 	// CreateDateTime
 	// license sync log's create time
+	// Constraints:
+	//    - nullable
 	CreateDateTime *string `json:"createDateTime,omitempty"`
 
 	// SyncResult
 	// sync license result
 	// Constraints:
+	//    - nullable
 	//    - oneof:[SUCCESS,FAILURE]
-	SyncResult *string `json:"syncResult,omitempty" validate:"oneof=SUCCESS FAILURE"`
+	SyncResult *string `json:"syncResult,omitempty" validate:"omitempty,oneof=SUCCESS FAILURE"`
 }
 
 func NewWSGAdministrationLicensesSyncLogs() *WSGAdministrationLicensesSyncLogs {
@@ -507,12 +682,24 @@ func NewWSGAdministrationLicensesSyncLogs() *WSGAdministrationLicensesSyncLogs {
 }
 
 type WSGAdministrationLicensesSyncLogsList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationLicensesSyncLogs `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationLicensesSyncLogs `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -522,13 +709,17 @@ func NewWSGAdministrationLicensesSyncLogsList() *WSGAdministrationLicensesSyncLo
 }
 
 type WSGAdministrationModfiyLicenseServer struct {
+	// IpAddress
+	// Constraints:
+	//    - nullable
 	IpAddress *string `json:"ipAddress,omitempty"`
 
 	// Port
 	// Constraints:
+	//    - nullable
 	//    - min:0
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"gte=0,lte=65535"`
+	Port *int `json:"port,omitempty" validate:"omitempty,gte=0,lte=65535"`
 
 	// UseCloud
 	// Constraints:
@@ -542,19 +733,34 @@ func NewWSGAdministrationModfiyLicenseServer() *WSGAdministrationModfiyLicenseSe
 }
 
 type WSGAdministrationModifyAdminAAAServer struct {
+	// ActiveDirectoryServer
+	// Constraints:
+	//    - nullable
 	ActiveDirectoryServer *WSGAdministrationActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
 
+	// DefaultRoleMapping
+	// Constraints:
+	//    - nullable
 	DefaultRoleMapping *WSGAdministrationDefaultRoleMapping `json:"defaultRoleMapping,omitempty"`
 
+	// LdapServer
+	// Constraints:
+	//    - nullable
 	LdapServer *WSGAdministrationLdapServer `json:"ldapServer,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required,max=32,min=2"`
+	Name *WSGCommonNormalName `json:"name" validate:"required"`
 
+	// RadiusServer
+	// Constraints:
+	//    - nullable
 	RadiusServer *WSGAdministrationRadiusServer `json:"radiusServer,omitempty"`
 
+	// TacacsServer
+	// Constraints:
+	//    - nullable
 	TacacsServer *WSGAdministrationTacacsServer `json:"tacacsServer,omitempty"`
 
 	// Type
@@ -573,10 +779,15 @@ func NewWSGAdministrationModifyAdminAAAServer() *WSGAdministrationModifyAdminAAA
 type WSGAdministrationModifyAutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	EnableAutoExportBackup *bool `json:"enableAutoExportBackup,omitempty"`
 
 	// FtpServer
 	// ftp server name
+	// Constraints:
+	//    - nullable
 	FtpServer *string `json:"ftpServer,omitempty"`
 }
 
@@ -588,13 +799,16 @@ func NewWSGAdministrationModifyAutoExportBackup() *WSGAdministrationModifyAutoEx
 type WSGAdministrationModifyLogLevel struct {
 	// ApplicationName
 	// Application name.
+	// Constraints:
+	//    - nullable
 	ApplicationName *string `json:"applicationName,omitempty"`
 
 	// LogLevel
 	// Log level.
 	// Constraints:
+	//    - nullable
 	//    - oneof:[DEBUG,INFO,WARN,ERROR]
-	LogLevel *string `json:"logLevel,omitempty" validate:"oneof=DEBUG INFO WARN ERROR"`
+	LogLevel *string `json:"logLevel,omitempty" validate:"omitempty,oneof=DEBUG INFO WARN ERROR"`
 }
 
 func NewWSGAdministrationModifyLogLevel() *WSGAdministrationModifyLogLevel {
@@ -605,30 +819,43 @@ func NewWSGAdministrationModifyLogLevel() *WSGAdministrationModifyLogLevel {
 type WSGAdministrationModifyScheduleBackup struct {
 	// DateOfMonth
 	// date of the month
+	// Constraints:
+	//    - nullable
 	DateOfMonth *int `json:"dateOfMonth,omitempty"`
 
 	// DayOfWeek
 	// day of the week
 	// Constraints:
+	//    - nullable
 	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
 	// enable schedule backup
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	EnableScheduleBackup *bool `json:"enableScheduleBackup,omitempty"`
 
 	// Hour
 	// hour
+	// Constraints:
+	//    - nullable
+	//    - default:0
 	Hour *int `json:"hour,omitempty"`
 
 	// Interval
 	// schedule interval
 	// Constraints:
+	//    - nullable
 	//    - oneof:[MONTHLY,WEEKLY,DAILY]
-	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY"`
+	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
 	// minute
+	// Constraints:
+	//    - nullable
+	//    - default:0
 	Minute *int `json:"minute,omitempty"`
 }
 
@@ -653,15 +880,19 @@ type WSGAdministrationRadiusServer struct {
 
 	// Protocol
 	// Constraints:
+	//    - nullable
 	//    - default:'PAP'
 	//    - oneof:[PAP,CHAP,PEAP]
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=PAP CHAP PEAP"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=PAP CHAP PEAP"`
 
 	// Realm
 	// Constraints:
 	//    - required
-	Realm *WSGCommonRealm `json:"realm" validate:"required,max=255"`
+	Realm *WSGCommonRealm `json:"realm" validate:"required"`
 
+	// SecondaryRadiusServer
+	// Constraints:
+	//    - nullable
 	SecondaryRadiusServer *WSGAdministrationSecondaryRadiusServer `json:"secondaryRadiusServer,omitempty"`
 
 	// SharedSecret
@@ -677,27 +908,48 @@ func NewWSGAdministrationRadiusServer() *WSGAdministrationRadiusServer {
 }
 
 type WSGAdministrationRetrieveAdminAAAServer struct {
+	// ActiveDirectoryServer
+	// Constraints:
+	//    - nullable
 	ActiveDirectoryServer *WSGAdministrationActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
 
+	// DefaultRoleMapping
+	// Constraints:
+	//    - nullable
 	DefaultRoleMapping *WSGAdministrationDefaultRoleMapping `json:"defaultRoleMapping,omitempty"`
 
 	// Id
 	// ID of this Admin AAA Server
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// LdapServer
+	// Constraints:
+	//    - nullable
 	LdapServer *WSGAdministrationLdapServer `json:"ldapServer,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
+	// RadiusServer
+	// Constraints:
+	//    - nullable
 	RadiusServer *WSGAdministrationRadiusServer `json:"radiusServer,omitempty"`
 
+	// TacacsServer
+	// Constraints:
+	//    - nullable
 	TacacsServer *WSGAdministrationTacacsServer `json:"tacacsServer,omitempty"`
 
 	// Type
 	// Type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
 	// Constraints:
+	//    - nullable
 	//    - oneof:[RADIUS,TACACS,AD,LDAP]
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
 }
 
 func NewWSGAdministrationRetrieveAdminAAAServer() *WSGAdministrationRetrieveAdminAAAServer {
@@ -706,12 +958,24 @@ func NewWSGAdministrationRetrieveAdminAAAServer() *WSGAdministrationRetrieveAdmi
 }
 
 type WSGAdministrationRetrieveAdminAAAServerList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationRetrieveAdminAAAServerListType `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationRetrieveAdminAAAServerListType `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -721,14 +985,21 @@ func NewWSGAdministrationRetrieveAdminAAAServerList() *WSGAdministrationRetrieve
 }
 
 type WSGAdministrationRetrieveAdminAAAServerListType struct {
+	// Id
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Type
 	// Constraints:
+	//    - nullable
 	//    - oneof:[RADIUS,TACACS,AD,LDAP]
-	Type *string `json:"type,omitempty" validate:"oneof=RADIUS TACACS AD LDAP"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS TACACS AD LDAP"`
 }
 
 func NewWSGAdministrationRetrieveAdminAAAServerListType() *WSGAdministrationRetrieveAdminAAAServerListType {
@@ -739,30 +1010,40 @@ func NewWSGAdministrationRetrieveAdminAAAServerListType() *WSGAdministrationRetr
 type WSGAdministrationScheduleBackup struct {
 	// DateOfMonth
 	// date of the month
+	// Constraints:
+	//    - nullable
 	DateOfMonth *int `json:"dateOfMonth,omitempty"`
 
 	// DayOfWeek
 	// day of the week
 	// Constraints:
+	//    - nullable
 	//    - oneof:[SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY]
-	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
+	DayOfWeek *string `json:"dayOfWeek,omitempty" validate:"omitempty,oneof=SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY"`
 
 	// EnableScheduleBackup
 	// enable schedule backup
+	// Constraints:
+	//    - nullable
 	EnableScheduleBackup *bool `json:"enableScheduleBackup,omitempty"`
 
 	// Hour
 	// hour
+	// Constraints:
+	//    - nullable
 	Hour *int `json:"hour,omitempty"`
 
 	// Interval
 	// schedule interval
 	// Constraints:
+	//    - nullable
 	//    - oneof:[MONTHLY,WEEKLY,DAILY]
-	Interval *string `json:"interval,omitempty" validate:"oneof=MONTHLY WEEKLY DAILY"`
+	Interval *string `json:"interval,omitempty" validate:"omitempty,oneof=MONTHLY WEEKLY DAILY"`
 
 	// Minute
 	// minute
+	// Constraints:
+	//    - nullable
 	Minute *int `json:"minute,omitempty"`
 }
 
@@ -796,9 +1077,10 @@ type WSGAdministrationSecondaryRadiusServer struct {
 
 	// Protocol
 	// Constraints:
+	//    - nullable
 	//    - default:'PAP'
 	//    - oneof:[PAP,CHAP,PEAP]
-	Protocol *string `json:"protocol,omitempty" validate:"oneof=PAP CHAP PEAP"`
+	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=PAP CHAP PEAP"`
 
 	// RequestTimeOut
 	// Request timeout(seconds) value of re-connection to primary
@@ -847,7 +1129,7 @@ type WSGAdministrationTacacsServer struct {
 	// Service
 	// Constraints:
 	//    - required
-	Service *WSGCommonRealm `json:"service" validate:"required,max=255"`
+	Service *WSGCommonRealm `json:"service" validate:"required"`
 
 	// SharedSecret
 	// Shared secret of TACACS+ Server object
@@ -862,12 +1144,24 @@ func NewWSGAdministrationTacacsServer() *WSGAdministrationTacacsServer {
 }
 
 type WSGAdministrationUpgradeHistoryList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationUpgradeHistorySummary `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationUpgradeHistorySummary `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -879,46 +1173,68 @@ func NewWSGAdministrationUpgradeHistoryList() *WSGAdministrationUpgradeHistoryLi
 type WSGAdministrationUpgradeHistorySummary struct {
 	// ApFwVersion
 	// apFwVersion of the upgrade history
+	// Constraints:
+	//    - nullable
 	ApFwVersion *string `json:"apFwVersion,omitempty"`
 
 	// CbVersion
 	// cbVersion of the upgrade history
+	// Constraints:
+	//    - nullable
 	CbVersion *string `json:"cbVersion,omitempty"`
 
 	// DpVersion
 	// dpVersion of the upgrade history
+	// Constraints:
+	//    - nullable
 	DpVersion *string `json:"dpVersion,omitempty"`
 
 	// ElapsedSeconds
 	// elapsedSeconds of the upgrade history
+	// Constraints:
+	//    - nullable
 	ElapsedSeconds *int `json:"elapsedSeconds,omitempty"`
 
 	// FileName
 	// fileName of the upgrade history
+	// Constraints:
+	//    - nullable
 	FileName *string `json:"fileName,omitempty"`
 
 	// OldApFwVersion
 	// oldApFwVersion of the upgrade history
+	// Constraints:
+	//    - nullable
 	OldApFwVersion *string `json:"oldApFwVersion,omitempty"`
 
 	// OldCbVersion
 	// oldCbVersion of the upgrade history
+	// Constraints:
+	//    - nullable
 	OldCbVersion *string `json:"oldCbVersion,omitempty"`
 
 	// OldDpVersion
 	// oldDpVersion of the upgrade history
+	// Constraints:
+	//    - nullable
 	OldDpVersion *string `json:"oldDpVersion,omitempty"`
 
 	// OldVersion
 	// oldVersion of the upgrade history
+	// Constraints:
+	//    - nullable
 	OldVersion *string `json:"oldVersion,omitempty"`
 
 	// StartTime
 	// startTime of the upgrade history
+	// Constraints:
+	//    - nullable
 	StartTime *string `json:"startTime,omitempty"`
 
 	// Version
 	// version of the upgrade history
+	// Constraints:
+	//    - nullable
 	Version *string `json:"version,omitempty"`
 }
 
@@ -928,8 +1244,14 @@ func NewWSGAdministrationUpgradeHistorySummary() *WSGAdministrationUpgradeHistor
 }
 
 type WSGAdministrationUpgradePatchInfo struct {
+	// ClusterOperationProgress
+	// Constraints:
+	//    - nullable
 	ClusterOperationProgress *WSGClusterBladeClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 
+	// UploadPatchInfo
+	// Constraints:
+	//    - nullable
 	UploadPatchInfo *WSGClusterBladeUploadPatchInfo `json:"uploadPatchInfo,omitempty"`
 }
 
@@ -939,6 +1261,9 @@ func NewWSGAdministrationUpgradePatchInfo() *WSGAdministrationUpgradePatchInfo {
 }
 
 type WSGAdministrationUpgradeStatus struct {
+	// ClusterOperationProgress
+	// Constraints:
+	//    - nullable
 	ClusterOperationProgress *WSGClusterBladeClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 }
 
@@ -950,10 +1275,14 @@ func NewWSGAdministrationUpgradeStatus() *WSGAdministrationUpgradeStatus {
 type WSGAdministrationZdAP struct {
 	// Connected
 	// AP Conntected
+	// Constraints:
+	//    - nullable
 	Connected *string `json:"connected,omitempty"`
 
 	// Mac
 	// AP MAC
+	// Constraints:
+	//    - nullable
 	Mac *string `json:"mac,omitempty"`
 }
 
@@ -963,14 +1292,29 @@ func NewWSGAdministrationZdAP() *WSGAdministrationZdAP {
 }
 
 type WSGAdministrationZdAPList struct {
+	// Extra
+	// Constraints:
+	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdministrationZdAP `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGAdministrationZdAP `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -982,18 +1326,26 @@ func NewWSGAdministrationZdAPList() *WSGAdministrationZdAPList {
 type WSGAdministrationZdImport struct {
 	// ApMacList
 	// List of AP MAC
-	ApMacList []string `json:"apMacList,omitempty"`
+	// Constraints:
+	//    - nullable
+	ApMacList []string `json:"apMacList,omitempty" validate:"omitempty,dive"`
 
 	// Ip
 	// ZD IP address
+	// Constraints:
+	//    - nullable
 	Ip *string `json:"ip,omitempty"`
 
 	// Password
 	// ZD password
+	// Constraints:
+	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// User
 	// ZD user name
+	// Constraints:
+	//    - nullable
 	User *string `json:"user,omitempty"`
 }
 
@@ -1005,18 +1357,26 @@ func NewWSGAdministrationZdImport() *WSGAdministrationZdImport {
 type WSGAdministrationZdImportStatus struct {
 	// Details
 	// Details
+	// Constraints:
+	//    - nullable
 	Details *string `json:"details,omitempty"`
 
 	// Message
 	// Message
+	// Constraints:
+	//    - nullable
 	Message *string `json:"message,omitempty"`
 
 	// Progress
 	// Progress
+	// Constraints:
+	//    - nullable
 	Progress *int `json:"progress,omitempty"`
 
 	// State
 	// State
+	// Constraints:
+	//    - nullable
 	State *string `json:"state,omitempty"`
 }
 

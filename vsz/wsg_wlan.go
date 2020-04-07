@@ -22,18 +22,31 @@ func (ss *WSGService) WSGWLANService() *WSGWLANService {
 }
 
 type WSGWLANCreateGuestAccessWlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
 	// AuthServiceOrProfile
@@ -43,99 +56,179 @@ type WSGWLANCreateGuestAccessWlan struct {
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
 	// Bypass Capitive Network Assitance
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	BypassCNA *bool `json:"bypassCNA,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// FlexiVpnProfile
+	// Constraints:
+	//    - nullable
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANNameSSID `json:"name" validate:"required,max=32,min=1"`
+	Name *WSGWLANNameSSID `json:"name" validate:"required"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	// PortalServiceProfile
@@ -145,23 +238,39 @@ type WSGWLANCreateGuestAccessWlan struct {
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// Constraints:
 	//    - required
-	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required,max=32,min=1"`
+	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -171,136 +280,248 @@ func NewWSGWLANCreateGuestAccessWlan() *WSGWLANCreateGuestAccessWlan {
 }
 
 type WSGWLANCreateHotspot20OpenWlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
+	// AuthServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// FlexiVpnProfile
+	// Constraints:
+	//    - nullable
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANNameSSID `json:"name" validate:"required,max=32,min=1"`
+	Name *WSGWLANNameSSID `json:"name" validate:"required"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
+	// PortalServiceProfile
+	// Constraints:
+	//    - nullable
 	PortalServiceProfile *WSGCommonGenericRef `json:"portalServiceProfile,omitempty"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// Constraints:
 	//    - required
-	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required,max=32,min=1"`
+	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -310,96 +531,171 @@ func NewWSGWLANCreateHotspot20OpenWlan() *WSGWLANCreateHotspot20OpenWlan {
 }
 
 type WSGWLANCreateHotspot20Wlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
+	// AuthServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
 	// Hotspot20Profile
@@ -407,40 +703,71 @@ type WSGWLANCreateHotspot20Wlan struct {
 	//    - required
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile" validate:"required"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANNameSSID `json:"name" validate:"required,max=32,min=1"`
+	Name *WSGWLANNameSSID `json:"name" validate:"required"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
+	// PortalServiceProfile
+	// Constraints:
+	//    - nullable
 	PortalServiceProfile *WSGCommonGenericRef `json:"portalServiceProfile,omitempty"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// Constraints:
 	//    - required
-	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required,max=32,min=1"`
+	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -450,18 +777,31 @@ func NewWSGWLANCreateHotspot20Wlan() *WSGWLANCreateHotspot20Wlan {
 }
 
 type WSGWLANCreateHotspotWlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
 	// AuthServiceOrProfile
@@ -471,99 +811,179 @@ type WSGWLANCreateHotspotWlan struct {
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
 	// Bypass Capitive Network Assitance
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	BypassCNA *bool `json:"bypassCNA,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// FlexiVpnProfile
+	// Constraints:
+	//    - nullable
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANNameSSID `json:"name" validate:"required,max=32,min=1"`
+	Name *WSGWLANNameSSID `json:"name" validate:"required"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	// PortalServiceProfile
@@ -573,23 +993,39 @@ type WSGWLANCreateHotspotWlan struct {
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// Constraints:
 	//    - required
-	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required,max=32,min=1"`
+	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -599,18 +1035,31 @@ func NewWSGWLANCreateHotspotWlan() *WSGWLANCreateHotspotWlan {
 }
 
 type WSGWLANCreateStandard80211Wlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
 	// AuthServiceOrProfile
@@ -620,116 +1069,209 @@ type WSGWLANCreateStandard80211Wlan struct {
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable  for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable  for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANNameSSID `json:"name" validate:"required,max=32,min=1"`
+	Name *WSGWLANNameSSID `json:"name" validate:"required"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
+	// PortalServiceProfile
+	// Constraints:
+	//    - nullable
 	PortalServiceProfile *WSGCommonGenericRef `json:"portalServiceProfile,omitempty"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// Constraints:
 	//    - required
-	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required,max=32,min=1"`
+	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -739,137 +1281,249 @@ func NewWSGWLANCreateStandard80211Wlan() *WSGWLANCreateStandard80211Wlan {
 }
 
 type WSGWLANCreateStandardOpenWlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - default:'APLBO'
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
+	// AuthServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// FlexiVpnProfile
+	// Constraints:
+	//    - nullable
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANNameSSID `json:"name" validate:"required,max=32,min=1"`
+	Name *WSGWLANNameSSID `json:"name" validate:"required"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
+	// PortalServiceProfile
+	// Constraints:
+	//    - nullable
 	PortalServiceProfile *WSGCommonGenericRef `json:"portalServiceProfile,omitempty"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// Constraints:
 	//    - required
-	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required,max=32,min=1"`
+	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -879,18 +1533,31 @@ func NewWSGWLANCreateStandardOpenWlan() *WSGWLANCreateStandardOpenWlan {
 }
 
 type WSGWLANCreateWebAuthWlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
 	// AuthServiceOrProfile
@@ -900,99 +1567,179 @@ type WSGWLANCreateWebAuthWlan struct {
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
 	// Bypass Capitive Network Assitance
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	BypassCNA *bool `json:"bypassCNA,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// FlexiVpnProfile
+	// Constraints:
+	//    - nullable
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANNameSSID `json:"name" validate:"required,max=32,min=1"`
+	Name *WSGWLANNameSSID `json:"name" validate:"required"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	// PortalServiceProfile
@@ -1002,23 +1749,39 @@ type WSGWLANCreateWebAuthWlan struct {
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// Constraints:
 	//    - required
-	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required,max=32,min=1"`
+	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -1028,113 +1791,206 @@ func NewWSGWLANCreateWebAuthWlan() *WSGWLANCreateWebAuthWlan {
 }
 
 type WSGWLANCreateWechatWlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
+	// AuthServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// FlexiVpnProfile
+	// Constraints:
+	//    - nullable
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANNameSSID `json:"name" validate:"required,max=32,min=1"`
+	Name *WSGWLANNameSSID `json:"name" validate:"required"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
 	// PortalServiceProfile
@@ -1144,23 +2000,39 @@ type WSGWLANCreateWechatWlan struct {
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// Constraints:
 	//    - required
-	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required,max=32,min=1"`
+	Ssid *WSGWLANNameSSID `json:"ssid" validate:"required"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -1170,134 +2042,254 @@ func NewWSGWLANCreateWechatWlan() *WSGWLANCreateWechatWlan {
 }
 
 type WSGWLANModifyWlan struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, and SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
+	// AuthServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
 	// Bypass Capitive Network Assitance
+	// Constraints:
+	//    - nullable
 	BypassCNA *bool `json:"bypassCNA,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
+	// Description
+	// Constraints:
+	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
+	// ExternalDpsk
+	// Constraints:
+	//    - nullable
 	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// FlexiVpnProfile
+	// Constraints:
+	//    - nullable
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
+	// Name
+	// Constraints:
+	//    - nullable
 	Name *WSGWLANNameSSID `json:"name,omitempty"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
+	// PortalServiceProfile
+	// Constraints:
+	//    - nullable
 	PortalServiceProfile *WSGCommonGenericRef `json:"portalServiceProfile,omitempty"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
+	// Ssid
+	// Constraints:
+	//    - nullable
 	Ssid *WSGWLANNameSSID `json:"ssid,omitempty"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 }
 
@@ -1309,35 +2301,51 @@ func NewWSGWLANModifyWlan() *WSGWLANModifyWlan {
 type WSGWLANAccounting struct {
 	// AccountingDelayEnabled
 	// Indicates whether accounting delay time is enabled
+	// Constraints:
+	//    - nullable
 	AccountingDelayEnabled *bool `json:"accountingDelayEnabled,omitempty"`
 
 	// BackupAccountingId
 	// Backup accounting service or profile ID. At least one backupAccountingId or backupAccountingName is required in the request when setting backup accounting service.
+	// Constraints:
+	//    - nullable
 	BackupAccountingId *string `json:"backupAccountingId,omitempty"`
 
 	// BackupAccountingName
 	// Backup accounting service or profile name. At least one backupAccountingId or backupAccountingName is required in the request when setting backup accounting service.
+	// Constraints:
+	//    - nullable
 	BackupAccountingName *string `json:"backupAccountingName,omitempty"`
 
 	// Id
 	// Accounting service or profile ID. At least one ID or name is required in the request.
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// InterimUpdateMin
 	// Interval (in minutes) for sending interim updates
 	// Constraints:
+	//    - nullable
 	//    - min:0
 	//    - max:1440
-	InterimUpdateMin *int `json:"interimUpdateMin,omitempty" validate:"gte=0,lte=1440"`
+	InterimUpdateMin *int `json:"interimUpdateMin,omitempty" validate:"omitempty,gte=0,lte=1440"`
 
 	// Name
 	// Accounting service or profile name. At least one ID or name is required in the request.
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
+	// RealmBasedAcct
+	// Constraints:
+	//    - nullable
 	RealmBasedAcct *bool `json:"realmBasedAcct,omitempty"`
 
 	// ThroughController
 	// Indicates whether accounting messages were sent through the controller
+	// Constraints:
+	//    - nullable
 	ThroughController *bool `json:"throughController,omitempty"`
 }
 
@@ -1349,301 +2357,411 @@ func NewWSGWLANAccounting() *WSGWLANAccounting {
 type WSGWLANAdvanced struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	AntiSpoofingEnabled *bool `json:"antiSpoofingEnabled,omitempty"`
 
 	// ArpRequestRateLimit
 	// ARP packets request rate limit, default value will be 15 if both rate limit not being set.
 	// Constraints:
+	//    - nullable
 	//    - min:0
 	//    - max:100
-	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	// AssocRssiThr
 	// Assoc RSSI threshold.
 	// Constraints:
+	//    - nullable
 	//    - min:-90
 	//    - max:-60
-	AssocRssiThr *int `json:"assocRssiThr,omitempty" validate:"gte=-90,lte=-60"`
+	AssocRssiThr *int `json:"assocRssiThr,omitempty" validate:"omitempty,gte=-90,lte=-60"`
 
 	// AuthRssiThr
 	// Auth RSSI threshold.
 	// Constraints:
+	//    - nullable
 	//    - min:-90
 	//    - max:-60
-	AuthRssiThr *int `json:"authRssiThr,omitempty" validate:"gte=-90,lte=-60"`
+	AuthRssiThr *int `json:"authRssiThr,omitempty" validate:"omitempty,gte=-90,lte=-60"`
 
 	// AvcEnabled
 	// Indicator of whether AVC support is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	AvcEnabled *bool `json:"avcEnabled,omitempty"`
 
 	// BandBalancing
 	// Indicates whether band balancing is enabled or disabled
 	// Constraints:
+	//    - nullable
 	//    - default:'UseZoneSetting'
 	//    - oneof:[Disabled,UseZoneSetting]
-	BandBalancing *string `json:"bandBalancing,omitempty" validate:"oneof=Disabled UseZoneSetting"`
+	BandBalancing *string `json:"bandBalancing,omitempty" validate:"omitempty,oneof=Disabled UseZoneSetting"`
 
+	// BssMinRateMbps
+	// Constraints:
+	//    - nullable
 	BssMinRateMbps *WSGWLANBssMinRateMbps `json:"bssMinRateMbps,omitempty"`
 
 	// ClientFingerprintingEnabled
 	// Indicates whether client fingerprinting is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	ClientFingerprintingEnabled *bool `json:"clientFingerprintingEnabled,omitempty"`
 
 	// ClientIdleTimeoutSec
 	// Client idle timeout in seconds
 	// Constraints:
+	//    - nullable
 	//    - default:120
 	//    - min:60
 	//    - max:86400
-	ClientIdleTimeoutSec *int `json:"clientIdleTimeoutSec,omitempty" validate:"gte=60,lte=86400"`
+	ClientIdleTimeoutSec *int `json:"clientIdleTimeoutSec,omitempty" validate:"omitempty,gte=60,lte=86400"`
 
 	// ClientIsolationAutoVrrpEnabled
 	// Indicates whether Automatic support for VRRP of wireless client isolation is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	ClientIsolationAutoVrrpEnabled *bool `json:"clientIsolationAutoVrrpEnabled,omitempty"`
 
 	// ClientIsolationEnabled
 	// Indicates whether wireless client isolation is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	ClientIsolationEnabled *bool `json:"clientIsolationEnabled,omitempty"`
 
 	// ClientIsolationMulticastEnabled
 	// Indicates whether isolate multicast of wireless client isolation is enabled or disabled
+	// Constraints:
+	//    - nullable
 	ClientIsolationMulticastEnabled *bool `json:"clientIsolationMulticastEnabled,omitempty"`
 
 	// ClientIsolationUnicastEnabled
 	// Indicates whether isolate unicast of wireless client isolation is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:true
 	ClientIsolationUnicastEnabled *bool `json:"clientIsolationUnicastEnabled,omitempty"`
 
+	// ClientIsolationWhitelist
+	// Constraints:
+	//    - nullable
 	ClientIsolationWhitelist *WSGCommonGenericRef `json:"clientIsolationWhitelist,omitempty"`
 
 	// ClientLoadBalancingEnabled
 	// Indicates whether Client Load Balancing is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:true
 	ClientLoadBalancingEnabled *bool `json:"clientLoadBalancingEnabled,omitempty"`
 
 	// DgafEnabled
 	// Indicates whether dgaf is enabled or disabled
+	// Constraints:
+	//    - nullable
 	DgafEnabled *bool `json:"dgafEnabled,omitempty"`
 
 	// Dhcp82Format
 	// DHCP Option 82 format. This variable no longer supports from v8_1 and only kept for backward compatibility.
 	// Constraints:
+	//    - nullable
 	//    - oneof:[RUCKUS_DEFAULT,RADIUS_DHCP,RADIUS_NAT,RADIUS_DHCP_NAT,RADIUS_NAT_RUCKUS,RADIUS_NAT_SOFTGRE,SOFTGRE_CUSTOMIZED]
-	Dhcp82Format *string `json:"dhcp82Format,omitempty" validate:"oneof=RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
+	Dhcp82Format *string `json:"dhcp82Format,omitempty" validate:"omitempty,oneof=RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
 
 	// Dhcp82MacFormat
 	// AP and Client Mac format. If dhcpOption82Enabled is true, you have to set the dhcp82MacFormat ["COLON","HYPHEN","NODELIMITER"].
 	// Constraints:
+	//    - nullable
 	//    - oneof:[COLON,HYPHEN,NODELIMITER]
-	Dhcp82MacFormat *string `json:"dhcp82MacFormat,omitempty" validate:"oneof=COLON HYPHEN NODELIMITER"`
+	Dhcp82MacFormat *string `json:"dhcp82MacFormat,omitempty" validate:"omitempty,oneof=COLON HYPHEN NODELIMITER"`
 
 	// Dhcp82SubOpt1Format
 	// Subopt-1 format
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NONE,SUBOPT1_AP_INFO_LOCATION,SUBOPT1_AP_INFO,SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE,SUBOPT1_AP_MAC_hex,SUBOPT1_AP_MAC_hex_ESSID,SUBOPT1_ESSID,SUBOPT1_AP_MAC,SUBOPT1_AP_MAC_ESSID,SUBOPT1_AP_Name_ESSID]
-	Dhcp82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty" validate:"oneof=NONE SUBOPT1_AP_INFO_LOCATION SUBOPT1_AP_INFO SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE SUBOPT1_AP_MAC_hex SUBOPT1_AP_MAC_hex_ESSID SUBOPT1_ESSID SUBOPT1_AP_MAC SUBOPT1_AP_MAC_ESSID SUBOPT1_AP_Name_ESSID"`
+	Dhcp82SubOpt1Format *string `json:"dhcp82SubOpt1Format,omitempty" validate:"omitempty,oneof=NONE SUBOPT1_AP_INFO_LOCATION SUBOPT1_AP_INFO SUBOPT1_AP_MAC_ESSID_PRIVACYTYPE SUBOPT1_AP_MAC_hex SUBOPT1_AP_MAC_hex_ESSID SUBOPT1_ESSID SUBOPT1_AP_MAC SUBOPT1_AP_MAC_ESSID SUBOPT1_AP_Name_ESSID"`
 
 	// Dhcp82SubOpt2Format
 	// Subopt-2 format
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NONE,SUBOPT2_CLIENT_MAC,SUBOPT2_CLIENT_MAC_hex,SUBOPT2_CLIENT_MAC_hex_ESSID,SUBOPT2_AP_MAC,SUBOPT2_AP_MAC_hex,SUBOPT2_AP_MAC_hex_ESSID,SUBOPT2_AP_MAC_ESSID,SUBOPT2_AP_Name]
-	Dhcp82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty" validate:"oneof=NONE SUBOPT2_CLIENT_MAC SUBOPT2_CLIENT_MAC_hex SUBOPT2_CLIENT_MAC_hex_ESSID SUBOPT2_AP_MAC SUBOPT2_AP_MAC_hex SUBOPT2_AP_MAC_hex_ESSID SUBOPT2_AP_MAC_ESSID SUBOPT2_AP_Name"`
+	Dhcp82SubOpt2Format *string `json:"dhcp82SubOpt2Format,omitempty" validate:"omitempty,oneof=NONE SUBOPT2_CLIENT_MAC SUBOPT2_CLIENT_MAC_hex SUBOPT2_CLIENT_MAC_hex_ESSID SUBOPT2_AP_MAC SUBOPT2_AP_MAC_hex SUBOPT2_AP_MAC_hex_ESSID SUBOPT2_AP_MAC_ESSID SUBOPT2_AP_Name"`
 
 	// Dhcp82SubOpt150Format
 	// Subopt-150 with VLAN-Id
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NONE,SUBOPT150_VLAN_ID]
-	Dhcp82SubOpt150Format *string `json:"dhcp82SubOpt150Format,omitempty" validate:"oneof=NONE SUBOPT150_VLAN_ID"`
+	Dhcp82SubOpt150Format *string `json:"dhcp82SubOpt150Format,omitempty" validate:"omitempty,oneof=NONE SUBOPT150_VLAN_ID"`
 
 	// Dhcp82SubOpt151AreaName
 	// Subopt-151 Area Name value
+	// Constraints:
+	//    - nullable
 	Dhcp82SubOpt151AreaName *string `json:"dhcp82SubOpt151AreaName,omitempty"`
 
 	// Dhcp82SubOpt151Format
 	// Subopt-151 format
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NONE,SUBOPT151_AREA_NAME,SUBOPT151_ESSID]
-	Dhcp82SubOpt151Format *string `json:"dhcp82SubOpt151Format,omitempty" validate:"oneof=NONE SUBOPT151_AREA_NAME SUBOPT151_ESSID"`
+	Dhcp82SubOpt151Format *string `json:"dhcp82SubOpt151Format,omitempty" validate:"omitempty,oneof=NONE SUBOPT151_AREA_NAME SUBOPT151_ESSID"`
 
 	// Dhcp82SubOptRadiusFormat
 	// Constraints:
+	//    - nullable
 	//    - oneof:[NONE,RUCKUS_DEFAULT,RADIUS_DHCP,RADIUS_NAT,RADIUS_DHCP_NAT,RADIUS_NAT_RUCKUS,RADIUS_NAT_SOFTGRE,SOFTGRE_CUSTOMIZED]
-	Dhcp82SubOptRadiusFormat *string `json:"dhcp82SubOptRadiusFormat,omitempty" validate:"oneof=NONE RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
+	Dhcp82SubOptRadiusFormat *string `json:"dhcp82SubOptRadiusFormat,omitempty" validate:"omitempty,oneof=NONE RUCKUS_DEFAULT RADIUS_DHCP RADIUS_NAT RADIUS_DHCP_NAT RADIUS_NAT_RUCKUS RADIUS_NAT_SOFTGRE SOFTGRE_CUSTOMIZED"`
 
 	// DhcpOption82Enabled
 	// Indicates whether DCHP Option 82 is enabled or disabled. This variable no longer supports from v8_1 and only kept for backward compatibility.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	DhcpOption82Enabled *bool `json:"dhcpOption82Enabled,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
 	// Constraints:
+	//    - nullable
 	//    - min:0
 	//    - max:100
-	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"gte=0,lte=100"`
+	DhcpRequestRateLimit *int `json:"dhcpRequestRateLimit,omitempty" validate:"omitempty,gte=0,lte=100"`
 
 	// DirectedThreshold
 	// Directed Threshold Setting, Defines the client count at which an AP will stop converting group addressed data traffic to unicast.
 	// Constraints:
+	//    - nullable
 	//    - default:5
 	//    - min:0
 	//    - max:128
-	DirectedThreshold *int `json:"directedThreshold,omitempty" validate:"gte=0,lte=128"`
+	DirectedThreshold *int `json:"directedThreshold,omitempty" validate:"omitempty,gte=0,lte=128"`
 
 	// DnsSpoofingProfileId
 	// DNS Spoofing Profile ID
+	// Constraints:
+	//    - nullable
 	DnsSpoofingProfileId *string `json:"dnsSpoofingProfileId,omitempty"`
 
 	// DownlinkEnabled
 	// SSID Rate Limiting downlink enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	DownlinkEnabled *bool `json:"downlinkEnabled,omitempty"`
 
 	// DownlinkRate
 	// SSID Rate Limiting downlink.
+	// Constraints:
+	//    - nullable
+	//    - default:0.0
 	DownlinkRate *float64 `json:"downlinkRate,omitempty"`
 
 	// DropRandomProbesEnabled
 	// Drop Random Probes enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	DropRandomProbesEnabled *bool `json:"dropRandomProbesEnabled,omitempty"`
 
 	// DtimInterval
 	// DTIM Interval
 	// Constraints:
+	//    - nullable
 	//    - default:1
 	//    - min:1
 	//    - max:255
-	DtimInterval *int `json:"dtimInterval,omitempty" validate:"gte=1,lte=255"`
+	DtimInterval *int `json:"dtimInterval,omitempty" validate:"omitempty,gte=1,lte=255"`
 
 	// FlowLogEnabled
 	// Flow log enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FlowLogEnabled *bool `json:"flowLogEnabled,omitempty"`
 
 	// ForceClientDHCPTimeoutSec
 	// Force DHCP disconnects the client if the client does not obtain a valid IP address within the timeout peroid. To disable force DHCP, set this value to zero (0).
 	// Constraints:
+	//    - nullable
 	//    - default:0
 	//    - oneof:[0,5,6,7,8,9,10,11,12,13,14,15]
-	ForceClientDHCPTimeoutSec *int `json:"forceClientDHCPTimeoutSec,omitempty" validate:"oneof=0 5 6 7 8 9 10 11 12 13 14 15"`
+	ForceClientDHCPTimeoutSec *int `json:"forceClientDHCPTimeoutSec,omitempty" validate:"omitempty,oneof=0 5 6 7 8 9 10 11 12 13 14 15"`
 
 	// HdOverheadOptimizeEnable
 	// Airtime decongestion enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	HdOverheadOptimizeEnable *bool `json:"hdOverheadOptimizeEnable,omitempty"`
 
 	// HideSsidEnabled
 	// Indicates whether the SSID is hidden or broadcast
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	HideSsidEnabled *bool `json:"hideSsidEnabled,omitempty"`
 
 	// Hs20Onboarding
 	// Allow WISPr WLAN for Hotspot 2.0 Onboarding
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	Hs20Onboarding *bool `json:"hs20Onboarding,omitempty"`
 
 	// JoinAcceptTimeout
 	// Join expire time.
 	// Constraints:
+	//    - nullable
 	//    - default:300
 	//    - min:1
 	//    - max:300
-	JoinAcceptTimeout *int `json:"joinAcceptTimeout,omitempty" validate:"gte=1,lte=300"`
+	JoinAcceptTimeout *int `json:"joinAcceptTimeout,omitempty" validate:"omitempty,gte=1,lte=300"`
 
 	// JoinIgnoreThr
 	// Join wait threshold.
 	// Constraints:
+	//    - nullable
 	//    - default:10
 	//    - min:1
 	//    - max:50
-	JoinIgnoreThr *int `json:"joinIgnoreThr,omitempty" validate:"gte=1,lte=50"`
+	JoinIgnoreThr *int `json:"joinIgnoreThr,omitempty" validate:"omitempty,gte=1,lte=50"`
 
 	// JoinIgnoreTimeout
 	// Join wait time.
 	// Constraints:
+	//    - nullable
 	//    - default:30
 	//    - min:1
 	//    - max:60
-	JoinIgnoreTimeout *int `json:"joinIgnoreTimeout,omitempty" validate:"gte=1,lte=60"`
+	JoinIgnoreTimeout *int `json:"joinIgnoreTimeout,omitempty" validate:"omitempty,gte=1,lte=60"`
 
 	// MaxAllowedRA
 	// Max Allowed RAs
 	// Constraints:
+	//    - nullable
 	//    - default:10
 	//    - min:1
 	//    - max:1440
-	MaxAllowedRA *int `json:"maxAllowedRA,omitempty" validate:"gte=1,lte=1440"`
+	MaxAllowedRA *int `json:"maxAllowedRA,omitempty" validate:"omitempty,gte=1,lte=1440"`
 
 	// MaxClientsPerRadio
 	// Maximum number of clients per radio
 	// Constraints:
+	//    - nullable
 	//    - default:100
 	//    - min:1
 	//    - max:512
-	MaxClientsPerRadio *int `json:"maxClientsPerRadio,omitempty" validate:"gte=1,lte=512"`
+	MaxClientsPerRadio *int `json:"maxClientsPerRadio,omitempty" validate:"omitempty,gte=1,lte=512"`
 
+	// MgmtTxRateMbps
+	// Constraints:
+	//    - nullable
 	MgmtTxRateMbps *WSGWLANMgmtTxRateMbps `json:"mgmtTxRateMbps,omitempty"`
 
 	// MulticastDownlinkRateLimit
 	// Multicast Rate Limiting downlink (mbps).
 	// Constraints:
+	//    - nullable
 	//    - min:1
 	//    - max:100
-	MulticastDownlinkRateLimit *int `json:"multicastDownlinkRateLimit,omitempty" validate:"gte=1,lte=100"`
+	MulticastDownlinkRateLimit *int `json:"multicastDownlinkRateLimit,omitempty" validate:"omitempty,gte=1,lte=100"`
 
 	// MulticastDownlinkRateLimitEnabled
 	// Multicast Rate Limiting downlink enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	MulticastDownlinkRateLimitEnabled *bool `json:"multicastDownlinkRateLimitEnabled,omitempty"`
 
 	// MulticastFilterDrop
 	// Drop the broadcast/multicast packets from associated clients.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	MulticastFilterDrop *bool `json:"multicastFilterDrop,omitempty"`
 
 	// MulticastUplinkRateLimit
 	// Multicast Rate Limiting uplink (mbps).
 	// Constraints:
+	//    - nullable
 	//    - min:1
 	//    - max:100
-	MulticastUplinkRateLimit *int `json:"multicastUplinkRateLimit,omitempty" validate:"gte=1,lte=100"`
+	MulticastUplinkRateLimit *int `json:"multicastUplinkRateLimit,omitempty" validate:"omitempty,gte=1,lte=100"`
 
 	// MulticastUplinkRateLimitEnabled
 	// Multicast Rate Limiting uplink enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	MulticastUplinkRateLimitEnabled *bool `json:"multicastUplinkRateLimitEnabled,omitempty"`
 
 	// NdProxyEnabled
 	// Indicates whether ND Proxy is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	NdProxyEnabled *bool `json:"ndProxyEnabled,omitempty"`
 
 	// OceBroadcastProbeResponseDelay
 	// Broadcast probe response delay.
 	// Constraints:
+	//    - nullable
 	//    - default:15
 	//    - min:8
 	//    - max:120
-	OceBroadcastProbeResponseDelay *int `json:"oceBroadcastProbeResponseDelay,omitempty" validate:"gte=8,lte=120"`
+	OceBroadcastProbeResponseDelay *int `json:"oceBroadcastProbeResponseDelay,omitempty" validate:"omitempty,gte=8,lte=120"`
 
 	// OceEnabled
 	// Optimized Connectivity Experience(OCE) enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	OceEnabled *bool `json:"oceEnabled,omitempty"`
 
 	// OceRssiBasedAssociationRejectionThreshold
 	// RSSI-based association rejection threshold.
 	// Constraints:
+	//    - nullable
 	//    - default:-75
 	//    - min:-90
 	//    - max:-60
-	OceRssiBasedAssociationRejectionThreshold *int `json:"oceRssiBasedAssociationRejectionThreshold,omitempty" validate:"gte=-90,lte=-60"`
+	OceRssiBasedAssociationRejectionThreshold *int `json:"oceRssiBasedAssociationRejectionThreshold,omitempty" validate:"omitempty,gte=-90,lte=-60"`
 
 	// OfdmOnlyEnabled
 	// Indicates whether OFDM only is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	OfdmOnlyEnabled *bool `json:"ofdmOnlyEnabled,omitempty"`
 
 	// OkcEnabled
 	// Indicator of whether OKC support is enabled or disabled. The default value is true when the WLAN is WPA+AES non open WLAN.
+	// Constraints:
+	//    - nullable
 	OkcEnabled *bool `json:"okcEnabled,omitempty"`
 
 	// PmkCachingEnabled
 	// Indicator of whether PKM caching support is enabled or disabled. The default value is true when the WLAN is WPA+AES non open WLAN.
+	// Constraints:
+	//    - nullable
 	PmkCachingEnabled *bool `json:"pmkCachingEnabled,omitempty"`
 
 	// Priority
 	// Priority of the WLAN
 	// Constraints:
+	//    - nullable
 	//    - default:'High'
 	//    - oneof:[High,Low]
-	Priority *string `json:"priority,omitempty" validate:"oneof=High Low"`
+	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=High Low"`
 
 	// ProbeRssiThr
 	// Join RSSI threshold.
@@ -1656,79 +2774,127 @@ type WSGWLANAdvanced struct {
 
 	// ProxyARPEnabled
 	// Indicates whether proxy ARP is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	ProxyARPEnabled *bool `json:"proxyARPEnabled,omitempty"`
 
 	// RaInterval
 	// A timer that RA proxy runs and once receives unsolicited RA checks against the configured time and allow/drop RA based on next timeout
 	// Constraints:
+	//    - nullable
 	//    - default:10
 	//    - min:1
 	//    - max:256
-	RaInterval *int `json:"raInterval,omitempty" validate:"gte=1,lte=256"`
+	RaInterval *int `json:"raInterval,omitempty" validate:"omitempty,gte=1,lte=256"`
 
 	// RaProxyEnabled
 	// Indicates whether RA proxy is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	RaProxyEnabled *bool `json:"raProxyEnabled,omitempty"`
 
 	// RatePerSTADownlink
 	// UE Rate Limiting downlink.
+	// Constraints:
+	//    - nullable
 	RatePerSTADownlink *string `json:"ratePerSTADownlink,omitempty"`
 
 	// RatePerSTAUplink
 	// UE Rate Limiting uplink.
+	// Constraints:
+	//    - nullable
 	RatePerSTAUplink *string `json:"ratePerSTAUplink,omitempty"`
 
 	// RaThrottlingEnabled
 	// Indicates whether RA Throttling is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	RaThrottlingEnabled *bool `json:"raThrottlingEnabled,omitempty"`
 
 	// RsraGuardEnabled
 	// Indicates whether RS/RA Guard is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	RsraGuardEnabled *bool `json:"rsraGuardEnabled,omitempty"`
 
 	// Support80211dEnabled
 	// Indicates whether support for 802.11d is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:true
 	Support80211dEnabled *bool `json:"support80211dEnabled,omitempty"`
 
 	// Support80211kEnabled
 	// Indicates whether support for 802.11k is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:true
 	Support80211kEnabled *bool `json:"support80211kEnabled,omitempty"`
 
 	// SuppressNsEnabled
 	// Indicates whether supperssNS is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	SuppressNsEnabled *bool `json:"suppressNsEnabled,omitempty"`
 
 	// TransientClientMgmtEnable
 	// Transient Client Management enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	TransientClientMgmtEnable *bool `json:"transientClientMgmtEnable,omitempty"`
 
 	// UnauthClientStatsEnabled
 	// Indicates whether to send statistics of unauthorized clients or not
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	UnauthClientStatsEnabled *bool `json:"unauthClientStatsEnabled,omitempty"`
 
 	// UplinkEnabled
 	// SSID Rate Limiting uplink enabled.
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	UplinkEnabled *bool `json:"uplinkEnabled,omitempty"`
 
 	// UplinkRate
 	// SSID Rate Limiting uplink.
+	// Constraints:
+	//    - nullable
+	//    - default:0.0
 	UplinkRate *float64 `json:"uplinkRate,omitempty"`
 
 	// UrlFilteringPolicyEnabled
 	// Indicator of whether URL Filtering is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	UrlFilteringPolicyEnabled *bool `json:"urlFilteringPolicyEnabled,omitempty"`
 
 	// UrlFilteringPolicyId
 	// The URL Filtering policy ID.
+	// Constraints:
+	//    - nullable
 	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
 
 	// WifiCallingPolicyEnabled
 	// Indicator of whether Wi-Fi Calling is enabled or disabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	WifiCallingPolicyEnabled *bool `json:"wifiCallingPolicyEnabled,omitempty"`
 
 	// WifiCallingPolicyIds
 	// The Wi-Fi Calling policy IDs. (Maximum allowed number is 5)
-	WifiCallingPolicyIds []string `json:"wifiCallingPolicyIds,omitempty"`
+	// Constraints:
+	//    - nullable
+	WifiCallingPolicyIds []string `json:"wifiCallingPolicyIds,omitempty" validate:"omitempty,dive"`
 }
 
 func NewWSGWLANAdvanced() *WSGWLANAdvanced {
@@ -1746,10 +2912,14 @@ type WSGWLANAuthentication struct {
 
 	// BackupAuthenticationId
 	// Identifier of the backup authentication service or profile. At least one backupAuthenticationId or backupAuthenticationName or backupAuthenticationOption is required in the request when setting backup authentication service.
+	// Constraints:
+	//    - nullable
 	BackupAuthenticationId *string `json:"backupAuthenticationId,omitempty"`
 
 	// BackupAuthenticationName
 	// Name of the backup authentication service or profile. At least one backupAuthenticationId or backupAuthenticationName or backupAuthenticationOption is required in the request when setting backup authentication service. Or could input the 'Always Accept'.
+	// Constraints:
+	//    - nullable
 	BackupAuthenticationName *string `json:"backupAuthenticationName,omitempty"`
 
 	// BackupAuthenticationOption
@@ -1761,20 +2931,31 @@ type WSGWLANAuthentication struct {
 
 	// Id
 	// Identifier of the authentication service or profile. At least one ID or name or authenticationOption is required in the request.
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LocationDeliveryEnabled
 	// RFC5580 location delivery support
+	// Constraints:
+	//    - nullable
 	LocationDeliveryEnabled *bool `json:"locationDeliveryEnabled,omitempty"`
 
 	// Name
 	// Name of the authentication service or profile. At least one ID or name or authenticationOption is required in the request. Or could input the 'Always Accept' or 'Local DB'.
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
+	// RealmBasedAuth
+	// Constraints:
+	//    - nullable
 	RealmBasedAuth *bool `json:"realmBasedAuth,omitempty"`
 
 	// ThroughController
 	// Indicates whether authentication messages were sent through the controller or not
+	// Constraints:
+	//    - nullable
 	ThroughController *bool `json:"throughController,omitempty"`
 }
 
@@ -1791,152 +2972,271 @@ func NewWSGWLANBssMinRateMbps() *WSGWLANBssMinRateMbps {
 }
 
 type WSGWLANConfiguration struct {
+	// AccessIpsecProfile
+	// Constraints:
+	//    - nullable
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
+	// AccessTunnelProfile
+	// Constraints:
+	//    - nullable
 	AccessTunnelProfile *WSGCommonGenericRef `json:"accessTunnelProfile,omitempty"`
 
 	// AccessTunnelType
 	// Access tunnel type of the WLAN. APLBO means AP local breakout, SoftGRE means AP direct SoftGRE tunnel
 	// Constraints:
+	//    - nullable
 	//    - oneof:[APLBO,RuckusGRE,SoftGRE]
-	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"oneof=APLBO RuckusGRE SoftGRE"`
+	AccessTunnelType *string `json:"accessTunnelType,omitempty" validate:"omitempty,oneof=APLBO RuckusGRE SoftGRE"`
 
+	// AccountingServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AccountingServiceOrProfile *WSGWLANAccounting `json:"accountingServiceOrProfile,omitempty"`
 
+	// AdvancedOptions
+	// Constraints:
+	//    - nullable
 	AdvancedOptions *WSGWLANAdvanced `json:"advancedOptions,omitempty"`
 
+	// AuthServiceOrProfile
+	// Constraints:
+	//    - nullable
 	AuthServiceOrProfile *WSGWLANAuthentication `json:"authServiceOrProfile,omitempty"`
 
 	// AwsExtNasIPEnable
 	// Aws ExtNasIP Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsExtNasIPEnable *bool `json:"awsExtNasIPEnable,omitempty"`
 
 	// AwsVenueEnable
 	// Aws Venue Enable for CALEA
+	// Constraints:
+	//    - nullable
 	AwsVenueEnable *bool `json:"awsVenueEnable,omitempty"`
 
 	// BypassCNA
 	// Bypass Capitive Network Assitance
+	// Constraints:
+	//    - nullable
 	BypassCNA *bool `json:"bypassCNA,omitempty"`
 
 	// CaleaEnabled
 	// DP CALEA Server Enabled
+	// Constraints:
+	//    - nullable
 	CaleaEnabled *bool `json:"caleaEnabled,omitempty"`
 
+	// CoreTunnelProfile
+	// Constraints:
+	//    - nullable
 	CoreTunnelProfile *WSGWLANCoreTunnel `json:"coreTunnelProfile,omitempty"`
 
+	// DefaultUserTrafficProfile
+	// Constraints:
+	//    - nullable
 	DefaultUserTrafficProfile *WSGCommonGenericRef `json:"defaultUserTrafficProfile,omitempty"`
 
 	// Description
 	// Description of the WLAN
+	// Constraints:
+	//    - nullable
 	Description *string `json:"description,omitempty"`
 
+	// DevicePolicy
+	// Constraints:
+	//    - nullable
 	DevicePolicy *WSGCommonGenericRef `json:"devicePolicy,omitempty"`
 
+	// DiffServProfile
+	// Constraints:
+	//    - nullable
 	DiffServProfile *WSGCommonGenericRef `json:"diffServProfile,omitempty"`
 
+	// DnsServerProfile
+	// Constraints:
+	//    - nullable
 	DnsServerProfile *WSGCommonGenericRef `json:"dnsServerProfile,omitempty"`
 
+	// Dpsk
+	// Constraints:
+	//    - nullable
 	Dpsk *WSGDPSKWlanDpskSetting `json:"dpsk,omitempty"`
 
 	// DpTunnelDhcpEnabled
 	// DP Tunnel DHCP Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelDhcpEnabled *bool `json:"dpTunnelDhcpEnabled,omitempty"`
 
 	// DpTunnelNatEnabled
 	// DP Tunnel NAT Enabled
+	// Constraints:
+	//    - nullable
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
+	// Encryption
+	// Constraints:
+	//    - nullable
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallAppPolicyId *string `json:"firewallAppPolicyId,omitempty"`
 
 	// FirewallDevicePolicyId
 	// Firewall Device Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallDevicePolicyId *string `json:"firewallDevicePolicyId,omitempty"`
 
 	// FirewallDownlinkRateLimitingMbps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallDownlinkRateLimitingMbps *float64 `json:"firewallDownlinkRateLimitingMbps,omitempty"`
 
 	// FirewallL2AccessControlPolicyId
 	// Firewall L2 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL2AccessControlPolicyId *string `json:"firewallL2AccessControlPolicyId,omitempty"`
 
 	// FirewallL3AccessControlPolicyId
 	// Firewall L3 Access Control Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallL3AccessControlPolicyId *string `json:"firewallL3AccessControlPolicyId,omitempty"`
 
 	// FirewallProfileId
 	// Firewall profile of the WLAN
+	// Constraints:
+	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// FirewallUplinkRateLimitingMbps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
+	// Constraints:
+	//    - nullable
 	FirewallUplinkRateLimitingMbps *float64 `json:"firewallUplinkRateLimitingMbps,omitempty"`
 
 	// FirewallUrlFilteringPolicyId
 	// Firewall Url Filtering Policy of WLAN specific
+	// Constraints:
+	//    - nullable
 	FirewallUrlFilteringPolicyId *string `json:"firewallUrlFilteringPolicyId,omitempty"`
 
 	// FirewallWlanSpecificEnabled
 	// Firewall WLAN specific enabled
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	FirewallWlanSpecificEnabled *bool `json:"firewallWlanSpecificEnabled,omitempty"`
 
+	// FlexiVpnProfile
+	// Constraints:
+	//    - nullable
 	FlexiVpnProfile *WSGFlexiVPNSetting `json:"flexiVpnProfile,omitempty"`
 
+	// Hessid
+	// Constraints:
+	//    - nullable
 	Hessid *WSGWLANHESSID `json:"hessid,omitempty"`
 
+	// Hotspot20Profile
+	// Constraints:
+	//    - nullable
 	Hotspot20Profile *WSGCommonGenericRef `json:"hotspot20Profile,omitempty"`
 
 	// Id
 	// Identifier of the WLAN
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
+	// L2ACL
+	// Constraints:
+	//    - nullable
 	L2ACL *WSGCommonGenericRef `json:"l2ACL,omitempty"`
 
+	// MacAuth
+	// Constraints:
+	//    - nullable
 	MacAuth *WSGWLANMACAuth `json:"macAuth,omitempty"`
 
 	// Name
 	// Name of the WLAN
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
+	// OperatorRealm
+	// Constraints:
+	//    - nullable
 	OperatorRealm *WSGCommonRealm `json:"operatorRealm,omitempty"`
 
+	// PortalDetectionProfileId
+	// Constraints:
+	//    - nullable
 	PortalDetectionProfileId *string `json:"portalDetectionProfileId,omitempty"`
 
+	// PortalServiceProfile
+	// Constraints:
+	//    - nullable
 	PortalServiceProfile *WSGCommonGenericRef `json:"portalServiceProfile,omitempty"`
 
 	// PrecedenceProfileId
 	// Precedence profile of the WLAN
+	// Constraints:
+	//    - nullable
 	PrecedenceProfileId *string `json:"precedenceProfileId,omitempty"`
 
 	// QosMaps
 	// Qos map set of the WLAN.
-	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty"`
+	// Constraints:
+	//    - nullable
+	QosMaps []*WSGWLANDSCPSetting `json:"qosMaps,omitempty" validate:"omitempty,dive"`
 
+	// RadiusOptions
+	// Constraints:
+	//    - nullable
 	RadiusOptions *WSGWLANRadius `json:"radiusOptions,omitempty"`
 
+	// Schedule
+	// Constraints:
+	//    - nullable
 	Schedule *WSGWLANSchedule `json:"schedule,omitempty"`
 
+	// SplitTunnelProfileId
+	// Constraints:
+	//    - nullable
 	SplitTunnelProfileId *string `json:"splitTunnelProfileId,omitempty"`
 
 	// Ssid
 	// SSID of the WLAN
+	// Constraints:
+	//    - nullable
 	Ssid *string `json:"ssid,omitempty"`
 
 	// Type
 	// Type of the WLAN
 	// Constraints:
+	//    - nullable
 	//    - oneof:[Standard_Open,Standard_8021X,Standard_Mac,Hotspot,Hotspot_MacByPass,Guest,WebAuth,Hotspot20,Hotspot20_Open,Hotspot20_OSEN]
-	Type *string `json:"type,omitempty" validate:"oneof=Standard_Open Standard_8021X Standard_Mac Hotspot Hotspot_MacByPass Guest WebAuth Hotspot20 Hotspot20_Open Hotspot20_OSEN"`
+	Type *string `json:"type,omitempty" validate:"omitempty,oneof=Standard_Open Standard_8021X Standard_Mac Hotspot Hotspot_MacByPass Guest WebAuth Hotspot20 Hotspot20_Open Hotspot20_OSEN"`
 
+	// Vlan
+	// Constraints:
+	//    - nullable
 	Vlan *WSGWLANVlan `json:"vlan,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone to which the WLAN belongs
+	// Constraints:
+	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -1948,10 +3248,14 @@ func NewWSGWLANConfiguration() *WSGWLANConfiguration {
 type WSGWLANCoreTunnel struct {
 	// Id
 	// Identifier of the forwarding profile. At least one ID or name is required in the request.
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the forwarding profile. At least one ID or name is required in the request.
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Type
@@ -2011,15 +3315,20 @@ type WSGWLANEncryption struct {
 	// Algorithm
 	// Encryption algorithm. This only applies to WPA2 and WPA mixed mode.
 	// Constraints:
+	//    - nullable
 	//    - oneof:[AES,TKIP_AES,AES_GCMP_256]
-	Algorithm *string `json:"algorithm,omitempty" validate:"oneof=AES TKIP_AES AES_GCMP_256"`
+	Algorithm *string `json:"algorithm,omitempty" validate:"omitempty,oneof=AES TKIP_AES AES_GCMP_256"`
 
 	// KeyIndex
 	// Key index. This only applies to WEP64 and WEP128.
+	// Constraints:
+	//    - nullable
 	KeyIndex *int `json:"keyIndex,omitempty"`
 
 	// KeyInHex
 	// Key in hex format. This only applies to WEP64 and WEP128.
+	// Constraints:
+	//    - nullable
 	KeyInHex *string `json:"keyInHex,omitempty"`
 
 	// Method
@@ -2033,26 +3342,34 @@ type WSGWLANEncryption struct {
 	// Mfp
 	// Management frame protection. This only applies to WPA2 + AES or OWE method.
 	// Constraints:
+	//    - nullable
 	//    - oneof:[disabled,capable,required]
-	Mfp *string `json:"mfp,omitempty" validate:"oneof=disabled capable required"`
+	Mfp *string `json:"mfp,omitempty" validate:"omitempty,oneof=disabled capable required"`
 
 	// MobilityDomainId
 	// mobility Domain Id.
 	// Constraints:
+	//    - nullable
 	//    - min:1
 	//    - max:65535
-	MobilityDomainId *int `json:"mobilityDomainId,omitempty" validate:"gte=1,lte=65535"`
+	MobilityDomainId *int `json:"mobilityDomainId,omitempty" validate:"omitempty,gte=1,lte=65535"`
 
 	// Passphrase
 	// Passphrase. This only applies to WPA2 and WPA mixed mode.
+	// Constraints:
+	//    - nullable
 	Passphrase *string `json:"passphrase,omitempty"`
 
 	// SaePassphrase
 	// saePassphrase. This only applies to WPA3 and WPA23 mixed mode.
+	// Constraints:
+	//    - nullable
 	SaePassphrase *string `json:"saePassphrase,omitempty"`
 
 	// Support80211rEnabled
 	// Enable 802.11r Fast BSS Transition, fast Romaing.
+	// Constraints:
+	//    - nullable
 	Support80211rEnabled *bool `json:"support80211rEnabled,omitempty"`
 }
 
@@ -2069,12 +3386,24 @@ func NewWSGWLANHESSID() *WSGWLANHESSID {
 }
 
 type WSGWLANList struct {
+	// FirstIndex
+	// Constraints:
+	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
+	// HasMore
+	// Constraints:
+	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWLANSummary `json:"list,omitempty"`
+	// List
+	// Constraints:
+	//    - nullable
+	List []*WSGWLANSummary `json:"list,omitempty" validate:"omitempty,dive"`
 
+	// TotalCount
+	// Constraints:
+	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -2087,14 +3416,16 @@ type WSGWLANMACAuth struct {
 	// CustomizedPassword
 	// User defined password. When this field is set to an empty string, the MAC address is used as password.
 	// Constraints:
+	//    - nullable
 	//    - max:64
-	CustomizedPassword *string `json:"customizedPassword,omitempty" validate:"max=64"`
+	CustomizedPassword *string `json:"customizedPassword,omitempty" validate:"omitempty,max=64"`
 
 	// MacAuthMacFormat
 	// MAC address format. The default format is 0010a42319c0 and the 802.1X format is 00-10-A4-23-19-C0.
 	// Constraints:
+	//    - nullable
 	//    - oneof:[Default,802.1X,UpperColon,Upper,LowerDash,LowerColon]
-	MacAuthMacFormat *string `json:"macAuthMacFormat,omitempty" validate:"oneof=Default 802.1X UpperColon Upper LowerDash LowerColon"`
+	MacAuthMacFormat *string `json:"macAuthMacFormat,omitempty" validate:"omitempty,oneof=Default 802.1X UpperColon Upper LowerDash LowerColon"`
 }
 
 func NewWSGWLANMACAuth() *WSGWLANMACAuth {
@@ -2120,66 +3451,79 @@ type WSGWLANRadius struct {
 	// CalledStaIdType
 	// Called station ID type
 	// Constraints:
+	//    - nullable
 	//    - default:'WLAN_BSSID'
 	//    - oneof:[WLAN_BSSID,AP_MAC,NONE,AP_GROUP]
-	CalledStaIdType *string `json:"calledStaIdType,omitempty" validate:"oneof=WLAN_BSSID AP_MAC NONE AP_GROUP"`
+	CalledStaIdType *string `json:"calledStaIdType,omitempty" validate:"omitempty,oneof=WLAN_BSSID AP_MAC NONE AP_GROUP"`
 
 	// CustomizedNasId
 	// User defined NAS ID
 	// Constraints:
+	//    - nullable
 	//    - max:64
-	CustomizedNasId *string `json:"customizedNasId,omitempty" validate:"max=64"`
+	CustomizedNasId *string `json:"customizedNasId,omitempty" validate:"omitempty,max=64"`
 
 	// NasIdType
 	// NAS ID type
 	// Constraints:
+	//    - nullable
 	//    - default:'WLAN_BSSID'
 	//    - oneof:[WLAN_BSSID,AP_MAC,Customized]
-	NasIdType *string `json:"nasIdType,omitempty" validate:"oneof=WLAN_BSSID AP_MAC Customized"`
+	NasIdType *string `json:"nasIdType,omitempty" validate:"omitempty,oneof=WLAN_BSSID AP_MAC Customized"`
 
 	// NasIpType
 	// NAS IP type
 	// Constraints:
+	//    - nullable
 	//    - default:'disabled'
 	//    - oneof:[disabled,control,management,userDefined]
-	NasIpType *string `json:"nasIpType,omitempty" validate:"oneof=disabled control management userDefined"`
+	NasIpType *string `json:"nasIpType,omitempty" validate:"omitempty,oneof=disabled control management userDefined"`
 
 	// NasIpUserDefined
 	// User-defined NAS IP
 	// Constraints:
+	//    - nullable
 	//    - max:45
-	NasIpUserDefined *string `json:"nasIpUserDefined,omitempty" validate:"max=45"`
+	NasIpUserDefined *string `json:"nasIpUserDefined,omitempty" validate:"omitempty,max=45"`
 
 	// NasMaxRetry
 	// NAS request maximum retry
 	// Constraints:
+	//    - nullable
 	//    - default:2
 	//    - min:2
 	//    - max:10
-	NasMaxRetry *int `json:"nasMaxRetry,omitempty" validate:"gte=2,lte=10"`
+	NasMaxRetry *int `json:"nasMaxRetry,omitempty" validate:"omitempty,gte=2,lte=10"`
 
 	// NasReconnectPrimaryMin
 	// NAS reconnect primary time in minutes
 	// Constraints:
+	//    - nullable
 	//    - default:5
 	//    - min:1
 	//    - max:60
-	NasReconnectPrimaryMin *int `json:"nasReconnectPrimaryMin,omitempty" validate:"gte=1,lte=60"`
+	NasReconnectPrimaryMin *int `json:"nasReconnectPrimaryMin,omitempty" validate:"omitempty,gte=1,lte=60"`
 
 	// NasRequestTimeoutSec
 	// NAS request timeout in seconds
 	// Constraints:
+	//    - nullable
 	//    - default:3
 	//    - min:2
 	//    - max:20
-	NasRequestTimeoutSec *int `json:"nasRequestTimeoutSec,omitempty" validate:"gte=2,lte=20"`
+	NasRequestTimeoutSec *int `json:"nasRequestTimeoutSec,omitempty" validate:"omitempty,gte=2,lte=20"`
 
 	// SingleSessionIdAcctEnabled
 	// When Single Accounting Session ID is enabled, APs will maintain one accounting session for client roaming
+	// Constraints:
+	//    - nullable
+	//    - default:false
 	SingleSessionIdAcctEnabled *bool `json:"singleSessionIdAcctEnabled,omitempty"`
 
 	// VendorSpecificAttributeProfileId
 	// Vendor Specific Attribute Profile ID
+	// Constraints:
+	//    - nullable
 	VendorSpecificAttributeProfileId *string `json:"vendorSpecificAttributeProfileId,omitempty"`
 }
 
@@ -2191,10 +3535,14 @@ func NewWSGWLANRadius() *WSGWLANRadius {
 type WSGWLANSchedule struct {
 	// Id
 	// Identifier of the schedule profile. At least one ID or name is required in the request.
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the schedule profile. At least one ID or name is required in the request.
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Type
@@ -2214,22 +3562,32 @@ func NewWSGWLANSchedule() *WSGWLANSchedule {
 type WSGWLANSummary struct {
 	// Id
 	// Identifier of the WLAN
+	// Constraints:
+	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
+	// Constraints:
+	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Name of the WLAN
+	// Constraints:
+	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Ssid
 	// SSID of the WLAN
+	// Constraints:
+	//    - nullable
 	Ssid *string `json:"ssid,omitempty"`
 
 	// ZoneId
 	// Zone ID
+	// Constraints:
+	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -2241,27 +3599,36 @@ func NewWSGWLANSummary() *WSGWLANSummary {
 type WSGWLANVlan struct {
 	// AaaVlanOverride
 	// Indicates whether the AAA VLAN settings can be overriden or not
+	// Constraints:
+	//    - nullable
 	AaaVlanOverride *bool `json:"aaaVlanOverride,omitempty"`
 
 	// AccessVlan
 	// Access VLAN ID
 	// Constraints:
+	//    - nullable
 	//    - default:1
 	//    - min:1
 	//    - max:4094
-	AccessVlan *int `json:"accessVlan,omitempty" validate:"gte=1,lte=4094"`
+	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
 	// CoreQinQEnabled
 	// Indicates whether Q-in-Q is allowed at the core network or not
+	// Constraints:
+	//    - nullable
 	CoreQinQEnabled *bool `json:"coreQinQEnabled,omitempty"`
 
 	// CoreSVlan
 	// Core SVLAN ID. This only applies when core Q-in-Q is enabled
 	// Constraints:
+	//    - nullable
 	//    - min:1
 	//    - max:4094
-	CoreSVlan *int `json:"coreSVlan,omitempty" validate:"gte=1,lte=4094"`
+	CoreSVlan *int `json:"coreSVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
 
+	// VlanPooling
+	// Constraints:
+	//    - nullable
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 

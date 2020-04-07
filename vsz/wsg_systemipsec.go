@@ -24,78 +24,116 @@ func (ss *WSGService) WSGSystemIPsecService() *WSGSystemIPsecService {
 type WSGSystemIPsecGetResult struct {
 	// AuthType
 	// Authentication type
+	// Constraints:
+	//    - nullable
 	AuthType *string `json:"authType,omitempty"`
 
 	// CertSubject
 	// Assign specific cert subject
+	// Constraints:
+	//    - nullable
 	CertSubject *string `json:"certSubject,omitempty"`
 
 	// EspProposals
 	// Proposal of Encapsulating Security Payload
-	EspProposals []*WSGSystemIPsecProposal `json:"espProposals,omitempty"`
+	// Constraints:
+	//    - nullable
+	EspProposals []*WSGSystemIPsecProposal `json:"espProposals,omitempty" validate:"omitempty,dive"`
 
 	// EspRekeyDisabled
 	// Disable rekey mechanisam of Encapsulating Security Payload
+	// Constraints:
+	//    - nullable
 	EspRekeyDisabled *bool `json:"espRekeyDisabled,omitempty"`
 
 	// EspRekeyTime
 	// Rekey time of Encapsulating Security Payload
+	// Constraints:
+	//    - nullable
 	EspRekeyTime *int `json:"espRekeyTime,omitempty"`
 
 	// EspRekeyTimeUnit
 	// Rekey time unit of Encapsulating Security Payload
+	// Constraints:
+	//    - nullable
 	EspRekeyTimeUnit *string `json:"espRekeyTimeUnit,omitempty"`
 
 	// IkeProposals
 	// Proposal of Internet Key Exchange
-	IkeProposals []*WSGSystemIPsecProposal `json:"ikeProposals,omitempty"`
+	// Constraints:
+	//    - nullable
+	IkeProposals []*WSGSystemIPsecProposal `json:"ikeProposals,omitempty" validate:"omitempty,dive"`
 
 	// IkeRekeyDisabled
 	// Disable rekey mechanisam of Internet Key Exchange
+	// Constraints:
+	//    - nullable
 	IkeRekeyDisabled *bool `json:"ikeRekeyDisabled,omitempty"`
 
 	// IkeRekeyTime
 	// Rekey time of Internet Key Exchange
+	// Constraints:
+	//    - nullable
 	IkeRekeyTime *int `json:"ikeRekeyTime,omitempty"`
 
 	// IkeRekeyTimeUnit
 	// Rekey time unit of Internet Key Exchange
+	// Constraints:
+	//    - nullable
 	IkeRekeyTimeUnit *string `json:"ikeRekeyTimeUnit,omitempty"`
 
 	// IpSecEnabled
 	// Enable System IPSec
+	// Constraints:
+	//    - nullable
 	IpSecEnabled *bool `json:"ipSecEnabled,omitempty"`
 
 	// OcspEnabled
 	// Enable OCSP
+	// Constraints:
+	//    - nullable
 	OcspEnabled *bool `json:"ocspEnabled,omitempty"`
 
 	// OcspServerUri
 	// The URI of OCSP server
+	// Constraints:
+	//    - nullable
 	OcspServerUri *string `json:"ocspServerUri,omitempty"`
 
 	// PreSharedKey
 	// Pre-shared key
+	// Constraints:
+	//    - nullable
 	PreSharedKey *string `json:"preSharedKey,omitempty"`
 
 	// RemoteId
 	// The IP of IPSec receiver
+	// Constraints:
+	//    - nullable
 	RemoteId *string `json:"remoteId,omitempty"`
 
 	// ScgCertId
 	// SCG client certification id.
+	// Constraints:
+	//    - nullable
 	ScgCertId *string `json:"scgCertId,omitempty"`
 
 	// SecurityGateway
 	// Security gateway IP
+	// Constraints:
+	//    - nullable
 	SecurityGateway *string `json:"securityGateway,omitempty"`
 
 	// SubnetMask
 	// Subnet Mask of security gateway
+	// Constraints:
+	//    - nullable
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
 	// TrustChainProfileId
 	// Assign trust chain profile id
+	// Constraints:
+	//    - nullable
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
@@ -126,42 +164,62 @@ func NewWSGSystemIPsecProposal() *WSGSystemIPsecProposal {
 type WSGSystemIPsecUpdate struct {
 	// AuthType
 	// Authentication type
+	// Constraints:
+	//    - nullable
 	AuthType *string `json:"authType,omitempty"`
 
 	// CertSubject
 	// Assign specific cert subject
+	// Constraints:
+	//    - nullable
 	CertSubject *string `json:"certSubject,omitempty"`
 
 	// EspProposals
 	// Proposal of Encapsulating Security Payload
-	EspProposals []*WSGSystemIPsecProposal `json:"espProposals,omitempty"`
+	// Constraints:
+	//    - nullable
+	EspProposals []*WSGSystemIPsecProposal `json:"espProposals,omitempty" validate:"omitempty,dive"`
 
 	// EspRekeyDisabled
 	// Disable rekey mechanisam of Encapsulating Security Payload
+	// Constraints:
+	//    - nullable
 	EspRekeyDisabled *bool `json:"espRekeyDisabled,omitempty"`
 
 	// EspRekeyTime
 	// Rekey time of Encapsulating Security Payload
+	// Constraints:
+	//    - nullable
 	EspRekeyTime *int `json:"espRekeyTime,omitempty"`
 
 	// EspRekeyTimeUnit
 	// Rekey time unit of Encapsulating Security Payload
+	// Constraints:
+	//    - nullable
 	EspRekeyTimeUnit *string `json:"espRekeyTimeUnit,omitempty"`
 
 	// IkeProposals
 	// Proposal of Internet Key Exchange
-	IkeProposals []*WSGSystemIPsecProposal `json:"ikeProposals,omitempty"`
+	// Constraints:
+	//    - nullable
+	IkeProposals []*WSGSystemIPsecProposal `json:"ikeProposals,omitempty" validate:"omitempty,dive"`
 
 	// IkeRekeyDisabled
 	// Disable rekey mechanisam of Internet Key Exchange
+	// Constraints:
+	//    - nullable
 	IkeRekeyDisabled *bool `json:"ikeRekeyDisabled,omitempty"`
 
 	// IkeRekeyTime
 	// Rekey time of Internet Key Exchange
+	// Constraints:
+	//    - nullable
 	IkeRekeyTime *int `json:"ikeRekeyTime,omitempty"`
 
 	// IkeRekeyTimeUnit
 	// Rekey time unit of Internet Key Exchange
+	// Constraints:
+	//    - nullable
 	IkeRekeyTimeUnit *string `json:"ikeRekeyTimeUnit,omitempty"`
 
 	// IpSecEnabled
@@ -172,34 +230,50 @@ type WSGSystemIPsecUpdate struct {
 
 	// OcspEnabled
 	// Enable OCSP
+	// Constraints:
+	//    - nullable
 	OcspEnabled *bool `json:"ocspEnabled,omitempty"`
 
 	// OcspServerUri
 	// The URI of OCSP server
+	// Constraints:
+	//    - nullable
 	OcspServerUri *string `json:"ocspServerUri,omitempty"`
 
 	// PreSharedKey
 	// Pre-shared key
+	// Constraints:
+	//    - nullable
 	PreSharedKey *string `json:"preSharedKey,omitempty"`
 
 	// RemoteId
 	// The IP of IPSec receiver
+	// Constraints:
+	//    - nullable
 	RemoteId *string `json:"remoteId,omitempty"`
 
 	// ScgCertId
 	// SCG client certification id.
+	// Constraints:
+	//    - nullable
 	ScgCertId *string `json:"scgCertId,omitempty"`
 
 	// SecurityGateway
 	// Security gateway IP
+	// Constraints:
+	//    - nullable
 	SecurityGateway *string `json:"securityGateway,omitempty"`
 
 	// SubnetMask
 	// Subnet Mask of security gateway
+	// Constraints:
+	//    - nullable
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
 	// TrustChainProfileId
 	// Assign trust chain profile id
+	// Constraints:
+	//    - nullable
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 

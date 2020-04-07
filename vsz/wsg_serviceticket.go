@@ -41,10 +41,15 @@ func NewWSGServiceTicketLoginRequest() *WSGServiceTicketLoginRequest {
 }
 
 type WSGServiceTicketLoginResponse struct {
+	// ControllerVersion
+	// Constraints:
+	//    - nullable
 	ControllerVersion *string `json:"controllerVersion,omitempty"`
 
 	// ServiceTicket
 	// Logon authentication successful, the server generates a service ticket
+	// Constraints:
+	//    - nullable
 	ServiceTicket *string `json:"serviceTicket,omitempty"`
 }
 

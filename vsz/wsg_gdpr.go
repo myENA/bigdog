@@ -30,6 +30,8 @@ type WSGGDPRFtp struct {
 
 	// FtpPassword
 	// Password for FTP login
+	// Constraints:
+	//    - nullable
 	FtpPassword *string `json:"ftpPassword,omitempty"`
 
 	// FtpPort
@@ -43,15 +45,20 @@ type WSGGDPRFtp struct {
 	// FtpProtocol
 	// Protocol used
 	// Constraints:
+	//    - nullable
 	//    - oneof:[FTP,SFTP]
-	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"oneof=FTP SFTP"`
+	FtpProtocol *string `json:"ftpProtocol,omitempty" validate:"omitempty,oneof=FTP SFTP"`
 
 	// FtpRemoteDirectory
 	// Destination directory used for file upload
+	// Constraints:
+	//    - nullable
 	FtpRemoteDirectory *string `json:"ftpRemoteDirectory,omitempty"`
 
 	// FtpUserName
 	// Username for FTP login
+	// Constraints:
+	//    - nullable
 	FtpUserName *string `json:"ftpUserName,omitempty"`
 }
 
@@ -74,6 +81,9 @@ type WSGGDPRReport struct {
 	//    - required
 	ClientMac *string `json:"clientMac" validate:"required"`
 
+	// Ftp
+	// Constraints:
+	//    - nullable
 	Ftp *WSGGDPRFtp `json:"ftp,omitempty"`
 }
 

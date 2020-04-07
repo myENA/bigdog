@@ -25,66 +25,42 @@ func (ss *WSGService) WSGRogueClientService() *WSGRogueClientService {
 type WSGRogueClientRogueInfo struct {
 	// Channel
 	// Channel of the rogue client
-	// Constraints:
-	//    - nullable
 	Channel *int `json:"channel,omitempty"`
 
 	// Classification
 	// Rogue classification by policy
-	// Constraints:
-	//    - nullable
 	Classification *string `json:"classification,omitempty"`
 
 	// DetectedByAP
 	// The list of APs that found the rogue client
-	// Constraints:
-	//    - nullable
-	DetectedByAP []*WSGAPInfo `json:"detectedByAP,omitempty" validate:"omitempty,dive"`
+	DetectedByAP []*WSGAPInfo `json:"detectedByAP,omitempty"`
 
 	// Encryption
 	// Encryption of the rogue client
-	// Constraints:
-	//    - nullable
 	Encryption *string `json:"encryption,omitempty"`
 
 	// LastDetected
 	// Timestamp of the rogue client
-	// Constraints:
-	//    - nullable
 	LastDetected *int `json:"lastDetected,omitempty"`
 
 	// MatchResult
 	// What policy and rule matched when system doing classification by rogue policy
-	// Constraints:
-	//    - nullable
 	MatchResult *string `json:"matchResult,omitempty"`
 
 	// Radio
 	// Radio of the rogue client
-	// Constraints:
-	//    - nullable
 	Radio *string `json:"radio,omitempty"`
 
-	// RogueAPMac
-	// Constraints:
-	//    - nullable
 	RogueAPMac *WSGCommonMac `json:"rogueAPMac,omitempty"`
 
-	// RogueMac
-	// Constraints:
-	//    - nullable
 	RogueMac *WSGCommonMac `json:"rogueMac,omitempty"`
 
 	// Ssid
 	// SSID of the rogue client
-	// Constraints:
-	//    - nullable
 	Ssid *string `json:"ssid,omitempty"`
 
 	// Type
 	// Type of the rogue client
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -96,37 +72,24 @@ func NewWSGRogueClientRogueInfo() *WSGRogueClientRogueInfo {
 type WSGRogueClientRogueInfoList struct {
 	// Extra
 	// Any additional response data.
-	// Constraints:
-	//    - nullable
 	Extra *WSGRogueClientRogueInfoListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Rogue AP returned out of the complete Rogue Client list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more Rogue Clients after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGRogueClientRogueInfo `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGRogueClientRogueInfo `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Rogue Clients count.
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total Rogue Clients count in this response.
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -138,8 +101,6 @@ func NewWSGRogueClientRogueInfoList() *WSGRogueClientRogueInfoList {
 // WSGRogueClientRogueInfoListExtraType
 //
 // Any additional response data.
-// Constraints:
-//    - nullable
 type WSGRogueClientRogueInfoListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

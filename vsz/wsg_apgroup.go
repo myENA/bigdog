@@ -24,9 +24,7 @@ func (ss *WSGService) WSGAPGroupService() *WSGAPGroupService {
 type WSGAPGroupAddMembers struct {
 	// MemberList
 	// List of apMac
-	// Constraints:
-	//    - nullable
-	MemberList []*WSGAPGroupMember `json:"memberList,omitempty" validate:"omitempty,dive"`
+	MemberList []*WSGAPGroupMember `json:"memberList,omitempty"`
 }
 
 func NewWSGAPGroupAddMembers() *WSGAPGroupAddMembers {
@@ -35,211 +33,114 @@ func NewWSGAPGroupAddMembers() *WSGAPGroupAddMembers {
 }
 
 type WSGAPGroupConfiguration struct {
-	// Altitude
-	// Constraints:
-	//    - nullable
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
 	// ApGroupRoguePolicy
 	// Override Rogue AP policy ID (only for monitoring group).
-	// Constraints:
-	//    - nullable
 	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
 
-	// ApMgmtVlan
-	// Constraints:
-	//    - nullable
 	ApMgmtVlan *WSGCommonApManagementVlan `json:"apMgmtVlan,omitempty"`
 
-	// AutoChannelSelection24
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection24 *WSGCommonAutoChannelSelection `json:"autoChannelSelection24,omitempty"`
 
-	// AutoChannelSelection50
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Constraints:
-	//    - nullable
 	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	// ClientAdmissionControl24
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
-	// ClientAdmissionControl50
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl50 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
 	// Description
 	// Description of the AP group
-	// Constraints:
-	//    - nullable
 	Description *string `json:"description,omitempty"`
 
-	// DirectedMulticastFromNetworkEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
-	// DirectedMulticastFromWiredClientEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWiredClientEnabled *bool `json:"directedMulticastFromWiredClientEnabled,omitempty"`
 
-	// DirectedMulticastFromWirelessClientEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
 	// Id
 	// Identifier of the AP group
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Latitude
-	// Constraints:
-	//    - nullable
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// Location
-	// Constraints:
-	//    - nullable
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	// LocationAdditionalInfo
-	// Constraints:
-	//    - nullable
 	LocationAdditionalInfo *WSGCommonLocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
-	// LocationBasedService
-	// Constraints:
-	//    - nullable
 	LocationBasedService *WSGCommonOverrideGenericRef `json:"locationBasedService,omitempty"`
 
-	// Longitude
-	// Constraints:
-	//    - nullable
 	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	// Constraints:
-	//    - nullable
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty" validate:"omitempty,dive"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	// Members
 	// Members of the AP group
-	// Constraints:
-	//    - nullable
-	Members []*WSGAPGroupMember `json:"members,omitempty" validate:"omitempty,dive"`
+	Members []*WSGAPGroupMember `json:"members,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.
-	// Constraints:
-	//    - nullable
 	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
 
 	// Name
 	// Name of the AP group
 	// Constraints:
 	//    - required
-	Name *string `json:"name" validate:"required"`
+	Name *string `json:"name"`
 
-	// PaloAltoFirewallProfileId
-	// Constraints:
-	//    - nullable
 	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
 
-	// PaloAltoFirewallProfileOverrided
-	// Constraints:
-	//    - nullable
 	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
 
-	// ProtectionMode24
-	// Constraints:
-	//    - nullable
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
-	// RecoverySsid
-	// Constraints:
-	//    - nullable
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
-	// Constraints:
-	//    - nullable
 	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
-	// Constraints:
-	//    - nullable
 	RogueApAggressivenessMode *int `json:"rogueApAggressivenessMode,omitempty"`
 
-	// RogueApJammingThreshold
-	// Constraints:
-	//    - nullable
 	RogueApJammingThreshold *int `json:"rogueApJammingThreshold,omitempty"`
 
 	// RogueApReportThreshold
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
-	// Constraints:
-	//    - nullable
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
 	// RogueScanFreq
 	// Set rogue scan frequency (only for monitoring group).
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LOW,MEDIUM,HIGH]
-	RogueScanFreq *string `json:"rogueScanFreq,omitempty" validate:"omitempty,oneof=LOW MEDIUM HIGH"`
+	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
 
-	// VenueProfile
-	// Constraints:
-	//    - nullable
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
-	// Wifi24
-	// Constraints:
-	//    - nullable
 	Wifi24 *WSGCommonRadio24SuperSet `json:"wifi24,omitempty"`
 
-	// Wifi50
-	// Constraints:
-	//    - nullable
 	Wifi50 *WSGCommonRadio50SuperSet `json:"wifi50,omitempty"`
 
-	// WlanGroup24
-	// Constraints:
-	//    - nullable
 	WlanGroup24 *WSGCommonGenericRef `json:"wlanGroup24,omitempty"`
 
-	// WlanGroup50
-	// Constraints:
-	//    - nullable
 	WlanGroup50 *WSGCommonGenericRef `json:"wlanGroup50,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone to which the AP group belongs
-	// Constraints:
-	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -249,24 +150,12 @@ func NewWSGAPGroupConfiguration() *WSGAPGroupConfiguration {
 }
 
 type WSGAPGroupList struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGAPGroupSummary `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGAPGroupSummary `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -276,15 +165,10 @@ func NewWSGAPGroupList() *WSGAPGroupList {
 }
 
 type WSGAPGroupMember struct {
-	// ApMac
-	// Constraints:
-	//    - nullable
 	ApMac *WSGCommonMac `json:"apMac,omitempty"`
 
 	// ApSerial
 	// Serial number of member AP
-	// Constraints:
-	//    - nullable
 	ApSerial *string `json:"apSerial,omitempty"`
 }
 
@@ -296,14 +180,10 @@ func NewWSGAPGroupMember() *WSGAPGroupMember {
 type WSGAPGroupSummary struct {
 	// Id
 	// Identifier of the AP group
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Description of the AP group
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 
@@ -313,194 +193,102 @@ func NewWSGAPGroupSummary() *WSGAPGroupSummary {
 }
 
 type WSGAPGroupCreateAPGroup struct {
-	// Altitude
-	// Constraints:
-	//    - nullable
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
 	// ApGroupRoguePolicy
 	// Override Rogue AP policy ID (only for monitoring group).
-	// Constraints:
-	//    - nullable
 	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
 
-	// ApMgmtVlan
-	// Constraints:
-	//    - nullable
 	ApMgmtVlan *WSGCommonApManagementVlan `json:"apMgmtVlan,omitempty"`
 
-	// AutoChannelSelection24
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection24 *WSGCommonAutoChannelSelection `json:"autoChannelSelection24,omitempty"`
 
-	// AutoChannelSelection50
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Constraints:
-	//    - nullable
 	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	// ClientAdmissionControl24
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
-	// ClientAdmissionControl50
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl50 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network to wired / wireless client.
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
 	// DirectedMulticastFromWiredClientEnabled
 	// Directed multicast from wired client to network.
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWiredClientEnabled *bool `json:"directedMulticastFromWiredClientEnabled,omitempty"`
 
 	// DirectedMulticastFromWirelessClientEnabled
 	// Directed multicast from wireless client to network.
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// Latitude
-	// Constraints:
-	//    - nullable
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// Location
-	// Constraints:
-	//    - nullable
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	// LocationAdditionalInfo
-	// Constraints:
-	//    - nullable
 	LocationAdditionalInfo *WSGCommonLocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
-	// LocationBasedService
-	// Constraints:
-	//    - nullable
 	LocationBasedService *WSGCommonOverrideGenericRef `json:"locationBasedService,omitempty"`
 
-	// Longitude
-	// Constraints:
-	//    - nullable
 	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	// Constraints:
-	//    - nullable
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty" validate:"omitempty,dive"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.
-	// Constraints:
-	//    - nullable
 	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	// PaloAltoFirewallProfileId
-	// Constraints:
-	//    - nullable
 	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
 
-	// PaloAltoFirewallProfileOverrided
-	// Constraints:
-	//    - nullable
 	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
 
-	// ProtectionMode24
-	// Constraints:
-	//    - nullable
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
-	// RecoverySsid
-	// Constraints:
-	//    - nullable
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
-	// Constraints:
-	//    - nullable
 	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
-	// Constraints:
-	//    - nullable
 	RogueApAggressivenessMode *int `json:"rogueApAggressivenessMode,omitempty"`
 
-	// RogueApJammingThreshold
-	// Constraints:
-	//    - nullable
 	RogueApJammingThreshold *int `json:"rogueApJammingThreshold,omitempty"`
 
 	// RogueApReportThreshold
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
-	// Constraints:
-	//    - nullable
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
 	// RogueScanFreq
 	// Set rogue scan frequency (only for monitoring group).
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LOW,MEDIUM,HIGH]
-	RogueScanFreq *string `json:"rogueScanFreq,omitempty" validate:"omitempty,oneof=LOW MEDIUM HIGH"`
+	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
 
-	// VenueProfile
-	// Constraints:
-	//    - nullable
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
-	// Wifi24
-	// Constraints:
-	//    - nullable
 	Wifi24 *WSGCommonRadio24 `json:"wifi24,omitempty"`
 
-	// Wifi50
-	// Constraints:
-	//    - nullable
 	Wifi50 *WSGCommonRadio50 `json:"wifi50,omitempty"`
 
-	// WlanGroup24
-	// Constraints:
-	//    - nullable
 	WlanGroup24 *WSGCommonGenericRef `json:"wlanGroup24,omitempty"`
 
-	// WlanGroup50
-	// Constraints:
-	//    - nullable
 	WlanGroup50 *WSGCommonGenericRef `json:"wlanGroup50,omitempty"`
 }
 
@@ -510,194 +298,102 @@ func NewWSGAPGroupCreateAPGroup() *WSGAPGroupCreateAPGroup {
 }
 
 type WSGAPGroupModifyAPGroup struct {
-	// Altitude
-	// Constraints:
-	//    - nullable
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
 	// ApGroupRoguePolicy
 	// Override Rogue AP policy ID (only for monitoring group).
-	// Constraints:
-	//    - nullable
 	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
 
-	// ApMgmtVlan
-	// Constraints:
-	//    - nullable
 	ApMgmtVlan *WSGCommonApManagementVlan `json:"apMgmtVlan,omitempty"`
 
-	// AutoChannelSelection24
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection24 *WSGCommonAutoChannelSelection `json:"autoChannelSelection24,omitempty"`
 
-	// AutoChannelSelection50
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Constraints:
-	//    - nullable
 	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	// ClientAdmissionControl24
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
-	// ClientAdmissionControl50
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl50 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network to wired / wireless client.
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
 	// DirectedMulticastFromWiredClientEnabled
 	// Directed multicast from wired client to network.
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWiredClientEnabled *bool `json:"directedMulticastFromWiredClientEnabled,omitempty"`
 
 	// DirectedMulticastFromWirelessClientEnabled
 	// Directed multicast from wireless client to network.
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// Latitude
-	// Constraints:
-	//    - nullable
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// Location
-	// Constraints:
-	//    - nullable
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	// LocationAdditionalInfo
-	// Constraints:
-	//    - nullable
 	LocationAdditionalInfo *WSGCommonLocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
-	// LocationBasedService
-	// Constraints:
-	//    - nullable
 	LocationBasedService *WSGCommonOverrideGenericRef `json:"locationBasedService,omitempty"`
 
-	// Longitude
-	// Constraints:
-	//    - nullable
 	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	// Constraints:
-	//    - nullable
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty" validate:"omitempty,dive"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.
-	// Constraints:
-	//    - nullable
 	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	// PaloAltoFirewallProfileId
-	// Constraints:
-	//    - nullable
 	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
 
-	// PaloAltoFirewallProfileOverrided
-	// Constraints:
-	//    - nullable
 	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
 
-	// ProtectionMode24
-	// Constraints:
-	//    - nullable
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
-	// RecoverySsid
-	// Constraints:
-	//    - nullable
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
-	// Constraints:
-	//    - nullable
 	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
-	// Constraints:
-	//    - nullable
 	RogueApAggressivenessMode *int `json:"rogueApAggressivenessMode,omitempty"`
 
-	// RogueApJammingThreshold
-	// Constraints:
-	//    - nullable
 	RogueApJammingThreshold *int `json:"rogueApJammingThreshold,omitempty"`
 
 	// RogueApReportThreshold
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
-	// Constraints:
-	//    - nullable
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
 	// RogueScanFreq
 	// Set rogue scan frequency (only for monitoring group).
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LOW,MEDIUM,HIGH]
-	RogueScanFreq *string `json:"rogueScanFreq,omitempty" validate:"omitempty,oneof=LOW MEDIUM HIGH"`
+	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
 
-	// VenueProfile
-	// Constraints:
-	//    - nullable
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
-	// Wifi24
-	// Constraints:
-	//    - nullable
 	Wifi24 *WSGCommonRadio24 `json:"wifi24,omitempty"`
 
-	// Wifi50
-	// Constraints:
-	//    - nullable
 	Wifi50 *WSGCommonRadio50 `json:"wifi50,omitempty"`
 
-	// WlanGroup24
-	// Constraints:
-	//    - nullable
 	WlanGroup24 *WSGCommonGenericRef `json:"wlanGroup24,omitempty"`
 
-	// WlanGroup50
-	// Constraints:
-	//    - nullable
 	WlanGroup50 *WSGCommonGenericRef `json:"wlanGroup50,omitempty"`
 }
 

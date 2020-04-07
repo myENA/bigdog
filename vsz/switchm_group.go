@@ -25,14 +25,10 @@ func (ss *SwitchMService) SwitchMGroupService() *SwitchMGroupService {
 type SwitchMGroupAuditId struct {
 	// Id
 	// Audit Id
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Audit name
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 
@@ -44,26 +40,18 @@ func NewSwitchMGroupAuditId() *SwitchMGroupAuditId {
 type SwitchMGroupClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
-	// Constraints:
-	//    - nullable
 	ExtraValues *SwitchMGroupClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
 
 	// Id
 	// Identifier of the client
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Label
 	// Label of the client
-	// Constraints:
-	//    - nullable
 	Label *string `json:"label,omitempty"`
 
 	// Type
 	// Type of the client
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -75,8 +63,6 @@ func NewSwitchMGroupClientObjectID() *SwitchMGroupClientObjectID {
 // SwitchMGroupClientObjectIDExtraValuesType
 //
 // Extra values of the client
-// Constraints:
-//    - nullable
 type SwitchMGroupClientObjectIDExtraValuesType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -103,15 +89,10 @@ func NewSwitchMGroupClientObjectIDExtraValuesType() *SwitchMGroupClientObjectIDE
 }
 
 type SwitchMGroupCloneConfigByGroup struct {
-	// Destination
-	// Constraints:
-	//    - nullable
-	Destination []string `json:"destination,omitempty" validate:"omitempty,dive"`
+	Destination []string `json:"destination,omitempty"`
 
 	// Source
 	// Source
-	// Constraints:
-	//    - nullable
 	Source *string `json:"source,omitempty"`
 }
 
@@ -123,19 +104,12 @@ func NewSwitchMGroupCloneConfigByGroup() *SwitchMGroupCloneConfigByGroup {
 type SwitchMGroupCloneConfigBySwitch struct {
 	// Config
 	// Config
-	// Constraints:
-	//    - nullable
 	Config *string `json:"config,omitempty"`
 
-	// Destination
-	// Constraints:
-	//    - nullable
-	Destination []string `json:"destination,omitempty" validate:"omitempty,dive"`
+	Destination []string `json:"destination,omitempty"`
 
 	// Source
 	// Source
-	// Constraints:
-	//    - nullable
 	Source *string `json:"source,omitempty"`
 }
 
@@ -145,19 +119,10 @@ func NewSwitchMGroupCloneConfigBySwitch() *SwitchMGroupCloneConfigBySwitch {
 }
 
 type SwitchMGroupErrorObject struct {
-	// List
-	// Constraints:
-	//    - nullable
-	List []string `json:"list,omitempty" validate:"omitempty,dive"`
+	List []string `json:"list,omitempty"`
 
-	// Message
-	// Constraints:
-	//    - nullable
 	Message *string `json:"message,omitempty"`
 
-	// MsgKey
-	// Constraints:
-	//    - nullable
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
@@ -169,14 +134,10 @@ func NewSwitchMGroupErrorObject() *SwitchMGroupErrorObject {
 type SwitchMGroupGetConfigBySwitch struct {
 	// Id
 	// ID
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Source
 	// Source
-	// Constraints:
-	//    - nullable
 	Source *string `json:"source,omitempty"`
 }
 
@@ -186,32 +147,20 @@ func NewSwitchMGroupGetConfigBySwitch() *SwitchMGroupGetConfigBySwitch {
 }
 
 type SwitchMGroupsByIdsQueryResultList struct {
-	// Data
-	// Constraints:
-	//    - nullable
 	Data *SwitchMGroupQueryResultList `json:"data,omitempty"`
 
-	// Error
-	// Constraints:
-	//    - nullable
 	Error *SwitchMGroupErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMGroupsByIdsQueryResultListExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Metadata of query result list
-	// Constraints:
-	//    - nullable
 	MetaData *SwitchMGroupsByIdsQueryResultListMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Query result success or not
-	// Constraints:
-	//    - nullable
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -223,8 +172,6 @@ func NewSwitchMGroupsByIdsQueryResultList() *SwitchMGroupsByIdsQueryResultList {
 // SwitchMGroupsByIdsQueryResultListExtraType
 //
 // Any additional response
-// Constraints:
-//    - nullable
 type SwitchMGroupsByIdsQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -253,8 +200,6 @@ func NewSwitchMGroupsByIdsQueryResultListExtraType() *SwitchMGroupsByIdsQueryRes
 // SwitchMGroupsByIdsQueryResultListMetaDataType
 //
 // Metadata of query result list
-// Constraints:
-//    - nullable
 type SwitchMGroupsByIdsQueryResultListMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -283,37 +228,24 @@ func NewSwitchMGroupsByIdsQueryResultListMetaDataType() *SwitchMGroupsByIdsQuery
 type SwitchMGroupQueryResultList struct {
 	// Extra
 	// Extra information for query result list
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMGroupQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first query result returned out of the complete query result list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more query result after the currently displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMGroupClientObjectID `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMGroupClientObjectID `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Query result count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total query result count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -325,8 +257,6 @@ func NewSwitchMGroupQueryResultList() *SwitchMGroupQueryResultList {
 // SwitchMGroupQueryResultListExtraType
 //
 // Extra information for query result list
-// Constraints:
-//    - nullable
 type SwitchMGroupQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -355,80 +285,54 @@ func NewSwitchMGroupQueryResultListExtraType() *SwitchMGroupQueryResultListExtra
 type SwitchMGroupSwitchGroup struct {
 	// CreateDatetime
 	// Create datetime of the switch group
-	// Constraints:
-	//    - nullable
 	CreateDatetime *int `json:"createDatetime,omitempty"`
 
 	// CreatorId
 	// Creator Id of the switch group
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// Description
 	// Description of the switch group
-	// Constraints:
-	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the management domain to which the switch group belong
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Firmware
 	// Firmware of the switch group
-	// Constraints:
-	//    - nullable
 	Firmware *string `json:"firmware,omitempty"`
 
 	// Id
 	// Identifier of the switch group
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LevelOne
 	// Level one  of the switch group
-	// Constraints:
-	//    - nullable
 	LevelOne *bool `json:"levelOne,omitempty"`
 
 	// LevelTwo
 	// Level two of the switch group
-	// Constraints:
-	//    - nullable
 	LevelTwo *bool `json:"levelTwo,omitempty"`
 
 	// Name
 	// Name of the switch group
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// SampledInstant
 	// Sampled instant of the switch group
-	// Constraints:
-	//    - nullable
 	SampledInstant *SwitchMGroupSwitchGroupSampledInstantType `json:"sampledInstant,omitempty"`
 
 	// SwitchGroupLevelOneId
 	// Level one Id of the switch group
-	// Constraints:
-	//    - nullable
 	SwitchGroupLevelOneId *string `json:"switchGroupLevelOneId,omitempty"`
 
 	// SwitchGroupLevelTwoId
 	// Level two Id of the switch group
-	// Constraints:
-	//    - nullable
 	SwitchGroupLevelTwoId *string `json:"switchGroupLevelTwoId,omitempty"`
 
 	// TenantId
 	// Tenant Id of the switch group
-	// Constraints:
-	//    - nullable
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
@@ -440,8 +344,6 @@ func NewSwitchMGroupSwitchGroup() *SwitchMGroupSwitchGroup {
 // SwitchMGroupSwitchGroupSampledInstantType
 //
 // Sampled instant of the switch group
-// Constraints:
-//    - nullable
 type SwitchMGroupSwitchGroupSampledInstantType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

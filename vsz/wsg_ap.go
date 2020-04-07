@@ -5,26 +5,18 @@ package vsz
 type WSGAPAlarmSummary struct {
 	// CriticalCount
 	// Critical alarm count
-	// Constraints:
-	//    - nullable
 	CriticalCount *int `json:"criticalCount,omitempty"`
 
 	// MajorCount
 	// Major alarm count
-	// Constraints:
-	//    - nullable
 	MajorCount *int `json:"majorCount,omitempty"`
 
 	// MinorCount
 	// Minor alarm count
-	// Constraints:
-	//    - nullable
 	MinorCount *int `json:"minorCount,omitempty"`
 
 	// WarningCount
 	// Warning alarm count
-	// Constraints:
-	//    - nullable
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
@@ -37,263 +29,130 @@ type WSGAPConfiguration struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	// Constraints:
-	//    - nullable
 	//    - default:'Unlocked'
 	//    - oneof:[Locked,Unlocked]
-	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
+	AdministrativeState *string `json:"administrativeState,omitempty"`
 
-	// Altitude
-	// Constraints:
-	//    - nullable
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
-	// ApGroupId
-	// Constraints:
-	//    - nullable
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	// ApMgmtVlan
-	// Constraints:
-	//    - nullable
 	ApMgmtVlan *WSGCommonApManagementVlan `json:"apMgmtVlan,omitempty"`
 
-	// AutoChannelSelection24
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection24 *WSGCommonAutoChannelSelection `json:"autoChannelSelection24,omitempty"`
 
-	// AutoChannelSelection50
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Constraints:
-	//    - nullable
 	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
-	// BonjourGateway
-	// Constraints:
-	//    - nullable
 	BonjourGateway *WSGCommonGenericRef `json:"bonjourGateway,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	// ClientAdmissionControl24
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
-	// ClientAdmissionControl50
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl50 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	// DirectedMulticastFromNetworkEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
-	// DirectedMulticastFromWiredClientEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWiredClientEnabled *bool `json:"directedMulticastFromWiredClientEnabled,omitempty"`
 
-	// DirectedMulticastFromWirelessClientEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// GpsSource
-	// Constraints:
-	//    - nullable
 	GpsSource *WSGCommonApGpsSource `json:"gpsSource,omitempty"`
 
-	// Latitude
-	// Constraints:
-	//    - nullable
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// Location
-	// Constraints:
-	//    - nullable
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	// LocationAdditionalInfo
-	// Constraints:
-	//    - nullable
 	LocationAdditionalInfo *WSGCommonLocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
-	// Login
-	// Constraints:
-	//    - nullable
 	Login *WSGAPLogin `json:"login,omitempty"`
 
-	// Longitude
-	// Constraints:
-	//    - nullable
 	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	// Constraints:
-	//    - nullable
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty" validate:"omitempty,dive"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
-	// Mac
-	// Constraints:
-	//    - nullable
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 
-	// MeshOptions
-	// Constraints:
-	//    - nullable
 	MeshOptions *WSGAPMesh `json:"meshOptions,omitempty"`
 
 	// Model
 	// Model name of the AP
-	// Constraints:
-	//    - nullable
 	Model *string `json:"model,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGAPName `json:"name,omitempty"`
 
-	// Network
-	// Constraints:
-	//    - nullable
 	Network *WSGAPNetwork `json:"network,omitempty"`
 
-	// NetworkIpv6
-	// Constraints:
-	//    - nullable
 	NetworkIpv6 *WSGAPNetworkIpv6 `json:"networkIpv6,omitempty"`
 
-	// ProtectionMode24
-	// Constraints:
-	//    - nullable
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
-	// Constraints:
-	//    - nullable
 	ProvisionChecklist *string `json:"provisionChecklist,omitempty"`
 
-	// RecoverySsid
-	// Constraints:
-	//    - nullable
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
-	// Constraints:
-	//    - nullable
 	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
-	// Constraints:
-	//    - nullable
 	RogueApAggressivenessMode *int `json:"rogueApAggressivenessMode,omitempty"`
 
-	// RogueApJammingThreshold
-	// Constraints:
-	//    - nullable
 	RogueApJammingThreshold *int `json:"rogueApJammingThreshold,omitempty"`
 
 	// RogueApReportThreshold
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
-	// Constraints:
-	//    - nullable
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
 	// Serial
 	// Serial number of the AP
-	// Constraints:
-	//    - nullable
 	Serial *string `json:"serial,omitempty"`
 
-	// SmartMonitor
-	// Constraints:
-	//    - nullable
 	SmartMonitor *WSGCommonOverrideSmartMonitor `json:"smartMonitor,omitempty"`
 
-	// Specific
-	// Constraints:
-	//    - nullable
 	Specific *WSGAPModel `json:"specific,omitempty"`
 
-	// SwapInMac
-	// Constraints:
-	//    - nullable
 	SwapInMac *string `json:"swapInMac,omitempty"`
 
-	// SwapOutMac
-	// Constraints:
-	//    - nullable
 	SwapOutMac *string `json:"swapOutMac,omitempty"`
 
-	// Syslog
-	// Constraints:
-	//    - nullable
 	Syslog *WSGAPSyslog `json:"syslog,omitempty"`
 
-	// VenueProfile
-	// Constraints:
-	//    - nullable
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
-	// Wifi24
-	// Constraints:
-	//    - nullable
 	Wifi24 *WSGCommonRadio24SuperSet `json:"wifi24,omitempty"`
 
-	// Wifi50
-	// Constraints:
-	//    - nullable
 	Wifi50 *WSGCommonApRadio50 `json:"wifi50,omitempty"`
 
-	// WlanGroup24
-	// Constraints:
-	//    - nullable
 	WlanGroup24 *WSGAPWlanGroup `json:"wlanGroup24,omitempty"`
 
-	// WlanGroup50
-	// Constraints:
-	//    - nullable
 	WlanGroup50 *WSGAPWlanGroup `json:"wlanGroup50,omitempty"`
 
 	// WlanService24Enabled
 	// WLAN service enabled or disabled on 2.4GHz radio
-	// Constraints:
-	//    - nullable
 	WlanService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
 
 	// WlanService50Enabled
 	// WLAN service enabled or disabled on 5GHz radio
-	// Constraints:
-	//    - nullable
 	WlanService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
 
 	// ZoneId
 	// Identifier of the AP group to which the AP belongs
-	// Constraints:
-	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -305,25 +164,16 @@ func NewWSGAPConfiguration() *WSGAPConfiguration {
 type WSGAPLinemanSummary struct {
 	// FirstIndex
 	// Index of the first AP returned out of the complete AP list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more APs after the currently displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGAPLinemanSummaryListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGAPLinemanSummaryListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total AP count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -333,42 +183,24 @@ func NewWSGAPLinemanSummary() *WSGAPLinemanSummary {
 }
 
 type WSGAPLinemanSummaryListType struct {
-	// Alarms
-	// Constraints:
-	//    - nullable
 	Alarms *WSGAPAlarmSummary `json:"alarms,omitempty"`
 
 	// ConfigState
 	// State of the AP configuration
 	// Constraints:
-	//    - nullable
 	//    - oneof:[newConfig,fwApplied,fwDownloaded,fwFailed,configApplied,completed,configFailed]
-	ConfigState *string `json:"configState,omitempty" validate:"omitempty,oneof=newConfig fwApplied fwDownloaded fwFailed configApplied completed configFailed"`
+	ConfigState *string `json:"configState,omitempty"`
 
-	// Latitude
-	// Constraints:
-	//    - nullable
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// Location
-	// Constraints:
-	//    - nullable
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	// Longitude
-	// Constraints:
-	//    - nullable
 	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
 
-	// Mac
-	// Constraints:
-	//    - nullable
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 
 	// Name
 	// Name of the AP
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 
@@ -380,25 +212,16 @@ func NewWSGAPLinemanSummaryListType() *WSGAPLinemanSummaryListType {
 type WSGAPListEntry struct {
 	// FirstIndex
 	// Index of the first AP returned out of the complete AP list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates whether there are more APs after the list that is currently displayed
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGAPListEntryListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGAPListEntryListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total AP count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -410,31 +233,20 @@ func NewWSGAPListEntry() *WSGAPListEntry {
 type WSGAPListEntryListType struct {
 	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
-	// Constraints:
-	//    - nullable
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	// Mac
-	// Constraints:
-	//    - nullable
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 
 	// Name
 	// Name of the AP
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Serial
 	// Serial Number
-	// Constraints:
-	//    - nullable
 	Serial *string `json:"serial,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone to which the AP belongs
-	// Constraints:
-	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -454,226 +266,147 @@ type WSGAPOperationalSummary struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Locked,Unlocked]
-	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
+	AdministrativeState *string `json:"administrativeState,omitempty"`
 
-	// Altitude
-	// Constraints:
-	//    - nullable
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
 	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
-	// Constraints:
-	//    - nullable
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
 	// ApprovedTime
 	// Timestamp when the AP was approved by the controller
-	// Constraints:
-	//    - nullable
 	ApprovedTime *int `json:"approvedTime,omitempty"`
 
 	// ClientCount
 	// Number of clients on the AP
-	// Constraints:
-	//    - nullable
 	ClientCount *int `json:"clientCount,omitempty"`
 
 	// ConfigState
 	// State of the AP configuration.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[newConfig,fwApplied,fwDownloaded,fwFailed,configApplied,completed,configFailed]
-	ConfigState *string `json:"configState,omitempty" validate:"omitempty,oneof=newConfig fwApplied fwDownloaded fwFailed configApplied completed configFailed"`
+	ConfigState *string `json:"configState,omitempty"`
 
 	// ConnectionState
 	// Connection state of the AP (value: 'Discovery','Connect','Rebooting','Disconnect','Provisioned')
-	// Constraints:
-	//    - nullable
 	ConnectionState *string `json:"connectionState,omitempty"`
 
 	// CountryCode
 	// Country code of the AP
-	// Constraints:
-	//    - nullable
 	CountryCode *string `json:"countryCode,omitempty"`
 
 	// CpId
 	// Identifier of the control plane to which the AP is currently connected
-	// Constraints:
-	//    - nullable
 	CpId *string `json:"cpId,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DpId
 	// Identifier of the data plane to which the AP is currently connected
-	// Constraints:
-	//    - nullable
 	DpId *string `json:"dpId,omitempty"`
 
 	// ExternalIp
 	// External IP address of the AP. This is only applicable when the AP is behind a NAT server.
-	// Constraints:
-	//    - nullable
 	ExternalIp *string `json:"externalIp,omitempty"`
 
 	// ExternalPort
 	// External port number of the AP. This is only applicable when the AP is behind a NAT server.
-	// Constraints:
-	//    - nullable
 	ExternalPort *int `json:"externalPort,omitempty"`
 
 	// Ip
 	// IP address of the AP
-	// Constraints:
-	//    - nullable
 	Ip *string `json:"ip,omitempty"`
 
 	// IpType
 	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically assigned or kept unchanged.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Static,Dynamic,Keep]
-	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Static Dynamic Keep"`
+	IpType *string `json:"ipType,omitempty"`
 
 	// Ipv6
 	// IP address of the AP
-	// Constraints:
-	//    - nullable
 	Ipv6 *string `json:"ipv6,omitempty"`
 
 	// Ipv6Type
 	// Indicates how the AP's IP address was obtained. The AP's IP address can be statically or dynamically assigned or kept unchanged.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Static,Autoconfig,Keep]
-	Ipv6Type *string `json:"ipv6Type,omitempty" validate:"omitempty,oneof=Static Autoconfig Keep"`
+	Ipv6Type *string `json:"ipv6Type,omitempty"`
 
 	// IsCriticalAP
 	// Indicates critical APs. Critical AP are APs that were tagged by the controller based on predefined rules.
-	// Constraints:
-	//    - nullable
 	IsCriticalAP *bool `json:"isCriticalAP,omitempty"`
 
 	// LastSeenTime
 	// Timestamp of the last successful communication with the AP
-	// Constraints:
-	//    - nullable
 	LastSeenTime *int `json:"lastSeenTime,omitempty"`
 
-	// Latitude
-	// Constraints:
-	//    - nullable
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// Location
-	// Constraints:
-	//    - nullable
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	// LocationAdditionalInfo
-	// Constraints:
-	//    - nullable
 	LocationAdditionalInfo *WSGCommonLocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
-	// Longitude
-	// Constraints:
-	//    - nullable
 	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
 
-	// Mac
-	// Constraints:
-	//    - nullable
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 
 	// ManagementVlan
 	// Management vlan on the AP
-	// Constraints:
-	//    - nullable
 	ManagementVlan *int `json:"managementVlan,omitempty"`
 
 	// MeshHop
 	// Number of mesh hops of the AP. This is only applicable to mesh APs.
-	// Constraints:
-	//    - nullable
 	MeshHop *int `json:"meshHop,omitempty"`
 
 	// MeshRole
 	// Mesh role of the AP
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Disabled,Root,Map,eMap,Down,Undefined]
-	MeshRole *string `json:"meshRole,omitempty" validate:"omitempty,oneof=Disabled Root Map eMap Down Undefined"`
+	MeshRole *string `json:"meshRole,omitempty"`
 
 	// Model
 	// Model name of the AP
-	// Constraints:
-	//    - nullable
 	Model *string `json:"model,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGAPName `json:"name,omitempty"`
 
 	// ProvisionMethod
 	// Provisioning method of the AP. Discovered indicates that the AP contacted the controller using discovery and the AP did not have pre-existing record on the controller. Preprovision indicates that the AP was provisioned to the controller before AP made the first contact. Swap indicates that the AP was provisioned to be a replacement of an existing AP.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Discovered,Preprovision,Swap]
-	ProvisionMethod *string `json:"provisionMethod,omitempty" validate:"omitempty,oneof=Discovered Preprovision Swap"`
+	ProvisionMethod *string `json:"provisionMethod,omitempty"`
 
 	// ProvisionStage
 	// Provisioning stage of the AP. This indicates the stage at which the AP is at in the provisioning process. (value
-	// Constraints:
-	//    - nullable
 	ProvisionStage *string `json:"provisionStage,omitempty"`
 
 	// RegistrationState
 	// Registration state of the AP
-	// Constraints:
-	//    - nullable
 	RegistrationState *string `json:"registrationState,omitempty"`
 
 	// Serial
 	// Serial number of the AP
-	// Constraints:
-	//    - nullable
 	Serial *string `json:"serial,omitempty"`
 
 	// Uptime
 	// Uptime of the AP since it was last rebooted (unit:second)
-	// Constraints:
-	//    - nullable
 	Uptime *int `json:"uptime,omitempty"`
 
-	// Version
-	// Constraints:
-	//    - nullable
 	Version *WSGCommonFirmwareVersion `json:"version,omitempty"`
 
 	// Wifi24Channel
 	// 2.4GHz radio channel number that the AP is currently using
-	// Constraints:
-	//    - nullable
 	Wifi24Channel *string `json:"wifi24Channel,omitempty"`
 
 	// Wifi50Channel
 	// 5GHZ radio channel number that the AP is currently using
-	// Constraints:
-	//    - nullable
 	Wifi50Channel *string `json:"wifi50Channel,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone to which the AP belongs
-	// Constraints:
-	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -686,80 +419,50 @@ type WSGAPCreateAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	// Constraints:
-	//    - nullable
 	//    - default:'Unlocked'
 	//    - oneof:[Locked,Unlocked]
-	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
+	AdministrativeState *string `json:"administrativeState,omitempty"`
 
 	// ApGroupId
 	// Identifier of the AP group to which the AP belongs. If the AP belongs to the default AP group, this property is not needed.
-	// Constraints:
-	//    - nullable
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	// AwsVenue
-	// Constraints:
-	//    - nullable
 	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	// GpsSource
-	// Constraints:
-	//    - nullable
 	GpsSource *WSGCommonApGpsSource `json:"gpsSource,omitempty"`
 
-	// Latitude
-	// Constraints:
-	//    - nullable
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// Location
-	// Constraints:
-	//    - nullable
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	// Longitude
-	// Constraints:
-	//    - nullable
 	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
 
 	// Mac
 	// Constraints:
 	//    - required
-	Mac *WSGCommonMac `json:"mac" validate:"required"`
+	Mac *WSGCommonMac `json:"mac"`
 
 	// Model
 	// Model name of the AP
-	// Constraints:
-	//    - nullable
 	Model *string `json:"model,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGAPName `json:"name,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
-	// Constraints:
-	//    - nullable
 	ProvisionChecklist *string `json:"provisionChecklist,omitempty"`
 
 	// Serial
 	// Serial number of the AP
-	// Constraints:
-	//    - nullable
 	Serial *string `json:"serial,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone to which the AP belongs
 	// Constraints:
 	//    - required
-	ZoneId *string `json:"zoneId" validate:"required"`
+	ZoneId *string `json:"zoneId"`
 }
 
 func NewWSGAPCreateAP() *WSGAPCreateAP {
@@ -771,12 +474,12 @@ type WSGAPLogin struct {
 	// ApLoginName
 	// Constraints:
 	//    - required
-	ApLoginName *WSGCommonApLoginName `json:"apLoginName" validate:"required"`
+	ApLoginName *WSGCommonApLoginName `json:"apLoginName"`
 
 	// ApLoginPassword
 	// Constraints:
 	//    - required
-	ApLoginPassword *WSGCommonApLoginPassword `json:"apLoginPassword" validate:"required"`
+	ApLoginPassword *WSGCommonApLoginPassword `json:"apLoginPassword"`
 }
 
 func NewWSGAPLogin() *WSGAPLogin {
@@ -788,22 +491,18 @@ type WSGAPMesh struct {
 	// MeshMode
 	// mesh mode
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AUTO,ROOT_AP,MESH_AP,DISABLE]
-	MeshMode *string `json:"meshMode,omitempty" validate:"omitempty,oneof=AUTO ROOT_AP MESH_AP DISABLE"`
+	MeshMode *string `json:"meshMode,omitempty"`
 
 	// MeshUplinkEntryList
 	// MAC address of the neighbor AP
-	// Constraints:
-	//    - nullable
-	MeshUplinkEntryList []WSGCommonMac `json:"meshUplinkEntryList,omitempty" validate:"omitempty,dive"`
+	MeshUplinkEntryList []WSGCommonMac `json:"meshUplinkEntryList,omitempty"`
 
 	// UplinkSelection
 	// Uplink selection
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SMART,MANUAL]
-	UplinkSelection *string `json:"uplinkSelection,omitempty" validate:"omitempty,oneof=SMART MANUAL"`
+	UplinkSelection *string `json:"uplinkSelection,omitempty"`
 }
 
 func NewWSGAPMesh() *WSGAPMesh {
@@ -815,243 +514,123 @@ type WSGAPModifyAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Locked,Unlocked]
-	AdministrativeState *string `json:"administrativeState,omitempty" validate:"omitempty,oneof=Locked Unlocked"`
+	AdministrativeState *string `json:"administrativeState,omitempty"`
 
-	// Altitude
-	// Constraints:
-	//    - nullable
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
 	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
-	// Constraints:
-	//    - nullable
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	// ApMgmtVlan
-	// Constraints:
-	//    - nullable
 	ApMgmtVlan *WSGCommonApManagementVlan `json:"apMgmtVlan,omitempty"`
 
-	// AutoChannelSelection24
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection24 *WSGCommonAutoChannelSelection `json:"autoChannelSelection24,omitempty"`
 
-	// AutoChannelSelection50
-	// Constraints:
-	//    - nullable
 	AutoChannelSelection50 *WSGCommonAutoChannelSelection `json:"autoChannelSelection50,omitempty"`
 
-	// AwsVenue
-	// Constraints:
-	//    - nullable
 	AwsVenue *WSGCommonAwsVenue `json:"awsVenue,omitempty"`
 
-	// BonjourGateway
-	// Constraints:
-	//    - nullable
 	BonjourGateway *WSGCommonGenericRef `json:"bonjourGateway,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
 	// Constraints:
-	//    - nullable
 	//    - default:600
 	//    - min:60
 	//    - max:3600
-	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty" validate:"omitempty,gte=60,lte=3600"`
+	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	// ClientAdmissionControl24
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl24 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl24,omitempty"`
 
-	// ClientAdmissionControl50
-	// Constraints:
-	//    - nullable
 	ClientAdmissionControl50 *WSGCommonOverrideClientAdmissionControl `json:"clientAdmissionControl50,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	// DirectedMulticastFromNetworkEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
-	// DirectedMulticastFromWiredClientEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWiredClientEnabled *bool `json:"directedMulticastFromWiredClientEnabled,omitempty"`
 
-	// DirectedMulticastFromWirelessClientEnabled
-	// Constraints:
-	//    - nullable
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	// GpsSource
-	// Constraints:
-	//    - nullable
 	GpsSource *WSGCommonApGpsSource `json:"gpsSource,omitempty"`
 
-	// Latitude
-	// Constraints:
-	//    - nullable
 	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
 
-	// Location
-	// Constraints:
-	//    - nullable
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	// LocationAdditionalInfo
-	// Constraints:
-	//    - nullable
 	LocationAdditionalInfo *WSGCommonLocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
-	// Login
-	// Constraints:
-	//    - nullable
 	Login *WSGAPLogin `json:"login,omitempty"`
 
-	// Longitude
-	// Constraints:
-	//    - nullable
 	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	// Constraints:
-	//    - nullable
-	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty" validate:"omitempty,dive"`
+	LteBandLockChannels []*WSGCommonLteBandLockChannel `json:"lteBandLockChannels,omitempty"`
 
-	// MeshOptions
-	// Constraints:
-	//    - nullable
 	MeshOptions *WSGAPMesh `json:"meshOptions,omitempty"`
 
 	// Model
 	// Model name of the AP
-	// Constraints:
-	//    - nullable
 	Model *string `json:"model,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGAPName `json:"name,omitempty"`
 
-	// Network
-	// Constraints:
-	//    - nullable
 	Network *WSGAPNetwork `json:"network,omitempty"`
 
-	// NetworkIpv6
-	// Constraints:
-	//    - nullable
 	NetworkIpv6 *WSGAPNetworkIpv6 `json:"networkIpv6,omitempty"`
 
-	// ProtectionMode24
-	// Constraints:
-	//    - nullable
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
-	// Constraints:
-	//    - nullable
 	ProvisionChecklist *string `json:"provisionChecklist,omitempty"`
 
-	// RecoverySsid
-	// Constraints:
-	//    - nullable
 	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
-	// Constraints:
-	//    - nullable
 	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
-	// Constraints:
-	//    - nullable
 	RogueApAggressivenessMode *int `json:"rogueApAggressivenessMode,omitempty"`
 
-	// RogueApJammingThreshold
-	// Constraints:
-	//    - nullable
 	RogueApJammingThreshold *int `json:"rogueApJammingThreshold,omitempty"`
 
 	// RogueApReportThreshold
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
-	// Constraints:
-	//    - nullable
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
 	// Serial
 	// Serial number of the AP
-	// Constraints:
-	//    - nullable
 	Serial *string `json:"serial,omitempty"`
 
-	// SmartMonitor
-	// Constraints:
-	//    - nullable
 	SmartMonitor *WSGCommonOverrideSmartMonitor `json:"smartMonitor,omitempty"`
 
-	// Syslog
-	// Constraints:
-	//    - nullable
 	Syslog *WSGAPSyslog `json:"syslog,omitempty"`
 
-	// VenueProfile
-	// Constraints:
-	//    - nullable
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
-	// Wifi24
-	// Constraints:
-	//    - nullable
 	Wifi24 *WSGCommonRadio24 `json:"wifi24,omitempty"`
 
-	// Wifi50
-	// Constraints:
-	//    - nullable
 	Wifi50 *WSGCommonApRadio50 `json:"wifi50,omitempty"`
 
-	// WlanGroup24
-	// Constraints:
-	//    - nullable
 	WlanGroup24 *WSGAPWlanGroup `json:"wlanGroup24,omitempty"`
 
-	// WlanGroup50
-	// Constraints:
-	//    - nullable
 	WlanGroup50 *WSGAPWlanGroup `json:"wlanGroup50,omitempty"`
 
 	// WlanService24Enabled
 	// WLAN service enabled or disabled on 2.4GHz radio
-	// Constraints:
-	//    - nullable
 	WlanService24Enabled *bool `json:"wlanService24Enabled,omitempty"`
 
 	// WlanService50Enabled
 	// WLAN service enabled or disabled on 5GHz radio
-	// Constraints:
-	//    - nullable
 	WlanService50Enabled *bool `json:"wlanService50Enabled,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone to which the AP belongs
-	// Constraints:
-	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -1063,9 +642,7 @@ func NewWSGAPModifyAP() *WSGAPModifyAP {
 type WSGAPModifyRogueType struct {
 	// RogueMacList
 	// rogue mac list
-	// Constraints:
-	//    - nullable
-	RogueMacList []WSGCommonMac `json:"rogueMacList,omitempty" validate:"omitempty,dive"`
+	RogueMacList []WSGCommonMac `json:"rogueMacList,omitempty"`
 }
 
 func NewWSGAPModifyRogueType() *WSGAPModifyRogueType {
@@ -1076,25 +653,16 @@ func NewWSGAPModifyRogueType() *WSGAPModifyRogueType {
 type WSGAPNeighborAPList struct {
 	// FirstIndex
 	// Index of the first Mesh Neighbor AP returned out of the complete Mesh Neighbor AP list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more Mesh Neighbor APs after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGAPNeighborAPListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGAPNeighborAPListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total mesh neighbor APs count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -1106,67 +674,44 @@ func NewWSGAPNeighborAPList() *WSGAPNeighborAPList {
 type WSGAPNeighborAPListType struct {
 	// Channel
 	// Channel of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	Channel *string `json:"channel,omitempty"`
 
 	// ConnectionState
 	// Connection state of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	ConnectionState *string `json:"connectionState,omitempty"`
 
 	// ExternalIp
 	// External IP of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	ExternalIp *string `json:"externalIp,omitempty"`
 
 	// ExternalPort
 	// External port of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	ExternalPort *string `json:"externalPort,omitempty"`
 
 	// Ip
 	// IP address of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	Ip *string `json:"ip,omitempty"`
 
-	// Mac
-	// Constraints:
-	//    - nullable
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 
 	// Model
 	// Model of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	Model *string `json:"model,omitempty"`
 
 	// Name
 	// Name of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Signal
 	// Signal of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	Signal *string `json:"signal,omitempty"`
 
 	// Version
 	// Firmware version of the mesh neighbor AP
-	// Constraints:
-	//    - nullable
 	Version *string `json:"version,omitempty"`
 
 	// ZoneName
 	// Name of the zone which the mesh neighbor AP belongs to
-	// Constraints:
-	//    - nullable
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
@@ -1176,36 +721,20 @@ func NewWSGAPNeighborAPListType() *WSGAPNeighborAPListType {
 }
 
 type WSGAPNetwork struct {
-	// Gateway
-	// Constraints:
-	//    - nullable
 	Gateway *WSGCommonIpAddress `json:"gateway,omitempty"`
 
-	// Ip
-	// Constraints:
-	//    - nullable
 	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
 	// IpType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically assigned or kept unchanged.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Dynamic,Keep,Static]
-	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Dynamic Keep Static"`
+	IpType *string `json:"ipType,omitempty"`
 
-	// Netmask
-	// Constraints:
-	//    - nullable
 	Netmask *WSGCommonSubNetMask `json:"netmask,omitempty"`
 
-	// PrimaryDns
-	// Constraints:
-	//    - nullable
 	PrimaryDns *WSGCommonIpAddress `json:"primaryDns,omitempty"`
 
-	// SecondaryDns
-	// Constraints:
-	//    - nullable
 	SecondaryDns *WSGCommonIpAddress `json:"secondaryDns,omitempty"`
 }
 
@@ -1215,31 +744,18 @@ func NewWSGAPNetwork() *WSGAPNetwork {
 }
 
 type WSGAPNetworkIpv6 struct {
-	// Gateway
-	// Constraints:
-	//    - nullable
 	Gateway *WSGCommonIpAddress `json:"gateway,omitempty"`
 
-	// Ip
-	// Constraints:
-	//    - nullable
 	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
 	// IpType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically assigned or kept unchanged.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Dynamic,Keep,Static]
-	IpType *string `json:"ipType,omitempty" validate:"omitempty,oneof=Dynamic Keep Static"`
+	IpType *string `json:"ipType,omitempty"`
 
-	// PrimaryDns
-	// Constraints:
-	//    - nullable
 	PrimaryDns *WSGCommonIpAddress `json:"primaryDns,omitempty"`
 
-	// SecondaryDns
-	// Constraints:
-	//    - nullable
 	SecondaryDns *WSGCommonIpAddress `json:"secondaryDns,omitempty"`
 }
 
@@ -1252,12 +768,12 @@ type WSGAPSwapApConfigure struct {
 	// SwapInMac
 	// Constraints:
 	//    - required
-	SwapInMac *WSGCommonMac `json:"swapInMac" validate:"required"`
+	SwapInMac *WSGCommonMac `json:"swapInMac"`
 
 	// SwapOutMac
 	// Constraints:
 	//    - required
-	SwapOutMac *WSGCommonMac `json:"swapOutMac" validate:"required"`
+	SwapOutMac *WSGCommonMac `json:"swapOutMac"`
 }
 
 func NewWSGAPSwapApConfigure() *WSGAPSwapApConfigure {
@@ -1268,33 +784,23 @@ func NewWSGAPSwapApConfigure() *WSGAPSwapApConfigure {
 type WSGAPSwitchoverAP struct {
 	// ApMacList
 	// AP MAC address list
-	// Constraints:
-	//    - nullable
-	ApMacList []WSGCommonMac `json:"apMacList,omitempty" validate:"omitempty,dive"`
+	ApMacList []WSGCommonMac `json:"apMacList,omitempty"`
 
 	// ClusterName
 	// Name of destination cluster, Notice: Once user has set ipOrFqdn, this value will be ignored.
-	// Constraints:
-	//    - nullable
 	ClusterName *string `json:"clusterName,omitempty"`
 
 	// DeleteRecord
 	// Flag to delete AP record after switchover cluster. Default value is false.
-	// Constraints:
-	//    - nullable
 	DeleteRecord *bool `json:"deleteRecord,omitempty"`
 
 	// IpOrFqdn
 	// IP or FQDN address of destination cluster, Notice: Once this value been set, clusterName will be ignored.
-	// Constraints:
-	//    - nullable
 	IpOrFqdn *string `json:"ipOrFqdn,omitempty"`
 
 	// ZoneIdList
 	// Zone ID list for which APs attached to will be switchovered.
-	// Constraints:
-	//    - nullable
-	ZoneIdList []string `json:"zoneIdList,omitempty" validate:"omitempty,dive"`
+	ZoneIdList []string `json:"zoneIdList,omitempty"`
 }
 
 func NewWSGAPSwitchoverAP() *WSGAPSwitchoverAP {
@@ -1303,79 +809,66 @@ func NewWSGAPSwitchoverAP() *WSGAPSwitchoverAP {
 }
 
 type WSGAPSyslog struct {
-	// Address
-	// Constraints:
-	//    - nullable
 	Address *WSGCommonIpAddress `json:"address,omitempty"`
 
 	// Enabled
 	// Indicates whether syslog is enabled or disabled
 	// Constraints:
 	//    - required
-	Enabled *bool `json:"enabled" validate:"required"`
+	Enabled *bool `json:"enabled"`
 
 	// Facility
 	// Facility of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'Keep_Original'
 	//    - oneof:[Keep_Original,Local0,Local1,Local2,Local3,Local4,Local5,Local6,Local7]
-	Facility *string `json:"facility,omitempty" validate:"omitempty,oneof=Keep_Original Local0 Local1 Local2 Local3 Local4 Local5 Local6 Local7"`
+	Facility *string `json:"facility,omitempty"`
 
 	// FlowLevel
 	// Flow Level of the syslog
 	// Constraints:
-	//    - nullable
 	//    - default:'GENERAL_LOGS'
 	//    - oneof:[GENERAL_LOGS,CLIENT_FLOW,ALL]
-	FlowLevel *string `json:"flowLevel,omitempty" validate:"omitempty,oneof=GENERAL_LOGS CLIENT_FLOW ALL"`
+	FlowLevel *string `json:"flowLevel,omitempty"`
 
 	// Port
 	// Port number of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'514'
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty"`
 
 	// Priority
 	// Priority of the log messages
 	// Constraints:
-	//    - nullable
 	//    - default:'Error'
 	//    - oneof:[Emergency,Alert,Critical,Error,Warning,Notice,Info,All]
-	Priority *string `json:"priority,omitempty" validate:"omitempty,oneof=Emergency Alert Critical Error Warning Notice Info All"`
+	Priority *string `json:"priority,omitempty"`
 
 	// Protocol
 	// Protocol of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'IPPROTO_TCP'
 	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// SecondaryAddress
-	// Constraints:
-	//    - nullable
 	SecondaryAddress *WSGCommonIpAddress `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'514'
 	//    - min:1
 	//    - max:65535
-	SecondaryPort *int `json:"secondaryPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	SecondaryPort *int `json:"secondaryPort,omitempty"`
 
 	// SecondaryProtocol
 	// Secondary Server Protocol of the syslog server
 	// Constraints:
-	//    - nullable
 	//    - default:'IPPROTO_TCP'
 	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
-	SecondaryProtocol *string `json:"secondaryProtocol,omitempty" validate:"omitempty,oneof=IPPROTO_TCP IPPROTO_UDP"`
+	SecondaryProtocol *string `json:"secondaryProtocol,omitempty"`
 }
 
 func NewWSGAPSyslog() *WSGAPSyslog {
@@ -1386,14 +879,10 @@ func NewWSGAPSyslog() *WSGAPSyslog {
 type WSGAPWlanGroup struct {
 	// Id
 	// Identifier of the WLAN group
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// Name of the WLAN group
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 

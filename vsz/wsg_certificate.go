@@ -22,67 +22,44 @@ func (ss *WSGService) WSGCertificateService() *WSGCertificateService {
 }
 
 type WSGCertificate struct {
-	// CertificasSigningRequest
-	// Constraints:
-	//    - nullable
 	CertificasSigningRequest *WSGCommonGenericRef `json:"certificasSigningRequest,omitempty"`
 
 	// Data
 	// Data of the certificate
-	// Constraints:
-	//    - nullable
 	Data *string `json:"data,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the certificate
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Information
 	// Information of the certificate
-	// Constraints:
-	//    - nullable
 	Information *string `json:"information,omitempty"`
 
 	// IntermediateData
 	// Intermediate data of the certificate
 	// Constraints:
 	//    - nullable
-	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
+	IntermediateData []string `json:"intermediateData,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Passphrase
 	// Key passphrase
-	// Constraints:
-	//    - nullable
 	Passphrase *string `json:"passphrase,omitempty"`
 
 	// PrivateKeyData
 	// Private key data of the certificate
-	// Constraints:
-	//    - nullable
 	PrivateKeyData *string `json:"privateKeyData,omitempty"`
 
 	// PublicKey
 	// Public key data of the certificate
-	// Constraints:
-	//    - nullable
 	PublicKey *string `json:"publicKey,omitempty"`
 
 	// RootData
 	// Root data of the certificate
-	// Constraints:
-	//    - nullable
 	RootData *string `json:"rootData,omitempty"`
 }
 
@@ -92,24 +69,12 @@ func NewWSGCertificate() *WSGCertificate {
 }
 
 type WSGCertificateList struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGCertificateListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGCertificateListType `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -119,20 +84,12 @@ func NewWSGCertificateList() *WSGCertificateList {
 }
 
 type WSGCertificateListType struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the certificate
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
@@ -144,60 +101,38 @@ func NewWSGCertificateListType() *WSGCertificateListType {
 type WSGCertificatesSigningRequest struct {
 	// City
 	// City of the certificates signing request
-	// Constraints:
-	//    - nullable
 	City *string `json:"city,omitempty"`
 
 	// CommonName
 	// Common name of the certificates signing request
-	// Constraints:
-	//    - nullable
 	CommonName *string `json:"commonName,omitempty"`
 
 	// CountryCode
 	// Country code of the certificates signing request
-	// Constraints:
-	//    - nullable
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Email
 	// Email of the certificates signing request
-	// Constraints:
-	//    - nullable
 	Email *string `json:"email,omitempty"`
 
 	// Id
 	// Identifier of the certificates signing request
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Organization
 	// Organization of the certificates signing request
-	// Constraints:
-	//    - nullable
 	Organization *string `json:"organization,omitempty"`
 
 	// OrganizationUnit
 	// Organization unit of the certificates signing request
-	// Constraints:
-	//    - nullable
 	OrganizationUnit *string `json:"organizationUnit,omitempty"`
 
 	// State
 	// State of the certificates signing request
-	// Constraints:
-	//    - nullable
 	State *string `json:"state,omitempty"`
 }
 
@@ -209,9 +144,7 @@ func NewWSGCertificatesSigningRequest() *WSGCertificatesSigningRequest {
 type WSGCertificateCertSetting struct {
 	// ServiceCertificates
 	// Certificate Setting of the service
-	// Constraints:
-	//    - nullable
-	ServiceCertificates []*WSGCertificateServiceCertificate `json:"serviceCertificates,omitempty" validate:"omitempty,dive"`
+	ServiceCertificates []*WSGCertificateServiceCertificate `json:"serviceCertificates,omitempty"`
 }
 
 func NewWSGCertificateCertSetting() *WSGCertificateCertSetting {
@@ -222,54 +155,36 @@ func NewWSGCertificateCertSetting() *WSGCertificateCertSetting {
 type WSGCertificateClientCert struct {
 	// Data
 	// Data of the client certificate
-	// Constraints:
-	//    - nullable
 	Data *string `json:"data,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the client certificate
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Information
 	// Information of the client certificate
-	// Constraints:
-	//    - nullable
 	Information *string `json:"information,omitempty"`
 
 	// IntermediateData
 	// Intermediate data of the client certificate
 	// Constraints:
 	//    - nullable
-	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
+	IntermediateData []string `json:"intermediateData,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// PrivateKeyData
 	// Private key data of the client certificate
-	// Constraints:
-	//    - nullable
 	PrivateKeyData *string `json:"privateKeyData,omitempty"`
 
 	// PublicKey
 	// Public key data of the client certificate
-	// Constraints:
-	//    - nullable
 	PublicKey *string `json:"publicKey,omitempty"`
 
 	// RootData
 	// Root data of the client certificate
-	// Constraints:
-	//    - nullable
 	RootData *string `json:"rootData,omitempty"`
 }
 
@@ -279,24 +194,12 @@ func NewWSGCertificateClientCert() *WSGCertificateClientCert {
 }
 
 type WSGCertificateClientCertList struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGCertificateClientCertListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGCertificateClientCertListType `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -306,20 +209,12 @@ func NewWSGCertificateClientCertList() *WSGCertificateClientCertList {
 }
 
 type WSGCertificateClientCertListType struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the client certificate
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
@@ -329,49 +224,37 @@ func NewWSGCertificateClientCertListType() *WSGCertificateClientCertListType {
 }
 
 type WSGCertificateCreateCert struct {
-	// CertificasSigningRequest
-	// Constraints:
-	//    - nullable
 	CertificasSigningRequest *WSGCommonGenericRef `json:"certificasSigningRequest,omitempty"`
 
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
 	// Constraints:
 	//    - required
-	Data *string `json:"data" validate:"required"`
+	Data *string `json:"data"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
 	// Constraints:
 	//    - nullable
-	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
+	IntermediateData []string `json:"intermediateData,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Passphrase
 	// Key passphrase
-	// Constraints:
-	//    - nullable
 	Passphrase *string `json:"passphrase,omitempty"`
 
 	// PrivateKeyData
 	// Incompatible with certificasSigningRequest. Must choose one to enter. The value must be in PEM format which is a Base64 encoded DER certificate.
-	// Constraints:
-	//    - nullable
 	PrivateKeyData *string `json:"privateKeyData,omitempty"`
 
 	// RootData
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
-	// Constraints:
-	//    - nullable
 	RootData *string `json:"rootData,omitempty"`
 }
 
@@ -385,34 +268,29 @@ type WSGCertificateCreateClientCert struct {
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
 	// Constraints:
 	//    - required
-	Data *string `json:"data" validate:"required"`
+	Data *string `json:"data"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
 	// Constraints:
 	//    - nullable
-	IntermediateData []string `json:"intermediateData,omitempty" validate:"omitempty,dive"`
+	IntermediateData []string `json:"intermediateData,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// PrivateKeyData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
 	// Constraints:
 	//    - required
-	PrivateKeyData *string `json:"privateKeyData" validate:"required"`
+	PrivateKeyData *string `json:"privateKeyData"`
 
 	// RootData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
-	// Constraints:
-	//    - nullable
 	RootData *string `json:"rootData,omitempty"`
 }
 
@@ -427,54 +305,50 @@ type WSGCertificateCreateCSR struct {
 	// Constraints:
 	//    - required
 	//    - max:128
-	City *string `json:"city" validate:"required,max=128"`
+	City *string `json:"city"`
 
 	// CommonName
 	// Constraints:
 	//    - required
-	CommonName *WSGCommonFQDN `json:"commonName" validate:"required"`
+	CommonName *WSGCommonFQDN `json:"commonName"`
 
 	// CountryCode
 	// Country code of the certificates signing request
 	// Constraints:
 	//    - required
-	CountryCode *string `json:"countryCode" validate:"required"`
+	CountryCode *string `json:"countryCode"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Email
 	// Constraints:
 	//    - required
-	Email *WSGCommonEmail `json:"email" validate:"required"`
+	Email *WSGCommonEmail `json:"email"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Organization
 	// Organization of the certificates signing request
 	// Constraints:
 	//    - required
 	//    - max:64
-	Organization *string `json:"organization" validate:"required,max=64"`
+	Organization *string `json:"organization"`
 
 	// OrganizationUnit
 	// Organization unit of the certificates signing request
 	// Constraints:
-	//    - nullable
 	//    - max:64
-	OrganizationUnit *string `json:"organizationUnit,omitempty" validate:"omitempty,max=64"`
+	OrganizationUnit *string `json:"organizationUnit,omitempty"`
 
 	// State
 	// State of the certificates signing request
 	// Constraints:
 	//    - required
 	//    - max:128
-	State *string `json:"state" validate:"required,max=128"`
+	State *string `json:"state"`
 }
 
 func NewWSGCertificateCreateCSR() *WSGCertificateCreateCSR {
@@ -483,27 +357,24 @@ func NewWSGCertificateCreateCSR() *WSGCertificateCreateCSR {
 }
 
 type WSGCertificateCreateTrustedCAChain struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
 	// Constraints:
 	//    - nullable
-	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
+	InterCertData []string `json:"interCertData,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
 	// Constraints:
 	//    - required
-	RootCertData *string `json:"rootCertData" validate:"required"`
+	RootCertData *string `json:"rootCertData"`
 }
 
 func NewWSGCertificateCreateTrustedCAChain() *WSGCertificateCreateTrustedCAChain {
@@ -512,24 +383,12 @@ func NewWSGCertificateCreateTrustedCAChain() *WSGCertificateCreateTrustedCAChain
 }
 
 type WSGCertificateCsrList struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGCertificateCsrListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGCertificateCsrListType `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -539,20 +398,12 @@ func NewWSGCertificateCsrList() *WSGCertificateCsrList {
 }
 
 type WSGCertificateCsrListType struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the certificates signing request
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
@@ -562,9 +413,6 @@ func NewWSGCertificateCsrListType() *WSGCertificateCsrListType {
 }
 
 type WSGCertificateDeleteBulk struct {
-	// IdList
-	// Constraints:
-	//    - nullable
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
@@ -574,32 +422,22 @@ func NewWSGCertificateDeleteBulk() *WSGCertificateDeleteBulk {
 }
 
 type WSGCertificateModifyTrustedCAChain struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Information
 	// Information of the certificates
-	// Constraints:
-	//    - nullable
 	Information *string `json:"information,omitempty"`
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
 	// Constraints:
 	//    - nullable
-	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
+	InterCertData []string `json:"interCertData,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
-	// Constraints:
-	//    - nullable
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 
@@ -609,9 +447,6 @@ func NewWSGCertificateModifyTrustedCAChain() *WSGCertificateModifyTrustedCAChain
 }
 
 type WSGCertificateServiceCertificate struct {
-	// Certificate
-	// Constraints:
-	//    - nullable
 	Certificate *WSGCommonGenericRef `json:"certificate,omitempty"`
 
 	// Service
@@ -619,7 +454,7 @@ type WSGCertificateServiceCertificate struct {
 	// Constraints:
 	//    - required
 	//    - oneof:[MANAGEMENT_WEB,AP_PORTAL,HOTSPOT,COMMUNICATOR]
-	Service *string `json:"service" validate:"required,oneof=MANAGEMENT_WEB AP_PORTAL HOTSPOT COMMUNICATOR"`
+	Service *string `json:"service"`
 }
 
 func NewWSGCertificateServiceCertificate() *WSGCertificateServiceCertificate {
@@ -635,32 +470,22 @@ func MakeWSGCertificateServiceCertificates() WSGCertificateServiceCertificates {
 }
 
 type WSGCertificateTrustedCAChain struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the trusted CA chain certificates
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
 	// Constraints:
 	//    - nullable
-	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
+	InterCertData []string `json:"interCertData,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
-	// Constraints:
-	//    - nullable
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 
@@ -670,24 +495,12 @@ func NewWSGCertificateTrustedCAChain() *WSGCertificateTrustedCAChain {
 }
 
 type WSGCertificateTrustedCAChainCertList struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGCertificateTrustedCAChainCertListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGCertificateTrustedCAChainCertListType `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -697,48 +510,30 @@ func NewWSGCertificateTrustedCAChainCertList() *WSGCertificateTrustedCAChainCert
 }
 
 type WSGCertificateTrustedCAChainCertListType struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the trusted CA chain certificate
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Information
 	// Information of the certificates
-	// Constraints:
-	//    - nullable
 	Information *string `json:"information,omitempty"`
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
 	// Constraints:
 	//    - nullable
-	InterCertData []string `json:"interCertData,omitempty" validate:"omitempty,dive"`
+	InterCertData []string `json:"interCertData,omitempty"`
 
-	// ModifiedDateTime
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *WSGCommonNormalNameAllowBlank `json:"modifiedDateTime,omitempty"`
 
-	// ModifierUsername
-	// Constraints:
-	//    - nullable
 	ModifierUsername *WSGCommonNormalNameAllowBlank `json:"modifierUsername,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
-	// Constraints:
-	//    - nullable
 	RootCertData *string `json:"rootCertData,omitempty"`
 }
 

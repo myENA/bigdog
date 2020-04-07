@@ -25,37 +25,24 @@ func (ss *SwitchMService) SwitchMHealthService() *SwitchMHealthService {
 type SwitchMHealthAggMetrics struct {
 	// Extra
 	// Extra information for Aggregation Metrics
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMHealthAggMetricsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Aggregation Metrics returned out of the complete ICX Metrics list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more Aggregation Metrics after the currently displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMHealthAggs `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMHealthAggs `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Aggregation Metrics count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total of Aggregation Metrics count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -67,8 +54,6 @@ func NewSwitchMHealthAggMetrics() *SwitchMHealthAggMetrics {
 // SwitchMHealthAggMetricsExtraType
 //
 // Extra information for Aggregation Metrics
-// Constraints:
-//    - nullable
 type SwitchMHealthAggMetricsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -97,20 +82,14 @@ func NewSwitchMHealthAggMetricsExtraType() *SwitchMHealthAggMetricsExtraType {
 type SwitchMHealthAggs struct {
 	// Id
 	// Identifier of the aggregation value
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Key
 	// Key of the aggregation value
-	// Constraints:
-	//    - nullable
 	Key *string `json:"key,omitempty"`
 
 	// Value
 	// Metrics of the aggregation value
-	// Constraints:
-	//    - nullable
 	Value *float64 `json:"value,omitempty"`
 }
 
@@ -122,37 +101,24 @@ func NewSwitchMHealthAggs() *SwitchMHealthAggs {
 type SwitchMHealthIcxMetrics struct {
 	// Extra
 	// Extra information for ICX Metrics
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMHealthIcxMetricsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ICX Metrics returned out of the complete ICX Metrics list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates if there are more ICX Metrics after the currently displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMHealthMetrics `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMHealthMetrics `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// ICX Metrics count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total of ICX Metrics count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -164,8 +130,6 @@ func NewSwitchMHealthIcxMetrics() *SwitchMHealthIcxMetrics {
 // SwitchMHealthIcxMetricsExtraType
 //
 // Extra information for ICX Metrics
-// Constraints:
-//    - nullable
 type SwitchMHealthIcxMetricsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -194,26 +158,18 @@ func NewSwitchMHealthIcxMetricsExtraType() *SwitchMHealthIcxMetricsExtraType {
 type SwitchMHealthMetrics struct {
 	// Avg
 	// Average metrics
-	// Constraints:
-	//    - nullable
 	Avg *float64 `json:"avg,omitempty"`
 
 	// Max
 	// Max metrics
-	// Constraints:
-	//    - nullable
 	Max *float64 `json:"max,omitempty"`
 
 	// Min
 	// Min metrics
-	// Constraints:
-	//    - nullable
 	Min *float64 `json:"min,omitempty"`
 
 	// Timestamp
 	// Timestamp
-	// Constraints:
-	//    - nullable
 	Timestamp *string `json:"timestamp,omitempty"`
 }
 
@@ -225,39 +181,27 @@ func NewSwitchMHealthMetrics() *SwitchMHealthMetrics {
 type SwitchMHealthStatus struct {
 	// Fan
 	// Fan
-	// Constraints:
-	//    - nullable
-	Fan []*SwitchMHealthStatusFanType `json:"fan,omitempty" validate:"omitempty,dive"`
+	Fan []*SwitchMHealthStatusFanType `json:"fan,omitempty"`
 
 	// FlaggedCount
 	// Flagged status count
-	// Constraints:
-	//    - nullable
 	FlaggedCount *int `json:"flaggedCount,omitempty"`
 
 	// OfflineCount
 	// Offline status count
-	// Constraints:
-	//    - nullable
 	OfflineCount *int `json:"offlineCount,omitempty"`
 
 	// OnlineCount
 	// Online status count
-	// Constraints:
-	//    - nullable
 	OnlineCount *int `json:"onlineCount,omitempty"`
 
 	// PowerSupply
 	// Powersupply
-	// Constraints:
-	//    - nullable
-	PowerSupply []*SwitchMHealthStatusPowerSupplyType `json:"powerSupply,omitempty" validate:"omitempty,dive"`
+	PowerSupply []*SwitchMHealthStatusPowerSupplyType `json:"powerSupply,omitempty"`
 
 	// Temperature
 	// Temperature
-	// Constraints:
-	//    - nullable
-	Temperature []*SwitchMHealthStatusTemperatureType `json:"temperature,omitempty" validate:"omitempty,dive"`
+	Temperature []*SwitchMHealthStatusTemperatureType `json:"temperature,omitempty"`
 }
 
 func NewSwitchMHealthStatus() *SwitchMHealthStatus {
@@ -266,27 +210,18 @@ func NewSwitchMHealthStatus() *SwitchMHealthStatus {
 }
 
 type SwitchMHealthStatusFanType struct {
-	// SerialNumber
-	// Constraints:
-	//    - nullable
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
 	// SlotNumber
 	// Fan slot number
-	// Constraints:
-	//    - nullable
 	SlotNumber *int `json:"slotNumber,omitempty"`
 
 	// Status
 	// Fan status
-	// Constraints:
-	//    - nullable
 	Status *string `json:"status,omitempty"`
 
 	// Type
 	// Fan type
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -296,27 +231,18 @@ func NewSwitchMHealthStatusFanType() *SwitchMHealthStatusFanType {
 }
 
 type SwitchMHealthStatusPowerSupplyType struct {
-	// SerialNumber
-	// Constraints:
-	//    - nullable
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
 	// SlotNumber
 	// Power supply slot number
-	// Constraints:
-	//    - nullable
 	SlotNumber *int `json:"slotNumber,omitempty"`
 
 	// Status
 	// Power supply status
-	// Constraints:
-	//    - nullable
 	Status *string `json:"status,omitempty"`
 
 	// Type
 	// Power supply type
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -328,14 +254,10 @@ func NewSwitchMHealthStatusPowerSupplyType() *SwitchMHealthStatusPowerSupplyType
 type SwitchMHealthStatusTemperatureType struct {
 	// SlotNumber
 	// Solt number
-	// Constraints:
-	//    - nullable
 	SlotNumber *int `json:"slotNumber,omitempty"`
 
 	// TemperatureValue
 	// Slot temperature
-	// Constraints:
-	//    - nullable
 	TemperatureValue *float64 `json:"temperatureValue,omitempty"`
 }
 

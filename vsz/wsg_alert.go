@@ -3,10 +3,7 @@ package vsz
 // API Version: v9_0
 
 type WSGAlertAckBulkAlarms struct {
-	// IdList
-	// Constraints:
-	//    - nullable
-	IdList []string `json:"idList,omitempty" validate:"omitempty,dive"`
+	IdList []string `json:"idList,omitempty"`
 }
 
 func NewWSGAlertAckBulkAlarms() *WSGAlertAckBulkAlarms {
@@ -15,15 +12,9 @@ func NewWSGAlertAckBulkAlarms() *WSGAlertAckBulkAlarms {
 }
 
 type WSGAlertClearBulkAlarms struct {
-	// Comment
-	// Constraints:
-	//    - nullable
 	Comment *WSGCommonNormalNameAllowBlank `json:"comment,omitempty"`
 
-	// IdList
-	// Constraints:
-	//    - nullable
-	IdList []string `json:"idList,omitempty" validate:"omitempty,dive"`
+	IdList []string `json:"idList,omitempty"`
 }
 
 func NewWSGAlertClearBulkAlarms() *WSGAlertClearBulkAlarms {

@@ -25,14 +25,10 @@ func (ss *SwitchMService) SwitchMGroupModelConfigService() *SwitchMGroupModelCon
 type SwitchMGroupModelConfigGroupConfigAuditId struct {
 	// Id
 	// The identifier of the Group Model Config
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// The name of the Group Model Config
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 
@@ -44,62 +40,42 @@ func NewSwitchMGroupModelConfigGroupConfigAuditId() *SwitchMGroupModelConfigGrou
 type SwitchMGroupModelConfig struct {
 	// CreatedTime
 	// The create time of the Group Model Config
-	// Constraints:
-	//    - nullable
 	CreatedTime *int `json:"createdTime,omitempty"`
 
 	// FamilyId
 	// Family Id
-	// Constraints:
-	//    - nullable
 	FamilyId *string `json:"familyId,omitempty"`
 
 	// GroupId
 	// Group Id
-	// Constraints:
-	//    - nullable
 	GroupId *string `json:"groupId,omitempty"`
 
 	// HasAclConfig
 	// Indicates if there is any ACLConfig in the Group Model Config
-	// Constraints:
-	//    - nullable
 	HasAclConfig *bool `json:"hasAclConfig,omitempty"`
 
 	// HasConfigured
 	// Indicates if there is any config in the Group Model Config
-	// Constraints:
-	//    - nullable
 	HasConfigured *bool `json:"hasConfigured,omitempty"`
 
 	// HasSelected
 	// Indicates if this Group Model Config has been selected
-	// Constraints:
-	//    - nullable
 	HasSelected *bool `json:"hasSelected,omitempty"`
 
 	// HasStaticRouteConfig
 	// Indicates if there is any StaticRoute in the Group Model Config
-	// Constraints:
-	//    - nullable
 	HasStaticRouteConfig *bool `json:"hasStaticRouteConfig,omitempty"`
 
 	// HasVlanConfig
 	// Indicates if there is any VlanConfig in the Group Model Config
-	// Constraints:
-	//    - nullable
 	HasVlanConfig *bool `json:"hasVlanConfig,omitempty"`
 
 	// Id
 	// Id
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// UpdatedTime
 	// The update time of the Group Model Config
-	// Constraints:
-	//    - nullable
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
@@ -111,37 +87,24 @@ func NewSwitchMGroupModelConfig() *SwitchMGroupModelConfig {
 type SwitchMGroupModelConfigQueryResult struct {
 	// Extra
 	// Any additional response data
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMGroupModelConfigQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Group Model Config returned out of the complete Group Model Configs list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more Group Model Configs after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMGroupModelConfig `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMGroupModelConfig `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Group Model Configs count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total Group Model Configs count in this response
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -153,8 +116,6 @@ func NewSwitchMGroupModelConfigQueryResult() *SwitchMGroupModelConfigQueryResult
 // SwitchMGroupModelConfigQueryResultExtraType
 //
 // Any additional response data
-// Constraints:
-//    - nullable
 type SwitchMGroupModelConfigQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -181,10 +142,7 @@ func NewSwitchMGroupModelConfigQueryResultExtraType() *SwitchMGroupModelConfigQu
 }
 
 type SwitchMGroupModelConfigSelectedIds struct {
-	// SelectedIdList
-	// Constraints:
-	//    - nullable
-	SelectedIdList []string `json:"selectedIdList,omitempty" validate:"omitempty,dive"`
+	SelectedIdList []string `json:"selectedIdList,omitempty"`
 }
 
 func NewSwitchMGroupModelConfigSelectedIds() *SwitchMGroupModelConfigSelectedIds {
@@ -195,37 +153,24 @@ func NewSwitchMGroupModelConfigSelectedIds() *SwitchMGroupModelConfigSelectedIds
 type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
 	// Extra
 	// Any additional response data
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first updated Group Model Config returned out of the complete Group Model Configs list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more updated Group Model Configs after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMGroupModelConfigGroupConfigAuditId `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMGroupModelConfigGroupConfigAuditId `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total updated Group Model Configs count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total updated Group Model Configs count in this response
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -237,8 +182,6 @@ func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelC
 // SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType
 //
 // Any additional response data
-// Constraints:
-//    - nullable
 type SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

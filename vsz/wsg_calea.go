@@ -24,14 +24,10 @@ func (ss *WSGService) WSGCALEAService() *WSGCALEAService {
 type WSGCALEACommonSettingRq struct {
 	// CaleaServerIp
 	// CARLEA Server IP
-	// Constraints:
-	//    - nullable
 	CaleaServerIp *string `json:"caleaServerIp,omitempty"`
 
 	// Dcip
 	// DP IP in Data Center
-	// Constraints:
-	//    - nullable
 	Dcip *string `json:"dc_ip,omitempty"`
 }
 
@@ -43,14 +39,10 @@ func NewWSGCALEACommonSettingRq() *WSGCALEACommonSettingRq {
 type WSGCALEACommonSettingRsp struct {
 	// CaleaServerIp
 	// CARLEA Server IP
-	// Constraints:
-	//    - nullable
 	CaleaServerIp *string `json:"caleaServerIp,omitempty"`
 
 	// Dcip
 	// DP IP in Data Center
-	// Constraints:
-	//    - nullable
 	Dcip *string `json:"dc_ip,omitempty"`
 }
 
@@ -60,10 +52,7 @@ func NewWSGCALEACommonSettingRsp() *WSGCALEACommonSettingRsp {
 }
 
 type WSGCALEAMacListRq struct {
-	// MacList
-	// Constraints:
-	//    - nullable
-	MacList []string `json:"macList,omitempty" validate:"omitempty,dive"`
+	MacList []string `json:"macList,omitempty"`
 }
 
 func NewWSGCALEAMacListRq() *WSGCALEAMacListRq {
@@ -72,24 +61,12 @@ func NewWSGCALEAMacListRq() *WSGCALEAMacListRq {
 }
 
 type WSGCALEAMacListRsp struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []string `json:"list,omitempty" validate:"omitempty,dive"`
+	List []string `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

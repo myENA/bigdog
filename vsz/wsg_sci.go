@@ -27,37 +27,37 @@ type WSGSCICreateSciProfile struct {
 	// SCI password of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciPassword *string `json:"sciPassword" validate:"required"`
+	SciPassword *string `json:"sciPassword"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciProfile *string `json:"sciProfile" validate:"required"`
+	SciProfile *string `json:"sciProfile"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciServerHost *string `json:"sciServerHost" validate:"required"`
+	SciServerHost *string `json:"sciServerHost"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciServerPort *string `json:"sciServerPort" validate:"required"`
+	SciServerPort *string `json:"sciServerPort"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciSystemId *string `json:"sciSystemId" validate:"required"`
+	SciSystemId *string `json:"sciSystemId"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciUser *string `json:"sciUser" validate:"required"`
+	SciUser *string `json:"sciUser"`
 }
 
 func NewWSGSCICreateSciProfile() *WSGSCICreateSciProfile {
@@ -70,7 +70,7 @@ type WSGSCIDeleteSciProfile struct {
 	// UUID of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	Id *string `json:"id" validate:"required"`
+	Id *string `json:"id"`
 }
 
 func NewWSGSCIDeleteSciProfile() *WSGSCIDeleteSciProfile {
@@ -79,10 +79,7 @@ func NewWSGSCIDeleteSciProfile() *WSGSCIDeleteSciProfile {
 }
 
 type WSGSCIDeleteSciProfileList struct {
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGSCIDeleteSciProfile `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGSCIDeleteSciProfile `json:"list,omitempty"`
 }
 
 func NewWSGSCIDeleteSciProfileList() *WSGSCIDeleteSciProfileList {
@@ -94,7 +91,7 @@ type WSGSCIModifyEventCode struct {
 	// SciAcceptedEventCodes
 	// Constraints:
 	//    - required
-	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes" validate:"required,dive"`
+	SciAcceptedEventCodes []int `json:"sciAcceptedEventCodes"`
 }
 
 func NewWSGSCIModifyEventCode() *WSGSCIModifyEventCode {
@@ -107,7 +104,7 @@ type WSGSCIModifySciEnabled struct {
 	// Is SZ/SCI interface enabled or disabled
 	// Constraints:
 	//    - required
-	SciEnabled *bool `json:"sciEnabled" validate:"required"`
+	SciEnabled *bool `json:"sciEnabled"`
 }
 
 func NewWSGSCIModifySciEnabled() *WSGSCIModifySciEnabled {
@@ -118,45 +115,43 @@ func NewWSGSCIModifySciEnabled() *WSGSCIModifySciEnabled {
 type WSGSCIModifySciProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciPassword *string `json:"sciPassword" validate:"required"`
+	SciPassword *string `json:"sciPassword"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciProfile *string `json:"sciProfile" validate:"required"`
+	SciProfile *string `json:"sciProfile"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciServerHost *string `json:"sciServerHost" validate:"required"`
+	SciServerHost *string `json:"sciServerHost"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciServerPort *string `json:"sciServerPort" validate:"required"`
+	SciServerPort *string `json:"sciServerPort"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciSystemId *string `json:"sciSystemId" validate:"required"`
+	SciSystemId *string `json:"sciSystemId"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
 	// Constraints:
 	//    - required
-	SciUser *string `json:"sciUser" validate:"required"`
+	SciUser *string `json:"sciUser"`
 }
 
 func NewWSGSCIModifySciProfile() *WSGSCIModifySciProfile {
@@ -167,25 +162,16 @@ func NewWSGSCIModifySciProfile() *WSGSCIModifySciProfile {
 type WSGSCIEventCode struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates whether there are more SCI accepted event codes after the currently displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGSCIEventCodeListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGSCIEventCodeListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total SCI accepted event code count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -197,14 +183,10 @@ func NewWSGSCIEventCode() *WSGSCIEventCode {
 type WSGSCIEventCodeListType struct {
 	// Code
 	// SCI accepted event code
-	// Constraints:
-	//    - nullable
 	Code *int `json:"code,omitempty"`
 
 	// Type
 	// SCI accepted event type
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -216,50 +198,34 @@ func NewWSGSCIEventCodeListType() *WSGSCIEventCodeListType {
 type WSGSCIProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	SciPassword *string `json:"sciPassword,omitempty"`
 
 	// SciPriority
 	// Priority of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	SciPriority *int `json:"sciPriority,omitempty"`
 
 	// SciProfile
 	// Profile name of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	SciProfile *string `json:"sciProfile,omitempty"`
 
 	// SciServerHost
 	// SCI server host of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	SciServerHost *string `json:"sciServerHost,omitempty"`
 
 	// SciServerPort
 	// SCI server port of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	SciServerPort *string `json:"sciServerPort,omitempty"`
 
 	// SciSystemId
 	// SCI system UUID of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	SciSystemId *string `json:"sciSystemId,omitempty"`
 
 	// SciUser
 	// SCI user name of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	SciUser *string `json:"sciUser,omitempty"`
 }
 
@@ -269,15 +235,9 @@ func NewWSGSCIProfile() *WSGSCIProfile {
 }
 
 type WSGSCIProfileList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGSCIProfileListExtraType `json:"extra,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGSCIProfile `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGSCIProfile `json:"list,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -325,8 +285,6 @@ func NewWSGSCIProfileList() *WSGSCIProfileList {
 type WSGSCIProfileListExtraType struct {
 	// SciEnabled
 	// SCI password of the SCI profile for SZ/SCI interface
-	// Constraints:
-	//    - nullable
 	SciEnabled *bool `json:"sciEnabled,omitempty"`
 }
 

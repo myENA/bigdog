@@ -25,37 +25,24 @@ func (ss *SwitchMService) SwitchMFirmwareService() *SwitchMFirmwareService {
 type SwitchMFirmwaresQueryResultList struct {
 	// Extra
 	// Extra information for Firmware list
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMFirmwaresQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first firmware list returned out of the complete Firmware list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more Firmwares after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMFirmwareSwitchFirmware `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMFirmwareSwitchFirmware `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Firmware list count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total Firmware list count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -67,8 +54,6 @@ func NewSwitchMFirmwaresQueryResultList() *SwitchMFirmwaresQueryResultList {
 // SwitchMFirmwaresQueryResultListExtraType
 //
 // Extra information for Firmware list
-// Constraints:
-//    - nullable
 type SwitchMFirmwaresQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -97,37 +82,24 @@ func NewSwitchMFirmwaresQueryResultListExtraType() *SwitchMFirmwaresQueryResultL
 type SwitchMFirmwareScheduleIds struct {
 	// Extra
 	// Extra information for Schedule Ids list
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMFirmwareScheduleIdsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Schedule Ids returned out of the complete ConfigBackup list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more Schedule Ids after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []string `json:"list,omitempty" validate:"omitempty,dive"`
+	List []string `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Firmware list count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total Schedule Ids count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -139,8 +111,6 @@ func NewSwitchMFirmwareScheduleIds() *SwitchMFirmwareScheduleIds {
 // SwitchMFirmwareScheduleIdsExtraType
 //
 // Extra information for Schedule Ids list
-// Constraints:
-//    - nullable
 type SwitchMFirmwareScheduleIdsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -167,15 +137,10 @@ func NewSwitchMFirmwareScheduleIdsExtraType() *SwitchMFirmwareScheduleIdsExtraTy
 }
 
 type SwitchMFirmwareSwitchFirmware struct {
-	// SwitchModels
-	// Constraints:
-	//    - nullable
-	SwitchModels []*SwitchMFirmwareSwitchModel `json:"switchModels,omitempty" validate:"omitempty,dive"`
+	SwitchModels []*SwitchMFirmwareSwitchModel `json:"switchModels,omitempty"`
 
 	// Version
 	// Firmware version of the Switch
-	// Constraints:
-	//    - nullable
 	Version *string `json:"version,omitempty"`
 }
 
@@ -187,14 +152,10 @@ func NewSwitchMFirmwareSwitchFirmware() *SwitchMFirmwareSwitchFirmware {
 type SwitchMFirmwareSwitchModel struct {
 	// ImageFileNames
 	// Name of the Switch Image File
-	// Constraints:
-	//    - nullable
-	ImageFileNames []string `json:"imageFileNames,omitempty" validate:"omitempty,dive"`
+	ImageFileNames []string `json:"imageFileNames,omitempty"`
 
 	// Name
 	// Name of the Switch Model
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 

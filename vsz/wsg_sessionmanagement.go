@@ -24,44 +24,30 @@ func (ss *WSGService) WSGSessionManagementService() *WSGSessionManagementService
 type WSGSessionManagementRuckusSession struct {
 	// AuthType
 	// The authentication type of logon
-	// Constraints:
-	//    - nullable
 	AuthType *string `json:"authType,omitempty"`
 
 	// LastAccessTime
 	// The last access time
-	// Constraints:
-	//    - nullable
 	LastAccessTime *string `json:"lastAccessTime,omitempty"`
 
 	// LastAccessURI
 	// The last access URI
-	// Constraints:
-	//    - nullable
 	LastAccessURI *string `json:"lastAccessURI,omitempty"`
 
 	// SessionId
 	// The user session ID
-	// Constraints:
-	//    - nullable
 	SessionId *string `json:"sessionId,omitempty"`
 
 	// SourceIp
 	// The source IP address
-	// Constraints:
-	//    - nullable
 	SourceIp *string `json:"sourceIp,omitempty"`
 
 	// UserName
 	// Logon user name
-	// Constraints:
-	//    - nullable
 	UserName *string `json:"userName,omitempty"`
 
 	// UserUUID
 	// The user UUID
-	// Constraints:
-	//    - nullable
 	UserUUID *string `json:"userUUID,omitempty"`
 }
 
@@ -71,24 +57,12 @@ func NewWSGSessionManagementRuckusSession() *WSGSessionManagementRuckusSession {
 }
 
 type WSGSessionManagementRuckusSessions struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGSessionManagementRuckusSession `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGSessionManagementRuckusSession `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 

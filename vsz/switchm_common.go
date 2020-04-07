@@ -7,9 +7,6 @@ import (
 )
 
 type SwitchMCommonBulkDeleteRequest struct {
-	// IdList
-	// Constraints:
-	//    - nullable
 	IdList SwitchMCommonIdList `json:"idList,omitempty"`
 }
 
@@ -19,9 +16,6 @@ func NewSwitchMCommonBulkDeleteRequest() *SwitchMCommonBulkDeleteRequest {
 }
 
 type SwitchMCommonCreateResult struct {
-	// Id
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 }
 
@@ -40,21 +34,16 @@ func NewSwitchMCommonFilterOperator() *SwitchMCommonFilterOperator {
 type SwitchMCommonFullTextSearch struct {
 	// Fields
 	// Specific fields to search
-	// Constraints:
-	//    - nullable
-	Fields []string `json:"fields,omitempty" validate:"omitempty,dive"`
+	Fields []string `json:"fields,omitempty"`
 
 	// Type
 	// Search logic operator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AND,OR]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AND OR"`
+	Type *string `json:"type,omitempty"`
 
 	// Value
 	// Text or number to search
-	// Constraints:
-	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -73,80 +62,54 @@ func MakeSwitchMCommonIdList() SwitchMCommonIdList {
 type SwitchMCommonQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
-	// Constraints:
-	//    - nullable
-	Attributes []string `json:"attributes,omitempty" validate:"omitempty,dive"`
+	Attributes []string `json:"attributes,omitempty"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
-	// Constraints:
-	//    - nullable
 	Criteria *string `json:"criteria,omitempty"`
 
 	// ExpandDomains
 	// Whether to expand domains into sub domains/ zones or not
-	// Constraints:
-	//    - nullable
 	ExpandDomains *bool `json:"expandDomains,omitempty"`
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	// Constraints:
-	//    - nullable
-	ExtraFilters []*SwitchMCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty" validate:"omitempty,dive"`
+	ExtraFilters []*SwitchMCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	// Constraints:
-	//    - nullable
-	ExtraNotFilters []*SwitchMCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty" validate:"omitempty,dive"`
+	ExtraNotFilters []*SwitchMCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
-	// ExtraTimeRange
-	// Constraints:
-	//    - nullable
 	ExtraTimeRange *SwitchMCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	// Constraints:
-	//    - nullable
-	Filters []*SwitchMCommonQueryCriteriaFiltersType `json:"filters,omitempty" validate:"omitempty,dive"`
+	Filters []*SwitchMCommonQueryCriteriaFiltersType `json:"filters,omitempty"`
 
-	// FullTextSearch
-	// Constraints:
-	//    - nullable
 	FullTextSearch *SwitchMCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
+	Limit *int `json:"limit,omitempty"`
 
 	// Options
 	// Specified feature required information
-	// Constraints:
-	//    - nullable
 	Options *SwitchMCommonQueryCriteriaOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
+	Page *int `json:"page,omitempty"`
 
 	// Query
 	// Add backward compatibility for UI framework
-	// Constraints:
-	//    - nullable
 	Query *string `json:"query,omitempty"`
 
 	// SortInfo
 	// About sorting
-	// Constraints:
-	//    - nullable
 	SortInfo *SwitchMCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
@@ -156,21 +119,14 @@ func NewSwitchMCommonQueryCriteria() *SwitchMCommonQueryCriteria {
 }
 
 type SwitchMCommonQueryCriteriaExtraFiltersType struct {
-	// Operator
-	// Constraints:
-	//    - nullable
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attributes
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 
 	// Value
 	// value to search
-	// Constraints:
-	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -182,14 +138,10 @@ func NewSwitchMCommonQueryCriteriaExtraFiltersType() *SwitchMCommonQueryCriteria
 type SwitchMCommonQueryCriteriaExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 
 	// Value
 	// value not to search
-	// Constraints:
-	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -199,21 +151,14 @@ func NewSwitchMCommonQueryCriteriaExtraNotFiltersType() *SwitchMCommonQueryCrite
 }
 
 type SwitchMCommonQueryCriteriaFiltersType struct {
-	// Operator
-	// Constraints:
-	//    - nullable
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Group type
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 
 	// Value
 	// Group ID
-	// Constraints:
-	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -225,8 +170,6 @@ func NewSwitchMCommonQueryCriteriaFiltersType() *SwitchMCommonQueryCriteriaFilte
 // SwitchMCommonQueryCriteriaOptionsType
 //
 // Specified feature required information
-// Constraints:
-//    - nullable
 type SwitchMCommonQueryCriteriaOptionsType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -255,18 +198,12 @@ func NewSwitchMCommonQueryCriteriaOptionsType() *SwitchMCommonQueryCriteriaOptio
 // SwitchMCommonQueryCriteriaSortInfoType
 //
 // About sorting
-// Constraints:
-//    - nullable
 type SwitchMCommonQueryCriteriaSortInfoType struct {
 	// Dir
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ASC,DESC]
-	Dir *string `json:"dir,omitempty" validate:"omitempty,oneof=ASC DESC"`
+	Dir *string `json:"dir,omitempty"`
 
-	// SortColumn
-	// Constraints:
-	//    - nullable
 	SortColumn *string `json:"sortColumn,omitempty"`
 }
 
@@ -278,80 +215,54 @@ func NewSwitchMCommonQueryCriteriaSortInfoType() *SwitchMCommonQueryCriteriaSort
 type SwitchMCommonQueryCriteriaSuperSet struct {
 	// Attributes
 	// Get specific columns only
-	// Constraints:
-	//    - nullable
-	Attributes []string `json:"attributes,omitempty" validate:"omitempty,dive"`
+	Attributes []string `json:"attributes,omitempty"`
 
 	// Criteria
 	// Add backward compatibility for UI framework
-	// Constraints:
-	//    - nullable
 	Criteria *string `json:"criteria,omitempty"`
 
 	// ExpandDomains
 	// Whether to expand domains into sub domains/ zones or not
-	// Constraints:
-	//    - nullable
 	ExpandDomains *bool `json:"expandDomains,omitempty"`
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	// Constraints:
-	//    - nullable
-	ExtraFilters []*SwitchMCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters,omitempty" validate:"omitempty,dive"`
+	ExtraFilters []*SwitchMCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	// Constraints:
-	//    - nullable
-	ExtraNotFilters []*SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters,omitempty" validate:"omitempty,dive"`
+	ExtraNotFilters []*SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
-	// ExtraTimeRange
-	// Constraints:
-	//    - nullable
 	ExtraTimeRange *SwitchMCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	// Constraints:
-	//    - nullable
-	Filters []*SwitchMCommonQueryCriteriaSuperSetFiltersType `json:"filters,omitempty" validate:"omitempty,dive"`
+	Filters []*SwitchMCommonQueryCriteriaSuperSetFiltersType `json:"filters,omitempty"`
 
-	// FullTextSearch
-	// Constraints:
-	//    - nullable
 	FullTextSearch *SwitchMCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Limit *int `json:"limit,omitempty" validate:"omitempty,gte=1"`
+	Limit *int `json:"limit,omitempty"`
 
 	// Options
 	// Specified feature required informaion
-	// Constraints:
-	//    - nullable
 	Options *SwitchMCommonQueryCriteriaSuperSetOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
 	// Constraints:
-	//    - nullable
 	//    - min:1
-	Page *int `json:"page,omitempty" validate:"omitempty,gte=1"`
+	Page *int `json:"page,omitempty"`
 
 	// Query
 	// Add backward compatibility for UI framework
-	// Constraints:
-	//    - nullable
 	Query *string `json:"query,omitempty"`
 
 	// SortInfo
 	// About sorting
-	// Constraints:
-	//    - nullable
 	SortInfo *SwitchMCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
@@ -361,22 +272,16 @@ func NewSwitchMCommonQueryCriteriaSuperSet() *SwitchMCommonQueryCriteriaSuperSet
 }
 
 type SwitchMCommonQueryCriteriaSuperSetExtraFiltersType struct {
-	// Operator
-	// Constraints:
-	//    - nullable
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attribute
 	// Constraints:
-	//    - nullable
 	//    - oneof:[CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,ProtocolType,TIMERANGE,RADIOID,WLANID,CATEGORY,CLIENT,CP,DP,CLUSTER,NODE,BLADE,SYNCEDSTATUS,OSTYPE,APP,PORT,STATUS,REGISTRATIONSTATE,GATEWAY,APIPADDRESS,CLIENTIPADDRESS,SEVERITY,ACKNOWLEDGED,MVNOID,USER,USERID,WLANNAME,AUDITIPADDRESS,AUDITUSERUUID,AUDITOBJECT,AUDITACTION,AUDITTENANTUUID,AUDITOBJECTUUID,AUTHTYPE,AUDITTYPE,H20SuppportEnabled,AaaSuppportEnabled,GppSuppportEnabled,Type,RogueMac,SSID,ALARMSTATE,DEVICENAME,SWITCH,SWITCH_GROUP,ZoneAffinityProfileId,FIRMWARE_TYPE,SCHEDULED_TIME,VLAN,FAMILY_ID,SWITCH_ID,transactionId,hasLayerThreeConfig,clientAuthType,clientIpv4Addr,clientIpv6Addr,clientMac,clientUserName,switchName]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=CONTROLBLADE DATABLADE DOMAIN ZONE THIRD_PARTY_ZONE APGROUP WLANGROUP INDOORMAP AP WLAN ProtocolType TIMERANGE RADIOID WLANID CATEGORY CLIENT CP DP CLUSTER NODE BLADE SYNCEDSTATUS OSTYPE APP PORT STATUS REGISTRATIONSTATE GATEWAY APIPADDRESS CLIENTIPADDRESS SEVERITY ACKNOWLEDGED MVNOID USER USERID WLANNAME AUDITIPADDRESS AUDITUSERUUID AUDITOBJECT AUDITACTION AUDITTENANTUUID AUDITOBJECTUUID AUTHTYPE AUDITTYPE H20SuppportEnabled AaaSuppportEnabled GppSuppportEnabled Type RogueMac SSID ALARMSTATE DEVICENAME SWITCH SWITCH_GROUP ZoneAffinityProfileId FIRMWARE_TYPE SCHEDULED_TIME VLAN FAMILY_ID SWITCH_ID transactionId hasLayerThreeConfig clientAuthType clientIpv4Addr clientIpv6Addr clientMac clientUserName switchName"`
+	Type *string `json:"type,omitempty"`
 
 	// Value
 	// Value to search
-	// Constraints:
-	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -389,14 +294,11 @@ type SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
 	// Constraints:
-	//    - nullable
 	//    - oneof:[CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,ProtocolType,TIMERANGE,RADIOID,WLANID,CATEGORY,CLIENT,CP,DP,CLUSTER,NODE,BLADE,SYNCEDSTATUS,OSTYPE,APP,PORT,STATUS,REGISTRATIONSTATE,GATEWAY,APIPADDRESS,CLIENTIPADDRESS,SEVERITY,ACKNOWLEDGED,MVNOID,USER,USERID,WLANNAME,AUDITIPADDRESS,AUDITUSERUUID,AUDITOBJECT,AUDITACTION,AUDITTENANTUUID,AUDITOBJECTUUID,AUTHTYPE,AUDITTYPE,H20SuppportEnabled,AaaSuppportEnabled,GppSuppportEnabled,Type,RogueMac,SSID,ALARMSTATE,DEVICENAME,SWITCH,ZoneAffinityProfileId,FIRMWARE_TYPE,SCHEDULED_TIME,VLAN,FAMILY_ID,SWITCH_ID,switchStatus.alerts,transactionId,hasLayerThreeConfig]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=CONTROLBLADE DATABLADE DOMAIN ZONE THIRD_PARTY_ZONE APGROUP WLANGROUP INDOORMAP AP WLAN ProtocolType TIMERANGE RADIOID WLANID CATEGORY CLIENT CP DP CLUSTER NODE BLADE SYNCEDSTATUS OSTYPE APP PORT STATUS REGISTRATIONSTATE GATEWAY APIPADDRESS CLIENTIPADDRESS SEVERITY ACKNOWLEDGED MVNOID USER USERID WLANNAME AUDITIPADDRESS AUDITUSERUUID AUDITOBJECT AUDITACTION AUDITTENANTUUID AUDITOBJECTUUID AUTHTYPE AUDITTYPE H20SuppportEnabled AaaSuppportEnabled GppSuppportEnabled Type RogueMac SSID ALARMSTATE DEVICENAME SWITCH ZoneAffinityProfileId FIRMWARE_TYPE SCHEDULED_TIME VLAN FAMILY_ID SWITCH_ID switchStatus.alerts transactionId hasLayerThreeConfig"`
+	Type *string `json:"type,omitempty"`
 
 	// Value
 	// Value not to search
-	// Constraints:
-	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -406,22 +308,16 @@ func NewSwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType() *SwitchMCommonQu
 }
 
 type SwitchMCommonQueryCriteriaSuperSetFiltersType struct {
-	// Operator
-	// Constraints:
-	//    - nullable
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Group type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[SYSTEM,CATEGORY,CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,BLADE,SYNCEDSTATUS,REGISTRATIONSTATE,STATUS,SWITCH_GROUP,PORT]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=SYSTEM CATEGORY CONTROLBLADE DATABLADE DOMAIN ZONE THIRD_PARTY_ZONE APGROUP WLANGROUP INDOORMAP AP WLAN BLADE SYNCEDSTATUS REGISTRATIONSTATE STATUS SWITCH_GROUP PORT"`
+	Type *string `json:"type,omitempty"`
 
 	// Value
 	// Group ID
-	// Constraints:
-	//    - nullable
 	Value *string `json:"value,omitempty"`
 }
 
@@ -433,122 +329,83 @@ func NewSwitchMCommonQueryCriteriaSuperSetFiltersType() *SwitchMCommonQueryCrite
 // SwitchMCommonQueryCriteriaSuperSetOptionsType
 //
 // Specified feature required informaion
-// Constraints:
-//    - nullable
 type SwitchMCommonQueryCriteriaSuperSetOptionsType struct {
 	// AcctincludeNa
 	// Include Not Available acct service option while returning result
-	// Constraints:
-	//    - nullable
 	AcctincludeNa *bool `json:"acct_includeNa,omitempty"`
 
 	// AccttestableOnly
 	// Only get testable service type
-	// Constraints:
-	//    - nullable
 	AccttestableOnly *bool `json:"acct_testableOnly,omitempty"`
 
 	// Accttype
 	// Accounting service types to get, use comma to separate, Ex: RADIUS,CGF
-	// Constraints:
-	//    - nullable
 	Accttype *string `json:"acct_type,omitempty"`
 
 	// AuthhostedAaaSupportedEnabled
 	// Indicate if Hosted AAA Support is enabled
-	// Constraints:
-	//    - nullable
 	AuthhostedAaaSupportedEnabled *bool `json:"auth_hostedAaaSupportedEnabled,omitempty"`
 
 	// AuthincludeAdGlobal
 	// If AD is in list, include only AD with Global Catalog configured
-	// Constraints:
-	//    - nullable
 	AuthincludeAdGlobal *bool `json:"auth_includeAdGlobal,omitempty"`
 
 	// AuthincludeGuest
 	// Include Guest auth service while returning result
-	// Constraints:
-	//    - nullable
 	AuthincludeGuest *bool `json:"auth_includeGuest,omitempty"`
 
 	// AuthincludeLocalDb
 	// Include LocalDB auth service while returning result
-	// Constraints:
-	//    - nullable
 	AuthincludeLocalDb *bool `json:"auth_includeLocalDb,omitempty"`
 
 	// AuthincludeNa
 	// Include Not Available auth service option while returning result
-	// Constraints:
-	//    - nullable
 	AuthincludeNa *bool `json:"auth_includeNa,omitempty"`
 
 	// AuthplmnIdentifierEnabled
 	// Indicate if Configure PLMN identifier is enabled
-	// Constraints:
-	//    - nullable
 	AuthplmnIdentifierEnabled *bool `json:"auth_plmnIdentifierEnabled,omitempty"`
 
 	// AuthrealmType
 	// To get specific authentication service information for configuring realm based authentication profile
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ALL,RADIUS]
-	AuthrealmType *string `json:"auth_realmType,omitempty" validate:"omitempty,oneof=ALL RADIUS"`
+	AuthrealmType *string `json:"auth_realmType,omitempty"`
 
 	// AuthtestableOnly
 	// Only get testable service type
-	// Constraints:
-	//    - nullable
 	AuthtestableOnly *bool `json:"auth_testableOnly,omitempty"`
 
 	// Authtype
 	// Authentication service types to get, use comma to separate, Ex: RADIUS,AD
-	// Constraints:
-	//    - nullable
 	Authtype *string `json:"auth_type,omitempty"`
 
 	// Forwardingtype
 	// Forwarding service types to get, use comma to separate, Ex: L2oGRE,TTGPDG,Bridge,Advanced
-	// Constraints:
-	//    - nullable
 	Forwardingtype *string `json:"forwarding_type,omitempty"`
 
 	// GlobalFilterId
 	// Specify GlobalFilter ID for query
-	// Constraints:
-	//    - nullable
 	GlobalFilterId *string `json:"globalFilterId,omitempty"`
 
 	// IncludeSharedResources
 	// Whether to include the resources of parent domain or not
-	// Constraints:
-	//    - nullable
 	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
 
 	// IncludeUsers
 	// Should also retrieve users or not
-	// Constraints:
-	//    - nullable
 	IncludeUsers *bool `json:"includeUsers,omitempty"`
 
 	// INCLUDERBACMETADATA
 	// Whether to include RBAC metadata or not
-	// Constraints:
-	//    - nullable
 	INCLUDERBACMETADATA *bool `json:"INCLUDE_RBAC_METADATA,omitempty"`
 
 	// InMap
 	// Specify inMap status for query
-	// Constraints:
-	//    - nullable
 	InMap *bool `json:"inMap,omitempty"`
 
 	// TENANTID
 	// Specify Tenant ID for query
-	// Constraints:
-	//    - nullable
 	TENANTID *string `json:"TENANT_ID,omitempty"`
 }
 
@@ -558,10 +415,7 @@ func NewSwitchMCommonQueryCriteriaSuperSetOptionsType() *SwitchMCommonQueryCrite
 }
 
 type SwitchMCommonRbacMetadata struct {
-	// RbacMetadata
-	// Constraints:
-	//    - nullable
-	RbacMetadata []string `json:"rbacMetadata,omitempty" validate:"omitempty,dive"`
+	RbacMetadata []string `json:"rbacMetadata,omitempty"`
 }
 
 func NewSwitchMCommonRbacMetadata() *SwitchMCommonRbacMetadata {
@@ -572,27 +426,20 @@ func NewSwitchMCommonRbacMetadata() *SwitchMCommonRbacMetadata {
 type SwitchMCommonTimeRange struct {
 	// End
 	// end time for collecting data
-	// Constraints:
-	//    - nullable
 	End *float64 `json:"end,omitempty"`
 
 	// Field
 	// time field for collecting data
 	// Constraints:
-	//    - nullable
 	//    - oneof:[insertionTime]
-	Field *string `json:"field,omitempty" validate:"omitempty,oneof=insertionTime"`
+	Field *string `json:"field,omitempty"`
 
 	// Interval
 	// time interval in second
-	// Constraints:
-	//    - nullable
 	Interval *float64 `json:"interval,omitempty"`
 
 	// Start
 	// start time for collecting data
-	// Constraints:
-	//    - nullable
 	Start *float64 `json:"start,omitempty"`
 }
 

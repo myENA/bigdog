@@ -5,34 +5,25 @@ package vsz
 type SwitchMLagConfigCreate struct {
 	// GroupId
 	// Switch Group Id
-	// Constraints:
-	//    - nullable
 	GroupId *string `json:"groupId,omitempty"`
 
 	// Name
 	// The Name of LAG Config
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Ports
 	// The Switch ports would like to join together
-	// Constraints:
-	//    - nullable
-	Ports []string `json:"ports,omitempty" validate:"omitempty,dive"`
+	Ports []string `json:"ports,omitempty"`
 
 	// SwitchId
 	// Switch Id
-	// Constraints:
-	//    - nullable
 	SwitchId *string `json:"switchId,omitempty"`
 
 	// Type
 	// The LAG Types in STATIC or DYNAMIC
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,DYNAMIC]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=STATIC DYNAMIC"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewSwitchMLagConfigCreate() *SwitchMLagConfigCreate {
@@ -50,51 +41,36 @@ func MakeSwitchMLagConfigCreateResult() SwitchMLagConfigCreateResult {
 type SwitchMLagConfig struct {
 	// CreatedTime
 	// The LAG Types in STATIC or DYNAMIC
-	// Constraints:
-	//    - nullable
 	CreatedTime *int `json:"createdTime,omitempty"`
 
 	// GroupId
 	// The ID of  Switch Group
-	// Constraints:
-	//    - nullable
 	GroupId *string `json:"groupId,omitempty"`
 
 	// Id
 	// The ID of LAG Config
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// The Name of LAG Config
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Ports
 	// The Switch ports would like to join together
-	// Constraints:
-	//    - nullable
-	Ports []string `json:"ports,omitempty" validate:"omitempty,dive"`
+	Ports []string `json:"ports,omitempty"`
 
 	// SwitchId
 	// The ID of Switch
-	// Constraints:
-	//    - nullable
 	SwitchId *string `json:"switchId,omitempty"`
 
 	// Type
 	// The LAG Types in STATIC or DYNAMIC
 	// Constraints:
-	//    - nullable
 	//    - oneof:[STATIC,DYNAMIC]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=STATIC DYNAMIC"`
+	Type *string `json:"type,omitempty"`
 
 	// UpdatedTime
 	// The LAG Types in STATIC or DYNAMIC
-	// Constraints:
-	//    - nullable
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
@@ -106,26 +82,18 @@ func NewSwitchMLagConfig() *SwitchMLagConfig {
 type SwitchMLagConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more configs after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
 	// List
 	// The list of configs in this response
-	// Constraints:
-	//    - nullable
-	List []*SwitchMLagConfig `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMLagConfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -137,15 +105,11 @@ func NewSwitchMLagConfigList() *SwitchMLagConfigList {
 type SwitchMLagConfigModify struct {
 	// Name
 	// The Name of LAG Config
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Ports
 	// The Switch ports would like to join together
-	// Constraints:
-	//    - nullable
-	Ports []string `json:"ports,omitempty" validate:"omitempty,dive"`
+	Ports []string `json:"ports,omitempty"`
 }
 
 func NewSwitchMLagConfigModify() *SwitchMLagConfigModify {

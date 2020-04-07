@@ -26,7 +26,7 @@ type WSGFlexiVPNSetting struct {
 	// Zone Affinity ID
 	// Constraints:
 	//    - required
-	ZoneAffinityId *string `json:"zoneAffinityId" validate:"required"`
+	ZoneAffinityId *string `json:"zoneAffinityId"`
 }
 
 func NewWSGFlexiVPNSetting() *WSGFlexiVPNSetting {

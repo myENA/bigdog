@@ -22,19 +22,10 @@ func (ss *SwitchMService) SwitchMAAASettingsService() *SwitchMAAASettingsService
 }
 
 type SwitchMAAASettingsAAASetting struct {
-	// Accounting
-	// Constraints:
-	//    - nullable
 	Accounting *SwitchMAAASettingsAAASettingAccountingType `json:"accounting,omitempty"`
 
-	// Authentication
-	// Constraints:
-	//    - nullable
 	Authentication *SwitchMAAASettingsAAASettingAuthenticationType `json:"authentication,omitempty"`
 
-	// Authorization
-	// Constraints:
-	//    - nullable
 	Authorization *SwitchMAAASettingsAAASettingAuthorizationType `json:"authorization,omitempty"`
 }
 
@@ -44,24 +35,12 @@ func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
 }
 
 type SwitchMAAASettingsAAASettingAccountingType struct {
-	// Commands
-	// Constraints:
-	//    - nullable
 	Commands *SwitchMAAASettingsAAASettingAccountingTypeCommandsType `json:"commands,omitempty"`
 
-	// EnabledCommandAccounting
-	// Constraints:
-	//    - nullable
 	EnabledCommandAccounting *bool `json:"enabledCommandAccounting,omitempty"`
 
-	// EnabledExecAccounting
-	// Constraints:
-	//    - nullable
 	EnabledExecAccounting *bool `json:"enabledExecAccounting,omitempty"`
 
-	// Exec
-	// Constraints:
-	//    - nullable
 	Exec *SwitchMAAASettingsAAASettingAccountingTypeExecType `json:"exec,omitempty"`
 }
 
@@ -73,21 +52,18 @@ func NewSwitchMAAASettingsAAASettingAccountingType() *SwitchMAAASettingsAAASetti
 type SwitchMAAASettingsAAASettingAccountingTypeCommandsType struct {
 	// Level
 	// Constraints:
-	//    - nullable
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
-	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty"`
 
 	// Server1
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty"`
 
 	// Server2
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty"`
 }
 
 func NewSwitchMAAASettingsAAASettingAccountingTypeCommandsType() *SwitchMAAASettingsAAASettingAccountingTypeCommandsType {
@@ -98,15 +74,13 @@ func NewSwitchMAAASettingsAAASettingAccountingTypeCommandsType() *SwitchMAAASett
 type SwitchMAAASettingsAAASettingAccountingTypeExecType struct {
 	// Server1
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty"`
 
 	// Server2
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty"`
 }
 
 func NewSwitchMAAASettingsAAASettingAccountingTypeExecType() *SwitchMAAASettingsAAASettingAccountingTypeExecType {
@@ -115,33 +89,24 @@ func NewSwitchMAAASettingsAAASettingAccountingTypeExecType() *SwitchMAAASettings
 }
 
 type SwitchMAAASettingsAAASettingAuthenticationType struct {
-	// EnabledSSHAuthn
-	// Constraints:
-	//    - nullable
 	EnabledSSHAuthn *bool `json:"enabledSSHAuthn,omitempty"`
 
-	// EnableTelnetAuthn
-	// Constraints:
-	//    - nullable
 	EnableTelnetAuthn *bool `json:"enableTelnetAuthn,omitempty"`
 
 	// FirstPref
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
-	FirstPref *string `json:"firstPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
+	FirstPref *string `json:"firstPref,omitempty"`
 
 	// SecondPref
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
-	SecondPref *string `json:"secondPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
+	SecondPref *string `json:"secondPref,omitempty"`
 
 	// ThirdPref
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
-	ThirdPref *string `json:"thirdPref,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
+	ThirdPref *string `json:"thirdPref,omitempty"`
 }
 
 func NewSwitchMAAASettingsAAASettingAuthenticationType() *SwitchMAAASettingsAAASettingAuthenticationType {
@@ -150,24 +115,12 @@ func NewSwitchMAAASettingsAAASettingAuthenticationType() *SwitchMAAASettingsAAAS
 }
 
 type SwitchMAAASettingsAAASettingAuthorizationType struct {
-	// Commands
-	// Constraints:
-	//    - nullable
 	Commands *SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType `json:"commands,omitempty"`
 
-	// EnabledCommandAuthz
-	// Constraints:
-	//    - nullable
 	EnabledCommandAuthz *bool `json:"enabledCommandAuthz,omitempty"`
 
-	// EnabledExecAuthz
-	// Constraints:
-	//    - nullable
 	EnabledExecAuthz *bool `json:"enabledExecAuthz,omitempty"`
 
-	// Exec
-	// Constraints:
-	//    - nullable
 	Exec *SwitchMAAASettingsAAASettingAuthorizationTypeExecType `json:"exec,omitempty"`
 }
 
@@ -179,21 +132,18 @@ func NewSwitchMAAASettingsAAASettingAuthorizationType() *SwitchMAAASettingsAAASe
 type SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType struct {
 	// Level
 	// Constraints:
-	//    - nullable
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
-	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty"`
 
 	// Server1
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty"`
 
 	// Server2
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty"`
 }
 
 func NewSwitchMAAASettingsAAASettingAuthorizationTypeCommandsType() *SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType {
@@ -204,15 +154,13 @@ func NewSwitchMAAASettingsAAASettingAuthorizationTypeCommandsType() *SwitchMAAAS
 type SwitchMAAASettingsAAASettingAuthorizationTypeExecType struct {
 	// Server1
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server1 *string `json:"server1,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server1 *string `json:"server1,omitempty"`
 
 	// Server2
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS]
-	Server2 *string `json:"server2,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS"`
+	Server2 *string `json:"server2,omitempty"`
 }
 
 func NewSwitchMAAASettingsAAASettingAuthorizationTypeExecType() *SwitchMAAASettingsAAASettingAuthorizationTypeExecType {

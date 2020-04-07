@@ -22,14 +22,8 @@ func (ss *WSGService) WSGL2AccessControlService() *WSGL2AccessControlService {
 }
 
 type WSGL2AccessControlCreateL2AccessControl struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	// DomainId
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// EtherTypeRestriction
@@ -37,29 +31,23 @@ type WSGL2AccessControlCreateL2AccessControl struct {
 	// Constraints:
 	//    - required
 	//    - oneof:[ALLOW,BLOCK]
-	EtherTypeRestriction *string `json:"etherTypeRestriction" validate:"required,oneof=ALLOW BLOCK"`
+	EtherTypeRestriction *string `json:"etherTypeRestriction"`
 
-	// EtherTypes
-	// Constraints:
-	//    - nullable
-	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty" validate:"omitempty,dive"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Restriction
 	// restriction of mac rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
 	// Constraints:
 	//    - required
 	//    - oneof:[ALLOW,BLOCK]
-	Restriction *string `json:"restriction" validate:"required,oneof=ALLOW BLOCK"`
+	Restriction *string `json:"restriction"`
 
-	// Rules
-	// Constraints:
-	//    - nullable
-	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty" validate:"omitempty,dive"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
 }
 
 func NewWSGL2AccessControlCreateL2AccessControl() *WSGL2AccessControlCreateL2AccessControl {
@@ -68,9 +56,6 @@ func NewWSGL2AccessControlCreateL2AccessControl() *WSGL2AccessControlCreateL2Acc
 }
 
 type WSGL2AccessControlEtherTypeObject struct {
-	// EtherType
-	// Constraints:
-	//    - nullable
 	EtherType *WSGCommonEtherType `json:"etherType,omitempty"`
 }
 
@@ -82,84 +67,53 @@ func NewWSGL2AccessControlEtherTypeObject() *WSGL2AccessControlEtherTypeObject {
 type WSGL2AccessControl struct {
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	// DomainId
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// EtherTypeRestriction
 	// restriction of EtherType rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ALLOW,BLOCK]
-	EtherTypeRestriction *string `json:"etherTypeRestriction,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
+	EtherTypeRestriction *string `json:"etherTypeRestriction,omitempty"`
 
-	// EtherTypes
-	// Constraints:
-	//    - nullable
-	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty" validate:"omitempty,dive"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
 
 	// Id
 	// identifier of the L2 Access Control
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Restriction
 	// restriction of mac rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ALLOW,BLOCK]
-	Restriction *string `json:"restriction,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
+	Restriction *string `json:"restriction,omitempty"`
 
-	// Rules
-	// Constraints:
-	//    - nullable
-	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty" validate:"omitempty,dive"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
 }
 
 func NewWSGL2AccessControl() *WSGL2AccessControl {
@@ -168,29 +122,14 @@ func NewWSGL2AccessControl() *WSGL2AccessControl {
 }
 
 type WSGL2AccessControlList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGL2AccessControl `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGL2AccessControl `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -200,9 +139,6 @@ func NewWSGL2AccessControlList() *WSGL2AccessControlList {
 }
 
 type WSGL2AccessControlModifyL2AccessControl struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// EtherTypeRestriction
@@ -210,16 +146,10 @@ type WSGL2AccessControlModifyL2AccessControl struct {
 	// Constraints:
 	//    - required
 	//    - oneof:[ALLOW,BLOCK]
-	EtherTypeRestriction *string `json:"etherTypeRestriction" validate:"required,oneof=ALLOW BLOCK"`
+	EtherTypeRestriction *string `json:"etherTypeRestriction"`
 
-	// EtherTypes
-	// Constraints:
-	//    - nullable
-	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty" validate:"omitempty,dive"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Restriction
@@ -227,12 +157,9 @@ type WSGL2AccessControlModifyL2AccessControl struct {
 	// Constraints:
 	//    - required
 	//    - oneof:[ALLOW,BLOCK]
-	Restriction *string `json:"restriction" validate:"required,oneof=ALLOW BLOCK"`
+	Restriction *string `json:"restriction"`
 
-	// Rules
-	// Constraints:
-	//    - nullable
-	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty" validate:"omitempty,dive"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
 }
 
 func NewWSGL2AccessControlModifyL2AccessControl() *WSGL2AccessControlModifyL2AccessControl {
@@ -244,7 +171,7 @@ type WSGL2AccessControlRuleObject struct {
 	// Mac
 	// Constraints:
 	//    - required
-	Mac *WSGCommonMac `json:"mac" validate:"required"`
+	Mac *WSGCommonMac `json:"mac"`
 }
 
 func NewWSGL2AccessControlRuleObject() *WSGL2AccessControlRuleObject {

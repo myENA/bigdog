@@ -29,9 +29,6 @@ func MakeWSGVendorSpecificAttributeProfileCreateResult() WSGVendorSpecificAttrib
 }
 
 type WSGVendorSpecificAttributeProfileDeleteBulk struct {
-	// IdList
-	// Constraints:
-	//    - nullable
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
@@ -43,36 +40,22 @@ func NewWSGVendorSpecificAttributeProfileDeleteBulk() *WSGVendorSpecificAttribut
 type WSGVendorSpecificAttributeProfileGet struct {
 	// Attributes
 	// Vendor specific attribute list for Radius protocol
-	// Constraints:
-	//    - nullable
-	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes,omitempty" validate:"omitempty,dive"`
+	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Id
 	// Identifier of the vendor specific attribute profile
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// ZoneId
 	// Zone Id
-	// Constraints:
-	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -84,26 +67,18 @@ func NewWSGVendorSpecificAttributeProfileGet() *WSGVendorSpecificAttributeProfil
 type WSGVendorSpecificAttributeProfileList struct {
 	// FirstIndex
 	// Index of the first profile returned out of the profile list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicates whether there are more profiles after the list that is currently displayed
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
 	// List
 	// Information list of the vendor specific attribute profile
-	// Constraints:
-	//    - nullable
-	List []*WSGVendorSpecificAttributeProfileListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGVendorSpecificAttributeProfileListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total number of the profiles
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -115,13 +90,8 @@ func NewWSGVendorSpecificAttributeProfileList() *WSGVendorSpecificAttributeProfi
 type WSGVendorSpecificAttributeProfileListType struct {
 	// Id
 	// Identifier of the vendor specific attribute profile
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
@@ -135,17 +105,14 @@ type WSGVendorSpecificAttributeProfilePersist struct {
 	// Vendor specific attribute list for Radius protocol
 	// Constraints:
 	//    - required
-	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes" validate:"required,dive"`
+	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 }
 
 func NewWSGVendorSpecificAttributeProfilePersist() *WSGVendorSpecificAttributeProfilePersist {
@@ -154,29 +121,14 @@ func NewWSGVendorSpecificAttributeProfilePersist() *WSGVendorSpecificAttributePr
 }
 
 type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGVendorSpecificAttributeProfileGet `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGVendorSpecificAttributeProfileGet `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -190,33 +142,33 @@ type WSGVendorSpecificAttributeProfileVendorSpecificAttribute struct {
 	// Key ID of vendor specific attribute
 	// Constraints:
 	//    - required
-	KeyId *int `json:"keyId" validate:"required"`
+	KeyId *int `json:"keyId"`
 
 	// SupportedRadiusProtocol
 	// The radius protocol to which this given vendor specific attribute will attach
 	// Constraints:
 	//    - required
 	//    - oneof:[ACCOUNTING,AUTHENTICATION,BOTH_AUTHENTICATION_AND_ACCOUNTING]
-	SupportedRadiusProtocol *string `json:"supportedRadiusProtocol" validate:"required,oneof=ACCOUNTING AUTHENTICATION BOTH_AUTHENTICATION_AND_ACCOUNTING"`
+	SupportedRadiusProtocol *string `json:"supportedRadiusProtocol"`
 
 	// Type
 	// Type of vendor specific attribute
 	// Constraints:
 	//    - required
 	//    - oneof:[INTEGER,STRING]
-	Type *string `json:"type" validate:"required,oneof=INTEGER STRING"`
+	Type *string `json:"type"`
 
 	// Value
 	// Value of vendor specific attribute
 	// Constraints:
 	//    - required
-	Value *string `json:"value" validate:"required"`
+	Value *string `json:"value"`
 
 	// VendorId
 	// Vendor ID of vendor specific attribute
 	// Constraints:
 	//    - required
-	VendorId *int `json:"vendorId" validate:"required"`
+	VendorId *int `json:"vendorId"`
 }
 
 func NewWSGVendorSpecificAttributeProfileVendorSpecificAttribute() *WSGVendorSpecificAttributeProfileVendorSpecificAttribute {

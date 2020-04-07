@@ -26,13 +26,13 @@ type WSGServiceTicketLoginRequest struct {
 	// Logon password
 	// Constraints:
 	//    - required
-	Password *string `json:"password" validate:"required"`
+	Password *string `json:"password"`
 
 	// Username
 	// Logon user name
 	// Constraints:
 	//    - required
-	Username *string `json:"username" validate:"required"`
+	Username *string `json:"username"`
 }
 
 func NewWSGServiceTicketLoginRequest() *WSGServiceTicketLoginRequest {
@@ -41,15 +41,10 @@ func NewWSGServiceTicketLoginRequest() *WSGServiceTicketLoginRequest {
 }
 
 type WSGServiceTicketLoginResponse struct {
-	// ControllerVersion
-	// Constraints:
-	//    - nullable
 	ControllerVersion *string `json:"controllerVersion,omitempty"`
 
 	// ServiceTicket
 	// Logon authentication successful, the server generates a service ticket
-	// Constraints:
-	//    - nullable
 	ServiceTicket *string `json:"serviceTicket,omitempty"`
 }
 

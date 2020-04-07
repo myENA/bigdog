@@ -7,14 +7,8 @@ import (
 )
 
 type WSGMeshNodeInfoHelperZoneInfo struct {
-	// HelperAPZoneId
-	// Constraints:
-	//    - nullable
 	HelperAPZoneId *string `json:"helperAPZoneId,omitempty"`
 
-	// HelperAPZoneName
-	// Constraints:
-	//    - nullable
 	HelperAPZoneName *string `json:"helperAPZoneName,omitempty"`
 }
 
@@ -26,79 +20,52 @@ func NewWSGMeshNodeInfoHelperZoneInfo() *WSGMeshNodeInfoHelperZoneInfo {
 type WSGMeshNodeInfo struct {
 	// ApMac
 	// The MAC of the mesh AP
-	// Constraints:
-	//    - nullable
 	ApMac *string `json:"apMac,omitempty"`
 
 	// ApModel
 	// The model of the mesh AP
-	// Constraints:
-	//    - nullable
 	ApModel *string `json:"apModel,omitempty"`
 
 	// ApName
 	// The name of the mesh AP
-	// Constraints:
-	//    - nullable
 	ApName *string `json:"apName,omitempty"`
 
 	// Channel
 	// The channel of the mesh AP
-	// Constraints:
-	//    - nullable
 	Channel *string `json:"channel,omitempty"`
 
 	// ClientCount
 	// The count of clients of the mesh AP
-	// Constraints:
-	//    - nullable
 	ClientCount *int `json:"clientCount,omitempty"`
 
 	// DownlinkRssi
 	// The downlinkRssi of the mesh AP
-	// Constraints:
-	//    - nullable
 	DownlinkRssi *int `json:"downlinkRssi,omitempty"`
 
 	// ExternalIPAddress
 	// The external IP of the mesh AP
-	// Constraints:
-	//    - nullable
 	ExternalIPAddress *string `json:"externalIPAddress,omitempty"`
 
 	// HasDownLink
 	// The hasDownLink of the mesh AP
-	// Constraints:
-	//    - nullable
 	HasDownLink *bool `json:"hasDownLink,omitempty"`
 
-	// HelperZoneInfo
-	// Constraints:
-	//    - nullable
-	HelperZoneInfo []*WSGMeshNodeInfoHelperZoneInfo `json:"helperZoneInfo,omitempty" validate:"omitempty,dive"`
+	HelperZoneInfo []*WSGMeshNodeInfoHelperZoneInfo `json:"helperZoneInfo,omitempty"`
 
 	// Hops
 	// The hop count of this mesh AP
-	// Constraints:
-	//    - nullable
 	Hops *int `json:"hops,omitempty"`
 
 	// IpAddress
 	// The IP of the mesh AP
-	// Constraints:
-	//    - nullable
 	IpAddress *int `json:"ipAddress,omitempty"`
 
 	// MeshRole
 	// The Role of the mesh AP
-	// Constraints:
-	//    - nullable
 	MeshRole *string `json:"meshRole,omitempty"`
 
 	// UplinkRssi
 	// The uplinkRssi of the mesh AP
-	// Constraints:
-	//    - nullable
 	UplinkRssi *int `json:"uplinkRssi,omitempty"`
 }
 
@@ -117,37 +84,24 @@ func MakeWSGMeshNodeInfoArray() WSGMeshNodeInfoArray {
 type WSGMeshNodeInfoList struct {
 	// Extra
 	// Any additional response data.
-	// Constraints:
-	//    - nullable
 	Extra *WSGMeshNodeInfoListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first MeshNodeInfo returned out of the complete Rogue AP list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more MeshNodeInfo after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGMeshNodeInfo `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGMeshNodeInfo `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// MeshNodeInfos count.
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// MeshNodeInfos count in this response.
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -159,8 +113,6 @@ func NewWSGMeshNodeInfoList() *WSGMeshNodeInfoList {
 // WSGMeshNodeInfoListExtraType
 //
 // Any additional response data.
-// Constraints:
-//    - nullable
 type WSGMeshNodeInfoListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -187,26 +139,16 @@ func NewWSGMeshNodeInfoListExtraType() *WSGMeshNodeInfoListExtraType {
 }
 
 type WSGMeshNodeInfoUpdateAPZeroTouch struct {
-	// ApMac
-	// Constraints:
-	//    - nullable
 	ApMac *string `json:"apMac,omitempty"`
 
-	// HelperZoneId
-	// Constraints:
-	//    - nullable
 	HelperZoneId *string `json:"helperZoneId,omitempty"`
 
-	// SerialNumber
-	// Constraints:
-	//    - nullable
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
 	// Status
 	// Constraints:
-	//    - nullable
 	//    - oneof:[Accept,Reject]
-	Status *string `json:"status,omitempty" validate:"omitempty,oneof=Accept Reject"`
+	Status *string `json:"status,omitempty"`
 }
 
 func NewWSGMeshNodeInfoUpdateAPZeroTouch() *WSGMeshNodeInfoUpdateAPZeroTouch {

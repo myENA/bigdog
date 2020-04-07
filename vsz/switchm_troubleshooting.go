@@ -24,27 +24,20 @@ func (ss *SwitchMService) SwitchMTroubleShootingService() *SwitchMTroubleShootin
 type SwitchMTroubleShootingSupportLogStatus struct {
 	// CreatedTime
 	// Created Time of this SupportLog Request
-	// Constraints:
-	//    - nullable
 	CreatedTime *string `json:"createdTime,omitempty"`
 
 	// DownloadStatus
 	// SupportLog Download Status (DOWNLOADING, DONE, FAILED)
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DOWNLOADING,DONE,TIMEOUT,FAILED]
-	DownloadStatus *string `json:"downloadStatus,omitempty" validate:"omitempty,oneof=DOWNLOADING DONE TIMEOUT FAILED"`
+	DownloadStatus *string `json:"downloadStatus,omitempty"`
 
 	// SerialNumber
 	// Switch Serial Number
-	// Constraints:
-	//    - nullable
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
 	// SwitchId
 	// Switch MAC Address
-	// Constraints:
-	//    - nullable
 	SwitchId *string `json:"switchId,omitempty"`
 }
 

@@ -22,15 +22,12 @@ func (ss *WSGService) WSGWLANGroupService() *WSGWLANGroupService {
 }
 
 type WSGWLANGroupCreateWlanGroup struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 }
 
 func NewWSGWLANGroupCreateWlanGroup() *WSGWLANGroupCreateWlanGroup {
@@ -39,14 +36,8 @@ func NewWSGWLANGroupCreateWlanGroup() *WSGWLANGroupCreateWlanGroup {
 }
 
 type WSGWLANGroupModifyWlanGroup struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
@@ -59,21 +50,16 @@ type WSGWLANGroupModifyWlanGroupMember struct {
 	// AccessVlan
 	// Access VLAN
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	AccessVlan *int `json:"accessVlan,omitempty"`
 
 	// NasId
 	// NAS-ID
 	// Constraints:
-	//    - nullable
 	//    - max:63
-	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
+	NasId *string `json:"nasId,omitempty"`
 
-	// VlanPooling
-	// Constraints:
-	//    - nullable
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 
@@ -85,66 +71,45 @@ func NewWSGWLANGroupModifyWlanGroupMember() *WSGWLANGroupModifyWlanGroupMember {
 type WSGWLANGroup struct {
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the WLAN group
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Members
 	// Members of the WLAN group
-	// Constraints:
-	//    - nullable
-	Members []*WSGWLANGroupWlanMember `json:"members,omitempty" validate:"omitempty,dive"`
+	Members []*WSGWLANGroupWlanMember `json:"members,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// ZoneId
 	// Identifier of the zone to which the WLAN group belongs
-	// Constraints:
-	//    - nullable
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
@@ -154,24 +119,12 @@ func NewWSGWLANGroup() *WSGWLANGroup {
 }
 
 type WSGWLANGroupList struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGWLANGroup `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGWLANGroup `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -184,33 +137,26 @@ type WSGWLANGroupWlanMember struct {
 	// AccessVlan
 	// Access VLAN
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:4094
-	AccessVlan *int `json:"accessVlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	AccessVlan *int `json:"accessVlan,omitempty"`
 
 	// Id
 	// Identifier of the WLAN
 	// Constraints:
 	//    - required
-	Id *string `json:"id" validate:"required"`
+	Id *string `json:"id"`
 
 	// Name
 	// Name of the WLAN
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// NasId
 	// NAS-ID
 	// Constraints:
-	//    - nullable
 	//    - max:63
-	NasId *string `json:"nasId,omitempty" validate:"omitempty,max=63"`
+	NasId *string `json:"nasId,omitempty"`
 
-	// VlanPooling
-	// Constraints:
-	//    - nullable
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 

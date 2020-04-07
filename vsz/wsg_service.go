@@ -3,183 +3,118 @@ package vsz
 // API Version: v9_0
 
 type WSGServiceActiveDirectoryService struct {
-	// AdminDomainName
-	// Constraints:
-	//    - nullable
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
-	// Constraints:
-	//    - nullable
 	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty"`
 
 	// Id
 	// Identifier of the active directory authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Ip
-	// Constraints:
-	//    - nullable
 	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
-	// Constraints:
-	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// Port
 	// Port
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AD]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=AD"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// StandbyAdminDomainName
-	// Constraints:
-	//    - nullable
 	StandbyAdminDomainName *WSGCommonNormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled for standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
-	// Constraints:
-	//    - nullable
 	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password for standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
 	// StandbyPort
 	// Port for standby cluster
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// StandbyTlsEnabled
 	// AD over TLS Enabled for standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	// StandbyWindowsDomainName
-	// Constraints:
-	//    - nullable
 	StandbyWindowsDomainName *WSGCommonNormalName2to64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TlsEnabled
 	// AD over TLS Enabled
-	// Constraints:
-	//    - nullable
 	TlsEnabled *bool `json:"tlsEnabled,omitempty"`
 
 	// Type
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AD]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AD"`
+	Type *string `json:"type,omitempty"`
 
-	// WindowsDomainName
-	// Constraints:
-	//    - nullable
 	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
@@ -189,29 +124,14 @@ func NewWSGServiceActiveDirectoryService() *WSGServiceActiveDirectoryService {
 }
 
 type WSGServiceActiveDirectoryServiceList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGServiceActiveDirectoryService `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGServiceActiveDirectoryService `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -223,81 +143,55 @@ func NewWSGServiceActiveDirectoryServiceList() *WSGServiceActiveDirectoryService
 type WSGServiceCommonAccountingService struct {
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Id
 	// Identifier of the accounting service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Accounting protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,CGF]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS CGF"`
+	Protocol *string `json:"protocol,omitempty"`
 
 	// Type
 	// Accounting protocol same as protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,CGF]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS CGF"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceCommonAccountingService() *WSGServiceCommonAccountingService {
@@ -306,29 +200,14 @@ func NewWSGServiceCommonAccountingService() *WSGServiceCommonAccountingService {
 }
 
 type WSGServiceCommonAccountingServiceList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGServiceCommonAccountingService `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGServiceCommonAccountingService `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -340,92 +219,61 @@ func NewWSGServiceCommonAccountingServiceList() *WSGServiceCommonAccountingServi
 type WSGServiceCommonAuthenticationService struct {
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,AD,LDAP,FACEBOOK,LINKEDIN,GOOGLE,GENERICOAUTH,SOAP,HLR,LOCAL_DB,GUEST]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS AD LDAP FACEBOOK LINKEDIN GOOGLE GENERICOAUTH SOAP HLR LOCAL_DB GUEST"`
+	Protocol *string `json:"protocol,omitempty"`
 
 	// Type
 	// Authentication protocol same as protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,AD,LDAP,FACEBOOK,LINKEDIN,GOOGLE,GENERICOAUTH,SOAP,HLR,LOCAL_DB,GUEST]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS AD LDAP FACEBOOK LINKEDIN GOOGLE GENERICOAUTH SOAP HLR LOCAL_DB GUEST"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceCommonAuthenticationService() *WSGServiceCommonAuthenticationService {
@@ -434,29 +282,14 @@ func NewWSGServiceCommonAuthenticationService() *WSGServiceCommonAuthenticationS
 }
 
 type WSGServiceCommonAuthenticationServiceList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGServiceCommonAuthenticationService `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGServiceCommonAuthenticationService `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -466,59 +299,42 @@ func NewWSGServiceCommonAuthenticationServiceList() *WSGServiceCommonAuthenticat
 }
 
 type WSGServiceCreateActiveDirectoryAuthentication struct {
-	// AdminDomainName
-	// Constraints:
-	//    - nullable
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
 	// Constraints:
 	//    - required
-	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled" validate:"required"`
+	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled"`
 
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGCommonIpAddress `json:"ip" validate:"required"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Password
 	// Admin password
-	// Constraints:
-	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// Port
@@ -528,74 +344,54 @@ type WSGServiceCreateActiveDirectoryAuthentication struct {
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
+	Port *int `json:"port"`
 
-	// StandbyAdminDomainName
-	// Constraints:
-	//    - nullable
 	StandbyAdminDomainName *WSGCommonNormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled for standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
-	// Constraints:
-	//    - nullable
 	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password for standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
 	// StandbyPort
 	// Port for standby cluster
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
-	//    - default:false
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// StandbyTlsEnabled
 	// AD over TLS Enabled for standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	// StandbyWindowsDomainName
-	// Constraints:
-	//    - nullable
 	StandbyWindowsDomainName *WSGCommonNormalName2to64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TlsEnabled
 	// AD over TLS Enabled
 	// Constraints:
 	//    - required
-	TlsEnabled *bool `json:"tlsEnabled" validate:"required"`
+	TlsEnabled *bool `json:"tlsEnabled"`
 
 	// Type
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AD]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AD"`
+	Type *string `json:"type,omitempty"`
 
 	// WindowsDomainName
 	// Constraints:
 	//    - required
-	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName" validate:"required"`
+	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName"`
 }
 
 func NewWSGServiceCreateActiveDirectoryAuthentication() *WSGServiceCreateActiveDirectoryAuthentication {
@@ -606,255 +402,138 @@ func NewWSGServiceCreateActiveDirectoryAuthentication() *WSGServiceCreateActiveD
 type WSGServiceCreateHlrAuthentication struct {
 	// AddressIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[route_on_gt,route_on_ssn]
-	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"omitempty,oneof=route_on_gt route_on_ssn"`
+	AddressIndicator *string `json:"addressIndicator,omitempty"`
 
 	// AuthMapVer
 	// Constraints:
-	//    - nullable
 	//    - oneof:[version2,version3]
-	AuthMapVer *string `json:"authMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
+	AuthMapVer *string `json:"authMapVer,omitempty"`
 
-	// AuthorizationCachingEnabled
-	// Constraints:
-	//    - nullable
 	AuthorizationCachingEnabled *bool `json:"authorizationCachingEnabled,omitempty"`
 
-	// AvCachingEnabled
-	// Constraints:
-	//    - nullable
 	AvCachingEnabled *bool `json:"avCachingEnabled,omitempty"`
 
-	// CacheOptionType
-	// Constraints:
-	//    - nullable
 	CacheOptionType *string `json:"cacheOptionType,omitempty"`
 
-	// CleanUpTimeHour
-	// Constraints:
-	//    - nullable
 	CleanUpTimeHour *int `json:"cleanUpTimeHour,omitempty"`
 
-	// CleanUpTimeMinute
-	// Constraints:
-	//    - nullable
 	CleanUpTimeMinute *int `json:"cleanUpTimeMinute,omitempty"`
 
-	// CreateDateTime
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
-	// CreatorUsername
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// DefaultPointCodeFormat
-	// Constraints:
-	//    - nullable
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DestGtIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[global_title_includes_translation_type_only,global_title_includes_translation_type_numbering_plan_and_encoding_scheme,global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator]
-	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	DestGtIndicator *string `json:"destGtIndicator,omitempty"`
 
 	// DestNatureOfAddressIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[unknown,subscriber_number,reserved_for_national_use,national_significant_number,international_number]
-	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty"`
 
 	// DestNumberingPlan
 	// Constraints:
-	//    - nullable
 	//    - oneof:[isdn_telephony_numbering_plan,land_mobile_numbering_plan,isdn_mobile_numbering_plan]
-	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	DestNumberingPlan *string `json:"destNumberingPlan,omitempty"`
 
-	// DestTransType
-	// Constraints:
-	//    - nullable
 	DestTransType *int `json:"destTransType,omitempty"`
 
-	// DomainId
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// E164Address
-	// Constraints:
-	//    - nullable
 	E164Address *string `json:"e164Address,omitempty"`
 
 	// EapSimMapVer
 	// Constraints:
-	//    - nullable
 	//    - oneof:[version2,version3]
-	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
+	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
-	// GtPointCode
-	// Constraints:
-	//    - nullable
 	GtPointCode *int `json:"gtPointCode,omitempty"`
 
-	// HasPointCode
-	// Constraints:
-	//    - nullable
 	HasPointCode *bool `json:"hasPointCode,omitempty"`
 
-	// HasSrcPointCode
-	// Constraints:
-	//    - nullable
 	HasSrcPointCode *bool `json:"hasSrcPointCode,omitempty"`
 
-	// HasSSN
-	// Constraints:
-	//    - nullable
 	HasSSN *bool `json:"hasSSN,omitempty"`
 
-	// HistoryTime
-	// Constraints:
-	//    - nullable
 	HistoryTime *int `json:"historyTime,omitempty"`
 
-	// Id
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LocalNetworkIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[international,international_spare,national,national_spare]
-	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"omitempty,oneof=international international_spare national national_spare"`
+	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty"`
 
-	// LocalPointCode
-	// Constraints:
-	//    - nullable
 	LocalPointCode *int `json:"localPointCode,omitempty"`
 
-	// LocationDeliveryEnabled
-	// Constraints:
-	//    - nullable
 	LocationDeliveryEnabled *bool `json:"locationDeliveryEnabled,omitempty"`
 
-	// MaxReuseTimes
-	// Constraints:
-	//    - nullable
 	MaxReuseTimes *int `json:"maxReuseTimes,omitempty"`
 
-	// MncNdcList
-	// Constraints:
-	//    - nullable
-	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty" validate:"omitempty,dive"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
 
-	// ModifiedDateTime
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
-	// ModifierUsername
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoId
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
-	// PointCode
-	// Constraints:
-	//    - nullable
 	PointCode *int `json:"pointCode,omitempty"`
 
 	// Protocol
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HLR]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=HLR"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// ReuseEnable
-	// Constraints:
-	//    - nullable
 	ReuseEnable *bool `json:"reuseEnable,omitempty"`
 
-	// RoutingContext
-	// Constraints:
-	//    - nullable
 	RoutingContext *int `json:"routingContext,omitempty"`
 
-	// SccpGttList
-	// Constraints:
-	//    - nullable
-	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty" validate:"omitempty,dive"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
 
-	// SctpAssociationsList
-	// Constraints:
-	//    - nullable
-	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty" validate:"omitempty,dive"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
 
-	// SgsnIsdnAddress
-	// Constraints:
-	//    - nullable
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
 	// SrcGtIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[global_title_includes_translation_type_only,global_title_includes_translation_type_numbering_plan_and_encoding_scheme,global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator]
-	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	SrcGtIndicator *string `json:"srcGtIndicator,omitempty"`
 
 	// SrcNatureOfAddressIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[unknown,subscriber_number,reserved_for_national_use,national_significant_number,international_number]
-	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty"`
 
 	// SrcNumberingPlan
 	// Constraints:
-	//    - nullable
 	//    - oneof:[isdn_telephony_numbering_plan,land_mobile_numbering_plan,isdn_mobile_numbering_plan]
-	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty"`
 
-	// SrcTransType
-	// Constraints:
-	//    - nullable
 	SrcTransType *int `json:"srcTransType,omitempty"`
 
 	// Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HLR]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceCreateHlrAuthentication() *WSGServiceCreateHlrAuthentication {
@@ -866,61 +545,49 @@ type WSGServiceCreateLDAPAuthentication struct {
 	// AdminDomainName
 	// Constraints:
 	//    - required
-	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName" validate:"required"`
+	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName"`
 
 	// BaseDomainName
 	// Constraints:
 	//    - required
-	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName" validate:"required"`
+	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGCommonIpAddress `json:"ip" validate:"required"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// KeyAttribute
 	// Constraints:
 	//    - required
-	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute" validate:"required"`
+	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Password
 	// Admin password
 	// Constraints:
 	//    - required
-	Password *string `json:"password" validate:"required"`
+	Password *string `json:"password"`
 
 	// Port
 	// Port
@@ -929,78 +596,54 @@ type WSGServiceCreateLDAPAuthentication struct {
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
+	Port *int `json:"port"`
 
 	// SearchFilter
 	// Constraints:
 	//    - required
-	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter" validate:"required"`
+	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter"`
 
-	// StandbyAdminDomainName
-	// Constraints:
-	//    - nullable
 	StandbyAdminDomainName *WSGCommonNormalName2to128 `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyBaseDomainName
-	// Constraints:
-	//    - nullable
 	StandbyBaseDomainName *WSGCommonNormalName2to64 `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
-	// Constraints:
-	//    - nullable
 	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
-	// StandbyKeyAttribute
-	// Constraints:
-	//    - nullable
 	StandbyKeyAttribute *WSGCommonNormalName2to64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
-	// Constraints:
-	//    - nullable
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
 	// StandbyPort
 	// Port - Standby Cluster settings
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbySearchFilter
-	// Constraints:
-	//    - nullable
 	StandbySearchFilter *WSGCommonNormalName2to64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
-	//    - default:false
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// StandbyTlsEnabled
 	// LDAP over TLS Enabled - Standby Cluster settings
-	// Constraints:
-	//    - nullable
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
 	// TlsEnabled
 	// LDAP over TLS Enabled
 	// Constraints:
 	//    - required
-	TlsEnabled *bool `json:"tlsEnabled" validate:"required"`
+	TlsEnabled *bool `json:"tlsEnabled"`
 
 	// Type
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LDAP]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceCreateLDAPAuthentication() *WSGServiceCreateLDAPAuthentication {
@@ -1009,67 +652,45 @@ func NewWSGServiceCreateLDAPAuthentication() *WSGServiceCreateLDAPAuthentication
 }
 
 type WSGServiceCreateRadiusAccounting struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// HealthCheckPolicy
-	// Constraints:
-	//    - nullable
 	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Primary
 	// Constraints:
 	//    - required
-	Primary *WSGCommonRadiusServer `json:"primary" validate:"required"`
+	Primary *WSGCommonRadiusServer `json:"primary"`
 
 	// Protocol
 	// Accounting protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// RateLimiting
-	// Constraints:
-	//    - nullable
 	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	// Secondary
-	// Constraints:
-	//    - nullable
 	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	// StandbyPrimary
-	// Constraints:
-	//    - nullable
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
-	//    - default:false
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// Type
 	// Accounting protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceCreateRadiusAccounting() *WSGServiceCreateRadiusAccounting {
@@ -1078,85 +699,54 @@ func NewWSGServiceCreateRadiusAccounting() *WSGServiceCreateRadiusAccounting {
 }
 
 type WSGServiceCreateRadiusAuthentication struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
-	// HealthCheckPolicy
-	// Constraints:
-	//    - nullable
 	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LocationDeliveryEnabled
 	// RFC5580 out of band location delivery support(for Ruckus AP only)
-	// Constraints:
-	//    - nullable
-	//    - default:false
 	LocationDeliveryEnabled *bool `json:"locationDeliveryEnabled,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Primary
 	// Constraints:
 	//    - required
-	Primary *WSGCommonRadiusServer `json:"primary" validate:"required"`
+	Primary *WSGCommonRadiusServer `json:"primary"`
 
-	// RateLimiting
-	// Constraints:
-	//    - nullable
 	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	// Secondary
-	// Constraints:
-	//    - nullable
 	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	// StandbyPrimary
-	// Constraints:
-	//    - nullable
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
-	//    - default:false
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// Type
 	// Authentication protocol
 	// Constraints:
-	//    - nullable
 	//    - default:'RADIUS'
 	//    - oneof:[RADIUS]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceCreateRadiusAuthentication() *WSGServiceCreateRadiusAuthentication {
@@ -1165,9 +755,6 @@ func NewWSGServiceCreateRadiusAuthentication() *WSGServiceCreateRadiusAuthentica
 }
 
 type WSGServiceDeleteBulkAccountingService struct {
-	// IdList
-	// Constraints:
-	//    - nullable
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
@@ -1177,9 +764,6 @@ func NewWSGServiceDeleteBulkAccountingService() *WSGServiceDeleteBulkAccountingS
 }
 
 type WSGServiceDeleteBulkAuthenticationService struct {
-	// IdList
-	// Constraints:
-	//    - nullable
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
@@ -1191,8 +775,6 @@ func NewWSGServiceDeleteBulkAuthenticationService() *WSGServiceDeleteBulkAuthent
 type WSGServiceDnsServer struct {
 	// Ip
 	// IP of server
-	// Constraints:
-	//    - nullable
 	Ip *string `json:"ip,omitempty"`
 }
 
@@ -1211,14 +793,10 @@ func MakeWSGServiceDnsServerList() WSGServiceDnsServerList {
 type WSGServiceGgsn struct {
 	// DomainName
 	// Domain name of GGSN
-	// Constraints:
-	//    - nullable
 	DomainName *string `json:"domainName,omitempty"`
 
 	// GgsnIPAddress
 	// IP of GGSN
-	// Constraints:
-	//    - nullable
 	GgsnIPAddress *string `json:"ggsnIPAddress,omitempty"`
 }
 
@@ -1228,19 +806,10 @@ func NewWSGServiceGgsn() *WSGServiceGgsn {
 }
 
 type WSGServiceGgsnConfig struct {
-	// DnsServerList
-	// Constraints:
-	//    - nullable
 	DnsServerList WSGServiceDnsServerList `json:"dnsServerList,omitempty"`
 
-	// GgsnList
-	// Constraints:
-	//    - nullable
 	GgsnList WSGServiceGgsnList `json:"ggsnList,omitempty"`
 
-	// GtpSettings
-	// Constraints:
-	//    - nullable
 	GtpSettings *WSGServiceGtpSettings `json:"gtpSettings,omitempty"`
 }
 
@@ -1259,26 +828,22 @@ func MakeWSGServiceGgsnList() WSGServiceGgsnList {
 // WSGServiceGroupAttrIdentityUserRoleMapping
 //
 // User traffic profile mapping
-// Constraints:
-//    - nullable
 type WSGServiceGroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
 	// Group attribute
 	// Constraints:
 	//    - required
-	GroupAttr *string `json:"groupAttr" validate:"required"`
+	GroupAttr *string `json:"groupAttr"`
 
 	// Id
 	// Group attribute mapping UUID
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// UserRole
 	// Identity user role
 	// Constraints:
 	//    - required
-	UserRole *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
+	UserRole *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole"`
 }
 
 func NewWSGServiceGroupAttrIdentityUserRoleMapping() *WSGServiceGroupAttrIdentityUserRoleMapping {
@@ -1289,29 +854,17 @@ func NewWSGServiceGroupAttrIdentityUserRoleMapping() *WSGServiceGroupAttrIdentit
 // WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
-// Constraints:
-//    - nullable
 type WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType struct {
-	// FirewallProfileId
-	// Constraints:
-	//    - nullable
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
 	// Id
 	// Identity user role UUID
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName2to64 `json:"name,omitempty"`
 
 	// UserTrafficProfile
 	// Identity user role
-	// Constraints:
-	//    - nullable
 	UserTrafficProfile *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType `json:"userTrafficProfile,omitempty"`
 }
 
@@ -1323,19 +876,13 @@ func NewWSGServiceGroupAttrIdentityUserRoleMappingUserRoleType() *WSGServiceGrou
 // WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
 //
 // Identity user role
-// Constraints:
-//    - nullable
 type WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType struct {
 	// Id
 	// User traffic profile UUID
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Name
 	// User traffic profile name
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 }
 
@@ -1348,42 +895,37 @@ type WSGServiceGtpSettings struct {
 	// DnsNumberOfRetries
 	// DNS Number of Retries
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:10
-	DnsNumberOfRetries *int `json:"dnsNumberOfRetries,omitempty" validate:"omitempty,gte=1,lte=10"`
+	DnsNumberOfRetries *int `json:"dnsNumberOfRetries,omitempty"`
 
 	// EchoRequestTimer
 	// Echo Request Timerr
 	// Constraints:
-	//    - nullable
 	//    - min:60
 	//    - max:300
-	EchoRequestTimer *int `json:"echoRequestTimer,omitempty" validate:"omitempty,gte=60,lte=300"`
+	EchoRequestTimer *int `json:"echoRequestTimer,omitempty"`
 
 	// NumberOfRetries
 	// Number of Retries
 	// Constraints:
-	//    - nullable
 	//    - min:3
 	//    - max:6
-	NumberOfRetries *int `json:"numberOfRetries,omitempty" validate:"omitempty,gte=3,lte=6"`
+	NumberOfRetries *int `json:"numberOfRetries,omitempty"`
 
 	// ResponseTimeout
 	// DNS Response Timeout
 	// Constraints:
-	//    - nullable
 	//    - min:1
 	//    - max:10
-	ResponseTimeout *int `json:"responseTimeout,omitempty" validate:"omitempty,gte=1,lte=10"`
+	ResponseTimeout *int `json:"responseTimeout,omitempty"`
 
 	// T3ResponseTimer
 	// Response Timer
 	// Constraints:
-	//    - nullable
 	//    - min:2
 	//    - max:5
-	T3ResponseTimer *int `json:"t3ResponseTimer,omitempty" validate:"omitempty,gte=2,lte=5"`
+	T3ResponseTimer *int `json:"t3ResponseTimer,omitempty"`
 }
 
 func NewWSGServiceGtpSettings() *WSGServiceGtpSettings {
@@ -1395,297 +937,210 @@ type WSGServiceHlrService struct {
 	// AddressIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[route_on_gt,route_on_ssn]
-	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"omitempty,oneof=route_on_gt route_on_ssn"`
+	AddressIndicator *string `json:"addressIndicator,omitempty"`
 
 	// AuthMapVer
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[version2,version3]
-	AuthMapVer *string `json:"authMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
+	AuthMapVer *string `json:"authMapVer,omitempty"`
 
 	// AuthorizationCachingEnabled
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	AuthorizationCachingEnabled *bool `json:"authorizationCachingEnabled,omitempty"`
 
 	// AvCachingEnabled
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	AvCachingEnabled *bool `json:"avCachingEnabled,omitempty"`
 
 	// CacheOptionType
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	CacheOptionType *string `json:"cacheOptionType,omitempty"`
 
 	// CleanUpTimeHour
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	CleanUpTimeHour *int `json:"cleanUpTimeHour,omitempty"`
 
 	// CleanUpTimeMinute
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	CleanUpTimeMinute *int `json:"cleanUpTimeMinute,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
 	// DefaultPointCodeFormat
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DestGtIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[global_title_includes_translation_type_only,global_title_includes_translation_type_numbering_plan_and_encoding_scheme,global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator]
-	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	DestGtIndicator *string `json:"destGtIndicator,omitempty"`
 
 	// DestNatureOfAddressIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[unknown,subscriber_number,reserved_for_national_use,national_significant_number,international_number]
-	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty"`
 
 	// DestNumberingPlan
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[isdn_telephony_numbering_plan,land_mobile_numbering_plan,isdn_mobile_numbering_plan]
-	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	DestNumberingPlan *string `json:"destNumberingPlan,omitempty"`
 
 	// DestTransType
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	DestTransType *int `json:"destTransType,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// E164Address
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	E164Address *string `json:"e164Address,omitempty"`
 
 	// EapSimMapVer
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[version2,version3]
-	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
+	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GtPointCode
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	GtPointCode *int `json:"gtPointCode,omitempty"`
 
 	// HasPointCode
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	HasPointCode *bool `json:"hasPointCode,omitempty"`
 
 	// HasSrcPointCode
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	HasSrcPointCode *bool `json:"hasSrcPointCode,omitempty"`
 
 	// HasSSN
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	HasSSN *bool `json:"hasSSN,omitempty"`
 
 	// HistoryTime
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	HistoryTime *int `json:"historyTime,omitempty"`
 
 	// Id
 	// Identifier of the HLR authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LocalNetworkIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[international,international_spare,national,national_spare]
-	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"omitempty,oneof=international international_spare national national_spare"`
+	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty"`
 
 	// LocalPointCode
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	LocalPointCode *int `json:"localPointCode,omitempty"`
 
 	// LocationDeliveryEnabled
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	LocationDeliveryEnabled *bool `json:"locationDeliveryEnabled,omitempty"`
 
 	// MaxReuseTimes
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	MaxReuseTimes *int `json:"maxReuseTimes,omitempty"`
 
 	// MncNdcList
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
-	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty" validate:"omitempty,dive"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// PointCode
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	PointCode *int `json:"pointCode,omitempty"`
 
 	// Protocol
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HLR]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=HLR"`
+	Protocol *string `json:"protocol,omitempty"`
 
 	// ReuseEnable
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	ReuseEnable *bool `json:"reuseEnable,omitempty"`
 
 	// RoutingContext
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	RoutingContext *int `json:"routingContext,omitempty"`
 
 	// SccpGttList
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
-	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty" validate:"omitempty,dive"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
 
 	// SctpAssociationsList
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
-	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty" validate:"omitempty,dive"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
 
 	// SgsnIsdnAddress
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
 	// SrcGtIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[global_title_includes_translation_type_only,global_title_includes_translation_type_numbering_plan_and_encoding_scheme,global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator]
-	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	SrcGtIndicator *string `json:"srcGtIndicator,omitempty"`
 
 	// SrcNatureOfAddressIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[unknown,subscriber_number,reserved_for_national_use,national_significant_number,international_number]
-	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty"`
 
 	// SrcNumberingPlan
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[isdn_telephony_numbering_plan,land_mobile_numbering_plan,isdn_mobile_numbering_plan]
-	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty"`
 
 	// SrcTransType
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	SrcTransType *int `json:"srcTransType,omitempty"`
 
 	// Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HLR]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceHlrService() *WSGServiceHlrService {
@@ -1694,29 +1149,14 @@ func NewWSGServiceHlrService() *WSGServiceHlrService {
 }
 
 type WSGServiceHlrServiceList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGServiceHlrService `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGServiceHlrService `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -1726,192 +1166,119 @@ func NewWSGServiceHlrServiceList() *WSGServiceHlrServiceList {
 }
 
 type WSGServiceLDAPService struct {
-	// AdminDomainName
-	// Constraints:
-	//    - nullable
 	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
-	// BaseDomainName
-	// Constraints:
-	//    - nullable
 	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the LDAP authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Ip
-	// Constraints:
-	//    - nullable
 	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
-	// KeyAttribute
-	// Constraints:
-	//    - nullable
 	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
-	// Constraints:
-	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// Port
 	// Port
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty"`
 
 	// Protocol
 	// Authentication protocol
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LDAP]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=LDAP"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// SearchFilter
-	// Constraints:
-	//    - nullable
 	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter,omitempty"`
 
-	// StandbyAdminDomainName
-	// Constraints:
-	//    - nullable
 	StandbyAdminDomainName *WSGCommonNormalName2to128 `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyBaseDomainName
-	// Constraints:
-	//    - nullable
 	StandbyBaseDomainName *WSGCommonNormalName2to64 `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
-	// Constraints:
-	//    - nullable
 	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
-	// StandbyKeyAttribute
-	// Constraints:
-	//    - nullable
 	StandbyKeyAttribute *WSGCommonNormalName2to64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
-	// Constraints:
-	//    - nullable
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
 	// StandbyPort
 	// Port - Standby Cluster settings
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbySearchFilter
-	// Constraints:
-	//    - nullable
 	StandbySearchFilter *WSGCommonNormalName2to64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// StandbyTlsEnabled
 	// LDAP over TLS Enabled - Standby Cluster settings
-	// Constraints:
-	//    - nullable
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
 	// TlsEnabled
 	// LDAP over TLS Enabled
-	// Constraints:
-	//    - nullable
 	TlsEnabled *bool `json:"tlsEnabled,omitempty"`
 
 	// Type
 	// Authentication protocol same as protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LDAP]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceLDAPService() *WSGServiceLDAPService {
@@ -1920,29 +1287,14 @@ func NewWSGServiceLDAPService() *WSGServiceLDAPService {
 }
 
 type WSGServiceLDAPServiceList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGServiceLDAPService `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGServiceLDAPService `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -1954,32 +1306,22 @@ func NewWSGServiceLDAPServiceList() *WSGServiceLDAPServiceList {
 type WSGServiceMncNdc struct {
 	// Mcc
 	// MCC
-	// Constraints:
-	//    - nullable
 	Mcc *string `json:"mcc,omitempty"`
 
 	// Mnc
 	// MNC
-	// Constraints:
-	//    - nullable
 	Mnc *string `json:"mnc,omitempty"`
 
 	// MvnoId
 	// MVNO ID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
 	// Ndc
 	// NDC
-	// Constraints:
-	//    - nullable
 	Ndc *string `json:"ndc,omitempty"`
 
 	// ProfileId
 	// Profile ID
-	// Constraints:
-	//    - nullable
 	ProfileId *string `json:"profileId,omitempty"`
 }
 
@@ -1989,134 +1331,84 @@ func NewWSGServiceMncNdc() *WSGServiceMncNdc {
 }
 
 type WSGServiceModifyActiveDirectoryAuthentication struct {
-	// AdminDomainName
-	// Constraints:
-	//    - nullable
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
-	// Constraints:
-	//    - nullable
 	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Ip
-	// Constraints:
-	//    - nullable
 	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
-	// Constraints:
-	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// Port
 	// Port
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty"`
 
-	// StandbyAdminDomainName
-	// Constraints:
-	//    - nullable
 	StandbyAdminDomainName *WSGCommonNormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	// StandbyIp
-	// Constraints:
-	//    - nullable
 	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
 	// StandbyPort
 	// Port standby cluster
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// StandbyTlsEnabled
 	// AD over TLS Enabled standby cluster
-	// Constraints:
-	//    - nullable
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	// StandbyWindowsDomainName
-	// Constraints:
-	//    - nullable
 	StandbyWindowsDomainName *WSGCommonNormalName2to64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TlsEnabled
 	// AD over TLS Enabled
-	// Constraints:
-	//    - nullable
 	TlsEnabled *bool `json:"tlsEnabled,omitempty"`
 
 	// Type
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[AD]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=AD"`
+	Type *string `json:"type,omitempty"`
 
-	// WindowsDomainName
-	// Constraints:
-	//    - nullable
 	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
@@ -2128,20 +1420,18 @@ func NewWSGServiceModifyActiveDirectoryAuthentication() *WSGServiceModifyActiveD
 // WSGServiceModifyGroupAttrIdentityUserRoleMapping
 //
 // User traffic profile mapping
-// Constraints:
-//    - nullable
 type WSGServiceModifyGroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
 	// Group attribute
 	// Constraints:
 	//    - required
-	GroupAttr *string `json:"groupAttr" validate:"required"`
+	GroupAttr *string `json:"groupAttr"`
 
 	// UserRole
 	// Identity user role
 	// Constraints:
 	//    - required
-	UserRole *WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole" validate:"required"`
+	UserRole *WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole"`
 }
 
 func NewWSGServiceModifyGroupAttrIdentityUserRoleMapping() *WSGServiceModifyGroupAttrIdentityUserRoleMapping {
@@ -2152,18 +1442,11 @@ func NewWSGServiceModifyGroupAttrIdentityUserRoleMapping() *WSGServiceModifyGrou
 // WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType
 //
 // Identity user role
-// Constraints:
-//    - nullable
 type WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Id
 	// Identity user role UUID
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName2to64 `json:"name,omitempty"`
 }
 
@@ -2175,255 +1458,135 @@ func NewWSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType() *WSGServi
 type WSGServiceModifyHlrAuthentication struct {
 	// AddressIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[route_on_gt,route_on_ssn]
-	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"omitempty,oneof=route_on_gt route_on_ssn"`
+	AddressIndicator *string `json:"addressIndicator,omitempty"`
 
 	// AuthMapVer
 	// Constraints:
-	//    - nullable
 	//    - oneof:[version2,version3]
-	AuthMapVer *string `json:"authMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
+	AuthMapVer *string `json:"authMapVer,omitempty"`
 
-	// AuthorizationCachingEnabled
-	// Constraints:
-	//    - nullable
 	AuthorizationCachingEnabled *bool `json:"authorizationCachingEnabled,omitempty"`
 
-	// AvCachingEnabled
-	// Constraints:
-	//    - nullable
 	AvCachingEnabled *bool `json:"avCachingEnabled,omitempty"`
 
-	// CacheOptionType
-	// Constraints:
-	//    - nullable
 	CacheOptionType *string `json:"cacheOptionType,omitempty"`
 
-	// CleanUpTimeHour
-	// Constraints:
-	//    - nullable
 	CleanUpTimeHour *int `json:"cleanUpTimeHour,omitempty"`
 
-	// CleanUpTimeMinute
-	// Constraints:
-	//    - nullable
 	CleanUpTimeMinute *int `json:"cleanUpTimeMinute,omitempty"`
 
-	// CreateDateTime
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
-	// CreatorId
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
-	// CreatorUsername
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// DefaultPointCodeFormat
-	// Constraints:
-	//    - nullable
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DestGtIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[global_title_includes_translation_type_only,global_title_includes_translation_type_numbering_plan_and_encoding_scheme,global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator]
-	DestGtIndicator *string `json:"destGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	DestGtIndicator *string `json:"destGtIndicator,omitempty"`
 
 	// DestNatureOfAddressIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[unknown,subscriber_number,reserved_for_national_use,national_significant_number,international_number]
-	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	DestNatureOfAddressIndicator *string `json:"destNatureOfAddressIndicator,omitempty"`
 
 	// DestNumberingPlan
 	// Constraints:
-	//    - nullable
 	//    - oneof:[isdn_telephony_numbering_plan,land_mobile_numbering_plan,isdn_mobile_numbering_plan]
-	DestNumberingPlan *string `json:"destNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	DestNumberingPlan *string `json:"destNumberingPlan,omitempty"`
 
-	// DestTransType
-	// Constraints:
-	//    - nullable
 	DestTransType *int `json:"destTransType,omitempty"`
 
-	// DomainId
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// E164Address
-	// Constraints:
-	//    - nullable
 	E164Address *string `json:"e164Address,omitempty"`
 
 	// EapSimMapVer
 	// Constraints:
-	//    - nullable
 	//    - oneof:[version2,version3]
-	EapSimMapVer *string `json:"eapSimMapVer,omitempty" validate:"omitempty,oneof=version2 version3"`
+	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
-	// GtPointCode
-	// Constraints:
-	//    - nullable
 	GtPointCode *int `json:"gtPointCode,omitempty"`
 
-	// HasPointCode
-	// Constraints:
-	//    - nullable
 	HasPointCode *bool `json:"hasPointCode,omitempty"`
 
-	// HasSrcPointCode
-	// Constraints:
-	//    - nullable
 	HasSrcPointCode *bool `json:"hasSrcPointCode,omitempty"`
 
-	// HasSSN
-	// Constraints:
-	//    - nullable
 	HasSSN *bool `json:"hasSSN,omitempty"`
 
-	// HistoryTime
-	// Constraints:
-	//    - nullable
 	HistoryTime *int `json:"historyTime,omitempty"`
 
-	// Id
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LocalNetworkIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[international,international_spare,national,national_spare]
-	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty" validate:"omitempty,oneof=international international_spare national national_spare"`
+	LocalNetworkIndicator *string `json:"localNetworkIndicator,omitempty"`
 
-	// LocalPointCode
-	// Constraints:
-	//    - nullable
 	LocalPointCode *int `json:"localPointCode,omitempty"`
 
-	// LocationDeliveryEnabled
-	// Constraints:
-	//    - nullable
 	LocationDeliveryEnabled *bool `json:"locationDeliveryEnabled,omitempty"`
 
-	// MaxReuseTimes
-	// Constraints:
-	//    - nullable
 	MaxReuseTimes *int `json:"maxReuseTimes,omitempty"`
 
-	// MncNdcList
-	// Constraints:
-	//    - nullable
-	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty" validate:"omitempty,dive"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
 
-	// ModifiedDateTime
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
-	// ModifierId
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
-	// ModifierUsername
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	// MvnoId
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	// PointCode
-	// Constraints:
-	//    - nullable
 	PointCode *int `json:"pointCode,omitempty"`
 
 	// Protocol
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HLR]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=HLR"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// ReuseEnable
-	// Constraints:
-	//    - nullable
 	ReuseEnable *bool `json:"reuseEnable,omitempty"`
 
-	// RoutingContext
-	// Constraints:
-	//    - nullable
 	RoutingContext *int `json:"routingContext,omitempty"`
 
-	// SccpGttList
-	// Constraints:
-	//    - nullable
-	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty" validate:"omitempty,dive"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
 
-	// SctpAssociationsList
-	// Constraints:
-	//    - nullable
-	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty" validate:"omitempty,dive"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
 
-	// SgsnIsdnAddress
-	// Constraints:
-	//    - nullable
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
 	// SrcGtIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[global_title_includes_translation_type_only,global_title_includes_translation_type_numbering_plan_and_encoding_scheme,global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator]
-	SrcGtIndicator *string `json:"srcGtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	SrcGtIndicator *string `json:"srcGtIndicator,omitempty"`
 
 	// SrcNatureOfAddressIndicator
 	// Constraints:
-	//    - nullable
 	//    - oneof:[unknown,subscriber_number,reserved_for_national_use,national_significant_number,international_number]
-	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	SrcNatureOfAddressIndicator *string `json:"srcNatureOfAddressIndicator,omitempty"`
 
 	// SrcNumberingPlan
 	// Constraints:
-	//    - nullable
 	//    - oneof:[isdn_telephony_numbering_plan,land_mobile_numbering_plan,isdn_mobile_numbering_plan]
-	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	SrcNumberingPlan *string `json:"srcNumberingPlan,omitempty"`
 
-	// SrcTransType
-	// Constraints:
-	//    - nullable
 	SrcTransType *int `json:"srcTransType,omitempty"`
 
 	// Type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[HLR]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=HLR"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceModifyHlrAuthentication() *WSGServiceModifyHlrAuthentication {
@@ -2432,143 +1595,85 @@ func NewWSGServiceModifyHlrAuthentication() *WSGServiceModifyHlrAuthentication {
 }
 
 type WSGServiceModifyLDAPAuthentication struct {
-	// AdminDomainName
-	// Constraints:
-	//    - nullable
 	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
-	// BaseDomainName
-	// Constraints:
-	//    - nullable
 	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Ip
-	// Constraints:
-	//    - nullable
 	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
-	// KeyAttribute
-	// Constraints:
-	//    - nullable
 	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
-	// Constraints:
-	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// Port
 	// Port
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	Port *int `json:"port,omitempty"`
 
-	// SearchFilter
-	// Constraints:
-	//    - nullable
 	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter,omitempty"`
 
-	// StandbyAdminDomainName
-	// Constraints:
-	//    - nullable
 	StandbyAdminDomainName *WSGCommonNormalName2to128 `json:"standbyAdminDomainName,omitempty"`
 
-	// StandbyBaseDomainName
-	// Constraints:
-	//    - nullable
 	StandbyBaseDomainName *WSGCommonNormalName2to64 `json:"standbyBaseDomainName,omitempty"`
 
-	// StandbyIp
-	// Constraints:
-	//    - nullable
 	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
-	// StandbyKeyAttribute
-	// Constraints:
-	//    - nullable
 	StandbyKeyAttribute *WSGCommonNormalName2to64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
-	// Constraints:
-	//    - nullable
 	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
 	// StandbyPort
 	// Port - Standby Cluster settings
 	// Constraints:
-	//    - nullable
 	//    - default:389
 	//    - min:1
 	//    - max:65535
-	StandbyPort *int `json:"standbyPort,omitempty" validate:"omitempty,gte=1,lte=65535"`
+	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	// StandbySearchFilter
-	// Constraints:
-	//    - nullable
 	StandbySearchFilter *WSGCommonNormalName2to64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// StandbyTlsEnabled
 	// LDAP over TLS Enabled - Standby Cluster settings
-	// Constraints:
-	//    - nullable
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
 	// TlsEnabled
 	// LDAP over TLS Enabled
-	// Constraints:
-	//    - nullable
 	TlsEnabled *bool `json:"tlsEnabled,omitempty"`
 
 	// Type
 	// Authentication protocol same as protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LDAP]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LDAP"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceModifyLDAPAuthentication() *WSGServiceModifyLDAPAuthentication {
@@ -2577,58 +1682,39 @@ func NewWSGServiceModifyLDAPAuthentication() *WSGServiceModifyLDAPAuthentication
 }
 
 type WSGServiceModifyLocalDbAuthentication struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LOCAL_DB]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=LOCAL_DB"`
+	Protocol *string `json:"protocol,omitempty"`
 
 	// Type
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[LOCAL_DB]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=LOCAL_DB"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceModifyLocalDbAuthentication() *WSGServiceModifyLocalDbAuthentication {
@@ -2637,72 +1723,43 @@ func NewWSGServiceModifyLocalDbAuthentication() *WSGServiceModifyLocalDbAuthenti
 }
 
 type WSGServiceModifyRadiusAccounting struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// HealthCheckPolicy
-	// Constraints:
-	//    - nullable
 	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the RADIUS accounting service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	// Primary
-	// Constraints:
-	//    - nullable
 	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
 	// Protocol
 	// Accounting protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// RateLimiting
-	// Constraints:
-	//    - nullable
 	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	// Secondary
-	// Constraints:
-	//    - nullable
 	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	// StandbyPrimary
-	// Constraints:
-	//    - nullable
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// Type
 	// Accounting protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceModifyRadiusAccounting() *WSGServiceModifyRadiusAccounting {
@@ -2711,83 +1768,47 @@ func NewWSGServiceModifyRadiusAccounting() *WSGServiceModifyRadiusAccounting {
 }
 
 type WSGServiceModifyRadiusAuthentication struct {
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
-	// HealthCheckPolicy
-	// Constraints:
-	//    - nullable
 	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LocationDeliveryEnabled
 	// RFC5580 out of band location delivery support(for Ruckus AP only)
-	// Constraints:
-	//    - nullable
-	//    - default:false
 	LocationDeliveryEnabled *bool `json:"locationDeliveryEnabled,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	// Primary
-	// Constraints:
-	//    - nullable
 	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
-	// RateLimiting
-	// Constraints:
-	//    - nullable
 	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	// Secondary
-	// Constraints:
-	//    - nullable
 	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	// StandbyPrimary
-	// Constraints:
-	//    - nullable
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// Type
 	// Authentication server type
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceModifyRadiusAuthentication() *WSGServiceModifyRadiusAuthentication {
@@ -2798,112 +1819,69 @@ func NewWSGServiceModifyRadiusAuthentication() *WSGServiceModifyRadiusAuthentica
 type WSGServiceRadiusAccountingService struct {
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// HealthCheckPolicy
-	// Constraints:
-	//    - nullable
 	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the RADIUS accounting service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	// Primary
-	// Constraints:
-	//    - nullable
 	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
 	// Protocol
 	// Accounting protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// RateLimiting
-	// Constraints:
-	//    - nullable
 	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	// Secondary
-	// Constraints:
-	//    - nullable
 	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	// StandbyPrimary
-	// Constraints:
-	//    - nullable
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// Type
 	// Accounting protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceRadiusAccountingService() *WSGServiceRadiusAccountingService {
@@ -2912,29 +1890,14 @@ func NewWSGServiceRadiusAccountingService() *WSGServiceRadiusAccountingService {
 }
 
 type WSGServiceRadiusAccountingServiceList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGServiceRadiusAccountingService `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGServiceRadiusAccountingService `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -2946,130 +1909,79 @@ func NewWSGServiceRadiusAccountingServiceList() *WSGServiceRadiusAccountingServi
 type WSGServiceRadiusAuthenticationService struct {
 	// CreateDateTime
 	// Timestamp of being created
-	// Constraints:
-	//    - nullable
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
 	// CreatorId
 	// Creator ID
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// Creator Name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
-	// FriendlyName
-	// Constraints:
-	//    - nullable
 	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
-	// HealthCheckPolicy
-	// Constraints:
-	//    - nullable
 	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the RADIUS authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// LocationDeliveryEnabled
 	// RFC5580 out of band location delivery support(for Ruckus AP only)
-	// Constraints:
-	//    - nullable
-	//    - default:false
 	LocationDeliveryEnabled *bool `json:"locationDeliveryEnabled,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	// Constraints:
-	//    - nullable
-	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty" validate:"omitempty,dive"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
-	// Constraints:
-	//    - nullable
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
 	// ModifierId
 	// Modifier ID
-	// Constraints:
-	//    - nullable
 	ModifierId *string `json:"modifierId,omitempty"`
 
 	// ModifierUsername
 	// Modifier Name
-	// Constraints:
-	//    - nullable
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
-	// Constraints:
-	//    - nullable
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	// Primary
-	// Constraints:
-	//    - nullable
 	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Protocol *string `json:"protocol,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Protocol *string `json:"protocol,omitempty"`
 
-	// RateLimiting
-	// Constraints:
-	//    - nullable
 	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	// Secondary
-	// Constraints:
-	//    - nullable
 	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	// StandbyPrimary
-	// Constraints:
-	//    - nullable
 	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
-	// Constraints:
-	//    - nullable
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
 	// Type
 	// Authentication protocol.
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=RADIUS"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewWSGServiceRadiusAuthenticationService() *WSGServiceRadiusAuthenticationService {
@@ -3078,29 +1990,14 @@ func NewWSGServiceRadiusAuthenticationService() *WSGServiceRadiusAuthenticationS
 }
 
 type WSGServiceRadiusAuthenticationServiceList struct {
-	// Extra
-	// Constraints:
-	//    - nullable
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGServiceRadiusAuthenticationService `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGServiceRadiusAuthenticationService `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -3113,65 +2010,49 @@ type WSGServiceSccpGtt struct {
 	// AddressIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[route_on_gt,route_on_ssn]
-	AddressIndicator *string `json:"addressIndicator,omitempty" validate:"omitempty,oneof=route_on_gt route_on_ssn"`
+	AddressIndicator *string `json:"addressIndicator,omitempty"`
 
 	// E164Address
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	E164Address *string `json:"e164Address,omitempty"`
 
 	// GtDigits
 	// GT digits
-	// Constraints:
-	//    - nullable
 	GtDigits *string `json:"gtDigits,omitempty"`
 
 	// GtIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[global_title_includes_translation_type_only,global_title_includes_translation_type_numbering_plan_and_encoding_scheme,global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator]
-	GtIndicator *string `json:"gtIndicator,omitempty" validate:"omitempty,oneof=global_title_includes_translation_type_only global_title_includes_translation_type_numbering_plan_and_encoding_scheme global_title_includes_translation_type_numbering_plan_encoding_scheme_and_nature_of_address_indicator"`
+	GtIndicator *string `json:"gtIndicator,omitempty"`
 
 	// HasPointCode
 	// Enable Point Code submitted
-	// Constraints:
-	//    - nullable
 	HasPointCode *bool `json:"hasPointCode,omitempty"`
 
 	// HasSSN
 	// Enable SSN- For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	HasSSN *bool `json:"hasSSN,omitempty"`
 
 	// NatureOfAddressIndicator
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[unknown,subscriber_number,reserved_for_national_use,national_significant_number,international_number]
-	NatureOfAddressIndicator *string `json:"natureOfAddressIndicator,omitempty" validate:"omitempty,oneof=unknown subscriber_number reserved_for_national_use national_significant_number international_number"`
+	NatureOfAddressIndicator *string `json:"natureOfAddressIndicator,omitempty"`
 
 	// NumberingPlan
 	// - For HLR Authentiaction server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[isdn_telephony_numbering_plan,land_mobile_numbering_plan,isdn_mobile_numbering_plan]
-	NumberingPlan *string `json:"numberingPlan,omitempty" validate:"omitempty,oneof=isdn_telephony_numbering_plan land_mobile_numbering_plan isdn_mobile_numbering_plan"`
+	NumberingPlan *string `json:"numberingPlan,omitempty"`
 
 	// PointCode
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	PointCode *int `json:"pointCode,omitempty"`
 
 	// TransType
 	// - For HLR Authentiaction server
-	// Constraints:
-	//    - nullable
 	TransType *int `json:"transType,omitempty"`
 }
 
@@ -3183,45 +2064,32 @@ func NewWSGServiceSccpGtt() *WSGServiceSccpGtt {
 type WSGServiceSctpAssociation struct {
 	// AdjPointCode
 	// Adj Pointcode
-	// Constraints:
-	//    - nullable
 	AdjPointCode *string `json:"adjPointCode,omitempty"`
 
 	// DestinationIp
 	// Destination IP
-	// Constraints:
-	//    - nullable
 	DestinationIp *string `json:"destinationIp,omitempty"`
 
 	// DestinationPort
 	// Destination Port
-	// Constraints:
-	//    - nullable
 	DestinationPort *int `json:"destinationPort,omitempty"`
 
 	// MaxInboundsStreams
 	// NDC
-	// Constraints:
-	//    - nullable
 	MaxInboundsStreams *int `json:"maxInboundsStreams,omitempty"`
 
 	// MaxOutboundsStreams
 	// Profile ID
-	// Constraints:
-	//    - nullable
 	MaxOutboundsStreams *int `json:"maxOutboundsStreams,omitempty"`
 
 	// NodeTermination
 	// Node termination
 	// Constraints:
-	//    - nullable
 	//    - oneof:[active,backup,both]
-	NodeTermination *string `json:"nodeTermination,omitempty" validate:"omitempty,oneof=active backup both"`
+	NodeTermination *string `json:"nodeTermination,omitempty"`
 
 	// SourcePort
 	// Source port
-	// Constraints:
-	//    - nullable
 	SourcePort *int `json:"sourcePort,omitempty"`
 }
 
@@ -3235,12 +2103,12 @@ type WSGServiceSecondaryRadiusServer struct {
 	// Automatic fallback enabled or disabled
 	// Constraints:
 	//    - required
-	AutoFallbackDisable *bool `json:"autoFallbackDisable" validate:"required"`
+	AutoFallbackDisable *bool `json:"autoFallbackDisable"`
 
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGCommonIpAddress `json:"ip" validate:"required"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// Port
 	// RADIUS server port
@@ -3249,13 +2117,13 @@ type WSGServiceSecondaryRadiusServer struct {
 	//    - default:1812
 	//    - min:1
 	//    - max:65535
-	Port *int `json:"port" validate:"required,gte=1,lte=65535"`
+	Port *int `json:"port"`
 
 	// SharedSecret
 	// RADIUS server shared secrect
 	// Constraints:
 	//    - required
-	SharedSecret *string `json:"sharedSecret" validate:"required"`
+	SharedSecret *string `json:"sharedSecret"`
 }
 
 func NewWSGServiceSecondaryRadiusServer() *WSGServiceSecondaryRadiusServer {
@@ -3266,13 +2134,8 @@ func NewWSGServiceSecondaryRadiusServer() *WSGServiceSecondaryRadiusServer {
 type WSGServiceTestingConfig struct {
 	// Id
 	// Identifier of the authentication service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// LoginRequest
-	// Constraints:
-	//    - nullable
 	LoginRequest *WSGServiceTestingConfigLoginRequestType `json:"loginRequest,omitempty"`
 }
 
@@ -3284,25 +2147,16 @@ func NewWSGServiceTestingConfig() *WSGServiceTestingConfig {
 type WSGServiceTestingConfigLoginRequestType struct {
 	// Password
 	// password for test user
-	// Constraints:
-	//    - nullable
 	Password *string `json:"password,omitempty"`
 
-	// Protocol
-	// Constraints:
-	//    - nullable
 	Protocol *string `json:"protocol,omitempty"`
 
 	// TimeZoneUtcOffset
 	// timezone offset, ex: '+8'
-	// Constraints:
-	//    - nullable
 	TimeZoneUtcOffset *string `json:"timeZoneUtcOffset,omitempty"`
 
 	// UserName
 	// name for test user
-	// Constraints:
-	//    - nullable
 	UserName *string `json:"userName,omitempty"`
 }
 

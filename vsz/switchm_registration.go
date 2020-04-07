@@ -9,26 +9,18 @@ import (
 type SwitchMRegistrationClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
-	// Constraints:
-	//    - nullable
 	ExtraValues *SwitchMRegistrationClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
 
 	// Id
 	// Identifier of the client
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Label
 	// Label of the client
-	// Constraints:
-	//    - nullable
 	Label *string `json:"label,omitempty"`
 
 	// Type
 	// Type of the client
-	// Constraints:
-	//    - nullable
 	Type *string `json:"type,omitempty"`
 }
 
@@ -40,8 +32,6 @@ func NewSwitchMRegistrationClientObjectID() *SwitchMRegistrationClientObjectID {
 // SwitchMRegistrationClientObjectIDExtraValuesType
 //
 // Extra values of the client
-// Constraints:
-//    - nullable
 type SwitchMRegistrationClientObjectIDExtraValuesType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -68,32 +58,20 @@ func NewSwitchMRegistrationClientObjectIDExtraValuesType() *SwitchMRegistrationC
 }
 
 type SwitchMRegistrationCreateResult struct {
-	// Data
-	// Constraints:
-	//    - nullable
 	Data *SwitchMRegistrationClientObjectID `json:"data,omitempty"`
 
-	// Error
-	// Constraints:
-	//    - nullable
 	Error *SwitchMRegistrationErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMRegistrationCreateResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule create result
-	// Constraints:
-	//    - nullable
 	MetaData *SwitchMRegistrationCreateResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Create result success or not
-	// Constraints:
-	//    - nullable
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -105,8 +83,6 @@ func NewSwitchMRegistrationCreateResult() *SwitchMRegistrationCreateResult {
 // SwitchMRegistrationCreateResultExtraType
 //
 // Any additional response
-// Constraints:
-//    - nullable
 type SwitchMRegistrationCreateResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -135,8 +111,6 @@ func NewSwitchMRegistrationCreateResultExtraType() *SwitchMRegistrationCreateRes
 // SwitchMRegistrationCreateResultMetaDataType
 //
 // Matadata of Rule create result
-// Constraints:
-//    - nullable
 type SwitchMRegistrationCreateResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -163,32 +137,20 @@ func NewSwitchMRegistrationCreateResultMetaDataType() *SwitchMRegistrationCreate
 }
 
 type SwitchMRegistrationDeleteMultipleResult struct {
-	// Data
-	// Constraints:
-	//    - nullable
 	Data *SwitchMRegistrationList `json:"data,omitempty"`
 
-	// Error
-	// Constraints:
-	//    - nullable
 	Error *SwitchMRegistrationErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMRegistrationDeleteMultipleResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of delete multiple rules result
-	// Constraints:
-	//    - nullable
 	MetaData *SwitchMRegistrationDeleteMultipleResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Delete multiple result success or not
-	// Constraints:
-	//    - nullable
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -200,8 +162,6 @@ func NewSwitchMRegistrationDeleteMultipleResult() *SwitchMRegistrationDeleteMult
 // SwitchMRegistrationDeleteMultipleResultExtraType
 //
 // Any additional response
-// Constraints:
-//    - nullable
 type SwitchMRegistrationDeleteMultipleResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -230,8 +190,6 @@ func NewSwitchMRegistrationDeleteMultipleResultExtraType() *SwitchMRegistrationD
 // SwitchMRegistrationDeleteMultipleResultMetaDataType
 //
 // Matadata of delete multiple rules result
-// Constraints:
-//    - nullable
 type SwitchMRegistrationDeleteMultipleResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -258,32 +216,20 @@ func NewSwitchMRegistrationDeleteMultipleResultMetaDataType() *SwitchMRegistrati
 }
 
 type SwitchMRegistrationDeleteResult struct {
-	// Data
-	// Constraints:
-	//    - nullable
 	Data *SwitchMRegistrationClientObjectID `json:"data,omitempty"`
 
-	// Error
-	// Constraints:
-	//    - nullable
 	Error *SwitchMRegistrationErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMRegistrationDeleteResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule delete result
-	// Constraints:
-	//    - nullable
 	MetaData *SwitchMRegistrationDeleteResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Delete result success or not
-	// Constraints:
-	//    - nullable
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -295,8 +241,6 @@ func NewSwitchMRegistrationDeleteResult() *SwitchMRegistrationDeleteResult {
 // SwitchMRegistrationDeleteResultExtraType
 //
 // Any additional response
-// Constraints:
-//    - nullable
 type SwitchMRegistrationDeleteResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -325,8 +269,6 @@ func NewSwitchMRegistrationDeleteResultExtraType() *SwitchMRegistrationDeleteRes
 // SwitchMRegistrationDeleteResultMetaDataType
 //
 // Matadata of Rule delete result
-// Constraints:
-//    - nullable
 type SwitchMRegistrationDeleteResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -353,19 +295,10 @@ func NewSwitchMRegistrationDeleteResultMetaDataType() *SwitchMRegistrationDelete
 }
 
 type SwitchMRegistrationErrorObject struct {
-	// List
-	// Constraints:
-	//    - nullable
-	List []string `json:"list,omitempty" validate:"omitempty,dive"`
+	List []string `json:"list,omitempty"`
 
-	// Message
-	// Constraints:
-	//    - nullable
 	Message *string `json:"message,omitempty"`
 
-	// MsgKey
-	// Constraints:
-	//    - nullable
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
@@ -377,37 +310,24 @@ func NewSwitchMRegistrationErrorObject() *SwitchMRegistrationErrorObject {
 type SwitchMRegistrationList struct {
 	// Extra
 	// Any additional response data
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMRegistrationListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first registration rule returned out of the complete registration rule list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more registration rule after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMRegistrationRule `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMRegistrationRule `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Registration rule list count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total Registration rule list count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -419,8 +339,6 @@ func NewSwitchMRegistrationList() *SwitchMRegistrationList {
 // SwitchMRegistrationListExtraType
 //
 // Any additional response data
-// Constraints:
-//    - nullable
 type SwitchMRegistrationListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -447,32 +365,20 @@ func NewSwitchMRegistrationListExtraType() *SwitchMRegistrationListExtraType {
 }
 
 type SwitchMRegistrationModifyResult struct {
-	// Data
-	// Constraints:
-	//    - nullable
 	Data *SwitchMRegistrationClientObjectID `json:"data,omitempty"`
 
-	// Error
-	// Constraints:
-	//    - nullable
 	Error *SwitchMRegistrationErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMRegistrationModifyResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of rule modify result
-	// Constraints:
-	//    - nullable
 	MetaData *SwitchMRegistrationModifyResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Modify result success or not
-	// Constraints:
-	//    - nullable
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -484,8 +390,6 @@ func NewSwitchMRegistrationModifyResult() *SwitchMRegistrationModifyResult {
 // SwitchMRegistrationModifyResultExtraType
 //
 // Any additional response
-// Constraints:
-//    - nullable
 type SwitchMRegistrationModifyResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -514,8 +418,6 @@ func NewSwitchMRegistrationModifyResultExtraType() *SwitchMRegistrationModifyRes
 // SwitchMRegistrationModifyResultMetaDataType
 //
 // Matadata of rule modify result
-// Constraints:
-//    - nullable
 type SwitchMRegistrationModifyResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -544,100 +446,69 @@ func NewSwitchMRegistrationModifyResultMetaDataType() *SwitchMRegistrationModify
 type SwitchMRegistrationRule struct {
 	// CreateDatetime
 	// Create datetime of the registration rule
-	// Constraints:
-	//    - nullable
 	CreateDatetime *int `json:"createDatetime,omitempty"`
 
 	// CreatorId
 	// Creator Id of the registration rule
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorName
 	// Creator name of the registration rule
-	// Constraints:
-	//    - nullable
 	CreatorName *string `json:"creatorName,omitempty"`
 
 	// Description
 	// Description of the registration rule
-	// Constraints:
-	//    - nullable
 	Description *string `json:"description,omitempty"`
 
 	// GroupName
 	// Switch group name of the registration rule
-	// Constraints:
-	//    - nullable
 	GroupName *string `json:"groupName,omitempty"`
 
 	// Id
 	// Identifier of the registration rule
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// IpFrom
 	// Start IP range of the registration rule
-	// Constraints:
-	//    - nullable
 	IpFrom *string `json:"ipFrom,omitempty"`
 
 	// IpRange
 	// IP range of the registration rule
-	// Constraints:
-	//    - nullable
 	IpRange *string `json:"ipRange,omitempty"`
 
 	// IpTo
 	// End IP range of the registration rule
-	// Constraints:
-	//    - nullable
 	IpTo *string `json:"ipTo,omitempty"`
 
 	// Label
 	// Lable of the registration rule
-	// Constraints:
-	//    - nullable
 	Label *string `json:"label,omitempty"`
 
 	// ModelNumber
 	// Switch Model number of the registration rule
-	// Constraints:
-	//    - nullable
 	ModelNumber *string `json:"modelNumber,omitempty"`
 
 	// Network
 	// Network of the registration rule
-	// Constraints:
-	//    - nullable
 	Network *string `json:"network,omitempty"`
 
 	// Rank
 	// Rank of the registration rule
-	// Constraints:
-	//    - nullable
 	Rank *int `json:"rank,omitempty"`
 
 	// SubnetMask
 	// Subnet mask of the registration rule
-	// Constraints:
-	//    - nullable
 	SubnetMask *string `json:"subnetMask,omitempty"`
 
 	// SwitchGroupId
 	// Switch group Id of the registration rule
-	// Constraints:
-	//    - nullable
 	SwitchGroupId *string `json:"switchGroupId,omitempty"`
 
 	// Type
 	// Type of the registration rule
 	// Constraints:
-	//    - nullable
 	//    - oneof:[IP_RANGE,SUBNET,MODEL_NUMBER]
-	Type *string `json:"type,omitempty" validate:"omitempty,oneof=IP_RANGE SUBNET MODEL_NUMBER"`
+	Type *string `json:"type,omitempty"`
 }
 
 func NewSwitchMRegistrationRule() *SwitchMRegistrationRule {
@@ -646,32 +517,20 @@ func NewSwitchMRegistrationRule() *SwitchMRegistrationRule {
 }
 
 type SwitchMRegistrationRuleQueryResultList struct {
-	// Data
-	// Constraints:
-	//    - nullable
 	Data *SwitchMRegistrationList `json:"data,omitempty"`
 
-	// Error
-	// Constraints:
-	//    - nullable
 	Error *SwitchMRegistrationErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMRegistrationRuleQueryResultListExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule query result
-	// Constraints:
-	//    - nullable
 	MetaData *SwitchMRegistrationRuleQueryResultListMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Rule query result success or not
-	// Constraints:
-	//    - nullable
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -683,8 +542,6 @@ func NewSwitchMRegistrationRuleQueryResultList() *SwitchMRegistrationRuleQueryRe
 // SwitchMRegistrationRuleQueryResultListExtraType
 //
 // Any additional response
-// Constraints:
-//    - nullable
 type SwitchMRegistrationRuleQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -713,8 +570,6 @@ func NewSwitchMRegistrationRuleQueryResultListExtraType() *SwitchMRegistrationRu
 // SwitchMRegistrationRuleQueryResultListMetaDataType
 //
 // Matadata of Rule query result
-// Constraints:
-//    - nullable
 type SwitchMRegistrationRuleQueryResultListMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

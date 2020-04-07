@@ -25,8 +25,6 @@ func (ss *SwitchMService) SwitchMPortCapacityService() *SwitchMPortCapacityServi
 type SwitchMPortCapacityCapacities struct {
 	// Capacity
 	// Port Speed Capacity
-	// Constraints:
-	//    - nullable
 	Capacity *string `json:"capacity,omitempty"`
 }
 
@@ -38,37 +36,24 @@ func NewSwitchMPortCapacityCapacities() *SwitchMPortCapacityCapacities {
 type SwitchMPortCapacityResult struct {
 	// Extra
 	// Extra field
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMPortCapacityResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// The first data index for current reulst
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of remaining data
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMPortCapacityCapacities `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMPortCapacityCapacities `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Data Count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total Data Count
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -80,8 +65,6 @@ func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 // SwitchMPortCapacityResultExtraType
 //
 // Extra field
-// Constraints:
-//    - nullable
 type SwitchMPortCapacityResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

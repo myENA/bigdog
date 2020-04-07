@@ -25,112 +25,78 @@ func (ss *SwitchMService) SwitchMAAAServersService() *SwitchMAAAServersService {
 type SwitchMAAAServersAAAServer struct {
 	// AcctPort
 	// AAA server accounting port
-	// Constraints:
-	//    - nullable
 	AcctPort *int `json:"acctPort,omitempty"`
 
 	// AuthPort
 	// AAA server authentication port
-	// Constraints:
-	//    - nullable
 	AuthPort *int `json:"authPort,omitempty"`
 
 	// CreatedTime
 	// The create time of the AAA server
-	// Constraints:
-	//    - nullable
 	CreatedTime *int `json:"createdTime,omitempty"`
 
 	// CreatorId
 	// AAA server creator Id
-	// Constraints:
-	//    - nullable
 	CreatorId *string `json:"creatorId,omitempty"`
 
 	// CreatorUsername
 	// AAA server creator name
-	// Constraints:
-	//    - nullable
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	// GroupId
-	// Constraints:
-	//    - nullable
 	GroupId *string `json:"groupId,omitempty"`
 
 	// Id
 	// AAA server ID
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
 	// Ip
 	// AAA server IP address
-	// Constraints:
-	//    - nullable
 	Ip *string `json:"ip,omitempty"`
 
 	// Level
 	// Access level of AAA server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
-	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty"`
 
 	// Name
 	// Name of the AAA server
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Password
 	// Password for local user
-	// Constraints:
-	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// Purpose
 	// AAA server purpose
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DEFAULT,AUTHENTICATION_ONLY,AUTHORIZATION_ONLY,ACCOUNTING_ONLY]
-	Purpose *string `json:"purpose,omitempty" validate:"omitempty,oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
+	Purpose *string `json:"purpose,omitempty"`
 
 	// Secret
 	// AAA server secret
-	// Constraints:
-	//    - nullable
 	Secret *string `json:"secret,omitempty"`
 
 	// ServerType
 	// The server tpye of the AAA server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
-	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
+	ServerType *string `json:"serverType,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the AAA server
-	// Constraints:
-	//    - nullable
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 
 	// UpdaterId
 	// AAA server updater Id
-	// Constraints:
-	//    - nullable
 	UpdaterId *string `json:"updaterId,omitempty"`
 
 	// UpdaterUsername
 	// AAA server updater name
-	// Constraints:
-	//    - nullable
 	UpdaterUsername *string `json:"updaterUsername,omitempty"`
 
 	// Username
 	// Username for local user
-	// Constraints:
-	//    - nullable
 	Username *string `json:"username,omitempty"`
 }
 
@@ -142,37 +108,24 @@ func NewSwitchMAAAServersAAAServer() *SwitchMAAAServersAAAServer {
 type SwitchMAAAServersQueryResult struct {
 	// Extra
 	// Any additional response data
-	// Constraints:
-	//    - nullable
 	Extra *SwitchMAAAServersQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first AAA Server returned out of the complete AAA Server list
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	// HasMore
 	// Indicator of whether there are more AAA Servers after the current displayed list
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*SwitchMAAAServersAAAServer `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*SwitchMAAAServersAAAServer `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total AAA Servers count
-	// Constraints:
-	//    - nullable
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	// TotalCount
 	// Total AAA Servers count in this response
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -184,8 +137,6 @@ func NewSwitchMAAAServersQueryResult() *SwitchMAAAServersQueryResult {
 // SwitchMAAAServersQueryResultExtraType
 //
 // Any additional response data
-// Constraints:
-//    - nullable
 type SwitchMAAAServersQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -214,65 +165,48 @@ func NewSwitchMAAAServersQueryResultExtraType() *SwitchMAAAServersQueryResultExt
 type SwitchMAAAServersCreateAdminAAAServer struct {
 	// AcctPort
 	// AAA server accounting port
-	// Constraints:
-	//    - nullable
 	AcctPort *int `json:"acctPort,omitempty"`
 
 	// AuthPort
 	// AAA server authentication port
-	// Constraints:
-	//    - nullable
 	AuthPort *int `json:"authPort,omitempty"`
 
 	// Ip
 	// AAA server IP address
-	// Constraints:
-	//    - nullable
 	Ip *string `json:"ip,omitempty"`
 
 	// Level
 	// Access level of AAA server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
-	Level *string `json:"level,omitempty" validate:"omitempty,oneof=READ_WRITE PORT_CONFIG READ_ONLY"`
+	Level *string `json:"level,omitempty"`
 
 	// Name
 	// Name of the AAA server
-	// Constraints:
-	//    - nullable
 	Name *string `json:"name,omitempty"`
 
 	// Password
 	// Password for local user
-	// Constraints:
-	//    - nullable
 	Password *string `json:"password,omitempty"`
 
 	// Purpose
 	// AAA server purpose
 	// Constraints:
-	//    - nullable
 	//    - oneof:[DEFAULT,AUTHENTICATION_ONLY,AUTHORIZATION_ONLY,ACCOUNTING_ONLY]
-	Purpose *string `json:"purpose,omitempty" validate:"omitempty,oneof=DEFAULT AUTHENTICATION_ONLY AUTHORIZATION_ONLY ACCOUNTING_ONLY"`
+	Purpose *string `json:"purpose,omitempty"`
 
 	// Secret
 	// AAA server secret
-	// Constraints:
-	//    - nullable
 	Secret *string `json:"secret,omitempty"`
 
 	// ServerType
 	// The server tpye of the AAA server
 	// Constraints:
-	//    - nullable
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
-	ServerType *string `json:"serverType,omitempty" validate:"omitempty,oneof=RADIUS TACACS_PLUS LOCAL"`
+	ServerType *string `json:"serverType,omitempty"`
 
 	// Username
 	// Username for local user
-	// Constraints:
-	//    - nullable
 	Username *string `json:"username,omitempty"`
 }
 

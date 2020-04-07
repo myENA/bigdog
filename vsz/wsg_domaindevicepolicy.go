@@ -8,29 +8,24 @@ type WSGDomainDevicePolicyCreateDomainDevicePolicy struct {
 	// Constraints:
 	//    - required
 	//    - oneof:[ALLOW,BLOCK]
-	DefaultAction *string `json:"defaultAction" validate:"required,oneof=ALLOW BLOCK"`
+	DefaultAction *string `json:"defaultAction"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// domainId of the device policy cofig
-	// Constraints:
-	//    - nullable
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCommonNormalName `json:"name" validate:"required"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Rule
 	// rule of the device policy cofig
 	// Constraints:
 	//    - required
-	Rule []*WSGDomainDevicePolicyRule `json:"rule" validate:"required,dive"`
+	Rule []*WSGDomainDevicePolicyRule `json:"rule"`
 }
 
 func NewWSGDomainDevicePolicyCreateDomainDevicePolicy() *WSGDomainDevicePolicyCreateDomainDevicePolicy {
@@ -42,31 +37,20 @@ type WSGDomainDevicePolicyProfile struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ALLOW,BLOCK]
-	DefaultAction *string `json:"defaultAction,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
+	DefaultAction *string `json:"defaultAction,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// identifier of the device policy cofig
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Rule
 	// rule of the device policy cofig
-	// Constraints:
-	//    - nullable
-	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty" validate:"omitempty,dive"`
+	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
 }
 
 func NewWSGDomainDevicePolicyProfile() *WSGDomainDevicePolicyProfile {
@@ -78,42 +62,32 @@ type WSGDomainDevicePolicyRule struct {
 	// Action
 	// defaultAction of the device policy cofig
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ALLOW,BLOCK]
-	Action *string `json:"action,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
+	Action *string `json:"action,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DeviceType
 	// deviceType of the device policy rule
-	// Constraints:
-	//    - nullable
 	DeviceType *string `json:"deviceType,omitempty"`
 
 	// Downlink
 	// downlink rate Limiting of the device policy rule, rate unit is mbps, value must include be 0, 0.10, 0.25, 0.50, 0.75, 1.00, 1.25,1.50, 1.75, 2.00, 2.25, 2.50, 2.75, 3.00, 3.20, 3.50, 3.75, 4.00, 4.25, 4.50, 4.75, 5.00, 5.25, 5.50, 5.75, 6.00, 6.25, 6.50, 6.75,  7.00, 7.25, 7.50, 7.75, 8.00, 8.25, 8.50, 8.75,  9.00, 9.25, 9.50, 9.75,  10.00, 10.25, 10.50, 10.75, 11.00, 11.25, 11.50, 11.75, 12.00, 12.25, 12.50, 12.75, 13.00, 13.25, 13.50, 13.75, 14.00, 14.25, 14.50, 14.75, 15.00, 15.25, 15.50, 15.75, 16.00, 16.25, 16.50, 16.75, 17.00, 17.25, 17.50, 17.75, 18.00, 18.25, 18.50, 18.75, 19.00, 19.25, 19.50, 19.75, 20.00
 	// Constraints:
-	//    - nullable
 	//    - min:0.000000
 	//    - max:200.000000
-	Downlink *float64 `json:"downlink,omitempty" validate:"omitempty,gte=0.000000,lte=200.000000"`
+	Downlink *float64 `json:"downlink,omitempty"`
 
 	// OsVendor
 	// osVendor of the device policy rule
-	// Constraints:
-	//    - nullable
 	OsVendor *string `json:"osVendor,omitempty"`
 
 	// Uplink
 	// uplink rate Limiting of the device policy rule, rate unit is mbps, value must include be 0, 0.10, 0.25, 0.50, 0.75, 1.00, 1.25,1.50, 1.75, 2.00, 2.25, 2.50, 2.75, 3.00, 3.20, 3.50, 3.75, 4.00, 4.25, 4.50, 4.75, 5.00, 5.25, 5.50, 5.75, 6.00, 6.25, 6.50, 6.75,  7.00, 7.25, 7.50, 7.75, 8.00, 8.25, 8.50, 8.75,  9.00, 9.25, 9.50, 9.75,  10.00, 10.25, 10.50, 10.75, 11.00, 11.25, 11.50, 11.75, 12.00, 12.25, 12.50, 12.75, 13.00, 13.25, 13.50, 13.75, 14.00, 14.25, 14.50, 14.75, 15.00, 15.25, 15.50, 15.75, 16.00, 16.25, 16.50, 16.75, 17.00, 17.25, 17.50, 17.75, 18.00, 18.25, 18.50, 18.75, 19.00, 19.25, 19.50, 19.75, 20.00
 	// Constraints:
-	//    - nullable
 	//    - min:0.000000
 	//    - max:200.000000
-	Uplink *float64 `json:"uplink,omitempty" validate:"omitempty,gte=0.000000,lte=200.000000"`
+	Uplink *float64 `json:"uplink,omitempty"`
 
 	// Vlan
 	// VLAN Members of the ethernet port profile
@@ -121,7 +95,7 @@ type WSGDomainDevicePolicyRule struct {
 	//    - nullable
 	//    - min:1
 	//    - max:4094
-	Vlan *int `json:"vlan,omitempty" validate:"omitempty,gte=1,lte=4094"`
+	Vlan *int `json:"vlan,omitempty"`
 }
 
 func NewWSGDomainDevicePolicyRule() *WSGDomainDevicePolicyRule {
@@ -133,25 +107,16 @@ type WSGDomainDevicePolicyModifyDomainDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
 	// Constraints:
-	//    - nullable
 	//    - oneof:[ALLOW,BLOCK]
-	DefaultAction *string `json:"defaultAction,omitempty" validate:"omitempty,oneof=ALLOW BLOCK"`
+	DefaultAction *string `json:"defaultAction,omitempty"`
 
-	// Description
-	// Constraints:
-	//    - nullable
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Rule
 	// rule of the device policy cofig
-	// Constraints:
-	//    - nullable
-	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty" validate:"omitempty,dive"`
+	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
 }
 
 func NewWSGDomainDevicePolicyModifyDomainDevicePolicy() *WSGDomainDevicePolicyModifyDomainDevicePolicy {
@@ -160,24 +125,12 @@ func NewWSGDomainDevicePolicyModifyDomainDevicePolicy() *WSGDomainDevicePolicyMo
 }
 
 type WSGDomainDevicePolicyProfileList struct {
-	// FirstIndex
-	// Constraints:
-	//    - nullable
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
-	// HasMore
-	// Constraints:
-	//    - nullable
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	// List
-	// Constraints:
-	//    - nullable
-	List []*WSGDomainDevicePolicyProfileListType `json:"list,omitempty" validate:"omitempty,dive"`
+	List []*WSGDomainDevicePolicyProfileListType `json:"list,omitempty"`
 
-	// TotalCount
-	// Constraints:
-	//    - nullable
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
@@ -189,13 +142,8 @@ func NewWSGDomainDevicePolicyProfileList() *WSGDomainDevicePolicyProfileList {
 type WSGDomainDevicePolicyProfileListType struct {
 	// Id
 	// Identifier of the service
-	// Constraints:
-	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	// Name
-	// Constraints:
-	//    - nullable
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 

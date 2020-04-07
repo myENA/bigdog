@@ -3,19 +3,10 @@ package vsz
 // API Version: v9_0
 
 type WSGAPModel struct {
-	// CellularSettings
-	// Constraints:
-	//    - nullable
 	CellularSettings *WSGAPModelCellularSettings `json:"cellularSettings,omitempty"`
 
-	// ExternalAntenna24
-	// Constraints:
-	//    - nullable
 	ExternalAntenna24 *WSGAPModelExternalAntenna `json:"externalAntenna24,omitempty"`
 
-	// ExternalAntenna50
-	// Constraints:
-	//    - nullable
 	ExternalAntenna50 *WSGAPModelExternalAntenna `json:"externalAntenna50,omitempty"`
 
 	// InternalHeaterEnabled
@@ -23,35 +14,23 @@ type WSGAPModel struct {
 	//    - nullable
 	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty"`
 
-	// Lacp
-	// Constraints:
-	//    - nullable
 	Lacp *WSGAPModelLacpSetting `json:"lacp,omitempty"`
 
-	// LanPorts
-	// Constraints:
-	//    - nullable
-	LanPorts []*WSGAPModelLanPortSetting `json:"lanPorts,omitempty" validate:"omitempty,dive"`
+	LanPorts []*WSGAPModelLanPortSetting `json:"lanPorts,omitempty"`
 
 	// LedMode
 	// Constraints:
 	//    - nullable
 	//    - oneof:[CableModem,AccessPoint,CableModem_AccessPoint,CableModem_AccessPoint_DEFAULT,ActiveSurgeProtector,ActiveSurgeProtector_ModemOnline_DEFAULT,Off]
-	LedMode *string `json:"ledMode,omitempty" validate:"omitempty,oneof=CableModem AccessPoint CableModem_AccessPoint CableModem_AccessPoint_DEFAULT ActiveSurgeProtector ActiveSurgeProtector_ModemOnline_DEFAULT Off"`
+	LedMode *string `json:"ledMode,omitempty"`
 
 	// LedStatusEnabled
 	// Constraints:
 	//    - nullable
 	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty"`
 
-	// Lldp
-	// Constraints:
-	//    - nullable
 	Lldp *WSGAPModelLldpSetting `json:"lldp,omitempty"`
 
-	// PoeModeSetting
-	// Constraints:
-	//    - nullable
 	PoeModeSetting *WSGCommonPoeModeSetting `json:"poeModeSetting,omitempty"`
 
 	// PoeOutPortEnabled
@@ -71,7 +50,7 @@ type WSGAPModel struct {
 	// Constraints:
 	//    - nullable
 	//    - oneof:[2.4GHz,5GHz]
-	RadioBand *string `json:"radioBand,omitempty" validate:"omitempty,oneof=2.4GHz 5GHz"`
+	RadioBand *string `json:"radioBand,omitempty"`
 
 	// UsbPowerEnable
 	// Constraints:
@@ -88,11 +67,8 @@ type WSGAPModelAuthenticatorAAAServer struct {
 	// EnableUseSCGasProxy
 	// Constraints:
 	//    - required
-	EnableUseSCGasProxy *bool `json:"enableUseSCGasProxy" validate:"required"`
+	EnableUseSCGasProxy *bool `json:"enableUseSCGasProxy"`
 
-	// Server
-	// Constraints:
-	//    - nullable
 	Server *WSGCommonGenericRef `json:"server,omitempty"`
 }
 
@@ -107,61 +83,61 @@ type WSGAPModelCellularSettings struct {
 	//    - nullable
 	//    - min:0
 	//    - max:1
-	DataRoaming *int `json:"dataRoaming,omitempty" validate:"omitempty,gte=0,lte=1"`
+	DataRoaming *int `json:"dataRoaming,omitempty"`
 
 	// DataRoaming2
 	// Constraints:
 	//    - nullable
 	//    - min:0
 	//    - max:1
-	DataRoaming2 *int `json:"dataRoaming2,omitempty" validate:"omitempty,gte=0,lte=1"`
+	DataRoaming2 *int `json:"dataRoaming2,omitempty"`
 
 	// MobileAPName
 	// Constraints:
 	//    - nullable
 	//    - max:100
-	MobileAPName *string `json:"mobileAPName,omitempty" validate:"omitempty,max=100"`
+	MobileAPName *string `json:"mobileAPName,omitempty"`
 
 	// MobileAPName2
 	// Constraints:
 	//    - nullable
 	//    - max:100
-	MobileAPName2 *string `json:"mobileAPName2,omitempty" validate:"omitempty,max=100"`
+	MobileAPName2 *string `json:"mobileAPName2,omitempty"`
 
 	// Select3g4g
 	// Constraints:
 	//    - required
 	//    - min:0
 	//    - max:2
-	Select3g4g *int `json:"select3g4g" validate:"required,gte=0,lte=2"`
+	Select3g4g *int `json:"select3g4g"`
 
 	// Select3g4g2
 	// Constraints:
 	//    - required
 	//    - min:0
 	//    - max:2
-	Select3g4g2 *int `json:"select3g4g2" validate:"required,gte=0,lte=2"`
+	Select3g4g2 *int `json:"select3g4g2"`
 
 	// SimCardUsage
 	// Constraints:
 	//    - nullable
 	//    - min:0
 	//    - max:2
-	SimCardUsage *int `json:"simCardUsage,omitempty" validate:"omitempty,gte=0,lte=2"`
+	SimCardUsage *int `json:"simCardUsage,omitempty"`
 
 	// WanConnection
 	// Constraints:
 	//    - required
 	//    - min:0
 	//    - max:3
-	WanConnection *int `json:"wanConnection" validate:"required,gte=0,lte=3"`
+	WanConnection *int `json:"wanConnection"`
 
 	// WanRecoveryTimer
 	// Constraints:
 	//    - required
 	//    - min:10
 	//    - max:300
-	WanRecoveryTimer *int `json:"wanRecoveryTimer" validate:"required,gte=10,lte=300"`
+	WanRecoveryTimer *int `json:"wanRecoveryTimer"`
 }
 
 func NewWSGAPModelCellularSettings() *WSGAPModelCellularSettings {
@@ -170,19 +146,10 @@ func NewWSGAPModelCellularSettings() *WSGAPModelCellularSettings {
 }
 
 type WSGAPModelCommonAttribute struct {
-	// AllowDfsCountry
-	// Constraints:
-	//    - nullable
 	AllowDfsCountry *string `json:"allowDfsCountry,omitempty"`
 
-	// CapabilityScore
-	// Constraints:
-	//    - nullable
 	CapabilityScore *int `json:"capabilityScore,omitempty"`
 
-	// CpuFrequency
-	// Constraints:
-	//    - nullable
 	CpuFrequency *int `json:"cpuFrequency,omitempty"`
 
 	// HasCablemodem
@@ -215,34 +182,16 @@ type WSGAPModelCommonAttribute struct {
 	//    - nullable
 	IsOutdoor *bool `json:"isOutdoor,omitempty"`
 
-	// MaxChannelization5G
-	// Constraints:
-	//    - nullable
 	MaxChannelization5G *int `json:"maxChannelization5G,omitempty"`
 
-	// MaxChannelization24G
-	// Constraints:
-	//    - nullable
 	MaxChannelization24G *int `json:"maxChannelization24G,omitempty"`
 
-	// MaxClientsUpper
-	// Constraints:
-	//    - nullable
 	MaxClientsUpper *int `json:"maxClientsUpper,omitempty"`
 
-	// MaxWlanNum5G
-	// Constraints:
-	//    - nullable
 	MaxWlanNum5G *int `json:"maxWlanNum5G,omitempty"`
 
-	// MaxWlanNum24G
-	// Constraints:
-	//    - nullable
 	MaxWlanNum24G *int `json:"maxWlanNum24G,omitempty"`
 
-	// MeshRadioCaps
-	// Constraints:
-	//    - nullable
 	MeshRadioCaps *string `json:"meshRadioCaps,omitempty"`
 
 	// NoAvc
@@ -255,39 +204,18 @@ type WSGAPModelCommonAttribute struct {
 	//    - nullable
 	NoMesh *bool `json:"noMesh,omitempty"`
 
-	// NonEditablePorts
-	// Constraints:
-	//    - nullable
-	NonEditablePorts []int `json:"nonEditablePorts,omitempty" validate:"omitempty,dive"`
+	NonEditablePorts []int `json:"nonEditablePorts,omitempty"`
 
-	// NonVisiblePorts
-	// Constraints:
-	//    - nullable
-	NonVisiblePorts []int `json:"nonVisiblePorts,omitempty" validate:"omitempty,dive"`
+	NonVisiblePorts []int `json:"nonVisiblePorts,omitempty"`
 
-	// NumOfCores
-	// Constraints:
-	//    - nullable
 	NumOfCores *int `json:"numOfCores,omitempty"`
 
-	// PoeModeCaps
-	// Constraints:
-	//    - nullable
 	PoeModeCaps *string `json:"poeModeCaps,omitempty"`
 
-	// Ram
-	// Constraints:
-	//    - nullable
 	Ram *int `json:"ram,omitempty"`
 
-	// Reserved5GWlanForMesh
-	// Constraints:
-	//    - nullable
 	Reserved5GWlanForMesh *int `json:"reserved5GWlanForMesh,omitempty"`
 
-	// ScalingFactor
-	// Constraints:
-	//    - nullable
 	ScalingFactor *int `json:"scalingFactor,omitempty"`
 
 	// Support11AC
@@ -341,19 +269,19 @@ type WSGAPModelExternalAntenna struct {
 	// Constraints:
 	//    - nullable
 	//    - oneof:[Two,Three]
-	ChainMask *string `json:"chainMask,omitempty" validate:"omitempty,oneof=Two Three"`
+	ChainMask *string `json:"chainMask,omitempty"`
 
 	// Dbi
 	// Constraints:
 	//    - nullable
 	//    - min:0
 	//    - max:90
-	Dbi *int `json:"dbi,omitempty" validate:"omitempty,gte=0,lte=90"`
+	Dbi *int `json:"dbi,omitempty"`
 
 	// Enabled
 	// Constraints:
 	//    - required
-	Enabled *bool `json:"enabled" validate:"required"`
+	Enabled *bool `json:"enabled"`
 }
 
 func NewWSGAPModelExternalAntenna() *WSGAPModelExternalAntenna {
@@ -362,14 +290,8 @@ func NewWSGAPModelExternalAntenna() *WSGAPModelExternalAntenna {
 }
 
 type WSGAPModelLacpSetting struct {
-	// Enabled
-	// Constraints:
-	//    - nullable
 	Enabled *bool `json:"enabled,omitempty"`
 
-	// KeepApSetting
-	// Constraints:
-	//    - nullable
 	KeepApSetting *bool `json:"keepApSetting,omitempty"`
 }
 
@@ -379,21 +301,15 @@ func NewWSGAPModelLacpSetting() *WSGAPModelLacpSetting {
 }
 
 type WSGAPModelLanPort8021X struct {
-	// Authenticator
-	// Constraints:
-	//    - nullable
 	Authenticator *WSGAPModelLanPortAuthenticator `json:"authenticator,omitempty"`
 
-	// Supplicant
-	// Constraints:
-	//    - nullable
 	Supplicant *WSGAPModelLanPortSupplicant `json:"supplicant,omitempty"`
 
 	// Type
 	// Constraints:
 	//    - required
 	//    - oneof:[Disable,Supplicant,PortBasedAuthenticator,MACBasedAuthenticator]
-	Type *string `json:"type" validate:"required,oneof=Disable Supplicant PortBasedAuthenticator MACBasedAuthenticator"`
+	Type *string `json:"type"`
 }
 
 func NewWSGAPModelLanPort8021X() *WSGAPModelLanPort8021X {
@@ -402,25 +318,16 @@ func NewWSGAPModelLanPort8021X() *WSGAPModelLanPort8021X {
 }
 
 type WSGAPModelLanPortAuthenticator struct {
-	// Accounting
-	// Constraints:
-	//    - nullable
 	Accounting *WSGAPModelAuthenticatorAAAServer `json:"accounting,omitempty"`
 
-	// Authentication
-	// Constraints:
-	//    - nullable
 	Authentication *WSGAPModelAuthenticatorAAAServer `json:"authentication,omitempty"`
 
-	// DisabledAccounting
-	// Constraints:
-	//    - nullable
 	DisabledAccounting *bool `json:"disabledAccounting,omitempty"`
 
 	// MacAuthByPassEnabled
 	// Constraints:
 	//    - required
-	MacAuthByPassEnabled *bool `json:"macAuthByPassEnabled" validate:"required"`
+	MacAuthByPassEnabled *bool `json:"macAuthByPassEnabled"`
 }
 
 func NewWSGAPModelLanPortAuthenticator() *WSGAPModelLanPortAuthenticator {
@@ -432,11 +339,8 @@ type WSGAPModelLanPortSetting struct {
 	// Enabled
 	// Constraints:
 	//    - required
-	Enabled *bool `json:"enabled" validate:"required"`
+	Enabled *bool `json:"enabled"`
 
-	// EthPortProfile
-	// Constraints:
-	//    - nullable
 	EthPortProfile *WSGCommonGenericRef `json:"ethPortProfile,omitempty"`
 
 	// Members
@@ -444,23 +348,20 @@ type WSGAPModelLanPortSetting struct {
 	//    - nullable
 	Members *string `json:"members,omitempty"`
 
-	// OverwriteVlanEnabled
-	// Constraints:
-	//    - nullable
 	OverwriteVlanEnabled *bool `json:"overwriteVlanEnabled,omitempty"`
 
 	// PortName
 	// Constraints:
 	//    - required
 	//    - oneof:[LAN1,LAN2,LAN3,LAN4,LAN5]
-	PortName *string `json:"portName" validate:"required,oneof=LAN1 LAN2 LAN3 LAN4 LAN5"`
+	PortName *string `json:"portName"`
 
 	// VlanUntagId
 	// Constraints:
 	//    - nullable
 	//    - min:0
 	//    - max:4094
-	VlanUntagId *int `json:"vlanUntagId,omitempty" validate:"omitempty,gte=0,lte=4094"`
+	VlanUntagId *int `json:"vlanUntagId,omitempty"`
 }
 
 func NewWSGAPModelLanPortSetting() *WSGAPModelLanPortSetting {
@@ -473,19 +374,19 @@ type WSGAPModelLanPortSupplicant struct {
 	// Constraints:
 	//    - nullable
 	//    - max:64
-	Password *string `json:"password,omitempty" validate:"omitempty,max=64"`
+	Password *string `json:"password,omitempty"`
 
 	// Type
 	// Constraints:
 	//    - required
 	//    - oneof:[MACAddress,Custom]
-	Type *string `json:"type" validate:"required,oneof=MACAddress Custom"`
+	Type *string `json:"type"`
 
 	// UserName
 	// Constraints:
 	//    - nullable
 	//    - max:64
-	UserName *string `json:"userName,omitempty" validate:"omitempty,max=64"`
+	UserName *string `json:"userName,omitempty"`
 }
 
 func NewWSGAPModelLanPortSupplicant() *WSGAPModelLanPortSupplicant {
@@ -499,20 +400,20 @@ type WSGAPModelLldpSetting struct {
 	//    - nullable
 	//    - min:1
 	//    - max:300
-	AdvertiseIntervalInSec *int `json:"advertiseIntervalInSec,omitempty" validate:"omitempty,gte=1,lte=300"`
+	AdvertiseIntervalInSec *int `json:"advertiseIntervalInSec,omitempty"`
 
 	// Enabled
 	// Constraints:
 	//    - required
 	//    - default:true
-	Enabled *bool `json:"enabled" validate:"required"`
+	Enabled *bool `json:"enabled"`
 
 	// HoldTimeInSec
 	// Constraints:
 	//    - nullable
 	//    - min:60
 	//    - max:1200
-	HoldTimeInSec *int `json:"holdTimeInSec,omitempty" validate:"omitempty,gte=60,lte=1200"`
+	HoldTimeInSec *int `json:"holdTimeInSec,omitempty"`
 
 	// ManagementIPTLVEnabled
 	// Constraints:

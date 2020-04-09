@@ -61,6 +61,9 @@ const (
 	SecurityProfileNameDefault    = "Default"
 	SecurityProfileNameMoreSecure = "More Secure"
 
+	DomainTypeRegular = "REGULAR"
+	DomainTypePartner = "PARTNER"
+
 	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
 	logDebugAPIRequestWithBodyFormat = "%s with body: %s"

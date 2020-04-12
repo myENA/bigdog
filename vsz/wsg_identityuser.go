@@ -187,47 +187,47 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsers, true)
-	if v, ok := optionalParams["createdOnFrom"]; ok {
-		req.AddQueryParameter("createdOnFrom", v)
+	if v, ok := optionalParams["createdOnFrom"]; ok && len(v) > 0 {
+		req.SetQueryParameter("createdOnFrom", v)
 	}
-	if v, ok := optionalParams["createdOnTo"]; ok {
-		req.AddQueryParameter("createdOnTo", v)
+	if v, ok := optionalParams["createdOnTo"]; ok && len(v) > 0 {
+		req.SetQueryParameter("createdOnTo", v)
 	}
-	if v, ok := optionalParams["displayName"]; ok {
-		req.AddQueryParameter("displayName", v)
+	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
+		req.SetQueryParameter("displayName", v)
 	}
-	if v, ok := optionalParams["email"]; ok {
-		req.AddQueryParameter("email", v)
+	if v, ok := optionalParams["email"]; ok && len(v) > 0 {
+		req.SetQueryParameter("email", v)
 	}
-	if v, ok := optionalParams["firstName"]; ok {
-		req.AddQueryParameter("firstName", v)
+	if v, ok := optionalParams["firstName"]; ok && len(v) > 0 {
+		req.SetQueryParameter("firstName", v)
 	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["isDisabled"]; ok {
-		req.AddQueryParameter("isDisabled", v)
+	if v, ok := optionalParams["isDisabled"]; ok && len(v) > 0 {
+		req.SetQueryParameter("isDisabled", v)
 	}
-	if v, ok := optionalParams["lastName"]; ok {
-		req.AddQueryParameter("lastName", v)
+	if v, ok := optionalParams["lastName"]; ok && len(v) > 0 {
+		req.SetQueryParameter("lastName", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
-	if v, ok := optionalParams["phone"]; ok {
-		req.AddQueryParameter("phone", v)
+	if v, ok := optionalParams["phone"]; ok && len(v) > 0 {
+		req.SetQueryParameter("phone", v)
 	}
-	if v, ok := optionalParams["timeZone"]; ok {
-		req.AddQueryParameter("timeZone", v)
+	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
+		req.SetQueryParameter("timeZone", v)
 	}
-	if v, ok := optionalParams["userName"]; ok {
-		req.AddQueryParameter("userName", v)
+	if v, ok := optionalParams["userName"]; ok && len(v) > 0 {
+		req.SetQueryParameter("userName", v)
 	}
-	if v, ok := optionalParams["userSource"]; ok {
-		req.AddQueryParameter("userSource", v)
+	if v, ok := optionalParams["userSource"]; ok && len(v) > 0 {
+		req.SetQueryParameter("userSource", v)
 	}
-	if v, ok := optionalParams["userType"]; ok {
-		req.AddQueryParameter("userType", v)
+	if v, ok := optionalParams["userType"]; ok && len(v) > 0 {
+		req.SetQueryParameter("userType", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentityUserList()

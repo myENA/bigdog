@@ -129,8 +129,8 @@ func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalPar
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindZdImportStatus, true)
-	if v, ok := optionalParams["details"]; ok {
-		req.AddQueryParameter("details", v)
+	if v, ok := optionalParams["details"]; ok && len(v) > 0 {
+		req.SetQueryParameter("details", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAdministrationZdImportStatus()

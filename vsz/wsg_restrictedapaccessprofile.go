@@ -220,11 +220,11 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesRestrictedApAccessProfilesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileIdList()

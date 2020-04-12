@@ -171,11 +171,11 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesDnsserver, true)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileDnsServerProfileList()

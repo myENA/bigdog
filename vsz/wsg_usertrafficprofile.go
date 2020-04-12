@@ -225,11 +225,11 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, opti
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesUtp, true)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileList()

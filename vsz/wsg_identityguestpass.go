@@ -239,32 +239,32 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityGuestpass, true)
-	if v, ok := optionalParams["displayName"]; ok {
-		req.AddQueryParameter("displayName", v)
+	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
+		req.SetQueryParameter("displayName", v)
 	}
-	if v, ok := optionalParams["expirationFrom"]; ok {
-		req.AddQueryParameter("expirationFrom", v)
+	if v, ok := optionalParams["expirationFrom"]; ok && len(v) > 0 {
+		req.SetQueryParameter("expirationFrom", v)
 	}
-	if v, ok := optionalParams["expirationTo"]; ok {
-		req.AddQueryParameter("expirationTo", v)
+	if v, ok := optionalParams["expirationTo"]; ok && len(v) > 0 {
+		req.SetQueryParameter("expirationTo", v)
 	}
-	if v, ok := optionalParams["generatedTimeFrom"]; ok {
-		req.AddQueryParameter("generatedTimeFrom", v)
+	if v, ok := optionalParams["generatedTimeFrom"]; ok && len(v) > 0 {
+		req.SetQueryParameter("generatedTimeFrom", v)
 	}
-	if v, ok := optionalParams["generatedTimeTo"]; ok {
-		req.AddQueryParameter("generatedTimeTo", v)
+	if v, ok := optionalParams["generatedTimeTo"]; ok && len(v) > 0 {
+		req.SetQueryParameter("generatedTimeTo", v)
 	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
-	if v, ok := optionalParams["timeZone"]; ok {
-		req.AddQueryParameter("timeZone", v)
+	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
+		req.SetQueryParameter("timeZone", v)
 	}
-	if v, ok := optionalParams["wlan"]; ok {
-		req.AddQueryParameter("wlan", v)
+	if v, ok := optionalParams["wlan"]; ok && len(v) > 0 {
+		req.SetQueryParameter("wlan", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGIdentityGuestPassList()

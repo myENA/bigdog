@@ -165,8 +165,8 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	if v, ok := optionalParams["parentDomainId"]; ok {
-		req.AddQueryParameter("parentDomainId", v)
+	if v, ok := optionalParams["parentDomainId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("parentDomainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
@@ -228,20 +228,20 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomains, true)
-	if v, ok := optionalParams["excludeRegularDomain"]; ok {
-		req.AddQueryParameter("excludeRegularDomain", v)
+	if v, ok := optionalParams["excludeRegularDomain"]; ok && len(v) > 0 {
+		req.SetQueryParameter("excludeRegularDomain", v)
 	}
-	if v, ok := optionalParams["includeSelf"]; ok {
-		req.AddQueryParameter("includeSelf", v)
+	if v, ok := optionalParams["includeSelf"]; ok && len(v) > 0 {
+		req.SetQueryParameter("includeSelf", v)
 	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
-	if v, ok := optionalParams["recursively"]; ok {
-		req.AddQueryParameter("recursively", v)
+	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
+		req.SetQueryParameter("recursively", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()
@@ -276,8 +276,8 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsById, true)
 	req.SetPathParameter("id", id)
-	if v, ok := optionalParams["recursively"]; ok {
-		req.AddQueryParameter("recursively", v)
+	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
+		req.SetQueryParameter("recursively", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainConfiguration()
@@ -349,20 +349,20 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
 	req.SetPathParameter("id", id)
-	if v, ok := optionalParams["excludeRegularDomain"]; ok {
-		req.AddQueryParameter("excludeRegularDomain", v)
+	if v, ok := optionalParams["excludeRegularDomain"]; ok && len(v) > 0 {
+		req.SetQueryParameter("excludeRegularDomain", v)
 	}
-	if v, ok := optionalParams["includeSelf"]; ok {
-		req.AddQueryParameter("includeSelf", v)
+	if v, ok := optionalParams["includeSelf"]; ok && len(v) > 0 {
+		req.SetQueryParameter("includeSelf", v)
 	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
-	if v, ok := optionalParams["recursively"]; ok {
-		req.AddQueryParameter("recursively", v)
+	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
+		req.SetQueryParameter("recursively", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGDomainList()

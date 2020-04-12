@@ -829,11 +829,11 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCertificate, true)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificateList()
@@ -891,11 +891,11 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreClientCert, true)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificateClientCertList()
@@ -953,11 +953,11 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCsr, true)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificateCsrList()
@@ -1036,11 +1036,11 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCert, true)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCertificateTrustedCAChainCertList()

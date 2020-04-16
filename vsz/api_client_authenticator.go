@@ -4,12 +4,11 @@ import (
 	"context"
 	"fmt"
 	"sync"
-	"sync/atomic"
 	"time"
 )
 
 type (
-	ServiceTicketCAS uint64
+	ServiceTicketCAS time.Duration
 
 	ServiceTicketProvider interface {
 		// Current must do one of two things:
@@ -74,7 +73,7 @@ type UsernamePasswordServiceTicketProvider struct {
 
 	mu sync.RWMutex
 
-	cas           uint64
+	cas           ServiceTicketCAS
 	updated       time.Time
 	sessionTTL    time.Duration
 	serviceTicket string
@@ -107,10 +106,10 @@ func (a *UsernamePasswordServiceTicketProvider) Current() (ServiceTicketCAS, str
 	)
 
 	if a.serviceTicket != "" && !a.updated.IsZero() && a.updated.Add(a.sessionTTL).After(time.Now()) {
-		return ServiceTicketCAS(cas), st, nil
+		return cas, st, nil
 	}
 
-	return ServiceTicketCAS(cas), "", ErrServiceTicketRequiresRefresh
+	return cas, "", ErrServiceTicketRequiresRefresh
 }
 
 // Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
@@ -118,46 +117,52 @@ func (a *UsernamePasswordServiceTicketProvider) Refresh(ctx context.Context, cli
 	a.mu.Lock()
 	defer a.mu.Unlock()
 
-	ccas := a.cas
+	var (
+		loginRequest         *WSGServiceTicketLoginRequest
+		resp                 *WSGServiceTicketLoginResponse
+		rm                   *APIResponseMeta
+		updatedServiceTicket string
+		err                  error
+
+		username = a.username
+		password = a.password
+	)
 
 	if client == nil {
-		return ServiceTicketCAS(ccas), NewServiceTicketProviderError(nil, ErrServiceTicketClientNil)
+		return a.cas, NewServiceTicketProviderError(nil, ErrServiceTicketClientNil)
 	}
 
 	// if the passed cas value is greater than the internal CAS, assume weirdness and return current CAS and an error
-	if ccas < uint64(cas) {
-		return ServiceTicketCAS(ccas), NewServiceTicketProviderError(nil, fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
+	if a.cas < cas {
+		return a.cas, NewServiceTicketProviderError(nil, fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
 	}
 	// if the passed in CAS value is less than the currently stored one, assume another routine called either Refresh
 	// or Invalidate and just return current cas
-	if ccas > uint64(cas) {
+	if a.cas > cas {
 		// todo: is this ok...?
-		return ServiceTicketCAS(ccas), nil
+		return a.cas, nil
 	}
 
 	// if cas matches internal...
 
 	// try to execute logon
-	username := a.username
-	password := a.password
-	loginRequest := &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
-	resp, rm, err := client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
-	if err != nil {
-		a.serviceTicket = ""
-		ncas := a.iterateCAS()
-		return ServiceTicketCAS(ncas), NewServiceTicketProviderError(rm, err)
+	loginRequest = &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
+	if resp, rm, err = client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest); err != nil {
+		// if error occurred
+		err = NewServiceTicketProviderError(rm, err)
+	} else if resp == nil || resp.ServiceTicket == nil || *resp.ServiceTicket == "" {
+		// if service ticket response was empty for some reason
+		err = NewServiceTicketProviderError(rm, ErrServiceTicketResponseEmpty)
+	} else {
+		// if we successfully acquired a new service ticket
+		updatedServiceTicket = *resp.ServiceTicket
 	}
 
-	if resp == nil || resp.ServiceTicket == nil || *resp.ServiceTicket == "" {
-		a.serviceTicket = ""
-		ncas := a.iterateCAS()
-		return ServiceTicketCAS(ncas), NewServiceTicketProviderError(rm, ErrServiceTicketResponseEmpty)
-	}
-
-	a.serviceTicket = *resp.ServiceTicket
+	a.serviceTicket = updatedServiceTicket
+	a.cas = a.iterateCAS()
 	a.updated = time.Now()
-	ncas := a.iterateCAS()
-	return ServiceTicketCAS(ncas), nil
+
+	return a.cas, nil
 }
 
 // Invalidate will mark the current session as invalid.
@@ -168,22 +173,20 @@ func (a *UsernamePasswordServiceTicketProvider) Invalidate(ctx context.Context, 
 	var (
 		rm  *APIResponseMeta
 		err error
-
-		ccas = a.cas
 	)
 
 	// is context still valid?
-	if err := ctx.Err(); err != nil {
-		return ServiceTicketCAS(ccas), err
+	if err = ctx.Err(); err != nil {
+		return a.cas, err
 	}
 	// if current cas is less than provided, assume insanity.
-	if ccas < uint64(cas) {
-		return ServiceTicketCAS(ccas), NewServiceTicketProviderError(nil, fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
+	if a.cas < cas {
+		return a.cas, NewServiceTicketProviderError(nil, fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
 	}
 	// if current cas is greater than provided, assume Refresh or Invalidate has already been called.
-	if ccas > uint64(cas) {
+	if a.cas > cas {
 		// todo: is this ok?
-		return ServiceTicketCAS(ccas), nil
+		return a.cas, nil
 	}
 
 	// if we have a service ticket stored, attempt to invalidate it at the VSZ
@@ -191,15 +194,16 @@ func (a *UsernamePasswordServiceTicketProvider) Invalidate(ctx context.Context, 
 		if _, rm, err = client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, a.serviceTicket); err != nil {
 			err = NewServiceTicketProviderError(rm, err)
 		}
+
+		// only increment if change actually occurred
+		a.serviceTicket = ""
+		a.cas = a.iterateCAS()
+		a.updated = time.Now()
 	}
 
-	ncas := a.iterateCAS()
-	a.serviceTicket = ""
-	a.updated = time.Now()
-
-	return ServiceTicketCAS(ncas), err
+	return a.cas, err
 }
 
-func (a *UsernamePasswordServiceTicketProvider) iterateCAS() uint64 {
-	return atomic.AddUint64(&a.cas, uint64(time.Now().UnixNano()))
+func (a *UsernamePasswordServiceTicketProvider) iterateCAS() ServiceTicketCAS {
+	return ServiceTicketCAS(time.Now().UnixNano())
 }

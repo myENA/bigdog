@@ -35,7 +35,7 @@ type APIError struct {
 	ErrorCode int    `json:"errorCode"`
 	ErrorType string `json:"errorType"`
 
-	Err error `json:"err"`
+	Err error `json:"err,omitempty"`
 }
 
 func (e *APIError) Error() string {

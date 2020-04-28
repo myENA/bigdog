@@ -415,7 +415,7 @@ func NewSwitchMCommonQueryCriteriaSuperSetOptionsType() *SwitchMCommonQueryCrite
 }
 
 type SwitchMCommonRbacMetadata struct {
-	RbacMetadata []string `json:"rbacMetadata,omitempty"`
+	RbacMetadata interface{} `json:"rbacMetadata,omitempty"`
 }
 
 func NewSwitchMCommonRbacMetadata() *SwitchMCommonRbacMetadata {

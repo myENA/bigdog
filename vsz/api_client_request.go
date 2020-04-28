@@ -280,6 +280,12 @@ func (r *APIRequest) toHTTP(ctx context.Context, addr, pathPrefix, serviceTicket
 		return nil, err
 	}
 
+	for header, values := range r.headers {
+		for _, value := range values {
+			httpRequest.Header.Add(header, value)
+		}
+	}
+
 	httpRequest.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 
 	return httpRequest.WithContext(ctx), nil

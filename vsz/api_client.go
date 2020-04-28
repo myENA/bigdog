@@ -302,8 +302,12 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 			return sterr.ResponseMeta(), sterr
 		}
 
-		// otherwise, build response meta and return source error
-		return newAPIResponseMeta(req, successCode, httpResp), sourceErr
+		if httpResp != nil {
+			// otherwise, build response meta and return source error
+			return newAPIResponseMeta(req, successCode, httpResp), sourceErr
+		}
+
+		return newErrAPIResponseMeta(), sourceErr
 	}
 
 	if httpResp == nil {

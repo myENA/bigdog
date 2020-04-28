@@ -266,6 +266,13 @@ func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Respons
 	return rm
 }
 
+func newErrAPIResponseMeta() *APIResponseMeta {
+	rm := new(APIResponseMeta)
+	rm.ResponseCode = http.StatusInternalServerError
+	rm.ResponseStatus = http.StatusText(http.StatusInternalServerError)
+	return rm
+}
+
 func (rm *APIResponseMeta) String() string {
 	var msg string
 	if rm.SuccessCode == rm.ResponseCode {
@@ -276,23 +283,20 @@ func (rm *APIResponseMeta) String() string {
 	return fmt.Sprintf("%s response from request %s %s", msg, rm.RequestMethod, rm.RequestURI)
 }
 
-func cleanupHTTPResponseBody(hp *http.Response, drain bool) {
+func cleanupHTTPResponseBody(hp *http.Response) {
 	if hp == nil {
 		return
 	}
-	if drain {
-		_, _ = io.Copy(ioutil.Discard, hp.Body)
-	}
+	_, _ = io.Copy(ioutil.Discard, hp.Body)
 	_ = hp.Body.Close()
 }
 
 func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
 	var finalErr error
 
-	if sourceErr != nil {
-		// just in case
-		defer cleanupHTTPResponseBody(httpResp, true)
+	defer cleanupHTTPResponseBody(httpResp)
 
+	if sourceErr != nil {
 		// if the incoming error is from a service ticket provider, return as-is
 		if sterr, ok := sourceErr.(*ServiceTicketProviderError); ok {
 			return sterr.ResponseMeta(), sterr
@@ -310,18 +314,11 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 		// if the response code matches the expected "success" code...
 		if modelPtr != nil {
 			// ... and this query has a modeled response, attempt to unmarshal into that type
-
-			defer cleanupHTTPResponseBody(httpResp, false)
-
 			if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil {
 				finalErr = fmt.Errorf("error unmarshalling response body into %T: %w", modelPtr, err)
 			}
-		} else {
-			defer cleanupHTTPResponseBody(httpResp, true)
 		}
 	} else {
-		defer cleanupHTTPResponseBody(httpResp, false)
-
 		apiErr := new(APIError)
 		if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
 			finalErr = fmt.Errorf("error unmarshalling error body into %T: %w", finalErr, err)

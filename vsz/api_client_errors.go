@@ -3,6 +3,7 @@ package vsz
 import (
 	"errors"
 	"fmt"
+	"net/http"
 )
 
 var (
@@ -63,6 +64,9 @@ type ServiceTicketProviderError struct {
 
 func NewServiceTicketProviderError(rm *APIResponseMeta, err error) *ServiceTicketProviderError {
 	e := new(ServiceTicketProviderError)
+	if rm == nil {
+		rm = &APIResponseMeta{ResponseCode: http.StatusInternalServerError}
+	}
 	e.rm = rm
 	e.err = err
 	return e

@@ -129,12 +129,12 @@ func (a *UsernamePasswordServiceTicketProvider) Refresh(ctx context.Context, cli
 	)
 
 	if client == nil {
-		return a.cas, NewServiceTicketProviderError(nil, ErrServiceTicketClientNil)
+		return a.cas, NewServiceTicketProviderError(newErrAPIResponseMeta(), ErrServiceTicketClientNil)
 	}
 
 	// if the passed cas value is greater than the internal CAS, assume weirdness and return current CAS and an error
 	if a.cas < cas {
-		return a.cas, NewServiceTicketProviderError(nil, fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
+		return a.cas, NewServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
 	}
 	// if the passed in CAS value is less than the currently stored one, assume another routine called either Refresh
 	// or Invalidate and just return current cas
@@ -181,7 +181,7 @@ func (a *UsernamePasswordServiceTicketProvider) Invalidate(ctx context.Context, 
 	}
 	// if current cas is less than provided, assume insanity.
 	if a.cas < cas {
-		return a.cas, NewServiceTicketProviderError(nil, fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
+		return a.cas, NewServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
 	}
 	// if current cas is greater than provided, assume Refresh or Invalidate has already been called.
 	if a.cas > cas {

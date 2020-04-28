@@ -271,6 +271,7 @@ func (s *SCGAdminService) CreateLDAPAAAServer(ctx context.Context, body *SCGAdmi
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.Headers().Set(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSCGAdminCreateLDAPAAAServerResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -301,10 +302,11 @@ func (s *SCGAdminService) UpdateLDAPAAAServer(ctx context.Context, id string, bo
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCGAdminAAAServer, true)
+	req.SetPathParameter("id", id)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetPathParameter("id", id)
+	req.Headers().Set(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSCGAdminGenericResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

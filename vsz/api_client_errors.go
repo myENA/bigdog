@@ -30,16 +30,24 @@ func IsServiceTicketResponseEmptyErr(err error) bool {
 }
 
 type APIError struct {
-	Success   bool   `json:"success"`
-	Message   string `json:"message"`
-	NoSession string `json:"noSession"`
-	ErrorCode int    `json:"errorCode"`
-	ErrorType string `json:"errorType"`
+	Success bool `json:"success"`
+
+	Message      string      `json:"message,omitempty"`
+	NoSession    string      `json:"noSession,omitempty"`
+	ErrorDetails interface{} `json:"error,omitempty"` // probably can be map[string]interface{}
+	ErrorCode    int         `json:"errorCode,omitempty"`
+	ErrorType    string      `json:"errorType,omitempty"`
+	Extra        interface{} `json:"extra,omitempty"`
+	Metadata     interface{} `json:"metadata,omitempty"`
+	Data         interface{} `json:"data,omitempty"`
 
 	Err error `json:"err,omitempty"`
 }
 
 func (e *APIError) Error() string {
+	if e.ErrorDetails != nil {
+		return fmt.Sprintf("success=%t; errorDetails=%v", e.Success, e.ErrorDetails)
+	}
 	return fmt.Sprintf("success=%t; errorCode=%d; errorType=%s; message=%s; err=%v", e.Success, e.ErrorCode, e.ErrorType, e.Message, e.Err)
 }
 

@@ -96,7 +96,7 @@ type WSGClientQueryCreateClientQuery struct {
 
 	TxFrames *int `json:"txFrames,omitempty"`
 
-	TxRatebps *int `json:"txRatebps,omitempty"`
+	TxRatebps *float64 `json:"txRatebps,omitempty"`
 
 	TxRxBytes *int `json:"txRxBytes,omitempty"`
 

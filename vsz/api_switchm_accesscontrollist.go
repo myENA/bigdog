@@ -47,6 +47,7 @@ func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context,
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -78,6 +79,7 @@ func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -165,6 +167,7 @@ func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx 
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMACLConfigsQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -203,6 +206,7 @@ func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.C
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)

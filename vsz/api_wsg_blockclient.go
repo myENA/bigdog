@@ -47,6 +47,7 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = MakeWSGProfileCreateResultList()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
@@ -86,6 +87,7 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGCommonCreateResult()
@@ -118,6 +120,7 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -205,6 +208,7 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileBlockClientList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -272,6 +276,7 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -310,6 +315,7 @@ func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)

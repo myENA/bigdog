@@ -100,6 +100,7 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -130,6 +131,7 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -159,6 +161,7 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, body []byte
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -190,6 +193,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

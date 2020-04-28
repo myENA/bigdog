@@ -453,6 +453,7 @@ func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackCon
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMStackAuditIdList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

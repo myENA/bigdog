@@ -46,6 +46,7 @@ func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -76,6 +77,7 @@ func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -107,6 +109,7 @@ func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGWiredClientQueryClientQueryList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

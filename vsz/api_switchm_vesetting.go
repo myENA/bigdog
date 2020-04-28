@@ -47,6 +47,7 @@ func (s *SwitchMVESettingService) AddVeConfigs(ctx context.Context, body *Switch
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = MakeSwitchMVeConfigCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
@@ -78,6 +79,7 @@ func (s *SwitchMVESettingService) DeleteVeConfigs(ctx context.Context, body *Swi
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -186,6 +188,7 @@ func (s *SwitchMVESettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMVeConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -224,6 +227,7 @@ func (s *SwitchMVESettingService) UpdateVeConfigsById(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)

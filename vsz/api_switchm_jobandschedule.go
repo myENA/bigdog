@@ -47,6 +47,7 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMJobList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -107,6 +108,7 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("jobId", jobId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMJob()

@@ -47,6 +47,7 @@ func (s *WSGFtpServerSettingsService) AddFtps(ctx context.Context, body *WSGSyst
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
@@ -79,6 +80,7 @@ func (s *WSGFtpServerSettingsService) DeleteFtps(ctx context.Context, body *WSGS
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -167,6 +169,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtpList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -199,6 +202,7 @@ func (s *WSGFtpServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemFtpTestResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -266,6 +270,7 @@ func (s *WSGFtpServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Conte
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)

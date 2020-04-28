@@ -190,6 +190,7 @@ func (s *SwitchMFirmwareService) AddFirmware(ctx context.Context, body *SwitchMC
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMFirmwaresQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -220,6 +221,7 @@ func (s *SwitchMFirmwareService) AddFirmwareUpload(ctx context.Context, body []b
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -309,6 +311,7 @@ func (s *SwitchMFirmwareService) PartialUpdateFirmwareByVersion(ctx context.Cont
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMFirmwareScheduleIds()

@@ -68,6 +68,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -121,6 +122,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

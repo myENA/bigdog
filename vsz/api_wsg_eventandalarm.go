@@ -47,6 +47,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAlarmListAlarmQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -79,6 +80,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAlertSummaryAlarmSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -111,6 +113,7 @@ func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *W
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGEventListEventQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -143,6 +146,7 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAlertSummaryEventSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -174,6 +178,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -233,6 +238,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

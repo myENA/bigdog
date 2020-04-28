@@ -2078,8 +2078,8 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteSystemNbi, true)
-	if v, ok := optionalParams["domainId"]; ok {
-		req.AddQueryParameter("domainId", v)
+	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -2136,11 +2136,11 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControllerStatisticsById, true)
 	req.SetPathParameter("id", id)
-	if v, ok := optionalParams["interval"]; ok {
-		req.AddQueryParameter("interval", v)
+	if v, ok := optionalParams["interval"]; ok && len(v) > 0 {
+		req.SetQueryParameter("interval", v)
 	}
-	if v, ok := optionalParams["size"]; ok {
-		req.AddQueryParameter("size", v)
+	if v, ok := optionalParams["size"]; ok && len(v) > 0 {
+		req.SetQueryParameter("size", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = MakeWSGSystemStatisticList()
@@ -2377,11 +2377,11 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemInventory, true)
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemInventoryList()
@@ -2408,8 +2408,8 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemNbi, true)
-	if v, ok := optionalParams["domainId"]; ok {
-		req.AddQueryParameter("domainId", v)
+	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemNorthboundInterface()
@@ -2548,8 +2548,8 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	if v, ok := optionalParams["domainId"]; ok {
-		req.AddQueryParameter("domainId", v)
+	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)

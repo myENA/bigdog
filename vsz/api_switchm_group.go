@@ -486,8 +486,8 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupIdsByDomainByDomainId, true)
 	req.SetPathParameter("domainId", domainId)
-	if v, ok := optionalParams["showStagingGroup"]; ok {
-		req.AddQueryParameter("showStagingGroup", v)
+	if v, ok := optionalParams["showStagingGroup"]; ok && len(v) > 0 {
+		req.SetQueryParameter("showStagingGroup", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMGroupsByIdsQueryResultList()

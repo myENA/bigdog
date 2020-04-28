@@ -48,20 +48,20 @@ func (s *WSGAccessPointAPPService) FindApsLineman(ctx context.Context, optionalP
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
-	if v, ok := optionalParams["domainId"]; ok {
-		req.AddQueryParameter("domainId", v)
+	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("domainId", v)
 	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
-	if v, ok := optionalParams["showAlarm"]; ok {
-		req.AddQueryParameter("showAlarm", v)
+	if v, ok := optionalParams["showAlarm"]; ok && len(v) > 0 {
+		req.SetQueryParameter("showAlarm", v)
 	}
-	if v, ok := optionalParams["zoneId"]; ok {
-		req.AddQueryParameter("zoneId", v)
+	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("zoneId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAPLinemanSummary()
@@ -90,11 +90,11 @@ func (s *WSGAccessPointAPPService) FindApsTotalCount(ctx context.Context, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
-	if v, ok := optionalParams["domainId"]; ok {
-		req.AddQueryParameter("domainId", v)
+	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("domainId", v)
 	}
-	if v, ok := optionalParams["zoneId"]; ok {
-		req.AddQueryParameter("zoneId", v)
+	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("zoneId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(interface{})

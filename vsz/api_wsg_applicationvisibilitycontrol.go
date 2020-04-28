@@ -635,8 +635,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Applications, true)
-	if v, ok := optionalParams["appName"]; ok {
-		req.AddQueryParameter("appName", v)
+	if v, ok := optionalParams["appName"]; ok && len(v) > 0 {
+		req.SetQueryParameter("appName", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCApplicationList()
@@ -663,8 +663,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Categories, true)
-	if v, ok := optionalParams["catName"]; ok {
-		req.AddQueryParameter("catName", v)
+	if v, ok := optionalParams["catName"]; ok && len(v) > 0 {
+		req.SetQueryParameter("catName", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGAVCAppCategoryList()

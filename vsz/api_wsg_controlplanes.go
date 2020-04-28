@@ -144,8 +144,8 @@ func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindControlPlanesInterfaces, true)
-	if v, ok := optionalParams["bladeUUID"]; ok {
-		req.AddQueryParameter("bladeUUID", v)
+	if v, ok := optionalParams["bladeUUID"]; ok && len(v) > 0 {
+		req.SetQueryParameter("bladeUUID", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGSystemControlPlaneInterfaceList()

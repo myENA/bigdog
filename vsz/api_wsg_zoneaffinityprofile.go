@@ -99,8 +99,8 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesZoneAffinity, true)
-	if v, ok := optionalParams["vdpId"]; ok {
-		req.AddQueryParameter("vdpId", v)
+	if v, ok := optionalParams["vdpId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("vdpId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGProfileZoneAffinityProfileList()

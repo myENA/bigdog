@@ -150,8 +150,8 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
 	req.SetQueryParameter("apMac", []string{apMac})
 	req.SetQueryParameter("targetIP", []string{targetIP})
-	if v, ok := optionalParams["timeoutInSec"]; ok {
-		req.AddQueryParameter("timeoutInSec", v)
+	if v, ok := optionalParams["timeoutInSec"]; ok && len(v) > 0 {
+		req.SetQueryParameter("timeoutInSec", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = new(string)

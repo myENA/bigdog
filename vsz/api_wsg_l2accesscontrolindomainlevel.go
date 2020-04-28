@@ -133,14 +133,14 @@ func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControls(ctx contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindL2AccessControls, true)
-	if v, ok := optionalParams["domainId"]; ok {
-		req.AddQueryParameter("domainId", v)
+	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
+		req.SetQueryParameter("domainId", v)
 	}
-	if v, ok := optionalParams["index"]; ok {
-		req.AddQueryParameter("index", v)
+	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
+		req.SetQueryParameter("index", v)
 	}
-	if v, ok := optionalParams["listSize"]; ok {
-		req.AddQueryParameter("listSize", v)
+	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
+		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewWSGL2AccessControlList()

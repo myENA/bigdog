@@ -74,7 +74,7 @@ type UsernamePasswordServiceTicketProvider struct {
 	mu sync.RWMutex
 
 	cas           ServiceTicketCAS
-	updated       time.Time
+	expires       time.Time
 	sessionTTL    time.Duration
 	serviceTicket string
 }
@@ -100,16 +100,11 @@ func (a *UsernamePasswordServiceTicketProvider) Current() (ServiceTicketCAS, str
 	a.mu.RLock()
 	defer a.mu.RUnlock()
 
-	var (
-		cas = a.cas
-		st  = a.serviceTicket
-	)
-
-	if a.serviceTicket != "" && !a.updated.IsZero() && a.updated.Add(a.sessionTTL).After(time.Now()) {
-		return cas, st, nil
+	if a.serviceTicket != "" && time.Now().Before(a.expires) {
+		return a.cas, a.serviceTicket, nil
 	}
 
-	return cas, "", ErrServiceTicketRequiresRefresh
+	return a.cas, "", ErrServiceTicketRequiresRefresh
 }
 
 // Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
@@ -118,11 +113,10 @@ func (a *UsernamePasswordServiceTicketProvider) Refresh(ctx context.Context, cli
 	defer a.mu.Unlock()
 
 	var (
-		loginRequest         *WSGServiceTicketLoginRequest
-		resp                 *WSGServiceTicketLoginResponse
-		rm                   *APIResponseMeta
-		updatedServiceTicket string
-		err                  error
+		loginRequest  *WSGServiceTicketLoginRequest
+		loginResponse *WSGServiceTicketLoginResponse
+		rm            *APIResponseMeta
+		err           error
 
 		username = a.username
 		password = a.password
@@ -147,20 +141,25 @@ func (a *UsernamePasswordServiceTicketProvider) Refresh(ctx context.Context, cli
 
 	// try to execute logon
 	loginRequest = &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
-	if resp, rm, err = client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest); err != nil {
-		// if error occurred
-		err = NewServiceTicketProviderError(rm, err)
-	} else if resp == nil || resp.ServiceTicket == nil || *resp.ServiceTicket == "" {
-		// if service ticket response was empty for some reason
-		err = NewServiceTicketProviderError(rm, ErrServiceTicketResponseEmpty)
-	} else {
-		// if we successfully acquired a new service ticket
-		updatedServiceTicket = *resp.ServiceTicket
+	if loginResponse, rm, err = client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest); err != nil {
+		a.cas = a.iterateCAS()
+		a.serviceTicket = ""
+		a.expires = time.Time{}
+		return a.cas, NewServiceTicketProviderError(rm, err)
 	}
 
-	a.serviceTicket = updatedServiceTicket
+	// this case is extremely unlikely, but keep it here just in case.  don't want no npe.
+	if loginResponse == nil || loginResponse.ServiceTicket == nil || *loginResponse.ServiceTicket == "" {
+		a.cas = a.iterateCAS()
+		a.serviceTicket = ""
+		a.expires = time.Time{}
+		return a.cas, NewServiceTicketProviderError(rm, ErrServiceTicketResponseEmpty)
+	}
+
+	// if reached, assume login successful
+	a.serviceTicket = *loginResponse.ServiceTicket
 	a.cas = a.iterateCAS()
-	a.updated = time.Now()
+	a.expires = time.Now().Add(a.sessionTTL)
 
 	return a.cas, nil
 }
@@ -175,14 +174,11 @@ func (a *UsernamePasswordServiceTicketProvider) Invalidate(ctx context.Context, 
 		err error
 	)
 
-	// is context still valid?
-	if err = ctx.Err(); err != nil {
-		return a.cas, err
-	}
 	// if current cas is less than provided, assume insanity.
 	if a.cas < cas {
 		return a.cas, NewServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
 	}
+
 	// if current cas is greater than provided, assume Refresh or Invalidate has already been called.
 	if a.cas > cas {
 		// todo: is this ok?
@@ -195,10 +191,10 @@ func (a *UsernamePasswordServiceTicketProvider) Invalidate(ctx context.Context, 
 			err = NewServiceTicketProviderError(rm, err)
 		}
 
-		// only increment if change actually occurred
+		// update internal state
 		a.serviceTicket = ""
 		a.cas = a.iterateCAS()
-		a.updated = time.Now()
+		a.expires = time.Time{}
 	}
 
 	return a.cas, err

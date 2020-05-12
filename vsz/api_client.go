@@ -216,9 +216,18 @@ func (c *APIClient) do(ctx context.Context, request *APIRequest) (ServiceTicketC
 	)
 	if request.authenticated {
 		if cas, serviceTicket, err = c.stp.Current(); err != nil {
+			if c.debug {
+				c.log.Printf("Error fetching current service ticket: %v", err)
+			}
 			if cas, err = c.stp.Refresh(ctx, c, cas); err != nil {
+				if c.debug {
+					c.log.Printf("Error refreshing service ticket: %v", err)
+				}
 				return cas, nil, err
 			} else if cas, serviceTicket, err = c.stp.Current(); err != nil {
+				if c.debug {
+					c.log.Printf("Error fetching current service ticket after refresh: %v", err)
+				}
 				return cas, nil, err
 			}
 		}

@@ -39,8 +39,8 @@ func NewWSGAPHealthSummary() *WSGAPHealthSummary {
 // Get up / down status of AP's
 //
 // Request Body:
-//	 - body *WSGCommonQueryCriteria
-func (s *WSGAPHealthService) FindApHealthSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteria) (*WSGAPHealthSummary, *APIResponseMeta, error) {
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAPHealthService) FindApHealthSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAPHealthSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

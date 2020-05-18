@@ -39,8 +39,8 @@ func NewWSGClientHealthSummary() *WSGClientHealthSummary {
 // Get current connected count of Clients
 //
 // Request Body:
-//	 - body *WSGCommonQueryCriteria
-func (s *WSGClientHealthService) FindClientHealthSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteria) (*WSGClientHealthSummary, *APIResponseMeta, error) {
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGClientHealthService) FindClientHealthSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientHealthSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

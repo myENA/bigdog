@@ -39,8 +39,8 @@ func NewWSGClientMonitoringSummary() *WSGClientMonitoringSummary {
 // Get current connected count of Clients
 //
 // Request Body:
-//	 - body *WSGCommonQueryCriteria
-func (s *WSGClientMonitoringService) FindClientMonitoringSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteria) (*WSGClientMonitoringSummary, *APIResponseMeta, error) {
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGClientMonitoringService) FindClientMonitoringSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientMonitoringSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

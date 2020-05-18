@@ -39,8 +39,8 @@ func NewWSGAPMonitoringSummary() *WSGAPMonitoringSummary {
 // Get up / down status of AP's
 //
 // Request Body:
-//	 - body *WSGCommonQueryCriteria
-func (s *WSGAPMonitoringService) FindApMonitoringSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteria) (*WSGAPMonitoringSummary, *APIResponseMeta, error) {
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGAPMonitoringService) FindApMonitoringSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAPMonitoringSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

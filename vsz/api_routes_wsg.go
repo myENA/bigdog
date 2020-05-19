@@ -840,6 +840,7 @@ const (
 	RouteWSGFindWifiCallingWifiCallingPolicyById                                 = "/wsg/api/public/v9_0/wifiCalling/wifiCallingPolicy/{id}"
 	RouteWSGFindWiredclientByQueryCriteria                                       = "/wsg/api/public/v9_0/query/wiredclient"
 	RouteWSGFindWlanByQueryCriteria                                              = "/wsg/api/public/v9_0/query/wlan"
+	RouteWSGFindWLANClientTrafficAnalysisByQueryCriteria                         = "/wsg/api/public/v9_0/trafficAnalysis/client/app/wlan"
 	RouteWSGFindZdImportGetZDAPs                                                 = "/wsg/api/public/v9_0/zdImport/getZDAPs"
 	RouteWSGFindZdImportStatus                                                   = "/wsg/api/public/v9_0/zdImport/status"
 	RouteWSGPartialUpdateAccountSecurityById                                     = "/wsg/api/public/v9_0/accountSecurity/{id}"

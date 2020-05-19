@@ -327,7 +327,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 		// if the response code matches the expected "success" code...
 		if modelPtr != nil {
 			// ... and this query has a modeled response, attempt to unmarshal into that type
-			if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil {
+			if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil && err != io.EOF {
 				finalErr = fmt.Errorf("error unmarshalling response body into %T: %w", modelPtr, err)
 			}
 		}

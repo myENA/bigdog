@@ -522,6 +522,7 @@ const (
 	RouteWSGFindClientByQueryCriteria                                            = "/wsg/api/public/v9_0/query/client"
 	RouteWSGFindClientHealthSummaryByQueryCriteria                               = "/wsg/api/public/v9_0/health/status/client"
 	RouteWSGFindClientMonitoringSummaryByQueryCriteria                           = "/wsg/api/public/v9_0/monitor/client"
+	RouteWSGFindClientTrafficAnalysisByQueryCriteria                             = "/wsg/api/public/v9_0/trafficAnalysis/line/usage/client"
 	RouteWSGFindCluster                                                          = "/wsg/api/public/v9_0/cluster"
 	RouteWSGFindClusterGeoRedundancy                                             = "/wsg/api/public/v9_0/cluster/geoRedundancy"
 	RouteWSGFindClusterState                                                     = "/wsg/api/public/v9_0/cluster/state"

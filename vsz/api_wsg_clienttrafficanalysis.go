@@ -22,6 +22,63 @@ func (ss *WSGService) WSGClientTrafficAnalysisService() *WSGClientTrafficAnalysi
 	return NewWSGClientTrafficAnalysisService(ss.apiClient)
 }
 
+type WSGClientTrafficAnalysisApClientTrafficAnalysisSummary struct {
+	Extra *WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryExtraType `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryListType `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGClientTrafficAnalysisApClientTrafficAnalysisSummary() *WSGClientTrafficAnalysisApClientTrafficAnalysisSummary {
+	m := new(WSGClientTrafficAnalysisApClientTrafficAnalysisSummary)
+	return m
+}
+
+type WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryExtraType struct {
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryExtraType) UnmarshalJSON(b []byte) error {
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	*t = WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryExtraType{XAdditionalProperties: tmp}
+	return nil
+}
+
+func (t *WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryExtraType) MarshalJSON() ([]byte, error) {
+	if t == nil || t.XAdditionalProperties == nil {
+		return nil, nil
+	}
+	return json.Marshal(t.XAdditionalProperties)
+}
+
+func NewWSGClientTrafficAnalysisApClientTrafficAnalysisSummaryExtraType() *WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryExtraType {
+	m := new(WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryExtraType)
+	return m
+}
+
+type WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryListType struct {
+	AppName *string `json:"appName,omitempty"`
+
+	Key *string `json:"key,omitempty"`
+
+	Value *float64 `json:"value,omitempty"`
+}
+
+func NewWSGClientTrafficAnalysisApClientTrafficAnalysisSummaryListType() *WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryListType {
+	m := new(WSGClientTrafficAnalysisApClientTrafficAnalysisSummaryListType)
+	return m
+}
+
 type WSGClientTrafficAnalysisSummary struct {
 	Extra *WSGClientTrafficAnalysisSummaryExtraType `json:"extra,omitempty"`
 
@@ -162,6 +219,39 @@ func (t *WSGClientTrafficAnalysisSummaryListTypeExtraValuesTotalType) MarshalJSO
 func NewWSGClientTrafficAnalysisSummaryListTypeExtraValuesTotalType() *WSGClientTrafficAnalysisSummaryListTypeExtraValuesTotalType {
 	m := new(WSGClientTrafficAnalysisSummaryListTypeExtraValuesTotalType)
 	return m
+}
+
+// FindAPClientTrafficAnalysisByQueryCriteria
+//
+// View wireless client traffic analysis data for a specific AP
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+func (s *WSGClientTrafficAnalysisService) FindAPClientTrafficAnalysisByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientTrafficAnalysisApClientTrafficAnalysisSummary, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *WSGClientTrafficAnalysisApClientTrafficAnalysisSummary
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
+		return resp, rm, err
+	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindAPClientTrafficAnalysisByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGClientTrafficAnalysisApClientTrafficAnalysisSummary()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // FindClientTrafficAnalysisByQueryCriteria

@@ -470,6 +470,7 @@ const (
 	RouteWSGFindAdminaaa                                                         = "/wsg/api/public/v9_0/adminaaa"
 	RouteWSGFindAdminaaaById                                                     = "/wsg/api/public/v9_0/adminaaa/{id}"
 	RouteWSGFindApByQueryCriteria                                                = "/wsg/api/public/v9_0/query/ap"
+	RouteWSGFindAPClientTrafficAnalysisByQueryCriteria                           = "/wsg/api/public/v9_0/trafficAnalysis/client/app/ap"
 	RouteWSGFindApHealthSummaryByQueryCriteria                                   = "/wsg/api/public/v9_0/health/status/ap"
 	RouteWSGFindApMonitoringSummaryByQueryCriteria                               = "/wsg/api/public/v9_0/monitor/ap"
 	RouteWSGFindApPatch                                                          = "/wsg/api/public/v9_0/apPatch"

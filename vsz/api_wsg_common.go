@@ -689,6 +689,19 @@ func NewWSGCommonMac() *WSGCommonMac {
 	return m
 }
 
+type WSGCommonMonitoringSummary struct {
+	FlaggedCount *int `json:"flaggedCount,omitempty"`
+
+	OfflineCount *int `json:"offlineCount,omitempty"`
+
+	OnlineCount *int `json:"onlineCount,omitempty"`
+}
+
+func NewWSGCommonMonitoringSummary() *WSGCommonMonitoringSummary {
+	m := new(WSGCommonMonitoringSummary)
+	return m
+}
+
 type WSGCommonNormalName string
 
 func NewWSGCommonNormalName() *WSGCommonNormalName {

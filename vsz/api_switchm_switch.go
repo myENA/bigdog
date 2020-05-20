@@ -1369,9 +1369,9 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 // Reboot switch by MAC address
 //
 // Required Parameters:
-// - switchMac string
+// - switchId string
 //		- required
-func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchMac string) (*SwitchMSwitchRebootResponse, *APIResponseMeta, error) {
+func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchId string) (*SwitchMSwitchRebootResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1383,7 +1383,7 @@ func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchMac st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchReboot, true)
-	req.SetPathParameter("switchMac", switchMac)
+	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchRebootResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

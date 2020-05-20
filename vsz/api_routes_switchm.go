@@ -33,7 +33,7 @@ const (
 	RouteSwitchMAddSwitchconfigBackupDiff                     = "/switchm/api/v9_0/switchconfig/backup/diff"
 	RouteSwitchMAddSwitchPortsDetails                         = "/switchm/api/v9_0/switch/ports/details"
 	RouteSwitchMAddSwitchPortsSummary                         = "/switchm/api/v9_0/switch/ports/summary"
-	RouteSwitchMAddSwitchReboot                               = "/switchm/api/v9_0/switch/{switchMac}/reboot"
+	RouteSwitchMAddSwitchReboot                               = "/switchm/api/v9_0/switch/{switchId}/reboot"
 	RouteSwitchMAddSwitchSnmpSyncedSwitch                     = "/switchm/api/v9_0/switch/snmpSyncedSwitch"
 	RouteSwitchMAddSwitchTopByFirmware                        = "/switchm/api/v9_0/switch/top/byFirmware"
 	RouteSwitchMAddSwitchTopByModel                           = "/switchm/api/v9_0/switch/top/byModel"

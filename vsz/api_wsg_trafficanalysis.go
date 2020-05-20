@@ -204,6 +204,44 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 	return resp, rm, err
 }
 
+// FindTrafficAnalysisAggregatesGroupedByQueryCriteria
+//
+// View grouped traffic analysis aggregates
+//
+// Request Body:
+//	 - body *WSGCommonQueryCriteriaSuperSet
+//
+// Required Parameters:
+// - resource string
+//		- required
+//		- oneof:[clients,usage]
+// - source string
+//		- required
+//		- oneof:[ap,wlan]
+func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, source string) (*WSGTrafficAnalysisResults, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *WSGTrafficAnalysisResults
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesGroupedByQueryCriteria, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetPathParameter("resource", resource)
+	req.SetPathParameter("source", source)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGTrafficAnalysisResults()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
 // FindTrafficAnalysisClientResourceByQueryCriteria
 //
 // View client resource analytics

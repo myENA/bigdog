@@ -1213,6 +1213,15 @@ func NewSwitchMSwitchQueryResultList() *SwitchMSwitchQueryResultList {
 	return m
 }
 
+type SwitchMSwitchRebootResponse struct {
+	Id *string `json:"id,omitempty"`
+}
+
+func NewSwitchMSwitchRebootResponse() *SwitchMSwitchRebootResponse {
+	m := new(SwitchMSwitchRebootResponse)
+	return m
+}
+
 type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
 	// Extra
 	// Any additional response data
@@ -1351,6 +1360,32 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 	req.SetHeader(headerKeyContentType, "text/plain")
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMSwitchQueryResultList()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// AddSwitchReboot
+//
+// Reboot switch by MAC address
+//
+// Required Parameters:
+// - switchMac string
+//		- required
+func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchMac string) (*SwitchMSwitchRebootResponse, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMSwitchRebootResponse
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchReboot, true)
+	req.SetPathParameter("switchMac", switchMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMSwitchRebootResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

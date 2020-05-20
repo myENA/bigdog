@@ -2291,14 +2291,6 @@ func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *WSG
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -2330,14 +2322,6 @@ func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansGuestByZoneId, true)
@@ -2373,14 +2357,6 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansHotspot20ByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -2412,14 +2388,6 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Conte
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansHotspot20openByZoneId, true)
@@ -2455,14 +2423,6 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansHotspot20osenByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -2494,12 +2454,6 @@ func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, id str
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansQosMapsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -2527,14 +2481,6 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Conte
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansStandard8021XByZoneId, true)
@@ -2570,14 +2516,6 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansStandard8021XmacByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -2609,14 +2547,6 @@ func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansStandardmacByZoneId, true)
@@ -2652,14 +2582,6 @@ func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansWebauthByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -2691,14 +2613,6 @@ func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, bod
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansWechatByZoneId, true)
@@ -2734,14 +2648,6 @@ func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansWispr8021XByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -2773,14 +2679,6 @@ func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansWisprByZoneId, true)
@@ -2816,14 +2714,6 @@ func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansWisprmacByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -2855,12 +2745,6 @@ func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx c
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansAccountingServiceOrProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -2886,12 +2770,6 @@ func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, id string,
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansById, true)
@@ -2921,12 +2799,6 @@ func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansDevicePolicyById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -2952,12 +2824,6 @@ func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Cont
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansDiffServProfileById, true)
@@ -2987,12 +2853,6 @@ func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansDnsServerProfileById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -3018,12 +2878,6 @@ func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, id st
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansL2ACLById, true)
@@ -3053,12 +2907,6 @@ func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlansQosMapsById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -3085,12 +2933,6 @@ func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, id string, z
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlansById, true)
@@ -3126,9 +2968,6 @@ func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId s
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlansByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -3158,11 +2997,6 @@ func (s *WSGWLANService) FindWlanByQueryCriteria(ctx context.Context, body *WSGC
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindWlanByQueryCriteria, true)
@@ -3198,17 +3032,6 @@ func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlansById, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
@@ -3241,17 +3064,6 @@ func (s *WSGWLANService) UpdateRkszonesWlansById(ctx context.Context, body *WSGW
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateRkszonesWlansById, true)

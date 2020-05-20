@@ -38,9 +38,6 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -99,9 +96,6 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesVdpById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -125,9 +119,6 @@ func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context,
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)

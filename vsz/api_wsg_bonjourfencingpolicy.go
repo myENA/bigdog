@@ -42,14 +42,6 @@ func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesBonjourFencingPolicyByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -76,11 +68,6 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx 
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicy, true)
@@ -110,9 +97,6 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicyById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -136,9 +120,6 @@ func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(c
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, apMac, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsBonjourFencingStatisticByApMac, true)
@@ -169,12 +150,6 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ct
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -202,9 +177,6 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -228,11 +200,6 @@ func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQuery
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesBonjourFencingPolicyByQueryCriteria, true)
@@ -266,17 +233,6 @@ func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPoli
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourFencingPolicyById, true)

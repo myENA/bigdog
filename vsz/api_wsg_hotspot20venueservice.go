@@ -42,14 +42,6 @@ func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesHs20VenuesByZoneId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -81,12 +73,6 @@ func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx conte
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesHs20VenuesById, true)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -113,12 +99,6 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20VenuesById, true)
@@ -148,9 +128,6 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesHs20VenuesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -174,11 +151,6 @@ func (s *WSGHotspot20VenueServiceService) FindServicesVenueProfileByQueryCriteri
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesVenueProfileByQueryCriteria, true)
@@ -212,17 +184,6 @@ func (s *WSGHotspot20VenueServiceService) PartialUpdateRkszonesHs20VenuesById(ct
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, zoneId, "required"); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesHs20VenuesById, true)

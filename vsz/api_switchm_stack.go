@@ -446,9 +446,6 @@ func (s *SwitchMStackService) AddStack(ctx context.Context, body SwitchMStackCon
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddStack, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -478,9 +475,6 @@ func (s *SwitchMStackService) FindStackBySwitchId(ctx context.Context, switchId 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, switchId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -505,9 +499,6 @@ func (s *SwitchMStackService) FindStackMemberBySerialNumber(ctx context.Context,
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, serialNumber, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)

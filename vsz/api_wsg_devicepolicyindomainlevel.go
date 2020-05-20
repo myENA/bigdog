@@ -38,11 +38,6 @@ func (s *WSGDevicePolicyinDomainLevelService) AddDevicePolicy(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddDevicePolicy, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -70,11 +65,6 @@ func (s *WSGDevicePolicyinDomainLevelService) DeleteDevicePolicy(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDevicePolicy, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
@@ -100,9 +90,6 @@ func (s *WSGDevicePolicyinDomainLevelService) DeleteDevicePolicyById(ctx context
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDevicePolicyById, true)
@@ -168,9 +155,6 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicyById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDevicePolicyById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -194,11 +178,6 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicyByQueryCriteria(ct
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindDevicePolicyByQueryCriteria, true)
@@ -230,14 +209,6 @@ func (s *WSGDevicePolicyinDomainLevelService) UpdateDevicePolicyById(ctx context
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateDevicePolicyById, true)

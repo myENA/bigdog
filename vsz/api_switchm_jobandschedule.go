@@ -38,11 +38,6 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddJob, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -96,14 +91,6 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, jobId, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobByJobId, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -132,9 +119,6 @@ func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.C
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, scheduleId, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)

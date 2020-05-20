@@ -99,11 +99,6 @@ func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport)
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddGdprReport, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err

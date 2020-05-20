@@ -139,9 +139,6 @@ func (s *WSGAccessPointAPPService) UpdateLinemanWorkflow(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err

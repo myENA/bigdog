@@ -58,9 +58,6 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, body [
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddApPatchFile, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
@@ -107,9 +104,6 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddClusterRestoreById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -153,9 +147,6 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationRestoreById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -177,9 +168,6 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationUpload, true)
@@ -230,9 +218,6 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddUpgradeUpload, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -261,9 +246,6 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteClusterById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
@@ -286,9 +268,6 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteConfigurationById, true)
@@ -513,9 +492,6 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, backupUUID, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationDownload, true)
 	req.SetQueryParameter("backupUUID", []string{backupUUID})
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
@@ -665,11 +641,6 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return rm, err
-	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup, true)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
@@ -694,11 +665,6 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup, true)
@@ -726,11 +692,6 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateClusterGeoRedundancy, true)

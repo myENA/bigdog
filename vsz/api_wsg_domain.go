@@ -156,11 +156,6 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddDomains, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -190,9 +185,6 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) (*A
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDomainsById, true)
@@ -272,9 +264,6 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
@@ -302,9 +291,6 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, domainName, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
@@ -343,9 +329,6 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
@@ -389,14 +372,6 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)

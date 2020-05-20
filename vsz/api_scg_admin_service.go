@@ -262,11 +262,6 @@ func (s *SCGAdminService) CreateLDAPAAAServer(ctx context.Context, body *SCGAdmi
 	if body != nil {
 		body.Type = "LDAP"
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPost, RouteSCGAdminAAAServers, true)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -293,14 +288,6 @@ func (s *SCGAdminService) UpdateLDAPAAAServer(ctx context.Context, id string, bo
 	if body != nil {
 		body.Type = "LDAP"
 	}
-	if err = pkgValidator.VarCtx(ctx, body, "required"); err != nil {
-		return resp, rm, err
-	} else if err = pkgValidator.StructCtx(ctx, body); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
-		return resp, rm, err
-	}
 	req = NewAPIRequest(http.MethodPut, RouteSCGAdminAAAServer, true)
 	req.SetPathParameter("id", id)
 	if err = req.SetBody(body); err != nil {
@@ -322,9 +309,6 @@ func (s *SCGAdminService) DeleteAAAServer(ctx context.Context, id string) (*SCGA
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	if err = pkgValidator.VarCtx(ctx, id, "required"); err != nil {
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSCGAdminAAAServer, true)

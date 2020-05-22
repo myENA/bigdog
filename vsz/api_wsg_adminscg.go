@@ -61,7 +61,7 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 	AuthType *string `json:"authType,omitempty"`
 
-	ClientCertId *WSGAdminSCGScgAaaServerDataTypeListTypeClientCertIdType `json:"clientCertId,omitempty"`
+	ClientCertId *string `json:"clientCertId,omitempty"`
 
 	CnSanIdentity *string `json:"cnSanIdentity,omitempty"`
 
@@ -77,15 +77,15 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 	DefaultUserGroupEnabled *bool `json:"defaultUserGroupEnabled,omitempty"`
 
-	Description *WSGAdminSCGScgAaaServerDataTypeListTypeDescriptionType `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
-	DomainId *WSGAdminSCGScgAaaServerDataTypeListTypeDomainIdType `json:"domainId,omitempty"`
+	DomainId *string `json:"domainId,omitempty"`
 
 	DomainName *string `json:"domainName,omitempty"`
 
 	EnableSecondaryRadius *int `json:"enableSecondaryRadius,omitempty"`
 
-	GlobalCatalog *WSGAdminSCGScgAaaServerDataTypeListTypeGlobalCatalogType `json:"globalCatalog,omitempty"`
+	GlobalCatalog *string `json:"globalCatalog,omitempty"`
 
 	Id *string `json:"id,omitempty"`
 
@@ -93,7 +93,7 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 	IpMode *string `json:"ipMode,omitempty"`
 
-	Ipv6 *WSGAdminSCGScgAaaServerDataTypeListTypeIpv6Type `json:"ipv6,omitempty"`
+	Ipv6 *string `json:"ipv6,omitempty"`
 
 	IsConflict *int `json:"isConflict,omitempty"`
 
@@ -121,11 +121,11 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 	RadiusIP *string `json:"radiusIP,omitempty"`
 
-	RadiusIPv6 *WSGAdminSCGScgAaaServerDataTypeListTypeRadiusIPv6Type `json:"radiusIPv6,omitempty"`
+	RadiusIPv6 *string `json:"radiusIPv6,omitempty"`
 
 	RadiusPort *int `json:"radiusPort,omitempty"`
 
-	RadiusProtocol *WSGAdminSCGScgAaaServerDataTypeListTypeRadiusProtocolType `json:"radiusProtocol,omitempty"`
+	RadiusProtocol *string `json:"radiusProtocol,omitempty"`
 
 	RadiusRealm *string `json:"radiusRealm,omitempty"`
 
@@ -147,57 +147,57 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 	SecondaryRadiusEnabled *bool `json:"secondaryRadiusEnabled,omitempty"`
 
-	SecondaryRadiusIP *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPType `json:"secondaryRadiusIP,omitempty"`
+	SecondaryRadiusIP *string `json:"secondaryRadiusIP,omitempty"`
 
-	SecondaryRadiusIPv6 *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPv6Type `json:"secondaryRadiusIPv6,omitempty"`
+	SecondaryRadiusIPv6 *string `json:"secondaryRadiusIPv6,omitempty"`
 
-	SecondaryRadiusPort *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusPortType `json:"secondaryRadiusPort,omitempty"`
+	SecondaryRadiusPort *string `json:"secondaryRadiusPort,omitempty"`
 
-	SecondaryRadiusProtocol *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusProtocolType `json:"secondaryRadiusProtocol,omitempty"`
+	SecondaryRadiusProtocol *string `json:"secondaryRadiusProtocol,omitempty"`
 
-	SecondaryRadiusShareSecret *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusShareSecretType `json:"secondaryRadiusShareSecret,omitempty"`
+	SecondaryRadiusShareSecret *string `json:"secondaryRadiusShareSecret,omitempty"`
 
-	StandbyAdminDomainName *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyAdminDomainNameType `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
-	StandbyDomainName *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyDomainNameType `json:"standbyDomainName,omitempty"`
+	StandbyDomainName *string `json:"standbyDomainName,omitempty"`
 
-	StandbyEnableSecondaryRadius *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyEnableSecondaryRadiusType `json:"standbyEnableSecondaryRadius,omitempty"`
+	StandbyEnableSecondaryRadius *bool `json:"standbyEnableSecondaryRadius,omitempty"`
 
-	StandbyGlobalCatalog *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyGlobalCatalogType `json:"standbyGlobalCatalog,omitempty"`
+	StandbyGlobalCatalog *string `json:"standbyGlobalCatalog,omitempty"`
 
-	StandbyIp *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpType `json:"standbyIp,omitempty"`
+	StandbyIp *string `json:"standbyIp,omitempty"`
 
-	StandbyIpv6 *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpv6Type `json:"standbyIpv6,omitempty"`
+	StandbyIpv6 *string `json:"standbyIpv6,omitempty"`
 
-	StandbyKeyAttribute *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyKeyAttributeType `json:"standbyKeyAttribute,omitempty"`
+	StandbyKeyAttribute *string `json:"standbyKeyAttribute,omitempty"`
 
-	StandbyPassword *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPasswordType `json:"standbyPassword,omitempty"`
+	StandbyPassword *string `json:"standbyPassword,omitempty"`
 
-	StandbyPort *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPortType `json:"standbyPort,omitempty"`
+	StandbyPort *string `json:"standbyPort,omitempty"`
 
-	StandbyRadiusIP *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPType `json:"standbyRadiusIP,omitempty"`
+	StandbyRadiusIP *string `json:"standbyRadiusIP,omitempty"`
 
-	StandbyRadiusIPv6 *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPv6Type `json:"standbyRadiusIPv6,omitempty"`
+	StandbyRadiusIPv6 *string `json:"standbyRadiusIPv6,omitempty"`
 
-	StandbyRadiusPort *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusPortType `json:"standbyRadiusPort,omitempty"`
+	StandbyRadiusPort *string `json:"standbyRadiusPort,omitempty"`
 
-	StandbyRadiusShareSecret *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusShareSecretType `json:"standbyRadiusShareSecret,omitempty"`
+	StandbyRadiusShareSecret *string `json:"standbyRadiusShareSecret,omitempty"`
 
-	StandbySearchFilter *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySearchFilterType `json:"standbySearchFilter,omitempty"`
+	StandbySearchFilter *string `json:"standbySearchFilter,omitempty"`
 
-	StandbySecondaryRadiusIP *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPType `json:"standbySecondaryRadiusIP,omitempty"`
+	StandbySecondaryRadiusIP *string `json:"standbySecondaryRadiusIP,omitempty"`
 
-	StandbySecondaryRadiusIPv6 *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPv6Type `json:"standbySecondaryRadiusIPv6,omitempty"`
+	StandbySecondaryRadiusIPv6 *string `json:"standbySecondaryRadiusIPv6,omitempty"`
 
-	StandbySecondaryRadiusPort *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusPortType `json:"standbySecondaryRadiusPort,omitempty"`
+	StandbySecondaryRadiusPort *int `json:"standbySecondaryRadiusPort,omitempty"`
 
-	StandbySecondaryRadiusShareSecret *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusShareSecretType `json:"standbySecondaryRadiusShareSecret,omitempty"`
+	StandbySecondaryRadiusShareSecret *string `json:"standbySecondaryRadiusShareSecret,omitempty"`
 
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
-	StandbyWindowsDomainName *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyWindowsDomainNameType `json:"standbyWindowsDomainName,omitempty"`
+	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
 
-	TacacsService *WSGAdminSCGScgAaaServerDataTypeListTypeTacacsServiceType `json:"tacacsService,omitempty"`
+	TacacsService *string `json:"tacacsService,omitempty"`
 
 	TenantUUID *string `json:"tenantUUID,omitempty"`
 
@@ -219,138 +219,13 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 	ValidSecondaryRadiusIPv6 *bool `json:"validSecondaryRadiusIPv6,omitempty"`
 
-	WindowsDomainName *WSGAdminSCGScgAaaServerDataTypeListTypeWindowsDomainNameType `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
 
 	ZombiePeriod *int `json:"zombiePeriod,omitempty"`
 }
 
 func NewWSGAdminSCGScgAaaServerDataTypeListType() *WSGAdminSCGScgAaaServerDataTypeListType {
 	m := new(WSGAdminSCGScgAaaServerDataTypeListType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeClientCertIdType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeClientCertIdType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeClientCertIdType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeClientCertIdType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeClientCertIdType() *WSGAdminSCGScgAaaServerDataTypeListTypeClientCertIdType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeClientCertIdType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeDescriptionType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeDescriptionType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeDescriptionType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeDescriptionType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeDescriptionType() *WSGAdminSCGScgAaaServerDataTypeListTypeDescriptionType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeDescriptionType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeDomainIdType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeDomainIdType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeDomainIdType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeDomainIdType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeDomainIdType() *WSGAdminSCGScgAaaServerDataTypeListTypeDomainIdType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeDomainIdType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeGlobalCatalogType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeGlobalCatalogType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeGlobalCatalogType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeGlobalCatalogType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeGlobalCatalogType() *WSGAdminSCGScgAaaServerDataTypeListTypeGlobalCatalogType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeGlobalCatalogType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeIpv6Type struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeIpv6Type) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeIpv6Type{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeIpv6Type) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeIpv6Type() *WSGAdminSCGScgAaaServerDataTypeListTypeIpv6Type {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeIpv6Type)
 	return m
 }
 
@@ -376,706 +251,6 @@ func (t *WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType) Marsha
 
 func NewWSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType() *WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType {
 	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeRadiusIPv6Type struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeRadiusIPv6Type) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeRadiusIPv6Type{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeRadiusIPv6Type) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeRadiusIPv6Type() *WSGAdminSCGScgAaaServerDataTypeListTypeRadiusIPv6Type {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeRadiusIPv6Type)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeRadiusProtocolType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeRadiusProtocolType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeRadiusProtocolType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeRadiusProtocolType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeRadiusProtocolType() *WSGAdminSCGScgAaaServerDataTypeListTypeRadiusProtocolType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeRadiusProtocolType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPType() *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPv6Type struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPv6Type) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPv6Type{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPv6Type) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPv6Type() *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPv6Type {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusIPv6Type)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusPortType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusPortType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusPortType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusPortType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusPortType() *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusPortType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusPortType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusProtocolType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusProtocolType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusProtocolType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusProtocolType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusProtocolType() *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusProtocolType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusProtocolType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusShareSecretType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusShareSecretType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusShareSecretType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusShareSecretType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusShareSecretType() *WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusShareSecretType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeSecondaryRadiusShareSecretType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyAdminDomainNameType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyAdminDomainNameType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyAdminDomainNameType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyAdminDomainNameType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyAdminDomainNameType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyAdminDomainNameType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyAdminDomainNameType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyDomainNameType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyDomainNameType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyDomainNameType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyDomainNameType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyDomainNameType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyDomainNameType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyDomainNameType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyEnableSecondaryRadiusType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyEnableSecondaryRadiusType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyEnableSecondaryRadiusType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyEnableSecondaryRadiusType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyEnableSecondaryRadiusType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyEnableSecondaryRadiusType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyEnableSecondaryRadiusType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyGlobalCatalogType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyGlobalCatalogType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyGlobalCatalogType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyGlobalCatalogType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyGlobalCatalogType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyGlobalCatalogType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyGlobalCatalogType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpv6Type struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpv6Type) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpv6Type{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpv6Type) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpv6Type() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpv6Type {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyIpv6Type)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyKeyAttributeType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyKeyAttributeType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyKeyAttributeType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyKeyAttributeType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyKeyAttributeType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyKeyAttributeType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyKeyAttributeType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPasswordType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPasswordType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPasswordType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPasswordType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyPasswordType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPasswordType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPasswordType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPortType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPortType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPortType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPortType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyPortType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPortType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyPortType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPv6Type struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPv6Type) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPv6Type{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPv6Type) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPv6Type() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPv6Type {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusIPv6Type)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusPortType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusPortType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusPortType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusPortType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusPortType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusPortType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusPortType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusShareSecretType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusShareSecretType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusShareSecretType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusShareSecretType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusShareSecretType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusShareSecretType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyRadiusShareSecretType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbySearchFilterType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySearchFilterType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbySearchFilterType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySearchFilterType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbySearchFilterType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySearchFilterType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbySearchFilterType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPv6Type struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPv6Type) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPv6Type{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPv6Type) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPv6Type() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPv6Type {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusIPv6Type)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusPortType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusPortType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusPortType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusPortType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusPortType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusPortType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusPortType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusShareSecretType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusShareSecretType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusShareSecretType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusShareSecretType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusShareSecretType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusShareSecretType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbySecondaryRadiusShareSecretType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeStandbyWindowsDomainNameType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyWindowsDomainNameType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeStandbyWindowsDomainNameType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyWindowsDomainNameType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeStandbyWindowsDomainNameType() *WSGAdminSCGScgAaaServerDataTypeListTypeStandbyWindowsDomainNameType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeStandbyWindowsDomainNameType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeTacacsServiceType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeTacacsServiceType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeTacacsServiceType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeTacacsServiceType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeTacacsServiceType() *WSGAdminSCGScgAaaServerDataTypeListTypeTacacsServiceType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeTacacsServiceType)
-	return m
-}
-
-type WSGAdminSCGScgAaaServerDataTypeListTypeWindowsDomainNameType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeWindowsDomainNameType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeWindowsDomainNameType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeWindowsDomainNameType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeWindowsDomainNameType() *WSGAdminSCGScgAaaServerDataTypeListTypeWindowsDomainNameType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeWindowsDomainNameType)
 	return m
 }
 

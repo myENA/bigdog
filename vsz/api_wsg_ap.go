@@ -460,15 +460,15 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 
 	Busy *int `json:"busy,omitempty"`
 
-	Channel *WSGAPRadioConfigurationDataTypeListTypeChannelType `json:"channel,omitempty"`
+	Channel *string `json:"channel,omitempty"`
 
 	ChannelBlacklist *string `json:"channelBlacklist,omitempty"`
 
-	ChannelList *WSGAPRadioConfigurationDataTypeListTypeChannelListType `json:"channelList,omitempty"`
+	ChannelList *string `json:"channelList,omitempty"`
 
 	ChannelWidth *int `json:"channelWidth,omitempty"`
 
-	ClientCount *WSGAPRadioConfigurationDataTypeListTypeClientCountType `json:"clientCount,omitempty"`
+	ClientCount *int `json:"clientCount,omitempty"`
 
 	Columns *WSGAPRadioConfigurationDataTypeListTypeColumnsType `json:"columns,omitempty"`
 
@@ -504,7 +504,7 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 
 	RxRadioFrames *int `json:"rxRadioFrames,omitempty"`
 
-	SecondaryChannel *WSGAPRadioConfigurationDataTypeListTypeSecondaryChannelType `json:"secondaryChannel,omitempty"`
+	SecondaryChannel *string `json:"secondaryChannel,omitempty"`
 
 	Total *int `json:"total,omitempty"`
 
@@ -532,81 +532,6 @@ func NewWSGAPRadioConfigurationDataTypeListType() *WSGAPRadioConfigurationDataTy
 	return m
 }
 
-type WSGAPRadioConfigurationDataTypeListTypeChannelListType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeChannelListType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAPRadioConfigurationDataTypeListTypeChannelListType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeChannelListType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAPRadioConfigurationDataTypeListTypeChannelListType() *WSGAPRadioConfigurationDataTypeListTypeChannelListType {
-	m := new(WSGAPRadioConfigurationDataTypeListTypeChannelListType)
-	return m
-}
-
-type WSGAPRadioConfigurationDataTypeListTypeChannelType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeChannelType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAPRadioConfigurationDataTypeListTypeChannelType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeChannelType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAPRadioConfigurationDataTypeListTypeChannelType() *WSGAPRadioConfigurationDataTypeListTypeChannelType {
-	m := new(WSGAPRadioConfigurationDataTypeListTypeChannelType)
-	return m
-}
-
-type WSGAPRadioConfigurationDataTypeListTypeClientCountType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeClientCountType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAPRadioConfigurationDataTypeListTypeClientCountType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeClientCountType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAPRadioConfigurationDataTypeListTypeClientCountType() *WSGAPRadioConfigurationDataTypeListTypeClientCountType {
-	m := new(WSGAPRadioConfigurationDataTypeListTypeClientCountType)
-	return m
-}
-
 type WSGAPRadioConfigurationDataTypeListTypeColumnsType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -616,7 +541,11 @@ type WSGAPRadioConfigurationDataTypeListTypeColumnsType struct {
 
 	Busy *string `json:"busy,omitempty"`
 
+	Channel *string `json:"channel,omitempty"`
+
 	ChannelBlacklist *string `json:"channelBlacklist,omitempty"`
+
+	ChannelList *string `json:"channelList,omitempty"`
 
 	ChannelWidth *string `json:"channelWidth,omitempty"`
 
@@ -690,31 +619,6 @@ func (t *WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType) Marsha
 
 func NewWSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType() *WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType {
 	m := new(WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType)
-	return m
-}
-
-type WSGAPRadioConfigurationDataTypeListTypeSecondaryChannelType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeSecondaryChannelType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAPRadioConfigurationDataTypeListTypeSecondaryChannelType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeSecondaryChannelType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAPRadioConfigurationDataTypeListTypeSecondaryChannelType() *WSGAPRadioConfigurationDataTypeListTypeSecondaryChannelType {
-	m := new(WSGAPRadioConfigurationDataTypeListTypeSecondaryChannelType)
 	return m
 }
 

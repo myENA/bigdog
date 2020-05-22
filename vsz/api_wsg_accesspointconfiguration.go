@@ -1088,6 +1088,32 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx con
 	return rm, err
 }
 
+// FindApRadiosByApMac
+//
+// Fetch radio details about an access point by MAC address
+//
+// Required Parameters:
+// - apMac string
+//		- required
+func (s *WSGAccessPointConfigurationService) FindApRadiosByApMac(ctx context.Context, apMac string) (*WSGAPRadioConfiguration, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *WSGAPRadioConfiguration
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRadiosByApMac, true)
+	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewWSGAPRadioConfiguration()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
 // FindAps
 //
 // Use this API command to retrieve the list of APs that belong to a zone or a domain.

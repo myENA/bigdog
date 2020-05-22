@@ -478,6 +478,7 @@ const (
 	RouteWSGFindApplicationsByBladeUUID                                          = "/wsg/api/public/v9_0/applications/{bladeUUID}"
 	RouteWSGFindApplicationsDownloadByBladeUUID                                  = "/wsg/api/public/v9_0/applications/download/{bladeUUID}"
 	RouteWSGFindApplicationsDownloadsnapByBladeUUID                              = "/wsg/api/public/v9_0/applications/downloadsnap/{bladeUUID}"
+	RouteWSGFindApRadiosByApMac                                                  = "/wsg/api/public/v9_0/aps/{apMac}/radios"
 	RouteWSGFindApRules                                                          = "/wsg/api/public/v9_0/apRules"
 	RouteWSGFindApRulesById                                                      = "/wsg/api/public/v9_0/apRules/{id}"
 	RouteWSGFindApRulesPriorityDownById                                          = "/wsg/api/public/v9_0/apRules/priorityDown/{id}"

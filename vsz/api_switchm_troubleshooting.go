@@ -105,23 +105,11 @@ func NewSwitchMTroubleShootingRemoteClientConnectivityResponseDataTypeNetworkSwi
 }
 
 type SwitchMTroubleShootingRemoteClientConnectivityResponseErrorType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
+	Message *string `json:"message,omitempty"`
 
-func (t *SwitchMTroubleShootingRemoteClientConnectivityResponseErrorType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTroubleShootingRemoteClientConnectivityResponseErrorType{XAdditionalProperties: tmp}
-	return nil
-}
+	MsgKey *string `json:"msgKey,omitempty"`
 
-func (t *SwitchMTroubleShootingRemoteClientConnectivityResponseErrorType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
+	MsgValues []string `json:"msgValues,omitempty"`
 }
 
 func NewSwitchMTroubleShootingRemoteClientConnectivityResponseErrorType() *SwitchMTroubleShootingRemoteClientConnectivityResponseErrorType {

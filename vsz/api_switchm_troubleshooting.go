@@ -332,7 +332,6 @@ func NewSwitchMTroubleShootingSupportLogStatus() *SwitchMTroubleShootingSupportL
 //
 // Switch trace client connectivity
 //
-
 // Trace a specific client's path of connectivity to a given switch
 //
 // Request Body:
@@ -363,7 +362,6 @@ func (s *SwitchMTroubleShootingService) ExecuteSwitchRemoteClientConnectivity(ct
 //
 // Switch remote ping
 //
-
 // Attempt to ping an address or hostname from a specific switch. Note: This API is quite slow, and may take > 5 seconds to respond
 //
 // Request Body:
@@ -394,7 +392,6 @@ func (s *SwitchMTroubleShootingService) ExecuteSwitchRemotePing(ctx context.Cont
 //
 // Switch remote traceroute
 //
-
 // Attempt to execute a traceroute from a specific switch to a destination.  Note: This is a very slow API, taking > 30 seconds to respond.
 //
 // Request Body:

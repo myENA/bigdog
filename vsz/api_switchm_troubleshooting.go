@@ -352,7 +352,7 @@ func (s *SwitchMTroubleShootingService) ExecuteSwitchRemoteClientConnectivity(ct
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTroubleShootingRemoteClientConnectivityResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -383,7 +383,7 @@ func (s *SwitchMTroubleShootingService) ExecuteSwitchRemotePing(ctx context.Cont
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTroubleShootingRemoteCommandResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -414,7 +414,7 @@ func (s *SwitchMTroubleShootingService) ExecuteSwitchRemoteTraceroute(ctx contex
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSwitchMTroubleShootingRemoteCommandResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

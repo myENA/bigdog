@@ -644,7 +644,7 @@ type SwitchMSwitchPortDetails struct {
 
 	// ConnectedDevice
 	// Connected device information
-	ConnectedDevice *SwitchMSwitchPortDetailsConnectedDeviceType `json:"connectedDevice,omitempty"`
+	ConnectedDevice []*SwitchMSwitchPortDetailsConnectedDeviceType `json:"connectedDevice,omitempty"`
 
 	// Id
 	// Identifier of switch port

@@ -7,24 +7,24 @@ import (
 	"net/http"
 )
 
-type SwitchMConfigurationhistoryService struct {
+type SwitchMConfigurationHistoryService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMConfigurationhistoryService(c *APIClient) *SwitchMConfigurationhistoryService {
-	s := new(SwitchMConfigurationhistoryService)
+func NewSwitchMConfigurationHistoryService(c *APIClient) *SwitchMConfigurationHistoryService {
+	s := new(SwitchMConfigurationHistoryService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMConfigurationhistoryService() *SwitchMConfigurationhistoryService {
-	return NewSwitchMConfigurationhistoryService(ss.apiClient)
+func (ss *SwitchMService) SwitchMConfigurationHistoryService() *SwitchMConfigurationHistoryService {
+	return NewSwitchMConfigurationHistoryService(ss.apiClient)
 }
 
 // FindConfigurationHistory
 //
 // Use this API command to Retrieve Configuration History List.
-func (s *SwitchMConfigurationhistoryService) FindConfigurationHistory(ctx context.Context) (*SwitchMDeploylogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx context.Context) (*SwitchMDeploylogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -48,7 +48,7 @@ func (s *SwitchMConfigurationhistoryService) FindConfigurationHistory(ctx contex
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMConfigurationhistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeploylogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeploylogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -73,7 +73,7 @@ func (s *SwitchMConfigurationhistoryService) FindConfigurationHistoryByQueryCrit
 // FindConfigurationHistoryDetail
 //
 // Use this API command to Retrieve Configuration History List.
-func (s *SwitchMConfigurationhistoryService) FindConfigurationHistoryDetail(ctx context.Context) (*SwitchMDeploylogitemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context) (*SwitchMDeploylogitemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -97,7 +97,7 @@ func (s *SwitchMConfigurationhistoryService) FindConfigurationHistoryDetail(ctx 
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMConfigurationhistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeploylogitemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeploylogitemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

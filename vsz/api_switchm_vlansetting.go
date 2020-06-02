@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMVlansettingService struct {
+type SwitchMVLANSettingsService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMVlansettingService(c *APIClient) *SwitchMVlansettingService {
-	s := new(SwitchMVlansettingService)
+func NewSwitchMVLANSettingsService(c *APIClient) *SwitchMVLANSettingsService {
+	s := new(SwitchMVLANSettingsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMVlansettingService() *SwitchMVlansettingService {
-	return NewSwitchMVlansettingService(ss.apiClient)
+func (ss *SwitchMService) SwitchMVLANSettingsService() *SwitchMVLANSettingsService {
+	return NewSwitchMVLANSettingsService(ss.apiClient)
 }
 
 // AddVlans
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMVlansettingService() *SwitchMVlansettingService
 //
 // Request Body:
 //	 - body *SwitchMVlanconfigCreateVlanConfig
-func (s *SwitchMVlansettingService) AddVlans(ctx context.Context, body *SwitchMVlanconfigCreateVlanConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) AddVlans(ctx context.Context, body *SwitchMVlanconfigCreateVlanConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *SwitchMVlansettingService) AddVlans(ctx context.Context, body *SwitchMV
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMVlansettingService) DeleteVlans(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) DeleteVlans(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *SwitchMVlansettingService) DeleteVlans(ctx context.Context, body *Switc
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVlansettingService) DeleteVlansById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) DeleteVlansById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,7 +102,7 @@ func (s *SwitchMVlansettingService) DeleteVlansById(ctx context.Context, id stri
 // FindVlans
 //
 // Use this API command to Retrieve the VLAN Config List.
-func (s *SwitchMVlansettingService) FindVlans(ctx context.Context) (*SwitchMVlanconfigQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context) (*SwitchMVlanconfigQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -127,7 +127,7 @@ func (s *SwitchMVlansettingService) FindVlans(ctx context.Context) (*SwitchMVlan
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVlansettingService) FindVlansById(ctx context.Context, id string) (*SwitchMVlanconfig, *APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) FindVlansById(ctx context.Context, id string) (*SwitchMVlanconfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -152,7 +152,7 @@ func (s *SwitchMVlansettingService) FindVlansById(ctx context.Context, id string
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMVlansettingService) FindVlansByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVlanconfigQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) FindVlansByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVlanconfigQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *SwitchMVlansettingService) FindVlansByQueryCriteria(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVlansettingService) UpdateVlansById(ctx context.Context, body *SwitchMVlanconfigUpdateVlanConfig, id string) (*APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) UpdateVlansById(ctx context.Context, body *SwitchMVlanconfigUpdateVlanConfig, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

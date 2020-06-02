@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMVesettingService struct {
+type SwitchMVESettingsService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMVesettingService(c *APIClient) *SwitchMVesettingService {
-	s := new(SwitchMVesettingService)
+func NewSwitchMVESettingsService(c *APIClient) *SwitchMVESettingsService {
+	s := new(SwitchMVESettingsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMVesettingService() *SwitchMVesettingService {
-	return NewSwitchMVesettingService(ss.apiClient)
+func (ss *SwitchMService) SwitchMVESettingsService() *SwitchMVESettingsService {
+	return NewSwitchMVESettingsService(ss.apiClient)
 }
 
 // AddVeConfigs
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMVesettingService() *SwitchMVesettingService {
 //
 // Request Body:
 //	 - body *SwitchMVeconfigCreate
-func (s *SwitchMVesettingService) AddVeConfigs(ctx context.Context, body *SwitchMVeconfigCreate) (SwitchMVeconfigCreateResult, *APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *SwitchMVeconfigCreate) (SwitchMVeconfigCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *SwitchMVesettingService) AddVeConfigs(ctx context.Context, body *Switch
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMVesettingService) DeleteVeConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) DeleteVeConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *SwitchMVesettingService) DeleteVeConfigs(ctx context.Context, body *Swi
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVesettingService) DeleteVeConfigsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,7 +102,7 @@ func (s *SwitchMVesettingService) DeleteVeConfigsById(ctx context.Context, id st
 // FindVeConfigs
 //
 // Use this API command to Retrieve VE Config List.
-func (s *SwitchMVesettingService) FindVeConfigs(ctx context.Context) (*SwitchMVeconfigList, *APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context) (*SwitchMVeconfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -127,7 +127,7 @@ func (s *SwitchMVesettingService) FindVeConfigs(ctx context.Context) (*SwitchMVe
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVesettingService) FindVeConfigsById(ctx context.Context, id string) (*SwitchMVeconfig, *APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id string) (*SwitchMVeconfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -152,7 +152,7 @@ func (s *SwitchMVesettingService) FindVeConfigsById(ctx context.Context, id stri
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMVesettingService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVeconfigList, *APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVeconfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *SwitchMVesettingService) FindVeConfigsByQueryCriteria(ctx context.Conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVesettingService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVeconfigModify, id string) (*APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVeconfigModify, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

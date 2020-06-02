@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMAccesscontrollistService struct {
+type SwitchMAccessControlListService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMAccesscontrollistService(c *APIClient) *SwitchMAccesscontrollistService {
-	s := new(SwitchMAccesscontrollistService)
+func NewSwitchMAccessControlListService(c *APIClient) *SwitchMAccessControlListService {
+	s := new(SwitchMAccessControlListService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMAccesscontrollistService() *SwitchMAccesscontrollistService {
-	return NewSwitchMAccesscontrollistService(ss.apiClient)
+func (ss *SwitchMService) SwitchMAccessControlListService() *SwitchMAccessControlListService {
+	return NewSwitchMAccessControlListService(ss.apiClient)
 }
 
 // AddAccessControls
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMAccesscontrollistService() *SwitchMAccesscontro
 //
 // Request Body:
 //	 - body *SwitchMACLConfigCreateACLConfig
-func (s *SwitchMAccesscontrollistService) AddAccessControls(ctx context.Context, body *SwitchMACLConfigCreateACLConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context, body *SwitchMACLConfigCreateACLConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *SwitchMAccesscontrollistService) AddAccessControls(ctx context.Context,
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMAccesscontrollistService) DeleteAccessControls(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *SwitchMAccesscontrollistService) DeleteAccessControls(ctx context.Conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMAccesscontrollistService) DeleteAccessControlsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -106,7 +106,7 @@ func (s *SwitchMAccesscontrollistService) DeleteAccessControlsById(ctx context.C
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMAccesscontrollistService) FindAccessControlsById(ctx context.Context, id string) (*SwitchMACLConfig, *APIResponseMeta, error) {
+func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Context, id string) (*SwitchMACLConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -131,7 +131,7 @@ func (s *SwitchMAccesscontrollistService) FindAccessControlsById(ctx context.Con
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMAccesscontrollistService) FindAccessControlsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMACLConfigsQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMACLConfigsQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -163,7 +163,7 @@ func (s *SwitchMAccesscontrollistService) FindAccessControlsByQueryCriteria(ctx 
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMAccesscontrollistService) UpdateAccessControlsById(ctx context.Context, body *SwitchMACLConfigUpdateACLConfig, id string) (*APIResponseMeta, error) {
+func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.Context, body *SwitchMACLConfigUpdateACLConfig, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

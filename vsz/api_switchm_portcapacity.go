@@ -8,35 +8,35 @@ import (
 	"net/http"
 )
 
-type SwitchMPortcapacityService struct {
+type SwitchMPortCapacityService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMPortcapacityService(c *APIClient) *SwitchMPortcapacityService {
-	s := new(SwitchMPortcapacityService)
+func NewSwitchMPortCapacityService(c *APIClient) *SwitchMPortCapacityService {
+	s := new(SwitchMPortCapacityService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMPortcapacityService() *SwitchMPortcapacityService {
-	return NewSwitchMPortcapacityService(ss.apiClient)
+func (ss *SwitchMService) SwitchMPortCapacityService() *SwitchMPortCapacityService {
+	return NewSwitchMPortCapacityService(ss.apiClient)
 }
 
-type SwitchMPortcapacityCapacities struct {
+type SwitchMPortCapacityCapacities struct {
 	// Capacity
 	// Port Speed Capacity
 	Capacity *string `json:"capacity,omitempty"`
 }
 
-func NewSwitchMPortcapacityCapacities() *SwitchMPortcapacityCapacities {
-	m := new(SwitchMPortcapacityCapacities)
+func NewSwitchMPortCapacityCapacities() *SwitchMPortCapacityCapacities {
+	m := new(SwitchMPortCapacityCapacities)
 	return m
 }
 
-type SwitchMPortcapacityResult struct {
+type SwitchMPortCapacityResult struct {
 	// Extra
 	// Extra field
-	Extra *SwitchMPortcapacityResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMPortCapacityResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// The first data index for current reulst
@@ -46,7 +46,7 @@ type SwitchMPortcapacityResult struct {
 	// Indicator of remaining data
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMPortcapacityCapacities `json:"list,omitempty"`
+	List []*SwitchMPortCapacityCapacities `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Data Count
@@ -57,47 +57,47 @@ type SwitchMPortcapacityResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMPortcapacityResult() *SwitchMPortcapacityResult {
-	m := new(SwitchMPortcapacityResult)
+func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
+	m := new(SwitchMPortCapacityResult)
 	return m
 }
 
-// SwitchMPortcapacityResultExtraType
+// SwitchMPortCapacityResultExtraType
 //
 // Extra field
-type SwitchMPortcapacityResultExtraType struct {
+type SwitchMPortCapacityResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMPortcapacityResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMPortCapacityResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMPortcapacityResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMPortCapacityResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMPortcapacityResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMPortCapacityResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMPortcapacityResultExtraType() *SwitchMPortcapacityResultExtraType {
-	m := new(SwitchMPortcapacityResultExtraType)
+func NewSwitchMPortCapacityResultExtraType() *SwitchMPortCapacityResultExtraType {
+	m := new(SwitchMPortCapacityResultExtraType)
 	return m
 }
 
 // FindPortCapacity
 //
 // Use this API command to Retrieve Switch Port Capacity List.
-func (s *SwitchMPortcapacityService) FindPortCapacity(ctx context.Context) (*SwitchMPortcapacityResult, *APIResponseMeta, error) {
+func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context) (*SwitchMPortCapacityResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMPortcapacityResult
+		resp     *SwitchMPortCapacityResult
 		httpResp *http.Response
 		err      error
 	)
@@ -106,7 +106,7 @@ func (s *SwitchMPortcapacityService) FindPortCapacity(ctx context.Context) (*Swi
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortCapacity, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMPortcapacityResult()
+	resp = NewSwitchMPortCapacityResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

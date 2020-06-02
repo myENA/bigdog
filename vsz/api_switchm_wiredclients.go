@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMWiredclientsService struct {
+type SwitchMWiredClientsService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMWiredclientsService(c *APIClient) *SwitchMWiredclientsService {
-	s := new(SwitchMWiredclientsService)
+func NewSwitchMWiredClientsService(c *APIClient) *SwitchMWiredClientsService {
+	s := new(SwitchMWiredClientsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMWiredclientsService() *SwitchMWiredclientsService {
-	return NewSwitchMWiredclientsService(ss.apiClient)
+func (ss *SwitchMService) SwitchMWiredClientsService() *SwitchMWiredClientsService {
+	return NewSwitchMWiredClientsService(ss.apiClient)
 }
 
 // AddSwitchClients
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMWiredclientsService() *SwitchMWiredclientsServi
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMWiredclientsService) AddSwitchClients(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedDevicesQueryList, *APIResponseMeta, error) {
+func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedDevicesQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *SwitchMWiredclientsService) AddSwitchClients(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMWiredclientsService) AddSwitchClientsAp(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedAPsQueryList, *APIResponseMeta, error) {
+func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConnectedAPsQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

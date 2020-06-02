@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMConfigurationcloneService struct {
+type SwitchMConfigurationCloneService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMConfigurationcloneService(c *APIClient) *SwitchMConfigurationcloneService {
-	s := new(SwitchMConfigurationcloneService)
+func NewSwitchMConfigurationCloneService(c *APIClient) *SwitchMConfigurationCloneService {
+	s := new(SwitchMConfigurationCloneService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMConfigurationcloneService() *SwitchMConfigurationcloneService {
-	return NewSwitchMConfigurationcloneService(ss.apiClient)
+func (ss *SwitchMService) SwitchMConfigurationCloneService() *SwitchMConfigurationCloneService {
+	return NewSwitchMConfigurationCloneService(ss.apiClient)
 }
 
 // AddCloneConfiguration
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMConfigurationcloneService() *SwitchMConfigurati
 //
 // Request Body:
 //	 - body *SwitchMGroupGetConfigBySwitch
-func (s *SwitchMConfigurationcloneService) AddCloneConfiguration(ctx context.Context, body *SwitchMGroupGetConfigBySwitch) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Context, body *SwitchMGroupGetConfigBySwitch) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *SwitchMConfigurationcloneService) AddCloneConfiguration(ctx context.Con
 //
 // Request Body:
 //	 - body *SwitchMGroupCloneConfigByGroup
-func (s *SwitchMConfigurationcloneService) AddCloneConfigurationByGroup(ctx context.Context, body *SwitchMGroupCloneConfigByGroup) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx context.Context, body *SwitchMGroupCloneConfigByGroup) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *SwitchMConfigurationcloneService) AddCloneConfigurationByGroup(ctx cont
 //
 // Request Body:
 //	 - body *SwitchMGroupCloneConfigBySwitch
-func (s *SwitchMConfigurationcloneService) UpdateCloneConfiguration(ctx context.Context, body *SwitchMGroupCloneConfigBySwitch) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.Context, body *SwitchMGroupCloneConfigBySwitch) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

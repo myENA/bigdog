@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMIpsettingService struct {
+type SwitchMIPSettingsService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMIpsettingService(c *APIClient) *SwitchMIpsettingService {
-	s := new(SwitchMIpsettingService)
+func NewSwitchMIPSettingsService(c *APIClient) *SwitchMIPSettingsService {
+	s := new(SwitchMIPSettingsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMIpsettingService() *SwitchMIpsettingService {
-	return NewSwitchMIpsettingService(ss.apiClient)
+func (ss *SwitchMService) SwitchMIPSettingsService() *SwitchMIPSettingsService {
+	return NewSwitchMIPSettingsService(ss.apiClient)
 }
 
 // AddIpConfigs
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMIpsettingService() *SwitchMIpsettingService {
 //
 // Request Body:
 //	 - body *SwitchMIpconfigCreate
-func (s *SwitchMIpsettingService) AddIpConfigs(ctx context.Context, body *SwitchMIpconfigCreate) (SwitchMIpconfigCreateResult, *APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) AddIpConfigs(ctx context.Context, body *SwitchMIpconfigCreate) (SwitchMIpconfigCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *SwitchMIpsettingService) AddIpConfigs(ctx context.Context, body *Switch
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMIpsettingService) DeleteIpConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) DeleteIpConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *SwitchMIpsettingService) DeleteIpConfigs(ctx context.Context, body *Swi
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMIpsettingService) DeleteIpConfigsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) DeleteIpConfigsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,7 +102,7 @@ func (s *SwitchMIpsettingService) DeleteIpConfigsById(ctx context.Context, id st
 // FindIpConfigs
 //
 // Use this API command to Retrieve IP Config List.
-func (s *SwitchMIpsettingService) FindIpConfigs(ctx context.Context) (*SwitchMIpconfigList, *APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context) (*SwitchMIpconfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -127,7 +127,7 @@ func (s *SwitchMIpsettingService) FindIpConfigs(ctx context.Context) (*SwitchMIp
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMIpsettingService) FindIpConfigsById(ctx context.Context, id string) (*SwitchMIpconfig, *APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id string) (*SwitchMIpconfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -152,7 +152,7 @@ func (s *SwitchMIpsettingService) FindIpConfigsById(ctx context.Context, id stri
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMIpsettingService) FindIpConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMIpconfigList, *APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) FindIpConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMIpconfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *SwitchMIpsettingService) FindIpConfigsByQueryCriteria(ctx context.Conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMIpsettingService) UpdateIpConfigsById(ctx context.Context, body *SwitchMIpconfigModify, id string) (*APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) UpdateIpConfigsById(ctx context.Context, body *SwitchMIpconfigModify, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

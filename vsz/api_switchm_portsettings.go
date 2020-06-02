@@ -8,21 +8,21 @@ import (
 	"net/http"
 )
 
-type SwitchMPortsettingsService struct {
+type SwitchMPortSettingsService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMPortsettingsService(c *APIClient) *SwitchMPortsettingsService {
-	s := new(SwitchMPortsettingsService)
+func NewSwitchMPortSettingsService(c *APIClient) *SwitchMPortSettingsService {
+	s := new(SwitchMPortSettingsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMPortsettingsService() *SwitchMPortsettingsService {
-	return NewSwitchMPortsettingsService(ss.apiClient)
+func (ss *SwitchMService) SwitchMPortSettingsService() *SwitchMPortSettingsService {
+	return NewSwitchMPortSettingsService(ss.apiClient)
 }
 
-type SwitchMPortsettingsCreateBulk struct {
+type SwitchMPortSettingsCreateBulk struct {
 	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
 	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
@@ -106,12 +106,12 @@ type SwitchMPortsettingsCreateBulk struct {
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
 }
 
-func NewSwitchMPortsettingsCreateBulk() *SwitchMPortsettingsCreateBulk {
-	m := new(SwitchMPortsettingsCreateBulk)
+func NewSwitchMPortSettingsCreateBulk() *SwitchMPortSettingsCreateBulk {
+	m := new(SwitchMPortSettingsCreateBulk)
 	return m
 }
 
-type SwitchMPortsettings struct {
+type SwitchMPortSettings struct {
 	// CreatedTime
 	// The create time of the Port Settings
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -209,15 +209,15 @@ type SwitchMPortsettings struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMPortsettings() *SwitchMPortsettings {
-	m := new(SwitchMPortsettings)
+func NewSwitchMPortSettings() *SwitchMPortSettings {
+	m := new(SwitchMPortSettings)
 	return m
 }
 
-type SwitchMPortsettingsQueryResult struct {
+type SwitchMPortSettingsQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMPortsettingsQueryResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMPortSettingsQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Port Settings returned out of the complete Port Settings list
@@ -227,7 +227,7 @@ type SwitchMPortsettingsQueryResult struct {
 	// Indicator of whether there are more Port Settings after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMPortsettings `json:"list,omitempty"`
+	List []*SwitchMPortSettings `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Port Settings count
@@ -238,40 +238,40 @@ type SwitchMPortsettingsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMPortsettingsQueryResult() *SwitchMPortsettingsQueryResult {
-	m := new(SwitchMPortsettingsQueryResult)
+func NewSwitchMPortSettingsQueryResult() *SwitchMPortSettingsQueryResult {
+	m := new(SwitchMPortSettingsQueryResult)
 	return m
 }
 
-// SwitchMPortsettingsQueryResultExtraType
+// SwitchMPortSettingsQueryResultExtraType
 //
 // Any additional response data
-type SwitchMPortsettingsQueryResultExtraType struct {
+type SwitchMPortSettingsQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMPortsettingsQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMPortSettingsQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMPortsettingsQueryResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMPortSettingsQueryResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMPortsettingsQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMPortSettingsQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMPortsettingsQueryResultExtraType() *SwitchMPortsettingsQueryResultExtraType {
-	m := new(SwitchMPortsettingsQueryResultExtraType)
+func NewSwitchMPortSettingsQueryResultExtraType() *SwitchMPortSettingsQueryResultExtraType {
+	m := new(SwitchMPortSettingsQueryResultExtraType)
 	return m
 }
 
-type SwitchMPortsettingsUpdatePortSettings struct {
+type SwitchMPortSettingsUpdatePortSettings struct {
 	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
 	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
@@ -341,8 +341,8 @@ type SwitchMPortsettingsUpdatePortSettings struct {
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
 }
 
-func NewSwitchMPortsettingsUpdatePortSettings() *SwitchMPortsettingsUpdatePortSettings {
-	m := new(SwitchMPortsettingsUpdatePortSettings)
+func NewSwitchMPortSettingsUpdatePortSettings() *SwitchMPortSettingsUpdatePortSettings {
+	m := new(SwitchMPortSettingsUpdatePortSettings)
 	return m
 }
 
@@ -351,8 +351,8 @@ func NewSwitchMPortsettingsUpdatePortSettings() *SwitchMPortsettingsUpdatePortSe
 // Use this API command to Bulk update the port setting
 //
 // Request Body:
-//	 - body *SwitchMPortsettingsCreateBulk
-func (s *SwitchMPortsettingsService) AddPortSettingsBulk(ctx context.Context, body *SwitchMPortsettingsCreateBulk) (*APIResponseMeta, error) {
+//	 - body *SwitchMPortSettingsCreateBulk
+func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, body *SwitchMPortSettingsCreateBulk) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -375,11 +375,11 @@ func (s *SwitchMPortsettingsService) AddPortSettingsBulk(ctx context.Context, bo
 // FindPortSettings
 //
 // Use this API command to Retrieve all Port Settings list.
-func (s *SwitchMPortsettingsService) FindPortSettings(ctx context.Context) (*SwitchMPortsettingsQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context) (*SwitchMPortSettingsQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMPortsettingsQueryResult
+		resp     *SwitchMPortSettingsQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -388,7 +388,7 @@ func (s *SwitchMPortsettingsService) FindPortSettings(ctx context.Context) (*Swi
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettings, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMPortsettingsQueryResult()
+	resp = NewSwitchMPortSettingsQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -400,11 +400,11 @@ func (s *SwitchMPortsettingsService) FindPortSettings(ctx context.Context) (*Swi
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMPortsettingsService) FindPortSettingsById(ctx context.Context, id string) (*SwitchMPortsettings, *APIResponseMeta, error) {
+func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, id string) (*SwitchMPortSettings, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMPortsettings
+		resp     *SwitchMPortSettings
 		httpResp *http.Response
 		err      error
 	)
@@ -414,7 +414,7 @@ func (s *SwitchMPortsettingsService) FindPortSettingsById(ctx context.Context, i
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortSettingsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMPortsettings()
+	resp = NewSwitchMPortSettings()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -425,11 +425,11 @@ func (s *SwitchMPortsettingsService) FindPortSettingsById(ctx context.Context, i
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMPortsettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMPortsettingsQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMPortSettingsQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMPortsettingsQueryResult
+		resp     *SwitchMPortSettingsQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -442,7 +442,7 @@ func (s *SwitchMPortsettingsService) FindPortSettingsByQueryCriteria(ctx context
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMPortsettingsQueryResult()
+	resp = NewSwitchMPortSettingsQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -452,12 +452,12 @@ func (s *SwitchMPortsettingsService) FindPortSettingsByQueryCriteria(ctx context
 // Use this API command to Update Port Settings.
 //
 // Request Body:
-//	 - body *SwitchMPortsettingsUpdatePortSettings
+//	 - body *SwitchMPortSettingsUpdatePortSettings
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMPortsettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortsettingsUpdatePortSettings, id string) (*APIResponseMeta, error) {
+func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortSettingsUpdatePortSettings, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMCommonsettingsService struct {
+type SwitchMCommonSettingsService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMCommonsettingsService(c *APIClient) *SwitchMCommonsettingsService {
-	s := new(SwitchMCommonsettingsService)
+func NewSwitchMCommonSettingsService(c *APIClient) *SwitchMCommonSettingsService {
+	s := new(SwitchMCommonSettingsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMCommonsettingsService() *SwitchMCommonsettingsService {
-	return NewSwitchMCommonsettingsService(ss.apiClient)
+func (ss *SwitchMService) SwitchMCommonSettingsService() *SwitchMCommonSettingsService {
+	return NewSwitchMCommonSettingsService(ss.apiClient)
 }
 
 // AddDnsConfig
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMCommonsettingsService() *SwitchMCommonsettingsS
 //
 // Request Body:
 //	 - body *SwitchMDnsconfigCreateDnsConfig
-func (s *SwitchMCommonsettingsService) AddDnsConfig(ctx context.Context, body *SwitchMDnsconfigCreateDnsConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *SwitchMDnsconfigCreateDnsConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -56,7 +56,7 @@ func (s *SwitchMCommonsettingsService) AddDnsConfig(ctx context.Context, body *S
 // Required Parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMCommonsettingsService) DeleteDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) (*APIResponseMeta, error) {
+func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -80,7 +80,7 @@ func (s *SwitchMCommonsettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 // Required Parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMCommonsettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMDnsconfig, *APIResponseMeta, error) {
+func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMDnsconfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -109,7 +109,7 @@ func (s *SwitchMCommonsettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 // Required Parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMCommonsettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *SwitchMDnsconfigUpdateDnsConfig, switchGroupId string) (*APIResponseMeta, error) {
+func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *SwitchMDnsconfigUpdateDnsConfig, switchGroupId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

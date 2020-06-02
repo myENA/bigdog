@@ -2,7 +2,7 @@ package vsz
 
 // API Version: v9_0
 
-type SwitchMDeployLogItemConfigurationHistoryDetailQueryResult struct {
+type SwitchMDeploylogitemConfigurationHistoryDetailQueryResult struct {
 	// FirstIndex
 	// Indicator of whether there are more configs after the current displayed list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -13,26 +13,26 @@ type SwitchMDeployLogItemConfigurationHistoryDetailQueryResult struct {
 
 	// List
 	// Indicator of whether there are more configs after the current displayed list
-	List []*SwitchMDeployLogItem `json:"list,omitempty"`
+	List []*SwitchMDeploylogitem `json:"list,omitempty"`
 
 	// TotalCount
 	// Total records count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult() *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult {
-	m := new(SwitchMDeployLogItemConfigurationHistoryDetailQueryResult)
+func NewSwitchMDeploylogitemConfigurationHistoryDetailQueryResult() *SwitchMDeploylogitemConfigurationHistoryDetailQueryResult {
+	m := new(SwitchMDeploylogitemConfigurationHistoryDetailQueryResult)
 	return m
 }
 
-type SwitchMDeployLogItem struct {
+type SwitchMDeploylogitem struct {
 	// Clis
 	// CLI Command
 	Clis *string `json:"clis,omitempty"`
 
 	// DispatchFailedReason
 	// Deployment Fail Description
-	DispatchFailedReason *SwitchMDeployLogItemDispatchFailedReasonType `json:"dispatchFailedReason,omitempty"`
+	DispatchFailedReason *SwitchMDeploylogitemDispatchFailedReasonType `json:"dispatchFailedReason,omitempty"`
 
 	// DispatchStatus
 	// Status of Deployment
@@ -69,15 +69,15 @@ type SwitchMDeployLogItem struct {
 	TransactionId *string `json:"transactionId,omitempty"`
 }
 
-func NewSwitchMDeployLogItem() *SwitchMDeployLogItem {
-	m := new(SwitchMDeployLogItem)
+func NewSwitchMDeploylogitem() *SwitchMDeploylogitem {
+	m := new(SwitchMDeploylogitem)
 	return m
 }
 
-// SwitchMDeployLogItemDispatchFailedReasonType
+// SwitchMDeploylogitemDispatchFailedReasonType
 //
 // Deployment Fail Description
-type SwitchMDeployLogItemDispatchFailedReasonType struct {
+type SwitchMDeploylogitemDispatchFailedReasonType struct {
 	// LineNumber
 	// Line Number Fail to Execute Cmd
 	LineNumber *int `json:"lineNumber,omitempty"`
@@ -87,7 +87,7 @@ type SwitchMDeployLogItemDispatchFailedReasonType struct {
 	Message *int `json:"message,omitempty"`
 }
 
-func NewSwitchMDeployLogItemDispatchFailedReasonType() *SwitchMDeployLogItemDispatchFailedReasonType {
-	m := new(SwitchMDeployLogItemDispatchFailedReasonType)
+func NewSwitchMDeploylogitemDispatchFailedReasonType() *SwitchMDeploylogitemDispatchFailedReasonType {
+	m := new(SwitchMDeploylogitemDispatchFailedReasonType)
 	return m
 }

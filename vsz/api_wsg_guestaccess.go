@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGGuestAccessService struct {
+type WSGGuestaccessService struct {
 	apiClient *APIClient
 }
 
-func NewWSGGuestAccessService(c *APIClient) *WSGGuestAccessService {
-	s := new(WSGGuestAccessService)
+func NewWSGGuestaccessService(c *APIClient) *WSGGuestaccessService {
+	s := new(WSGGuestaccessService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
-	return NewWSGGuestAccessService(ss.apiClient)
+func (ss *WSGService) WSGGuestaccessService() *WSGGuestaccessService {
+	return NewWSGGuestaccessService(ss.apiClient)
 }
 
 // AddRkszonesPortalsGuestByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Context, body *WSGPortalServiceCreateGuestAccess, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGGuestaccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Context, body *WSGPortalServiceCreateGuestAccess, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Cont
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGGuestaccessService) DeleteRkszonesPortalsGuestById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Conte
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGGuestaccessService) DeleteRkszonesPortalsGuestRedirectById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +117,7 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx conte
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGGuestaccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -144,7 +144,7 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx con
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceGuestAccess, *APIResponseMeta, error) {
+func (s *WSGGuestaccessService) FindRkszonesPortalsGuestById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceGuestAccess, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -171,7 +171,7 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
+func (s *WSGGuestaccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -196,7 +196,7 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Con
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGGuestAccessService) FindServicesGuestAccessByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGGuestaccessService) FindServicesGuestAccessByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -230,7 +230,7 @@ func (s *WSGGuestAccessService) FindServicesGuestAccessByQueryCriteria(ctx conte
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) PartialUpdateRkszonesPortalsGuestById(ctx context.Context, body *WSGPortalServiceModifyGuestAccess, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGGuestaccessService) PartialUpdateRkszonesPortalsGuestById(ctx context.Context, body *WSGPortalServiceModifyGuestAccess, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -8,21 +8,21 @@ import (
 	"net/http"
 )
 
-type SwitchMSpecificSettingsService struct {
+type SwitchMSpecificsettingsService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMSpecificSettingsService(c *APIClient) *SwitchMSpecificSettingsService {
-	s := new(SwitchMSpecificSettingsService)
+func NewSwitchMSpecificsettingsService(c *APIClient) *SwitchMSpecificsettingsService {
+	s := new(SwitchMSpecificsettingsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMSpecificSettingsService() *SwitchMSpecificSettingsService {
-	return NewSwitchMSpecificSettingsService(ss.apiClient)
+func (ss *SwitchMService) SwitchMSpecificsettingsService() *SwitchMSpecificsettingsService {
+	return NewSwitchMSpecificsettingsService(ss.apiClient)
 }
 
-type SwitchMSpecificSettingsDHCPOption struct {
+type SwitchMSpecificsettingsDHCPOption struct {
 	// Seq
 	// Seq of Option
 	Seq *int `json:"seq,omitempty"`
@@ -36,17 +36,17 @@ type SwitchMSpecificSettingsDHCPOption struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func NewSwitchMSpecificSettingsDHCPOption() *SwitchMSpecificSettingsDHCPOption {
-	m := new(SwitchMSpecificSettingsDHCPOption)
+func NewSwitchMSpecificsettingsDHCPOption() *SwitchMSpecificsettingsDHCPOption {
+	m := new(SwitchMSpecificsettingsDHCPOption)
 	return m
 }
 
-type SwitchMSpecificSettingsDHCPServer struct {
+type SwitchMSpecificsettingsDHCPServer struct {
 	// DefaultRouterIp
 	// Default Router Ip
 	DefaultRouterIp *string `json:"defaultRouterIp,omitempty"`
 
-	DhcpOptions []*SwitchMSpecificSettingsDHCPOption `json:"dhcpOptions,omitempty"`
+	DhcpOptions []*SwitchMSpecificsettingsDHCPOption `json:"dhcpOptions,omitempty"`
 
 	// ExcludedEnd
 	// Excluded range end
@@ -77,12 +77,12 @@ type SwitchMSpecificSettingsDHCPServer struct {
 	PoolName *string `json:"poolName,omitempty"`
 }
 
-func NewSwitchMSpecificSettingsDHCPServer() *SwitchMSpecificSettingsDHCPServer {
-	m := new(SwitchMSpecificSettingsDHCPServer)
+func NewSwitchMSpecificsettingsDHCPServer() *SwitchMSpecificsettingsDHCPServer {
+	m := new(SwitchMSpecificsettingsDHCPServer)
 	return m
 }
 
-type SwitchMSpecificSettingsIdList struct {
+type SwitchMSpecificsettingsIdList struct {
 	// Hostname
 	// Hostname
 	Hostname *string `json:"hostname,omitempty"`
@@ -92,12 +92,12 @@ type SwitchMSpecificSettingsIdList struct {
 	Id *string `json:"id,omitempty"`
 }
 
-func NewSwitchMSpecificSettingsIdList() *SwitchMSpecificSettingsIdList {
-	m := new(SwitchMSpecificSettingsIdList)
+func NewSwitchMSpecificsettingsIdList() *SwitchMSpecificsettingsIdList {
+	m := new(SwitchMSpecificsettingsIdList)
 	return m
 }
 
-type SwitchMSpecificSettings struct {
+type SwitchMSpecificsettings struct {
 	// CreatedTime
 	// The create time of the Specific Settings
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -106,7 +106,7 @@ type SwitchMSpecificSettings struct {
 	// DHCP server enabled
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers,omitempty"`
+	DhcpServers []*SwitchMSpecificsettingsDHCPServer `json:"dhcpServers,omitempty"`
 
 	// Hostname
 	// Hostname
@@ -129,15 +129,15 @@ type SwitchMSpecificSettings struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMSpecificSettings() *SwitchMSpecificSettings {
-	m := new(SwitchMSpecificSettings)
+func NewSwitchMSpecificsettings() *SwitchMSpecificsettings {
+	m := new(SwitchMSpecificsettings)
 	return m
 }
 
-type SwitchMSpecificSettingsAllResult struct {
+type SwitchMSpecificsettingsAllResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSpecificSettingsAllResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMSpecificsettingsAllResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Specific Settings returned out of the complete Specific Settings list
@@ -147,7 +147,7 @@ type SwitchMSpecificSettingsAllResult struct {
 	// Indicator of whether there are more Specific Settings after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSpecificSettingsIdList `json:"list,omitempty"`
+	List []*SwitchMSpecificsettingsIdList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Specific Settings count
@@ -158,45 +158,45 @@ type SwitchMSpecificSettingsAllResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSpecificSettingsAllResult() *SwitchMSpecificSettingsAllResult {
-	m := new(SwitchMSpecificSettingsAllResult)
+func NewSwitchMSpecificsettingsAllResult() *SwitchMSpecificsettingsAllResult {
+	m := new(SwitchMSpecificsettingsAllResult)
 	return m
 }
 
-// SwitchMSpecificSettingsAllResultExtraType
+// SwitchMSpecificsettingsAllResultExtraType
 //
 // Any additional response data
-type SwitchMSpecificSettingsAllResultExtraType struct {
+type SwitchMSpecificsettingsAllResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSpecificSettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMSpecificsettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSpecificSettingsAllResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMSpecificsettingsAllResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSpecificSettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMSpecificsettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSpecificSettingsAllResultExtraType() *SwitchMSpecificSettingsAllResultExtraType {
-	m := new(SwitchMSpecificSettingsAllResultExtraType)
+func NewSwitchMSpecificsettingsAllResultExtraType() *SwitchMSpecificsettingsAllResultExtraType {
+	m := new(SwitchMSpecificsettingsAllResultExtraType)
 	return m
 }
 
-type SwitchMSpecificSettingsUpdateSpecificSettings struct {
+type SwitchMSpecificsettingsUpdateSpecificSettings struct {
 	// DhcpServerEnabled
 	// DHCP server enabled
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*SwitchMSpecificSettingsDHCPServer `json:"dhcpServers,omitempty"`
+	DhcpServers []*SwitchMSpecificsettingsDHCPServer `json:"dhcpServers,omitempty"`
 
 	// Hostname
 	// Hostname
@@ -211,8 +211,8 @@ type SwitchMSpecificSettingsUpdateSpecificSettings struct {
 	JumboMode *bool `json:"jumboMode,omitempty"`
 }
 
-func NewSwitchMSpecificSettingsUpdateSpecificSettings() *SwitchMSpecificSettingsUpdateSpecificSettings {
-	m := new(SwitchMSpecificSettingsUpdateSpecificSettings)
+func NewSwitchMSpecificsettingsUpdateSpecificSettings() *SwitchMSpecificsettingsUpdateSpecificSettings {
+	m := new(SwitchMSpecificsettingsUpdateSpecificSettings)
 	return m
 }
 
@@ -223,7 +223,7 @@ func NewSwitchMSpecificSettingsUpdateSpecificSettings() *SwitchMSpecificSettings
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *SwitchMSpecificsettingsService) DeleteSpecificSettingsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -243,11 +243,11 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 // FindSpecificSettings
 //
 // Use this API command to Retrieve all Specific Setting list.
-func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Context) (*SwitchMSpecificSettingsAllResult, *APIResponseMeta, error) {
+func (s *SwitchMSpecificsettingsService) FindSpecificSettings(ctx context.Context) (*SwitchMSpecificsettingsAllResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSpecificSettingsAllResult
+		resp     *SwitchMSpecificsettingsAllResult
 		httpResp *http.Response
 		err      error
 	)
@@ -256,7 +256,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettings, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSpecificSettingsAllResult()
+	resp = NewSwitchMSpecificsettingsAllResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -268,11 +268,11 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Context, id string) (*SwitchMSpecificSettings, *APIResponseMeta, error) {
+func (s *SwitchMSpecificsettingsService) FindSpecificSettingsById(ctx context.Context, id string) (*SwitchMSpecificsettings, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSpecificSettings
+		resp     *SwitchMSpecificsettings
 		httpResp *http.Response
 		err      error
 	)
@@ -282,7 +282,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSpecificSettings()
+	resp = NewSwitchMSpecificsettings()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -292,12 +292,12 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 // Use this API command to Update Specific Settings.
 //
 // Request Body:
-//	 - body *SwitchMSpecificSettingsUpdateSpecificSettings
+//	 - body *SwitchMSpecificsettingsUpdateSpecificSettings
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.Context, body *SwitchMSpecificSettingsUpdateSpecificSettings, id string) (*APIResponseMeta, error) {
+func (s *SwitchMSpecificsettingsService) UpdateSpecificSettingsById(ctx context.Context, body *SwitchMSpecificsettingsUpdateSpecificSettings, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

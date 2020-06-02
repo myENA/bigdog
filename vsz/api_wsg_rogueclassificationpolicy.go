@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGRogueClassificationPolicyService struct {
+type WSGRogueclassificationpolicyService struct {
 	apiClient *APIClient
 }
 
-func NewWSGRogueClassificationPolicyService(c *APIClient) *WSGRogueClassificationPolicyService {
-	s := new(WSGRogueClassificationPolicyService)
+func NewWSGRogueclassificationpolicyService(c *APIClient) *WSGRogueclassificationpolicyService {
+	s := new(WSGRogueclassificationpolicyService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificationPolicyService {
-	return NewWSGRogueClassificationPolicyService(ss.apiClient)
+func (ss *WSGService) WSGRogueclassificationpolicyService() *WSGRogueclassificationpolicyService {
+	return NewWSGRogueclassificationpolicyService(ss.apiClient)
 }
 
 // AddRkszonesRogueApPoliciesByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificat
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGProfileCreateRogueApPolicy, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGRogueclassificationpolicyService) AddRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGProfileCreateRogueApPolicy, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRogueclassificationpolicyService) DeleteRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -91,7 +91,7 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRogueclassificationpolicyService) DeleteRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -121,7 +121,7 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZon
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string) (*WSGProfileRogueApPolicy, *APIResponseMeta, error) {
+func (s *WSGRogueclassificationpolicyService) FindRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string) (*WSGProfileRogueApPolicy, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -148,7 +148,7 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ct
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId(ctx context.Context, zoneId string) (*WSGProfileRogueApPolicyList, *APIResponseMeta, error) {
+func (s *WSGRogueclassificationpolicyService) FindRkszonesRogueApPoliciesByZoneId(ctx context.Context, zoneId string) (*WSGProfileRogueApPolicyList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -179,7 +179,7 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneI
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) PartialUpdateRkszonesRogueApPoliciesById(ctx context.Context, body *WSGProfileUpdateRogueApPolicy, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRogueclassificationpolicyService) PartialUpdateRkszonesRogueApPoliciesById(ctx context.Context, body *WSGProfileUpdateRogueApPolicy, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

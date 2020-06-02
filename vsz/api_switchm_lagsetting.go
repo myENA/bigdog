@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMLAGSettingService struct {
+type SwitchMLagsettingService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMLAGSettingService(c *APIClient) *SwitchMLAGSettingService {
-	s := new(SwitchMLAGSettingService)
+func NewSwitchMLagsettingService(c *APIClient) *SwitchMLagsettingService {
+	s := new(SwitchMLagsettingService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMLAGSettingService() *SwitchMLAGSettingService {
-	return NewSwitchMLAGSettingService(ss.apiClient)
+func (ss *SwitchMService) SwitchMLagsettingService() *SwitchMLagsettingService {
+	return NewSwitchMLagsettingService(ss.apiClient)
 }
 
 // AddLagConfigs
@@ -26,12 +26,12 @@ func (ss *SwitchMService) SwitchMLAGSettingService() *SwitchMLAGSettingService {
 // Use this API command to Create LAG Config.
 //
 // Request Body:
-//	 - body *SwitchMLagConfigCreate
-func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *SwitchMLagConfigCreate) (SwitchMLagConfigCreateResult, *APIResponseMeta, error) {
+//	 - body *SwitchMLagconfigCreate
+func (s *SwitchMLagsettingService) AddLagConfigs(ctx context.Context, body *SwitchMLagconfigCreate) (SwitchMLagconfigCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     SwitchMLagConfigCreateResult
+		resp     SwitchMLagconfigCreateResult
 		httpResp *http.Response
 		err      error
 	)
@@ -44,7 +44,7 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = MakeSwitchMLagConfigCreateResult()
+	resp = MakeSwitchMLagconfigCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, &resp, err)
 	return resp, rm, err
 }
@@ -55,7 +55,7 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *SwitchMLagsettingService) DeleteLagConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *S
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *SwitchMLagsettingService) DeleteLagConfigsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,11 +102,11 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id 
 // FindLagConfigs
 //
 // Use this API command to Retrieve all LAG Config list.
-func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context) (*SwitchMLagConfigList, *APIResponseMeta, error) {
+func (s *SwitchMLagsettingService) FindLagConfigs(ctx context.Context) (*SwitchMLagconfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMLagConfigList
+		resp     *SwitchMLagconfigList
 		httpResp *http.Response
 		err      error
 	)
@@ -115,7 +115,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context) (*SwitchM
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindLagConfigs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMLagConfigList()
+	resp = NewSwitchMLagconfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -127,11 +127,11 @@ func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context) (*SwitchM
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id string) (*SwitchMLagConfig, *APIResponseMeta, error) {
+func (s *SwitchMLagsettingService) FindLagConfigsById(ctx context.Context, id string) (*SwitchMLagconfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMLagConfig
+		resp     *SwitchMLagconfig
 		httpResp *http.Response
 		err      error
 	)
@@ -141,7 +141,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindLagConfigsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMLagConfig()
+	resp = NewSwitchMLagconfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -152,11 +152,11 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMLagConfigList, *APIResponseMeta, error) {
+func (s *SwitchMLagsettingService) FindLagConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMLagconfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMLagConfigList
+		resp     *SwitchMLagconfigList
 		httpResp *http.Response
 		err      error
 	)
@@ -169,7 +169,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMLagConfigList()
+	resp = NewSwitchMLagconfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -179,12 +179,12 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 // Use this API command to Update LAG Config.
 //
 // Request Body:
-//	 - body *SwitchMLagConfigModify
+//	 - body *SwitchMLagconfigModify
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMLAGSettingService) UpdateLagConfigsById(ctx context.Context, body *SwitchMLagConfigModify, id string) (*APIResponseMeta, error) {
+func (s *SwitchMLagsettingService) UpdateLagConfigsById(ctx context.Context, body *SwitchMLagconfigModify, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

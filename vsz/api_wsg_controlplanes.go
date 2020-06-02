@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGControlPlanesService struct {
+type WSGControlplanesService struct {
 	apiClient *APIClient
 }
 
-func NewWSGControlPlanesService(c *APIClient) *WSGControlPlanesService {
-	s := new(WSGControlPlanesService)
+func NewWSGControlplanesService(c *APIClient) *WSGControlplanesService {
+	s := new(WSGControlplanesService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
-	return NewWSGControlPlanesService(ss.apiClient)
+func (ss *WSGService) WSGControlplanesService() *WSGControlplanesService {
+	return NewWSGControlplanesService(ss.apiClient)
 }
 
 // DeleteControlPlanesStaticRoutesByBladeUUID
@@ -28,7 +28,7 @@ func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) (*APIResponseMeta, error) {
+func (s *WSGControlplanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -52,7 +52,7 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) (*APIResponseMeta, error) {
+func (s *WSGControlplanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -72,7 +72,7 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 // FindControlPlanes
 //
 // Use this API command to retrieve the list of control plane.
-func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*WSGSystemControlPlaneList, *APIResponseMeta, error) {
+func (s *WSGControlplanesService) FindControlPlanes(ctx context.Context) (*WSGSystemControlPlaneList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -97,7 +97,7 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context) (*WSGSy
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemControlPlaneConfiguration, *APIResponseMeta, error) {
+func (s *WSGControlplanesService) FindControlPlanesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemControlPlaneConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -123,7 +123,7 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 // Optional Parameters:
 // - bladeUUID string
 //		- nullable
-func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Context, optionalParams map[string][]string) (*WSGSystemControlPlaneInterfaceList, *APIResponseMeta, error) {
+func (s *WSGControlplanesService) FindControlPlanesInterfaces(ctx context.Context, optionalParams map[string][]string) (*WSGSystemControlPlaneInterfaceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -151,7 +151,7 @@ func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Contex
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemStaticRouteList, *APIResponseMeta, error) {
+func (s *WSGControlplanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemStaticRouteList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -177,7 +177,7 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemUserDefinedInterfaceList, *APIResponseMeta, error) {
+func (s *WSGControlplanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemUserDefinedInterfaceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -206,7 +206,7 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyControlPlane, bladeUUID string) (*APIResponseMeta, error) {
+func (s *WSGControlplanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyControlPlane, bladeUUID string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -233,7 +233,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 //
 // Request Body:
 //	 - body *WSGSystemModifyIpSupportType
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context, body *WSGSystemModifyIpSupportType) (*APIResponseMeta, error) {
+func (s *WSGControlplanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context, body *WSGSystemModifyIpSupportType) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -263,7 +263,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx contex
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeUUID(ctx context.Context, body *WSGSystemModifyCPStaticRoute, bladeUUID string) (*APIResponseMeta, error) {
+func (s *WSGControlplanesService) PartialUpdateControlPlanesStaticRoutesByBladeUUID(ctx context.Context, body *WSGSystemModifyCPStaticRoute, bladeUUID string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -294,7 +294,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeU
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, body *WSGSystemModifyCPUserDefinedInterface, bladeUUID string) (*APIResponseMeta, error) {
+func (s *WSGControlplanesService) PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, body *WSGSystemModifyCPUserDefinedInterface, bladeUUID string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

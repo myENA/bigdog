@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGVDPProfileService struct {
+type WSGVdpprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGVDPProfileService(c *APIClient) *WSGVDPProfileService {
-	s := new(WSGVDPProfileService)
+func NewWSGVdpprofileService(c *APIClient) *WSGVdpprofileService {
+	s := new(WSGVdpprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
-	return NewWSGVDPProfileService(ss.apiClient)
+func (ss *WSGService) WSGVdpprofileService() *WSGVdpprofileService {
+	return NewWSGVdpprofileService(ss.apiClient)
 }
 
 // DeleteProfilesVdpById
@@ -28,7 +28,7 @@ func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGVdpprofileService) DeleteProfilesVdpById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -54,7 +54,7 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalParams map[string][]string) (*WSGProfileList, *APIResponseMeta, error) {
+func (s *WSGVdpprofileService) FindProfilesVdp(ctx context.Context, optionalParams map[string][]string) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -85,7 +85,7 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id string) (*WSGProfileVdpProfile, *APIResponseMeta, error) {
+func (s *WSGVdpprofileService) FindProfilesVdpById(ctx context.Context, id string) (*WSGProfileVdpProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -111,7 +111,7 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGVdpprofileService) UpdateProfilesVdpApproveById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

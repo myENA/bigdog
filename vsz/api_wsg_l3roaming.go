@@ -7,24 +7,24 @@ import (
 	"net/http"
 )
 
-type WSGL3RoamingService struct {
+type WSGL3roamingService struct {
 	apiClient *APIClient
 }
 
-func NewWSGL3RoamingService(c *APIClient) *WSGL3RoamingService {
-	s := new(WSGL3RoamingService)
+func NewWSGL3roamingService(c *APIClient) *WSGL3roamingService {
+	s := new(WSGL3roamingService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGL3RoamingService() *WSGL3RoamingService {
-	return NewWSGL3RoamingService(ss.apiClient)
+func (ss *WSGService) WSGL3roamingService() *WSGL3roamingService {
+	return NewWSGL3roamingService(ss.apiClient)
 }
 
 // FindProfilesTunnelL3Roaming
 //
 // Use this API command to retrieve L3 Roaming basic configuration.
-func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (*WSGProfileGetL3RoamingConfig, *APIResponseMeta, error) {
+func (s *WSGL3roamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (*WSGProfileGetL3RoamingConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -48,7 +48,7 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context) (
 //
 // Request Body:
 //	 - body *WSGProfileUpdateL3RoamingConfig
-func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.Context, body *WSGProfileUpdateL3RoamingConfig) (*APIResponseMeta, error) {
+func (s *WSGL3roamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.Context, body *WSGProfileUpdateL3RoamingConfig) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

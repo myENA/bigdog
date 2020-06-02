@@ -2,7 +2,7 @@ package vsz
 
 // API Version: v9_0
 
-type SwitchMVeConfigCreate struct {
+type SwitchMVeconfigCreate struct {
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -48,19 +48,19 @@ type SwitchMVeConfigCreate struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewSwitchMVeConfigCreate() *SwitchMVeConfigCreate {
-	m := new(SwitchMVeConfigCreate)
+func NewSwitchMVeconfigCreate() *SwitchMVeconfigCreate {
+	m := new(SwitchMVeconfigCreate)
 	return m
 }
 
-type SwitchMVeConfigCreateResult interface{}
+type SwitchMVeconfigCreateResult interface{}
 
-func MakeSwitchMVeConfigCreateResult() SwitchMVeConfigCreateResult {
-	m := new(SwitchMVeConfigCreateResult)
+func MakeSwitchMVeconfigCreateResult() SwitchMVeconfigCreateResult {
+	m := new(SwitchMVeconfigCreateResult)
 	return m
 }
 
-type SwitchMVeConfigList struct {
+type SwitchMVeconfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -71,19 +71,19 @@ type SwitchMVeConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMVeConfig `json:"list,omitempty"`
+	List []*SwitchMVeconfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMVeConfigList() *SwitchMVeConfigList {
-	m := new(SwitchMVeConfigList)
+func NewSwitchMVeconfigList() *SwitchMVeconfigList {
+	m := new(SwitchMVeconfigList)
 	return m
 }
 
-type SwitchMVeConfigModify struct {
+type SwitchMVeconfigModify struct {
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -121,12 +121,12 @@ type SwitchMVeConfigModify struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewSwitchMVeConfigModify() *SwitchMVeConfigModify {
-	m := new(SwitchMVeConfigModify)
+func NewSwitchMVeconfigModify() *SwitchMVeconfigModify {
+	m := new(SwitchMVeconfigModify)
 	return m
 }
 
-type SwitchMVeConfig struct {
+type SwitchMVeconfig struct {
 	// CreatedTime
 	// Created Time
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -200,7 +200,7 @@ type SwitchMVeConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewSwitchMVeConfig() *SwitchMVeConfig {
-	m := new(SwitchMVeConfig)
+func NewSwitchMVeconfig() *SwitchMVeconfig {
+	m := new(SwitchMVeconfig)
 	return m
 }

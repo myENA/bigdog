@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGSMSGatewayService struct {
+type WSGSmsgatewayService struct {
 	apiClient *APIClient
 }
 
-func NewWSGSMSGatewayService(c *APIClient) *WSGSMSGatewayService {
-	s := new(WSGSMSGatewayService)
+func NewWSGSmsgatewayService(c *APIClient) *WSGSmsgatewayService {
+	s := new(WSGSmsgatewayService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
-	return NewWSGSMSGatewayService(ss.apiClient)
+func (ss *WSGService) WSGSmsgatewayService() *WSGSmsgatewayService {
+	return NewWSGSmsgatewayService(ss.apiClient)
 }
 
 // FindSmsGateway
@@ -28,7 +28,7 @@ func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
 // Optional Parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParams map[string][]string) (*WSGSystemSms, *APIResponseMeta, error) {
+func (s *WSGSmsgatewayService) FindSmsGateway(ctx context.Context, optionalParams map[string][]string) (*WSGSystemSms, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSystemSmsList, *APIResponseMeta, error) {
+func (s *WSGSmsgatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSystemSmsList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGSystemSms
-func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body *WSGSystemSms) (interface{}, *APIResponseMeta, error) {
+func (s *WSGSmsgatewayService) PartialUpdateSmsGateway(ctx context.Context, body *WSGSystemSms) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

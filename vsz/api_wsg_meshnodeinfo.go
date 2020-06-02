@@ -6,18 +6,18 @@ import (
 	"encoding/json"
 )
 
-type WSGMeshNodeInfoHelperZoneInfo struct {
+type WSGMeshnodeinfoHelperZoneInfo struct {
 	HelperAPZoneId *string `json:"helperAPZoneId,omitempty"`
 
 	HelperAPZoneName *string `json:"helperAPZoneName,omitempty"`
 }
 
-func NewWSGMeshNodeInfoHelperZoneInfo() *WSGMeshNodeInfoHelperZoneInfo {
-	m := new(WSGMeshNodeInfoHelperZoneInfo)
+func NewWSGMeshnodeinfoHelperZoneInfo() *WSGMeshnodeinfoHelperZoneInfo {
+	m := new(WSGMeshnodeinfoHelperZoneInfo)
 	return m
 }
 
-type WSGMeshNodeInfo struct {
+type WSGMeshnodeinfo struct {
 	// ApMac
 	// The MAC of the mesh AP
 	ApMac *string `json:"apMac,omitempty"`
@@ -50,7 +50,7 @@ type WSGMeshNodeInfo struct {
 	// The hasDownLink of the mesh AP
 	HasDownLink *bool `json:"hasDownLink,omitempty"`
 
-	HelperZoneInfo []*WSGMeshNodeInfoHelperZoneInfo `json:"helperZoneInfo,omitempty"`
+	HelperZoneInfo []*WSGMeshnodeinfoHelperZoneInfo `json:"helperZoneInfo,omitempty"`
 
 	// Hops
 	// The hop count of this mesh AP
@@ -69,22 +69,22 @@ type WSGMeshNodeInfo struct {
 	UplinkRssi *int `json:"uplinkRssi,omitempty"`
 }
 
-func NewWSGMeshNodeInfo() *WSGMeshNodeInfo {
-	m := new(WSGMeshNodeInfo)
+func NewWSGMeshnodeinfo() *WSGMeshnodeinfo {
+	m := new(WSGMeshnodeinfo)
 	return m
 }
 
-type WSGMeshNodeInfoArray []*WSGMeshNodeInfo
+type WSGMeshnodeinfoArray []*WSGMeshnodeinfo
 
-func MakeWSGMeshNodeInfoArray() WSGMeshNodeInfoArray {
-	m := make(WSGMeshNodeInfoArray, 0)
+func MakeWSGMeshnodeinfoArray() WSGMeshnodeinfoArray {
+	m := make(WSGMeshnodeinfoArray, 0)
 	return m
 }
 
-type WSGMeshNodeInfoList struct {
+type WSGMeshnodeinfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra *WSGMeshNodeInfoListExtraType `json:"extra,omitempty"`
+	Extra *WSGMeshnodeinfoListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first MeshNodeInfo returned out of the complete Rogue AP list
@@ -94,7 +94,7 @@ type WSGMeshNodeInfoList struct {
 	// Indicator of whether there are more MeshNodeInfo after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGMeshNodeInfo `json:"list,omitempty"`
+	List []*WSGMeshnodeinfo `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// MeshNodeInfos count.
@@ -105,40 +105,40 @@ type WSGMeshNodeInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGMeshNodeInfoList() *WSGMeshNodeInfoList {
-	m := new(WSGMeshNodeInfoList)
+func NewWSGMeshnodeinfoList() *WSGMeshnodeinfoList {
+	m := new(WSGMeshnodeinfoList)
 	return m
 }
 
-// WSGMeshNodeInfoListExtraType
+// WSGMeshnodeinfoListExtraType
 //
 // Any additional response data.
-type WSGMeshNodeInfoListExtraType struct {
+type WSGMeshnodeinfoListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *WSGMeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
+func (t *WSGMeshnodeinfoListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = WSGMeshNodeInfoListExtraType{XAdditionalProperties: tmp}
+	*t = WSGMeshnodeinfoListExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *WSGMeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
+func (t *WSGMeshnodeinfoListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewWSGMeshNodeInfoListExtraType() *WSGMeshNodeInfoListExtraType {
-	m := new(WSGMeshNodeInfoListExtraType)
+func NewWSGMeshnodeinfoListExtraType() *WSGMeshnodeinfoListExtraType {
+	m := new(WSGMeshnodeinfoListExtraType)
 	return m
 }
 
-type WSGMeshNodeInfoUpdateAPZeroTouch struct {
+type WSGMeshnodeinfoUpdateAPZeroTouch struct {
 	ApMac *string `json:"apMac,omitempty"`
 
 	HelperZoneId *string `json:"helperZoneId,omitempty"`
@@ -151,7 +151,7 @@ type WSGMeshNodeInfoUpdateAPZeroTouch struct {
 	Status *string `json:"status,omitempty"`
 }
 
-func NewWSGMeshNodeInfoUpdateAPZeroTouch() *WSGMeshNodeInfoUpdateAPZeroTouch {
-	m := new(WSGMeshNodeInfoUpdateAPZeroTouch)
+func NewWSGMeshnodeinfoUpdateAPZeroTouch() *WSGMeshnodeinfoUpdateAPZeroTouch {
+	m := new(WSGMeshnodeinfoUpdateAPZeroTouch)
 	return m
 }

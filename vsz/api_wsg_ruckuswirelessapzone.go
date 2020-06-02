@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGRuckusWirelessAPZoneService struct {
+type WSGRuckuswirelessapzoneService struct {
 	apiClient *APIClient
 }
 
-func NewWSGRuckusWirelessAPZoneService(c *APIClient) *WSGRuckusWirelessAPZoneService {
-	s := new(WSGRuckusWirelessAPZoneService)
+func NewWSGRuckuswirelessapzoneService(c *APIClient) *WSGRuckuswirelessapzoneService {
+	s := new(WSGRuckuswirelessapzoneService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGRuckusWirelessAPZoneService() *WSGRuckusWirelessAPZoneService {
-	return NewWSGRuckusWirelessAPZoneService(ss.apiClient)
+func (ss *WSGService) WSGRuckuswirelessapzoneService() *WSGRuckuswirelessapzoneService {
+	return NewWSGRuckuswirelessapzoneService(ss.apiClient)
 }
 
 // AddRkszones
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGRuckusWirelessAPZoneService() *WSGRuckusWirelessAPZoneS
 //
 // Request Body:
 //	 - body *WSGZoneCreateZone
-func (s *WSGRuckusWirelessAPZoneService) AddRkszones(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) AddRkszones(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszones(ctx context.Context, body *
 //
 // Request Body:
 //	 - body *WSGZoneCreateZone
-func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDual(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) AddRkszonesDual(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDual(ctx context.Context, bo
 //
 // Request Body:
 //	 - body *WSGZoneCreateZone
-func (s *WSGRuckusWirelessAPZoneService) AddRkszonesIpv6(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) AddRkszonesIpv6(ctx context.Context, body *WSGZoneCreateZone) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -112,7 +112,7 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesIpv6(ctx context.Context, bo
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesAltitudeById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesAltitudeById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -136,7 +136,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesAltitudeById(ctx context.
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning24ById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesBackgroundScanning24ById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -160,7 +160,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning24ById(
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesBackgroundScanning50ById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -208,7 +208,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesById(ctx context.Context,
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl24ById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesClientAdmissionControl24ById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -232,7 +232,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl24B
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl50ById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesClientAdmissionControl50ById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -256,7 +256,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl50B
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesIpsecProfilesById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -280,7 +280,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingBandBalancingById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesLoadBalancingBandBalancingById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -304,7 +304,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingBandBalancin
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesLoadBalancingById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -328,7 +328,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingById(ctx con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingClientLoadBalancing24ById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesLoadBalancingClientLoadBalancing24ById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -352,7 +352,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingClientLoadBa
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingClientLoadBalancing50ById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesLoadBalancingClientLoadBalancing50ById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -376,7 +376,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingClientLoadBa
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLocationBasedServiceById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesLocationBasedServiceById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -400,7 +400,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLocationBasedServiceById(
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesMeshById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesMeshById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -424,7 +424,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesMeshById(ctx context.Cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRecoverySsidById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesRecoverySsidById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -448,7 +448,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRecoverySsidById(ctx cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRogueById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesRogueById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -472,7 +472,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRogueById(ctx context.Con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSmartMonitorById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesSmartMonitorById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -496,7 +496,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSmartMonitorById(ctx cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSnmpAgentById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesSnmpAgentById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -520,7 +520,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSnmpAgentById(ctx context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSoftGreTunnelProfliesById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesSoftGreTunnelProfliesById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -544,7 +544,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSoftGreTunnelProfliesById
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSyslogById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesSyslogById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -568,7 +568,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSyslogById(ctx context.Co
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesVenueProfileById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) DeleteRkszonesVenueProfileById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -596,7 +596,7 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesVenueProfileById(ctx cont
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGRuckusWirelessAPZoneService) FindRkszones(ctx context.Context, optionalParams map[string][]string) (*WSGZoneList, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) FindRkszones(ctx context.Context, optionalParams map[string][]string) (*WSGZoneList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -630,7 +630,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszones(ctx context.Context, optio
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApFirmwareByZoneId(ctx context.Context, zoneId string) (*WSGZoneApFirmwareList, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) FindRkszonesApFirmwareByZoneId(ctx context.Context, zoneId string) (*WSGZoneApFirmwareList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -658,7 +658,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApFirmwareByZoneId(ctx cont
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelByModel(ctx context.Context, model string, zoneId string) (*WSGZoneAPModelApModel, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) FindRkszonesApmodelByModel(ctx context.Context, model string, zoneId string) (*WSGZoneAPModelApModel, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -687,7 +687,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelByModel(ctx context.
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelCommonAttributeByModel(ctx context.Context, model string, zoneId string) (*WSGAPModelCommonAttribute, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) FindRkszonesApmodelCommonAttributeByModel(ctx context.Context, model string, zoneId string) (*WSGAPModelCommonAttribute, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -714,7 +714,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelCommonAttributeByMod
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableIpsecProfilesByZoneId(ctx context.Context, zoneId string) (*WSGZoneAvailableTunnelProfileList, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) FindRkszonesAvailableIpsecProfilesByZoneId(ctx context.Context, zoneId string) (*WSGZoneAvailableTunnelProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -740,7 +740,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableIpsecProfilesByZon
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableTunnelProfilesByZoneId(ctx context.Context, zoneId string) (*WSGZoneAvailableTunnelProfileList, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) FindRkszonesAvailableTunnelProfilesByZoneId(ctx context.Context, zoneId string) (*WSGZoneAvailableTunnelProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -766,7 +766,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableTunnelProfilesByZo
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesById(ctx context.Context, id string) (*WSGZoneConfiguration, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) FindRkszonesById(ctx context.Context, id string) (*WSGZoneConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -792,7 +792,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesById(ctx context.Context, i
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Context, id string) (*WSGZoneMeshConfiguration, *APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) FindRkszonesMeshById(ctx context.Context, id string) (*WSGZoneMeshConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -821,7 +821,7 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) PartialUpdateRkszonesById(ctx context.Context, body *WSGZoneModifyZone, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) PartialUpdateRkszonesById(ctx context.Context, body *WSGZoneModifyZone, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -852,7 +852,7 @@ func (s *WSGRuckusWirelessAPZoneService) PartialUpdateRkszonesById(ctx context.C
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApFirmwareByZoneId(ctx context.Context, body *WSGZoneModfiyApFirmware, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) UpdateRkszonesApFirmwareByZoneId(ctx context.Context, body *WSGZoneModfiyApFirmware, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -885,7 +885,7 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApFirmwareByZoneId(ctx co
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApmodelByModel(ctx context.Context, body *WSGZoneAPModelApModel, model string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) UpdateRkszonesApmodelByModel(ctx context.Context, body *WSGZoneAPModelApModel, model string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -917,7 +917,7 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApmodelByModel(ctx contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesById(ctx context.Context, body *WSGZoneModifyZone, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckuswirelessapzoneService) UpdateRkszonesById(ctx context.Context, body *WSGZoneModifyZone, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

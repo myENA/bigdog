@@ -2,7 +2,7 @@ package vsz
 
 // API Version: v9_0
 
-type SwitchMLagConfigCreate struct {
+type SwitchMLagconfigCreate struct {
 	// GroupId
 	// Switch Group Id
 	GroupId *string `json:"groupId,omitempty"`
@@ -26,19 +26,19 @@ type SwitchMLagConfigCreate struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewSwitchMLagConfigCreate() *SwitchMLagConfigCreate {
-	m := new(SwitchMLagConfigCreate)
+func NewSwitchMLagconfigCreate() *SwitchMLagconfigCreate {
+	m := new(SwitchMLagconfigCreate)
 	return m
 }
 
-type SwitchMLagConfigCreateResult interface{}
+type SwitchMLagconfigCreateResult interface{}
 
-func MakeSwitchMLagConfigCreateResult() SwitchMLagConfigCreateResult {
-	m := new(SwitchMLagConfigCreateResult)
+func MakeSwitchMLagconfigCreateResult() SwitchMLagconfigCreateResult {
+	m := new(SwitchMLagconfigCreateResult)
 	return m
 }
 
-type SwitchMLagConfig struct {
+type SwitchMLagconfig struct {
 	// CreatedTime
 	// The LAG Types in STATIC or DYNAMIC
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -74,12 +74,12 @@ type SwitchMLagConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMLagConfig() *SwitchMLagConfig {
-	m := new(SwitchMLagConfig)
+func NewSwitchMLagconfig() *SwitchMLagconfig {
+	m := new(SwitchMLagconfig)
 	return m
 }
 
-type SwitchMLagConfigList struct {
+type SwitchMLagconfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -90,19 +90,19 @@ type SwitchMLagConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMLagConfig `json:"list,omitempty"`
+	List []*SwitchMLagconfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMLagConfigList() *SwitchMLagConfigList {
-	m := new(SwitchMLagConfigList)
+func NewSwitchMLagconfigList() *SwitchMLagconfigList {
+	m := new(SwitchMLagconfigList)
 	return m
 }
 
-type SwitchMLagConfigModify struct {
+type SwitchMLagconfigModify struct {
 	// Name
 	// The Name of LAG Config
 	Name *string `json:"name,omitempty"`
@@ -112,7 +112,7 @@ type SwitchMLagConfigModify struct {
 	Ports []string `json:"ports,omitempty"`
 }
 
-func NewSwitchMLagConfigModify() *SwitchMLagConfigModify {
-	m := new(SwitchMLagConfigModify)
+func NewSwitchMLagconfigModify() *SwitchMLagconfigModify {
+	m := new(SwitchMLagconfigModify)
 	return m
 }

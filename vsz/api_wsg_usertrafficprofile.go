@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGUserTrafficProfileService struct {
+type WSGUsertrafficprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGUserTrafficProfileService(c *APIClient) *WSGUserTrafficProfileService {
-	s := new(WSGUserTrafficProfileService)
+func NewWSGUsertrafficprofileService(c *APIClient) *WSGUsertrafficprofileService {
+	s := new(WSGUsertrafficprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileService {
-	return NewWSGUserTrafficProfileService(ss.apiClient)
+func (ss *WSGService) WSGUsertrafficprofileService() *WSGUsertrafficprofileService {
+	return NewWSGUsertrafficprofileService(ss.apiClient)
 }
 
 // AddProfilesUtp
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileServi
 //
 // Request Body:
 //	 - body *WSGProfileCreateUserTrafficProfile
-func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body *WSGProfileCreateUserTrafficProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) AddProfilesUtp(ctx context.Context, body *WSGProfileCreateUserTrafficProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -59,7 +59,7 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) AddProfilesUtpCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -88,7 +88,7 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Conte
 //
 // Request Body:
 //	 - body *WSGProfileDeleteBulkUserTrafficProfile
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, body *WSGProfileDeleteBulkUserTrafficProfile) (*APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) DeleteProfilesUtp(ctx context.Context, body *WSGProfileDeleteBulkUserTrafficProfile) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -115,7 +115,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, bo
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) DeleteProfilesUtpById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -139,7 +139,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) DeleteProfilesUtpDownlinkRateLimitingById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -163,7 +163,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) DeleteProfilesUtpUplinkRateLimitingById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -189,7 +189,7 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(c
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, optionalParams map[string][]string) (*WSGProfileList, *APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) FindProfilesUtp(ctx context.Context, optionalParams map[string][]string) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -220,7 +220,7 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, opti
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, id string) (*WSGProfileUserTrafficProfile, *APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) FindProfilesUtpById(ctx context.Context, id string) (*WSGProfileUserTrafficProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -245,7 +245,7 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, 
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileUserTrafficProfileList, *APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) FindProfilesUtpByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileUserTrafficProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -277,7 +277,7 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) PartialUpdateProfilesUtpById(ctx context.Context, body *WSGProfileModifyUserTrafficProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGUsertrafficprofileService) PartialUpdateProfilesUtpById(ctx context.Context, body *WSGProfileModifyUserTrafficProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

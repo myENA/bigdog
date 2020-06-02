@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 )
 
-type SwitchMVlanConfigCreateVlanConfig struct {
-	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections,omitempty"`
+type SwitchMVlanconfigCreateVlanConfig struct {
+	ArpInspections []*SwitchMVlanconfigVlanArpInspections `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -47,7 +47,7 @@ type SwitchMVlanConfigCreateVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []*SwitchMVlanConfigVlanPorts `json:"ports,omitempty"`
+	Ports []*SwitchMVlanconfigVlanPorts `json:"ports,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -80,13 +80,13 @@ type SwitchMVlanConfigCreateVlanConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewSwitchMVlanConfigCreateVlanConfig() *SwitchMVlanConfigCreateVlanConfig {
-	m := new(SwitchMVlanConfigCreateVlanConfig)
+func NewSwitchMVlanconfigCreateVlanConfig() *SwitchMVlanconfigCreateVlanConfig {
+	m := new(SwitchMVlanconfigCreateVlanConfig)
 	return m
 }
 
-type SwitchMVlanConfigUpdateVlanConfig struct {
-	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections,omitempty"`
+type SwitchMVlanconfigUpdateVlanConfig struct {
+	ArpInspections []*SwitchMVlanconfigVlanArpInspections `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -118,7 +118,7 @@ type SwitchMVlanConfigUpdateVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []*SwitchMVlanConfigVlanPorts `json:"ports,omitempty"`
+	Ports []*SwitchMVlanconfigVlanPorts `json:"ports,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -143,12 +143,12 @@ type SwitchMVlanConfigUpdateVlanConfig struct {
 	SpanningTreePriority *int `json:"spanningTreePriority,omitempty"`
 }
 
-func NewSwitchMVlanConfigUpdateVlanConfig() *SwitchMVlanConfigUpdateVlanConfig {
-	m := new(SwitchMVlanConfigUpdateVlanConfig)
+func NewSwitchMVlanconfigUpdateVlanConfig() *SwitchMVlanconfigUpdateVlanConfig {
+	m := new(SwitchMVlanconfigUpdateVlanConfig)
 	return m
 }
 
-type SwitchMVlanConfigVlanArpInspections struct {
+type SwitchMVlanconfigVlanArpInspections struct {
 	// Ip
 	// The IP of ArpInspections
 	Ip *string `json:"ip,omitempty"`
@@ -158,13 +158,13 @@ type SwitchMVlanConfigVlanArpInspections struct {
 	Mac *string `json:"mac,omitempty"`
 }
 
-func NewSwitchMVlanConfigVlanArpInspections() *SwitchMVlanConfigVlanArpInspections {
-	m := new(SwitchMVlanConfigVlanArpInspections)
+func NewSwitchMVlanconfigVlanArpInspections() *SwitchMVlanconfigVlanArpInspections {
+	m := new(SwitchMVlanconfigVlanArpInspections)
 	return m
 }
 
-type SwitchMVlanConfig struct {
-	ArpInspections []*SwitchMVlanConfigVlanArpInspections `json:"arpInspections,omitempty"`
+type SwitchMVlanconfig struct {
+	ArpInspections []*SwitchMVlanconfigVlanArpInspections `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -210,7 +210,7 @@ type SwitchMVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []*SwitchMVlanConfigVlanPorts `json:"ports,omitempty"`
+	Ports []*SwitchMVlanconfigVlanPorts `json:"ports,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -247,15 +247,15 @@ type SwitchMVlanConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewSwitchMVlanConfig() *SwitchMVlanConfig {
-	m := new(SwitchMVlanConfig)
+func NewSwitchMVlanconfig() *SwitchMVlanconfig {
+	m := new(SwitchMVlanconfig)
 	return m
 }
 
-type SwitchMVlanConfigQueryResult struct {
+type SwitchMVlanconfigQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMVlanConfigQueryResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMVlanconfigQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Vlan Configs returned out of the complete Vlan Configs list
@@ -265,7 +265,7 @@ type SwitchMVlanConfigQueryResult struct {
 	// Indicator of whether there are more Vlan Configs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMVlanConfig `json:"list,omitempty"`
+	List []*SwitchMVlanconfig `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Vlan Configs count
@@ -276,40 +276,40 @@ type SwitchMVlanConfigQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMVlanConfigQueryResult() *SwitchMVlanConfigQueryResult {
-	m := new(SwitchMVlanConfigQueryResult)
+func NewSwitchMVlanconfigQueryResult() *SwitchMVlanconfigQueryResult {
+	m := new(SwitchMVlanconfigQueryResult)
 	return m
 }
 
-// SwitchMVlanConfigQueryResultExtraType
+// SwitchMVlanconfigQueryResultExtraType
 //
 // Any additional response data
-type SwitchMVlanConfigQueryResultExtraType struct {
+type SwitchMVlanconfigQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMVlanConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMVlanconfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMVlanConfigQueryResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMVlanconfigQueryResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMVlanConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMVlanconfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMVlanConfigQueryResultExtraType() *SwitchMVlanConfigQueryResultExtraType {
-	m := new(SwitchMVlanConfigQueryResultExtraType)
+func NewSwitchMVlanconfigQueryResultExtraType() *SwitchMVlanconfigQueryResultExtraType {
+	m := new(SwitchMVlanconfigQueryResultExtraType)
 	return m
 }
 
-type SwitchMVlanConfigVlanPorts struct {
+type SwitchMVlanconfigVlanPorts struct {
 	// SwitchModel
 	// The Switch Model of Ports
 	SwitchModel *string `json:"switchModel,omitempty"`
@@ -323,7 +323,7 @@ type SwitchMVlanConfigVlanPorts struct {
 	UntaggedPorts *string `json:"untaggedPorts,omitempty"`
 }
 
-func NewSwitchMVlanConfigVlanPorts() *SwitchMVlanConfigVlanPorts {
-	m := new(SwitchMVlanConfigVlanPorts)
+func NewSwitchMVlanconfigVlanPorts() *SwitchMVlanconfigVlanPorts {
+	m := new(SwitchMVlanconfigVlanPorts)
 	return m
 }

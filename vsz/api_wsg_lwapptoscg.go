@@ -7,24 +7,24 @@ import (
 	"net/http"
 )
 
-type WSGLWAPPTOSCGService struct {
+type WSGLwapptoscgService struct {
 	apiClient *APIClient
 }
 
-func NewWSGLWAPPTOSCGService(c *APIClient) *WSGLWAPPTOSCGService {
-	s := new(WSGLWAPPTOSCGService)
+func NewWSGLwapptoscgService(c *APIClient) *WSGLwapptoscgService {
+	s := new(WSGLwapptoscgService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
-	return NewWSGLWAPPTOSCGService(ss.apiClient)
+func (ss *WSGService) WSGLwapptoscgService() *WSGLwapptoscgService {
+	return NewWSGLwapptoscgService(ss.apiClient)
 }
 
 // FindLwapp2scg
 //
 // Use this API command to retrieve Lwapp Config.
-func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*WSGSystemLwapp2scgConfiguration, *APIResponseMeta, error) {
+func (s *WSGLwapptoscgService) FindLwapp2scg(ctx context.Context) (*WSGSystemLwapp2scgConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -48,7 +48,7 @@ func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context) (*WSGSystemLwa
 //
 // Request Body:
 //	 - body *WSGSystemModifyLwapp2scg
-func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body *WSGSystemModifyLwapp2scg) (*APIResponseMeta, error) {
+func (s *WSGLwapptoscgService) PartialUpdateLwapp2scg(ctx context.Context, body *WSGSystemModifyLwapp2scg) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -74,7 +74,7 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *WSGSystemModifyLwapp2scg
-func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context, body *WSGSystemModifyLwapp2scg) (*APIResponseMeta, error) {
+func (s *WSGLwapptoscgService) PartialUpdateLwapp2scgApList(ctx context.Context, body *WSGSystemModifyLwapp2scg) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGSoftGRETunnelProfileService struct {
+type WSGSoftgretunnelprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGSoftGRETunnelProfileService(c *APIClient) *WSGSoftGRETunnelProfileService {
-	s := new(WSGSoftGRETunnelProfileService)
+func NewWSGSoftgretunnelprofileService(c *APIClient) *WSGSoftgretunnelprofileService {
+	s := new(WSGSoftgretunnelprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGSoftGRETunnelProfileService() *WSGSoftGRETunnelProfileService {
-	return NewWSGSoftGRETunnelProfileService(ss.apiClient)
+func (ss *WSGService) WSGSoftgretunnelprofileService() *WSGSoftgretunnelprofileService {
+	return NewWSGSoftgretunnelprofileService(ss.apiClient)
 }
 
 // AddProfilesTunnelSoftgre
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGSoftGRETunnelProfileService() *WSGSoftGRETunnelProfileS
 //
 // Request Body:
 //	 - body *WSGProfileCreateSoftGREProfile
-func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Context, body *WSGProfileCreateSoftGREProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGSoftgretunnelprofileService) AddProfilesTunnelSoftgre(ctx context.Context, body *WSGProfileCreateSoftGREProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Co
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGSoftgretunnelprofileService) DeleteProfilesTunnelSoftgre(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGSoftgretunnelprofileService) DeleteProfilesTunnelSoftgreById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,7 +102,7 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx con
 // FindProfilesTunnelSoftgre
 //
 // Use this API command to retrieve a list of SoftGRE tunnel profile.
-func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.Context) (*WSGProfileList, *APIResponseMeta, error) {
+func (s *WSGSoftgretunnelprofileService) FindProfilesTunnelSoftgre(ctx context.Context) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -127,7 +127,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.C
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx context.Context, id string) (*WSGProfileSoftGREProfile, *APIResponseMeta, error) {
+func (s *WSGSoftgretunnelprofileService) FindProfilesTunnelSoftgreById(ctx context.Context, id string) (*WSGProfileSoftGREProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -152,7 +152,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileSoftGREProfileList, *APIResponseMeta, error) {
+func (s *WSGSoftgretunnelprofileService) FindProfilesTunnelSoftgreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileSoftGREProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGSoftGRETunnelProfileService) PartialUpdateProfilesTunnelSoftgreById(ctx context.Context, body *WSGProfileModifySoftGREProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGSoftgretunnelprofileService) PartialUpdateProfilesTunnelSoftgreById(ctx context.Context, body *WSGProfileModifySoftGREProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

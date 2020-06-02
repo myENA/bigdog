@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMTopReportsService struct {
+type SwitchMTopreportsService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMTopReportsService(c *APIClient) *SwitchMTopReportsService {
-	s := new(SwitchMTopReportsService)
+func NewSwitchMTopreportsService(c *APIClient) *SwitchMTopreportsService {
+	s := new(SwitchMTopreportsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMTopReportsService() *SwitchMTopReportsService {
-	return NewSwitchMTopReportsService(ss.apiClient)
+func (ss *SwitchMService) SwitchMTopreportsService() *SwitchMTopreportsService {
+	return NewSwitchMTopreportsService(ss.apiClient)
 }
 
 // AddSwitchTopByFirmware
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMTopReportsService() *SwitchMTopReportsService {
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchTopSwitchesByFirmwareQueryResultList, *APIResponseMeta, error) {
+func (s *SwitchMTopreportsService) AddSwitchTopByFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchTopSwitchesByFirmwareQueryResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, b
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMTopReportsService) AddSwitchTopByModel(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchTopSwitchesByModelQueryResultList, *APIResponseMeta, error) {
+func (s *SwitchMTopreportsService) AddSwitchTopByModel(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchTopSwitchesByModelQueryResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

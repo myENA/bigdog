@@ -7,21 +7,21 @@ import (
 	"net/http"
 )
 
-type WSGGeofenceProfileService struct {
+type WSGGeofenceprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGGeofenceProfileService(c *APIClient) *WSGGeofenceProfileService {
-	s := new(WSGGeofenceProfileService)
+func NewWSGGeofenceprofileService(c *APIClient) *WSGGeofenceprofileService {
+	s := new(WSGGeofenceprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGGeofenceProfileService() *WSGGeofenceProfileService {
-	return NewWSGGeofenceProfileService(ss.apiClient)
+func (ss *WSGService) WSGGeofenceprofileService() *WSGGeofenceprofileService {
+	return NewWSGGeofenceprofileService(ss.apiClient)
 }
 
-type WSGGeofenceProfile struct {
+type WSGGeofenceprofile struct {
 	// Description
 	// Geofence Profile's description
 	Description *string `json:"description,omitempty"`
@@ -30,7 +30,7 @@ type WSGGeofenceProfile struct {
 	// Geofence Profile's location list
 	// Constraints:
 	//    - required
-	LocationList []*WSGGeofenceProfileLocationData `json:"locationList"`
+	LocationList []*WSGGeofenceprofileLocationData `json:"locationList"`
 
 	// Name
 	// Geofence Profile's name
@@ -45,12 +45,12 @@ type WSGGeofenceProfile struct {
 	RadiusMeter *int `json:"radiusMeter"`
 }
 
-func NewWSGGeofenceProfile() *WSGGeofenceProfile {
-	m := new(WSGGeofenceProfile)
+func NewWSGGeofenceprofile() *WSGGeofenceprofile {
+	m := new(WSGGeofenceprofile)
 	return m
 }
 
-type WSGGeofenceProfileLocationData struct {
+type WSGGeofenceprofileLocationData struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Location
@@ -60,12 +60,12 @@ type WSGGeofenceProfileLocationData struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
-func NewWSGGeofenceProfileLocationData() *WSGGeofenceProfileLocationData {
-	m := new(WSGGeofenceProfileLocationData)
+func NewWSGGeofenceprofileLocationData() *WSGGeofenceprofileLocationData {
+	m := new(WSGGeofenceprofileLocationData)
 	return m
 }
 
-type WSGGeofenceProfileGetGeofenceProfile struct {
+type WSGGeofenceprofileGetGeofenceProfile struct {
 	// Description
 	// Geofence Profile's description
 	Description *string `json:"description,omitempty"`
@@ -76,7 +76,7 @@ type WSGGeofenceProfileGetGeofenceProfile struct {
 
 	// LocationList
 	// Geofence Profile's location list
-	LocationList []*WSGGeofenceProfileLocationData `json:"locationList,omitempty"`
+	LocationList []*WSGGeofenceprofileLocationData `json:"locationList,omitempty"`
 
 	// Name
 	// Geofence Profile's name
@@ -91,23 +91,23 @@ type WSGGeofenceProfileGetGeofenceProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewWSGGeofenceProfileGetGeofenceProfile() *WSGGeofenceProfileGetGeofenceProfile {
-	m := new(WSGGeofenceProfileGetGeofenceProfile)
+func NewWSGGeofenceprofileGetGeofenceProfile() *WSGGeofenceprofileGetGeofenceProfile {
+	m := new(WSGGeofenceprofileGetGeofenceProfile)
 	return m
 }
 
-type WSGGeofenceProfileGetGeofenceProfileProfileList struct {
+type WSGGeofenceprofileGetGeofenceProfileProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGGeofenceProfileGetGeofenceProfile `json:"list,omitempty"`
+	List []*WSGGeofenceprofileGetGeofenceProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGGeofenceProfileGetGeofenceProfileProfileList() *WSGGeofenceProfileGetGeofenceProfileProfileList {
-	m := new(WSGGeofenceProfileGetGeofenceProfileProfileList)
+func NewWSGGeofenceprofileGetGeofenceProfileProfileList() *WSGGeofenceprofileGetGeofenceProfileProfileList {
+	m := new(WSGGeofenceprofileGetGeofenceProfileProfileList)
 	return m
 }
 
@@ -116,12 +116,12 @@ func NewWSGGeofenceProfileGetGeofenceProfileProfileList() *WSGGeofenceProfileGet
 // Use this API command to create a Geofence Profile.
 //
 // Request Body:
-//	 - body *WSGGeofenceProfile
+//	 - body *WSGGeofenceprofile
 //
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) AddRkszonesGeofenceProfilesByZoneId(ctx context.Context, body *WSGGeofenceProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGGeofenceprofileService) AddRkszonesGeofenceProfilesByZoneId(ctx context.Context, body *WSGGeofenceprofile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -153,7 +153,7 @@ func (s *WSGGeofenceProfileService) AddRkszonesGeofenceProfilesByZoneId(ctx cont
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGGeofenceprofileService) DeleteRkszonesGeofenceProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -181,7 +181,7 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesById(ctx conte
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGGeofenceprofileService) DeleteRkszonesGeofenceProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -211,11 +211,11 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesByZoneId(ctx c
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesById(ctx context.Context, id string, zoneId string) (*WSGGeofenceProfileGetGeofenceProfile, *APIResponseMeta, error) {
+func (s *WSGGeofenceprofileService) FindRkszonesGeofenceProfilesById(ctx context.Context, id string, zoneId string) (*WSGGeofenceprofileGetGeofenceProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGGeofenceProfileGetGeofenceProfile
+		resp     *WSGGeofenceprofileGetGeofenceProfile
 		httpResp *http.Response
 		err      error
 	)
@@ -226,7 +226,7 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesById(ctx context
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGGeofenceProfileGetGeofenceProfile()
+	resp = NewWSGGeofenceprofileGetGeofenceProfile()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -238,11 +238,11 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesById(ctx context
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesByZoneId(ctx context.Context, zoneId string) (*WSGGeofenceProfileGetGeofenceProfileProfileList, *APIResponseMeta, error) {
+func (s *WSGGeofenceprofileService) FindRkszonesGeofenceProfilesByZoneId(ctx context.Context, zoneId string) (*WSGGeofenceprofileGetGeofenceProfileProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGGeofenceProfileGetGeofenceProfileProfileList
+		resp     *WSGGeofenceprofileGetGeofenceProfileProfileList
 		httpResp *http.Response
 		err      error
 	)
@@ -252,7 +252,7 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesByZoneId(ctx con
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesGeofenceProfilesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGGeofenceProfileGetGeofenceProfileProfileList()
+	resp = NewWSGGeofenceprofileGetGeofenceProfileProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -262,14 +262,14 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesByZoneId(ctx con
 // Use this API command to update a Geofence Profile.
 //
 // Request Body:
-//	 - body *WSGGeofenceProfile
+//	 - body *WSGGeofenceprofile
 //
 // Required Parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) UpdateRkszonesGeofenceProfilesById(ctx context.Context, body *WSGGeofenceProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGGeofenceprofileService) UpdateRkszonesGeofenceProfilesById(ctx context.Context, body *WSGGeofenceprofile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

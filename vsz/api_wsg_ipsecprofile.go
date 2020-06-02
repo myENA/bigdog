@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGIPSECProfileService struct {
+type WSGIpsecprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGIPSECProfileService(c *APIClient) *WSGIPSECProfileService {
-	s := new(WSGIPSECProfileService)
+func NewWSGIpsecprofileService(c *APIClient) *WSGIpsecprofileService {
+	s := new(WSGIpsecprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
-	return NewWSGIPSECProfileService(ss.apiClient)
+func (ss *WSGService) WSGIpsecprofileService() *WSGIpsecprofileService {
+	return NewWSGIpsecprofileService(ss.apiClient)
 }
 
 // AddProfilesTunnelIpsec
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 //
 // Request Body:
 //	 - body *WSGProfileCreateIpsecProfile
-func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, body *WSGProfileCreateIpsecProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGIpsecprofileService) AddProfilesTunnelIpsec(ctx context.Context, body *WSGProfileCreateIpsecProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGIpsecprofileService) DeleteProfilesTunnelIpsec(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGIpsecprofileService) DeleteProfilesTunnelIpsecById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -108,7 +108,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, optionalParams map[string][]string) (*WSGProfileList, *APIResponseMeta, error) {
+func (s *WSGIpsecprofileService) FindProfilesTunnelIpsec(ctx context.Context, optionalParams map[string][]string) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -139,7 +139,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context, id string) (*WSGProfileIpsecProfile, *APIResponseMeta, error) {
+func (s *WSGIpsecprofileService) FindProfilesTunnelIpsecById(ctx context.Context, id string) (*WSGProfileIpsecProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -164,7 +164,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileIpsecProfileList, *APIResponseMeta, error) {
+func (s *WSGIpsecprofileService) FindProfilesTunnelIpsecByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileIpsecProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -196,7 +196,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *WSGProfileModifyIpsecProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGIpsecprofileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *WSGProfileModifyIpsecProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

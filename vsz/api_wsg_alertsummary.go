@@ -2,7 +2,7 @@ package vsz
 
 // API Version: v9_0
 
-type WSGAlertSummaryAlarmSummary struct {
+type WSGAlertsummaryAlarmSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`
 
 	MajorCount *int `json:"majorCount,omitempty"`
@@ -12,12 +12,12 @@ type WSGAlertSummaryAlarmSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
-func NewWSGAlertSummaryAlarmSummary() *WSGAlertSummaryAlarmSummary {
-	m := new(WSGAlertSummaryAlarmSummary)
+func NewWSGAlertsummaryAlarmSummary() *WSGAlertsummaryAlarmSummary {
+	m := new(WSGAlertsummaryAlarmSummary)
 	return m
 }
 
-type WSGAlertSummaryEventSummary struct {
+type WSGAlertsummaryEventSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`
 
 	DebugCount *int `json:"debugCount,omitempty"`
@@ -31,7 +31,7 @@ type WSGAlertSummaryEventSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
-func NewWSGAlertSummaryEventSummary() *WSGAlertSummaryEventSummary {
-	m := new(WSGAlertSummaryEventSummary)
+func NewWSGAlertsummaryEventSummary() *WSGAlertsummaryEventSummary {
+	m := new(WSGAlertsummaryEventSummary)
 	return m
 }

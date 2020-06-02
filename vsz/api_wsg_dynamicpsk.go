@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDynamicPSKService struct {
+type WSGDynamicpskService struct {
 	apiClient *APIClient
 }
 
-func NewWSGDynamicPSKService(c *APIClient) *WSGDynamicPSKService {
-	s := new(WSGDynamicPSKService)
+func NewWSGDynamicpskService(c *APIClient) *WSGDynamicpskService {
+	s := new(WSGDynamicpskService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
-	return NewWSGDynamicPSKService(ss.apiClient)
+func (ss *WSGService) WSGDynamicpskService() *WSGDynamicpskService {
+	return NewWSGDynamicpskService(ss.apiClient)
 }
 
 // AddRkszonesWlansDpskBatchGenUnboundById
@@ -33,7 +33,7 @@ func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx context.Context, body *WSGDPSKBatchGenUnbound, id string, zoneId string) (*WSGDPSKGetDpskResult, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) AddRkszonesWlansDpskBatchGenUnboundById(ctx context.Context, body *WSGDPSKBatchGenUnbound, id string, zoneId string) (*WSGDPSKGetDpskResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -69,7 +69,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx conte
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, body *WSGDPSKDeleteDPSKs, id string, zoneId string) (*WSGDPSKDeleteDpskResult, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) AddRkszonesWlansDpskById(ctx context.Context, body *WSGDPSKDeleteDPSKs, id string, zoneId string) (*WSGDPSKDeleteDpskResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -105,7 +105,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Context, body []byte, id string, zoneId string) (*WSGDPSKGetDpskResult, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) AddRkszonesWlansDpskUploadById(ctx context.Context, body []byte, id string, zoneId string) (*WSGDPSKGetDpskResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -135,7 +135,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGDynamicPSKService) FindDpskByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGDPSKQueryList, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) FindDpskByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGDPSKQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -164,7 +164,7 @@ func (s *WSGDynamicPSKService) FindDpskByQueryCriteria(ctx context.Context, body
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, zoneId string) (*WSGDPSKDeleteExpiredDpskConfig, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, zoneId string) (*WSGDPSKDeleteExpiredDpskConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -190,7 +190,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 // Optional Parameters:
 // - type_ string
 //		- nullable
-func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Context, optionalParams map[string][]string) ([]byte, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) FindRkszonesDownloadDpskCsvSample(ctx context.Context, optionalParams map[string][]string) ([]byte, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -218,7 +218,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Con
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zoneId string) (*WSGDPSKGetDpskInfoList, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) FindRkszonesDpskByZoneId(ctx context.Context, zoneId string) (*WSGDPSKGetDpskInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -244,7 +244,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zon
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.Context, zoneId string) (*WSGDPSKGetDpskEnabledWlans, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.Context, zoneId string) (*WSGDPSKGetDpskEnabledWlans, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -274,7 +274,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context, dpskId string, id string, zoneId string) (*WSGDPSKGetDpskInfoList, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) FindRkszonesWlansDpskByDpskId(ctx context.Context, dpskId string, id string, zoneId string) (*WSGDPSKGetDpskInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -304,7 +304,7 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, id string, zoneId string) (*WSGDPSKGetDpskInfoList, *APIResponseMeta, error) {
+func (s *WSGDynamicpskService) FindRkszonesWlansDpskById(ctx context.Context, id string, zoneId string) (*WSGDPSKGetDpskInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -338,7 +338,7 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, id
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx context.Context, body *WSGDPSKUpdateDpsk, dpskId string, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGDynamicpskService) PartialUpdateRkszonesWlansDpskByDpskId(ctx context.Context, body *WSGDPSKUpdateDpsk, dpskId string, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -371,7 +371,7 @@ func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx contex
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, body *WSGDPSKModifyDeleteExpiredDpsk, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGDynamicpskService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, body *WSGDPSKModifyDeleteExpiredDpsk, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,24 +7,24 @@ import (
 	"net/http"
 )
 
-type WSGUploadStatisticstoFTPService struct {
+type WSGUploadstatisticstoftpService struct {
 	apiClient *APIClient
 }
 
-func NewWSGUploadStatisticstoFTPService(c *APIClient) *WSGUploadStatisticstoFTPService {
-	s := new(WSGUploadStatisticstoFTPService)
+func NewWSGUploadstatisticstoftpService(c *APIClient) *WSGUploadstatisticstoftpService {
+	s := new(WSGUploadstatisticstoftpService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGUploadStatisticstoFTPService() *WSGUploadStatisticstoFTPService {
-	return NewWSGUploadStatisticstoFTPService(ss.apiClient)
+func (ss *WSGService) WSGUploadstatisticstoftpService() *WSGUploadstatisticstoftpService {
+	return NewWSGUploadstatisticstoftpService(ss.apiClient)
 }
 
 // FindGlobalSettingsStatsFtp
 //
 // Use this API command to retrieve the uploading statistical data to FTP server setting.
-func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context.Context) (*WSGSystemFtpGlobalSetting, *APIResponseMeta, error) {
+func (s *WSGUploadstatisticstoftpService) FindGlobalSettingsStatsFtp(ctx context.Context) (*WSGSystemFtpGlobalSetting, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -48,7 +48,7 @@ func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context
 //
 // Request Body:
 //	 - body *WSGSystemFtpGlobalSetting
-func (s *WSGUploadStatisticstoFTPService) PartialUpdateGlobalSettingsStatsFtp(ctx context.Context, body *WSGSystemFtpGlobalSetting) (*APIResponseMeta, error) {
+func (s *WSGUploadstatisticstoftpService) PartialUpdateGlobalSettingsStatsFtp(ctx context.Context, body *WSGSystemFtpGlobalSetting) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

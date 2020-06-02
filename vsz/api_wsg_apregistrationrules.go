@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAPRegistrationRulesService struct {
+type WSGApregistrationrulesService struct {
 	apiClient *APIClient
 }
 
-func NewWSGAPRegistrationRulesService(c *APIClient) *WSGAPRegistrationRulesService {
-	s := new(WSGAPRegistrationRulesService)
+func NewWSGApregistrationrulesService(c *APIClient) *WSGApregistrationrulesService {
+	s := new(WSGApregistrationrulesService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAPRegistrationRulesService() *WSGAPRegistrationRulesService {
-	return NewWSGAPRegistrationRulesService(ss.apiClient)
+func (ss *WSGService) WSGApregistrationrulesService() *WSGApregistrationrulesService {
+	return NewWSGApregistrationrulesService(ss.apiClient)
 }
 
 // AddApRules
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGAPRegistrationRulesService() *WSGAPRegistrationRulesSer
 //
 // Request Body:
 //	 - body *WSGAPRulesCreateApRule
-func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WSGAPRulesCreateApRule) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGApregistrationrulesService) AddApRules(ctx context.Context, body *WSGAPRulesCreateApRule) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -56,7 +56,7 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGApregistrationrulesService) DeleteApRulesById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -76,7 +76,7 @@ func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, i
 // FindApRules
 //
 // Use this API command to retrieve a list of AP Registration Rules profile.
-func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*WSGAPRulesApRuleList, *APIResponseMeta, error) {
+func (s *WSGApregistrationrulesService) FindApRules(ctx context.Context) (*WSGAPRulesApRuleList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -101,7 +101,7 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context) (*WSGAP
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id string) (*WSGAPRulesApRuleConfiguration, *APIResponseMeta, error) {
+func (s *WSGApregistrationrulesService) FindApRulesById(ctx context.Context, id string) (*WSGAPRulesApRuleConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -127,7 +127,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGApregistrationrulesService) FindApRulesPriorityDownById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -151,7 +151,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGApregistrationrulesService) FindApRulesPriorityUpById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -178,7 +178,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Context, body *WSGAPRulesModifyApRule, id string) (*APIResponseMeta, error) {
+func (s *WSGApregistrationrulesService) PartialUpdateApRulesById(ctx context.Context, body *WSGAPRulesModifyApRule, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGLBSprofileService struct {
+type WSGLbsprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGLBSprofileService(c *APIClient) *WSGLBSprofileService {
-	s := new(WSGLBSprofileService)
+func NewWSGLbsprofileService(c *APIClient) *WSGLbsprofileService {
+	s := new(WSGLbsprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
-	return NewWSGLBSprofileService(ss.apiClient)
+func (ss *WSGService) WSGLbsprofileService() *WSGLbsprofileService {
+	return NewWSGLbsprofileService(ss.apiClient)
 }
 
 // AddProfilesLbs
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 //
 // Request Body:
 //	 - body *WSGProfileLbsProfile
-func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProfileLbsProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGLbsprofileService) AddProfilesLbs(ctx context.Context, body *WSGProfileLbsProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGLbsprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGC
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGLbsprofileService) DeleteProfilesLbsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -106,7 +106,7 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id string) (*WSGProfileLbsProfile, *APIResponseMeta, error) {
+func (s *WSGLbsprofileService) FindProfilesLbsById(ctx context.Context, id string) (*WSGProfileLbsProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -131,7 +131,7 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileLbsProfileList, *APIResponseMeta, error) {
+func (s *WSGLbsprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileLbsProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -163,7 +163,7 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *WSGProfileLbsProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGLbsprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *WSGProfileLbsProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGIdentitySubscriptionPackageService struct {
+type WSGIdentitysubscriptionpackageService struct {
 	apiClient *APIClient
 }
 
-func NewWSGIdentitySubscriptionPackageService(c *APIClient) *WSGIdentitySubscriptionPackageService {
-	s := new(WSGIdentitySubscriptionPackageService)
+func NewWSGIdentitysubscriptionpackageService(c *APIClient) *WSGIdentitysubscriptionpackageService {
+	s := new(WSGIdentitysubscriptionpackageService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGIdentitySubscriptionPackageService() *WSGIdentitySubscriptionPackageService {
-	return NewWSGIdentitySubscriptionPackageService(ss.apiClient)
+func (ss *WSGService) WSGIdentitysubscriptionpackageService() *WSGIdentitysubscriptionpackageService {
+	return NewWSGIdentitysubscriptionpackageService(ss.apiClient)
 }
 
 // AddIdentityPackageList
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGIdentitySubscriptionPackageService() *WSGIdentitySubscr
 //
 // Request Body:
 //	 - body *WSGIdentityQueryCriteria
-func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentitySubscriptionPackageList, *APIResponseMeta, error) {
+func (s *WSGIdentitysubscriptionpackageService) AddIdentityPackageList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentitySubscriptionPackageList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 //
 // Request Body:
 //	 - body *WSGIdentityCreateSubscriptionPackage
-func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.Context, body *WSGIdentityCreateSubscriptionPackage) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGIdentitysubscriptionpackageService) AddIdentityPackages(ctx context.Context, body *WSGIdentityCreateSubscriptionPackage) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 //
 // Request Body:
 //	 - body *WSGIdentityDeleteBulk
-func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx context.Context, body *WSGIdentityDeleteBulk) (*APIResponseMeta, error) {
+func (s *WSGIdentitysubscriptionpackageService) DeleteIdentityPackages(ctx context.Context, body *WSGIdentityDeleteBulk) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -110,7 +110,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGIdentitysubscriptionpackageService) DeleteIdentityPackagesById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -130,7 +130,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 // FindIdentityPackages
 //
 // Use this API command to retrieve a list of subscription package.
-func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context.Context) (*WSGIdentitySubscriptionPackageList, *APIResponseMeta, error) {
+func (s *WSGIdentitysubscriptionpackageService) FindIdentityPackages(ctx context.Context) (*WSGIdentitySubscriptionPackageList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -155,7 +155,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx context.Context, id string) (*WSGIdentitySubscriptionPackage, *APIResponseMeta, error) {
+func (s *WSGIdentitysubscriptionpackageService) FindIdentityPackagesById(ctx context.Context, id string) (*WSGIdentitySubscriptionPackage, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesById(ctx context.Context, body *WSGIdentityModifySubscriptionPackage, id string) (*APIResponseMeta, error) {
+func (s *WSGIdentitysubscriptionpackageService) PartialUpdateIdentityPackagesById(ctx context.Context, body *WSGIdentityModifySubscriptionPackage, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

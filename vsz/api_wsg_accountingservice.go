@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAccountingServiceService struct {
+type WSGAccountingserviceService struct {
 	apiClient *APIClient
 }
 
-func NewWSGAccountingServiceService(c *APIClient) *WSGAccountingServiceService {
-	s := new(WSGAccountingServiceService)
+func NewWSGAccountingserviceService(c *APIClient) *WSGAccountingserviceService {
+	s := new(WSGAccountingserviceService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService {
-	return NewWSGAccountingServiceService(ss.apiClient)
+func (ss *WSGService) WSGAccountingserviceService() *WSGAccountingserviceService {
+	return NewWSGAccountingserviceService(ss.apiClient)
 }
 
 // AddServicesAcctRadius
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService
 //
 // Request Body:
 //	 - body *WSGServiceCreateRadiusAccounting
-func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context, body *WSGServiceCreateRadiusAccounting) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) AddServicesAcctRadius(ctx context.Context, body *WSGServiceCreateRadiusAccounting) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -59,7 +59,7 @@ func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context,
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Context, body *WSGServiceTestingConfig, id string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) AddServicesAcctTestById(ctx context.Context, body *WSGServiceTestingConfig, id string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -88,7 +88,7 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 //
 // Request Body:
 //	 - body *WSGServiceDeleteBulkAccountingService
-func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, body *WSGServiceDeleteBulkAccountingService) (*APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) DeleteServicesAcct(ctx context.Context, body *WSGServiceDeleteBulkAccountingService) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -115,7 +115,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) DeleteServicesAcctById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -139,7 +139,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) DeleteServicesAcctRadiusById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -163,7 +163,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) DeleteServicesAcctRadiusSecondaryById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -187,7 +187,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) DeleteServicesAcctRadiusStandbyPrimaryById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -210,7 +210,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccountingServiceService) FindServicesAaaServerAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAAAServerQueryList, *APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) FindServicesAaaServerAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAAAServerQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -238,7 +238,7 @@ func (s *WSGAccountingServiceService) FindServicesAaaServerAcctByQueryCriteria(c
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceCommonAccountingServiceList, *APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) FindServicesAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceCommonAccountingServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -263,7 +263,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx contex
 // FindServicesAcctRadius
 //
 // Use this API command to retrieve a list of RADIUS accounting services.
-func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context) (*WSGServiceRadiusAccountingServiceList, *APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) FindServicesAcctRadius(ctx context.Context) (*WSGServiceRadiusAccountingServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -288,7 +288,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Context, id string) (*WSGServiceRadiusAccountingService, *APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) FindServicesAcctRadiusById(ctx context.Context, id string) (*WSGServiceRadiusAccountingService, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -313,7 +313,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceRadiusAccountingServiceList, *APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) FindServicesAcctRadiusByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceRadiusAccountingServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -345,7 +345,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAccounting, id string) (*APIResponseMeta, error) {
+func (s *WSGAccountingserviceService) PartialUpdateServicesAcctRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAccounting, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

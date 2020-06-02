@@ -7,40 +7,40 @@ import (
 	"net/http"
 )
 
-type WSGVendorSpecificAttributeProfileService struct {
+type WSGVendorspecificattributeprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGVendorSpecificAttributeProfileService(c *APIClient) *WSGVendorSpecificAttributeProfileService {
-	s := new(WSGVendorSpecificAttributeProfileService)
+func NewWSGVendorspecificattributeprofileService(c *APIClient) *WSGVendorspecificattributeprofileService {
+	s := new(WSGVendorspecificattributeprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGVendorSpecificAttributeProfileService() *WSGVendorSpecificAttributeProfileService {
-	return NewWSGVendorSpecificAttributeProfileService(ss.apiClient)
+func (ss *WSGService) WSGVendorspecificattributeprofileService() *WSGVendorspecificattributeprofileService {
+	return NewWSGVendorspecificattributeprofileService(ss.apiClient)
 }
 
-type WSGVendorSpecificAttributeProfileCreateResult interface{}
+type WSGVendorspecificattributeprofileCreateResult interface{}
 
-func MakeWSGVendorSpecificAttributeProfileCreateResult() WSGVendorSpecificAttributeProfileCreateResult {
-	m := new(WSGVendorSpecificAttributeProfileCreateResult)
+func MakeWSGVendorspecificattributeprofileCreateResult() WSGVendorspecificattributeprofileCreateResult {
+	m := new(WSGVendorspecificattributeprofileCreateResult)
 	return m
 }
 
-type WSGVendorSpecificAttributeProfileDeleteBulk struct {
+type WSGVendorspecificattributeprofileDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
-func NewWSGVendorSpecificAttributeProfileDeleteBulk() *WSGVendorSpecificAttributeProfileDeleteBulk {
-	m := new(WSGVendorSpecificAttributeProfileDeleteBulk)
+func NewWSGVendorspecificattributeprofileDeleteBulk() *WSGVendorspecificattributeprofileDeleteBulk {
+	m := new(WSGVendorspecificattributeprofileDeleteBulk)
 	return m
 }
 
-type WSGVendorSpecificAttributeProfileGet struct {
+type WSGVendorspecificattributeprofileGet struct {
 	// Attributes
 	// Vendor specific attribute list for Radius protocol
-	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes,omitempty"`
+	Attributes []*WSGVendorspecificattributeprofileVendorSpecificAttribute `json:"attributes,omitempty"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -59,12 +59,12 @@ type WSGVendorSpecificAttributeProfileGet struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
-func NewWSGVendorSpecificAttributeProfileGet() *WSGVendorSpecificAttributeProfileGet {
-	m := new(WSGVendorSpecificAttributeProfileGet)
+func NewWSGVendorspecificattributeprofileGet() *WSGVendorspecificattributeprofileGet {
+	m := new(WSGVendorspecificattributeprofileGet)
 	return m
 }
 
-type WSGVendorSpecificAttributeProfileList struct {
+type WSGVendorspecificattributeprofileList struct {
 	// FirstIndex
 	// Index of the first profile returned out of the profile list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -75,19 +75,19 @@ type WSGVendorSpecificAttributeProfileList struct {
 
 	// List
 	// Information list of the vendor specific attribute profile
-	List []*WSGVendorSpecificAttributeProfileListType `json:"list,omitempty"`
+	List []*WSGVendorspecificattributeprofileListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total number of the profiles
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGVendorSpecificAttributeProfileList() *WSGVendorSpecificAttributeProfileList {
-	m := new(WSGVendorSpecificAttributeProfileList)
+func NewWSGVendorspecificattributeprofileList() *WSGVendorspecificattributeprofileList {
+	m := new(WSGVendorspecificattributeprofileList)
 	return m
 }
 
-type WSGVendorSpecificAttributeProfileListType struct {
+type WSGVendorspecificattributeprofileListType struct {
 	// Id
 	// Identifier of the vendor specific attribute profile
 	Id *string `json:"id,omitempty"`
@@ -95,17 +95,17 @@ type WSGVendorSpecificAttributeProfileListType struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
-func NewWSGVendorSpecificAttributeProfileListType() *WSGVendorSpecificAttributeProfileListType {
-	m := new(WSGVendorSpecificAttributeProfileListType)
+func NewWSGVendorspecificattributeprofileListType() *WSGVendorspecificattributeprofileListType {
+	m := new(WSGVendorspecificattributeprofileListType)
 	return m
 }
 
-type WSGVendorSpecificAttributeProfilePersist struct {
+type WSGVendorspecificattributeprofilePersist struct {
 	// Attributes
 	// Vendor specific attribute list for Radius protocol
 	// Constraints:
 	//    - required
-	Attributes []*WSGVendorSpecificAttributeProfileVendorSpecificAttribute `json:"attributes"`
+	Attributes []*WSGVendorspecificattributeprofileVendorSpecificAttribute `json:"attributes"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -115,29 +115,29 @@ type WSGVendorSpecificAttributeProfilePersist struct {
 	Name *WSGCommonNormalName `json:"name"`
 }
 
-func NewWSGVendorSpecificAttributeProfilePersist() *WSGVendorSpecificAttributeProfilePersist {
-	m := new(WSGVendorSpecificAttributeProfilePersist)
+func NewWSGVendorspecificattributeprofilePersist() *WSGVendorspecificattributeprofilePersist {
+	m := new(WSGVendorspecificattributeprofilePersist)
 	return m
 }
 
-type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
+type WSGVendorspecificattributeprofileQueryCriteriaResult struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGVendorSpecificAttributeProfileGet `json:"list,omitempty"`
+	List []*WSGVendorspecificattributeprofileGet `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGVendorSpecificAttributeProfileQueryCriteriaResult() *WSGVendorSpecificAttributeProfileQueryCriteriaResult {
-	m := new(WSGVendorSpecificAttributeProfileQueryCriteriaResult)
+func NewWSGVendorspecificattributeprofileQueryCriteriaResult() *WSGVendorspecificattributeprofileQueryCriteriaResult {
+	m := new(WSGVendorspecificattributeprofileQueryCriteriaResult)
 	return m
 }
 
-type WSGVendorSpecificAttributeProfileVendorSpecificAttribute struct {
+type WSGVendorspecificattributeprofileVendorSpecificAttribute struct {
 	// KeyId
 	// Key ID of vendor specific attribute
 	// Constraints:
@@ -171,8 +171,8 @@ type WSGVendorSpecificAttributeProfileVendorSpecificAttribute struct {
 	VendorId *int `json:"vendorId"`
 }
 
-func NewWSGVendorSpecificAttributeProfileVendorSpecificAttribute() *WSGVendorSpecificAttributeProfileVendorSpecificAttribute {
-	m := new(WSGVendorSpecificAttributeProfileVendorSpecificAttribute)
+func NewWSGVendorspecificattributeprofileVendorSpecificAttribute() *WSGVendorspecificattributeprofileVendorSpecificAttribute {
+	m := new(WSGVendorspecificattributeprofileVendorSpecificAttribute)
 	return m
 }
 
@@ -181,16 +181,16 @@ func NewWSGVendorSpecificAttributeProfileVendorSpecificAttribute() *WSGVendorSpe
 // Create a vendor specific attribute profile.
 //
 // Request Body:
-//	 - body *WSGVendorSpecificAttributeProfilePersist
+//	 - body *WSGVendorspecificattributeprofilePersist
 //
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, zoneId string) (WSGVendorSpecificAttributeProfileCreateResult, *APIResponseMeta, error) {
+func (s *WSGVendorspecificattributeprofileService) AddRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorspecificattributeprofilePersist, zoneId string) (WSGVendorspecificattributeprofileCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     WSGVendorSpecificAttributeProfileCreateResult
+		resp     WSGVendorspecificattributeprofileCreateResult
 		httpResp *http.Response
 		err      error
 	)
@@ -204,7 +204,7 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = MakeWSGVendorSpecificAttributeProfileCreateResult()
+	resp = MakeWSGVendorspecificattributeprofileCreateResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
@@ -218,7 +218,7 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGVendorspecificattributeprofileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -241,12 +241,12 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 // Use this API command to delete a list of vendor specific attribute profile.
 //
 // Request Body:
-//	 - body *WSGVendorSpecificAttributeProfileDeleteBulk
+//	 - body *WSGVendorspecificattributeprofileDeleteBulk
 //
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfileDeleteBulk, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGVendorspecificattributeprofileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorspecificattributeprofileDeleteBulk, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -276,11 +276,11 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*WSGVendorSpecificAttributeProfileGet, *APIResponseMeta, error) {
+func (s *WSGVendorspecificattributeprofileService) FindRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string) (*WSGVendorspecificattributeprofileGet, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGVendorSpecificAttributeProfileGet
+		resp     *WSGVendorspecificattributeprofileGet
 		httpResp *http.Response
 		err      error
 	)
@@ -291,7 +291,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGVendorSpecificAttributeProfileGet()
+	resp = NewWSGVendorspecificattributeprofileGet()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -302,11 +302,11 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGVendorSpecificAttributeProfileQueryCriteriaResult, *APIResponseMeta, error) {
+func (s *WSGVendorspecificattributeprofileService) FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGVendorspecificattributeprofileQueryCriteriaResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGVendorSpecificAttributeProfileQueryCriteriaResult
+		resp     *WSGVendorspecificattributeprofileQueryCriteriaResult
 		httpResp *http.Response
 		err      error
 	)
@@ -319,7 +319,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGVendorSpecificAttributeProfileQueryCriteriaResult()
+	resp = NewWSGVendorspecificattributeprofileQueryCriteriaResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -331,11 +331,11 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, zoneId string) (*WSGVendorSpecificAttributeProfileList, *APIResponseMeta, error) {
+func (s *WSGVendorspecificattributeprofileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, zoneId string) (*WSGVendorspecificattributeprofileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGVendorSpecificAttributeProfileList
+		resp     *WSGVendorspecificattributeprofileList
 		httpResp *http.Response
 		err      error
 	)
@@ -345,7 +345,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByZoneId, true)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGVendorSpecificAttributeProfileList()
+	resp = NewWSGVendorspecificattributeprofileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -355,14 +355,14 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 // Use this API command to modify entire information of a vendor specific attribute profile.
 //
 // Request Body:
-//	 - body *WSGVendorSpecificAttributeProfilePersist
+//	 - body *WSGVendorspecificattributeprofilePersist
 //
 // Required Parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGVendorspecificattributeprofileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *WSGVendorspecificattributeprofilePersist, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

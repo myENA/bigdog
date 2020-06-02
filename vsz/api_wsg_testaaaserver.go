@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGTestAAAServerService struct {
+type WSGTestaaaserverService struct {
 	apiClient *APIClient
 }
 
-func NewWSGTestAAAServerService(c *APIClient) *WSGTestAAAServerService {
-	s := new(WSGTestAAAServerService)
+func NewWSGTestaaaserverService(c *APIClient) *WSGTestaaaserverService {
+	s := new(WSGTestaaaserverService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
-	return NewWSGTestAAAServerService(ss.apiClient)
+func (ss *WSGService) WSGTestaaaserverService() *WSGTestaaaserverService {
+	return NewWSGTestaaaserverService(ss.apiClient)
 }
 
 // AddSystemAaaTest
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
 //
 // Request Body:
 //	 - body *WSGAAATestAuthenticationServer
-func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WSGAAATestAuthenticationServer) (*WSGAAATestAAAServerResult, *APIResponseMeta, error) {
+func (s *WSGTestaaaserverService) AddSystemAaaTest(ctx context.Context, body *WSGAAATestAuthenticationServer) (*WSGAAATestAAAServerResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

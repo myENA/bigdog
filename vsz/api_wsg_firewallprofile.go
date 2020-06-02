@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGFirewallProfileService struct {
+type WSGFirewallprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGFirewallProfileService(c *APIClient) *WSGFirewallProfileService {
-	s := new(WSGFirewallProfileService)
+func NewWSGFirewallprofileService(c *APIClient) *WSGFirewallprofileService {
+	s := new(WSGFirewallprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGFirewallProfileService() *WSGFirewallProfileService {
-	return NewWSGFirewallProfileService(ss.apiClient)
+func (ss *WSGService) WSGFirewallprofileService() *WSGFirewallprofileService {
+	return NewWSGFirewallprofileService(ss.apiClient)
 }
 
 // AddFirewallProfiles
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGFirewallProfileService() *WSGFirewallProfileService {
 //
 // Request Body:
 //	 - body *WSGProfileCreateFirewallProfile
-func (s *WSGFirewallProfileService) AddFirewallProfiles(ctx context.Context, body *WSGProfileCreateFirewallProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) AddFirewallProfiles(ctx context.Context, body *WSGProfileCreateFirewallProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGFirewallProfileService) AddFirewallProfiles(ctx context.Context, bod
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGFirewallProfileService) DeleteFirewallProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) DeleteFirewallProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfiles(ctx context.Context, 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGFirewallProfileService) DeleteFirewallProfilesById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) DeleteFirewallProfilesById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -110,7 +110,7 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfilesById(ctx context.Conte
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGFirewallProfileService) FindFirewallProfiles(ctx context.Context, optionalParams map[string][]string) (*WSGProfileIdList, *APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) FindFirewallProfiles(ctx context.Context, optionalParams map[string][]string) (*WSGProfileIdList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -144,7 +144,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfiles(ctx context.Context, op
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGFirewallProfileService) FindFirewallProfilesById(ctx context.Context, id string) (*WSGProfileFirewallProfile, *APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) FindFirewallProfilesById(ctx context.Context, id string) (*WSGProfileFirewallProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -169,7 +169,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesById(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGFirewallProfileService) FindFirewallProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileFirewallProfileArray, *APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) FindFirewallProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileFirewallProfileArray, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -198,7 +198,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesByQueryCriteria(ctx cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGFirewallProfileService) FindFirewallProfilesEthernetPortProfilesById(ctx context.Context, id string) (*WSGEthernetPortProfileList, *APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) FindFirewallProfilesEthernetPortProfilesById(ctx context.Context, id string) (*WSGEthernetPortProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -224,7 +224,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesEthernetPortProfilesById
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGFirewallProfileService) FindFirewallProfilesWlansById(ctx context.Context, id string) (*WSGWLANQueryList, *APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) FindFirewallProfilesWlansById(ctx context.Context, id string) (*WSGWLANQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -253,7 +253,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesWlansById(ctx context.Co
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGFirewallProfileService) UpdateFirewallProfilesById(ctx context.Context, body *WSGProfileModifyFirewallProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGFirewallprofileService) UpdateFirewallProfilesById(ctx context.Context, body *WSGProfileModifyFirewallProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

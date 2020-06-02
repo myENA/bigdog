@@ -2,52 +2,52 @@ package vsz
 
 // API Version: v9_0
 
-type SwitchMDnsConfigCreateDnsConfig struct {
-	Dns *SwitchMDnsConfigObject `json:"dns,omitempty"`
+type SwitchMDnsconfigCreateDnsConfig struct {
+	Dns *SwitchMDnsconfigObject `json:"dns,omitempty"`
 
 	// Id
 	// Switch Group Id
 	Id *string `json:"id,omitempty"`
 }
 
-func NewSwitchMDnsConfigCreateDnsConfig() *SwitchMDnsConfigCreateDnsConfig {
-	m := new(SwitchMDnsConfigCreateDnsConfig)
+func NewSwitchMDnsconfigCreateDnsConfig() *SwitchMDnsconfigCreateDnsConfig {
+	m := new(SwitchMDnsconfigCreateDnsConfig)
 	return m
 }
 
-type SwitchMDnsConfig struct {
+type SwitchMDnsconfig struct {
 	// CreatedTime
 	// The create time of the DNS Config
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	Dns *SwitchMDnsConfigObject `json:"dns,omitempty"`
+	Dns *SwitchMDnsconfigObject `json:"dns,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the DNS Config
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMDnsConfig() *SwitchMDnsConfig {
-	m := new(SwitchMDnsConfig)
+func NewSwitchMDnsconfig() *SwitchMDnsconfig {
+	m := new(SwitchMDnsconfig)
 	return m
 }
 
-type SwitchMDnsConfigObject struct {
+type SwitchMDnsconfigObject struct {
 	// Ip
 	// DNS Config IP
 	Ip *string `json:"ip,omitempty"`
 }
 
-func NewSwitchMDnsConfigObject() *SwitchMDnsConfigObject {
-	m := new(SwitchMDnsConfigObject)
+func NewSwitchMDnsconfigObject() *SwitchMDnsconfigObject {
+	m := new(SwitchMDnsconfigObject)
 	return m
 }
 
-type SwitchMDnsConfigUpdateDnsConfig struct {
-	Dns *SwitchMDnsConfigObject `json:"dns,omitempty"`
+type SwitchMDnsconfigUpdateDnsConfig struct {
+	Dns *SwitchMDnsconfigObject `json:"dns,omitempty"`
 }
 
-func NewSwitchMDnsConfigUpdateDnsConfig() *SwitchMDnsConfigUpdateDnsConfig {
-	m := new(SwitchMDnsConfigUpdateDnsConfig)
+func NewSwitchMDnsconfigUpdateDnsConfig() *SwitchMDnsconfigUpdateDnsConfig {
+	m := new(SwitchMDnsconfigUpdateDnsConfig)
 	return m
 }

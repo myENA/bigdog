@@ -2,19 +2,19 @@ package vsz
 
 // API Version: v9_0
 
-// WSGDHCPMsgStats
+// WSGDHCPMessageStatsDhcpMsgStats
 //
 // DHCP Message Statistic Per AP
-type WSGDHCPMsgStats struct {
+type WSGDHCPMessageStatsDhcpMsgStats struct {
 	ApMac *string `json:"apMac,omitempty"`
 
 	// DhcpMsgRecvdStats
 	// DHCP Message Received Statistic
-	DhcpMsgRecvdStats *WSGDHCPMsgStatsDhcpMsgRecvdStatsType `json:"dhcpMsgRecvdStats,omitempty"`
+	DhcpMsgRecvdStats *WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType `json:"dhcpMsgRecvdStats,omitempty"`
 
 	// DhcpMsgSentStats
 	// DHCP Message Sent Statistic
-	DhcpMsgSentStats *WSGDHCPMsgStatsDhcpMsgSentStatsType `json:"dhcpMsgSentStats,omitempty"`
+	DhcpMsgSentStats *WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgSentStatsType `json:"dhcpMsgSentStats,omitempty"`
 
 	// DomainId
 	// Constraints:
@@ -32,15 +32,15 @@ type WSGDHCPMsgStats struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
-func NewWSGDHCPMsgStats() *WSGDHCPMsgStats {
-	m := new(WSGDHCPMsgStats)
+func NewWSGDHCPMessageStatsDhcpMsgStats() *WSGDHCPMessageStatsDhcpMsgStats {
+	m := new(WSGDHCPMessageStatsDhcpMsgStats)
 	return m
 }
 
-// WSGDHCPMsgStatsDhcpMsgRecvdStatsType
+// WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType
 //
 // DHCP Message Received Statistic
-type WSGDHCPMsgStatsDhcpMsgRecvdStatsType struct {
+type WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType struct {
 	DhcpDecline *int `json:"dhcpDecline,omitempty"`
 
 	DhcpDiscover *int `json:"dhcpDiscover,omitempty"`
@@ -52,15 +52,15 @@ type WSGDHCPMsgStatsDhcpMsgRecvdStatsType struct {
 	DhcpRequest *int `json:"dhcpRequest,omitempty"`
 }
 
-func NewWSGDHCPMsgStatsDhcpMsgRecvdStatsType() *WSGDHCPMsgStatsDhcpMsgRecvdStatsType {
-	m := new(WSGDHCPMsgStatsDhcpMsgRecvdStatsType)
+func NewWSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType() *WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType {
+	m := new(WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType)
 	return m
 }
 
-// WSGDHCPMsgStatsDhcpMsgSentStatsType
+// WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgSentStatsType
 //
 // DHCP Message Sent Statistic
-type WSGDHCPMsgStatsDhcpMsgSentStatsType struct {
+type WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgSentStatsType struct {
 	DhcpAck *int `json:"dhcpAck,omitempty"`
 
 	DhcpNak *int `json:"dhcpNak,omitempty"`
@@ -68,7 +68,7 @@ type WSGDHCPMsgStatsDhcpMsgSentStatsType struct {
 	DhcpOffer *int `json:"dhcpOffer,omitempty"`
 }
 
-func NewWSGDHCPMsgStatsDhcpMsgSentStatsType() *WSGDHCPMsgStatsDhcpMsgSentStatsType {
-	m := new(WSGDHCPMsgStatsDhcpMsgSentStatsType)
+func NewWSGDHCPMessageStatsDhcpMsgStatsDhcpMsgSentStatsType() *WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgSentStatsType {
+	m := new(WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgSentStatsType)
 	return m
 }

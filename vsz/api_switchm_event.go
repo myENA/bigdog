@@ -26,12 +26,12 @@ func (ss *SwitchMService) SwitchMEventService() *SwitchMEventService {
 // Use this API command to create a new text pattern event config
 //
 // Request Body:
-//	 - body *SwitchMEventConfig
-func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfig) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+//	 - body *SwitchMEventconfig
+func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventconfig) (*SwitchMEventconfigQueryResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMEventConfigQueryResponse
+		resp     *SwitchMEventconfigQueryResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -44,7 +44,7 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMEventConfigQueryResponse()
+	resp = NewSwitchMEventconfigQueryResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -56,11 +56,11 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string) (*SwitchMEventconfigQueryResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMEventConfigQueryResponse
+		resp     *SwitchMEventconfigQueryResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -70,7 +70,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteCustomEventById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMEventConfigQueryResponse()
+	resp = NewSwitchMEventconfigQueryResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -78,11 +78,11 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 // FindCustomEvent
 //
 // Use this API command to retrieve switch event config list
-func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEventConfigGetEventConfigList, *APIResponseMeta, error) {
+func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEventconfigGetEventConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMEventConfigGetEventConfigList
+		resp     *SwitchMEventconfigGetEventConfigList
 		httpResp *http.Response
 		err      error
 	)
@@ -91,7 +91,7 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEven
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEvent, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMEventConfigGetEventConfigList()
+	resp = NewSwitchMEventconfigGetEventConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -103,11 +103,11 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEven
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string) (*SwitchMEventConfig, *APIResponseMeta, error) {
+func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string) (*SwitchMEventconfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMEventConfig
+		resp     *SwitchMEventconfig
 		httpResp *http.Response
 		err      error
 	)
@@ -117,7 +117,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEventById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMEventConfig()
+	resp = NewSwitchMEventconfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -127,16 +127,16 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 // Use this API command to modify a switch custom event config. The patch variable {id} is same as id attribute in the request payload. For CPU/Memory, only key, type, criteria, and severity attributes are required.
 //
 // Request Body:
-//	 - body *SwitchMEventConfig
+//	 - body *SwitchMEventconfig
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfig, id string) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventconfig, id string) (*SwitchMEventconfigQueryResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMEventConfigQueryResponse
+		resp     *SwitchMEventconfigQueryResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -150,7 +150,7 @@ func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *S
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMEventConfigQueryResponse()
+	resp = NewSwitchMEventconfigQueryResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

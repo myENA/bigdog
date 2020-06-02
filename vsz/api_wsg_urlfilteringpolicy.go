@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGURLFilteringPolicyService struct {
+type WSGUrlfilteringpolicyService struct {
 	apiClient *APIClient
 }
 
-func NewWSGURLFilteringPolicyService(c *APIClient) *WSGURLFilteringPolicyService {
-	s := new(WSGURLFilteringPolicyService)
+func NewWSGUrlfilteringpolicyService(c *APIClient) *WSGUrlfilteringpolicyService {
+	s := new(WSGUrlfilteringpolicyService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGURLFilteringPolicyService() *WSGURLFilteringPolicyService {
-	return NewWSGURLFilteringPolicyService(ss.apiClient)
+func (ss *WSGService) WSGUrlfilteringpolicyService() *WSGUrlfilteringpolicyService {
+	return NewWSGUrlfilteringpolicyService(ss.apiClient)
 }
 
 // AddUrlFilteringUrlFilteringPolicy
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGURLFilteringPolicyService() *WSGURLFilteringPolicyServi
 //
 // Request Body:
 //	 - body *WSGURLFilteringCreateUrlFilteringPolicy
-func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx context.Context, body *WSGURLFilteringCreateUrlFilteringPolicy) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGUrlfilteringpolicyService) AddUrlFilteringUrlFilteringPolicy(ctx context.Context, body *WSGURLFilteringCreateUrlFilteringPolicy) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx con
 //
 // Request Body:
 //	 - body *WSGURLFilteringDeleteBulk
-func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx context.Context, body *WSGURLFilteringDeleteBulk) (interface{}, *APIResponseMeta, error) {
+func (s *WSGUrlfilteringpolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx context.Context, body *WSGURLFilteringDeleteBulk) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -84,7 +84,7 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGUrlfilteringpolicyService) DeleteUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -104,7 +104,7 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(
 // FindUrlFilteringBlockCategories
 //
 // Use this API command to retrieve the block categories of URL Filtering.
-func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx context.Context) (*WSGURLFilteringBlockCategoriesList, *APIResponseMeta, error) {
+func (s *WSGUrlfilteringpolicyService) FindUrlFilteringBlockCategories(ctx context.Context) (*WSGURLFilteringBlockCategoriesList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -128,7 +128,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx conte
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGURLFilteringPolicyList, *APIResponseMeta, error) {
+func (s *WSGUrlfilteringpolicyService) FindUrlFilteringByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGURLFilteringPolicyList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -161,7 +161,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx conte
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx context.Context, optionalParams map[string][]string) (*WSGURLFilteringPolicyList, *APIResponseMeta, error) {
+func (s *WSGUrlfilteringpolicyService) FindUrlFilteringUrlFilteringPolicy(ctx context.Context, optionalParams map[string][]string) (*WSGURLFilteringPolicyList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -195,7 +195,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx co
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string) (*WSGURLFilteringPolicy, *APIResponseMeta, error) {
+func (s *WSGUrlfilteringpolicyService) FindUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string) (*WSGURLFilteringPolicy, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -224,7 +224,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ct
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGURLFilteringPolicyService) PartialUpdateUrlFilteringUrlFilteringPolicyById(ctx context.Context, body *WSGURLFilteringModifyUrlFilteringPolicy, id string) (*APIResponseMeta, error) {
+func (s *WSGUrlfilteringpolicyService) PartialUpdateUrlFilteringUrlFilteringPolicyById(ctx context.Context, body *WSGURLFilteringModifyUrlFilteringPolicy, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

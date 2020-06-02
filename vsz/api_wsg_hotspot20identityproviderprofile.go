@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGHotspot20IdentityProviderProfileService struct {
+type WSGHotspot20identityproviderprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGHotspot20IdentityProviderProfileService(c *APIClient) *WSGHotspot20IdentityProviderProfileService {
-	s := new(WSGHotspot20IdentityProviderProfileService)
+func NewWSGHotspot20identityproviderprofileService(c *APIClient) *WSGHotspot20identityproviderprofileService {
+	s := new(WSGHotspot20identityproviderprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGHotspot20IdentityProviderProfileService() *WSGHotspot20IdentityProviderProfileService {
-	return NewWSGHotspot20IdentityProviderProfileService(ss.apiClient)
+func (ss *WSGService) WSGHotspot20identityproviderprofileService() *WSGHotspot20identityproviderprofileService {
+	return NewWSGHotspot20identityproviderprofileService(ss.apiClient)
 }
 
 // AddProfilesHs20Identityproviders
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGHotspot20IdentityProviderProfileService() *WSGHotspot20
 //
 // Request Body:
 //	 - body *WSGProfileHs20Provider
-func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityproviders(ctx context.Context, body *WSGProfileHs20Provider) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) AddProfilesHs20Identityproviders(ctx context.Context, body *WSGProfileHs20Provider) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityprov
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityproviders(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) DeleteProfilesHs20Identityproviders(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersAccountingsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) DeleteProfilesHs20IdentityprovidersAccountingsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -106,7 +106,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) DeleteProfilesHs20IdentityprovidersById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -130,7 +130,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersOsuById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) DeleteProfilesHs20IdentityprovidersOsuById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -156,7 +156,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identityproviders(ctx context.Context, optionalParams map[string][]string) (*WSGProfileHs20ProviderList, *APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) FindProfilesHs20Identityproviders(ctx context.Context, optionalParams map[string][]string) (*WSGProfileHs20ProviderList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -187,7 +187,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersById(ctx context.Context, id string) (*WSGProfileHs20Provider, *APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) FindProfilesHs20IdentityprovidersById(ctx context.Context, id string) (*WSGProfileHs20Provider, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -212,7 +212,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileHs20ProviderList, *APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) FindProfilesHs20IdentityprovidersByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileHs20ProviderList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -244,7 +244,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) PartialUpdateProfilesHs20IdentityprovidersById(ctx context.Context, body *WSGProfileHs20Provider, id string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20identityproviderprofileService) PartialUpdateProfilesHs20IdentityprovidersById(ctx context.Context, body *WSGProfileHs20Provider, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

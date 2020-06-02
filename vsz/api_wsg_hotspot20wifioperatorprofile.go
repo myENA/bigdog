@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGHotspot20WiFiOperatorProfileService struct {
+type WSGHotspot20wifioperatorprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGHotspot20WiFiOperatorProfileService(c *APIClient) *WSGHotspot20WiFiOperatorProfileService {
-	s := new(WSGHotspot20WiFiOperatorProfileService)
+func NewWSGHotspot20wifioperatorprofileService(c *APIClient) *WSGHotspot20wifioperatorprofileService {
+	s := new(WSGHotspot20wifioperatorprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService() *WSGHotspot20WiFiOperatorProfileService {
-	return NewWSGHotspot20WiFiOperatorProfileService(ss.apiClient)
+func (ss *WSGService) WSGHotspot20wifioperatorprofileService() *WSGHotspot20wifioperatorprofileService {
+	return NewWSGHotspot20wifioperatorprofileService(ss.apiClient)
 }
 
 // AddProfilesHs20Operators
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService() *WSGHotspot20WiFi
 //
 // Request Body:
 //	 - body *WSGProfileHs20Operator
-func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx context.Context, body *WSGProfileHs20Operator) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) AddProfilesHs20Operators(ctx context.Context, body *WSGProfileHs20Operator) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx co
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) DeleteProfilesHs20Operators(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) DeleteProfilesHs20OperatorsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -106,7 +106,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCertificateById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) DeleteProfilesHs20OperatorsCertificateById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -132,7 +132,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCert
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx context.Context, optionalParams map[string][]string) (*WSGProfileHs20OperatorList, *APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) FindProfilesHs20Operators(ctx context.Context, optionalParams map[string][]string) (*WSGProfileHs20OperatorList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -163,7 +163,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx c
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(ctx context.Context, id string) (*WSGProfileHs20Operator, *APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) FindProfilesHs20OperatorsById(ctx context.Context, id string) (*WSGProfileHs20Operator, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -188,7 +188,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(c
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileHs20OperatorList, *APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) FindProfilesHs20OperatorsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileHs20OperatorList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -220,7 +220,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQuer
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileModifyHS20Operator, id string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) PartialUpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileModifyHS20Operator, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -251,7 +251,7 @@ func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20Operat
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20WiFiOperatorProfileService) UpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileHs20Operator, id string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20wifioperatorprofileService) UpdateProfilesHs20OperatorsById(ctx context.Context, body *WSGProfileHs20Operator, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

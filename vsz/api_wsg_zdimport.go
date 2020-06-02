@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGZDImportService struct {
+type WSGZdimportService struct {
 	apiClient *APIClient
 }
 
-func NewWSGZDImportService(c *APIClient) *WSGZDImportService {
-	s := new(WSGZDImportService)
+func NewWSGZdimportService(c *APIClient) *WSGZdimportService {
+	s := new(WSGZdimportService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
-	return NewWSGZDImportService(ss.apiClient)
+func (ss *WSGService) WSGZdimportService() *WSGZdimportService {
+	return NewWSGZdimportService(ss.apiClient)
 }
 
 // AddZdImportConnectZD
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 //
 // Request Body:
 //	 - body *WSGAdministrationZdImport
-func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationZdImport) (*APIResponseMeta, error) {
+func (s *WSGZdimportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationZdImport) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -53,7 +53,7 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 //
 // Request Body:
 //	 - body *WSGAdministrationZdImport
-func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAdministrationZdImport) (*APIResponseMeta, error) {
+func (s *WSGZdimportService) AddZdImportMigrate(ctx context.Context, body *WSGAdministrationZdImport) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -80,7 +80,7 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 // Required Parameters:
 // - ip string
 //		- required
-func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string) (*WSGAdministrationZdAPList, *APIResponseMeta, error) {
+func (s *WSGZdimportService) FindZdImportGetZDAPs(ctx context.Context, ip string) (*WSGAdministrationZdAPList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -106,7 +106,7 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 // Optional Parameters:
 // - details string
 //		- nullable
-func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalParams map[string][]string) (*WSGAdministrationZdImportStatus, *APIResponseMeta, error) {
+func (s *WSGZdimportService) FindZdImportStatus(ctx context.Context, optionalParams map[string][]string) (*WSGAdministrationZdImportStatus, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

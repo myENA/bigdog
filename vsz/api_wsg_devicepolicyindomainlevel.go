@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDevicePolicyinDomainLevelService struct {
+type WSGDevicepolicyindomainlevelService struct {
 	apiClient *APIClient
 }
 
-func NewWSGDevicePolicyinDomainLevelService(c *APIClient) *WSGDevicePolicyinDomainLevelService {
-	s := new(WSGDevicePolicyinDomainLevelService)
+func NewWSGDevicepolicyindomainlevelService(c *APIClient) *WSGDevicepolicyindomainlevelService {
+	s := new(WSGDevicepolicyindomainlevelService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDevicePolicyinDomainLevelService() *WSGDevicePolicyinDomainLevelService {
-	return NewWSGDevicePolicyinDomainLevelService(ss.apiClient)
+func (ss *WSGService) WSGDevicepolicyindomainlevelService() *WSGDevicepolicyindomainlevelService {
+	return NewWSGDevicepolicyindomainlevelService(ss.apiClient)
 }
 
 // AddDevicePolicy
@@ -26,8 +26,8 @@ func (ss *WSGService) WSGDevicePolicyinDomainLevelService() *WSGDevicePolicyinDo
 // Use this API command to create a Device Policy profile.
 //
 // Request Body:
-//	 - body *WSGDomainDevicePolicyCreateDomainDevicePolicy
-func (s *WSGDevicePolicyinDomainLevelService) AddDevicePolicy(ctx context.Context, body *WSGDomainDevicePolicyCreateDomainDevicePolicy) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+//	 - body *WSGDomaindevicepolicyCreateDomainDevicePolicy
+func (s *WSGDevicepolicyindomainlevelService) AddDevicePolicy(ctx context.Context, body *WSGDomaindevicepolicyCreateDomainDevicePolicy) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGDevicePolicyinDomainLevelService) AddDevicePolicy(ctx context.Contex
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGDevicePolicyinDomainLevelService) DeleteDevicePolicy(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGDevicepolicyindomainlevelService) DeleteDevicePolicy(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGDevicePolicyinDomainLevelService) DeleteDevicePolicy(ctx context.Con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDevicePolicyinDomainLevelService) DeleteDevicePolicyById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGDevicepolicyindomainlevelService) DeleteDevicePolicyById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -110,11 +110,11 @@ func (s *WSGDevicePolicyinDomainLevelService) DeleteDevicePolicyById(ctx context
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicy(ctx context.Context, optionalParams map[string][]string) (*WSGDomainDevicePolicyProfileList, *APIResponseMeta, error) {
+func (s *WSGDevicepolicyindomainlevelService) FindDevicePolicy(ctx context.Context, optionalParams map[string][]string) (*WSGDomaindevicepolicyProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGDomainDevicePolicyProfileList
+		resp     *WSGDomaindevicepolicyProfileList
 		httpResp *http.Response
 		err      error
 	)
@@ -132,7 +132,7 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicy(ctx context.Conte
 		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGDomainDevicePolicyProfileList()
+	resp = NewWSGDomaindevicepolicyProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -144,11 +144,11 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicy(ctx context.Conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicyById(ctx context.Context, id string) (*WSGDomainDevicePolicyProfile, *APIResponseMeta, error) {
+func (s *WSGDevicepolicyindomainlevelService) FindDevicePolicyById(ctx context.Context, id string) (*WSGDomaindevicepolicyProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGDomainDevicePolicyProfile
+		resp     *WSGDomaindevicepolicyProfile
 		httpResp *http.Response
 		err      error
 	)
@@ -158,7 +158,7 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicyById(ctx context.C
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDevicePolicyById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGDomainDevicePolicyProfile()
+	resp = NewWSGDomaindevicepolicyProfile()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -169,7 +169,7 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicyById(ctx context.C
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGDevicepolicyindomainlevelService) FindDevicePolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -196,12 +196,12 @@ func (s *WSGDevicePolicyinDomainLevelService) FindDevicePolicyByQueryCriteria(ct
 // Use this API command to update a Device Policy profile.
 //
 // Request Body:
-//	 - body *WSGDomainDevicePolicyModifyDomainDevicePolicy
+//	 - body *WSGDomaindevicepolicyModifyDomainDevicePolicy
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDevicePolicyinDomainLevelService) UpdateDevicePolicyById(ctx context.Context, body *WSGDomainDevicePolicyModifyDomainDevicePolicy, id string) (*APIResponseMeta, error) {
+func (s *WSGDevicepolicyindomainlevelService) UpdateDevicePolicyById(ctx context.Context, body *WSGDomaindevicepolicyModifyDomainDevicePolicy, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

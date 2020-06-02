@@ -2,7 +2,7 @@ package vsz
 
 // API Version: v9_0
 
-type SwitchMDeployLogConfigurationHistoryQueryResult struct {
+type SwitchMDeploylogConfigurationHistoryQueryResult struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -13,19 +13,19 @@ type SwitchMDeployLogConfigurationHistoryQueryResult struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMDeployLog `json:"list,omitempty"`
+	List []*SwitchMDeploylog `json:"list,omitempty"`
 
 	// TotalCount
 	// Total records count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMDeployLogConfigurationHistoryQueryResult() *SwitchMDeployLogConfigurationHistoryQueryResult {
-	m := new(SwitchMDeployLogConfigurationHistoryQueryResult)
+func NewSwitchMDeploylogConfigurationHistoryQueryResult() *SwitchMDeploylogConfigurationHistoryQueryResult {
+	m := new(SwitchMDeploylogConfigurationHistoryQueryResult)
 	return m
 }
 
-type SwitchMDeployLog struct {
+type SwitchMDeploylog struct {
 	// ConfigType
 	// Config Type
 	// Constraints:
@@ -72,7 +72,7 @@ type SwitchMDeployLog struct {
 	// Deploy Start Time
 	StartTime *int `json:"startTime,omitempty"`
 
-	Summary *SwitchMDeployLogStatusSummary `json:"summary,omitempty"`
+	Summary *SwitchMDeploylogStatusSummary `json:"summary,omitempty"`
 
 	// SwitchIds
 	// Switch ID
@@ -87,12 +87,12 @@ type SwitchMDeployLog struct {
 	Yang *string `json:"yang,omitempty"`
 }
 
-func NewSwitchMDeployLog() *SwitchMDeployLog {
-	m := new(SwitchMDeployLog)
+func NewSwitchMDeploylog() *SwitchMDeploylog {
+	m := new(SwitchMDeploylog)
 	return m
 }
 
-type SwitchMDeployLogStatusSummary struct {
+type SwitchMDeploylogStatusSummary struct {
 	// Failed
 	// Deployment Fail Counter
 	Failed *int `json:"failed,omitempty"`
@@ -110,7 +110,7 @@ type SwitchMDeployLogStatusSummary struct {
 	Success *int `json:"success,omitempty"`
 }
 
-func NewSwitchMDeployLogStatusSummary() *SwitchMDeployLogStatusSummary {
-	m := new(SwitchMDeployLogStatusSummary)
+func NewSwitchMDeploylogStatusSummary() *SwitchMDeploylogStatusSummary {
+	m := new(SwitchMDeploylogStatusSummary)
 	return m
 }

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGZoneAffinityProfileService struct {
+type WSGZoneaffinityprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGZoneAffinityProfileService(c *APIClient) *WSGZoneAffinityProfileService {
-	s := new(WSGZoneAffinityProfileService)
+func NewWSGZoneaffinityprofileService(c *APIClient) *WSGZoneaffinityprofileService {
+	s := new(WSGZoneaffinityprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileService {
-	return NewWSGZoneAffinityProfileService(ss.apiClient)
+func (ss *WSGService) WSGZoneaffinityprofileService() *WSGZoneaffinityprofileService {
+	return NewWSGZoneaffinityprofileService(ss.apiClient)
 }
 
 // AddProfilesZoneAffinity
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileSer
 //
 // Request Body:
 //	 - body *WSGProfileCreateZoneAffinityProfile
-func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Context, body *WSGProfileCreateZoneAffinityProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGZoneaffinityprofileService) AddProfilesZoneAffinity(ctx context.Context, body *WSGProfileCreateZoneAffinityProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -56,7 +56,7 @@ func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGZoneaffinityprofileService) DeleteProfilesZoneAffinityById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -80,7 +80,7 @@ func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx conte
 // Optional Parameters:
 // - vdpId string
 //		- nullable
-func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Context, optionalParams map[string][]string) (*WSGProfileZoneAffinityProfileList, *APIResponseMeta, error) {
+func (s *WSGZoneaffinityprofileService) FindProfilesZoneAffinity(ctx context.Context, optionalParams map[string][]string) (*WSGProfileZoneAffinityProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -108,7 +108,7 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context.Context, id string) (*WSGProfileReturnZoneAffinityProfile, *APIResponseMeta, error) {
+func (s *WSGZoneaffinityprofileService) FindProfilesZoneAffinityById(ctx context.Context, id string) (*WSGProfileReturnZoneAffinityProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -137,7 +137,7 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ctx context.Context, body *WSGProfileModifyZoneAffinityProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGZoneaffinityprofileService) PartialUpdateProfilesZoneAffinityById(ctx context.Context, body *WSGProfileModifyZoneAffinityProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

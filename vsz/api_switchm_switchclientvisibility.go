@@ -2,7 +2,7 @@ package vsz
 
 // API Version: v9_0
 
-type SwitchMSwitchClientVisibilityClient struct {
+type SwitchMSwitchclientvisibilityClient struct {
 	ClientAuthType *string `json:"clientAuthType,omitempty"`
 
 	ClientDesc *string `json:"clientDesc,omitempty"`
@@ -30,24 +30,24 @@ type SwitchMSwitchClientVisibilityClient struct {
 	SwitchPort *int `json:"switchPort,omitempty"`
 }
 
-func NewSwitchMSwitchClientVisibilityClient() *SwitchMSwitchClientVisibilityClient {
-	m := new(SwitchMSwitchClientVisibilityClient)
+func NewSwitchMSwitchclientvisibilityClient() *SwitchMSwitchclientvisibilityClient {
+	m := new(SwitchMSwitchclientvisibilityClient)
 	return m
 }
 
-type SwitchMSwitchClientVisibilityList struct {
+type SwitchMSwitchclientvisibilityList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchClientVisibilityClient `json:"list,omitempty"`
+	List []*SwitchMSwitchclientvisibilityClient `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchClientVisibilityList() *SwitchMSwitchClientVisibilityList {
-	m := new(SwitchMSwitchClientVisibilityList)
+func NewSwitchMSwitchclientvisibilityList() *SwitchMSwitchclientvisibilityList {
+	m := new(SwitchMSwitchclientvisibilityList)
 	return m
 }

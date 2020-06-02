@@ -8,21 +8,21 @@ import (
 	"net/http"
 )
 
-type SwitchMStaticRouteService struct {
+type SwitchMStaticrouteService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMStaticRouteService(c *APIClient) *SwitchMStaticRouteService {
-	s := new(SwitchMStaticRouteService)
+func NewSwitchMStaticrouteService(c *APIClient) *SwitchMStaticrouteService {
+	s := new(SwitchMStaticrouteService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMStaticRouteService() *SwitchMStaticRouteService {
-	return NewSwitchMStaticRouteService(ss.apiClient)
+func (ss *SwitchMService) SwitchMStaticrouteService() *SwitchMStaticrouteService {
+	return NewSwitchMStaticrouteService(ss.apiClient)
 }
 
-type SwitchMStaticRouteCreateStaticRoute struct {
+type SwitchMStaticrouteCreateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
 	AdminDistance *int `json:"adminDistance,omitempty"`
@@ -58,12 +58,12 @@ type SwitchMStaticRouteCreateStaticRoute struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
-func NewSwitchMStaticRouteCreateStaticRoute() *SwitchMStaticRouteCreateStaticRoute {
-	m := new(SwitchMStaticRouteCreateStaticRoute)
+func NewSwitchMStaticrouteCreateStaticRoute() *SwitchMStaticrouteCreateStaticRoute {
+	m := new(SwitchMStaticrouteCreateStaticRoute)
 	return m
 }
 
-type SwitchMStaticRoute struct {
+type SwitchMStaticroute struct {
 	// AdminDistance
 	// Admin Distance
 	AdminDistance *string `json:"adminDistance,omitempty"`
@@ -111,15 +111,15 @@ type SwitchMStaticRoute struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMStaticRoute() *SwitchMStaticRoute {
-	m := new(SwitchMStaticRoute)
+func NewSwitchMStaticroute() *SwitchMStaticroute {
+	m := new(SwitchMStaticroute)
 	return m
 }
 
-type SwitchMStaticRoutesQueryResult struct {
+type SwitchMStaticroutesQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMStaticRoutesQueryResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMStaticroutesQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Static Route returned out of the complete Static Route list
@@ -129,7 +129,7 @@ type SwitchMStaticRoutesQueryResult struct {
 	// Indicator of whether there are more Static Routes after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMStaticRoute `json:"list,omitempty"`
+	List []*SwitchMStaticroute `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Static Route count
@@ -140,40 +140,40 @@ type SwitchMStaticRoutesQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMStaticRoutesQueryResult() *SwitchMStaticRoutesQueryResult {
-	m := new(SwitchMStaticRoutesQueryResult)
+func NewSwitchMStaticroutesQueryResult() *SwitchMStaticroutesQueryResult {
+	m := new(SwitchMStaticroutesQueryResult)
 	return m
 }
 
-// SwitchMStaticRoutesQueryResultExtraType
+// SwitchMStaticroutesQueryResultExtraType
 //
 // Any additional response data
-type SwitchMStaticRoutesQueryResultExtraType struct {
+type SwitchMStaticroutesQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMStaticRoutesQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMStaticroutesQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMStaticRoutesQueryResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMStaticroutesQueryResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMStaticRoutesQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMStaticroutesQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMStaticRoutesQueryResultExtraType() *SwitchMStaticRoutesQueryResultExtraType {
-	m := new(SwitchMStaticRoutesQueryResultExtraType)
+func NewSwitchMStaticroutesQueryResultExtraType() *SwitchMStaticroutesQueryResultExtraType {
+	m := new(SwitchMStaticroutesQueryResultExtraType)
 	return m
 }
 
-type SwitchMStaticRouteUpdateStaticRoute struct {
+type SwitchMStaticrouteUpdateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
 	AdminDistance *int `json:"adminDistance,omitempty"`
@@ -197,8 +197,8 @@ type SwitchMStaticRouteUpdateStaticRoute struct {
 	PushTimeType *string `json:"pushTimeType,omitempty"`
 }
 
-func NewSwitchMStaticRouteUpdateStaticRoute() *SwitchMStaticRouteUpdateStaticRoute {
-	m := new(SwitchMStaticRouteUpdateStaticRoute)
+func NewSwitchMStaticrouteUpdateStaticRoute() *SwitchMStaticrouteUpdateStaticRoute {
+	m := new(SwitchMStaticrouteUpdateStaticRoute)
 	return m
 }
 
@@ -207,8 +207,8 @@ func NewSwitchMStaticRouteUpdateStaticRoute() *SwitchMStaticRouteUpdateStaticRou
 // Use this API command to Create Static Route.
 //
 // Request Body:
-//	 - body *SwitchMStaticRouteCreateStaticRoute
-func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *SwitchMStaticRouteCreateStaticRoute) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+//	 - body *SwitchMStaticrouteCreateStaticRoute
+func (s *SwitchMStaticrouteService) AddStaticRoutes(ctx context.Context, body *SwitchMStaticrouteCreateStaticRoute) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -236,7 +236,7 @@ func (s *SwitchMStaticRouteService) AddStaticRoutes(ctx context.Context, body *S
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *SwitchMStaticrouteService) DeleteStaticRoutes(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -263,7 +263,7 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutes(ctx context.Context, body
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *SwitchMStaticrouteService) DeleteStaticRoutesById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -287,11 +287,11 @@ func (s *SwitchMStaticRouteService) DeleteStaticRoutesById(ctx context.Context, 
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id string) (*SwitchMStaticRoute, *APIResponseMeta, error) {
+func (s *SwitchMStaticrouteService) FindStaticRoutesById(ctx context.Context, id string) (*SwitchMStaticroute, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMStaticRoute
+		resp     *SwitchMStaticroute
 		httpResp *http.Response
 		err      error
 	)
@@ -301,7 +301,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStaticRoutesById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMStaticRoute()
+	resp = NewSwitchMStaticroute()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -312,11 +312,11 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesById(ctx context.Context, id
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMStaticRoutesQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMStaticrouteService) FindStaticRoutesByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMStaticroutesQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMStaticRoutesQueryResult
+		resp     *SwitchMStaticroutesQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -329,7 +329,7 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMStaticRoutesQueryResult()
+	resp = NewSwitchMStaticroutesQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -339,12 +339,12 @@ func (s *SwitchMStaticRouteService) FindStaticRoutesByQueryCriteria(ctx context.
 // Use this API command to Update Static Route.
 //
 // Request Body:
-//	 - body *SwitchMStaticRouteUpdateStaticRoute
+//	 - body *SwitchMStaticrouteUpdateStaticRoute
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMStaticRouteService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteUpdateStaticRoute, id string) (*APIResponseMeta, error) {
+func (s *SwitchMStaticrouteService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticrouteUpdateStaticRoute, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

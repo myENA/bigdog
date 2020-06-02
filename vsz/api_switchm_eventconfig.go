@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 )
 
-type SwitchMEventConfig struct {
+type SwitchMEventconfig struct {
 	// Criteria
 	// Threshold of each Switch custom event config
 	Criteria *int `json:"criteria,omitempty"`
@@ -46,15 +46,15 @@ type SwitchMEventConfig struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewSwitchMEventConfig() *SwitchMEventConfig {
-	m := new(SwitchMEventConfig)
+func NewSwitchMEventconfig() *SwitchMEventconfig {
+	m := new(SwitchMEventconfig)
 	return m
 }
 
-type SwitchMEventConfigGetEventConfigList struct {
+type SwitchMEventconfigGetEventConfigList struct {
 	// Extra
 	// Extra information of responsed Switch custom event config list
-	Extra *SwitchMEventConfigGetEventConfigListExtraType `json:"extra,omitempty"`
+	Extra *SwitchMEventconfigGetEventConfigListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// First index of responsed Switch custom event config list
@@ -64,7 +64,7 @@ type SwitchMEventConfigGetEventConfigList struct {
 	// Indicator of whether there are more Switch event config
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMEventConfig `json:"list,omitempty"`
+	List []*SwitchMEventconfig `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// List of responsed Switch custom event config
@@ -75,174 +75,174 @@ type SwitchMEventConfigGetEventConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMEventConfigGetEventConfigList() *SwitchMEventConfigGetEventConfigList {
-	m := new(SwitchMEventConfigGetEventConfigList)
+func NewSwitchMEventconfigGetEventConfigList() *SwitchMEventconfigGetEventConfigList {
+	m := new(SwitchMEventconfigGetEventConfigList)
 	return m
 }
 
-// SwitchMEventConfigGetEventConfigListExtraType
+// SwitchMEventconfigGetEventConfigListExtraType
 //
 // Extra information of responsed Switch custom event config list
-type SwitchMEventConfigGetEventConfigListExtraType struct {
+type SwitchMEventconfigGetEventConfigListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMEventConfigGetEventConfigListExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMEventconfigGetEventConfigListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMEventConfigGetEventConfigListExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMEventconfigGetEventConfigListExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMEventConfigGetEventConfigListExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMEventconfigGetEventConfigListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMEventConfigGetEventConfigListExtraType() *SwitchMEventConfigGetEventConfigListExtraType {
-	m := new(SwitchMEventConfigGetEventConfigListExtraType)
+func NewSwitchMEventconfigGetEventConfigListExtraType() *SwitchMEventconfigGetEventConfigListExtraType {
+	m := new(SwitchMEventconfigGetEventConfigListExtraType)
 	return m
 }
 
-type SwitchMEventConfigQueryResponse struct {
+type SwitchMEventconfigQueryResponse struct {
 	// Data
 	// Response data message of Public API
-	Data *SwitchMEventConfigQueryResponseDataType `json:"data,omitempty"`
+	Data *SwitchMEventconfigQueryResponseDataType `json:"data,omitempty"`
 
 	// Error
 	// Response error message of Public API
-	Error *SwitchMEventConfigQueryResponseErrorType `json:"error,omitempty"`
+	Error *SwitchMEventconfigQueryResponseErrorType `json:"error,omitempty"`
 
 	// Extra
 	// Extra information of Public API response
-	Extra *SwitchMEventConfigQueryResponseExtraType `json:"extra,omitempty"`
+	Extra *SwitchMEventconfigQueryResponseExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Meta-data of Public API response
-	MetaData *SwitchMEventConfigQueryResponseMetaDataType `json:"metaData,omitempty"`
+	MetaData *SwitchMEventconfigQueryResponseMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Response success message of Public API
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewSwitchMEventConfigQueryResponse() *SwitchMEventConfigQueryResponse {
-	m := new(SwitchMEventConfigQueryResponse)
+func NewSwitchMEventconfigQueryResponse() *SwitchMEventconfigQueryResponse {
+	m := new(SwitchMEventconfigQueryResponse)
 	return m
 }
 
-// SwitchMEventConfigQueryResponseDataType
+// SwitchMEventconfigQueryResponseDataType
 //
 // Response data message of Public API
-type SwitchMEventConfigQueryResponseDataType struct {
+type SwitchMEventconfigQueryResponseDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMEventConfigQueryResponseDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMEventconfigQueryResponseDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMEventConfigQueryResponseDataType{XAdditionalProperties: tmp}
+	*t = SwitchMEventconfigQueryResponseDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMEventConfigQueryResponseDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMEventconfigQueryResponseDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMEventConfigQueryResponseDataType() *SwitchMEventConfigQueryResponseDataType {
-	m := new(SwitchMEventConfigQueryResponseDataType)
+func NewSwitchMEventconfigQueryResponseDataType() *SwitchMEventconfigQueryResponseDataType {
+	m := new(SwitchMEventconfigQueryResponseDataType)
 	return m
 }
 
-// SwitchMEventConfigQueryResponseErrorType
+// SwitchMEventconfigQueryResponseErrorType
 //
 // Response error message of Public API
-type SwitchMEventConfigQueryResponseErrorType struct {
+type SwitchMEventconfigQueryResponseErrorType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMEventConfigQueryResponseErrorType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMEventconfigQueryResponseErrorType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMEventConfigQueryResponseErrorType{XAdditionalProperties: tmp}
+	*t = SwitchMEventconfigQueryResponseErrorType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMEventConfigQueryResponseErrorType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMEventconfigQueryResponseErrorType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMEventConfigQueryResponseErrorType() *SwitchMEventConfigQueryResponseErrorType {
-	m := new(SwitchMEventConfigQueryResponseErrorType)
+func NewSwitchMEventconfigQueryResponseErrorType() *SwitchMEventconfigQueryResponseErrorType {
+	m := new(SwitchMEventconfigQueryResponseErrorType)
 	return m
 }
 
-// SwitchMEventConfigQueryResponseExtraType
+// SwitchMEventconfigQueryResponseExtraType
 //
 // Extra information of Public API response
-type SwitchMEventConfigQueryResponseExtraType struct {
+type SwitchMEventconfigQueryResponseExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMEventConfigQueryResponseExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMEventconfigQueryResponseExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMEventConfigQueryResponseExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMEventconfigQueryResponseExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMEventConfigQueryResponseExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMEventconfigQueryResponseExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMEventConfigQueryResponseExtraType() *SwitchMEventConfigQueryResponseExtraType {
-	m := new(SwitchMEventConfigQueryResponseExtraType)
+func NewSwitchMEventconfigQueryResponseExtraType() *SwitchMEventconfigQueryResponseExtraType {
+	m := new(SwitchMEventconfigQueryResponseExtraType)
 	return m
 }
 
-// SwitchMEventConfigQueryResponseMetaDataType
+// SwitchMEventconfigQueryResponseMetaDataType
 //
 // Meta-data of Public API response
-type SwitchMEventConfigQueryResponseMetaDataType struct {
+type SwitchMEventconfigQueryResponseMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMEventConfigQueryResponseMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMEventconfigQueryResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMEventConfigQueryResponseMetaDataType{XAdditionalProperties: tmp}
+	*t = SwitchMEventconfigQueryResponseMetaDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMEventConfigQueryResponseMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMEventconfigQueryResponseMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMEventConfigQueryResponseMetaDataType() *SwitchMEventConfigQueryResponseMetaDataType {
-	m := new(SwitchMEventConfigQueryResponseMetaDataType)
+func NewSwitchMEventconfigQueryResponseMetaDataType() *SwitchMEventconfigQueryResponseMetaDataType {
+	m := new(SwitchMEventconfigQueryResponseMetaDataType)
 	return m
 }

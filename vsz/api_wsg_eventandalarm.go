@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGEventandAlarmService struct {
+type WSGEventandalarmService struct {
 	apiClient *APIClient
 }
 
-func NewWSGEventandAlarmService(c *APIClient) *WSGEventandAlarmService {
-	s := new(WSGEventandAlarmService)
+func NewWSGEventandalarmService(c *APIClient) *WSGEventandalarmService {
+	s := new(WSGEventandalarmService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGEventandAlarmService() *WSGEventandAlarmService {
-	return NewWSGEventandAlarmService(ss.apiClient)
+func (ss *WSGService) WSGEventandalarmService() *WSGEventandalarmService {
+	return NewWSGEventandalarmService(ss.apiClient)
 }
 
 // AddAlertAlarmList
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGEventandAlarmService() *WSGEventandAlarmService {
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlarmListAlarmQueryResultList, *APIResponseMeta, error) {
+func (s *WSGEventandalarmService) AddAlertAlarmList(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlarmListAlarmQueryResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,11 +55,11 @@ func (s *WSGEventandAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlertSummaryAlarmSummary, *APIResponseMeta, error) {
+func (s *WSGEventandalarmService) AddAlertAlarmSummary(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlertsummaryAlarmSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGAlertSummaryAlarmSummary
+		resp     *WSGAlertsummaryAlarmSummary
 		httpResp *http.Response
 		err      error
 	)
@@ -72,7 +72,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGAlertSummaryAlarmSummary()
+	resp = NewWSGAlertsummaryAlarmSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -83,7 +83,7 @@ func (s *WSGEventandAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGEventListEventQueryResultList, *APIResponseMeta, error) {
+func (s *WSGEventandalarmService) AddAlertEventList(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGEventListEventQueryResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -111,11 +111,11 @@ func (s *WSGEventandAlarmService) AddAlertEventList(ctx context.Context, body *W
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlertSummaryEventSummary, *APIResponseMeta, error) {
+func (s *WSGEventandalarmService) AddAlertEventSummary(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAlertsummaryEventSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGAlertSummaryEventSummary
+		resp     *WSGAlertsummaryEventSummary
 		httpResp *http.Response
 		err      error
 	)
@@ -128,7 +128,7 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGAlertSummaryEventSummary()
+	resp = NewWSGAlertsummaryEventSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -139,7 +139,7 @@ func (s *WSGEventandAlarmService) AddAlertEventSummary(ctx context.Context, body
 //
 // Request Body:
 //	 - body *WSGAlertAckBulkAlarms
-func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body *WSGAlertAckBulkAlarms) (*APIResponseMeta, error) {
+func (s *WSGEventandalarmService) UpdateAlertAlarmAck(ctx context.Context, body *WSGAlertAckBulkAlarms) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -166,7 +166,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 // Required Parameters:
 // - alarmID string
 //		- required
-func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Context, alarmID string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGEventandalarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Context, alarmID string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -191,7 +191,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 //
 // Request Body:
 //	 - body *WSGAlertClearBulkAlarms
-func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, body *WSGAlertClearBulkAlarms) (*APIResponseMeta, error) {
+func (s *WSGEventandalarmService) UpdateAlertAlarmClear(ctx context.Context, body *WSGAlertClearBulkAlarms) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -218,7 +218,7 @@ func (s *WSGEventandAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 // Required Parameters:
 // - alarmID string
 //		- required
-func (s *WSGEventandAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Context, alarmID string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGEventandalarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Context, alarmID string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

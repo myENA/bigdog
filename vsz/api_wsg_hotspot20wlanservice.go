@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGHotspot20WLANServiceService struct {
+type WSGHotspot20wlanserviceService struct {
 	apiClient *APIClient
 }
 
-func NewWSGHotspot20WLANServiceService(c *APIClient) *WSGHotspot20WLANServiceService {
-	s := new(WSGHotspot20WLANServiceService)
+func NewWSGHotspot20wlanserviceService(c *APIClient) *WSGHotspot20wlanserviceService {
+	s := new(WSGHotspot20wlanserviceService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGHotspot20WLANServiceService() *WSGHotspot20WLANServiceService {
-	return NewWSGHotspot20WLANServiceService(ss.apiClient)
+func (ss *WSGService) WSGHotspot20wlanserviceService() *WSGHotspot20wlanserviceService {
+	return NewWSGHotspot20wlanserviceService(ss.apiClient)
 }
 
 // AddRkszonesHs20sByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGHotspot20WLANServiceService() *WSGHotspot20WLANServiceS
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20WlanProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGHotspot20wlanserviceService) AddRkszonesHs20sByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20WlanProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Co
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20wlanserviceService) DeleteRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Con
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot20WlanProfile, *APIResponseMeta, error) {
+func (s *WSGHotspot20wlanserviceService) FindRkszonesHs20sById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot20WlanProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +117,7 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Conte
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
+func (s *WSGHotspot20wlanserviceService) FindRkszonesHs20sByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -142,7 +142,7 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.C
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGHotspot20WLANServiceService) FindServicesHotspot20ProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGHotspot20wlanserviceService) FindServicesHotspot20ProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -176,7 +176,7 @@ func (s *WSGHotspot20WLANServiceService) FindServicesHotspot20ProfileByQueryCrit
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) PartialUpdateRkszonesHs20sById(ctx context.Context, body *WSGPortalServiceModifyHotspot20WlanProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20wlanserviceService) PartialUpdateRkszonesHs20sById(ctx context.Context, body *WSGPortalServiceModifyHotspot20WlanProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMVLANSettingService struct {
+type SwitchMVlansettingService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMVLANSettingService(c *APIClient) *SwitchMVLANSettingService {
-	s := new(SwitchMVLANSettingService)
+func NewSwitchMVlansettingService(c *APIClient) *SwitchMVlansettingService {
+	s := new(SwitchMVlansettingService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMVLANSettingService() *SwitchMVLANSettingService {
-	return NewSwitchMVLANSettingService(ss.apiClient)
+func (ss *SwitchMService) SwitchMVlansettingService() *SwitchMVlansettingService {
+	return NewSwitchMVlansettingService(ss.apiClient)
 }
 
 // AddVlans
@@ -26,8 +26,8 @@ func (ss *SwitchMService) SwitchMVLANSettingService() *SwitchMVLANSettingService
 // Use this API command to Create the VLAN Config.
 //
 // Request Body:
-//	 - body *SwitchMVlanConfigCreateVlanConfig
-func (s *SwitchMVLANSettingService) AddVlans(ctx context.Context, body *SwitchMVlanConfigCreateVlanConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+//	 - body *SwitchMVlanconfigCreateVlanConfig
+func (s *SwitchMVlansettingService) AddVlans(ctx context.Context, body *SwitchMVlanconfigCreateVlanConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *SwitchMVLANSettingService) AddVlans(ctx context.Context, body *SwitchMV
 //
 // Request Body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMVLANSettingService) DeleteVlans(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *SwitchMVlansettingService) DeleteVlans(ctx context.Context, body *SwitchMCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *SwitchMVLANSettingService) DeleteVlans(ctx context.Context, body *Switc
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVLANSettingService) DeleteVlansById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *SwitchMVlansettingService) DeleteVlansById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,11 +102,11 @@ func (s *SwitchMVLANSettingService) DeleteVlansById(ctx context.Context, id stri
 // FindVlans
 //
 // Use this API command to Retrieve the VLAN Config List.
-func (s *SwitchMVLANSettingService) FindVlans(ctx context.Context) (*SwitchMVlanConfigQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMVlansettingService) FindVlans(ctx context.Context) (*SwitchMVlanconfigQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMVlanConfigQueryResult
+		resp     *SwitchMVlanconfigQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -115,7 +115,7 @@ func (s *SwitchMVLANSettingService) FindVlans(ctx context.Context) (*SwitchMVlan
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlans, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMVlanConfigQueryResult()
+	resp = NewSwitchMVlanconfigQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -127,11 +127,11 @@ func (s *SwitchMVLANSettingService) FindVlans(ctx context.Context) (*SwitchMVlan
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string) (*SwitchMVlanConfig, *APIResponseMeta, error) {
+func (s *SwitchMVlansettingService) FindVlansById(ctx context.Context, id string) (*SwitchMVlanconfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMVlanConfig
+		resp     *SwitchMVlanconfig
 		httpResp *http.Response
 		err      error
 	)
@@ -141,7 +141,7 @@ func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlansById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMVlanConfig()
+	resp = NewSwitchMVlanconfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -152,11 +152,11 @@ func (s *SwitchMVLANSettingService) FindVlansById(ctx context.Context, id string
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVlanConfigQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMVlansettingService) FindVlansByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVlanconfigQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMVlanConfigQueryResult
+		resp     *SwitchMVlanconfigQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -169,7 +169,7 @@ func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMVlanConfigQueryResult()
+	resp = NewSwitchMVlanconfigQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -179,12 +179,12 @@ func (s *SwitchMVLANSettingService) FindVlansByQueryCriteria(ctx context.Context
 // Use this API command to Update the VLAN Config.
 //
 // Request Body:
-//	 - body *SwitchMVlanConfigUpdateVlanConfig
+//	 - body *SwitchMVlanconfigUpdateVlanConfig
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVLANSettingService) UpdateVlansById(ctx context.Context, body *SwitchMVlanConfigUpdateVlanConfig, id string) (*APIResponseMeta, error) {
+func (s *SwitchMVlansettingService) UpdateVlansById(ctx context.Context, body *SwitchMVlanconfigUpdateVlanConfig, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

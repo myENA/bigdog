@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type SwitchMJobandScheduleService struct {
+type SwitchMJobandscheduleService struct {
 	apiClient *APIClient
 }
 
-func NewSwitchMJobandScheduleService(c *APIClient) *SwitchMJobandScheduleService {
-	s := new(SwitchMJobandScheduleService)
+func NewSwitchMJobandscheduleService(c *APIClient) *SwitchMJobandscheduleService {
+	s := new(SwitchMJobandscheduleService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMJobandScheduleService() *SwitchMJobandScheduleService {
-	return NewSwitchMJobandScheduleService(ss.apiClient)
+func (ss *SwitchMService) SwitchMJobandscheduleService() *SwitchMJobandscheduleService {
+	return NewSwitchMJobandscheduleService(ss.apiClient)
 }
 
 // AddJob
@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMJobandScheduleService() *SwitchMJobandScheduleS
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMJobList, *APIResponseMeta, error) {
+func (s *SwitchMJobandscheduleService) AddJob(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMJobList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -52,7 +52,7 @@ func (s *SwitchMJobandScheduleService) AddJob(ctx context.Context, body *SwitchM
 // DeleteJobSchedule
 //
 // Use this API command to delete a selected schedule.
-func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMJobandscheduleService) DeleteJobSchedule(ctx context.Context) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -80,7 +80,7 @@ func (s *SwitchMJobandScheduleService) DeleteJobSchedule(ctx context.Context) (i
 // Required Parameters:
 // - jobId string
 //		- required
-func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, jobId string) (*SwitchMJob, *APIResponseMeta, error) {
+func (s *SwitchMJobandscheduleService) FindJobByJobId(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, jobId string) (*SwitchMJob, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -110,7 +110,7 @@ func (s *SwitchMJobandScheduleService) FindJobByJobId(ctx context.Context, body 
 // Required Parameters:
 // - scheduleId string
 //		- required
-func (s *SwitchMJobandScheduleService) FindJobScheduleByScheduleId(ctx context.Context, scheduleId string) (*SwitchMJobScheduleResponse, *APIResponseMeta, error) {
+func (s *SwitchMJobandscheduleService) FindJobScheduleByScheduleId(ctx context.Context, scheduleId string) (*SwitchMJobScheduleResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

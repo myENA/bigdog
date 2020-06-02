@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGHotspot20VenueServiceService struct {
+type WSGHotspot20venueserviceService struct {
 	apiClient *APIClient
 }
 
-func NewWSGHotspot20VenueServiceService(c *APIClient) *WSGHotspot20VenueServiceService {
-	s := new(WSGHotspot20VenueServiceService)
+func NewWSGHotspot20venueserviceService(c *APIClient) *WSGHotspot20venueserviceService {
+	s := new(WSGHotspot20venueserviceService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGHotspot20VenueServiceService() *WSGHotspot20VenueServiceService {
-	return NewWSGHotspot20VenueServiceService(ss.apiClient)
+func (ss *WSGService) WSGHotspot20venueserviceService() *WSGHotspot20venueserviceService {
+	return NewWSGHotspot20venueserviceService(ss.apiClient)
 }
 
 // AddRkszonesHs20VenuesByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGHotspot20VenueServiceService() *WSGHotspot20VenueServic
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20VenueProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGHotspot20venueserviceService) AddRkszonesHs20VenuesByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20VenueProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx cont
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20venueserviceService) DeleteRkszonesHs20VenuesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx conte
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot20VeuneProfile, *APIResponseMeta, error) {
+func (s *WSGHotspot20venueserviceService) FindRkszonesHs20VenuesById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot20VeuneProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +117,7 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
+func (s *WSGHotspot20venueserviceService) FindRkszonesHs20VenuesByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -142,7 +142,7 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx con
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGHotspot20VenueServiceService) FindServicesVenueProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGHotspot20venueserviceService) FindServicesVenueProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -176,7 +176,7 @@ func (s *WSGHotspot20VenueServiceService) FindServicesVenueProfileByQueryCriteri
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20VenueServiceService) PartialUpdateRkszonesHs20VenuesById(ctx context.Context, body *WSGPortalServiceModifyHotspot20VenueProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGHotspot20venueserviceService) PartialUpdateRkszonesHs20VenuesById(ctx context.Context, body *WSGPortalServiceModifyHotspot20VenueProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

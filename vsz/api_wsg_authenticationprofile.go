@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAuthenticationProfileService struct {
+type WSGAuthenticationprofileService struct {
 	apiClient *APIClient
 }
 
-func NewWSGAuthenticationProfileService(c *APIClient) *WSGAuthenticationProfileService {
-	s := new(WSGAuthenticationProfileService)
+func NewWSGAuthenticationprofileService(c *APIClient) *WSGAuthenticationprofileService {
+	s := new(WSGAuthenticationprofileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfileService {
-	return NewWSGAuthenticationProfileService(ss.apiClient)
+func (ss *WSGService) WSGAuthenticationprofileService() *WSGAuthenticationprofileService {
+	return NewWSGAuthenticationprofileService(ss.apiClient)
 }
 
 // AddProfilesAuth
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfil
 //
 // Request Body:
 //	 - body *WSGProfileCreateAuthenticationProfile
-func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, body *WSGProfileCreateAuthenticationProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) AddProfilesAuth(ctx context.Context, body *WSGProfileCreateAuthenticationProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -59,7 +59,7 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) AddProfilesAuthCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -88,7 +88,7 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 //
 // Request Body:
 //	 - body *WSGProfileDeleteBulkAuthenticationProfile
-func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context, body *WSGProfileDeleteBulkAuthenticationProfile) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) DeleteProfilesAuth(ctx context.Context, body *WSGProfileDeleteBulkAuthenticationProfile) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -115,7 +115,7 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) DeleteProfilesAuthById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -135,7 +135,7 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Con
 // FindProfilesAuth
 //
 // Use this API command to retrieve a list of authentication profiles.
-func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context) (*WSGProfileAuthenticationProfileList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) FindProfilesAuth(ctx context.Context) (*WSGProfileAuthenticationProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -160,7 +160,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context) 
 // Required Parameters:
 // - type_ string
 //		- required
-func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx context.Context, type_ string) (*WSGProfileBaseServiceInfoList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) FindProfilesAuthAuthorizationList(ctx context.Context, type_ string) (*WSGProfileBaseServiceInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -185,7 +185,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBaseServiceInfoList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) FindProfilesAuthAuthServiceListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBaseServiceInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -214,7 +214,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Context, id string) (*WSGProfileAuthenticationProfile, *APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) FindProfilesAuthById(ctx context.Context, id string) (*WSGProfileAuthenticationProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -239,7 +239,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileAuthenticationProfileList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) FindProfilesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileAuthenticationProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -267,11 +267,11 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationProfileService) FindRadiusProxyStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRacStatsRadiusProxyList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) FindRadiusProxyStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRacstatsRadiusProxyList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGRacStatsRadiusProxyList
+		resp     *WSGRacstatsRadiusProxyList
 		httpResp *http.Response
 		err      error
 	)
@@ -284,7 +284,7 @@ func (s *WSGAuthenticationProfileService) FindRadiusProxyStatsByQueryCriteria(ct
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGRacStatsRadiusProxyList()
+	resp = NewWSGRacstatsRadiusProxyList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -299,7 +299,7 @@ func (s *WSGAuthenticationProfileService) FindRadiusProxyStatsByQueryCriteria(ct
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx context.Context, body *WSGProfileModifyAuthenticationProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationprofileService) PartialUpdateProfilesAuthById(ctx context.Context, body *WSGProfileModifyAuthenticationProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

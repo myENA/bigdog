@@ -26,8 +26,8 @@ func (ss *SwitchMService) SwitchMVLANSettingsService() *SwitchMVLANSettingsServi
 // Use this API command to Create the VLAN Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchVLANSettingCreateVlanConfig
-func (s *SwitchMVLANSettingsService) AddVlans(ctx context.Context, body *SwitchMSwitchVLANSettingCreateVlanConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+//	 - body *SwitchMSwitchVLANConfigCreateVlanConfig
+func (s *SwitchMVLANSettingsService) AddVlans(ctx context.Context, body *SwitchMSwitchVLANConfigCreateVlanConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,11 +102,11 @@ func (s *SwitchMVLANSettingsService) DeleteVlansById(ctx context.Context, id str
 // FindVlans
 //
 // Use this API command to Retrieve the VLAN Config List.
-func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context) (*SwitchMSwitchVLANSettingVlanConfigQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context) (*SwitchMSwitchVLANConfigVlanConfigQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchVLANSettingVlanConfigQueryResult
+		resp     *SwitchMSwitchVLANConfigVlanConfigQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -115,7 +115,7 @@ func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context) (*SwitchMSwi
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlans, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchVLANSettingVlanConfigQueryResult()
+	resp = NewSwitchMSwitchVLANConfigVlanConfigQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -127,11 +127,11 @@ func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context) (*SwitchMSwi
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVLANSettingsService) FindVlansById(ctx context.Context, id string) (*SwitchMSwitchVLANSettingVlanConfig, *APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) FindVlansById(ctx context.Context, id string) (*SwitchMSwitchVLANConfigVlanConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchVLANSettingVlanConfig
+		resp     *SwitchMSwitchVLANConfigVlanConfig
 		httpResp *http.Response
 		err      error
 	)
@@ -141,7 +141,7 @@ func (s *SwitchMVLANSettingsService) FindVlansById(ctx context.Context, id strin
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVlansById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchVLANSettingVlanConfig()
+	resp = NewSwitchMSwitchVLANConfigVlanConfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -152,11 +152,11 @@ func (s *SwitchMVLANSettingsService) FindVlansById(ctx context.Context, id strin
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMVLANSettingsService) FindVlansByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchVLANSettingVlanConfigQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) FindVlansByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchVLANConfigVlanConfigQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchVLANSettingVlanConfigQueryResult
+		resp     *SwitchMSwitchVLANConfigVlanConfigQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -169,7 +169,7 @@ func (s *SwitchMVLANSettingsService) FindVlansByQueryCriteria(ctx context.Contex
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchVLANSettingVlanConfigQueryResult()
+	resp = NewSwitchMSwitchVLANConfigVlanConfigQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -179,12 +179,12 @@ func (s *SwitchMVLANSettingsService) FindVlansByQueryCriteria(ctx context.Contex
 // Use this API command to Update the VLAN Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchVLANSettingUpdateVlanConfig
+//	 - body *SwitchMSwitchVLANConfigUpdateVlanConfig
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVLANSettingsService) UpdateVlansById(ctx context.Context, body *SwitchMSwitchVLANSettingUpdateVlanConfig, id string) (*APIResponseMeta, error) {
+func (s *SwitchMVLANSettingsService) UpdateVlansById(ctx context.Context, body *SwitchMSwitchVLANConfigUpdateVlanConfig, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

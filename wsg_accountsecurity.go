@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAccountsecurityService struct {
+type WSGAccountSecurityService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGAccountsecurityService(c *VSZClient) *WSGAccountsecurityService {
-	s := new(WSGAccountsecurityService)
+func NewWSGAccountSecurityService(c *VSZClient) *WSGAccountSecurityService {
+	s := new(WSGAccountSecurityService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAccountsecurityService() *WSGAccountsecurityService {
-	return NewWSGAccountsecurityService(ss.apiClient)
+func (ss *WSGService) WSGAccountSecurityService() *WSGAccountSecurityService {
+	return NewWSGAccountSecurityService(ss.apiClient)
 }
 
 // AddAccountSecurity
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGAccountsecurityService() *WSGAccountsecurityService {
 //
 // Request Body:
 //	 - body *WSGAccountSecurityProfileCreate
-func (s *WSGAccountsecurityService) AddAccountSecurity(ctx context.Context, body *WSGAccountSecurityProfileCreate) (*WSGCommonCreateResultIdName, *APIResponseMeta, error) {
+func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body *WSGAccountSecurityProfileCreate) (*WSGCommonCreateResultIdName, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGAccountsecurityService) AddAccountSecurity(ctx context.Context, body
 //
 // Request Body:
 //	 - body *WSGAccountSecurityProfileDeleteList
-func (s *WSGAccountsecurityService) DeleteAccountSecurity(ctx context.Context, body *WSGAccountSecurityProfileDeleteList) (interface{}, *APIResponseMeta, error) {
+func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, body *WSGAccountSecurityProfileDeleteList) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -87,7 +87,7 @@ func (s *WSGAccountsecurityService) DeleteAccountSecurity(ctx context.Context, b
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountsecurityService) DeleteAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileDelete, id string) (*WSGCommonCreateResultIdName, *APIResponseMeta, error) {
+func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileDelete, id string) (*WSGCommonCreateResultIdName, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -113,7 +113,7 @@ func (s *WSGAccountsecurityService) DeleteAccountSecurityById(ctx context.Contex
 // FindAccountSecurity
 //
 // Use this API command to get account security profiles.
-func (s *WSGAccountsecurityService) FindAccountSecurity(ctx context.Context) (*WSGAccountSecurityProfileProfileListResult, *APIResponseMeta, error) {
+func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context) (*WSGAccountSecurityProfileProfileListResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -141,7 +141,7 @@ func (s *WSGAccountsecurityService) FindAccountSecurity(ctx context.Context) (*W
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountsecurityService) FindAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileGetById, id string) (*WSGAccountSecurityProfileGetByIdResult, *APIResponseMeta, error) {
+func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileGetById, id string) (*WSGAccountSecurityProfileGetByIdResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -174,7 +174,7 @@ func (s *WSGAccountsecurityService) FindAccountSecurityById(ctx context.Context,
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountsecurityService) PartialUpdateAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileUpdate, id string) (*WSGCommonCreateResultIdName, *APIResponseMeta, error) {
+func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileUpdate, id string) (*WSGCommonCreateResultIdName, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -207,7 +207,7 @@ func (s *WSGAccountsecurityService) PartialUpdateAccountSecurityById(ctx context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountsecurityService) UpdateAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileUpdate, id string) (*WSGCommonCreateResultIdName, *APIResponseMeta, error) {
+func (s *WSGAccountSecurityService) UpdateAccountSecurityById(ctx context.Context, body *WSGAccountSecurityProfileUpdate, id string) (*WSGCommonCreateResultIdName, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

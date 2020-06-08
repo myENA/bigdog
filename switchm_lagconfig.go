@@ -2,7 +2,7 @@ package ruckus
 
 // API Version: v9_0
 
-type SwitchMSwitchLAGConfigCreate struct {
+type SwitchMLAGConfigCreate struct {
 	// GroupId
 	// Switch Group Id
 	GroupId *string `json:"groupId,omitempty"`
@@ -26,23 +26,23 @@ type SwitchMSwitchLAGConfigCreate struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewSwitchMSwitchLAGConfigCreate() *SwitchMSwitchLAGConfigCreate {
-	m := new(SwitchMSwitchLAGConfigCreate)
+func NewSwitchMLAGConfigCreate() *SwitchMLAGConfigCreate {
+	m := new(SwitchMLAGConfigCreate)
 	return m
 }
 
-type SwitchMSwitchLAGConfigCreateResult struct {
+type SwitchMLAGConfigCreateResult struct {
 	// Id
 	// The ID of LAG Config
 	Id *string `json:"id,omitempty"`
 }
 
-func NewSwitchMSwitchLAGConfigCreateResult() *SwitchMSwitchLAGConfigCreateResult {
-	m := new(SwitchMSwitchLAGConfigCreateResult)
+func NewSwitchMLAGConfigCreateResult() *SwitchMLAGConfigCreateResult {
+	m := new(SwitchMLAGConfigCreateResult)
 	return m
 }
 
-type SwitchMSwitchLAGConfigLagConfig struct {
+type SwitchMLAGConfig struct {
 	// CreatedTime
 	// The LAG Types in STATIC or DYNAMIC
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -78,12 +78,12 @@ type SwitchMSwitchLAGConfigLagConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMSwitchLAGConfigLagConfig() *SwitchMSwitchLAGConfigLagConfig {
-	m := new(SwitchMSwitchLAGConfigLagConfig)
+func NewSwitchMLAGConfig() *SwitchMLAGConfig {
+	m := new(SwitchMLAGConfig)
 	return m
 }
 
-type SwitchMSwitchLAGConfigList struct {
+type SwitchMLAGConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -94,19 +94,19 @@ type SwitchMSwitchLAGConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMSwitchLAGConfigLagConfig `json:"list,omitempty"`
+	List []*SwitchMLAGConfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchLAGConfigList() *SwitchMSwitchLAGConfigList {
-	m := new(SwitchMSwitchLAGConfigList)
+func NewSwitchMLAGConfigList() *SwitchMLAGConfigList {
+	m := new(SwitchMLAGConfigList)
 	return m
 }
 
-type SwitchMSwitchLAGConfigModify struct {
+type SwitchMLAGConfigModify struct {
 	// Name
 	// The Name of LAG Config
 	Name *string `json:"name,omitempty"`
@@ -116,7 +116,7 @@ type SwitchMSwitchLAGConfigModify struct {
 	Ports []string `json:"ports,omitempty"`
 }
 
-func NewSwitchMSwitchLAGConfigModify() *SwitchMSwitchLAGConfigModify {
-	m := new(SwitchMSwitchLAGConfigModify)
+func NewSwitchMLAGConfigModify() *SwitchMLAGConfigModify {
+	m := new(SwitchMLAGConfigModify)
 	return m
 }

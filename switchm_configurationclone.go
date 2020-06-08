@@ -26,8 +26,8 @@ func (ss *SwitchMService) SwitchMConfigurationCloneService() *SwitchMConfigurati
 // Use this API command to Get Switch Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchGroupGetConfigBySwitch
-func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Context, body *SwitchMSwitchGroupGetConfigBySwitch) (interface{}, *APIResponseMeta, error) {
+//	 - body *SwitchMGroupGetConfigBySwitch
+func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Context, body *SwitchMGroupGetConfigBySwitch) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -54,8 +54,8 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Con
 // Use this API command to Clone Switch Group Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchGroupCloneConfigByGroup
-func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx context.Context, body *SwitchMSwitchGroupCloneConfigByGroup) (interface{}, *APIResponseMeta, error) {
+//	 - body *SwitchMGroupCloneConfigByGroup
+func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx context.Context, body *SwitchMGroupCloneConfigByGroup) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,8 +82,8 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx cont
 // Use this API command to Clone Switch Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchGroupCloneConfigBySwitch
-func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.Context, body *SwitchMSwitchGroupCloneConfigBySwitch) (interface{}, *APIResponseMeta, error) {
+//	 - body *SwitchMGroupCloneConfigBySwitch
+func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.Context, body *SwitchMGroupCloneConfigBySwitch) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

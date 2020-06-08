@@ -26,8 +26,8 @@ func (ss *SwitchMService) SwitchMCommonSettingsService() *SwitchMCommonSettingsS
 // Use this API command to Create DNS Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchDNSConfigCreateDnsConfig
-func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *SwitchMSwitchDNSConfigCreateDnsConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+//	 - body *SwitchMDNSConfigCreateDnsConfig
+func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *SwitchMDNSConfigCreateDnsConfig) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -80,11 +80,11 @@ func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 // Required Parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMSwitchDNSConfigDnsConfig, *APIResponseMeta, error) {
+func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string) (*SwitchMDNSConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchDNSConfigDnsConfig
+		resp     *SwitchMDNSConfig
 		httpResp *http.Response
 		err      error
 	)
@@ -94,7 +94,7 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindDnsConfigBySwitchGroupId, true)
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchDNSConfigDnsConfig()
+	resp = NewSwitchMDNSConfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -104,12 +104,12 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 // Use this API command to Update DNS Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchDNSConfigUpdateDnsConfig
+//	 - body *SwitchMDNSConfigUpdateDnsConfig
 //
 // Required Parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *SwitchMSwitchDNSConfigUpdateDnsConfig, switchGroupId string) (*APIResponseMeta, error) {
+func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *SwitchMDNSConfigUpdateDnsConfig, switchGroupId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

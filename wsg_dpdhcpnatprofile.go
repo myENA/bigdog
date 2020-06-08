@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDpdhcpnatprofileService struct {
+type WSGDPDHCPNATProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGDpdhcpnatprofileService(c *VSZClient) *WSGDpdhcpnatprofileService {
-	s := new(WSGDpdhcpnatprofileService)
+func NewWSGDPDHCPNATProfileService(c *VSZClient) *WSGDPDHCPNATProfileService {
+	s := new(WSGDPDHCPNATProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDpdhcpnatprofileService() *WSGDpdhcpnatprofileService {
-	return NewWSGDpdhcpnatprofileService(ss.apiClient)
+func (ss *WSGService) WSGDPDHCPNATProfileService() *WSGDPDHCPNATProfileService {
+	return NewWSGDPDHCPNATProfileService(ss.apiClient)
 }
 
 // AddDpProfileSettings
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGDpdhcpnatprofileService() *WSGDpdhcpnatprofileService {
 //
 // Request Body:
 //	 - body *WSGDPProfileSettingBO
-func (s *WSGDpdhcpnatprofileService) AddDpProfileSettings(ctx context.Context, body *WSGDPProfileSettingBO) (*APIResponseMeta, error) {
+func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, body *WSGDPProfileSettingBO) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -53,7 +53,7 @@ func (s *WSGDpdhcpnatprofileService) AddDpProfileSettings(ctx context.Context, b
 //
 // Request Body:
 //	 - body *WSGDPProfileBulkDelete
-func (s *WSGDpdhcpnatprofileService) DeleteDpProfileSettings(ctx context.Context, body *WSGDPProfileBulkDelete) (*APIResponseMeta, error) {
+func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context, body *WSGDPProfileBulkDelete) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -80,7 +80,7 @@ func (s *WSGDpdhcpnatprofileService) DeleteDpProfileSettings(ctx context.Context
 // Required Parameters:
 // - dpKey string
 //		- required
-func (s *WSGDpdhcpnatprofileService) DeleteDpProfileSettingsByDpKey(ctx context.Context, dpKey string) (*APIResponseMeta, error) {
+func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.Context, dpKey string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -100,7 +100,7 @@ func (s *WSGDpdhcpnatprofileService) DeleteDpProfileSettingsByDpKey(ctx context.
 // FindDpProfileSettings
 //
 // Use this API command to retrieve DP DHCP & NAT profile setting list.
-func (s *WSGDpdhcpnatprofileService) FindDpProfileSettings(ctx context.Context) (*WSGDPProfileSettingBOList, *APIResponseMeta, error) {
+func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context) (*WSGDPProfileSettingBOList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -125,7 +125,7 @@ func (s *WSGDpdhcpnatprofileService) FindDpProfileSettings(ctx context.Context) 
 // Required Parameters:
 // - dpKey string
 //		- required
-func (s *WSGDpdhcpnatprofileService) FindDpProfileSettingsByDpKey(ctx context.Context, dpKey string) (*WSGDPProfileSettingBO, *APIResponseMeta, error) {
+func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Context, dpKey string) (*WSGDPProfileSettingBO, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -154,7 +154,7 @@ func (s *WSGDpdhcpnatprofileService) FindDpProfileSettingsByDpKey(ctx context.Co
 // Required Parameters:
 // - dpKey string
 //		- required
-func (s *WSGDpdhcpnatprofileService) UpdateDpProfileSettingsByDpKey(ctx context.Context, body *WSGDPProfileSettingBO, dpKey string) (*APIResponseMeta, error) {
+func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.Context, body *WSGDPProfileSettingBO, dpKey string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

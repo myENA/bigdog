@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGWificallingpolicyService struct {
+type WSGWiFiCallingPolicyService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGWificallingpolicyService(c *VSZClient) *WSGWificallingpolicyService {
-	s := new(WSGWificallingpolicyService)
+func NewWSGWiFiCallingPolicyService(c *VSZClient) *WSGWiFiCallingPolicyService {
+	s := new(WSGWiFiCallingPolicyService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGWificallingpolicyService() *WSGWificallingpolicyService {
-	return NewWSGWificallingpolicyService(ss.apiClient)
+func (ss *WSGService) WSGWiFiCallingPolicyService() *WSGWiFiCallingPolicyService {
+	return NewWSGWiFiCallingPolicyService(ss.apiClient)
 }
 
 // AddWifiCallingWifiCallingPolicy
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGWificallingpolicyService() *WSGWificallingpolicyService
 //
 // Request Body:
 //	 - body *WSGWIFICallingCreateWifiCallingPolicy
-func (s *WSGWificallingpolicyService) AddWifiCallingWifiCallingPolicy(ctx context.Context, body *WSGWIFICallingCreateWifiCallingPolicy) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGWiFiCallingPolicyService) AddWifiCallingWifiCallingPolicy(ctx context.Context, body *WSGWIFICallingCreateWifiCallingPolicy) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGWificallingpolicyService) AddWifiCallingWifiCallingPolicy(ctx contex
 //
 // Request Body:
 //	 - body *WSGWIFICallingDeleteBulk
-func (s *WSGWificallingpolicyService) DeleteWifiCallingWifiCallingPolicy(ctx context.Context, body *WSGWIFICallingDeleteBulk) (interface{}, *APIResponseMeta, error) {
+func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicy(ctx context.Context, body *WSGWIFICallingDeleteBulk) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -84,7 +84,7 @@ func (s *WSGWificallingpolicyService) DeleteWifiCallingWifiCallingPolicy(ctx con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGWificallingpolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -107,7 +107,7 @@ func (s *WSGWificallingpolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGWificallingpolicyService) FindWifiCallingByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWIFICallingPolicyList, *APIResponseMeta, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWIFICallingPolicyList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -140,7 +140,7 @@ func (s *WSGWificallingpolicyService) FindWifiCallingByQueryCriteria(ctx context
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGWificallingpolicyService) FindWifiCallingWifiCallingPolicy(ctx context.Context, optionalParams map[string][]string) (*WSGWIFICallingPolicyList, *APIResponseMeta, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx context.Context, optionalParams map[string][]string) (*WSGWIFICallingPolicyList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -174,7 +174,7 @@ func (s *WSGWificallingpolicyService) FindWifiCallingWifiCallingPolicy(ctx conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGWificallingpolicyService) FindWifiCallingWifiCallingPolicyById(ctx context.Context, id string) (*WSGWIFICallingPolicy, *APIResponseMeta, error) {
+func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx context.Context, id string) (*WSGWIFICallingPolicy, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -203,7 +203,7 @@ func (s *WSGWificallingpolicyService) FindWifiCallingWifiCallingPolicyById(ctx c
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGWificallingpolicyService) PartialUpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string) (*APIResponseMeta, error) {
+func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -234,7 +234,7 @@ func (s *WSGWificallingpolicyService) PartialUpdateWifiCallingWifiCallingPolicyB
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGWificallingpolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string) (*APIResponseMeta, error) {
+func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

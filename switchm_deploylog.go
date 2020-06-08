@@ -2,7 +2,7 @@ package ruckus
 
 // API Version: v9_0
 
-type SwitchMSwitchDeployLogConfigurationHistoryQueryResult struct {
+type SwitchMDeployLogConfigurationHistoryQueryResult struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -13,19 +13,19 @@ type SwitchMSwitchDeployLogConfigurationHistoryQueryResult struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMSwitchDeployLogDeployLog `json:"list,omitempty"`
+	List []*SwitchMDeployLog `json:"list,omitempty"`
 
 	// TotalCount
 	// Total records count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchDeployLogConfigurationHistoryQueryResult() *SwitchMSwitchDeployLogConfigurationHistoryQueryResult {
-	m := new(SwitchMSwitchDeployLogConfigurationHistoryQueryResult)
+func NewSwitchMDeployLogConfigurationHistoryQueryResult() *SwitchMDeployLogConfigurationHistoryQueryResult {
+	m := new(SwitchMDeployLogConfigurationHistoryQueryResult)
 	return m
 }
 
-type SwitchMSwitchDeployLogDeployLog struct {
+type SwitchMDeployLog struct {
 	// ConfigType
 	// Config Type
 	// Constraints:
@@ -72,7 +72,7 @@ type SwitchMSwitchDeployLogDeployLog struct {
 	// Deploy Start Time
 	StartTime *int `json:"startTime,omitempty"`
 
-	Summary *SwitchMSwitchDeployLogDeployLogStatusSummary `json:"summary,omitempty"`
+	Summary *SwitchMDeployLogStatusSummary `json:"summary,omitempty"`
 
 	// SwitchIds
 	// Switch ID
@@ -87,12 +87,12 @@ type SwitchMSwitchDeployLogDeployLog struct {
 	Yang *string `json:"yang,omitempty"`
 }
 
-func NewSwitchMSwitchDeployLogDeployLog() *SwitchMSwitchDeployLogDeployLog {
-	m := new(SwitchMSwitchDeployLogDeployLog)
+func NewSwitchMDeployLog() *SwitchMDeployLog {
+	m := new(SwitchMDeployLog)
 	return m
 }
 
-type SwitchMSwitchDeployLogDeployLogStatusSummary struct {
+type SwitchMDeployLogStatusSummary struct {
 	// Failed
 	// Deployment Fail Counter
 	Failed *int `json:"failed,omitempty"`
@@ -110,7 +110,7 @@ type SwitchMSwitchDeployLogDeployLogStatusSummary struct {
 	Success *int `json:"success,omitempty"`
 }
 
-func NewSwitchMSwitchDeployLogDeployLogStatusSummary() *SwitchMSwitchDeployLogDeployLogStatusSummary {
-	m := new(SwitchMSwitchDeployLogDeployLogStatusSummary)
+func NewSwitchMDeployLogStatusSummary() *SwitchMDeployLogStatusSummary {
+	m := new(SwitchMDeployLogStatusSummary)
 	return m
 }

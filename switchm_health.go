@@ -8,24 +8,24 @@ import (
 	"net/http"
 )
 
-type SwitchMSwitchHealthService struct {
+type SwitchMHealthService struct {
 	apiClient *VSZClient
 }
 
-func NewSwitchMSwitchHealthService(c *VSZClient) *SwitchMSwitchHealthService {
-	s := new(SwitchMSwitchHealthService)
+func NewSwitchMHealthService(c *VSZClient) *SwitchMHealthService {
+	s := new(SwitchMHealthService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchHealthService() *SwitchMSwitchHealthService {
-	return NewSwitchMSwitchHealthService(ss.apiClient)
+func (ss *SwitchMService) SwitchMHealthService() *SwitchMHealthService {
+	return NewSwitchMHealthService(ss.apiClient)
 }
 
-type SwitchMSwitchHealthAggMetrics struct {
+type SwitchMHealthAggMetrics struct {
 	// Extra
 	// Extra information for Aggregation Metrics
-	Extra *SwitchMSwitchHealthAggMetricsExtraType `json:"extra,omitempty"`
+	Extra *SwitchMHealthAggMetricsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Aggregation Metrics returned out of the complete ICX Metrics list
@@ -35,7 +35,7 @@ type SwitchMSwitchHealthAggMetrics struct {
 	// Indicates if there are more Aggregation Metrics after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchHealthAggs `json:"list,omitempty"`
+	List []*SwitchMHealthAggs `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Aggregation Metrics count
@@ -46,40 +46,40 @@ type SwitchMSwitchHealthAggMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchHealthAggMetrics() *SwitchMSwitchHealthAggMetrics {
-	m := new(SwitchMSwitchHealthAggMetrics)
+func NewSwitchMHealthAggMetrics() *SwitchMHealthAggMetrics {
+	m := new(SwitchMHealthAggMetrics)
 	return m
 }
 
-// SwitchMSwitchHealthAggMetricsExtraType
+// SwitchMHealthAggMetricsExtraType
 //
 // Extra information for Aggregation Metrics
-type SwitchMSwitchHealthAggMetricsExtraType struct {
+type SwitchMHealthAggMetricsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchHealthAggMetricsExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMHealthAggMetricsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchHealthAggMetricsExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMHealthAggMetricsExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchHealthAggMetricsExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMHealthAggMetricsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchHealthAggMetricsExtraType() *SwitchMSwitchHealthAggMetricsExtraType {
-	m := new(SwitchMSwitchHealthAggMetricsExtraType)
+func NewSwitchMHealthAggMetricsExtraType() *SwitchMHealthAggMetricsExtraType {
+	m := new(SwitchMHealthAggMetricsExtraType)
 	return m
 }
 
-type SwitchMSwitchHealthAggs struct {
+type SwitchMHealthAggs struct {
 	// Id
 	// Identifier of the aggregation value
 	Id *string `json:"id,omitempty"`
@@ -93,15 +93,15 @@ type SwitchMSwitchHealthAggs struct {
 	Value *float64 `json:"value,omitempty"`
 }
 
-func NewSwitchMSwitchHealthAggs() *SwitchMSwitchHealthAggs {
-	m := new(SwitchMSwitchHealthAggs)
+func NewSwitchMHealthAggs() *SwitchMHealthAggs {
+	m := new(SwitchMHealthAggs)
 	return m
 }
 
-type SwitchMSwitchHealthIcxMetrics struct {
+type SwitchMHealthIcxMetrics struct {
 	// Extra
 	// Extra information for ICX Metrics
-	Extra *SwitchMSwitchHealthIcxMetricsExtraType `json:"extra,omitempty"`
+	Extra *SwitchMHealthIcxMetricsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ICX Metrics returned out of the complete ICX Metrics list
@@ -111,7 +111,7 @@ type SwitchMSwitchHealthIcxMetrics struct {
 	// Indicates if there are more ICX Metrics after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchHealthMetrics `json:"list,omitempty"`
+	List []*SwitchMHealthMetrics `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// ICX Metrics count
@@ -122,40 +122,40 @@ type SwitchMSwitchHealthIcxMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchHealthIcxMetrics() *SwitchMSwitchHealthIcxMetrics {
-	m := new(SwitchMSwitchHealthIcxMetrics)
+func NewSwitchMHealthIcxMetrics() *SwitchMHealthIcxMetrics {
+	m := new(SwitchMHealthIcxMetrics)
 	return m
 }
 
-// SwitchMSwitchHealthIcxMetricsExtraType
+// SwitchMHealthIcxMetricsExtraType
 //
 // Extra information for ICX Metrics
-type SwitchMSwitchHealthIcxMetricsExtraType struct {
+type SwitchMHealthIcxMetricsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchHealthIcxMetricsExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMHealthIcxMetricsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchHealthIcxMetricsExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMHealthIcxMetricsExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchHealthIcxMetricsExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMHealthIcxMetricsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchHealthIcxMetricsExtraType() *SwitchMSwitchHealthIcxMetricsExtraType {
-	m := new(SwitchMSwitchHealthIcxMetricsExtraType)
+func NewSwitchMHealthIcxMetricsExtraType() *SwitchMHealthIcxMetricsExtraType {
+	m := new(SwitchMHealthIcxMetricsExtraType)
 	return m
 }
 
-type SwitchMSwitchHealthMetrics struct {
+type SwitchMHealthMetrics struct {
 	// Avg
 	// Average metrics
 	Avg *float64 `json:"avg,omitempty"`
@@ -173,15 +173,15 @@ type SwitchMSwitchHealthMetrics struct {
 	Timestamp *string `json:"timestamp,omitempty"`
 }
 
-func NewSwitchMSwitchHealthMetrics() *SwitchMSwitchHealthMetrics {
-	m := new(SwitchMSwitchHealthMetrics)
+func NewSwitchMHealthMetrics() *SwitchMHealthMetrics {
+	m := new(SwitchMHealthMetrics)
 	return m
 }
 
-type SwitchMSwitchHealthStatus struct {
+type SwitchMHealthStatus struct {
 	// Fan
 	// Fan
-	Fan []*SwitchMSwitchHealthStatusFanType `json:"fan,omitempty"`
+	Fan []*SwitchMHealthStatusFanType `json:"fan,omitempty"`
 
 	// FlaggedCount
 	// Flagged status count
@@ -197,19 +197,19 @@ type SwitchMSwitchHealthStatus struct {
 
 	// PowerSupply
 	// Powersupply
-	PowerSupply []*SwitchMSwitchHealthStatusPowerSupplyType `json:"powerSupply,omitempty"`
+	PowerSupply []*SwitchMHealthStatusPowerSupplyType `json:"powerSupply,omitempty"`
 
 	// Temperature
 	// Temperature
-	Temperature []*SwitchMSwitchHealthStatusTemperatureType `json:"temperature,omitempty"`
+	Temperature []*SwitchMHealthStatusTemperatureType `json:"temperature,omitempty"`
 }
 
-func NewSwitchMSwitchHealthStatus() *SwitchMSwitchHealthStatus {
-	m := new(SwitchMSwitchHealthStatus)
+func NewSwitchMHealthStatus() *SwitchMHealthStatus {
+	m := new(SwitchMHealthStatus)
 	return m
 }
 
-type SwitchMSwitchHealthStatusFanType struct {
+type SwitchMHealthStatusFanType struct {
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
 	// SlotNumber
@@ -225,12 +225,12 @@ type SwitchMSwitchHealthStatusFanType struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewSwitchMSwitchHealthStatusFanType() *SwitchMSwitchHealthStatusFanType {
-	m := new(SwitchMSwitchHealthStatusFanType)
+func NewSwitchMHealthStatusFanType() *SwitchMHealthStatusFanType {
+	m := new(SwitchMHealthStatusFanType)
 	return m
 }
 
-type SwitchMSwitchHealthStatusPowerSupplyType struct {
+type SwitchMHealthStatusPowerSupplyType struct {
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
 	// SlotNumber
@@ -246,12 +246,12 @@ type SwitchMSwitchHealthStatusPowerSupplyType struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewSwitchMSwitchHealthStatusPowerSupplyType() *SwitchMSwitchHealthStatusPowerSupplyType {
-	m := new(SwitchMSwitchHealthStatusPowerSupplyType)
+func NewSwitchMHealthStatusPowerSupplyType() *SwitchMHealthStatusPowerSupplyType {
+	m := new(SwitchMHealthStatusPowerSupplyType)
 	return m
 }
 
-type SwitchMSwitchHealthStatusTemperatureType struct {
+type SwitchMHealthStatusTemperatureType struct {
 	// SlotNumber
 	// Solt number
 	SlotNumber *int `json:"slotNumber,omitempty"`
@@ -261,8 +261,8 @@ type SwitchMSwitchHealthStatusTemperatureType struct {
 	TemperatureValue *float64 `json:"temperatureValue,omitempty"`
 }
 
-func NewSwitchMSwitchHealthStatusTemperatureType() *SwitchMSwitchHealthStatusTemperatureType {
-	m := new(SwitchMSwitchHealthStatusTemperatureType)
+func NewSwitchMHealthStatusTemperatureType() *SwitchMHealthStatusTemperatureType {
+	m := new(SwitchMHealthStatusTemperatureType)
 	return m
 }
 
@@ -272,11 +272,11 @@ func NewSwitchMSwitchHealthStatusTemperatureType() *SwitchMSwitchHealthStatusTem
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMSwitchHealthService) AddHealthCpuAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchHealthAggMetrics, *APIResponseMeta, error) {
+func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthAggMetrics, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchHealthAggMetrics
+		resp     *SwitchMHealthAggMetrics
 		httpResp *http.Response
 		err      error
 	)
@@ -289,7 +289,7 @@ func (s *SwitchMSwitchHealthService) AddHealthCpuAgg(ctx context.Context, body *
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchHealthAggMetrics()
+	resp = NewSwitchMHealthAggMetrics()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -300,11 +300,11 @@ func (s *SwitchMSwitchHealthService) AddHealthCpuAgg(ctx context.Context, body *
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMSwitchHealthService) AddHealthCpuLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchHealthIcxMetrics, *APIResponseMeta, error) {
+func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthIcxMetrics, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchHealthIcxMetrics
+		resp     *SwitchMHealthIcxMetrics
 		httpResp *http.Response
 		err      error
 	)
@@ -317,7 +317,7 @@ func (s *SwitchMSwitchHealthService) AddHealthCpuLine(ctx context.Context, body 
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchHealthIcxMetrics()
+	resp = NewSwitchMHealthIcxMetrics()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -328,11 +328,11 @@ func (s *SwitchMSwitchHealthService) AddHealthCpuLine(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMSwitchHealthService) AddHealthMemAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchHealthAggMetrics, *APIResponseMeta, error) {
+func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthAggMetrics, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchHealthAggMetrics
+		resp     *SwitchMHealthAggMetrics
 		httpResp *http.Response
 		err      error
 	)
@@ -345,7 +345,7 @@ func (s *SwitchMSwitchHealthService) AddHealthMemAgg(ctx context.Context, body *
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchHealthAggMetrics()
+	resp = NewSwitchMHealthAggMetrics()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -356,11 +356,11 @@ func (s *SwitchMSwitchHealthService) AddHealthMemAgg(ctx context.Context, body *
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMSwitchHealthService) AddHealthMemLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchHealthIcxMetrics, *APIResponseMeta, error) {
+func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthIcxMetrics, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchHealthIcxMetrics
+		resp     *SwitchMHealthIcxMetrics
 		httpResp *http.Response
 		err      error
 	)
@@ -373,7 +373,7 @@ func (s *SwitchMSwitchHealthService) AddHealthMemLine(ctx context.Context, body 
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchHealthIcxMetrics()
+	resp = NewSwitchMHealthIcxMetrics()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -384,11 +384,11 @@ func (s *SwitchMSwitchHealthService) AddHealthMemLine(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMSwitchHealthService) AddHealthStatus(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchHealthStatus, *APIResponseMeta, error) {
+func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthStatus, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchHealthStatus
+		resp     *SwitchMHealthStatus
 		httpResp *http.Response
 		err      error
 	)
@@ -401,7 +401,7 @@ func (s *SwitchMSwitchHealthService) AddHealthStatus(ctx context.Context, body *
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchHealthStatus()
+	resp = NewSwitchMHealthStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -412,11 +412,11 @@ func (s *SwitchMSwitchHealthService) AddHealthStatus(ctx context.Context, body *
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMSwitchHealthService) AddHealthStatusAll(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchHealthStatus, *APIResponseMeta, error) {
+func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMHealthStatus, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchHealthStatus
+		resp     *SwitchMHealthStatus
 		httpResp *http.Response
 		err      error
 	)
@@ -429,7 +429,7 @@ func (s *SwitchMSwitchHealthService) AddHealthStatusAll(ctx context.Context, bod
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchHealthStatus()
+	resp = NewSwitchMHealthStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

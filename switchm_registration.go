@@ -3,13 +3,29 @@ package ruckus
 // API Version: v9_0
 
 import (
+	"context"
 	"encoding/json"
+	"net/http"
 )
 
-type SwitchMSwitchRegistrationRulesClientObjectID struct {
+type SwitchMRegistrationRulesService struct {
+	apiClient *VSZClient
+}
+
+func NewSwitchMRegistrationRulesService(c *VSZClient) *SwitchMRegistrationRulesService {
+	s := new(SwitchMRegistrationRulesService)
+	s.apiClient = c
+	return s
+}
+
+func (ss *SwitchMService) SwitchMRegistrationRulesService() *SwitchMRegistrationRulesService {
+	return NewSwitchMRegistrationRulesService(ss.apiClient)
+}
+
+type SwitchMRegistrationRulesClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
-	ExtraValues *SwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
+	ExtraValues *SwitchMRegistrationRulesClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
 
 	// Id
 	// Identifier of the client
@@ -24,277 +40,277 @@ type SwitchMSwitchRegistrationRulesClientObjectID struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesClientObjectID() *SwitchMSwitchRegistrationRulesClientObjectID {
-	m := new(SwitchMSwitchRegistrationRulesClientObjectID)
+func NewSwitchMRegistrationRulesClientObjectID() *SwitchMRegistrationRulesClientObjectID {
+	m := new(SwitchMRegistrationRulesClientObjectID)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType
+// SwitchMRegistrationRulesClientObjectIDExtraValuesType
 //
 // Extra values of the client
-type SwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType struct {
+type SwitchMRegistrationRulesClientObjectIDExtraValuesType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesClientObjectIDExtraValuesType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType() *SwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType {
-	m := new(SwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType)
+func NewSwitchMRegistrationRulesClientObjectIDExtraValuesType() *SwitchMRegistrationRulesClientObjectIDExtraValuesType {
+	m := new(SwitchMRegistrationRulesClientObjectIDExtraValuesType)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesCreateResult struct {
-	Data *SwitchMSwitchRegistrationRulesClientObjectID `json:"data,omitempty"`
+type SwitchMRegistrationRulesCreateResult struct {
+	Data *SwitchMRegistrationRulesClientObjectID `json:"data,omitempty"`
 
-	Error *SwitchMSwitchRegistrationRulesErrorObject `json:"error,omitempty"`
+	Error *SwitchMRegistrationRulesErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra *SwitchMSwitchRegistrationRulesCreateResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMRegistrationRulesCreateResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule create result
-	MetaData *SwitchMSwitchRegistrationRulesCreateResultMetaDataType `json:"metaData,omitempty"`
+	MetaData *SwitchMRegistrationRulesCreateResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Create result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesCreateResult() *SwitchMSwitchRegistrationRulesCreateResult {
-	m := new(SwitchMSwitchRegistrationRulesCreateResult)
+func NewSwitchMRegistrationRulesCreateResult() *SwitchMRegistrationRulesCreateResult {
+	m := new(SwitchMRegistrationRulesCreateResult)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesCreateResultExtraType
+// SwitchMRegistrationRulesCreateResultExtraType
 //
 // Any additional response
-type SwitchMSwitchRegistrationRulesCreateResultExtraType struct {
+type SwitchMRegistrationRulesCreateResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesCreateResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesCreateResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesCreateResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesCreateResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesCreateResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesCreateResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesCreateResultExtraType() *SwitchMSwitchRegistrationRulesCreateResultExtraType {
-	m := new(SwitchMSwitchRegistrationRulesCreateResultExtraType)
+func NewSwitchMRegistrationRulesCreateResultExtraType() *SwitchMRegistrationRulesCreateResultExtraType {
+	m := new(SwitchMRegistrationRulesCreateResultExtraType)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesCreateResultMetaDataType
+// SwitchMRegistrationRulesCreateResultMetaDataType
 //
 // Matadata of Rule create result
-type SwitchMSwitchRegistrationRulesCreateResultMetaDataType struct {
+type SwitchMRegistrationRulesCreateResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesCreateResultMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesCreateResultMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesCreateResultMetaDataType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesCreateResultMetaDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesCreateResultMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesCreateResultMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesCreateResultMetaDataType() *SwitchMSwitchRegistrationRulesCreateResultMetaDataType {
-	m := new(SwitchMSwitchRegistrationRulesCreateResultMetaDataType)
+func NewSwitchMRegistrationRulesCreateResultMetaDataType() *SwitchMRegistrationRulesCreateResultMetaDataType {
+	m := new(SwitchMRegistrationRulesCreateResultMetaDataType)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesDeleteMultipleResult struct {
-	Data *SwitchMSwitchRegistrationRulesList `json:"data,omitempty"`
+type SwitchMRegistrationRulesDeleteMultipleResult struct {
+	Data *SwitchMRegistrationRulesList `json:"data,omitempty"`
 
-	Error *SwitchMSwitchRegistrationRulesErrorObject `json:"error,omitempty"`
+	Error *SwitchMRegistrationRulesErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra *SwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMRegistrationRulesDeleteMultipleResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of delete multiple rules result
-	MetaData *SwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType `json:"metaData,omitempty"`
+	MetaData *SwitchMRegistrationRulesDeleteMultipleResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Delete multiple result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesDeleteMultipleResult() *SwitchMSwitchRegistrationRulesDeleteMultipleResult {
-	m := new(SwitchMSwitchRegistrationRulesDeleteMultipleResult)
+func NewSwitchMRegistrationRulesDeleteMultipleResult() *SwitchMRegistrationRulesDeleteMultipleResult {
+	m := new(SwitchMRegistrationRulesDeleteMultipleResult)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType
+// SwitchMRegistrationRulesDeleteMultipleResultExtraType
 //
 // Any additional response
-type SwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType struct {
+type SwitchMRegistrationRulesDeleteMultipleResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesDeleteMultipleResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesDeleteMultipleResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesDeleteMultipleResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType() *SwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType {
-	m := new(SwitchMSwitchRegistrationRulesDeleteMultipleResultExtraType)
+func NewSwitchMRegistrationRulesDeleteMultipleResultExtraType() *SwitchMRegistrationRulesDeleteMultipleResultExtraType {
+	m := new(SwitchMRegistrationRulesDeleteMultipleResultExtraType)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType
+// SwitchMRegistrationRulesDeleteMultipleResultMetaDataType
 //
 // Matadata of delete multiple rules result
-type SwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType struct {
+type SwitchMRegistrationRulesDeleteMultipleResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesDeleteMultipleResultMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesDeleteMultipleResultMetaDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesDeleteMultipleResultMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType() *SwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType {
-	m := new(SwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType)
+func NewSwitchMRegistrationRulesDeleteMultipleResultMetaDataType() *SwitchMRegistrationRulesDeleteMultipleResultMetaDataType {
+	m := new(SwitchMRegistrationRulesDeleteMultipleResultMetaDataType)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesDeleteResult struct {
-	Data *SwitchMSwitchRegistrationRulesClientObjectID `json:"data,omitempty"`
+type SwitchMRegistrationRulesDeleteResult struct {
+	Data *SwitchMRegistrationRulesClientObjectID `json:"data,omitempty"`
 
-	Error *SwitchMSwitchRegistrationRulesErrorObject `json:"error,omitempty"`
+	Error *SwitchMRegistrationRulesErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra *SwitchMSwitchRegistrationRulesDeleteResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMRegistrationRulesDeleteResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule delete result
-	MetaData *SwitchMSwitchRegistrationRulesDeleteResultMetaDataType `json:"metaData,omitempty"`
+	MetaData *SwitchMRegistrationRulesDeleteResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Delete result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesDeleteResult() *SwitchMSwitchRegistrationRulesDeleteResult {
-	m := new(SwitchMSwitchRegistrationRulesDeleteResult)
+func NewSwitchMRegistrationRulesDeleteResult() *SwitchMRegistrationRulesDeleteResult {
+	m := new(SwitchMRegistrationRulesDeleteResult)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesDeleteResultExtraType
+// SwitchMRegistrationRulesDeleteResultExtraType
 //
 // Any additional response
-type SwitchMSwitchRegistrationRulesDeleteResultExtraType struct {
+type SwitchMRegistrationRulesDeleteResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesDeleteResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesDeleteResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesDeleteResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesDeleteResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesDeleteResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesDeleteResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesDeleteResultExtraType() *SwitchMSwitchRegistrationRulesDeleteResultExtraType {
-	m := new(SwitchMSwitchRegistrationRulesDeleteResultExtraType)
+func NewSwitchMRegistrationRulesDeleteResultExtraType() *SwitchMRegistrationRulesDeleteResultExtraType {
+	m := new(SwitchMRegistrationRulesDeleteResultExtraType)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesDeleteResultMetaDataType
+// SwitchMRegistrationRulesDeleteResultMetaDataType
 //
 // Matadata of Rule delete result
-type SwitchMSwitchRegistrationRulesDeleteResultMetaDataType struct {
+type SwitchMRegistrationRulesDeleteResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesDeleteResultMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesDeleteResultMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesDeleteResultMetaDataType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesDeleteResultMetaDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesDeleteResultMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesDeleteResultMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesDeleteResultMetaDataType() *SwitchMSwitchRegistrationRulesDeleteResultMetaDataType {
-	m := new(SwitchMSwitchRegistrationRulesDeleteResultMetaDataType)
+func NewSwitchMRegistrationRulesDeleteResultMetaDataType() *SwitchMRegistrationRulesDeleteResultMetaDataType {
+	m := new(SwitchMRegistrationRulesDeleteResultMetaDataType)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesErrorObject struct {
+type SwitchMRegistrationRulesErrorObject struct {
 	List []string `json:"list,omitempty"`
 
 	Message *string `json:"message,omitempty"`
@@ -302,15 +318,15 @@ type SwitchMSwitchRegistrationRulesErrorObject struct {
 	MsgKey *string `json:"msgKey,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesErrorObject() *SwitchMSwitchRegistrationRulesErrorObject {
-	m := new(SwitchMSwitchRegistrationRulesErrorObject)
+func NewSwitchMRegistrationRulesErrorObject() *SwitchMRegistrationRulesErrorObject {
+	m := new(SwitchMRegistrationRulesErrorObject)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesList struct {
+type SwitchMRegistrationRulesList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchRegistrationRulesListExtraType `json:"extra,omitempty"`
+	Extra *SwitchMRegistrationRulesListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first registration rule returned out of the complete registration rule list
@@ -320,7 +336,7 @@ type SwitchMSwitchRegistrationRulesList struct {
 	// Indicator of whether there are more registration rule after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchRegistrationRulesRegistrationRule `json:"list,omitempty"`
+	List []*SwitchMRegistrationRulesRegistrationRule `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Registration rule list count
@@ -331,119 +347,119 @@ type SwitchMSwitchRegistrationRulesList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesList() *SwitchMSwitchRegistrationRulesList {
-	m := new(SwitchMSwitchRegistrationRulesList)
+func NewSwitchMRegistrationRulesList() *SwitchMRegistrationRulesList {
+	m := new(SwitchMRegistrationRulesList)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesListExtraType
+// SwitchMRegistrationRulesListExtraType
 //
 // Any additional response data
-type SwitchMSwitchRegistrationRulesListExtraType struct {
+type SwitchMRegistrationRulesListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesListExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesListExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesListExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesListExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesListExtraType() *SwitchMSwitchRegistrationRulesListExtraType {
-	m := new(SwitchMSwitchRegistrationRulesListExtraType)
+func NewSwitchMRegistrationRulesListExtraType() *SwitchMRegistrationRulesListExtraType {
+	m := new(SwitchMRegistrationRulesListExtraType)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesModifyResult struct {
-	Data *SwitchMSwitchRegistrationRulesClientObjectID `json:"data,omitempty"`
+type SwitchMRegistrationRulesModifyResult struct {
+	Data *SwitchMRegistrationRulesClientObjectID `json:"data,omitempty"`
 
-	Error *SwitchMSwitchRegistrationRulesErrorObject `json:"error,omitempty"`
+	Error *SwitchMRegistrationRulesErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra *SwitchMSwitchRegistrationRulesModifyResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMRegistrationRulesModifyResultExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of rule modify result
-	MetaData *SwitchMSwitchRegistrationRulesModifyResultMetaDataType `json:"metaData,omitempty"`
+	MetaData *SwitchMRegistrationRulesModifyResultMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Modify result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesModifyResult() *SwitchMSwitchRegistrationRulesModifyResult {
-	m := new(SwitchMSwitchRegistrationRulesModifyResult)
+func NewSwitchMRegistrationRulesModifyResult() *SwitchMRegistrationRulesModifyResult {
+	m := new(SwitchMRegistrationRulesModifyResult)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesModifyResultExtraType
+// SwitchMRegistrationRulesModifyResultExtraType
 //
 // Any additional response
-type SwitchMSwitchRegistrationRulesModifyResultExtraType struct {
+type SwitchMRegistrationRulesModifyResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesModifyResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesModifyResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesModifyResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesModifyResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesModifyResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesModifyResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesModifyResultExtraType() *SwitchMSwitchRegistrationRulesModifyResultExtraType {
-	m := new(SwitchMSwitchRegistrationRulesModifyResultExtraType)
+func NewSwitchMRegistrationRulesModifyResultExtraType() *SwitchMRegistrationRulesModifyResultExtraType {
+	m := new(SwitchMRegistrationRulesModifyResultExtraType)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesModifyResultMetaDataType
+// SwitchMRegistrationRulesModifyResultMetaDataType
 //
 // Matadata of rule modify result
-type SwitchMSwitchRegistrationRulesModifyResultMetaDataType struct {
+type SwitchMRegistrationRulesModifyResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesModifyResultMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesModifyResultMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesModifyResultMetaDataType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesModifyResultMetaDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesModifyResultMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesModifyResultMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesModifyResultMetaDataType() *SwitchMSwitchRegistrationRulesModifyResultMetaDataType {
-	m := new(SwitchMSwitchRegistrationRulesModifyResultMetaDataType)
+func NewSwitchMRegistrationRulesModifyResultMetaDataType() *SwitchMRegistrationRulesModifyResultMetaDataType {
+	m := new(SwitchMRegistrationRulesModifyResultMetaDataType)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesRegistrationRule struct {
+type SwitchMRegistrationRulesRegistrationRule struct {
 	// CreateDatetime
 	// Create datetime of the registration rule
 	CreateDatetime *int `json:"createDatetime,omitempty"`
@@ -511,93 +527,229 @@ type SwitchMSwitchRegistrationRulesRegistrationRule struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesRegistrationRule() *SwitchMSwitchRegistrationRulesRegistrationRule {
-	m := new(SwitchMSwitchRegistrationRulesRegistrationRule)
+func NewSwitchMRegistrationRulesRegistrationRule() *SwitchMRegistrationRulesRegistrationRule {
+	m := new(SwitchMRegistrationRulesRegistrationRule)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesRuleQueryResultList struct {
-	Data *SwitchMSwitchRegistrationRulesList `json:"data,omitempty"`
+type SwitchMRegistrationRulesRuleQueryResultList struct {
+	Data *SwitchMRegistrationRulesList `json:"data,omitempty"`
 
-	Error *SwitchMSwitchRegistrationRulesErrorObject `json:"error,omitempty"`
+	Error *SwitchMRegistrationRulesErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra *SwitchMSwitchRegistrationRulesRuleQueryResultListExtraType `json:"extra,omitempty"`
+	Extra *SwitchMRegistrationRulesRuleQueryResultListExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule query result
-	MetaData *SwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType `json:"metaData,omitempty"`
+	MetaData *SwitchMRegistrationRulesRuleQueryResultListMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Rule query result success or not
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewSwitchMSwitchRegistrationRulesRuleQueryResultList() *SwitchMSwitchRegistrationRulesRuleQueryResultList {
-	m := new(SwitchMSwitchRegistrationRulesRuleQueryResultList)
+func NewSwitchMRegistrationRulesRuleQueryResultList() *SwitchMRegistrationRulesRuleQueryResultList {
+	m := new(SwitchMRegistrationRulesRuleQueryResultList)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesRuleQueryResultListExtraType
+// SwitchMRegistrationRulesRuleQueryResultListExtraType
 //
 // Any additional response
-type SwitchMSwitchRegistrationRulesRuleQueryResultListExtraType struct {
+type SwitchMRegistrationRulesRuleQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesRuleQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesRuleQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesRuleQueryResultListExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesRuleQueryResultListExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesRuleQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesRuleQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesRuleQueryResultListExtraType() *SwitchMSwitchRegistrationRulesRuleQueryResultListExtraType {
-	m := new(SwitchMSwitchRegistrationRulesRuleQueryResultListExtraType)
+func NewSwitchMRegistrationRulesRuleQueryResultListExtraType() *SwitchMRegistrationRulesRuleQueryResultListExtraType {
+	m := new(SwitchMRegistrationRulesRuleQueryResultListExtraType)
 	return m
 }
 
-// SwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType
+// SwitchMRegistrationRulesRuleQueryResultListMetaDataType
 //
 // Matadata of Rule query result
-type SwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType struct {
+type SwitchMRegistrationRulesRuleQueryResultListMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMRegistrationRulesRuleQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType{XAdditionalProperties: tmp}
+	*t = SwitchMRegistrationRulesRuleQueryResultListMetaDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMRegistrationRulesRuleQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType() *SwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType {
-	m := new(SwitchMSwitchRegistrationRulesRuleQueryResultListMetaDataType)
+func NewSwitchMRegistrationRulesRuleQueryResultListMetaDataType() *SwitchMRegistrationRulesRuleQueryResultListMetaDataType {
+	m := new(SwitchMRegistrationRulesRuleQueryResultListMetaDataType)
 	return m
 }
 
-type SwitchMSwitchRegistrationRulesRuleUUIDs []string
+type SwitchMRegistrationRulesRuleUUIDs []string
 
-func MakeSwitchMSwitchRegistrationRulesRuleUUIDs() SwitchMSwitchRegistrationRulesRuleUUIDs {
-	m := make(SwitchMSwitchRegistrationRulesRuleUUIDs, 0)
+func MakeSwitchMRegistrationRulesRuleUUIDs() SwitchMRegistrationRulesRuleUUIDs {
+	m := make(SwitchMRegistrationRulesRuleUUIDs, 0)
 	return m
+}
+
+// AddRegistrationRules
+//
+// Use this API command to create new switch registration rule.
+//
+// Request Body:
+//	 - body *SwitchMRegistrationRulesRegistrationRule
+func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Context, body *SwitchMRegistrationRulesRegistrationRule) (*SwitchMRegistrationRulesCreateResult, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMRegistrationRulesCreateResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddRegistrationRules, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationRulesCreateResult()
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// DeleteRegistrationRules
+//
+// Use this API command to delete multiple switch registration rules.
+//
+// Request Body:
+//	 - body SwitchMRegistrationRulesRuleUUIDs
+func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Context, body SwitchMRegistrationRulesRuleUUIDs) (*SwitchMRegistrationRulesDeleteMultipleResult, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMRegistrationRulesDeleteMultipleResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRules, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationRulesDeleteMultipleResult()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// DeleteRegistrationRulesById
+//
+// Use this API command to delete a switch registration rule.
+//
+// Required Parameters:
+// - id string
+//		- required
+func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx context.Context, id string) (*SwitchMRegistrationRulesDeleteResult, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMRegistrationRulesDeleteResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteRegistrationRulesById, true)
+	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationRulesDeleteResult()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// FindRegistrationRules
+//
+// Use this API command to retrieves all the registration rules configured in SmartZone.
+func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Context) (*SwitchMRegistrationRulesRuleQueryResultList, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMRegistrationRulesRuleQueryResultList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindRegistrationRules, true)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationRulesRuleQueryResultList()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// UpdateRegistrationRulesById
+//
+// Use this API command to modify the registration rule.
+//
+// Request Body:
+//	 - body *SwitchMRegistrationRulesRegistrationRule
+//
+// Required Parameters:
+// - id string
+//		- required
+func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx context.Context, body *SwitchMRegistrationRulesRegistrationRule, id string) (*SwitchMRegistrationRulesModifyResult, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMRegistrationRulesModifyResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateRegistrationRulesById, true)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetPathParameter("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req)
+	resp = NewSwitchMRegistrationRulesModifyResult()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }

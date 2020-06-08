@@ -27,11 +27,11 @@ func (ss *SwitchMService) SwitchMConfigurationService() *SwitchMConfigurationSer
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchConfigurationBackupList, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMConfigurationBackupList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchConfigurationBackupList
+		resp     *SwitchMConfigurationBackupList
 		httpResp *http.Response
 		err      error
 	)
@@ -44,7 +44,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchConfigurationBackupList()
+	resp = NewSwitchMConfigurationBackupList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -54,12 +54,12 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 // Use this API command to backup configuration for a list of switches.
 //
 // Request Body:
-//	 - body SwitchMSwitchConfigurationBackupSwitchIds
-func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context, body SwitchMSwitchConfigurationBackupSwitchIds) (*SwitchMSwitchConfigurationBackupCreateBackupResultList, *APIResponseMeta, error) {
+//	 - body SwitchMConfigurationBackupSwitchIds
+func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context, body SwitchMConfigurationBackupSwitchIds) (*SwitchMConfigurationBackupCreateBackupResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchConfigurationBackupCreateBackupResultList
+		resp     *SwitchMConfigurationBackupCreateBackupResultList
 		httpResp *http.Response
 		err      error
 	)
@@ -72,7 +72,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchConfigurationBackupCreateBackupResultList()
+	resp = NewSwitchMConfigurationBackupCreateBackupResultList()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -82,12 +82,12 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 // Use this API command to diff between two config back up files for a switch.
 //
 // Request Body:
-//	 - body *SwitchMSwitchConfigurationBackupConfigBackupDiffInput
-func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Context, body *SwitchMSwitchConfigurationBackupConfigBackupDiffInput) (*SwitchMSwitchConfigurationBackupConfigBackupDiff, *APIResponseMeta, error) {
+//	 - body *SwitchMConfigurationBackupConfigBackupDiffInput
+func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Context, body *SwitchMConfigurationBackupConfigBackupDiffInput) (*SwitchMConfigurationBackupConfigBackupDiff, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchConfigurationBackupConfigBackupDiff
+		resp     *SwitchMConfigurationBackupConfigBackupDiff
 		httpResp *http.Response
 		err      error
 	)
@@ -100,7 +100,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchConfigurationBackupConfigBackupDiff()
+	resp = NewSwitchMConfigurationBackupConfigBackupDiff()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -110,8 +110,8 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 // Use this API command to delete config backups by a list of config backup id.
 //
 // Request Body:
-//	 - body SwitchMSwitchConfigurationBackupBackupIds
-func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, body SwitchMSwitchConfigurationBackupBackupIds) (*APIResponseMeta, error) {
+//	 - body SwitchMConfigurationBackupBackupIds
+func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, body SwitchMConfigurationBackupBackupIds) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

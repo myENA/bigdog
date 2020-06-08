@@ -7,21 +7,21 @@ import (
 	"net/http"
 )
 
-type WSGSessionmanagementService struct {
+type WSGSessionManagementService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGSessionmanagementService(c *VSZClient) *WSGSessionmanagementService {
-	s := new(WSGSessionmanagementService)
+func NewWSGSessionManagementService(c *VSZClient) *WSGSessionManagementService {
+	s := new(WSGSessionManagementService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGSessionmanagementService() *WSGSessionmanagementService {
-	return NewWSGSessionmanagementService(ss.apiClient)
+func (ss *WSGService) WSGSessionManagementService() *WSGSessionManagementService {
+	return NewWSGSessionManagementService(ss.apiClient)
 }
 
-type WSGSessionmanagementRuckusSession struct {
+type WSGSessionManagementRuckusSession struct {
 	// AuthType
 	// The authentication type of logon
 	AuthType *string `json:"authType,omitempty"`
@@ -51,34 +51,34 @@ type WSGSessionmanagementRuckusSession struct {
 	UserUUID *string `json:"userUUID,omitempty"`
 }
 
-func NewWSGSessionmanagementRuckusSession() *WSGSessionmanagementRuckusSession {
-	m := new(WSGSessionmanagementRuckusSession)
+func NewWSGSessionManagementRuckusSession() *WSGSessionManagementRuckusSession {
+	m := new(WSGSessionManagementRuckusSession)
 	return m
 }
 
-type WSGSessionmanagementRuckusSessions struct {
+type WSGSessionManagementRuckusSessions struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSessionmanagementRuckusSession `json:"list,omitempty"`
+	List []*WSGSessionManagementRuckusSession `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGSessionmanagementRuckusSessions() *WSGSessionmanagementRuckusSessions {
-	m := new(WSGSessionmanagementRuckusSessions)
+func NewWSGSessionManagementRuckusSessions() *WSGSessionManagementRuckusSessions {
+	m := new(WSGSessionManagementRuckusSessions)
 	return m
 }
 
 // FindSessionManagement
 //
 // Use this API command to retrieve information about the current logon sessions.
-func (s *WSGSessionmanagementService) FindSessionManagement(ctx context.Context) (*WSGSessionmanagementRuckusSessions, *APIResponseMeta, error) {
+func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context) (*WSGSessionManagementRuckusSessions, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGSessionmanagementRuckusSessions
+		resp     *WSGSessionManagementRuckusSessions
 		httpResp *http.Response
 		err      error
 	)
@@ -87,7 +87,7 @@ func (s *WSGSessionmanagementService) FindSessionManagement(ctx context.Context)
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSessionManagement, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGSessionmanagementRuckusSessions()
+	resp = NewWSGSessionManagementRuckusSessions()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -24,11 +24,11 @@ func (ss *SwitchMService) SwitchMConfigurationHistoryService() *SwitchMConfigura
 // FindConfigurationHistory
 //
 // Use this API command to Retrieve Configuration History List.
-func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx context.Context) (*SwitchMSwitchDeployLogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx context.Context) (*SwitchMDeployLogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchDeployLogConfigurationHistoryQueryResult
+		resp     *SwitchMDeployLogConfigurationHistoryQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -37,7 +37,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchDeployLogConfigurationHistoryQueryResult()
+	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -48,11 +48,11 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchDeployLogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeployLogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchDeployLogConfigurationHistoryQueryResult
+		resp     *SwitchMDeployLogConfigurationHistoryQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -65,7 +65,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchDeployLogConfigurationHistoryQueryResult()
+	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -73,11 +73,11 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 // FindConfigurationHistoryDetail
 //
 // Use this API command to Retrieve Configuration History List.
-func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context) (*SwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult
+		resp     *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -86,7 +86,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult()
+	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -97,11 +97,11 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult
+		resp     *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -114,7 +114,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult()
+	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

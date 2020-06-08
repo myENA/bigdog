@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDpnetworkService struct {
+type WSGDPNetworkService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGDpnetworkService(c *VSZClient) *WSGDpnetworkService {
-	s := new(WSGDpnetworkService)
+func NewWSGDPNetworkService(c *VSZClient) *WSGDPNetworkService {
+	s := new(WSGDPNetworkService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDpnetworkService() *WSGDpnetworkService {
-	return NewWSGDpnetworkService(ss.apiClient)
+func (ss *WSGService) WSGDPNetworkService() *WSGDPNetworkService {
+	return NewWSGDPNetworkService(ss.apiClient)
 }
 
 // DeletePlanesStaticRouteByBladeUUID
@@ -28,7 +28,7 @@ func (ss *WSGService) WSGDpnetworkService() *WSGDpnetworkService {
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGDpnetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Context, bladeUUID string) (*APIResponseMeta, error) {
+func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Context, bladeUUID string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -48,7 +48,7 @@ func (s *WSGDpnetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Con
 // FindPlanes
 //
 // Use this API command to retrieve a list of data planes.
-func (s *WSGDpnetworkService) FindPlanes(ctx context.Context) (*WSGSystemDataPlaneList, *APIResponseMeta, error) {
+func (s *WSGDPNetworkService) FindPlanes(ctx context.Context) (*WSGSystemDataPlaneList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -73,7 +73,7 @@ func (s *WSGDpnetworkService) FindPlanes(ctx context.Context) (*WSGSystemDataPla
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGDpnetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemDataPlaneConfiguration, *APIResponseMeta, error) {
+func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUUID string) (*WSGSystemDataPlaneConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -98,7 +98,7 @@ func (s *WSGDpnetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 //
 // Request Body:
 //	 - body []byte
-func (s *WSGDpnetworkService) FindPlanesDpTunnelSetting(ctx context.Context, body []byte) (*WSGSystemGetDataPlaneMeshTunnelSetting, *APIResponseMeta, error) {
+func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, body []byte) (*WSGSystemGetDataPlaneMeshTunnelSetting, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -130,7 +130,7 @@ func (s *WSGDpnetworkService) FindPlanesDpTunnelSetting(ctx context.Context, bod
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGDpnetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlane, bladeUUID string) (*APIResponseMeta, error) {
+func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlane, bladeUUID string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -161,7 +161,7 @@ func (s *WSGDpnetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGDpnetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlaneState, bladeUUID string) (*APIResponseMeta, error) {
+func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlaneState, bladeUUID string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -188,7 +188,7 @@ func (s *WSGDpnetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Co
 //
 // Request Body:
 //	 - body *WSGSystemUpdateDpMeshTunnelSetting
-func (s *WSGDpnetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, body *WSGSystemUpdateDpMeshTunnelSetting) (*APIResponseMeta, error) {
+func (s *WSGDPNetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, body *WSGSystemUpdateDpMeshTunnelSetting) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGSplittunnelprofileService struct {
+type WSGSplitTunnelProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGSplittunnelprofileService(c *VSZClient) *WSGSplittunnelprofileService {
-	s := new(WSGSplittunnelprofileService)
+func NewWSGSplitTunnelProfileService(c *VSZClient) *WSGSplitTunnelProfileService {
+	s := new(WSGSplitTunnelProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGSplittunnelprofileService() *WSGSplittunnelprofileService {
-	return NewWSGSplittunnelprofileService(ss.apiClient)
+func (ss *WSGService) WSGSplitTunnelProfileService() *WSGSplitTunnelProfileService {
+	return NewWSGSplitTunnelProfileService(ss.apiClient)
 }
 
 // AddRkszonesSplitTunnelProfilesByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGSplittunnelprofileService() *WSGSplittunnelprofileServi
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGSplittunnelprofileService) AddRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGSplittunnelprofileService) AddRkszonesSplitTunnelProfilesByZoneId(ct
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGSplittunnelprofileService) DeleteRkszonesSplitTunnelProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGSplittunnelprofileService) DeleteRkszonesSplitTunnelProfilesById(ctx
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGSplittunnelprofileService) FindRkszonesSplitTunnelProfilesById(ctx context.Context, id string, zoneId string) (*WSGSplitTunnelProfile, *APIResponseMeta, error) {
+func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx context.Context, id string, zoneId string) (*WSGSplitTunnelProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -116,7 +116,7 @@ func (s *WSGSplittunnelprofileService) FindRkszonesSplitTunnelProfilesById(ctx c
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGSplittunnelprofileService) FindRkszonesSplitTunnelProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSplitTunnelProfileQuery, *APIResponseMeta, error) {
+func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSplitTunnelProfileQuery, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -145,7 +145,7 @@ func (s *WSGSplittunnelprofileService) FindRkszonesSplitTunnelProfilesByQueryCri
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGSplittunnelprofileService) FindRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, zoneId string) (*WSGSplitTunnelProfileList, *APIResponseMeta, error) {
+func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, zoneId string) (*WSGSplitTunnelProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -176,7 +176,7 @@ func (s *WSGSplittunnelprofileService) FindRkszonesSplitTunnelProfilesByZoneId(c
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGSplittunnelprofileService) PartialUpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelModifySplitTunnelProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelModifySplitTunnelProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -210,7 +210,7 @@ func (s *WSGSplittunnelprofileService) PartialUpdateRkszonesSplitTunnelProfilesB
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGSplittunnelprofileService) UpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGSplitTunnelProfileService) UpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

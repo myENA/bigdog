@@ -2,7 +2,7 @@ package ruckus
 
 // API Version: v9_0
 
-type WSGRacstatsGgsnGtp struct {
+type WSGRACStatsGgsnGtp struct {
 	// CbladeId
 	// Control Blade ID
 	CbladeId *string `json:"cbladeId,omitempty"`
@@ -132,12 +132,12 @@ type WSGRacstatsGgsnGtp struct {
 	SuccPdpUpdRcvd *int `json:"succPdpUpdRcvd,omitempty"`
 }
 
-func NewWSGRacstatsGgsnGtp() *WSGRacstatsGgsnGtp {
-	m := new(WSGRacstatsGgsnGtp)
+func NewWSGRACStatsGgsnGtp() *WSGRACStatsGgsnGtp {
+	m := new(WSGRACStatsGgsnGtp)
 	return m
 }
 
-type WSGRacstatsGgsnGtpcCon struct {
+type WSGRACStatsGgsnGtpcCon struct {
 	// CbladeId
 	// Control Blade ID
 	CbladeId *string `json:"cbladeId,omitempty"`
@@ -179,46 +179,46 @@ type WSGRacstatsGgsnGtpcCon struct {
 	RecUpdTime *int `json:"recUpdTime,omitempty"`
 }
 
-func NewWSGRacstatsGgsnGtpcCon() *WSGRacstatsGgsnGtpcCon {
-	m := new(WSGRacstatsGgsnGtpcCon)
+func NewWSGRACStatsGgsnGtpcCon() *WSGRACStatsGgsnGtpcCon {
+	m := new(WSGRACStatsGgsnGtpcCon)
 	return m
 }
 
-type WSGRacstatsGgsnGtpcConList struct {
+type WSGRACStatsGgsnGtpcConList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacstatsGgsnGtpcCon `json:"list,omitempty"`
+	List []*WSGRACStatsGgsnGtpcCon `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGRacstatsGgsnGtpcConList() *WSGRacstatsGgsnGtpcConList {
-	m := new(WSGRacstatsGgsnGtpcConList)
+func NewWSGRACStatsGgsnGtpcConList() *WSGRACStatsGgsnGtpcConList {
+	m := new(WSGRACStatsGgsnGtpcConList)
 	return m
 }
 
-type WSGRacstatsGgsnGtpList struct {
+type WSGRACStatsGgsnGtpList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacstatsGgsnGtp `json:"list,omitempty"`
+	List []*WSGRACStatsGgsnGtp `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGRacstatsGgsnGtpList() *WSGRacstatsGgsnGtpList {
-	m := new(WSGRacstatsGgsnGtpList)
+func NewWSGRACStatsGgsnGtpList() *WSGRACStatsGgsnGtpList {
+	m := new(WSGRACStatsGgsnGtpList)
 	return m
 }
 
-type WSGRacstatsRadiusProxy struct {
+type WSGRACStatsRadiusProxy struct {
 	// AaASerIp
 	// AAA IP
 	AaASerIp *string `json:"aaASerIp,omitempty"`
@@ -408,24 +408,24 @@ type WSGRacstatsRadiusProxy struct {
 	RecUpdateTime *int `json:"recUpdateTime,omitempty"`
 }
 
-func NewWSGRacstatsRadiusProxy() *WSGRacstatsRadiusProxy {
-	m := new(WSGRacstatsRadiusProxy)
+func NewWSGRACStatsRadiusProxy() *WSGRACStatsRadiusProxy {
+	m := new(WSGRACStatsRadiusProxy)
 	return m
 }
 
-type WSGRacstatsRadiusProxyList struct {
+type WSGRACStatsRadiusProxyList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacstatsRadiusProxy `json:"list,omitempty"`
+	List []*WSGRACStatsRadiusProxy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGRacstatsRadiusProxyList() *WSGRacstatsRadiusProxyList {
-	m := new(WSGRacstatsRadiusProxyList)
+func NewWSGRACStatsRadiusProxyList() *WSGRACStatsRadiusProxyList {
+	m := new(WSGRACStatsRadiusProxyList)
 	return m
 }

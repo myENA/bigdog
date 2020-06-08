@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGZoneaaaService struct {
+type WSGZoneAAAService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGZoneaaaService(c *VSZClient) *WSGZoneaaaService {
-	s := new(WSGZoneaaaService)
+func NewWSGZoneAAAService(c *VSZClient) *WSGZoneAAAService {
+	s := new(WSGZoneAAAService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGZoneaaaService() *WSGZoneaaaService {
-	return NewWSGZoneaaaService(ss.apiClient)
+func (ss *WSGService) WSGZoneAAAService() *WSGZoneAAAService {
+	return NewWSGZoneAAAService(ss.apiClient)
 }
 
 // AddRkszonesAaaAdByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGZoneaaaService() *WSGZoneaaaService {
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *WSGAAACreateActiveDirectoryServer, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *WSGAAACreateActiveDirectoryServer, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -64,7 +64,7 @@ func (s *WSGZoneaaaService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body *WSGAAACreateLDAPServer, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body *WSGAAACreateLDAPServer, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -101,7 +101,7 @@ func (s *WSGZoneaaaService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body
 // Optional Parameters:
 // - forAccounting string
 //		- nullable
-func (s *WSGZoneaaaService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *WSGAAACreateAuthenticationServer, zoneId string, optionalParams map[string][]string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *WSGAAACreateAuthenticationServer, zoneId string, optionalParams map[string][]string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -136,7 +136,7 @@ func (s *WSGZoneaaaService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, bo
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) DeleteRkszonesAaaAdById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -163,7 +163,7 @@ func (s *WSGZoneaaaService) DeleteRkszonesAaaAdById(ctx context.Context, id stri
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) DeleteRkszonesAaaById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -191,7 +191,7 @@ func (s *WSGZoneaaaService) DeleteRkszonesAaaById(ctx context.Context, id string
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -221,7 +221,7 @@ func (s *WSGZoneaaaService) DeleteRkszonesAaaByZoneId(ctx context.Context, body 
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) DeleteRkszonesAaaLdapById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -248,7 +248,7 @@ func (s *WSGZoneaaaService) DeleteRkszonesAaaLdapById(ctx context.Context, id st
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) DeleteRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -275,7 +275,7 @@ func (s *WSGZoneaaaService) DeleteRkszonesAaaRadiusById(ctx context.Context, id 
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -302,7 +302,7 @@ func (s *WSGZoneaaaService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Con
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -329,7 +329,7 @@ func (s *WSGZoneaaaService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx contex
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) FindRkszonesAaaAdById(ctx context.Context, id string, zoneId string) (*WSGAAAActiveDirectory, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, id string, zoneId string) (*WSGAAAActiveDirectory, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -356,7 +356,7 @@ func (s *WSGZoneaaaService) FindRkszonesAaaAdById(ctx context.Context, id string
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneId string) (*WSGAAAActiveDirectoryList, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneId string) (*WSGAAAActiveDirectoryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -384,7 +384,7 @@ func (s *WSGZoneaaaService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneI
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) FindRkszonesAaaLdapById(ctx context.Context, id string, zoneId string) (*WSGAAALDAPServer, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, id string, zoneId string) (*WSGAAALDAPServer, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -411,7 +411,7 @@ func (s *WSGZoneaaaService) FindRkszonesAaaLdapById(ctx context.Context, id stri
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zoneId string) (*WSGAAALDAPServerList, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zoneId string) (*WSGAAALDAPServerList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -439,7 +439,7 @@ func (s *WSGZoneaaaService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zon
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) FindRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string) (*WSGAAAAuthenticationServer, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string) (*WSGAAAAuthenticationServer, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -470,7 +470,7 @@ func (s *WSGZoneaaaService) FindRkszonesAaaRadiusById(ctx context.Context, id st
 // Optional Parameters:
 // - forAccounting string
 //		- nullable
-func (s *WSGZoneaaaService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGAAAAuthenticationServerList, *APIResponseMeta, error) {
+func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGAAAAuthenticationServerList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -504,7 +504,7 @@ func (s *WSGZoneaaaService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, z
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -538,7 +538,7 @@ func (s *WSGZoneaaaService) PartialUpdateRkszonesAaaAdById(ctx context.Context, 
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -572,7 +572,7 @@ func (s *WSGZoneaaaService) PartialUpdateRkszonesAaaLdapById(ctx context.Context
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -606,7 +606,7 @@ func (s *WSGZoneaaaService) PartialUpdateRkszonesAaaRadiusById(ctx context.Conte
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) UpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -640,7 +640,7 @@ func (s *WSGZoneaaaService) UpdateRkszonesAaaAdById(ctx context.Context, body *W
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) UpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -674,7 +674,7 @@ func (s *WSGZoneaaaService) UpdateRkszonesAaaLdapById(ctx context.Context, body 
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneaaaService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

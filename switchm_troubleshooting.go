@@ -8,21 +8,21 @@ import (
 	"net/http"
 )
 
-type SwitchMSwitchTroubleshootingService struct {
+type SwitchMTroubleshootingService struct {
 	apiClient *VSZClient
 }
 
-func NewSwitchMSwitchTroubleshootingService(c *VSZClient) *SwitchMSwitchTroubleshootingService {
-	s := new(SwitchMSwitchTroubleshootingService)
+func NewSwitchMTroubleshootingService(c *VSZClient) *SwitchMTroubleshootingService {
+	s := new(SwitchMTroubleshootingService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchTroubleshootingService() *SwitchMSwitchTroubleshootingService {
-	return NewSwitchMSwitchTroubleshootingService(ss.apiClient)
+func (ss *SwitchMService) SwitchMTroubleshootingService() *SwitchMTroubleshootingService {
+	return NewSwitchMTroubleshootingService(ss.apiClient)
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityRequest struct {
+type SwitchMTroubleshootingRemoteClientConnectivityRequest struct {
 	ClientMac *string `json:"clientMac,omitempty"`
 
 	GroupId *string `json:"groupId,omitempty"`
@@ -30,42 +30,42 @@ type SwitchMSwitchTroubleshootingRemoteClientConnectivityRequest struct {
 	SwitchIds []string `json:"switchIds,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityRequest() *SwitchMSwitchTroubleshootingRemoteClientConnectivityRequest {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityRequest)
+func NewSwitchMTroubleshootingRemoteClientConnectivityRequest() *SwitchMTroubleshootingRemoteClientConnectivityRequest {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityRequest)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse struct {
-	Data *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType `json:"data,omitempty"`
+type SwitchMTroubleshootingRemoteClientConnectivityResponse struct {
+	Data *SwitchMTroubleshootingRemoteClientConnectivityResponseDataType `json:"data,omitempty"`
 
-	Error *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseErrorType `json:"error,omitempty"`
+	Error *SwitchMTroubleshootingRemoteClientConnectivityResponseErrorType `json:"error,omitempty"`
 
-	Extra *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType `json:"extra,omitempty"`
+	Extra *SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType `json:"extra,omitempty"`
 
-	MetaData *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType `json:"metaData,omitempty"`
+	MetaData *SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponse() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse)
+func NewSwitchMTroubleshootingRemoteClientConnectivityResponse() *SwitchMTroubleshootingRemoteClientConnectivityResponse {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponse)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType struct {
-	Ap *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeApType `json:"ap,omitempty"`
+type SwitchMTroubleshootingRemoteClientConnectivityResponseDataType struct {
+	Ap *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType `json:"ap,omitempty"`
 
-	Client *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeClientType `json:"client,omitempty"`
+	Client *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeClientType `json:"client,omitempty"`
 
-	NetworkSwitches []*SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType `json:"networkSwitches,omitempty"`
+	NetworkSwitches []*SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType `json:"networkSwitches,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType)
+func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataType() *SwitchMTroubleshootingRemoteClientConnectivityResponseDataType {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseDataType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeApType struct {
+type SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType struct {
 	Connected *bool `json:"connected,omitempty"`
 
 	Mac *string `json:"mac,omitempty"`
@@ -73,12 +73,12 @@ type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeApType 
 	Name *string `json:"name,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeApType() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeApType {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeApType)
+func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType() *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeClientType struct {
+type SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeClientType struct {
 	Connected *bool `json:"connected,omitempty"`
 
 	Mac *string `json:"mac,omitempty"`
@@ -86,12 +86,12 @@ type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeClientT
 	Name *string `json:"name,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeClientType() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeClientType {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeClientType)
+func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeClientType() *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeClientType {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeClientType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType struct {
+type SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType struct {
 	Connected *bool `json:"connected,omitempty"`
 
 	Name *string `json:"name,omitempty"`
@@ -99,12 +99,12 @@ type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeNetwork
 	PortName *string `json:"portName,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType)
+func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType() *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseErrorType struct {
+type SwitchMTroubleshootingRemoteClientConnectivityResponseErrorType struct {
 	Message *string `json:"message,omitempty"`
 
 	MsgKey *string `json:"msgKey,omitempty"`
@@ -112,154 +112,154 @@ type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseErrorType struc
 	MsgValues []string `json:"msgValues,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseErrorType() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseErrorType {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseErrorType)
+func NewSwitchMTroubleshootingRemoteClientConnectivityResponseErrorType() *SwitchMTroubleshootingRemoteClientConnectivityResponseErrorType {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseErrorType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType struct {
+type SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType)
+func NewSwitchMTroubleshootingRemoteClientConnectivityResponseExtraType() *SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType struct {
+type SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType{XAdditionalProperties: tmp}
+	*t = SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType {
-	m := new(SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType)
+func NewSwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType() *SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType {
+	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteCommandResponse struct {
+type SwitchMTroubleshootingRemoteCommandResponse struct {
 	Data *string `json:"data,omitempty"`
 
-	Error *SwitchMSwitchTroubleshootingRemoteCommandResponseErrorType `json:"error,omitempty"`
+	Error *SwitchMTroubleshootingRemoteCommandResponseErrorType `json:"error,omitempty"`
 
-	Extra *SwitchMSwitchTroubleshootingRemoteCommandResponseExtraType `json:"extra,omitempty"`
+	Extra *SwitchMTroubleshootingRemoteCommandResponseExtraType `json:"extra,omitempty"`
 
-	MetaData *SwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType `json:"metaData,omitempty"`
+	MetaData *SwitchMTroubleshootingRemoteCommandResponseMetaDataType `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteCommandResponse() *SwitchMSwitchTroubleshootingRemoteCommandResponse {
-	m := new(SwitchMSwitchTroubleshootingRemoteCommandResponse)
+func NewSwitchMTroubleshootingRemoteCommandResponse() *SwitchMTroubleshootingRemoteCommandResponse {
+	m := new(SwitchMTroubleshootingRemoteCommandResponse)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteCommandResponseErrorType struct {
+type SwitchMTroubleshootingRemoteCommandResponseErrorType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteCommandResponseErrorType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMTroubleshootingRemoteCommandResponseErrorType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchTroubleshootingRemoteCommandResponseErrorType{XAdditionalProperties: tmp}
+	*t = SwitchMTroubleshootingRemoteCommandResponseErrorType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteCommandResponseErrorType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMTroubleshootingRemoteCommandResponseErrorType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteCommandResponseErrorType() *SwitchMSwitchTroubleshootingRemoteCommandResponseErrorType {
-	m := new(SwitchMSwitchTroubleshootingRemoteCommandResponseErrorType)
+func NewSwitchMTroubleshootingRemoteCommandResponseErrorType() *SwitchMTroubleshootingRemoteCommandResponseErrorType {
+	m := new(SwitchMTroubleshootingRemoteCommandResponseErrorType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteCommandResponseExtraType struct {
+type SwitchMTroubleshootingRemoteCommandResponseExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteCommandResponseExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMTroubleshootingRemoteCommandResponseExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchTroubleshootingRemoteCommandResponseExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMTroubleshootingRemoteCommandResponseExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteCommandResponseExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMTroubleshootingRemoteCommandResponseExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteCommandResponseExtraType() *SwitchMSwitchTroubleshootingRemoteCommandResponseExtraType {
-	m := new(SwitchMSwitchTroubleshootingRemoteCommandResponseExtraType)
+func NewSwitchMTroubleshootingRemoteCommandResponseExtraType() *SwitchMTroubleshootingRemoteCommandResponseExtraType {
+	m := new(SwitchMTroubleshootingRemoteCommandResponseExtraType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType struct {
+type SwitchMTroubleshootingRemoteCommandResponseMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMTroubleshootingRemoteCommandResponseMetaDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType{XAdditionalProperties: tmp}
+	*t = SwitchMTroubleshootingRemoteCommandResponseMetaDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMTroubleshootingRemoteCommandResponseMetaDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType() *SwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType {
-	m := new(SwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType)
+func NewSwitchMTroubleshootingRemoteCommandResponseMetaDataType() *SwitchMTroubleshootingRemoteCommandResponseMetaDataType {
+	m := new(SwitchMTroubleshootingRemoteCommandResponseMetaDataType)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemotePingRequest struct {
+type SwitchMTroubleshootingRemotePingRequest struct {
 	PacketSize *int `json:"packetSize,omitempty"`
 
 	SourceId *string `json:"sourceId,omitempty"`
@@ -271,12 +271,12 @@ type SwitchMSwitchTroubleshootingRemotePingRequest struct {
 	Ttl *int `json:"ttl,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemotePingRequest() *SwitchMSwitchTroubleshootingRemotePingRequest {
-	m := new(SwitchMSwitchTroubleshootingRemotePingRequest)
+func NewSwitchMTroubleshootingRemotePingRequest() *SwitchMTroubleshootingRemotePingRequest {
+	m := new(SwitchMTroubleshootingRemotePingRequest)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingRemoteTracerouteRequest struct {
+type SwitchMTroubleshootingRemoteTracerouteRequest struct {
 	MaxTtl *int `json:"maxTtl,omitempty"`
 
 	SourceId *string `json:"sourceId,omitempty"`
@@ -286,12 +286,12 @@ type SwitchMSwitchTroubleshootingRemoteTracerouteRequest struct {
 	TargetIp *string `json:"targetIp,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingRemoteTracerouteRequest() *SwitchMSwitchTroubleshootingRemoteTracerouteRequest {
-	m := new(SwitchMSwitchTroubleshootingRemoteTracerouteRequest)
+func NewSwitchMTroubleshootingRemoteTracerouteRequest() *SwitchMTroubleshootingRemoteTracerouteRequest {
+	m := new(SwitchMTroubleshootingRemoteTracerouteRequest)
 	return m
 }
 
-type SwitchMSwitchTroubleshootingSupportLogStatus struct {
+type SwitchMTroubleshootingSupportLogStatus struct {
 	// CreatedTime
 	// Created Time of this SupportLog Request
 	CreatedTime *string `json:"createdTime,omitempty"`
@@ -311,8 +311,8 @@ type SwitchMSwitchTroubleshootingSupportLogStatus struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
-func NewSwitchMSwitchTroubleshootingSupportLogStatus() *SwitchMSwitchTroubleshootingSupportLogStatus {
-	m := new(SwitchMSwitchTroubleshootingSupportLogStatus)
+func NewSwitchMTroubleshootingSupportLogStatus() *SwitchMTroubleshootingSupportLogStatus {
+	m := new(SwitchMTroubleshootingSupportLogStatus)
 	return m
 }
 
@@ -323,12 +323,12 @@ func NewSwitchMSwitchTroubleshootingSupportLogStatus() *SwitchMSwitchTroubleshoo
 // Trace a specific client's path of connectivity to a given switch
 //
 // Request Body:
-//	 - body *SwitchMSwitchTroubleshootingRemoteClientConnectivityRequest
-func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ctx context.Context, body *SwitchMSwitchTroubleshootingRemoteClientConnectivityRequest) (*SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse, *APIResponseMeta, error) {
+//	 - body *SwitchMTroubleshootingRemoteClientConnectivityRequest
+func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ctx context.Context, body *SwitchMTroubleshootingRemoteClientConnectivityRequest) (*SwitchMTroubleshootingRemoteClientConnectivityResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse
+		resp     *SwitchMTroubleshootingRemoteClientConnectivityResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -341,7 +341,7 @@ func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemoteClientConnectiv
 	}
 	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponse()
+	resp = NewSwitchMTroubleshootingRemoteClientConnectivityResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -353,12 +353,12 @@ func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemoteClientConnectiv
 // Attempt to ping an address or hostname from a specific switch. Note: This API is quite slow, and may take > 5 seconds to respond
 //
 // Request Body:
-//	 - body *SwitchMSwitchTroubleshootingRemotePingRequest
-func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Context, body *SwitchMSwitchTroubleshootingRemotePingRequest) (*SwitchMSwitchTroubleshootingRemoteCommandResponse, *APIResponseMeta, error) {
+//	 - body *SwitchMTroubleshootingRemotePingRequest
+func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Context, body *SwitchMTroubleshootingRemotePingRequest) (*SwitchMTroubleshootingRemoteCommandResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchTroubleshootingRemoteCommandResponse
+		resp     *SwitchMTroubleshootingRemoteCommandResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -371,7 +371,7 @@ func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemotePing(ctx contex
 	}
 	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchTroubleshootingRemoteCommandResponse()
+	resp = NewSwitchMTroubleshootingRemoteCommandResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -383,12 +383,12 @@ func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemotePing(ctx contex
 // Attempt to execute a traceroute from a specific switch to a destination.  Note: This is a very slow API, taking > 30 seconds to respond.
 //
 // Request Body:
-//	 - body *SwitchMSwitchTroubleshootingRemoteTracerouteRequest
-func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx context.Context, body *SwitchMSwitchTroubleshootingRemoteTracerouteRequest) (*SwitchMSwitchTroubleshootingRemoteCommandResponse, *APIResponseMeta, error) {
+//	 - body *SwitchMTroubleshootingRemoteTracerouteRequest
+func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx context.Context, body *SwitchMTroubleshootingRemoteTracerouteRequest) (*SwitchMTroubleshootingRemoteCommandResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchTroubleshootingRemoteCommandResponse
+		resp     *SwitchMTroubleshootingRemoteCommandResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -401,7 +401,7 @@ func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx 
 	}
 	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchTroubleshootingRemoteCommandResponse()
+	resp = NewSwitchMTroubleshootingRemoteCommandResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -413,7 +413,7 @@ func (s *SwitchMSwitchTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx 
 // Required Parameters:
 // - switchId string
 //		- required
-func (s *SwitchMSwitchTroubleshootingService) FindSupportLogBySwitchId(ctx context.Context, switchId string) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Context, switchId string) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -439,7 +439,7 @@ func (s *SwitchMSwitchTroubleshootingService) FindSupportLogBySwitchId(ctx conte
 // Required Parameters:
 // - switchId string
 //		- required
-func (s *SwitchMSwitchTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx context.Context, switchId string) (*APIResponseMeta, error) {
+func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx context.Context, switchId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -463,11 +463,11 @@ func (s *SwitchMSwitchTroubleshootingService) FindSupportLogDownloadBySwitchId(c
 // Required Parameters:
 // - switchId string
 //		- required
-func (s *SwitchMSwitchTroubleshootingService) FindSupportLogStatusBySwitchId(ctx context.Context, switchId string) (*SwitchMSwitchTroubleshootingSupportLogStatus, *APIResponseMeta, error) {
+func (s *SwitchMTroubleshootingService) FindSupportLogStatusBySwitchId(ctx context.Context, switchId string) (*SwitchMTroubleshootingSupportLogStatus, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchTroubleshootingSupportLogStatus
+		resp     *SwitchMTroubleshootingSupportLogStatus
 		httpResp *http.Response
 		err      error
 	)
@@ -477,7 +477,7 @@ func (s *SwitchMSwitchTroubleshootingService) FindSupportLogStatusBySwitchId(ctx
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSupportLogStatusBySwitchId, true)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchTroubleshootingSupportLogStatus()
+	resp = NewSwitchMTroubleshootingSupportLogStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

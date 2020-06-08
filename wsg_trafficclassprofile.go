@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGTrafficclassprofileService struct {
+type WSGTrafficClassProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGTrafficclassprofileService(c *VSZClient) *WSGTrafficclassprofileService {
-	s := new(WSGTrafficclassprofileService)
+func NewWSGTrafficClassProfileService(c *VSZClient) *WSGTrafficClassProfileService {
+	s := new(WSGTrafficClassProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGTrafficclassprofileService() *WSGTrafficclassprofileService {
-	return NewWSGTrafficclassprofileService(ss.apiClient)
+func (ss *WSGService) WSGTrafficClassProfileService() *WSGTrafficClassProfileService {
+	return NewWSGTrafficClassProfileService(ss.apiClient)
 }
 
 // AddRkszonesTrafficClassProfileByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGTrafficclassprofileService() *WSGTrafficclassprofileSer
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGTrafficclassprofileService) AddRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGTrafficclassprofileService) AddRkszonesTrafficClassProfileByZoneId(c
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGTrafficclassprofileService) DeleteRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -91,7 +91,7 @@ func (s *WSGTrafficclassprofileService) DeleteRkszonesTrafficClassProfileById(ct
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGTrafficclassprofileService) DeleteRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -121,7 +121,7 @@ func (s *WSGTrafficclassprofileService) DeleteRkszonesTrafficClassProfileByZoneI
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGTrafficclassprofileService) FindRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonTrafficClassProfileRef, *APIResponseMeta, error) {
+func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonTrafficClassProfileRef, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -148,7 +148,7 @@ func (s *WSGTrafficclassprofileService) FindRkszonesTrafficClassProfileById(ctx 
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGTrafficclassprofileService) FindRkszonesTrafficClassProfileByZoneId(ctx context.Context, zoneId string) (*WSGProfileTrafficClassProfileList, *APIResponseMeta, error) {
+func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(ctx context.Context, zoneId string) (*WSGProfileTrafficClassProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -173,7 +173,7 @@ func (s *WSGTrafficclassprofileService) FindRkszonesTrafficClassProfileByZoneId(
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGTrafficclassprofileService) FindServicesTrafficClassProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileTrafficClassProfileList, *APIResponseMeta, error) {
+func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileTrafficClassProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -207,7 +207,7 @@ func (s *WSGTrafficclassprofileService) FindServicesTrafficClassProfileByQueryCr
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGTrafficclassprofileService) PartialUpdateRkszonesTrafficClassProfileById(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfileById(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

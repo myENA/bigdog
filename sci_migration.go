@@ -56,6 +56,24 @@ func NewSCIMigrationDeleteById200ResponseType() *SCIMigrationDeleteById200Respon
 	return m
 }
 
+type SCIMigrationgetMigrationsidexists200ResponseType struct {
+	Exists *bool `json:"exists,omitempty"`
+}
+
+func NewSCIMigrationgetMigrationsidexists200ResponseType() *SCIMigrationgetMigrationsidexists200ResponseType {
+	m := new(SCIMigrationgetMigrationsidexists200ResponseType)
+	return m
+}
+
+type SCIMigrationheadMigrationsid200ResponseType struct {
+	Exists *bool `json:"exists,omitempty"`
+}
+
+func NewSCIMigrationheadMigrationsid200ResponseType() *SCIMigrationheadMigrationsid200ResponseType {
+	m := new(SCIMigrationheadMigrationsid200ResponseType)
+	return m
+}
+
 type SCIMigrationFind200ResponseType []*SCIModelsMigration
 
 func MakeSCIMigrationFind200ResponseType() SCIMigrationFind200ResponseType {
@@ -236,11 +254,11 @@ func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIMigrationService) MigrationExistsGetMigrationsIdExists(ctx context.Context, id string) (*SCIMigrationexistsgetMigrationsidexists200ResponseType, *APIResponseMeta, error) {
+func (s *SCIMigrationService) MigrationExistsGetMigrationsIdExists(ctx context.Context, id string) (*SCIMigrationgetMigrationsidexists200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIMigrationexistsgetMigrationsidexists200ResponseType
+		resp     *SCIMigrationgetMigrationsidexists200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -250,7 +268,7 @@ func (s *SCIMigrationService) MigrationExistsGetMigrationsIdExists(ctx context.C
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationExistsGetMigrationsIdExists, false)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSCIMigrationexistsgetMigrationsidexists200ResponseType()
+	resp = NewSCIMigrationgetMigrationsidexists200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGIdentityuserroleService struct {
+type WSGIdentityUserRoleService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGIdentityuserroleService(c *VSZClient) *WSGIdentityuserroleService {
-	s := new(WSGIdentityuserroleService)
+func NewWSGIdentityUserRoleService(c *VSZClient) *WSGIdentityUserRoleService {
+	s := new(WSGIdentityUserRoleService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGIdentityuserroleService() *WSGIdentityuserroleService {
-	return NewWSGIdentityuserroleService(ss.apiClient)
+func (ss *WSGService) WSGIdentityUserRoleService() *WSGIdentityUserRoleService {
+	return NewWSGIdentityUserRoleService(ss.apiClient)
 }
 
 // AddIdentityUserrole
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGIdentityuserroleService() *WSGIdentityuserroleService {
 //
 // Request Body:
 //	 - body *WSGIdentityCreateIdentityUserRole
-func (s *WSGIdentityuserroleService) AddIdentityUserrole(ctx context.Context, body *WSGIdentityCreateIdentityUserRole) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, body *WSGIdentityCreateIdentityUserRole) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGIdentityuserroleService) AddIdentityUserrole(ctx context.Context, bo
 //
 // Request Body:
 //	 - body *WSGIdentityQueryCriteria
-func (s *WSGIdentityuserroleService) AddIdentityUserRoleList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityList, *APIResponseMeta, error) {
+func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGIdentityuserroleService) AddIdentityUserRoleList(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGIdentityDeleteBulk
-func (s *WSGIdentityuserroleService) DeleteIdentityUserrole(ctx context.Context, body *WSGIdentityDeleteBulk) (*APIResponseMeta, error) {
+func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context, body *WSGIdentityDeleteBulk) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -110,7 +110,7 @@ func (s *WSGIdentityuserroleService) DeleteIdentityUserrole(ctx context.Context,
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentityuserroleService) DeleteIdentityUserroleById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -130,7 +130,7 @@ func (s *WSGIdentityuserroleService) DeleteIdentityUserroleById(ctx context.Cont
 // FindIdentityUserrole
 //
 // Use this API command to retrieve a list of identity user role.
-func (s *WSGIdentityuserroleService) FindIdentityUserrole(ctx context.Context) (*WSGIdentityList, *APIResponseMeta, error) {
+func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context) (*WSGIdentityList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -155,7 +155,7 @@ func (s *WSGIdentityuserroleService) FindIdentityUserrole(ctx context.Context) (
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentityuserroleService) FindIdentityUserroleById(ctx context.Context, id string) (*WSGIdentityUserRole, *APIResponseMeta, error) {
+func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Context, id string) (*WSGIdentityUserRole, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *WSGIdentityuserroleService) FindIdentityUserroleById(ctx context.Contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentityuserroleService) PartialUpdateIdentityUserroleById(ctx context.Context, body *WSGIdentityModifyIdentityUserRole, id string) (*APIResponseMeta, error) {
+func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx context.Context, body *WSGIdentityModifyIdentityUserRole, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

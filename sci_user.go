@@ -76,6 +76,20 @@ func NewSCIUserLogin200ResponseType() *SCIUserLogin200ResponseType {
 	return m
 }
 
+type SCIUsergetfilters200ResponseType []*SCIModelsFilter
+
+func MakeSCIUsergetfilters200ResponseType() SCIUsergetfilters200ResponseType {
+	m := make(SCIUsergetfilters200ResponseType, 0)
+	return m
+}
+
+type SCIUsergetschedules200ResponseType []*SCIModelsSchedule
+
+func MakeSCIUsergetschedules200ResponseType() SCIUsergetschedules200ResponseType {
+	m := make(SCIUsergetschedules200ResponseType, 0)
+	return m
+}
+
 // UserBatchDelete
 //
 // Delete users and remove them from their related models.
@@ -368,11 +382,11 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string, optionalParams map[string][]string) (SCIUserprototypegetfilters200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string, optionalParams map[string][]string) (SCIUsergetfilters200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     SCIUserprototypegetfilters200ResponseType
+		resp     SCIUsergetfilters200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -385,7 +399,7 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 		req.SetQueryParameter("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = MakeSCIUserprototypegetfilters200ResponseType()
+	resp = MakeSCIUsergetfilters200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
@@ -401,11 +415,11 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id string, optionalParams map[string][]string) (SCIUserprototypegetschedules200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id string, optionalParams map[string][]string) (SCIUsergetschedules200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     SCIUserprototypegetschedules200ResponseType
+		resp     SCIUsergetschedules200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -418,7 +432,7 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 		req.SetQueryParameter("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = MakeSCIUserprototypegetschedules200ResponseType()
+	resp = MakeSCIUsergetschedules200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }

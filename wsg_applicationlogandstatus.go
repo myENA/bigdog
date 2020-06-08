@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGApplicationlogandstatusService struct {
+type WSGApplicationLogAndStatusService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGApplicationlogandstatusService(c *VSZClient) *WSGApplicationlogandstatusService {
-	s := new(WSGApplicationlogandstatusService)
+func NewWSGApplicationLogAndStatusService(c *VSZClient) *WSGApplicationLogAndStatusService {
+	s := new(WSGApplicationLogAndStatusService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGApplicationlogandstatusService() *WSGApplicationlogandstatusService {
-	return NewWSGApplicationlogandstatusService(ss.apiClient)
+func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndStatusService {
+	return NewWSGApplicationLogAndStatusService(ss.apiClient)
 }
 
 // FindApplicationsByBladeUUID
@@ -34,7 +34,7 @@ func (ss *WSGService) WSGApplicationlogandstatusService() *WSGApplicationlogands
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGApplicationlogandstatusService) FindApplicationsByBladeUUID(ctx context.Context, bladeUUID string, optionalParams map[string][]string) (*WSGAdministrationApplicationLogAndStatusList, *APIResponseMeta, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx context.Context, bladeUUID string, optionalParams map[string][]string) (*WSGAdministrationApplicationLogAndStatusList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -72,7 +72,7 @@ func (s *WSGApplicationlogandstatusService) FindApplicationsByBladeUUID(ctx cont
 // Optional Parameters:
 // - logFileName string
 //		- nullable
-func (s *WSGApplicationlogandstatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, appName string, bladeUUID string, optionalParams map[string][]string) ([]byte, *APIResponseMeta, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, appName string, bladeUUID string, optionalParams map[string][]string) ([]byte, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,7 +102,7 @@ func (s *WSGApplicationlogandstatusService) FindApplicationsDownloadByBladeUUID(
 // Required Parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGApplicationlogandstatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, bladeUUID string) ([]byte, *APIResponseMeta, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, bladeUUID string) ([]byte, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -127,7 +127,7 @@ func (s *WSGApplicationlogandstatusService) FindApplicationsDownloadsnapByBladeU
 //
 // Request Body:
 //	 - body *WSGAdministrationModifyLogLevel
-func (s *WSGApplicationlogandstatusService) PartialUpdateApplications(ctx context.Context, body *WSGAdministrationModifyLogLevel) (*APIResponseMeta, error) {
+func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx context.Context, body *WSGAdministrationModifyLogLevel) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAccesspointoperationalService struct {
+type WSGAccessPointOperationalService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGAccesspointoperationalService(c *VSZClient) *WSGAccesspointoperationalService {
-	s := new(WSGAccesspointoperationalService)
+func NewWSGAccessPointOperationalService(c *VSZClient) *WSGAccessPointOperationalService {
+	s := new(WSGAccessPointOperationalService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAccesspointoperationalService() *WSGAccesspointoperationalService {
-	return NewWSGAccesspointoperationalService(ss.apiClient)
+func (ss *WSGService) WSGAccessPointOperationalService() *WSGAccessPointOperationalService {
+	return NewWSGAccessPointOperationalService(ss.apiClient)
 }
 
 // AddApsApPacketCaptureDownloadByApMac
@@ -28,7 +28,7 @@ func (ss *WSGService) WSGAccesspointoperationalService() *WSGAccesspointoperatio
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) AddApsApPacketCaptureDownloadByApMac(ctx context.Context, apMac string) ([]byte, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(ctx context.Context, apMac string) ([]byte, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -57,7 +57,7 @@ func (s *WSGAccesspointoperationalService) AddApsApPacketCaptureDownloadByApMac(
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) AddApsApPacketCaptureStartFileCaptureByApMac(ctx context.Context, body *WSGAPPackCaptureApPacketCaptureReq, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCaptureByApMac(ctx context.Context, body *WSGAPPackCaptureApPacketCaptureReq, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGAccesspointoperationalService) AddApsApPacketCaptureStartFileCapture
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) AddApsApPacketCaptureStartStreamingByApMac(ctx context.Context, body *WSGAPPackCaptureApPacketCaptureReq, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingByApMac(ctx context.Context, body *WSGAPPackCaptureApPacketCaptureReq, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -120,7 +120,7 @@ func (s *WSGAccesspointoperationalService) AddApsApPacketCaptureStartStreamingBy
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) AddApsApPacketCaptureStopByApMac(ctx context.Context, apMac string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx context.Context, apMac string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -146,7 +146,7 @@ func (s *WSGAccesspointoperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) AddApsOperationalBlinkLedByApMac(ctx context.Context, apMac string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx context.Context, apMac string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -171,7 +171,7 @@ func (s *WSGAccesspointoperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 //
 // Request Body:
 //	 - body *WSGAPSwitchoverAP
-func (s *WSGAccesspointoperationalService) AddApsSwitchoverCluster(ctx context.Context, body *WSGAPSwitchoverAP) (*APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.Context, body *WSGAPSwitchoverAP) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -197,7 +197,7 @@ func (s *WSGAccesspointoperationalService) AddApsSwitchoverCluster(ctx context.C
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccesspointoperationalService) FindApByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAPQueryList, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindApByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAPQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -226,7 +226,7 @@ func (s *WSGAccesspointoperationalService) FindApByQueryCriteria(ctx context.Con
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) FindApsApPacketCaptureByApMac(ctx context.Context, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx context.Context, apMac string) (*WSGAPPackCaptureApPacketCaptureRes, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -258,7 +258,7 @@ func (s *WSGAccesspointoperationalService) FindApsApPacketCaptureByApMac(ctx con
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGAccesspointoperationalService) FindApsOperationalNeighborByApMac(ctx context.Context, apMac string, optionalParams map[string][]string) (*WSGAPNeighborAPList, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx context.Context, apMac string, optionalParams map[string][]string) (*WSGAPNeighborAPList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -290,7 +290,7 @@ func (s *WSGAccesspointoperationalService) FindApsOperationalNeighborByApMac(ctx
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) FindApsOperationalSummaryByApMac(ctx context.Context, apMac string) (*WSGAPOperationalSummary, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx context.Context, apMac string) (*WSGAPOperationalSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -315,7 +315,7 @@ func (s *WSGAccesspointoperationalService) FindApsOperationalSummaryByApMac(ctx 
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccesspointoperationalService) FindApWlanByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWLANQueryApWlanBssidQueryList, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindApWlanByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWLANQueryApWlanBssidQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -343,7 +343,7 @@ func (s *WSGAccesspointoperationalService) FindApWlanByQueryCriteria(ctx context
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccesspointoperationalService) FindIndoorMapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGIndoorMapSummaryList, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindIndoorMapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGIndoorMapSummaryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -375,7 +375,7 @@ func (s *WSGAccesspointoperationalService) FindIndoorMapByQueryCriteria(ctx cont
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) FindMeshNeighborByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string) (*WSGMeshNeighborInfoList, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindMeshNeighborByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string) (*WSGMeshNeighborInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -408,11 +408,11 @@ func (s *WSGAccesspointoperationalService) FindMeshNeighborByApMacByQueryCriteri
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointoperationalService) FindMeshTopologyByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string) (WSGMeshnodeinfoArray, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindMeshTopologyByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string) (WSGMeshNodeInfoArray, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     WSGMeshnodeinfoArray
+		resp     WSGMeshNodeInfoArray
 		httpResp *http.Response
 		err      error
 	)
@@ -426,7 +426,7 @@ func (s *WSGAccesspointoperationalService) FindMeshTopologyByApMacByQueryCriteri
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = MakeWSGMeshnodeinfoArray()
+	resp = MakeWSGMeshNodeInfoArray()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
@@ -437,11 +437,11 @@ func (s *WSGAccesspointoperationalService) FindMeshTopologyByApMacByQueryCriteri
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccesspointoperationalService) FindMeshTopologyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGMeshnodeinfoList, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindMeshTopologyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGMeshNodeInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGMeshnodeinfoList
+		resp     *WSGMeshNodeInfoList
 		httpResp *http.Response
 		err      error
 	)
@@ -454,7 +454,7 @@ func (s *WSGAccesspointoperationalService) FindMeshTopologyByQueryCriteria(ctx c
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGMeshnodeinfoList()
+	resp = NewWSGMeshNodeInfoList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -465,7 +465,7 @@ func (s *WSGAccesspointoperationalService) FindMeshTopologyByQueryCriteria(ctx c
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccesspointoperationalService) FindRoguesInfoListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRogueInfoList, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindRoguesInfoListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRogueInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

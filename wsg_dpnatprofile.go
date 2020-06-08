@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDpnatprofileService struct {
+type WSGDPNATProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGDpnatprofileService(c *VSZClient) *WSGDpnatprofileService {
-	s := new(WSGDpnatprofileService)
+func NewWSGDPNATProfileService(c *VSZClient) *WSGDPNATProfileService {
+	s := new(WSGDPNATProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDpnatprofileService() *WSGDpnatprofileService {
-	return NewWSGDpnatprofileService(ss.apiClient)
+func (ss *WSGService) WSGDPNATProfileService() *WSGDPNATProfileService {
+	return NewWSGDPNATProfileService(ss.apiClient)
 }
 
 // AddDpNatProfiles
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGDpnatprofileService() *WSGDpnatprofileService {
 //
 // Request Body:
 //	 - body *WSGDPProfileDpNatProfileBasicBO
-func (s *WSGDpnatprofileService) AddDpNatProfiles(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO) (*WSGDPProfileDpNatProfileBasicBO, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) AddDpNatProfiles(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO) (*WSGDPProfileDpNatProfileBasicBO, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -59,7 +59,7 @@ func (s *WSGDpnatprofileService) AddDpNatProfiles(ctx context.Context, body *WSG
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDpnatprofileService) AddDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, id string) (*WSGDPProfileDpNatProfilePoolBO, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, id string) (*WSGDPProfileDpNatProfilePoolBO, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -88,7 +88,7 @@ func (s *WSGDpnatprofileService) AddDpNatProfilesDpNatPoolsById(ctx context.Cont
 //
 // Request Body:
 //	 - body *WSGDPProfileBulkDelete
-func (s *WSGDpnatprofileService) DeleteDpNatProfiles(ctx context.Context, body *WSGDPProfileBulkDelete) (interface{}, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *WSGDPProfileBulkDelete) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +117,7 @@ func (s *WSGDpnatprofileService) DeleteDpNatProfiles(ctx context.Context, body *
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDpnatprofileService) DeleteDpNatProfilesById(ctx context.Context, id string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, id string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -146,7 +146,7 @@ func (s *WSGDpnatprofileService) DeleteDpNatProfilesById(ctx context.Context, id
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDpnatprofileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, id string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, id string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -178,7 +178,7 @@ func (s *WSGDpnatprofileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.C
 //		- required
 // - poolId string
 //		- required
-func (s *WSGDpnatprofileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, id string, poolId string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, id string, poolId string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -201,7 +201,7 @@ func (s *WSGDpnatprofileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx conte
 // FindDpNatProfiles
 //
 // Use this API command to retrieve DHCP NAT profile - basic list.
-func (s *WSGDpnatprofileService) FindDpNatProfiles(ctx context.Context) (*WSGDPProfileDpNatProfileBasicBOList, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context) (*WSGDPProfileDpNatProfileBasicBOList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -226,7 +226,7 @@ func (s *WSGDpnatprofileService) FindDpNatProfiles(ctx context.Context) (*WSGDPP
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDpnatprofileService) FindDpNatProfilesById(ctx context.Context, id string) (*WSGDPProfileDpNatProfileBasicBO, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, id string) (*WSGDPProfileDpNatProfileBasicBO, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -252,7 +252,7 @@ func (s *WSGDpnatprofileService) FindDpNatProfilesById(ctx context.Context, id s
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDpnatprofileService) FindDpNatProfilesDpNatPoolsById(ctx context.Context, id string) (*WSGDPProfileDpNatProfilePoolBOList, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Context, id string) (*WSGDPProfileDpNatProfilePoolBOList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -280,7 +280,7 @@ func (s *WSGDpnatprofileService) FindDpNatProfilesDpNatPoolsById(ctx context.Con
 //		- required
 // - poolId string
 //		- required
-func (s *WSGDpnatprofileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, id string, poolId string) (*WSGDPProfileDpNatProfilePoolBO, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, id string, poolId string) (*WSGDPProfileDpNatProfilePoolBO, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -310,7 +310,7 @@ func (s *WSGDpnatprofileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDpnatprofileService) UpdateDpNatProfilesById(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO, id string) (*WSGDPProfileDpNatProfileBasicBO, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, body *WSGDPProfileDpNatProfileBasicBO, id string) (*WSGDPProfileDpNatProfileBasicBO, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -345,7 +345,7 @@ func (s *WSGDpnatprofileService) UpdateDpNatProfilesById(ctx context.Context, bo
 //		- required
 // - poolId string
 //		- required
-func (s *WSGDpnatprofileService) UpdateDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, id string, poolId string) (*WSGDPProfileDpNatProfilePoolBO, *APIResponseMeta, error) {
+func (s *WSGDPNATProfileService) UpdateDpNatProfilesDpNatPoolsByPoolId(ctx context.Context, body *WSGDPProfileDpNatProfilePoolBO, id string, poolId string) (*WSGDPProfileDpNatProfilePoolBO, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

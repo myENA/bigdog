@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGHotspotserviceService struct {
+type WSGHotspotServiceService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGHotspotserviceService(c *VSZClient) *WSGHotspotserviceService {
-	s := new(WSGHotspotserviceService)
+func NewWSGHotspotServiceService(c *VSZClient) *WSGHotspotServiceService {
+	s := new(WSGHotspotServiceService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGHotspotserviceService() *WSGHotspotserviceService {
-	return NewWSGHotspotserviceService(ss.apiClient)
+func (ss *WSGService) WSGHotspotServiceService() *WSGHotspotServiceService {
+	return NewWSGHotspotServiceService(ss.apiClient)
 }
 
 // AddRkszonesPortalsHotspotExternalByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGHotspotserviceService() *WSGHotspotserviceService {
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspotserviceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotExternal, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotExternal, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -64,7 +64,7 @@ func (s *WSGHotspotserviceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspotserviceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotInternal, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotInternal, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -97,7 +97,7 @@ func (s *WSGHotspotserviceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspotserviceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotSmartClientOnly, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotSmartClientOnly, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -129,7 +129,7 @@ func (s *WSGHotspotserviceService) AddRkszonesPortalsHotspotSmartClientOnlyByZon
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspotserviceService) DeleteRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -156,7 +156,7 @@ func (s *WSGHotspotserviceService) DeleteRkszonesPortalsHotspotById(ctx context.
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspotserviceService) FindRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot, *APIResponseMeta, error) {
+func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceHotspot, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -183,7 +183,7 @@ func (s *WSGHotspotserviceService) FindRkszonesPortalsHotspotById(ctx context.Co
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGHotspotserviceService) FindRkszonesPortalsHotspotByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
+func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -208,7 +208,7 @@ func (s *WSGHotspotserviceService) FindRkszonesPortalsHotspotByZoneId(ctx contex
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGHotspotserviceService) FindServicesHotspotByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGHotspotServiceService) FindServicesHotspotByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -242,7 +242,7 @@ func (s *WSGHotspotserviceService) FindServicesHotspotByQueryCriteria(ctx contex
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspotserviceService) PartialUpdateRkszonesPortalsHotspotById(ctx context.Context, body *WSGPortalServiceModifyHotspot, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGHotspotServiceService) PartialUpdateRkszonesPortalsHotspotById(ctx context.Context, body *WSGPortalServiceModifyHotspot, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

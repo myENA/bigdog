@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGL2accesscontrolindomainlevelService struct {
+type WSGL2AccessControlinDomainLevelService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGL2accesscontrolindomainlevelService(c *VSZClient) *WSGL2accesscontrolindomainlevelService {
-	s := new(WSGL2accesscontrolindomainlevelService)
+func NewWSGL2AccessControlinDomainLevelService(c *VSZClient) *WSGL2AccessControlinDomainLevelService {
+	s := new(WSGL2AccessControlinDomainLevelService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGL2accesscontrolindomainlevelService() *WSGL2accesscontrolindomainlevelService {
-	return NewWSGL2accesscontrolindomainlevelService(ss.apiClient)
+func (ss *WSGService) WSGL2AccessControlinDomainLevelService() *WSGL2AccessControlinDomainLevelService {
+	return NewWSGL2AccessControlinDomainLevelService(ss.apiClient)
 }
 
 // AddL2AccessControls
@@ -26,8 +26,8 @@ func (ss *WSGService) WSGL2accesscontrolindomainlevelService() *WSGL2accesscontr
 // Use this API command to create a new L2 Access Control.
 //
 // Request Body:
-//	 - body *WSGL2accesscontrolCreateL2AccessControl
-func (s *WSGL2accesscontrolindomainlevelService) AddL2AccessControls(ctx context.Context, body *WSGL2accesscontrolCreateL2AccessControl) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+//	 - body *WSGL2AccessControlCreateL2AccessControl
+func (s *WSGL2AccessControlinDomainLevelService) AddL2AccessControls(ctx context.Context, body *WSGL2AccessControlCreateL2AccessControl) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGL2accesscontrolindomainlevelService) AddL2AccessControls(ctx context
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGL2accesscontrolindomainlevelService) DeleteL2AccessControls(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGL2AccessControlinDomainLevelService) DeleteL2AccessControls(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGL2accesscontrolindomainlevelService) DeleteL2AccessControls(ctx cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGL2accesscontrolindomainlevelService) DeleteL2AccessControlsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGL2AccessControlinDomainLevelService) DeleteL2AccessControlsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -110,11 +110,11 @@ func (s *WSGL2accesscontrolindomainlevelService) DeleteL2AccessControlsById(ctx 
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControls(ctx context.Context, optionalParams map[string][]string) (*WSGL2accesscontrolList, *APIResponseMeta, error) {
+func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControls(ctx context.Context, optionalParams map[string][]string) (*WSGL2AccessControlList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGL2accesscontrolList
+		resp     *WSGL2AccessControlList
 		httpResp *http.Response
 		err      error
 	)
@@ -132,7 +132,7 @@ func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControls(ctx contex
 		req.SetQueryParameter("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGL2accesscontrolList()
+	resp = NewWSGL2AccessControlList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -144,11 +144,11 @@ func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControls(ctx contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControlsById(ctx context.Context, id string) (*WSGL2accesscontrol, *APIResponseMeta, error) {
+func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControlsById(ctx context.Context, id string) (*WSGL2AccessControl, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGL2accesscontrol
+		resp     *WSGL2AccessControl
 		httpResp *http.Response
 		err      error
 	)
@@ -158,7 +158,7 @@ func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControlsById(ctx co
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindL2AccessControlsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGL2accesscontrol()
+	resp = NewWSGL2AccessControl()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -169,11 +169,11 @@ func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControlsById(ctx co
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControlsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGL2accesscontrolList, *APIResponseMeta, error) {
+func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControlsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGL2AccessControlList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGL2accesscontrolList
+		resp     *WSGL2AccessControlList
 		httpResp *http.Response
 		err      error
 	)
@@ -186,7 +186,7 @@ func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControlsByQueryCrit
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGL2accesscontrolList()
+	resp = NewWSGL2AccessControlList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -196,12 +196,12 @@ func (s *WSGL2accesscontrolindomainlevelService) FindL2AccessControlsByQueryCrit
 // Use this API command to modify a specific L2 Access Control.
 //
 // Request Body:
-//	 - body *WSGL2accesscontrolModifyL2AccessControl
+//	 - body *WSGL2AccessControlModifyL2AccessControl
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGL2accesscontrolindomainlevelService) UpdateL2AccessControlsById(ctx context.Context, body *WSGL2accesscontrolModifyL2AccessControl, id string) (*APIResponseMeta, error) {
+func (s *WSGL2AccessControlinDomainLevelService) UpdateL2AccessControlsById(ctx context.Context, body *WSGL2AccessControlModifyL2AccessControl, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

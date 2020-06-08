@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGIdentityuserService struct {
+type WSGIdentityUserService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGIdentityuserService(c *VSZClient) *WSGIdentityuserService {
-	s := new(WSGIdentityuserService)
+func NewWSGIdentityUserService(c *VSZClient) *WSGIdentityUserService {
+	s := new(WSGIdentityUserService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGIdentityuserService() *WSGIdentityuserService {
-	return NewWSGIdentityuserService(ss.apiClient)
+func (ss *WSGService) WSGIdentityUserService() *WSGIdentityUserService {
+	return NewWSGIdentityUserService(ss.apiClient)
 }
 
 // AddIdentityUserList
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGIdentityuserService() *WSGIdentityuserService {
 //
 // Request Body:
 //	 - body *WSGIdentityQueryCriteria
-func (s *WSGIdentityuserService) AddIdentityUserList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityUserList, *APIResponseMeta, error) {
+func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityUserList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGIdentityuserService) AddIdentityUserList(ctx context.Context, body *
 //
 // Request Body:
 //	 - body *WSGIdentityCreateUser
-func (s *WSGIdentityuserService) AddIdentityUsers(ctx context.Context, body *WSGIdentityCreateUser) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSGIdentityCreateUser) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGIdentityuserService) AddIdentityUsers(ctx context.Context, body *WSG
 //
 // Request Body:
 //	 - body *WSGIdentityDeleteBulk
-func (s *WSGIdentityuserService) DeleteIdentityUsers(ctx context.Context, body *WSGIdentityDeleteBulk) (*APIResponseMeta, error) {
+func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *WSGIdentityDeleteBulk) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -110,7 +110,7 @@ func (s *WSGIdentityuserService) DeleteIdentityUsers(ctx context.Context, body *
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentityuserService) DeleteIdentityUsersById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -160,7 +160,7 @@ func (s *WSGIdentityuserService) DeleteIdentityUsersById(ctx context.Context, id
 //		- nullable
 // - userType string
 //		- nullable
-func (s *WSGIdentityuserService) FindIdentityUsers(ctx context.Context, optionalParams map[string][]string) (*WSGIdentityUserList, *APIResponseMeta, error) {
+func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optionalParams map[string][]string) (*WSGIdentityUserList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -223,7 +223,7 @@ func (s *WSGIdentityuserService) FindIdentityUsers(ctx context.Context, optional
 // FindIdentityUsersAaaserver
 //
 // Use this API command to retrieve a list of aaa server.
-func (s *WSGIdentityuserService) FindIdentityUsersAaaserver(ctx context.Context) (*WSGIdentityAaaServerList, *APIResponseMeta, error) {
+func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context) (*WSGIdentityAaaServerList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -248,7 +248,7 @@ func (s *WSGIdentityuserService) FindIdentityUsersAaaserver(ctx context.Context)
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentityuserService) FindIdentityUsersById(ctx context.Context, id string) (*WSGIdentityUserConfiguration, *APIResponseMeta, error) {
+func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id string) (*WSGIdentityUserConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -270,7 +270,7 @@ func (s *WSGIdentityuserService) FindIdentityUsersById(ctx context.Context, id s
 // FindIdentityUsersCountries
 //
 // Use this API command to retrieve a list of countries.
-func (s *WSGIdentityuserService) FindIdentityUsersCountries(ctx context.Context) (*WSGIdentityCountryList, *APIResponseMeta, error) {
+func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context) (*WSGIdentityCountryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -291,7 +291,7 @@ func (s *WSGIdentityuserService) FindIdentityUsersCountries(ctx context.Context)
 // FindIdentityUsersPackages
 //
 // Use this API command to retrieve a list of packages.
-func (s *WSGIdentityuserService) FindIdentityUsersPackages(ctx context.Context) (*WSGIdentityPackageList, *APIResponseMeta, error) {
+func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context) (*WSGIdentityPackageList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -319,7 +319,7 @@ func (s *WSGIdentityuserService) FindIdentityUsersPackages(ctx context.Context) 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGIdentityuserService) PartialUpdateIdentityUsersById(ctx context.Context, body *WSGIdentityModifyUser, id string) (*APIResponseMeta, error) {
+func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Context, body *WSGIdentityModifyUser, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

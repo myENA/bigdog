@@ -2,7 +2,7 @@ package ruckus
 
 // API Version: v9_0
 
-type WSGAlertsummaryAlarmSummary struct {
+type WSGAlertSummaryAlarmSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`
 
 	MajorCount *int `json:"majorCount,omitempty"`
@@ -12,12 +12,12 @@ type WSGAlertsummaryAlarmSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
-func NewWSGAlertsummaryAlarmSummary() *WSGAlertsummaryAlarmSummary {
-	m := new(WSGAlertsummaryAlarmSummary)
+func NewWSGAlertSummaryAlarmSummary() *WSGAlertSummaryAlarmSummary {
+	m := new(WSGAlertSummaryAlarmSummary)
 	return m
 }
 
-type WSGAlertsummaryEventSummary struct {
+type WSGAlertSummaryEventSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`
 
 	DebugCount *int `json:"debugCount,omitempty"`
@@ -31,7 +31,7 @@ type WSGAlertsummaryEventSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
-func NewWSGAlertsummaryEventSummary() *WSGAlertsummaryEventSummary {
-	m := new(WSGAlertsummaryEventSummary)
+func NewWSGAlertSummaryEventSummary() *WSGAlertSummaryEventSummary {
+	m := new(WSGAlertSummaryEventSummary)
 	return m
 }

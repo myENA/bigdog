@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGEthernetportprofileService struct {
+type WSGEthernetPortProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGEthernetportprofileService(c *VSZClient) *WSGEthernetportprofileService {
-	s := new(WSGEthernetportprofileService)
+func NewWSGEthernetPortProfileService(c *VSZClient) *WSGEthernetPortProfileService {
+	s := new(WSGEthernetPortProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGEthernetportprofileService() *WSGEthernetportprofileService {
-	return NewWSGEthernetportprofileService(ss.apiClient)
+func (ss *WSGService) WSGEthernetPortProfileService() *WSGEthernetPortProfileService {
+	return NewWSGEthernetPortProfileService(ss.apiClient)
 }
 
 // AddRkszonesProfileEthernetPortByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGEthernetportprofileService() *WSGEthernetportprofileSer
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGEthernetportprofileService) AddRkszonesProfileEthernetPortByZoneId(ctx context.Context, body *WSGEthernetPortCreateEthernetPortProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(ctx context.Context, body *WSGEthernetPortCreateEthernetPortProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGEthernetportprofileService) AddRkszonesProfileEthernetPortByZoneId(c
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGEthernetportprofileService) DeleteRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGEthernetportprofileService) DeleteRkszonesProfileEthernetPortById(ct
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGEthernetportprofileService) FindRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string) (*WSGEthernetPortProfile, *APIResponseMeta, error) {
+func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string) (*WSGEthernetPortProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -123,7 +123,7 @@ func (s *WSGEthernetportprofileService) FindRkszonesProfileEthernetPortById(ctx 
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGEthernetportprofileService) FindRkszonesProfileEthernetPortByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGEthernetPortProfileList, *APIResponseMeta, error) {
+func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGEthernetPortProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -154,7 +154,7 @@ func (s *WSGEthernetportprofileService) FindRkszonesProfileEthernetPortByZoneId(
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGEthernetportprofileService) FindServicesEthernetPortProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGEthernetPortProfileService) FindServicesEthernetPortProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -188,7 +188,7 @@ func (s *WSGEthernetportprofileService) FindServicesEthernetPortProfileByQueryCr
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGEthernetportprofileService) PartialUpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -222,7 +222,7 @@ func (s *WSGEthernetportprofileService) PartialUpdateRkszonesProfileEthernetPort
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGEthernetportprofileService) UpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGEthernetPortProfileService) UpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

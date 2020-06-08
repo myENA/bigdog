@@ -7,24 +7,24 @@ import (
 	"net/http"
 )
 
-type WSGSnmpagentService struct {
+type WSGSNMPAgentService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGSnmpagentService(c *VSZClient) *WSGSnmpagentService {
-	s := new(WSGSnmpagentService)
+func NewWSGSNMPAgentService(c *VSZClient) *WSGSNMPAgentService {
+	s := new(WSGSNMPAgentService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGSnmpagentService() *WSGSnmpagentService {
-	return NewWSGSnmpagentService(ss.apiClient)
+func (ss *WSGService) WSGSNMPAgentService() *WSGSNMPAgentService {
+	return NewWSGSNMPAgentService(ss.apiClient)
 }
 
 // FindSystemSnmpAgent
 //
 // Retrieve SNMP Agent sertting.
-func (s *WSGSnmpagentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSystemSnmpAgentConfiguration, *APIResponseMeta, error) {
+func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSystemSnmpAgentConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -48,7 +48,7 @@ func (s *WSGSnmpagentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSyst
 //
 // Request Body:
 //	 - body *WSGSystemModifySnmpAgent
-func (s *WSGSnmpagentService) UpdateSystemSnmpAgent(ctx context.Context, body *WSGSystemModifySnmpAgent) (*APIResponseMeta, error) {
+func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *WSGSystemModifySnmpAgent) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

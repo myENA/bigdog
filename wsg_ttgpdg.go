@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGTtgpdgService struct {
+type WSGTTGPDGService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGTtgpdgService(c *VSZClient) *WSGTtgpdgService {
-	s := new(WSGTtgpdgService)
+func NewWSGTTGPDGService(c *VSZClient) *WSGTTGPDGService {
+	s := new(WSGTTGPDGService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGTtgpdgService() *WSGTtgpdgService {
-	return NewWSGTtgpdgService(ss.apiClient)
+func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
+	return NewWSGTTGPDGService(ss.apiClient)
 }
 
 // AddProfilesTtgpdg
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGTtgpdgService() *WSGTtgpdgService {
 //
 // Request Body:
 //	 - body *WSGProfileCreateTtgpdgProfile
-func (s *WSGTtgpdgService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfileCreateTtgpdgProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfileCreateTtgpdgProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGTtgpdgService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfi
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGTtgpdgService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGTtgpdgService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCo
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGTtgpdgService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -106,7 +106,7 @@ func (s *WSGTtgpdgService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGTtgpdgService) DeleteProfilesTtgpdgById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -130,7 +130,7 @@ func (s *WSGTtgpdgService) DeleteProfilesTtgpdgById(ctx context.Context, id stri
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGTtgpdgService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -150,7 +150,7 @@ func (s *WSGTtgpdgService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context
 // FindProfilesTtgpdg
 //
 // Use this API command to retrieve a list of TTG+PDG profile.
-func (s *WSGTtgpdgService) FindProfilesTtgpdg(ctx context.Context) (*WSGProfileList, *APIResponseMeta, error) {
+func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -175,7 +175,7 @@ func (s *WSGTtgpdgService) FindProfilesTtgpdg(ctx context.Context) (*WSGProfileL
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGTtgpdgService) FindProfilesTtgpdgById(ctx context.Context, id string) (*WSGProfileTtgpdgProfile, *APIResponseMeta, error) {
+func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, id string) (*WSGProfileTtgpdgProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -200,7 +200,7 @@ func (s *WSGTtgpdgService) FindProfilesTtgpdgById(ctx context.Context, id string
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGTtgpdgService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileTtgpdgProfileList, *APIResponseMeta, error) {
+func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileTtgpdgProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -232,7 +232,7 @@ func (s *WSGTtgpdgService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGTtgpdgService) PartialUpdateProfilesTtgpdgById(ctx context.Context, body *WSGProfileTtgpdgProfileConfiguration, id string) (*APIResponseMeta, error) {
+func (s *WSGTTGPDGService) PartialUpdateProfilesTtgpdgById(ctx context.Context, body *WSGProfileTtgpdgProfileConfiguration, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

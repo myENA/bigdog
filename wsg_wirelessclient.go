@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGWirelessclientService struct {
+type WSGWirelessClientService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGWirelessclientService(c *VSZClient) *WSGWirelessclientService {
-	s := new(WSGWirelessclientService)
+func NewWSGWirelessClientService(c *VSZClient) *WSGWirelessClientService {
+	s := new(WSGWirelessClientService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGWirelessclientService() *WSGWirelessclientService {
-	return NewWSGWirelessclientService(ss.apiClient)
+func (ss *WSGService) WSGWirelessClientService() *WSGWirelessClientService {
+	return NewWSGWirelessClientService(ss.apiClient)
 }
 
 // AddClientsBulkDeauth
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGWirelessclientService() *WSGWirelessclientService {
 //
 // Request Body:
 //	 - body *WSGClientDeAuthClientList
-func (s *WSGWirelessclientService) AddClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*APIResponseMeta, error) {
+func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -53,7 +53,7 @@ func (s *WSGWirelessclientService) AddClientsBulkDeauth(ctx context.Context, bod
 //
 // Request Body:
 //	 - body *WSGClientDisconnectClientList
-func (s *WSGWirelessclientService) AddClientsBulkDisconnect(ctx context.Context, body *WSGClientDisconnectClientList) (*APIResponseMeta, error) {
+func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context, body *WSGClientDisconnectClientList) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGWirelessclientService) AddClientsBulkDisconnect(ctx context.Context,
 // Required Parameters:
 // - wlanname string
 //		- required
-func (s *WSGWirelessclientService) AddClientsByWlanNameByWlanname(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, wlanname string) (*WSGClientQueryList, *APIResponseMeta, error) {
+func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, wlanname string) (*WSGClientQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -112,7 +112,7 @@ func (s *WSGWirelessclientService) AddClientsByWlanNameByWlanname(ctx context.Co
 //
 // Request Body:
 //	 - body *WSGClientDeAuthClient
-func (s *WSGWirelessclientService) AddClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*APIResponseMeta, error) {
+func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -138,7 +138,7 @@ func (s *WSGWirelessclientService) AddClientsDeauth(ctx context.Context, body *W
 //
 // Request Body:
 //	 - body *WSGClientDisconnectClient
-func (s *WSGWirelessclientService) AddClientsDisconnect(ctx context.Context, body *WSGClientDisconnectClient) (*APIResponseMeta, error) {
+func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, body *WSGClientDisconnectClient) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -165,7 +165,7 @@ func (s *WSGWirelessclientService) AddClientsDisconnect(ctx context.Context, bod
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGWirelessclientService) FindApsOperationalClientTotalCountByApMac(ctx context.Context, apMac string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx context.Context, apMac string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -190,7 +190,7 @@ func (s *WSGWirelessclientService) FindApsOperationalClientTotalCountByApMac(ctx
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGWirelessclientService) FindClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientQueryList, *APIResponseMeta, error) {
+func (s *WSGWirelessClientService) FindClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -218,7 +218,7 @@ func (s *WSGWirelessclientService) FindClientByQueryCriteria(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGWirelessclientService) FindHistoricalclientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientHistoricalClientList, *APIResponseMeta, error) {
+func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGClientHistoricalClientList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

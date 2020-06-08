@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDiffservService struct {
+type WSGDiffServService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGDiffservService(c *VSZClient) *WSGDiffservService {
-	s := new(WSGDiffservService)
+func NewWSGDiffServService(c *VSZClient) *WSGDiffServService {
+	s := new(WSGDiffServService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDiffservService() *WSGDiffservService {
-	return NewWSGDiffservService(ss.apiClient)
+func (ss *WSGService) WSGDiffServService() *WSGDiffServService {
+	return NewWSGDiffServService(ss.apiClient)
 }
 
 // AddRkszonesDiffservByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGDiffservService() *WSGDiffservService {
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDiffservService) AddRkszonesDiffservByZoneId(ctx context.Context, body *WSGZoneCreateDiffServProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, body *WSGZoneCreateDiffServProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGDiffservService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDiffservService) DeleteRkszonesDiffservById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGDiffservService) DeleteRkszonesDiffservById(ctx context.Context, id 
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDiffservService) FindRkszonesDiffservById(ctx context.Context, id string, zoneId string) (*WSGZoneDiffServConfiguration, *APIResponseMeta, error) {
+func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id string, zoneId string) (*WSGZoneDiffServConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +117,7 @@ func (s *WSGDiffservService) FindRkszonesDiffservById(ctx context.Context, id st
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDiffservService) FindRkszonesDiffservByZoneId(ctx context.Context, zoneId string) (*WSGZoneDiffServList, *APIResponseMeta, error) {
+func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, zoneId string) (*WSGZoneDiffServList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -142,7 +142,7 @@ func (s *WSGDiffservService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGDiffservService) FindServicesDscpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGDiffServService) FindServicesDscpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -176,7 +176,7 @@ func (s *WSGDiffservService) FindServicesDscpProfileByQueryCriteria(ctx context.
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDiffservService) PartialUpdateRkszonesDiffservById(ctx context.Context, body *WSGZoneModifyDiffServProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Context, body *WSGZoneModifyDiffServProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDataplaneoperationalService struct {
+type WSGDataPlaneOperationalService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGDataplaneoperationalService(c *VSZClient) *WSGDataplaneoperationalService {
-	s := new(WSGDataplaneoperationalService)
+func NewWSGDataPlaneOperationalService(c *VSZClient) *WSGDataPlaneOperationalService {
+	s := new(WSGDataPlaneOperationalService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDataplaneoperationalService() *WSGDataplaneoperationalService {
-	return NewWSGDataplaneoperationalService(ss.apiClient)
+func (ss *WSGService) WSGDataPlaneOperationalService() *WSGDataPlaneOperationalService {
+	return NewWSGDataPlaneOperationalService(ss.apiClient)
 }
 
 // AddDpsSwitchoverCluster
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGDataplaneoperationalService() *WSGDataplaneoperationalS
 //
 // Request Body:
 //	 - body *WSGDPSwitchoverDp
-func (s *WSGDataplaneoperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *WSGDPSwitchoverDp) (*APIResponseMeta, error) {
+func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *WSGDPSwitchoverDp) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGEventmanagementsettingService struct {
+type WSGEventManagementSettingService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGEventmanagementsettingService(c *VSZClient) *WSGEventmanagementsettingService {
-	s := new(WSGEventmanagementsettingService)
+func NewWSGEventManagementSettingService(c *VSZClient) *WSGEventManagementSettingService {
+	s := new(WSGEventManagementSettingService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGEventmanagementsettingService() *WSGEventmanagementsettingService {
-	return NewWSGEventmanagementsettingService(ss.apiClient)
+func (ss *WSGService) WSGEventManagementSettingService() *WSGEventManagementSettingService {
+	return NewWSGEventManagementSettingService(ss.apiClient)
 }
 
 // FindRkszonesEventEmailSettingsByZoneId
@@ -28,7 +28,7 @@ func (ss *WSGService) WSGEventmanagementsettingService() *WSGEventmanagementsett
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGEventmanagementsettingService) FindRkszonesEventEmailSettingsByZoneId(ctx context.Context, zoneId string) (*WSGEventManagementEventEmailSetting, *APIResponseMeta, error) {
+func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneId(ctx context.Context, zoneId string) (*WSGEventManagementEventEmailSetting, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -54,7 +54,7 @@ func (s *WSGEventmanagementsettingService) FindRkszonesEventEmailSettingsByZoneI
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGEventmanagementsettingService) FindRkszonesEventNotificationSettingsByZoneId(ctx context.Context, zoneId string) (*WSGEventManagementEventDataResponse, *APIResponseMeta, error) {
+func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettingsByZoneId(ctx context.Context, zoneId string) (*WSGEventManagementEventDataResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGEventmanagementsettingService) FindRkszonesEventNotificationSettings
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGEventmanagementsettingService) UpdateRkszonesEventEmailSettingsByZoneId(ctx context.Context, body *WSGEventManagementEventEmailSetting, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZoneId(ctx context.Context, body *WSGEventManagementEventEmailSetting, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -114,7 +114,7 @@ func (s *WSGEventmanagementsettingService) UpdateRkszonesEventEmailSettingsByZon
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGEventmanagementsettingService) UpdateRkszonesEventNotificationSettingsByZoneId(ctx context.Context, body WSGEventManagementEventSettingList, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettingsByZoneId(ctx context.Context, body WSGEventManagementEventSettingList, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -2,52 +2,52 @@ package ruckus
 
 // API Version: v9_0
 
-type SwitchMSwitchDNSConfigCreateDnsConfig struct {
-	Dns *SwitchMSwitchDNSConfigDnsConfigObject `json:"dns,omitempty"`
+type SwitchMDNSConfigCreateDnsConfig struct {
+	Dns *SwitchMDNSConfigObject `json:"dns,omitempty"`
 
 	// Id
 	// Switch Group Id
 	Id *string `json:"id,omitempty"`
 }
 
-func NewSwitchMSwitchDNSConfigCreateDnsConfig() *SwitchMSwitchDNSConfigCreateDnsConfig {
-	m := new(SwitchMSwitchDNSConfigCreateDnsConfig)
+func NewSwitchMDNSConfigCreateDnsConfig() *SwitchMDNSConfigCreateDnsConfig {
+	m := new(SwitchMDNSConfigCreateDnsConfig)
 	return m
 }
 
-type SwitchMSwitchDNSConfigDnsConfig struct {
+type SwitchMDNSConfig struct {
 	// CreatedTime
 	// The create time of the DNS Config
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	Dns *SwitchMSwitchDNSConfigDnsConfigObject `json:"dns,omitempty"`
+	Dns *SwitchMDNSConfigObject `json:"dns,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the DNS Config
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMSwitchDNSConfigDnsConfig() *SwitchMSwitchDNSConfigDnsConfig {
-	m := new(SwitchMSwitchDNSConfigDnsConfig)
+func NewSwitchMDNSConfig() *SwitchMDNSConfig {
+	m := new(SwitchMDNSConfig)
 	return m
 }
 
-type SwitchMSwitchDNSConfigDnsConfigObject struct {
+type SwitchMDNSConfigObject struct {
 	// Ip
 	// DNS Config IP
 	Ip *string `json:"ip,omitempty"`
 }
 
-func NewSwitchMSwitchDNSConfigDnsConfigObject() *SwitchMSwitchDNSConfigDnsConfigObject {
-	m := new(SwitchMSwitchDNSConfigDnsConfigObject)
+func NewSwitchMDNSConfigObject() *SwitchMDNSConfigObject {
+	m := new(SwitchMDNSConfigObject)
 	return m
 }
 
-type SwitchMSwitchDNSConfigUpdateDnsConfig struct {
-	Dns *SwitchMSwitchDNSConfigDnsConfigObject `json:"dns,omitempty"`
+type SwitchMDNSConfigUpdateDnsConfig struct {
+	Dns *SwitchMDNSConfigObject `json:"dns,omitempty"`
 }
 
-func NewSwitchMSwitchDNSConfigUpdateDnsConfig() *SwitchMSwitchDNSConfigUpdateDnsConfig {
-	m := new(SwitchMSwitchDNSConfigUpdateDnsConfig)
+func NewSwitchMDNSConfigUpdateDnsConfig() *SwitchMDNSConfigUpdateDnsConfig {
+	m := new(SwitchMDNSConfigUpdateDnsConfig)
 	return m
 }

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAccountingprofileService struct {
+type WSGAccountingProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGAccountingprofileService(c *VSZClient) *WSGAccountingprofileService {
-	s := new(WSGAccountingprofileService)
+func NewWSGAccountingProfileService(c *VSZClient) *WSGAccountingProfileService {
+	s := new(WSGAccountingProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAccountingprofileService() *WSGAccountingprofileService {
-	return NewWSGAccountingprofileService(ss.apiClient)
+func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService {
+	return NewWSGAccountingProfileService(ss.apiClient)
 }
 
 // AddProfilesAcct
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGAccountingprofileService() *WSGAccountingprofileService
 //
 // Request Body:
 //	 - body *WSGProfileCreateAccountingProfile
-func (s *WSGAccountingprofileService) AddProfilesAcct(ctx context.Context, body *WSGProfileCreateAccountingProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body *WSGProfileCreateAccountingProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -59,7 +59,7 @@ func (s *WSGAccountingprofileService) AddProfilesAcct(ctx context.Context, body 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingprofileService) AddProfilesAcctCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
+func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -88,7 +88,7 @@ func (s *WSGAccountingprofileService) AddProfilesAcctCloneById(ctx context.Conte
 //
 // Request Body:
 //	 - body *WSGProfileDeleteBulkAccountingProfile
-func (s *WSGAccountingprofileService) DeleteProfilesAcct(ctx context.Context, body *WSGProfileDeleteBulkAccountingProfile) (*APIResponseMeta, error) {
+func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, body *WSGProfileDeleteBulkAccountingProfile) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -115,7 +115,7 @@ func (s *WSGAccountingprofileService) DeleteProfilesAcct(ctx context.Context, bo
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingprofileService) DeleteProfilesAcctById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -135,7 +135,7 @@ func (s *WSGAccountingprofileService) DeleteProfilesAcctById(ctx context.Context
 // FindProfilesAcct
 //
 // Use this API command to retrieve a list of accounting profiles.
-func (s *WSGAccountingprofileService) FindProfilesAcct(ctx context.Context) (*WSGProfileAccountingProfileList, *APIResponseMeta, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context) (*WSGProfileAccountingProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -160,7 +160,7 @@ func (s *WSGAccountingprofileService) FindProfilesAcct(ctx context.Context) (*WS
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingprofileService) FindProfilesAcctById(ctx context.Context, id string) (*WSGProfileAccountingProfile, *APIResponseMeta, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, id string) (*WSGProfileAccountingProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -185,7 +185,7 @@ func (s *WSGAccountingprofileService) FindProfilesAcctById(ctx context.Context, 
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccountingprofileService) FindProfilesAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileAccountingProfileList, *APIResponseMeta, error) {
+func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileAccountingProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -217,7 +217,7 @@ func (s *WSGAccountingprofileService) FindProfilesAcctByQueryCriteria(ctx contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAccountingprofileService) PartialUpdateProfilesAcctById(ctx context.Context, body *WSGProfileModifyAccountingProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.Context, body *WSGProfileModifyAccountingProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

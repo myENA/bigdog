@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGRestrictedapaccessprofileService struct {
+type WSGRestrictedAPAccessProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGRestrictedapaccessprofileService(c *VSZClient) *WSGRestrictedapaccessprofileService {
-	s := new(WSGRestrictedapaccessprofileService)
+func NewWSGRestrictedAPAccessProfileService(c *VSZClient) *WSGRestrictedAPAccessProfileService {
+	s := new(WSGRestrictedAPAccessProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGRestrictedapaccessprofileService() *WSGRestrictedapaccessprofileService {
-	return NewWSGRestrictedapaccessprofileService(ss.apiClient)
+func (ss *WSGService) WSGRestrictedAPAccessProfileService() *WSGRestrictedAPAccessProfileService {
+	return NewWSGRestrictedAPAccessProfileService(ss.apiClient)
 }
 
 // AddRkszonesRestrictedApAccessProfilesByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGRestrictedapaccessprofileService() *WSGRestrictedapacce
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRestrictedapaccessprofileService) AddRkszonesRestrictedApAccessProfilesByZoneId(ctx context.Context, body *WSGProfileCreateRestrictedApAccessProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGRestrictedAPAccessProfileService) AddRkszonesRestrictedApAccessProfilesByZoneId(ctx context.Context, body *WSGProfileCreateRestrictedApAccessProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -60,7 +60,7 @@ func (s *WSGRestrictedapaccessprofileService) AddRkszonesRestrictedApAccessProfi
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGRestrictedapaccessprofileService) DeleteRkszonesRestrictedApAccessProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -89,7 +89,7 @@ func (s *WSGRestrictedapaccessprofileService) DeleteRkszonesRestrictedApAccessPr
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRestrictedapaccessprofileService) DeleteRkszonesRestrictedApAccessProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -116,7 +116,7 @@ func (s *WSGRestrictedapaccessprofileService) DeleteRkszonesRestrictedApAccessPr
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRestrictedapaccessprofileService) FindRkszonesRestrictedApAccessProfilesById(ctx context.Context, id string, zoneId string) (*WSGProfileRestrictedApAccessProfile, *APIResponseMeta, error) {
+func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProfilesById(ctx context.Context, id string, zoneId string) (*WSGProfileRestrictedApAccessProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -142,7 +142,7 @@ func (s *WSGRestrictedapaccessprofileService) FindRkszonesRestrictedApAccessProf
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGRestrictedapaccessprofileService) FindRkszonesRestrictedApAccessProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileRestrictedApAccessProfileArray, *APIResponseMeta, error) {
+func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileRestrictedApAccessProfileArray, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -177,7 +177,7 @@ func (s *WSGRestrictedapaccessprofileService) FindRkszonesRestrictedApAccessProf
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGRestrictedapaccessprofileService) FindRkszonesRestrictedApAccessProfilesByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGProfileIdList, *APIResponseMeta, error) {
+func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProfilesByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGProfileIdList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -214,7 +214,7 @@ func (s *WSGRestrictedapaccessprofileService) FindRkszonesRestrictedApAccessProf
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRestrictedapaccessprofileService) UpdateRkszonesRestrictedApAccessProfilesById(ctx context.Context, body *WSGProfileModifyRestrictedApAccessProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRestrictedAPAccessProfileService) UpdateRkszonesRestrictedApAccessProfilesById(ctx context.Context, body *WSGProfileModifyRestrictedApAccessProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

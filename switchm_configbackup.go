@@ -2,14 +2,14 @@ package ruckus
 
 // API Version: v9_0
 
-type SwitchMSwitchConfigurationBackupBackupIds []string
+type SwitchMConfigurationBackupBackupIds []string
 
-func MakeSwitchMSwitchConfigurationBackupBackupIds() SwitchMSwitchConfigurationBackupBackupIds {
-	m := make(SwitchMSwitchConfigurationBackupBackupIds, 0)
+func MakeSwitchMConfigurationBackupBackupIds() SwitchMConfigurationBackupBackupIds {
+	m := make(SwitchMConfigurationBackupBackupIds, 0)
 	return m
 }
 
-type SwitchMSwitchConfigurationBackupConfigurationBackup struct {
+type SwitchMConfigurationBackup struct {
 	// FailureReason
 	// Failure reason of the config backup and config restore
 	FailureReason *string `json:"failureReason,omitempty"`
@@ -47,12 +47,12 @@ type SwitchMSwitchConfigurationBackupConfigurationBackup struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewSwitchMSwitchConfigurationBackupConfigurationBackup() *SwitchMSwitchConfigurationBackupConfigurationBackup {
-	m := new(SwitchMSwitchConfigurationBackupConfigurationBackup)
+func NewSwitchMConfigurationBackup() *SwitchMConfigurationBackup {
+	m := new(SwitchMConfigurationBackup)
 	return m
 }
 
-type SwitchMSwitchConfigurationBackupConfigBackupContent struct {
+type SwitchMConfigurationBackupConfigBackupContent struct {
 	// Config
 	// Content of the ConfigBackup
 	Config *string `json:"config,omitempty"`
@@ -66,23 +66,23 @@ type SwitchMSwitchConfigurationBackupConfigBackupContent struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewSwitchMSwitchConfigurationBackupConfigBackupContent() *SwitchMSwitchConfigurationBackupConfigBackupContent {
-	m := new(SwitchMSwitchConfigurationBackupConfigBackupContent)
+func NewSwitchMConfigurationBackupConfigBackupContent() *SwitchMConfigurationBackupConfigBackupContent {
+	m := new(SwitchMConfigurationBackupConfigBackupContent)
 	return m
 }
 
-type SwitchMSwitchConfigurationBackupConfigBackupDiff struct {
-	ConfigBackup1 *SwitchMSwitchConfigurationBackupConfigBackupContent `json:"configBackup1,omitempty"`
+type SwitchMConfigurationBackupConfigBackupDiff struct {
+	ConfigBackup1 *SwitchMConfigurationBackupConfigBackupContent `json:"configBackup1,omitempty"`
 
-	ConfigBackup2 *SwitchMSwitchConfigurationBackupConfigBackupContent `json:"configBackup2,omitempty"`
+	ConfigBackup2 *SwitchMConfigurationBackupConfigBackupContent `json:"configBackup2,omitempty"`
 }
 
-func NewSwitchMSwitchConfigurationBackupConfigBackupDiff() *SwitchMSwitchConfigurationBackupConfigBackupDiff {
-	m := new(SwitchMSwitchConfigurationBackupConfigBackupDiff)
+func NewSwitchMConfigurationBackupConfigBackupDiff() *SwitchMConfigurationBackupConfigBackupDiff {
+	m := new(SwitchMConfigurationBackupConfigBackupDiff)
 	return m
 }
 
-type SwitchMSwitchConfigurationBackupConfigBackupDiffInput struct {
+type SwitchMConfigurationBackupConfigBackupDiffInput struct {
 	// ConfigBackupId1
 	// The first config backup id of diff input
 	ConfigBackupId1 *string `json:"configBackupId1,omitempty"`
@@ -92,12 +92,12 @@ type SwitchMSwitchConfigurationBackupConfigBackupDiffInput struct {
 	ConfigBackupId2 *string `json:"configBackupId2,omitempty"`
 }
 
-func NewSwitchMSwitchConfigurationBackupConfigBackupDiffInput() *SwitchMSwitchConfigurationBackupConfigBackupDiffInput {
-	m := new(SwitchMSwitchConfigurationBackupConfigBackupDiffInput)
+func NewSwitchMConfigurationBackupConfigBackupDiffInput() *SwitchMConfigurationBackupConfigBackupDiffInput {
+	m := new(SwitchMConfigurationBackupConfigBackupDiffInput)
 	return m
 }
 
-type SwitchMSwitchConfigurationBackupCreateBackupResultList struct {
+type SwitchMConfigurationBackupCreateBackupResultList struct {
 	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
@@ -108,7 +108,7 @@ type SwitchMSwitchConfigurationBackupCreateBackupResultList struct {
 	// Has more data or not
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchConfigurationBackupCreateBackupResultListType `json:"list,omitempty"`
+	List []*SwitchMConfigurationBackupCreateBackupResultListType `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total ConfigBackupInfo count
@@ -119,12 +119,12 @@ type SwitchMSwitchConfigurationBackupCreateBackupResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchConfigurationBackupCreateBackupResultList() *SwitchMSwitchConfigurationBackupCreateBackupResultList {
-	m := new(SwitchMSwitchConfigurationBackupCreateBackupResultList)
+func NewSwitchMConfigurationBackupCreateBackupResultList() *SwitchMConfigurationBackupCreateBackupResultList {
+	m := new(SwitchMConfigurationBackupCreateBackupResultList)
 	return m
 }
 
-type SwitchMSwitchConfigurationBackupCreateBackupResultListType struct {
+type SwitchMConfigurationBackupCreateBackupResultListType struct {
 	// ConfigBackupId
 	// Identifier of config backup
 	ConfigBackupId *string `json:"configBackupId,omitempty"`
@@ -138,12 +138,12 @@ type SwitchMSwitchConfigurationBackupCreateBackupResultListType struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
-func NewSwitchMSwitchConfigurationBackupCreateBackupResultListType() *SwitchMSwitchConfigurationBackupCreateBackupResultListType {
-	m := new(SwitchMSwitchConfigurationBackupCreateBackupResultListType)
+func NewSwitchMConfigurationBackupCreateBackupResultListType() *SwitchMConfigurationBackupCreateBackupResultListType {
+	m := new(SwitchMConfigurationBackupCreateBackupResultListType)
 	return m
 }
 
-type SwitchMSwitchConfigurationBackupList struct {
+type SwitchMConfigurationBackupList struct {
 	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
@@ -154,7 +154,7 @@ type SwitchMSwitchConfigurationBackupList struct {
 	// Indicator of whether there are more ConfigBackup after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchConfigurationBackupConfigurationBackup `json:"list,omitempty"`
+	List []*SwitchMConfigurationBackup `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// ConfigBackup count
@@ -165,14 +165,14 @@ type SwitchMSwitchConfigurationBackupList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchConfigurationBackupList() *SwitchMSwitchConfigurationBackupList {
-	m := new(SwitchMSwitchConfigurationBackupList)
+func NewSwitchMConfigurationBackupList() *SwitchMConfigurationBackupList {
+	m := new(SwitchMConfigurationBackupList)
 	return m
 }
 
-type SwitchMSwitchConfigurationBackupSwitchIds []string
+type SwitchMConfigurationBackupSwitchIds []string
 
-func MakeSwitchMSwitchConfigurationBackupSwitchIds() SwitchMSwitchConfigurationBackupSwitchIds {
-	m := make(SwitchMSwitchConfigurationBackupSwitchIds, 0)
+func MakeSwitchMConfigurationBackupSwitchIds() SwitchMConfigurationBackupSwitchIds {
+	m := make(SwitchMConfigurationBackupSwitchIds, 0)
 	return m
 }

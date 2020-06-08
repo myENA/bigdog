@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGIdentityguestpassService struct {
+type WSGIdentityGuestPassService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGIdentityguestpassService(c *VSZClient) *WSGIdentityguestpassService {
-	s := new(WSGIdentityguestpassService)
+func NewWSGIdentityGuestPassService(c *VSZClient) *WSGIdentityGuestPassService {
+	s := new(WSGIdentityGuestPassService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGIdentityguestpassService() *WSGIdentityguestpassService {
-	return NewWSGIdentityguestpassService(ss.apiClient)
+func (ss *WSGService) WSGIdentityGuestPassService() *WSGIdentityGuestPassService {
+	return NewWSGIdentityGuestPassService(ss.apiClient)
 }
 
 // AddIdentityGuestpassGenerate
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGIdentityguestpassService() *WSGIdentityguestpassService
 //
 // Request Body:
 //	 - body *WSGIdentityCreateIdentityGuestPass
-func (s *WSGIdentityguestpassService) AddIdentityGuestpassGenerate(ctx context.Context, body *WSGIdentityCreateIdentityGuestPass) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.Context, body *WSGIdentityCreateIdentityGuestPass) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGIdentityguestpassService) AddIdentityGuestpassGenerate(ctx context.C
 //
 // Request Body:
 //	 - body *WSGIdentityQueryCriteria
-func (s *WSGIdentityguestpassService) AddIdentityGuestpassList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityGuestPassList, *APIResponseMeta, error) {
+func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Context, body *WSGIdentityQueryCriteria) (*WSGIdentityGuestPassList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGIdentityguestpassService) AddIdentityGuestpassList(ctx context.Conte
 //
 // Request Body:
 //	 - body []byte
-func (s *WSGIdentityguestpassService) AddIdentityGuestpassUpload(ctx context.Context, body []byte) (interface{}, *APIResponseMeta, error) {
+func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Context, body []byte) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -111,7 +111,7 @@ func (s *WSGIdentityguestpassService) AddIdentityGuestpassUpload(ctx context.Con
 //
 // Request Body:
 //	 - body *WSGIdentityImportIdentityGuestPass
-func (s *WSGIdentityguestpassService) AddIdentityGuestpassUploadCommon(ctx context.Context, body *WSGIdentityImportIdentityGuestPass) (interface{}, *APIResponseMeta, error) {
+func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx context.Context, body *WSGIdentityImportIdentityGuestPass) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -139,7 +139,7 @@ func (s *WSGIdentityguestpassService) AddIdentityGuestpassUploadCommon(ctx conte
 //
 // Request Body:
 //	 - body *WSGIdentityDeleteBulk
-func (s *WSGIdentityguestpassService) DeleteIdentityGuestpass(ctx context.Context, body *WSGIdentityDeleteBulk) (*APIResponseMeta, error) {
+func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Context, body *WSGIdentityDeleteBulk) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -166,7 +166,7 @@ func (s *WSGIdentityguestpassService) DeleteIdentityGuestpass(ctx context.Contex
 // Required Parameters:
 // - userId string
 //		- required
-func (s *WSGIdentityguestpassService) DeleteIdentityGuestpassByUserId(ctx context.Context, userId string) (*APIResponseMeta, error) {
+func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx context.Context, userId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -206,7 +206,7 @@ func (s *WSGIdentityguestpassService) DeleteIdentityGuestpassByUserId(ctx contex
 //		- nullable
 // - wlan string
 //		- nullable
-func (s *WSGIdentityguestpassService) FindIdentityGuestpass(ctx context.Context, optionalParams map[string][]string) (*WSGIdentityGuestPassList, *APIResponseMeta, error) {
+func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context, optionalParams map[string][]string) (*WSGIdentityGuestPassList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

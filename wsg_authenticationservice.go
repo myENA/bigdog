@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAuthenticationserviceService struct {
+type WSGAuthenticationServiceService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGAuthenticationserviceService(c *VSZClient) *WSGAuthenticationserviceService {
-	s := new(WSGAuthenticationserviceService)
+func NewWSGAuthenticationServiceService(c *VSZClient) *WSGAuthenticationServiceService {
+	s := new(WSGAuthenticationServiceService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAuthenticationserviceService() *WSGAuthenticationserviceService {
-	return NewWSGAuthenticationserviceService(ss.apiClient)
+func (ss *WSGService) WSGAuthenticationServiceService() *WSGAuthenticationServiceService {
+	return NewWSGAuthenticationServiceService(ss.apiClient)
 }
 
 // AddServicesAuthAd
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGAuthenticationserviceService() *WSGAuthenticationservic
 //
 // Request Body:
 //	 - body *WSGServiceCreateActiveDirectoryAuthentication
-func (s *WSGAuthenticationserviceService) AddServicesAuthAd(ctx context.Context, body *WSGServiceCreateActiveDirectoryAuthentication) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context, body *WSGServiceCreateActiveDirectoryAuthentication) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGAuthenticationserviceService) AddServicesAuthAd(ctx context.Context,
 //
 // Request Body:
 //	 - body *WSGServiceCreateHlrAuthentication
-func (s *WSGAuthenticationserviceService) AddServicesAuthHlr(ctx context.Context, body *WSGServiceCreateHlrAuthentication) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context, body *WSGServiceCreateHlrAuthentication) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGAuthenticationserviceService) AddServicesAuthHlr(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGServiceCreateLDAPAuthentication
-func (s *WSGAuthenticationserviceService) AddServicesAuthLdap(ctx context.Context, body *WSGServiceCreateLDAPAuthentication) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Context, body *WSGServiceCreateLDAPAuthentication) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -111,7 +111,7 @@ func (s *WSGAuthenticationserviceService) AddServicesAuthLdap(ctx context.Contex
 //
 // Request Body:
 //	 - body *WSGServiceCreateRadiusAuthentication
-func (s *WSGAuthenticationserviceService) AddServicesAuthRadius(ctx context.Context, body *WSGServiceCreateRadiusAuthentication) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Context, body *WSGServiceCreateRadiusAuthentication) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -143,7 +143,7 @@ func (s *WSGAuthenticationserviceService) AddServicesAuthRadius(ctx context.Cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) AddServicesAuthTestById(ctx context.Context, body *WSGServiceTestingConfig, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Context, body *WSGServiceTestingConfig, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -170,7 +170,7 @@ func (s *WSGAuthenticationserviceService) AddServicesAuthTestById(ctx context.Co
 //
 // Request Body:
 //	 - body *WSGServiceDeleteBulkAuthenticationService
-func (s *WSGAuthenticationserviceService) DeleteServicesAuth(ctx context.Context, body *WSGServiceDeleteBulkAuthenticationService) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context, body *WSGServiceDeleteBulkAuthenticationService) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -197,7 +197,7 @@ func (s *WSGAuthenticationserviceService) DeleteServicesAuth(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) DeleteServicesAuthAdById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -221,7 +221,7 @@ func (s *WSGAuthenticationserviceService) DeleteServicesAuthAdById(ctx context.C
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) DeleteServicesAuthById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -245,7 +245,7 @@ func (s *WSGAuthenticationserviceService) DeleteServicesAuthById(ctx context.Con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) DeleteServicesAuthHlrById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -269,7 +269,7 @@ func (s *WSGAuthenticationserviceService) DeleteServicesAuthHlrById(ctx context.
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) DeleteServicesAuthLdapById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -293,7 +293,7 @@ func (s *WSGAuthenticationserviceService) DeleteServicesAuthLdapById(ctx context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) DeleteServicesAuthRadiusById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -317,7 +317,7 @@ func (s *WSGAuthenticationserviceService) DeleteServicesAuthRadiusById(ctx conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) DeleteServicesAuthRadiusSecondaryById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -341,7 +341,7 @@ func (s *WSGAuthenticationserviceService) DeleteServicesAuthRadiusSecondaryById(
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) DeleteServicesAuthRadiusStandbyPrimaryById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimaryById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -364,7 +364,7 @@ func (s *WSGAuthenticationserviceService) DeleteServicesAuthRadiusStandbyPrimary
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationserviceService) FindServicesAaaServerAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAAAServerQueryList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAaaServerAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAAAServerQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -389,7 +389,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAaaServerAuthByQueryCriter
 // FindServicesAuthAd
 //
 // Use this API command to retrieve a list of active directory authentication services.
-func (s *WSGAuthenticationserviceService) FindServicesAuthAd(ctx context.Context) (*WSGServiceActiveDirectoryServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context) (*WSGServiceActiveDirectoryServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -414,7 +414,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthAd(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) FindServicesAuthAdById(ctx context.Context, id string) (*WSGServiceActiveDirectoryService, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Context, id string) (*WSGServiceActiveDirectoryService, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -439,7 +439,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthAdById(ctx context.Con
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationserviceService) FindServicesAuthAdByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceActiveDirectoryServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceActiveDirectoryServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -467,7 +467,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthAdByQueryCriteria(ctx 
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationserviceService) FindServicesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceCommonAuthenticationServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceCommonAuthenticationServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -496,7 +496,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthByQueryCriteria(ctx co
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) FindServicesAuthGuestById(ctx context.Context, id string) (*WSGServiceCommonAuthenticationService, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.Context, id string) (*WSGServiceCommonAuthenticationService, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -518,7 +518,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthGuestById(ctx context.
 // FindServicesAuthHlr
 //
 // Use this API command to retrieve a list of hlr authentication services.
-func (s *WSGAuthenticationserviceService) FindServicesAuthHlr(ctx context.Context) (*WSGServiceHlrServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Context) (*WSGServiceHlrServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -543,7 +543,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthHlr(ctx context.Contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) FindServicesAuthHlrById(ctx context.Context, id string) (*WSGServiceHlrService, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Context, id string) (*WSGServiceHlrService, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -568,7 +568,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthHlrById(ctx context.Co
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationserviceService) FindServicesAuthHlrByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceHlrServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceHlrServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -593,7 +593,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthHlrByQueryCriteria(ctx
 // FindServicesAuthLdap
 //
 // Use this API command to retrieve a list of LDAP authentication services.
-func (s *WSGAuthenticationserviceService) FindServicesAuthLdap(ctx context.Context) (*WSGServiceLDAPServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Context) (*WSGServiceLDAPServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -618,7 +618,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthLdap(ctx context.Conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) FindServicesAuthLdapById(ctx context.Context, id string) (*WSGServiceLDAPService, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.Context, id string) (*WSGServiceLDAPService, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -643,7 +643,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthLdapById(ctx context.C
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationserviceService) FindServicesAuthLdapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceLDAPServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceLDAPServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -672,7 +672,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthLdapByQueryCriteria(ct
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) FindServicesAuthLocalDbById(ctx context.Context, id string) (*WSGServiceCommonAuthenticationService, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthLocalDbById(ctx context.Context, id string) (*WSGServiceCommonAuthenticationService, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -694,7 +694,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthLocalDbById(ctx contex
 // FindServicesAuthRadius
 //
 // Use this API command to retrieve a list of RADIUS authentication services.
-func (s *WSGAuthenticationserviceService) FindServicesAuthRadius(ctx context.Context) (*WSGServiceRadiusAuthenticationServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Context) (*WSGServiceRadiusAuthenticationServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -719,7 +719,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthRadius(ctx context.Con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) FindServicesAuthRadiusById(ctx context.Context, id string) (*WSGServiceRadiusAuthenticationService, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context.Context, id string) (*WSGServiceRadiusAuthenticationService, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -744,7 +744,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthRadiusById(ctx context
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationserviceService) FindServicesAuthRadiusByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceRadiusAuthenticationServiceList, *APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGServiceRadiusAuthenticationServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -776,7 +776,7 @@ func (s *WSGAuthenticationserviceService) FindServicesAuthRadiusByQueryCriteria(
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthAdById(ctx context.Context, body *WSGServiceModifyActiveDirectoryAuthentication, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx context.Context, body *WSGServiceModifyActiveDirectoryAuthentication, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -807,7 +807,7 @@ func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthAdById(ctx co
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthHlrById(ctx context.Context, body *WSGServiceModifyHlrAuthentication, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx context.Context, body *WSGServiceModifyHlrAuthentication, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -838,7 +838,7 @@ func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthHlrById(ctx c
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthLdapById(ctx context.Context, body *WSGServiceModifyLDAPAuthentication, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx context.Context, body *WSGServiceModifyLDAPAuthentication, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -869,7 +869,7 @@ func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthLdapById(ctx 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthLocalDbById(ctx context.Context, body *WSGServiceModifyLocalDbAuthentication, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocalDbById(ctx context.Context, body *WSGServiceModifyLocalDbAuthentication, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -900,7 +900,7 @@ func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthLocalDbById(c
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationserviceService) PartialUpdateServicesAuthRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAuthentication, id string) (*APIResponseMeta, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAuthentication, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

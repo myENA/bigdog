@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGRuckusgretunnelprofileService struct {
+type WSGRuckusGRETunnelProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGRuckusgretunnelprofileService(c *VSZClient) *WSGRuckusgretunnelprofileService {
-	s := new(WSGRuckusgretunnelprofileService)
+func NewWSGRuckusGRETunnelProfileService(c *VSZClient) *WSGRuckusGRETunnelProfileService {
+	s := new(WSGRuckusGRETunnelProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGRuckusgretunnelprofileService() *WSGRuckusgretunnelprofileService {
-	return NewWSGRuckusgretunnelprofileService(ss.apiClient)
+func (ss *WSGService) WSGRuckusGRETunnelProfileService() *WSGRuckusGRETunnelProfileService {
+	return NewWSGRuckusGRETunnelProfileService(ss.apiClient)
 }
 
 // AddProfilesTunnelRuckusgre
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGRuckusgretunnelprofileService() *WSGRuckusgretunnelprof
 //
 // Request Body:
 //	 - body *WSGProfileCreateRuckusGREProfile
-func (s *WSGRuckusgretunnelprofileService) AddProfilesTunnelRuckusgre(ctx context.Context, body *WSGProfileCreateRuckusGREProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx context.Context, body *WSGProfileCreateRuckusGREProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGRuckusgretunnelprofileService) AddProfilesTunnelRuckusgre(ctx contex
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGRuckusgretunnelprofileService) DeleteProfilesTunnelRuckusgre(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGRuckusgretunnelprofileService) DeleteProfilesTunnelRuckusgre(ctx con
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusgretunnelprofileService) DeleteProfilesTunnelRuckusgreById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,7 +102,7 @@ func (s *WSGRuckusgretunnelprofileService) DeleteProfilesTunnelRuckusgreById(ctx
 // FindProfilesTunnelRuckusgre
 //
 // Use this API command to retrieve a list of RuckusGRE tunnel profile.
-func (s *WSGRuckusgretunnelprofileService) FindProfilesTunnelRuckusgre(ctx context.Context) (*WSGProfileList, *APIResponseMeta, error) {
+func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx context.Context) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -127,7 +127,7 @@ func (s *WSGRuckusgretunnelprofileService) FindProfilesTunnelRuckusgre(ctx conte
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusgretunnelprofileService) FindProfilesTunnelRuckusgreById(ctx context.Context, id string) (*WSGProfileRuckusGREProfile, *APIResponseMeta, error) {
+func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx context.Context, id string) (*WSGProfileRuckusGREProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -152,7 +152,7 @@ func (s *WSGRuckusgretunnelprofileService) FindProfilesTunnelRuckusgreById(ctx c
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGRuckusgretunnelprofileService) FindProfilesTunnelRuckusgreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileRuckusGREProfileList, *APIResponseMeta, error) {
+func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileRuckusGREProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *WSGRuckusgretunnelprofileService) FindProfilesTunnelRuckusgreByQueryCri
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGRuckusgretunnelprofileService) PartialUpdateProfilesTunnelRuckusgreById(ctx context.Context, body *WSGProfileModifyRuckusGREProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGRuckusGRETunnelProfileService) PartialUpdateProfilesTunnelRuckusgreById(ctx context.Context, body *WSGProfileModifyRuckusGREProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

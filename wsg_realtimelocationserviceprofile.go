@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGRealtimelocationserviceprofileService struct {
+type WSGRealTimeLocationServiceProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGRealtimelocationserviceprofileService(c *VSZClient) *WSGRealtimelocationserviceprofileService {
-	s := new(WSGRealtimelocationserviceprofileService)
+func NewWSGRealTimeLocationServiceProfileService(c *VSZClient) *WSGRealTimeLocationServiceProfileService {
+	s := new(WSGRealTimeLocationServiceProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGRealtimelocationserviceprofileService() *WSGRealtimelocationserviceprofileService {
-	return NewWSGRealtimelocationserviceprofileService(ss.apiClient)
+func (ss *WSGService) WSGRealTimeLocationServiceProfileService() *WSGRealTimeLocationServiceProfileService {
+	return NewWSGRealTimeLocationServiceProfileService(ss.apiClient)
 }
 
 // AddRkszonesRealTimeLocationServiceByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGRealtimelocationserviceprofileService() *WSGRealtimeloc
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRealtimelocationserviceprofileService) AddRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, body *WSGProfileCreateRtlsProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, body *WSGProfileCreateRtlsProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGRealtimelocationserviceprofileService) AddRkszonesRealTimeLocationSe
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRealtimelocationserviceprofileService) DeleteRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGRealtimelocationserviceprofileService) DeleteRkszonesRealTimeLocatio
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRealtimelocationserviceprofileService) FindRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string) (*WSGProfileCreateRtlsProfile, *APIResponseMeta, error) {
+func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string) (*WSGProfileCreateRtlsProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +117,7 @@ func (s *WSGRealtimelocationserviceprofileService) FindRkszonesRealTimeLocationS
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGRealtimelocationserviceprofileService) FindRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, zoneId string) (*WSGProfileRtlsProfileList, *APIResponseMeta, error) {
+func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, zoneId string) (*WSGProfileRtlsProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -148,7 +148,7 @@ func (s *WSGRealtimelocationserviceprofileService) FindRkszonesRealTimeLocationS
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRealtimelocationserviceprofileService) UpdateRkszonesRealTimeLocationServiceById(ctx context.Context, body *WSGProfileUpdateRtlsProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGRealTimeLocationServiceProfileService) UpdateRkszonesRealTimeLocationServiceById(ctx context.Context, body *WSGProfileUpdateRtlsProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

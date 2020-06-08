@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGFtpserversettingsService struct {
+type WSGFTPServerSettingsService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGFtpserversettingsService(c *VSZClient) *WSGFtpserversettingsService {
-	s := new(WSGFtpserversettingsService)
+func NewWSGFTPServerSettingsService(c *VSZClient) *WSGFTPServerSettingsService {
+	s := new(WSGFTPServerSettingsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGFtpserversettingsService() *WSGFtpserversettingsService {
-	return NewWSGFtpserversettingsService(ss.apiClient)
+func (ss *WSGService) WSGFTPServerSettingsService() *WSGFTPServerSettingsService {
+	return NewWSGFTPServerSettingsService(ss.apiClient)
 }
 
 // AddFtps
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGFtpserversettingsService() *WSGFtpserversettingsService
 //
 // Request Body:
 //	 - body *WSGSystemFtp
-func (s *WSGFtpserversettingsService) AddFtps(ctx context.Context, body *WSGSystemFtp) (interface{}, *APIResponseMeta, error) {
+func (s *WSGFTPServerSettingsService) AddFtps(ctx context.Context, body *WSGSystemFtp) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGFtpserversettingsService) AddFtps(ctx context.Context, body *WSGSyst
 //
 // Request Body:
 //	 - body *WSGSystemDeleteBulkFtp
-func (s *WSGFtpserversettingsService) DeleteFtps(ctx context.Context, body *WSGSystemDeleteBulkFtp) (interface{}, *APIResponseMeta, error) {
+func (s *WSGFTPServerSettingsService) DeleteFtps(ctx context.Context, body *WSGSystemDeleteBulkFtp) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -84,7 +84,7 @@ func (s *WSGFtpserversettingsService) DeleteFtps(ctx context.Context, body *WSGS
 // Required Parameters:
 // - ftpId string
 //		- required
-func (s *WSGFtpserversettingsService) DeleteFtpsByFtpId(ctx context.Context, ftpId string) (*APIResponseMeta, error) {
+func (s *WSGFTPServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftpId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -108,7 +108,7 @@ func (s *WSGFtpserversettingsService) DeleteFtpsByFtpId(ctx context.Context, ftp
 // Required Parameters:
 // - ftpId string
 //		- required
-func (s *WSGFtpserversettingsService) FindFtpsByFtpId(ctx context.Context, ftpId string) (*WSGSystemFtp, *APIResponseMeta, error) {
+func (s *WSGFTPServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId string) (*WSGSystemFtp, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -133,7 +133,7 @@ func (s *WSGFtpserversettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGFtpserversettingsService) FindFtpsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSystemFtpList, *APIResponseMeta, error) {
+func (s *WSGFTPServerSettingsService) FindFtpsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGSystemFtpList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -161,7 +161,7 @@ func (s *WSGFtpserversettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 //
 // Request Body:
 //	 - body *WSGSystemFtp
-func (s *WSGFtpserversettingsService) FindFtpsTest(ctx context.Context, body *WSGSystemFtp) (*WSGSystemFtpTestResponse, *APIResponseMeta, error) {
+func (s *WSGFTPServerSettingsService) FindFtpsTest(ctx context.Context, body *WSGSystemFtp) (*WSGSystemFtpTestResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -190,7 +190,7 @@ func (s *WSGFtpserversettingsService) FindFtpsTest(ctx context.Context, body *WS
 // Required Parameters:
 // - ftpId string
 //		- required
-func (s *WSGFtpserversettingsService) FindFtpsTestByFtpId(ctx context.Context, ftpId string) (*WSGSystemFtpTestResponse, *APIResponseMeta, error) {
+func (s *WSGFTPServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, ftpId string) (*WSGSystemFtpTestResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -219,7 +219,7 @@ func (s *WSGFtpserversettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 // Required Parameters:
 // - ftpId string
 //		- required
-func (s *WSGFtpserversettingsService) PartialUpdateFtpsByFtpId(ctx context.Context, body *WSGSystemFtp, ftpId string) (*APIResponseMeta, error) {
+func (s *WSGFTPServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Context, body *WSGSystemFtp, ftpId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,21 +7,21 @@ import (
 	"net/http"
 )
 
-type WSGL2accesscontrolService struct {
+type WSGL2AccessControlService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGL2accesscontrolService(c *VSZClient) *WSGL2accesscontrolService {
-	s := new(WSGL2accesscontrolService)
+func NewWSGL2AccessControlService(c *VSZClient) *WSGL2AccessControlService {
+	s := new(WSGL2AccessControlService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGL2accesscontrolService() *WSGL2accesscontrolService {
-	return NewWSGL2accesscontrolService(ss.apiClient)
+func (ss *WSGService) WSGL2AccessControlService() *WSGL2AccessControlService {
+	return NewWSGL2AccessControlService(ss.apiClient)
 }
 
-type WSGL2accesscontrolCreateL2AccessControl struct {
+type WSGL2AccessControlCreateL2AccessControl struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	DomainId *string `json:"domainId,omitempty"`
@@ -33,7 +33,7 @@ type WSGL2accesscontrolCreateL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction"`
 
-	EtherTypes []*WSGL2accesscontrolEtherTypeObject `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
 
 	// Name
 	// Constraints:
@@ -47,24 +47,24 @@ type WSGL2accesscontrolCreateL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction"`
 
-	Rules []*WSGL2accesscontrolRuleObject `json:"rules,omitempty"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
 }
 
-func NewWSGL2accesscontrolCreateL2AccessControl() *WSGL2accesscontrolCreateL2AccessControl {
-	m := new(WSGL2accesscontrolCreateL2AccessControl)
+func NewWSGL2AccessControlCreateL2AccessControl() *WSGL2AccessControlCreateL2AccessControl {
+	m := new(WSGL2AccessControlCreateL2AccessControl)
 	return m
 }
 
-type WSGL2accesscontrolEtherTypeObject struct {
+type WSGL2AccessControlEtherTypeObject struct {
 	EtherType *WSGCommonEtherType `json:"etherType,omitempty"`
 }
 
-func NewWSGL2accesscontrolEtherTypeObject() *WSGL2accesscontrolEtherTypeObject {
-	m := new(WSGL2accesscontrolEtherTypeObject)
+func NewWSGL2AccessControlEtherTypeObject() *WSGL2AccessControlEtherTypeObject {
+	m := new(WSGL2AccessControlEtherTypeObject)
 	return m
 }
 
-type WSGL2accesscontrol struct {
+type WSGL2AccessControl struct {
 	// CreateDateTime
 	// Timestamp of being created
 	CreateDateTime *int `json:"createDateTime,omitempty"`
@@ -87,7 +87,7 @@ type WSGL2accesscontrol struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction,omitempty"`
 
-	EtherTypes []*WSGL2accesscontrolEtherTypeObject `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
 
 	// Id
 	// identifier of the L2 Access Control
@@ -113,32 +113,32 @@ type WSGL2accesscontrol struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction,omitempty"`
 
-	Rules []*WSGL2accesscontrolRuleObject `json:"rules,omitempty"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
 }
 
-func NewWSGL2accesscontrol() *WSGL2accesscontrol {
-	m := new(WSGL2accesscontrol)
+func NewWSGL2AccessControl() *WSGL2AccessControl {
+	m := new(WSGL2AccessControl)
 	return m
 }
 
-type WSGL2accesscontrolList struct {
+type WSGL2AccessControlList struct {
 	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGL2accesscontrol `json:"list,omitempty"`
+	List []*WSGL2AccessControl `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGL2accesscontrolList() *WSGL2accesscontrolList {
-	m := new(WSGL2accesscontrolList)
+func NewWSGL2AccessControlList() *WSGL2AccessControlList {
+	m := new(WSGL2AccessControlList)
 	return m
 }
 
-type WSGL2accesscontrolModifyL2AccessControl struct {
+type WSGL2AccessControlModifyL2AccessControl struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// EtherTypeRestriction
@@ -148,7 +148,7 @@ type WSGL2accesscontrolModifyL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction"`
 
-	EtherTypes []*WSGL2accesscontrolEtherTypeObject `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2AccessControlEtherTypeObject `json:"etherTypes,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -159,23 +159,23 @@ type WSGL2accesscontrolModifyL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction"`
 
-	Rules []*WSGL2accesscontrolRuleObject `json:"rules,omitempty"`
+	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
 }
 
-func NewWSGL2accesscontrolModifyL2AccessControl() *WSGL2accesscontrolModifyL2AccessControl {
-	m := new(WSGL2accesscontrolModifyL2AccessControl)
+func NewWSGL2AccessControlModifyL2AccessControl() *WSGL2AccessControlModifyL2AccessControl {
+	m := new(WSGL2AccessControlModifyL2AccessControl)
 	return m
 }
 
-type WSGL2accesscontrolRuleObject struct {
+type WSGL2AccessControlRuleObject struct {
 	// Mac
 	// Constraints:
 	//    - required
 	Mac *WSGCommonMac `json:"mac"`
 }
 
-func NewWSGL2accesscontrolRuleObject() *WSGL2accesscontrolRuleObject {
-	m := new(WSGL2accesscontrolRuleObject)
+func NewWSGL2AccessControlRuleObject() *WSGL2AccessControlRuleObject {
+	m := new(WSGL2AccessControlRuleObject)
 	return m
 }
 
@@ -189,7 +189,7 @@ func NewWSGL2accesscontrolRuleObject() *WSGL2accesscontrolRuleObject {
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGL2accesscontrolService) AddRkszonesL2ACLByZoneId(ctx context.Context, body *WSGPortalServiceCreateL2ACL, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context, body *WSGPortalServiceCreateL2ACL, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -221,7 +221,7 @@ func (s *WSGL2accesscontrolService) AddRkszonesL2ACLByZoneId(ctx context.Context
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGL2accesscontrolService) DeleteRkszonesL2ACLById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -248,7 +248,7 @@ func (s *WSGL2accesscontrolService) DeleteRkszonesL2ACLById(ctx context.Context,
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGL2accesscontrolService) FindRkszonesL2ACLById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceL2ACL, *APIResponseMeta, error) {
+func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceL2ACL, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -281,7 +281,7 @@ func (s *WSGL2accesscontrolService) FindRkszonesL2ACLById(ctx context.Context, i
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGL2accesscontrolService) FindRkszonesL2ACLByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGPortalServiceList, *APIResponseMeta, error) {
+func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string) (*WSGPortalServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -312,7 +312,7 @@ func (s *WSGL2accesscontrolService) FindRkszonesL2ACLByZoneId(ctx context.Contex
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGL2accesscontrolService) FindServicesL2AccessControlByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGL2AccessControlService) FindServicesL2AccessControlByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -346,7 +346,7 @@ func (s *WSGL2accesscontrolService) FindServicesL2AccessControlByQueryCriteria(c
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGL2accesscontrolService) PartialUpdateRkszonesL2ACLById(ctx context.Context, body *WSGPortalServiceModifyL2ACL, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGL2AccessControlService) PartialUpdateRkszonesL2ACLById(ctx context.Context, body *WSGPortalServiceModifyL2ACL, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

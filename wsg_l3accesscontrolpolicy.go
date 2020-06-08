@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGL3accesscontrolpolicyService struct {
+type WSGL3AccessControlPolicyService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGL3accesscontrolpolicyService(c *VSZClient) *WSGL3accesscontrolpolicyService {
-	s := new(WSGL3accesscontrolpolicyService)
+func NewWSGL3AccessControlPolicyService(c *VSZClient) *WSGL3AccessControlPolicyService {
+	s := new(WSGL3AccessControlPolicyService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGL3accesscontrolpolicyService() *WSGL3accesscontrolpolicyService {
-	return NewWSGL3accesscontrolpolicyService(ss.apiClient)
+func (ss *WSGService) WSGL3AccessControlPolicyService() *WSGL3AccessControlPolicyService {
+	return NewWSGL3AccessControlPolicyService(ss.apiClient)
 }
 
 // AddL3AccessControlPolicies
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGL3accesscontrolpolicyService() *WSGL3accesscontrolpolic
 //
 // Request Body:
 //	 - body *WSGProfileCreateL3AccessControlPolicy
-func (s *WSGL3accesscontrolpolicyService) AddL3AccessControlPolicies(ctx context.Context, body *WSGProfileCreateL3AccessControlPolicy) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGL3AccessControlPolicyService) AddL3AccessControlPolicies(ctx context.Context, body *WSGProfileCreateL3AccessControlPolicy) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGL3accesscontrolpolicyService) AddL3AccessControlPolicies(ctx context
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGL3accesscontrolpolicyService) DeleteL3AccessControlPolicies(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPolicies(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGL3accesscontrolpolicyService) DeleteL3AccessControlPolicies(ctx cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGL3accesscontrolpolicyService) DeleteL3AccessControlPoliciesById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPoliciesById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -110,7 +110,7 @@ func (s *WSGL3accesscontrolpolicyService) DeleteL3AccessControlPoliciesById(ctx 
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGL3accesscontrolpolicyService) FindL3AccessControlPolicies(ctx context.Context, optionalParams map[string][]string) (*WSGProfileIdList, *APIResponseMeta, error) {
+func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPolicies(ctx context.Context, optionalParams map[string][]string) (*WSGProfileIdList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -144,7 +144,7 @@ func (s *WSGL3accesscontrolpolicyService) FindL3AccessControlPolicies(ctx contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGL3accesscontrolpolicyService) FindL3AccessControlPoliciesById(ctx context.Context, id string) (*WSGProfileL3AccessControlPolicy, *APIResponseMeta, error) {
+func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesById(ctx context.Context, id string) (*WSGProfileL3AccessControlPolicy, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -169,7 +169,7 @@ func (s *WSGL3accesscontrolpolicyService) FindL3AccessControlPoliciesById(ctx co
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGL3accesscontrolpolicyService) FindL3AccessControlPoliciesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileL3AccessControlPolicyArray, *APIResponseMeta, error) {
+func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileL3AccessControlPolicyArray, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -201,7 +201,7 @@ func (s *WSGL3accesscontrolpolicyService) FindL3AccessControlPoliciesByQueryCrit
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGL3accesscontrolpolicyService) UpdateL3AccessControlPoliciesById(ctx context.Context, body *WSGProfileModifyL3AccessControlPolicy, id string) (*APIResponseMeta, error) {
+func (s *WSGL3AccessControlPolicyService) UpdateL3AccessControlPoliciesById(ctx context.Context, body *WSGProfileModifyL3AccessControlPolicy, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

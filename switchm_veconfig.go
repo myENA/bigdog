@@ -2,7 +2,7 @@ package ruckus
 
 // API Version: v9_0
 
-type SwitchMSwitchVEConfigCreate struct {
+type SwitchMVEConfigCreate struct {
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -48,23 +48,23 @@ type SwitchMSwitchVEConfigCreate struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewSwitchMSwitchVEConfigCreate() *SwitchMSwitchVEConfigCreate {
-	m := new(SwitchMSwitchVEConfigCreate)
+func NewSwitchMVEConfigCreate() *SwitchMVEConfigCreate {
+	m := new(SwitchMVEConfigCreate)
 	return m
 }
 
-type SwitchMSwitchVEConfigCreateResult struct {
+type SwitchMVEConfigCreateResult struct {
 	// Id
 	// The ID of Setting
 	Id *string `json:"id,omitempty"`
 }
 
-func NewSwitchMSwitchVEConfigCreateResult() *SwitchMSwitchVEConfigCreateResult {
-	m := new(SwitchMSwitchVEConfigCreateResult)
+func NewSwitchMVEConfigCreateResult() *SwitchMVEConfigCreateResult {
+	m := new(SwitchMVEConfigCreateResult)
 	return m
 }
 
-type SwitchMSwitchVEConfigList struct {
+type SwitchMVEConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -75,19 +75,19 @@ type SwitchMSwitchVEConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMSwitchVEConfigVeConfig `json:"list,omitempty"`
+	List []*SwitchMVEConfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchVEConfigList() *SwitchMSwitchVEConfigList {
-	m := new(SwitchMSwitchVEConfigList)
+func NewSwitchMVEConfigList() *SwitchMVEConfigList {
+	m := new(SwitchMVEConfigList)
 	return m
 }
 
-type SwitchMSwitchVEConfigModify struct {
+type SwitchMVEConfigModify struct {
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -125,12 +125,12 @@ type SwitchMSwitchVEConfigModify struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewSwitchMSwitchVEConfigModify() *SwitchMSwitchVEConfigModify {
-	m := new(SwitchMSwitchVEConfigModify)
+func NewSwitchMVEConfigModify() *SwitchMVEConfigModify {
+	m := new(SwitchMVEConfigModify)
 	return m
 }
 
-type SwitchMSwitchVEConfigVeConfig struct {
+type SwitchMVEConfig struct {
 	// CreatedTime
 	// Created Time
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -204,7 +204,7 @@ type SwitchMSwitchVEConfigVeConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
-func NewSwitchMSwitchVEConfigVeConfig() *SwitchMSwitchVEConfigVeConfig {
-	m := new(SwitchMSwitchVEConfigVeConfig)
+func NewSwitchMVEConfig() *SwitchMVEConfig {
+	m := new(SwitchMVEConfig)
 	return m
 }

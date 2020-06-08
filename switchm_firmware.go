@@ -8,24 +8,24 @@ import (
 	"net/http"
 )
 
-type SwitchMSwitchFirmwareConfigService struct {
+type SwitchMFirmwareConfigService struct {
 	apiClient *VSZClient
 }
 
-func NewSwitchMSwitchFirmwareConfigService(c *VSZClient) *SwitchMSwitchFirmwareConfigService {
-	s := new(SwitchMSwitchFirmwareConfigService)
+func NewSwitchMFirmwareConfigService(c *VSZClient) *SwitchMFirmwareConfigService {
+	s := new(SwitchMFirmwareConfigService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchFirmwareConfigService() *SwitchMSwitchFirmwareConfigService {
-	return NewSwitchMSwitchFirmwareConfigService(ss.apiClient)
+func (ss *SwitchMService) SwitchMFirmwareConfigService() *SwitchMFirmwareConfigService {
+	return NewSwitchMFirmwareConfigService(ss.apiClient)
 }
 
-type SwitchMSwitchFirmwareConfigFirmwaresQueryResultList struct {
+type SwitchMFirmwareConfigFirmwaresQueryResultList struct {
 	// Extra
 	// Extra information for Firmware list
-	Extra *SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType `json:"extra,omitempty"`
+	Extra *SwitchMFirmwareConfigFirmwaresQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first firmware list returned out of the complete Firmware list
@@ -35,7 +35,7 @@ type SwitchMSwitchFirmwareConfigFirmwaresQueryResultList struct {
 	// Indicator of whether there are more Firmwares after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchFirmwareConfigSwitchFirmware `json:"list,omitempty"`
+	List []*SwitchMFirmwareConfigSwitchFirmware `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Firmware list count
@@ -46,43 +46,43 @@ type SwitchMSwitchFirmwareConfigFirmwaresQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchFirmwareConfigFirmwaresQueryResultList() *SwitchMSwitchFirmwareConfigFirmwaresQueryResultList {
-	m := new(SwitchMSwitchFirmwareConfigFirmwaresQueryResultList)
+func NewSwitchMFirmwareConfigFirmwaresQueryResultList() *SwitchMFirmwareConfigFirmwaresQueryResultList {
+	m := new(SwitchMFirmwareConfigFirmwaresQueryResultList)
 	return m
 }
 
-// SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType
+// SwitchMFirmwareConfigFirmwaresQueryResultListExtraType
 //
 // Extra information for Firmware list
-type SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType struct {
+type SwitchMFirmwareConfigFirmwaresQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMFirmwareConfigFirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMFirmwareConfigFirmwaresQueryResultListExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMFirmwareConfigFirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType() *SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType {
-	m := new(SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType)
+func NewSwitchMFirmwareConfigFirmwaresQueryResultListExtraType() *SwitchMFirmwareConfigFirmwaresQueryResultListExtraType {
+	m := new(SwitchMFirmwareConfigFirmwaresQueryResultListExtraType)
 	return m
 }
 
-type SwitchMSwitchFirmwareConfigScheduleIds struct {
+type SwitchMFirmwareConfigScheduleIds struct {
 	// Extra
 	// Extra information for Schedule Ids list
-	Extra *SwitchMSwitchFirmwareConfigScheduleIdsExtraType `json:"extra,omitempty"`
+	Extra *SwitchMFirmwareConfigScheduleIdsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Schedule Ids returned out of the complete ConfigBackup list
@@ -103,53 +103,53 @@ type SwitchMSwitchFirmwareConfigScheduleIds struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchFirmwareConfigScheduleIds() *SwitchMSwitchFirmwareConfigScheduleIds {
-	m := new(SwitchMSwitchFirmwareConfigScheduleIds)
+func NewSwitchMFirmwareConfigScheduleIds() *SwitchMFirmwareConfigScheduleIds {
+	m := new(SwitchMFirmwareConfigScheduleIds)
 	return m
 }
 
-// SwitchMSwitchFirmwareConfigScheduleIdsExtraType
+// SwitchMFirmwareConfigScheduleIdsExtraType
 //
 // Extra information for Schedule Ids list
-type SwitchMSwitchFirmwareConfigScheduleIdsExtraType struct {
+type SwitchMFirmwareConfigScheduleIdsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchFirmwareConfigScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMFirmwareConfigScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchFirmwareConfigScheduleIdsExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMFirmwareConfigScheduleIdsExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchFirmwareConfigScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMFirmwareConfigScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchFirmwareConfigScheduleIdsExtraType() *SwitchMSwitchFirmwareConfigScheduleIdsExtraType {
-	m := new(SwitchMSwitchFirmwareConfigScheduleIdsExtraType)
+func NewSwitchMFirmwareConfigScheduleIdsExtraType() *SwitchMFirmwareConfigScheduleIdsExtraType {
+	m := new(SwitchMFirmwareConfigScheduleIdsExtraType)
 	return m
 }
 
-type SwitchMSwitchFirmwareConfigSwitchFirmware struct {
-	SwitchModels []*SwitchMSwitchFirmwareConfigSwitchModel `json:"switchModels,omitempty"`
+type SwitchMFirmwareConfigSwitchFirmware struct {
+	SwitchModels []*SwitchMFirmwareConfigSwitchModel `json:"switchModels,omitempty"`
 
 	// Version
 	// Firmware version of the Switch
 	Version *string `json:"version,omitempty"`
 }
 
-func NewSwitchMSwitchFirmwareConfigSwitchFirmware() *SwitchMSwitchFirmwareConfigSwitchFirmware {
-	m := new(SwitchMSwitchFirmwareConfigSwitchFirmware)
+func NewSwitchMFirmwareConfigSwitchFirmware() *SwitchMFirmwareConfigSwitchFirmware {
+	m := new(SwitchMFirmwareConfigSwitchFirmware)
 	return m
 }
 
-type SwitchMSwitchFirmwareConfigSwitchModel struct {
+type SwitchMFirmwareConfigSwitchModel struct {
 	// ImageFileNames
 	// Name of the Switch Image File
 	ImageFileNames []string `json:"imageFileNames,omitempty"`
@@ -159,8 +159,8 @@ type SwitchMSwitchFirmwareConfigSwitchModel struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewSwitchMSwitchFirmwareConfigSwitchModel() *SwitchMSwitchFirmwareConfigSwitchModel {
-	m := new(SwitchMSwitchFirmwareConfigSwitchModel)
+func NewSwitchMFirmwareConfigSwitchModel() *SwitchMFirmwareConfigSwitchModel {
+	m := new(SwitchMFirmwareConfigSwitchModel)
 	return m
 }
 
@@ -170,11 +170,11 @@ func NewSwitchMSwitchFirmwareConfigSwitchModel() *SwitchMSwitchFirmwareConfigSwi
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMSwitchFirmwareConfigService) AddFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchFirmwareConfigFirmwaresQueryResultList, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMFirmwareConfigFirmwaresQueryResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchFirmwareConfigFirmwaresQueryResultList
+		resp     *SwitchMFirmwareConfigFirmwaresQueryResultList
 		httpResp *http.Response
 		err      error
 	)
@@ -187,7 +187,7 @@ func (s *SwitchMSwitchFirmwareConfigService) AddFirmware(ctx context.Context, bo
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchFirmwareConfigFirmwaresQueryResultList()
+	resp = NewSwitchMFirmwareConfigFirmwaresQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -198,7 +198,7 @@ func (s *SwitchMSwitchFirmwareConfigService) AddFirmware(ctx context.Context, bo
 //
 // Request Body:
 //	 - body []byte
-func (s *SwitchMSwitchFirmwareConfigService) AddFirmwareUpload(ctx context.Context, body []byte) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, body []byte) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -227,7 +227,7 @@ func (s *SwitchMSwitchFirmwareConfigService) AddFirmwareUpload(ctx context.Conte
 // Required Parameters:
 // - version string
 //		- required
-func (s *SwitchMSwitchFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Context, version string) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Context, version string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -249,11 +249,11 @@ func (s *SwitchMSwitchFirmwareConfigService) DeleteFirmwareByVersion(ctx context
 // FindFirmware
 //
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
-func (s *SwitchMSwitchFirmwareConfigService) FindFirmware(ctx context.Context) (*SwitchMSwitchFirmwareConfigFirmwaresQueryResultList, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context) (*SwitchMFirmwareConfigFirmwaresQueryResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchFirmwareConfigFirmwaresQueryResultList
+		resp     *SwitchMFirmwareConfigFirmwaresQueryResultList
 		httpResp *http.Response
 		err      error
 	)
@@ -262,7 +262,7 @@ func (s *SwitchMSwitchFirmwareConfigService) FindFirmware(ctx context.Context) (
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchFirmwareConfigFirmwaresQueryResultList()
+	resp = NewSwitchMFirmwareConfigFirmwaresQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -277,11 +277,11 @@ func (s *SwitchMSwitchFirmwareConfigService) FindFirmware(ctx context.Context) (
 // Required Parameters:
 // - version string
 //		- required
-func (s *SwitchMSwitchFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, version string) (*SwitchMSwitchFirmwareConfigScheduleIds, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, version string) (*SwitchMFirmwareConfigScheduleIds, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchFirmwareConfigScheduleIds
+		resp     *SwitchMFirmwareConfigScheduleIds
 		httpResp *http.Response
 		err      error
 	)
@@ -295,7 +295,7 @@ func (s *SwitchMSwitchFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx 
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchFirmwareConfigScheduleIds()
+	resp = NewSwitchMFirmwareConfigScheduleIds()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

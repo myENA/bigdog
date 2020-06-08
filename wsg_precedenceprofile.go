@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGPrecedenceprofileService struct {
+type WSGPrecedenceProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGPrecedenceprofileService(c *VSZClient) *WSGPrecedenceprofileService {
-	s := new(WSGPrecedenceprofileService)
+func NewWSGPrecedenceProfileService(c *VSZClient) *WSGPrecedenceProfileService {
+	s := new(WSGPrecedenceProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGPrecedenceprofileService() *WSGPrecedenceprofileService {
-	return NewWSGPrecedenceprofileService(ss.apiClient)
+func (ss *WSGService) WSGPrecedenceProfileService() *WSGPrecedenceProfileService {
+	return NewWSGPrecedenceProfileService(ss.apiClient)
 }
 
 // AddPrecedence
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGPrecedenceprofileService() *WSGPrecedenceprofileService
 //
 // Request Body:
 //	 - body *WSGProfileCreatePrecedenceProfile
-func (s *WSGPrecedenceprofileService) AddPrecedence(ctx context.Context, body *WSGProfileCreatePrecedenceProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *WSGProfileCreatePrecedenceProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGPrecedenceprofileService) AddPrecedence(ctx context.Context, body *W
 //
 // Request Body:
 //	 - body *WSGProfileDeleteBulkPrecedenceProfile
-func (s *WSGPrecedenceprofileService) DeletePrecedence(ctx context.Context, body *WSGProfileDeleteBulkPrecedenceProfile) (*APIResponseMeta, error) {
+func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body *WSGProfileDeleteBulkPrecedenceProfile) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGPrecedenceprofileService) DeletePrecedence(ctx context.Context, body
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGPrecedenceprofileService) DeletePrecedenceById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -108,7 +108,7 @@ func (s *WSGPrecedenceprofileService) DeletePrecedenceById(ctx context.Context, 
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGPrecedenceprofileService) FindPrecedence(ctx context.Context, optionalParams map[string][]string) (*WSGProfilePrecedenceList, *APIResponseMeta, error) {
+func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, optionalParams map[string][]string) (*WSGProfilePrecedenceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -139,7 +139,7 @@ func (s *WSGPrecedenceprofileService) FindPrecedence(ctx context.Context, option
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGPrecedenceprofileService) FindPrecedenceById(ctx context.Context, id string) (*WSGProfileCreatePrecedenceProfile, *APIResponseMeta, error) {
+func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id string) (*WSGProfileCreatePrecedenceProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -164,7 +164,7 @@ func (s *WSGPrecedenceprofileService) FindPrecedenceById(ctx context.Context, id
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGPrecedenceprofileService) FindPrecedenceByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfilePrecedenceList, *APIResponseMeta, error) {
+func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfilePrecedenceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -196,7 +196,7 @@ func (s *WSGPrecedenceprofileService) FindPrecedenceByQueryCriteria(ctx context.
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGPrecedenceprofileService) PartialUpdatePrecedenceById(ctx context.Context, body *WSGProfileUpdatePrecedenceProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGPrecedenceProfileService) PartialUpdatePrecedenceById(ctx context.Context, body *WSGProfileUpdatePrecedenceProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

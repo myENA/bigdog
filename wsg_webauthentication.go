@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGWebauthenticationService struct {
+type WSGWebAuthenticationService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGWebauthenticationService(c *VSZClient) *WSGWebauthenticationService {
-	s := new(WSGWebauthenticationService)
+func NewWSGWebAuthenticationService(c *VSZClient) *WSGWebAuthenticationService {
+	s := new(WSGWebAuthenticationService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGWebauthenticationService() *WSGWebauthenticationService {
-	return NewWSGWebauthenticationService(ss.apiClient)
+func (ss *WSGService) WSGWebAuthenticationService() *WSGWebAuthenticationService {
+	return NewWSGWebAuthenticationService(ss.apiClient)
 }
 
 // AddRkszonesPortalsWebauthByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGWebauthenticationService() *WSGWebauthenticationService
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGWebauthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx context.Context, body *WSGPortalServiceCreateWebAuthentication, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx context.Context, body *WSGPortalServiceCreateWebAuthentication, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGWebauthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx cont
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWebauthenticationService) DeleteRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *WSGWebauthenticationService) DeleteRkszonesPortalsWebauthById(ctx conte
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWebauthenticationService) DeleteRkszonesPortalsWebauthRedirectById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +117,7 @@ func (s *WSGWebauthenticationService) DeleteRkszonesPortalsWebauthRedirectById(c
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWebauthenticationService) FindRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceWebAuthentication, *APIResponseMeta, error) {
+func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string) (*WSGPortalServiceWebAuthentication, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -144,7 +144,7 @@ func (s *WSGWebauthenticationService) FindRkszonesPortalsWebauthById(ctx context
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGWebauthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
+func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx context.Context, zoneId string) (*WSGPortalServiceList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -169,7 +169,7 @@ func (s *WSGWebauthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx con
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGWebauthenticationService) FindServicesWebAuthenticationByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGWebAuthenticationService) FindServicesWebAuthenticationByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -203,7 +203,7 @@ func (s *WSGWebauthenticationService) FindServicesWebAuthenticationByQueryCriter
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWebauthenticationService) PartialUpdateRkszonesPortalsWebauthById(ctx context.Context, body *WSGPortalServiceModifyWebAuthentication, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGWebAuthenticationService) PartialUpdateRkszonesPortalsWebauthById(ctx context.Context, body *WSGPortalServiceModifyWebAuthentication, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -7,21 +7,21 @@ import (
 	"net/http"
 )
 
-type WSGSystemipsecService struct {
+type WSGSystemIPsecService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGSystemipsecService(c *VSZClient) *WSGSystemipsecService {
-	s := new(WSGSystemipsecService)
+func NewWSGSystemIPsecService(c *VSZClient) *WSGSystemIPsecService {
+	s := new(WSGSystemIPsecService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGSystemipsecService() *WSGSystemipsecService {
-	return NewWSGSystemipsecService(ss.apiClient)
+func (ss *WSGService) WSGSystemIPsecService() *WSGSystemIPsecService {
+	return NewWSGSystemIPsecService(ss.apiClient)
 }
 
-type WSGSystemipsecGetResult struct {
+type WSGSystemIPsecGetResult struct {
 	// AuthType
 	// Authentication type
 	AuthType *string `json:"authType,omitempty"`
@@ -32,7 +32,7 @@ type WSGSystemipsecGetResult struct {
 
 	// EspProposals
 	// Proposal of Encapsulating Security Payload
-	EspProposals []*WSGSystemipsecProposal `json:"espProposals,omitempty"`
+	EspProposals []*WSGSystemIPsecProposal `json:"espProposals,omitempty"`
 
 	// EspRekeyDisabled
 	// Disable rekey mechanisam of Encapsulating Security Payload
@@ -48,7 +48,7 @@ type WSGSystemipsecGetResult struct {
 
 	// IkeProposals
 	// Proposal of Internet Key Exchange
-	IkeProposals []*WSGSystemipsecProposal `json:"ikeProposals,omitempty"`
+	IkeProposals []*WSGSystemIPsecProposal `json:"ikeProposals,omitempty"`
 
 	// IkeRekeyDisabled
 	// Disable rekey mechanisam of Internet Key Exchange
@@ -99,12 +99,12 @@ type WSGSystemipsecGetResult struct {
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
-func NewWSGSystemipsecGetResult() *WSGSystemipsecGetResult {
-	m := new(WSGSystemipsecGetResult)
+func NewWSGSystemIPsecGetResult() *WSGSystemIPsecGetResult {
+	m := new(WSGSystemIPsecGetResult)
 	return m
 }
 
-type WSGSystemipsecProposal struct {
+type WSGSystemIPsecProposal struct {
 	// AuthAlg
 	// Authentication algorithm
 	// Constraints:
@@ -118,12 +118,12 @@ type WSGSystemipsecProposal struct {
 	EncAlg *string `json:"encAlg"`
 }
 
-func NewWSGSystemipsecProposal() *WSGSystemipsecProposal {
-	m := new(WSGSystemipsecProposal)
+func NewWSGSystemIPsecProposal() *WSGSystemIPsecProposal {
+	m := new(WSGSystemIPsecProposal)
 	return m
 }
 
-type WSGSystemipsecUpdate struct {
+type WSGSystemIPsecUpdate struct {
 	// AuthType
 	// Authentication type
 	AuthType *string `json:"authType,omitempty"`
@@ -134,7 +134,7 @@ type WSGSystemipsecUpdate struct {
 
 	// EspProposals
 	// Proposal of Encapsulating Security Payload
-	EspProposals []*WSGSystemipsecProposal `json:"espProposals,omitempty"`
+	EspProposals []*WSGSystemIPsecProposal `json:"espProposals,omitempty"`
 
 	// EspRekeyDisabled
 	// Disable rekey mechanisam of Encapsulating Security Payload
@@ -150,7 +150,7 @@ type WSGSystemipsecUpdate struct {
 
 	// IkeProposals
 	// Proposal of Internet Key Exchange
-	IkeProposals []*WSGSystemipsecProposal `json:"ikeProposals,omitempty"`
+	IkeProposals []*WSGSystemIPsecProposal `json:"ikeProposals,omitempty"`
 
 	// IkeRekeyDisabled
 	// Disable rekey mechanisam of Internet Key Exchange
@@ -203,19 +203,19 @@ type WSGSystemipsecUpdate struct {
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
-func NewWSGSystemipsecUpdate() *WSGSystemipsecUpdate {
-	m := new(WSGSystemipsecUpdate)
+func NewWSGSystemIPsecUpdate() *WSGSystemIPsecUpdate {
+	m := new(WSGSystemIPsecUpdate)
 	return m
 }
 
 // FindSystemIpsec
 //
 // Use this API command to retrieve the System IPSec.
-func (s *WSGSystemipsecService) FindSystemIpsec(ctx context.Context) (*WSGSystemipsecGetResult, *APIResponseMeta, error) {
+func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystemIPsecGetResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGSystemipsecGetResult
+		resp     *WSGSystemIPsecGetResult
 		httpResp *http.Response
 		err      error
 	)
@@ -224,7 +224,7 @@ func (s *WSGSystemipsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemIpsec, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGSystemipsecGetResult()
+	resp = NewWSGSystemIPsecGetResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -234,8 +234,8 @@ func (s *WSGSystemipsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 // Use this API command to modify the System IPSec.
 //
 // Request Body:
-//	 - body *WSGSystemipsecUpdate
-func (s *WSGSystemipsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemipsecUpdate) (interface{}, *APIResponseMeta, error) {
+//	 - body *WSGSystemIPsecUpdate
+func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

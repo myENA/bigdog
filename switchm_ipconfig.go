@@ -2,7 +2,7 @@ package ruckus
 
 // API Version: v9_0
 
-type SwitchMSwitchIPConfigCreate struct {
+type SwitchMIPConfigCreate struct {
 	// DhcpRelayAgent
 	// DHCP Relay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -44,23 +44,23 @@ type SwitchMSwitchIPConfigCreate struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
-func NewSwitchMSwitchIPConfigCreate() *SwitchMSwitchIPConfigCreate {
-	m := new(SwitchMSwitchIPConfigCreate)
+func NewSwitchMIPConfigCreate() *SwitchMIPConfigCreate {
+	m := new(SwitchMIPConfigCreate)
 	return m
 }
 
-type SwitchMSwitchIPConfigCreateResult struct {
+type SwitchMIPConfigCreateResult struct {
 	// Id
 	// The ID of Setting
 	Id *string `json:"id,omitempty"`
 }
 
-func NewSwitchMSwitchIPConfigCreateResult() *SwitchMSwitchIPConfigCreateResult {
-	m := new(SwitchMSwitchIPConfigCreateResult)
+func NewSwitchMIPConfigCreateResult() *SwitchMIPConfigCreateResult {
+	m := new(SwitchMIPConfigCreateResult)
 	return m
 }
 
-type SwitchMSwitchIPConfigIpConfig struct {
+type SwitchMIPConfig struct {
 	// CreatedTime
 	// Config Created Time
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -130,12 +130,12 @@ type SwitchMSwitchIPConfigIpConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMSwitchIPConfigIpConfig() *SwitchMSwitchIPConfigIpConfig {
-	m := new(SwitchMSwitchIPConfigIpConfig)
+func NewSwitchMIPConfig() *SwitchMIPConfig {
+	m := new(SwitchMIPConfig)
 	return m
 }
 
-type SwitchMSwitchIPConfigList struct {
+type SwitchMIPConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -146,19 +146,19 @@ type SwitchMSwitchIPConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMSwitchIPConfigIpConfig `json:"list,omitempty"`
+	List []*SwitchMIPConfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchIPConfigList() *SwitchMSwitchIPConfigList {
-	m := new(SwitchMSwitchIPConfigList)
+func NewSwitchMIPConfigList() *SwitchMIPConfigList {
+	m := new(SwitchMIPConfigList)
 	return m
 }
 
-type SwitchMSwitchIPConfigModify struct {
+type SwitchMIPConfigModify struct {
 	// DhcpRelayAgent
 	// DHCP Relay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -192,7 +192,7 @@ type SwitchMSwitchIPConfigModify struct {
 	SubnetMask *string `json:"subnetMask,omitempty"`
 }
 
-func NewSwitchMSwitchIPConfigModify() *SwitchMSwitchIPConfigModify {
-	m := new(SwitchMSwitchIPConfigModify)
+func NewSwitchMIPConfigModify() *SwitchMIPConfigModify {
+	m := new(SwitchMIPConfigModify)
 	return m
 }

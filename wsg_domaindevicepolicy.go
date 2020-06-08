@@ -2,7 +2,7 @@ package ruckus
 
 // API Version: v9_0
 
-type WSGDomaindevicepolicyCreateDomainDevicePolicy struct {
+type WSGDomainDevicePolicyCreateDomainDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
 	// Constraints:
@@ -25,15 +25,15 @@ type WSGDomaindevicepolicyCreateDomainDevicePolicy struct {
 	// rule of the device policy cofig
 	// Constraints:
 	//    - required
-	Rule []*WSGDomaindevicepolicyRule `json:"rule"`
+	Rule []*WSGDomainDevicePolicyRule `json:"rule"`
 }
 
-func NewWSGDomaindevicepolicyCreateDomainDevicePolicy() *WSGDomaindevicepolicyCreateDomainDevicePolicy {
-	m := new(WSGDomaindevicepolicyCreateDomainDevicePolicy)
+func NewWSGDomainDevicePolicyCreateDomainDevicePolicy() *WSGDomainDevicePolicyCreateDomainDevicePolicy {
+	m := new(WSGDomainDevicePolicyCreateDomainDevicePolicy)
 	return m
 }
 
-type WSGDomaindevicepolicyProfile struct {
+type WSGDomainDevicePolicyProfile struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
 	// Constraints:
@@ -50,15 +50,15 @@ type WSGDomaindevicepolicyProfile struct {
 
 	// Rule
 	// rule of the device policy cofig
-	Rule []*WSGDomaindevicepolicyRule `json:"rule,omitempty"`
+	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
 }
 
-func NewWSGDomaindevicepolicyProfile() *WSGDomaindevicepolicyProfile {
-	m := new(WSGDomaindevicepolicyProfile)
+func NewWSGDomainDevicePolicyProfile() *WSGDomainDevicePolicyProfile {
+	m := new(WSGDomainDevicePolicyProfile)
 	return m
 }
 
-type WSGDomaindevicepolicyRule struct {
+type WSGDomainDevicePolicyRule struct {
 	// Action
 	// defaultAction of the device policy cofig
 	// Constraints:
@@ -98,12 +98,12 @@ type WSGDomaindevicepolicyRule struct {
 	Vlan *int `json:"vlan,omitempty"`
 }
 
-func NewWSGDomaindevicepolicyRule() *WSGDomaindevicepolicyRule {
-	m := new(WSGDomaindevicepolicyRule)
+func NewWSGDomainDevicePolicyRule() *WSGDomainDevicePolicyRule {
+	m := new(WSGDomainDevicePolicyRule)
 	return m
 }
 
-type WSGDomaindevicepolicyModifyDomainDevicePolicy struct {
+type WSGDomainDevicePolicyModifyDomainDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
 	// Constraints:
@@ -116,30 +116,30 @@ type WSGDomaindevicepolicyModifyDomainDevicePolicy struct {
 
 	// Rule
 	// rule of the device policy cofig
-	Rule []*WSGDomaindevicepolicyRule `json:"rule,omitempty"`
+	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
 }
 
-func NewWSGDomaindevicepolicyModifyDomainDevicePolicy() *WSGDomaindevicepolicyModifyDomainDevicePolicy {
-	m := new(WSGDomaindevicepolicyModifyDomainDevicePolicy)
+func NewWSGDomainDevicePolicyModifyDomainDevicePolicy() *WSGDomainDevicePolicyModifyDomainDevicePolicy {
+	m := new(WSGDomainDevicePolicyModifyDomainDevicePolicy)
 	return m
 }
 
-type WSGDomaindevicepolicyProfileList struct {
+type WSGDomainDevicePolicyProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDomaindevicepolicyProfileListType `json:"list,omitempty"`
+	List []*WSGDomainDevicePolicyProfileListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGDomaindevicepolicyProfileList() *WSGDomaindevicepolicyProfileList {
-	m := new(WSGDomaindevicepolicyProfileList)
+func NewWSGDomainDevicePolicyProfileList() *WSGDomainDevicePolicyProfileList {
+	m := new(WSGDomainDevicePolicyProfileList)
 	return m
 }
 
-type WSGDomaindevicepolicyProfileListType struct {
+type WSGDomainDevicePolicyProfileListType struct {
 	// Id
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
@@ -147,7 +147,7 @@ type WSGDomaindevicepolicyProfileListType struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
-func NewWSGDomaindevicepolicyProfileListType() *WSGDomaindevicepolicyProfileListType {
-	m := new(WSGDomaindevicepolicyProfileListType)
+func NewWSGDomainDevicePolicyProfileListType() *WSGDomainDevicePolicyProfileListType {
+	m := new(WSGDomainDevicePolicyProfileListType)
 	return m
 }

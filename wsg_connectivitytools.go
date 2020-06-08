@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGConnectivitytoolsService struct {
+type WSGConnectivityToolsService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGConnectivitytoolsService(c *VSZClient) *WSGConnectivitytoolsService {
-	s := new(WSGConnectivitytoolsService)
+func NewWSGConnectivityToolsService(c *VSZClient) *WSGConnectivityToolsService {
+	s := new(WSGConnectivityToolsService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGConnectivitytoolsService() *WSGConnectivitytoolsService {
-	return NewWSGConnectivitytoolsService(ss.apiClient)
+func (ss *WSGService) WSGConnectivityToolsService() *WSGConnectivityToolsService {
+	return NewWSGConnectivityToolsService(ss.apiClient)
 }
 
 // AddToolSpeedflex
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGConnectivitytoolsService() *WSGConnectivitytoolsService
 //
 // Request Body:
 //	 - body *WSGToolSpeedFlex
-func (s *WSGConnectivitytoolsService) AddToolSpeedflex(ctx context.Context, body *WSGToolSpeedFlex) (*WSGToolTestResult, *APIResponseMeta, error) {
+func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body *WSGToolSpeedFlex) (*WSGToolTestResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -58,7 +58,7 @@ func (s *WSGConnectivitytoolsService) AddToolSpeedflex(ctx context.Context, body
 //		- required
 // - targetIP string
 //		- required
-func (s *WSGConnectivitytoolsService) FindToolPing(ctx context.Context, apMac string, targetIP string) (*WSGModelsFindToolPing200ResponseType, *APIResponseMeta, error) {
+func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac string, targetIP string) (*WSGModelsFindToolPing200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -85,7 +85,7 @@ func (s *WSGConnectivitytoolsService) FindToolPing(ctx context.Context, apMac st
 // Required Parameters:
 // - wcid string
 //		- required
-func (s *WSGConnectivitytoolsService) FindToolSpeedflexByWcid(ctx context.Context, wcid string) (*WSGToolTestResult, *APIResponseMeta, error) {
+func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, wcid string) (*WSGToolTestResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +117,7 @@ func (s *WSGConnectivitytoolsService) FindToolSpeedflexByWcid(ctx context.Contex
 // Optional Parameters:
 // - timeoutInSec string
 //		- nullable
-func (s *WSGConnectivitytoolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string][]string) (*WSGModelsFindToolTraceRoute200ResponseType, *APIResponseMeta, error) {
+func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string][]string) (*WSGModelsFindToolTraceRoute200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

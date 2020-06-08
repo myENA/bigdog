@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGApplicationvisibilitycontrolService struct {
+type WSGApplicationVisibilityControlService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGApplicationvisibilitycontrolService(c *VSZClient) *WSGApplicationvisibilitycontrolService {
-	s := new(WSGApplicationvisibilitycontrolService)
+func NewWSGApplicationVisibilityControlService(c *VSZClient) *WSGApplicationVisibilityControlService {
+	s := new(WSGApplicationVisibilityControlService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGApplicationvisibilitycontrolService() *WSGApplicationvisibilitycontrolService {
-	return NewWSGApplicationvisibilitycontrolService(ss.apiClient)
+func (ss *WSGService) WSGApplicationVisibilityControlService() *WSGApplicationVisibilityControlService {
+	return NewWSGApplicationVisibilityControlService(ss.apiClient)
 }
 
 // AddAvcApplicationPolicy
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGApplicationvisibilitycontrolService() *WSGApplicationvi
 //
 // Request Body:
 //	 - body *WSGAVCCreateApplicationPolicyProfile
-func (s *WSGApplicationvisibilitycontrolService) AddAvcApplicationPolicy(ctx context.Context, body *WSGAVCCreateApplicationPolicyProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx context.Context, body *WSGAVCCreateApplicationPolicyProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGApplicationvisibilitycontrolService) AddAvcApplicationPolicy(ctx con
 //
 // Request Body:
 //	 - body *WSGAVCCreateApplicationPolicyProfile
-func (s *WSGApplicationvisibilitycontrolService) AddAvcApplicationPolicyV2(ctx context.Context, body *WSGAVCCreateApplicationPolicyProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx context.Context, body *WSGAVCCreateApplicationPolicyProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *WSGApplicationvisibilitycontrolService) AddAvcApplicationPolicyV2(ctx c
 //
 // Request Body:
 //	 - body []byte
-func (s *WSGApplicationvisibilitycontrolService) AddAvcSignaturePackageUpload(ctx context.Context, body []byte) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ctx context.Context, body []byte) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -111,7 +111,7 @@ func (s *WSGApplicationvisibilitycontrolService) AddAvcSignaturePackageUpload(ct
 //
 // Request Body:
 //	 - body []byte
-func (s *WSGApplicationvisibilitycontrolService) AddAvcSignaturePackageV2Upload(ctx context.Context, body []byte) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(ctx context.Context, body []byte) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -139,7 +139,7 @@ func (s *WSGApplicationvisibilitycontrolService) AddAvcSignaturePackageV2Upload(
 //
 // Request Body:
 //	 - body *WSGAVCCreateUserDefinedProfile
-func (s *WSGApplicationvisibilitycontrolService) AddAvcUserDefined(ctx context.Context, body *WSGAVCCreateUserDefinedProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.Context, body *WSGAVCCreateUserDefinedProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -167,7 +167,7 @@ func (s *WSGApplicationvisibilitycontrolService) AddAvcUserDefined(ctx context.C
 //
 // Request Body:
 //	 - body *WSGAVCDeleteBulk
-func (s *WSGApplicationvisibilitycontrolService) DeleteAvcApplicationPolicy(ctx context.Context, body *WSGAVCDeleteBulk) (interface{}, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx context.Context, body *WSGAVCDeleteBulk) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -196,7 +196,7 @@ func (s *WSGApplicationvisibilitycontrolService) DeleteAvcApplicationPolicy(ctx 
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) DeleteAvcApplicationPolicyById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -219,7 +219,7 @@ func (s *WSGApplicationvisibilitycontrolService) DeleteAvcApplicationPolicyById(
 //
 // Request Body:
 //	 - body *WSGAVCDeleteBulk
-func (s *WSGApplicationvisibilitycontrolService) DeleteAvcApplicationPolicyV2(ctx context.Context, body *WSGAVCDeleteBulk) (interface{}, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ctx context.Context, body *WSGAVCDeleteBulk) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -248,7 +248,7 @@ func (s *WSGApplicationvisibilitycontrolService) DeleteAvcApplicationPolicyV2(ct
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) DeleteAvcApplicationPolicyV2ById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -271,7 +271,7 @@ func (s *WSGApplicationvisibilitycontrolService) DeleteAvcApplicationPolicyV2ByI
 //
 // Request Body:
 //	 - body *WSGAVCDeleteBulk
-func (s *WSGApplicationvisibilitycontrolService) DeleteAvcUserDefined(ctx context.Context, body *WSGAVCDeleteBulk) (*APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx context.Context, body *WSGAVCDeleteBulk) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -298,7 +298,7 @@ func (s *WSGApplicationvisibilitycontrolService) DeleteAvcUserDefined(ctx contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) DeleteAvcUserDefinedById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -321,7 +321,7 @@ func (s *WSGApplicationvisibilitycontrolService) DeleteAvcUserDefinedById(ctx co
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGApplicationvisibilitycontrolService) FindApplicationPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCApplicationPolicyProfileList, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCApplicationPolicyProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -349,7 +349,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindApplicationPolicyByQueryCri
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGApplicationvisibilitycontrolService) FindApplicationPolicyV2ByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCApplicationPolicyProfileList, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCApplicationPolicyProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -378,7 +378,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindApplicationPolicyV2ByQueryC
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) FindAvcApplicationPolicyById(ctx context.Context, id string) (*WSGAVCApplicationPolicyProfile, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ctx context.Context, id string) (*WSGAVCApplicationPolicyProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -404,7 +404,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcApplicationPolicyById(ct
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) FindAvcApplicationPolicyV2ById(ctx context.Context, id string) (*WSGAVCApplicationPolicyProfile, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(ctx context.Context, id string) (*WSGAVCApplicationPolicyProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -426,7 +426,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcApplicationPolicyV2ById(
 // FindAvcSignaturePackage
 //
 // Get current Signature Package info (for 5.0 and Earlier Firmware Versions).
-func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackage(ctx context.Context) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx context.Context) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -451,7 +451,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackage(ctx con
 // Required Parameters:
 // - applicationName string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageApplicationByApplicationName(ctx context.Context, applicationName string) (*WSGAVCApplication, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicationByApplicationName(ctx context.Context, applicationName string) (*WSGAVCApplication, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -473,7 +473,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageApplicat
 // FindAvcSignaturePackageApplications
 //
 // Get Application list from current Signature Package (for 5.0 and Earlier Firmware Versions).
-func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageApplications(ctx context.Context) (*WSGAVCApplicationList, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplications(ctx context.Context) (*WSGAVCApplicationList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -494,7 +494,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageApplicat
 // FindAvcSignaturePackageCategories
 //
 // Get Application Category list from current Signature Package (for 5.0 and Earlier Firmware Versions).
-func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageCategories(ctx context.Context) (*WSGAVCAppCategoryList, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategories(ctx context.Context) (*WSGAVCAppCategoryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -519,7 +519,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageCategori
 // Required Parameters:
 // - categoryName string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageCategoryByCategoryName(ctx context.Context, categoryName string) (*WSGAVCAppCategory, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategoryByCategoryName(ctx context.Context, categoryName string) (*WSGAVCAppCategory, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -541,7 +541,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageCategory
 // FindAvcSignaturePackageV2
 //
 // Get current Signature Package info.
-func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageV2(ctx context.Context) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx context.Context) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -566,7 +566,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageV2(ctx c
 // Optional Parameters:
 // - appName string
 //		- nullable
-func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageV2Applications(ctx context.Context, optionalParams map[string][]string) (*WSGAVCApplicationList, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applications(ctx context.Context, optionalParams map[string][]string) (*WSGAVCApplicationList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -594,7 +594,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageV2Applic
 // Optional Parameters:
 // - catName string
 //		- nullable
-func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageV2Categories(ctx context.Context, optionalParams map[string][]string) (*WSGAVCAppCategoryList, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Categories(ctx context.Context, optionalParams map[string][]string) (*WSGAVCAppCategoryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -622,7 +622,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcSignaturePackageV2Catego
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) FindAvcUserDefinedById(ctx context.Context, id string) (*WSGAVCUserDefinedProfile, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx context.Context, id string) (*WSGAVCUserDefinedProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -647,7 +647,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindAvcUserDefinedById(ctx cont
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGApplicationvisibilitycontrolService) FindUserDefinedByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCUserDefinedProfileList, *APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGAVCUserDefinedProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -679,7 +679,7 @@ func (s *WSGApplicationvisibilitycontrolService) FindUserDefinedByQueryCriteria(
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) PartialUpdateAvcApplicationPolicyById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -710,7 +710,7 @@ func (s *WSGApplicationvisibilitycontrolService) PartialUpdateAvcApplicationPoli
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) PartialUpdateAvcApplicationPolicyV2ById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyV2ById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -741,7 +741,7 @@ func (s *WSGApplicationvisibilitycontrolService) PartialUpdateAvcApplicationPoli
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGApplicationvisibilitycontrolService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *WSGAVCModifyUserDefinedProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *WSGAVCModifyUserDefinedProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

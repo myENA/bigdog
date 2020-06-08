@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGClientisolationwhitelistService struct {
+type WSGClientIsolationWhitelistService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGClientisolationwhitelistService(c *VSZClient) *WSGClientisolationwhitelistService {
-	s := new(WSGClientisolationwhitelistService)
+func NewWSGClientIsolationWhitelistService(c *VSZClient) *WSGClientIsolationWhitelistService {
+	s := new(WSGClientIsolationWhitelistService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGClientisolationwhitelistService() *WSGClientisolationwhitelistService {
-	return NewWSGClientisolationwhitelistService(ss.apiClient)
+func (ss *WSGService) WSGClientIsolationWhitelistService() *WSGClientIsolationWhitelistService {
+	return NewWSGClientIsolationWhitelistService(ss.apiClient)
 }
 
 // AddRkszonesClientIsolationWhitelistByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGClientisolationwhitelistService() *WSGClientisolationwh
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGClientisolationwhitelistService) AddRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, body *WSGProfileCreateClientIsolationWhitelist, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, body *WSGProfileCreateClientIsolationWhitelist, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -60,7 +60,7 @@ func (s *WSGClientisolationwhitelistService) AddRkszonesClientIsolationWhitelist
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGClientisolationwhitelistService) DeleteRkszonesClientIsolationWhitelist(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -87,7 +87,7 @@ func (s *WSGClientisolationwhitelistService) DeleteRkszonesClientIsolationWhitel
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGClientisolationwhitelistService) DeleteRkszonesClientIsolationWhitelistById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -113,7 +113,7 @@ func (s *WSGClientisolationwhitelistService) DeleteRkszonesClientIsolationWhitel
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGClientisolationwhitelistService) FindRkszonesClientIsolationWhitelistById(ctx context.Context, id string, zoneId string) (*WSGProfileClientIsolationWhitelist, *APIResponseMeta, error) {
+func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistById(ctx context.Context, id string, zoneId string) (*WSGProfileClientIsolationWhitelist, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -140,7 +140,7 @@ func (s *WSGClientisolationwhitelistService) FindRkszonesClientIsolationWhitelis
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGClientisolationwhitelistService) FindRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, zoneId string) (*WSGProfileClientIsolationWhitelistArray, *APIResponseMeta, error) {
+func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, zoneId string) (*WSGProfileClientIsolationWhitelistArray, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -165,7 +165,7 @@ func (s *WSGClientisolationwhitelistService) FindRkszonesClientIsolationWhitelis
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGClientisolationwhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileClientIsolationWhitelistArray, *APIResponseMeta, error) {
+func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileClientIsolationWhitelistArray, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -199,7 +199,7 @@ func (s *WSGClientisolationwhitelistService) FindServicesClientIsolationWhitelis
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGClientisolationwhitelistService) PartialUpdateRkszonesClientIsolationWhitelistById(ctx context.Context, body *WSGProfileModifyClientIsolationWhitelist, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGClientIsolationWhitelistService) PartialUpdateRkszonesClientIsolationWhitelistById(ctx context.Context, body *WSGProfileModifyClientIsolationWhitelist, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

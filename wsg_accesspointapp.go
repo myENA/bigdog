@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAccesspointappService struct {
+type WSGAccessPointAppService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGAccesspointappService(c *VSZClient) *WSGAccesspointappService {
-	s := new(WSGAccesspointappService)
+func NewWSGAccessPointAppService(c *VSZClient) *WSGAccessPointAppService {
+	s := new(WSGAccessPointAppService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAccesspointappService() *WSGAccesspointappService {
-	return NewWSGAccesspointappService(ss.apiClient)
+func (ss *WSGService) WSGAccessPointAppService() *WSGAccessPointAppService {
+	return NewWSGAccessPointAppService(ss.apiClient)
 }
 
 // FindApsLineman
@@ -36,7 +36,7 @@ func (ss *WSGService) WSGAccesspointappService() *WSGAccesspointappService {
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccesspointappService) FindApsLineman(ctx context.Context, optionalParams map[string][]string) (*WSGAPLinemanSummary, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalParams map[string][]string) (*WSGAPLinemanSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -78,7 +78,7 @@ func (s *WSGAccesspointappService) FindApsLineman(ctx context.Context, optionalP
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccesspointappService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -105,7 +105,7 @@ func (s *WSGAccesspointappService) FindApsTotalCount(ctx context.Context, option
 // FindLinemanWorkflow
 //
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
-func (s *WSGAccesspointappService) FindLinemanWorkflow(ctx context.Context) ([]byte, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context) ([]byte, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -129,7 +129,7 @@ func (s *WSGAccesspointappService) FindLinemanWorkflow(ctx context.Context) ([]b
 //
 // Request Body:
 //	 - body []byte
-func (s *WSGAccesspointappService) UpdateLinemanWorkflow(ctx context.Context, body []byte) (*APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, body []byte) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

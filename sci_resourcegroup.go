@@ -7,33 +7,33 @@ import (
 	"net/http"
 )
 
-type SCIResourcegroupService struct {
+type SCIResourceGroupService struct {
 	apiClient *SCIClient
 }
 
-func NewSCIResourcegroupService(c *SCIClient) *SCIResourcegroupService {
-	s := new(SCIResourcegroupService)
+func NewSCIResourceGroupService(c *SCIClient) *SCIResourceGroupService {
+	s := new(SCIResourceGroupService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SCIService) SCIResourcegroupService() *SCIResourcegroupService {
-	return NewSCIResourcegroupService(ss.apiClient)
+func (ss *SCIService) SCIResourceGroupService() *SCIResourceGroupService {
+	return NewSCIResourceGroupService(ss.apiClient)
 }
 
-type SCIResourcegroupBatchDelete200ResponseType struct {
+type SCIResourceGroupBatchDelete200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
 
-func NewSCIResourcegroupBatchDelete200ResponseType() *SCIResourcegroupBatchDelete200ResponseType {
-	m := new(SCIResourcegroupBatchDelete200ResponseType)
+func NewSCIResourceGroupBatchDelete200ResponseType() *SCIResourceGroupBatchDelete200ResponseType {
+	m := new(SCIResourceGroupBatchDelete200ResponseType)
 	return m
 }
 
-type SCIResourcegroupFind200ResponseType []*SCIModelsResourceGroup
+type SCIResourceGroupFind200ResponseType []*SCIModelsResourceGroup
 
-func MakeSCIResourcegroupFind200ResponseType() SCIResourcegroupFind200ResponseType {
-	m := make(SCIResourcegroupFind200ResponseType, 0)
+func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseType {
+	m := make(SCIResourceGroupFind200ResponseType, 0)
 	return m
 }
 
@@ -43,11 +43,11 @@ func MakeSCIResourcegroupFind200ResponseType() SCIResourcegroupFind200ResponseTy
 //
 // Request Body:
 //	 - body string
-func (s *SCIResourcegroupService) ResourceGroupBatchDelete(ctx context.Context, body string) (*SCIResourcegroupBatchDelete200ResponseType, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, body string) (*SCIResourceGroupBatchDelete200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIResourcegroupBatchDelete200ResponseType
+		resp     *SCIResourceGroupBatchDelete200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -60,7 +60,7 @@ func (s *SCIResourcegroupService) ResourceGroupBatchDelete(ctx context.Context, 
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSCIResourcegroupBatchDelete200ResponseType()
+	resp = NewSCIResourceGroupBatchDelete200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -71,7 +71,7 @@ func (s *SCIResourcegroupService) ResourceGroupBatchDelete(ctx context.Context, 
 //
 // Request Body:
 //	 - body *SCIModelsResourceGroup
-func (s *SCIResourcegroupService) ResourceGroupCreate(ctx context.Context, body *SCIModelsResourceGroup) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, body *SCIModelsResourceGroup) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -100,11 +100,11 @@ func (s *SCIResourcegroupService) ResourceGroupCreate(ctx context.Context, body 
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIResourcegroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string) (SCIResourcegroupFind200ResponseType, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string) (SCIResourceGroupFind200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     SCIResourcegroupFind200ResponseType
+		resp     SCIResourceGroupFind200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -116,7 +116,7 @@ func (s *SCIResourcegroupService) ResourceGroupFind(ctx context.Context, optiona
 		req.SetQueryParameter("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = MakeSCIResourcegroupFind200ResponseType()
+	resp = MakeSCIResourceGroupFind200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
@@ -132,7 +132,7 @@ func (s *SCIResourcegroupService) ResourceGroupFind(ctx context.Context, optiona
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIResourcegroupService) ResourceGroupFindById(ctx context.Context, id string, optionalParams map[string][]string) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id string, optionalParams map[string][]string) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -164,7 +164,7 @@ func (s *SCIResourcegroupService) ResourceGroupFindById(ctx context.Context, id 
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIResourcegroupService) ResourceGroupPrototypeUpdateAttributes(ctx context.Context, body *SCIModelsResourceGroup, id string) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx context.Context, body *SCIModelsResourceGroup, id string) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

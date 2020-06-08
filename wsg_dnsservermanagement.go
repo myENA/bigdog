@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDnsservermanagementService struct {
+type WSGDNSServerManagementService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGDnsservermanagementService(c *VSZClient) *WSGDnsservermanagementService {
-	s := new(WSGDnsservermanagementService)
+func NewWSGDNSServerManagementService(c *VSZClient) *WSGDNSServerManagementService {
+	s := new(WSGDNSServerManagementService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDnsservermanagementService() *WSGDnsservermanagementService {
-	return NewWSGDnsservermanagementService(ss.apiClient)
+func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementService {
+	return NewWSGDNSServerManagementService(ss.apiClient)
 }
 
 // AddProfilesDnsserver
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGDnsservermanagementService() *WSGDnsservermanagementSer
 //
 // Request Body:
 //	 - body *WSGProfileCreateDnsServerProfile
-func (s *WSGDnsservermanagementService) AddProfilesDnsserver(ctx context.Context, body *WSGProfileCreateDnsServerProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context, body *WSGProfileCreateDnsServerProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -59,7 +59,7 @@ func (s *WSGDnsservermanagementService) AddProfilesDnsserver(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDnsservermanagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
+func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *WSGProfileClone, id string) (*WSGProfileClone, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -88,7 +88,7 @@ func (s *WSGDnsservermanagementService) AddProfilesDnsserverCloneById(ctx contex
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGDnsservermanagementService) DeleteProfilesDnsserver(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -115,7 +115,7 @@ func (s *WSGDnsservermanagementService) DeleteProfilesDnsserver(ctx context.Cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDnsservermanagementService) DeleteProfilesDnsserverById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -141,7 +141,7 @@ func (s *WSGDnsservermanagementService) DeleteProfilesDnsserverById(ctx context.
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGDnsservermanagementService) FindProfilesDnsserver(ctx context.Context, optionalParams map[string][]string) (*WSGProfileDnsServerProfileList, *APIResponseMeta, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Context, optionalParams map[string][]string) (*WSGProfileDnsServerProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -172,7 +172,7 @@ func (s *WSGDnsservermanagementService) FindProfilesDnsserver(ctx context.Contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDnsservermanagementService) FindProfilesDnsserverById(ctx context.Context, id string) (*WSGProfileDnsServerProfile, *APIResponseMeta, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Context, id string) (*WSGProfileDnsServerProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -197,7 +197,7 @@ func (s *WSGDnsservermanagementService) FindProfilesDnsserverById(ctx context.Co
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGDnsservermanagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDnsServerProfileList, *APIResponseMeta, error) {
+func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDnsServerProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -229,7 +229,7 @@ func (s *WSGDnsservermanagementService) FindProfilesDnsserverByQueryCriteria(ctx
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDnsservermanagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *WSGProfileModifyDnsServerProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *WSGProfileModifyDnsServerProfile, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

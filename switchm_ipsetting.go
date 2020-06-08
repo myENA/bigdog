@@ -26,12 +26,12 @@ func (ss *SwitchMService) SwitchMIPSettingsService() *SwitchMIPSettingsService {
 // Use this API command to Create IP Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchIPConfigCreate
-func (s *SwitchMIPSettingsService) AddIpConfigs(ctx context.Context, body *SwitchMSwitchIPConfigCreate) (*SwitchMSwitchIPConfigCreateResult, *APIResponseMeta, error) {
+//	 - body *SwitchMIPConfigCreate
+func (s *SwitchMIPSettingsService) AddIpConfigs(ctx context.Context, body *SwitchMIPConfigCreate) (*SwitchMIPConfigCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchIPConfigCreateResult
+		resp     *SwitchMIPConfigCreateResult
 		httpResp *http.Response
 		err      error
 	)
@@ -44,7 +44,7 @@ func (s *SwitchMIPSettingsService) AddIpConfigs(ctx context.Context, body *Switc
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchIPConfigCreateResult()
+	resp = NewSwitchMIPConfigCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -102,11 +102,11 @@ func (s *SwitchMIPSettingsService) DeleteIpConfigsById(ctx context.Context, id s
 // FindIpConfigs
 //
 // Use this API command to Retrieve IP Config List.
-func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context) (*SwitchMSwitchIPConfigList, *APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context) (*SwitchMIPConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchIPConfigList
+		resp     *SwitchMIPConfigList
 		httpResp *http.Response
 		err      error
 	)
@@ -115,7 +115,7 @@ func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context) (*SwitchMS
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchIPConfigList()
+	resp = NewSwitchMIPConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -127,11 +127,11 @@ func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context) (*SwitchMS
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id string) (*SwitchMSwitchIPConfigIpConfig, *APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id string) (*SwitchMIPConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchIPConfigIpConfig
+		resp     *SwitchMIPConfig
 		httpResp *http.Response
 		err      error
 	)
@@ -141,7 +141,7 @@ func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id str
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchIPConfigIpConfig()
+	resp = NewSwitchMIPConfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -152,11 +152,11 @@ func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id str
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMIPSettingsService) FindIpConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchIPConfigList, *APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) FindIpConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMIPConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchIPConfigList
+		resp     *SwitchMIPConfigList
 		httpResp *http.Response
 		err      error
 	)
@@ -169,7 +169,7 @@ func (s *SwitchMIPSettingsService) FindIpConfigsByQueryCriteria(ctx context.Cont
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchIPConfigList()
+	resp = NewSwitchMIPConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -179,12 +179,12 @@ func (s *SwitchMIPSettingsService) FindIpConfigsByQueryCriteria(ctx context.Cont
 // Use this API command to Update IP Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchIPConfigModify
+//	 - body *SwitchMIPConfigModify
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMIPSettingsService) UpdateIpConfigsById(ctx context.Context, body *SwitchMSwitchIPConfigModify, id string) (*APIResponseMeta, error) {
+func (s *SwitchMIPSettingsService) UpdateIpConfigsById(ctx context.Context, body *SwitchMIPConfigModify, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

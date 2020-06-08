@@ -26,12 +26,12 @@ func (ss *SwitchMService) SwitchMVESettingsService() *SwitchMVESettingsService {
 // Use this API command to Create VE Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchVEConfigCreate
-func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *SwitchMSwitchVEConfigCreate) (*SwitchMSwitchVEConfigCreateResult, *APIResponseMeta, error) {
+//	 - body *SwitchMVEConfigCreate
+func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *SwitchMVEConfigCreate) (*SwitchMVEConfigCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchVEConfigCreateResult
+		resp     *SwitchMVEConfigCreateResult
 		httpResp *http.Response
 		err      error
 	)
@@ -44,7 +44,7 @@ func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *Switc
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchVEConfigCreateResult()
+	resp = NewSwitchMVEConfigCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -102,11 +102,11 @@ func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id s
 // FindVeConfigs
 //
 // Use this API command to Retrieve VE Config List.
-func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context) (*SwitchMSwitchVEConfigList, *APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context) (*SwitchMVEConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchVEConfigList
+		resp     *SwitchMVEConfigList
 		httpResp *http.Response
 		err      error
 	)
@@ -115,7 +115,7 @@ func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context) (*SwitchMS
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigs, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchVEConfigList()
+	resp = NewSwitchMVEConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -127,11 +127,11 @@ func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context) (*SwitchMS
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id string) (*SwitchMSwitchVEConfigVeConfig, *APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id string) (*SwitchMVEConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchVEConfigVeConfig
+		resp     *SwitchMVEConfig
 		httpResp *http.Response
 		err      error
 	)
@@ -141,7 +141,7 @@ func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id str
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchVEConfigVeConfig()
+	resp = NewSwitchMVEConfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -152,11 +152,11 @@ func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id str
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchVEConfigList, *APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMVEConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchVEConfigList
+		resp     *SwitchMVEConfigList
 		httpResp *http.Response
 		err      error
 	)
@@ -169,7 +169,7 @@ func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Cont
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchVEConfigList()
+	resp = NewSwitchMVEConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -179,12 +179,12 @@ func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Cont
 // Use this API command to Update VE Config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchVEConfigModify
+//	 - body *SwitchMVEConfigModify
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMVESettingsService) UpdateVeConfigsById(ctx context.Context, body *SwitchMSwitchVEConfigModify, id string) (*APIResponseMeta, error) {
+func (s *SwitchMVESettingsService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVEConfigModify, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -8,21 +8,21 @@ import (
 	"net/http"
 )
 
-type WSGNorthbounddatastreamingService struct {
+type WSGNorthboundDataStreamingService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGNorthbounddatastreamingService(c *VSZClient) *WSGNorthbounddatastreamingService {
-	s := new(WSGNorthbounddatastreamingService)
+func NewWSGNorthboundDataStreamingService(c *VSZClient) *WSGNorthboundDataStreamingService {
+	s := new(WSGNorthboundDataStreamingService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGNorthbounddatastreamingService() *WSGNorthbounddatastreamingService {
-	return NewWSGNorthbounddatastreamingService(ss.apiClient)
+func (ss *WSGService) WSGNorthboundDataStreamingService() *WSGNorthboundDataStreamingService {
+	return NewWSGNorthboundDataStreamingService(ss.apiClient)
 }
 
-type WSGNorthbounddatastreamingCreateNorthboundDataStreamingProfile struct {
+type WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile struct {
 	// DataTypes
 	// Subscribed data types of the Northbound Data Streaming Profile
 	// Constraints:
@@ -66,24 +66,24 @@ type WSGNorthbounddatastreamingCreateNorthboundDataStreamingProfile struct {
 	User *string `json:"user"`
 }
 
-func NewWSGNorthbounddatastreamingCreateNorthboundDataStreamingProfile() *WSGNorthbounddatastreamingCreateNorthboundDataStreamingProfile {
-	m := new(WSGNorthbounddatastreamingCreateNorthboundDataStreamingProfile)
+func NewWSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile {
+	m := new(WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile)
 	return m
 }
 
-type WSGNorthbounddatastreamingModifyNorthboundDataStreamingEventCodes struct {
+type WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes struct {
 	// NorthboundDataStreamingAcceptedEventCodes
 	// Constraints:
 	//    - required
 	NorthboundDataStreamingAcceptedEventCodes []int `json:"northboundDataStreamingAcceptedEventCodes"`
 }
 
-func NewWSGNorthbounddatastreamingModifyNorthboundDataStreamingEventCodes() *WSGNorthbounddatastreamingModifyNorthboundDataStreamingEventCodes {
-	m := new(WSGNorthbounddatastreamingModifyNorthboundDataStreamingEventCodes)
+func NewWSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes() *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes {
+	m := new(WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes)
 	return m
 }
 
-type WSGNorthbounddatastreamingModifyNorthboundDataStreamingProfile struct {
+type WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile struct {
 	// DataTypes
 	// Subscribed data types of the Northbound Data Streaming Profile
 	// Constraints:
@@ -127,12 +127,12 @@ type WSGNorthbounddatastreamingModifyNorthboundDataStreamingProfile struct {
 	User *string `json:"user"`
 }
 
-func NewWSGNorthbounddatastreamingModifyNorthboundDataStreamingProfile() *WSGNorthbounddatastreamingModifyNorthboundDataStreamingProfile {
-	m := new(WSGNorthbounddatastreamingModifyNorthboundDataStreamingProfile)
+func NewWSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile {
+	m := new(WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile)
 	return m
 }
 
-type WSGNorthbounddatastreamingEventCodes struct {
+type WSGNorthboundDataStreamingEventCodes struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
 	FirstIndex *int `json:"firstIndex,omitempty"`
@@ -141,19 +141,19 @@ type WSGNorthbounddatastreamingEventCodes struct {
 	// Indicates whether there are more Northbound Data Streaming accepted event codes after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGNorthbounddatastreamingEventCodesListType `json:"list,omitempty"`
+	List []*WSGNorthboundDataStreamingEventCodesListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total Northbound Data Streaming accepted event code count
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewWSGNorthbounddatastreamingEventCodes() *WSGNorthbounddatastreamingEventCodes {
-	m := new(WSGNorthbounddatastreamingEventCodes)
+func NewWSGNorthboundDataStreamingEventCodes() *WSGNorthboundDataStreamingEventCodes {
+	m := new(WSGNorthboundDataStreamingEventCodes)
 	return m
 }
 
-type WSGNorthbounddatastreamingEventCodesListType struct {
+type WSGNorthboundDataStreamingEventCodesListType struct {
 	// Code
 	// Northbound Data Streaming accepted event code
 	Code *int `json:"code,omitempty"`
@@ -163,12 +163,12 @@ type WSGNorthbounddatastreamingEventCodesListType struct {
 	Type *string `json:"type,omitempty"`
 }
 
-func NewWSGNorthbounddatastreamingEventCodesListType() *WSGNorthbounddatastreamingEventCodesListType {
-	m := new(WSGNorthbounddatastreamingEventCodesListType)
+func NewWSGNorthboundDataStreamingEventCodesListType() *WSGNorthboundDataStreamingEventCodesListType {
+	m := new(WSGNorthboundDataStreamingEventCodesListType)
 	return m
 }
 
-type WSGNorthbounddatastreamingProfile struct {
+type WSGNorthboundDataStreamingProfile struct {
 	// ConnectionStatus
 	// Connection status of the Northbound Data Streaming Profile
 	ConnectionStatus *string `json:"connectionStatus,omitempty"`
@@ -208,21 +208,21 @@ type WSGNorthbounddatastreamingProfile struct {
 	User *string `json:"user,omitempty"`
 }
 
-func NewWSGNorthbounddatastreamingProfile() *WSGNorthbounddatastreamingProfile {
-	m := new(WSGNorthbounddatastreamingProfile)
+func NewWSGNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingProfile {
+	m := new(WSGNorthboundDataStreamingProfile)
 	return m
 }
 
-type WSGNorthbounddatastreamingProfileList struct {
-	Extra *WSGNorthbounddatastreamingProfileListExtraType `json:"extra,omitempty"`
+type WSGNorthboundDataStreamingProfileList struct {
+	Extra *WSGNorthboundDataStreamingProfileListExtraType `json:"extra,omitempty"`
 
-	List []*WSGNorthbounddatastreamingProfile `json:"list,omitempty"`
+	List []*WSGNorthboundDataStreamingProfile `json:"list,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *WSGNorthbounddatastreamingProfileList) UnmarshalJSON(b []byte) error {
-	tmpt := new(WSGNorthbounddatastreamingProfileList)
+func (t *WSGNorthboundDataStreamingProfileList) UnmarshalJSON(b []byte) error {
+	tmpt := new(WSGNorthboundDataStreamingProfileList)
 	if err := json.Unmarshal(b, tmpt); err != nil {
 		return err
 	}
@@ -237,7 +237,7 @@ func (t *WSGNorthbounddatastreamingProfileList) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (t *WSGNorthbounddatastreamingProfileList) MarshalJSON() ([]byte, error) {
+func (t *WSGNorthboundDataStreamingProfileList) MarshalJSON() ([]byte, error) {
 	if t == nil {
 		return nil, nil
 	}
@@ -256,12 +256,12 @@ func (t *WSGNorthbounddatastreamingProfileList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
-func NewWSGNorthbounddatastreamingProfileList() *WSGNorthbounddatastreamingProfileList {
-	m := new(WSGNorthbounddatastreamingProfileList)
+func NewWSGNorthboundDataStreamingProfileList() *WSGNorthboundDataStreamingProfileList {
+	m := new(WSGNorthboundDataStreamingProfileList)
 	return m
 }
 
-type WSGNorthbounddatastreamingProfileListExtraType struct {
+type WSGNorthboundDataStreamingProfileListExtraType struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled
 	NorthboundDataStreamingEnabled *bool `json:"northboundDataStreamingEnabled,omitempty"`
@@ -279,12 +279,12 @@ type WSGNorthbounddatastreamingProfileListExtraType struct {
 	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
 }
 
-func NewWSGNorthbounddatastreamingProfileListExtraType() *WSGNorthbounddatastreamingProfileListExtraType {
-	m := new(WSGNorthbounddatastreamingProfileListExtraType)
+func NewWSGNorthboundDataStreamingProfileListExtraType() *WSGNorthboundDataStreamingProfileListExtraType {
+	m := new(WSGNorthboundDataStreamingProfileListExtraType)
 	return m
 }
 
-type WSGNorthbounddatastreamingSettings struct {
+type WSGNorthboundDataStreamingSettings struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled
 	// Constraints:
@@ -306,8 +306,8 @@ type WSGNorthbounddatastreamingSettings struct {
 	StreamingZoneIds []string `json:"streamingZoneIds,omitempty"`
 }
 
-func NewWSGNorthbounddatastreamingSettings() *WSGNorthbounddatastreamingSettings {
-	m := new(WSGNorthbounddatastreamingSettings)
+func NewWSGNorthboundDataStreamingSettings() *WSGNorthboundDataStreamingSettings {
+	m := new(WSGNorthboundDataStreamingSettings)
 	return m
 }
 
@@ -316,8 +316,8 @@ func NewWSGNorthbounddatastreamingSettings() *WSGNorthbounddatastreamingSettings
 // Use this API command to create northbound Data Streaming Profile
 //
 // Request Body:
-//	 - body *WSGNorthbounddatastreamingCreateNorthboundDataStreamingProfile
-func (s *WSGNorthbounddatastreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *WSGNorthbounddatastreamingCreateNorthboundDataStreamingProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+//	 - body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile
+func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -346,7 +346,7 @@ func (s *WSGNorthbounddatastreamingService) AddNorthboundDataStreamingProfile(ct
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGNorthbounddatastreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -366,11 +366,11 @@ func (s *WSGNorthbounddatastreamingService) DeleteNorthboundDataStreamingProfile
 // FindNorthboundDataStreamingEventCodes
 //
 // Use this API command to retrieve NorthboundDataStreamingEventCodes.
-func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context) (*WSGNorthbounddatastreamingEventCodes, *APIResponseMeta, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context) (*WSGNorthboundDataStreamingEventCodes, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGNorthbounddatastreamingEventCodes
+		resp     *WSGNorthboundDataStreamingEventCodes
 		httpResp *http.Response
 		err      error
 	)
@@ -379,7 +379,7 @@ func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingEventCode
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGNorthbounddatastreamingEventCodes()
+	resp = NewWSGNorthboundDataStreamingEventCodes()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -391,11 +391,11 @@ func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingEventCode
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthbounddatastreamingProfile, *APIResponseMeta, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, id string) (*WSGNorthboundDataStreamingProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGNorthbounddatastreamingProfile
+		resp     *WSGNorthboundDataStreamingProfile
 		httpResp *http.Response
 		err      error
 	)
@@ -405,7 +405,7 @@ func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingProfileBy
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGNorthbounddatastreamingProfile()
+	resp = NewWSGNorthboundDataStreamingProfile()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -413,11 +413,11 @@ func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingProfileBy
 // FindNorthboundDataStreamingProfileList
 //
 // Use this API command to retrieve northbound Data Streaming Profile List
-func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*WSGNorthbounddatastreamingProfileList, *APIResponseMeta, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context) (*WSGNorthboundDataStreamingProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGNorthbounddatastreamingProfileList
+		resp     *WSGNorthboundDataStreamingProfileList
 		httpResp *http.Response
 		err      error
 	)
@@ -426,7 +426,7 @@ func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingProfileLi
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGNorthbounddatastreamingProfileList()
+	resp = NewWSGNorthboundDataStreamingProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -436,8 +436,8 @@ func (s *WSGNorthbounddatastreamingService) FindNorthboundDataStreamingProfileLi
 // Use this API command to modify NorthboundDataStreamingEventCodes.
 //
 // Request Body:
-//	 - body *WSGNorthbounddatastreamingModifyNorthboundDataStreamingEventCodes
-func (s *WSGNorthbounddatastreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *WSGNorthbounddatastreamingModifyNorthboundDataStreamingEventCodes) (interface{}, *APIResponseMeta, error) {
+//	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -464,12 +464,12 @@ func (s *WSGNorthbounddatastreamingService) UpdateNorthboundDataStreamingEventCo
 // Use this API command to update northbound Data Streaming Profile
 //
 // Request Body:
-//	 - body *WSGNorthbounddatastreamingModifyNorthboundDataStreamingProfile
+//	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGNorthbounddatastreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthbounddatastreamingModifyNorthboundDataStreamingProfile, id string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile, id string) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -497,8 +497,8 @@ func (s *WSGNorthbounddatastreamingService) UpdateNorthboundDataStreamingProfile
 // Use this API command to modify Northbound Data Streaming Settings.
 //
 // Request Body:
-//	 - body *WSGNorthbounddatastreamingSettings
-func (s *WSGNorthbounddatastreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *WSGNorthbounddatastreamingSettings) (interface{}, *APIResponseMeta, error) {
+//	 - body *WSGNorthboundDataStreamingSettings
+func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *WSGNorthboundDataStreamingSettings) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

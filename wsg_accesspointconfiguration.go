@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGAccesspointconfigurationService struct {
+type WSGAccessPointConfigurationService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGAccesspointconfigurationService(c *VSZClient) *WSGAccesspointconfigurationService {
-	s := new(WSGAccesspointconfigurationService)
+func NewWSGAccessPointConfigurationService(c *VSZClient) *WSGAccessPointConfigurationService {
+	s := new(WSGAccessPointConfigurationService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGAccesspointconfigurationService() *WSGAccesspointconfigurationService {
-	return NewWSGAccesspointconfigurationService(ss.apiClient)
+func (ss *WSGService) WSGAccessPointConfigurationService() *WSGAccessPointConfigurationService {
+	return NewWSGAccessPointConfigurationService(ss.apiClient)
 }
 
 // AddAps
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGAccesspointconfigurationService() *WSGAccesspointconfig
 //
 // Request Body:
 //	 - body *WSGAPCreateAP
-func (s *WSGAccesspointconfigurationService) AddAps(ctx context.Context, body *WSGAPCreateAP) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *WSGAPCreateAP) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -57,7 +57,7 @@ func (s *WSGAccesspointconfigurationService) AddAps(ctx context.Context, body *W
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) AddApsPictureByApMac(ctx context.Context, body []byte, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Context, body []byte, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -84,7 +84,7 @@ func (s *WSGAccesspointconfigurationService) AddApsPictureByApMac(ctx context.Co
 //
 // Request Body:
 //	 - body *WSGAPSwapApConfigure
-func (s *WSGAccesspointconfigurationService) AddSwapAps(ctx context.Context, body *WSGAPSwapApConfigure) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) AddSwapAps(ctx context.Context, body *WSGAPSwapApConfigure) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -111,7 +111,7 @@ func (s *WSGAccesspointconfigurationService) AddSwapAps(ctx context.Context, bod
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsAltitudeByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -135,7 +135,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsAltitudeByApMac(ctx contex
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsApMgmtVlanByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -159,7 +159,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsApMgmtVlanByApMac(ctx cont
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsAutoChannelSelection24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -183,7 +183,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsAutoChannelSelection24ByAp
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsAutoChannelSelection50ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -207,7 +207,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsAutoChannelSelection50ByAp
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsBonjourGatewayByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -231,7 +231,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsBonjourGatewayByApMac(ctx 
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -255,7 +255,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsByApMac(ctx context.Contex
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsChannelEvaluationIntervalByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -279,7 +279,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsChannelEvaluationIntervalB
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsClientAdmissionControl24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -303,7 +303,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsClientAdmissionControl24By
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsClientAdmissionControl50ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -327,7 +327,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsClientAdmissionControl50By
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsDirectedMulticastFromNetworkEnabledByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetworkEnabledByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -351,7 +351,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsDirectedMulticastFromNetwo
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsDirectedMulticastFromWiredClientEnabledByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWiredClientEnabledByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -375,7 +375,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsDirectedMulticastFromWired
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -399,7 +399,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsDirectedMulticastFromWirel
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsGpsCoordinatesByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -423,7 +423,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsGpsCoordinatesByApMac(ctx 
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsLocationAdditionalInfoByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -447,7 +447,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsLocationAdditionalInfoByAp
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsLocationByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -471,7 +471,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsLocationByApMac(ctx contex
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsLoginByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -495,7 +495,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsLoginByApMac(ctx context.C
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsLteBandLockChannelsByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -519,7 +519,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsLteBandLockChannelsByApMac
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsMeshOptionsByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -543,7 +543,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsMeshOptionsByApMac(ctx con
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsPictureByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -567,7 +567,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsPictureByApMac(ctx context
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsProtectionMode24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -591,7 +591,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsProtectionMode24ByApMac(ct
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsRecoverySsidByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -615,7 +615,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsRecoverySsidByApMac(ctx co
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsRksGreForwardBroadcastByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRksGreForwardBroadcastByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -639,7 +639,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsRksGreForwardBroadcastByAp
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsRogueApAggressivenessModeByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -663,7 +663,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsRogueApAggressivenessModeB
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsRogueApJammingThresholdByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -687,7 +687,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsRogueApJammingThresholdByA
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsRogueApReportThresholdByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -711,7 +711,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsRogueApReportThresholdByAp
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsSmartMonitorByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -735,7 +735,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsSmartMonitorByApMac(ctx co
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsSpecificByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -759,7 +759,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsSpecificByApMac(ctx contex
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsSyslogByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -783,7 +783,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsSyslogByApMac(ctx context.
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsVenueProfileByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -807,7 +807,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsVenueProfileByApMac(ctx co
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -831,7 +831,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi24ByApMac(ctx context.
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi24ChannelByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -855,7 +855,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi24ChannelByApMac(ctx c
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi24ChannelRangeByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -879,7 +879,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi24ChannelRangeByApMac(
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi24ChannelWidthByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -903,7 +903,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi24ChannelWidthByApMac(
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi24TxPowerByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -927,7 +927,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi24TxPowerByApMac(ctx c
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi50ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -951,7 +951,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi50ByApMac(ctx context.
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi50ChannelByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -975,7 +975,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi50ChannelByApMac(ctx c
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi50ChannelRangeByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -999,7 +999,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi50ChannelRangeByApMac(
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi50ChannelWidthByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1023,7 +1023,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi50ChannelWidthByApMac(
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWifi50TxPowerByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1047,7 +1047,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWifi50TxPowerByApMac(ctx c
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWlanGroup24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1071,7 +1071,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWlanGroup24ByApMac(ctx con
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) DeleteApsWlanGroup50ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1095,7 +1095,7 @@ func (s *WSGAccesspointconfigurationService) DeleteApsWlanGroup50ByApMac(ctx con
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) FindApRadiosByApMac(ctx context.Context, apMac string) (*WSGAPRadioConfiguration, *APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) FindApRadiosByApMac(ctx context.Context, apMac string) (*WSGAPRadioConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1127,7 +1127,7 @@ func (s *WSGAccesspointconfigurationService) FindApRadiosByApMac(ctx context.Con
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccesspointconfigurationService) FindAps(ctx context.Context, optionalParams map[string][]string) (*WSGAPListEntry, *APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, optionalParams map[string][]string) (*WSGAPListEntry, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1164,7 +1164,7 @@ func (s *WSGAccesspointconfigurationService) FindAps(ctx context.Context, option
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) FindApsByApMac(ctx context.Context, apMac string) (*WSGAPConfiguration, *APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context, apMac string) (*WSGAPConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1190,7 +1190,7 @@ func (s *WSGAccesspointconfigurationService) FindApsByApMac(ctx context.Context,
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) FindApsPictureByApMac(ctx context.Context, apMac string) ([]byte, *APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.Context, apMac string) ([]byte, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1216,7 +1216,7 @@ func (s *WSGAccesspointconfigurationService) FindApsPictureByApMac(ctx context.C
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) FindApsSupportLogByApMac(ctx context.Context, apMac string) ([]byte, *APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx context.Context, apMac string) ([]byte, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1238,11 +1238,11 @@ func (s *WSGAccesspointconfigurationService) FindApsSupportLogByApMac(ctx contex
 // FindMeshZeroTouch
 //
 // Use this API command to retrieve a list of unapproved AP.
-func (s *WSGAccesspointconfigurationService) FindMeshZeroTouch(ctx context.Context) (*WSGMeshnodeinfoList, *APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Context) (*WSGMeshNodeInfoList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGMeshnodeinfoList
+		resp     *WSGMeshNodeInfoList
 		httpResp *http.Response
 		err      error
 	)
@@ -1251,7 +1251,7 @@ func (s *WSGAccesspointconfigurationService) FindMeshZeroTouch(ctx context.Conte
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMeshZeroTouch, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGMeshnodeinfoList()
+	resp = NewWSGMeshNodeInfoList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -1266,7 +1266,7 @@ func (s *WSGAccesspointconfigurationService) FindMeshZeroTouch(ctx context.Conte
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) PartialUpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1297,7 +1297,7 @@ func (s *WSGAccesspointconfigurationService) PartialUpdateApsByApMac(ctx context
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) UpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) UpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1325,7 +1325,7 @@ func (s *WSGAccesspointconfigurationService) UpdateApsByApMac(ctx context.Contex
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) UpdateApsRebootByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.Context, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1352,7 +1352,7 @@ func (s *WSGAccesspointconfigurationService) UpdateApsRebootByApMac(ctx context.
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccesspointconfigurationService) UpdateApsSpecificByApMac(ctx context.Context, body *WSGAPModel, apMac string) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx context.Context, body *WSGAPModel, apMac string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1378,8 +1378,8 @@ func (s *WSGAccesspointconfigurationService) UpdateApsSpecificByApMac(ctx contex
 // Use this API command to approve/reject unapproved AP. Recommend to deploy 20 island APs to join per batch at the same time.
 //
 // Request Body:
-//	 - body *WSGMeshnodeinfoUpdateAPZeroTouch
-func (s *WSGAccesspointconfigurationService) UpdateMeshZeroTouch(ctx context.Context, body *WSGMeshnodeinfoUpdateAPZeroTouch) (interface{}, *APIResponseMeta, error) {
+//	 - body *WSGMeshNodeInfoUpdateAPZeroTouch
+func (s *WSGAccessPointConfigurationService) UpdateMeshZeroTouch(ctx context.Context, body *WSGMeshNodeInfoUpdateAPZeroTouch) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

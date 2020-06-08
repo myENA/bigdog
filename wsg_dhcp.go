@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGDhcpService struct {
+type WSGDHCPService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGDhcpService(c *VSZClient) *WSGDhcpService {
-	s := new(WSGDhcpService)
+func NewWSGDHCPService(c *VSZClient) *WSGDHCPService {
+	s := new(WSGDHCPService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGDhcpService() *WSGDhcpService {
-	return NewWSGDhcpService(ss.apiClient)
+func (ss *WSGService) WSGDHCPService() *WSGDHCPService {
+	return NewWSGDHCPService(ss.apiClient)
 }
 
 // AddRkszonesDhcpSiteDhcpProfileByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGDhcpService() *WSGDhcpService {
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDhcpService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGProfileCreateDhcpProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGProfileCreateDhcpProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -64,7 +64,7 @@ func (s *WSGDhcpService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Cont
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDhcpService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx context.Context, body *WSGCommonDoAssignIp, zoneId string) (*WSGCommonDhcpSiteConfigListRef, *APIResponseMeta, error) {
+func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx context.Context, body *WSGCommonDoAssignIp, zoneId string) (*WSGCommonDhcpSiteConfigListRef, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -96,7 +96,7 @@ func (s *WSGDhcpService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDhcpService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -124,7 +124,7 @@ func (s *WSGDhcpService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Conte
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDhcpService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -152,7 +152,7 @@ func (s *WSGDhcpService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.C
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGDhcpService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, apMac string) (*WSGDHCPMessageStatsDhcpMsgStats, *APIResponseMeta, error) {
+func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, apMac string) (*WSGDHCPMessageStatsDhcpMsgStats, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -178,7 +178,7 @@ func (s *WSGDhcpService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, ap
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGDhcpService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac string) (*WSGDHCPPools, *APIResponseMeta, error) {
+func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac string) (*WSGDHCPPools, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -206,7 +206,7 @@ func (s *WSGDhcpService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac
 //		- required
 // - poolIndex string
 //		- required
-func (s *WSGDhcpService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, apMac string, poolIndex string) (*WSGDHCPPoolsDhcpPoolInfo, *APIResponseMeta, error) {
+func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, apMac string, poolIndex string) (*WSGDHCPPoolsDhcpPoolInfo, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -235,7 +235,7 @@ func (s *WSGDhcpService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, a
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDhcpService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonDhcpProfileRef, *APIResponseMeta, error) {
+func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string) (*WSGCommonDhcpProfileRef, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -262,7 +262,7 @@ func (s *WSGDhcpService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDhcpService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, zoneId string) (*WSGProfileDhcpProfileList, *APIResponseMeta, error) {
+func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, zoneId string) (*WSGProfileDhcpProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -288,7 +288,7 @@ func (s *WSGDhcpService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Con
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGDhcpService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.Context, zoneId string) (*WSGCommonDhcpSiteConfigListRef, *APIResponseMeta, error) {
+func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.Context, zoneId string) (*WSGCommonDhcpSiteConfigListRef, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -313,7 +313,7 @@ func (s *WSGDhcpService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.
 //
 // Request Body:
 //	 - body *WSGZoneQueryCriteria
-func (s *WSGDhcpService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx context.Context, body *WSGZoneQueryCriteria) (*WSGZoneDhcpSiteConfigList, *APIResponseMeta, error) {
+func (s *WSGDHCPService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx context.Context, body *WSGZoneQueryCriteria) (*WSGZoneDhcpSiteConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -341,7 +341,7 @@ func (s *WSGDhcpService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx c
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGDhcpService) FindServicesDhcpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDhcpProfileList, *APIResponseMeta, error) {
+func (s *WSGDHCPService) FindServicesDhcpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileDhcpProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -375,7 +375,7 @@ func (s *WSGDhcpService) FindServicesDhcpProfileByQueryCriteria(ctx context.Cont
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDhcpService) PartialUpdateRkszonesDhcpSiteDhcpProfileById(ctx context.Context, body *WSGProfileCreateDhcpProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGDHCPService) PartialUpdateRkszonesDhcpSiteDhcpProfileById(ctx context.Context, body *WSGProfileCreateDhcpProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

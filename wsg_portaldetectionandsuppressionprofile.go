@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGPortaldetectionandsuppressionprofileService struct {
+type WSGPortalDetectionandSuppressionProfileService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGPortaldetectionandsuppressionprofileService(c *VSZClient) *WSGPortaldetectionandsuppressionprofileService {
-	s := new(WSGPortaldetectionandsuppressionprofileService)
+func NewWSGPortalDetectionandSuppressionProfileService(c *VSZClient) *WSGPortalDetectionandSuppressionProfileService {
+	s := new(WSGPortalDetectionandSuppressionProfileService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGPortaldetectionandsuppressionprofileService() *WSGPortaldetectionandsuppressionprofileService {
-	return NewWSGPortaldetectionandsuppressionprofileService(ss.apiClient)
+func (ss *WSGService) WSGPortalDetectionandSuppressionProfileService() *WSGPortalDetectionandSuppressionProfileService {
+	return NewWSGPortalDetectionandSuppressionProfileService(ss.apiClient)
 }
 
 // AddRkszonesPortalDetectionProfilesByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGPortaldetectionandsuppressionprofileService() *WSGPorta
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGPortaldetectionandsuppressionprofileService) AddRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) AddRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGPortaldetectionandsuppressionprofileService) AddRkszonesPortalDetect
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGPortaldetectionandsuppressionprofileService) DeleteRkszonesPortalDetectionProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDetectionProfilesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -91,7 +91,7 @@ func (s *WSGPortaldetectionandsuppressionprofileService) DeleteRkszonesPortalDet
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGPortaldetectionandsuppressionprofileService) DeleteRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -121,7 +121,7 @@ func (s *WSGPortaldetectionandsuppressionprofileService) DeleteRkszonesPortalDet
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGPortaldetectionandsuppressionprofileService) FindRkszonesPortalDetectionProfilesById(ctx context.Context, id string, zoneId string) (*WSGPortalDetectionProfile, *APIResponseMeta, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesById(ctx context.Context, id string, zoneId string) (*WSGPortalDetectionProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -147,7 +147,7 @@ func (s *WSGPortaldetectionandsuppressionprofileService) FindRkszonesPortalDetec
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGPortaldetectionandsuppressionprofileService) FindRkszonesPortalDetectionProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGPortalDetectionProfileList, *APIResponseMeta, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGPortalDetectionProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -176,7 +176,7 @@ func (s *WSGPortaldetectionandsuppressionprofileService) FindRkszonesPortalDetec
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGPortaldetectionandsuppressionprofileService) FindRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, zoneId string) (*WSGPortalDetectionProfileList, *APIResponseMeta, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, zoneId string) (*WSGPortalDetectionProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -207,7 +207,7 @@ func (s *WSGPortaldetectionandsuppressionprofileService) FindRkszonesPortalDetec
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGPortaldetectionandsuppressionprofileService) PartialUpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) PartialUpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -241,7 +241,7 @@ func (s *WSGPortaldetectionandsuppressionprofileService) PartialUpdateRkszonesPo
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGPortaldetectionandsuppressionprofileService) UpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) UpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

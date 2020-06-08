@@ -8,21 +8,21 @@ import (
 	"net/http"
 )
 
-type SwitchMSwitchGroupModelConfigService struct {
+type SwitchMGroupModelConfigService struct {
 	apiClient *VSZClient
 }
 
-func NewSwitchMSwitchGroupModelConfigService(c *VSZClient) *SwitchMSwitchGroupModelConfigService {
-	s := new(SwitchMSwitchGroupModelConfigService)
+func NewSwitchMGroupModelConfigService(c *VSZClient) *SwitchMGroupModelConfigService {
+	s := new(SwitchMGroupModelConfigService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SwitchMService) SwitchMSwitchGroupModelConfigService() *SwitchMSwitchGroupModelConfigService {
-	return NewSwitchMSwitchGroupModelConfigService(ss.apiClient)
+func (ss *SwitchMService) SwitchMGroupModelConfigService() *SwitchMGroupModelConfigService {
+	return NewSwitchMGroupModelConfigService(ss.apiClient)
 }
 
-type SwitchMSwitchGroupModelConfigGroupConfigAuditId struct {
+type SwitchMGroupModelConfigGroupConfigAuditId struct {
 	// Id
 	// The identifier of the Group Model Config
 	Id *string `json:"id,omitempty"`
@@ -32,12 +32,12 @@ type SwitchMSwitchGroupModelConfigGroupConfigAuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func NewSwitchMSwitchGroupModelConfigGroupConfigAuditId() *SwitchMSwitchGroupModelConfigGroupConfigAuditId {
-	m := new(SwitchMSwitchGroupModelConfigGroupConfigAuditId)
+func NewSwitchMGroupModelConfigGroupConfigAuditId() *SwitchMGroupModelConfigGroupConfigAuditId {
+	m := new(SwitchMGroupModelConfigGroupConfigAuditId)
 	return m
 }
 
-type SwitchMSwitchGroupModelConfigGroupModelConfig struct {
+type SwitchMGroupModelConfig struct {
 	// CreatedTime
 	// The create time of the Group Model Config
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -79,15 +79,15 @@ type SwitchMSwitchGroupModelConfigGroupModelConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
-func NewSwitchMSwitchGroupModelConfigGroupModelConfig() *SwitchMSwitchGroupModelConfigGroupModelConfig {
-	m := new(SwitchMSwitchGroupModelConfigGroupModelConfig)
+func NewSwitchMGroupModelConfig() *SwitchMGroupModelConfig {
+	m := new(SwitchMGroupModelConfig)
 	return m
 }
 
-type SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult struct {
+type SwitchMGroupModelConfigQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType `json:"extra,omitempty"`
+	Extra *SwitchMGroupModelConfigQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Group Model Config returned out of the complete Group Model Configs list
@@ -97,7 +97,7 @@ type SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult struct {
 	// Indicator of whether there are more Group Model Configs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchGroupModelConfigGroupModelConfig `json:"list,omitempty"`
+	List []*SwitchMGroupModelConfig `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Group Model Configs count
@@ -108,52 +108,52 @@ type SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchGroupModelConfigGroupModelConfigQueryResult() *SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult {
-	m := new(SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult)
+func NewSwitchMGroupModelConfigQueryResult() *SwitchMGroupModelConfigQueryResult {
+	m := new(SwitchMGroupModelConfigQueryResult)
 	return m
 }
 
-// SwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType
+// SwitchMGroupModelConfigQueryResultExtraType
 //
 // Any additional response data
-type SwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType struct {
+type SwitchMGroupModelConfigQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMGroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMGroupModelConfigQueryResultExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMGroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType() *SwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType {
-	m := new(SwitchMSwitchGroupModelConfigGroupModelConfigQueryResultExtraType)
+func NewSwitchMGroupModelConfigQueryResultExtraType() *SwitchMGroupModelConfigQueryResultExtraType {
+	m := new(SwitchMGroupModelConfigQueryResultExtraType)
 	return m
 }
 
-type SwitchMSwitchGroupModelConfigSelectedIds struct {
+type SwitchMGroupModelConfigSelectedIds struct {
 	SelectedIdList []string `json:"selectedIdList,omitempty"`
 }
 
-func NewSwitchMSwitchGroupModelConfigSelectedIds() *SwitchMSwitchGroupModelConfigSelectedIds {
-	m := new(SwitchMSwitchGroupModelConfigSelectedIds)
+func NewSwitchMGroupModelConfigSelectedIds() *SwitchMGroupModelConfigSelectedIds {
+	m := new(SwitchMGroupModelConfigSelectedIds)
 	return m
 }
 
-type SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList struct {
+type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType `json:"extra,omitempty"`
+	Extra *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first updated Group Model Config returned out of the complete Group Model Configs list
@@ -163,7 +163,7 @@ type SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList struct {
 	// Indicator of whether there are more updated Group Model Configs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchGroupModelConfigGroupConfigAuditId `json:"list,omitempty"`
+	List []*SwitchMGroupModelConfigGroupConfigAuditId `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total updated Group Model Configs count
@@ -174,36 +174,36 @@ type SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
-func NewSwitchMSwitchGroupModelConfigUpdateGroupConfigResultList() *SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList {
-	m := new(SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList)
+func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelConfigUpdateGroupConfigResultList {
+	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultList)
 	return m
 }
 
-// SwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType
+// SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType
 //
 // Any additional response data
-type SwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType struct {
+type SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
+func (t *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType{XAdditionalProperties: tmp}
+	*t = SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
+func (t *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType() *SwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType {
-	m := new(SwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType)
+func NewSwitchMGroupModelConfigUpdateGroupConfigResultListExtraType() *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType {
+	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType)
 	return m
 }
 
@@ -213,11 +213,11 @@ func NewSwitchMSwitchGroupModelConfigUpdateGroupConfigResultListExtraType() *Swi
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMSwitchGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet) (*SwitchMGroupModelConfigQueryResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult
+		resp     *SwitchMGroupModelConfigQueryResult
 		httpResp *http.Response
 		err      error
 	)
@@ -230,7 +230,7 @@ func (s *SwitchMSwitchGroupModelConfigService) FindGroupModelConfigsByQueryCrite
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchGroupModelConfigGroupModelConfigQueryResult()
+	resp = NewSwitchMGroupModelConfigQueryResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -240,16 +240,16 @@ func (s *SwitchMSwitchGroupModelConfigService) FindGroupModelConfigsByQueryCrite
 // Use this API command to add or remove the model family of a group config.
 //
 // Request Body:
-//	 - body *SwitchMSwitchGroupModelConfigSelectedIds
+//	 - body *SwitchMGroupModelConfigSelectedIds
 //
 // Required Parameters:
 // - groupId string
 //		- required
-func (s *SwitchMSwitchGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *SwitchMSwitchGroupModelConfigSelectedIds, groupId string) (*SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList, *APIResponseMeta, error) {
+func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *SwitchMGroupModelConfigSelectedIds, groupId string) (*SwitchMGroupModelConfigUpdateGroupConfigResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList
+		resp     *SwitchMGroupModelConfigUpdateGroupConfigResultList
 		httpResp *http.Response
 		err      error
 	)
@@ -263,7 +263,7 @@ func (s *SwitchMSwitchGroupModelConfigService) UpdateGroupModelConfigsByGroupId(
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewSwitchMSwitchGroupModelConfigUpdateGroupConfigResultList()
+	resp = NewSwitchMGroupModelConfigUpdateGroupConfigResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

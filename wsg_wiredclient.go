@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGWiredclientService struct {
+type WSGWiredClientService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGWiredclientService(c *VSZClient) *WSGWiredclientService {
-	s := new(WSGWiredclientService)
+func NewWSGWiredClientService(c *VSZClient) *WSGWiredClientService {
+	s := new(WSGWiredClientService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGWiredclientService() *WSGWiredclientService {
-	return NewWSGWiredclientService(ss.apiClient)
+func (ss *WSGService) WSGWiredClientService() *WSGWiredClientService {
+	return NewWSGWiredClientService(ss.apiClient)
 }
 
 // AddWiredClientsBulkDeauth
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGWiredclientService() *WSGWiredclientService {
 //
 // Request Body:
 //	 - body *WSGClientDeAuthClientList
-func (s *WSGWiredclientService) AddWiredClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*APIResponseMeta, error) {
+func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, body *WSGClientDeAuthClientList) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -53,7 +53,7 @@ func (s *WSGWiredclientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 //
 // Request Body:
 //	 - body *WSGClientDeAuthClient
-func (s *WSGWiredclientService) AddWiredClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*APIResponseMeta, error) {
+func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body *WSGClientDeAuthClient) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -79,7 +79,7 @@ func (s *WSGWiredclientService) AddWiredClientsDeauth(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGWiredclientService) FindWiredclientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWiredClientQueryClientQueryList, *APIResponseMeta, error) {
+func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGWiredClientQueryClientQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

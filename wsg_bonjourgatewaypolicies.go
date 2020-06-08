@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGBonjourgatewaypoliciesService struct {
+type WSGBonjourGatewayPoliciesService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGBonjourgatewaypoliciesService(c *VSZClient) *WSGBonjourgatewaypoliciesService {
-	s := new(WSGBonjourgatewaypoliciesService)
+func NewWSGBonjourGatewayPoliciesService(c *VSZClient) *WSGBonjourGatewayPoliciesService {
+	s := new(WSGBonjourGatewayPoliciesService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGBonjourgatewaypoliciesService() *WSGBonjourgatewaypoliciesService {
-	return NewWSGBonjourgatewaypoliciesService(ss.apiClient)
+func (ss *WSGService) WSGBonjourGatewayPoliciesService() *WSGBonjourGatewayPoliciesService {
+	return NewWSGBonjourGatewayPoliciesService(ss.apiClient)
 }
 
 // AddRkszonesBonjourGatewayEnableByZoneId
@@ -31,7 +31,7 @@ func (ss *WSGService) WSGBonjourgatewaypoliciesService() *WSGBonjourgatewaypolic
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGBonjourgatewaypoliciesService) AddRkszonesBonjourGatewayEnableByZoneId(ctx context.Context, body *WSGZoneModifyBonjourGatewayEnable, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayEnableByZoneId(ctx context.Context, body *WSGZoneModifyBonjourGatewayEnable, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -62,7 +62,7 @@ func (s *WSGBonjourgatewaypoliciesService) AddRkszonesBonjourGatewayEnableByZone
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGBonjourgatewaypoliciesService) AddRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, body *WSGZoneCreateBonjourGatewayPolicy, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, body *WSGZoneCreateBonjourGatewayPolicy, zoneId string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -94,7 +94,7 @@ func (s *WSGBonjourgatewaypoliciesService) AddRkszonesBonjourGatewayPoliciesByZo
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGBonjourgatewaypoliciesService) DeleteRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -121,7 +121,7 @@ func (s *WSGBonjourgatewaypoliciesService) DeleteRkszonesBonjourGatewayPoliciesB
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGBonjourgatewaypoliciesService) FindRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string) (*WSGZoneBonjourGatewayPolicyConfiguration, *APIResponseMeta, error) {
+func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string) (*WSGZoneBonjourGatewayPolicyConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -148,7 +148,7 @@ func (s *WSGBonjourgatewaypoliciesService) FindRkszonesBonjourGatewayPoliciesByI
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGBonjourgatewaypoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, zoneId string) (*WSGZoneBonjourGatewayPolicyList, *APIResponseMeta, error) {
+func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, zoneId string) (*WSGZoneBonjourGatewayPolicyList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -173,7 +173,7 @@ func (s *WSGBonjourgatewaypoliciesService) FindRkszonesBonjourGatewayPoliciesByZ
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGBonjourgatewaypoliciesService) FindServicesBonjourPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
+func (s *WSGBonjourGatewayPoliciesService) FindServicesBonjourPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -207,7 +207,7 @@ func (s *WSGBonjourgatewaypoliciesService) FindServicesBonjourPolicyByQueryCrite
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGBonjourgatewaypoliciesService) PartialUpdateRkszonesBonjourGatewayPoliciesById(ctx context.Context, body *WSGZoneModifyBonjourGatewayPolicy, id string, zoneId string) (*APIResponseMeta, error) {
+func (s *WSGBonjourGatewayPoliciesService) PartialUpdateRkszonesBonjourGatewayPoliciesById(ctx context.Context, body *WSGZoneModifyBonjourGatewayPolicy, id string, zoneId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

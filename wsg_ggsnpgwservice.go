@@ -7,24 +7,24 @@ import (
 	"net/http"
 )
 
-type WSGGgsnpgwserviceService struct {
+type WSGGGSNPGWServiceService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGGgsnpgwserviceService(c *VSZClient) *WSGGgsnpgwserviceService {
-	s := new(WSGGgsnpgwserviceService)
+func NewWSGGGSNPGWServiceService(c *VSZClient) *WSGGGSNPGWServiceService {
+	s := new(WSGGGSNPGWServiceService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGGgsnpgwserviceService() *WSGGgsnpgwserviceService {
-	return NewWSGGgsnpgwserviceService(ss.apiClient)
+func (ss *WSGService) WSGGGSNPGWServiceService() *WSGGGSNPGWServiceService {
+	return NewWSGGGSNPGWServiceService(ss.apiClient)
 }
 
 // DeleteServicesGgsnDnsServerList
 //
 // Use this API command to Disable the dns server list of GGSN/PGW.
-func (s *WSGGgsnpgwserviceService) DeleteServicesGgsnDnsServerList(ctx context.Context) (*APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.Context) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -43,7 +43,7 @@ func (s *WSGGgsnpgwserviceService) DeleteServicesGgsnDnsServerList(ctx context.C
 // DeleteServicesGgsnGgsnList
 //
 // Use this API command to disable the ggsn server list of GGSN/PGW.
-func (s *WSGGgsnpgwserviceService) DeleteServicesGgsnGgsnList(ctx context.Context) (*APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Context) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -65,11 +65,11 @@ func (s *WSGGgsnpgwserviceService) DeleteServicesGgsnGgsnList(ctx context.Contex
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGGgsnpgwserviceService) FindGgsnGtpcConStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRacstatsGgsnGtpcConList, *APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) FindGgsnGtpcConStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRACStatsGgsnGtpcConList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGRacstatsGgsnGtpcConList
+		resp     *WSGRACStatsGgsnGtpcConList
 		httpResp *http.Response
 		err      error
 	)
@@ -82,7 +82,7 @@ func (s *WSGGgsnpgwserviceService) FindGgsnGtpcConStatsByQueryCriteria(ctx conte
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGRacstatsGgsnGtpcConList()
+	resp = NewWSGRACStatsGgsnGtpcConList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -93,11 +93,11 @@ func (s *WSGGgsnpgwserviceService) FindGgsnGtpcConStatsByQueryCriteria(ctx conte
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGGgsnpgwserviceService) FindGgsnGtpStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRacstatsGgsnGtpList, *APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) FindGgsnGtpStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGRACStatsGgsnGtpList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGRacstatsGgsnGtpList
+		resp     *WSGRACStatsGgsnGtpList
 		httpResp *http.Response
 		err      error
 	)
@@ -110,7 +110,7 @@ func (s *WSGGgsnpgwserviceService) FindGgsnGtpStatsByQueryCriteria(ctx context.C
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = NewWSGRacstatsGgsnGtpList()
+	resp = NewWSGRACStatsGgsnGtpList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -118,7 +118,7 @@ func (s *WSGGgsnpgwserviceService) FindGgsnGtpStatsByQueryCriteria(ctx context.C
 // FindServicesGgsn
 //
 // Use this API command to retrieve GGSN/PGW setting.
-func (s *WSGGgsnpgwserviceService) FindServicesGgsn(ctx context.Context) (*WSGServiceGgsnConfig, *APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context) (*WSGServiceGgsnConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -142,7 +142,7 @@ func (s *WSGGgsnpgwserviceService) FindServicesGgsn(ctx context.Context) (*WSGSe
 //
 // Request Body:
 //	 - body *WSGServiceGgsnConfig
-func (s *WSGGgsnpgwserviceService) PartialUpdateServicesGgsn(ctx context.Context, body *WSGServiceGgsnConfig) (*APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context, body *WSGServiceGgsnConfig) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -168,7 +168,7 @@ func (s *WSGGgsnpgwserviceService) PartialUpdateServicesGgsn(ctx context.Context
 //
 // Request Body:
 //	 - body WSGServiceDnsServerList
-func (s *WSGGgsnpgwserviceService) PartialUpdateServicesGgsnDnsServerList(ctx context.Context, body WSGServiceDnsServerList) (*APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx context.Context, body WSGServiceDnsServerList) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -194,7 +194,7 @@ func (s *WSGGgsnpgwserviceService) PartialUpdateServicesGgsnDnsServerList(ctx co
 //
 // Request Body:
 //	 - body WSGServiceGgsnList
-func (s *WSGGgsnpgwserviceService) PartialUpdateServicesGgsnGgsnList(ctx context.Context, body WSGServiceGgsnList) (*APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context.Context, body WSGServiceGgsnList) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -220,7 +220,7 @@ func (s *WSGGgsnpgwserviceService) PartialUpdateServicesGgsnGgsnList(ctx context
 //
 // Request Body:
 //	 - body *WSGServiceGtpSettings
-func (s *WSGGgsnpgwserviceService) PartialUpdateServicesGgsnGtpSettings(ctx context.Context, body *WSGServiceGtpSettings) (*APIResponseMeta, error) {
+func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings(ctx context.Context, body *WSGServiceGtpSettings) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

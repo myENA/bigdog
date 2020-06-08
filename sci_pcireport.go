@@ -7,25 +7,25 @@ import (
 	"net/http"
 )
 
-type SCIPcireportService struct {
+type SCIPCIReportService struct {
 	apiClient *SCIClient
 }
 
-func NewSCIPcireportService(c *SCIClient) *SCIPcireportService {
-	s := new(SCIPcireportService)
+func NewSCIPCIReportService(c *SCIClient) *SCIPCIReportService {
+	s := new(SCIPCIReportService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SCIService) SCIPcireportService() *SCIPcireportService {
-	return NewSCIPcireportService(ss.apiClient)
+func (ss *SCIService) SCIPCIReportService() *SCIPCIReportService {
+	return NewSCIPCIReportService(ss.apiClient)
 }
 
 // PciReportDownloadReport
 //
 // Request Body:
 //	 - body string
-func (s *SCIPcireportService) PciReportDownloadReport(ctx context.Context, body string) (*APIResponseMeta, error) {
+func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, body string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

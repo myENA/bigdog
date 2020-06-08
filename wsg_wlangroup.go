@@ -22,12 +22,12 @@ func (ss *WSGService) WSGWLANGroupService() *WSGWLANGroupService {
 }
 
 type WSGWLANGroupCreateWlanGroup struct {
-	Description *WSGWLANGroupCreateWlanGroup `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANGroupCreateWlanGroup `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 }
 
 func NewWSGWLANGroupCreateWlanGroup() *WSGWLANGroupCreateWlanGroup {
@@ -36,9 +36,9 @@ func NewWSGWLANGroupCreateWlanGroup() *WSGWLANGroupCreateWlanGroup {
 }
 
 type WSGWLANGroupModifyWlanGroup struct {
-	Description *WSGWLANGroupModifyWlanGroup `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	Name *WSGWLANGroupModifyWlanGroup `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
 func NewWSGWLANGroupModifyWlanGroup() *WSGWLANGroupModifyWlanGroup {
@@ -60,7 +60,7 @@ type WSGWLANGroupModifyWlanGroupMember struct {
 	//    - max:63
 	NasId *string `json:"nasId,omitempty"`
 
-	VlanPooling *WSGWLANGroupModifyWlanGroupMember `json:"vlanPooling,omitempty"`
+	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 
 func NewWSGWLANGroupModifyWlanGroupMember() *WSGWLANGroupModifyWlanGroupMember {
@@ -81,7 +81,7 @@ type WSGWLANGroup struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGWLANGroup `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the WLAN group
@@ -89,7 +89,7 @@ type WSGWLANGroup struct {
 
 	// Members
 	// Members of the WLAN group
-	Members []*WSGWLANGroup `json:"members,omitempty"`
+	Members []*WSGWLANGroupWlanMember `json:"members,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -106,7 +106,7 @@ type WSGWLANGroup struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANGroup `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// ZoneId
 	// Identifier of the zone to which the WLAN group belongs
@@ -123,7 +123,7 @@ type WSGWLANGroupList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWLANGroupList `json:"list,omitempty"`
+	List []*WSGWLANGroup `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -157,7 +157,7 @@ type WSGWLANGroupWlanMember struct {
 	//    - max:63
 	NasId *string `json:"nasId,omitempty"`
 
-	VlanPooling *WSGWLANGroupWlanMember `json:"vlanPooling,omitempty"`
+	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 
 func NewWSGWLANGroupWlanMember() *WSGWLANGroupWlanMember {

@@ -22,13 +22,13 @@ func (ss *WSGService) WSGCertificateService() *WSGCertificateService {
 }
 
 type WSGCertificate struct {
-	CertificasSigningRequest *WSGCertificate `json:"certificasSigningRequest,omitempty"`
+	CertificasSigningRequest *WSGCommonGenericRef `json:"certificasSigningRequest,omitempty"`
 
 	// Data
 	// Data of the certificate
 	Data *string `json:"data,omitempty"`
 
-	Description *WSGCertificate `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the certificate
@@ -44,7 +44,7 @@ type WSGCertificate struct {
 	//    - nullable
 	IntermediateData []string `json:"intermediateData,omitempty"`
 
-	Name *WSGCertificate `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Passphrase
 	// Key passphrase
@@ -73,7 +73,7 @@ type WSGCertificateList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCertificateList `json:"list,omitempty"`
+	List []*WSGCertificateListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -84,13 +84,13 @@ func NewWSGCertificateList() *WSGCertificateList {
 }
 
 type WSGCertificateListType struct {
-	Description *WSGCertificateListType `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the certificate
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGCertificateListType `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
 func NewWSGCertificateListType() *WSGCertificateListType {
@@ -111,7 +111,7 @@ type WSGCertificatesSigningRequest struct {
 	// Country code of the certificates signing request
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description *WSGCertificatesSigningRequest `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Email
 	// Email of the certificates signing request
@@ -121,7 +121,7 @@ type WSGCertificatesSigningRequest struct {
 	// Identifier of the certificates signing request
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGCertificatesSigningRequest `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Organization
 	// Organization of the certificates signing request
@@ -144,7 +144,7 @@ func NewWSGCertificatesSigningRequest() *WSGCertificatesSigningRequest {
 type WSGCertificateCertSetting struct {
 	// ServiceCertificates
 	// Certificate Setting of the service
-	ServiceCertificates []*WSGCertificateCertSetting `json:"serviceCertificates,omitempty"`
+	ServiceCertificates []*WSGCertificateServiceCertificate `json:"serviceCertificates,omitempty"`
 }
 
 func NewWSGCertificateCertSetting() *WSGCertificateCertSetting {
@@ -157,7 +157,7 @@ type WSGCertificateClientCert struct {
 	// Data of the client certificate
 	Data *string `json:"data,omitempty"`
 
-	Description *WSGCertificateClientCert `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the client certificate
@@ -173,7 +173,7 @@ type WSGCertificateClientCert struct {
 	//    - nullable
 	IntermediateData []string `json:"intermediateData,omitempty"`
 
-	Name *WSGCertificateClientCert `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// PrivateKeyData
 	// Private key data of the client certificate
@@ -198,7 +198,7 @@ type WSGCertificateClientCertList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCertificateClientCertList `json:"list,omitempty"`
+	List []*WSGCertificateClientCertListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -209,13 +209,13 @@ func NewWSGCertificateClientCertList() *WSGCertificateClientCertList {
 }
 
 type WSGCertificateClientCertListType struct {
-	Description *WSGCertificateClientCertListType `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the client certificate
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGCertificateClientCertListType `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
 func NewWSGCertificateClientCertListType() *WSGCertificateClientCertListType {
@@ -224,7 +224,7 @@ func NewWSGCertificateClientCertListType() *WSGCertificateClientCertListType {
 }
 
 type WSGCertificateCreateCert struct {
-	CertificasSigningRequest *WSGCertificateCreateCert `json:"certificasSigningRequest,omitempty"`
+	CertificasSigningRequest *WSGCommonGenericRef `json:"certificasSigningRequest,omitempty"`
 
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
@@ -232,7 +232,7 @@ type WSGCertificateCreateCert struct {
 	//    - required
 	Data *string `json:"data"`
 
-	Description *WSGCertificateCreateCert `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER certificate.
@@ -243,7 +243,7 @@ type WSGCertificateCreateCert struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCertificateCreateCert `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Passphrase
 	// Key passphrase
@@ -270,7 +270,7 @@ type WSGCertificateCreateClientCert struct {
 	//    - required
 	Data *string `json:"data"`
 
-	Description *WSGCertificateCreateClientCert `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// IntermediateData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
@@ -281,7 +281,7 @@ type WSGCertificateCreateClientCert struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCertificateCreateClientCert `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// PrivateKeyData
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
@@ -310,7 +310,7 @@ type WSGCertificateCreateCSR struct {
 	// CommonName
 	// Constraints:
 	//    - required
-	CommonName *WSGCertificateCreateCSR `json:"commonName"`
+	CommonName *WSGCommonFQDN `json:"commonName"`
 
 	// CountryCode
 	// Country code of the certificates signing request
@@ -318,17 +318,17 @@ type WSGCertificateCreateCSR struct {
 	//    - required
 	CountryCode *string `json:"countryCode"`
 
-	Description *WSGCertificateCreateCSR `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Email
 	// Constraints:
 	//    - required
-	Email *WSGCertificateCreateCSR `json:"email"`
+	Email *WSGCommonEmail `json:"email"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCertificateCreateCSR `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Organization
 	// Organization of the certificates signing request
@@ -357,7 +357,7 @@ func NewWSGCertificateCreateCSR() *WSGCertificateCreateCSR {
 }
 
 type WSGCertificateCreateTrustedCAChain struct {
-	Description *WSGCertificateCreateTrustedCAChain `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// InterCertData
 	// Intermediate data of the trusted CA chain certificates
@@ -368,7 +368,7 @@ type WSGCertificateCreateTrustedCAChain struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGCertificateCreateTrustedCAChain `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
@@ -387,7 +387,7 @@ type WSGCertificateCsrList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCertificateCsrList `json:"list,omitempty"`
+	List []*WSGCertificateCsrListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -398,13 +398,13 @@ func NewWSGCertificateCsrList() *WSGCertificateCsrList {
 }
 
 type WSGCertificateCsrListType struct {
-	Description *WSGCertificateCsrListType `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the certificates signing request
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGCertificateCsrListType `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
 func NewWSGCertificateCsrListType() *WSGCertificateCsrListType {
@@ -413,7 +413,7 @@ func NewWSGCertificateCsrListType() *WSGCertificateCsrListType {
 }
 
 type WSGCertificateDeleteBulk struct {
-	IdList *WSGCertificateDeleteBulk `json:"idList,omitempty"`
+	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
 func NewWSGCertificateDeleteBulk() *WSGCertificateDeleteBulk {
@@ -422,7 +422,7 @@ func NewWSGCertificateDeleteBulk() *WSGCertificateDeleteBulk {
 }
 
 type WSGCertificateModifyTrustedCAChain struct {
-	Description *WSGCertificateModifyTrustedCAChain `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Information
 	// Information of the certificates
@@ -434,7 +434,7 @@ type WSGCertificateModifyTrustedCAChain struct {
 	//    - nullable
 	InterCertData []string `json:"interCertData,omitempty"`
 
-	Name *WSGCertificateModifyTrustedCAChain `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
@@ -447,7 +447,7 @@ func NewWSGCertificateModifyTrustedCAChain() *WSGCertificateModifyTrustedCAChain
 }
 
 type WSGCertificateServiceCertificate struct {
-	Certificate *WSGCertificateServiceCertificate `json:"certificate,omitempty"`
+	Certificate *WSGCommonGenericRef `json:"certificate,omitempty"`
 
 	// Service
 	// the service
@@ -470,7 +470,7 @@ func MakeWSGCertificateServiceCertificates() WSGCertificateServiceCertificates {
 }
 
 type WSGCertificateTrustedCAChain struct {
-	Description *WSGCertificateTrustedCAChain `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the trusted CA chain certificates
@@ -482,7 +482,7 @@ type WSGCertificateTrustedCAChain struct {
 	//    - nullable
 	InterCertData []string `json:"interCertData,omitempty"`
 
-	Name *WSGCertificateTrustedCAChain `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates
@@ -499,7 +499,7 @@ type WSGCertificateTrustedCAChainCertList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGCertificateTrustedCAChainCertList `json:"list,omitempty"`
+	List []*WSGCertificateTrustedCAChainCertListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -510,7 +510,7 @@ func NewWSGCertificateTrustedCAChainCertList() *WSGCertificateTrustedCAChainCert
 }
 
 type WSGCertificateTrustedCAChainCertListType struct {
-	Description *WSGCertificateTrustedCAChainCertListType `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the trusted CA chain certificate
@@ -526,11 +526,11 @@ type WSGCertificateTrustedCAChainCertListType struct {
 	//    - nullable
 	InterCertData []string `json:"interCertData,omitempty"`
 
-	ModifiedDateTime *WSGCertificateTrustedCAChainCertListType `json:"modifiedDateTime,omitempty"`
+	ModifiedDateTime *WSGCommonNormalNameAllowBlank `json:"modifiedDateTime,omitempty"`
 
-	ModifierUsername *WSGCertificateTrustedCAChainCertListType `json:"modifierUsername,omitempty"`
+	ModifierUsername *WSGCommonNormalNameAllowBlank `json:"modifierUsername,omitempty"`
 
-	Name *WSGCertificateTrustedCAChainCertListType `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// RootCertData
 	// Root data of the trusted CA chain certificates

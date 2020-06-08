@@ -31,7 +31,7 @@ type SwitchMSwitchPortSettingsCreateBulk struct {
 	// Group Id
 	GroupId *string `json:"groupId,omitempty"`
 
-	IdList *SwitchMSwitchPortSettingsCreateBulk `json:"idList,omitempty"`
+	IdList SwitchMCommonIdList `json:"idList,omitempty"`
 
 	// IgnoreList
 	// attributes not to overwrite
@@ -217,7 +217,7 @@ func NewSwitchMSwitchPortSettingsPortSettings() *SwitchMSwitchPortSettingsPortSe
 type SwitchMSwitchPortSettingsPortSettingsQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchPortSettingsPortSettingsQueryResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchPortSettingsPortSettingsQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Port Settings returned out of the complete Port Settings list
@@ -227,7 +227,7 @@ type SwitchMSwitchPortSettingsPortSettingsQueryResult struct {
 	// Indicator of whether there are more Port Settings after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchPortSettingsPortSettingsQueryResult `json:"list,omitempty"`
+	List []*SwitchMSwitchPortSettingsPortSettings `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Port Settings count

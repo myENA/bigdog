@@ -25,7 +25,7 @@ func (ss *SwitchMService) SwitchMSwitchHealthService() *SwitchMSwitchHealthServi
 type SwitchMSwitchHealthAggMetrics struct {
 	// Extra
 	// Extra information for Aggregation Metrics
-	Extra *SwitchMSwitchHealthAggMetrics `json:"extra,omitempty"`
+	Extra *SwitchMSwitchHealthAggMetricsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Aggregation Metrics returned out of the complete ICX Metrics list
@@ -35,7 +35,7 @@ type SwitchMSwitchHealthAggMetrics struct {
 	// Indicates if there are more Aggregation Metrics after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchHealthAggMetrics `json:"list,omitempty"`
+	List []*SwitchMSwitchHealthAggs `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Aggregation Metrics count
@@ -101,7 +101,7 @@ func NewSwitchMSwitchHealthAggs() *SwitchMSwitchHealthAggs {
 type SwitchMSwitchHealthIcxMetrics struct {
 	// Extra
 	// Extra information for ICX Metrics
-	Extra *SwitchMSwitchHealthIcxMetrics `json:"extra,omitempty"`
+	Extra *SwitchMSwitchHealthIcxMetricsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ICX Metrics returned out of the complete ICX Metrics list
@@ -111,7 +111,7 @@ type SwitchMSwitchHealthIcxMetrics struct {
 	// Indicates if there are more ICX Metrics after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchHealthIcxMetrics `json:"list,omitempty"`
+	List []*SwitchMSwitchHealthMetrics `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// ICX Metrics count
@@ -181,7 +181,7 @@ func NewSwitchMSwitchHealthMetrics() *SwitchMSwitchHealthMetrics {
 type SwitchMSwitchHealthStatus struct {
 	// Fan
 	// Fan
-	Fan []*SwitchMSwitchHealthStatus `json:"fan,omitempty"`
+	Fan []*SwitchMSwitchHealthStatusFanType `json:"fan,omitempty"`
 
 	// FlaggedCount
 	// Flagged status count
@@ -197,11 +197,11 @@ type SwitchMSwitchHealthStatus struct {
 
 	// PowerSupply
 	// Powersupply
-	PowerSupply []*SwitchMSwitchHealthStatus `json:"powerSupply,omitempty"`
+	PowerSupply []*SwitchMSwitchHealthStatusPowerSupplyType `json:"powerSupply,omitempty"`
 
 	// Temperature
 	// Temperature
-	Temperature []*SwitchMSwitchHealthStatus `json:"temperature,omitempty"`
+	Temperature []*SwitchMSwitchHealthStatusTemperatureType `json:"temperature,omitempty"`
 }
 
 func NewSwitchMSwitchHealthStatus() *SwitchMSwitchHealthStatus {

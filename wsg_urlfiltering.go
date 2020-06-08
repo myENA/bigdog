@@ -11,7 +11,7 @@ type WSGURLFilteringCreateUrlFilteringPolicy struct {
 	// The block category IDs of the URL Filtering policy
 	BlockCategories []int `json:"blockCategories,omitempty"`
 
-	Description *WSGURLFilteringCreateUrlFilteringPolicy `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy belongs
@@ -27,7 +27,7 @@ type WSGURLFilteringCreateUrlFilteringPolicy struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGURLFilteringCreateUrlFilteringPolicy `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// SafeSearchBingDns
 	// Bing DNS for safe search of the URL Filtering policy
@@ -64,7 +64,7 @@ func NewWSGURLFilteringCreateUrlFilteringPolicy() *WSGURLFilteringCreateUrlFilte
 }
 
 type WSGURLFilteringDeleteBulk struct {
-	IdList *WSGURLFilteringDeleteBulk `json:"idList,omitempty"`
+	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
 func NewWSGURLFilteringDeleteBulk() *WSGURLFilteringDeleteBulk {
@@ -81,7 +81,7 @@ type WSGURLFilteringModifyUrlFilteringPolicy struct {
 	// The block category IDs of the URL Filtering policy
 	BlockCategories []int `json:"blockCategories,omitempty"`
 
-	Description *WSGURLFilteringModifyUrlFilteringPolicy `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// FilteringLevel
 	// The filtering level of the URL Filtering policy
@@ -89,7 +89,7 @@ type WSGURLFilteringModifyUrlFilteringPolicy struct {
 	//    - oneof:[NO_ADULT,CLEAN_AND_SAFE,CHILD_AND_STUDENT_FRIENDLY,STRICT,CUSTOM]
 	FilteringLevel *string `json:"filteringLevel,omitempty"`
 
-	Name *WSGURLFilteringModifyUrlFilteringPolicy `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// SafeSearchBingDns
 	// Bing DNS for safe search of the URL Filtering policy
@@ -130,7 +130,7 @@ type WSGURLFilteringBlockCategoriesList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGURLFilteringBlockCategoriesList `json:"list,omitempty"`
+	List []*WSGURLFilteringBlockCategory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -176,7 +176,7 @@ type WSGURLFilteringPolicy struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGURLFilteringPolicy `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the URL filtering policy belongs
@@ -204,7 +204,7 @@ type WSGURLFilteringPolicy struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *WSGURLFilteringPolicy `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// SafeSearchBingDns
 	// Bing DNS for safe search of the URL Filtering policy
@@ -245,13 +245,13 @@ func NewWSGURLFilteringPolicy() *WSGURLFilteringPolicy {
 }
 
 type WSGURLFilteringPolicyList struct {
-	Extra *WSGURLFilteringPolicyList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGURLFilteringPolicyList `json:"list,omitempty"`
+	List []*WSGURLFilteringPolicy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

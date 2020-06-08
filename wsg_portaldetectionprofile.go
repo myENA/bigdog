@@ -3,16 +3,16 @@ package ruckus
 // API Version: v9_0
 
 type WSGPortalDetectionProfileCreatePortalDetectionProfile struct {
-	Description *WSGPortalDetectionProfileCreatePortalDetectionProfile `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGPortalDetectionProfileCreatePortalDetectionProfile `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// PortalDetectionPatterns
 	// The pattern profiles for portal detection and suppression
-	PortalDetectionPatterns []*WSGPortalDetectionProfileCreatePortalDetectionProfile `json:"portalDetectionPatterns,omitempty"`
+	PortalDetectionPatterns []*WSGPortalDetectionProfilePortalDetectionPattern `json:"portalDetectionPatterns,omitempty"`
 }
 
 func NewWSGPortalDetectionProfileCreatePortalDetectionProfile() *WSGPortalDetectionProfileCreatePortalDetectionProfile {
@@ -38,7 +38,7 @@ type WSGPortalDetectionProfilePortalDetectionPattern struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGPortalDetectionProfilePortalDetectionPattern `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// PatternType
 	// Portal detection and suppression pattern type
@@ -72,7 +72,7 @@ type WSGPortalDetectionProfile struct {
 	// Creator name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGPortalDetectionProfile `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the portal detection and suppression profile
@@ -92,11 +92,11 @@ type WSGPortalDetectionProfile struct {
 	// Modifier name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *WSGPortalDetectionProfile `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// PortalDetectionPatterns
 	// The pattern profiles for portal detection and suppression
-	PortalDetectionPatterns []*WSGPortalDetectionProfile `json:"portalDetectionPatterns,omitempty"`
+	PortalDetectionPatterns []*WSGPortalDetectionProfilePortalDetectionPattern `json:"portalDetectionPatterns,omitempty"`
 
 	// ZoneId
 	// Zone ID
@@ -109,13 +109,13 @@ func NewWSGPortalDetectionProfile() *WSGPortalDetectionProfile {
 }
 
 type WSGPortalDetectionProfileList struct {
-	Extra *WSGPortalDetectionProfileList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGPortalDetectionProfileList `json:"list,omitempty"`
+	List []*WSGPortalDetectionProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

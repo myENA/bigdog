@@ -56,7 +56,7 @@ func NewSCIModelsMigration() *SCIModelsMigration {
 //
 // Migration Mappings.
 type SCIModelsMigrationMap struct {
-	Data *SCIModelsMigrationMap `json:"data,omitempty"`
+	Data *SCIModelsMigrationMapDataType `json:"data,omitempty"`
 
 	// From
 	// Constraints:
@@ -111,7 +111,7 @@ type SCIModelsPciProfile struct {
 	// list of selected ssids
 	// Constraints:
 	//    - required
-	Answers *SCIModelsPciProfile `json:"answers"`
+	Answers *SCIModelsPciProfileAnswersType `json:"answers"`
 
 	Id *float64 `json:"id,omitempty"`
 
@@ -123,7 +123,7 @@ type SCIModelsPciProfile struct {
 
 	// Ssids
 	// list of selected ssids
-	Ssids []*SCIModelsPciProfile `json:"ssids,omitempty"`
+	Ssids []SCIModelsXany `json:"ssids,omitempty"`
 }
 
 func NewSCIModelsPciProfile() *SCIModelsPciProfile {
@@ -175,7 +175,7 @@ type SCIModelsPciReport struct {
 	// Status of the controllers in this report
 	// Constraints:
 	//    - required
-	Statuses []*SCIModelsPciReport `json:"statuses"`
+	Statuses []*SCIModelsPciReportStatusesType `json:"statuses"`
 }
 
 func NewSCIModelsPciReport() *SCIModelsPciReport {
@@ -211,19 +211,19 @@ func NewSCIModelsPciReportStatusesType() *SCIModelsPciReportStatusesType {
 type SCIModelsReport struct {
 	Component *string `json:"component,omitempty"`
 
-	DatasourcesUsed []*SCIModelsReport `json:"datasourcesUsed,omitempty"`
+	DatasourcesUsed []SCIModelsXany `json:"datasourcesUsed,omitempty"`
 
-	ExcludedFilters []*SCIModelsReport `json:"excludedFilters,omitempty"`
+	ExcludedFilters []SCIModelsXany `json:"excludedFilters,omitempty"`
 
 	FilterDataSource *string `json:"filterDataSource,omitempty"`
 
-	Headers []*SCIModelsReport `json:"headers,omitempty"`
+	Headers []SCIModelsXany `json:"headers,omitempty"`
 
 	Id *float64 `json:"id,omitempty"`
 
-	Layout []*SCIModelsReport `json:"layout,omitempty"`
+	Layout []SCIModelsXany `json:"layout,omitempty"`
 
-	RouteParameters *SCIModelsReport `json:"routeParameters,omitempty"`
+	RouteParameters *SCIModelsReportRouteParametersType `json:"routeParameters,omitempty"`
 
 	// Title
 	// Constraints:
@@ -338,7 +338,7 @@ type SCIModelsSchedule struct {
 	// two@domain.com
 	// Constraints:
 	//    - required
-	Recipients []*SCIModelsSchedule `json:"recipients"`
+	Recipients []SCIModelsXany `json:"recipients"`
 
 	ReportId *float64 `json:"reportId,omitempty"`
 
@@ -359,11 +359,11 @@ func NewSCIModelsSchedule() *SCIModelsSchedule {
 type SCIModelsSection struct {
 	Component *string `json:"component,omitempty"`
 
-	DefaultParameters *SCIModelsSection `json:"defaultParameters,omitempty"`
+	DefaultParameters *SCIModelsSectionDefaultParametersType `json:"defaultParameters,omitempty"`
 
 	Id *float64 `json:"id,omitempty"`
 
-	Layout *SCIModelsSection `json:"layout,omitempty"`
+	Layout *SCIModelsSectionLayoutType `json:"layout,omitempty"`
 
 	// QueryName
 	// Constraints:
@@ -444,7 +444,7 @@ type SCIModelsSetting struct {
 	// Values
 	// Constraints:
 	//    - required
-	Values *SCIModelsSetting `json:"values"`
+	Values *SCIModelsSettingValuesType `json:"values"`
 }
 
 func NewSCIModelsSetting() *SCIModelsSetting {
@@ -499,7 +499,7 @@ type SCIModelsSystem struct {
 	//    - required
 	Location *string `json:"location"`
 
-	PciData *SCIModelsSystem `json:"pciData,omitempty"`
+	PciData *SCIModelsSystemPciDataType `json:"pciData,omitempty"`
 
 	// Type
 	// Constraints:

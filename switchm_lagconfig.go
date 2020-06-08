@@ -94,7 +94,7 @@ type SwitchMSwitchLAGConfigList struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMSwitchLAGConfigList `json:"list,omitempty"`
+	List []*SwitchMSwitchLAGConfigLagConfig `json:"list,omitempty"`
 
 	// TotalCount
 	// Total configs count in this response

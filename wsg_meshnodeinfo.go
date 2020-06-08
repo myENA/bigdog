@@ -50,7 +50,7 @@ type WSGMeshnodeinfo struct {
 	// The hasDownLink of the mesh AP
 	HasDownLink *bool `json:"hasDownLink,omitempty"`
 
-	HelperZoneInfo []*WSGMeshnodeinfo `json:"helperZoneInfo,omitempty"`
+	HelperZoneInfo []*WSGMeshnodeinfoHelperZoneInfo `json:"helperZoneInfo,omitempty"`
 
 	// Hops
 	// The hop count of this mesh AP
@@ -84,7 +84,7 @@ func MakeWSGMeshnodeinfoArray() WSGMeshnodeinfoArray {
 type WSGMeshnodeinfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra *WSGMeshnodeinfoList `json:"extra,omitempty"`
+	Extra *WSGMeshnodeinfoListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first MeshNodeInfo returned out of the complete Rogue AP list
@@ -94,7 +94,7 @@ type WSGMeshnodeinfoList struct {
 	// Indicator of whether there are more MeshNodeInfo after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGMeshnodeinfoList `json:"list,omitempty"`
+	List []*WSGMeshnodeinfo `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// MeshNodeInfos count.

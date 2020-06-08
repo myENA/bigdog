@@ -120,7 +120,7 @@ func NewWSGDPSKInfoType() *WSGDPSKInfoType {
 }
 
 type WSGDPSKQueryList struct {
-	Extra *WSGDPSKQueryList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -128,7 +128,7 @@ type WSGDPSKQueryList struct {
 
 	// List
 	// Information list of DPSK
-	List []*WSGDPSKQueryList `json:"list,omitempty"`
+	List []*WSGDPSKQueryListType `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -214,7 +214,7 @@ type WSGDPSKGetDpskEnabledWlans struct {
 	// Indicates whether there are more DPSK enabled WLANs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDPSKGetDpskEnabledWlans `json:"list,omitempty"`
+	List []*WSGDPSKGetDpskEnabledWlansListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total DPSK enabled WLAN count of the zone
@@ -250,7 +250,7 @@ type WSGDPSKGetDpskInfoList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List *WSGDPSKGetDpskInfoList `json:"list,omitempty"`
+	List WSGDPSKInfo `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -261,7 +261,7 @@ func NewWSGDPSKGetDpskInfoList() *WSGDPSKGetDpskInfoList {
 }
 
 type WSGDPSKGetDpskResult struct {
-	DpskInfoList *WSGDPSKGetDpskResult `json:"dpskInfoList,omitempty"`
+	DpskInfoList WSGDPSKInfo `json:"dpskInfoList,omitempty"`
 
 	ResultCount *int `json:"resultCount,omitempty"`
 }
@@ -334,7 +334,7 @@ func NewWSGDPSKWlanDpskSetting() *WSGDPSKWlanDpskSetting {
 type WSGDPSKWlanExternalDpsk struct {
 	// AuthService
 	// Autentication of the WLAN relate to external DPSK
-	AuthService *WSGDPSKWlanExternalDpsk `json:"authService,omitempty"`
+	AuthService *WSGDPSKWlanExternalDpskAuthServiceType `json:"authService,omitempty"`
 
 	// Enabled
 	// Enable External DPSK
@@ -345,7 +345,7 @@ type WSGDPSKWlanExternalDpsk struct {
 
 	// Encryption
 	// Encryption of the WLAN relate to external DPSK
-	Encryption *WSGDPSKWlanExternalDpsk `json:"encryption,omitempty"`
+	Encryption *WSGDPSKWlanExternalDpskEncryptionType `json:"encryption,omitempty"`
 }
 
 func NewWSGDPSKWlanExternalDpsk() *WSGDPSKWlanExternalDpsk {

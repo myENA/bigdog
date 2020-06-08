@@ -23,13 +23,13 @@ func (ss *WSGService) WSGTrafficAnalysisService() *WSGTrafficAnalysisService {
 }
 
 type WSGTrafficAnalysisResults struct {
-	Extra *WSGTrafficAnalysisResults `json:"extra,omitempty"`
+	Extra *WSGTrafficAnalysisResultsExtraType `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGTrafficAnalysisResults `json:"list,omitempty"`
+	List []*WSGTrafficAnalysisResultsListType `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
@@ -69,11 +69,11 @@ func NewWSGTrafficAnalysisResultsExtraType() *WSGTrafficAnalysisResultsExtraType
 type WSGTrafficAnalysisResultsListType struct {
 	AppName *string `json:"appName,omitempty"`
 
-	ExtraValues24 *WSGTrafficAnalysisResultsListType `json:"extraValues24,omitempty"`
+	ExtraValues24 *WSGTrafficAnalysisResultsListTypeExtraValues24Type `json:"extraValues24,omitempty"`
 
-	ExtraValues50 *WSGTrafficAnalysisResultsListType `json:"extraValues50,omitempty"`
+	ExtraValues50 *WSGTrafficAnalysisResultsListTypeExtraValues50Type `json:"extraValues50,omitempty"`
 
-	ExtraValuesTotal *WSGTrafficAnalysisResultsListType `json:"extraValuesTotal,omitempty"`
+	ExtraValuesTotal *WSGTrafficAnalysisResultsListTypeExtraValuesTotalType `json:"extraValuesTotal,omitempty"`
 
 	Key *string `json:"key,omitempty"`
 

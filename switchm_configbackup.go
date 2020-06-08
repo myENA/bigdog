@@ -72,9 +72,9 @@ func NewSwitchMSwitchConfigurationBackupConfigBackupContent() *SwitchMSwitchConf
 }
 
 type SwitchMSwitchConfigurationBackupConfigBackupDiff struct {
-	ConfigBackup1 *SwitchMSwitchConfigurationBackupConfigBackupDiff `json:"configBackup1,omitempty"`
+	ConfigBackup1 *SwitchMSwitchConfigurationBackupConfigBackupContent `json:"configBackup1,omitempty"`
 
-	ConfigBackup2 *SwitchMSwitchConfigurationBackupConfigBackupDiff `json:"configBackup2,omitempty"`
+	ConfigBackup2 *SwitchMSwitchConfigurationBackupConfigBackupContent `json:"configBackup2,omitempty"`
 }
 
 func NewSwitchMSwitchConfigurationBackupConfigBackupDiff() *SwitchMSwitchConfigurationBackupConfigBackupDiff {
@@ -98,7 +98,7 @@ func NewSwitchMSwitchConfigurationBackupConfigBackupDiffInput() *SwitchMSwitchCo
 }
 
 type SwitchMSwitchConfigurationBackupCreateBackupResultList struct {
-	Extra *SwitchMSwitchConfigurationBackupCreateBackupResultList `json:"extra,omitempty"`
+	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of first index in current page
@@ -108,7 +108,7 @@ type SwitchMSwitchConfigurationBackupCreateBackupResultList struct {
 	// Has more data or not
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchConfigurationBackupCreateBackupResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchConfigurationBackupCreateBackupResultListType `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total ConfigBackupInfo count
@@ -144,7 +144,7 @@ func NewSwitchMSwitchConfigurationBackupCreateBackupResultListType() *SwitchMSwi
 }
 
 type SwitchMSwitchConfigurationBackupList struct {
-	Extra *SwitchMSwitchConfigurationBackupList `json:"extra,omitempty"`
+	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ConfigBackup returned out of the complete ConfigBackup list
@@ -154,7 +154,7 @@ type SwitchMSwitchConfigurationBackupList struct {
 	// Indicator of whether there are more ConfigBackup after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchConfigurationBackupList `json:"list,omitempty"`
+	List []*SwitchMSwitchConfigurationBackupConfigurationBackup `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// ConfigBackup count

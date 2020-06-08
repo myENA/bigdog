@@ -7,7 +7,7 @@ import (
 )
 
 type SwitchMACLConfig struct {
-	AclRule []*SwitchMACLConfig `json:"aclRule,omitempty"`
+	AclRule []*SwitchMACLConfigACLRule `json:"aclRule,omitempty"`
 
 	// AclType
 	// ACL Type
@@ -62,7 +62,7 @@ func NewSwitchMACLConfig() *SwitchMACLConfig {
 type SwitchMACLConfigsQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMACLConfigsQueryResult `json:"extra,omitempty"`
+	Extra *SwitchMACLConfigsQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first AccessControl returned out of the complete AccessControl list
@@ -72,7 +72,7 @@ type SwitchMACLConfigsQueryResult struct {
 	// Indicator of whether there are more AccessControl after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMACLConfigsQueryResult `json:"list,omitempty"`
+	List []*SwitchMACLConfig `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total AccessControl count
@@ -156,7 +156,7 @@ func NewSwitchMACLConfigACLRule() *SwitchMACLConfigACLRule {
 }
 
 type SwitchMACLConfigCreateACLConfig struct {
-	AclRule []*SwitchMACLConfigCreateACLConfig `json:"aclRule,omitempty"`
+	AclRule []*SwitchMACLConfigACLRule `json:"aclRule,omitempty"`
 
 	// AclType
 	// ACL Type
@@ -197,7 +197,7 @@ func NewSwitchMACLConfigCreateACLConfig() *SwitchMACLConfigCreateACLConfig {
 }
 
 type SwitchMACLConfigUpdateACLConfig struct {
-	AclRule []*SwitchMACLConfigUpdateACLConfig `json:"aclRule,omitempty"`
+	AclRule []*SwitchMACLConfigACLRule `json:"aclRule,omitempty"`
 
 	// AclType
 	// ACL Type

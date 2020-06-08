@@ -33,7 +33,7 @@ type WSGRogueClientRogueInfo struct {
 
 	// DetectedByAP
 	// The list of APs that found the rogue client
-	DetectedByAP []*WSGRogueClientRogueInfo `json:"detectedByAP,omitempty"`
+	DetectedByAP []*WSGAPInfo `json:"detectedByAP,omitempty"`
 
 	// Encryption
 	// Encryption of the rogue client
@@ -51,9 +51,9 @@ type WSGRogueClientRogueInfo struct {
 	// Radio of the rogue client
 	Radio *string `json:"radio,omitempty"`
 
-	RogueAPMac *WSGRogueClientRogueInfo `json:"rogueAPMac,omitempty"`
+	RogueAPMac *WSGCommonMac `json:"rogueAPMac,omitempty"`
 
-	RogueMac *WSGRogueClientRogueInfo `json:"rogueMac,omitempty"`
+	RogueMac *WSGCommonMac `json:"rogueMac,omitempty"`
 
 	// Ssid
 	// SSID of the rogue client
@@ -72,7 +72,7 @@ func NewWSGRogueClientRogueInfo() *WSGRogueClientRogueInfo {
 type WSGRogueClientRogueInfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra *WSGRogueClientRogueInfoList `json:"extra,omitempty"`
+	Extra *WSGRogueClientRogueInfoListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Rogue AP returned out of the complete Rogue Client list
@@ -82,7 +82,7 @@ type WSGRogueClientRogueInfoList struct {
 	// Indicator of whether there are more Rogue Clients after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRogueClientRogueInfoList `json:"list,omitempty"`
+	List []*WSGRogueClientRogueInfo `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Rogue Clients count.

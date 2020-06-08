@@ -412,12 +412,12 @@ type WSGSCGUserPatchScgUserGroup struct {
 	// Permissions
 	// Constraints:
 	//    - nullable
-	Permissions []*WSGSCGUserPatchScgUserGroup `json:"permissions,omitempty"`
+	Permissions []*WSGSCGUserGroupPermissionWithoutDetailItems `json:"permissions,omitempty"`
 
 	// ResourceGroups
 	// Constraints:
 	//    - nullable
-	ResourceGroups []*WSGSCGUserPatchScgUserGroup `json:"resourceGroups,omitempty"`
+	ResourceGroups []*WSGSCGUserGroupResourceGroup `json:"resourceGroups,omitempty"`
 
 	// Role
 	// Constraints:
@@ -432,7 +432,7 @@ type WSGSCGUserPatchScgUserGroup struct {
 	// Users
 	// Constraints:
 	//    - required
-	Users []*WSGSCGUserPatchScgUserGroup `json:"users"`
+	Users []*WSGSCGUserGetScgUser `json:"users"`
 }
 
 func NewWSGSCGUserPatchScgUserGroup() *WSGSCGUserPatchScgUserGroup {
@@ -455,19 +455,19 @@ type WSGSCGUserQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGSCGUserQueryCriteria `json:"extraFilters,omitempty"`
+	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGSCGUserQueryCriteria `json:"extraNotFilters,omitempty"`
+	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
-	ExtraTimeRange *WSGSCGUserQueryCriteria `json:"extraTimeRange,omitempty"`
+	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGSCGUserQueryCriteria `json:"filters,omitempty"`
+	Filters []*WSGSCGUserQueryCriteriaFiltersType `json:"filters,omitempty"`
 
-	FullTextSearch *WSGSCGUserQueryCriteria `json:"fullTextSearch,omitempty"`
+	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
@@ -477,7 +477,7 @@ type WSGSCGUserQueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options *WSGSCGUserQueryCriteria `json:"options,omitempty"`
+	Options *WSGCommonQueryCriteriaOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -491,7 +491,7 @@ type WSGSCGUserQueryCriteria struct {
 
 	// SortInfo
 	// About sorting
-	SortInfo *WSGSCGUserQueryCriteria `json:"sortInfo,omitempty"`
+	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
 func NewWSGSCGUserQueryCriteria() *WSGSCGUserQueryCriteria {
@@ -596,13 +596,13 @@ type WSGSCGUserGroup struct {
 	// Permission list
 	// Constraints:
 	//    - required
-	Permissions []*WSGSCGUserGroup `json:"permissions"`
+	Permissions []*WSGSCGUserGroupPermissionWithoutDetailItems `json:"permissions"`
 
 	// ResourceGroups
 	// Resource group id list
 	// Constraints:
 	//    - required
-	ResourceGroups []*WSGSCGUserGroup `json:"resourceGroups"`
+	ResourceGroups []*WSGSCGUserGroupResourceGroup `json:"resourceGroups"`
 
 	// Role
 	// User group role
@@ -620,7 +620,7 @@ type WSGSCGUserGroup struct {
 	// Users in this user group
 	// Constraints:
 	//    - required
-	Users []*WSGSCGUserGroup `json:"users"`
+	Users []*WSGSCGUserGetScgUser `json:"users"`
 }
 
 func NewWSGSCGUserGroup() *WSGSCGUserGroup {
@@ -640,13 +640,13 @@ func NewWSGSCGUserGroupAuditId() *WSGSCGUserGroupAuditId {
 }
 
 type WSGSCGUserGroupList struct {
-	Extra *WSGSCGUserGroupList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCGUserGroupList `json:"list,omitempty"`
+	List []*WSGSCGUserGroup `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -677,7 +677,7 @@ type WSGSCGUserGroupPermission struct {
 	// Resource items
 	// Constraints:
 	//    - nullable
-	Items []*WSGSCGUserGroupPermission `json:"items,omitempty"`
+	Items []*WSGSCGUserGroupPermissionItemsType `json:"items,omitempty"`
 
 	// ItemsDescription
 	// Descriptions of Resource items
@@ -714,13 +714,13 @@ func NewWSGSCGUserGroupPermissionItemsType() *WSGSCGUserGroupPermissionItemsType
 type WSGSCGUserGroupPermissionList struct {
 	// Extra
 	// Any additional response data.
-	Extra *WSGSCGUserGroupPermissionList `json:"extra,omitempty"`
+	Extra *WSGSCGUserGroupPermissionListExtraType `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCGUserGroupPermissionList `json:"list,omitempty"`
+	List []*WSGSCGUserGroupPermission `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -816,7 +816,7 @@ type WSGSCGUserGroupRoleLabelValueList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCGUserGroupRoleLabelValueList `json:"list,omitempty"`
+	List []*WSGSCGUserGroupRoleLabelValue `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -827,13 +827,13 @@ func NewWSGSCGUserGroupRoleLabelValueList() *WSGSCGUserGroupRoleLabelValueList {
 }
 
 type WSGSCGUserList struct {
-	Extra *WSGSCGUserList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCGUserList `json:"list,omitempty"`
+	List []*WSGSCGUserGetScgUser `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

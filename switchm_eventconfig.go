@@ -54,7 +54,7 @@ func NewSwitchMSwitchEventConfigEventConfig() *SwitchMSwitchEventConfigEventConf
 type SwitchMSwitchEventConfigGetEventConfigList struct {
 	// Extra
 	// Extra information of responsed Switch custom event config list
-	Extra *SwitchMSwitchEventConfigGetEventConfigList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchEventConfigGetEventConfigListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// First index of responsed Switch custom event config list
@@ -64,7 +64,7 @@ type SwitchMSwitchEventConfigGetEventConfigList struct {
 	// Indicator of whether there are more Switch event config
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchEventConfigGetEventConfigList `json:"list,omitempty"`
+	List []*SwitchMSwitchEventConfigEventConfig `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// List of responsed Switch custom event config
@@ -111,19 +111,19 @@ func NewSwitchMSwitchEventConfigGetEventConfigListExtraType() *SwitchMSwitchEven
 type SwitchMSwitchEventConfigQueryResponse struct {
 	// Data
 	// Response data message of Public API
-	Data *SwitchMSwitchEventConfigQueryResponse `json:"data,omitempty"`
+	Data *SwitchMSwitchEventConfigQueryResponseDataType `json:"data,omitempty"`
 
 	// Error
 	// Response error message of Public API
-	Error *SwitchMSwitchEventConfigQueryResponse `json:"error,omitempty"`
+	Error *SwitchMSwitchEventConfigQueryResponseErrorType `json:"error,omitempty"`
 
 	// Extra
 	// Extra information of Public API response
-	Extra *SwitchMSwitchEventConfigQueryResponse `json:"extra,omitempty"`
+	Extra *SwitchMSwitchEventConfigQueryResponseExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// Meta-data of Public API response
-	MetaData *SwitchMSwitchEventConfigQueryResponse `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchEventConfigQueryResponseMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Response success message of Public API

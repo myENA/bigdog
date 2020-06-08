@@ -3,7 +3,7 @@ package ruckus
 // API Version: v9_0
 
 type WSGServiceActiveDirectoryService struct {
-	AdminDomainName *WSGServiceActiveDirectoryService `json:"adminDomainName,omitempty"`
+	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
@@ -17,13 +17,13 @@ type WSGServiceActiveDirectoryService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGServiceActiveDirectoryService `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceActiveDirectoryService `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
@@ -33,11 +33,11 @@ type WSGServiceActiveDirectoryService struct {
 	// Identifier of the active directory authentication service
 	Id *string `json:"id,omitempty"`
 
-	Ip *WSGServiceActiveDirectoryService `json:"ip,omitempty"`
+	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceActiveDirectoryService `json:"mappings,omitempty"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -55,7 +55,7 @@ type WSGServiceActiveDirectoryService struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceActiveDirectoryService `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -75,13 +75,13 @@ type WSGServiceActiveDirectoryService struct {
 	//    - oneof:[AD]
 	Protocol *string `json:"protocol,omitempty"`
 
-	StandbyAdminDomainName *WSGServiceActiveDirectoryService `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *WSGCommonNormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled for standby cluster
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	StandbyIp *WSGServiceActiveDirectoryService `json:"standbyIp,omitempty"`
+	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password for standby cluster
@@ -103,7 +103,7 @@ type WSGServiceActiveDirectoryService struct {
 	// AD over TLS Enabled for standby cluster
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	StandbyWindowsDomainName *WSGServiceActiveDirectoryService `json:"standbyWindowsDomainName,omitempty"`
+	StandbyWindowsDomainName *WSGCommonNormalName2to64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TlsEnabled
 	// AD over TLS Enabled
@@ -115,7 +115,7 @@ type WSGServiceActiveDirectoryService struct {
 	//    - oneof:[AD]
 	Type *string `json:"type,omitempty"`
 
-	WindowsDomainName *WSGServiceActiveDirectoryService `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
 func NewWSGServiceActiveDirectoryService() *WSGServiceActiveDirectoryService {
@@ -124,13 +124,13 @@ func NewWSGServiceActiveDirectoryService() *WSGServiceActiveDirectoryService {
 }
 
 type WSGServiceActiveDirectoryServiceList struct {
-	Extra *WSGServiceActiveDirectoryServiceList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceActiveDirectoryServiceList `json:"list,omitempty"`
+	List []*WSGServiceActiveDirectoryService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -153,7 +153,7 @@ type WSGServiceCommonAccountingService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGServiceCommonAccountingService `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
@@ -179,7 +179,7 @@ type WSGServiceCommonAccountingService struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceCommonAccountingService `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Accounting protocol.
@@ -200,13 +200,13 @@ func NewWSGServiceCommonAccountingService() *WSGServiceCommonAccountingService {
 }
 
 type WSGServiceCommonAccountingServiceList struct {
-	Extra *WSGServiceCommonAccountingServiceList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceCommonAccountingServiceList `json:"list,omitempty"`
+	List []*WSGServiceCommonAccountingService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -229,13 +229,13 @@ type WSGServiceCommonAuthenticationService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGServiceCommonAuthenticationService `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceCommonAuthenticationService `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
@@ -243,7 +243,7 @@ type WSGServiceCommonAuthenticationService struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceCommonAuthenticationService `json:"mappings,omitempty"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -261,7 +261,7 @@ type WSGServiceCommonAuthenticationService struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceCommonAuthenticationService `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
@@ -282,13 +282,13 @@ func NewWSGServiceCommonAuthenticationService() *WSGServiceCommonAuthenticationS
 }
 
 type WSGServiceCommonAuthenticationServiceList struct {
-	Extra *WSGServiceCommonAuthenticationServiceList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceCommonAuthenticationServiceList `json:"list,omitempty"`
+	List []*WSGServiceCommonAuthenticationService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -299,15 +299,15 @@ func NewWSGServiceCommonAuthenticationServiceList() *WSGServiceCommonAuthenticat
 }
 
 type WSGServiceCreateActiveDirectoryAuthentication struct {
-	AdminDomainName *WSGServiceCreateActiveDirectoryAuthentication `json:"adminDomainName,omitempty"`
+	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
-	Description *WSGServiceCreateActiveDirectoryAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceCreateActiveDirectoryAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
@@ -322,16 +322,16 @@ type WSGServiceCreateActiveDirectoryAuthentication struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGServiceCreateActiveDirectoryAuthentication `json:"ip"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceCreateActiveDirectoryAuthentication `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGServiceCreateActiveDirectoryAuthentication `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Password
 	// Admin password
@@ -346,13 +346,13 @@ type WSGServiceCreateActiveDirectoryAuthentication struct {
 	//    - max:65535
 	Port *int `json:"port"`
 
-	StandbyAdminDomainName *WSGServiceCreateActiveDirectoryAuthentication `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *WSGCommonNormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled for standby cluster
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	StandbyIp *WSGServiceCreateActiveDirectoryAuthentication `json:"standbyIp,omitempty"`
+	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password for standby cluster
@@ -374,7 +374,7 @@ type WSGServiceCreateActiveDirectoryAuthentication struct {
 	// AD over TLS Enabled for standby cluster
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	StandbyWindowsDomainName *WSGServiceCreateActiveDirectoryAuthentication `json:"standbyWindowsDomainName,omitempty"`
+	StandbyWindowsDomainName *WSGCommonNormalName2to64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TlsEnabled
 	// AD over TLS Enabled
@@ -391,7 +391,7 @@ type WSGServiceCreateActiveDirectoryAuthentication struct {
 	// WindowsDomainName
 	// Constraints:
 	//    - required
-	WindowsDomainName *WSGServiceCreateActiveDirectoryAuthentication `json:"windowsDomainName"`
+	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName"`
 }
 
 func NewWSGServiceCreateActiveDirectoryAuthentication() *WSGServiceCreateActiveDirectoryAuthentication {
@@ -428,7 +428,7 @@ type WSGServiceCreateHlrAuthentication struct {
 
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	Description *WSGServiceCreateHlrAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DestGtIndicator
 	// Constraints:
@@ -456,7 +456,7 @@ type WSGServiceCreateHlrAuthentication struct {
 	//    - oneof:[version2,version3]
 	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	FriendlyName *WSGServiceCreateHlrAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	GtPointCode *int `json:"gtPointCode,omitempty"`
 
@@ -481,7 +481,7 @@ type WSGServiceCreateHlrAuthentication struct {
 
 	MaxReuseTimes *int `json:"maxReuseTimes,omitempty"`
 
-	MncNdcList []*WSGServiceCreateHlrAuthentication `json:"mncNdcList,omitempty"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
 
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
@@ -494,7 +494,7 @@ type WSGServiceCreateHlrAuthentication struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGServiceCreateHlrAuthentication `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	PointCode *int `json:"pointCode,omitempty"`
 
@@ -507,9 +507,9 @@ type WSGServiceCreateHlrAuthentication struct {
 
 	RoutingContext *int `json:"routingContext,omitempty"`
 
-	SccpGttList []*WSGServiceCreateHlrAuthentication `json:"sccpGttList,omitempty"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
 
-	SctpAssociationsList []*WSGServiceCreateHlrAuthentication `json:"sctpAssociationsList,omitempty"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
 
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
@@ -545,20 +545,20 @@ type WSGServiceCreateLDAPAuthentication struct {
 	// AdminDomainName
 	// Constraints:
 	//    - required
-	AdminDomainName *WSGServiceCreateLDAPAuthentication `json:"adminDomainName"`
+	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName"`
 
 	// BaseDomainName
 	// Constraints:
 	//    - required
-	BaseDomainName *WSGServiceCreateLDAPAuthentication `json:"baseDomainName"`
+	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName"`
 
-	Description *WSGServiceCreateLDAPAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceCreateLDAPAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
@@ -567,21 +567,21 @@ type WSGServiceCreateLDAPAuthentication struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGServiceCreateLDAPAuthentication `json:"ip"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// KeyAttribute
 	// Constraints:
 	//    - required
-	KeyAttribute *WSGServiceCreateLDAPAuthentication `json:"keyAttribute"`
+	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceCreateLDAPAuthentication `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGServiceCreateLDAPAuthentication `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Password
 	// Admin password
@@ -601,15 +601,15 @@ type WSGServiceCreateLDAPAuthentication struct {
 	// SearchFilter
 	// Constraints:
 	//    - required
-	SearchFilter *WSGServiceCreateLDAPAuthentication `json:"searchFilter"`
+	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter"`
 
-	StandbyAdminDomainName *WSGServiceCreateLDAPAuthentication `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *WSGCommonNormalName2to128 `json:"standbyAdminDomainName,omitempty"`
 
-	StandbyBaseDomainName *WSGServiceCreateLDAPAuthentication `json:"standbyBaseDomainName,omitempty"`
+	StandbyBaseDomainName *WSGCommonNormalName2to64 `json:"standbyBaseDomainName,omitempty"`
 
-	StandbyIp *WSGServiceCreateLDAPAuthentication `json:"standbyIp,omitempty"`
+	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
-	StandbyKeyAttribute *WSGServiceCreateLDAPAuthentication `json:"standbyKeyAttribute,omitempty"`
+	StandbyKeyAttribute *WSGCommonNormalName2to64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -623,7 +623,7 @@ type WSGServiceCreateLDAPAuthentication struct {
 	//    - max:65535
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	StandbySearchFilter *WSGServiceCreateLDAPAuthentication `json:"standbySearchFilter,omitempty"`
+	StandbySearchFilter *WSGCommonNormalName2to64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -652,23 +652,23 @@ func NewWSGServiceCreateLDAPAuthentication() *WSGServiceCreateLDAPAuthentication
 }
 
 type WSGServiceCreateRadiusAccounting struct {
-	Description *WSGServiceCreateRadiusAccounting `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	HealthCheckPolicy *WSGServiceCreateRadiusAccounting `json:"healthCheckPolicy,omitempty"`
+	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGServiceCreateRadiusAccounting `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Primary
 	// Constraints:
 	//    - required
-	Primary *WSGServiceCreateRadiusAccounting `json:"primary"`
+	Primary *WSGCommonRadiusServer `json:"primary"`
 
 	// Protocol
 	// Accounting protocol.
@@ -676,11 +676,11 @@ type WSGServiceCreateRadiusAccounting struct {
 	//    - oneof:[RADIUS]
 	Protocol *string `json:"protocol,omitempty"`
 
-	RateLimiting *WSGServiceCreateRadiusAccounting `json:"rateLimiting,omitempty"`
+	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	Secondary *WSGServiceCreateRadiusAccounting `json:"secondary,omitempty"`
+	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	StandbyPrimary *WSGServiceCreateRadiusAccounting `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -699,15 +699,15 @@ func NewWSGServiceCreateRadiusAccounting() *WSGServiceCreateRadiusAccounting {
 }
 
 type WSGServiceCreateRadiusAuthentication struct {
-	Description *WSGServiceCreateRadiusAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceCreateRadiusAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
-	HealthCheckPolicy *WSGServiceCreateRadiusAuthentication `json:"healthCheckPolicy,omitempty"`
+	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
@@ -719,23 +719,23 @@ type WSGServiceCreateRadiusAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceCreateRadiusAuthentication `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGServiceCreateRadiusAuthentication `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Primary
 	// Constraints:
 	//    - required
-	Primary *WSGServiceCreateRadiusAuthentication `json:"primary"`
+	Primary *WSGCommonRadiusServer `json:"primary"`
 
-	RateLimiting *WSGServiceCreateRadiusAuthentication `json:"rateLimiting,omitempty"`
+	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	Secondary *WSGServiceCreateRadiusAuthentication `json:"secondary,omitempty"`
+	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	StandbyPrimary *WSGServiceCreateRadiusAuthentication `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -755,7 +755,7 @@ func NewWSGServiceCreateRadiusAuthentication() *WSGServiceCreateRadiusAuthentica
 }
 
 type WSGServiceDeleteBulkAccountingService struct {
-	IdList *WSGServiceDeleteBulkAccountingService `json:"idList,omitempty"`
+	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
 func NewWSGServiceDeleteBulkAccountingService() *WSGServiceDeleteBulkAccountingService {
@@ -764,7 +764,7 @@ func NewWSGServiceDeleteBulkAccountingService() *WSGServiceDeleteBulkAccountingS
 }
 
 type WSGServiceDeleteBulkAuthenticationService struct {
-	IdList *WSGServiceDeleteBulkAuthenticationService `json:"idList,omitempty"`
+	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
 func NewWSGServiceDeleteBulkAuthenticationService() *WSGServiceDeleteBulkAuthenticationService {
@@ -806,11 +806,11 @@ func NewWSGServiceGgsn() *WSGServiceGgsn {
 }
 
 type WSGServiceGgsnConfig struct {
-	DnsServerList *WSGServiceGgsnConfig `json:"dnsServerList,omitempty"`
+	DnsServerList WSGServiceDnsServerList `json:"dnsServerList,omitempty"`
 
-	GgsnList *WSGServiceGgsnConfig `json:"ggsnList,omitempty"`
+	GgsnList WSGServiceGgsnList `json:"ggsnList,omitempty"`
 
-	GtpSettings *WSGServiceGgsnConfig `json:"gtpSettings,omitempty"`
+	GtpSettings *WSGServiceGtpSettings `json:"gtpSettings,omitempty"`
 }
 
 func NewWSGServiceGgsnConfig() *WSGServiceGgsnConfig {
@@ -843,7 +843,7 @@ type WSGServiceGroupAttrIdentityUserRoleMapping struct {
 	// Identity user role
 	// Constraints:
 	//    - required
-	UserRole *WSGServiceGroupAttrIdentityUserRoleMapping `json:"userRole"`
+	UserRole *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole"`
 }
 
 func NewWSGServiceGroupAttrIdentityUserRoleMapping() *WSGServiceGroupAttrIdentityUserRoleMapping {
@@ -861,11 +861,11 @@ type WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Identity user role UUID
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType `json:"name,omitempty"`
+	Name *WSGCommonNormalName2to64 `json:"name,omitempty"`
 
 	// UserTrafficProfile
 	// Identity user role
-	UserTrafficProfile *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType `json:"userTrafficProfile,omitempty"`
+	UserTrafficProfile *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType `json:"userTrafficProfile,omitempty"`
 }
 
 func NewWSGServiceGroupAttrIdentityUserRoleMappingUserRoleType() *WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType {
@@ -982,7 +982,7 @@ type WSGServiceHlrService struct {
 	// - For HLR Authentiaction server
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	Description *WSGServiceHlrService `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DestGtIndicator
 	// - For HLR Authentiaction server
@@ -1020,7 +1020,7 @@ type WSGServiceHlrService struct {
 	//    - oneof:[version2,version3]
 	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	FriendlyName *WSGServiceHlrService `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GtPointCode
 	// - For HLR Authentiaction server
@@ -1066,7 +1066,7 @@ type WSGServiceHlrService struct {
 
 	// MncNdcList
 	// - For HLR Authentiaction server
-	MncNdcList []*WSGServiceHlrService `json:"mncNdcList,omitempty"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -1084,7 +1084,7 @@ type WSGServiceHlrService struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceHlrService `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// PointCode
 	// - For HLR Authentiaction server
@@ -1105,11 +1105,11 @@ type WSGServiceHlrService struct {
 
 	// SccpGttList
 	// - For HLR Authentiaction server
-	SccpGttList []*WSGServiceHlrService `json:"sccpGttList,omitempty"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
 
 	// SctpAssociationsList
 	// - For HLR Authentiaction server
-	SctpAssociationsList []*WSGServiceHlrService `json:"sctpAssociationsList,omitempty"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
 
 	// SgsnIsdnAddress
 	// - For HLR Authentiaction server
@@ -1149,13 +1149,13 @@ func NewWSGServiceHlrService() *WSGServiceHlrService {
 }
 
 type WSGServiceHlrServiceList struct {
-	Extra *WSGServiceHlrServiceList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceHlrServiceList `json:"list,omitempty"`
+	List []*WSGServiceHlrService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1166,9 +1166,9 @@ func NewWSGServiceHlrServiceList() *WSGServiceHlrServiceList {
 }
 
 type WSGServiceLDAPService struct {
-	AdminDomainName *WSGServiceLDAPService `json:"adminDomainName,omitempty"`
+	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *WSGServiceLDAPService `json:"baseDomainName,omitempty"`
+	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName,omitempty"`
 
 	// CreateDateTime
 	// Timestamp of being created
@@ -1182,25 +1182,25 @@ type WSGServiceLDAPService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGServiceLDAPService `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceLDAPService `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the LDAP authentication service
 	Id *string `json:"id,omitempty"`
 
-	Ip *WSGServiceLDAPService `json:"ip,omitempty"`
+	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
-	KeyAttribute *WSGServiceLDAPService `json:"keyAttribute,omitempty"`
+	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceLDAPService `json:"mappings,omitempty"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -1218,7 +1218,7 @@ type WSGServiceLDAPService struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceLDAPService `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -1238,15 +1238,15 @@ type WSGServiceLDAPService struct {
 	//    - oneof:[LDAP]
 	Protocol *string `json:"protocol,omitempty"`
 
-	SearchFilter *WSGServiceLDAPService `json:"searchFilter,omitempty"`
+	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter,omitempty"`
 
-	StandbyAdminDomainName *WSGServiceLDAPService `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *WSGCommonNormalName2to128 `json:"standbyAdminDomainName,omitempty"`
 
-	StandbyBaseDomainName *WSGServiceLDAPService `json:"standbyBaseDomainName,omitempty"`
+	StandbyBaseDomainName *WSGCommonNormalName2to64 `json:"standbyBaseDomainName,omitempty"`
 
-	StandbyIp *WSGServiceLDAPService `json:"standbyIp,omitempty"`
+	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
-	StandbyKeyAttribute *WSGServiceLDAPService `json:"standbyKeyAttribute,omitempty"`
+	StandbyKeyAttribute *WSGCommonNormalName2to64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -1260,7 +1260,7 @@ type WSGServiceLDAPService struct {
 	//    - max:65535
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	StandbySearchFilter *WSGServiceLDAPService `json:"standbySearchFilter,omitempty"`
+	StandbySearchFilter *WSGCommonNormalName2to64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1287,13 +1287,13 @@ func NewWSGServiceLDAPService() *WSGServiceLDAPService {
 }
 
 type WSGServiceLDAPServiceList struct {
-	Extra *WSGServiceLDAPServiceList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceLDAPServiceList `json:"list,omitempty"`
+	List []*WSGServiceLDAPService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1331,15 +1331,15 @@ func NewWSGServiceMncNdc() *WSGServiceMncNdc {
 }
 
 type WSGServiceModifyActiveDirectoryAuthentication struct {
-	AdminDomainName *WSGServiceModifyActiveDirectoryAuthentication `json:"adminDomainName,omitempty"`
+	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
-	Description *WSGServiceModifyActiveDirectoryAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceModifyActiveDirectoryAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Global catalog support enabled or disabled
@@ -1349,13 +1349,13 @@ type WSGServiceModifyActiveDirectoryAuthentication struct {
 	// Identifier of the authentication service
 	Id *string `json:"id,omitempty"`
 
-	Ip *WSGServiceModifyActiveDirectoryAuthentication `json:"ip,omitempty"`
+	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyActiveDirectoryAuthentication `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *WSGServiceModifyActiveDirectoryAuthentication `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -1369,13 +1369,13 @@ type WSGServiceModifyActiveDirectoryAuthentication struct {
 	//    - max:65535
 	Port *int `json:"port,omitempty"`
 
-	StandbyAdminDomainName *WSGServiceModifyActiveDirectoryAuthentication `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *WSGCommonNormalName2to64 `json:"standbyAdminDomainName,omitempty"`
 
 	// StandbyGlobalCatalogEnabled
 	// Global catalog support enabled or disabled standby cluster
 	StandbyGlobalCatalogEnabled *bool `json:"standbyGlobalCatalogEnabled,omitempty"`
 
-	StandbyIp *WSGServiceModifyActiveDirectoryAuthentication `json:"standbyIp,omitempty"`
+	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
 	// StandbyPassword
 	// Admin password standby cluster
@@ -1397,7 +1397,7 @@ type WSGServiceModifyActiveDirectoryAuthentication struct {
 	// AD over TLS Enabled standby cluster
 	StandbyTlsEnabled *bool `json:"standbyTlsEnabled,omitempty"`
 
-	StandbyWindowsDomainName *WSGServiceModifyActiveDirectoryAuthentication `json:"standbyWindowsDomainName,omitempty"`
+	StandbyWindowsDomainName *WSGCommonNormalName2to64 `json:"standbyWindowsDomainName,omitempty"`
 
 	// TlsEnabled
 	// AD over TLS Enabled
@@ -1409,7 +1409,7 @@ type WSGServiceModifyActiveDirectoryAuthentication struct {
 	//    - oneof:[AD]
 	Type *string `json:"type,omitempty"`
 
-	WindowsDomainName *WSGServiceModifyActiveDirectoryAuthentication `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
 func NewWSGServiceModifyActiveDirectoryAuthentication() *WSGServiceModifyActiveDirectoryAuthentication {
@@ -1431,7 +1431,7 @@ type WSGServiceModifyGroupAttrIdentityUserRoleMapping struct {
 	// Identity user role
 	// Constraints:
 	//    - required
-	UserRole *WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"userRole"`
+	UserRole *WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole"`
 }
 
 func NewWSGServiceModifyGroupAttrIdentityUserRoleMapping() *WSGServiceModifyGroupAttrIdentityUserRoleMapping {
@@ -1447,7 +1447,7 @@ type WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Identity user role UUID
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"name,omitempty"`
+	Name *WSGCommonNormalName2to64 `json:"name,omitempty"`
 }
 
 func NewWSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType() *WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType {
@@ -1484,7 +1484,7 @@ type WSGServiceModifyHlrAuthentication struct {
 
 	DefaultPointCodeFormat *string `json:"defaultPointCodeFormat,omitempty"`
 
-	Description *WSGServiceModifyHlrAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DestGtIndicator
 	// Constraints:
@@ -1512,7 +1512,7 @@ type WSGServiceModifyHlrAuthentication struct {
 	//    - oneof:[version2,version3]
 	EapSimMapVer *string `json:"eapSimMapVer,omitempty"`
 
-	FriendlyName *WSGServiceModifyHlrAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	GtPointCode *int `json:"gtPointCode,omitempty"`
 
@@ -1537,7 +1537,7 @@ type WSGServiceModifyHlrAuthentication struct {
 
 	MaxReuseTimes *int `json:"maxReuseTimes,omitempty"`
 
-	MncNdcList []*WSGServiceModifyHlrAuthentication `json:"mncNdcList,omitempty"`
+	MncNdcList []*WSGServiceMncNdc `json:"mncNdcList,omitempty"`
 
 	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
 
@@ -1547,7 +1547,7 @@ type WSGServiceModifyHlrAuthentication struct {
 
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceModifyHlrAuthentication `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	PointCode *int `json:"pointCode,omitempty"`
 
@@ -1560,9 +1560,9 @@ type WSGServiceModifyHlrAuthentication struct {
 
 	RoutingContext *int `json:"routingContext,omitempty"`
 
-	SccpGttList []*WSGServiceModifyHlrAuthentication `json:"sccpGttList,omitempty"`
+	SccpGttList []*WSGServiceSccpGtt `json:"sccpGttList,omitempty"`
 
-	SctpAssociationsList []*WSGServiceModifyHlrAuthentication `json:"sctpAssociationsList,omitempty"`
+	SctpAssociationsList []*WSGServiceSctpAssociation `json:"sctpAssociationsList,omitempty"`
 
 	SgsnIsdnAddress *string `json:"sgsnIsdnAddress,omitempty"`
 
@@ -1595,31 +1595,31 @@ func NewWSGServiceModifyHlrAuthentication() *WSGServiceModifyHlrAuthentication {
 }
 
 type WSGServiceModifyLDAPAuthentication struct {
-	AdminDomainName *WSGServiceModifyLDAPAuthentication `json:"adminDomainName,omitempty"`
+	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *WSGServiceModifyLDAPAuthentication `json:"baseDomainName,omitempty"`
+	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName,omitempty"`
 
-	Description *WSGServiceModifyLDAPAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceModifyLDAPAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
 	Id *string `json:"id,omitempty"`
 
-	Ip *WSGServiceModifyLDAPAuthentication `json:"ip,omitempty"`
+	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
-	KeyAttribute *WSGServiceModifyLDAPAuthentication `json:"keyAttribute,omitempty"`
+	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyLDAPAuthentication `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *WSGServiceModifyLDAPAuthentication `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -1633,15 +1633,15 @@ type WSGServiceModifyLDAPAuthentication struct {
 	//    - max:65535
 	Port *int `json:"port,omitempty"`
 
-	SearchFilter *WSGServiceModifyLDAPAuthentication `json:"searchFilter,omitempty"`
+	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter,omitempty"`
 
-	StandbyAdminDomainName *WSGServiceModifyLDAPAuthentication `json:"standbyAdminDomainName,omitempty"`
+	StandbyAdminDomainName *WSGCommonNormalName2to128 `json:"standbyAdminDomainName,omitempty"`
 
-	StandbyBaseDomainName *WSGServiceModifyLDAPAuthentication `json:"standbyBaseDomainName,omitempty"`
+	StandbyBaseDomainName *WSGCommonNormalName2to64 `json:"standbyBaseDomainName,omitempty"`
 
-	StandbyIp *WSGServiceModifyLDAPAuthentication `json:"standbyIp,omitempty"`
+	StandbyIp *WSGCommonIpAddress `json:"standbyIp,omitempty"`
 
-	StandbyKeyAttribute *WSGServiceModifyLDAPAuthentication `json:"standbyKeyAttribute,omitempty"`
+	StandbyKeyAttribute *WSGCommonNormalName2to64 `json:"standbyKeyAttribute,omitempty"`
 
 	// StandbyPassword
 	// Admin password - Standby Cluster settings
@@ -1655,7 +1655,7 @@ type WSGServiceModifyLDAPAuthentication struct {
 	//    - max:65535
 	StandbyPort *int `json:"standbyPort,omitempty"`
 
-	StandbySearchFilter *WSGServiceModifyLDAPAuthentication `json:"standbySearchFilter,omitempty"`
+	StandbySearchFilter *WSGCommonNormalName2to64 `json:"standbySearchFilter,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1682,13 +1682,13 @@ func NewWSGServiceModifyLDAPAuthentication() *WSGServiceModifyLDAPAuthentication
 }
 
 type WSGServiceModifyLocalDbAuthentication struct {
-	Description *WSGServiceModifyLocalDbAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceModifyLocalDbAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
@@ -1696,13 +1696,13 @@ type WSGServiceModifyLocalDbAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyLocalDbAuthentication `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceModifyLocalDbAuthentication `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
@@ -1723,21 +1723,21 @@ func NewWSGServiceModifyLocalDbAuthentication() *WSGServiceModifyLocalDbAuthenti
 }
 
 type WSGServiceModifyRadiusAccounting struct {
-	Description *WSGServiceModifyRadiusAccounting `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	HealthCheckPolicy *WSGServiceModifyRadiusAccounting `json:"healthCheckPolicy,omitempty"`
+	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the RADIUS accounting service
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGServiceModifyRadiusAccounting `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Primary *WSGServiceModifyRadiusAccounting `json:"primary,omitempty"`
+	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
 	// Protocol
 	// Accounting protocol.
@@ -1745,11 +1745,11 @@ type WSGServiceModifyRadiusAccounting struct {
 	//    - oneof:[RADIUS]
 	Protocol *string `json:"protocol,omitempty"`
 
-	RateLimiting *WSGServiceModifyRadiusAccounting `json:"rateLimiting,omitempty"`
+	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	Secondary *WSGServiceModifyRadiusAccounting `json:"secondary,omitempty"`
+	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	StandbyPrimary *WSGServiceModifyRadiusAccounting `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1768,15 +1768,15 @@ func NewWSGServiceModifyRadiusAccounting() *WSGServiceModifyRadiusAccounting {
 }
 
 type WSGServiceModifyRadiusAuthentication struct {
-	Description *WSGServiceModifyRadiusAuthentication `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceModifyRadiusAuthentication `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
-	HealthCheckPolicy *WSGServiceModifyRadiusAuthentication `json:"healthCheckPolicy,omitempty"`
+	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the authentication service
@@ -1788,17 +1788,17 @@ type WSGServiceModifyRadiusAuthentication struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceModifyRadiusAuthentication `json:"mappings,omitempty"`
+	Mappings []*WSGServiceModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *WSGServiceModifyRadiusAuthentication `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Primary *WSGServiceModifyRadiusAuthentication `json:"primary,omitempty"`
+	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
-	RateLimiting *WSGServiceModifyRadiusAuthentication `json:"rateLimiting,omitempty"`
+	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	Secondary *WSGServiceModifyRadiusAuthentication `json:"secondary,omitempty"`
+	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	StandbyPrimary *WSGServiceModifyRadiusAuthentication `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1829,13 +1829,13 @@ type WSGServiceRadiusAccountingService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGServiceRadiusAccountingService `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	HealthCheckPolicy *WSGServiceRadiusAccountingService `json:"healthCheckPolicy,omitempty"`
+	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the RADIUS accounting service
@@ -1857,9 +1857,9 @@ type WSGServiceRadiusAccountingService struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceRadiusAccountingService `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Primary *WSGServiceRadiusAccountingService `json:"primary,omitempty"`
+	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
 	// Protocol
 	// Accounting protocol.
@@ -1867,11 +1867,11 @@ type WSGServiceRadiusAccountingService struct {
 	//    - oneof:[RADIUS]
 	Protocol *string `json:"protocol,omitempty"`
 
-	RateLimiting *WSGServiceRadiusAccountingService `json:"rateLimiting,omitempty"`
+	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	Secondary *WSGServiceRadiusAccountingService `json:"secondary,omitempty"`
+	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	StandbyPrimary *WSGServiceRadiusAccountingService `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1890,13 +1890,13 @@ func NewWSGServiceRadiusAccountingService() *WSGServiceRadiusAccountingService {
 }
 
 type WSGServiceRadiusAccountingServiceList struct {
-	Extra *WSGServiceRadiusAccountingServiceList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceRadiusAccountingServiceList `json:"list,omitempty"`
+	List []*WSGServiceRadiusAccountingService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1919,15 +1919,15 @@ type WSGServiceRadiusAuthenticationService struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGServiceRadiusAuthenticationService `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
 	DomainId *string `json:"domainId,omitempty"`
 
-	FriendlyName *WSGServiceRadiusAuthenticationService `json:"friendlyName,omitempty"`
+	FriendlyName *WSGCommonNormalNameAllowBlank `json:"friendlyName,omitempty"`
 
-	HealthCheckPolicy *WSGServiceRadiusAuthenticationService `json:"healthCheckPolicy,omitempty"`
+	HealthCheckPolicy *WSGCommonHealthCheckPolicy `json:"healthCheckPolicy,omitempty"`
 
 	// Id
 	// Identifier of the RADIUS authentication service
@@ -1939,7 +1939,7 @@ type WSGServiceRadiusAuthenticationService struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGServiceRadiusAuthenticationService `json:"mappings,omitempty"`
+	Mappings []*WSGServiceGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -1957,9 +1957,9 @@ type WSGServiceRadiusAuthenticationService struct {
 	// Tenant UUID
 	MvnoId *string `json:"mvnoId,omitempty"`
 
-	Name *WSGServiceRadiusAuthenticationService `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Primary *WSGServiceRadiusAuthenticationService `json:"primary,omitempty"`
+	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
 	// Protocol
 	// Authentication protocol.
@@ -1967,11 +1967,11 @@ type WSGServiceRadiusAuthenticationService struct {
 	//    - oneof:[RADIUS]
 	Protocol *string `json:"protocol,omitempty"`
 
-	RateLimiting *WSGServiceRadiusAuthenticationService `json:"rateLimiting,omitempty"`
+	RateLimiting *WSGCommonRateLimiting `json:"rateLimiting,omitempty"`
 
-	Secondary *WSGServiceRadiusAuthenticationService `json:"secondary,omitempty"`
+	Secondary *WSGServiceSecondaryRadiusServer `json:"secondary,omitempty"`
 
-	StandbyPrimary *WSGServiceRadiusAuthenticationService `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	// StandbyServerEnabled
 	// StandbyCluster different AAA Settings Enabled
@@ -1990,13 +1990,13 @@ func NewWSGServiceRadiusAuthenticationService() *WSGServiceRadiusAuthenticationS
 }
 
 type WSGServiceRadiusAuthenticationServiceList struct {
-	Extra *WSGServiceRadiusAuthenticationServiceList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGServiceRadiusAuthenticationServiceList `json:"list,omitempty"`
+	List []*WSGServiceRadiusAuthenticationService `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -2108,7 +2108,7 @@ type WSGServiceSecondaryRadiusServer struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGServiceSecondaryRadiusServer `json:"ip"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// Port
 	// RADIUS server port
@@ -2136,7 +2136,7 @@ type WSGServiceTestingConfig struct {
 	// Identifier of the authentication service
 	Id *string `json:"id,omitempty"`
 
-	LoginRequest *WSGServiceTestingConfig `json:"loginRequest,omitempty"`
+	LoginRequest *WSGServiceTestingConfigLoginRequestType `json:"loginRequest,omitempty"`
 }
 
 func NewWSGServiceTestingConfig() *WSGServiceTestingConfig {

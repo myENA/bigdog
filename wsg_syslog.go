@@ -49,11 +49,11 @@ type WSGSyslogModifySyslogSettings struct {
 	// otherLogSeverity: Emerg, Alert, Crit, Error, Warning, Notice, Info, Debug
 	OtherLogSeverity *string `json:"otherLogSeverity,omitempty"`
 
-	PrimaryServer *WSGSyslogModifySyslogSettings `json:"primaryServer,omitempty"`
+	PrimaryServer *WSGSyslogPrimaryServer `json:"primaryServer,omitempty"`
 
-	Priority *WSGSyslogModifySyslogSettings `json:"priority,omitempty"`
+	Priority *WSGSyslogPriority `json:"priority,omitempty"`
 
-	SecondaryServer *WSGSyslogModifySyslogSettings `json:"secondaryServer,omitempty"`
+	SecondaryServer *WSGSyslogSecondaryServer `json:"secondaryServer,omitempty"`
 }
 
 func NewWSGSyslogModifySyslogSettings() *WSGSyslogModifySyslogSettings {
@@ -198,11 +198,11 @@ type WSGSyslogServerSetting struct {
 	// otherLogSeverity: Emerg, Alert, Crit, Error, Warning, Notice, Info, Debug
 	OtherLogSeverity *string `json:"otherLogSeverity,omitempty"`
 
-	PrimaryServer *WSGSyslogServerSetting `json:"primaryServer,omitempty"`
+	PrimaryServer *WSGSyslogPrimaryServer `json:"primaryServer,omitempty"`
 
-	Priority *WSGSyslogServerSetting `json:"priority,omitempty"`
+	Priority *WSGSyslogPriority `json:"priority,omitempty"`
 
-	SecondaryServer *WSGSyslogServerSetting `json:"secondaryServer,omitempty"`
+	SecondaryServer *WSGSyslogSecondaryServer `json:"secondaryServer,omitempty"`
 }
 
 func NewWSGSyslogServerSetting() *WSGSyslogServerSetting {

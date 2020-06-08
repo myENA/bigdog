@@ -6,12 +6,12 @@ type WSGClientDeAuthClient struct {
 	// ApMac
 	// Constraints:
 	//    - required
-	ApMac *WSGClientDeAuthClient `json:"apMac"`
+	ApMac *WSGCommonMac `json:"apMac"`
 
 	// Mac
 	// Constraints:
 	//    - required
-	Mac *WSGClientDeAuthClient `json:"mac"`
+	Mac *WSGCommonMac `json:"mac"`
 }
 
 func NewWSGClientDeAuthClient() *WSGClientDeAuthClient {
@@ -20,7 +20,7 @@ func NewWSGClientDeAuthClient() *WSGClientDeAuthClient {
 }
 
 type WSGClientDeAuthClientList struct {
-	ClientList []*WSGClientDeAuthClientList `json:"clientList,omitempty"`
+	ClientList []*WSGClientDeAuthClient `json:"clientList,omitempty"`
 }
 
 func NewWSGClientDeAuthClientList() *WSGClientDeAuthClientList {
@@ -32,12 +32,12 @@ type WSGClientDisconnectClient struct {
 	// ApMac
 	// Constraints:
 	//    - required
-	ApMac *WSGClientDisconnectClient `json:"apMac"`
+	ApMac *WSGCommonMac `json:"apMac"`
 
 	// Mac
 	// Constraints:
 	//    - required
-	Mac *WSGClientDisconnectClient `json:"mac"`
+	Mac *WSGCommonMac `json:"mac"`
 }
 
 func NewWSGClientDisconnectClient() *WSGClientDisconnectClient {
@@ -46,7 +46,7 @@ func NewWSGClientDisconnectClient() *WSGClientDisconnectClient {
 }
 
 type WSGClientDisconnectClientList struct {
-	ClientList []*WSGClientDisconnectClientList `json:"clientList,omitempty"`
+	ClientList []*WSGClientDisconnectClient `json:"clientList,omitempty"`
 }
 
 func NewWSGClientDisconnectClientList() *WSGClientDisconnectClientList {
@@ -134,13 +134,13 @@ func NewWSGClientHistoricalClient() *WSGClientHistoricalClient {
 }
 
 type WSGClientHistoricalClientList struct {
-	Extra *WSGClientHistoricalClientList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGClientHistoricalClientList `json:"list,omitempty"`
+	List []*WSGClientHistoricalClient `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

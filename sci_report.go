@@ -30,9 +30,9 @@ func MakeSCIReportFind200ResponseType() SCIReportFind200ResponseType {
 }
 
 type SCIReportGetData200ResponseType struct {
-	Data []*SCIReportGetData200ResponseType `json:"data,omitempty"`
+	Data []*SCIReportGetData200ResponseTypeDataType `json:"data,omitempty"`
 
-	Metadata *SCIReportGetData200ResponseType `json:"metadata,omitempty"`
+	Metadata *SCIReportGetData200ResponseTypeMetadataType `json:"metadata,omitempty"`
 }
 
 func NewSCIReportGetData200ResponseType() *SCIReportGetData200ResponseType {

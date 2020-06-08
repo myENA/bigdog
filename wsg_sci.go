@@ -79,7 +79,7 @@ func NewWSGSCIDeleteSciProfile() *WSGSCIDeleteSciProfile {
 }
 
 type WSGSCIDeleteSciProfileList struct {
-	List []*WSGSCIDeleteSciProfileList `json:"list,omitempty"`
+	List []*WSGSCIDeleteSciProfile `json:"list,omitempty"`
 }
 
 func NewWSGSCIDeleteSciProfileList() *WSGSCIDeleteSciProfileList {
@@ -168,7 +168,7 @@ type WSGSCIEventCode struct {
 	// Indicates whether there are more SCI accepted event codes after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGSCIEventCode `json:"list,omitempty"`
+	List []*WSGSCIEventCodeListType `json:"list,omitempty"`
 
 	// TotalCount
 	// Total SCI accepted event code count
@@ -235,9 +235,9 @@ func NewWSGSCIProfile() *WSGSCIProfile {
 }
 
 type WSGSCIProfileList struct {
-	Extra *WSGSCIProfileList `json:"extra,omitempty"`
+	Extra *WSGSCIProfileListExtraType `json:"extra,omitempty"`
 
-	List []*WSGSCIProfileList `json:"list,omitempty"`
+	List []*WSGSCIProfile `json:"list,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

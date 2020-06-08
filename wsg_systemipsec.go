@@ -32,7 +32,7 @@ type WSGSystemipsecGetResult struct {
 
 	// EspProposals
 	// Proposal of Encapsulating Security Payload
-	EspProposals []*WSGSystemipsecGetResult `json:"espProposals,omitempty"`
+	EspProposals []*WSGSystemipsecProposal `json:"espProposals,omitempty"`
 
 	// EspRekeyDisabled
 	// Disable rekey mechanisam of Encapsulating Security Payload
@@ -48,7 +48,7 @@ type WSGSystemipsecGetResult struct {
 
 	// IkeProposals
 	// Proposal of Internet Key Exchange
-	IkeProposals []*WSGSystemipsecGetResult `json:"ikeProposals,omitempty"`
+	IkeProposals []*WSGSystemipsecProposal `json:"ikeProposals,omitempty"`
 
 	// IkeRekeyDisabled
 	// Disable rekey mechanisam of Internet Key Exchange
@@ -134,7 +134,7 @@ type WSGSystemipsecUpdate struct {
 
 	// EspProposals
 	// Proposal of Encapsulating Security Payload
-	EspProposals []*WSGSystemipsecUpdate `json:"espProposals,omitempty"`
+	EspProposals []*WSGSystemipsecProposal `json:"espProposals,omitempty"`
 
 	// EspRekeyDisabled
 	// Disable rekey mechanisam of Encapsulating Security Payload
@@ -150,7 +150,7 @@ type WSGSystemipsecUpdate struct {
 
 	// IkeProposals
 	// Proposal of Internet Key Exchange
-	IkeProposals []*WSGSystemipsecUpdate `json:"ikeProposals,omitempty"`
+	IkeProposals []*WSGSystemipsecProposal `json:"ikeProposals,omitempty"`
 
 	// IkeRekeyDisabled
 	// Disable rekey mechanisam of Internet Key Exchange

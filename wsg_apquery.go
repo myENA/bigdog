@@ -3,13 +3,13 @@ package ruckus
 // API Version: v9_0
 
 type WSGAPQueryList struct {
-	Extra *WSGAPQueryList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAPQueryList `json:"list,omitempty"`
+	List []*WSGAPQueryCreateApQuery `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -56,7 +56,7 @@ type WSGAPQueryCreateApQuery struct {
 
 	CellularDefaultGateway *string `json:"cellularDefaultGateway,omitempty"`
 
-	CellularGpsHistory []*WSGAPQueryCreateApQuery `json:"cellularGpsHistory,omitempty"`
+	CellularGpsHistory []*WSGAPQueryCreateApQueryCellularGpsHistoryType `json:"cellularGpsHistory,omitempty"`
 
 	CellularICCIDSIM0 *string `json:"cellularICCIDSIM0,omitempty"`
 
@@ -146,7 +146,7 @@ type WSGAPQueryCreateApQuery struct {
 
 	IndoorMapName *string `json:"indoorMapName,omitempty"`
 
-	IndoorMapXy *WSGAPQueryCreateApQuery `json:"indoorMapXy,omitempty"`
+	IndoorMapXy *WSGAPQueryCreateApQueryIndoorMapXyType `json:"indoorMapXy,omitempty"`
 
 	Ip *string `json:"ip,omitempty"`
 

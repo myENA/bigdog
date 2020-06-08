@@ -22,7 +22,7 @@ func (ss *WSGService) WSGL2accesscontrolService() *WSGL2accesscontrolService {
 }
 
 type WSGL2accesscontrolCreateL2AccessControl struct {
-	Description *WSGL2accesscontrolCreateL2AccessControl `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	DomainId *string `json:"domainId,omitempty"`
 
@@ -33,12 +33,12 @@ type WSGL2accesscontrolCreateL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction"`
 
-	EtherTypes []*WSGL2accesscontrolCreateL2AccessControl `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2accesscontrolEtherTypeObject `json:"etherTypes,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGL2accesscontrolCreateL2AccessControl `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Restriction
 	// restriction of mac rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
@@ -47,7 +47,7 @@ type WSGL2accesscontrolCreateL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction"`
 
-	Rules []*WSGL2accesscontrolCreateL2AccessControl `json:"rules,omitempty"`
+	Rules []*WSGL2accesscontrolRuleObject `json:"rules,omitempty"`
 }
 
 func NewWSGL2accesscontrolCreateL2AccessControl() *WSGL2accesscontrolCreateL2AccessControl {
@@ -56,7 +56,7 @@ func NewWSGL2accesscontrolCreateL2AccessControl() *WSGL2accesscontrolCreateL2Acc
 }
 
 type WSGL2accesscontrolEtherTypeObject struct {
-	EtherType *WSGL2accesscontrolEtherTypeObject `json:"etherType,omitempty"`
+	EtherType *WSGCommonEtherType `json:"etherType,omitempty"`
 }
 
 func NewWSGL2accesscontrolEtherTypeObject() *WSGL2accesscontrolEtherTypeObject {
@@ -77,7 +77,7 @@ type WSGL2accesscontrol struct {
 	// Creator name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGL2accesscontrol `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	DomainId *string `json:"domainId,omitempty"`
 
@@ -87,7 +87,7 @@ type WSGL2accesscontrol struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction,omitempty"`
 
-	EtherTypes []*WSGL2accesscontrol `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2accesscontrolEtherTypeObject `json:"etherTypes,omitempty"`
 
 	// Id
 	// identifier of the L2 Access Control
@@ -105,7 +105,7 @@ type WSGL2accesscontrol struct {
 	// Modifier name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *WSGL2accesscontrol `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Restriction
 	// restriction of mac rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
@@ -113,7 +113,7 @@ type WSGL2accesscontrol struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction,omitempty"`
 
-	Rules []*WSGL2accesscontrol `json:"rules,omitempty"`
+	Rules []*WSGL2accesscontrolRuleObject `json:"rules,omitempty"`
 }
 
 func NewWSGL2accesscontrol() *WSGL2accesscontrol {
@@ -122,13 +122,13 @@ func NewWSGL2accesscontrol() *WSGL2accesscontrol {
 }
 
 type WSGL2accesscontrolList struct {
-	Extra *WSGL2accesscontrolList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGL2accesscontrolList `json:"list,omitempty"`
+	List []*WSGL2accesscontrol `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -139,7 +139,7 @@ func NewWSGL2accesscontrolList() *WSGL2accesscontrolList {
 }
 
 type WSGL2accesscontrolModifyL2AccessControl struct {
-	Description *WSGL2accesscontrolModifyL2AccessControl `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// EtherTypeRestriction
 	// restriction of EtherType rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
@@ -148,9 +148,9 @@ type WSGL2accesscontrolModifyL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	EtherTypeRestriction *string `json:"etherTypeRestriction"`
 
-	EtherTypes []*WSGL2accesscontrolModifyL2AccessControl `json:"etherTypes,omitempty"`
+	EtherTypes []*WSGL2accesscontrolEtherTypeObject `json:"etherTypes,omitempty"`
 
-	Name *WSGL2accesscontrolModifyL2AccessControl `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Restriction
 	// restriction of mac rule of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
@@ -159,7 +159,7 @@ type WSGL2accesscontrolModifyL2AccessControl struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Restriction *string `json:"restriction"`
 
-	Rules []*WSGL2accesscontrolModifyL2AccessControl `json:"rules,omitempty"`
+	Rules []*WSGL2accesscontrolRuleObject `json:"rules,omitempty"`
 }
 
 func NewWSGL2accesscontrolModifyL2AccessControl() *WSGL2accesscontrolModifyL2AccessControl {
@@ -171,7 +171,7 @@ type WSGL2accesscontrolRuleObject struct {
 	// Mac
 	// Constraints:
 	//    - required
-	Mac *WSGL2accesscontrolRuleObject `json:"mac"`
+	Mac *WSGCommonMac `json:"mac"`
 }
 
 func NewWSGL2accesscontrolRuleObject() *WSGL2accesscontrolRuleObject {

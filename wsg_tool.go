@@ -3,9 +3,9 @@ package ruckus
 // API Version: v9_0
 
 type WSGToolSpeedFlex struct {
-	ClientIp *WSGToolSpeedFlex `json:"clientIp,omitempty"`
+	ClientIp *WSGCommonIpAddress `json:"clientIp,omitempty"`
 
-	ClientMac *WSGToolSpeedFlex `json:"clientMac,omitempty"`
+	ClientMac *WSGCommonMac `json:"clientMac,omitempty"`
 
 	// Model
 	// Test model
@@ -20,9 +20,9 @@ type WSGToolSpeedFlex struct {
 	//    - oneof:[UDP,TCP]
 	Protocol *string `json:"protocol"`
 
-	ServerIp *WSGToolSpeedFlex `json:"serverIp,omitempty"`
+	ServerIp *WSGCommonIpAddress `json:"serverIp,omitempty"`
 
-	ServerMac *WSGToolSpeedFlex `json:"serverMac,omitempty"`
+	ServerMac *WSGCommonMac `json:"serverMac,omitempty"`
 
 	// Syspmtu
 	// Default: 1500

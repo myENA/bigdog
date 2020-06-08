@@ -36,13 +36,13 @@ func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityRequest() *SwitchMSw
 }
 
 type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse struct {
-	Data *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse `json:"data,omitempty"`
+	Data *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType `json:"data,omitempty"`
 
-	Error *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse `json:"error,omitempty"`
+	Error *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseErrorType `json:"error,omitempty"`
 
-	Extra *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseExtraType `json:"extra,omitempty"`
 
-	MetaData *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponse `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
 }
@@ -53,11 +53,11 @@ func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponse() *SwitchMS
 }
 
 type SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType struct {
-	Ap *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType `json:"ap,omitempty"`
+	Ap *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeApType `json:"ap,omitempty"`
 
-	Client *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType `json:"client,omitempty"`
+	Client *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeClientType `json:"client,omitempty"`
 
-	NetworkSwitches []*SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType `json:"networkSwitches,omitempty"`
+	NetworkSwitches []*SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType `json:"networkSwitches,omitempty"`
 }
 
 func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType() *SwitchMSwitchTroubleshootingRemoteClientConnectivityResponseDataType {
@@ -170,11 +170,11 @@ func NewSwitchMSwitchTroubleshootingRemoteClientConnectivityResponseMetaDataType
 type SwitchMSwitchTroubleshootingRemoteCommandResponse struct {
 	Data *string `json:"data,omitempty"`
 
-	Error *SwitchMSwitchTroubleshootingRemoteCommandResponse `json:"error,omitempty"`
+	Error *SwitchMSwitchTroubleshootingRemoteCommandResponseErrorType `json:"error,omitempty"`
 
-	Extra *SwitchMSwitchTroubleshootingRemoteCommandResponse `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTroubleshootingRemoteCommandResponseExtraType `json:"extra,omitempty"`
 
-	MetaData *SwitchMSwitchTroubleshootingRemoteCommandResponse `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchTroubleshootingRemoteCommandResponseMetaDataType `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
 }

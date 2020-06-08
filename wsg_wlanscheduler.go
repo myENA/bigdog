@@ -22,7 +22,7 @@ func (ss *WSGService) WSGWLANSchedulerService() *WSGWLANSchedulerService {
 }
 
 type WSGWLANSchedulerCreateWlanScheduler struct {
-	Description *WSGWLANSchedulerCreateWlanScheduler `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
@@ -35,7 +35,7 @@ type WSGWLANSchedulerCreateWlanScheduler struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGWLANSchedulerCreateWlanScheduler `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Sat
 	// Schedules on Saturday
@@ -64,7 +64,7 @@ func NewWSGWLANSchedulerCreateWlanScheduler() *WSGWLANSchedulerCreateWlanSchedul
 }
 
 type WSGWLANSchedulerModifyWlanScheduler struct {
-	Description *WSGWLANSchedulerModifyWlanScheduler `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
@@ -74,7 +74,7 @@ type WSGWLANSchedulerModifyWlanScheduler struct {
 	// Schedules on Monday
 	Mon []string `json:"mon,omitempty"`
 
-	Name *WSGWLANSchedulerModifyWlanScheduler `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Sat
 	// Schedules on Saturday
@@ -103,7 +103,7 @@ func NewWSGWLANSchedulerModifyWlanScheduler() *WSGWLANSchedulerModifyWlanSchedul
 }
 
 type WSGWLANSchedulerWlanSchedule struct {
-	Description *WSGWLANSchedulerWlanSchedule `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Fri
 	// Schedules on Friday
@@ -117,7 +117,7 @@ type WSGWLANSchedulerWlanSchedule struct {
 	// Schedules on Monday
 	Mon []string `json:"mon,omitempty"`
 
-	Name *WSGWLANSchedulerWlanSchedule `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Sat
 	// Schedules on Saturday
@@ -154,7 +154,7 @@ type WSGWLANSchedulerWlanScheduleList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGWLANSchedulerWlanScheduleList `json:"list,omitempty"`
+	List []*WSGWLANSchedulerWlanSchedule `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

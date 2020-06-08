@@ -22,7 +22,7 @@ func (ss *WSGService) WSGDomainService() *WSGDomainService {
 }
 
 type WSGDomainCreateDomain struct {
-	Description *WSGDomainCreateDomain `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainType
 	// domain type
@@ -34,7 +34,7 @@ type WSGDomainCreateDomain struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGDomainCreateDomain `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// ParentDomainId
 	// parent domain id
@@ -65,7 +65,7 @@ type WSGDomainConfiguration struct {
 	// Created by
 	CreatedBy *string `json:"createdBy,omitempty"`
 
-	Description *WSGDomainConfiguration `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainType
 	// domain type
@@ -75,7 +75,7 @@ type WSGDomainConfiguration struct {
 	// Identifier of the domain
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGDomainConfiguration `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// ParentDomainId
 	// Parent Domain Id
@@ -102,7 +102,7 @@ type WSGDomainList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDomainList `json:"list,omitempty"`
+	List []*WSGDomainConfiguration `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -113,13 +113,13 @@ func NewWSGDomainList() *WSGDomainList {
 }
 
 type WSGDomainModifyDomain struct {
-	Description *WSGDomainModifyDomain `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainType
 	// domain type
 	DomainType *string `json:"domainType,omitempty"`
 
-	Name *WSGDomainModifyDomain `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// ParentDomainId
 	// parent domain id

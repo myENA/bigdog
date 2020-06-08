@@ -46,7 +46,7 @@ type SwitchMSwitchSpecificSettingsDHCPServer struct {
 	// Default Router Ip
 	DefaultRouterIp *string `json:"defaultRouterIp,omitempty"`
 
-	DhcpOptions []*SwitchMSwitchSpecificSettingsDHCPServer `json:"dhcpOptions,omitempty"`
+	DhcpOptions []*SwitchMSwitchSpecificSettingsDHCPOption `json:"dhcpOptions,omitempty"`
 
 	// ExcludedEnd
 	// Excluded range end
@@ -106,7 +106,7 @@ type SwitchMSwitchSpecificSettingsSpecificSettings struct {
 	// DHCP server enabled
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*SwitchMSwitchSpecificSettingsSpecificSettings `json:"dhcpServers,omitempty"`
+	DhcpServers []*SwitchMSwitchSpecificSettingsDHCPServer `json:"dhcpServers,omitempty"`
 
 	// Hostname
 	// Hostname
@@ -137,7 +137,7 @@ func NewSwitchMSwitchSpecificSettingsSpecificSettings() *SwitchMSwitchSpecificSe
 type SwitchMSwitchSpecificSettingsSpecificSettingsAllResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchSpecificSettingsSpecificSettingsAllResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchSpecificSettingsSpecificSettingsAllResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Specific Settings returned out of the complete Specific Settings list
@@ -147,7 +147,7 @@ type SwitchMSwitchSpecificSettingsSpecificSettingsAllResult struct {
 	// Indicator of whether there are more Specific Settings after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchSpecificSettingsSpecificSettingsAllResult `json:"list,omitempty"`
+	List []*SwitchMSwitchSpecificSettingsIdList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Specific Settings count
@@ -196,7 +196,7 @@ type SwitchMSwitchSpecificSettingsUpdateSpecificSettings struct {
 	// DHCP server enabled
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
 
-	DhcpServers []*SwitchMSwitchSpecificSettingsUpdateSpecificSettings `json:"dhcpServers,omitempty"`
+	DhcpServers []*SwitchMSwitchSpecificSettingsDHCPServer `json:"dhcpServers,omitempty"`
 
 	// Hostname
 	// Hostname

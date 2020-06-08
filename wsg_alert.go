@@ -12,7 +12,7 @@ func NewWSGAlertAckBulkAlarms() *WSGAlertAckBulkAlarms {
 }
 
 type WSGAlertClearBulkAlarms struct {
-	Comment *WSGAlertClearBulkAlarms `json:"comment,omitempty"`
+	Comment *WSGCommonNormalNameAllowBlank `json:"comment,omitempty"`
 
 	IdList []string `json:"idList,omitempty"`
 }

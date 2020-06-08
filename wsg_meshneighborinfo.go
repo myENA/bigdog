@@ -56,7 +56,7 @@ func NewWSGMeshNeighborInfo() *WSGMeshNeighborInfo {
 type WSGMeshNeighborInfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra *WSGMeshNeighborInfoList `json:"extra,omitempty"`
+	Extra *WSGMeshNeighborInfoListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first MeshNeighborInfo returned out of the complete Rogue AP list
@@ -66,7 +66,7 @@ type WSGMeshNeighborInfoList struct {
 	// Indicator of whether there are more MeshNeighborInfo after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGMeshNeighborInfoList `json:"list,omitempty"`
+	List []*WSGMeshNeighborInfo `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// MeshNeighborInfos count.

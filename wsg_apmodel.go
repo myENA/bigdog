@@ -3,20 +3,20 @@ package ruckus
 // API Version: v9_0
 
 type WSGAPModel struct {
-	CellularSettings *WSGAPModel `json:"cellularSettings,omitempty"`
+	CellularSettings *WSGAPModelCellularSettings `json:"cellularSettings,omitempty"`
 
-	ExternalAntenna24 *WSGAPModel `json:"externalAntenna24,omitempty"`
+	ExternalAntenna24 *WSGAPModelExternalAntenna `json:"externalAntenna24,omitempty"`
 
-	ExternalAntenna50 *WSGAPModel `json:"externalAntenna50,omitempty"`
+	ExternalAntenna50 *WSGAPModelExternalAntenna `json:"externalAntenna50,omitempty"`
 
 	// InternalHeaterEnabled
 	// Constraints:
 	//    - nullable
 	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty"`
 
-	Lacp *WSGAPModel `json:"lacp,omitempty"`
+	Lacp *WSGAPModelLacpSetting `json:"lacp,omitempty"`
 
-	LanPorts []*WSGAPModel `json:"lanPorts,omitempty"`
+	LanPorts []*WSGAPModelLanPortSetting `json:"lanPorts,omitempty"`
 
 	// LedMode
 	// Constraints:
@@ -29,9 +29,9 @@ type WSGAPModel struct {
 	//    - nullable
 	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty"`
 
-	Lldp *WSGAPModel `json:"lldp,omitempty"`
+	Lldp *WSGAPModelLldpSetting `json:"lldp,omitempty"`
 
-	PoeModeSetting *WSGAPModel `json:"poeModeSetting,omitempty"`
+	PoeModeSetting *WSGCommonPoeModeSetting `json:"poeModeSetting,omitempty"`
 
 	// PoeOutPortEnabled
 	// Constraints:
@@ -69,7 +69,7 @@ type WSGAPModelAuthenticatorAAAServer struct {
 	//    - required
 	EnableUseSCGasProxy *bool `json:"enableUseSCGasProxy"`
 
-	Server *WSGAPModelAuthenticatorAAAServer `json:"server,omitempty"`
+	Server *WSGCommonGenericRef `json:"server,omitempty"`
 }
 
 func NewWSGAPModelAuthenticatorAAAServer() *WSGAPModelAuthenticatorAAAServer {
@@ -301,9 +301,9 @@ func NewWSGAPModelLacpSetting() *WSGAPModelLacpSetting {
 }
 
 type WSGAPModelLanPort8021X struct {
-	Authenticator *WSGAPModelLanPort8021X `json:"authenticator,omitempty"`
+	Authenticator *WSGAPModelLanPortAuthenticator `json:"authenticator,omitempty"`
 
-	Supplicant *WSGAPModelLanPort8021X `json:"supplicant,omitempty"`
+	Supplicant *WSGAPModelLanPortSupplicant `json:"supplicant,omitempty"`
 
 	// Type
 	// Constraints:
@@ -318,9 +318,9 @@ func NewWSGAPModelLanPort8021X() *WSGAPModelLanPort8021X {
 }
 
 type WSGAPModelLanPortAuthenticator struct {
-	Accounting *WSGAPModelLanPortAuthenticator `json:"accounting,omitempty"`
+	Accounting *WSGAPModelAuthenticatorAAAServer `json:"accounting,omitempty"`
 
-	Authentication *WSGAPModelLanPortAuthenticator `json:"authentication,omitempty"`
+	Authentication *WSGAPModelAuthenticatorAAAServer `json:"authentication,omitempty"`
 
 	DisabledAccounting *bool `json:"disabledAccounting,omitempty"`
 
@@ -341,7 +341,7 @@ type WSGAPModelLanPortSetting struct {
 	//    - required
 	Enabled *bool `json:"enabled"`
 
-	EthPortProfile *WSGAPModelLanPortSetting `json:"ethPortProfile,omitempty"`
+	EthPortProfile *WSGCommonGenericRef `json:"ethPortProfile,omitempty"`
 
 	// Members
 	// Constraints:

@@ -3,13 +3,13 @@ package ruckus
 // API Version: v9_0
 
 type WSGAAAServerQueryList struct {
-	Extra *WSGAAAServerQueryList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAAAServerQueryList `json:"list,omitempty"`
+	List []*WSGAAAServerQueryCreateAaaServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

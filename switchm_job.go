@@ -28,7 +28,7 @@ type SwitchMSwitchJobJob struct {
 	// Created timestamp of the job
 	CreatedTimestamp *int `json:"createdTimestamp,omitempty"`
 
-	CsvDataMap *SwitchMSwitchJobJob `json:"csvDataMap,omitempty"`
+	CsvDataMap *SwitchMSwitchJobJobCsvDataMapType `json:"csvDataMap,omitempty"`
 
 	// DomainId
 	// Identifier of the management domain to which the job belong
@@ -129,17 +129,17 @@ func NewSwitchMSwitchJobJobSchedule() *SwitchMSwitchJobJobSchedule {
 }
 
 type SwitchMSwitchJobJobScheduleResponse struct {
-	Data *SwitchMSwitchJobJobScheduleResponse `json:"data,omitempty"`
+	Data *SwitchMSwitchJobJobSchedule `json:"data,omitempty"`
 
-	Error *SwitchMSwitchJobJobScheduleResponse `json:"error,omitempty"`
+	Error *SwitchMSwitchJobErrorObject `json:"error,omitempty"`
 
 	// Extra
 	// Extra response of job schedule
-	Extra *SwitchMSwitchJobJobScheduleResponse `json:"extra,omitempty"`
+	Extra *SwitchMSwitchJobJobScheduleResponseExtraType `json:"extra,omitempty"`
 
 	// MetaData
 	// metaData of job schedule
-	MetaData *SwitchMSwitchJobJobScheduleResponse `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchJobJobScheduleResponseMetaDataType `json:"metaData,omitempty"`
 
 	// Success
 	// Success response of job schedule
@@ -210,7 +210,7 @@ func NewSwitchMSwitchJobJobScheduleResponseMetaDataType() *SwitchMSwitchJobJobSc
 type SwitchMSwitchJobList struct {
 	// Extra
 	// Extra information for job list
-	Extra *SwitchMSwitchJobList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchJobListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first job returned out of the complete job list
@@ -220,7 +220,7 @@ type SwitchMSwitchJobList struct {
 	// Indicates if there are more jobs after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchJobList `json:"list,omitempty"`
+	List []*SwitchMSwitchJobJob `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// List count

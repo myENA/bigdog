@@ -185,13 +185,13 @@ func NewWSGRacstatsGgsnGtpcCon() *WSGRacstatsGgsnGtpcCon {
 }
 
 type WSGRacstatsGgsnGtpcConList struct {
-	Extra *WSGRacstatsGgsnGtpcConList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacstatsGgsnGtpcConList `json:"list,omitempty"`
+	List []*WSGRacstatsGgsnGtpcCon `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -202,13 +202,13 @@ func NewWSGRacstatsGgsnGtpcConList() *WSGRacstatsGgsnGtpcConList {
 }
 
 type WSGRacstatsGgsnGtpList struct {
-	Extra *WSGRacstatsGgsnGtpList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacstatsGgsnGtpList `json:"list,omitempty"`
+	List []*WSGRacstatsGgsnGtp `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -414,13 +414,13 @@ func NewWSGRacstatsRadiusProxy() *WSGRacstatsRadiusProxy {
 }
 
 type WSGRacstatsRadiusProxyList struct {
-	Extra *WSGRacstatsRadiusProxyList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGRacstatsRadiusProxyList `json:"list,omitempty"`
+	List []*WSGRacstatsRadiusProxy `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

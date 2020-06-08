@@ -30,7 +30,7 @@ type WSGGeofenceprofile struct {
 	// Geofence Profile's location list
 	// Constraints:
 	//    - required
-	LocationList []*WSGGeofenceprofile `json:"locationList"`
+	LocationList []*WSGGeofenceprofileLocationData `json:"locationList"`
 
 	// Name
 	// Geofence Profile's name
@@ -51,13 +51,13 @@ func NewWSGGeofenceprofile() *WSGGeofenceprofile {
 }
 
 type WSGGeofenceprofileLocationData struct {
-	Description *WSGGeofenceprofileLocationData `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Location
 	// Geofence Profile's location Latitude and longitude
 	Location *string `json:"location,omitempty"`
 
-	Name *WSGGeofenceprofileLocationData `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
 func NewWSGGeofenceprofileLocationData() *WSGGeofenceprofileLocationData {
@@ -76,7 +76,7 @@ type WSGGeofenceprofileGetGeofenceProfile struct {
 
 	// LocationList
 	// Geofence Profile's location list
-	LocationList []*WSGGeofenceprofileGetGeofenceProfile `json:"locationList,omitempty"`
+	LocationList []*WSGGeofenceprofileLocationData `json:"locationList,omitempty"`
 
 	// Name
 	// Geofence Profile's name
@@ -101,7 +101,7 @@ type WSGGeofenceprofileGetGeofenceProfileProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGGeofenceprofileGetGeofenceProfileProfileList `json:"list,omitempty"`
+	List []*WSGGeofenceprofileGetGeofenceProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

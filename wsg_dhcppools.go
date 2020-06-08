@@ -32,7 +32,7 @@ type WSGDHCPPoolsDhcpPoolInfo struct {
 
 	AvailableIpCount *int `json:"availableIpCount,omitempty"`
 
-	ClientInfoList *WSGDHCPPoolsDhcpPoolInfo `json:"clientInfoList,omitempty"`
+	ClientInfoList *WSGDHCPPoolsDhcpPoolInfoClientInfoListType `json:"clientInfoList,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 
@@ -61,7 +61,7 @@ type WSGDHCPPoolsDhcpPoolInfoClientInfoListType struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGDHCPPoolsDhcpPoolInfoClientInfoListType `json:"list,omitempty"`
+	List []*WSGDHCPPoolsDhcpClientInfo `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -92,7 +92,7 @@ type WSGDHCPPools struct {
 	//    - nullable
 	Id *string `json:"id,omitempty"`
 
-	PoolInfoList []*WSGDHCPPools `json:"poolInfoList,omitempty"`
+	PoolInfoList []*WSGDHCPPoolsDhcpPoolInfo `json:"poolInfoList,omitempty"`
 
 	// TenantId
 	// Constraints:

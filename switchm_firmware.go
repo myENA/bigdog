@@ -25,7 +25,7 @@ func (ss *SwitchMService) SwitchMSwitchFirmwareConfigService() *SwitchMSwitchFir
 type SwitchMSwitchFirmwareConfigFirmwaresQueryResultList struct {
 	// Extra
 	// Extra information for Firmware list
-	Extra *SwitchMSwitchFirmwareConfigFirmwaresQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first firmware list returned out of the complete Firmware list
@@ -35,7 +35,7 @@ type SwitchMSwitchFirmwareConfigFirmwaresQueryResultList struct {
 	// Indicator of whether there are more Firmwares after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchFirmwareConfigFirmwaresQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchFirmwareConfigSwitchFirmware `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Firmware list count
@@ -82,7 +82,7 @@ func NewSwitchMSwitchFirmwareConfigFirmwaresQueryResultListExtraType() *SwitchMS
 type SwitchMSwitchFirmwareConfigScheduleIds struct {
 	// Extra
 	// Extra information for Schedule Ids list
-	Extra *SwitchMSwitchFirmwareConfigScheduleIds `json:"extra,omitempty"`
+	Extra *SwitchMSwitchFirmwareConfigScheduleIdsExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Schedule Ids returned out of the complete ConfigBackup list
@@ -137,7 +137,7 @@ func NewSwitchMSwitchFirmwareConfigScheduleIdsExtraType() *SwitchMSwitchFirmware
 }
 
 type SwitchMSwitchFirmwareConfigSwitchFirmware struct {
-	SwitchModels []*SwitchMSwitchFirmwareConfigSwitchFirmware `json:"switchModels,omitempty"`
+	SwitchModels []*SwitchMSwitchFirmwareConfigSwitchModel `json:"switchModels,omitempty"`
 
 	// Version
 	// Firmware version of the Switch

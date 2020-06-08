@@ -102,7 +102,7 @@ type WSGCommonApRadio50 struct {
 	// channel number (channelWidth is 80+80MHz only)
 	SecondaryChannel *int `json:"secondaryChannel,omitempty"`
 
-	TxPower *WSGCommonApRadio50 `json:"txPower,omitempty"`
+	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
 }
 
 func NewWSGCommonApRadio50() *WSGCommonApRadio50 {
@@ -190,7 +190,7 @@ func NewWSGCommonBaseServiceInfo() *WSGCommonBaseServiceInfo {
 }
 
 type WSGCommonBulkDeleteRequest struct {
-	IdList *WSGCommonBulkDeleteRequest `json:"idList,omitempty"`
+	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
 func NewWSGCommonBulkDeleteRequest() *WSGCommonBulkDeleteRequest {
@@ -264,7 +264,7 @@ func NewWSGCommonDescriptionTo128() *WSGCommonDescriptionTo128 {
 }
 
 type WSGCommonDhcpProfileRef struct {
-	Description *WSGCommonDhcpProfileRef `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the DHCP Profile
@@ -284,19 +284,19 @@ type WSGCommonDhcpProfileRef struct {
 	//    - max:59
 	LeaseTimeMinutes *int `json:"leaseTimeMinutes,omitempty"`
 
-	Name *WSGCommonDhcpProfileRef `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	PoolEndIp *WSGCommonDhcpProfileRef `json:"poolEndIp,omitempty"`
+	PoolEndIp *WSGCommonIpAddress `json:"poolEndIp,omitempty"`
 
-	PoolStartIp *WSGCommonDhcpProfileRef `json:"poolStartIp,omitempty"`
+	PoolStartIp *WSGCommonIpAddress `json:"poolStartIp,omitempty"`
 
-	PrimaryDnsIp *WSGCommonDhcpProfileRef `json:"primaryDnsIp,omitempty"`
+	PrimaryDnsIp *WSGCommonIpAddress `json:"primaryDnsIp,omitempty"`
 
-	SecondaryDnsIp *WSGCommonDhcpProfileRef `json:"secondaryDnsIp,omitempty"`
+	SecondaryDnsIp *WSGCommonIpAddress `json:"secondaryDnsIp,omitempty"`
 
-	SubnetMask *WSGCommonDhcpProfileRef `json:"subnetMask,omitempty"`
+	SubnetMask *WSGCommonIpAddress `json:"subnetMask,omitempty"`
 
-	SubnetNetworkIp *WSGCommonDhcpProfileRef `json:"subnetNetworkIp,omitempty"`
+	SubnetNetworkIp *WSGCommonIpAddress `json:"subnetNetworkIp,omitempty"`
 
 	// VlanId
 	// VLAN ID of the DHCP Profile
@@ -328,7 +328,7 @@ type WSGCommonDhcpSiteConfigListRef struct {
 	// DHCP Service AP Selection Mode
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*WSGCommonDhcpSiteConfigListRef `json:"siteAps,omitempty"`
+	SiteAps []*WSGCommonDhcpSiteConfigListRefSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -340,7 +340,7 @@ type WSGCommonDhcpSiteConfigListRef struct {
 	//    - oneof:[EnableOnEachAPs,EnableOnMultipleAPs,EnableOnHierarchicalAPs]
 	SiteMode *string `json:"siteMode,omitempty"`
 
-	SiteProfiles []*WSGCommonDhcpSiteConfigListRef `json:"siteProfiles,omitempty"`
+	SiteProfiles []*WSGCommonDhcpProfileRef `json:"siteProfiles,omitempty"`
 
 	// ZoneName
 	// DHCP Service Zone Name
@@ -394,7 +394,7 @@ type WSGCommonDhcpSiteConfigRef struct {
 	// DHCP Service AP Selection Mode. This value is effective when the siteMode is EnableOnMultipleAPs.
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*WSGCommonDhcpSiteConfigRef `json:"siteAps,omitempty"`
+	SiteAps []*WSGCommonDhcpSiteConfigRefSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -455,7 +455,7 @@ type WSGCommonDoAssignIp struct {
 	// DHCP Service AP Selection Mode. This value is effective when the siteMode is EnableOnMultipleAPs.
 	ManualSelect *bool `json:"manualSelect,omitempty"`
 
-	SiteAps []*WSGCommonDoAssignIp `json:"siteAps,omitempty"`
+	SiteAps []*WSGCommonDoAssignIpSiteApsType `json:"siteAps,omitempty"`
 
 	// SiteEnabled
 	// DHCP Service Enabling Status
@@ -826,7 +826,7 @@ type WSGCommonPortalCustomization struct {
 	// Language
 	// Constraints:
 	//    - required
-	Language *WSGCommonPortalCustomization `json:"language"`
+	Language *WSGCommonPortalLanguage `json:"language"`
 
 	// Logo
 	// logo
@@ -918,19 +918,19 @@ type WSGCommonQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGCommonQueryCriteria `json:"extraFilters,omitempty"`
+	ExtraFilters []*WSGCommonQueryCriteriaExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGCommonQueryCriteria `json:"extraNotFilters,omitempty"`
+	ExtraNotFilters []*WSGCommonQueryCriteriaExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
-	ExtraTimeRange *WSGCommonQueryCriteria `json:"extraTimeRange,omitempty"`
+	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGCommonQueryCriteria `json:"filters,omitempty"`
+	Filters []*WSGCommonQueryCriteriaFiltersType `json:"filters,omitempty"`
 
-	FullTextSearch *WSGCommonQueryCriteria `json:"fullTextSearch,omitempty"`
+	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
@@ -940,7 +940,7 @@ type WSGCommonQueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options *WSGCommonQueryCriteria `json:"options,omitempty"`
+	Options *WSGCommonQueryCriteriaOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -954,7 +954,7 @@ type WSGCommonQueryCriteria struct {
 
 	// SortInfo
 	// About sorting
-	SortInfo *WSGCommonQueryCriteria `json:"sortInfo,omitempty"`
+	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
 func NewWSGCommonQueryCriteria() *WSGCommonQueryCriteria {
@@ -963,7 +963,7 @@ func NewWSGCommonQueryCriteria() *WSGCommonQueryCriteria {
 }
 
 type WSGCommonQueryCriteriaExtraFiltersType struct {
-	Operator *WSGCommonQueryCriteriaExtraFiltersType `json:"operator,omitempty"`
+	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attributes
@@ -995,7 +995,7 @@ func NewWSGCommonQueryCriteriaExtraNotFiltersType() *WSGCommonQueryCriteriaExtra
 }
 
 type WSGCommonQueryCriteriaFiltersType struct {
-	Operator *WSGCommonQueryCriteriaFiltersType `json:"operator,omitempty"`
+	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Group type
@@ -1071,19 +1071,19 @@ type WSGCommonQueryCriteriaSuperSet struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []*WSGCommonQueryCriteriaSuperSet `json:"extraFilters,omitempty"`
+	ExtraFilters []*WSGCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []*WSGCommonQueryCriteriaSuperSet `json:"extraNotFilters,omitempty"`
+	ExtraNotFilters []*WSGCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters,omitempty"`
 
-	ExtraTimeRange *WSGCommonQueryCriteriaSuperSet `json:"extraTimeRange,omitempty"`
+	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []*WSGCommonQueryCriteriaSuperSet `json:"filters,omitempty"`
+	Filters []*WSGCommonQueryCriteriaSuperSetFiltersType `json:"filters,omitempty"`
 
-	FullTextSearch *WSGCommonQueryCriteriaSuperSet `json:"fullTextSearch,omitempty"`
+	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
@@ -1093,7 +1093,7 @@ type WSGCommonQueryCriteriaSuperSet struct {
 
 	// Options
 	// Specified feature required information
-	Options *WSGCommonQueryCriteriaSuperSet `json:"options,omitempty"`
+	Options *WSGCommonQueryCriteriaSuperSetOptionsType `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -1107,7 +1107,7 @@ type WSGCommonQueryCriteriaSuperSet struct {
 
 	// SortInfo
 	// About sorting
-	SortInfo *WSGCommonQueryCriteriaSuperSet `json:"sortInfo,omitempty"`
+	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
 }
 
 func NewWSGCommonQueryCriteriaSuperSet() *WSGCommonQueryCriteriaSuperSet {
@@ -1116,7 +1116,7 @@ func NewWSGCommonQueryCriteriaSuperSet() *WSGCommonQueryCriteriaSuperSet {
 }
 
 type WSGCommonQueryCriteriaSuperSetExtraFiltersType struct {
-	Operator *WSGCommonQueryCriteriaSuperSetExtraFiltersType `json:"operator,omitempty"`
+	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attribute
@@ -1152,7 +1152,7 @@ func NewWSGCommonQueryCriteriaSuperSetExtraNotFiltersType() *WSGCommonQueryCrite
 }
 
 type WSGCommonQueryCriteriaSuperSetFiltersType struct {
-	Operator *WSGCommonQueryCriteriaSuperSetFiltersType `json:"operator,omitempty"`
+	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
 	// Type
 	// Group type
@@ -1282,7 +1282,7 @@ type WSGCommonRadio24 struct {
 	//    - oneof:[0,20,40]
 	ChannelWidth *int `json:"channelWidth,omitempty"`
 
-	TxPower *WSGCommonRadio24 `json:"txPower,omitempty"`
+	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
 }
 
 func NewWSGCommonRadio24() *WSGCommonRadio24 {
@@ -1313,7 +1313,7 @@ type WSGCommonRadio24SuperSet struct {
 	//    - oneof:[0,20,40]
 	ChannelWidth *int `json:"channelWidth,omitempty"`
 
-	TxPower *WSGCommonRadio24SuperSet `json:"txPower,omitempty"`
+	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
 }
 
 func NewWSGCommonRadio24SuperSet() *WSGCommonRadio24SuperSet {
@@ -1357,7 +1357,7 @@ type WSGCommonRadio50 struct {
 	// Secondary channel number for outdoor AP (channelWidth is 80+80MHz only)
 	OutdoorSecondaryChannel *int `json:"outdoorSecondaryChannel,omitempty"`
 
-	TxPower *WSGCommonRadio50 `json:"txPower,omitempty"`
+	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
 }
 
 func NewWSGCommonRadio50() *WSGCommonRadio50 {
@@ -1408,7 +1408,7 @@ type WSGCommonRadio50SuperSet struct {
 	// Secondary channel number for outdoor AP (channelWidth is 80+80MHz only)
 	OutdoorSecondaryChannel *int `json:"outdoorSecondaryChannel,omitempty"`
 
-	TxPower *WSGCommonRadio50SuperSet `json:"txPower,omitempty"`
+	TxPower *WSGCommonTxPower `json:"txPower,omitempty"`
 }
 
 func NewWSGCommonRadio50SuperSet() *WSGCommonRadio50SuperSet {
@@ -1420,7 +1420,7 @@ type WSGCommonRadiusServer struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGCommonRadiusServer `json:"ip"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// Port
 	// Server port
@@ -1535,7 +1535,7 @@ type WSGCommonSnmpCommunity struct {
 
 	// NotificationTarget
 	// Trap List of the SNMP Coummunity
-	NotificationTarget []*WSGCommonSnmpCommunity `json:"notificationTarget,omitempty"`
+	NotificationTarget []*WSGCommonTargetConfig `json:"notificationTarget,omitempty"`
 
 	// NotificationType
 	// type of the notification privilege
@@ -1576,7 +1576,7 @@ type WSGCommonSnmpUser struct {
 
 	// NotificationTarget
 	// Trap List of the SNMP User
-	NotificationTarget []*WSGCommonSnmpUser `json:"notificationTarget,omitempty"`
+	NotificationTarget []*WSGCommonTargetConfig `json:"notificationTarget,omitempty"`
 
 	// NotificationType
 	// type of the notification privilege
@@ -1682,15 +1682,15 @@ func NewWSGCommonTimeUnitStore() *WSGCommonTimeUnitStore {
 }
 
 type WSGCommonTrafficClassProfileRef struct {
-	Description *WSGCommonTrafficClassProfileRef `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the Traffic Class Profile
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGCommonTrafficClassProfileRef `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	TrafficClasses []*WSGCommonTrafficClassProfileRef `json:"trafficClasses,omitempty"`
+	TrafficClasses []*WSGCommonTrafficClassRef `json:"trafficClasses,omitempty"`
 
 	// ZoneId
 	// Zone Id of Traffic Class Profile

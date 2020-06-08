@@ -13,7 +13,7 @@ type SwitchMSwitchDeployLogConfigurationHistoryQueryResult struct {
 
 	// List
 	// The list of configs in this response
-	List []*SwitchMSwitchDeployLogConfigurationHistoryQueryResult `json:"list,omitempty"`
+	List []*SwitchMSwitchDeployLogDeployLog `json:"list,omitempty"`
 
 	// TotalCount
 	// Total records count in this response
@@ -72,7 +72,7 @@ type SwitchMSwitchDeployLogDeployLog struct {
 	// Deploy Start Time
 	StartTime *int `json:"startTime,omitempty"`
 
-	Summary *SwitchMSwitchDeployLogDeployLog `json:"summary,omitempty"`
+	Summary *SwitchMSwitchDeployLogDeployLogStatusSummary `json:"summary,omitempty"`
 
 	// SwitchIds
 	// Switch ID

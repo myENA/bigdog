@@ -59,7 +59,7 @@ func NewSwitchMSwitchBarChart() *SwitchMSwitchBarChart {
 type SwitchMSwitchConnectedAPsQueryList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchConnectedAPsQueryList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchConnectedAPsQueryListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch connected AP returned out of the complete list
@@ -69,7 +69,7 @@ type SwitchMSwitchConnectedAPsQueryList struct {
 	// Indicator of whether there are more switch connected AP after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchConnectedAPsQueryList `json:"list,omitempty"`
+	List []*SwitchMSwitchConnectedDevice `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Connected AP list count
@@ -162,7 +162,7 @@ type SwitchMSwitchConnectedDevice struct {
 
 	// SampledInstant
 	// Sampled instant
-	SampledInstant *SwitchMSwitchConnectedDevice `json:"sampledInstant,omitempty"`
+	SampledInstant *SwitchMSwitchConnectedDeviceSampledInstantType `json:"sampledInstant,omitempty"`
 
 	// SwitchGroup
 	// Switch group
@@ -229,7 +229,7 @@ func NewSwitchMSwitchConnectedDeviceSampledInstantType() *SwitchMSwitchConnected
 type SwitchMSwitchConnectedDevicesQueryList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchConnectedDevicesQueryList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchConnectedDevicesQueryListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch connected devices returned out of the complete list
@@ -239,7 +239,7 @@ type SwitchMSwitchConnectedDevicesQueryList struct {
 	// Indicator of whether there are more switch connected devices after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchConnectedDevicesQueryList `json:"list,omitempty"`
+	List []*SwitchMSwitchConnectedDevice `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Connected devices list count
@@ -286,7 +286,7 @@ func NewSwitchMSwitchConnectedDevicesQueryListExtraType() *SwitchMSwitchConnecte
 type SwitchMSwitchDeleteSwitchesResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchDeleteSwitchesResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchDeleteSwitchesResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first delete switches returned out of the complete list
@@ -296,7 +296,7 @@ type SwitchMSwitchDeleteSwitchesResultList struct {
 	// Indicator of whether there are more delete switches after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchDeleteSwitchesResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchAuditId `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Delete switches list count
@@ -362,7 +362,7 @@ func NewSwitchMSwitchFirmware() *SwitchMSwitchFirmware {
 type SwitchMSwitchFirmwareHistoryQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchFirmwareHistoryQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchFirmwareHistoryQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first firmware history returned out of the complete query list
@@ -372,7 +372,7 @@ type SwitchMSwitchFirmwareHistoryQueryResultList struct {
 	// Indicator of whether there are more firmware history after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchFirmwareHistoryQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchFirmware `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Firmware history list count
@@ -435,7 +435,7 @@ type SwitchMSwitchNetworkSwitch struct {
 
 	// FirmwareUpdate
 	// Information of firmware update
-	FirmwareUpdate *SwitchMSwitchNetworkSwitch `json:"firmwareUpdate,omitempty"`
+	FirmwareUpdate *SwitchMSwitchNetworkSwitchFirmwareUpdateType `json:"firmwareUpdate,omitempty"`
 
 	// FirmwareVersion
 	// Switch firmware version
@@ -507,7 +507,7 @@ type SwitchMSwitchNetworkSwitch struct {
 
 	// Poe
 	// Information of PoE
-	Poe *SwitchMSwitchNetworkSwitch `json:"poe,omitempty"`
+	Poe *SwitchMSwitchNetworkSwitchPoeType `json:"poe,omitempty"`
 
 	// Ports
 	// Total port count
@@ -515,7 +515,7 @@ type SwitchMSwitchNetworkSwitch struct {
 
 	// PortStatus
 	// Information of port status
-	PortStatus *SwitchMSwitchNetworkSwitch `json:"portStatus,omitempty"`
+	PortStatus *SwitchMSwitchNetworkSwitchPortStatusType `json:"portStatus,omitempty"`
 
 	// RegistrationStatus
 	// Status for switch registater to ICX-M
@@ -644,7 +644,7 @@ type SwitchMSwitchPortDetails struct {
 
 	// ConnectedDevice
 	// Connected device information
-	ConnectedDevice []*SwitchMSwitchPortDetails `json:"connectedDevice,omitempty"`
+	ConnectedDevice []*SwitchMSwitchConnectedDevice `json:"connectedDevice,omitempty"`
 
 	// Id
 	// Identifier of switch port
@@ -680,11 +680,11 @@ type SwitchMSwitchPortDetails struct {
 
 	// Packets
 	// Port packet transmit information
-	Packets *SwitchMSwitchPortDetails `json:"packets,omitempty"`
+	Packets *SwitchMSwitchPortDetailsPacketsType `json:"packets,omitempty"`
 
 	// Poe
 	// PoE information of switch port
-	Poe *SwitchMSwitchPortDetails `json:"poe,omitempty"`
+	Poe *SwitchMSwitchPortDetailsPoeType `json:"poe,omitempty"`
 
 	// PoeEnabled
 	// PoE Enabled, True or False
@@ -696,7 +696,7 @@ type SwitchMSwitchPortDetails struct {
 
 	// PortError
 	// Port error Information
-	PortError *SwitchMSwitchPortDetails `json:"portError,omitempty"`
+	PortError *SwitchMSwitchPortDetailsPortErrorType `json:"portError,omitempty"`
 
 	// PortIdentifier
 	// Port Identifier of switch port
@@ -728,7 +728,7 @@ type SwitchMSwitchPortDetails struct {
 
 	// TrafficUsage
 	// Traffic usage information
-	TrafficUsage *SwitchMSwitchPortDetails `json:"trafficUsage,omitempty"`
+	TrafficUsage *SwitchMSwitchPortDetailsTrafficUsageType `json:"trafficUsage,omitempty"`
 
 	// Type
 	// Type of switch port
@@ -829,7 +829,7 @@ func NewSwitchMSwitchPortDetailsPortErrorType() *SwitchMSwitchPortDetailsPortErr
 type SwitchMSwitchPortDetailsQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchPortDetailsQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchPortDetailsQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch port detail returned out of the complete list
@@ -839,7 +839,7 @@ type SwitchMSwitchPortDetailsQueryResultList struct {
 	// Indicator of whether there are more switch port detail after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchPortDetailsQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchPortDetails `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Switch port detail list count
@@ -952,7 +952,7 @@ type SwitchMSwitchStackMember struct {
 	// Port count of stack
 	Ports *int `json:"ports,omitempty"`
 
-	PortStatus *SwitchMSwitchStackMember `json:"portStatus,omitempty"`
+	PortStatus *SwitchMSwitchPortStatus `json:"portStatus,omitempty"`
 
 	// SerialNumber
 	// Serial number of stack
@@ -966,7 +966,7 @@ type SwitchMSwitchStackMember struct {
 	// Switch name of stack
 	SwitchName *string `json:"switchName,omitempty"`
 
-	SwitchPorts *SwitchMSwitchStackMember `json:"switchPorts,omitempty"`
+	SwitchPorts *SwitchMSwitchPortDetails `json:"switchPorts,omitempty"`
 
 	// SwitchUnit
 	// Switch unit of stack
@@ -981,7 +981,7 @@ func NewSwitchMSwitchStackMember() *SwitchMSwitchStackMember {
 type SwitchMSwitchStackMemberQueryResult struct {
 	// Extra
 	// Extra information for stack member list
-	Extra *SwitchMSwitchStackMemberQueryResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchStackMemberQueryResultExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first stack member returned out of the complete stack member list
@@ -991,7 +991,7 @@ type SwitchMSwitchStackMemberQueryResult struct {
 	// Indicator of whether there are more stack member after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchStackMemberQueryResult `json:"list,omitempty"`
+	List []*SwitchMSwitchStackMember `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total stack member count
@@ -1048,7 +1048,7 @@ func MakeSwitchMSwitchIdList() SwitchMSwitchIdList {
 type SwitchMSwitchPortsSummaryQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchPortsSummaryQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchPortsSummaryQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch ports summary returned out of the complete list
@@ -1058,7 +1058,7 @@ type SwitchMSwitchPortsSummaryQueryResultList struct {
 	// Indicator of whether there are more switch ports summary after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchPortsSummaryQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchPortStatus `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Switch ports summary list count
@@ -1103,7 +1103,7 @@ func NewSwitchMSwitchPortsSummaryQueryResultListExtraType() *SwitchMSwitchPortsS
 }
 
 type SwitchMSwitchQueryResultList struct {
-	Extra *SwitchMSwitchQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first registration rule returned out of the complete registration rule list
@@ -1113,7 +1113,7 @@ type SwitchMSwitchQueryResultList struct {
 	// Indicator of whether there are more  after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchNetworkSwitch `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Switch query result list count
@@ -1141,7 +1141,7 @@ func NewSwitchMSwitchRebootResponse() *SwitchMSwitchRebootResponse {
 type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchTopSwitchesByFirmwareQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top switches by firmware returned out of the complete list
@@ -1151,7 +1151,7 @@ type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
 	// Indicator of whether there are more top switches by firmware after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchTopSwitchesByFirmwareQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchBarChart `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Top switches by firmware list count
@@ -1198,7 +1198,7 @@ func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType() *SwitchMSwi
 type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchTopSwitchesByModelQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTopSwitchesByModelQueryResultListExtraType `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top switches by model returned out of the complete list
@@ -1208,7 +1208,7 @@ type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
 	// Indicator of whether there are top switches by model after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*SwitchMSwitchTopSwitchesByModelQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchBarChart `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Top switches by model list count

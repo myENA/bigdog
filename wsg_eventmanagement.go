@@ -5,7 +5,7 @@ package ruckus
 type WSGEventManagementEventDataList struct {
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGEventManagementEventDataList `json:"list,omitempty"`
+	List []*WSGEventManagementSingleEventSetting `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
@@ -18,7 +18,7 @@ func NewWSGEventManagementEventDataList() *WSGEventManagementEventDataList {
 }
 
 type WSGEventManagementEventDataResponse struct {
-	Data *WSGEventManagementEventDataResponse `json:"data,omitempty"`
+	Data *WSGEventManagementEventDataList `json:"data,omitempty"`
 
 	// Error
 	// The error message of http request

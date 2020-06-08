@@ -25,7 +25,7 @@ type WSGAAAActiveDirectory struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAActiveDirectory `json:"mappings,omitempty"`
+	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
@@ -76,7 +76,7 @@ type WSGAAAActiveDirectoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAAAActiveDirectoryList `json:"list,omitempty"`
+	List []*WSGAAAActiveDirectory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -97,7 +97,7 @@ type WSGAAAAuthenticationServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAAuthenticationServer `json:"mappings,omitempty"`
+	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
@@ -111,9 +111,9 @@ type WSGAAAAuthenticationServer struct {
 	// Identifier of the partner domain which the RADIUS server belongs to
 	PartnerDomainId *string `json:"partnerDomainId,omitempty"`
 
-	Primary *WSGAAAAuthenticationServer `json:"primary,omitempty"`
+	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
-	Secondary *WSGAAAAuthenticationServer `json:"secondary,omitempty"`
+	Secondary *WSGCommonRadiusServer `json:"secondary,omitempty"`
 
 	// ServiceType
 	// Identify the RADIUS server is belong to Accounting or Authentication
@@ -121,7 +121,7 @@ type WSGAAAAuthenticationServer struct {
 	//    - oneof:[Authentication,Accounting]
 	ServiceType *string `json:"serviceType,omitempty"`
 
-	StandbyPrimary *WSGAAAAuthenticationServer `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 
@@ -140,7 +140,7 @@ type WSGAAAAuthenticationServerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAAAAuthenticationServerList `json:"list,omitempty"`
+	List []*WSGAAAAuthenticationServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -151,9 +151,9 @@ func NewWSGAAAAuthenticationServerList() *WSGAAAAuthenticationServerList {
 }
 
 type WSGAAACreateActiveDirectoryServer struct {
-	AdminDomainName *WSGAAACreateActiveDirectoryServer `json:"adminDomainName,omitempty"`
+	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
-	Description *WSGAAACreateActiveDirectoryServer `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Enable global catalog support
@@ -164,16 +164,16 @@ type WSGAAACreateActiveDirectoryServer struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGAAACreateActiveDirectoryServer `json:"ip"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAACreateActiveDirectoryServer `json:"mappings,omitempty"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGAAACreateActiveDirectoryServer `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Password
 	// Admin password
@@ -202,7 +202,7 @@ type WSGAAACreateActiveDirectoryServer struct {
 
 	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
 
-	WindowsDomainName *WSGAAACreateActiveDirectoryServer `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *WSGCommonNormalNameAllowBlank `json:"windowsDomainName,omitempty"`
 }
 
 func NewWSGAAACreateActiveDirectoryServer() *WSGAAACreateActiveDirectoryServer {
@@ -211,25 +211,25 @@ func NewWSGAAACreateActiveDirectoryServer() *WSGAAACreateActiveDirectoryServer {
 }
 
 type WSGAAACreateAuthenticationServer struct {
-	Description *WSGAAACreateAuthenticationServer `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAACreateAuthenticationServer `json:"mappings,omitempty"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGAAACreateAuthenticationServer `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Primary
 	// Constraints:
 	//    - required
-	Primary *WSGAAACreateAuthenticationServer `json:"primary"`
+	Primary *WSGCommonRadiusServer `json:"primary"`
 
-	Secondary *WSGAAACreateAuthenticationServer `json:"secondary,omitempty"`
+	Secondary *WSGCommonRadiusServer `json:"secondary,omitempty"`
 
-	StandbyPrimary *WSGAAACreateAuthenticationServer `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
@@ -243,33 +243,33 @@ type WSGAAACreateLDAPServer struct {
 	// AdminDomainName
 	// Constraints:
 	//    - required
-	AdminDomainName *WSGAAACreateLDAPServer `json:"adminDomainName"`
+	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName"`
 
 	// BaseDomainName
 	// Constraints:
 	//    - required
-	BaseDomainName *WSGAAACreateLDAPServer `json:"baseDomainName"`
+	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName"`
 
-	Description *WSGAAACreateLDAPServer `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Ip
 	// Constraints:
 	//    - required
-	Ip *WSGAAACreateLDAPServer `json:"ip"`
+	Ip *WSGCommonIpAddress `json:"ip"`
 
 	// KeyAttribute
 	// Constraints:
 	//    - required
-	KeyAttribute *WSGAAACreateLDAPServer `json:"keyAttribute"`
+	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAACreateLDAPServer `json:"mappings,omitempty"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGAAACreateLDAPServer `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
 	// Password
 	// Admin password
@@ -289,7 +289,7 @@ type WSGAAACreateLDAPServer struct {
 	// SearchFilter
 	// Constraints:
 	//    - required
-	SearchFilter *WSGAAACreateLDAPServer `json:"searchFilter"`
+	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter"`
 
 	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
@@ -331,7 +331,7 @@ type WSGAAAGroupAttrIdentityUserRoleMapping struct {
 	// Identity user role
 	// Constraints:
 	//    - required
-	UserRole *WSGAAAGroupAttrIdentityUserRoleMapping `json:"userRole"`
+	UserRole *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole"`
 }
 
 func NewWSGAAAGroupAttrIdentityUserRoleMapping() *WSGAAAGroupAttrIdentityUserRoleMapping {
@@ -349,11 +349,11 @@ type WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Identity user role UUID
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType `json:"name,omitempty"`
+	Name *WSGCommonNormalName2to64 `json:"name,omitempty"`
 
 	// UserTrafficProfile
 	// Identity user role
-	UserTrafficProfile *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType `json:"userTrafficProfile,omitempty"`
+	UserTrafficProfile *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType `json:"userTrafficProfile,omitempty"`
 }
 
 func NewWSGAAAGroupAttrIdentityUserRoleMappingUserRoleType() *WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType {
@@ -406,7 +406,7 @@ type WSGAAALDAPServer struct {
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAALDAPServer `json:"mappings,omitempty"`
+	Mappings []*WSGAAAGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
 	// MvnoId
 	// Tenant UUID
@@ -459,7 +459,7 @@ type WSGAAALDAPServerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAAALDAPServerList `json:"list,omitempty"`
+	List []*WSGAAALDAPServer `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -470,21 +470,21 @@ func NewWSGAAALDAPServerList() *WSGAAALDAPServerList {
 }
 
 type WSGAAAModifyActiveDirectoryServer struct {
-	AdminDomainName *WSGAAAModifyActiveDirectoryServer `json:"adminDomainName,omitempty"`
+	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
-	Description *WSGAAAModifyActiveDirectoryServer `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// GlobalCatalogEnabled
 	// Enable global catalog support
 	GlobalCatalogEnabled *bool `json:"globalCatalogEnabled,omitempty"`
 
-	Ip *WSGAAAModifyActiveDirectoryServer `json:"ip,omitempty"`
+	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyActiveDirectoryServer `json:"mappings,omitempty"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *WSGAAAModifyActiveDirectoryServer `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -512,7 +512,7 @@ type WSGAAAModifyActiveDirectoryServer struct {
 
 	StandbyWindowsDomainName *string `json:"standbyWindowsDomainName,omitempty"`
 
-	WindowsDomainName *WSGAAAModifyActiveDirectoryServer `json:"windowsDomainName,omitempty"`
+	WindowsDomainName *WSGCommonNormalNameAllowBlank `json:"windowsDomainName,omitempty"`
 }
 
 func NewWSGAAAModifyActiveDirectoryServer() *WSGAAAModifyActiveDirectoryServer {
@@ -521,19 +521,19 @@ func NewWSGAAAModifyActiveDirectoryServer() *WSGAAAModifyActiveDirectoryServer {
 }
 
 type WSGAAAModifyAuthenticationServer struct {
-	Description *WSGAAAModifyAuthenticationServer `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyAuthenticationServer `json:"mappings,omitempty"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *WSGAAAModifyAuthenticationServer `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Primary *WSGAAAModifyAuthenticationServer `json:"primary,omitempty"`
+	Primary *WSGCommonRadiusServer `json:"primary,omitempty"`
 
-	Secondary *WSGAAAModifyAuthenticationServer `json:"secondary,omitempty"`
+	Secondary *WSGCommonRadiusServer `json:"secondary,omitempty"`
 
-	StandbyPrimary *WSGAAAModifyAuthenticationServer `json:"standbyPrimary,omitempty"`
+	StandbyPrimary *WSGCommonRadiusServer `json:"standbyPrimary,omitempty"`
 
 	StandbyServerEnabled *bool `json:"standbyServerEnabled,omitempty"`
 }
@@ -557,7 +557,7 @@ type WSGAAAModifyGroupAttrIdentityUserRoleMapping struct {
 	// Identity user role
 	// Constraints:
 	//    - required
-	UserRole *WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"userRole"`
+	UserRole *WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"userRole"`
 }
 
 func NewWSGAAAModifyGroupAttrIdentityUserRoleMapping() *WSGAAAModifyGroupAttrIdentityUserRoleMapping {
@@ -573,7 +573,7 @@ type WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Identity user role UUID
 	Id *string `json:"id,omitempty"`
 
-	Name *WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType `json:"name,omitempty"`
+	Name *WSGCommonNormalName2to64 `json:"name,omitempty"`
 }
 
 func NewWSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType() *WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType {
@@ -582,21 +582,21 @@ func NewWSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType() *WSGAAAModify
 }
 
 type WSGAAAModifyLDAPServer struct {
-	AdminDomainName *WSGAAAModifyLDAPServer `json:"adminDomainName,omitempty"`
+	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
-	BaseDomainName *WSGAAAModifyLDAPServer `json:"baseDomainName,omitempty"`
+	BaseDomainName *WSGCommonNormalName2to64 `json:"baseDomainName,omitempty"`
 
-	Description *WSGAAAModifyLDAPServer `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	Ip *WSGAAAModifyLDAPServer `json:"ip,omitempty"`
+	Ip *WSGCommonIpAddress `json:"ip,omitempty"`
 
-	KeyAttribute *WSGAAAModifyLDAPServer `json:"keyAttribute,omitempty"`
+	KeyAttribute *WSGCommonNormalName2to64 `json:"keyAttribute,omitempty"`
 
 	// Mappings
 	// Group attribute and user traffic profile mapping
-	Mappings []*WSGAAAModifyLDAPServer `json:"mappings,omitempty"`
+	Mappings []*WSGAAAModifyGroupAttrIdentityUserRoleMapping `json:"mappings,omitempty"`
 
-	Name *WSGAAAModifyLDAPServer `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Password
 	// Admin password
@@ -610,7 +610,7 @@ type WSGAAAModifyLDAPServer struct {
 	//    - max:65535
 	Port *int `json:"port,omitempty"`
 
-	SearchFilter *WSGAAAModifyLDAPServer `json:"searchFilter,omitempty"`
+	SearchFilter *WSGCommonNormalName2to64 `json:"searchFilter,omitempty"`
 
 	StandbyAdminDomainName *string `json:"standbyAdminDomainName,omitempty"`
 
@@ -653,7 +653,7 @@ type WSGAAATestAuthenticationServer struct {
 	// AaaServer
 	// Constraints:
 	//    - required
-	AaaServer *WSGAAATestAuthenticationServer `json:"aaaServer"`
+	AaaServer *WSGCommonGenericRef `json:"aaaServer"`
 
 	// AaaType
 	// Authentication/Accounting service protocol. RADIUS for Radius, AD and LDAP. RADIUSAcct for RADIUS Accounting

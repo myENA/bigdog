@@ -22,7 +22,7 @@ type WSGAVCAppCategoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAVCAppCategoryList `json:"list,omitempty"`
+	List []*WSGAVCAppCategory `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -56,7 +56,7 @@ type WSGAVCApplicationList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAVCApplicationList `json:"list,omitempty"`
+	List []*WSGAVCApplication `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -67,7 +67,7 @@ func NewWSGAVCApplicationList() *WSGAVCApplicationList {
 }
 
 type WSGAVCApplicationPolicyProfile struct {
-	ApplicationRules []*WSGAVCApplicationPolicyProfile `json:"applicationRules,omitempty"`
+	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules,omitempty"`
 
 	// AvcEventEnable
 	// Send ARC logs from AP to SmartZone
@@ -89,7 +89,7 @@ type WSGAVCApplicationPolicyProfile struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description *WSGAVCApplicationPolicyProfile `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the Application Policy Profile belongs
@@ -111,7 +111,7 @@ type WSGAVCApplicationPolicyProfile struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *WSGAVCApplicationPolicyProfile `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// TenantId
 	// Tenant Id
@@ -124,13 +124,13 @@ func NewWSGAVCApplicationPolicyProfile() *WSGAVCApplicationPolicyProfile {
 }
 
 type WSGAVCApplicationPolicyProfileList struct {
-	Extra *WSGAVCApplicationPolicyProfileList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAVCApplicationPolicyProfileList `json:"list,omitempty"`
+	List []*WSGAVCApplicationPolicyProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -207,7 +207,7 @@ type WSGAVCCreateApplicationPolicyProfile struct {
 	// ApplicationRules
 	// Constraints:
 	//    - required
-	ApplicationRules []*WSGAVCCreateApplicationPolicyProfile `json:"applicationRules"`
+	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules"`
 
 	// AvcEventEnable
 	// Send ARC logs from AP to SmartZone
@@ -217,7 +217,7 @@ type WSGAVCCreateApplicationPolicyProfile struct {
 	// Send ARC logs from AP to external syslog server
 	AvcLogEnable *bool `json:"avcLogEnable,omitempty"`
 
-	Description *WSGAVCCreateApplicationPolicyProfile `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the Application Policy Profile belongs
@@ -226,7 +226,7 @@ type WSGAVCCreateApplicationPolicyProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGAVCCreateApplicationPolicyProfile `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 }
 
 func NewWSGAVCCreateApplicationPolicyProfile() *WSGAVCCreateApplicationPolicyProfile {
@@ -235,7 +235,7 @@ func NewWSGAVCCreateApplicationPolicyProfile() *WSGAVCCreateApplicationPolicyPro
 }
 
 type WSGAVCCreateUserDefinedProfile struct {
-	DestIp *WSGAVCCreateUserDefinedProfile `json:"destIp,omitempty"`
+	DestIp *WSGCommonIpAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
@@ -252,9 +252,9 @@ type WSGAVCCreateUserDefinedProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name *WSGAVCCreateUserDefinedProfile `json:"name"`
+	Name *WSGCommonNormalName `json:"name"`
 
-	Netmask *WSGAVCCreateUserDefinedProfile `json:"netmask,omitempty"`
+	Netmask *WSGCommonSubNetMask `json:"netmask,omitempty"`
 
 	// Protocol
 	// Protocol of User Defined Profile
@@ -277,7 +277,7 @@ func NewWSGAVCCreateUserDefinedProfile() *WSGAVCCreateUserDefinedProfile {
 }
 
 type WSGAVCDeleteBulk struct {
-	IdList *WSGAVCDeleteBulk `json:"idList,omitempty"`
+	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
 
 func NewWSGAVCDeleteBulk() *WSGAVCDeleteBulk {
@@ -286,7 +286,7 @@ func NewWSGAVCDeleteBulk() *WSGAVCDeleteBulk {
 }
 
 type WSGAVCModifyApplicationPolicyProfile struct {
-	ApplicationRules []*WSGAVCModifyApplicationPolicyProfile `json:"applicationRules,omitempty"`
+	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules,omitempty"`
 
 	// AvcEventEnable
 	// Send ARC logs from AP to SmartZone
@@ -296,9 +296,9 @@ type WSGAVCModifyApplicationPolicyProfile struct {
 	// Send ARC logs from AP to external syslog server
 	AvcLogEnable *bool `json:"avcLogEnable,omitempty"`
 
-	Description *WSGAVCModifyApplicationPolicyProfile `json:"description,omitempty"`
+	Description *WSGCommonDescription `json:"description,omitempty"`
 
-	Name *WSGAVCModifyApplicationPolicyProfile `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
 func NewWSGAVCModifyApplicationPolicyProfile() *WSGAVCModifyApplicationPolicyProfile {
@@ -307,7 +307,7 @@ func NewWSGAVCModifyApplicationPolicyProfile() *WSGAVCModifyApplicationPolicyPro
 }
 
 type WSGAVCModifyUserDefinedProfile struct {
-	DestIp *WSGAVCModifyUserDefinedProfile `json:"destIp,omitempty"`
+	DestIp *WSGCommonIpAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
@@ -316,9 +316,9 @@ type WSGAVCModifyUserDefinedProfile struct {
 	//    - max:65535
 	DestPort *int `json:"destPort,omitempty"`
 
-	Name *WSGAVCModifyUserDefinedProfile `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Netmask *WSGAVCModifyUserDefinedProfile `json:"netmask,omitempty"`
+	Netmask *WSGCommonSubNetMask `json:"netmask,omitempty"`
 
 	// Protocol
 	// Protocol of User Defined Profile
@@ -378,7 +378,7 @@ type WSGAVCUserDefinedProfile struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	DestIp *WSGAVCUserDefinedProfile `json:"destIp,omitempty"`
+	DestIp *WSGCommonIpAddress `json:"destIp,omitempty"`
 
 	// DestPort
 	// Destination Port of User Defined Profile
@@ -407,9 +407,9 @@ type WSGAVCUserDefinedProfile struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name *WSGAVCUserDefinedProfile `json:"name,omitempty"`
+	Name *WSGCommonNormalName `json:"name,omitempty"`
 
-	Netmask *WSGAVCUserDefinedProfile `json:"netmask,omitempty"`
+	Netmask *WSGCommonSubNetMask `json:"netmask,omitempty"`
 
 	// Protocol
 	// Protocol of User Defined Profile
@@ -434,13 +434,13 @@ func NewWSGAVCUserDefinedProfile() *WSGAVCUserDefinedProfile {
 }
 
 type WSGAVCUserDefinedProfileList struct {
-	Extra *WSGAVCUserDefinedProfileList `json:"extra,omitempty"`
+	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAVCUserDefinedProfileList `json:"list,omitempty"`
+	List []*WSGAVCUserDefinedProfile `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

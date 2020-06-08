@@ -3,17 +3,17 @@ package ruckus
 // API Version: v9_0
 
 type WSGAPRulesApRuleConfiguration struct {
-	Description **WSGAPRulesApRuleConfiguration `json:"description,omitempty"`
+	Description *WSGAPRulesApRuleConfiguration `json:"description,omitempty"`
 
-	GpsCoordinates **WSGAPRulesApRuleConfiguration `json:"gpsCoordinates,omitempty"`
+	GpsCoordinates *WSGAPRulesApRuleConfiguration `json:"gpsCoordinates,omitempty"`
 
 	// Id
 	// Identifier of the AP Registration Rules
 	Id *string `json:"id,omitempty"`
 
-	IpAddressRange **WSGAPRulesApRuleConfiguration `json:"ipAddressRange,omitempty"`
+	IpAddressRange *WSGAPRulesApRuleConfiguration `json:"ipAddressRange,omitempty"`
 
-	MobilityZone **WSGAPRulesApRuleConfiguration `json:"mobilityZone,omitempty"`
+	MobilityZone *WSGAPRulesApRuleConfiguration `json:"mobilityZone,omitempty"`
 
 	// Priority
 	// priority of the AP Registration Rules
@@ -23,7 +23,7 @@ type WSGAPRulesApRuleConfiguration struct {
 	// ProvisionTag of the AP Registration Rules
 	ProvisionTag *string `json:"provisionTag,omitempty"`
 
-	Subnet **WSGAPRulesApRuleConfiguration `json:"subnet,omitempty"`
+	Subnet *WSGAPRulesApRuleConfiguration `json:"subnet,omitempty"`
 
 	// Type
 	// type of the AP Registration Rules
@@ -42,7 +42,7 @@ type WSGAPRulesApRuleList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAPRulesApRuleList `json:"list,omitempty"`
+	List []*WSGAPRulesApRuleList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -53,7 +53,7 @@ func NewWSGAPRulesApRuleList() *WSGAPRulesApRuleList {
 }
 
 type WSGAPRulesApRuleListType struct {
-	Description **WSGAPRulesApRuleListType `json:"description,omitempty"`
+	Description *WSGAPRulesApRuleListType `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the AP Registration Rules
@@ -70,22 +70,22 @@ func NewWSGAPRulesApRuleListType() *WSGAPRulesApRuleListType {
 }
 
 type WSGAPRulesCreateApRule struct {
-	Description **WSGAPRulesCreateApRule `json:"description,omitempty"`
+	Description *WSGAPRulesCreateApRule `json:"description,omitempty"`
 
-	GpsCoordinates **WSGAPRulesCreateApRule `json:"gpsCoordinates,omitempty"`
+	GpsCoordinates *WSGAPRulesCreateApRule `json:"gpsCoordinates,omitempty"`
 
-	IpAddressRange **WSGAPRulesCreateApRule `json:"ipAddressRange,omitempty"`
+	IpAddressRange *WSGAPRulesCreateApRule `json:"ipAddressRange,omitempty"`
 
 	// MobilityZone
 	// Constraints:
 	//    - required
-	MobilityZone **WSGAPRulesCreateApRule `json:"mobilityZone"`
+	MobilityZone *WSGAPRulesCreateApRule `json:"mobilityZone"`
 
 	// ProvisionTag
 	// ProvisionTag of the AP Registration Rules
 	ProvisionTag *string `json:"provisionTag,omitempty"`
 
-	Subnet **WSGAPRulesCreateApRule `json:"subnet,omitempty"`
+	Subnet *WSGAPRulesCreateApRule `json:"subnet,omitempty"`
 
 	// Type
 	// type of the AP Registration Rules
@@ -105,9 +105,9 @@ type WSGAPRulesGpsCoordinates struct {
 	// distance
 	Distance *float64 `json:"distance,omitempty"`
 
-	Latitude **WSGAPRulesGpsCoordinates `json:"latitude,omitempty"`
+	Latitude *WSGAPRulesGpsCoordinates `json:"latitude,omitempty"`
 
-	Longitude **WSGAPRulesGpsCoordinates `json:"longitude,omitempty"`
+	Longitude *WSGAPRulesGpsCoordinates `json:"longitude,omitempty"`
 }
 
 func NewWSGAPRulesGpsCoordinates() *WSGAPRulesGpsCoordinates {
@@ -116,9 +116,9 @@ func NewWSGAPRulesGpsCoordinates() *WSGAPRulesGpsCoordinates {
 }
 
 type WSGAPRulesIpAddressRange struct {
-	FromIp **WSGAPRulesIpAddressRange `json:"fromIp,omitempty"`
+	FromIp *WSGAPRulesIpAddressRange `json:"fromIp,omitempty"`
 
-	ToIp **WSGAPRulesIpAddressRange `json:"toIp,omitempty"`
+	ToIp *WSGAPRulesIpAddressRange `json:"toIp,omitempty"`
 }
 
 func NewWSGAPRulesIpAddressRange() *WSGAPRulesIpAddressRange {
@@ -127,19 +127,19 @@ func NewWSGAPRulesIpAddressRange() *WSGAPRulesIpAddressRange {
 }
 
 type WSGAPRulesModifyApRule struct {
-	Description **WSGAPRulesModifyApRule `json:"description,omitempty"`
+	Description *WSGAPRulesModifyApRule `json:"description,omitempty"`
 
-	GpsCoordinates **WSGAPRulesModifyApRule `json:"gpsCoordinates,omitempty"`
+	GpsCoordinates *WSGAPRulesModifyApRule `json:"gpsCoordinates,omitempty"`
 
-	IpAddressRange **WSGAPRulesModifyApRule `json:"ipAddressRange,omitempty"`
+	IpAddressRange *WSGAPRulesModifyApRule `json:"ipAddressRange,omitempty"`
 
-	MobilityZone **WSGAPRulesModifyApRule `json:"mobilityZone,omitempty"`
+	MobilityZone *WSGAPRulesModifyApRule `json:"mobilityZone,omitempty"`
 
 	// ProvisionTag
 	// ProvisionTag of the AP Registration Rules
 	ProvisionTag *string `json:"provisionTag,omitempty"`
 
-	Subnet **WSGAPRulesModifyApRule `json:"subnet,omitempty"`
+	Subnet *WSGAPRulesModifyApRule `json:"subnet,omitempty"`
 
 	// Type
 	// type of the AP Registration Rules
@@ -154,7 +154,7 @@ func NewWSGAPRulesModifyApRule() *WSGAPRulesModifyApRule {
 }
 
 type WSGAPRulesSubnet struct {
-	NetworkAddress **WSGAPRulesSubnet `json:"networkAddress,omitempty"`
+	NetworkAddress *WSGAPRulesSubnet `json:"networkAddress,omitempty"`
 
 	// SubnetMask
 	// subnetMask

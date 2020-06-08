@@ -87,7 +87,7 @@ func NewSwitchMSwitchGroupModelConfigGroupModelConfig() *SwitchMSwitchGroupModel
 type SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra **SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Group Model Config returned out of the complete Group Model Configs list
@@ -97,7 +97,7 @@ type SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult struct {
 	// Indicator of whether there are more Group Model Configs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult `json:"list,omitempty"`
+	List []*SwitchMSwitchGroupModelConfigGroupModelConfigQueryResult `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Group Model Configs count
@@ -153,7 +153,7 @@ func NewSwitchMSwitchGroupModelConfigSelectedIds() *SwitchMSwitchGroupModelConfi
 type SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList struct {
 	// Extra
 	// Any additional response data
-	Extra **SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first updated Group Model Config returned out of the complete Group Model Configs list
@@ -163,7 +163,7 @@ type SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList struct {
 	// Indicator of whether there are more updated Group Model Configs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchGroupModelConfigUpdateGroupConfigResultList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total updated Group Model Configs count

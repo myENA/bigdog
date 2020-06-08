@@ -141,7 +141,7 @@ type WSGNorthbounddatastreamingEventCodes struct {
 	// Indicates whether there are more Northbound Data Streaming accepted event codes after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGNorthbounddatastreamingEventCodes `json:"list,omitempty"`
+	List []*WSGNorthbounddatastreamingEventCodes `json:"list,omitempty"`
 
 	// TotalCount
 	// Total Northbound Data Streaming accepted event code count
@@ -214,9 +214,9 @@ func NewWSGNorthbounddatastreamingProfile() *WSGNorthbounddatastreamingProfile {
 }
 
 type WSGNorthbounddatastreamingProfileList struct {
-	Extra **WSGNorthbounddatastreamingProfileList `json:"extra,omitempty"`
+	Extra *WSGNorthbounddatastreamingProfileList `json:"extra,omitempty"`
 
-	List []**WSGNorthbounddatastreamingProfileList `json:"list,omitempty"`
+	List []*WSGNorthbounddatastreamingProfileList `json:"list,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

@@ -9,7 +9,7 @@ import (
 type SwitchMSwitchRegistrationRulesClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
-	ExtraValues **SwitchMSwitchRegistrationRulesClientObjectID `json:"extraValues,omitempty"`
+	ExtraValues *SwitchMSwitchRegistrationRulesClientObjectID `json:"extraValues,omitempty"`
 
 	// Id
 	// Identifier of the client
@@ -58,17 +58,17 @@ func NewSwitchMSwitchRegistrationRulesClientObjectIDExtraValuesType() *SwitchMSw
 }
 
 type SwitchMSwitchRegistrationRulesCreateResult struct {
-	Data **SwitchMSwitchRegistrationRulesCreateResult `json:"data,omitempty"`
+	Data *SwitchMSwitchRegistrationRulesCreateResult `json:"data,omitempty"`
 
-	Error **SwitchMSwitchRegistrationRulesCreateResult `json:"error,omitempty"`
+	Error *SwitchMSwitchRegistrationRulesCreateResult `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra **SwitchMSwitchRegistrationRulesCreateResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchRegistrationRulesCreateResult `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule create result
-	MetaData **SwitchMSwitchRegistrationRulesCreateResult `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchRegistrationRulesCreateResult `json:"metaData,omitempty"`
 
 	// Success
 	// Create result success or not
@@ -137,17 +137,17 @@ func NewSwitchMSwitchRegistrationRulesCreateResultMetaDataType() *SwitchMSwitchR
 }
 
 type SwitchMSwitchRegistrationRulesDeleteMultipleResult struct {
-	Data **SwitchMSwitchRegistrationRulesDeleteMultipleResult `json:"data,omitempty"`
+	Data *SwitchMSwitchRegistrationRulesDeleteMultipleResult `json:"data,omitempty"`
 
-	Error **SwitchMSwitchRegistrationRulesDeleteMultipleResult `json:"error,omitempty"`
+	Error *SwitchMSwitchRegistrationRulesDeleteMultipleResult `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra **SwitchMSwitchRegistrationRulesDeleteMultipleResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchRegistrationRulesDeleteMultipleResult `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of delete multiple rules result
-	MetaData **SwitchMSwitchRegistrationRulesDeleteMultipleResult `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchRegistrationRulesDeleteMultipleResult `json:"metaData,omitempty"`
 
 	// Success
 	// Delete multiple result success or not
@@ -216,17 +216,17 @@ func NewSwitchMSwitchRegistrationRulesDeleteMultipleResultMetaDataType() *Switch
 }
 
 type SwitchMSwitchRegistrationRulesDeleteResult struct {
-	Data **SwitchMSwitchRegistrationRulesDeleteResult `json:"data,omitempty"`
+	Data *SwitchMSwitchRegistrationRulesDeleteResult `json:"data,omitempty"`
 
-	Error **SwitchMSwitchRegistrationRulesDeleteResult `json:"error,omitempty"`
+	Error *SwitchMSwitchRegistrationRulesDeleteResult `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra **SwitchMSwitchRegistrationRulesDeleteResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchRegistrationRulesDeleteResult `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule delete result
-	MetaData **SwitchMSwitchRegistrationRulesDeleteResult `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchRegistrationRulesDeleteResult `json:"metaData,omitempty"`
 
 	// Success
 	// Delete result success or not
@@ -310,7 +310,7 @@ func NewSwitchMSwitchRegistrationRulesErrorObject() *SwitchMSwitchRegistrationRu
 type SwitchMSwitchRegistrationRulesList struct {
 	// Extra
 	// Any additional response data
-	Extra **SwitchMSwitchRegistrationRulesList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchRegistrationRulesList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first registration rule returned out of the complete registration rule list
@@ -320,7 +320,7 @@ type SwitchMSwitchRegistrationRulesList struct {
 	// Indicator of whether there are more registration rule after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchRegistrationRulesList `json:"list,omitempty"`
+	List []*SwitchMSwitchRegistrationRulesList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Registration rule list count
@@ -365,17 +365,17 @@ func NewSwitchMSwitchRegistrationRulesListExtraType() *SwitchMSwitchRegistration
 }
 
 type SwitchMSwitchRegistrationRulesModifyResult struct {
-	Data **SwitchMSwitchRegistrationRulesModifyResult `json:"data,omitempty"`
+	Data *SwitchMSwitchRegistrationRulesModifyResult `json:"data,omitempty"`
 
-	Error **SwitchMSwitchRegistrationRulesModifyResult `json:"error,omitempty"`
+	Error *SwitchMSwitchRegistrationRulesModifyResult `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra **SwitchMSwitchRegistrationRulesModifyResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchRegistrationRulesModifyResult `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of rule modify result
-	MetaData **SwitchMSwitchRegistrationRulesModifyResult `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchRegistrationRulesModifyResult `json:"metaData,omitempty"`
 
 	// Success
 	// Modify result success or not
@@ -517,17 +517,17 @@ func NewSwitchMSwitchRegistrationRulesRegistrationRule() *SwitchMSwitchRegistrat
 }
 
 type SwitchMSwitchRegistrationRulesRuleQueryResultList struct {
-	Data **SwitchMSwitchRegistrationRulesRuleQueryResultList `json:"data,omitempty"`
+	Data *SwitchMSwitchRegistrationRulesRuleQueryResultList `json:"data,omitempty"`
 
-	Error **SwitchMSwitchRegistrationRulesRuleQueryResultList `json:"error,omitempty"`
+	Error *SwitchMSwitchRegistrationRulesRuleQueryResultList `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra **SwitchMSwitchRegistrationRulesRuleQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchRegistrationRulesRuleQueryResultList `json:"extra,omitempty"`
 
 	// MetaData
 	// Matadata of Rule query result
-	MetaData **SwitchMSwitchRegistrationRulesRuleQueryResultList `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchRegistrationRulesRuleQueryResultList `json:"metaData,omitempty"`
 
 	// Success
 	// Rule query result success or not

@@ -3,7 +3,7 @@ package ruckus
 // API Version: v9_0
 
 type WSGWIFICallingCreateWifiCallingPolicy struct {
-	Description **WSGWIFICallingCreateWifiCallingPolicy `json:"description,omitempty"`
+	Description *WSGWIFICallingCreateWifiCallingPolicy `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy belongs
@@ -13,12 +13,12 @@ type WSGWIFICallingCreateWifiCallingPolicy struct {
 	// ePDG list of the Wi-Fi calling policy
 	// Constraints:
 	//    - required
-	Epdgs []**WSGWIFICallingCreateWifiCallingPolicy `json:"epdgs"`
+	Epdgs []*WSGWIFICallingCreateWifiCallingPolicy `json:"epdgs"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGWIFICallingCreateWifiCallingPolicy `json:"name"`
+	Name *WSGWIFICallingCreateWifiCallingPolicy `json:"name"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
@@ -56,13 +56,13 @@ func NewWSGWIFICallingEpdg() *WSGWIFICallingEpdg {
 }
 
 type WSGWIFICallingModifyWifiCallingPolicy struct {
-	Description **WSGWIFICallingModifyWifiCallingPolicy `json:"description,omitempty"`
+	Description *WSGWIFICallingModifyWifiCallingPolicy `json:"description,omitempty"`
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
-	Epdgs []**WSGWIFICallingModifyWifiCallingPolicy `json:"epdgs,omitempty"`
+	Epdgs []*WSGWIFICallingModifyWifiCallingPolicy `json:"epdgs,omitempty"`
 
-	Name **WSGWIFICallingModifyWifiCallingPolicy `json:"name,omitempty"`
+	Name *WSGWIFICallingModifyWifiCallingPolicy `json:"name,omitempty"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
@@ -89,7 +89,7 @@ type WSGWIFICallingPolicy struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description **WSGWIFICallingPolicy `json:"description,omitempty"`
+	Description *WSGWIFICallingPolicy `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the System (root) domain or partner managed domain to which the Wi-Fi calling policy belongs
@@ -97,7 +97,7 @@ type WSGWIFICallingPolicy struct {
 
 	// Epdgs
 	// ePDG list of the Wi-Fi calling policy
-	Epdgs []**WSGWIFICallingPolicy `json:"epdgs,omitempty"`
+	Epdgs []*WSGWIFICallingPolicy `json:"epdgs,omitempty"`
 
 	// Id
 	// Identifier of the Wi-Fi calling policy
@@ -115,7 +115,7 @@ type WSGWIFICallingPolicy struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name **WSGWIFICallingPolicy `json:"name,omitempty"`
+	Name *WSGWIFICallingPolicy `json:"name,omitempty"`
 
 	// Priority
 	// QoS priority of the Wi-Fi calling policy
@@ -134,13 +134,13 @@ func NewWSGWIFICallingPolicy() *WSGWIFICallingPolicy {
 }
 
 type WSGWIFICallingPolicyList struct {
-	Extra **WSGWIFICallingPolicyList `json:"extra,omitempty"`
+	Extra *WSGWIFICallingPolicyList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGWIFICallingPolicyList `json:"list,omitempty"`
+	List []*WSGWIFICallingPolicyList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

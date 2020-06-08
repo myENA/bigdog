@@ -26,7 +26,7 @@ type WSGAccountSecurityProfileCreate struct {
 	//    - max:100
 	AttemptsLockoutTimes *int `json:"attemptsLockoutTimes,omitempty"`
 
-	Description **WSGAccountSecurityProfileCreate `json:"description,omitempty"`
+	Description *WSGAccountSecurityProfileCreate `json:"description,omitempty"`
 
 	// DisableInactiveAccounts
 	// A period in a inactive status used to lockout these accounts.
@@ -57,7 +57,7 @@ type WSGAccountSecurityProfileCreate struct {
 	// Control minimum password life time.
 	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
 
-	Name **WSGAccountSecurityProfileCreate `json:"name,omitempty"`
+	Name *WSGAccountSecurityProfileCreate `json:"name,omitempty"`
 
 	// PasswordComplexityEnabled
 	// Control password complexity mechanism.
@@ -136,7 +136,7 @@ type WSGAccountSecurityProfileGetByIdResult struct {
 
 	AttemptsLockoutTimes *int `json:"attemptsLockoutTimes,omitempty"`
 
-	Description **WSGAccountSecurityProfileGetByIdResult `json:"description,omitempty"`
+	Description *WSGAccountSecurityProfileGetByIdResult `json:"description,omitempty"`
 
 	DisableInactiveAccounts *int `json:"disableInactiveAccounts,omitempty"`
 
@@ -155,7 +155,7 @@ type WSGAccountSecurityProfileGetByIdResult struct {
 
 	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
 
-	Name **WSGAccountSecurityProfileGetByIdResult `json:"name,omitempty"`
+	Name *WSGAccountSecurityProfileGetByIdResult `json:"name,omitempty"`
 
 	PasswordComplexityEnabled *bool `json:"passwordComplexityEnabled,omitempty"`
 
@@ -180,7 +180,7 @@ type WSGAccountSecurityProfileProfileListResult struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAccountSecurityProfileProfileListResult `json:"list,omitempty"`
+	List []*WSGAccountSecurityProfileProfileListResult `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -214,7 +214,7 @@ type WSGAccountSecurityProfileUpdate struct {
 	//    - max:100
 	AttemptsLockoutTimes *int `json:"attemptsLockoutTimes,omitempty"`
 
-	Description **WSGAccountSecurityProfileUpdate `json:"description,omitempty"`
+	Description *WSGAccountSecurityProfileUpdate `json:"description,omitempty"`
 
 	// DisableInactiveAccounts
 	// A period in a inactive status used to lockout these accounts.
@@ -243,7 +243,7 @@ type WSGAccountSecurityProfileUpdate struct {
 	// Control minimum password life time.
 	MinimumPasswordLifetimeEnabled *bool `json:"minimumPasswordLifetimeEnabled,omitempty"`
 
-	Name **WSGAccountSecurityProfileUpdate `json:"name,omitempty"`
+	Name *WSGAccountSecurityProfileUpdate `json:"name,omitempty"`
 
 	// PasswordComplexityEnabled
 	// Control password complexity mechanism.

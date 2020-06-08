@@ -37,19 +37,19 @@ type WSGAPConfiguration struct {
 	//    - oneof:[Locked,Unlocked]
 	AdministrativeState *string `json:"administrativeState,omitempty"`
 
-	Altitude **WSGAPConfiguration `json:"altitude,omitempty"`
+	Altitude *WSGAPConfiguration `json:"altitude,omitempty"`
 
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	ApMgmtVlan **WSGAPConfiguration `json:"apMgmtVlan,omitempty"`
+	ApMgmtVlan *WSGAPConfiguration `json:"apMgmtVlan,omitempty"`
 
-	AutoChannelSelection24 **WSGAPConfiguration `json:"autoChannelSelection24,omitempty"`
+	AutoChannelSelection24 *WSGAPConfiguration `json:"autoChannelSelection24,omitempty"`
 
-	AutoChannelSelection50 **WSGAPConfiguration `json:"autoChannelSelection50,omitempty"`
+	AutoChannelSelection50 *WSGAPConfiguration `json:"autoChannelSelection50,omitempty"`
 
-	AwsVenue **WSGAPConfiguration `json:"awsVenue,omitempty"`
+	AwsVenue *WSGAPConfiguration `json:"awsVenue,omitempty"`
 
-	BonjourGateway **WSGAPConfiguration `json:"bonjourGateway,omitempty"`
+	BonjourGateway *WSGAPConfiguration `json:"bonjourGateway,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
@@ -59,11 +59,11 @@ type WSGAPConfiguration struct {
 	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	ClientAdmissionControl24 **WSGAPConfiguration `json:"clientAdmissionControl24,omitempty"`
+	ClientAdmissionControl24 *WSGAPConfiguration `json:"clientAdmissionControl24,omitempty"`
 
-	ClientAdmissionControl50 **WSGAPConfiguration `json:"clientAdmissionControl50,omitempty"`
+	ClientAdmissionControl50 *WSGAPConfiguration `json:"clientAdmissionControl50,omitempty"`
 
-	Description **WSGAPConfiguration `json:"description,omitempty"`
+	Description *WSGAPConfiguration `json:"description,omitempty"`
 
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
@@ -71,43 +71,43 @@ type WSGAPConfiguration struct {
 
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	GpsSource **WSGAPConfiguration `json:"gpsSource,omitempty"`
+	GpsSource *WSGAPConfiguration `json:"gpsSource,omitempty"`
 
-	Latitude **WSGAPConfiguration `json:"latitude,omitempty"`
+	Latitude *WSGAPConfiguration `json:"latitude,omitempty"`
 
-	Location **WSGAPConfiguration `json:"location,omitempty"`
+	Location *WSGAPConfiguration `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGAPConfiguration `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGAPConfiguration `json:"locationAdditionalInfo,omitempty"`
 
-	Login **WSGAPConfiguration `json:"login,omitempty"`
+	Login *WSGAPConfiguration `json:"login,omitempty"`
 
-	Longitude **WSGAPConfiguration `json:"longitude,omitempty"`
+	Longitude *WSGAPConfiguration `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []**WSGAPConfiguration `json:"lteBandLockChannels,omitempty"`
+	LteBandLockChannels []*WSGAPConfiguration `json:"lteBandLockChannels,omitempty"`
 
-	Mac **WSGAPConfiguration `json:"mac,omitempty"`
+	Mac *WSGAPConfiguration `json:"mac,omitempty"`
 
-	MeshOptions **WSGAPConfiguration `json:"meshOptions,omitempty"`
+	MeshOptions *WSGAPConfiguration `json:"meshOptions,omitempty"`
 
 	// Model
 	// Model name of the AP
 	Model *string `json:"model,omitempty"`
 
-	Name **WSGAPConfiguration `json:"name,omitempty"`
+	Name *WSGAPConfiguration `json:"name,omitempty"`
 
-	Network **WSGAPConfiguration `json:"network,omitempty"`
+	Network *WSGAPConfiguration `json:"network,omitempty"`
 
-	NetworkIpv6 **WSGAPConfiguration `json:"networkIpv6,omitempty"`
+	NetworkIpv6 *WSGAPConfiguration `json:"networkIpv6,omitempty"`
 
-	ProtectionMode24 **WSGAPConfiguration `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *WSGAPConfiguration `json:"protectionMode24,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
 	ProvisionChecklist *string `json:"provisionChecklist,omitempty"`
 
-	RecoverySsid **WSGAPConfiguration `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGAPConfiguration `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
@@ -127,25 +127,25 @@ type WSGAPConfiguration struct {
 	// Serial number of the AP
 	Serial *string `json:"serial,omitempty"`
 
-	SmartMonitor **WSGAPConfiguration `json:"smartMonitor,omitempty"`
+	SmartMonitor *WSGAPConfiguration `json:"smartMonitor,omitempty"`
 
-	Specific **WSGAPConfiguration `json:"specific,omitempty"`
+	Specific *WSGAPConfiguration `json:"specific,omitempty"`
 
 	SwapInMac *string `json:"swapInMac,omitempty"`
 
 	SwapOutMac *string `json:"swapOutMac,omitempty"`
 
-	Syslog **WSGAPConfiguration `json:"syslog,omitempty"`
+	Syslog *WSGAPConfiguration `json:"syslog,omitempty"`
 
-	VenueProfile **WSGAPConfiguration `json:"venueProfile,omitempty"`
+	VenueProfile *WSGAPConfiguration `json:"venueProfile,omitempty"`
 
-	Wifi24 **WSGAPConfiguration `json:"wifi24,omitempty"`
+	Wifi24 *WSGAPConfiguration `json:"wifi24,omitempty"`
 
-	Wifi50 **WSGAPConfiguration `json:"wifi50,omitempty"`
+	Wifi50 *WSGAPConfiguration `json:"wifi50,omitempty"`
 
-	WlanGroup24 **WSGAPConfiguration `json:"wlanGroup24,omitempty"`
+	WlanGroup24 *WSGAPConfiguration `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 **WSGAPConfiguration `json:"wlanGroup50,omitempty"`
+	WlanGroup50 *WSGAPConfiguration `json:"wlanGroup50,omitempty"`
 
 	// WlanService24Enabled
 	// WLAN service enabled or disabled on 2.4GHz radio
@@ -174,7 +174,7 @@ type WSGAPLinemanSummary struct {
 	// Indicates if there are more APs after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAPLinemanSummary `json:"list,omitempty"`
+	List []*WSGAPLinemanSummary `json:"list,omitempty"`
 
 	// TotalCount
 	// Total AP count
@@ -187,7 +187,7 @@ func NewWSGAPLinemanSummary() *WSGAPLinemanSummary {
 }
 
 type WSGAPLinemanSummaryListType struct {
-	Alarms **WSGAPLinemanSummaryListType `json:"alarms,omitempty"`
+	Alarms *WSGAPLinemanSummaryListType `json:"alarms,omitempty"`
 
 	// ConfigState
 	// State of the AP configuration
@@ -195,13 +195,13 @@ type WSGAPLinemanSummaryListType struct {
 	//    - oneof:[newConfig,fwApplied,fwDownloaded,fwFailed,configApplied,completed,configFailed]
 	ConfigState *string `json:"configState,omitempty"`
 
-	Latitude **WSGAPLinemanSummaryListType `json:"latitude,omitempty"`
+	Latitude *WSGAPLinemanSummaryListType `json:"latitude,omitempty"`
 
-	Location **WSGAPLinemanSummaryListType `json:"location,omitempty"`
+	Location *WSGAPLinemanSummaryListType `json:"location,omitempty"`
 
-	Longitude **WSGAPLinemanSummaryListType `json:"longitude,omitempty"`
+	Longitude *WSGAPLinemanSummaryListType `json:"longitude,omitempty"`
 
-	Mac **WSGAPLinemanSummaryListType `json:"mac,omitempty"`
+	Mac *WSGAPLinemanSummaryListType `json:"mac,omitempty"`
 
 	// Name
 	// Name of the AP
@@ -222,7 +222,7 @@ type WSGAPListEntry struct {
 	// Indicates whether there are more APs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAPListEntry `json:"list,omitempty"`
+	List []*WSGAPListEntry `json:"list,omitempty"`
 
 	// TotalCount
 	// Total AP count
@@ -239,7 +239,7 @@ type WSGAPListEntryListType struct {
 	// Identifier of the AP group to which the AP belongs
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	Mac **WSGAPListEntryListType `json:"mac,omitempty"`
+	Mac *WSGAPListEntryListType `json:"mac,omitempty"`
 
 	// Name
 	// Name of the AP
@@ -273,7 +273,7 @@ type WSGAPOperationalSummary struct {
 	//    - oneof:[Locked,Unlocked]
 	AdministrativeState *string `json:"administrativeState,omitempty"`
 
-	Altitude **WSGAPOperationalSummary `json:"altitude,omitempty"`
+	Altitude *WSGAPOperationalSummary `json:"altitude,omitempty"`
 
 	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
@@ -305,7 +305,7 @@ type WSGAPOperationalSummary struct {
 	// Identifier of the control plane to which the AP is currently connected
 	CpId *string `json:"cpId,omitempty"`
 
-	Description **WSGAPOperationalSummary `json:"description,omitempty"`
+	Description *WSGAPOperationalSummary `json:"description,omitempty"`
 
 	// DpId
 	// Identifier of the data plane to which the AP is currently connected
@@ -347,15 +347,15 @@ type WSGAPOperationalSummary struct {
 	// Timestamp of the last successful communication with the AP
 	LastSeenTime *int `json:"lastSeenTime,omitempty"`
 
-	Latitude **WSGAPOperationalSummary `json:"latitude,omitempty"`
+	Latitude *WSGAPOperationalSummary `json:"latitude,omitempty"`
 
-	Location **WSGAPOperationalSummary `json:"location,omitempty"`
+	Location *WSGAPOperationalSummary `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGAPOperationalSummary `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGAPOperationalSummary `json:"locationAdditionalInfo,omitempty"`
 
-	Longitude **WSGAPOperationalSummary `json:"longitude,omitempty"`
+	Longitude *WSGAPOperationalSummary `json:"longitude,omitempty"`
 
-	Mac **WSGAPOperationalSummary `json:"mac,omitempty"`
+	Mac *WSGAPOperationalSummary `json:"mac,omitempty"`
 
 	// ManagementVlan
 	// Management vlan on the AP
@@ -375,7 +375,7 @@ type WSGAPOperationalSummary struct {
 	// Model name of the AP
 	Model *string `json:"model,omitempty"`
 
-	Name **WSGAPOperationalSummary `json:"name,omitempty"`
+	Name *WSGAPOperationalSummary `json:"name,omitempty"`
 
 	// ProvisionMethod
 	// Provisioning method of the AP. Discovered indicates that the AP contacted the controller using discovery and the AP did not have pre-existing record on the controller. Preprovision indicates that the AP was provisioned to the controller before AP made the first contact. Swap indicates that the AP was provisioned to be a replacement of an existing AP.
@@ -399,7 +399,7 @@ type WSGAPOperationalSummary struct {
 	// Uptime of the AP since it was last rebooted (unit:second)
 	Uptime *int `json:"uptime,omitempty"`
 
-	Version **WSGAPOperationalSummary `json:"version,omitempty"`
+	Version *WSGAPOperationalSummary `json:"version,omitempty"`
 
 	// Wifi24Channel
 	// 2.4GHz radio channel number that the AP is currently using
@@ -420,13 +420,13 @@ func NewWSGAPOperationalSummary() *WSGAPOperationalSummary {
 }
 
 type WSGAPRadioConfiguration struct {
-	Data **WSGAPRadioConfiguration `json:"data,omitempty"`
+	Data *WSGAPRadioConfiguration `json:"data,omitempty"`
 
-	Error **WSGAPRadioConfiguration `json:"error,omitempty"`
+	Error *WSGAPRadioConfiguration `json:"error,omitempty"`
 
-	Extra **WSGAPRadioConfiguration `json:"extra,omitempty"`
+	Extra *WSGAPRadioConfiguration `json:"extra,omitempty"`
 
-	MetaData **WSGAPRadioConfiguration `json:"metaData,omitempty"`
+	MetaData *WSGAPRadioConfiguration `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
 }
@@ -439,7 +439,7 @@ func NewWSGAPRadioConfiguration() *WSGAPRadioConfiguration {
 type WSGAPRadioConfigurationDataType struct {
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAPRadioConfigurationDataType `json:"list,omitempty"`
+	List []*WSGAPRadioConfigurationDataType `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
@@ -470,7 +470,7 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 
 	ClientCount *int `json:"clientCount,omitempty"`
 
-	Columns **WSGAPRadioConfigurationDataTypeListType `json:"columns,omitempty"`
+	Columns *WSGAPRadioConfigurationDataTypeListType `json:"columns,omitempty"`
 
 	DeployedWlanNum *int `json:"deployedWlanNum,omitempty"`
 
@@ -484,7 +484,7 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 
 	NoiseFloor *int `json:"noiseFloor,omitempty"`
 
-	NullValueColumnNames []**WSGAPRadioConfigurationDataTypeListType `json:"nullValueColumnNames,omitempty"`
+	NullValueColumnNames []*WSGAPRadioConfigurationDataTypeListType `json:"nullValueColumnNames,omitempty"`
 
 	NumOfAuthorizedClients *int `json:"numOfAuthorizedClients,omitempty"`
 
@@ -673,7 +673,7 @@ func NewWSGAPRadioConfigurationExtraType() *WSGAPRadioConfigurationExtraType {
 }
 
 type WSGAPRadioConfigurationMetaDataType struct {
-	Fields []**WSGAPRadioConfigurationMetaDataType `json:"fields,omitempty"`
+	Fields []*WSGAPRadioConfigurationMetaDataType `json:"fields,omitempty"`
 
 	IdProperty *string `json:"idProperty,omitempty"`
 
@@ -712,28 +712,28 @@ type WSGAPCreateAP struct {
 	// Identifier of the AP group to which the AP belongs. If the AP belongs to the default AP group, this property is not needed.
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	AwsVenue **WSGAPCreateAP `json:"awsVenue,omitempty"`
+	AwsVenue *WSGAPCreateAP `json:"awsVenue,omitempty"`
 
-	Description **WSGAPCreateAP `json:"description,omitempty"`
+	Description *WSGAPCreateAP `json:"description,omitempty"`
 
-	GpsSource **WSGAPCreateAP `json:"gpsSource,omitempty"`
+	GpsSource *WSGAPCreateAP `json:"gpsSource,omitempty"`
 
-	Latitude **WSGAPCreateAP `json:"latitude,omitempty"`
+	Latitude *WSGAPCreateAP `json:"latitude,omitempty"`
 
-	Location **WSGAPCreateAP `json:"location,omitempty"`
+	Location *WSGAPCreateAP `json:"location,omitempty"`
 
-	Longitude **WSGAPCreateAP `json:"longitude,omitempty"`
+	Longitude *WSGAPCreateAP `json:"longitude,omitempty"`
 
 	// Mac
 	// Constraints:
 	//    - required
-	Mac **WSGAPCreateAP `json:"mac"`
+	Mac *WSGAPCreateAP `json:"mac"`
 
 	// Model
 	// Model name of the AP
 	Model *string `json:"model,omitempty"`
 
-	Name **WSGAPCreateAP `json:"name,omitempty"`
+	Name *WSGAPCreateAP `json:"name,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
@@ -759,12 +759,12 @@ type WSGAPLogin struct {
 	// ApLoginName
 	// Constraints:
 	//    - required
-	ApLoginName **WSGAPLogin `json:"apLoginName"`
+	ApLoginName *WSGAPLogin `json:"apLoginName"`
 
 	// ApLoginPassword
 	// Constraints:
 	//    - required
-	ApLoginPassword **WSGAPLogin `json:"apLoginPassword"`
+	ApLoginPassword *WSGAPLogin `json:"apLoginPassword"`
 }
 
 func NewWSGAPLogin() *WSGAPLogin {
@@ -802,21 +802,21 @@ type WSGAPModifyAP struct {
 	//    - oneof:[Locked,Unlocked]
 	AdministrativeState *string `json:"administrativeState,omitempty"`
 
-	Altitude **WSGAPModifyAP `json:"altitude,omitempty"`
+	Altitude *WSGAPModifyAP `json:"altitude,omitempty"`
 
 	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
 	ApGroupId *string `json:"apGroupId,omitempty"`
 
-	ApMgmtVlan **WSGAPModifyAP `json:"apMgmtVlan,omitempty"`
+	ApMgmtVlan *WSGAPModifyAP `json:"apMgmtVlan,omitempty"`
 
-	AutoChannelSelection24 **WSGAPModifyAP `json:"autoChannelSelection24,omitempty"`
+	AutoChannelSelection24 *WSGAPModifyAP `json:"autoChannelSelection24,omitempty"`
 
-	AutoChannelSelection50 **WSGAPModifyAP `json:"autoChannelSelection50,omitempty"`
+	AutoChannelSelection50 *WSGAPModifyAP `json:"autoChannelSelection50,omitempty"`
 
-	AwsVenue **WSGAPModifyAP `json:"awsVenue,omitempty"`
+	AwsVenue *WSGAPModifyAP `json:"awsVenue,omitempty"`
 
-	BonjourGateway **WSGAPModifyAP `json:"bonjourGateway,omitempty"`
+	BonjourGateway *WSGAPModifyAP `json:"bonjourGateway,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the AP
@@ -826,11 +826,11 @@ type WSGAPModifyAP struct {
 	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	ClientAdmissionControl24 **WSGAPModifyAP `json:"clientAdmissionControl24,omitempty"`
+	ClientAdmissionControl24 *WSGAPModifyAP `json:"clientAdmissionControl24,omitempty"`
 
-	ClientAdmissionControl50 **WSGAPModifyAP `json:"clientAdmissionControl50,omitempty"`
+	ClientAdmissionControl50 *WSGAPModifyAP `json:"clientAdmissionControl50,omitempty"`
 
-	Description **WSGAPModifyAP `json:"description,omitempty"`
+	Description *WSGAPModifyAP `json:"description,omitempty"`
 
 	DirectedMulticastFromNetworkEnabled *bool `json:"directedMulticastFromNetworkEnabled,omitempty"`
 
@@ -838,41 +838,41 @@ type WSGAPModifyAP struct {
 
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	GpsSource **WSGAPModifyAP `json:"gpsSource,omitempty"`
+	GpsSource *WSGAPModifyAP `json:"gpsSource,omitempty"`
 
-	Latitude **WSGAPModifyAP `json:"latitude,omitempty"`
+	Latitude *WSGAPModifyAP `json:"latitude,omitempty"`
 
-	Location **WSGAPModifyAP `json:"location,omitempty"`
+	Location *WSGAPModifyAP `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGAPModifyAP `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGAPModifyAP `json:"locationAdditionalInfo,omitempty"`
 
-	Login **WSGAPModifyAP `json:"login,omitempty"`
+	Login *WSGAPModifyAP `json:"login,omitempty"`
 
-	Longitude **WSGAPModifyAP `json:"longitude,omitempty"`
+	Longitude *WSGAPModifyAP `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []**WSGAPModifyAP `json:"lteBandLockChannels,omitempty"`
+	LteBandLockChannels []*WSGAPModifyAP `json:"lteBandLockChannels,omitempty"`
 
-	MeshOptions **WSGAPModifyAP `json:"meshOptions,omitempty"`
+	MeshOptions *WSGAPModifyAP `json:"meshOptions,omitempty"`
 
 	// Model
 	// Model name of the AP
 	Model *string `json:"model,omitempty"`
 
-	Name **WSGAPModifyAP `json:"name,omitempty"`
+	Name *WSGAPModifyAP `json:"name,omitempty"`
 
-	Network **WSGAPModifyAP `json:"network,omitempty"`
+	Network *WSGAPModifyAP `json:"network,omitempty"`
 
-	NetworkIpv6 **WSGAPModifyAP `json:"networkIpv6,omitempty"`
+	NetworkIpv6 *WSGAPModifyAP `json:"networkIpv6,omitempty"`
 
-	ProtectionMode24 **WSGAPModifyAP `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *WSGAPModifyAP `json:"protectionMode24,omitempty"`
 
 	// ProvisionChecklist
 	// Provision checklist of the AP. This field indicates the steps that have been completed in the AP provisioning process.
 	ProvisionChecklist *string `json:"provisionChecklist,omitempty"`
 
-	RecoverySsid **WSGAPModifyAP `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGAPModifyAP `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
@@ -892,19 +892,19 @@ type WSGAPModifyAP struct {
 	// Serial number of the AP
 	Serial *string `json:"serial,omitempty"`
 
-	SmartMonitor **WSGAPModifyAP `json:"smartMonitor,omitempty"`
+	SmartMonitor *WSGAPModifyAP `json:"smartMonitor,omitempty"`
 
-	Syslog **WSGAPModifyAP `json:"syslog,omitempty"`
+	Syslog *WSGAPModifyAP `json:"syslog,omitempty"`
 
-	VenueProfile **WSGAPModifyAP `json:"venueProfile,omitempty"`
+	VenueProfile *WSGAPModifyAP `json:"venueProfile,omitempty"`
 
-	Wifi24 **WSGAPModifyAP `json:"wifi24,omitempty"`
+	Wifi24 *WSGAPModifyAP `json:"wifi24,omitempty"`
 
-	Wifi50 **WSGAPModifyAP `json:"wifi50,omitempty"`
+	Wifi50 *WSGAPModifyAP `json:"wifi50,omitempty"`
 
-	WlanGroup24 **WSGAPModifyAP `json:"wlanGroup24,omitempty"`
+	WlanGroup24 *WSGAPModifyAP `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 **WSGAPModifyAP `json:"wlanGroup50,omitempty"`
+	WlanGroup50 *WSGAPModifyAP `json:"wlanGroup50,omitempty"`
 
 	// WlanService24Enabled
 	// WLAN service enabled or disabled on 2.4GHz radio
@@ -944,7 +944,7 @@ type WSGAPNeighborAPList struct {
 	// Indicator of whether there are more Mesh Neighbor APs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAPNeighborAPList `json:"list,omitempty"`
+	List []*WSGAPNeighborAPList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total mesh neighbor APs count
@@ -977,7 +977,7 @@ type WSGAPNeighborAPListType struct {
 	// IP address of the mesh neighbor AP
 	Ip *string `json:"ip,omitempty"`
 
-	Mac **WSGAPNeighborAPListType `json:"mac,omitempty"`
+	Mac *WSGAPNeighborAPListType `json:"mac,omitempty"`
 
 	// Model
 	// Model of the mesh neighbor AP
@@ -1006,9 +1006,9 @@ func NewWSGAPNeighborAPListType() *WSGAPNeighborAPListType {
 }
 
 type WSGAPNetwork struct {
-	Gateway **WSGAPNetwork `json:"gateway,omitempty"`
+	Gateway *WSGAPNetwork `json:"gateway,omitempty"`
 
-	Ip **WSGAPNetwork `json:"ip,omitempty"`
+	Ip *WSGAPNetwork `json:"ip,omitempty"`
 
 	// IpType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically assigned or kept unchanged.
@@ -1016,11 +1016,11 @@ type WSGAPNetwork struct {
 	//    - oneof:[Dynamic,Keep,Static]
 	IpType *string `json:"ipType,omitempty"`
 
-	Netmask **WSGAPNetwork `json:"netmask,omitempty"`
+	Netmask *WSGAPNetwork `json:"netmask,omitempty"`
 
-	PrimaryDns **WSGAPNetwork `json:"primaryDns,omitempty"`
+	PrimaryDns *WSGAPNetwork `json:"primaryDns,omitempty"`
 
-	SecondaryDns **WSGAPNetwork `json:"secondaryDns,omitempty"`
+	SecondaryDns *WSGAPNetwork `json:"secondaryDns,omitempty"`
 }
 
 func NewWSGAPNetwork() *WSGAPNetwork {
@@ -1029,9 +1029,9 @@ func NewWSGAPNetwork() *WSGAPNetwork {
 }
 
 type WSGAPNetworkIpv6 struct {
-	Gateway **WSGAPNetworkIpv6 `json:"gateway,omitempty"`
+	Gateway *WSGAPNetworkIpv6 `json:"gateway,omitempty"`
 
-	Ip **WSGAPNetworkIpv6 `json:"ip,omitempty"`
+	Ip *WSGAPNetworkIpv6 `json:"ip,omitempty"`
 
 	// IpType
 	// Indicates how the AP's IP address was obtained. An AP's IP address can be statically or dynamically assigned or kept unchanged.
@@ -1039,9 +1039,9 @@ type WSGAPNetworkIpv6 struct {
 	//    - oneof:[Dynamic,Keep,Static]
 	IpType *string `json:"ipType,omitempty"`
 
-	PrimaryDns **WSGAPNetworkIpv6 `json:"primaryDns,omitempty"`
+	PrimaryDns *WSGAPNetworkIpv6 `json:"primaryDns,omitempty"`
 
-	SecondaryDns **WSGAPNetworkIpv6 `json:"secondaryDns,omitempty"`
+	SecondaryDns *WSGAPNetworkIpv6 `json:"secondaryDns,omitempty"`
 }
 
 func NewWSGAPNetworkIpv6() *WSGAPNetworkIpv6 {
@@ -1053,12 +1053,12 @@ type WSGAPSwapApConfigure struct {
 	// SwapInMac
 	// Constraints:
 	//    - required
-	SwapInMac **WSGAPSwapApConfigure `json:"swapInMac"`
+	SwapInMac *WSGAPSwapApConfigure `json:"swapInMac"`
 
 	// SwapOutMac
 	// Constraints:
 	//    - required
-	SwapOutMac **WSGAPSwapApConfigure `json:"swapOutMac"`
+	SwapOutMac *WSGAPSwapApConfigure `json:"swapOutMac"`
 }
 
 func NewWSGAPSwapApConfigure() *WSGAPSwapApConfigure {
@@ -1094,7 +1094,7 @@ func NewWSGAPSwitchoverAP() *WSGAPSwitchoverAP {
 }
 
 type WSGAPSyslog struct {
-	Address **WSGAPSyslog `json:"address,omitempty"`
+	Address *WSGAPSyslog `json:"address,omitempty"`
 
 	// Enabled
 	// Indicates whether syslog is enabled or disabled
@@ -1138,7 +1138,7 @@ type WSGAPSyslog struct {
 	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
 	Protocol *string `json:"protocol,omitempty"`
 
-	SecondaryAddress **WSGAPSyslog `json:"secondaryAddress,omitempty"`
+	SecondaryAddress *WSGAPSyslog `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server

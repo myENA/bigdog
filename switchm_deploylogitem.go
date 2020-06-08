@@ -13,7 +13,7 @@ type SwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult struct {
 
 	// List
 	// Indicator of whether there are more configs after the current displayed list
-	List []**SwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult `json:"list,omitempty"`
+	List []*SwitchMSwitchDeployLogItemConfigurationHistoryDetailQueryResult `json:"list,omitempty"`
 
 	// TotalCount
 	// Total records count in this response
@@ -32,7 +32,7 @@ type SwitchMSwitchDeployLogItemDeployLogItem struct {
 
 	// DispatchFailedReason
 	// Deployment Fail Description
-	DispatchFailedReason **SwitchMSwitchDeployLogItemDeployLogItem `json:"dispatchFailedReason,omitempty"`
+	DispatchFailedReason *SwitchMSwitchDeployLogItemDeployLogItem `json:"dispatchFailedReason,omitempty"`
 
 	// DispatchStatus
 	// Status of Deployment

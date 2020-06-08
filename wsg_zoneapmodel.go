@@ -3,20 +3,20 @@ package ruckus
 // API Version: v9_0
 
 type WSGZoneAPModelApModel struct {
-	CellularSettings **WSGZoneAPModelApModel `json:"cellularSettings,omitempty"`
+	CellularSettings *WSGZoneAPModelApModel `json:"cellularSettings,omitempty"`
 
-	ExternalAntenna24 **WSGZoneAPModelApModel `json:"externalAntenna24,omitempty"`
+	ExternalAntenna24 *WSGZoneAPModelApModel `json:"externalAntenna24,omitempty"`
 
-	ExternalAntenna50 **WSGZoneAPModelApModel `json:"externalAntenna50,omitempty"`
+	ExternalAntenna50 *WSGZoneAPModelApModel `json:"externalAntenna50,omitempty"`
 
 	// InternalHeaterEnabled
 	// Constraints:
 	//    - nullable
 	InternalHeaterEnabled *bool `json:"internalHeaterEnabled,omitempty"`
 
-	Lacp **WSGZoneAPModelApModel `json:"lacp,omitempty"`
+	Lacp *WSGZoneAPModelApModel `json:"lacp,omitempty"`
 
-	LanPorts []**WSGZoneAPModelApModel `json:"lanPorts,omitempty"`
+	LanPorts []*WSGZoneAPModelApModel `json:"lanPorts,omitempty"`
 
 	// LedMode
 	// Constraints:
@@ -29,9 +29,9 @@ type WSGZoneAPModelApModel struct {
 	//    - nullable
 	LedStatusEnabled *bool `json:"ledStatusEnabled,omitempty"`
 
-	Lldp **WSGZoneAPModelApModel `json:"lldp,omitempty"`
+	Lldp *WSGZoneAPModelApModel `json:"lldp,omitempty"`
 
-	PoeModeSetting **WSGZoneAPModelApModel `json:"poeModeSetting,omitempty"`
+	PoeModeSetting *WSGZoneAPModelApModel `json:"poeModeSetting,omitempty"`
 
 	// PoeOutPortEnabled
 	// Constraints:
@@ -69,7 +69,7 @@ type WSGZoneAPModelLanPortSetting struct {
 	//    - required
 	Enabled *bool `json:"enabled"`
 
-	EthPortProfile **WSGZoneAPModelLanPortSetting `json:"ethPortProfile,omitempty"`
+	EthPortProfile *WSGZoneAPModelLanPortSetting `json:"ethPortProfile,omitempty"`
 
 	// PortName
 	// Constraints:

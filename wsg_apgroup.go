@@ -24,7 +24,7 @@ func (ss *WSGService) WSGAPGroupService() *WSGAPGroupService {
 type WSGAPGroupAddMembers struct {
 	// MemberList
 	// List of apMac
-	MemberList []**WSGAPGroupAddMembers `json:"memberList,omitempty"`
+	MemberList []*WSGAPGroupAddMembers `json:"memberList,omitempty"`
 }
 
 func NewWSGAPGroupAddMembers() *WSGAPGroupAddMembers {
@@ -33,19 +33,19 @@ func NewWSGAPGroupAddMembers() *WSGAPGroupAddMembers {
 }
 
 type WSGAPGroupConfiguration struct {
-	Altitude **WSGAPGroupConfiguration `json:"altitude,omitempty"`
+	Altitude *WSGAPGroupConfiguration `json:"altitude,omitempty"`
 
 	// ApGroupRoguePolicy
 	// Override Rogue AP policy ID (only for monitoring group).
 	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
 
-	ApMgmtVlan **WSGAPGroupConfiguration `json:"apMgmtVlan,omitempty"`
+	ApMgmtVlan *WSGAPGroupConfiguration `json:"apMgmtVlan,omitempty"`
 
-	AutoChannelSelection24 **WSGAPGroupConfiguration `json:"autoChannelSelection24,omitempty"`
+	AutoChannelSelection24 *WSGAPGroupConfiguration `json:"autoChannelSelection24,omitempty"`
 
-	AutoChannelSelection50 **WSGAPGroupConfiguration `json:"autoChannelSelection50,omitempty"`
+	AutoChannelSelection50 *WSGAPGroupConfiguration `json:"autoChannelSelection50,omitempty"`
 
-	AwsVenue **WSGAPGroupConfiguration `json:"awsVenue,omitempty"`
+	AwsVenue *WSGAPGroupConfiguration `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
@@ -55,9 +55,9 @@ type WSGAPGroupConfiguration struct {
 	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	ClientAdmissionControl24 **WSGAPGroupConfiguration `json:"clientAdmissionControl24,omitempty"`
+	ClientAdmissionControl24 *WSGAPGroupConfiguration `json:"clientAdmissionControl24,omitempty"`
 
-	ClientAdmissionControl50 **WSGAPGroupConfiguration `json:"clientAdmissionControl50,omitempty"`
+	ClientAdmissionControl50 *WSGAPGroupConfiguration `json:"clientAdmissionControl50,omitempty"`
 
 	// Description
 	// Description of the AP group
@@ -73,23 +73,23 @@ type WSGAPGroupConfiguration struct {
 	// Identifier of the AP group
 	Id *string `json:"id,omitempty"`
 
-	Latitude **WSGAPGroupConfiguration `json:"latitude,omitempty"`
+	Latitude *WSGAPGroupConfiguration `json:"latitude,omitempty"`
 
-	Location **WSGAPGroupConfiguration `json:"location,omitempty"`
+	Location *WSGAPGroupConfiguration `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGAPGroupConfiguration `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGAPGroupConfiguration `json:"locationAdditionalInfo,omitempty"`
 
-	LocationBasedService **WSGAPGroupConfiguration `json:"locationBasedService,omitempty"`
+	LocationBasedService *WSGAPGroupConfiguration `json:"locationBasedService,omitempty"`
 
-	Longitude **WSGAPGroupConfiguration `json:"longitude,omitempty"`
+	Longitude *WSGAPGroupConfiguration `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []**WSGAPGroupConfiguration `json:"lteBandLockChannels,omitempty"`
+	LteBandLockChannels []*WSGAPGroupConfiguration `json:"lteBandLockChannels,omitempty"`
 
 	// Members
 	// Members of the AP group
-	Members []**WSGAPGroupConfiguration `json:"members,omitempty"`
+	Members []*WSGAPGroupConfiguration `json:"members,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.
@@ -105,9 +105,9 @@ type WSGAPGroupConfiguration struct {
 
 	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
 
-	ProtectionMode24 **WSGAPGroupConfiguration `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *WSGAPGroupConfiguration `json:"protectionMode24,omitempty"`
 
-	RecoverySsid **WSGAPGroupConfiguration `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGAPGroupConfiguration `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
@@ -129,15 +129,15 @@ type WSGAPGroupConfiguration struct {
 	//    - oneof:[LOW,MEDIUM,HIGH]
 	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
 
-	VenueProfile **WSGAPGroupConfiguration `json:"venueProfile,omitempty"`
+	VenueProfile *WSGAPGroupConfiguration `json:"venueProfile,omitempty"`
 
-	Wifi24 **WSGAPGroupConfiguration `json:"wifi24,omitempty"`
+	Wifi24 *WSGAPGroupConfiguration `json:"wifi24,omitempty"`
 
-	Wifi50 **WSGAPGroupConfiguration `json:"wifi50,omitempty"`
+	Wifi50 *WSGAPGroupConfiguration `json:"wifi50,omitempty"`
 
-	WlanGroup24 **WSGAPGroupConfiguration `json:"wlanGroup24,omitempty"`
+	WlanGroup24 *WSGAPGroupConfiguration `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 **WSGAPGroupConfiguration `json:"wlanGroup50,omitempty"`
+	WlanGroup50 *WSGAPGroupConfiguration `json:"wlanGroup50,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone to which the AP group belongs
@@ -154,7 +154,7 @@ type WSGAPGroupList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAPGroupList `json:"list,omitempty"`
+	List []*WSGAPGroupList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -165,7 +165,7 @@ func NewWSGAPGroupList() *WSGAPGroupList {
 }
 
 type WSGAPGroupMember struct {
-	ApMac **WSGAPGroupMember `json:"apMac,omitempty"`
+	ApMac *WSGAPGroupMember `json:"apMac,omitempty"`
 
 	// ApSerial
 	// Serial number of member AP
@@ -193,19 +193,19 @@ func NewWSGAPGroupSummary() *WSGAPGroupSummary {
 }
 
 type WSGAPGroupCreateAPGroup struct {
-	Altitude **WSGAPGroupCreateAPGroup `json:"altitude,omitempty"`
+	Altitude *WSGAPGroupCreateAPGroup `json:"altitude,omitempty"`
 
 	// ApGroupRoguePolicy
 	// Override Rogue AP policy ID (only for monitoring group).
 	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
 
-	ApMgmtVlan **WSGAPGroupCreateAPGroup `json:"apMgmtVlan,omitempty"`
+	ApMgmtVlan *WSGAPGroupCreateAPGroup `json:"apMgmtVlan,omitempty"`
 
-	AutoChannelSelection24 **WSGAPGroupCreateAPGroup `json:"autoChannelSelection24,omitempty"`
+	AutoChannelSelection24 *WSGAPGroupCreateAPGroup `json:"autoChannelSelection24,omitempty"`
 
-	AutoChannelSelection50 **WSGAPGroupCreateAPGroup `json:"autoChannelSelection50,omitempty"`
+	AutoChannelSelection50 *WSGAPGroupCreateAPGroup `json:"autoChannelSelection50,omitempty"`
 
-	AwsVenue **WSGAPGroupCreateAPGroup `json:"awsVenue,omitempty"`
+	AwsVenue *WSGAPGroupCreateAPGroup `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
@@ -215,11 +215,11 @@ type WSGAPGroupCreateAPGroup struct {
 	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	ClientAdmissionControl24 **WSGAPGroupCreateAPGroup `json:"clientAdmissionControl24,omitempty"`
+	ClientAdmissionControl24 *WSGAPGroupCreateAPGroup `json:"clientAdmissionControl24,omitempty"`
 
-	ClientAdmissionControl50 **WSGAPGroupCreateAPGroup `json:"clientAdmissionControl50,omitempty"`
+	ClientAdmissionControl50 *WSGAPGroupCreateAPGroup `json:"clientAdmissionControl50,omitempty"`
 
-	Description **WSGAPGroupCreateAPGroup `json:"description,omitempty"`
+	Description *WSGAPGroupCreateAPGroup `json:"description,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network to wired / wireless client.
@@ -233,33 +233,33 @@ type WSGAPGroupCreateAPGroup struct {
 	// Directed multicast from wireless client to network.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	Latitude **WSGAPGroupCreateAPGroup `json:"latitude,omitempty"`
+	Latitude *WSGAPGroupCreateAPGroup `json:"latitude,omitempty"`
 
-	Location **WSGAPGroupCreateAPGroup `json:"location,omitempty"`
+	Location *WSGAPGroupCreateAPGroup `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGAPGroupCreateAPGroup `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGAPGroupCreateAPGroup `json:"locationAdditionalInfo,omitempty"`
 
-	LocationBasedService **WSGAPGroupCreateAPGroup `json:"locationBasedService,omitempty"`
+	LocationBasedService *WSGAPGroupCreateAPGroup `json:"locationBasedService,omitempty"`
 
-	Longitude **WSGAPGroupCreateAPGroup `json:"longitude,omitempty"`
+	Longitude *WSGAPGroupCreateAPGroup `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []**WSGAPGroupCreateAPGroup `json:"lteBandLockChannels,omitempty"`
+	LteBandLockChannels []*WSGAPGroupCreateAPGroup `json:"lteBandLockChannels,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.
 	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
 
-	Name **WSGAPGroupCreateAPGroup `json:"name,omitempty"`
+	Name *WSGAPGroupCreateAPGroup `json:"name,omitempty"`
 
 	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
 
 	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
 
-	ProtectionMode24 **WSGAPGroupCreateAPGroup `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *WSGAPGroupCreateAPGroup `json:"protectionMode24,omitempty"`
 
-	RecoverySsid **WSGAPGroupCreateAPGroup `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGAPGroupCreateAPGroup `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
@@ -281,15 +281,15 @@ type WSGAPGroupCreateAPGroup struct {
 	//    - oneof:[LOW,MEDIUM,HIGH]
 	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
 
-	VenueProfile **WSGAPGroupCreateAPGroup `json:"venueProfile,omitempty"`
+	VenueProfile *WSGAPGroupCreateAPGroup `json:"venueProfile,omitempty"`
 
-	Wifi24 **WSGAPGroupCreateAPGroup `json:"wifi24,omitempty"`
+	Wifi24 *WSGAPGroupCreateAPGroup `json:"wifi24,omitempty"`
 
-	Wifi50 **WSGAPGroupCreateAPGroup `json:"wifi50,omitempty"`
+	Wifi50 *WSGAPGroupCreateAPGroup `json:"wifi50,omitempty"`
 
-	WlanGroup24 **WSGAPGroupCreateAPGroup `json:"wlanGroup24,omitempty"`
+	WlanGroup24 *WSGAPGroupCreateAPGroup `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 **WSGAPGroupCreateAPGroup `json:"wlanGroup50,omitempty"`
+	WlanGroup50 *WSGAPGroupCreateAPGroup `json:"wlanGroup50,omitempty"`
 }
 
 func NewWSGAPGroupCreateAPGroup() *WSGAPGroupCreateAPGroup {
@@ -298,19 +298,19 @@ func NewWSGAPGroupCreateAPGroup() *WSGAPGroupCreateAPGroup {
 }
 
 type WSGAPGroupModifyAPGroup struct {
-	Altitude **WSGAPGroupModifyAPGroup `json:"altitude,omitempty"`
+	Altitude *WSGAPGroupModifyAPGroup `json:"altitude,omitempty"`
 
 	// ApGroupRoguePolicy
 	// Override Rogue AP policy ID (only for monitoring group).
 	ApGroupRoguePolicy *string `json:"apGroupRoguePolicy,omitempty"`
 
-	ApMgmtVlan **WSGAPGroupModifyAPGroup `json:"apMgmtVlan,omitempty"`
+	ApMgmtVlan *WSGAPGroupModifyAPGroup `json:"apMgmtVlan,omitempty"`
 
-	AutoChannelSelection24 **WSGAPGroupModifyAPGroup `json:"autoChannelSelection24,omitempty"`
+	AutoChannelSelection24 *WSGAPGroupModifyAPGroup `json:"autoChannelSelection24,omitempty"`
 
-	AutoChannelSelection50 **WSGAPGroupModifyAPGroup `json:"autoChannelSelection50,omitempty"`
+	AutoChannelSelection50 *WSGAPGroupModifyAPGroup `json:"autoChannelSelection50,omitempty"`
 
-	AwsVenue **WSGAPGroupModifyAPGroup `json:"awsVenue,omitempty"`
+	AwsVenue *WSGAPGroupModifyAPGroup `json:"awsVenue,omitempty"`
 
 	// ChannelEvaluationInterval
 	// channel evaluation Interval of the ap group
@@ -320,11 +320,11 @@ type WSGAPGroupModifyAPGroup struct {
 	//    - max:3600
 	ChannelEvaluationInterval *int `json:"channelEvaluationInterval,omitempty"`
 
-	ClientAdmissionControl24 **WSGAPGroupModifyAPGroup `json:"clientAdmissionControl24,omitempty"`
+	ClientAdmissionControl24 *WSGAPGroupModifyAPGroup `json:"clientAdmissionControl24,omitempty"`
 
-	ClientAdmissionControl50 **WSGAPGroupModifyAPGroup `json:"clientAdmissionControl50,omitempty"`
+	ClientAdmissionControl50 *WSGAPGroupModifyAPGroup `json:"clientAdmissionControl50,omitempty"`
 
-	Description **WSGAPGroupModifyAPGroup `json:"description,omitempty"`
+	Description *WSGAPGroupModifyAPGroup `json:"description,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network to wired / wireless client.
@@ -338,33 +338,33 @@ type WSGAPGroupModifyAPGroup struct {
 	// Directed multicast from wireless client to network.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	Latitude **WSGAPGroupModifyAPGroup `json:"latitude,omitempty"`
+	Latitude *WSGAPGroupModifyAPGroup `json:"latitude,omitempty"`
 
-	Location **WSGAPGroupModifyAPGroup `json:"location,omitempty"`
+	Location *WSGAPGroupModifyAPGroup `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGAPGroupModifyAPGroup `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGAPGroupModifyAPGroup `json:"locationAdditionalInfo,omitempty"`
 
-	LocationBasedService **WSGAPGroupModifyAPGroup `json:"locationBasedService,omitempty"`
+	LocationBasedService *WSGAPGroupModifyAPGroup `json:"locationBasedService,omitempty"`
 
-	Longitude **WSGAPGroupModifyAPGroup `json:"longitude,omitempty"`
+	Longitude *WSGAPGroupModifyAPGroup `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []**WSGAPGroupModifyAPGroup `json:"lteBandLockChannels,omitempty"`
+	LteBandLockChannels []*WSGAPGroupModifyAPGroup `json:"lteBandLockChannels,omitempty"`
 
 	// MonitoringEnabled
 	// Set AP group as monitoring group.
 	MonitoringEnabled *bool `json:"monitoringEnabled,omitempty"`
 
-	Name **WSGAPGroupModifyAPGroup `json:"name,omitempty"`
+	Name *WSGAPGroupModifyAPGroup `json:"name,omitempty"`
 
 	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
 
 	PaloAltoFirewallProfileOverrided *bool `json:"paloAltoFirewallProfileOverrided,omitempty"`
 
-	ProtectionMode24 **WSGAPGroupModifyAPGroup `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *WSGAPGroupModifyAPGroup `json:"protectionMode24,omitempty"`
 
-	RecoverySsid **WSGAPGroupModifyAPGroup `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGAPGroupModifyAPGroup `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
@@ -386,15 +386,15 @@ type WSGAPGroupModifyAPGroup struct {
 	//    - oneof:[LOW,MEDIUM,HIGH]
 	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
 
-	VenueProfile **WSGAPGroupModifyAPGroup `json:"venueProfile,omitempty"`
+	VenueProfile *WSGAPGroupModifyAPGroup `json:"venueProfile,omitempty"`
 
-	Wifi24 **WSGAPGroupModifyAPGroup `json:"wifi24,omitempty"`
+	Wifi24 *WSGAPGroupModifyAPGroup `json:"wifi24,omitempty"`
 
-	Wifi50 **WSGAPGroupModifyAPGroup `json:"wifi50,omitempty"`
+	Wifi50 *WSGAPGroupModifyAPGroup `json:"wifi50,omitempty"`
 
-	WlanGroup24 **WSGAPGroupModifyAPGroup `json:"wlanGroup24,omitempty"`
+	WlanGroup24 *WSGAPGroupModifyAPGroup `json:"wlanGroup24,omitempty"`
 
-	WlanGroup50 **WSGAPGroupModifyAPGroup `json:"wlanGroup50,omitempty"`
+	WlanGroup50 *WSGAPGroupModifyAPGroup `json:"wlanGroup50,omitempty"`
 }
 
 func NewWSGAPGroupModifyAPGroup() *WSGAPGroupModifyAPGroup {

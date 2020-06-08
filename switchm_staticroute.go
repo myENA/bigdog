@@ -119,7 +119,7 @@ func NewSwitchMSwitchStaticRouteSettingStaticRoute() *SwitchMSwitchStaticRouteSe
 type SwitchMSwitchStaticRouteSettingStaticRoutesQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra **SwitchMSwitchStaticRouteSettingStaticRoutesQueryResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchStaticRouteSettingStaticRoutesQueryResult `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Static Route returned out of the complete Static Route list
@@ -129,7 +129,7 @@ type SwitchMSwitchStaticRouteSettingStaticRoutesQueryResult struct {
 	// Indicator of whether there are more Static Routes after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchStaticRouteSettingStaticRoutesQueryResult `json:"list,omitempty"`
+	List []*SwitchMSwitchStaticRouteSettingStaticRoutesQueryResult `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Static Route count

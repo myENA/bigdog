@@ -30,13 +30,13 @@ func NewWSGClusterBladeBladeProgress() *WSGClusterBladeBladeProgress {
 }
 
 type WSGClusterBladeClusterOperationProgress struct {
-	Operation **WSGClusterBladeClusterOperationProgress `json:"operation,omitempty"`
+	Operation *WSGClusterBladeClusterOperationProgress `json:"operation,omitempty"`
 
 	// OverallProgress
 	// overallProgress of clusterOperationProgress
 	OverallProgress *int `json:"overallProgress,omitempty"`
 
-	PreviousOperationRecord **WSGClusterBladeClusterOperationProgress `json:"previousOperationRecord,omitempty"`
+	PreviousOperationRecord *WSGClusterBladeClusterOperationProgress `json:"previousOperationRecord,omitempty"`
 }
 
 func NewWSGClusterBladeClusterOperationProgress() *WSGClusterBladeClusterOperationProgress {
@@ -69,9 +69,9 @@ type WSGClusterBladeClusterState struct {
 	// The name of the current controller node
 	CurrentNodeName *string `json:"currentNodeName,omitempty"`
 
-	ManagementServiceStateList []**WSGClusterBladeClusterState `json:"managementServiceStateList,omitempty"`
+	ManagementServiceStateList []*WSGClusterBladeClusterState `json:"managementServiceStateList,omitempty"`
 
-	NodeStateList []**WSGClusterBladeClusterState `json:"nodeStateList,omitempty"`
+	NodeStateList []*WSGClusterBladeClusterState `json:"nodeStateList,omitempty"`
 }
 
 func NewWSGClusterBladeClusterState() *WSGClusterBladeClusterState {
@@ -122,7 +122,7 @@ func NewWSGClusterBladeClusterStateNodeStateListType() *WSGClusterBladeClusterSt
 type WSGClusterBladeClusterUpgradeProgress struct {
 	// BladeProgresss
 	// bladeProgressMap of clusterOperationProgress
-	BladeProgresss []**WSGClusterBladeClusterUpgradeProgress `json:"bladeProgresss,omitempty"`
+	BladeProgresss []*WSGClusterBladeClusterUpgradeProgress `json:"bladeProgresss,omitempty"`
 
 	// ClusterOperationBlockUI
 	// clusterOperationBlockUI of clusterOperationProgress
@@ -142,13 +142,13 @@ type WSGClusterBladeClusterUpgradeProgress struct {
 	// isSelfBladeRebooting of clusterOperationProgress
 	IsSelfBladeRebooting *bool `json:"isSelfBladeRebooting,omitempty"`
 
-	Operation **WSGClusterBladeClusterUpgradeProgress `json:"operation,omitempty"`
+	Operation *WSGClusterBladeClusterUpgradeProgress `json:"operation,omitempty"`
 
 	// OverallProgress
 	// overallProgress of clusterOperationProgress
 	OverallProgress *int `json:"overallProgress,omitempty"`
 
-	PreviousOperationRecord **WSGClusterBladeClusterUpgradeProgress `json:"previousOperationRecord,omitempty"`
+	PreviousOperationRecord *WSGClusterBladeClusterUpgradeProgress `json:"previousOperationRecord,omitempty"`
 }
 
 func NewWSGClusterBladeClusterUpgradeProgress() *WSGClusterBladeClusterUpgradeProgress {
@@ -168,7 +168,7 @@ type WSGClusterBladePreviousOperationRecord struct {
 	// errorMsg of previousOperationRecord
 	ErrorMsg *string `json:"errorMsg,omitempty"`
 
-	Operation **WSGClusterBladePreviousOperationRecord `json:"operation,omitempty"`
+	Operation *WSGClusterBladePreviousOperationRecord `json:"operation,omitempty"`
 
 	// Success
 	// success of previousOperationRecord

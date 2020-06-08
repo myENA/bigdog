@@ -3,9 +3,9 @@ package ruckus
 // API Version: v9_0
 
 type WSGAPInfo struct {
-	ApMac **WSGAPInfo `json:"apMac,omitempty"`
+	ApMac *WSGAPInfo `json:"apMac,omitempty"`
 
-	ApName **WSGAPInfo `json:"apName,omitempty"`
+	ApName *WSGAPInfo `json:"apName,omitempty"`
 
 	// LastDetected
 	// Timestamp of the AP

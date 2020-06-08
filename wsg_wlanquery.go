@@ -7,7 +7,7 @@ type WSGWLANQueryApWlanBssid struct {
 
 	DeviceName *string `json:"deviceName,omitempty"`
 
-	WlanBssids []**WSGWLANQueryApWlanBssid `json:"wlanBssids,omitempty"`
+	WlanBssids []*WSGWLANQueryApWlanBssid `json:"wlanBssids,omitempty"`
 }
 
 func NewWSGWLANQueryApWlanBssid() *WSGWLANQueryApWlanBssid {
@@ -16,7 +16,7 @@ func NewWSGWLANQueryApWlanBssid() *WSGWLANQueryApWlanBssid {
 }
 
 type WSGWLANQueryApWlanBssidQueryList struct {
-	Extra **WSGWLANQueryApWlanBssidQueryList `json:"extra,omitempty"`
+	Extra *WSGWLANQueryApWlanBssidQueryList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of first index in current page
@@ -26,7 +26,7 @@ type WSGWLANQueryApWlanBssidQueryList struct {
 	// Has more data or not
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGWLANQueryApWlanBssidQueryList `json:"list,omitempty"`
+	List []*WSGWLANQueryApWlanBssidQueryList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total matched AP count
@@ -138,13 +138,13 @@ func NewWSGWLANQueryWlanBssid() *WSGWLANQueryWlanBssid {
 }
 
 type WSGWLANQueryList struct {
-	Extra **WSGWLANQueryList `json:"extra,omitempty"`
+	Extra *WSGWLANQueryList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGWLANQueryList `json:"list,omitempty"`
+	List []*WSGWLANQueryList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

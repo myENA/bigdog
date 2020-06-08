@@ -3,18 +3,18 @@ package ruckus
 // API Version: v9_0
 
 type WSGSplitTunnelCreateSplitTunnelProfile struct {
-	Description **WSGSplitTunnelCreateSplitTunnelProfile `json:"description,omitempty"`
+	Description *WSGSplitTunnelCreateSplitTunnelProfile `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGSplitTunnelCreateSplitTunnelProfile `json:"name"`
+	Name *WSGSplitTunnelCreateSplitTunnelProfile `json:"name"`
 
 	// Rules
 	// Destination rule of split tunnel profile
 	// Constraints:
 	//    - required
-	Rules []**WSGSplitTunnelCreateSplitTunnelProfile `json:"rules"`
+	Rules []*WSGSplitTunnelCreateSplitTunnelProfile `json:"rules"`
 }
 
 func NewWSGSplitTunnelCreateSplitTunnelProfile() *WSGSplitTunnelCreateSplitTunnelProfile {
@@ -23,13 +23,13 @@ func NewWSGSplitTunnelCreateSplitTunnelProfile() *WSGSplitTunnelCreateSplitTunne
 }
 
 type WSGSplitTunnelModifySplitTunnelProfile struct {
-	Description **WSGSplitTunnelModifySplitTunnelProfile `json:"description,omitempty"`
+	Description *WSGSplitTunnelModifySplitTunnelProfile `json:"description,omitempty"`
 
-	Name **WSGSplitTunnelModifySplitTunnelProfile `json:"name,omitempty"`
+	Name *WSGSplitTunnelModifySplitTunnelProfile `json:"name,omitempty"`
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []**WSGSplitTunnelModifySplitTunnelProfile `json:"rules,omitempty"`
+	Rules []*WSGSplitTunnelModifySplitTunnelProfile `json:"rules,omitempty"`
 }
 
 func NewWSGSplitTunnelModifySplitTunnelProfile() *WSGSplitTunnelModifySplitTunnelProfile {
@@ -57,17 +57,17 @@ func NewWSGSplitTunnelIpMaskRule() *WSGSplitTunnelIpMaskRule {
 }
 
 type WSGSplitTunnelProfile struct {
-	Description **WSGSplitTunnelProfile `json:"description,omitempty"`
+	Description *WSGSplitTunnelProfile `json:"description,omitempty"`
 
 	DomainId *string `json:"domainId,omitempty"`
 
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGSplitTunnelProfile `json:"name,omitempty"`
+	Name *WSGSplitTunnelProfile `json:"name,omitempty"`
 
 	// Rules
 	// Destination rule of split tunnel profile
-	Rules []**WSGSplitTunnelProfile `json:"rules,omitempty"`
+	Rules []*WSGSplitTunnelProfile `json:"rules,omitempty"`
 
 	TenantId *string `json:"tenantId,omitempty"`
 
@@ -84,7 +84,7 @@ type WSGSplitTunnelProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSplitTunnelProfileList `json:"list,omitempty"`
+	List []*WSGSplitTunnelProfileList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -97,7 +97,7 @@ func NewWSGSplitTunnelProfileList() *WSGSplitTunnelProfileList {
 type WSGSplitTunnelProfileListType struct {
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGSplitTunnelProfileListType `json:"name,omitempty"`
+	Name *WSGSplitTunnelProfileListType `json:"name,omitempty"`
 }
 
 func NewWSGSplitTunnelProfileListType() *WSGSplitTunnelProfileListType {
@@ -106,13 +106,13 @@ func NewWSGSplitTunnelProfileListType() *WSGSplitTunnelProfileListType {
 }
 
 type WSGSplitTunnelProfileQuery struct {
-	Extra **WSGSplitTunnelProfileQuery `json:"extra,omitempty"`
+	Extra *WSGSplitTunnelProfileQuery `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSplitTunnelProfileQuery `json:"list,omitempty"`
+	List []*WSGSplitTunnelProfileQuery `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

@@ -74,7 +74,7 @@ type WSGGDPRReport struct {
 	//    - required
 	ClientMac *string `json:"clientMac"`
 
-	Ftp **WSGGDPRReport `json:"ftp,omitempty"`
+	Ftp *WSGGDPRReport `json:"ftp,omitempty"`
 }
 
 func NewWSGGDPRReport() *WSGGDPRReport {

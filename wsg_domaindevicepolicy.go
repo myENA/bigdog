@@ -10,7 +10,7 @@ type WSGDomaindevicepolicyCreateDomainDevicePolicy struct {
 	//    - oneof:[ALLOW,BLOCK]
 	DefaultAction *string `json:"defaultAction"`
 
-	Description **WSGDomaindevicepolicyCreateDomainDevicePolicy `json:"description,omitempty"`
+	Description *WSGDomaindevicepolicyCreateDomainDevicePolicy `json:"description,omitempty"`
 
 	// DomainId
 	// domainId of the device policy cofig
@@ -19,13 +19,13 @@ type WSGDomaindevicepolicyCreateDomainDevicePolicy struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGDomaindevicepolicyCreateDomainDevicePolicy `json:"name"`
+	Name *WSGDomaindevicepolicyCreateDomainDevicePolicy `json:"name"`
 
 	// Rule
 	// rule of the device policy cofig
 	// Constraints:
 	//    - required
-	Rule []**WSGDomaindevicepolicyCreateDomainDevicePolicy `json:"rule"`
+	Rule []*WSGDomaindevicepolicyCreateDomainDevicePolicy `json:"rule"`
 }
 
 func NewWSGDomaindevicepolicyCreateDomainDevicePolicy() *WSGDomaindevicepolicyCreateDomainDevicePolicy {
@@ -40,17 +40,17 @@ type WSGDomaindevicepolicyProfile struct {
 	//    - oneof:[ALLOW,BLOCK]
 	DefaultAction *string `json:"defaultAction,omitempty"`
 
-	Description **WSGDomaindevicepolicyProfile `json:"description,omitempty"`
+	Description *WSGDomaindevicepolicyProfile `json:"description,omitempty"`
 
 	// Id
 	// identifier of the device policy cofig
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGDomaindevicepolicyProfile `json:"name,omitempty"`
+	Name *WSGDomaindevicepolicyProfile `json:"name,omitempty"`
 
 	// Rule
 	// rule of the device policy cofig
-	Rule []**WSGDomaindevicepolicyProfile `json:"rule,omitempty"`
+	Rule []*WSGDomaindevicepolicyProfile `json:"rule,omitempty"`
 }
 
 func NewWSGDomaindevicepolicyProfile() *WSGDomaindevicepolicyProfile {
@@ -65,7 +65,7 @@ type WSGDomaindevicepolicyRule struct {
 	//    - oneof:[ALLOW,BLOCK]
 	Action *string `json:"action,omitempty"`
 
-	Description **WSGDomaindevicepolicyRule `json:"description,omitempty"`
+	Description *WSGDomaindevicepolicyRule `json:"description,omitempty"`
 
 	// DeviceType
 	// deviceType of the device policy rule
@@ -110,13 +110,13 @@ type WSGDomaindevicepolicyModifyDomainDevicePolicy struct {
 	//    - oneof:[ALLOW,BLOCK]
 	DefaultAction *string `json:"defaultAction,omitempty"`
 
-	Description **WSGDomaindevicepolicyModifyDomainDevicePolicy `json:"description,omitempty"`
+	Description *WSGDomaindevicepolicyModifyDomainDevicePolicy `json:"description,omitempty"`
 
-	Name **WSGDomaindevicepolicyModifyDomainDevicePolicy `json:"name,omitempty"`
+	Name *WSGDomaindevicepolicyModifyDomainDevicePolicy `json:"name,omitempty"`
 
 	// Rule
 	// rule of the device policy cofig
-	Rule []**WSGDomaindevicepolicyModifyDomainDevicePolicy `json:"rule,omitempty"`
+	Rule []*WSGDomaindevicepolicyModifyDomainDevicePolicy `json:"rule,omitempty"`
 }
 
 func NewWSGDomaindevicepolicyModifyDomainDevicePolicy() *WSGDomaindevicepolicyModifyDomainDevicePolicy {
@@ -129,7 +129,7 @@ type WSGDomaindevicepolicyProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGDomaindevicepolicyProfileList `json:"list,omitempty"`
+	List []*WSGDomaindevicepolicyProfileList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -144,7 +144,7 @@ type WSGDomaindevicepolicyProfileListType struct {
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGDomaindevicepolicyProfileListType `json:"name,omitempty"`
+	Name *WSGDomaindevicepolicyProfileListType `json:"name,omitempty"`
 }
 
 func NewWSGDomaindevicepolicyProfileListType() *WSGDomaindevicepolicyProfileListType {

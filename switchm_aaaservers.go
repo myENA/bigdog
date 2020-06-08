@@ -108,7 +108,7 @@ func NewSwitchMAAAServersAAAServer() *SwitchMAAAServersAAAServer {
 type SwitchMAAAServersQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra **SwitchMAAAServersQueryResult `json:"extra,omitempty"`
+	Extra *SwitchMAAAServersQueryResult `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first AAA Server returned out of the complete AAA Server list
@@ -118,7 +118,7 @@ type SwitchMAAAServersQueryResult struct {
 	// Indicator of whether there are more AAA Servers after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMAAAServersQueryResult `json:"list,omitempty"`
+	List []*SwitchMAAAServersQueryResult `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total AAA Servers count

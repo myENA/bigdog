@@ -36,7 +36,7 @@ func NewSwitchMSwitchPortCapacityCapacities() *SwitchMSwitchPortCapacityCapaciti
 type SwitchMSwitchPortCapacityResult struct {
 	// Extra
 	// Extra field
-	Extra **SwitchMSwitchPortCapacityResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchPortCapacityResult `json:"extra,omitempty"`
 
 	// FirstIndex
 	// The first data index for current reulst
@@ -46,7 +46,7 @@ type SwitchMSwitchPortCapacityResult struct {
 	// Indicator of remaining data
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchPortCapacityResult `json:"list,omitempty"`
+	List []*SwitchMSwitchPortCapacityResult `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Data Count

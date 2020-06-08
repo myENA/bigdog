@@ -3,7 +3,7 @@ package ruckus
 // API Version: v9_0
 
 type SwitchMSwitchDNSConfigCreateDnsConfig struct {
-	Dns **SwitchMSwitchDNSConfigCreateDnsConfig `json:"dns,omitempty"`
+	Dns *SwitchMSwitchDNSConfigCreateDnsConfig `json:"dns,omitempty"`
 
 	// Id
 	// Switch Group Id
@@ -20,7 +20,7 @@ type SwitchMSwitchDNSConfigDnsConfig struct {
 	// The create time of the DNS Config
 	CreatedTime *int `json:"createdTime,omitempty"`
 
-	Dns **SwitchMSwitchDNSConfigDnsConfig `json:"dns,omitempty"`
+	Dns *SwitchMSwitchDNSConfigDnsConfig `json:"dns,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the DNS Config
@@ -44,7 +44,7 @@ func NewSwitchMSwitchDNSConfigDnsConfigObject() *SwitchMSwitchDNSConfigDnsConfig
 }
 
 type SwitchMSwitchDNSConfigUpdateDnsConfig struct {
-	Dns **SwitchMSwitchDNSConfigUpdateDnsConfig `json:"dns,omitempty"`
+	Dns *SwitchMSwitchDNSConfigUpdateDnsConfig `json:"dns,omitempty"`
 }
 
 func NewSwitchMSwitchDNSConfigUpdateDnsConfig() *SwitchMSwitchDNSConfigUpdateDnsConfig {

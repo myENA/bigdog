@@ -74,19 +74,19 @@ type SwitchMCommonQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []**SwitchMCommonQueryCriteria `json:"extraFilters,omitempty"`
+	ExtraFilters []*SwitchMCommonQueryCriteria `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []**SwitchMCommonQueryCriteria `json:"extraNotFilters,omitempty"`
+	ExtraNotFilters []*SwitchMCommonQueryCriteria `json:"extraNotFilters,omitempty"`
 
-	ExtraTimeRange **SwitchMCommonQueryCriteria `json:"extraTimeRange,omitempty"`
+	ExtraTimeRange *SwitchMCommonQueryCriteria `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []**SwitchMCommonQueryCriteria `json:"filters,omitempty"`
+	Filters []*SwitchMCommonQueryCriteria `json:"filters,omitempty"`
 
-	FullTextSearch **SwitchMCommonQueryCriteria `json:"fullTextSearch,omitempty"`
+	FullTextSearch *SwitchMCommonQueryCriteria `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
@@ -96,7 +96,7 @@ type SwitchMCommonQueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options **SwitchMCommonQueryCriteria `json:"options,omitempty"`
+	Options *SwitchMCommonQueryCriteria `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -110,7 +110,7 @@ type SwitchMCommonQueryCriteria struct {
 
 	// SortInfo
 	// About sorting
-	SortInfo **SwitchMCommonQueryCriteria `json:"sortInfo,omitempty"`
+	SortInfo *SwitchMCommonQueryCriteria `json:"sortInfo,omitempty"`
 }
 
 func NewSwitchMCommonQueryCriteria() *SwitchMCommonQueryCriteria {
@@ -119,7 +119,7 @@ func NewSwitchMCommonQueryCriteria() *SwitchMCommonQueryCriteria {
 }
 
 type SwitchMCommonQueryCriteriaExtraFiltersType struct {
-	Operator **SwitchMCommonQueryCriteriaExtraFiltersType `json:"operator,omitempty"`
+	Operator *SwitchMCommonQueryCriteriaExtraFiltersType `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attributes
@@ -151,7 +151,7 @@ func NewSwitchMCommonQueryCriteriaExtraNotFiltersType() *SwitchMCommonQueryCrite
 }
 
 type SwitchMCommonQueryCriteriaFiltersType struct {
-	Operator **SwitchMCommonQueryCriteriaFiltersType `json:"operator,omitempty"`
+	Operator *SwitchMCommonQueryCriteriaFiltersType `json:"operator,omitempty"`
 
 	// Type
 	// Group type
@@ -219,19 +219,19 @@ type SwitchMCommonQueryCriteriaSuperSet struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []**SwitchMCommonQueryCriteriaSuperSet `json:"extraFilters,omitempty"`
+	ExtraFilters []*SwitchMCommonQueryCriteriaSuperSet `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []**SwitchMCommonQueryCriteriaSuperSet `json:"extraNotFilters,omitempty"`
+	ExtraNotFilters []*SwitchMCommonQueryCriteriaSuperSet `json:"extraNotFilters,omitempty"`
 
-	ExtraTimeRange **SwitchMCommonQueryCriteriaSuperSet `json:"extraTimeRange,omitempty"`
+	ExtraTimeRange *SwitchMCommonQueryCriteriaSuperSet `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []**SwitchMCommonQueryCriteriaSuperSet `json:"filters,omitempty"`
+	Filters []*SwitchMCommonQueryCriteriaSuperSet `json:"filters,omitempty"`
 
-	FullTextSearch **SwitchMCommonQueryCriteriaSuperSet `json:"fullTextSearch,omitempty"`
+	FullTextSearch *SwitchMCommonQueryCriteriaSuperSet `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
@@ -241,7 +241,7 @@ type SwitchMCommonQueryCriteriaSuperSet struct {
 
 	// Options
 	// Specified feature required informaion
-	Options **SwitchMCommonQueryCriteriaSuperSet `json:"options,omitempty"`
+	Options *SwitchMCommonQueryCriteriaSuperSet `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -255,7 +255,7 @@ type SwitchMCommonQueryCriteriaSuperSet struct {
 
 	// SortInfo
 	// About sorting
-	SortInfo **SwitchMCommonQueryCriteriaSuperSet `json:"sortInfo,omitempty"`
+	SortInfo *SwitchMCommonQueryCriteriaSuperSet `json:"sortInfo,omitempty"`
 }
 
 func NewSwitchMCommonQueryCriteriaSuperSet() *SwitchMCommonQueryCriteriaSuperSet {

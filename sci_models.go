@@ -56,7 +56,7 @@ func NewSCIModelsMigration() *SCIModelsMigration {
 //
 // Migration Mappings.
 type SCIModelsMigrationMap struct {
-	Data **SCIModelsMigrationMap `json:"data,omitempty"`
+	Data *SCIModelsMigrationMap `json:"data,omitempty"`
 
 	// From
 	// Constraints:
@@ -111,7 +111,7 @@ type SCIModelsPciProfile struct {
 	// list of selected ssids
 	// Constraints:
 	//    - required
-	Answers **SCIModelsPciProfile `json:"answers"`
+	Answers *SCIModelsPciProfile `json:"answers"`
 
 	Id *float64 `json:"id,omitempty"`
 
@@ -175,7 +175,7 @@ type SCIModelsPciReport struct {
 	// Status of the controllers in this report
 	// Constraints:
 	//    - required
-	Statuses []**SCIModelsPciReport `json:"statuses"`
+	Statuses []*SCIModelsPciReport `json:"statuses"`
 }
 
 func NewSCIModelsPciReport() *SCIModelsPciReport {
@@ -223,7 +223,7 @@ type SCIModelsReport struct {
 
 	Layout []*SCIModelsReport `json:"layout,omitempty"`
 
-	RouteParameters **SCIModelsReport `json:"routeParameters,omitempty"`
+	RouteParameters *SCIModelsReport `json:"routeParameters,omitempty"`
 
 	// Title
 	// Constraints:
@@ -359,11 +359,11 @@ func NewSCIModelsSchedule() *SCIModelsSchedule {
 type SCIModelsSection struct {
 	Component *string `json:"component,omitempty"`
 
-	DefaultParameters **SCIModelsSection `json:"defaultParameters,omitempty"`
+	DefaultParameters *SCIModelsSection `json:"defaultParameters,omitempty"`
 
 	Id *float64 `json:"id,omitempty"`
 
-	Layout **SCIModelsSection `json:"layout,omitempty"`
+	Layout *SCIModelsSection `json:"layout,omitempty"`
 
 	// QueryName
 	// Constraints:
@@ -444,7 +444,7 @@ type SCIModelsSetting struct {
 	// Values
 	// Constraints:
 	//    - required
-	Values **SCIModelsSetting `json:"values"`
+	Values *SCIModelsSetting `json:"values"`
 }
 
 func NewSCIModelsSetting() *SCIModelsSetting {
@@ -499,7 +499,7 @@ type SCIModelsSystem struct {
 	//    - required
 	Location *string `json:"location"`
 
-	PciData **SCIModelsSystem `json:"pciData,omitempty"`
+	PciData *SCIModelsSystem `json:"pciData,omitempty"`
 
 	// Type
 	// Constraints:

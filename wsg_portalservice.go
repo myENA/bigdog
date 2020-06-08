@@ -39,26 +39,26 @@ func NewWSGPortalServiceConnectionCapability() *WSGPortalServiceConnectionCapabi
 }
 
 type WSGPortalServiceCreateGuestAccess struct {
-	Description **WSGPortalServiceCreateGuestAccess `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateGuestAccess `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateGuestAccess `json:"name"`
+	Name *WSGPortalServiceCreateGuestAccess `json:"name"`
 
 	// PortalCustomization
 	// Constraints:
 	//    - required
-	PortalCustomization **WSGPortalServiceCreateGuestAccess `json:"portalCustomization"`
+	PortalCustomization *WSGPortalServiceCreateGuestAccess `json:"portalCustomization"`
 
-	Redirect **WSGPortalServiceCreateGuestAccess `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceCreateGuestAccess `json:"redirect,omitempty"`
 
-	SmsGateway **WSGPortalServiceCreateGuestAccess `json:"smsGateway,omitempty"`
+	SmsGateway *WSGPortalServiceCreateGuestAccess `json:"smsGateway,omitempty"`
 
 	// UserSession
 	// Constraints:
 	//    - required
-	UserSession **WSGPortalServiceCreateGuestAccess `json:"userSession"`
+	UserSession *WSGPortalServiceCreateGuestAccess `json:"userSession"`
 }
 
 func NewWSGPortalServiceCreateGuestAccess() *WSGPortalServiceCreateGuestAccess {
@@ -67,9 +67,9 @@ func NewWSGPortalServiceCreateGuestAccess() *WSGPortalServiceCreateGuestAccess {
 }
 
 type WSGPortalServiceCreateHotspot20VenueProfile struct {
-	Description **WSGPortalServiceCreateHotspot20VenueProfile `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateHotspot20VenueProfile `json:"description,omitempty"`
 
-	DownlinkSpeedInKbps **WSGPortalServiceCreateHotspot20VenueProfile `json:"downlinkSpeedInKbps,omitempty"`
+	DownlinkSpeedInKbps *WSGPortalServiceCreateHotspot20VenueProfile `json:"downlinkSpeedInKbps,omitempty"`
 
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
@@ -80,18 +80,18 @@ type WSGPortalServiceCreateHotspot20VenueProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateHotspot20VenueProfile `json:"name"`
+	Name *WSGPortalServiceCreateHotspot20VenueProfile `json:"name"`
 
 	// Type
 	// Category type of the Hotspot 2.0 venue profile
 	Type *string `json:"type,omitempty"`
 
-	UplinkSpeedInKbps **WSGPortalServiceCreateHotspot20VenueProfile `json:"uplinkSpeedInKbps,omitempty"`
+	UplinkSpeedInKbps *WSGPortalServiceCreateHotspot20VenueProfile `json:"uplinkSpeedInKbps,omitempty"`
 
 	// VenueNames
 	// Constraints:
 	//    - required
-	VenueNames []**WSGPortalServiceCreateHotspot20VenueProfile `json:"venueNames"`
+	VenueNames []*WSGPortalServiceCreateHotspot20VenueProfile `json:"venueNames"`
 }
 
 func NewWSGPortalServiceCreateHotspot20VenueProfile() *WSGPortalServiceCreateHotspot20VenueProfile {
@@ -110,13 +110,13 @@ type WSGPortalServiceCreateHotspot20WlanProfile struct {
 	// DefaultIdentityProvider
 	// Constraints:
 	//    - required
-	DefaultIdentityProvider **WSGPortalServiceCreateHotspot20WlanProfile `json:"defaultIdentityProvider"`
+	DefaultIdentityProvider *WSGPortalServiceCreateHotspot20WlanProfile `json:"defaultIdentityProvider"`
 
-	Description **WSGPortalServiceCreateHotspot20WlanProfile `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateHotspot20WlanProfile `json:"description,omitempty"`
 
 	// IdentityProviders
 	// Ddentity providers of the Hotspot 2.0 WLAN profile
-	IdentityProviders []**WSGPortalServiceCreateHotspot20WlanProfile `json:"identityProviders,omitempty"`
+	IdentityProviders []*WSGPortalServiceCreateHotspot20WlanProfile `json:"identityProviders,omitempty"`
 
 	// InternetOption
 	// Internet option of the Hotspot 2.0 WLAN profile
@@ -141,14 +141,14 @@ type WSGPortalServiceCreateHotspot20WlanProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateHotspot20WlanProfile `json:"name"`
+	Name *WSGPortalServiceCreateHotspot20WlanProfile `json:"name"`
 
 	// Operator
 	// Constraints:
 	//    - required
-	Operator **WSGPortalServiceCreateHotspot20WlanProfile `json:"operator"`
+	Operator *WSGPortalServiceCreateHotspot20WlanProfile `json:"operator"`
 
-	SignupSsid **WSGPortalServiceCreateHotspot20WlanProfile `json:"signupSsid,omitempty"`
+	SignupSsid *WSGPortalServiceCreateHotspot20WlanProfile `json:"signupSsid,omitempty"`
 }
 
 func NewWSGPortalServiceCreateHotspot20WlanProfile() *WSGPortalServiceCreateHotspot20WlanProfile {
@@ -163,7 +163,7 @@ type WSGPortalServiceCreateHotspotExternal struct {
 	//    - nullable
 	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
 
-	Description **WSGPortalServiceCreateHotspotExternal `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateHotspotExternal `json:"description,omitempty"`
 
 	// HttpsRedirect
 	// HTTPS Redirect is disable or not
@@ -173,24 +173,24 @@ type WSGPortalServiceCreateHotspotExternal struct {
 	// Internal Node of the Hotspot
 	InternalNode *string `json:"internalNode,omitempty"`
 
-	Location **WSGPortalServiceCreateHotspotExternal `json:"location,omitempty"`
+	Location *WSGPortalServiceCreateHotspotExternal `json:"location,omitempty"`
 
 	// MacAddressFormat
 	// Constraints:
 	//    - required
-	MacAddressFormat **WSGPortalServiceCreateHotspotExternal `json:"macAddressFormat"`
+	MacAddressFormat *WSGPortalServiceCreateHotspotExternal `json:"macAddressFormat"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateHotspotExternal `json:"name"`
+	Name *WSGPortalServiceCreateHotspotExternal `json:"name"`
 
 	// PortalUrl
 	// Constraints:
 	//    - required
-	PortalUrl **WSGPortalServiceCreateHotspotExternal `json:"portalUrl"`
+	PortalUrl *WSGPortalServiceCreateHotspotExternal `json:"portalUrl"`
 
-	Redirect **WSGPortalServiceCreateHotspotExternal `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceCreateHotspotExternal `json:"redirect,omitempty"`
 
 	// SignatureSigningKey
 	// Signature Signing Key of the Hotspot
@@ -207,7 +207,7 @@ type WSGPortalServiceCreateHotspotExternal struct {
 	// Traffic Class Profile of the Hotspot
 	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
-	UserSession **WSGPortalServiceCreateHotspotExternal `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceCreateHotspotExternal `json:"userSession,omitempty"`
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
@@ -220,25 +220,25 @@ func NewWSGPortalServiceCreateHotspotExternal() *WSGPortalServiceCreateHotspotEx
 }
 
 type WSGPortalServiceCreateHotspotInternal struct {
-	Description **WSGPortalServiceCreateHotspotInternal `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateHotspotInternal `json:"description,omitempty"`
 
 	// HttpsRedirect
 	// HTTPS Redirect is disable or not
 	HttpsRedirect *bool `json:"httpsRedirect,omitempty"`
 
-	Location **WSGPortalServiceCreateHotspotInternal `json:"location,omitempty"`
+	Location *WSGPortalServiceCreateHotspotInternal `json:"location,omitempty"`
 
 	// MacAddressFormat
 	// Constraints:
 	//    - required
-	MacAddressFormat **WSGPortalServiceCreateHotspotInternal `json:"macAddressFormat"`
+	MacAddressFormat *WSGPortalServiceCreateHotspotInternal `json:"macAddressFormat"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateHotspotInternal `json:"name"`
+	Name *WSGPortalServiceCreateHotspotInternal `json:"name"`
 
-	Redirect **WSGPortalServiceCreateHotspotInternal `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceCreateHotspotInternal `json:"redirect,omitempty"`
 
 	// SmartClientSupport
 	// Smart client support of the Hotspot
@@ -247,7 +247,7 @@ type WSGPortalServiceCreateHotspotInternal struct {
 	//    - oneof:[None,Enabled]
 	SmartClientSupport *string `json:"smartClientSupport"`
 
-	UserSession **WSGPortalServiceCreateHotspotInternal `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceCreateHotspotInternal `json:"userSession,omitempty"`
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
@@ -260,7 +260,7 @@ func NewWSGPortalServiceCreateHotspotInternal() *WSGPortalServiceCreateHotspotIn
 }
 
 type WSGPortalServiceCreateHotspotSmartClientOnly struct {
-	Description **WSGPortalServiceCreateHotspotSmartClientOnly `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateHotspotSmartClientOnly `json:"description,omitempty"`
 
 	// HttpsRedirect
 	// HTTPS Redirect is disable or not
@@ -270,19 +270,19 @@ type WSGPortalServiceCreateHotspotSmartClientOnly struct {
 	// Internal Node of the Hotspot
 	InternalNode *string `json:"internalNode,omitempty"`
 
-	Location **WSGPortalServiceCreateHotspotSmartClientOnly `json:"location,omitempty"`
+	Location *WSGPortalServiceCreateHotspotSmartClientOnly `json:"location,omitempty"`
 
 	// MacAddressFormat
 	// Constraints:
 	//    - required
-	MacAddressFormat **WSGPortalServiceCreateHotspotSmartClientOnly `json:"macAddressFormat"`
+	MacAddressFormat *WSGPortalServiceCreateHotspotSmartClientOnly `json:"macAddressFormat"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateHotspotSmartClientOnly `json:"name"`
+	Name *WSGPortalServiceCreateHotspotSmartClientOnly `json:"name"`
 
-	Redirect **WSGPortalServiceCreateHotspotSmartClientOnly `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceCreateHotspotSmartClientOnly `json:"redirect,omitempty"`
 
 	// SignatureSigningKey
 	// Signature Signing Key of the Hotspot
@@ -298,7 +298,7 @@ type WSGPortalServiceCreateHotspotSmartClientOnly struct {
 	// Traffic Class Profile of the Hotspot
 	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
-	UserSession **WSGPortalServiceCreateHotspotSmartClientOnly `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceCreateHotspotSmartClientOnly `json:"userSession,omitempty"`
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
@@ -311,12 +311,12 @@ func NewWSGPortalServiceCreateHotspotSmartClientOnly() *WSGPortalServiceCreateHo
 }
 
 type WSGPortalServiceCreateL2ACL struct {
-	Description **WSGPortalServiceCreateL2ACL `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateL2ACL `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateL2ACL `json:"name"`
+	Name *WSGPortalServiceCreateL2ACL `json:"name"`
 
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
@@ -334,16 +334,16 @@ func NewWSGPortalServiceCreateL2ACL() *WSGPortalServiceCreateL2ACL {
 }
 
 type WSGPortalServiceCreateWebAuthentication struct {
-	Description **WSGPortalServiceCreateWebAuthentication `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateWebAuthentication `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateWebAuthentication `json:"name"`
+	Name *WSGPortalServiceCreateWebAuthentication `json:"name"`
 
-	Redirect **WSGPortalServiceCreateWebAuthentication `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceCreateWebAuthentication `json:"redirect,omitempty"`
 
-	WebAuthenticationPortalCustomization **WSGPortalServiceCreateWebAuthentication `json:"webAuthenticationPortalCustomization,omitempty"`
+	WebAuthenticationPortalCustomization *WSGPortalServiceCreateWebAuthentication `json:"webAuthenticationPortalCustomization,omitempty"`
 }
 
 func NewWSGPortalServiceCreateWebAuthentication() *WSGPortalServiceCreateWebAuthentication {
@@ -364,7 +364,7 @@ type WSGPortalServiceCreateWechat struct {
 	//    - required
 	BlackList *string `json:"blackList"`
 
-	Description **WSGPortalServiceCreateWechat `json:"description,omitempty"`
+	Description *WSGPortalServiceCreateWechat `json:"description,omitempty"`
 
 	// DnatDestination
 	// DNAT destination of the wechat profile
@@ -374,7 +374,7 @@ type WSGPortalServiceCreateWechat struct {
 
 	// DnatPortMapping
 	// DNAT Port Mapping of the wechat profile
-	DnatPortMapping []**WSGPortalServiceCreateWechat `json:"dnatPortMapping,omitempty"`
+	DnatPortMapping []*WSGPortalServiceCreateWechat `json:"dnatPortMapping,omitempty"`
 
 	// GracePeriod
 	// Grace period of the wechat profile
@@ -387,7 +387,7 @@ type WSGPortalServiceCreateWechat struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGPortalServiceCreateWechat `json:"name"`
+	Name *WSGPortalServiceCreateWechat `json:"name"`
 
 	// WhiteList
 	// White list of the wechat profile
@@ -459,21 +459,21 @@ func NewWSGPortalServiceDnatPortMapping() *WSGPortalServiceDnatPortMapping {
 }
 
 type WSGPortalServiceGuestAccess struct {
-	Description **WSGPortalServiceGuestAccess `json:"description,omitempty"`
+	Description *WSGPortalServiceGuestAccess `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the guest access profile
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGPortalServiceGuestAccess `json:"name,omitempty"`
+	Name *WSGPortalServiceGuestAccess `json:"name,omitempty"`
 
-	PortalCustomization **WSGPortalServiceGuestAccess `json:"portalCustomization,omitempty"`
+	PortalCustomization *WSGPortalServiceGuestAccess `json:"portalCustomization,omitempty"`
 
-	Redirect **WSGPortalServiceGuestAccess `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceGuestAccess `json:"redirect,omitempty"`
 
-	SmsGateway **WSGPortalServiceGuestAccess `json:"smsGateway,omitempty"`
+	SmsGateway *WSGPortalServiceGuestAccess `json:"smsGateway,omitempty"`
 
-	UserSession **WSGPortalServiceGuestAccess `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceGuestAccess `json:"userSession,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone which the guest access profile belongs to
@@ -491,7 +491,7 @@ type WSGPortalServiceHotspot struct {
 	//    - nullable
 	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
 
-	Description **WSGPortalServiceHotspot `json:"description,omitempty"`
+	Description *WSGPortalServiceHotspot `json:"description,omitempty"`
 
 	// HttpsRedirect
 	// HTTPS Redirect is disable or not
@@ -505,13 +505,13 @@ type WSGPortalServiceHotspot struct {
 	// Internal Node of the Hotspot
 	InternalNode *string `json:"internalNode,omitempty"`
 
-	Location **WSGPortalServiceHotspot `json:"location,omitempty"`
+	Location *WSGPortalServiceHotspot `json:"location,omitempty"`
 
-	MacAddressFormat **WSGPortalServiceHotspot `json:"macAddressFormat,omitempty"`
+	MacAddressFormat *WSGPortalServiceHotspot `json:"macAddressFormat,omitempty"`
 
-	Name **WSGPortalServiceHotspot `json:"name,omitempty"`
+	Name *WSGPortalServiceHotspot `json:"name,omitempty"`
 
-	PortalCustomization **WSGPortalServiceHotspot `json:"portalCustomization,omitempty"`
+	PortalCustomization *WSGPortalServiceHotspot `json:"portalCustomization,omitempty"`
 
 	// PortalType
 	// Portal type of the Hotspot
@@ -519,9 +519,9 @@ type WSGPortalServiceHotspot struct {
 	//    - oneof:[Internal,External]
 	PortalType *string `json:"portalType,omitempty"`
 
-	PortalUrl **WSGPortalServiceHotspot `json:"portalUrl,omitempty"`
+	PortalUrl *WSGPortalServiceHotspot `json:"portalUrl,omitempty"`
 
-	Redirect **WSGPortalServiceHotspot `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceHotspot `json:"redirect,omitempty"`
 
 	// SignatureSigningKey
 	// Signature Signing Key of the Hotspot
@@ -541,7 +541,7 @@ type WSGPortalServiceHotspot struct {
 	// Traffic Class Profile of the Hotspot
 	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
-	UserSession **WSGPortalServiceHotspot `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceHotspot `json:"userSession,omitempty"`
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
@@ -558,9 +558,9 @@ func NewWSGPortalServiceHotspot() *WSGPortalServiceHotspot {
 }
 
 type WSGPortalServiceHotspot20VeuneProfile struct {
-	Description **WSGPortalServiceHotspot20VeuneProfile `json:"description,omitempty"`
+	Description *WSGPortalServiceHotspot20VeuneProfile `json:"description,omitempty"`
 
-	DownlinkSpeedInKbps **WSGPortalServiceHotspot20VeuneProfile `json:"downlinkSpeedInKbps,omitempty"`
+	DownlinkSpeedInKbps *WSGPortalServiceHotspot20VeuneProfile `json:"downlinkSpeedInKbps,omitempty"`
 
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
@@ -572,15 +572,15 @@ type WSGPortalServiceHotspot20VeuneProfile struct {
 	// Identifier of the Hotspot 2.0 venue profile
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGPortalServiceHotspot20VeuneProfile `json:"name,omitempty"`
+	Name *WSGPortalServiceHotspot20VeuneProfile `json:"name,omitempty"`
 
 	// Type
 	// Category type of the Hotspot 2.0 venue profile
 	Type *string `json:"type,omitempty"`
 
-	UplinkSpeedInKbps **WSGPortalServiceHotspot20VeuneProfile `json:"uplinkSpeedInKbps,omitempty"`
+	UplinkSpeedInKbps *WSGPortalServiceHotspot20VeuneProfile `json:"uplinkSpeedInKbps,omitempty"`
 
-	VenueNames []**WSGPortalServiceHotspot20VeuneProfile `json:"venueNames,omitempty"`
+	VenueNames []*WSGPortalServiceHotspot20VeuneProfile `json:"venueNames,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone which the Hotspot 2.0 venue profile belongs to
@@ -601,15 +601,15 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 
 	// ConnectionCapabilities
 	// Default connection capabilities of the Hotspot 2.0 WLAN profile
-	ConnectionCapabilities []**WSGPortalServiceHotspot20WlanProfile `json:"connectionCapabilities,omitempty"`
+	ConnectionCapabilities []*WSGPortalServiceHotspot20WlanProfile `json:"connectionCapabilities,omitempty"`
 
 	// CustomConnectionCapabilities
 	// Custom connection capabilities of the Hotspot 2.0 WLAN profile
-	CustomConnectionCapabilities []**WSGPortalServiceHotspot20WlanProfile `json:"customConnectionCapabilities,omitempty"`
+	CustomConnectionCapabilities []*WSGPortalServiceHotspot20WlanProfile `json:"customConnectionCapabilities,omitempty"`
 
-	DefaultIdentityProvider **WSGPortalServiceHotspot20WlanProfile `json:"defaultIdentityProvider,omitempty"`
+	DefaultIdentityProvider *WSGPortalServiceHotspot20WlanProfile `json:"defaultIdentityProvider,omitempty"`
 
-	Description **WSGPortalServiceHotspot20WlanProfile `json:"description,omitempty"`
+	Description *WSGPortalServiceHotspot20WlanProfile `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the Hotspot 2.0 WLAN profile
@@ -617,7 +617,7 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 
 	// IdentityProviders
 	// Identity providers of the Hotspot 2.0 WLAN profile
-	IdentityProviders []**WSGPortalServiceHotspot20WlanProfile `json:"identityProviders,omitempty"`
+	IdentityProviders []*WSGPortalServiceHotspot20WlanProfile `json:"identityProviders,omitempty"`
 
 	// InternetOption
 	// Internet option of the Hotspot 2.0 WLAN profile
@@ -635,11 +635,11 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 	//    - oneof:[UNAVAILABLE,AVAILABLE,UNKNOWN]
 	Ipv6AddressType *string `json:"ipv6AddressType,omitempty"`
 
-	Name **WSGPortalServiceHotspot20WlanProfile `json:"name,omitempty"`
+	Name *WSGPortalServiceHotspot20WlanProfile `json:"name,omitempty"`
 
-	Operator **WSGPortalServiceHotspot20WlanProfile `json:"operator,omitempty"`
+	Operator *WSGPortalServiceHotspot20WlanProfile `json:"operator,omitempty"`
 
-	SignupSsid **WSGPortalServiceHotspot20WlanProfile `json:"signupSsid,omitempty"`
+	SignupSsid *WSGPortalServiceHotspot20WlanProfile `json:"signupSsid,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone which the Hotspot 2.0 WLAN profile belongs to
@@ -652,13 +652,13 @@ func NewWSGPortalServiceHotspot20WlanProfile() *WSGPortalServiceHotspot20WlanPro
 }
 
 type WSGPortalServiceL2ACL struct {
-	Description **WSGPortalServiceL2ACL `json:"description,omitempty"`
+	Description *WSGPortalServiceL2ACL `json:"description,omitempty"`
 
 	// Id
 	// identifier of the L2 Access Control
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGPortalServiceL2ACL `json:"name,omitempty"`
+	Name *WSGPortalServiceL2ACL `json:"name,omitempty"`
 
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
@@ -706,17 +706,17 @@ func NewWSGPortalServiceMacAddressFormatSetting() *WSGPortalServiceMacAddressFor
 }
 
 type WSGPortalServiceModifyGuestAccess struct {
-	Description **WSGPortalServiceModifyGuestAccess `json:"description,omitempty"`
+	Description *WSGPortalServiceModifyGuestAccess `json:"description,omitempty"`
 
-	Name **WSGPortalServiceModifyGuestAccess `json:"name,omitempty"`
+	Name *WSGPortalServiceModifyGuestAccess `json:"name,omitempty"`
 
-	PortalCustomization **WSGPortalServiceModifyGuestAccess `json:"portalCustomization,omitempty"`
+	PortalCustomization *WSGPortalServiceModifyGuestAccess `json:"portalCustomization,omitempty"`
 
-	Redirect **WSGPortalServiceModifyGuestAccess `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceModifyGuestAccess `json:"redirect,omitempty"`
 
-	SmsGateway **WSGPortalServiceModifyGuestAccess `json:"smsGateway,omitempty"`
+	SmsGateway *WSGPortalServiceModifyGuestAccess `json:"smsGateway,omitempty"`
 
-	UserSession **WSGPortalServiceModifyGuestAccess `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceModifyGuestAccess `json:"userSession,omitempty"`
 }
 
 func NewWSGPortalServiceModifyGuestAccess() *WSGPortalServiceModifyGuestAccess {
@@ -730,7 +730,7 @@ type WSGPortalServiceModifyHotspot struct {
 	//    - nullable
 	BackupPortalUrl *string `json:"backupPortalUrl,omitempty"`
 
-	Description **WSGPortalServiceModifyHotspot `json:"description,omitempty"`
+	Description *WSGPortalServiceModifyHotspot `json:"description,omitempty"`
 
 	// HttpsRedirect
 	// HTTPS Redirect is disable or not
@@ -740,17 +740,17 @@ type WSGPortalServiceModifyHotspot struct {
 	// Internal Node of the Hotspot
 	InternalNode *string `json:"internalNode,omitempty"`
 
-	Location **WSGPortalServiceModifyHotspot `json:"location,omitempty"`
+	Location *WSGPortalServiceModifyHotspot `json:"location,omitempty"`
 
-	MacAddressFormat **WSGPortalServiceModifyHotspot `json:"macAddressFormat,omitempty"`
+	MacAddressFormat *WSGPortalServiceModifyHotspot `json:"macAddressFormat,omitempty"`
 
-	Name **WSGPortalServiceModifyHotspot `json:"name,omitempty"`
+	Name *WSGPortalServiceModifyHotspot `json:"name,omitempty"`
 
-	PortalCustomization **WSGPortalServiceModifyHotspot `json:"portalCustomization,omitempty"`
+	PortalCustomization *WSGPortalServiceModifyHotspot `json:"portalCustomization,omitempty"`
 
-	PortalUrl **WSGPortalServiceModifyHotspot `json:"portalUrl,omitempty"`
+	PortalUrl *WSGPortalServiceModifyHotspot `json:"portalUrl,omitempty"`
 
-	Redirect **WSGPortalServiceModifyHotspot `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceModifyHotspot `json:"redirect,omitempty"`
 
 	// SignatureSigningKey
 	// Signature Signing Key of the Hotspot
@@ -770,7 +770,7 @@ type WSGPortalServiceModifyHotspot struct {
 	// Traffic Class Profile of the Hotspot
 	TrafficClassProfileId *string `json:"trafficClassProfileId,omitempty"`
 
-	UserSession **WSGPortalServiceModifyHotspot `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceModifyHotspot `json:"userSession,omitempty"`
 
 	// WalledGardens
 	// Walled garden map set of the Hotspot. Unauthenticated users are allowed to access the following destinations. Format: - IP (e.g. 10.11.12.13) - IP Range (e.g. 10.11.12.13-10.11.12.15) - CIDR (e.g. 10.11.12.100/28) - IP and mask (e.g. 10.11.12.13 255.255.255.0) - Precise web site (e.g. www.ruckus.com) - Web site with special regular expression like    - *.amazon.com    - *.com
@@ -783,9 +783,9 @@ func NewWSGPortalServiceModifyHotspot() *WSGPortalServiceModifyHotspot {
 }
 
 type WSGPortalServiceModifyHotspot20VenueProfile struct {
-	Description **WSGPortalServiceModifyHotspot20VenueProfile `json:"description,omitempty"`
+	Description *WSGPortalServiceModifyHotspot20VenueProfile `json:"description,omitempty"`
 
-	DownlinkSpeedInKbps **WSGPortalServiceModifyHotspot20VenueProfile `json:"downlinkSpeedInKbps,omitempty"`
+	DownlinkSpeedInKbps *WSGPortalServiceModifyHotspot20VenueProfile `json:"downlinkSpeedInKbps,omitempty"`
 
 	// Group
 	// Category group of the Hotspot 2.0 venue profile
@@ -793,15 +793,15 @@ type WSGPortalServiceModifyHotspot20VenueProfile struct {
 	//    - oneof:[Unspecified,Assembly,Business,Educational,FactoryAndIndustrial,Institutional,Mercantile,Residential,Storage,UtilityAndMiscellaneous,Vehicular,Outdoor]
 	Group *string `json:"group,omitempty"`
 
-	Name **WSGPortalServiceModifyHotspot20VenueProfile `json:"name,omitempty"`
+	Name *WSGPortalServiceModifyHotspot20VenueProfile `json:"name,omitempty"`
 
 	// Type
 	// Category type of the Hotspot 2.0 venue profile
 	Type *string `json:"type,omitempty"`
 
-	UplinkSpeedInKbps **WSGPortalServiceModifyHotspot20VenueProfile `json:"uplinkSpeedInKbps,omitempty"`
+	UplinkSpeedInKbps *WSGPortalServiceModifyHotspot20VenueProfile `json:"uplinkSpeedInKbps,omitempty"`
 
-	VenueNames []**WSGPortalServiceModifyHotspot20VenueProfile `json:"venueNames,omitempty"`
+	VenueNames []*WSGPortalServiceModifyHotspot20VenueProfile `json:"venueNames,omitempty"`
 }
 
 func NewWSGPortalServiceModifyHotspot20VenueProfile() *WSGPortalServiceModifyHotspot20VenueProfile {
@@ -818,19 +818,19 @@ type WSGPortalServiceModifyHotspot20WlanProfile struct {
 
 	// ConnectionCapabilities
 	// Default connection capabilities of the Hotspot 2.0 WLAN profile
-	ConnectionCapabilities []**WSGPortalServiceModifyHotspot20WlanProfile `json:"connectionCapabilities,omitempty"`
+	ConnectionCapabilities []*WSGPortalServiceModifyHotspot20WlanProfile `json:"connectionCapabilities,omitempty"`
 
 	// CustomConnectionCapabilities
 	// Custom connection capabilities of the Hotspot 2.0 WLAN profile
-	CustomConnectionCapabilities []**WSGPortalServiceModifyHotspot20WlanProfile `json:"customConnectionCapabilities,omitempty"`
+	CustomConnectionCapabilities []*WSGPortalServiceModifyHotspot20WlanProfile `json:"customConnectionCapabilities,omitempty"`
 
-	DefaultIdentityProvider **WSGPortalServiceModifyHotspot20WlanProfile `json:"defaultIdentityProvider,omitempty"`
+	DefaultIdentityProvider *WSGPortalServiceModifyHotspot20WlanProfile `json:"defaultIdentityProvider,omitempty"`
 
-	Description **WSGPortalServiceModifyHotspot20WlanProfile `json:"description,omitempty"`
+	Description *WSGPortalServiceModifyHotspot20WlanProfile `json:"description,omitempty"`
 
 	// IdentityProviders
 	// Identity providers of the Hotspot 2.0 WLAN profile
-	IdentityProviders []**WSGPortalServiceModifyHotspot20WlanProfile `json:"identityProviders,omitempty"`
+	IdentityProviders []*WSGPortalServiceModifyHotspot20WlanProfile `json:"identityProviders,omitempty"`
 
 	// InternetOption
 	// Internet option of the Hotspot 2.0 WLAN profile
@@ -848,11 +848,11 @@ type WSGPortalServiceModifyHotspot20WlanProfile struct {
 	//    - oneof:[UNAVAILABLE,AVAILABLE,UNKNOWN]
 	Ipv6AddressType *string `json:"ipv6AddressType,omitempty"`
 
-	Name **WSGPortalServiceModifyHotspot20WlanProfile `json:"name,omitempty"`
+	Name *WSGPortalServiceModifyHotspot20WlanProfile `json:"name,omitempty"`
 
-	Operator **WSGPortalServiceModifyHotspot20WlanProfile `json:"operator,omitempty"`
+	Operator *WSGPortalServiceModifyHotspot20WlanProfile `json:"operator,omitempty"`
 
-	SignupSsid **WSGPortalServiceModifyHotspot20WlanProfile `json:"signupSsid,omitempty"`
+	SignupSsid *WSGPortalServiceModifyHotspot20WlanProfile `json:"signupSsid,omitempty"`
 }
 
 func NewWSGPortalServiceModifyHotspot20WlanProfile() *WSGPortalServiceModifyHotspot20WlanProfile {
@@ -861,9 +861,9 @@ func NewWSGPortalServiceModifyHotspot20WlanProfile() *WSGPortalServiceModifyHots
 }
 
 type WSGPortalServiceModifyL2ACL struct {
-	Description **WSGPortalServiceModifyL2ACL `json:"description,omitempty"`
+	Description *WSGPortalServiceModifyL2ACL `json:"description,omitempty"`
 
-	Name **WSGPortalServiceModifyL2ACL `json:"name,omitempty"`
+	Name *WSGPortalServiceModifyL2ACL `json:"name,omitempty"`
 
 	// Restriction
 	// restriction of the L2 Access Control, ALLOW: Only allow all stations listed below, BLOCK:Only block all stations listed below
@@ -880,17 +880,17 @@ func NewWSGPortalServiceModifyL2ACL() *WSGPortalServiceModifyL2ACL {
 }
 
 type WSGPortalServiceModifyWebAuthentication struct {
-	Description **WSGPortalServiceModifyWebAuthentication `json:"description,omitempty"`
+	Description *WSGPortalServiceModifyWebAuthentication `json:"description,omitempty"`
 
-	Name **WSGPortalServiceModifyWebAuthentication `json:"name,omitempty"`
+	Name *WSGPortalServiceModifyWebAuthentication `json:"name,omitempty"`
 
-	PortalLanguage **WSGPortalServiceModifyWebAuthentication `json:"portalLanguage,omitempty"`
+	PortalLanguage *WSGPortalServiceModifyWebAuthentication `json:"portalLanguage,omitempty"`
 
-	Redirect **WSGPortalServiceModifyWebAuthentication `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceModifyWebAuthentication `json:"redirect,omitempty"`
 
-	UserSession **WSGPortalServiceModifyWebAuthentication `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceModifyWebAuthentication `json:"userSession,omitempty"`
 
-	WebAuthenticationPortalCustomization **WSGPortalServiceModifyWebAuthentication `json:"webAuthenticationPortalCustomization,omitempty"`
+	WebAuthenticationPortalCustomization *WSGPortalServiceModifyWebAuthentication `json:"webAuthenticationPortalCustomization,omitempty"`
 }
 
 func NewWSGPortalServiceModifyWebAuthentication() *WSGPortalServiceModifyWebAuthentication {
@@ -907,7 +907,7 @@ type WSGPortalServiceModifyWechat struct {
 	// Black list of the wechat profile
 	BlackList *string `json:"blackList,omitempty"`
 
-	Description **WSGPortalServiceModifyWechat `json:"description,omitempty"`
+	Description *WSGPortalServiceModifyWechat `json:"description,omitempty"`
 
 	// DnatDestination
 	// DNAT destination of the wechat profile
@@ -915,7 +915,7 @@ type WSGPortalServiceModifyWechat struct {
 
 	// DnatPortMapping
 	// DNAT Port Mapping of the wechat profile
-	DnatPortMapping []**WSGPortalServiceModifyWechat `json:"dnatPortMapping,omitempty"`
+	DnatPortMapping []*WSGPortalServiceModifyWechat `json:"dnatPortMapping,omitempty"`
 
 	// GracePeriod
 	// Grace period of the wechat profile
@@ -925,7 +925,7 @@ type WSGPortalServiceModifyWechat struct {
 	//    - max:14399
 	GracePeriod *int `json:"gracePeriod,omitempty"`
 
-	Name **WSGPortalServiceModifyWechat `json:"name,omitempty"`
+	Name *WSGPortalServiceModifyWechat `json:"name,omitempty"`
 
 	// WhiteList
 	// White list of the wechat profile
@@ -953,7 +953,7 @@ func NewWSGPortalServicePortalLocation() *WSGPortalServicePortalLocation {
 }
 
 type WSGPortalServicePortalRedirect struct {
-	Url **WSGPortalServicePortalRedirect `json:"url,omitempty"`
+	Url *WSGPortalServicePortalRedirect `json:"url,omitempty"`
 }
 
 func NewWSGPortalServicePortalRedirect() *WSGPortalServicePortalRedirect {
@@ -966,7 +966,7 @@ type WSGPortalServiceList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGPortalServiceList `json:"list,omitempty"`
+	List []*WSGPortalServiceList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -981,7 +981,7 @@ type WSGPortalServiceListType struct {
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGPortalServiceListType `json:"name,omitempty"`
+	Name *WSGPortalServiceListType `json:"name,omitempty"`
 }
 
 func NewWSGPortalServiceListType() *WSGPortalServiceListType {
@@ -1016,7 +1016,7 @@ type WSGPortalServiceVenueName struct {
 	// Language
 	// Constraints:
 	//    - required
-	Language **WSGPortalServiceVenueName `json:"language"`
+	Language *WSGPortalServiceVenueName `json:"language"`
 
 	// Name
 	// Venue name
@@ -1031,21 +1031,21 @@ func NewWSGPortalServiceVenueName() *WSGPortalServiceVenueName {
 }
 
 type WSGPortalServiceWebAuthentication struct {
-	Description **WSGPortalServiceWebAuthentication `json:"description,omitempty"`
+	Description *WSGPortalServiceWebAuthentication `json:"description,omitempty"`
 
 	// Id
 	// Identifier of the web authentication profile
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGPortalServiceWebAuthentication `json:"name,omitempty"`
+	Name *WSGPortalServiceWebAuthentication `json:"name,omitempty"`
 
-	PortalLanguage **WSGPortalServiceWebAuthentication `json:"portalLanguage,omitempty"`
+	PortalLanguage *WSGPortalServiceWebAuthentication `json:"portalLanguage,omitempty"`
 
-	Redirect **WSGPortalServiceWebAuthentication `json:"redirect,omitempty"`
+	Redirect *WSGPortalServiceWebAuthentication `json:"redirect,omitempty"`
 
-	UserSession **WSGPortalServiceWebAuthentication `json:"userSession,omitempty"`
+	UserSession *WSGPortalServiceWebAuthentication `json:"userSession,omitempty"`
 
-	WebAuthenticationPortalCustomization **WSGPortalServiceWebAuthentication `json:"webAuthenticationPortalCustomization,omitempty"`
+	WebAuthenticationPortalCustomization *WSGPortalServiceWebAuthentication `json:"webAuthenticationPortalCustomization,omitempty"`
 
 	// ZoneId
 	// Identifier of the zone which the web authentication profile belongs to
@@ -1066,7 +1066,7 @@ type WSGPortalServiceWechatConfiguration struct {
 	// Black list of the wechat profile
 	BlackList *string `json:"blackList,omitempty"`
 
-	Description **WSGPortalServiceWechatConfiguration `json:"description,omitempty"`
+	Description *WSGPortalServiceWechatConfiguration `json:"description,omitempty"`
 
 	// DnatDestination
 	// DNAT destination of the wechat profile
@@ -1074,7 +1074,7 @@ type WSGPortalServiceWechatConfiguration struct {
 
 	// DnatPortMapping
 	// DNAT Port Mapping of the wechat profile
-	DnatPortMapping []**WSGPortalServiceWechatConfiguration `json:"dnatPortMapping,omitempty"`
+	DnatPortMapping []*WSGPortalServiceWechatConfiguration `json:"dnatPortMapping,omitempty"`
 
 	// GracePeriod
 	// Grace period of the wechat profile
@@ -1084,7 +1084,7 @@ type WSGPortalServiceWechatConfiguration struct {
 	//    - max:14399
 	GracePeriod *int `json:"gracePeriod,omitempty"`
 
-	Name **WSGPortalServiceWechatConfiguration `json:"name,omitempty"`
+	Name *WSGPortalServiceWechatConfiguration `json:"name,omitempty"`
 
 	// WhiteList
 	// White list of the wechat profile

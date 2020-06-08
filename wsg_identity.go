@@ -22,7 +22,7 @@ type WSGIdentityAaaServerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIdentityAaaServerList `json:"list,omitempty"`
+	List []*WSGIdentityAaaServerList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -72,7 +72,7 @@ type WSGIdentityCountryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIdentityCountryList `json:"list,omitempty"`
+	List []*WSGIdentityCountryList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -109,12 +109,12 @@ type WSGIdentityCreateIdentityGuestPass struct {
 	// GuestName
 	// Constraints:
 	//    - required
-	GuestName **WSGIdentityCreateIdentityGuestPass `json:"guestName"`
+	GuestName *WSGIdentityCreateIdentityGuestPass `json:"guestName"`
 
 	// MaxDevices
 	// Constraints:
 	//    - required
-	MaxDevices **WSGIdentityCreateIdentityGuestPass `json:"maxDevices"`
+	MaxDevices *WSGIdentityCreateIdentityGuestPass `json:"maxDevices"`
 
 	// NumberOfPasses
 	// Number of passes
@@ -136,7 +136,7 @@ type WSGIdentityCreateIdentityGuestPass struct {
 	// PassValidFor
 	// Constraints:
 	//    - required
-	PassValidFor **WSGIdentityCreateIdentityGuestPass `json:"passValidFor"`
+	PassValidFor *WSGIdentityCreateIdentityGuestPass `json:"passValidFor"`
 
 	// PassValue
 	// Pass value
@@ -146,17 +146,17 @@ type WSGIdentityCreateIdentityGuestPass struct {
 	// Remarks
 	Remarks *string `json:"remarks,omitempty"`
 
-	SessionDuration **WSGIdentityCreateIdentityGuestPass `json:"sessionDuration,omitempty"`
+	SessionDuration *WSGIdentityCreateIdentityGuestPass `json:"sessionDuration,omitempty"`
 
 	// Wlan
 	// Constraints:
 	//    - required
-	Wlan **WSGIdentityCreateIdentityGuestPass `json:"wlan"`
+	Wlan *WSGIdentityCreateIdentityGuestPass `json:"wlan"`
 
 	// Zone
 	// Constraints:
 	//    - required
-	Zone **WSGIdentityCreateIdentityGuestPass `json:"zone"`
+	Zone *WSGIdentityCreateIdentityGuestPass `json:"zone"`
 }
 
 func NewWSGIdentityCreateIdentityGuestPass() *WSGIdentityCreateIdentityGuestPass {
@@ -165,7 +165,7 @@ func NewWSGIdentityCreateIdentityGuestPass() *WSGIdentityCreateIdentityGuestPass
 }
 
 type WSGIdentityCreateIdentityUserRole struct {
-	Description **WSGIdentityCreateIdentityUserRole `json:"description,omitempty"`
+	Description *WSGIdentityCreateIdentityUserRole `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
@@ -179,17 +179,17 @@ type WSGIdentityCreateIdentityUserRole struct {
 	// MaxDevices
 	// Constraints:
 	//    - required
-	MaxDevices **WSGIdentityCreateIdentityUserRole `json:"maxDevices"`
+	MaxDevices *WSGIdentityCreateIdentityUserRole `json:"maxDevices"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGIdentityCreateIdentityUserRole `json:"name"`
+	Name *WSGIdentityCreateIdentityUserRole `json:"name"`
 
 	// UserTrafficProfile
 	// Constraints:
 	//    - required
-	UserTrafficProfile **WSGIdentityCreateIdentityUserRole `json:"userTrafficProfile"`
+	UserTrafficProfile *WSGIdentityCreateIdentityUserRole `json:"userTrafficProfile"`
 
 	// VlanId
 	// vlan id
@@ -198,7 +198,7 @@ type WSGIdentityCreateIdentityUserRole struct {
 	//    - max:4096
 	VlanId *int `json:"vlanId,omitempty"`
 
-	VlanPooling **WSGIdentityCreateIdentityUserRole `json:"vlanPooling,omitempty"`
+	VlanPooling *WSGIdentityCreateIdentityUserRole `json:"vlanPooling,omitempty"`
 }
 
 func NewWSGIdentityCreateIdentityUserRole() *WSGIdentityCreateIdentityUserRole {
@@ -207,7 +207,7 @@ func NewWSGIdentityCreateIdentityUserRole() *WSGIdentityCreateIdentityUserRole {
 }
 
 type WSGIdentityCreateSubscriptionPackage struct {
-	Description **WSGIdentityCreateSubscriptionPackage `json:"description,omitempty"`
+	Description *WSGIdentityCreateSubscriptionPackage `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
@@ -229,7 +229,7 @@ type WSGIdentityCreateSubscriptionPackage struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGIdentityCreateSubscriptionPackage `json:"name"`
+	Name *WSGIdentityCreateSubscriptionPackage `json:"name"`
 }
 
 func NewWSGIdentityCreateSubscriptionPackage() *WSGIdentityCreateSubscriptionPackage {
@@ -299,7 +299,7 @@ type WSGIdentityCreateUser struct {
 	// State
 	State *string `json:"state,omitempty"`
 
-	SubscriberPackage **WSGIdentityCreateUser `json:"subscriberPackage,omitempty"`
+	SubscriberPackage *WSGIdentityCreateUser `json:"subscriberPackage,omitempty"`
 
 	// UserName
 	// User Name
@@ -343,7 +343,7 @@ type WSGIdentityGuestPassConfiguration struct {
 	// Generated date and time
 	GeneratedOn *string `json:"generatedOn,omitempty"`
 
-	GuestName **WSGIdentityGuestPassConfiguration `json:"guestName,omitempty"`
+	GuestName *WSGIdentityGuestPassConfiguration `json:"guestName,omitempty"`
 
 	// Id
 	// ID of the identity guest pass
@@ -353,7 +353,7 @@ type WSGIdentityGuestPassConfiguration struct {
 	// Identifier of the identity guest pass
 	Key *string `json:"key,omitempty"`
 
-	MaxDevices **WSGIdentityGuestPassConfiguration `json:"maxDevices,omitempty"`
+	MaxDevices *WSGIdentityGuestPassConfiguration `json:"maxDevices,omitempty"`
 
 	// PassEffectSince
 	// Pass effective since
@@ -365,13 +365,13 @@ type WSGIdentityGuestPassConfiguration struct {
 	// Expire new guest pass if not used within
 	PassUseDays *int `json:"passUseDays,omitempty"`
 
-	PassValidFor **WSGIdentityGuestPassConfiguration `json:"passValidFor,omitempty"`
+	PassValidFor *WSGIdentityGuestPassConfiguration `json:"passValidFor,omitempty"`
 
 	// Remarks
 	// Remarks
 	Remarks *string `json:"remarks,omitempty"`
 
-	SessionDuration **WSGIdentityGuestPassConfiguration `json:"sessionDuration,omitempty"`
+	SessionDuration *WSGIdentityGuestPassConfiguration `json:"sessionDuration,omitempty"`
 
 	// Ssid
 	// SSID
@@ -381,13 +381,13 @@ type WSGIdentityGuestPassConfiguration struct {
 	// user ID of the identity guest pass
 	UserId *string `json:"userId,omitempty"`
 
-	Wlan **WSGIdentityGuestPassConfiguration `json:"wlan,omitempty"`
+	Wlan *WSGIdentityGuestPassConfiguration `json:"wlan,omitempty"`
 
 	// WlanRestrition
 	// Wlan description
 	WlanRestrition *string `json:"wlanRestrition,omitempty"`
 
-	Zone **WSGIdentityGuestPassConfiguration `json:"zone,omitempty"`
+	Zone *WSGIdentityGuestPassConfiguration `json:"zone,omitempty"`
 }
 
 func NewWSGIdentityGuestPassConfiguration() *WSGIdentityGuestPassConfiguration {
@@ -396,13 +396,13 @@ func NewWSGIdentityGuestPassConfiguration() *WSGIdentityGuestPassConfiguration {
 }
 
 type WSGIdentityGuestPassList struct {
-	Extra **WSGIdentityGuestPassList `json:"extra,omitempty"`
+	Extra *WSGIdentityGuestPassList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIdentityGuestPassList `json:"list,omitempty"`
+	List []*WSGIdentityGuestPassList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -413,13 +413,13 @@ func NewWSGIdentityGuestPassList() *WSGIdentityGuestPassList {
 }
 
 type WSGIdentityList struct {
-	Extra **WSGIdentityList `json:"extra,omitempty"`
+	Extra *WSGIdentityList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIdentityList `json:"list,omitempty"`
+	List []*WSGIdentityList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -442,7 +442,7 @@ type WSGIdentityListType struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description **WSGIdentityListType `json:"description,omitempty"`
+	Description *WSGIdentityListType `json:"description,omitempty"`
 
 	// DomainId
 	// identifier of the domain
@@ -454,7 +454,7 @@ type WSGIdentityListType struct {
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
-	MaxDevices **WSGIdentityListType `json:"maxDevices,omitempty"`
+	MaxDevices *WSGIdentityListType `json:"maxDevices,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -468,15 +468,15 @@ type WSGIdentityListType struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name **WSGIdentityListType `json:"name,omitempty"`
+	Name *WSGIdentityListType `json:"name,omitempty"`
 
-	UserTrafficProfile **WSGIdentityListType `json:"userTrafficProfile,omitempty"`
+	UserTrafficProfile *WSGIdentityListType `json:"userTrafficProfile,omitempty"`
 
 	// VlanId
 	// vlan id
 	VlanId *int `json:"vlanId,omitempty"`
 
-	VlanPooling **WSGIdentityListType `json:"vlanPooling,omitempty"`
+	VlanPooling *WSGIdentityListType `json:"vlanPooling,omitempty"`
 }
 
 func NewWSGIdentityListType() *WSGIdentityListType {
@@ -497,7 +497,7 @@ type WSGIdentityUserRole struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description **WSGIdentityUserRole `json:"description,omitempty"`
+	Description *WSGIdentityUserRole `json:"description,omitempty"`
 
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
 
@@ -505,7 +505,7 @@ type WSGIdentityUserRole struct {
 	// the identifier of the object
 	Id *string `json:"id,omitempty"`
 
-	MaxDevices **WSGIdentityUserRole `json:"maxDevices,omitempty"`
+	MaxDevices *WSGIdentityUserRole `json:"maxDevices,omitempty"`
 
 	// ModifiedDateTime
 	// Timestamp of being modified
@@ -519,15 +519,15 @@ type WSGIdentityUserRole struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name **WSGIdentityUserRole `json:"name,omitempty"`
+	Name *WSGIdentityUserRole `json:"name,omitempty"`
 
-	UserTrafficProfile **WSGIdentityUserRole `json:"userTrafficProfile,omitempty"`
+	UserTrafficProfile *WSGIdentityUserRole `json:"userTrafficProfile,omitempty"`
 
 	// VlanId
 	// vlan id
 	VlanId *int `json:"vlanId,omitempty"`
 
-	VlanPooling **WSGIdentityUserRole `json:"vlanPooling,omitempty"`
+	VlanPooling *WSGIdentityUserRole `json:"vlanPooling,omitempty"`
 }
 
 func NewWSGIdentityUserRole() *WSGIdentityUserRole {
@@ -540,7 +540,7 @@ type WSGIdentityUserSummary struct {
 	// Created on
 	CreatedOn *string `json:"createdOn,omitempty"`
 
-	DisplayName **WSGIdentityUserSummary `json:"displayName,omitempty"`
+	DisplayName *WSGIdentityUserSummary `json:"displayName,omitempty"`
 
 	// DomainId
 	// identifier of the domain
@@ -580,7 +580,7 @@ type WSGIdentityImportIdentityGuestPass struct {
 	// MaxDevices
 	// Constraints:
 	//    - required
-	MaxDevices **WSGIdentityImportIdentityGuestPass `json:"maxDevices"`
+	MaxDevices *WSGIdentityImportIdentityGuestPass `json:"maxDevices"`
 
 	// PassEffectSince
 	// Pass effective since
@@ -595,19 +595,19 @@ type WSGIdentityImportIdentityGuestPass struct {
 	// PassValidFor
 	// Constraints:
 	//    - required
-	PassValidFor **WSGIdentityImportIdentityGuestPass `json:"passValidFor"`
+	PassValidFor *WSGIdentityImportIdentityGuestPass `json:"passValidFor"`
 
-	SessionDuration **WSGIdentityImportIdentityGuestPass `json:"sessionDuration,omitempty"`
+	SessionDuration *WSGIdentityImportIdentityGuestPass `json:"sessionDuration,omitempty"`
 
 	// Wlan
 	// Constraints:
 	//    - required
-	Wlan **WSGIdentityImportIdentityGuestPass `json:"wlan"`
+	Wlan *WSGIdentityImportIdentityGuestPass `json:"wlan"`
 
 	// Zone
 	// Constraints:
 	//    - required
-	Zone **WSGIdentityImportIdentityGuestPass `json:"zone"`
+	Zone *WSGIdentityImportIdentityGuestPass `json:"zone"`
 }
 
 func NewWSGIdentityImportIdentityGuestPass() *WSGIdentityImportIdentityGuestPass {
@@ -638,7 +638,7 @@ func NewWSGIdentityMaxDevices() *WSGIdentityMaxDevices {
 }
 
 type WSGIdentityModifyIdentityUserRole struct {
-	Description **WSGIdentityModifyIdentityUserRole `json:"description,omitempty"`
+	Description *WSGIdentityModifyIdentityUserRole `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
@@ -650,11 +650,11 @@ type WSGIdentityModifyIdentityUserRole struct {
 	// ID
 	Id *string `json:"id,omitempty"`
 
-	MaxDevices **WSGIdentityModifyIdentityUserRole `json:"maxDevices,omitempty"`
+	MaxDevices *WSGIdentityModifyIdentityUserRole `json:"maxDevices,omitempty"`
 
-	Name **WSGIdentityModifyIdentityUserRole `json:"name,omitempty"`
+	Name *WSGIdentityModifyIdentityUserRole `json:"name,omitempty"`
 
-	UserTrafficProfile **WSGIdentityModifyIdentityUserRole `json:"userTrafficProfile,omitempty"`
+	UserTrafficProfile *WSGIdentityModifyIdentityUserRole `json:"userTrafficProfile,omitempty"`
 
 	// VlanId
 	// vlan id
@@ -663,7 +663,7 @@ type WSGIdentityModifyIdentityUserRole struct {
 	//    - max:4096
 	VlanId *int `json:"vlanId,omitempty"`
 
-	VlanPooling **WSGIdentityModifyIdentityUserRole `json:"vlanPooling,omitempty"`
+	VlanPooling *WSGIdentityModifyIdentityUserRole `json:"vlanPooling,omitempty"`
 }
 
 func NewWSGIdentityModifyIdentityUserRole() *WSGIdentityModifyIdentityUserRole {
@@ -672,7 +672,7 @@ func NewWSGIdentityModifyIdentityUserRole() *WSGIdentityModifyIdentityUserRole {
 }
 
 type WSGIdentityModifySubscriptionPackage struct {
-	Description **WSGIdentityModifySubscriptionPackage `json:"description,omitempty"`
+	Description *WSGIdentityModifySubscriptionPackage `json:"description,omitempty"`
 
 	// DomainId
 	// Domain Id
@@ -692,7 +692,7 @@ type WSGIdentityModifySubscriptionPackage struct {
 	// ID
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGIdentityModifySubscriptionPackage `json:"name,omitempty"`
+	Name *WSGIdentityModifySubscriptionPackage `json:"name,omitempty"`
 }
 
 func NewWSGIdentityModifySubscriptionPackage() *WSGIdentityModifySubscriptionPackage {
@@ -759,7 +759,7 @@ type WSGIdentityModifyUser struct {
 	// State
 	State *string `json:"state,omitempty"`
 
-	SubscriberPackage **WSGIdentityModifyUser `json:"subscriberPackage,omitempty"`
+	SubscriberPackage *WSGIdentityModifyUser `json:"subscriberPackage,omitempty"`
 
 	// ZipCode
 	// Zip Code
@@ -776,7 +776,7 @@ type WSGIdentityPackageConfiguration struct {
 	// Package expiration interval and value
 	PackageExpiration *string `json:"packageExpiration,omitempty"`
 
-	SubscriberPackage **WSGIdentityPackageConfiguration `json:"subscriberPackage,omitempty"`
+	SubscriberPackage *WSGIdentityPackageConfiguration `json:"subscriberPackage,omitempty"`
 }
 
 func NewWSGIdentityPackageConfiguration() *WSGIdentityPackageConfiguration {
@@ -789,7 +789,7 @@ type WSGIdentityPackageList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIdentityPackageList `json:"list,omitempty"`
+	List []*WSGIdentityPackageList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -828,19 +828,19 @@ type WSGIdentityQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []**WSGIdentityQueryCriteria `json:"extraFilters,omitempty"`
+	ExtraFilters []*WSGIdentityQueryCriteria `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []**WSGIdentityQueryCriteria `json:"extraNotFilters,omitempty"`
+	ExtraNotFilters []*WSGIdentityQueryCriteria `json:"extraNotFilters,omitempty"`
 
-	ExtraTimeRange **WSGIdentityQueryCriteria `json:"extraTimeRange,omitempty"`
+	ExtraTimeRange *WSGIdentityQueryCriteria `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []**WSGIdentityQueryCriteria `json:"filters,omitempty"`
+	Filters []*WSGIdentityQueryCriteria `json:"filters,omitempty"`
 
-	FullTextSearch **WSGIdentityQueryCriteria `json:"fullTextSearch,omitempty"`
+	FullTextSearch *WSGIdentityQueryCriteria `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
@@ -850,7 +850,7 @@ type WSGIdentityQueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options **WSGIdentityQueryCriteria `json:"options,omitempty"`
+	Options *WSGIdentityQueryCriteria `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -864,7 +864,7 @@ type WSGIdentityQueryCriteria struct {
 
 	// SortInfo
 	// About sorting
-	SortInfo **WSGIdentityQueryCriteria `json:"sortInfo,omitempty"`
+	SortInfo *WSGIdentityQueryCriteria `json:"sortInfo,omitempty"`
 }
 
 func NewWSGIdentityQueryCriteria() *WSGIdentityQueryCriteria {
@@ -912,7 +912,7 @@ type WSGIdentityQueryCriteriaOptionsType struct {
 
 	// GuestPassexpiration
 	// Expiration time of guest pass
-	GuestPassexpiration **WSGIdentityQueryCriteriaOptionsType `json:"guestPass_expiration,omitempty"`
+	GuestPassexpiration *WSGIdentityQueryCriteriaOptionsType `json:"guestPass_expiration,omitempty"`
 
 	// GuestPasswlan
 	// WLAN which used by quest pass
@@ -928,7 +928,7 @@ type WSGIdentityQueryCriteriaOptionsType struct {
 
 	// LocalUserauditTime
 	// Audit time of local users
-	LocalUserauditTime **WSGIdentityQueryCriteriaOptionsType `json:"localUser_auditTime,omitempty"`
+	LocalUserauditTime *WSGIdentityQueryCriteriaOptionsType `json:"localUser_auditTime,omitempty"`
 
 	// LocalUserdisplayName
 	// Display name of local users
@@ -1049,7 +1049,7 @@ type WSGIdentitySubscriptionPackage struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Description **WSGIdentitySubscriptionPackage `json:"description,omitempty"`
+	Description *WSGIdentitySubscriptionPackage `json:"description,omitempty"`
 
 	// DomainId
 	// identifier of the domain
@@ -1077,7 +1077,7 @@ type WSGIdentitySubscriptionPackage struct {
 	// Modifier Name
 	ModifierUsername *string `json:"modifierUsername,omitempty"`
 
-	Name **WSGIdentitySubscriptionPackage `json:"name,omitempty"`
+	Name *WSGIdentitySubscriptionPackage `json:"name,omitempty"`
 }
 
 func NewWSGIdentitySubscriptionPackage() *WSGIdentitySubscriptionPackage {
@@ -1086,13 +1086,13 @@ func NewWSGIdentitySubscriptionPackage() *WSGIdentitySubscriptionPackage {
 }
 
 type WSGIdentitySubscriptionPackageList struct {
-	Extra **WSGIdentitySubscriptionPackageList `json:"extra,omitempty"`
+	Extra *WSGIdentitySubscriptionPackageList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIdentitySubscriptionPackageList `json:"list,omitempty"`
+	List []*WSGIdentitySubscriptionPackageList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1103,7 +1103,7 @@ func NewWSGIdentitySubscriptionPackageList() *WSGIdentitySubscriptionPackageList
 }
 
 type WSGIdentitySubscriptionPackageListType struct {
-	Description **WSGIdentitySubscriptionPackageListType `json:"description,omitempty"`
+	Description *WSGIdentitySubscriptionPackageListType `json:"description,omitempty"`
 
 	// DomainId
 	// identifier of the domain
@@ -1123,7 +1123,7 @@ type WSGIdentitySubscriptionPackageListType struct {
 	// the identifier of the subscription package
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGIdentitySubscriptionPackageListType `json:"name,omitempty"`
+	Name *WSGIdentitySubscriptionPackageListType `json:"name,omitempty"`
 }
 
 func NewWSGIdentitySubscriptionPackageListType() *WSGIdentitySubscriptionPackageListType {
@@ -1166,7 +1166,7 @@ type WSGIdentityUserConfiguration struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	CredentialsGuestPassDto **WSGIdentityUserConfiguration `json:"credentialsGuestPassDto,omitempty"`
+	CredentialsGuestPassDto *WSGIdentityUserConfiguration `json:"credentialsGuestPassDto,omitempty"`
 
 	// Email
 	// Email
@@ -1245,7 +1245,7 @@ type WSGIdentityUserConfiguration struct {
 	//    - min:2
 	State *string `json:"state,omitempty"`
 
-	SubscriberPackage **WSGIdentityUserConfiguration `json:"subscriberPackage,omitempty"`
+	SubscriberPackage *WSGIdentityUserConfiguration `json:"subscriberPackage,omitempty"`
 
 	// UserName
 	// User Name
@@ -1254,7 +1254,7 @@ type WSGIdentityUserConfiguration struct {
 	//    - min:2
 	UserName *string `json:"userName,omitempty"`
 
-	UsernamePasswordCredentialsImplDto **WSGIdentityUserConfiguration `json:"usernamePasswordCredentialsImplDto,omitempty"`
+	UsernamePasswordCredentialsImplDto *WSGIdentityUserConfiguration `json:"usernamePasswordCredentialsImplDto,omitempty"`
 
 	// ZipCode
 	// Zip Code
@@ -1363,13 +1363,13 @@ func NewWSGIdentityUserConfigurationCredentialsGuestPassDtoType() *WSGIdentityUs
 }
 
 type WSGIdentityUserList struct {
-	Extra **WSGIdentityUserList `json:"extra,omitempty"`
+	Extra *WSGIdentityUserList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIdentityUserList `json:"list,omitempty"`
+	List []*WSGIdentityUserList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1386,7 +1386,7 @@ type WSGIdentityUsernamePasswordCredentialsImplDto struct {
 	//    - oneof:[USERNAME_PASSWORD,GUEST_PASS,MAC_WLAN_DPSK,MO,REMOTE,OAUTH2]
 	AuthenticationMethod *string `json:"authenticationMethod,omitempty"`
 
-	AuthenticationServerConfig **WSGIdentityUsernamePasswordCredentialsImplDto `json:"authenticationServerConfig,omitempty"`
+	AuthenticationServerConfig *WSGIdentityUsernamePasswordCredentialsImplDto `json:"authenticationServerConfig,omitempty"`
 
 	// CreationDate
 	// Creation Date

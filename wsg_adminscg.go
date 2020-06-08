@@ -23,13 +23,13 @@ func (ss *WSGService) WSGAdminSCGService() *WSGAdminSCGService {
 }
 
 type WSGAdminSCGScgAaaServer struct {
-	Data **WSGAdminSCGScgAaaServer `json:"data,omitempty"`
+	Data *WSGAdminSCGScgAaaServer `json:"data,omitempty"`
 
-	Error **WSGAdminSCGScgAaaServer `json:"error,omitempty"`
+	Error *WSGAdminSCGScgAaaServer `json:"error,omitempty"`
 
-	Extra **WSGAdminSCGScgAaaServer `json:"extra,omitempty"`
+	Extra *WSGAdminSCGScgAaaServer `json:"extra,omitempty"`
 
-	MetaData **WSGAdminSCGScgAaaServer `json:"metaData,omitempty"`
+	MetaData *WSGAdminSCGScgAaaServer `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
 }
@@ -42,7 +42,7 @@ func NewWSGAdminSCGScgAaaServer() *WSGAdminSCGScgAaaServer {
 type WSGAdminSCGScgAaaServerDataType struct {
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdminSCGScgAaaServerDataType `json:"list,omitempty"`
+	List []*WSGAdminSCGScgAaaServerDataType `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
@@ -105,7 +105,7 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	NullValueColumnNames []**WSGAdminSCGScgAaaServerDataTypeListType `json:"nullValueColumnNames,omitempty"`
+	NullValueColumnNames []*WSGAdminSCGScgAaaServerDataTypeListType `json:"nullValueColumnNames,omitempty"`
 
 	OcspUrl *string `json:"ocspUrl,omitempty"`
 
@@ -305,7 +305,7 @@ func NewWSGAdminSCGScgAaaServerExtraType() *WSGAdminSCGScgAaaServerExtraType {
 }
 
 type WSGAdminSCGScgAaaServerMetaDataType struct {
-	Fields []**WSGAdminSCGScgAaaServerMetaDataType `json:"fields,omitempty"`
+	Fields []*WSGAdminSCGScgAaaServerMetaDataType `json:"fields,omitempty"`
 
 	IdProperty *string `json:"idProperty,omitempty"`
 

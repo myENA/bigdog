@@ -25,7 +25,7 @@ type WSGAdministrationActiveDirectoryServer struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip **WSGAdministrationActiveDirectoryServer `json:"ip"`
+	Ip *WSGAdministrationActiveDirectoryServer `json:"ip"`
 
 	// Port
 	// Port number of Active Directory Server object
@@ -38,7 +38,7 @@ type WSGAdministrationActiveDirectoryServer struct {
 	// Realm
 	// Constraints:
 	//    - required
-	Realm **WSGAdministrationActiveDirectoryServer `json:"realm"`
+	Realm *WSGAdministrationActiveDirectoryServer `json:"realm"`
 
 	// WindowsDomainName
 	// Windows Domain Name of Active Directory Server object
@@ -80,7 +80,7 @@ type WSGAdministrationApPatchHistoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationApPatchHistoryList `json:"list,omitempty"`
+	List []*WSGAdministrationApPatchHistoryList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -114,7 +114,7 @@ func NewWSGAdministrationApPatchInfo() *WSGAdministrationApPatchInfo {
 }
 
 type WSGAdministrationApPatchStatus struct {
-	ClusterOperationProgress **WSGAdministrationApPatchStatus `json:"clusterOperationProgress,omitempty"`
+	ClusterOperationProgress *WSGAdministrationApPatchStatus `json:"clusterOperationProgress,omitempty"`
 }
 
 func NewWSGAdministrationApPatchStatus() *WSGAdministrationApPatchStatus {
@@ -154,7 +154,7 @@ type WSGAdministrationApplicationLogAndStatusList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationApplicationLogAndStatusList `json:"list,omitempty"`
+	List []*WSGAdministrationApplicationLogAndStatusList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -231,7 +231,7 @@ type WSGAdministrationClusterBackupList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationClusterBackupList `json:"list,omitempty"`
+	List []*WSGAdministrationClusterBackupList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -269,7 +269,7 @@ type WSGAdministrationConfigurationBackupList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationConfigurationBackupList `json:"list,omitempty"`
+	List []*WSGAdministrationConfigurationBackupList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -280,20 +280,20 @@ func NewWSGAdministrationConfigurationBackupList() *WSGAdministrationConfigurati
 }
 
 type WSGAdministrationCreateAdminAAAServer struct {
-	ActiveDirectoryServer **WSGAdministrationCreateAdminAAAServer `json:"activeDirectoryServer,omitempty"`
+	ActiveDirectoryServer *WSGAdministrationCreateAdminAAAServer `json:"activeDirectoryServer,omitempty"`
 
-	DefaultRoleMapping **WSGAdministrationCreateAdminAAAServer `json:"defaultRoleMapping,omitempty"`
+	DefaultRoleMapping *WSGAdministrationCreateAdminAAAServer `json:"defaultRoleMapping,omitempty"`
 
-	LdapServer **WSGAdministrationCreateAdminAAAServer `json:"ldapServer,omitempty"`
+	LdapServer *WSGAdministrationCreateAdminAAAServer `json:"ldapServer,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGAdministrationCreateAdminAAAServer `json:"name"`
+	Name *WSGAdministrationCreateAdminAAAServer `json:"name"`
 
-	RadiusServer **WSGAdministrationCreateAdminAAAServer `json:"radiusServer,omitempty"`
+	RadiusServer *WSGAdministrationCreateAdminAAAServer `json:"radiusServer,omitempty"`
 
-	TacacsServer **WSGAdministrationCreateAdminAAAServer `json:"tacacsServer,omitempty"`
+	TacacsServer *WSGAdministrationCreateAdminAAAServer `json:"tacacsServer,omitempty"`
 
 	// Type
 	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
@@ -349,7 +349,7 @@ type WSGAdministrationLdapServer struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip **WSGAdministrationLdapServer `json:"ip"`
+	Ip *WSGAdministrationLdapServer `json:"ip"`
 
 	// KeyAttribute
 	// Key attribute of LDAP Server object
@@ -368,7 +368,7 @@ type WSGAdministrationLdapServer struct {
 	// Realm
 	// Constraints:
 	//    - required
-	Realm **WSGAdministrationLdapServer `json:"realm"`
+	Realm *WSGAdministrationLdapServer `json:"realm"`
 
 	// SearchFilter
 	// Search filter of LDAP Server object
@@ -436,7 +436,7 @@ type WSGAdministrationLicensesList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationLicensesList `json:"list,omitempty"`
+	List []*WSGAdministrationLicensesList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -447,7 +447,7 @@ func NewWSGAdministrationLicensesList() *WSGAdministrationLicensesList {
 }
 
 type WSGAdministrationLicensesSummary struct {
-	CapacityControlLicenseCount **WSGAdministrationLicensesSummary `json:"capacityControlLicenseCount,omitempty"`
+	CapacityControlLicenseCount *WSGAdministrationLicensesSummary `json:"capacityControlLicenseCount,omitempty"`
 
 	// LicenseTypeDescription
 	// license type description
@@ -479,7 +479,7 @@ type WSGAdministrationLicensesSummaryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationLicensesSummaryList `json:"list,omitempty"`
+	List []*WSGAdministrationLicensesSummaryList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -511,7 +511,7 @@ type WSGAdministrationLicensesSyncLogsList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationLicensesSyncLogsList `json:"list,omitempty"`
+	List []*WSGAdministrationLicensesSyncLogsList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -542,20 +542,20 @@ func NewWSGAdministrationModfiyLicenseServer() *WSGAdministrationModfiyLicenseSe
 }
 
 type WSGAdministrationModifyAdminAAAServer struct {
-	ActiveDirectoryServer **WSGAdministrationModifyAdminAAAServer `json:"activeDirectoryServer,omitempty"`
+	ActiveDirectoryServer *WSGAdministrationModifyAdminAAAServer `json:"activeDirectoryServer,omitempty"`
 
-	DefaultRoleMapping **WSGAdministrationModifyAdminAAAServer `json:"defaultRoleMapping,omitempty"`
+	DefaultRoleMapping *WSGAdministrationModifyAdminAAAServer `json:"defaultRoleMapping,omitempty"`
 
-	LdapServer **WSGAdministrationModifyAdminAAAServer `json:"ldapServer,omitempty"`
+	LdapServer *WSGAdministrationModifyAdminAAAServer `json:"ldapServer,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGAdministrationModifyAdminAAAServer `json:"name"`
+	Name *WSGAdministrationModifyAdminAAAServer `json:"name"`
 
-	RadiusServer **WSGAdministrationModifyAdminAAAServer `json:"radiusServer,omitempty"`
+	RadiusServer *WSGAdministrationModifyAdminAAAServer `json:"radiusServer,omitempty"`
 
-	TacacsServer **WSGAdministrationModifyAdminAAAServer `json:"tacacsServer,omitempty"`
+	TacacsServer *WSGAdministrationModifyAdminAAAServer `json:"tacacsServer,omitempty"`
 
 	// Type
 	// Specify the type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
@@ -641,7 +641,7 @@ type WSGAdministrationRadiusServer struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip **WSGAdministrationRadiusServer `json:"ip"`
+	Ip *WSGAdministrationRadiusServer `json:"ip"`
 
 	// Port
 	// Port number of RADIUS Server object
@@ -660,9 +660,9 @@ type WSGAdministrationRadiusServer struct {
 	// Realm
 	// Constraints:
 	//    - required
-	Realm **WSGAdministrationRadiusServer `json:"realm"`
+	Realm *WSGAdministrationRadiusServer `json:"realm"`
 
-	SecondaryRadiusServer **WSGAdministrationRadiusServer `json:"secondaryRadiusServer,omitempty"`
+	SecondaryRadiusServer *WSGAdministrationRadiusServer `json:"secondaryRadiusServer,omitempty"`
 
 	// SharedSecret
 	// Shared secret of RADIUS Server object
@@ -677,21 +677,21 @@ func NewWSGAdministrationRadiusServer() *WSGAdministrationRadiusServer {
 }
 
 type WSGAdministrationRetrieveAdminAAAServer struct {
-	ActiveDirectoryServer **WSGAdministrationRetrieveAdminAAAServer `json:"activeDirectoryServer,omitempty"`
+	ActiveDirectoryServer *WSGAdministrationRetrieveAdminAAAServer `json:"activeDirectoryServer,omitempty"`
 
-	DefaultRoleMapping **WSGAdministrationRetrieveAdminAAAServer `json:"defaultRoleMapping,omitempty"`
+	DefaultRoleMapping *WSGAdministrationRetrieveAdminAAAServer `json:"defaultRoleMapping,omitempty"`
 
 	// Id
 	// ID of this Admin AAA Server
 	Id *string `json:"id,omitempty"`
 
-	LdapServer **WSGAdministrationRetrieveAdminAAAServer `json:"ldapServer,omitempty"`
+	LdapServer *WSGAdministrationRetrieveAdminAAAServer `json:"ldapServer,omitempty"`
 
-	Name **WSGAdministrationRetrieveAdminAAAServer `json:"name,omitempty"`
+	Name *WSGAdministrationRetrieveAdminAAAServer `json:"name,omitempty"`
 
-	RadiusServer **WSGAdministrationRetrieveAdminAAAServer `json:"radiusServer,omitempty"`
+	RadiusServer *WSGAdministrationRetrieveAdminAAAServer `json:"radiusServer,omitempty"`
 
-	TacacsServer **WSGAdministrationRetrieveAdminAAAServer `json:"tacacsServer,omitempty"`
+	TacacsServer *WSGAdministrationRetrieveAdminAAAServer `json:"tacacsServer,omitempty"`
 
 	// Type
 	// Type(RADIUS/TACACS/AD/LDAP) of this Admin AAA Server, please be infomed that the type name [TACACS] is for TACACS+ (Terminal Access Controller Access-Control System Plus)
@@ -710,7 +710,7 @@ type WSGAdministrationRetrieveAdminAAAServerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationRetrieveAdminAAAServerList `json:"list,omitempty"`
+	List []*WSGAdministrationRetrieveAdminAAAServerList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -723,7 +723,7 @@ func NewWSGAdministrationRetrieveAdminAAAServerList() *WSGAdministrationRetrieve
 type WSGAdministrationRetrieveAdminAAAServerListType struct {
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGAdministrationRetrieveAdminAAAServerListType `json:"name,omitempty"`
+	Name *WSGAdministrationRetrieveAdminAAAServerListType `json:"name,omitempty"`
 
 	// Type
 	// Constraints:
@@ -775,7 +775,7 @@ type WSGAdministrationSecondaryRadiusServer struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip **WSGAdministrationSecondaryRadiusServer `json:"ip"`
+	Ip *WSGAdministrationSecondaryRadiusServer `json:"ip"`
 
 	// MaxRetries
 	// Max number(how many times) of retries for re-connection to primary
@@ -834,7 +834,7 @@ type WSGAdministrationTacacsServer struct {
 	// Ip
 	// Constraints:
 	//    - required
-	Ip **WSGAdministrationTacacsServer `json:"ip"`
+	Ip *WSGAdministrationTacacsServer `json:"ip"`
 
 	// Port
 	// Port number of TACACS+ Server object
@@ -847,7 +847,7 @@ type WSGAdministrationTacacsServer struct {
 	// Service
 	// Constraints:
 	//    - required
-	Service **WSGAdministrationTacacsServer `json:"service"`
+	Service *WSGAdministrationTacacsServer `json:"service"`
 
 	// SharedSecret
 	// Shared secret of TACACS+ Server object
@@ -866,7 +866,7 @@ type WSGAdministrationUpgradeHistoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationUpgradeHistoryList `json:"list,omitempty"`
+	List []*WSGAdministrationUpgradeHistoryList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -928,9 +928,9 @@ func NewWSGAdministrationUpgradeHistorySummary() *WSGAdministrationUpgradeHistor
 }
 
 type WSGAdministrationUpgradePatchInfo struct {
-	ClusterOperationProgress **WSGAdministrationUpgradePatchInfo `json:"clusterOperationProgress,omitempty"`
+	ClusterOperationProgress *WSGAdministrationUpgradePatchInfo `json:"clusterOperationProgress,omitempty"`
 
-	UploadPatchInfo **WSGAdministrationUpgradePatchInfo `json:"uploadPatchInfo,omitempty"`
+	UploadPatchInfo *WSGAdministrationUpgradePatchInfo `json:"uploadPatchInfo,omitempty"`
 }
 
 func NewWSGAdministrationUpgradePatchInfo() *WSGAdministrationUpgradePatchInfo {
@@ -939,7 +939,7 @@ func NewWSGAdministrationUpgradePatchInfo() *WSGAdministrationUpgradePatchInfo {
 }
 
 type WSGAdministrationUpgradeStatus struct {
-	ClusterOperationProgress **WSGAdministrationUpgradeStatus `json:"clusterOperationProgress,omitempty"`
+	ClusterOperationProgress *WSGAdministrationUpgradeStatus `json:"clusterOperationProgress,omitempty"`
 }
 
 func NewWSGAdministrationUpgradeStatus() *WSGAdministrationUpgradeStatus {
@@ -963,13 +963,13 @@ func NewWSGAdministrationZdAP() *WSGAdministrationZdAP {
 }
 
 type WSGAdministrationZdAPList struct {
-	Extra **WSGAdministrationZdAPList `json:"extra,omitempty"`
+	Extra *WSGAdministrationZdAPList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAdministrationZdAPList `json:"list,omitempty"`
+	List []*WSGAdministrationZdAPList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

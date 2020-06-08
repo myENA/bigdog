@@ -22,11 +22,11 @@ func (ss *SwitchMService) SwitchMAAASettingsService() *SwitchMAAASettingsService
 }
 
 type SwitchMAAASettingsAAASetting struct {
-	Accounting **SwitchMAAASettingsAAASetting `json:"accounting,omitempty"`
+	Accounting *SwitchMAAASettingsAAASetting `json:"accounting,omitempty"`
 
-	Authentication **SwitchMAAASettingsAAASetting `json:"authentication,omitempty"`
+	Authentication *SwitchMAAASettingsAAASetting `json:"authentication,omitempty"`
 
-	Authorization **SwitchMAAASettingsAAASetting `json:"authorization,omitempty"`
+	Authorization *SwitchMAAASettingsAAASetting `json:"authorization,omitempty"`
 }
 
 func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
@@ -35,13 +35,13 @@ func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
 }
 
 type SwitchMAAASettingsAAASettingAccountingType struct {
-	Commands **SwitchMAAASettingsAAASettingAccountingType `json:"commands,omitempty"`
+	Commands *SwitchMAAASettingsAAASettingAccountingType `json:"commands,omitempty"`
 
 	EnabledCommandAccounting *bool `json:"enabledCommandAccounting,omitempty"`
 
 	EnabledExecAccounting *bool `json:"enabledExecAccounting,omitempty"`
 
-	Exec **SwitchMAAASettingsAAASettingAccountingType `json:"exec,omitempty"`
+	Exec *SwitchMAAASettingsAAASettingAccountingType `json:"exec,omitempty"`
 }
 
 func NewSwitchMAAASettingsAAASettingAccountingType() *SwitchMAAASettingsAAASettingAccountingType {
@@ -115,13 +115,13 @@ func NewSwitchMAAASettingsAAASettingAuthenticationType() *SwitchMAAASettingsAAAS
 }
 
 type SwitchMAAASettingsAAASettingAuthorizationType struct {
-	Commands **SwitchMAAASettingsAAASettingAuthorizationType `json:"commands,omitempty"`
+	Commands *SwitchMAAASettingsAAASettingAuthorizationType `json:"commands,omitempty"`
 
 	EnabledCommandAuthz *bool `json:"enabledCommandAuthz,omitempty"`
 
 	EnabledExecAuthz *bool `json:"enabledExecAuthz,omitempty"`
 
-	Exec **SwitchMAAASettingsAAASettingAuthorizationType `json:"exec,omitempty"`
+	Exec *SwitchMAAASettingsAAASettingAuthorizationType `json:"exec,omitempty"`
 }
 
 func NewSwitchMAAASettingsAAASettingAuthorizationType() *SwitchMAAASettingsAAASettingAuthorizationType {

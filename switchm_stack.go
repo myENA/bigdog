@@ -23,13 +23,13 @@ func (ss *SwitchMService) SwitchMSwitchStackConfigService() *SwitchMSwitchStackC
 }
 
 type SwitchMSwitchStackConfigAuditIdList struct {
-	Extra **SwitchMSwitchStackConfigAuditIdList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchStackConfigAuditIdList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchStackConfigAuditIdList `json:"list,omitempty"`
+	List []*SwitchMSwitchStackConfigAuditIdList `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
@@ -77,7 +77,7 @@ type SwitchMSwitchStackConfigList struct {
 
 	// List
 	// List of stack
-	List []**SwitchMSwitchStackConfigList `json:"list,omitempty"`
+	List []*SwitchMSwitchStackConfigList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Stack count
@@ -108,7 +108,7 @@ type SwitchMSwitchStackConfigMember struct {
 
 	// PortStatus
 	// Port status Information
-	PortStatus **SwitchMSwitchStackConfigMember `json:"portStatus,omitempty"`
+	PortStatus *SwitchMSwitchStackConfigMember `json:"portStatus,omitempty"`
 
 	// SerialNumber
 	// Serial number of stack
@@ -124,7 +124,7 @@ type SwitchMSwitchStackConfigMember struct {
 
 	// SwitchPorts
 	// Switch port information of stack
-	SwitchPorts []**SwitchMSwitchStackConfigMember `json:"switchPorts,omitempty"`
+	SwitchPorts []*SwitchMSwitchStackConfigMember `json:"switchPorts,omitempty"`
 
 	// SwitchUnit
 	// Switch unit of stack
@@ -181,7 +181,7 @@ type SwitchMSwitchStackConfigMemberSwitchPortsType struct {
 
 	// ConnectedDevice
 	// Connected device information
-	ConnectedDevice **SwitchMSwitchStackConfigMemberSwitchPortsType `json:"connectedDevice,omitempty"`
+	ConnectedDevice *SwitchMSwitchStackConfigMemberSwitchPortsType `json:"connectedDevice,omitempty"`
 
 	// Id
 	// Identifier of switch port
@@ -217,7 +217,7 @@ type SwitchMSwitchStackConfigMemberSwitchPortsType struct {
 
 	// Poe
 	// PoE information of switch port
-	Poe **SwitchMSwitchStackConfigMemberSwitchPortsType `json:"poe,omitempty"`
+	Poe *SwitchMSwitchStackConfigMemberSwitchPortsType `json:"poe,omitempty"`
 
 	// PoeEnabled
 	// PoE Enabled, True or False
@@ -253,7 +253,7 @@ type SwitchMSwitchStackConfigMemberSwitchPortsType struct {
 
 	// TrafficUsage
 	// Traffic usage information
-	TrafficUsage **SwitchMSwitchStackConfigMemberSwitchPortsType `json:"trafficUsage,omitempty"`
+	TrafficUsage *SwitchMSwitchStackConfigMemberSwitchPortsType `json:"trafficUsage,omitempty"`
 
 	// Type
 	// Type of switch port

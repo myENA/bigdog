@@ -30,7 +30,7 @@ type WSGVLANPoolingCreateVlanPooling struct {
 	//    - oneof:[MAC_HASH]
 	Algo *string `json:"algo"`
 
-	Description **WSGVLANPoolingCreateVlanPooling `json:"description,omitempty"`
+	Description *WSGVLANPoolingCreateVlanPooling `json:"description,omitempty"`
 
 	// DomainId
 	// identifier of the domain
@@ -39,7 +39,7 @@ type WSGVLANPoolingCreateVlanPooling struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGVLANPoolingCreateVlanPooling `json:"name"`
+	Name *WSGVLANPoolingCreateVlanPooling `json:"name"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
@@ -69,13 +69,13 @@ type WSGVLANPoolingModifyVlanPooling struct {
 	//    - oneof:[MAC_HASH]
 	Algo *string `json:"algo,omitempty"`
 
-	Description **WSGVLANPoolingModifyVlanPooling `json:"description,omitempty"`
+	Description *WSGVLANPoolingModifyVlanPooling `json:"description,omitempty"`
 
 	// DomainId
 	// identifier of the domain
 	DomainId *string `json:"domainId,omitempty"`
 
-	Name **WSGVLANPoolingModifyVlanPooling `json:"name,omitempty"`
+	Name *WSGVLANPoolingModifyVlanPooling `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
@@ -94,7 +94,7 @@ type WSGVLANPooling struct {
 	//    - oneof:[MAC_HASH]
 	Algo *string `json:"algo,omitempty"`
 
-	Description **WSGVLANPooling `json:"description,omitempty"`
+	Description *WSGVLANPooling `json:"description,omitempty"`
 
 	// DomainId
 	// Identifier of the domain which the VLAN pooling profile belongs to
@@ -104,7 +104,7 @@ type WSGVLANPooling struct {
 	// Identifier of the VLAN pooling profile
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGVLANPooling `json:"name,omitempty"`
+	Name *WSGVLANPooling `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile
@@ -117,13 +117,13 @@ func NewWSGVLANPooling() *WSGVLANPooling {
 }
 
 type WSGVLANPoolingList struct {
-	Extra **WSGVLANPoolingList `json:"extra,omitempty"`
+	Extra *WSGVLANPoolingList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGVLANPoolingList `json:"list,omitempty"`
+	List []*WSGVLANPoolingList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -153,7 +153,7 @@ type WSGVLANPoolingListType struct {
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGVLANPoolingListType `json:"name,omitempty"`
+	Name *WSGVLANPoolingListType `json:"name,omitempty"`
 
 	// Pool
 	// VLANs of the VLAN pooling profile

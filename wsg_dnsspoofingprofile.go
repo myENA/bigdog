@@ -29,11 +29,11 @@ type WSGDNSSpoofingProfile struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGDNSSpoofingProfile `json:"name"`
+	Name *WSGDNSSpoofingProfile `json:"name"`
 
 	// Rules
 	// DNS Spoofing Profile's rules (At least one rule)
-	Rules []**WSGDNSSpoofingProfile `json:"rules,omitempty"`
+	Rules []*WSGDNSSpoofingProfile `json:"rules,omitempty"`
 }
 
 func NewWSGDNSSpoofingProfile() *WSGDNSSpoofingProfile {
@@ -72,7 +72,7 @@ type WSGDNSSpoofingProfileDetail struct {
 
 	// Rules
 	// DNS Spoofing Profile's rules (At least one rule)
-	Rules []**WSGDNSSpoofingProfileDetail `json:"rules,omitempty"`
+	Rules []*WSGDNSSpoofingProfileDetail `json:"rules,omitempty"`
 
 	// ZoneId
 	// The zone which DNS Spoofing Profile belong to
@@ -123,7 +123,7 @@ type WSGDNSSpoofingProfileGetDnsSpoofingProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGDNSSpoofingProfileGetDnsSpoofingProfileList `json:"list,omitempty"`
+	List []*WSGDNSSpoofingProfileGetDnsSpoofingProfileList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

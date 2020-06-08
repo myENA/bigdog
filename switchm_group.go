@@ -40,7 +40,7 @@ func NewSwitchMSwitchGroupAuditId() *SwitchMSwitchGroupAuditId {
 type SwitchMSwitchGroupClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
-	ExtraValues **SwitchMSwitchGroupClientObjectID `json:"extraValues,omitempty"`
+	ExtraValues *SwitchMSwitchGroupClientObjectID `json:"extraValues,omitempty"`
 
 	// Id
 	// Identifier of the client
@@ -147,17 +147,17 @@ func NewSwitchMSwitchGroupGetConfigBySwitch() *SwitchMSwitchGroupGetConfigBySwit
 }
 
 type SwitchMSwitchGroupGroupsByIdsQueryResultList struct {
-	Data **SwitchMSwitchGroupGroupsByIdsQueryResultList `json:"data,omitempty"`
+	Data *SwitchMSwitchGroupGroupsByIdsQueryResultList `json:"data,omitempty"`
 
-	Error **SwitchMSwitchGroupGroupsByIdsQueryResultList `json:"error,omitempty"`
+	Error *SwitchMSwitchGroupGroupsByIdsQueryResultList `json:"error,omitempty"`
 
 	// Extra
 	// Any additional response
-	Extra **SwitchMSwitchGroupGroupsByIdsQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchGroupGroupsByIdsQueryResultList `json:"extra,omitempty"`
 
 	// MetaData
 	// Metadata of query result list
-	MetaData **SwitchMSwitchGroupGroupsByIdsQueryResultList `json:"metaData,omitempty"`
+	MetaData *SwitchMSwitchGroupGroupsByIdsQueryResultList `json:"metaData,omitempty"`
 
 	// Success
 	// Query result success or not
@@ -228,7 +228,7 @@ func NewSwitchMSwitchGroupGroupsByIdsQueryResultListMetaDataType() *SwitchMSwitc
 type SwitchMSwitchGroupQueryResultList struct {
 	// Extra
 	// Extra information for query result list
-	Extra **SwitchMSwitchGroupQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchGroupQueryResultList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first query result returned out of the complete query result list
@@ -238,7 +238,7 @@ type SwitchMSwitchGroupQueryResultList struct {
 	// Indicates if there are more query result after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchGroupQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchGroupQueryResultList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Query result count
@@ -321,7 +321,7 @@ type SwitchMSwitchGroup struct {
 
 	// SampledInstant
 	// Sampled instant of the switch group
-	SampledInstant **SwitchMSwitchGroup `json:"sampledInstant,omitempty"`
+	SampledInstant *SwitchMSwitchGroup `json:"sampledInstant,omitempty"`
 
 	// SwitchGroupLevelOneId
 	// Level one Id of the switch group

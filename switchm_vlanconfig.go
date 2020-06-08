@@ -7,7 +7,7 @@ import (
 )
 
 type SwitchMSwitchVLANSettingCreateVlanConfig struct {
-	ArpInspections []**SwitchMSwitchVLANSettingCreateVlanConfig `json:"arpInspections,omitempty"`
+	ArpInspections []*SwitchMSwitchVLANSettingCreateVlanConfig `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -47,7 +47,7 @@ type SwitchMSwitchVLANSettingCreateVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []**SwitchMSwitchVLANSettingCreateVlanConfig `json:"ports,omitempty"`
+	Ports []*SwitchMSwitchVLANSettingCreateVlanConfig `json:"ports,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -86,7 +86,7 @@ func NewSwitchMSwitchVLANSettingCreateVlanConfig() *SwitchMSwitchVLANSettingCrea
 }
 
 type SwitchMSwitchVLANSettingUpdateVlanConfig struct {
-	ArpInspections []**SwitchMSwitchVLANSettingUpdateVlanConfig `json:"arpInspections,omitempty"`
+	ArpInspections []*SwitchMSwitchVLANSettingUpdateVlanConfig `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -118,7 +118,7 @@ type SwitchMSwitchVLANSettingUpdateVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []**SwitchMSwitchVLANSettingUpdateVlanConfig `json:"ports,omitempty"`
+	Ports []*SwitchMSwitchVLANSettingUpdateVlanConfig `json:"ports,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -164,7 +164,7 @@ func NewSwitchMSwitchVLANSettingVlanArpInspections() *SwitchMSwitchVLANSettingVl
 }
 
 type SwitchMSwitchVLANSettingVlanConfig struct {
-	ArpInspections []**SwitchMSwitchVLANSettingVlanConfig `json:"arpInspections,omitempty"`
+	ArpInspections []*SwitchMSwitchVLANSettingVlanConfig `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
 	// ARP Inspection Trust Port
@@ -210,7 +210,7 @@ type SwitchMSwitchVLANSettingVlanConfig struct {
 	// Vlan Name
 	Name *string `json:"name,omitempty"`
 
-	Ports []**SwitchMSwitchVLANSettingVlanConfig `json:"ports,omitempty"`
+	Ports []*SwitchMSwitchVLANSettingVlanConfig `json:"ports,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time
@@ -255,7 +255,7 @@ func NewSwitchMSwitchVLANSettingVlanConfig() *SwitchMSwitchVLANSettingVlanConfig
 type SwitchMSwitchVLANSettingVlanConfigQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra **SwitchMSwitchVLANSettingVlanConfigQueryResult `json:"extra,omitempty"`
+	Extra *SwitchMSwitchVLANSettingVlanConfigQueryResult `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Vlan Configs returned out of the complete Vlan Configs list
@@ -265,7 +265,7 @@ type SwitchMSwitchVLANSettingVlanConfigQueryResult struct {
 	// Indicator of whether there are more Vlan Configs after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchVLANSettingVlanConfigQueryResult `json:"list,omitempty"`
+	List []*SwitchMSwitchVLANSettingVlanConfigQueryResult `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Vlan Configs count

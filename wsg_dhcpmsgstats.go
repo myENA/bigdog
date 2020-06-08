@@ -10,11 +10,11 @@ type WSGDHCPMessageStatsDhcpMsgStats struct {
 
 	// DhcpMsgRecvdStats
 	// DHCP Message Received Statistic
-	DhcpMsgRecvdStats **WSGDHCPMessageStatsDhcpMsgStats `json:"dhcpMsgRecvdStats,omitempty"`
+	DhcpMsgRecvdStats *WSGDHCPMessageStatsDhcpMsgStats `json:"dhcpMsgRecvdStats,omitempty"`
 
 	// DhcpMsgSentStats
 	// DHCP Message Sent Statistic
-	DhcpMsgSentStats **WSGDHCPMessageStatsDhcpMsgStats `json:"dhcpMsgSentStats,omitempty"`
+	DhcpMsgSentStats *WSGDHCPMessageStatsDhcpMsgStats `json:"dhcpMsgSentStats,omitempty"`
 
 	// DomainId
 	// Constraints:

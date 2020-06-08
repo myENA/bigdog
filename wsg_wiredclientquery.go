@@ -3,13 +3,13 @@ package ruckus
 // API Version: v9_0
 
 type WSGWiredClientQueryClientQueryList struct {
-	Extra **WSGWiredClientQueryClientQueryList `json:"extra,omitempty"`
+	Extra *WSGWiredClientQueryClientQueryList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGWiredClientQueryClientQueryList `json:"list,omitempty"`
+	List []*WSGWiredClientQueryClientQueryList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

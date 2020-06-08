@@ -14,7 +14,7 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	//    - max:100
 	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty"`
 
-	Description **WSGEthernetPortCreateEthernetPortProfile `json:"description,omitempty"`
+	Description *WSGEthernetPortCreateEthernetPortProfile `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
@@ -35,20 +35,20 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	//    - max:4094
 	GuestVlan *int `json:"guestVlan,omitempty"`
 
-	IpsecProfile **WSGEthernetPortCreateEthernetPortProfile `json:"ipsecProfile,omitempty"`
+	IpsecProfile *WSGEthernetPortCreateEthernetPortProfile `json:"ipsecProfile,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGEthernetPortCreateEthernetPortProfile `json:"name"`
+	Name *WSGEthernetPortCreateEthernetPortProfile `json:"name"`
 
-	Qinq **WSGEthernetPortCreateEthernetPortProfile `json:"qinq,omitempty"`
+	Qinq *WSGEthernetPortCreateEthernetPortProfile `json:"qinq,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
 	TunnelEnabled *bool `json:"tunnelEnabled,omitempty"`
 
-	TunnelProfile **WSGEthernetPortCreateEthernetPortProfile `json:"tunnelProfile,omitempty"`
+	TunnelProfile *WSGEthernetPortCreateEthernetPortProfile `json:"tunnelProfile,omitempty"`
 
 	// Type
 	// type of the ethernet port profile
@@ -85,7 +85,7 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	// X8021X
 	// Constraints:
 	//    - required
-	X8021X **WSGEthernetPortCreateEthernetPortProfile `json:"_8021X"`
+	X8021X *WSGEthernetPortCreateEthernetPortProfile `json:"_8021X"`
 }
 
 func NewWSGEthernetPortCreateEthernetPortProfile() *WSGEthernetPortCreateEthernetPortProfile {
@@ -105,7 +105,7 @@ type WSGEthernetPortProfile struct {
 	//    - max:100
 	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty"`
 
-	Description **WSGEthernetPortProfile `json:"description,omitempty"`
+	Description *WSGEthernetPortProfile `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
@@ -130,17 +130,17 @@ type WSGEthernetPortProfile struct {
 	// identifier of the ethernet port profile
 	Id *string `json:"id,omitempty"`
 
-	IpsecProfile **WSGEthernetPortProfile `json:"ipsecProfile,omitempty"`
+	IpsecProfile *WSGEthernetPortProfile `json:"ipsecProfile,omitempty"`
 
-	Name **WSGEthernetPortProfile `json:"name,omitempty"`
+	Name *WSGEthernetPortProfile `json:"name,omitempty"`
 
-	Qinq **WSGEthernetPortProfile `json:"qinq,omitempty"`
+	Qinq *WSGEthernetPortProfile `json:"qinq,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
 	TunnelEnabled *bool `json:"tunnelEnabled,omitempty"`
 
-	TunnelProfile **WSGEthernetPortProfile `json:"tunnelProfile,omitempty"`
+	TunnelProfile *WSGEthernetPortProfile `json:"tunnelProfile,omitempty"`
 
 	// Type
 	// type of the ethernet port profile
@@ -171,7 +171,7 @@ type WSGEthernetPortProfile struct {
 	// VLAN Members of the ethernet port profile
 	VlanMembers *string `json:"vlanMembers,omitempty"`
 
-	X8021X **WSGEthernetPortProfile `json:"_8021X,omitempty"`
+	X8021X *WSGEthernetPortProfile `json:"_8021X,omitempty"`
 }
 
 func NewWSGEthernetPortProfile() *WSGEthernetPortProfile {
@@ -192,7 +192,7 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	//    - max:100
 	ArpRequestRateLimit *int `json:"arpRequestRateLimit,omitempty"`
 
-	Description **WSGEthernetPortModifyEthernetPortProfile `json:"description,omitempty"`
+	Description *WSGEthernetPortModifyEthernetPortProfile `json:"description,omitempty"`
 
 	// DhcpRequestRateLimit
 	// DHCP packets request rate limit, default value will be 15 if both rate limit not being set.
@@ -213,17 +213,17 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	//    - max:4094
 	GuestVlan *int `json:"guestVlan,omitempty"`
 
-	IpsecProfile **WSGEthernetPortModifyEthernetPortProfile `json:"ipsecProfile,omitempty"`
+	IpsecProfile *WSGEthernetPortModifyEthernetPortProfile `json:"ipsecProfile,omitempty"`
 
-	Name **WSGEthernetPortModifyEthernetPortProfile `json:"name,omitempty"`
+	Name *WSGEthernetPortModifyEthernetPortProfile `json:"name,omitempty"`
 
-	Qinq **WSGEthernetPortModifyEthernetPortProfile `json:"qinq,omitempty"`
+	Qinq *WSGEthernetPortModifyEthernetPortProfile `json:"qinq,omitempty"`
 
 	// TunnelEnabled
 	// tunnelEnabled of the ethernet port profile for AccessPort type
 	TunnelEnabled *bool `json:"tunnelEnabled,omitempty"`
 
-	TunnelProfile **WSGEthernetPortModifyEthernetPortProfile `json:"tunnelProfile,omitempty"`
+	TunnelProfile *WSGEthernetPortModifyEthernetPortProfile `json:"tunnelProfile,omitempty"`
 
 	// UntagId
 	// VLAN Untag ID of the ethernet port profile
@@ -248,7 +248,7 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	// VLAN Members of the ethernet port profile
 	VlanMembers *string `json:"vlanMembers,omitempty"`
 
-	X8021X **WSGEthernetPortModifyEthernetPortProfile `json:"_8021X,omitempty"`
+	X8021X *WSGEthernetPortModifyEthernetPortProfile `json:"_8021X,omitempty"`
 }
 
 func NewWSGEthernetPortModifyEthernetPortProfile() *WSGEthernetPortModifyEthernetPortProfile {
@@ -261,7 +261,7 @@ type WSGEthernetPortProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGEthernetPortProfileList `json:"list,omitempty"`
+	List []*WSGEthernetPortProfileList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -276,7 +276,7 @@ type WSGEthernetPortProfileListType struct {
 	// Identifier of the service
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGEthernetPortProfileListType `json:"name,omitempty"`
+	Name *WSGEthernetPortProfileListType `json:"name,omitempty"`
 }
 
 func NewWSGEthernetPortProfileListType() *WSGEthernetPortProfileListType {

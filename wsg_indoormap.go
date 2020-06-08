@@ -36,7 +36,7 @@ type WSGIndoorMapBasicIndoorMap struct {
 	// Description
 	// Constraints:
 	//    - required
-	Description **WSGIndoorMapBasicIndoorMap `json:"description"`
+	Description *WSGIndoorMapBasicIndoorMap `json:"description"`
 
 	DomainId *string `json:"domainId,omitempty"`
 
@@ -57,14 +57,14 @@ type WSGIndoorMapBasicIndoorMap struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGIndoorMapBasicIndoorMap `json:"name"`
+	Name *WSGIndoorMapBasicIndoorMap `json:"name"`
 
 	// Orientation
 	// Constraints:
 	//    - oneof:[HORIZONTAL,VERTICAL]
 	Orientation *string `json:"orientation,omitempty"`
 
-	Scale **WSGIndoorMapBasicIndoorMap `json:"scale,omitempty"`
+	Scale *WSGIndoorMapBasicIndoorMap `json:"scale,omitempty"`
 
 	TenantId *string `json:"tenantId,omitempty"`
 
@@ -103,7 +103,7 @@ type WSGIndoorMap struct {
 	// Description
 	// Constraints:
 	//    - required
-	Description **WSGIndoorMap `json:"description"`
+	Description *WSGIndoorMap `json:"description"`
 
 	// DomainId
 	// domainId
@@ -139,7 +139,7 @@ type WSGIndoorMap struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGIndoorMap `json:"name"`
+	Name *WSGIndoorMap `json:"name"`
 
 	// Orientation
 	// orientation
@@ -147,7 +147,7 @@ type WSGIndoorMap struct {
 	//    - oneof:[HORIZONTAL,VERTICAL]
 	Orientation *string `json:"orientation,omitempty"`
 
-	Scale **WSGIndoorMap `json:"scale,omitempty"`
+	Scale *WSGIndoorMap `json:"scale,omitempty"`
 
 	// TenantId
 	// tenantId
@@ -164,7 +164,7 @@ func NewWSGIndoorMap() *WSGIndoorMap {
 }
 
 type WSGIndoorMapAp struct {
-	IndoorMapXy **WSGIndoorMapAp `json:"indoorMapXy,omitempty"`
+	IndoorMapXy *WSGIndoorMapAp `json:"indoorMapXy,omitempty"`
 
 	// Mac
 	// the identifier of the create object
@@ -177,7 +177,7 @@ func NewWSGIndoorMapAp() *WSGIndoorMapAp {
 }
 
 type WSGIndoorMapList struct {
-	Extra **WSGIndoorMapList `json:"extra,omitempty"`
+	Extra *WSGIndoorMapList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first indoorMapList returned out of the complete indoor maps list
@@ -187,7 +187,7 @@ type WSGIndoorMapList struct {
 	// Indicates whether there are more indoor maps after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIndoorMapList `json:"list,omitempty"`
+	List []*WSGIndoorMapList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total indoor maps count
@@ -215,7 +215,7 @@ type WSGIndoorMapSummary struct {
 	// Description
 	// Constraints:
 	//    - required
-	Description **WSGIndoorMapSummary `json:"description"`
+	Description *WSGIndoorMapSummary `json:"description"`
 
 	// DomainId
 	// domainId
@@ -251,9 +251,9 @@ type WSGIndoorMapSummary struct {
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGIndoorMapSummary `json:"name"`
+	Name *WSGIndoorMapSummary `json:"name"`
 
-	Scale **WSGIndoorMapSummary `json:"scale,omitempty"`
+	Scale *WSGIndoorMapSummary `json:"scale,omitempty"`
 
 	// TenantId
 	// tenantId
@@ -270,7 +270,7 @@ func NewWSGIndoorMapSummary() *WSGIndoorMapSummary {
 }
 
 type WSGIndoorMapSummaryList struct {
-	Extra **WSGIndoorMapSummaryList `json:"extra,omitempty"`
+	Extra *WSGIndoorMapSummaryList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first indoorMapList returned out of the complete indoor maps list
@@ -280,7 +280,7 @@ type WSGIndoorMapSummaryList struct {
 	// Indicates whether there are more indoor maps after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGIndoorMapSummaryList `json:"list,omitempty"`
+	List []*WSGIndoorMapSummaryList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total indoor maps count
@@ -308,9 +308,9 @@ func NewWSGIndoorMapXy() *WSGIndoorMapXy {
 }
 
 type WSGIndoorMapScale struct {
-	A **WSGIndoorMapScale `json:"a,omitempty"`
+	A *WSGIndoorMapScale `json:"a,omitempty"`
 
-	B **WSGIndoorMapScale `json:"b,omitempty"`
+	B *WSGIndoorMapScale `json:"b,omitempty"`
 
 	// Distance
 	// distance

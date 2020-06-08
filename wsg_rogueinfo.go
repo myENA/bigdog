@@ -17,7 +17,7 @@ type WSGRogueInfo struct {
 
 	// DetectedByAP
 	// The list of the AP found this Rogue AP.
-	DetectedByAP []**WSGRogueInfo `json:"detectedByAP,omitempty"`
+	DetectedByAP []*WSGRogueInfo `json:"detectedByAP,omitempty"`
 
 	// Encryption
 	// Encryption of the rogue AP
@@ -35,9 +35,9 @@ type WSGRogueInfo struct {
 	// Radio of the rogue AP
 	Radio *string `json:"radio,omitempty"`
 
-	RogueAPMac **WSGRogueInfo `json:"rogueAPMac,omitempty"`
+	RogueAPMac *WSGRogueInfo `json:"rogueAPMac,omitempty"`
 
-	RogueMac **WSGRogueInfo `json:"rogueMac,omitempty"`
+	RogueMac *WSGRogueInfo `json:"rogueMac,omitempty"`
 
 	// Ssid
 	// SSID of the rogue AP
@@ -56,7 +56,7 @@ func NewWSGRogueInfo() *WSGRogueInfo {
 type WSGRogueInfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra **WSGRogueInfoList `json:"extra,omitempty"`
+	Extra *WSGRogueInfoList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Rogue AP returned out of the complete Rogue AP list
@@ -66,7 +66,7 @@ type WSGRogueInfoList struct {
 	// Indicator of whether there are more Rogue AP after the current displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGRogueInfoList `json:"list,omitempty"`
+	List []*WSGRogueInfoList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total Rogue APs count.

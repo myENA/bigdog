@@ -25,7 +25,7 @@ func (ss *SwitchMService) SwitchMSwitchTrafficService() *SwitchMSwitchTrafficSer
 type SwitchMSwitchTrafficTopPortErrorQueryResultList struct {
 	// Extra
 	// Extra information for top port error
-	Extra **SwitchMSwitchTrafficTopPortErrorQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTrafficTopPortErrorQueryResultList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top port error returned out of the complete list
@@ -35,7 +35,7 @@ type SwitchMSwitchTrafficTopPortErrorQueryResultList struct {
 	// Indicates if there are more top port error after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchTrafficTopPortErrorQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchTrafficTopPortErrorQueryResultList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Top port error count
@@ -82,7 +82,7 @@ func NewSwitchMSwitchTrafficTopPortErrorQueryResultListExtraType() *SwitchMSwitc
 type SwitchMSwitchTrafficTopPortTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top port traffic usage
-	Extra **SwitchMSwitchTrafficTopPortTrafficUsageQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTrafficTopPortTrafficUsageQueryResultList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top port traffic usage returned out of the complete list
@@ -92,7 +92,7 @@ type SwitchMSwitchTrafficTopPortTrafficUsageQueryResultList struct {
 	// Indicates if there are more top port traffic usage after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchTrafficTopPortTrafficUsageQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchTrafficTopPortTrafficUsageQueryResultList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Top port traffic usage count
@@ -139,7 +139,7 @@ func NewSwitchMSwitchTrafficTopPortTrafficUsageQueryResultListExtraType() *Switc
 type SwitchMSwitchTrafficTopSwitchPoEUtilizationQueryResultList struct {
 	// Extra
 	// Extra information for top PoE utilization
-	Extra **SwitchMSwitchTrafficTopSwitchPoEUtilizationQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTrafficTopSwitchPoEUtilizationQueryResultList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top PoE usage returned out of the complete list
@@ -149,7 +149,7 @@ type SwitchMSwitchTrafficTopSwitchPoEUtilizationQueryResultList struct {
 	// Indicates if there are more top PoE usage after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchTrafficTopSwitchPoEUtilizationQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchTrafficTopSwitchPoEUtilizationQueryResultList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// PoE utilization count
@@ -196,7 +196,7 @@ func NewSwitchMSwitchTrafficTopSwitchPoEUtilizationQueryResultListExtraType() *S
 type SwitchMSwitchTrafficTopTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top traffic usage
-	Extra **SwitchMSwitchTrafficTopTrafficUsageQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTrafficTopTrafficUsageQueryResultList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top traffic usage returned out of the complete list
@@ -206,7 +206,7 @@ type SwitchMSwitchTrafficTopTrafficUsageQueryResultList struct {
 	// Indicates if there are more top traffic usage after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchTrafficTopTrafficUsageQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchTrafficTopTrafficUsageQueryResultList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Top traffic usage count
@@ -276,7 +276,7 @@ func NewSwitchMSwitchTrafficTraffic() *SwitchMSwitchTrafficTraffic {
 type SwitchMSwitchTrafficTrafficQueryResultList struct {
 	// Extra
 	// Extra information for traffic list
-	Extra **SwitchMSwitchTrafficTrafficQueryResultList `json:"extra,omitempty"`
+	Extra *SwitchMSwitchTrafficTrafficQueryResultList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first traffic list returned out of the complete traffic list
@@ -286,7 +286,7 @@ type SwitchMSwitchTrafficTrafficQueryResultList struct {
 	// Indicates if there are more traffic list after the currently displayed list
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**SwitchMSwitchTrafficTrafficQueryResultList `json:"list,omitempty"`
+	List []*SwitchMSwitchTrafficTrafficQueryResultList `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Total traffic count

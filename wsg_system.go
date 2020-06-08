@@ -22,9 +22,9 @@ func (ss *WSGService) WSGSystemService() *WSGSystemService {
 }
 
 type WSGSystemApMacOUI struct {
-	Description **WSGSystemApMacOUI `json:"description,omitempty"`
+	Description *WSGSystemApMacOUI `json:"description,omitempty"`
 
-	Oui **WSGSystemApMacOUI `json:"oui,omitempty"`
+	Oui *WSGSystemApMacOUI `json:"oui,omitempty"`
 }
 
 func NewWSGSystemApMacOUI() *WSGSystemApMacOUI {
@@ -41,7 +41,7 @@ type WSGSystemApMacOUIList struct {
 	// Indicates whether there are more AP MAC OUIs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemApMacOUIList `json:"list,omitempty"`
+	List []*WSGSystemApMacOUIList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total AP MAC OUI count
@@ -133,7 +133,7 @@ type WSGSystemControllerList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemControllerList `json:"list,omitempty"`
+	List []*WSGSystemControllerList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -204,7 +204,7 @@ type WSGSystemControllerListType struct {
 	// Name of the controller
 	Name *string `json:"name,omitempty"`
 
-	ReservedPorts []**WSGSystemControllerListType `json:"reservedPorts,omitempty"`
+	ReservedPorts []*WSGSystemControllerListType `json:"reservedPorts,omitempty"`
 
 	// SerialNumber
 	// Serial number of the controller
@@ -231,19 +231,19 @@ type WSGSystemControlPlaneConfiguration struct {
 	//    - oneof:[IPV4,IPV4_IPV6]
 	IpMode *string `json:"ipMode,omitempty"`
 
-	Ipv4AccessAndCoreSeparation **WSGSystemControlPlaneConfiguration `json:"ipv4AccessAndCoreSeparation,omitempty"`
+	Ipv4AccessAndCoreSeparation *WSGSystemControlPlaneConfiguration `json:"ipv4AccessAndCoreSeparation,omitempty"`
 
-	Ipv4ClusterInterface **WSGSystemControlPlaneConfiguration `json:"ipv4ClusterInterface,omitempty"`
+	Ipv4ClusterInterface *WSGSystemControlPlaneConfiguration `json:"ipv4ClusterInterface,omitempty"`
 
-	Ipv4ControlInterface **WSGSystemControlPlaneConfiguration `json:"ipv4ControlInterface,omitempty"`
+	Ipv4ControlInterface *WSGSystemControlPlaneConfiguration `json:"ipv4ControlInterface,omitempty"`
 
-	Ipv4ManagementInterface **WSGSystemControlPlaneConfiguration `json:"ipv4ManagementInterface,omitempty"`
+	Ipv4ManagementInterface *WSGSystemControlPlaneConfiguration `json:"ipv4ManagementInterface,omitempty"`
 
-	Ipv6AccessAndCoreSeparation **WSGSystemControlPlaneConfiguration `json:"ipv6AccessAndCoreSeparation,omitempty"`
+	Ipv6AccessAndCoreSeparation *WSGSystemControlPlaneConfiguration `json:"ipv6AccessAndCoreSeparation,omitempty"`
 
-	Ipv6ControlInterface **WSGSystemControlPlaneConfiguration `json:"ipv6ControlInterface,omitempty"`
+	Ipv6ControlInterface *WSGSystemControlPlaneConfiguration `json:"ipv6ControlInterface,omitempty"`
 
-	Ipv6ManagementInterface **WSGSystemControlPlaneConfiguration `json:"ipv6ManagementInterface,omitempty"`
+	Ipv6ManagementInterface *WSGSystemControlPlaneConfiguration `json:"ipv6ManagementInterface,omitempty"`
 }
 
 func NewWSGSystemControlPlaneConfiguration() *WSGSystemControlPlaneConfiguration {
@@ -269,7 +269,7 @@ func NewWSGSystemControlPlaneInterface() *WSGSystemControlPlaneInterface {
 type WSGSystemControlPlaneInterfaceList struct {
 	// ControlPlaneInterfaces
 	// Interface list
-	ControlPlaneInterfaces []**WSGSystemControlPlaneInterfaceList `json:"controlPlaneInterfaces,omitempty"`
+	ControlPlaneInterfaces []*WSGSystemControlPlaneInterfaceList `json:"controlPlaneInterfaces,omitempty"`
 }
 
 func NewWSGSystemControlPlaneInterfaceList() *WSGSystemControlPlaneInterfaceList {
@@ -282,7 +282,7 @@ type WSGSystemControlPlaneList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemControlPlaneList `json:"list,omitempty"`
+	List []*WSGSystemControlPlaneList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -325,7 +325,7 @@ type WSGSystemControlPlaneListType struct {
 	// Model
 	Model *string `json:"model,omitempty"`
 
-	Name **WSGSystemControlPlaneListType `json:"name,omitempty"`
+	Name *WSGSystemControlPlaneListType `json:"name,omitempty"`
 
 	// NumOfAps
 	// Total Connected APs
@@ -415,12 +415,12 @@ func NewWSGSystemCpUserDefinedInterface() *WSGSystemCpUserDefinedInterface {
 }
 
 type WSGSystemCreateApMacOUI struct {
-	Description **WSGSystemCreateApMacOUI `json:"description,omitempty"`
+	Description *WSGSystemCreateApMacOUI `json:"description,omitempty"`
 
 	// Oui
 	// Constraints:
 	//    - required
-	Oui **WSGSystemCreateApMacOUI `json:"oui"`
+	Oui *WSGSystemCreateApMacOUI `json:"oui"`
 }
 
 func NewWSGSystemCreateApMacOUI() *WSGSystemCreateApMacOUI {
@@ -435,19 +435,19 @@ type WSGSystemDataPlaneConfiguration struct {
 	//    - oneof:[SINGLE,ACCESS_AND_CORE]
 	InterfaceMode *string `json:"interfaceMode,omitempty"`
 
-	Ipv6PrimaryInterface **WSGSystemDataPlaneConfiguration `json:"ipv6PrimaryInterface,omitempty"`
+	Ipv6PrimaryInterface *WSGSystemDataPlaneConfiguration `json:"ipv6PrimaryInterface,omitempty"`
 
 	IsDataCenter *bool `json:"isDataCenter,omitempty"`
 
 	KeepConfig *bool `json:"keepConfig,omitempty"`
 
-	PrimaryInterface **WSGSystemDataPlaneConfiguration `json:"primaryInterface,omitempty"`
+	PrimaryInterface *WSGSystemDataPlaneConfiguration `json:"primaryInterface,omitempty"`
 
-	SecondaryInterface **WSGSystemDataPlaneConfiguration `json:"secondaryInterface,omitempty"`
+	SecondaryInterface *WSGSystemDataPlaneConfiguration `json:"secondaryInterface,omitempty"`
 
 	// StaticRoute
 	// Primary(Access) interface
-	StaticRoute []**WSGSystemDataPlaneConfiguration `json:"staticRoute,omitempty"`
+	StaticRoute []*WSGSystemDataPlaneConfiguration `json:"staticRoute,omitempty"`
 }
 
 func NewWSGSystemDataPlaneConfiguration() *WSGSystemDataPlaneConfiguration {
@@ -460,7 +460,7 @@ type WSGSystemDataPlaneList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemDataPlaneList `json:"list,omitempty"`
+	List []*WSGSystemDataPlaneList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -471,7 +471,7 @@ func NewWSGSystemDataPlaneList() *WSGSystemDataPlaneList {
 }
 
 type WSGSystemDataPlaneListType struct {
-	BladeName **WSGSystemDataPlaneListType `json:"bladeName,omitempty"`
+	BladeName *WSGSystemDataPlaneListType `json:"bladeName,omitempty"`
 
 	// DpStatus
 	// Status
@@ -564,7 +564,7 @@ type WSGSystemFriendlyNameLangList struct {
 	// Indicates whether there are more FriendlyName of language after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemFriendlyNameLangList `json:"list,omitempty"`
+	List []*WSGSystemFriendlyNameLangList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total count of FriendlyName of language
@@ -666,7 +666,7 @@ func NewWSGSystemFtpGlobalSetting() *WSGSystemFtpGlobalSetting {
 }
 
 type WSGSystemFtpList struct {
-	Extra **WSGSystemFtpList `json:"extra,omitempty"`
+	Extra *WSGSystemFtpList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first FTP returned out of the complete FTP list
@@ -676,7 +676,7 @@ type WSGSystemFtpList struct {
 	// Indicates whether there are more FTPs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemFtpList `json:"list,omitempty"`
+	List []*WSGSystemFtpList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total FTP count
@@ -771,7 +771,7 @@ type WSGSystemInventoryList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemInventoryList `json:"list,omitempty"`
+	List []*WSGSystemInventoryList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -1079,19 +1079,19 @@ type WSGSystemModifyControlPlane struct {
 	// Enable Access & Core Separation
 	EnableAccessAndCoreSeparation *bool `json:"enableAccessAndCoreSeparation,omitempty"`
 
-	Ipv4AccessAndCoreSeparation **WSGSystemModifyControlPlane `json:"ipv4AccessAndCoreSeparation,omitempty"`
+	Ipv4AccessAndCoreSeparation *WSGSystemModifyControlPlane `json:"ipv4AccessAndCoreSeparation,omitempty"`
 
-	Ipv4ClusterInterface **WSGSystemModifyControlPlane `json:"ipv4ClusterInterface,omitempty"`
+	Ipv4ClusterInterface *WSGSystemModifyControlPlane `json:"ipv4ClusterInterface,omitempty"`
 
-	Ipv4ControlInterface **WSGSystemModifyControlPlane `json:"ipv4ControlInterface,omitempty"`
+	Ipv4ControlInterface *WSGSystemModifyControlPlane `json:"ipv4ControlInterface,omitempty"`
 
-	Ipv4ManagementInterface **WSGSystemModifyControlPlane `json:"ipv4ManagementInterface,omitempty"`
+	Ipv4ManagementInterface *WSGSystemModifyControlPlane `json:"ipv4ManagementInterface,omitempty"`
 
-	Ipv6AccessAndCoreSeparation **WSGSystemModifyControlPlane `json:"ipv6AccessAndCoreSeparation,omitempty"`
+	Ipv6AccessAndCoreSeparation *WSGSystemModifyControlPlane `json:"ipv6AccessAndCoreSeparation,omitempty"`
 
-	Ipv6ControlInterface **WSGSystemModifyControlPlane `json:"ipv6ControlInterface,omitempty"`
+	Ipv6ControlInterface *WSGSystemModifyControlPlane `json:"ipv6ControlInterface,omitempty"`
 
-	Ipv6ManagementInterface **WSGSystemModifyControlPlane `json:"ipv6ManagementInterface,omitempty"`
+	Ipv6ManagementInterface *WSGSystemModifyControlPlane `json:"ipv6ManagementInterface,omitempty"`
 }
 
 func NewWSGSystemModifyControlPlane() *WSGSystemModifyControlPlane {
@@ -1102,7 +1102,7 @@ func NewWSGSystemModifyControlPlane() *WSGSystemModifyControlPlane {
 type WSGSystemModifyCPStaticRoute struct {
 	// StaticRoutes
 	// Static route for control plane.
-	StaticRoutes []**WSGSystemModifyCPStaticRoute `json:"staticRoutes,omitempty"`
+	StaticRoutes []*WSGSystemModifyCPStaticRoute `json:"staticRoutes,omitempty"`
 }
 
 func NewWSGSystemModifyCPStaticRoute() *WSGSystemModifyCPStaticRoute {
@@ -1113,7 +1113,7 @@ func NewWSGSystemModifyCPStaticRoute() *WSGSystemModifyCPStaticRoute {
 type WSGSystemModifyCPUserDefinedInterface struct {
 	// UserDefinedInterface
 	// User defined interface for Control Plane
-	UserDefinedInterface []**WSGSystemModifyCPUserDefinedInterface `json:"userDefinedInterface,omitempty"`
+	UserDefinedInterface []*WSGSystemModifyCPUserDefinedInterface `json:"userDefinedInterface,omitempty"`
 }
 
 func NewWSGSystemModifyCPUserDefinedInterface() *WSGSystemModifyCPUserDefinedInterface {
@@ -1132,7 +1132,7 @@ type WSGSystemModifyDataPlane struct {
 	// Ipv6PrimaryInterface
 	// Constraints:
 	//    - required
-	Ipv6PrimaryInterface **WSGSystemModifyDataPlane `json:"ipv6PrimaryInterface"`
+	Ipv6PrimaryInterface *WSGSystemModifyDataPlane `json:"ipv6PrimaryInterface"`
 
 	IsDataCenter *bool `json:"isDataCenter,omitempty"`
 
@@ -1141,13 +1141,13 @@ type WSGSystemModifyDataPlane struct {
 	// PrimaryInterface
 	// Constraints:
 	//    - required
-	PrimaryInterface **WSGSystemModifyDataPlane `json:"primaryInterface"`
+	PrimaryInterface *WSGSystemModifyDataPlane `json:"primaryInterface"`
 
-	SecondaryInterface **WSGSystemModifyDataPlane `json:"secondaryInterface,omitempty"`
+	SecondaryInterface *WSGSystemModifyDataPlane `json:"secondaryInterface,omitempty"`
 
 	// StaticRoute
 	// Primary(Access) interface
-	StaticRoute []**WSGSystemModifyDataPlane `json:"staticRoute,omitempty"`
+	StaticRoute []*WSGSystemModifyDataPlane `json:"staticRoute,omitempty"`
 }
 
 func NewWSGSystemModifyDataPlane() *WSGSystemModifyDataPlane {
@@ -1268,11 +1268,11 @@ type WSGSystemModifySnmpAgent struct {
 
 	// SnmpV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []**WSGSystemModifySnmpAgent `json:"snmpV2Agent,omitempty"`
+	SnmpV2Agent []*WSGSystemModifySnmpAgent `json:"snmpV2Agent,omitempty"`
 
 	// SnmpV3Agent
 	// User List of the SNMP V2 Agent.
-	SnmpV3Agent []**WSGSystemModifySnmpAgent `json:"snmpV3Agent,omitempty"`
+	SnmpV3Agent []*WSGSystemModifySnmpAgent `json:"snmpV3Agent,omitempty"`
 }
 
 func NewWSGSystemModifySnmpAgent() *WSGSystemModifySnmpAgent {
@@ -1281,13 +1281,13 @@ func NewWSGSystemModifySnmpAgent() *WSGSystemModifySnmpAgent {
 }
 
 type WSGSystemModifySystemTimeSetting struct {
-	AuthenticationKey **WSGSystemModifySystemTimeSetting `json:"authenticationKey,omitempty"`
+	AuthenticationKey *WSGSystemModifySystemTimeSetting `json:"authenticationKey,omitempty"`
 
 	// NtpServer
 	// NtpServer address
 	NtpServer *string `json:"ntpServer,omitempty"`
 
-	SecondaryAuthenticationKey **WSGSystemModifySystemTimeSetting `json:"secondaryAuthenticationKey,omitempty"`
+	SecondaryAuthenticationKey *WSGSystemModifySystemTimeSetting `json:"secondaryAuthenticationKey,omitempty"`
 
 	// SecondaryNtpServer
 	// Backup NtpServer address
@@ -1304,7 +1304,7 @@ func NewWSGSystemModifySystemTimeSetting() *WSGSystemModifySystemTimeSetting {
 }
 
 type WSGSystemNorthboundInterface struct {
-	Password **WSGSystemNorthboundInterface `json:"password,omitempty"`
+	Password *WSGSystemNorthboundInterface `json:"password,omitempty"`
 
 	// RadiusAuthType
 	// AuthType of the Radius used in Northbound Interface, the value should be "PAP" or "CHAP".
@@ -1312,7 +1312,7 @@ type WSGSystemNorthboundInterface struct {
 	//    - oneof:[PAP,CHAP]
 	RadiusAuthType *string `json:"radiusAuthType,omitempty"`
 
-	UserName **WSGSystemNorthboundInterface `json:"userName,omitempty"`
+	UserName *WSGSystemNorthboundInterface `json:"userName,omitempty"`
 }
 
 func NewWSGSystemNorthboundInterface() *WSGSystemNorthboundInterface {
@@ -1321,7 +1321,7 @@ func NewWSGSystemNorthboundInterface() *WSGSystemNorthboundInterface {
 }
 
 type WSGSystemNtpServerValidation struct {
-	AuthenticationKey **WSGSystemNtpServerValidation `json:"authenticationKey,omitempty"`
+	AuthenticationKey *WSGSystemNtpServerValidation `json:"authenticationKey,omitempty"`
 
 	// NtpServer
 	// NTP Server address for validation
@@ -1370,7 +1370,7 @@ type WSGSystemPortalLangList struct {
 	// Indicates whether there are more portal names after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemPortalLangList `json:"list,omitempty"`
+	List []*WSGSystemPortalLangList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total portal name count
@@ -1621,7 +1621,7 @@ func NewWSGSystemSms() *WSGSystemSms {
 }
 
 type WSGSystemSmsList struct {
-	Extra **WSGSystemSmsList `json:"extra,omitempty"`
+	Extra *WSGSystemSmsList `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first SMS gateway returned out of the complete SMS gateway list
@@ -1631,7 +1631,7 @@ type WSGSystemSmsList struct {
 	// Indicates whether there are more SMS gateway after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGSystemSmsList `json:"list,omitempty"`
+	List []*WSGSystemSmsList `json:"list,omitempty"`
 
 	// TotalCount
 	// Total SMS gateway count
@@ -1650,11 +1650,11 @@ type WSGSystemSnmpAgentConfiguration struct {
 
 	// SnmpV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []**WSGSystemSnmpAgentConfiguration `json:"snmpV2Agent,omitempty"`
+	SnmpV2Agent []*WSGSystemSnmpAgentConfiguration `json:"snmpV2Agent,omitempty"`
 
 	// SnmpV3Agent
 	// User List of the SNMP V2 Agent.
-	SnmpV3Agent []**WSGSystemSnmpAgentConfiguration `json:"snmpV3Agent,omitempty"`
+	SnmpV3Agent []*WSGSystemSnmpAgentConfiguration `json:"snmpV3Agent,omitempty"`
 }
 
 func NewWSGSystemSnmpAgentConfiguration() *WSGSystemSnmpAgentConfiguration {
@@ -1690,7 +1690,7 @@ func NewWSGSystemStaticRoute() *WSGSystemStaticRoute {
 type WSGSystemStaticRouteList struct {
 	// StaticRoutes
 	// Static route for Control Plane
-	StaticRoutes []**WSGSystemStaticRouteList `json:"staticRoutes,omitempty"`
+	StaticRoutes []*WSGSystemStaticRouteList `json:"staticRoutes,omitempty"`
 }
 
 func NewWSGSystemStaticRouteList() *WSGSystemStaticRouteList {
@@ -1706,29 +1706,29 @@ func MakeWSGSystemStatisticList() WSGSystemStatisticList {
 }
 
 type WSGSystemStatisticListType struct {
-	Cluster **WSGSystemStatisticListType `json:"cluster,omitempty"`
+	Cluster *WSGSystemStatisticListType `json:"cluster,omitempty"`
 
-	Control **WSGSystemStatisticListType `json:"control,omitempty"`
+	Control *WSGSystemStatisticListType `json:"control,omitempty"`
 
-	Cpu **WSGSystemStatisticListType `json:"cpu,omitempty"`
+	Cpu *WSGSystemStatisticListType `json:"cpu,omitempty"`
 
-	Disk **WSGSystemStatisticListType `json:"disk,omitempty"`
+	Disk *WSGSystemStatisticListType `json:"disk,omitempty"`
 
-	Management **WSGSystemStatisticListType `json:"management,omitempty"`
+	Management *WSGSystemStatisticListType `json:"management,omitempty"`
 
-	Memory **WSGSystemStatisticListType `json:"memory,omitempty"`
+	Memory *WSGSystemStatisticListType `json:"memory,omitempty"`
 
-	Port0 **WSGSystemStatisticListType `json:"port0,omitempty"`
+	Port0 *WSGSystemStatisticListType `json:"port0,omitempty"`
 
-	Port1 **WSGSystemStatisticListType `json:"port1,omitempty"`
+	Port1 *WSGSystemStatisticListType `json:"port1,omitempty"`
 
-	Port2 **WSGSystemStatisticListType `json:"port2,omitempty"`
+	Port2 *WSGSystemStatisticListType `json:"port2,omitempty"`
 
-	Port3 **WSGSystemStatisticListType `json:"port3,omitempty"`
+	Port3 *WSGSystemStatisticListType `json:"port3,omitempty"`
 
-	Port4 **WSGSystemStatisticListType `json:"port4,omitempty"`
+	Port4 *WSGSystemStatisticListType `json:"port4,omitempty"`
 
-	Port5 **WSGSystemStatisticListType `json:"port5,omitempty"`
+	Port5 *WSGSystemStatisticListType `json:"port5,omitempty"`
 
 	// Timestamp
 	// timestamp
@@ -1810,9 +1810,9 @@ type WSGSystemSettings struct {
 	// Enabled AP number limit feature or not
 	ApNumberLimitEnabled *bool `json:"apNumberLimitEnabled,omitempty"`
 
-	ApNumberLimitSettingsOfDomain []**WSGSystemSettings `json:"apNumberLimitSettingsOfDomain,omitempty"`
+	ApNumberLimitSettingsOfDomain []*WSGSystemSettings `json:"apNumberLimitSettingsOfDomain,omitempty"`
 
-	ApNumberLimitSettingsOfZone []**WSGSystemSettings `json:"apNumberLimitSettingsOfZone,omitempty"`
+	ApNumberLimitSettingsOfZone []*WSGSystemSettings `json:"apNumberLimitSettingsOfZone,omitempty"`
 }
 
 func NewWSGSystemSettings() *WSGSystemSettings {
@@ -1821,7 +1821,7 @@ func NewWSGSystemSettings() *WSGSystemSettings {
 }
 
 type WSGSystemTimeSetting struct {
-	AuthenticationKey **WSGSystemTimeSetting `json:"authenticationKey,omitempty"`
+	AuthenticationKey *WSGSystemTimeSetting `json:"authenticationKey,omitempty"`
 
 	// CurrentSystemTimeString
 	// System Time
@@ -1835,7 +1835,7 @@ type WSGSystemTimeSetting struct {
 	// NtpServer address
 	NtpServer *string `json:"ntpServer,omitempty"`
 
-	SecondaryAuthenticationKey **WSGSystemTimeSetting `json:"secondaryAuthenticationKey,omitempty"`
+	SecondaryAuthenticationKey *WSGSystemTimeSetting `json:"secondaryAuthenticationKey,omitempty"`
 
 	// SecondaryNtpServer
 	// Backup NtpServer address
@@ -1852,7 +1852,7 @@ func NewWSGSystemTimeSetting() *WSGSystemTimeSetting {
 }
 
 type WSGSystemUpdateApMacOUI struct {
-	Description **WSGSystemUpdateApMacOUI `json:"description,omitempty"`
+	Description *WSGSystemUpdateApMacOUI `json:"description,omitempty"`
 }
 
 func NewWSGSystemUpdateApMacOUI() *WSGSystemUpdateApMacOUI {
@@ -1874,7 +1874,7 @@ func NewWSGSystemUpdateDpMeshTunnelSetting() *WSGSystemUpdateDpMeshTunnelSetting
 type WSGSystemUserDefinedInterfaceList struct {
 	// UserDefinedInterface
 	// User defined interface for Control Plane
-	UserDefinedInterface []**WSGSystemUserDefinedInterfaceList `json:"userDefinedInterface,omitempty"`
+	UserDefinedInterface []*WSGSystemUserDefinedInterfaceList `json:"userDefinedInterface,omitempty"`
 }
 
 func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {

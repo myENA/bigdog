@@ -7,7 +7,7 @@ type WSGAlarmListAlarmQueryResultList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGAlarmListAlarmQueryResultList `json:"list,omitempty"`
+	List []*WSGAlarmListAlarmQueryResultList `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 

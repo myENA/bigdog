@@ -13,7 +13,7 @@ type WSGZoneApFirmware struct {
 
 	// UnsupportedApModelSummary
 	// summary of the AP Model is unsupported for AP firmware version.
-	UnsupportedApModelSummary []**WSGZoneApFirmware `json:"unsupportedApModelSummary,omitempty"`
+	UnsupportedApModelSummary []*WSGZoneApFirmware `json:"unsupportedApModelSummary,omitempty"`
 }
 
 func NewWSGZoneApFirmware() *WSGZoneApFirmware {
@@ -26,7 +26,7 @@ type WSGZoneApFirmwareList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGZoneApFirmwareList `json:"list,omitempty"`
+	List []*WSGZoneApFirmwareList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -40,12 +40,12 @@ type WSGZoneApLogin struct {
 	// ApLoginName
 	// Constraints:
 	//    - required
-	ApLoginName **WSGZoneApLogin `json:"apLoginName"`
+	ApLoginName *WSGZoneApLogin `json:"apLoginName"`
 
 	// ApLoginPassword
 	// Constraints:
 	//    - required
-	ApLoginPassword **WSGZoneApLogin `json:"apLoginPassword"`
+	ApLoginPassword *WSGZoneApLogin `json:"apLoginPassword"`
 }
 
 func NewWSGZoneApLogin() *WSGZoneApLogin {
@@ -60,11 +60,11 @@ type WSGZoneApSnmpOptions struct {
 
 	// SnmpV2Agent
 	// Community List of the SNMP V2 Agent.
-	SnmpV2Agent []**WSGZoneApSnmpOptions `json:"snmpV2Agent,omitempty"`
+	SnmpV2Agent []*WSGZoneApSnmpOptions `json:"snmpV2Agent,omitempty"`
 
 	// SnmpV3Agent
 	// User List of the SNMP V3 Agent.
-	SnmpV3Agent []**WSGZoneApSnmpOptions `json:"snmpV3Agent,omitempty"`
+	SnmpV3Agent []*WSGZoneApSnmpOptions `json:"snmpV3Agent,omitempty"`
 }
 
 func NewWSGZoneApSnmpOptions() *WSGZoneApSnmpOptions {
@@ -81,7 +81,7 @@ type WSGZoneAvailableTunnelProfile struct {
 	// Tunnel Profile ID
 	Id *string `json:"id,omitempty"`
 
-	IpMode **WSGZoneAvailableTunnelProfile `json:"ipMode,omitempty"`
+	IpMode *WSGZoneAvailableTunnelProfile `json:"ipMode,omitempty"`
 
 	// Name
 	// Tunnel Profile Name
@@ -104,7 +104,7 @@ type WSGZoneAvailableTunnelProfileList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGZoneAvailableTunnelProfileList `json:"list,omitempty"`
+	List []*WSGZoneAvailableTunnelProfileList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -147,11 +147,11 @@ func NewWSGZoneBandBalancing() *WSGZoneBandBalancing {
 type WSGZoneBonjourGatewayPolicyConfiguration struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
-	BonjourPolicyRuleList []**WSGZoneBonjourGatewayPolicyConfiguration `json:"bonjourPolicyRuleList,omitempty"`
+	BonjourPolicyRuleList []*WSGZoneBonjourGatewayPolicyConfiguration `json:"bonjourPolicyRuleList,omitempty"`
 
-	Description **WSGZoneBonjourGatewayPolicyConfiguration `json:"description,omitempty"`
+	Description *WSGZoneBonjourGatewayPolicyConfiguration `json:"description,omitempty"`
 
-	Name **WSGZoneBonjourGatewayPolicyConfiguration `json:"name,omitempty"`
+	Name *WSGZoneBonjourGatewayPolicyConfiguration `json:"name,omitempty"`
 }
 
 func NewWSGZoneBonjourGatewayPolicyConfiguration() *WSGZoneBonjourGatewayPolicyConfiguration {
@@ -164,7 +164,7 @@ type WSGZoneBonjourGatewayPolicyList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGZoneBonjourGatewayPolicyList `json:"list,omitempty"`
+	List []*WSGZoneBonjourGatewayPolicyList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -208,7 +208,7 @@ type WSGZoneBonjourPolicyRule struct {
 	// BridgeService
 	// Constraints:
 	//    - required
-	BridgeService **WSGZoneBonjourPolicyRule `json:"bridgeService"`
+	BridgeService *WSGZoneBonjourPolicyRule `json:"bridgeService"`
 
 	// FromVlan
 	// From VLAN
@@ -291,14 +291,14 @@ func NewWSGZoneClientLoadBalancing() *WSGZoneClientLoadBalancing {
 type WSGZoneCreateBonjourGatewayPolicy struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
-	BonjourPolicyRuleList []**WSGZoneCreateBonjourGatewayPolicy `json:"bonjourPolicyRuleList,omitempty"`
+	BonjourPolicyRuleList []*WSGZoneCreateBonjourGatewayPolicy `json:"bonjourPolicyRuleList,omitempty"`
 
-	Description **WSGZoneCreateBonjourGatewayPolicy `json:"description,omitempty"`
+	Description *WSGZoneCreateBonjourGatewayPolicy `json:"description,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGZoneCreateBonjourGatewayPolicy `json:"name"`
+	Name *WSGZoneCreateBonjourGatewayPolicy `json:"name"`
 }
 
 func NewWSGZoneCreateBonjourGatewayPolicy() *WSGZoneCreateBonjourGatewayPolicy {
@@ -307,20 +307,20 @@ func NewWSGZoneCreateBonjourGatewayPolicy() *WSGZoneCreateBonjourGatewayPolicy {
 }
 
 type WSGZoneCreateDiffServProfile struct {
-	Description **WSGZoneCreateDiffServProfile `json:"description,omitempty"`
+	Description *WSGZoneCreateDiffServProfile `json:"description,omitempty"`
 
-	DownlinkDiffServ **WSGZoneCreateDiffServProfile `json:"downlinkDiffServ,omitempty"`
+	DownlinkDiffServ *WSGZoneCreateDiffServProfile `json:"downlinkDiffServ,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGZoneCreateDiffServProfile `json:"name"`
+	Name *WSGZoneCreateDiffServProfile `json:"name"`
 
 	// PreservedList
 	// Preserved list
 	PreservedList []string `json:"preservedList,omitempty"`
 
-	UplinkDiffServ **WSGZoneCreateDiffServProfile `json:"uplinkDiffServ,omitempty"`
+	UplinkDiffServ *WSGZoneCreateDiffServProfile `json:"uplinkDiffServ,omitempty"`
 }
 
 func NewWSGZoneCreateDiffServProfile() *WSGZoneCreateDiffServProfile {
@@ -329,7 +329,7 @@ func NewWSGZoneCreateDiffServProfile() *WSGZoneCreateDiffServProfile {
 }
 
 type WSGZoneCreateZone struct {
-	Altitude **WSGZoneCreateZone `json:"altitude,omitempty"`
+	Altitude *WSGZoneCreateZone `json:"altitude,omitempty"`
 
 	// ApHccdEnabled
 	// Historical Connection Failures allows the AP to report historical client connection failures for this zone.
@@ -339,21 +339,21 @@ type WSGZoneCreateZone struct {
 	// Allow Historical Connection Failures to be persisted.
 	ApHccdPersist *bool `json:"apHccdPersist,omitempty"`
 
-	ApLatencyInterval **WSGZoneCreateZone `json:"apLatencyInterval,omitempty"`
+	ApLatencyInterval *WSGZoneCreateZone `json:"apLatencyInterval,omitempty"`
 
-	ApMgmtVlan **WSGZoneCreateZone `json:"apMgmtVlan,omitempty"`
+	ApMgmtVlan *WSGZoneCreateZone `json:"apMgmtVlan,omitempty"`
 
-	ApRebootTimeout **WSGZoneCreateZone `json:"apRebootTimeout,omitempty"`
+	ApRebootTimeout *WSGZoneCreateZone `json:"apRebootTimeout,omitempty"`
 
-	AutoChannelSelection24 **WSGZoneCreateZone `json:"autoChannelSelection24,omitempty"`
+	AutoChannelSelection24 *WSGZoneCreateZone `json:"autoChannelSelection24,omitempty"`
 
-	AutoChannelSelection50 **WSGZoneCreateZone `json:"autoChannelSelection50,omitempty"`
+	AutoChannelSelection50 *WSGZoneCreateZone `json:"autoChannelSelection50,omitempty"`
 
-	BackgroundScanning24 **WSGZoneCreateZone `json:"backgroundScanning24,omitempty"`
+	BackgroundScanning24 *WSGZoneCreateZone `json:"backgroundScanning24,omitempty"`
 
-	BackgroundScanning50 **WSGZoneCreateZone `json:"backgroundScanning50,omitempty"`
+	BackgroundScanning50 *WSGZoneCreateZone `json:"backgroundScanning50,omitempty"`
 
-	BonjourFencingPolicy **WSGZoneCreateZone `json:"bonjourFencingPolicy,omitempty"`
+	BonjourFencingPolicy *WSGZoneCreateZone `json:"bonjourFencingPolicy,omitempty"`
 
 	// BonjourFencingPolicyEnabled
 	// Enable Bonjour Fencing Policy on the AP
@@ -383,9 +383,9 @@ type WSGZoneCreateZone struct {
 	// Channel mode configuration of the zone.
 	ChannelModeEnabled *bool `json:"channelModeEnabled,omitempty"`
 
-	ClientAdmissionControl24 **WSGZoneCreateZone `json:"clientAdmissionControl24,omitempty"`
+	ClientAdmissionControl24 *WSGZoneCreateZone `json:"clientAdmissionControl24,omitempty"`
 
-	ClientAdmissionControl50 **WSGZoneCreateZone `json:"clientAdmissionControl50,omitempty"`
+	ClientAdmissionControl50 *WSGZoneCreateZone `json:"clientAdmissionControl50,omitempty"`
 
 	// ClusterRedundancyEnabled
 	// Enable Cluster redundancy on zone.
@@ -395,13 +395,13 @@ type WSGZoneCreateZone struct {
 	// Country code of the zone
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description **WSGZoneCreateZone `json:"description,omitempty"`
+	Description *WSGZoneCreateZone `json:"description,omitempty"`
 
 	// DfsChannelEnabled
 	// DFS Channel enabled configuration of the zone, only for the US country code.
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DhcpSiteConfig **WSGZoneCreateZone `json:"dhcpSiteConfig,omitempty"`
+	DhcpSiteConfig *WSGZoneCreateZone `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -447,11 +447,11 @@ type WSGZoneCreateZone struct {
 	// Enabled Health Check Sites.
 	HealthCheckSitesEnabled *bool `json:"healthCheckSitesEnabled,omitempty"`
 
-	IpsecProfile **WSGZoneCreateZone `json:"ipsecProfile,omitempty"`
+	IpsecProfile *WSGZoneCreateZone `json:"ipsecProfile,omitempty"`
 
 	// IpsecProfiles
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
-	IpsecProfiles []**WSGZoneCreateZone `json:"ipsecProfiles,omitempty"`
+	IpsecProfiles []*WSGZoneCreateZone `json:"ipsecProfiles,omitempty"`
 
 	// IpsecTunnelMode
 	// Constraints:
@@ -462,47 +462,47 @@ type WSGZoneCreateZone struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude **WSGZoneCreateZone `json:"latitude,omitempty"`
+	Latitude *WSGZoneCreateZone `json:"latitude,omitempty"`
 
-	LoadBalancing **WSGZoneCreateZone `json:"loadBalancing,omitempty"`
+	LoadBalancing *WSGZoneCreateZone `json:"loadBalancing,omitempty"`
 
-	Location **WSGZoneCreateZone `json:"location,omitempty"`
+	Location *WSGZoneCreateZone `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGZoneCreateZone `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGZoneCreateZone `json:"locationAdditionalInfo,omitempty"`
 
-	LocationBasedService **WSGZoneCreateZone `json:"locationBasedService,omitempty"`
+	LocationBasedService *WSGZoneCreateZone `json:"locationBasedService,omitempty"`
 
 	// Login
 	// Constraints:
 	//    - required
-	Login **WSGZoneCreateZone `json:"login"`
+	Login *WSGZoneCreateZone `json:"login"`
 
-	Longitude **WSGZoneCreateZone `json:"longitude,omitempty"`
+	Longitude *WSGZoneCreateZone `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []**WSGZoneCreateZone `json:"lteBandLockChannels,omitempty"`
+	LteBandLockChannels []*WSGZoneCreateZone `json:"lteBandLockChannels,omitempty"`
 
-	Mesh **WSGZoneCreateZone `json:"mesh,omitempty"`
+	Mesh *WSGZoneCreateZone `json:"mesh,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGZoneCreateZone `json:"name"`
+	Name *WSGZoneCreateZone `json:"name"`
 
-	NodeAffinityProfile **WSGZoneCreateZone `json:"nodeAffinityProfile,omitempty"`
+	NodeAffinityProfile *WSGZoneCreateZone `json:"nodeAffinityProfile,omitempty"`
 
 	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
 
-	ProtectionMode24 **WSGZoneCreateZone `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *WSGZoneCreateZone `json:"protectionMode24,omitempty"`
 
-	RecoverySsid **WSGZoneCreateZone `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGZoneCreateZone `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
 	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
-	Rogue **WSGZoneCreateZone `json:"rogue,omitempty"`
+	Rogue *WSGZoneCreateZone `json:"rogue,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
@@ -518,15 +518,15 @@ type WSGZoneCreateZone struct {
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
-	RuckusGreTunnelProfile **WSGZoneCreateZone `json:"ruckusGreTunnelProfile,omitempty"`
+	RuckusGreTunnelProfile *WSGZoneCreateZone `json:"ruckusGreTunnelProfile,omitempty"`
 
-	SmartMonitor **WSGZoneCreateZone `json:"smartMonitor,omitempty"`
+	SmartMonitor *WSGZoneCreateZone `json:"smartMonitor,omitempty"`
 
-	SnmpAgent **WSGZoneCreateZone `json:"snmpAgent,omitempty"`
+	SnmpAgent *WSGZoneCreateZone `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
-	SoftGreTunnelProflies []**WSGZoneCreateZone `json:"softGreTunnelProflies,omitempty"`
+	SoftGreTunnelProflies []*WSGZoneCreateZone `json:"softGreTunnelProflies,omitempty"`
 
 	// SshTunnelEncryption
 	// Constraints:
@@ -534,25 +534,25 @@ type WSGZoneCreateZone struct {
 	//    - oneof:[AES128,AES256]
 	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty"`
 
-	Syslog **WSGZoneCreateZone `json:"syslog,omitempty"`
+	Syslog *WSGZoneCreateZone `json:"syslog,omitempty"`
 
-	Timezone **WSGZoneCreateZone `json:"timezone,omitempty"`
+	Timezone *WSGZoneCreateZone `json:"timezone,omitempty"`
 
-	TunnelProfile **WSGZoneCreateZone `json:"tunnelProfile,omitempty"`
+	TunnelProfile *WSGZoneCreateZone `json:"tunnelProfile,omitempty"`
 
-	TunnelType **WSGZoneCreateZone `json:"tunnelType,omitempty"`
+	TunnelType *WSGZoneCreateZone `json:"tunnelType,omitempty"`
 
-	VenueProfile **WSGZoneCreateZone `json:"venueProfile,omitempty"`
+	VenueProfile *WSGZoneCreateZone `json:"venueProfile,omitempty"`
 
-	Version **WSGZoneCreateZone `json:"version,omitempty"`
+	Version *WSGZoneCreateZone `json:"version,omitempty"`
 
 	// VlanOverlappingEnabled
 	// VLAN pooling overlapping of the zone
 	VlanOverlappingEnabled *bool `json:"vlanOverlappingEnabled,omitempty"`
 
-	Wifi24 **WSGZoneCreateZone `json:"wifi24,omitempty"`
+	Wifi24 *WSGZoneCreateZone `json:"wifi24,omitempty"`
 
-	Wifi50 **WSGZoneCreateZone `json:"wifi50,omitempty"`
+	Wifi50 *WSGZoneCreateZone `json:"wifi50,omitempty"`
 
 	// ZoneAffinityProfileId
 	// Zone affinity profile of the zone
@@ -571,7 +571,7 @@ type WSGZoneCustomizedTimeZone struct {
 	//    - required
 	Abbreviation *string `json:"abbreviation"`
 
-	End **WSGZoneCustomizedTimeZone `json:"end,omitempty"`
+	End *WSGZoneCustomizedTimeZone `json:"end,omitempty"`
 
 	// GmtOffset
 	// GMT offset
@@ -589,7 +589,7 @@ type WSGZoneCustomizedTimeZone struct {
 	//    - max:59
 	GmtOffsetMinute *int `json:"gmtOffsetMinute"`
 
-	Start **WSGZoneCustomizedTimeZone `json:"start,omitempty"`
+	Start *WSGZoneCustomizedTimeZone `json:"start,omitempty"`
 }
 
 func NewWSGZoneCustomizedTimeZone() *WSGZoneCustomizedTimeZone {
@@ -638,7 +638,7 @@ type WSGZoneDhcpSiteConfigList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGZoneDhcpSiteConfigList `json:"list,omitempty"`
+	List []*WSGZoneDhcpSiteConfigList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -649,21 +649,21 @@ func NewWSGZoneDhcpSiteConfigList() *WSGZoneDhcpSiteConfigList {
 }
 
 type WSGZoneDiffServConfiguration struct {
-	Description **WSGZoneDiffServConfiguration `json:"description,omitempty"`
+	Description *WSGZoneDiffServConfiguration `json:"description,omitempty"`
 
-	DownlinkDiffServ **WSGZoneDiffServConfiguration `json:"downlinkDiffServ,omitempty"`
+	DownlinkDiffServ *WSGZoneDiffServConfiguration `json:"downlinkDiffServ,omitempty"`
 
 	// Id
 	// Identifier of the zone
 	Id *string `json:"id,omitempty"`
 
-	Name **WSGZoneDiffServConfiguration `json:"name,omitempty"`
+	Name *WSGZoneDiffServConfiguration `json:"name,omitempty"`
 
 	// PreservedList
 	// Preserved list
 	PreservedList []string `json:"preservedList,omitempty"`
 
-	UplinkDiffServ **WSGZoneDiffServConfiguration `json:"uplinkDiffServ,omitempty"`
+	UplinkDiffServ *WSGZoneDiffServConfiguration `json:"uplinkDiffServ,omitempty"`
 }
 
 func NewWSGZoneDiffServConfiguration() *WSGZoneDiffServConfiguration {
@@ -676,7 +676,7 @@ type WSGZoneDiffServList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGZoneDiffServList `json:"list,omitempty"`
+	List []*WSGZoneDiffServList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -717,11 +717,11 @@ func NewWSGZoneDownlinkDiffServ() *WSGZoneDownlinkDiffServ {
 }
 
 type WSGZoneLoadBalancing struct {
-	BandBalancing **WSGZoneLoadBalancing `json:"bandBalancing,omitempty"`
+	BandBalancing *WSGZoneLoadBalancing `json:"bandBalancing,omitempty"`
 
-	ClientLoadBalancing24 **WSGZoneLoadBalancing `json:"clientLoadBalancing24,omitempty"`
+	ClientLoadBalancing24 *WSGZoneLoadBalancing `json:"clientLoadBalancing24,omitempty"`
 
-	ClientLoadBalancing50 **WSGZoneLoadBalancing `json:"clientLoadBalancing50,omitempty"`
+	ClientLoadBalancing50 *WSGZoneLoadBalancing `json:"clientLoadBalancing50,omitempty"`
 
 	// LoadBalancingMethod
 	// Constraints:
@@ -793,11 +793,11 @@ func NewWSGZoneModifyBonjourGatewayEnable() *WSGZoneModifyBonjourGatewayEnable {
 type WSGZoneModifyBonjourGatewayPolicy struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
-	BonjourPolicyRuleList []**WSGZoneModifyBonjourGatewayPolicy `json:"bonjourPolicyRuleList,omitempty"`
+	BonjourPolicyRuleList []*WSGZoneModifyBonjourGatewayPolicy `json:"bonjourPolicyRuleList,omitempty"`
 
-	Description **WSGZoneModifyBonjourGatewayPolicy `json:"description,omitempty"`
+	Description *WSGZoneModifyBonjourGatewayPolicy `json:"description,omitempty"`
 
-	Name **WSGZoneModifyBonjourGatewayPolicy `json:"name,omitempty"`
+	Name *WSGZoneModifyBonjourGatewayPolicy `json:"name,omitempty"`
 }
 
 func NewWSGZoneModifyBonjourGatewayPolicy() *WSGZoneModifyBonjourGatewayPolicy {
@@ -806,20 +806,20 @@ func NewWSGZoneModifyBonjourGatewayPolicy() *WSGZoneModifyBonjourGatewayPolicy {
 }
 
 type WSGZoneModifyDiffServProfile struct {
-	Description **WSGZoneModifyDiffServProfile `json:"description,omitempty"`
+	Description *WSGZoneModifyDiffServProfile `json:"description,omitempty"`
 
-	DownlinkDiffServ **WSGZoneModifyDiffServProfile `json:"downlinkDiffServ,omitempty"`
+	DownlinkDiffServ *WSGZoneModifyDiffServProfile `json:"downlinkDiffServ,omitempty"`
 
 	// Name
 	// Constraints:
 	//    - required
-	Name **WSGZoneModifyDiffServProfile `json:"name"`
+	Name *WSGZoneModifyDiffServProfile `json:"name"`
 
 	// PreservedList
 	// Preserved list
 	PreservedList []string `json:"preservedList,omitempty"`
 
-	UplinkDiffServ **WSGZoneModifyDiffServProfile `json:"uplinkDiffServ,omitempty"`
+	UplinkDiffServ *WSGZoneModifyDiffServProfile `json:"uplinkDiffServ,omitempty"`
 }
 
 func NewWSGZoneModifyDiffServProfile() *WSGZoneModifyDiffServProfile {
@@ -830,7 +830,7 @@ func NewWSGZoneModifyDiffServProfile() *WSGZoneModifyDiffServProfile {
 type WSGZoneModifyZone struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
-	Altitude **WSGZoneModifyZone `json:"altitude,omitempty"`
+	Altitude *WSGZoneModifyZone `json:"altitude,omitempty"`
 
 	// ApHccdEnabled
 	// Historical Connection Failures allows the AP to report historical client connection failures for this zone.
@@ -840,23 +840,23 @@ type WSGZoneModifyZone struct {
 	// Allow Historical Connection Failures to be persisted.
 	ApHccdPersist *bool `json:"apHccdPersist,omitempty"`
 
-	ApLatencyInterval **WSGZoneModifyZone `json:"apLatencyInterval,omitempty"`
+	ApLatencyInterval *WSGZoneModifyZone `json:"apLatencyInterval,omitempty"`
 
-	ApMgmtVlan **WSGZoneModifyZone `json:"apMgmtVlan,omitempty"`
+	ApMgmtVlan *WSGZoneModifyZone `json:"apMgmtVlan,omitempty"`
 
-	ApRebootTimeout **WSGZoneModifyZone `json:"apRebootTimeout,omitempty"`
+	ApRebootTimeout *WSGZoneModifyZone `json:"apRebootTimeout,omitempty"`
 
-	AutoChannelSelection24 **WSGZoneModifyZone `json:"autoChannelSelection24,omitempty"`
+	AutoChannelSelection24 *WSGZoneModifyZone `json:"autoChannelSelection24,omitempty"`
 
-	AutoChannelSelection50 **WSGZoneModifyZone `json:"autoChannelSelection50,omitempty"`
+	AutoChannelSelection50 *WSGZoneModifyZone `json:"autoChannelSelection50,omitempty"`
 
-	AwsVenue **WSGZoneModifyZone `json:"awsVenue,omitempty"`
+	AwsVenue *WSGZoneModifyZone `json:"awsVenue,omitempty"`
 
-	BackgroundScanning24 **WSGZoneModifyZone `json:"backgroundScanning24,omitempty"`
+	BackgroundScanning24 *WSGZoneModifyZone `json:"backgroundScanning24,omitempty"`
 
-	BackgroundScanning50 **WSGZoneModifyZone `json:"backgroundScanning50,omitempty"`
+	BackgroundScanning50 *WSGZoneModifyZone `json:"backgroundScanning50,omitempty"`
 
-	BonjourFencingPolicy **WSGZoneModifyZone `json:"bonjourFencingPolicy,omitempty"`
+	BonjourFencingPolicy *WSGZoneModifyZone `json:"bonjourFencingPolicy,omitempty"`
 
 	// BonjourFencingPolicyEnabled
 	// Enable Bonjour Fencing Policy on the AP
@@ -886,9 +886,9 @@ type WSGZoneModifyZone struct {
 	// Channel mode configuration of the zone.
 	ChannelModeEnabled *bool `json:"channelModeEnabled,omitempty"`
 
-	ClientAdmissionControl24 **WSGZoneModifyZone `json:"clientAdmissionControl24,omitempty"`
+	ClientAdmissionControl24 *WSGZoneModifyZone `json:"clientAdmissionControl24,omitempty"`
 
-	ClientAdmissionControl50 **WSGZoneModifyZone `json:"clientAdmissionControl50,omitempty"`
+	ClientAdmissionControl50 *WSGZoneModifyZone `json:"clientAdmissionControl50,omitempty"`
 
 	// ClusterRedundancyEnabled
 	// Enable Cluster redundancy on zone
@@ -898,13 +898,13 @@ type WSGZoneModifyZone struct {
 	// Country code of the zone
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description **WSGZoneModifyZone `json:"description,omitempty"`
+	Description *WSGZoneModifyZone `json:"description,omitempty"`
 
 	// DfsChannelEnabled
 	// DFS Channel enabled configuration of the zone, only for the US country code .
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DhcpSiteConfig **WSGZoneModifyZone `json:"dhcpSiteConfig,omitempty"`
+	DhcpSiteConfig *WSGZoneModifyZone `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -950,11 +950,11 @@ type WSGZoneModifyZone struct {
 	// Enabled Health Check Sites.
 	HealthCheckSitesEnabled *bool `json:"healthCheckSitesEnabled,omitempty"`
 
-	IpsecProfile **WSGZoneModifyZone `json:"ipsecProfile,omitempty"`
+	IpsecProfile *WSGZoneModifyZone `json:"ipsecProfile,omitempty"`
 
 	// IpsecProfiles
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
-	IpsecProfiles []**WSGZoneModifyZone `json:"ipsecProfiles,omitempty"`
+	IpsecProfiles []*WSGZoneModifyZone `json:"ipsecProfiles,omitempty"`
 
 	// IpsecTunnelMode
 	// Constraints:
@@ -965,35 +965,35 @@ type WSGZoneModifyZone struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude **WSGZoneModifyZone `json:"latitude,omitempty"`
+	Latitude *WSGZoneModifyZone `json:"latitude,omitempty"`
 
-	LoadBalancing **WSGZoneModifyZone `json:"loadBalancing,omitempty"`
+	LoadBalancing *WSGZoneModifyZone `json:"loadBalancing,omitempty"`
 
-	Location **WSGZoneModifyZone `json:"location,omitempty"`
+	Location *WSGZoneModifyZone `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGZoneModifyZone `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGZoneModifyZone `json:"locationAdditionalInfo,omitempty"`
 
-	LocationBasedService **WSGZoneModifyZone `json:"locationBasedService,omitempty"`
+	LocationBasedService *WSGZoneModifyZone `json:"locationBasedService,omitempty"`
 
-	Login **WSGZoneModifyZone `json:"login,omitempty"`
+	Login *WSGZoneModifyZone `json:"login,omitempty"`
 
-	Longitude **WSGZoneModifyZone `json:"longitude,omitempty"`
+	Longitude *WSGZoneModifyZone `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []**WSGZoneModifyZone `json:"lteBandLockChannels,omitempty"`
+	LteBandLockChannels []*WSGZoneModifyZone `json:"lteBandLockChannels,omitempty"`
 
-	Mesh **WSGZoneModifyZone `json:"mesh,omitempty"`
+	Mesh *WSGZoneModifyZone `json:"mesh,omitempty"`
 
-	Name **WSGZoneModifyZone `json:"name,omitempty"`
+	Name *WSGZoneModifyZone `json:"name,omitempty"`
 
-	NodeAffinityProfile **WSGZoneModifyZone `json:"nodeAffinityProfile,omitempty"`
+	NodeAffinityProfile *WSGZoneModifyZone `json:"nodeAffinityProfile,omitempty"`
 
 	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
 
-	ProtectionMode24 **WSGZoneModifyZone `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *WSGZoneModifyZone `json:"protectionMode24,omitempty"`
 
-	RecoverySsid **WSGZoneModifyZone `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGZoneModifyZone `json:"recoverySsid,omitempty"`
 
 	// RestrictedApAccessEnabled
 	// Enable Restricted AP Access of the zone.
@@ -1007,7 +1007,7 @@ type WSGZoneModifyZone struct {
 	// Ruckus GRE tunnel broadcast packet forwarding
 	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
-	Rogue **WSGZoneModifyZone `json:"rogue,omitempty"`
+	Rogue *WSGZoneModifyZone `json:"rogue,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
@@ -1023,38 +1023,38 @@ type WSGZoneModifyZone struct {
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
-	RuckusGreTunnelProfile **WSGZoneModifyZone `json:"ruckusGreTunnelProfile,omitempty"`
+	RuckusGreTunnelProfile *WSGZoneModifyZone `json:"ruckusGreTunnelProfile,omitempty"`
 
-	SmartMonitor **WSGZoneModifyZone `json:"smartMonitor,omitempty"`
+	SmartMonitor *WSGZoneModifyZone `json:"smartMonitor,omitempty"`
 
-	SnmpAgent **WSGZoneModifyZone `json:"snmpAgent,omitempty"`
+	SnmpAgent *WSGZoneModifyZone `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
-	SoftGreTunnelProflies []**WSGZoneModifyZone `json:"softGreTunnelProflies,omitempty"`
+	SoftGreTunnelProflies []*WSGZoneModifyZone `json:"softGreTunnelProflies,omitempty"`
 
 	// SshTunnelEncryption
 	// Constraints:
 	//    - oneof:[AES128,AES256]
 	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty"`
 
-	Syslog **WSGZoneModifyZone `json:"syslog,omitempty"`
+	Syslog *WSGZoneModifyZone `json:"syslog,omitempty"`
 
-	Timezone **WSGZoneModifyZone `json:"timezone,omitempty"`
+	Timezone *WSGZoneModifyZone `json:"timezone,omitempty"`
 
-	TunnelProfile **WSGZoneModifyZone `json:"tunnelProfile,omitempty"`
+	TunnelProfile *WSGZoneModifyZone `json:"tunnelProfile,omitempty"`
 
-	TunnelType **WSGZoneModifyZone `json:"tunnelType,omitempty"`
+	TunnelType *WSGZoneModifyZone `json:"tunnelType,omitempty"`
 
-	VenueProfile **WSGZoneModifyZone `json:"venueProfile,omitempty"`
+	VenueProfile *WSGZoneModifyZone `json:"venueProfile,omitempty"`
 
 	// VlanOverlappingEnabled
 	// VLAN pooling overlapping of the zone
 	VlanOverlappingEnabled *bool `json:"vlanOverlappingEnabled,omitempty"`
 
-	Wifi24 **WSGZoneModifyZone `json:"wifi24,omitempty"`
+	Wifi24 *WSGZoneModifyZone `json:"wifi24,omitempty"`
 
-	Wifi50 **WSGZoneModifyZone `json:"wifi50,omitempty"`
+	Wifi50 *WSGZoneModifyZone `json:"wifi50,omitempty"`
 
 	// ZoneAffinityProfileId
 	// Identifier of the ZoneAffinityProfile
@@ -1081,19 +1081,19 @@ type WSGZoneQueryCriteria struct {
 
 	// ExtraFilters
 	// "AND" condition for multiple filters
-	ExtraFilters []**WSGZoneQueryCriteria `json:"extraFilters,omitempty"`
+	ExtraFilters []*WSGZoneQueryCriteria `json:"extraFilters,omitempty"`
 
 	// ExtraNotFilters
 	// "NOT" condition for multiple filters
-	ExtraNotFilters []**WSGZoneQueryCriteria `json:"extraNotFilters,omitempty"`
+	ExtraNotFilters []*WSGZoneQueryCriteria `json:"extraNotFilters,omitempty"`
 
-	ExtraTimeRange **WSGZoneQueryCriteria `json:"extraTimeRange,omitempty"`
+	ExtraTimeRange *WSGZoneQueryCriteria `json:"extraTimeRange,omitempty"`
 
 	// Filters
 	// Filters used to select specific resource scope
-	Filters []**WSGZoneQueryCriteria `json:"filters,omitempty"`
+	Filters []*WSGZoneQueryCriteria `json:"filters,omitempty"`
 
-	FullTextSearch **WSGZoneQueryCriteria `json:"fullTextSearch,omitempty"`
+	FullTextSearch *WSGZoneQueryCriteria `json:"fullTextSearch,omitempty"`
 
 	// Limit
 	// Size of one page
@@ -1103,7 +1103,7 @@ type WSGZoneQueryCriteria struct {
 
 	// Options
 	// Specified feature required information.
-	Options **WSGZoneQueryCriteria `json:"options,omitempty"`
+	Options *WSGZoneQueryCriteria `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -1117,7 +1117,7 @@ type WSGZoneQueryCriteria struct {
 
 	// SortInfo
 	// About sorting
-	SortInfo **WSGZoneQueryCriteria `json:"sortInfo,omitempty"`
+	SortInfo *WSGZoneQueryCriteria `json:"sortInfo,omitempty"`
 }
 
 func NewWSGZoneQueryCriteria() *WSGZoneQueryCriteria {
@@ -1126,7 +1126,7 @@ func NewWSGZoneQueryCriteria() *WSGZoneQueryCriteria {
 }
 
 type WSGZoneQueryCriteriaExtraFiltersType struct {
-	Operator **WSGZoneQueryCriteriaExtraFiltersType `json:"operator,omitempty"`
+	Operator *WSGZoneQueryCriteriaExtraFiltersType `json:"operator,omitempty"`
 
 	// Type
 	// Filters for specific attribute
@@ -1181,7 +1181,7 @@ type WSGZoneQueryCriteriaOptionsType struct {
 	// Include the resources of parent domain as well while querying.
 	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
 
-	Zoneipmode **WSGZoneQueryCriteriaOptionsType `json:"zone_ipmode,omitempty"`
+	Zoneipmode *WSGZoneQueryCriteriaOptionsType `json:"zone_ipmode,omitempty"`
 }
 
 func NewWSGZoneQueryCriteriaOptionsType() *WSGZoneQueryCriteriaOptionsType {
@@ -1231,7 +1231,7 @@ type WSGZoneSnmpUser struct {
 
 	// NotificationTarget
 	// Trap List of the SNMP User
-	NotificationTarget []**WSGZoneSnmpUser `json:"notificationTarget,omitempty"`
+	NotificationTarget []*WSGZoneSnmpUser `json:"notificationTarget,omitempty"`
 
 	// NotificationType
 	// type of the notification privilege
@@ -1285,7 +1285,7 @@ func NewWSGZoneSoftGreRef() *WSGZoneSoftGreRef {
 }
 
 type WSGZoneSyslog struct {
-	Address **WSGZoneSyslog `json:"address,omitempty"`
+	Address *WSGZoneSyslog `json:"address,omitempty"`
 
 	// Facility
 	// Facility of the syslog server
@@ -1323,7 +1323,7 @@ type WSGZoneSyslog struct {
 	//    - oneof:[IPPROTO_TCP,IPPROTO_UDP]
 	Protocol *string `json:"protocol,omitempty"`
 
-	SecondaryAddress **WSGZoneSyslog `json:"secondaryAddress,omitempty"`
+	SecondaryAddress *WSGZoneSyslog `json:"secondaryAddress,omitempty"`
 
 	// SecondaryPort
 	// Secondary Server Port of the syslog server
@@ -1347,7 +1347,7 @@ func NewWSGZoneSyslog() *WSGZoneSyslog {
 }
 
 type WSGZoneTimezoneSetting struct {
-	CustomizedTimezone **WSGZoneTimezoneSetting `json:"customizedTimezone,omitempty"`
+	CustomizedTimezone *WSGZoneTimezoneSetting `json:"customizedTimezone,omitempty"`
 
 	// SystemTimezone
 	// System defined time zone, please refer to the 'Overview > Time Zone' list
@@ -1392,7 +1392,7 @@ func NewWSGZoneUplinkDiffServ() *WSGZoneUplinkDiffServ {
 type WSGZoneConfiguration struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
-	Altitude **WSGZoneConfiguration `json:"altitude,omitempty"`
+	Altitude *WSGZoneConfiguration `json:"altitude,omitempty"`
 
 	// ApHccdEnabled
 	// Historical Connection Failures allows the AP to report historical client connection failures for this zone.
@@ -1402,23 +1402,23 @@ type WSGZoneConfiguration struct {
 	// Allow Historical Connection Failures to be persisted.
 	ApHccdPersist *bool `json:"apHccdPersist,omitempty"`
 
-	ApLatencyInterval **WSGZoneConfiguration `json:"apLatencyInterval,omitempty"`
+	ApLatencyInterval *WSGZoneConfiguration `json:"apLatencyInterval,omitempty"`
 
-	ApMgmtVlan **WSGZoneConfiguration `json:"apMgmtVlan,omitempty"`
+	ApMgmtVlan *WSGZoneConfiguration `json:"apMgmtVlan,omitempty"`
 
-	ApRebootTimeout **WSGZoneConfiguration `json:"apRebootTimeout,omitempty"`
+	ApRebootTimeout *WSGZoneConfiguration `json:"apRebootTimeout,omitempty"`
 
-	AutoChannelSelection24 **WSGZoneConfiguration `json:"autoChannelSelection24,omitempty"`
+	AutoChannelSelection24 *WSGZoneConfiguration `json:"autoChannelSelection24,omitempty"`
 
-	AutoChannelSelection50 **WSGZoneConfiguration `json:"autoChannelSelection50,omitempty"`
+	AutoChannelSelection50 *WSGZoneConfiguration `json:"autoChannelSelection50,omitempty"`
 
-	AwsVenue **WSGZoneConfiguration `json:"awsVenue,omitempty"`
+	AwsVenue *WSGZoneConfiguration `json:"awsVenue,omitempty"`
 
-	BackgroundScanning24 **WSGZoneConfiguration `json:"backgroundScanning24,omitempty"`
+	BackgroundScanning24 *WSGZoneConfiguration `json:"backgroundScanning24,omitempty"`
 
-	BackgroundScanning50 **WSGZoneConfiguration `json:"backgroundScanning50,omitempty"`
+	BackgroundScanning50 *WSGZoneConfiguration `json:"backgroundScanning50,omitempty"`
 
-	BonjourFencingPolicy **WSGZoneConfiguration `json:"bonjourFencingPolicy,omitempty"`
+	BonjourFencingPolicy *WSGZoneConfiguration `json:"bonjourFencingPolicy,omitempty"`
 
 	// BonjourFencingPolicyEnabled
 	// Enable Bonjour Fencing Policy on the AP
@@ -1448,9 +1448,9 @@ type WSGZoneConfiguration struct {
 	// Channel mode configuration of the zone.
 	ChannelModeEnabled *bool `json:"channelModeEnabled,omitempty"`
 
-	ClientAdmissionControl24 **WSGZoneConfiguration `json:"clientAdmissionControl24,omitempty"`
+	ClientAdmissionControl24 *WSGZoneConfiguration `json:"clientAdmissionControl24,omitempty"`
 
-	ClientAdmissionControl50 **WSGZoneConfiguration `json:"clientAdmissionControl50,omitempty"`
+	ClientAdmissionControl50 *WSGZoneConfiguration `json:"clientAdmissionControl50,omitempty"`
 
 	// ClusterRedundancyEnabled
 	// Enable Cluster redundancy on zone
@@ -1460,13 +1460,13 @@ type WSGZoneConfiguration struct {
 	// Country code of the zone
 	CountryCode *string `json:"countryCode,omitempty"`
 
-	Description **WSGZoneConfiguration `json:"description,omitempty"`
+	Description *WSGZoneConfiguration `json:"description,omitempty"`
 
 	// DfsChannelEnabled
 	// DFS Channel enabled configuration of the zone, only for the US country code .
 	DfsChannelEnabled *bool `json:"dfsChannelEnabled,omitempty"`
 
-	DhcpSiteConfig **WSGZoneConfiguration `json:"dhcpSiteConfig,omitempty"`
+	DhcpSiteConfig *WSGZoneConfiguration `json:"dhcpSiteConfig,omitempty"`
 
 	// DirectedMulticastFromNetworkEnabled
 	// Directed multicast from network.
@@ -1514,13 +1514,13 @@ type WSGZoneConfiguration struct {
 	// Identifier of the zone
 	Id *string `json:"id,omitempty"`
 
-	IpMode **WSGZoneConfiguration `json:"ipMode,omitempty"`
+	IpMode *WSGZoneConfiguration `json:"ipMode,omitempty"`
 
-	IpsecProfile **WSGZoneConfiguration `json:"ipsecProfile,omitempty"`
+	IpsecProfile *WSGZoneConfiguration `json:"ipsecProfile,omitempty"`
 
 	// IpsecProfiles
 	// Ipsec profile for Multiple Tunnel (Start from SZ 5.0)
-	IpsecProfiles []**WSGZoneConfiguration `json:"ipsecProfiles,omitempty"`
+	IpsecProfiles []*WSGZoneConfiguration `json:"ipsecProfiles,omitempty"`
 
 	// IpsecTunnelMode
 	// Constraints:
@@ -1531,35 +1531,35 @@ type WSGZoneConfiguration struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude **WSGZoneConfiguration `json:"latitude,omitempty"`
+	Latitude *WSGZoneConfiguration `json:"latitude,omitempty"`
 
-	LoadBalancing **WSGZoneConfiguration `json:"loadBalancing,omitempty"`
+	LoadBalancing *WSGZoneConfiguration `json:"loadBalancing,omitempty"`
 
-	Location **WSGZoneConfiguration `json:"location,omitempty"`
+	Location *WSGZoneConfiguration `json:"location,omitempty"`
 
-	LocationAdditionalInfo **WSGZoneConfiguration `json:"locationAdditionalInfo,omitempty"`
+	LocationAdditionalInfo *WSGZoneConfiguration `json:"locationAdditionalInfo,omitempty"`
 
-	LocationBasedService **WSGZoneConfiguration `json:"locationBasedService,omitempty"`
+	LocationBasedService *WSGZoneConfiguration `json:"locationBasedService,omitempty"`
 
-	Login **WSGZoneConfiguration `json:"login,omitempty"`
+	Login *WSGZoneConfiguration `json:"login,omitempty"`
 
-	Longitude **WSGZoneConfiguration `json:"longitude,omitempty"`
+	Longitude *WSGZoneConfiguration `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
-	LteBandLockChannels []**WSGZoneConfiguration `json:"lteBandLockChannels,omitempty"`
+	LteBandLockChannels []*WSGZoneConfiguration `json:"lteBandLockChannels,omitempty"`
 
-	Mesh **WSGZoneConfiguration `json:"mesh,omitempty"`
+	Mesh *WSGZoneConfiguration `json:"mesh,omitempty"`
 
-	Name **WSGZoneConfiguration `json:"name,omitempty"`
+	Name *WSGZoneConfiguration `json:"name,omitempty"`
 
-	NodeAffinityProfile **WSGZoneConfiguration `json:"nodeAffinityProfile,omitempty"`
+	NodeAffinityProfile *WSGZoneConfiguration `json:"nodeAffinityProfile,omitempty"`
 
 	PaloAltoFirewallProfileId *string `json:"paloAltoFirewallProfileId,omitempty"`
 
-	ProtectionMode24 **WSGZoneConfiguration `json:"protectionMode24,omitempty"`
+	ProtectionMode24 *WSGZoneConfiguration `json:"protectionMode24,omitempty"`
 
-	RecoverySsid **WSGZoneConfiguration `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGZoneConfiguration `json:"recoverySsid,omitempty"`
 
 	// RestrictedApAccessEnabled
 	// Enable Restricted AP Access of the zone.
@@ -1573,7 +1573,7 @@ type WSGZoneConfiguration struct {
 	// Ruckus GRE tunnel broadcast packet forwarding
 	RksGreForwardBroadcast *bool `json:"rksGreForwardBroadcast,omitempty"`
 
-	Rogue **WSGZoneConfiguration `json:"rogue,omitempty"`
+	Rogue *WSGZoneConfiguration `json:"rogue,omitempty"`
 
 	// RogueApAggressivenessMode
 	// Adjust the frequency interval to de-authenticate rogue APs.
@@ -1589,40 +1589,40 @@ type WSGZoneConfiguration struct {
 	// Rogue AP report will leave out all entries that have signal strength lower than this threshold.
 	RogueApReportThreshold *int `json:"rogueApReportThreshold,omitempty"`
 
-	RuckusGreTunnelProfile **WSGZoneConfiguration `json:"ruckusGreTunnelProfile,omitempty"`
+	RuckusGreTunnelProfile *WSGZoneConfiguration `json:"ruckusGreTunnelProfile,omitempty"`
 
-	SmartMonitor **WSGZoneConfiguration `json:"smartMonitor,omitempty"`
+	SmartMonitor *WSGZoneConfiguration `json:"smartMonitor,omitempty"`
 
-	SnmpAgent **WSGZoneConfiguration `json:"snmpAgent,omitempty"`
+	SnmpAgent *WSGZoneConfiguration `json:"snmpAgent,omitempty"`
 
 	// SoftGreTunnelProflies
 	// SoftGRE Profiles for Multiple Tunnel (Start from SZ 5.0)
-	SoftGreTunnelProflies []**WSGZoneConfiguration `json:"softGreTunnelProflies,omitempty"`
+	SoftGreTunnelProflies []*WSGZoneConfiguration `json:"softGreTunnelProflies,omitempty"`
 
 	// SshTunnelEncryption
 	// Constraints:
 	//    - oneof:[AES128,AES256]
 	SshTunnelEncryption *string `json:"sshTunnelEncryption,omitempty"`
 
-	Syslog **WSGZoneConfiguration `json:"syslog,omitempty"`
+	Syslog *WSGZoneConfiguration `json:"syslog,omitempty"`
 
-	Timezone **WSGZoneConfiguration `json:"timezone,omitempty"`
+	Timezone *WSGZoneConfiguration `json:"timezone,omitempty"`
 
-	TunnelProfile **WSGZoneConfiguration `json:"tunnelProfile,omitempty"`
+	TunnelProfile *WSGZoneConfiguration `json:"tunnelProfile,omitempty"`
 
-	TunnelType **WSGZoneConfiguration `json:"tunnelType,omitempty"`
+	TunnelType *WSGZoneConfiguration `json:"tunnelType,omitempty"`
 
-	VenueProfile **WSGZoneConfiguration `json:"venueProfile,omitempty"`
+	VenueProfile *WSGZoneConfiguration `json:"venueProfile,omitempty"`
 
-	Version **WSGZoneConfiguration `json:"version,omitempty"`
+	Version *WSGZoneConfiguration `json:"version,omitempty"`
 
 	// VlanOverlappingEnabled
 	// VLAN pooling overlapping of the zone
 	VlanOverlappingEnabled *bool `json:"vlanOverlappingEnabled,omitempty"`
 
-	Wifi24 **WSGZoneConfiguration `json:"wifi24,omitempty"`
+	Wifi24 *WSGZoneConfiguration `json:"wifi24,omitempty"`
 
-	Wifi50 **WSGZoneConfiguration `json:"wifi50,omitempty"`
+	Wifi50 *WSGZoneConfiguration `json:"wifi50,omitempty"`
 
 	// ZoneAffinityProfileId
 	// zone affinity profile Id
@@ -1639,7 +1639,7 @@ type WSGZoneList struct {
 
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGZoneList `json:"list,omitempty"`
+	List []*WSGZoneList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }

@@ -120,7 +120,7 @@ func NewWSGDPSKInfoType() *WSGDPSKInfoType {
 }
 
 type WSGDPSKQueryList struct {
-	Extra **WSGDPSKQueryList `json:"extra,omitempty"`
+	Extra *WSGDPSKQueryList `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -128,7 +128,7 @@ type WSGDPSKQueryList struct {
 
 	// List
 	// Information list of DPSK
-	List []**WSGDPSKQueryList `json:"list,omitempty"`
+	List []*WSGDPSKQueryList `json:"list,omitempty"`
 
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -214,7 +214,7 @@ type WSGDPSKGetDpskEnabledWlans struct {
 	// Indicates whether there are more DPSK enabled WLANs after the list that is currently displayed
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []**WSGDPSKGetDpskEnabledWlans `json:"list,omitempty"`
+	List []*WSGDPSKGetDpskEnabledWlans `json:"list,omitempty"`
 
 	// TotalCount
 	// Total DPSK enabled WLAN count of the zone
@@ -334,7 +334,7 @@ func NewWSGDPSKWlanDpskSetting() *WSGDPSKWlanDpskSetting {
 type WSGDPSKWlanExternalDpsk struct {
 	// AuthService
 	// Autentication of the WLAN relate to external DPSK
-	AuthService **WSGDPSKWlanExternalDpsk `json:"authService,omitempty"`
+	AuthService *WSGDPSKWlanExternalDpsk `json:"authService,omitempty"`
 
 	// Enabled
 	// Enable External DPSK
@@ -345,7 +345,7 @@ type WSGDPSKWlanExternalDpsk struct {
 
 	// Encryption
 	// Encryption of the WLAN relate to external DPSK
-	Encryption **WSGDPSKWlanExternalDpsk `json:"encryption,omitempty"`
+	Encryption *WSGDPSKWlanExternalDpsk `json:"encryption,omitempty"`
 }
 
 func NewWSGDPSKWlanExternalDpsk() *WSGDPSKWlanExternalDpsk {

@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGScgusergroupService struct {
+type WSGSCGUserGroupService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGScgusergroupService(c *VSZClient) *WSGScgusergroupService {
-	s := new(WSGScgusergroupService)
+func NewWSGSCGUserGroupService(c *VSZClient) *WSGSCGUserGroupService {
+	s := new(WSGSCGUserGroupService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGScgusergroupService() *WSGScgusergroupService {
-	return NewWSGScgusergroupService(ss.apiClient)
+func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
+	return NewWSGSCGUserGroupService(ss.apiClient)
 }
 
 // AddUserGroups
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGScgusergroupService() *WSGScgusergroupService {
 //
 // Request Body:
 //	 - body *WSGSCGUserGroup
-func (s *WSGScgusergroupService) AddUserGroups(ctx context.Context, body *WSGSCGUserGroup) (*WSGSCGUserGroupAuditId, *APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCGUserGroup) (*WSGSCGUserGroupAuditId, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,7 +55,7 @@ func (s *WSGScgusergroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGScgusergroupService) DeleteUserGroups(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -82,7 +82,7 @@ func (s *WSGScgusergroupService) DeleteUserGroups(ctx context.Context, body *WSG
 // Required Parameters:
 // - userGroupId string
 //		- required
-func (s *WSGScgusergroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string) (*APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -105,7 +105,7 @@ func (s *WSGScgusergroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 //
 // Request Body:
 //	 - body *WSGSCGUserQueryCriteria
-func (s *WSGScgusergroupService) FindUserGroupsByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria) (*WSGSCGUserGroupList, *APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria) (*WSGSCGUserGroupList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -138,7 +138,7 @@ func (s *WSGScgusergroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 // Optional Parameters:
 // - includeUsers string
 //		- nullable
-func (s *WSGScgusergroupService) FindUserGroupsByUserGroupId(ctx context.Context, userGroupId string, optionalParams map[string][]string) (*WSGSCGUserGroup, *APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, userGroupId string, optionalParams map[string][]string) (*WSGSCGUserGroup, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -163,7 +163,7 @@ func (s *WSGScgusergroupService) FindUserGroupsByUserGroupId(ctx context.Context
 // FindUserGroupsCurrentUserPermissionCategories
 //
 // Get permitted categories of current user.
-func (s *WSGScgusergroupService) FindUserGroupsCurrentUserPermissionCategories(ctx context.Context) (*WSGSCGUserGroupPermissionList, *APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(ctx context.Context) (*WSGSCGUserGroupPermissionList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -184,7 +184,7 @@ func (s *WSGScgusergroupService) FindUserGroupsCurrentUserPermissionCategories(c
 // FindUserGroupsRoles
 //
 // Get pre-defined roles.
-func (s *WSGScgusergroupService) FindUserGroupsRoles(ctx context.Context) (*WSGSCGUserGroupRoleLabelValueList, *APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context) (*WSGSCGUserGroupRoleLabelValueList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -213,7 +213,7 @@ func (s *WSGScgusergroupService) FindUserGroupsRoles(ctx context.Context) (*WSGS
 // Optional Parameters:
 // - domainId string
 //		- nullable
-func (s *WSGScgusergroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, role string, optionalParams map[string][]string) (*WSGSCGUserGroupPermissionList, *APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, role string, optionalParams map[string][]string) (*WSGSCGUserGroupPermissionList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -245,7 +245,7 @@ func (s *WSGScgusergroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 // Required Parameters:
 // - userGroupId string
 //		- required
-func (s *WSGScgusergroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string) (*APIResponseMeta, error) {
+func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -195,8 +195,16 @@ func NewSwitchMCommonQueryCriteriaOptionsType() *SwitchMCommonQueryCriteriaOptio
 	return m
 }
 
+// SwitchMCommonQueryCriteriaSortInfoType
+//
+// About sorting
 type SwitchMCommonQueryCriteriaSortInfoType struct {
+	// Dir
+	// Constraints:
+	//    - oneof:[ASC,DESC]
 	Dir *string `json:"dir,omitempty"`
+
+	SortColumn *string `json:"sortColumn,omitempty"`
 }
 
 func NewSwitchMCommonQueryCriteriaSortInfoType() *SwitchMCommonQueryCriteriaSortInfoType {
@@ -264,7 +272,17 @@ func NewSwitchMCommonQueryCriteriaSuperSet() *SwitchMCommonQueryCriteriaSuperSet
 }
 
 type SwitchMCommonQueryCriteriaSuperSetExtraFiltersType struct {
+	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
+
+	// Type
+	// Filters for specific attribute
+	// Constraints:
+	//    - oneof:[CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,ProtocolType,TIMERANGE,RADIOID,WLANID,CATEGORY,CLIENT,CP,DP,CLUSTER,NODE,BLADE,SYNCEDSTATUS,OSTYPE,APP,PORT,STATUS,REGISTRATIONSTATE,GATEWAY,APIPADDRESS,CLIENTIPADDRESS,SEVERITY,ACKNOWLEDGED,MVNOID,USER,USERID,WLANNAME,AUDITIPADDRESS,AUDITUSERUUID,AUDITOBJECT,AUDITACTION,AUDITTENANTUUID,AUDITOBJECTUUID,AUTHTYPE,AUDITTYPE,H20SuppportEnabled,AaaSuppportEnabled,GppSuppportEnabled,Type,RogueMac,SSID,ALARMSTATE,DEVICENAME,SWITCH,SWITCH_GROUP,ZoneAffinityProfileId,FIRMWARE_TYPE,SCHEDULED_TIME,VLAN,FAMILY_ID,SWITCH_ID,transactionId,hasLayerThreeConfig,clientAuthType,clientIpv4Addr,clientIpv6Addr,clientMac,clientUserName,switchName]
 	Type *string `json:"type,omitempty"`
+
+	// Value
+	// Value to search
+	Value *string `json:"value,omitempty"`
 }
 
 func NewSwitchMCommonQueryCriteriaSuperSetExtraFiltersType() *SwitchMCommonQueryCriteriaSuperSetExtraFiltersType {
@@ -273,7 +291,15 @@ func NewSwitchMCommonQueryCriteriaSuperSetExtraFiltersType() *SwitchMCommonQuery
 }
 
 type SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType struct {
+	// Type
+	// Filters for specific attribute
+	// Constraints:
+	//    - oneof:[CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,ProtocolType,TIMERANGE,RADIOID,WLANID,CATEGORY,CLIENT,CP,DP,CLUSTER,NODE,BLADE,SYNCEDSTATUS,OSTYPE,APP,PORT,STATUS,REGISTRATIONSTATE,GATEWAY,APIPADDRESS,CLIENTIPADDRESS,SEVERITY,ACKNOWLEDGED,MVNOID,USER,USERID,WLANNAME,AUDITIPADDRESS,AUDITUSERUUID,AUDITOBJECT,AUDITACTION,AUDITTENANTUUID,AUDITOBJECTUUID,AUTHTYPE,AUDITTYPE,H20SuppportEnabled,AaaSuppportEnabled,GppSuppportEnabled,Type,RogueMac,SSID,ALARMSTATE,DEVICENAME,SWITCH,ZoneAffinityProfileId,FIRMWARE_TYPE,SCHEDULED_TIME,VLAN,FAMILY_ID,SWITCH_ID,switchStatus.alerts,transactionId,hasLayerThreeConfig]
 	Type *string `json:"type,omitempty"`
+
+	// Value
+	// Value not to search
+	Value *string `json:"value,omitempty"`
 }
 
 func NewSwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType() *SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType {
@@ -282,7 +308,17 @@ func NewSwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType() *SwitchMCommonQu
 }
 
 type SwitchMCommonQueryCriteriaSuperSetFiltersType struct {
+	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
+
+	// Type
+	// Group type
+	// Constraints:
+	//    - oneof:[SYSTEM,CATEGORY,CONTROLBLADE,DATABLADE,DOMAIN,ZONE,THIRD_PARTY_ZONE,APGROUP,WLANGROUP,INDOORMAP,AP,WLAN,BLADE,SYNCEDSTATUS,REGISTRATIONSTATE,STATUS,SWITCH_GROUP,PORT]
 	Type *string `json:"type,omitempty"`
+
+	// Value
+	// Group ID
+	Value *string `json:"value,omitempty"`
 }
 
 func NewSwitchMCommonQueryCriteriaSuperSetFiltersType() *SwitchMCommonQueryCriteriaSuperSetFiltersType {
@@ -290,8 +326,87 @@ func NewSwitchMCommonQueryCriteriaSuperSetFiltersType() *SwitchMCommonQueryCrite
 	return m
 }
 
+// SwitchMCommonQueryCriteriaSuperSetOptionsType
+//
+// Specified feature required informaion
 type SwitchMCommonQueryCriteriaSuperSetOptionsType struct {
+	// AcctincludeNa
+	// Include Not Available acct service option while returning result
+	AcctincludeNa *bool `json:"acct_includeNa,omitempty"`
+
+	// AccttestableOnly
+	// Only get testable service type
+	AccttestableOnly *bool `json:"acct_testableOnly,omitempty"`
+
+	// Accttype
+	// Accounting service types to get, use comma to separate, Ex: RADIUS,CGF
+	Accttype *string `json:"acct_type,omitempty"`
+
+	// AuthhostedAaaSupportedEnabled
+	// Indicate if Hosted AAA Support is enabled
+	AuthhostedAaaSupportedEnabled *bool `json:"auth_hostedAaaSupportedEnabled,omitempty"`
+
+	// AuthincludeAdGlobal
+	// If AD is in list, include only AD with Global Catalog configured
+	AuthincludeAdGlobal *bool `json:"auth_includeAdGlobal,omitempty"`
+
+	// AuthincludeGuest
+	// Include Guest auth service while returning result
+	AuthincludeGuest *bool `json:"auth_includeGuest,omitempty"`
+
+	// AuthincludeLocalDb
+	// Include LocalDB auth service while returning result
+	AuthincludeLocalDb *bool `json:"auth_includeLocalDb,omitempty"`
+
+	// AuthincludeNa
+	// Include Not Available auth service option while returning result
+	AuthincludeNa *bool `json:"auth_includeNa,omitempty"`
+
+	// AuthplmnIdentifierEnabled
+	// Indicate if Configure PLMN identifier is enabled
+	AuthplmnIdentifierEnabled *bool `json:"auth_plmnIdentifierEnabled,omitempty"`
+
+	// AuthrealmType
+	// To get specific authentication service information for configuring realm based authentication profile
+	// Constraints:
+	//    - oneof:[ALL,RADIUS]
 	AuthrealmType *string `json:"auth_realmType,omitempty"`
+
+	// AuthtestableOnly
+	// Only get testable service type
+	AuthtestableOnly *bool `json:"auth_testableOnly,omitempty"`
+
+	// Authtype
+	// Authentication service types to get, use comma to separate, Ex: RADIUS,AD
+	Authtype *string `json:"auth_type,omitempty"`
+
+	// Forwardingtype
+	// Forwarding service types to get, use comma to separate, Ex: L2oGRE,TTGPDG,Bridge,Advanced
+	Forwardingtype *string `json:"forwarding_type,omitempty"`
+
+	// GlobalFilterId
+	// Specify GlobalFilter ID for query
+	GlobalFilterId *string `json:"globalFilterId,omitempty"`
+
+	// IncludeSharedResources
+	// Whether to include the resources of parent domain or not
+	IncludeSharedResources *bool `json:"includeSharedResources,omitempty"`
+
+	// IncludeUsers
+	// Should also retrieve users or not
+	IncludeUsers *bool `json:"includeUsers,omitempty"`
+
+	// INCLUDERBACMETADATA
+	// Whether to include RBAC metadata or not
+	INCLUDERBACMETADATA *bool `json:"INCLUDE_RBAC_METADATA,omitempty"`
+
+	// InMap
+	// Specify inMap status for query
+	InMap *bool `json:"inMap,omitempty"`
+
+	// TENANTID
+	// Specify Tenant ID for query
+	TENANTID *string `json:"TENANT_ID,omitempty"`
 }
 
 func NewSwitchMCommonQueryCriteriaSuperSetOptionsType() *SwitchMCommonQueryCriteriaSuperSetOptionsType {

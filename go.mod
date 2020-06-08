@@ -1,3 +1,3 @@
-module github.com/myENA/ruckus-client
+module github.com/myENA/go-ruckus
 
 go 1.14

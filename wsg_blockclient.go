@@ -7,18 +7,18 @@ import (
 	"net/http"
 )
 
-type WSGBlockclientService struct {
+type WSGBlockClientService struct {
 	apiClient *VSZClient
 }
 
-func NewWSGBlockclientService(c *VSZClient) *WSGBlockclientService {
-	s := new(WSGBlockclientService)
+func NewWSGBlockClientService(c *VSZClient) *WSGBlockClientService {
+	s := new(WSGBlockClientService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *WSGService) WSGBlockclientService() *WSGBlockclientService {
-	return NewWSGBlockclientService(ss.apiClient)
+func (ss *WSGService) WSGBlockClientService() *WSGBlockClientService {
+	return NewWSGBlockClientService(ss.apiClient)
 }
 
 // AddBlockClient
@@ -27,7 +27,7 @@ func (ss *WSGService) WSGBlockclientService() *WSGBlockclientService {
 //
 // Request Body:
 //	 - body *WSGProfileBulkBlockClient
-func (s *WSGBlockclientService) AddBlockClient(ctx context.Context, body *WSGProfileBulkBlockClient) (WSGProfileCreateResultList, *APIResponseMeta, error) {
+func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGProfileBulkBlockClient) (WSGProfileCreateResultList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -59,7 +59,7 @@ func (s *WSGBlockclientService) AddBlockClient(ctx context.Context, body *WSGPro
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGBlockclientService) AddBlockClientByApMacByApMac(ctx context.Context, body *WSGProfileBlockClient, apMac string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context, body *WSGProfileBlockClient, apMac string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -88,7 +88,7 @@ func (s *WSGBlockclientService) AddBlockClientByApMacByApMac(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGBlockclientService) DeleteBlockClient(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -115,7 +115,7 @@ func (s *WSGBlockclientService) DeleteBlockClient(ctx context.Context, body *WSG
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGBlockclientService) DeleteBlockClientById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -139,7 +139,7 @@ func (s *WSGBlockclientService) DeleteBlockClientById(ctx context.Context, id st
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGBlockclientService) FindBlockClientById(ctx context.Context, id string) (*WSGProfileBlockClient, *APIResponseMeta, error) {
+func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id string) (*WSGProfileBlockClient, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -164,7 +164,7 @@ func (s *WSGBlockclientService) FindBlockClientById(ctx context.Context, id stri
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGBlockclientService) FindBlockClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBlockClientList, *APIResponseMeta, error) {
+func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBlockClientList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -193,7 +193,7 @@ func (s *WSGBlockclientService) FindBlockClientByQueryCriteria(ctx context.Conte
 // Required Parameters:
 // - zoneId string
 //		- required
-func (s *WSGBlockclientService) FindBlockClientByZoneByZoneId(ctx context.Context, zoneId string) (*WSGProfileBlockClientList, *APIResponseMeta, error) {
+func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Context, zoneId string) (*WSGProfileBlockClientList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -222,7 +222,7 @@ func (s *WSGBlockclientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGBlockclientService) PartialUpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string) (*APIResponseMeta, error) {
+func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -253,7 +253,7 @@ func (s *WSGBlockclientService) PartialUpdateBlockClientById(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGBlockclientService) UpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string) (*APIResponseMeta, error) {
+func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

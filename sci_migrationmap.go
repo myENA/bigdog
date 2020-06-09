@@ -172,11 +172,11 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, body *S
 // Optional Parameters:
 // - options string
 //		- nullable
-func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsChangeStream(ctx context.Context, optionalParams map[string][]string) ([]byte, *APIResponseMeta, error) {
+func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsChangeStream(ctx context.Context, optionalParams map[string][]string) (*FileResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     []byte
+		resp     *FileResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -188,8 +188,8 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 		req.SetQueryParameter("options", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = make([]byte, 0)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	resp = new(FileResponse)
+	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -199,11 +199,11 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 //
 // Request Body:
 //	 - body string
-func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMapsChangeStream(ctx context.Context, body string) ([]byte, *APIResponseMeta, error) {
+func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMapsChangeStream(ctx context.Context, body string) (*FileResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     []byte
+		resp     *FileResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -216,8 +216,8 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMaps
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = make([]byte, 0)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	resp = new(FileResponse)
+	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

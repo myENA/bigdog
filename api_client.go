@@ -10,6 +10,7 @@ import (
 	"net"
 	"net/http"
 	"runtime"
+	"strconv"
 	"time"
 )
 
@@ -62,7 +63,7 @@ const (
 
 	VSZServiceTicketQueryParameter = "serviceTicket"
 
-	SCIAccessTokenQueryParameter = "access_token"
+	SCIAccessTokenQueryParameter = "accessToken"
 
 	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
@@ -394,8 +395,14 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 	if httpResp.StatusCode == successCode {
 		// if the response code matches the expected "success" code...
 		if modelPtr != nil {
-			// ... and this query has a modeled response, attempt to unmarshal into that type
-			if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil && err != io.EOF {
+			if b, ok := modelPtr.(*[]byte); ok {
+				if tmp, err := ioutil.ReadAll(httpResp.Body); err != nil && err != io.EOF {
+					finalErr = fmt.Errorf("error reading bytes from response: %w", err)
+				} else {
+					*b = tmp
+				}
+			} else if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil && err != io.EOF {
+				// ... and this query has a modeled response, attempt to unmarshal into that type
 				finalErr = fmt.Errorf("error unmarshalling response body into %T: %w", modelPtr, err)
 			}
 		}
@@ -410,6 +417,28 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 
 	// build response.
 	return newAPIResponseMeta(req, successCode, httpResp), finalErr
+}
+
+func handleFileResponse(req *APIRequest, successCode int, httpResp *http.Response, fileResp *FileResponse, sourceErr error) (*APIResponseMeta, error) {
+	var (
+		rm  *APIResponseMeta
+		err error
+
+		b = make([]byte, 0)
+	)
+	if rm, err = handleResponse(req, successCode, httpResp, b, sourceErr); err != nil {
+		return rm, err
+	}
+
+	if v := httpResp.Header.Get("Content-Length"); v != "" {
+		fileResp.ContentLength, _ = strconv.Atoi(v)
+	}
+
+	fileResp.ContentType = httpResp.Header.Get("Content-Type")
+	fileResp.ContentDisposition = httpResp.Header.Get("Content-Disposition")
+	fileResp.Body = b
+
+	return rm, nil
 }
 
 type WSGService struct {
@@ -440,4 +469,11 @@ func NewSCIService(c *SCIClient) *SCIService {
 	s := new(SCIService)
 	s.apiClient = c
 	return s
+}
+
+type FileResponse struct {
+	ContentDisposition string `json:"filename"`
+	ContentType        string `json:"contentType"`
+	ContentLength      int    `json:"contentLength"`
+	Body               []byte `json:"body"`
 }

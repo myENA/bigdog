@@ -481,11 +481,11 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 // Optional Parameters:
 // - timeZone string
 //		- nullable
-func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, backupUUID string, optionalParams map[string][]string) ([]byte, *APIResponseMeta, error) {
+func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, backupUUID string, optionalParams map[string][]string) (*FileResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     []byte
+		resp     *FileResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -498,8 +498,8 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 		req.SetQueryParameter("timeZone", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req)
-	resp = make([]byte, 0)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	resp = new(FileResponse)
+	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

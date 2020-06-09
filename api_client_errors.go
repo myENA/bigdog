@@ -29,7 +29,7 @@ func IsServiceTicketResponseEmptyErr(err error) bool {
 	return errors.Is(err, ErrServiceTicketResponseEmpty)
 }
 
-type APIError struct {
+type VSZAPIError struct {
 	Success bool `json:"success"`
 
 	Message      string      `json:"message,omitempty"`
@@ -44,20 +44,20 @@ type APIError struct {
 	Err error `json:"err,omitempty"`
 }
 
-func (e *APIError) Error() string {
+func (e *VSZAPIError) Error() string {
 	if e.ErrorDetails != nil {
 		return fmt.Sprintf("success=%t; errorDetails=%v", e.Success, e.ErrorDetails)
 	}
 	return fmt.Sprintf("success=%t; errorCode=%d; errorType=%s; message=%s; err=%v", e.Success, e.ErrorCode, e.ErrorType, e.Message, e.Err)
 }
 
-func (e *APIError) Unwrap() error {
+func (e *VSZAPIError) Unwrap() error {
 	return e.Err
 }
 
-func IsAPIError(err error) bool {
+func IsVSZAPIError(err error) bool {
 	for err != nil {
-		if aerr, ok := err.(*APIError); ok && aerr != nil {
+		if aerr, ok := err.(*VSZAPIError); ok && aerr != nil {
 			return true
 		}
 		err = errors.Unwrap(err)

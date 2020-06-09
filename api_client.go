@@ -407,7 +407,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 			}
 		}
 	} else {
-		apiErr := new(APIError)
+		apiErr := new(VSZAPIError)
 		if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
 			finalErr = fmt.Errorf("error unmarshalling error body into %T: %w", finalErr, err)
 		} else {

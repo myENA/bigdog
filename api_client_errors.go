@@ -1,4 +1,4 @@
-package ruckus
+package bigdog
 
 import (
 	"errors"

@@ -1,4 +1,4 @@
-package ruckus
+package bigdog
 
 // this service is manually created and maintained
 

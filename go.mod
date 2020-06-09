@@ -1,3 +1,3 @@
-module github.com/myENA/go-ruckus
+module github.com/myENA/bigdog
 
 go 1.14

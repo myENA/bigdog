@@ -145,10 +145,16 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 
 		body := request.Body()
 
-		if len(body) == 0 {
+		if bl := len(body); bl == 0 {
 			logMsg = fmt.Sprintf(logDebugAPIRequestNoBodyFormat, logMsg)
 		} else {
-			logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg, string(body))
+			// quick hack to only print if beginning of body is printable character
+			// todo: revisit this later...
+			if '!' < body[0] && body[0] < '~' {
+				logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg, string(body))
+			} else {
+				logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg, fmt.Sprintf("[%d]byte", bl))
+			}
 		}
 
 		c.log.Print(logMsg)

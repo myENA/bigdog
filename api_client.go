@@ -407,7 +407,11 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 	if httpResp.StatusCode == successCode {
 		// if the response code matches the expected "success" code...
 		if modelPtr != nil {
-			if b, ok := modelPtr.(*[]byte); ok {
+			if w, ok := modelPtr.(io.Writer); ok {
+				if _, err := io.Copy(w, httpResp.Body); err != nil {
+					finalErr = fmt.Errorf("error copying bytes from response to provided writer: %w", err)
+				}
+			} else if b, ok := modelPtr.(*[]byte); ok {
 				if tmp, err := ioutil.ReadAll(httpResp.Body); err != nil && err != io.EOF {
 					finalErr = fmt.Errorf("error reading bytes from response: %w", err)
 				} else {
@@ -436,9 +440,10 @@ func handleFileResponse(req *APIRequest, successCode int, httpResp *http.Respons
 		rm  *APIResponseMeta
 		err error
 
-		b = make([]byte, 0)
+		buff = new(bytes.Buffer)
 	)
-	if rm, err = handleResponse(req, successCode, httpResp, b, sourceErr); err != nil {
+
+	if rm, err = handleResponse(req, successCode, httpResp, buff, sourceErr); err != nil {
 		return rm, err
 	}
 
@@ -448,7 +453,7 @@ func handleFileResponse(req *APIRequest, successCode int, httpResp *http.Respons
 
 	fileResp.ContentType = httpResp.Header.Get("Content-Type")
 	fileResp.ContentDisposition = httpResp.Header.Get("Content-Disposition")
-	fileResp.Body = b
+	fileResp.Body = buff
 
 	return rm, nil
 }
@@ -538,8 +543,8 @@ func NewSCIService(c *SCIClient) *SCIService {
 }
 
 type FileResponse struct {
-	ContentDisposition string `json:"contentDisposition"`
-	ContentType        string `json:"contentType"`
-	ContentLength      int    `json:"contentLength"`
-	Body               []byte `json:"body"`
+	ContentDisposition string
+	ContentType        string
+	ContentLength      int
+	Body               io.Reader
 }

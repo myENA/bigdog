@@ -196,6 +196,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("resource", resource)
 	req.SetPathParameter("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -234,6 +235,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("resource", resource)
 	req.SetPathParameter("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -272,6 +274,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("resource", resource)
 	req.SetPathParameter("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -310,6 +313,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisLineRatesByQueryCriteria(
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("resource", resource)
 	req.SetPathParameter("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

@@ -340,6 +340,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ct
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTroubleshootingRemoteClientConnectivityResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -370,6 +371,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Cont
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTroubleshootingRemoteCommandResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -400,6 +402,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx contex
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTroubleshootingRemoteCommandResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

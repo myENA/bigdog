@@ -64,6 +64,7 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, upload
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -176,6 +177,7 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -224,6 +226,7 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, uplo
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationUpgradeStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -647,6 +650,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -673,6 +677,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -700,6 +705,7 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

@@ -100,6 +100,7 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, recipients
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCISettingSendTestEmail200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -128,6 +129,7 @@ func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSe
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSetting()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

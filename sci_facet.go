@@ -59,6 +59,7 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, start string, name 
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("name", name)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIFacetGetFacet200ResponseType()

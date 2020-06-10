@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -43,6 +44,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchConnectedDevicesQueryList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -71,6 +73,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchConnectedAPsQueryList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -82,12 +85,12 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 // Download CSV of AP's discovered via LLDP
 //
 // Request Body:
-//	 - body string
-func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Context, json string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*FileResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     interface{}
+		resp     *FileResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -95,12 +98,15 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClientsAPExport, true)
-	if err = req.SetBody(json); err != nil {
+	if b, err := json.Marshal(body); err != nil {
+		return resp, rm, err
+	} else if err = req.SetBody(map[string]string{"json": string(b)}); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, "application/x-www-form-urlencoded")
+	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(interface{})
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(FileResponse)
+	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

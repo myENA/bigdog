@@ -140,6 +140,7 @@ func (s *SCIreportService) ReportDownloadReport(ctx context.Context, state strin
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("format", format)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -236,6 +237,7 @@ func (s *SCIreportService) ReportGetData(ctx context.Context, start string, id s
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("sectionId", sectionId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -299,6 +301,7 @@ func (s *SCIreportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIreportWithRelations200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

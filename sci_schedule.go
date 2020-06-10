@@ -78,6 +78,7 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, ids string
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIScheduleBatchDelete200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -106,6 +107,7 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, re
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSchedule()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -159,6 +161,7 @@ func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, sc
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSchedule()

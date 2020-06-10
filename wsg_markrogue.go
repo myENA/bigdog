@@ -27,7 +27,7 @@ func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGAPModifyRogueType) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -42,7 +42,7 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -53,7 +53,7 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAPModifyRogueType) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -68,7 +68,7 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -79,7 +79,7 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *WSGAPModifyRogueType) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -94,7 +94,7 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -105,7 +105,7 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAPModifyRogueType) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -120,7 +120,7 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -131,7 +131,7 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPModifyRogueType) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -146,7 +146,7 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -154,7 +154,7 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 // FindRogueMarkKnown
 //
 // Get Known Rogue AP list.
-func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context) (*WSGAPModifyRogueType, *APIResponseMeta, error) {
+func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context, mutators ...RequestMutator) (*WSGAPModifyRogueType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -166,7 +166,7 @@ func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context) (*WSGAPMod
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRogueMarkKnown, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAPModifyRogueType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

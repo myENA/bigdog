@@ -211,7 +211,7 @@ func NewWSGSystemIPsecUpdate() *WSGSystemIPsecUpdate {
 // FindSystemIpsec
 //
 // Use this API command to retrieve the System IPSec.
-func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystemIPsecGetResult, *APIResponseMeta, error) {
+func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ...RequestMutator) (*WSGSystemIPsecGetResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -223,7 +223,7 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemIpsec, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemIPsecGetResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -235,7 +235,7 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context) (*WSGSystem
 //
 // Request Body:
 //	 - body *WSGSystemIPsecUpdate
-func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate) (interface{}, *APIResponseMeta, error) {
+func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -251,7 +251,7 @@ func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSG
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

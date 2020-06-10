@@ -7,7 +7,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
@@ -23,10 +22,14 @@ const (
 
 	apiRequestURLFormat = "%s%s%s"
 
-	headerKeyContentType       = "Content-Type"
-	headerKeyAccept            = "Accept"
-	headerValueApplicationJSON = "application/json"
+	headerKeyContentType         = "Content-Type"
+	headerKeyContentDisposition  = "Content-Disposition"
+	headerKeyAccept              = "Accept"
+	headerValueApplicationJSON   = "application/json"
+	headerValueMultipartFormData = "multipart/form-data"
 )
+
+type RequestMutator func(*http.Request)
 
 var apiRequestID uint64
 
@@ -42,7 +45,7 @@ type APIRequest struct {
 	pathParameters  map[string]string
 	headers         url.Values
 	cookies         []*http.Cookie
-	body            []byte
+	body            io.Reader
 }
 
 func NewAPIRequest(method, uri string, authenticated bool) *APIRequest {
@@ -191,32 +194,28 @@ func (r *APIRequest) PathParameters() map[string]string {
 }
 
 func (r *APIRequest) SetBody(body interface{}) error {
-	// first, is this already a byte slice?
-	if b, ok := body.([]byte); ok {
-		r.body = b
+	// test for reader
+	if ar, ok := body.(io.Reader); ok {
+		r.body = ar
 		return nil
 	}
 
-	// next, is an io.Reader being passed?
-	if asReader, ok := body.(io.Reader); ok {
-		if b, err := ioutil.ReadAll(asReader); err != nil {
-			return err
-		} else {
-			r.body = b
-			return nil
-		}
+	// test for raw bytes
+	if b, ok := body.([]byte); ok {
+		r.body = bytes.NewBuffer(b)
+		return nil
 	}
 
-	// finally, assume we gotta json serialize this thing.
+	// finally, attempt json marshal
 	if b, err := json.Marshal(body); err != nil {
 		return err
 	} else {
-		r.body = b
+		r.body = bytes.NewBuffer(b)
 		return nil
 	}
 }
 
-func (r *APIRequest) Body() []byte {
+func (r *APIRequest) Body() io.Reader {
 	return r.body
 }
 
@@ -262,20 +261,19 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 		err         error
 	)
 
-	body := r.Body()
-	bodyLen := len(body)
 	if r.authenticated {
 		if authParamName == "" || authParamValue == "" {
 			return nil, errors.New("authParam cannot be empty with authenticated request")
 		}
 		r.SetQueryParameter(authParamName, []string{authParamValue})
 	}
+
 	compiledURL := fmt.Sprintf(apiRequestURLFormat, addr, pathPrefix, r.CompiledURI())
 
-	if bodyLen == 0 {
+	if body := r.Body(); body == nil {
 		httpRequest, err = http.NewRequest(r.method, compiledURL, nil)
 	} else {
-		httpRequest, err = http.NewRequest(r.method, compiledURL, bytes.NewBuffer(body))
+		httpRequest, err = http.NewRequest(r.method, compiledURL, body)
 	}
 
 	if err != nil {
@@ -287,8 +285,6 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 			httpRequest.Header.Add(header, value)
 		}
 	}
-
-	httpRequest.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 
 	return httpRequest.WithContext(ctx), nil
 }

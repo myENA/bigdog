@@ -27,7 +27,7 @@ func (ss *WSGService) WSGBridgeService() *WSGBridgeService {
 //
 // Request Body:
 //	 - body *WSGProfileCreateBridgeProfile
-func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfileCreateBridgeProfile) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfileCreateBridgeProfile, mutators ...RequestMutator) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -43,7 +43,7 @@ func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfi
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
@@ -55,7 +55,7 @@ func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfi
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCommonBulkDeleteRequest) (*APIResponseMeta, error) {
+func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -70,7 +70,7 @@ func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCo
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -82,7 +82,7 @@ func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCo
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -94,7 +94,7 @@ func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridgeById, true)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -102,7 +102,7 @@ func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id stri
 // FindProfilesBridge
 //
 // Use this API command to retrieve a list of Bridge profile.
-func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*WSGProfileList, *APIResponseMeta, error) {
+func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context, mutators ...RequestMutator) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -114,7 +114,7 @@ func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*WSGProfileL
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridge, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -127,7 +127,7 @@ func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context) (*WSGProfileL
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string) (*WSGProfileBridgeProfile, *APIResponseMeta, error) {
+func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileBridgeProfile, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -140,7 +140,7 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridgeById, true)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileBridgeProfile()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -152,7 +152,7 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet) (*WSGProfileBridgeProfileList, *APIResponseMeta, error) {
+func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileBridgeProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -168,7 +168,7 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileBridgeProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -184,7 +184,7 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, body *WSGProfileModifyBridgeProfile, id string) (*APIResponseMeta, error) {
+func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, body *WSGProfileModifyBridgeProfile, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -200,7 +200,7 @@ func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, 
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

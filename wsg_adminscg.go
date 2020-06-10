@@ -335,7 +335,7 @@ func NewWSGAdminSCGScgAaaServerMetaDataTypeFieldsType() *WSGAdminSCGScgAaaServer
 // FindScgAdminAaaServers
 //
 // Use this API command to retrieve a list of registered AAA servers
-func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context) (*WSGAdminSCGScgAaaServer, *APIResponseMeta, error) {
+func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutators ...RequestMutator) (*WSGAdminSCGScgAaaServer, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -347,7 +347,7 @@ func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context) (*WSGAd
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindScgAdminAaaServers, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdminSCGScgAaaServer()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

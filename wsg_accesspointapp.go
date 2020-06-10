@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"io"
 	"net/http"
 )
 
@@ -36,7 +37,7 @@ func (ss *WSGService) WSGAccessPointAppService() *WSGAccessPointAppService {
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalParams map[string][]string) (*WSGAPLinemanSummary, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAPLinemanSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +64,7 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
 		req.SetQueryParameter("zoneId", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAPLinemanSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -78,7 +79,7 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string) (interface{}, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -96,7 +97,7 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
 		req.SetQueryParameter("zoneId", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -105,7 +106,7 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 // FindLinemanWorkflow
 //
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
-func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context) (*FileResponse, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, mutators ...RequestMutator) (*FileResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -117,7 +118,7 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context) (*Fi
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(FileResponse)
 	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -128,8 +129,8 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context) (*Fi
 // Use this API command to upload a workflow file used by the Ruckus Wireless AP mobile app.
 //
 // Request Body:
-//	 - body []byte
-func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, body []byte) (*APIResponseMeta, error) {
+//	 - body io.Reader
+func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -140,11 +141,11 @@ func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, bo
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
-	if err = req.SetBody(body); err != nil {
+	if err = AddRequestMultipartValues(req, map[string]io.Reader{"uploadFile": uploadFile}); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

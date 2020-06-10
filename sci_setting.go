@@ -58,7 +58,7 @@ func NewSCISettingSendTestEmail200ResponseType() *SCISettingSendTestEmail200Resp
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCISettingService) SettingFindById(ctx context.Context, id string, optionalParams map[string][]string) (*SCIModelsSetting, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsSetting, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -74,7 +74,7 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSetting()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -84,7 +84,7 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 //
 // Request Body:
 //	 - body string
-func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, body string) (*SCISettingSendTestEmail200ResponseType, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, recipients string, mutators ...RequestMutator) (*SCISettingSendTestEmail200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -96,11 +96,11 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, body strin
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCISettingSendTestEmail, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(recipients); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCISettingSendTestEmail200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -112,7 +112,7 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, body strin
 //
 // Request Body:
 //	 - body *SCIModelsSetting
-func (s *SCISettingService) SettingUpsert(ctx context.Context, body *SCIModelsSetting) (*SCIModelsSetting, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSetting, mutators ...RequestMutator) (*SCIModelsSetting, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -124,11 +124,11 @@ func (s *SCISettingService) SettingUpsert(ctx context.Context, body *SCIModelsSe
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCISettingUpsert, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSetting()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

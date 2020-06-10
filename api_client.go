@@ -1,14 +1,18 @@
 package bigdog
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
+	"mime/multipart"
 	"net"
 	"net/http"
+	"os"
+	"path/filepath"
 	"runtime"
 	"strconv"
 	"time"
@@ -67,7 +71,7 @@ const (
 
 	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
-	logDebugAPIRequestWithBodyFormat = "%s with body: %s"
+	logDebugAPIRequestWithBodyFormat = "%s with body"
 )
 
 type AuthParam struct {
@@ -133,7 +137,7 @@ func (c *baseClient) PathPrefix() string {
 	return c.pathPrefix
 }
 
-func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName, authParamValue string) (*http.Response, error) {
+func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName, authParamValue string, mutators ...RequestMutator) (*http.Response, error) {
 	var (
 		httpRequest  *http.Request
 		httpResponse *http.Response
@@ -145,16 +149,8 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 
 		body := request.Body()
 
-		if bl := len(body); bl == 0 {
-			logMsg = fmt.Sprintf(logDebugAPIRequestNoBodyFormat, logMsg)
-		} else {
-			// quick hack to only print if beginning of body is printable character
-			// todo: revisit this later...
-			if '!' < body[0] && body[0] < '~' {
-				logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg, string(body))
-			} else {
-				logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg, fmt.Sprintf("[%d]byte", bl))
-			}
+		if body != nil {
+			logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg)
 		}
 
 		c.log.Print(logMsg)
@@ -162,6 +158,16 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 	if httpRequest, err = request.ToHTTP(ctx, c.addr, c.pathPrefix, authParamName, authParamValue); err != nil {
 		return nil, err
 	}
+
+	if ml := len(mutators); ml > 0 {
+		if c.debug {
+			c.log.Printf("Executing %d mutators...", ml)
+		}
+		for _, fn := range mutators {
+			fn(httpRequest)
+		}
+	}
+
 	httpResponse, err = c.client.Do(httpRequest)
 	return httpResponse, err
 }
@@ -226,7 +232,7 @@ func (c *VSZClient) SCGAdmin() *SCGAdminService {
 	return NewSCGAdminService(c)
 }
 
-func (c *VSZClient) Do(ctx context.Context, request *APIRequest) (*http.Response, error) {
+func (c *VSZClient) Do(ctx context.Context, request *APIRequest, mutators ...RequestMutator) (*http.Response, error) {
 	var (
 		cas           VSZServiceTicketCAS
 		serviceTicket string
@@ -250,7 +256,7 @@ func (c *VSZClient) Do(ctx context.Context, request *APIRequest) (*http.Response
 			}
 		}
 	}
-	return c.do(ctx, request, VSZServiceTicketQueryParameter, serviceTicket)
+	return c.do(ctx, request, VSZServiceTicketQueryParameter, serviceTicket, mutators...)
 }
 
 type SCIClientConfig struct {
@@ -303,7 +309,7 @@ func (c *SCIClient) SCI() *SCIService {
 	return NewSCIService(c)
 }
 
-func (c *SCIClient) Do(ctx context.Context, request *APIRequest) (*http.Response, error) {
+func (c *SCIClient) Do(ctx context.Context, request *APIRequest, mutators ...RequestMutator) (*http.Response, error) {
 	var (
 		cas         SCIAccessTokenCAS
 		accessToken string
@@ -445,6 +451,60 @@ func handleFileResponse(req *APIRequest, successCode int, httpResp *http.Respons
 	fileResp.Body = b
 
 	return rm, nil
+}
+
+func addContentDispositionHeader(req *APIRequest, key, filename string) {
+	req.SetHeader(
+		headerKeyContentDisposition,
+		fmt.Sprintf(
+			"form-data: name=%s; filename=%s;",
+			strconv.Quote(key),
+			strconv.Quote(filename),
+		),
+	)
+}
+
+func addRequestMultipartValue(req *APIRequest, mpw *multipart.Writer, key string, r io.Reader) error {
+	var (
+		w   io.Writer
+		err error
+	)
+
+	if cl, ok := r.(io.Closer); ok {
+		defer func() { _ = cl.Close() }()
+	}
+
+	if f, ok := r.(*os.File); ok {
+		if w, err = mpw.CreateFormFile(key, f.Name()); err != nil {
+			return fmt.Errorf("error creating multipart form field from file: %w", err)
+		}
+		addContentDispositionHeader(req, key, filepath.Base(f.Name()))
+	} else if w, err = mpw.CreateFormField(key); err != nil {
+		return fmt.Errorf("error creating multipart form field: %w", err)
+	}
+
+	_, err = io.Copy(w, r)
+
+	return err
+}
+
+func AddRequestMultipartValues(req *APIRequest, values map[string]io.Reader) error {
+	var (
+		b   bytes.Buffer
+		err error
+
+		mpw = multipart.NewWriter(&b)
+	)
+	for key, r := range values {
+		if err = addRequestMultipartValue(req, mpw, key, r); err != nil {
+			return err
+		}
+	}
+	if err = req.SetBody(b); err != nil {
+		return err
+	}
+	req.SetHeader(headerKeyContentType, mpw.FormDataContentType())
+	return nil
 }
 
 type WSGService struct {

@@ -88,7 +88,7 @@ func NewWSGGDPRReport() *WSGGDPRReport {
 //
 // Request Body:
 //	 - body *WSGGDPRReport
-func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport) (interface{}, *APIResponseMeta, error) {
+func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -104,7 +104,7 @@ func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport)
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

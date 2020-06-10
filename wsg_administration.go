@@ -1031,7 +1031,7 @@ func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 //
 // Request Body:
 //	 - body *WSGAdministrationCreateAdminAAAServer
-func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer, mutators ...RequestMutator) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1047,7 +1047,7 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
@@ -1056,7 +1056,7 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 // AddRestart
 //
 // Use this API command to restart the controller.
-func (s *WSGAdministrationService) AddRestart(ctx context.Context) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1067,7 +1067,7 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context) (*APIResponse
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRestart, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -1075,7 +1075,7 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context) (*APIResponse
 // AddShutdown
 //
 // Use this API command to shut down the controller.
-func (s *WSGAdministrationService) AddShutdown(ctx context.Context) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1086,7 +1086,7 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) (*APIRespons
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddShutdown, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -1098,7 +1098,7 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context) (*APIRespons
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1110,7 +1110,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -1122,7 +1122,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 // Required Parameters:
 // - type_ string
 //		- required
-func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string) (*WSGAdministrationRetrieveAdminAAAServerList, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServerList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1135,7 +1135,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
 	req.SetQueryParameter("type_", []string{type_})
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationRetrieveAdminAAAServerList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -1148,7 +1148,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string) (*WSGAdministrationRetrieveAdminAAAServer, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServer, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1161,7 +1161,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaaById, true)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationRetrieveAdminAAAServer()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -1170,7 +1170,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 // FindLicenses
 //
 // Use this API command to get all licenses currently assign in SCG.
-func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdministrationLicensesList, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1182,7 +1182,7 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdmini
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenses, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -1191,7 +1191,7 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context) (*WSGAdmini
 // FindLicenseServer
 //
 // Use this API command to get license server configuration.
-func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGAdministrationLicenseServer, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicenseServer, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1203,7 +1203,7 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGA
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenseServer, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicenseServer()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -1212,7 +1212,7 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context) (*WSGA
 // FindLicensesSummary
 //
 // Use this API command to get licenses summary information.
-func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WSGAdministrationLicensesSummaryList, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSummaryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1224,7 +1224,7 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WS
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSummary, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesSummaryList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -1233,7 +1233,7 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context) (*WS
 // FindLicensesSyncLogs
 //
 // Use this API command to get licenses synchronize logs.
-func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*WSGAdministrationLicensesSyncLogsList, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSyncLogsList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1245,7 +1245,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*W
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesSyncLogsList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -1261,7 +1261,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context) (*W
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1277,7 +1277,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }
@@ -1288,7 +1288,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *WSGAdministrationModfiyLicenseServer
-func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1303,7 +1303,7 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -1311,7 +1311,7 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 // UpdateLicensesSync
 //
 // Use this API command to ask all SCG in cluster to sync licenses from license server.
-func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1322,7 +1322,7 @@ func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context) (*API
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLicensesSync, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

@@ -77,7 +77,7 @@ func NewSCIZoneDirectorXMLUpload200ResponseType() *SCIZoneDirectorXMLUpload200Re
 // Required Parameters:
 // - systemid string
 //		- required
-func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, systemid string) (*SCIZoneDirectorXMLGetAjaxRequest200ResponseType, *APIResponseMeta, error) {
+func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, systemid string, mutators ...RequestMutator) (*SCIZoneDirectorXMLGetAjaxRequest200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIZdXmlGetAjaxRequest, false)
 	req.SetQueryParameter("systemid", []string{systemid})
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIZoneDirectorXMLGetAjaxRequest200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -101,7 +101,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 // Required Parameters:
 // - container string
 //		- required
-func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container string) (*SCIZoneDirectorXMLUpload200ResponseType, *APIResponseMeta, error) {
+func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container string, mutators ...RequestMutator) (*SCIZoneDirectorXMLUpload200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -114,7 +114,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container s
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIZdXmlUpload, false)
 	req.SetPathParameter("container", container)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIZoneDirectorXMLUpload200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

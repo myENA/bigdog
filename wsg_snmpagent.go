@@ -24,7 +24,7 @@ func (ss *WSGService) WSGSNMPAgentService() *WSGSNMPAgentService {
 // FindSystemSnmpAgent
 //
 // Retrieve SNMP Agent sertting.
-func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSystemSnmpAgentConfiguration, *APIResponseMeta, error) {
+func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSnmpAgentConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -36,7 +36,7 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSyst
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSnmpAgent, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemSnmpAgentConfiguration()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -48,7 +48,7 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context) (*WSGSyst
 //
 // Request Body:
 //	 - body *WSGSystemModifySnmpAgent
-func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *WSGSystemModifySnmpAgent) (*APIResponseMeta, error) {
+func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *WSGSystemModifySnmpAgent, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -63,7 +63,7 @@ func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *W
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

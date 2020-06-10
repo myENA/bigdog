@@ -62,7 +62,7 @@ func NewSCIScheduleExecuteJob200ResponseType() *SCIScheduleExecuteJob200Response
 //
 // Request Body:
 //	 - body string
-func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, body string) (*SCIScheduleBatchDelete200ResponseType, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, ids string, mutators ...RequestMutator) (*SCIScheduleBatchDelete200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -74,11 +74,11 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, body strin
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIScheduleBatchDelete, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(ids); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIScheduleBatchDelete200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -90,7 +90,7 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, body strin
 //
 // Request Body:
 //	 - body string
-func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, body string) (*SCIModelsSchedule, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, reportId string, mutators ...RequestMutator) (*SCIModelsSchedule, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,11 +102,11 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, bo
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIScheduleCreateWithRelations, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(reportId); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSchedule()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -115,7 +115,7 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, bo
 // ScheduleExecuteJob
 //
 // Run schedule job
-func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context) (*SCIScheduleExecuteJob200ResponseType, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ...RequestMutator) (*SCIScheduleExecuteJob200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -127,7 +127,7 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context) (*SCISchedu
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIScheduleExecuteJob, false)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIScheduleExecuteJob200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -143,7 +143,7 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context) (*SCISchedu
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, body string, id string) (*SCIModelsSchedule, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, scheduleData string, id string, mutators ...RequestMutator) (*SCIModelsSchedule, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -155,12 +155,12 @@ func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, bo
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIScheduleUpdateWithRelations, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(scheduleData); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSchedule()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

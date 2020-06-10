@@ -27,7 +27,7 @@ func (ss *SwitchMService) SwitchMEventService() *SwitchMEventService {
 //
 // Request Body:
 //	 - body *SwitchMEventConfig
-func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfig) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfig, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -43,7 +43,7 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMEventConfigQueryResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -56,7 +56,7 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -69,7 +69,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteCustomEventById, true)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMEventConfigQueryResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -78,7 +78,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 // FindCustomEvent
 //
 // Use this API command to retrieve switch event config list
-func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEventConfigGetEventConfigList, *APIResponseMeta, error) {
+func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...RequestMutator) (*SwitchMEventConfigGetEventConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -90,7 +90,7 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEven
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEvent, true)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMEventConfigGetEventConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -103,7 +103,7 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context) (*SwitchMEven
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string) (*SwitchMEventConfig, *APIResponseMeta, error) {
+func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMEventConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -116,7 +116,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindCustomEventById, true)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMEventConfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -132,7 +132,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfig, id string) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfig, id string, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -149,7 +149,7 @@ func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *S
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMEventConfigQueryResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

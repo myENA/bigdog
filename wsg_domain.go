@@ -145,7 +145,7 @@ func NewWSGDomainModifyDomain() *WSGDomainModifyDomain {
 // Optional Parameters:
 // - parentDomainId string
 //		- nullable
-func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -164,7 +164,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	if v, ok := optionalParams["parentDomainId"]; ok && len(v) > 0 {
 		req.SetQueryParameter("parentDomainId", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
@@ -177,7 +177,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) (*APIResponseMeta, error) {
+func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -189,7 +189,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) (*A
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteDomainsById, true)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
@@ -209,7 +209,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string) (*A
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string][]string) (*WSGDomainList, *APIResponseMeta, error) {
+func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -236,7 +236,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
 		req.SetQueryParameter("recursively", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -253,7 +253,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 // Optional Parameters:
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainConfiguration, *APIResponseMeta, error) {
+func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainConfiguration, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -269,7 +269,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
 		req.SetQueryParameter("recursively", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainConfiguration()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -282,7 +282,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 // Required Parameters:
 // - domainName string
 //		- required
-func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, domainName string) (*WSGDomainList, *APIResponseMeta, error) {
+func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, domainName string, mutators ...RequestMutator) (*WSGDomainList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -295,7 +295,7 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
 	req.SetPathParameter("domainName", domainName)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -320,7 +320,7 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string) (*WSGDomainList, *APIResponseMeta, error) {
+func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -348,7 +348,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
 		req.SetQueryParameter("recursively", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -364,7 +364,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string) (*APIResponseMeta, error) {
+func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -380,7 +380,7 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

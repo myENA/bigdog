@@ -48,7 +48,7 @@ func NewSCIAlertSendNotification200ResponseType() *SCIAlertSendNotification200Re
 }
 
 // AlertSendNotification
-func (s *SCIAlertService) AlertSendNotification(ctx context.Context) (*SCIAlertSendNotification200ResponseType, *APIResponseMeta, error) {
+func (s *SCIAlertService) AlertSendNotification(ctx context.Context, mutators ...RequestMutator) (*SCIAlertSendNotification200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -60,7 +60,7 @@ func (s *SCIAlertService) AlertSendNotification(ctx context.Context) (*SCIAlertS
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIAlertSendNotification, false)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIAlertSendNotification200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

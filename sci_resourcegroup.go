@@ -43,7 +43,7 @@ func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseTy
 //
 // Request Body:
 //	 - body string
-func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, body string) (*SCIResourceGroupBatchDelete200ResponseType, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, ids string, mutators ...RequestMutator) (*SCIResourceGroupBatchDelete200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,11 +55,11 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIResourceGroupBatchDelete, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(ids); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIResourceGroupBatchDelete200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -71,7 +71,7 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 //
 // Request Body:
 //	 - body *SCIModelsResourceGroup
-func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, body *SCIModelsResourceGroup) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data *SCIModelsResourceGroup, mutators ...RequestMutator) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,11 +83,11 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, body 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIResourceGroupCreate, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsResourceGroup()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -100,7 +100,7 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, body 
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string) (SCIResourceGroupFind200ResponseType, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIResourceGroupFind200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -115,7 +115,7 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIResourceGroupFind200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
@@ -132,7 +132,7 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id string, optionalParams map[string][]string) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -148,7 +148,7 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsResourceGroup()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -164,7 +164,7 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx context.Context, body *SCIModelsResourceGroup, id string) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsResourceGroup, id string, mutators ...RequestMutator) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -176,12 +176,12 @@ func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIResourceGroupPrototypeUpdateAttributes, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsResourceGroup()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

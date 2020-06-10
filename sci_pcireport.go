@@ -25,7 +25,7 @@ func (ss *SCIService) SCIPCIReportService() *SCIPCIReportService {
 //
 // Request Body:
 //	 - body string
-func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, body string) (*APIResponseMeta, error) {
+func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, reportId string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -36,11 +36,11 @@ func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, body 
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIPciReportDownloadReport, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(reportId); err != nil {
 		return rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

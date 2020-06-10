@@ -32,7 +32,7 @@ func (ss *WSGService) WSGResourceMonitoringService() *WSGResourceMonitoringServi
 // - resource string
 //		- required
 //		- oneof:[client,ap]
-func (s *WSGResourceMonitoringService) FindResourceMonitoringSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string) (*WSGCommonMonitoringSummary, *APIResponseMeta, error) {
+func (s *WSGResourceMonitoringService) FindResourceMonitoringSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, mutators ...RequestMutator) (*WSGCommonMonitoringSummary, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -49,7 +49,7 @@ func (s *WSGResourceMonitoringService) FindResourceMonitoringSummaryByQueryCrite
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("resource", resource)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonMonitoringSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

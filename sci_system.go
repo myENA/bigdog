@@ -67,7 +67,7 @@ func MakeSCISystemGetSsids200ResponseType() SCISystemGetSsids200ResponseType {
 //
 // Request Body:
 //	 - body *SCIModelsSystem
-func (s *SCISystemService) SystemCreate(ctx context.Context, body *SCIModelsSystem) (*SCIModelsSystem, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSystem, mutators ...RequestMutator) (*SCIModelsSystem, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -79,11 +79,11 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, body *SCIModelsSyst
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCISystemCreate, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -96,7 +96,7 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, body *SCIModelsSyst
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string) (*SCISystemDeleteById200ResponseType, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*SCISystemDeleteById200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -109,7 +109,7 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string) (*SC
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSCISystemDeleteById, false)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCISystemDeleteById200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -122,7 +122,7 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string) (*SC
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[string][]string) (SCISystemFind200ResponseType, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCISystemFind200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -137,7 +137,7 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCISystemFind200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
@@ -154,7 +154,7 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCISystemService) SystemFindById(ctx context.Context, id string, optionalParams map[string][]string) (*SCIModelsSystem, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsSystem, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -170,7 +170,7 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -179,7 +179,7 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 // SystemGetSsids
 //
 // authenticate user with specific role
-func (s *SCISystemService) SystemGetSsids(ctx context.Context) (SCISystemGetSsids200ResponseType, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...RequestMutator) (SCISystemGetSsids200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -191,7 +191,7 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context) (SCISystemGetSsid
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCISystemGetSsids, false)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCISystemGetSsids200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
@@ -207,7 +207,7 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context) (SCISystemGetSsid
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, body *SCIModelsSystem, id string) (*SCIModelsSystem, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsSystem, id string, mutators ...RequestMutator) (*SCIModelsSystem, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -219,12 +219,12 @@ func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCISystemPrototypeUpdateAttributes, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

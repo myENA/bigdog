@@ -43,7 +43,7 @@ func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 // Required Parameters:
 // - name string
 //		- required
-func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body string, name string) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
+func (s *SCIFacetService) FacetGetFacet(ctx context.Context, start string, name string, mutators ...RequestMutator) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,12 +55,12 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body string, name s
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIFacetGetFacet, false)
-	if err = req.SetBody(body); err != nil {
+	if err = req.SetBody(start); err != nil {
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetPathParameter("name", name)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIFacetGetFacet200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err

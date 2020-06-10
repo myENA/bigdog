@@ -435,7 +435,7 @@ func MakeSwitchMSwitchStackConfigStackConfigList() SwitchMSwitchStackConfigStack
 //
 // Request Body:
 //	 - body SwitchMSwitchStackConfigStackConfigList
-func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body SwitchMSwitchStackConfigStackConfigList) (*SwitchMSwitchStackConfigAuditIdList, *APIResponseMeta, error) {
+func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body SwitchMSwitchStackConfigStackConfigList, mutators ...RequestMutator) (*SwitchMSwitchStackConfigAuditIdList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -451,7 +451,7 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 		return resp, rm, err
 	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchStackConfigAuditIdList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -464,7 +464,7 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 // Required Parameters:
 // - switchId string
 //		- required
-func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Context, switchId string) (*SwitchMSwitchStackConfigStackConfig, *APIResponseMeta, error) {
+func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Context, switchId string, mutators ...RequestMutator) (*SwitchMSwitchStackConfigStackConfig, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -477,7 +477,7 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
 	req.SetPathParameter("switchId", switchId)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchStackConfigStackConfig()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
@@ -490,7 +490,7 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 // Required Parameters:
 // - serialNumber string
 //		- required
-func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx context.Context, serialNumber string) (*SwitchMSwitchStackConfigList, *APIResponseMeta, error) {
+func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx context.Context, serialNumber string, mutators ...RequestMutator) (*SwitchMSwitchStackConfigList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -503,7 +503,7 @@ func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx cont
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
 	req.SetPathParameter("serialNumber", serialNumber)
-	httpResp, err = s.apiClient.Do(ctx, req)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchStackConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err

@@ -127,7 +127,7 @@ func (s *SCIMigrationService) MigrationCount(ctx context.Context, optionalParams
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationCount, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationCount, true)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
 		req.SetQueryParameter("where", v)
 	}
@@ -154,7 +154,7 @@ func (s *SCIMigrationService) MigrationCreate(ctx context.Context, data *SCIMode
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationCreate, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationCreate, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -184,7 +184,7 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamGetMigrationsChangeStre
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationCreateChangeStreamGetMigrationsChangeStream, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationCreateChangeStreamGetMigrationsChangeStream, true)
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
 		req.SetQueryParameter("options", v)
 	}
@@ -211,7 +211,7 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamPostMigrationsChangeStr
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationCreateChangeStreamPostMigrationsChangeStream, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationCreateChangeStreamPostMigrationsChangeStream, true)
 	if err = req.SetBody(options); err != nil {
 		return resp, rm, err
 	}
@@ -241,7 +241,7 @@ func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSCIMigrationDeleteById, false)
+	req = NewAPIRequest(http.MethodDelete, RouteSCIMigrationDeleteById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationDeleteById200ResponseType()
@@ -267,7 +267,7 @@ func (s *SCIMigrationService) MigrationExistsGetMigrationsIdExists(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationExistsGetMigrationsIdExists, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationExistsGetMigrationsIdExists, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationgetMigrationsidexists200ResponseType()
@@ -293,7 +293,7 @@ func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationFind, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationFind, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -325,7 +325,7 @@ func (s *SCIMigrationService) MigrationFindById(ctx context.Context, id string, 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationFindById, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationFindById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -354,7 +354,7 @@ func (s *SCIMigrationService) MigrationFindOne(ctx context.Context, optionalPara
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationFindOne, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationFindOne, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -385,7 +385,7 @@ func (s *SCIMigrationService) MigrationMigrateByName(ctx context.Context, name s
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMigrateByName, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMigrateByName, true)
 	req.SetQueryParameter("name", []string{name})
 	if v, ok := optionalParams["record"]; ok && len(v) > 0 {
 		req.SetQueryParameter("record", v)
@@ -412,7 +412,7 @@ func (s *SCIMigrationService) MigrationMigrateTo(ctx context.Context, optionalPa
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMigrateTo, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMigrateTo, true)
 	if v, ok := optionalParams["to"]; ok && len(v) > 0 {
 		req.SetQueryParameter("to", v)
 	}
@@ -442,7 +442,7 @@ func (s *SCIMigrationService) MigrationPrototypeUpdateAttributes(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationPrototypeUpdateAttributes, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationPrototypeUpdateAttributes, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -472,7 +472,7 @@ func (s *SCIMigrationService) MigrationRollbackTo(ctx context.Context, to string
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationRollbackTo, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationRollbackTo, true)
 	req.SetQueryParameter("to", []string{to})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -500,7 +500,7 @@ func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIM
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationUpdateAll, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationUpdateAll, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -532,7 +532,7 @@ func (s *SCIMigrationService) MigrationUpsert(ctx context.Context, data *SCIMode
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationUpsert, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationUpsert, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}

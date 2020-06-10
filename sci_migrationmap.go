@@ -127,7 +127,7 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapCount, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapCount, true)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
 		req.SetQueryParameter("where", v)
 	}
@@ -154,7 +154,7 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *S
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapCreate, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapCreate, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -184,7 +184,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapCreateChangeStreamGetMigrationMapsChangeStream, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapCreateChangeStreamGetMigrationMapsChangeStream, true)
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
 		req.SetQueryParameter("options", v)
 	}
@@ -211,7 +211,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMaps
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapCreateChangeStreamPostMigrationMapsChangeStream, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapCreateChangeStreamPostMigrationMapsChangeStream, true)
 	if err = req.SetBody(options); err != nil {
 		return resp, rm, err
 	}
@@ -241,7 +241,7 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSCIMigrationMapDeleteById, false)
+	req = NewAPIRequest(http.MethodDelete, RouteSCIMigrationMapDeleteById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationMapDeleteById200ResponseType()
@@ -267,7 +267,7 @@ func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapExistsGetMigrationMapsIdExists, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapExistsGetMigrationMapsIdExists, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationMapgetMigrationMapsidexists200ResponseType()
@@ -293,7 +293,7 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFind, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFind, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -325,7 +325,7 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFindById, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFindById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -354,7 +354,7 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFindOne, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFindOne, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -385,7 +385,7 @@ func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationMapPrototypeUpdateAttributes, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationMapPrototypeUpdateAttributes, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -419,7 +419,7 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapUpdateAll, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapUpdateAll, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -451,7 +451,7 @@ func (s *SCIMigrationMapService) MigrationMapUpsert(ctx context.Context, data *S
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationMapUpsert, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationMapUpsert, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}

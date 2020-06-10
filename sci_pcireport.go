@@ -35,7 +35,7 @@ func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, repor
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIPciReportDownloadReport, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIPciReportDownloadReport, true)
 	if err = req.SetBody(reportId); err != nil {
 		return rm, err
 	}

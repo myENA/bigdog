@@ -69,7 +69,7 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCISettingFindById, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCISettingFindById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -95,7 +95,7 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, recipients
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCISettingSendTestEmail, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCISettingSendTestEmail, true)
 	if err = req.SetBody(recipients); err != nil {
 		return resp, rm, err
 	}
@@ -124,7 +124,7 @@ func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSe
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCISettingUpsert, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCISettingUpsert, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}

@@ -59,7 +59,7 @@ func (s *SCIAlertService) AlertSendNotification(ctx context.Context, mutators ..
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIAlertSendNotification, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIAlertSendNotification, true)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIAlertSendNotification200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

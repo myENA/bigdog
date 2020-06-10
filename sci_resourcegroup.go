@@ -54,7 +54,7 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIResourceGroupBatchDelete, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIResourceGroupBatchDelete, true)
 	if err = req.SetBody(ids); err != nil {
 		return resp, rm, err
 	}
@@ -83,7 +83,7 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIResourceGroupCreate, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIResourceGroupCreate, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -113,7 +113,7 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIResourceGroupFind, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIResourceGroupFind, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -145,7 +145,7 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIResourceGroupFindById, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIResourceGroupFindById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -177,7 +177,7 @@ func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIResourceGroupPrototypeUpdateAttributes, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIResourceGroupPrototypeUpdateAttributes, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}

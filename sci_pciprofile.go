@@ -121,7 +121,7 @@ func (s *SCIPCIProfileService) PciProfileBatchDelete(ctx context.Context, ids st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIPciProfileBatchDelete, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIPciProfileBatchDelete, true)
 	if err = req.SetBody(ids); err != nil {
 		return resp, rm, err
 	}
@@ -150,7 +150,7 @@ func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIPciProfileCreateWithRelations, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIPciProfileCreateWithRelations, true)
 	if err = req.SetBody(name); err != nil {
 		return resp, rm, err
 	}
@@ -180,7 +180,7 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfileFind, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfileFind, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -212,7 +212,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeCountReports, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeCountReports, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
 		req.SetQueryParameter("where", v)
@@ -244,7 +244,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCreateReports(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIPciProfilePrototypeCreateReports, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIPciProfilePrototypeCreateReports, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -274,7 +274,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDeleteReports(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSCIPciProfilePrototypeDeleteReports, false)
+	req = NewAPIRequest(http.MethodDelete, RouteSCIPciProfilePrototypeDeleteReports, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -300,7 +300,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDestroyByIdReports(ctx context
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSCIPciProfilePrototypeDestroyByIdReports, false)
+	req = NewAPIRequest(http.MethodDelete, RouteSCIPciProfilePrototypeDestroyByIdReports, true)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -328,7 +328,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeFindByIdReports(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeFindByIdReports, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeFindByIdReports, true)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -359,7 +359,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeGetReports, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeGetReports, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -393,7 +393,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeUpdateByIdReports(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIPciProfilePrototypeUpdateByIdReports, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIPciProfilePrototypeUpdateByIdReports, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -428,7 +428,7 @@ func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIPciProfileUpdateWithRelations, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIPciProfileUpdateWithRelations, true)
 	if err = req.SetBody(name); err != nil {
 		return resp, rm, err
 	}

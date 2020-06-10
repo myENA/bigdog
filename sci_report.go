@@ -135,7 +135,7 @@ func (s *SCIreportService) ReportDownloadReport(ctx context.Context, state strin
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIReportDownloadReport, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIReportDownloadReport, true)
 	if err = req.SetBody(state); err != nil {
 		return rm, err
 	}
@@ -166,7 +166,7 @@ func (s *SCIreportService) ReportFind(ctx context.Context, optionalParams map[st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIReportFind, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIReportFind, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -198,7 +198,7 @@ func (s *SCIreportService) ReportFindById(ctx context.Context, id string, option
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIReportFindById, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIReportFindById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -232,7 +232,7 @@ func (s *SCIreportService) ReportGetData(ctx context.Context, start string, id s
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIReportGetData, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIReportGetData, true)
 	if err = req.SetBody(start); err != nil {
 		return resp, rm, err
 	}
@@ -268,7 +268,7 @@ func (s *SCIreportService) ReportPrototypeGetSections(ctx context.Context, id st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIReportPrototypeGetSections, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIReportPrototypeGetSections, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -296,7 +296,7 @@ func (s *SCIreportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIReportWithRelations, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIReportWithRelations, true)
 	if err = req.SetBody(urlSegmentName); err != nil {
 		return resp, rm, err
 	}

@@ -54,7 +54,7 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, start string, name 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIFacetGetFacet, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIFacetGetFacet, true)
 	if err = req.SetBody(start); err != nil {
 		return resp, rm, err
 	}

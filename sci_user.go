@@ -107,7 +107,7 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, ids string, mutato
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIUserBatchDelete, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIUserBatchDelete, true)
 	if err = req.SetBody(ids); err != nil {
 		return resp, rm, err
 	}
@@ -136,7 +136,7 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, username s
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIUserCreateWithRelations, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIUserCreateWithRelations, true)
 	if err = req.SetBody(username); err != nil {
 		return resp, rm, err
 	}
@@ -170,7 +170,7 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIUserFindById, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIUserFindById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -195,7 +195,7 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetResourceGroupsForUpsert, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetResourceGroupsForUpsert, true)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIUserGetResourceGroupsForUpsert200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -220,7 +220,7 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetUsers, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetUsers, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -269,7 +269,11 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIModelsUs
 // UserLogout
 //
 // Logout a user with access token.
-func (s *SCIUserService) UserLogout(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
+//
+// Required Parameters:
+// - accessToken string
+//		- required
+func (s *SCIUserService) UserLogout(ctx context.Context, accessToken string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -280,6 +284,7 @@ func (s *SCIUserService) UserLogout(ctx context.Context, mutators ...RequestMuta
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserLogout, false)
+	req.SetQueryParameter("accessToken", []string{accessToken})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -306,7 +311,7 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIUserPrototypeCreateFilters, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIUserPrototypeCreateFilters, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -338,7 +343,7 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSCIUserPrototypeDestroyByIdFilters, false)
+	req = NewAPIRequest(http.MethodDelete, RouteSCIUserPrototypeDestroyByIdFilters, true)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -366,7 +371,7 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeFindByIdFilters, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeFindByIdFilters, true)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -397,7 +402,7 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeGetFilters, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeGetFilters, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -430,7 +435,7 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeGetSchedules, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeGetSchedules, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -464,7 +469,7 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIUserPrototypeUpdateByIdFilters, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIUserPrototypeUpdateByIdFilters, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -499,7 +504,7 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIUserPrototypeUpdateAttributes, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIUserPrototypeUpdateAttributes, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -533,7 +538,7 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, username s
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCIUserUpdateWithRelations, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCIUserUpdateWithRelations, true)
 	if err = req.SetBody(username); err != nil {
 		return resp, rm, err
 	}
@@ -563,7 +568,7 @@ func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, curren
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIUserValidateCurrentPassword, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIUserValidateCurrentPassword, true)
 	if err = req.SetBody(currentPassword); err != nil {
 		return resp, rm, err
 	}

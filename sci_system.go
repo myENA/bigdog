@@ -78,7 +78,7 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCISystemCreate, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCISystemCreate, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
@@ -108,7 +108,7 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteSCISystemDeleteById, false)
+	req = NewAPIRequest(http.MethodDelete, RouteSCISystemDeleteById, true)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCISystemDeleteById200ResponseType()
@@ -134,7 +134,7 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCISystemFind, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCISystemFind, true)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -166,7 +166,7 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCISystemFindById, false)
+	req = NewAPIRequest(http.MethodGet, RouteSCISystemFindById, true)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -191,7 +191,7 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCISystemGetSsids, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCISystemGetSsids, true)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCISystemGetSsids200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -219,7 +219,7 @@ func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPut, RouteSCISystemPrototypeUpdateAttributes, false)
+	req = NewAPIRequest(http.MethodPut, RouteSCISystemPrototypeUpdateAttributes, true)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}

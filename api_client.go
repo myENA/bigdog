@@ -538,7 +538,7 @@ func NewSCIService(c *SCIClient) *SCIService {
 }
 
 type FileResponse struct {
-	ContentDisposition string `json:"filename"`
+	ContentDisposition string `json:"contentDisposition"`
 	ContentType        string `json:"contentType"`
 	ContentLength      int    `json:"contentLength"`
 	Body               []byte `json:"body"`

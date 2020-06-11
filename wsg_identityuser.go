@@ -177,7 +177,6 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsers, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["createdOnFrom"]; ok && len(v) > 0 {
 		req.SetQueryParameter("createdOnFrom", v)
@@ -242,7 +241,6 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityAaaServerList()
@@ -269,7 +267,6 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -293,7 +290,6 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityCountryList()
@@ -316,7 +312,6 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context, 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityPackageList()

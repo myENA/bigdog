@@ -105,7 +105,6 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -134,7 +133,6 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservByZoneId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

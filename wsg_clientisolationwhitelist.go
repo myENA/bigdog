@@ -129,7 +129,6 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesClientIsolationWhitelistById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -158,7 +157,6 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesClientIsolationWhitelistByZoneId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

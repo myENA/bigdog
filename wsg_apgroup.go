@@ -1663,7 +1663,6 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsApmodelByModel(ctx context.Conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsApmodelByModel, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("model", model)
@@ -1695,7 +1694,6 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, id str
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("zoneId", zoneId)
@@ -1730,7 +1728,6 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zo
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsByZoneId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("zoneId", zoneId)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -1764,7 +1761,6 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesApgroupsDefaultByZoneId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

@@ -257,7 +257,6 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettings, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSpecificSettingsAllResult()
@@ -284,7 +283,6 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

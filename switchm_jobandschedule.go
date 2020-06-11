@@ -95,7 +95,6 @@ func (s *SwitchMJobAndScheduleService) FindJobByJobId(ctx context.Context, body 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobByJobId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -126,7 +125,6 @@ func (s *SwitchMJobAndScheduleService) FindJobScheduleByScheduleId(ctx context.C
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("scheduleId", scheduleId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

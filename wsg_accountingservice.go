@@ -288,7 +288,6 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAcctRadius, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceRadiusAccountingServiceList()
@@ -315,7 +314,6 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAcctRadiusById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

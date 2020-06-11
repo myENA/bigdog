@@ -72,7 +72,6 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCISettingFindById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {

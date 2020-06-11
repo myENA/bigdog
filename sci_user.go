@@ -190,7 +190,6 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserFindById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
@@ -217,7 +216,6 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetResourceGroupsForUpsert, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIUserGetResourceGroupsForUpsert200ResponseType()
@@ -244,7 +242,6 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetUsers, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -401,7 +398,6 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeFindByIdFilters, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
@@ -434,7 +430,6 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeGetFilters, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
@@ -469,7 +464,6 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeGetSchedules, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {

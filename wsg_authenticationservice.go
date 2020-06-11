@@ -422,7 +422,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthAd, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceActiveDirectoryServiceList()
@@ -449,7 +448,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthAdById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -535,7 +533,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthGuestById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -559,7 +556,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthHlr, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceHlrServiceList()
@@ -586,7 +582,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthHlrById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -639,7 +634,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLdap, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceLDAPServiceList()
@@ -666,7 +660,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLdapById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -723,7 +716,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocalDbById(ctx contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthLocalDbById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -747,7 +739,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthRadius, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceRadiusAuthenticationServiceList()
@@ -774,7 +765,6 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesAuthRadiusById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

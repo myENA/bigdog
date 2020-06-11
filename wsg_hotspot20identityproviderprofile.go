@@ -176,7 +176,6 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20Identityproviders, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
@@ -209,7 +208,6 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20IdentityprovidersById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

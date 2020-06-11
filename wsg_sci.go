@@ -421,7 +421,6 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...Req
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciEventCode, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCIEventCode()
@@ -444,7 +443,6 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...Reque
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfile, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCIProfileList()
@@ -471,7 +469,6 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string, mu
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfileById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

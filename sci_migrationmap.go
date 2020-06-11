@@ -130,7 +130,6 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapCount, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
 		req.SetQueryParameter("where", v)
@@ -189,7 +188,6 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapCreateChangeStreamGetMigrationMapsChangeStream, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
 		req.SetQueryParameter("options", v)
@@ -277,7 +275,6 @@ func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapExistsGetMigrationMapsIdExists, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -305,7 +302,6 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFind, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -339,7 +335,6 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFindById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
@@ -370,7 +365,6 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFindOne, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)

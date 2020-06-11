@@ -409,7 +409,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -437,7 +436,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcApplicationPolicyV2ById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -461,7 +459,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackage, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAVCSignaturePackage()
@@ -488,7 +485,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplicationByApplicationName, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("applicationName", applicationName)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -512,7 +508,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageApplications, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAVCApplicationList()
@@ -535,7 +530,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategori
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategories, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAVCAppCategoryList()
@@ -562,7 +556,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategory
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageCategoryByCategoryName, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("categoryName", categoryName)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -586,7 +579,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAVCSignaturePackage()
@@ -613,7 +605,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Applications, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["appName"]; ok && len(v) > 0 {
 		req.SetQueryParameter("appName", v)
@@ -643,7 +634,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Categories, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["catName"]; ok && len(v) > 0 {
 		req.SetQueryParameter("catName", v)
@@ -673,7 +663,6 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAvcUserDefinedById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

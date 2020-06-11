@@ -91,7 +91,6 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context, mutator
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRules, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAPRulesApRuleList()
@@ -118,7 +117,6 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -145,7 +143,6 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityDownById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -171,7 +168,6 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRulesPriorityUpById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

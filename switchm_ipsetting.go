@@ -118,7 +118,6 @@ func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context, mutators .
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigs, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMIPConfigList()
@@ -145,7 +144,6 @@ func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id str
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindIpConfigsById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

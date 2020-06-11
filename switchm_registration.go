@@ -719,7 +719,6 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindRegistrationRules, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMRegistrationRulesRuleQueryResultList()

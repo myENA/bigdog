@@ -267,7 +267,6 @@ func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutator
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMFirmwareConfigFirmwaresQueryResultList()

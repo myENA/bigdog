@@ -404,7 +404,6 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMaps, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("groupId", []string{groupId})
 	req.SetQueryParameter("groupType", []string{groupType})
@@ -433,7 +432,6 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMapsByIndoorMapId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

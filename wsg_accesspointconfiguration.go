@@ -1194,7 +1194,6 @@ func (s *WSGAccessPointConfigurationService) FindApRadiosByApMac(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApRadiosByApMac, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1228,7 +1227,6 @@ func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAps, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
 		req.SetQueryParameter("domainId", v)
@@ -1267,7 +1265,6 @@ func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsByApMac, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1295,7 +1292,6 @@ func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.C
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsPictureByApMac, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1323,7 +1319,6 @@ func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsSupportLogByApMac, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1347,7 +1342,6 @@ func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMeshZeroTouch, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGMeshNodeInfoList()

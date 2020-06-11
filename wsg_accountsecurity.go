@@ -128,7 +128,6 @@ func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAccountSecurity, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAccountSecurityProfileProfileListResult()
@@ -158,7 +157,6 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAccountSecurityById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err

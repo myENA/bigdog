@@ -329,7 +329,6 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaServersByGroupId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -359,7 +358,6 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaServersById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("groupId", groupId)
 	req.SetPathParameter("id", id)

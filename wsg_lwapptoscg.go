@@ -36,7 +36,6 @@ func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context, mutators ...Re
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLwapp2scg, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemLwapp2scgConfiguration()

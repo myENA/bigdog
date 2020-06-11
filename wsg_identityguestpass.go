@@ -227,7 +227,6 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityGuestpass, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
 		req.SetQueryParameter("displayName", v)

@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"io"
 	"net/http"
 )
 
@@ -63,7 +62,6 @@ func (s *WSGDPNetworkService) FindPlanes(ctx context.Context, mutators ...Reques
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanes, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemDataPlaneList()
@@ -90,7 +88,6 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesByBladeUUID, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -103,10 +100,10 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 //
 // Use this API command to get DP mesh tunnel setting.
 //
-// Form Data Parameters:
-// - uploadFile io.Reader
-//		- required
-func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*WSGSystemGetDataPlaneMeshTunnelSetting, *APIResponseMeta, error) {
+// Optional Parameters:
+// - useless string
+//		- nullable
+func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemGetDataPlaneMeshTunnelSetting, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -118,10 +115,9 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, upl
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesDpTunnelSetting, true)
-	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
-		return resp, rm, err
+	if v, ok := optionalParams["useless"]; ok && len(v) > 0 {
+		req.SetQueryParameter("useless", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemGetDataPlaneMeshTunnelSetting()

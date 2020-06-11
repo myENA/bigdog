@@ -973,7 +973,6 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUsersByUserId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

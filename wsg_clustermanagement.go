@@ -315,7 +315,6 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatch, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationApPatchInfo()
@@ -346,7 +345,6 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchHistory, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
@@ -378,7 +376,6 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchStatus, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationApPatchStatus()
@@ -409,7 +406,6 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCluster, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
@@ -441,7 +437,6 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterGeoRedundancy, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGClusterRedundancySettings()
@@ -464,7 +459,6 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterState, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGClusterBladeClusterState()
@@ -493,7 +487,6 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfiguration, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
@@ -530,7 +523,6 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationDownload, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	req.SetQueryParameter("backupUUID", []string{backupUUID})
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
@@ -557,7 +549,6 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsAutoExportBackup, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationAutoExportBackup()
@@ -580,7 +571,6 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsScheduleBackup, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationScheduleBackup()
@@ -611,7 +601,6 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeHistory, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
@@ -643,7 +632,6 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradePatch, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationUpgradePatchInfo()
@@ -666,7 +654,6 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeStatus, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationUpgradeStatus()

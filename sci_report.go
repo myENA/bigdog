@@ -172,7 +172,6 @@ func (s *SCIreportService) ReportFind(ctx context.Context, optionalParams map[st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIReportFind, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -206,7 +205,6 @@ func (s *SCIreportService) ReportFindById(ctx context.Context, id string, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIReportFindById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
@@ -293,7 +291,6 @@ func (s *SCIreportService) ReportPrototypeGetSections(ctx context.Context, id st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIReportPrototypeGetSections, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {

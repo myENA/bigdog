@@ -136,7 +136,6 @@ func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context, mutator
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindServicesGgsn, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceGgsnConfig()

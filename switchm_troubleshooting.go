@@ -428,7 +428,6 @@ func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSupportLogBySwitchId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -455,7 +454,6 @@ func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx con
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSupportLogDownloadBySwitchId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -482,7 +480,6 @@ func (s *SwitchMTroubleshootingService) FindSupportLogStatusBySwitchId(ctx conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSupportLogStatusBySwitchId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

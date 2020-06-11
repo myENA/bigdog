@@ -49,7 +49,6 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
 		req.SetQueryParameter("domainId", v)
@@ -93,7 +92,6 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
 		req.SetQueryParameter("domainId", v)
@@ -122,7 +120,6 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(FileResponse)

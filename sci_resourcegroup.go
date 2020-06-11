@@ -117,7 +117,6 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIResourceGroupFind, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -151,7 +150,6 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIResourceGroupFindById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {

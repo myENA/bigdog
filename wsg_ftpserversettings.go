@@ -124,7 +124,6 @@ func (s *WSGFTPServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindFtpsByFtpId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -180,7 +179,6 @@ func (s *WSGFTPServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindFtpsTest, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
@@ -210,7 +208,6 @@ func (s *WSGFTPServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindFtpsTestByFtpId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

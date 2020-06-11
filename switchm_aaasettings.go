@@ -187,7 +187,6 @@ func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Co
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindGroupAaaSettingsByGroupId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

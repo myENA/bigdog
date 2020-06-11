@@ -71,7 +71,6 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("apMac", []string{apMac})
 	req.SetQueryParameter("targetIP", []string{targetIP})
@@ -100,7 +99,6 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("wcid", wcid)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -134,7 +132,6 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("apMac", []string{apMac})
 	req.SetQueryParameter("targetIP", []string{targetIP})

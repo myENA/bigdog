@@ -381,7 +381,6 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGNorthboundDataStreamingEventCodes()
@@ -408,7 +407,6 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -432,7 +430,6 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGNorthboundDataStreamingProfileList()

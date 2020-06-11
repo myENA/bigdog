@@ -1141,7 +1141,6 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("type_", []string{type_})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1169,7 +1168,6 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaaById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1193,7 +1191,6 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenses, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesList()
@@ -1216,7 +1213,6 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenseServer, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicenseServer()
@@ -1239,7 +1235,6 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSummary, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesSummaryList()
@@ -1262,7 +1257,6 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesSyncLogsList()

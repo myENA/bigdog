@@ -189,7 +189,6 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfileFind, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -223,7 +222,6 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeCountReports, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
@@ -345,7 +343,6 @@ func (s *SCIPCIProfileService) PciProfilePrototypeFindByIdReports(ctx context.Co
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeFindByIdReports, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
@@ -378,7 +375,6 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfilePrototypeGetReports, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {

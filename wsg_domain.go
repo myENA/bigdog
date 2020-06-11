@@ -224,7 +224,6 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomains, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["excludeRegularDomain"]; ok && len(v) > 0 {
 		req.SetQueryParameter("excludeRegularDomain", v)
@@ -270,7 +269,6 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
@@ -301,7 +299,6 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("domainName", domainName)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -341,7 +338,6 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["excludeRegularDomain"]; ok && len(v) > 0 {

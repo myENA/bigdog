@@ -123,7 +123,7 @@ type SCIModelsPciProfile struct {
 
 	// Ssids
 	// list of selected ssids
-	Ssids []SCIModelsXany `json:"ssids,omitempty"`
+	Ssids []interface{} `json:"ssids,omitempty"`
 }
 
 func NewSCIModelsPciProfile() *SCIModelsPciProfile {
@@ -211,17 +211,17 @@ func NewSCIModelsPciReportStatusesType() *SCIModelsPciReportStatusesType {
 type SCIModelsReport struct {
 	Component *string `json:"component,omitempty"`
 
-	DatasourcesUsed []SCIModelsXany `json:"datasourcesUsed,omitempty"`
+	DatasourcesUsed []interface{} `json:"datasourcesUsed,omitempty"`
 
-	ExcludedFilters []SCIModelsXany `json:"excludedFilters,omitempty"`
+	ExcludedFilters []interface{} `json:"excludedFilters,omitempty"`
 
 	FilterDataSource *string `json:"filterDataSource,omitempty"`
 
-	Headers []SCIModelsXany `json:"headers,omitempty"`
+	Headers []interface{} `json:"headers,omitempty"`
 
 	Id *float64 `json:"id,omitempty"`
 
-	Layout []SCIModelsXany `json:"layout,omitempty"`
+	Layout []interface{} `json:"layout,omitempty"`
 
 	RouteParameters *SCIModelsReportRouteParametersType `json:"routeParameters,omitempty"`
 
@@ -338,7 +338,7 @@ type SCIModelsSchedule struct {
 	// two@domain.com
 	// Constraints:
 	//    - required
-	Recipients []SCIModelsXany `json:"recipients"`
+	Recipients []interface{} `json:"recipients"`
 
 	ReportId *float64 `json:"reportId,omitempty"`
 
@@ -591,12 +591,5 @@ type SCIModelsUserLogin struct {
 
 func NewSCIModelsUserLogin() *SCIModelsUserLogin {
 	m := new(SCIModelsUserLogin)
-	return m
-}
-
-type SCIModelsXany interface{}
-
-func MakeSCIModelsXany() SCIModelsXany {
-	m := new(SCIModelsXany)
 	return m
 }

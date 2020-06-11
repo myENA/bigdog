@@ -157,16 +157,16 @@ func NewSwitchMHealthIcxMetricsExtraType() *SwitchMHealthIcxMetricsExtraType {
 
 type SwitchMHealthMetrics struct {
 	// Avg
-	// Average metrics
-	Avg *float64 `json:"avg,omitempty"`
+	// Average metrics.  Value may be either float or "NaN"
+	Avg interface{} `json:"avg,omitempty"`
 
 	// Max
-	// Max metrics
-	Max *float64 `json:"max,omitempty"`
+	// Max metrics.  Value may be either float or "-Infinity"
+	Max interface{} `json:"max,omitempty"`
 
 	// Min
-	// Min metrics
-	Min *float64 `json:"min,omitempty"`
+	// Min metrics.  value may be either float or "Infinity"
+	Min interface{} `json:"min,omitempty"`
 
 	// Timestamp
 	// Timestamp

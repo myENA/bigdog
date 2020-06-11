@@ -134,7 +134,7 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -148,7 +148,7 @@ func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, up
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.MultipartForm()
-	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
+	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

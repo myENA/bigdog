@@ -109,7 +109,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Context, uploadFile io.Reader, id string, zoneId string, mutators ...RequestMutator) (*WSGDPSKGetDpskResult, *APIResponseMeta, error) {
+func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Context, filename string, uploadFile io.Reader, id string, zoneId string, mutators ...RequestMutator) (*WSGDPSKGetDpskResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -124,7 +124,7 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.MultipartForm()
-	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
+	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp, rm, err
 	}
 	req.SetPathParameter("id", id)

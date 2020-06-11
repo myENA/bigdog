@@ -201,7 +201,7 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -216,7 +216,7 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, up
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.MultipartForm()
-	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
+	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

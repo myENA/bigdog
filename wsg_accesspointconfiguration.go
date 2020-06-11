@@ -60,7 +60,7 @@ func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *W
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Context, uploadFile io.Reader, apMac string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Context, filename string, uploadFile io.Reader, apMac string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -74,7 +74,7 @@ func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Co
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.MultipartForm()
-	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
+	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return rm, err
 	}
 	req.SetPathParameter("apMac", apMac)

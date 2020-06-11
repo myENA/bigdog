@@ -52,7 +52,7 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators .
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -66,7 +66,7 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, upload
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.MultipartForm()
-	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
+	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -175,7 +175,7 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -189,7 +189,7 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.MultipartForm()
-	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
+	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -227,7 +227,7 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators .
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*WSGAdministrationUpgradeStatus, *APIResponseMeta, error) {
+func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*WSGAdministrationUpgradeStatus, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -242,7 +242,7 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, uplo
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.MultipartForm()
-	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
+	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

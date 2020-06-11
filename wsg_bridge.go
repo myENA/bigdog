@@ -39,11 +39,11 @@ func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfi
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesBridge, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
@@ -67,11 +67,11 @@ func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCo
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridge, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -95,6 +95,8 @@ func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id stri
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesBridgeById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -116,6 +118,8 @@ func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context, mutators ...R
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridge, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -141,6 +145,8 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesBridgeById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileBridgeProfile()
@@ -166,11 +172,11 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesBridgeByQueryCriteria, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileBridgeProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -198,11 +204,11 @@ func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, 
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesBridgeById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)

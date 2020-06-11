@@ -39,11 +39,11 @@ func (s *SwitchMJobAndScheduleService) AddJob(ctx context.Context, body *SwitchM
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddJob, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMJobList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -65,6 +65,8 @@ func (s *SwitchMJobAndScheduleService) DeleteJobSchedule(ctx context.Context, mu
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteJobSchedule, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -93,11 +95,11 @@ func (s *SwitchMJobAndScheduleService) FindJobByJobId(ctx context.Context, body 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobByJobId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("jobId", jobId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMJob()
@@ -124,6 +126,8 @@ func (s *SwitchMJobAndScheduleService) FindJobScheduleByScheduleId(ctx context.C
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("scheduleId", scheduleId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMJobScheduleResponse()

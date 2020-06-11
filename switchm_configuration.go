@@ -39,11 +39,11 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfig, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMConfigurationBackupList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -68,11 +68,11 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfigBackup, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMConfigurationBackupCreateBackupResultList()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
@@ -97,11 +97,11 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchconfigBackupDiff, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMConfigurationBackupConfigBackupDiff()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -125,11 +125,11 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, bo
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfig, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -153,6 +153,8 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("configId", configId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -178,6 +180,8 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("configId", configId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
@@ -204,6 +208,8 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigDownloadByConfigId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("configId", configId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
@@ -231,6 +237,8 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("groupId", groupId)
 	req.SetPathParameter("groupType", groupType)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -257,6 +265,8 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupRestoreByBackupId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("backupId", backupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})

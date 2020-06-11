@@ -44,11 +44,11 @@ func (s *WSGResourceMonitoringService) FindResourceMonitoringSummaryByQueryCrite
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGFindResourceMonitoringSummaryByQueryCriteria, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("resource", resource)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonMonitoringSummary()

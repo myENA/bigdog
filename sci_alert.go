@@ -60,6 +60,8 @@ func (s *SCIAlertService) AlertSendNotification(ctx context.Context, mutators ..
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIAlertSendNotification, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIAlertSendNotification200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

@@ -39,11 +39,11 @@ func (s *WSGEventAndAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmList, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAlarmListAlarmQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -68,11 +68,11 @@ func (s *WSGEventAndAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertAlarmSummary, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAlertSummaryAlarmSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -97,11 +97,11 @@ func (s *WSGEventAndAlarmService) AddAlertEventList(ctx context.Context, body *W
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventList, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGEventListEventQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -126,11 +126,11 @@ func (s *WSGEventAndAlarmService) AddAlertEventSummary(ctx context.Context, body
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddAlertEventSummary, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAlertSummaryEventSummary()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -154,11 +154,11 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAck, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -183,6 +183,8 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("alarmID", alarmID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
@@ -207,11 +209,11 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClear, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -236,6 +238,8 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("alarmID", alarmID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})

@@ -71,11 +71,11 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddServiceTicket, false)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceTicketLoginResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -101,6 +101,8 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("serviceTicket", []string{serviceTicket})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})

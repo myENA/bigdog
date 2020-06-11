@@ -39,11 +39,11 @@ func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *Switc
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddVeConfigs, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMVEConfigCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
@@ -67,11 +67,11 @@ func (s *SwitchMVESettingsService) DeleteVeConfigs(ctx context.Context, body *Sw
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigs, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -95,6 +95,8 @@ func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id s
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -116,6 +118,8 @@ func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context, mutators .
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigs, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMVEConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -141,6 +145,8 @@ func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id str
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMVEConfig()
@@ -166,11 +172,11 @@ func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMFindVeConfigsByQueryCriteria, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMVEConfigList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -198,11 +204,11 @@ func (s *SwitchMVESettingsService) UpdateVeConfigsById(ctx context.Context, body
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateVeConfigsById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)

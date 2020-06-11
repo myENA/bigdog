@@ -183,11 +183,11 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmware, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMFirmwareConfigFirmwaresQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -198,8 +198,9 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 //
 // Use this API command to upload a firmware image zip file to SmartZone.
 //
-// Request Body:
-//	 - body io.Reader
+// Form Data Parameters:
+// - uploadFile io.Reader
+//		- required
 func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
@@ -212,11 +213,11 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, up
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddFirmwareUpload, true)
-	if err = AddRequestMultipartValues(req, map[string]io.Reader{"uploadFile": uploadFile}); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -242,6 +243,8 @@ func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSwitchMDeleteFirmwareByVersion, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
@@ -264,6 +267,8 @@ func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutator
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindFirmware, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMFirmwareConfigFirmwaresQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -292,11 +297,11 @@ func (s *SwitchMFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteSwitchMPartialUpdateFirmwareByVersion, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMFirmwareConfigScheduleIds()

@@ -3,8 +3,10 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"net/http"
+	"net/url"
 )
 
 type SCIFacetService struct {
@@ -37,13 +39,18 @@ func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 //   </code>
 // </pre>
 //
-// Request Body:
-//	 - body string
+// Form Data Parameters:
+// - end string
+//		- nullable
+// - filter string
+//		- nullable
+// - start string
+//		- nullable
 //
 // Required Parameters:
 // - name string
 //		- required
-func (s *SCIFacetService) FacetGetFacet(ctx context.Context, start string, name string, mutators ...RequestMutator) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
+func (s *SCIFacetService) FacetGetFacet(ctx context.Context, formValues url.Values, name string, mutators ...RequestMutator) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,11 +62,11 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, start string, name 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIFacetGetFacet, true)
-	if err = req.SetBody(start); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	req.SetPathParameter("name", name)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIFacetGetFacet200ResponseType()

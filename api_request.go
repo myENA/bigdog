@@ -206,6 +206,12 @@ func (r *APIRequest) SetBody(body interface{}) error {
 		return nil
 	}
 
+	// test for form data
+	if v, ok := body.(url.Values); ok {
+		r.body = bytes.NewBufferString(v.Encode())
+		return nil
+	}
+
 	// finally, attempt json marshal
 	if b, err := json.Marshal(body); err != nil {
 		return err

@@ -3,9 +3,11 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"net/http"
+	"net/url"
 )
 
 type SCIMigrationMapService struct {
@@ -128,6 +130,8 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapCount, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
 		req.SetQueryParameter("where", v)
 	}
@@ -155,11 +159,11 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *S
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapCreate, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigrationMap()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -185,6 +189,8 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapCreateChangeStreamGetMigrationMapsChangeStream, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
 		req.SetQueryParameter("options", v)
 	}
@@ -198,9 +204,10 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 //
 // Create a change stream.
 //
-// Request Body:
-//	 - body string
-func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMapsChangeStream(ctx context.Context, options string, mutators ...RequestMutator) (*FileResponse, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - options string
+//		- nullable
+func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMapsChangeStream(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*FileResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -212,11 +219,11 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMaps
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapCreateChangeStreamPostMigrationMapsChangeStream, true)
-	if err = req.SetBody(options); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(FileResponse)
 	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
@@ -242,6 +249,8 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSCIMigrationMapDeleteById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationMapDeleteById200ResponseType()
@@ -268,6 +277,8 @@ func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapExistsGetMigrationMapsIdExists, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationMapgetMigrationMapsidexists200ResponseType()
@@ -294,6 +305,8 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFind, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -326,6 +339,8 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFindById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -355,6 +370,8 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMapFindOne, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -386,11 +403,11 @@ func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationMapPrototypeUpdateAttributes, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigrationMap()
@@ -420,11 +437,11 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIMigrationMapUpdateAll, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
 		req.SetQueryParameter("where", v)
 	}
@@ -452,11 +469,11 @@ func (s *SCIMigrationMapService) MigrationMapUpsert(ctx context.Context, data *S
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIMigrationMapUpsert, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigrationMap()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

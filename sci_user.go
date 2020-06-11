@@ -3,9 +3,11 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"net/http"
+	"net/url"
 )
 
 type SCIUserService struct {
@@ -94,9 +96,10 @@ func MakeSCIUsergetschedules200ResponseType() SCIUsergetschedules200ResponseType
 //
 // Delete users and remove them from their related models.
 //
-// Request Body:
-//	 - body string
-func (s *SCIUserService) UserBatchDelete(ctx context.Context, ids string, mutators ...RequestMutator) (*SCIUserBatchDelete200ResponseType, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - ids string
+//		- required
+func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIUserBatchDelete200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -108,11 +111,11 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, ids string, mutato
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserBatchDelete, true)
-	if err = req.SetBody(ids); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIUserBatchDelete200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -123,9 +126,25 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, ids string, mutato
 //
 // Create user and its related models.
 //
-// Request Body:
-//	 - body string
-func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, username string, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - email string
+//		- required
+// - firstName string
+//		- required
+// - isExternal bool
+//		- nullable
+//		- default:false
+// - lastName string
+//		- required
+// - password string
+//		- required
+// - resourceGroupId float64
+//		- required
+// - role string
+//		- required
+// - username string
+//		- required
+func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -137,11 +156,11 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, username s
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserCreateWithRelations, true)
-	if err = req.SetBody(username); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsUser()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -171,6 +190,8 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserFindById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -196,6 +217,8 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetResourceGroupsForUpsert, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIUserGetResourceGroupsForUpsert200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -221,6 +244,8 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetUsers, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -252,11 +277,11 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIModelsUs
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserLogin, false)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(credentials); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["include"]; ok && len(v) > 0 {
 		req.SetQueryParameter("include", v)
 	}
@@ -284,6 +309,8 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accessToken string, mut
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserLogout, false)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("accessToken", []string{accessToken})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -312,11 +339,11 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserPrototypeCreateFilters, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsFilter()
@@ -344,6 +371,8 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSCIUserPrototypeDestroyByIdFilters, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -372,6 +401,8 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeFindByIdFilters, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -403,6 +434,8 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeGetFilters, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -436,6 +469,8 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserPrototypeGetSchedules, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -470,11 +505,11 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIUserPrototypeUpdateByIdFilters, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("fk", fk)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -505,11 +540,11 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIUserPrototypeUpdateAttributes, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsUser()
@@ -521,13 +556,26 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 //
 // Update a user and its related models.
 //
-// Request Body:
-//	 - body string
+// Form Data Parameters:
+// - email string
+//		- required
+// - firstName string
+//		- required
+// - lastName string
+//		- required
+// - password string
+//		- nullable
+// - resourceGroupId float64
+//		- required
+// - role string
+//		- required
+// - username string
+//		- required
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, username string, id string, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
+func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -539,11 +587,11 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, username s
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIUserUpdateWithRelations, true)
-	if err = req.SetBody(username); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsUser()
@@ -555,9 +603,10 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, username s
 //
 // check if current password entered is valid
 //
-// Request Body:
-//	 - body string
-func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, currentPassword string, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - currentPassword string
+//		- required
+func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -569,11 +618,11 @@ func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, curren
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserValidateCurrentPassword, true)
-	if err = req.SetBody(currentPassword); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsUser()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

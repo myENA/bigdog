@@ -1043,11 +1043,11 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddAdminaaa, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
@@ -1068,6 +1068,8 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...R
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRestart, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -1087,6 +1089,8 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddShutdown, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -1110,6 +1114,8 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -1135,6 +1141,8 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("type_", []string{type_})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationRetrieveAdminAAAServerList()
@@ -1161,6 +1169,8 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaaById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationRetrieveAdminAAAServer()
@@ -1183,6 +1193,8 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenses, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -1204,6 +1216,8 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicenseServer, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicenseServer()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -1225,6 +1239,8 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSummary, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesSummaryList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -1246,6 +1262,8 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesSyncLogsList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -1273,11 +1291,11 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateAdminaaaById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
@@ -1301,11 +1319,11 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLicenseServer, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -1325,6 +1343,8 @@ func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutat
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLicensesSync, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

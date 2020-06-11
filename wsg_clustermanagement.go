@@ -37,6 +37,8 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators .
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddApPatch, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationApPatchStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -47,8 +49,9 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators .
 //
 // Use this API command to upload AP Patch File.
 //
-// Request Body:
-//	 - body io.Reader
+// Form Data Parameters:
+// - uploadFile io.Reader
+//		- required
 func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
@@ -60,11 +63,11 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, upload
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddApPatchFile, true)
-	if err = AddRequestMultipartValues(req, map[string]io.Reader{"uploadFile": uploadFile}); err != nil {
-		return rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+		return rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -84,6 +87,8 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, muta
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddClusterBackup, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -107,6 +112,8 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddClusterRestoreById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -127,6 +134,8 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationBackup, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, nil, err)
 	return rm, err
@@ -150,6 +159,8 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationRestoreById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -160,8 +171,9 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 //
 // Upload system configuration file.
 //
-// Request Body:
-//	 - body io.Reader
+// Form Data Parameters:
+// - uploadFile io.Reader
+//		- required
 func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
@@ -173,11 +185,11 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationUpload, true)
-	if err = AddRequestMultipartValues(req, map[string]io.Reader{"uploadFile": uploadFile}); err != nil {
-		return rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+		return rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -198,6 +210,8 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators .
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddUpgrade, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationUpgradeStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -208,8 +222,9 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators .
 //
 // Use this API command to upload patch file.
 //
-// Request Body:
-//	 - body io.Reader
+// Form Data Parameters:
+// - uploadFile io.Reader
+//		- required
 func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*WSGAdministrationUpgradeStatus, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
@@ -222,11 +237,11 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, uplo
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddUpgradeUpload, true)
-	if err = AddRequestMultipartValues(req, map[string]io.Reader{"uploadFile": uploadFile}); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationUpgradeStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -251,6 +266,8 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteClusterById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -275,6 +292,8 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteConfigurationById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -296,6 +315,8 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatch, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationApPatchInfo()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -325,6 +346,8 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchHistory, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
 	}
@@ -355,6 +378,8 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchStatus, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationApPatchStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -384,6 +409,8 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCluster, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
 	}
@@ -414,6 +441,8 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterGeoRedundancy, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGClusterRedundancySettings()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -435,6 +464,8 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindClusterState, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGClusterBladeClusterState()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -462,6 +493,8 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfiguration, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
 	}
@@ -497,6 +530,8 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationDownload, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	req.SetQueryParameter("backupUUID", []string{backupUUID})
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
 		req.SetQueryParameter("timeZone", v)
@@ -522,6 +557,8 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsAutoExportBackup, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationAutoExportBackup()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -543,6 +580,8 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationSettingsScheduleBackup, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationScheduleBackup()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -572,6 +611,8 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeHistory, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
 		req.SetQueryParameter("index", v)
 	}
@@ -602,6 +643,8 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradePatch, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationUpgradePatchInfo()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -623,6 +666,8 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mut
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeStatus, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationUpgradeStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -646,11 +691,11 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -673,11 +718,11 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -701,11 +746,11 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateClusterGeoRedundancy, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

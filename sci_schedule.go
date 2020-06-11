@@ -3,9 +3,11 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"net/http"
+	"net/url"
 )
 
 type SCIScheduleService struct {
@@ -60,9 +62,10 @@ func NewSCIScheduleExecuteJob200ResponseType() *SCIScheduleExecuteJob200Response
 //
 // Delete schedules with their related filters and occurrences in a single transaction.
 //
-// Request Body:
-//	 - body string
-func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, ids string, mutators ...RequestMutator) (*SCIScheduleBatchDelete200ResponseType, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - ids string
+//		- required
+func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIScheduleBatchDelete200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -74,11 +77,11 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, ids string
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIScheduleBatchDelete, true)
-	if err = req.SetBody(ids); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIScheduleBatchDelete200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -89,9 +92,14 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, ids string
 //
 // Create schedule with filter and occurrence in a single transaction.
 //
-// Request Body:
-//	 - body string
-func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, reportId string, mutators ...RequestMutator) (*SCIModelsSchedule, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - filterData string
+//		- required
+// - reportId string
+//		- required
+// - scheduleData string
+//		- required
+func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsSchedule, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -103,11 +111,11 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, re
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIScheduleCreateWithRelations, true)
-	if err = req.SetBody(reportId); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSchedule()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -129,6 +137,8 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ..
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIScheduleExecuteJob, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIScheduleExecuteJob200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -139,13 +149,16 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ..
 //
 // Update schedule with filter and occurrence in a single transaction.
 //
-// Request Body:
-//	 - body string
+// Form Data Parameters:
+// - filterData string
+//		- required
+// - scheduleData string
+//		- required
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, scheduleData string, id string, mutators ...RequestMutator) (*SCIModelsSchedule, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIModelsSchedule, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -157,11 +170,11 @@ func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, sc
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIScheduleUpdateWithRelations, true)
-	if err = req.SetBody(scheduleData); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSchedule()

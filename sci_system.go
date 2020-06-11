@@ -79,11 +79,11 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCISystemCreate, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -109,6 +109,8 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSCISystemDeleteById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCISystemDeleteById200ResponseType()
@@ -135,6 +137,8 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCISystemFind, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -167,6 +171,8 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCISystemFindById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -192,6 +198,8 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCISystemGetSsids, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCISystemGetSsids200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
@@ -220,11 +228,11 @@ func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCISystemPrototypeUpdateAttributes, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()

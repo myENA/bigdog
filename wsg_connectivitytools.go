@@ -39,11 +39,11 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddToolSpeedflex, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGToolTestResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -71,6 +71,8 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("apMac", []string{apMac})
 	req.SetQueryParameter("targetIP", []string{targetIP})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -98,6 +100,8 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("wcid", wcid)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGToolTestResult()
@@ -130,6 +134,8 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("apMac", []string{apMac})
 	req.SetQueryParameter("targetIP", []string{targetIP})
 	if v, ok := optionalParams["timeoutInSec"]; ok && len(v) > 0 {

@@ -89,6 +89,8 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIZdXmlGetAjaxRequest, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("systemid", []string{systemid})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIZoneDirectorXMLGetAjaxRequest200ResponseType()
@@ -113,6 +115,8 @@ func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container s
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIZdXmlUpload, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("container", container)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIZoneDirectorXMLUpload200ResponseType()

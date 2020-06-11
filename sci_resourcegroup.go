@@ -3,8 +3,10 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"net/http"
+	"net/url"
 )
 
 type SCIResourceGroupService struct {
@@ -41,9 +43,10 @@ func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseTy
 //
 // Delete multiple Resource Groups
 //
-// Request Body:
-//	 - body string
-func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, ids string, mutators ...RequestMutator) (*SCIResourceGroupBatchDelete200ResponseType, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - ids string
+//		- required
+func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIResourceGroupBatchDelete200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -55,11 +58,11 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIResourceGroupBatchDelete, true)
-	if err = req.SetBody(ids); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIResourceGroupBatchDelete200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -84,11 +87,11 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIResourceGroupCreate, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsResourceGroup()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -114,6 +117,8 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIResourceGroupFind, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -146,6 +151,8 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIResourceGroupFindById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -178,11 +185,11 @@ func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCIResourceGroupPrototypeUpdateAttributes, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsResourceGroup()

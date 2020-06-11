@@ -49,6 +49,8 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
 		req.SetQueryParameter("domainId", v)
 	}
@@ -91,6 +93,8 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
 		req.SetQueryParameter("domainId", v)
 	}
@@ -118,6 +122,8 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(FileResponse)
 	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
@@ -128,8 +134,9 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 //
 // Use this API command to upload a workflow file used by the Ruckus Wireless AP mobile app.
 //
-// Request Body:
-//	 - body io.Reader
+// Form Data Parameters:
+// - uploadFile io.Reader
+//		- required
 func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
@@ -141,11 +148,11 @@ func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, up
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
-	if err = AddRequestMultipartValues(req, map[string]io.Reader{"uploadFile": uploadFile}); err != nil {
-		return rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+		return rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

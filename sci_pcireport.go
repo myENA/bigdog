@@ -3,8 +3,10 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"net/http"
+	"net/url"
 )
 
 type SCIPCIReportService struct {
@@ -23,9 +25,12 @@ func (ss *SCIService) SCIPCIReportService() *SCIPCIReportService {
 
 // PciReportDownloadReport
 //
-// Request Body:
-//	 - body string
-func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, reportId string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+// Form Data Parameters:
+// - reportId string
+//		- required
+// - timezone string
+//		- required
+func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -36,11 +41,11 @@ func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, repor
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIPciReportDownloadReport, true)
-	if err = req.SetBody(reportId); err != nil {
-		return rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

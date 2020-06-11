@@ -11,6 +11,7 @@ import (
 	"mime/multipart"
 	"net"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -469,23 +470,35 @@ func addContentDispositionHeader(req *APIRequest, key, filename string) {
 	)
 }
 
-func addRequestMultipartValue(req *APIRequest, mpw *multipart.Writer, key string, r io.Reader) error {
+func addRequestMultipartValue(req *APIRequest, mpw *multipart.Writer, key string, value interface{}) error {
 	var (
 		w   io.Writer
+		r   io.Reader
 		err error
 	)
 
-	if cl, ok := r.(io.Closer); ok {
+	if cl, ok := value.(io.Closer); ok {
 		defer func() { _ = cl.Close() }()
 	}
 
-	if f, ok := r.(*os.File); ok {
+	if f, ok := value.(*os.File); ok {
 		if w, err = mpw.CreateFormFile(key, f.Name()); err != nil {
 			return fmt.Errorf("error creating multipart form field from file: %w", err)
 		}
 		addContentDispositionHeader(req, key, filepath.Base(f.Name()))
-	} else if w, err = mpw.CreateFormField(key); err != nil {
-		return fmt.Errorf("error creating multipart form field: %w", err)
+		r = f
+	} else {
+		if b, ok := value.([]byte); ok {
+			r = bytes.NewBuffer(b)
+		} else if b, err := json.Marshal(value); err != nil {
+			return fmt.Errorf("error marshalling key %q with value type %T: %w", key, value, err)
+		} else {
+			r = bytes.NewBuffer(b)
+		}
+
+		if w, err = mpw.CreateFormField(key); err != nil {
+			return fmt.Errorf("error creating multipart form field: %w", err)
+		}
 	}
 
 	_, err = io.Copy(w, r)
@@ -493,18 +506,32 @@ func addRequestMultipartValue(req *APIRequest, mpw *multipart.Writer, key string
 	return err
 }
 
-func AddRequestMultipartValues(req *APIRequest, values map[string]io.Reader) error {
+func AddRequestMultipartValues(req *APIRequest, formData interface{}) error {
 	var (
 		b   bytes.Buffer
 		err error
 
 		mpw = multipart.NewWriter(&b)
 	)
-	for key, r := range values {
-		if err = addRequestMultipartValue(req, mpw, key, r); err != nil {
-			return err
+
+	if msi, ok := formData.(map[string]interface{}); ok {
+		for key, r := range msi {
+			if err = addRequestMultipartValue(req, mpw, key, r); err != nil {
+				return err
+			}
 		}
+	} else if urlv, ok := formData.(url.Values); ok {
+		for key, values := range urlv {
+			for _, value := range values {
+				if err = addRequestMultipartValue(req, mpw, key, value); err != nil {
+					return err
+				}
+			}
+		}
+	} else {
+		panic(fmt.Sprintf("Not able to handle \"formData\" values of type %T", formData))
 	}
+
 	if err = req.SetBody(b); err != nil {
 		return err
 	}

@@ -3,9 +3,11 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"net/http"
+	"net/url"
 )
 
 type SCISettingService struct {
@@ -70,6 +72,8 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCISettingFindById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -82,9 +86,10 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 
 // SettingSendTestEmail
 //
-// Request Body:
-//	 - body string
-func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, recipients string, mutators ...RequestMutator) (*SCISettingSendTestEmail200ResponseType, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - recipients string
+//		- required
+func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCISettingSendTestEmail200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -96,11 +101,11 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, recipients
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCISettingSendTestEmail, true)
-	if err = req.SetBody(recipients); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCISettingSendTestEmail200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -125,11 +130,11 @@ func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSe
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteSCISettingUpsert, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(data); err != nil {
 		return resp, rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSetting()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

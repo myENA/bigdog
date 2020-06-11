@@ -36,6 +36,8 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context, mutators 
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSystemSnmpAgent, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemSnmpAgentConfiguration()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -59,11 +61,11 @@ func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *W
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateSystemSnmpAgent, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

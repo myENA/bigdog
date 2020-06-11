@@ -3,9 +3,11 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"net/http"
+	"net/url"
 )
 
 type SCIreportService struct {
@@ -117,15 +119,18 @@ func NewSCIreportWithRelations200ResponseType() *SCIreportWithRelations200Respon
 
 // ReportDownloadReport
 //
-// Request Body:
-//	 - body string
+// Form Data Parameters:
+// - state string
+//		- required
+// - timezone string
+//		- required
 //
 // Required Parameters:
 // - format string
 //		- required
 // - id string
 //		- required
-func (s *SCIreportService) ReportDownloadReport(ctx context.Context, state string, format string, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SCIreportService) ReportDownloadReport(ctx context.Context, formValues url.Values, format string, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -136,11 +141,11 @@ func (s *SCIreportService) ReportDownloadReport(ctx context.Context, state strin
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIReportDownloadReport, true)
-	if err = req.SetBody(state); err != nil {
-		return rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return rm, err
+	}
 	req.SetPathParameter("format", format)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -167,6 +172,8 @@ func (s *SCIreportService) ReportFind(ctx context.Context, optionalParams map[st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIReportFind, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
 	}
@@ -199,6 +206,8 @@ func (s *SCIreportService) ReportFindById(ctx context.Context, id string, option
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIReportFindById, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -213,15 +222,30 @@ func (s *SCIreportService) ReportFindById(ctx context.Context, id string, option
 //
 // For the <b><code>filter</code></b> field below, an example would be <pre><code class="json">{ "type": "or", "fields": [{ "type": "selector", "dimension": "apMac", "value": "000000000000" }]}</code></pre>
 //
-// Request Body:
-//	 - body string
+// Form Data Parameters:
+// - end string
+//		- required
+// - filter string
+//		- nullable
+// - granularity string
+//		- nullable
+// - limit float64
+//		- nullable
+// - metric string
+//		- nullable
+// - pagingIdentifiers string
+//		- nullable
+// - start string
+//		- required
+// - switchFilter string
+//		- nullable
 //
 // Required Parameters:
 // - id string
 //		- required
 // - sectionId string
 //		- required
-func (s *SCIreportService) ReportGetData(ctx context.Context, start string, id string, sectionId string, mutators ...RequestMutator) (*SCIreportGetData200ResponseType, *APIResponseMeta, error) {
+func (s *SCIreportService) ReportGetData(ctx context.Context, formValues url.Values, id string, sectionId string, mutators ...RequestMutator) (*SCIreportGetData200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -233,11 +257,11 @@ func (s *SCIreportService) ReportGetData(ctx context.Context, start string, id s
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIReportGetData, true)
-	if err = req.SetBody(start); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("sectionId", sectionId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -269,6 +293,8 @@ func (s *SCIreportService) ReportPrototypeGetSections(ctx context.Context, id st
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIReportPrototypeGetSections, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.SetQueryParameter("filter", v)
@@ -283,9 +309,10 @@ func (s *SCIreportService) ReportPrototypeGetSections(ctx context.Context, id st
 //
 // For the <b><code>urlSegmentName</code></b> field below, examples could be <code>overview</code>, <code>network</code>, <code>ap</code>, <code>clients</code>
 //
-// Request Body:
-//	 - body string
-func (s *SCIreportService) ReportWithRelations(ctx context.Context, urlSegmentName string, mutators ...RequestMutator) (*SCIreportWithRelations200ResponseType, *APIResponseMeta, error) {
+// Form Data Parameters:
+// - urlSegmentName string
+//		- required
+func (s *SCIreportService) ReportWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIreportWithRelations200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -297,11 +324,11 @@ func (s *SCIreportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIReportWithRelations, true)
-	if err = req.SetBody(urlSegmentName); err != nil {
-		return resp, rm, err
-	}
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
+		return resp, rm, err
+	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIreportWithRelations200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

@@ -101,7 +101,8 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ct
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcSignaturePackageUpload, true)
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+	req.MultipartForm()
+	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -131,7 +132,8 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddAvcSignaturePackageV2Upload, true)
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+	req.MultipartForm()
+	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

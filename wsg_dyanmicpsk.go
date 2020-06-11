@@ -123,7 +123,8 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlansDpskUploadById, true)
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+	req.MultipartForm()
+	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
 		return resp, rm, err
 	}
 	req.SetPathParameter("id", id)

@@ -147,7 +147,8 @@ func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, up
 	req = NewAPIRequest(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+	req.MultipartForm()
+	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

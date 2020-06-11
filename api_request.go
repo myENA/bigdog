@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"mime/multipart"
 	"net/http"
 	"net/url"
 	"strings"
@@ -46,6 +47,7 @@ type APIRequest struct {
 	headers         url.Values
 	cookies         []*http.Cookie
 	body            io.Reader
+	mpw             *multipart.Writer
 }
 
 func NewAPIRequest(method, uri string, authenticated bool) *APIRequest {
@@ -225,6 +227,61 @@ func (r *APIRequest) Body() io.Reader {
 	return r.body
 }
 
+func (r *APIRequest) MultipartForm() {
+	r.body = new(bytes.Buffer)
+	r.mpw = multipart.NewWriter(r.body.(*bytes.Buffer))
+}
+
+func (r *APIRequest) AddMultipartFile(key, filename string, f io.Reader) error {
+	w, err := r.mpw.CreateFormFile(key, filename)
+	if err != nil {
+		return fmt.Errorf("error creating multipart form file part with key=%q and filename=%q: %w", key, filename, err)
+	}
+	if _, err = io.Copy(w, f); err != nil {
+		return fmt.Errorf("error copying bytes from file %q to multipart writer: %w", filename, err)
+	}
+	addContentDispositionHeader(r, key, filename)
+	return nil
+}
+
+func (r *APIRequest) AddMultipartField(key string, value interface{}) error {
+	var (
+		vr io.Reader
+		ok bool
+	)
+	w, err := r.mpw.CreateFormField(key)
+	if err != nil {
+		return fmt.Errorf("error creating form field part with key=%q: %w", key, err)
+	}
+	vr, ok = value.(io.Reader)
+	if !ok {
+		if b, ok := value.([]byte); ok {
+			vr = bytes.NewBuffer(b)
+		} else if s, ok := value.(string); ok {
+			vr = bytes.NewBufferString(s)
+		} else if b, err := json.Marshal(value); err != nil {
+			return fmt.Errorf("error marshalling form field part with key=%q and type=%T: %w", key, value, err)
+		} else {
+			vr = bytes.NewBuffer(b)
+		}
+	}
+	if _, err = io.Copy(w, vr); err != nil {
+		return fmt.Errorf("error copying bytes into multipart writer for key=%q with type=%T: %w", key, value, err)
+	}
+	return nil
+}
+
+func (r *APIRequest) AddMultipartFieldsFromValues(values url.Values) error {
+	for k, vs := range values {
+		for _, v := range vs {
+			if err := r.AddMultipartField(k, v); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
 func (r *APIRequest) compileURI() string {
 	pathParams := r.PathParameters()
 	queryParams := r.QueryParameters()
@@ -275,6 +332,13 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 	}
 
 	compiledURL := fmt.Sprintf(apiRequestURLFormat, addr, pathPrefix, r.CompiledURI())
+
+	if r.mpw != nil {
+		r.SetHeader(headerKeyContentType, r.mpw.FormDataContentType())
+		if err = r.mpw.Close(); err != nil {
+			return nil, fmt.Errorf("error closing multipart writer: %w", err)
+		}
+	}
 
 	if body := r.Body(); body == nil {
 		httpRequest, err = http.NewRequest(r.method, compiledURL, nil)

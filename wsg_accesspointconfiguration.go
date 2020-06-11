@@ -73,7 +73,8 @@ func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Co
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddApsPictureByApMac, true)
 	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = AddRequestMultipartValues(req, map[string]interface{}{"uploadFile": uploadFile}); err != nil {
+	req.MultipartForm()
+	if err = req.AddMultipartFile("uploadFile", "", uploadFile); err != nil {
 		return rm, err
 	}
 	req.SetPathParameter("apMac", apMac)

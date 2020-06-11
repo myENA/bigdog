@@ -29,6 +29,7 @@ const (
 	RouteSwitchMAddSwitchClients                              = "/switchm/api/v9_0/switch/clients"
 	RouteSwitchMAddSwitchClientsAp                            = "/switchm/api/v9_0/switch/clients/ap"
 	RouteSwitchMAddSwitchClientsAPExport                      = "/switchm/api/v9_0/switch/clients/ap/export"
+	RouteSwitchMAddSwitchClientsExport                        = "/switchm/api/v9_0/switch/clients/export"
 	RouteSwitchMAddSwitchconfig                               = "/switchm/api/v9_0/switchconfig"
 	RouteSwitchMAddSwitchconfigBackup                         = "/switchm/api/v9_0/switchconfig/backup"
 	RouteSwitchMAddSwitchconfigBackupDiff                     = "/switchm/api/v9_0/switchconfig/backup/diff"

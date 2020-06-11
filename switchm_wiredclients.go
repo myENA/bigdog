@@ -110,3 +110,34 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Contex
 	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
+
+// AddSwitchClientsExport
+//
+// Download CSV of wired clients discovered via LLDP
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMWiredClientsService) AddSwitchClientsExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*FileResponse, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *FileResponse
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClientsExport, true)
+	req.SetHeader(headerKeyContentType, "application/x-www-form-urlencoded")
+	req.SetHeader(headerKeyAccept, "application/octet-stream")
+	if b, err := json.Marshal(body); err != nil {
+		return resp, rm, err
+	} else if err = req.SetBody(map[string]string{"json": string(b)}); err != nil {
+		return resp, rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = new(FileResponse)
+	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}

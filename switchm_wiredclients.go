@@ -3,9 +3,11 @@ package bigdog
 // API Version: v9_0
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"net/http"
+	"net/url"
 )
 
 type SwitchMWiredClientsService struct {
@@ -102,7 +104,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Contex
 	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	if b, err := json.Marshal(body); err != nil {
 		return resp, rm, err
-	} else if err = req.SetBody(map[string]string{"json": string(b)}); err != nil {
+	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -133,7 +135,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsExport(ctx context.Context,
 	req.SetHeader(headerKeyAccept, "application/octet-stream")
 	if b, err := json.Marshal(body); err != nil {
 		return resp, rm, err
-	} else if err = req.SetBody(map[string]string{"json": string(b)}); err != nil {
+	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

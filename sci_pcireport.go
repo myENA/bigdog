@@ -42,7 +42,7 @@ func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, formV
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIPciReportDownloadReport, true)
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "*/*")
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
 		return rm, err
 	}

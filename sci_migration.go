@@ -247,7 +247,7 @@ func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteSCIMigrationDeleteById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -397,7 +397,7 @@ func (s *SCIMigrationService) MigrationMigrateByName(ctx context.Context, name s
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMigrateByName, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "*/*")
 	req.SetQueryParameter("name", []string{name})
 	if v, ok := optionalParams["record"]; ok && len(v) > 0 {
 		req.SetQueryParameter("record", v)
@@ -425,7 +425,7 @@ func (s *SCIMigrationService) MigrationMigrateTo(ctx context.Context, optionalPa
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMigrateTo, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["to"]; ok && len(v) > 0 {
 		req.SetQueryParameter("to", v)
 	}
@@ -486,7 +486,7 @@ func (s *SCIMigrationService) MigrationRollbackTo(ctx context.Context, to string
 		return rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationRollbackTo, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "*/*")
 	req.SetQueryParameter("to", []string{to})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)

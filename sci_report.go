@@ -142,7 +142,7 @@ func (s *SCIreportService) ReportDownloadReport(ctx context.Context, formValues 
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIReportDownloadReport, true)
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "*/*")
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
 		return rm, err
 	}

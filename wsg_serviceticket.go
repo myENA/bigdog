@@ -101,7 +101,7 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("serviceTicket", []string{serviceTicket})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

@@ -142,7 +142,7 @@ func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx contex
 	}
 	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateApplications, true)
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}

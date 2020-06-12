@@ -253,7 +253,7 @@ func NewSwitchMTrafficTopTrafficUsageQueryResultListExtraType() *SwitchMTrafficT
 type SwitchMTraffic struct {
 	// Rx
 	// RX traffic of the switch
-	Rx *string `json:"rx,omitempty"`
+	Rx *int `json:"rx,omitempty"`
 
 	// Timestamp
 	// Timestamp of the switch traffic
@@ -265,7 +265,7 @@ type SwitchMTraffic struct {
 
 	// Tx
 	// TX traffic of the switch
-	Tx *string `json:"tx,omitempty"`
+	Tx *int `json:"tx,omitempty"`
 }
 
 func NewSwitchMTraffic() *SwitchMTraffic {

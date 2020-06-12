@@ -593,3 +593,27 @@ func NewSCIModelsUserLogin() *SCIModelsUserLogin {
 	m := new(SCIModelsUserLogin)
 	return m
 }
+
+// SCIModelsUserLoginResponse
+//
+// User Login details
+type SCIModelsUserLoginResponse struct {
+	Created *string `json:"created,omitempty"`
+
+	Id *string `json:"id,omitempty"`
+
+	ResourceGroup *string `json:"resourceGroup,omitempty"`
+
+	Role *string `json:"role,omitempty"`
+
+	Ttl *int `json:"ttl,omitempty"`
+
+	UserId *int `json:"userId,omitempty"`
+
+	Username *string `json:"username,omitempty"`
+}
+
+func NewSCIModelsUserLoginResponse() *SCIModelsUserLoginResponse {
+	m := new(SCIModelsUserLoginResponse)
+	return m
+}

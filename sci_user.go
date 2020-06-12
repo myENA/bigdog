@@ -5,7 +5,6 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -44,37 +43,6 @@ type SCIUserGetUsers200ResponseType []*SCIModelsUser
 
 func MakeSCIUserGetUsers200ResponseType() SCIUserGetUsers200ResponseType {
 	m := make(SCIUserGetUsers200ResponseType, 0)
-	return m
-}
-
-// SCIUserLogin200ResponseType
-//
-// The response body contains properties of the AccessToken created on login.
-// Depending on the value of `include` parameter, the body may contain additional properties:
-//
-//   - `user` - `{User}` - Data of the currently logged in user. (`include=user`)
-type SCIUserLogin200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIUserLogin200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIUserLogin200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIUserLogin200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIUserLogin200ResponseType() *SCIUserLogin200ResponseType {
-	m := new(SCIUserLogin200ResponseType)
 	return m
 }
 
@@ -262,11 +230,11 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 // Optional Parameters:
 // - include string
 //		- nullable
-func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIModelsUserLogin, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIUserLogin200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIModelsUserLogin, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsUserLoginResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIUserLogin200ResponseType
+		resp     *SCIModelsUserLoginResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -283,7 +251,7 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIModelsUs
 		req.SetQueryParameter("include", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIUserLogin200ResponseType()
+	resp = NewSCIModelsUserLoginResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

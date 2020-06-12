@@ -3,8 +3,11 @@ package bigdog
 // API Version: v9_0
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"net/http"
+	"net/url"
 )
 
 type SwitchMPortsService struct {
@@ -47,6 +50,37 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchPortDetailsQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// AddSwitchPortsDetailsExport
+//
+// Download CSV of Switch Port Details
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMPortsService) AddSwitchPortsDetailsExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*FileResponse, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *FileResponse
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchPortsDetailsExport, true)
+	req.SetHeader(headerKeyContentType, "application/x-www-form-urlencoded")
+	req.SetHeader(headerKeyAccept, "application/octet-stream")
+	if b, err := json.Marshal(body); err != nil {
+		return resp, rm, err
+	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
+		return resp, rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = new(FileResponse)
+	rm, err = handleFileResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

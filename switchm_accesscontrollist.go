@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMAccessControlListService() *SwitchMAccessContro
 
 // AddAccessControls
 //
+// Operation ID: addAccessControls
+//
 // Use this API command to Create the Access Control Config.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context,
 
 // DeleteAccessControls
 //
+// Operation ID: deleteAccessControls
+//
 // Use this API command to Delete the Access Control Config by Id list.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Conte
 
 // DeleteAccessControlsById
 //
+// Operation ID: deleteAccessControlsById
+//
 // Use this API command to Delete the Access Control Config.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.C
 }
 
 // FindAccessControlsById
+//
+// Operation ID: findAccessControlsById
 //
 // Use this API command to Retrieve the Access Control Config.
 //
@@ -131,6 +139,8 @@ func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Con
 }
 
 // FindAccessControlsByQueryCriteria
+//
+// Operation ID: findAccessControlsByQueryCriteria
 //
 // Use this API command to Retrieve the Access Control Config list.
 //
@@ -160,6 +170,8 @@ func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx 
 }
 
 // UpdateAccessControlsById
+//
+// Operation ID: updateAccessControlsById
 //
 // Use this API command to Update the Access Control Config.
 //

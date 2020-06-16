@@ -23,6 +23,8 @@ func (ss *WSGService) WSGAccessPointOperationalService() *WSGAccessPointOperatio
 
 // AddApsApPacketCaptureDownloadByApMac
 //
+// Operation ID: addApsApPacketCaptureDownloadByApMac
+//
 // Use this API to download AP packet capture file
 //
 // Required Parameters:
@@ -50,6 +52,8 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(
 }
 
 // AddApsApPacketCaptureStartFileCaptureByApMac
+//
+// Operation ID: addApsApPacketCaptureStartFileCaptureByApMac
 //
 // Use this API to start AP packet capture
 //
@@ -85,6 +89,8 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCapture
 
 // AddApsApPacketCaptureStartStreamingByApMac
 //
+// Operation ID: addApsApPacketCaptureStartStreamingByApMac
+//
 // Use this API to start AP packet streaming
 //
 // Request Body:
@@ -119,6 +125,8 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingBy
 
 // AddApsApPacketCaptureStopByApMac
 //
+// Operation ID: addApsApPacketCaptureStopByApMac
+//
 // Use this API to stop AP packet capture or streaming
 //
 // Required Parameters:
@@ -146,6 +154,8 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 }
 
 // AddApsOperationalBlinkLedByApMac
+//
+// Operation ID: addApsOperationalBlinkLedByApMac
 //
 // use this API to make ap blink its led to show its position.
 //
@@ -175,6 +185,8 @@ func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 
 // AddApsSwitchoverCluster
 //
+// Operation ID: addApsSwitchoverCluster
+//
 // Use this API command to switchover AP to another cluster
 //
 // Request Body:
@@ -201,6 +213,8 @@ func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.C
 }
 
 // FindApByQueryCriteria
+//
+// Operation ID: findApByQueryCriteria
 //
 // Query APs with specified filters
 //
@@ -231,6 +245,8 @@ func (s *WSGAccessPointOperationalService) FindApByQueryCriteria(ctx context.Con
 
 // FindApsApPacketCaptureByApMac
 //
+// Operation ID: findApsApPacketCaptureByApMac
+//
 // Use this API to get AP packet capture status
 //
 // Required Parameters:
@@ -257,6 +273,8 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 }
 
 // FindApsOperationalNeighborByApMac
+//
+// Operation ID: findApsOperationalNeighborByApMac
 //
 // Use this API command to retrieve a list of neighbor access points on mesh AP.
 //
@@ -297,6 +315,8 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx
 
 // FindApsOperationalSummaryByApMac
 //
+// Operation ID: findApsOperationalSummaryByApMac
+//
 // s API provide detailed AP status and configuration, therefore it was designed for single AP information retrieving. If you need to retrieve large number of ap states, please use "POST://query/ap" (refer to the "Query APs" section of the category "Access Point Operational").
 //
 // Required Parameters:
@@ -323,6 +343,8 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx 
 }
 
 // FindApWlanByQueryCriteria
+//
+// Operation ID: findApWlanByQueryCriteria
 //
 // Use this API command to retrieve AP Wlan list with BSSID information by QueryCriteria
 //
@@ -353,6 +375,8 @@ func (s *WSGAccessPointOperationalService) FindApWlanByQueryCriteria(ctx context
 
 // FindIndoorMapByQueryCriteria
 //
+// Operation ID: findIndoorMapByQueryCriteria
+//
 // Query indoorMap with specified filters.
 //
 // Request Body:
@@ -381,6 +405,8 @@ func (s *WSGAccessPointOperationalService) FindIndoorMapByQueryCriteria(ctx cont
 }
 
 // FindMeshNeighborByApMacByQueryCriteria
+//
+// Operation ID: findMeshNeighborByApMacByQueryCriteria
 //
 // Use this API command to retrieve a list of neighbor access points on mesh AP.
 //
@@ -416,6 +442,8 @@ func (s *WSGAccessPointOperationalService) FindMeshNeighborByApMacByQueryCriteri
 
 // FindMeshTopologyByApMacByQueryCriteria
 //
+// Operation ID: findMeshTopologyByApMacByQueryCriteria
+//
 // Use this API command to retrieve a list of topology on mesh AP.
 //
 // Request Body:
@@ -450,6 +478,8 @@ func (s *WSGAccessPointOperationalService) FindMeshTopologyByApMacByQueryCriteri
 
 // FindMeshTopologyByQueryCriteria
 //
+// Operation ID: findMeshTopologyByQueryCriteria
+//
 // Use this API command to retrieve a list of topology on zone.
 //
 // Request Body:
@@ -478,6 +508,8 @@ func (s *WSGAccessPointOperationalService) FindMeshTopologyByQueryCriteria(ctx c
 }
 
 // FindRoguesInfoListByQueryCriteria
+//
+// Operation ID: findRoguesInfoListByQueryCriteria
 //
 // Use this API command to retrieve a list of rogue access points.
 //

@@ -23,6 +23,8 @@ func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService
 
 // AddServicesAcctRadius
 //
+// Operation ID: addServicesAcctRadius
+//
 // Use this API command to create a new RADIUS accounting service.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context,
 }
 
 // AddServicesAcctTestById
+//
+// Operation ID: addServicesAcctTestById
 //
 // Use this API command to test an accounting service.
 //
@@ -86,6 +90,8 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 
 // DeleteServicesAcct
 //
+// Operation ID: deleteServicesAcct
+//
 // Use this API command to delete a list of accounting service.
 //
 // Request Body:
@@ -113,6 +119,8 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 
 // DeleteServicesAcctById
 //
+// Operation ID: deleteServicesAcctById
+//
 // Use this API command to delete an accounting service.
 //
 // Required Parameters:
@@ -138,6 +146,8 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 }
 
 // DeleteServicesAcctRadiusById
+//
+// Operation ID: deleteServicesAcctRadiusById
 //
 // Use this API command to delete a RADIUS accounting service.
 //
@@ -165,6 +175,8 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 
 // DeleteServicesAcctRadiusSecondaryById
 //
+// Operation ID: deleteServicesAcctRadiusSecondaryById
+//
 // Use this API command to disable secondary RADIUS server of a RADIUS accounting service.
 //
 // Required Parameters:
@@ -191,6 +203,8 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 
 // DeleteServicesAcctRadiusStandbyPrimaryById
 //
+// Operation ID: deleteServicesAcctRadiusStandbyPrimaryById
+//
 // Use this API command to disable Standby secondary RADIUS server of a RADIUS Accounting service.
 //
 // Required Parameters:
@@ -216,6 +230,8 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 }
 
 // FindServicesAaaServerAcctByQueryCriteria
+//
+// Operation ID: findServicesAaaServerAcctByQueryCriteria
 //
 // Query Non-Proxy Accounting AAAServers with specified filters.
 //
@@ -246,6 +262,8 @@ func (s *WSGAccountingServiceService) FindServicesAaaServerAcctByQueryCriteria(c
 
 // FindServicesAcctByQueryCriteria
 //
+// Operation ID: findServicesAcctByQueryCriteria
+//
 // Use this API command to retrieve a list of accounting services by query criteria.
 //
 // Request Body:
@@ -275,6 +293,8 @@ func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx contex
 
 // FindServicesAcctRadius
 //
+// Operation ID: findServicesAcctRadius
+//
 // Use this API command to retrieve a list of RADIUS accounting services.
 func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context, mutators ...RequestMutator) (*WSGServiceRadiusAccountingServiceList, *APIResponseMeta, error) {
 	var (
@@ -296,6 +316,8 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 }
 
 // FindServicesAcctRadiusById
+//
+// Operation ID: findServicesAcctRadiusById
 //
 // Use this API command to retrieve a RADIUS accounting service.
 //
@@ -323,6 +345,8 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 }
 
 // FindServicesAcctRadiusByQueryCriteria
+//
+// Operation ID: findServicesAcctRadiusByQueryCriteria
 //
 // Use this API command to retrieve a list of Radius accounting services by query criteria.
 //
@@ -352,6 +376,8 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx 
 }
 
 // PartialUpdateServicesAcctRadiusById
+//
+// Operation ID: partialUpdateServicesAcctRadiusById
 //
 // Use this API command to modify the configuration of a RADIUS accounting service.
 //

@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGPortalServiceConnectionCapability
+//
+// Definition: portalservice_connectionCapability
 type WSGPortalServiceConnectionCapability struct {
 	// PortNumber
 	// Port number of connection capability
@@ -38,6 +41,9 @@ func NewWSGPortalServiceConnectionCapability() *WSGPortalServiceConnectionCapabi
 	return m
 }
 
+// WSGPortalServiceCreateGuestAccess
+//
+// Definition: portalservice_createGuestAccess
 type WSGPortalServiceCreateGuestAccess struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -66,6 +72,9 @@ func NewWSGPortalServiceCreateGuestAccess() *WSGPortalServiceCreateGuestAccess {
 	return m
 }
 
+// WSGPortalServiceCreateHotspot20VenueProfile
+//
+// Definition: portalservice_createHotspot20VenueProfile
 type WSGPortalServiceCreateHotspot20VenueProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -99,6 +108,9 @@ func NewWSGPortalServiceCreateHotspot20VenueProfile() *WSGPortalServiceCreateHot
 	return m
 }
 
+// WSGPortalServiceCreateHotspot20WlanProfile
+//
+// Definition: portalservice_createHotspot20WlanProfile
 type WSGPortalServiceCreateHotspot20WlanProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
@@ -156,6 +168,9 @@ func NewWSGPortalServiceCreateHotspot20WlanProfile() *WSGPortalServiceCreateHots
 	return m
 }
 
+// WSGPortalServiceCreateHotspotExternal
+//
+// Definition: portalservice_createHotspotExternal
 type WSGPortalServiceCreateHotspotExternal struct {
 	// BackupPortalUrl
 	// Backup Portal URL of the Hotspot
@@ -219,6 +234,9 @@ func NewWSGPortalServiceCreateHotspotExternal() *WSGPortalServiceCreateHotspotEx
 	return m
 }
 
+// WSGPortalServiceCreateHotspotInternal
+//
+// Definition: portalservice_createHotspotInternal
 type WSGPortalServiceCreateHotspotInternal struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -259,6 +277,9 @@ func NewWSGPortalServiceCreateHotspotInternal() *WSGPortalServiceCreateHotspotIn
 	return m
 }
 
+// WSGPortalServiceCreateHotspotSmartClientOnly
+//
+// Definition: portalservice_createHotspotSmartClientOnly
 type WSGPortalServiceCreateHotspotSmartClientOnly struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -310,6 +331,9 @@ func NewWSGPortalServiceCreateHotspotSmartClientOnly() *WSGPortalServiceCreateHo
 	return m
 }
 
+// WSGPortalServiceCreateL2ACL
+//
+// Definition: portalservice_createL2ACL
 type WSGPortalServiceCreateL2ACL struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -333,6 +357,9 @@ func NewWSGPortalServiceCreateL2ACL() *WSGPortalServiceCreateL2ACL {
 	return m
 }
 
+// WSGPortalServiceCreateWebAuthentication
+//
+// Definition: portalservice_createWebAuthentication
 type WSGPortalServiceCreateWebAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -351,6 +378,9 @@ func NewWSGPortalServiceCreateWebAuthentication() *WSGPortalServiceCreateWebAuth
 	return m
 }
 
+// WSGPortalServiceCreateWechat
+//
+// Definition: portalservice_createWechat
 type WSGPortalServiceCreateWechat struct {
 	// AuthUrl
 	// Authentication URL of the wechat profile
@@ -401,6 +431,9 @@ func NewWSGPortalServiceCreateWechat() *WSGPortalServiceCreateWechat {
 	return m
 }
 
+// WSGPortalServiceDefaultConnectionCapability
+//
+// Definition: portalservice_defaultConnectionCapability
 type WSGPortalServiceDefaultConnectionCapability struct {
 	// PortNumber
 	// Port number of connection capability, cannot be modified
@@ -437,6 +470,9 @@ func NewWSGPortalServiceDefaultConnectionCapability() *WSGPortalServiceDefaultCo
 	return m
 }
 
+// WSGPortalServiceDnatPortMapping
+//
+// Definition: portalservice_dnatPortMapping
 type WSGPortalServiceDnatPortMapping struct {
 	// DestPort
 	// Destination port
@@ -458,6 +494,9 @@ func NewWSGPortalServiceDnatPortMapping() *WSGPortalServiceDnatPortMapping {
 	return m
 }
 
+// WSGPortalServiceGuestAccess
+//
+// Definition: portalservice_guestAccess
 type WSGPortalServiceGuestAccess struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -485,6 +524,9 @@ func NewWSGPortalServiceGuestAccess() *WSGPortalServiceGuestAccess {
 	return m
 }
 
+// WSGPortalServiceHotspot
+//
+// Definition: portalservice_hotspot
 type WSGPortalServiceHotspot struct {
 	// BackupPortalUrl
 	// Constraints:
@@ -557,6 +599,9 @@ func NewWSGPortalServiceHotspot() *WSGPortalServiceHotspot {
 	return m
 }
 
+// WSGPortalServiceHotspot20VeuneProfile
+//
+// Definition: portalservice_hotspot20VeuneProfile
 type WSGPortalServiceHotspot20VeuneProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -592,6 +637,9 @@ func NewWSGPortalServiceHotspot20VeuneProfile() *WSGPortalServiceHotspot20VeuneP
 	return m
 }
 
+// WSGPortalServiceHotspot20WlanProfile
+//
+// Definition: portalservice_hotspot20WlanProfile
 type WSGPortalServiceHotspot20WlanProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
@@ -651,6 +699,9 @@ func NewWSGPortalServiceHotspot20WlanProfile() *WSGPortalServiceHotspot20WlanPro
 	return m
 }
 
+// WSGPortalServiceL2ACL
+//
+// Definition: portalservice_l2ACL
 type WSGPortalServiceL2ACL struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -680,6 +731,8 @@ func NewWSGPortalServiceL2ACL() *WSGPortalServiceL2ACL {
 
 // WSGPortalServiceLinkSpeedInKbps
 //
+// Definition: portalservice_linkSpeedInKbps
+//
 // Link Speed of the Hotspot 2.0 venue profile
 // Constraints:
 //    - min:0.000000
@@ -693,6 +746,8 @@ func NewWSGPortalServiceLinkSpeedInKbps() *WSGPortalServiceLinkSpeedInKbps {
 
 // WSGPortalServiceMacAddressFormatSetting
 //
+// Definition: portalservice_macAddressFormatSetting
+//
 // mac address format of redirection,the format define: 0(aabbccddeeff), 1(AA-BB-CC-DD-EE-FF), 2(AA:BB:CC:DD:EE:FF), 3(AABBCCDDEEFF), 4(aa-bb-cc-dd-ee-ff), 5(aa:bb:cc:dd:ee:ff)
 // Constraints:
 //    - default:2
@@ -705,6 +760,9 @@ func NewWSGPortalServiceMacAddressFormatSetting() *WSGPortalServiceMacAddressFor
 	return m
 }
 
+// WSGPortalServiceModifyGuestAccess
+//
+// Definition: portalservice_modifyGuestAccess
 type WSGPortalServiceModifyGuestAccess struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -724,6 +782,9 @@ func NewWSGPortalServiceModifyGuestAccess() *WSGPortalServiceModifyGuestAccess {
 	return m
 }
 
+// WSGPortalServiceModifyHotspot
+//
+// Definition: portalservice_modifyHotspot
 type WSGPortalServiceModifyHotspot struct {
 	// BackupPortalUrl
 	// Constraints:
@@ -782,6 +843,9 @@ func NewWSGPortalServiceModifyHotspot() *WSGPortalServiceModifyHotspot {
 	return m
 }
 
+// WSGPortalServiceModifyHotspot20VenueProfile
+//
+// Definition: portalservice_modifyHotspot20VenueProfile
 type WSGPortalServiceModifyHotspot20VenueProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -809,6 +873,9 @@ func NewWSGPortalServiceModifyHotspot20VenueProfile() *WSGPortalServiceModifyHot
 	return m
 }
 
+// WSGPortalServiceModifyHotspot20WlanProfile
+//
+// Definition: portalservice_modifyHotspot20WlanProfile
 type WSGPortalServiceModifyHotspot20WlanProfile struct {
 	// AccessNetworkType
 	// Access network type of the Hotspot 2.0 WLAN profile
@@ -860,6 +927,9 @@ func NewWSGPortalServiceModifyHotspot20WlanProfile() *WSGPortalServiceModifyHots
 	return m
 }
 
+// WSGPortalServiceModifyL2ACL
+//
+// Definition: portalservice_modifyL2ACL
 type WSGPortalServiceModifyL2ACL struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -879,6 +949,9 @@ func NewWSGPortalServiceModifyL2ACL() *WSGPortalServiceModifyL2ACL {
 	return m
 }
 
+// WSGPortalServiceModifyWebAuthentication
+//
+// Definition: portalservice_modifyWebAuthentication
 type WSGPortalServiceModifyWebAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -898,6 +971,9 @@ func NewWSGPortalServiceModifyWebAuthentication() *WSGPortalServiceModifyWebAuth
 	return m
 }
 
+// WSGPortalServiceModifyWechat
+//
+// Definition: portalservice_modifyWechat
 type WSGPortalServiceModifyWechat struct {
 	// AuthUrl
 	// Authentication URL of the wechat profile
@@ -937,6 +1013,9 @@ func NewWSGPortalServiceModifyWechat() *WSGPortalServiceModifyWechat {
 	return m
 }
 
+// WSGPortalServicePortalLocation
+//
+// Definition: portalservice_portalLocation
 type WSGPortalServicePortalLocation struct {
 	// Id
 	// Portal location id
@@ -952,6 +1031,9 @@ func NewWSGPortalServicePortalLocation() *WSGPortalServicePortalLocation {
 	return m
 }
 
+// WSGPortalServicePortalRedirect
+//
+// Definition: portalservice_portalRedirect
 type WSGPortalServicePortalRedirect struct {
 	Url *WSGCommonNormalURL `json:"url,omitempty"`
 }
@@ -961,6 +1043,9 @@ func NewWSGPortalServicePortalRedirect() *WSGPortalServicePortalRedirect {
 	return m
 }
 
+// WSGPortalServiceList
+//
+// Definition: portalservice_portalServiceList
 type WSGPortalServiceList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -976,6 +1061,9 @@ func NewWSGPortalServiceList() *WSGPortalServiceList {
 	return m
 }
 
+// WSGPortalServiceListType
+//
+// Definition: portalservice_portalServiceListType
 type WSGPortalServiceListType struct {
 	// Id
 	// Identifier of the service
@@ -989,6 +1077,9 @@ func NewWSGPortalServiceListType() *WSGPortalServiceListType {
 	return m
 }
 
+// WSGPortalServiceUserSession
+//
+// Definition: portalservice_userSession
 type WSGPortalServiceUserSession struct {
 	// GracePeriodInMin
 	// Grace period in minutes
@@ -1012,6 +1103,9 @@ func NewWSGPortalServiceUserSession() *WSGPortalServiceUserSession {
 	return m
 }
 
+// WSGPortalServiceVenueName
+//
+// Definition: portalservice_venueName
 type WSGPortalServiceVenueName struct {
 	// Language
 	// Constraints:
@@ -1030,6 +1124,9 @@ func NewWSGPortalServiceVenueName() *WSGPortalServiceVenueName {
 	return m
 }
 
+// WSGPortalServiceWebAuthentication
+//
+// Definition: portalservice_webAuthentication
 type WSGPortalServiceWebAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1057,6 +1154,9 @@ func NewWSGPortalServiceWebAuthentication() *WSGPortalServiceWebAuthentication {
 	return m
 }
 
+// WSGPortalServiceWechatConfiguration
+//
+// Definition: portalservice_wechatConfiguration
 type WSGPortalServiceWechatConfiguration struct {
 	// AuthUrl
 	// Authentication URL of the wechat profile

@@ -23,6 +23,8 @@ func (ss *WSGService) WSGBonjourGatewayPoliciesService() *WSGBonjourGatewayPolic
 
 // AddRkszonesBonjourGatewayEnableByZoneId
 //
+// Operation ID: addRkszonesBonjourGatewayEnableByZoneId
+//
 // Use this API command to enable/disable bonjour gateway policy.
 //
 // Request Body:
@@ -54,6 +56,8 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayEnableByZone
 }
 
 // AddRkszonesBonjourGatewayPoliciesByZoneId
+//
+// Operation ID: addRkszonesBonjourGatewayPoliciesByZoneId
 //
 // Use this API command to create bonjour gateway policy.
 //
@@ -89,6 +93,8 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZo
 
 // DeleteRkszonesBonjourGatewayPoliciesById
 //
+// Operation ID: deleteRkszonesBonjourGatewayPoliciesById
+//
 // Use this API command to delete bonjour gateway policy.
 //
 // Required Parameters:
@@ -117,6 +123,8 @@ func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesB
 }
 
 // FindRkszonesBonjourGatewayPoliciesById
+//
+// Operation ID: findRkszonesBonjourGatewayPoliciesById
 //
 // Use this API command to retrieve bonjour gateway policy.
 //
@@ -148,6 +156,8 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByI
 
 // FindRkszonesBonjourGatewayPoliciesByZoneId
 //
+// Operation ID: findRkszonesBonjourGatewayPoliciesByZoneId
+//
 // Use this API command to retrieve a list of bonjour gateway policies.
 //
 // Required Parameters:
@@ -174,6 +184,8 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZ
 }
 
 // FindServicesBonjourPolicyByQueryCriteria
+//
+// Operation ID: findServicesBonjourPolicyByQueryCriteria
 //
 // Query bonjourPolicy Profiles with specified filters.
 //
@@ -203,6 +215,8 @@ func (s *WSGBonjourGatewayPoliciesService) FindServicesBonjourPolicyByQueryCrite
 }
 
 // PartialUpdateRkszonesBonjourGatewayPoliciesById
+//
+// Operation ID: partialUpdateRkszonesBonjourGatewayPoliciesById
 //
 // Use this API command to modify the configuration of bonjour gateway policy.
 //

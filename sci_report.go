@@ -24,6 +24,9 @@ func (ss *SCIService) SCIreportService() *SCIreportService {
 	return NewSCIreportService(ss.apiClient)
 }
 
+// SCIreportFind200ResponseType
+//
+// Definition: report.find200ResponseType
 type SCIreportFind200ResponseType []*SCIModelsReport
 
 func MakeSCIreportFind200ResponseType() SCIreportFind200ResponseType {
@@ -31,6 +34,9 @@ func MakeSCIreportFind200ResponseType() SCIreportFind200ResponseType {
 	return m
 }
 
+// SCIreportGetData200ResponseType
+//
+// Definition: report.getData200ResponseType
 type SCIreportGetData200ResponseType struct {
 	Data []*SCIreportGetData200ResponseTypeDataType `json:"data,omitempty"`
 
@@ -42,6 +48,9 @@ func NewSCIreportGetData200ResponseType() *SCIreportGetData200ResponseType {
 	return m
 }
 
+// SCIreportGetData200ResponseTypeDataType
+//
+// Definition: report.getData200ResponseTypeDataType
 type SCIreportGetData200ResponseTypeDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -67,6 +76,9 @@ func NewSCIreportGetData200ResponseTypeDataType() *SCIreportGetData200ResponseTy
 	return m
 }
 
+// SCIreportGetData200ResponseTypeMetadataType
+//
+// Definition: report.getData200ResponseTypeMetadataType
 type SCIreportGetData200ResponseTypeMetadataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -92,6 +104,9 @@ func NewSCIreportGetData200ResponseTypeMetadataType() *SCIreportGetData200Respon
 	return m
 }
 
+// SCIreportWithRelations200ResponseType
+//
+// Definition: report.withRelations200ResponseType
 type SCIreportWithRelations200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -118,6 +133,8 @@ func NewSCIreportWithRelations200ResponseType() *SCIreportWithRelations200Respon
 }
 
 // ReportDownloadReport
+//
+// Operation ID: report.downloadReport
 //
 // Form Data Parameters:
 // - state string
@@ -155,6 +172,8 @@ func (s *SCIreportService) ReportDownloadReport(ctx context.Context, formValues 
 
 // ReportFind
 //
+// Operation ID: report.find
+//
 // Find all instances of the model matched by filter from the data source.
 //
 // Optional Parameters:
@@ -183,6 +202,8 @@ func (s *SCIreportService) ReportFind(ctx context.Context, optionalParams map[st
 }
 
 // ReportFindById
+//
+// Operation ID: report.findById
 //
 // Find a model instance by id from the data source.
 //
@@ -217,6 +238,8 @@ func (s *SCIreportService) ReportFindById(ctx context.Context, id string, option
 }
 
 // ReportGetData
+//
+// Operation ID: report.getData
 //
 // For the <b><code>filter</code></b> field below, an example would be <pre><code class="json">{ "type": "or", "fields": [{ "type": "selector", "dimension": "apMac", "value": "000000000000" }]}</code></pre>
 //
@@ -270,6 +293,8 @@ func (s *SCIreportService) ReportGetData(ctx context.Context, formValues url.Val
 
 // ReportPrototypeGetSections
 //
+// Operation ID: report.prototype.__get__sections
+//
 // Queries sections of report.
 //
 // Required Parameters:
@@ -303,6 +328,8 @@ func (s *SCIreportService) ReportPrototypeGetSections(ctx context.Context, id st
 }
 
 // ReportWithRelations
+//
+// Operation ID: report.withRelations
 //
 // For the <b><code>urlSegmentName</code></b> field below, examples could be <code>overview</code>, <code>network</code>, <code>ap</code>, <code>clients</code>
 //

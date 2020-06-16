@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMConfigurationHistoryService() *SwitchMConfigura
 
 // FindConfigurationHistory
 //
+// Operation ID: findConfigurationHistory
+//
 // Use this API command to Retrieve Configuration History List.
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx context.Context, mutators ...RequestMutator) (*SwitchMDeployLogConfigurationHistoryQueryResult, *APIResponseMeta, error) {
 	var (
@@ -44,6 +46,8 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 }
 
 // FindConfigurationHistoryByQueryCriteria
+//
+// Operation ID: findConfigurationHistoryByQueryCriteria
 //
 // Use this API command to Query Configuration History List.
 //
@@ -74,6 +78,8 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 
 // FindConfigurationHistoryDetail
 //
+// Operation ID: findConfigurationHistoryDetail
+//
 // Use this API command to Retrieve Configuration History List.
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context, mutators ...RequestMutator) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResult, *APIResponseMeta, error) {
 	var (
@@ -95,6 +101,8 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 }
 
 // FindConfigurationHistoryDetailByQueryCriteria
+//
+// Operation ID: findConfigurationHistoryDetailByQueryCriteria
 //
 // Use this API command to Query Configuration History List.
 //

@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAPQueryList
+//
+// Definition: apQuery_apQueryList
 type WSGAPQueryList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -19,6 +22,9 @@ func NewWSGAPQueryList() *WSGAPQueryList {
 	return m
 }
 
+// WSGAPQueryCreateApQuery
+//
+// Definition: apQuery_createApQuery
 type WSGAPQueryCreateApQuery struct {
 	AdministrativeState *string `json:"administrativeState,omitempty"`
 
@@ -305,6 +311,9 @@ func NewWSGAPQueryCreateApQuery() *WSGAPQueryCreateApQuery {
 	return m
 }
 
+// WSGAPQueryCreateApQueryCellularGpsHistoryType
+//
+// Definition: apQuery_createApQueryCellularGpsHistoryType
 type WSGAPQueryCreateApQueryCellularGpsHistoryType struct {
 	Latitude *string `json:"latitude,omitempty"`
 
@@ -318,6 +327,9 @@ func NewWSGAPQueryCreateApQueryCellularGpsHistoryType() *WSGAPQueryCreateApQuery
 	return m
 }
 
+// WSGAPQueryCreateApQueryIndoorMapXyType
+//
+// Definition: apQuery_createApQueryIndoorMapXyType
 type WSGAPQueryCreateApQueryIndoorMapXyType struct {
 	X *float64 `json:"x,omitempty"`
 

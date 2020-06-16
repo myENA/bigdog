@@ -22,6 +22,9 @@ func (ss *SCIService) SCIZoneDirectorXMLService() *SCIZoneDirectorXMLService {
 	return NewSCIZoneDirectorXMLService(ss.apiClient)
 }
 
+// SCIZoneDirectorXMLGetAjaxRequest200ResponseType
+//
+// Definition: zdXml.getAjaxRequest200ResponseType
 type SCIZoneDirectorXMLGetAjaxRequest200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -47,6 +50,9 @@ func NewSCIZoneDirectorXMLGetAjaxRequest200ResponseType() *SCIZoneDirectorXMLGet
 	return m
 }
 
+// SCIZoneDirectorXMLUpload200ResponseType
+//
+// Definition: zdXml.upload200ResponseType
 type SCIZoneDirectorXMLUpload200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -74,6 +80,8 @@ func NewSCIZoneDirectorXMLUpload200ResponseType() *SCIZoneDirectorXMLUpload200Re
 
 // ZdXmlGetAjaxRequest
 //
+// Operation ID: zdXml.getAjaxRequest
+//
 // Required Parameters:
 // - systemid string
 //		- required
@@ -98,6 +106,8 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 }
 
 // ZdXmlUpload
+//
+// Operation ID: zdXml.upload
 //
 // Required Parameters:
 // - container string

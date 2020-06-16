@@ -23,6 +23,8 @@ func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService
 
 // AddProfilesAcct
 //
+// Operation ID: addProfilesAcct
+//
 // Use this API command to create a new accounting profile.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body 
 }
 
 // AddProfilesAcctCloneById
+//
+// Operation ID: addProfilesAcctCloneById
 //
 // Use this API command to clone an accounting profile.
 //
@@ -86,6 +90,8 @@ func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Conte
 
 // DeleteProfilesAcct
 //
+// Operation ID: deleteProfilesAcct
+//
 // Use this API command to delete a list of accounting profile.
 //
 // Request Body:
@@ -113,6 +119,8 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, bo
 
 // DeleteProfilesAcctById
 //
+// Operation ID: deleteProfilesAcctById
+//
 // Use this API command to delete an accounting profile.
 //
 // Required Parameters:
@@ -139,6 +147,8 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context
 
 // FindProfilesAcct
 //
+// Operation ID: findProfilesAcct
+//
 // Use this API command to retrieve a list of accounting profiles.
 func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context, mutators ...RequestMutator) (*WSGProfileAccountingProfileList, *APIResponseMeta, error) {
 	var (
@@ -160,6 +170,8 @@ func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context, muta
 }
 
 // FindProfilesAcctById
+//
+// Operation ID: findProfilesAcctById
 //
 // Use this API command to retrieve an accounting profile.
 //
@@ -187,6 +199,8 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 }
 
 // FindProfilesAcctByQueryCriteria
+//
+// Operation ID: findProfilesAcctByQueryCriteria
 //
 // Use this API command to retrieve a list of accounting profiles by query criteria.
 //
@@ -216,6 +230,8 @@ func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx contex
 }
 
 // PartialUpdateProfilesAcctById
+//
+// Operation ID: partialUpdateProfilesAcctById
 //
 // Use this API command to modify the configuration of an accounting profile.
 //

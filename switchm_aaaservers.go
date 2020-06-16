@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMAAAServersService() *SwitchMAAAServersService {
 	return NewSwitchMAAAServersService(ss.apiClient)
 }
 
+// SwitchMAAAServersAAAServer
+//
+// Definition: aaaServers_AAAServer
 type SwitchMAAAServersAAAServer struct {
 	// AcctPort
 	// AAA server accounting port
@@ -105,6 +108,9 @@ func NewSwitchMAAAServersAAAServer() *SwitchMAAAServersAAAServer {
 	return m
 }
 
+// SwitchMAAAServersQueryResult
+//
+// Definition: aaaServers_aaaServersQueryResult
 type SwitchMAAAServersQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -136,6 +142,8 @@ func NewSwitchMAAAServersQueryResult() *SwitchMAAAServersQueryResult {
 
 // SwitchMAAAServersQueryResultExtraType
 //
+// Definition: aaaServers_aaaServersQueryResultExtraType
+//
 // Any additional response data
 type SwitchMAAAServersQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -162,6 +170,9 @@ func NewSwitchMAAAServersQueryResultExtraType() *SwitchMAAAServersQueryResultExt
 	return m
 }
 
+// SwitchMAAAServersCreateAdminAAAServer
+//
+// Definition: aaaServers_createAdminAAAServer
 type SwitchMAAAServersCreateAdminAAAServer struct {
 	// AcctPort
 	// AAA server accounting port
@@ -217,6 +228,8 @@ func NewSwitchMAAAServersCreateAdminAAAServer() *SwitchMAAAServersCreateAdminAAA
 
 // AddGroupAaaServersByGroupId
 //
+// Operation ID: addGroupAaaServersByGroupId
+//
 // Use this API command to create a new AAA server.
 //
 // Request Body:
@@ -251,6 +264,8 @@ func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Conte
 
 // DeleteGroupAaaServersByGroupId
 //
+// Operation ID: deleteGroupAaaServersByGroupId
+//
 // Use this API command to delete AAA Servers.
 //
 // Request Body:
@@ -283,6 +298,8 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Co
 
 // DeleteGroupAaaServersById
 //
+// Operation ID: deleteGroupAaaServersById
+//
 // Use this API command to delete a AAA server.
 //
 // Required Parameters:
@@ -312,6 +329,8 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context
 
 // FindGroupAaaServersByGroupId
 //
+// Operation ID: findGroupAaaServersByGroupId
+//
 // Use this API command to retrieve a list of AAA server.
 //
 // Required Parameters:
@@ -338,6 +357,8 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Cont
 }
 
 // FindGroupAaaServersById
+//
+// Operation ID: findGroupAaaServersById
 //
 // Use this API command to retrieve a AAA server.
 //
@@ -368,6 +389,8 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, 
 }
 
 // UpdateGroupAaaServersById
+//
+// Operation ID: updateGroupAaaServersById
 //
 // Use this API command to modify the basic information on a AAA server by complete attributes.
 //

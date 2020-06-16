@@ -21,6 +21,9 @@ func (ss *WSGService) WSGGeofenceProfileService() *WSGGeofenceProfileService {
 	return NewWSGGeofenceProfileService(ss.apiClient)
 }
 
+// WSGGeofenceProfile
+//
+// Definition: geofenceProfile_geofenceProfile
 type WSGGeofenceProfile struct {
 	// Description
 	// Geofence Profile's description
@@ -50,6 +53,9 @@ func NewWSGGeofenceProfile() *WSGGeofenceProfile {
 	return m
 }
 
+// WSGGeofenceProfileLocationData
+//
+// Definition: geofenceProfile_geofenceProfileLocationData
 type WSGGeofenceProfileLocationData struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -65,6 +71,9 @@ func NewWSGGeofenceProfileLocationData() *WSGGeofenceProfileLocationData {
 	return m
 }
 
+// WSGGeofenceProfileGetGeofenceProfile
+//
+// Definition: geofenceProfile_getGeofenceProfile
 type WSGGeofenceProfileGetGeofenceProfile struct {
 	// Description
 	// Geofence Profile's description
@@ -96,6 +105,9 @@ func NewWSGGeofenceProfileGetGeofenceProfile() *WSGGeofenceProfileGetGeofencePro
 	return m
 }
 
+// WSGGeofenceProfileGetGeofenceProfileProfileList
+//
+// Definition: geofenceProfile_getGeofenceProfileProfileList
 type WSGGeofenceProfileGetGeofenceProfileProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -112,6 +124,8 @@ func NewWSGGeofenceProfileGetGeofenceProfileProfileList() *WSGGeofenceProfileGet
 }
 
 // AddRkszonesGeofenceProfilesByZoneId
+//
+// Operation ID: addRkszonesGeofenceProfilesByZoneId
 //
 // Use this API command to create a Geofence Profile.
 //
@@ -147,6 +161,8 @@ func (s *WSGGeofenceProfileService) AddRkszonesGeofenceProfilesByZoneId(ctx cont
 
 // DeleteRkszonesGeofenceProfilesById
 //
+// Operation ID: deleteRkszonesGeofenceProfilesById
+//
 // Use this API command to delete a Geofence Profile.
 //
 // Required Parameters:
@@ -175,6 +191,8 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesById(ctx conte
 }
 
 // DeleteRkszonesGeofenceProfilesByZoneId
+//
+// Operation ID: deleteRkszonesGeofenceProfilesByZoneId
 //
 // Use this API command to delete a list of Geofence Profile.
 //
@@ -208,6 +226,8 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesByZoneId(ctx c
 
 // FindRkszonesGeofenceProfilesById
 //
+// Operation ID: findRkszonesGeofenceProfilesById
+//
 // Use this API command to retrieve a Geofence Profile.
 //
 // Required Parameters:
@@ -238,6 +258,8 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesById(ctx context
 
 // FindRkszonesGeofenceProfilesByZoneId
 //
+// Operation ID: findRkszonesGeofenceProfilesByZoneId
+//
 // Query Geofence Profile with specified filters.
 //
 // Required Parameters:
@@ -264,6 +286,8 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesByZoneId(ctx con
 }
 
 // UpdateRkszonesGeofenceProfilesById
+//
+// Operation ID: updateRkszonesGeofenceProfilesById
 //
 // Use this API command to update a Geofence Profile.
 //

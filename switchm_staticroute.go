@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMStaticRouteSettingService() *SwitchMStaticRoute
 	return NewSwitchMStaticRouteSettingService(ss.apiClient)
 }
 
+// SwitchMStaticRouteSettingCreateStaticRoute
+//
+// Definition: staticRoute_createStaticRoute
 type SwitchMStaticRouteSettingCreateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
@@ -63,6 +66,9 @@ func NewSwitchMStaticRouteSettingCreateStaticRoute() *SwitchMStaticRouteSettingC
 	return m
 }
 
+// SwitchMStaticRouteSettingStaticRoute
+//
+// Definition: staticRoute_staticRoute
 type SwitchMStaticRouteSettingStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
@@ -116,6 +122,9 @@ func NewSwitchMStaticRouteSettingStaticRoute() *SwitchMStaticRouteSettingStaticR
 	return m
 }
 
+// SwitchMStaticRouteSettingStaticRoutesQueryResult
+//
+// Definition: staticRoute_staticRoutesQueryResult
 type SwitchMStaticRouteSettingStaticRoutesQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -147,6 +156,8 @@ func NewSwitchMStaticRouteSettingStaticRoutesQueryResult() *SwitchMStaticRouteSe
 
 // SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType
 //
+// Definition: staticRoute_staticRoutesQueryResultExtraType
+//
 // Any additional response data
 type SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -173,6 +184,9 @@ func NewSwitchMStaticRouteSettingStaticRoutesQueryResultExtraType() *SwitchMStat
 	return m
 }
 
+// SwitchMStaticRouteSettingUpdateStaticRoute
+//
+// Definition: staticRoute_updateStaticRoute
 type SwitchMStaticRouteSettingUpdateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
@@ -204,6 +218,8 @@ func NewSwitchMStaticRouteSettingUpdateStaticRoute() *SwitchMStaticRouteSettingU
 
 // AddStaticRoutes
 //
+// Operation ID: addStaticRoutes
+//
 // Use this API command to Create Static Route.
 //
 // Request Body:
@@ -233,6 +249,8 @@ func (s *SwitchMStaticRouteSettingService) AddStaticRoutes(ctx context.Context, 
 
 // DeleteStaticRoutes
 //
+// Operation ID: deleteStaticRoutes
+//
 // Use this API command to Delete Static Route by Id list.
 //
 // Request Body:
@@ -260,6 +278,8 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutes(ctx context.Contex
 
 // DeleteStaticRoutesById
 //
+// Operation ID: deleteStaticRoutesById
+//
 // Use this API command to Delete Static Route.
 //
 // Required Parameters:
@@ -285,6 +305,8 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutesById(ctx context.Co
 }
 
 // FindStaticRoutesById
+//
+// Operation ID: findStaticRoutesById
 //
 // Use this API command to Retrieve Static Route.
 //
@@ -312,6 +334,8 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesById(ctx context.Cont
 }
 
 // FindStaticRoutesByQueryCriteria
+//
+// Operation ID: findStaticRoutesByQueryCriteria
 //
 // Use this API command to Retrieve Static Route list.
 //
@@ -341,6 +365,8 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesByQueryCriteria(ctx c
 }
 
 // UpdateStaticRoutesById
+//
+// Operation ID: updateStaticRoutesById
 //
 // Use this API command to Update Static Route.
 //

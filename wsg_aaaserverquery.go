@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAAAServerQueryList
+//
+// Definition: aaaServerQuery_aaaServerQueryList
 type WSGAAAServerQueryList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -19,6 +22,9 @@ func NewWSGAAAServerQueryList() *WSGAAAServerQueryList {
 	return m
 }
 
+// WSGAAAServerQueryCreateAaaServer
+//
+// Definition: aaaServerQuery_createAaaServer
 type WSGAAAServerQueryCreateAaaServer struct {
 	AdminDomainName *string `json:"adminDomainName,omitempty"`
 

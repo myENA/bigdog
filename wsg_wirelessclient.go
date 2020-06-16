@@ -23,6 +23,8 @@ func (ss *WSGService) WSGWirelessClientService() *WSGWirelessClientService {
 
 // AddClientsBulkDeauth
 //
+// Operation ID: addClientsBulkDeauth
+//
 // Use this API command to bulk deauth client.
 //
 // Request Body:
@@ -50,6 +52,8 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 
 // AddClientsBulkDisconnect
 //
+// Operation ID: addClientsBulkDisconnect
+//
 // Use this API command to bulk disconnect client.
 //
 // Request Body:
@@ -76,6 +80,8 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 }
 
 // AddClientsByWlanNameByWlanname
+//
+// Operation ID: addClientsByWlanNameByWlanname
 //
 // Use this API command to query client by wlan name.
 //
@@ -111,6 +117,8 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 
 // AddClientsDeauth
 //
+// Operation ID: addClientsDeauth
+//
 // Use this API command to deauth client.
 //
 // Request Body:
@@ -137,6 +145,8 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 }
 
 // AddClientsDisconnect
+//
+// Operation ID: addClientsDisconnect
 //
 // Use this API command to disconnect client.
 //
@@ -165,6 +175,8 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 
 // FindApsOperationalClientTotalCountByApMac
 //
+// Operation ID: findApsOperationalClientTotalCountByApMac
+//
 // Use this API command to retrieve the total client count per AP.
 //
 // Required Parameters:
@@ -191,6 +203,8 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 }
 
 // FindClientByQueryCriteria
+//
+// Operation ID: findClientByQueryCriteria
 //
 // Query clients with specified filters.
 //
@@ -220,6 +234,8 @@ func (s *WSGWirelessClientService) FindClientByQueryCriteria(ctx context.Context
 }
 
 // FindHistoricalclientByQueryCriteria
+//
+// Operation ID: findHistoricalclientByQueryCriteria
 //
 // Use this API command to retrive historical client.
 //

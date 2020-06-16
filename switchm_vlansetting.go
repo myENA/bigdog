@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMVLANSettingsService() *SwitchMVLANSettingsServi
 
 // AddVlans
 //
+// Operation ID: addVlans
+//
 // Use this API command to Create the VLAN Config.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMVLANSettingsService) AddVlans(ctx context.Context, body *SwitchM
 
 // DeleteVlans
 //
+// Operation ID: deleteVlans
+//
 // Use this API command to Delete the VLAN Config by Id list.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *SwitchMVLANSettingsService) DeleteVlans(ctx context.Context, body *Swit
 
 // DeleteVlansById
 //
+// Operation ID: deleteVlansById
+//
 // Use this API command to Delete the VLAN Config.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *SwitchMVLANSettingsService) DeleteVlansById(ctx context.Context, id str
 
 // FindVlans
 //
+// Operation ID: findVlans
+//
 // Use this API command to Retrieve the VLAN Config List.
 func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context, mutators ...RequestMutator) (*SwitchMVLANConfigQueryResult, *APIResponseMeta, error) {
 	var (
@@ -126,6 +134,8 @@ func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context, mutators ...
 }
 
 // FindVlansById
+//
+// Operation ID: findVlansById
 //
 // Use this API command to Retrieve the VLAN Config.
 //
@@ -153,6 +163,8 @@ func (s *SwitchMVLANSettingsService) FindVlansById(ctx context.Context, id strin
 }
 
 // FindVlansByQueryCriteria
+//
+// Operation ID: findVlansByQueryCriteria
 //
 // Use this API command to Retrieve the VLAN Config list.
 //
@@ -182,6 +194,8 @@ func (s *SwitchMVLANSettingsService) FindVlansByQueryCriteria(ctx context.Contex
 }
 
 // UpdateVlansById
+//
+// Operation ID: updateVlansById
 //
 // Use this API command to Update the VLAN Config.
 //

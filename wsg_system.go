@@ -21,6 +21,9 @@ func (ss *WSGService) WSGSystemService() *WSGSystemService {
 	return NewWSGSystemService(ss.apiClient)
 }
 
+// WSGSystemApMacOUI
+//
+// Definition: system_apMacOUI
 type WSGSystemApMacOUI struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -32,6 +35,9 @@ func NewWSGSystemApMacOUI() *WSGSystemApMacOUI {
 	return m
 }
 
+// WSGSystemApMacOUIList
+//
+// Definition: system_apMacOUIList
 type WSGSystemApMacOUIList struct {
 	// FirstIndex
 	// Index of the first AP MAC OUI returned out of the complete AP MAC OUI list
@@ -53,6 +59,9 @@ func NewWSGSystemApMacOUIList() *WSGSystemApMacOUIList {
 	return m
 }
 
+// WSGSystemApNumberLimitSettingOfDomain
+//
+// Definition: system_apNumberLimitSettingOfDomain
 type WSGSystemApNumberLimitSettingOfDomain struct {
 	// DomainId
 	// Domain Id
@@ -76,6 +85,9 @@ func NewWSGSystemApNumberLimitSettingOfDomain() *WSGSystemApNumberLimitSettingOf
 	return m
 }
 
+// WSGSystemApNumberLimitSettingOfZone
+//
+// Definition: system_apNumberLimitSettingOfZone
 type WSGSystemApNumberLimitSettingOfZone struct {
 	// DomainId
 	// Admin Domain Id
@@ -107,6 +119,9 @@ func NewWSGSystemApNumberLimitSettingOfZone() *WSGSystemApNumberLimitSettingOfZo
 	return m
 }
 
+// WSGSystemAuthenticationKey
+//
+// Definition: system_authenticationKey
 type WSGSystemAuthenticationKey struct {
 	// Key
 	// Authentication Key value
@@ -128,6 +143,9 @@ func NewWSGSystemAuthenticationKey() *WSGSystemAuthenticationKey {
 	return m
 }
 
+// WSGSystemControllerList
+//
+// Definition: system_controllerList
 type WSGSystemControllerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -143,6 +161,9 @@ func NewWSGSystemControllerList() *WSGSystemControllerList {
 	return m
 }
 
+// WSGSystemControllerListType
+//
+// Definition: system_controllerListType
 type WSGSystemControllerListType struct {
 	// ApVersion
 	// AP version
@@ -224,6 +245,9 @@ func NewWSGSystemControllerListType() *WSGSystemControllerListType {
 	return m
 }
 
+// WSGSystemControlPlaneConfiguration
+//
+// Definition: system_controlPlaneConfiguration
 type WSGSystemControlPlaneConfiguration struct {
 	// IpMode
 	// IP support version
@@ -251,6 +275,9 @@ func NewWSGSystemControlPlaneConfiguration() *WSGSystemControlPlaneConfiguration
 	return m
 }
 
+// WSGSystemControlPlaneInterface
+//
+// Definition: system_controlPlaneInterface
 type WSGSystemControlPlaneInterface struct {
 	// Id
 	// Interface Id
@@ -266,6 +293,9 @@ func NewWSGSystemControlPlaneInterface() *WSGSystemControlPlaneInterface {
 	return m
 }
 
+// WSGSystemControlPlaneInterfaceList
+//
+// Definition: system_controlPlaneInterfaceList
 type WSGSystemControlPlaneInterfaceList struct {
 	// ControlPlaneInterfaces
 	// Interface list
@@ -277,6 +307,9 @@ func NewWSGSystemControlPlaneInterfaceList() *WSGSystemControlPlaneInterfaceList
 	return m
 }
 
+// WSGSystemControlPlaneList
+//
+// Definition: system_controlPlaneList
 type WSGSystemControlPlaneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -292,6 +325,9 @@ func NewWSGSystemControlPlaneList() *WSGSystemControlPlaneList {
 	return m
 }
 
+// WSGSystemControlPlaneListType
+//
+// Definition: system_controlPlaneListType
 type WSGSystemControlPlaneListType struct {
 	// ClusterIp
 	// Cluster IP
@@ -345,6 +381,9 @@ func NewWSGSystemControlPlaneListType() *WSGSystemControlPlaneListType {
 	return m
 }
 
+// WSGSystemCpStaticRoute
+//
+// Definition: system_cpStaticRoute
 type WSGSystemCpStaticRoute struct {
 	// Gateway
 	// Gateway
@@ -375,6 +414,9 @@ func NewWSGSystemCpStaticRoute() *WSGSystemCpStaticRoute {
 	return m
 }
 
+// WSGSystemCpUserDefinedInterface
+//
+// Definition: system_cpUserDefinedInterface
 type WSGSystemCpUserDefinedInterface struct {
 	// Gateway
 	// Gateway
@@ -414,6 +456,9 @@ func NewWSGSystemCpUserDefinedInterface() *WSGSystemCpUserDefinedInterface {
 	return m
 }
 
+// WSGSystemCreateApMacOUI
+//
+// Definition: system_createApMacOUI
 type WSGSystemCreateApMacOUI struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -428,6 +473,9 @@ func NewWSGSystemCreateApMacOUI() *WSGSystemCreateApMacOUI {
 	return m
 }
 
+// WSGSystemDataPlaneConfiguration
+//
+// Definition: system_dataPlaneConfiguration
 type WSGSystemDataPlaneConfiguration struct {
 	// InterfaceMode
 	// Interface mode
@@ -455,6 +503,9 @@ func NewWSGSystemDataPlaneConfiguration() *WSGSystemDataPlaneConfiguration {
 	return m
 }
 
+// WSGSystemDataPlaneList
+//
+// Definition: system_dataPlaneList
 type WSGSystemDataPlaneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -470,6 +521,9 @@ func NewWSGSystemDataPlaneList() *WSGSystemDataPlaneList {
 	return m
 }
 
+// WSGSystemDataPlaneListType
+//
+// Definition: system_dataPlaneListType
 type WSGSystemDataPlaneListType struct {
 	BladeName *WSGCommonNormalName `json:"bladeName,omitempty"`
 
@@ -531,6 +585,9 @@ func NewWSGSystemDataPlaneListType() *WSGSystemDataPlaneListType {
 	return m
 }
 
+// WSGSystemDeleteBulkFtp
+//
+// Definition: system_deleteBulkFtp
 type WSGSystemDeleteBulkFtp struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -540,6 +597,9 @@ func NewWSGSystemDeleteBulkFtp() *WSGSystemDeleteBulkFtp {
 	return m
 }
 
+// WSGSystemFriendlyNameLang
+//
+// Definition: system_friendlyNameLang
 type WSGSystemFriendlyNameLang struct {
 	// Display
 	// Display name
@@ -555,6 +615,9 @@ func NewWSGSystemFriendlyNameLang() *WSGSystemFriendlyNameLang {
 	return m
 }
 
+// WSGSystemFriendlyNameLangList
+//
+// Definition: system_friendlyNameLangList
 type WSGSystemFriendlyNameLangList struct {
 	// FirstIndex
 	// Index of the first FriendlyName of language returned out of the complete FTP list
@@ -576,6 +639,9 @@ func NewWSGSystemFriendlyNameLangList() *WSGSystemFriendlyNameLangList {
 	return m
 }
 
+// WSGSystemFtp
+//
+// Definition: system_ftp
 type WSGSystemFtp struct {
 	// CreateDatetime
 	// entry create time
@@ -644,6 +710,9 @@ func NewWSGSystemFtp() *WSGSystemFtp {
 	return m
 }
 
+// WSGSystemFtpGlobalSetting
+//
+// Definition: system_ftpGlobalSetting
 type WSGSystemFtpGlobalSetting struct {
 	// Enabled
 	// enable logging to remote syslog server
@@ -665,6 +734,9 @@ func NewWSGSystemFtpGlobalSetting() *WSGSystemFtpGlobalSetting {
 	return m
 }
 
+// WSGSystemFtpList
+//
+// Definition: system_ftpList
 type WSGSystemFtpList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -688,6 +760,9 @@ func NewWSGSystemFtpList() *WSGSystemFtpList {
 	return m
 }
 
+// WSGSystemFtpTestResponse
+//
+// Definition: system_ftpTestResponse
 type WSGSystemFtpTestResponse struct {
 	// Data
 	// The testing result
@@ -711,6 +786,9 @@ func NewWSGSystemFtpTestResponse() *WSGSystemFtpTestResponse {
 	return m
 }
 
+// WSGSystemGatewayAdvanced
+//
+// Definition: system_gatewayAdvanced
 type WSGSystemGatewayAdvanced struct {
 	// AllowSessionOnAccountingFail
 	// Allow session on accounting fail
@@ -755,6 +833,9 @@ func NewWSGSystemGatewayAdvanced() *WSGSystemGatewayAdvanced {
 	return m
 }
 
+// WSGSystemGetDataPlaneMeshTunnelSetting
+//
+// Definition: system_getDataPlaneMeshTunnelSetting
 type WSGSystemGetDataPlaneMeshTunnelSetting struct {
 	// Encrypted
 	// Data Plane mesh tunnel encrypted.
@@ -766,6 +847,9 @@ func NewWSGSystemGetDataPlaneMeshTunnelSetting() *WSGSystemGetDataPlaneMeshTunne
 	return m
 }
 
+// WSGSystemInventoryList
+//
+// Definition: system_inventoryList
 type WSGSystemInventoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -781,6 +865,9 @@ func NewWSGSystemInventoryList() *WSGSystemInventoryList {
 	return m
 }
 
+// WSGSystemInventoryListType
+//
+// Definition: system_inventoryListType
 type WSGSystemInventoryListType struct {
 	ApFirmwareVersion *string `json:"apFirmwareVersion,omitempty"`
 
@@ -838,6 +925,9 @@ func NewWSGSystemInventoryListType() *WSGSystemInventoryListType {
 	return m
 }
 
+// WSGSystemIpv4AccessAndCoreSeparation
+//
+// Definition: system_ipv4AccessAndCoreSeparation
 type WSGSystemIpv4AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
@@ -859,6 +949,9 @@ func NewWSGSystemIpv4AccessAndCoreSeparation() *WSGSystemIpv4AccessAndCoreSepara
 	return m
 }
 
+// WSGSystemIpv4ClusterInterface
+//
+// Definition: system_ipv4ClusterInterface
 type WSGSystemIpv4ClusterInterface struct {
 	// Gateway
 	// Gateway
@@ -884,6 +977,9 @@ func NewWSGSystemIpv4ClusterInterface() *WSGSystemIpv4ClusterInterface {
 	return m
 }
 
+// WSGSystemIpv4ControlInterface
+//
+// Definition: system_ipv4ControlInterface
 type WSGSystemIpv4ControlInterface struct {
 	// Gateway
 	// Gateway
@@ -913,6 +1009,9 @@ func NewWSGSystemIpv4ControlInterface() *WSGSystemIpv4ControlInterface {
 	return m
 }
 
+// WSGSystemIpv4ManagementInterface
+//
+// Definition: system_ipv4ManagementInterface
 type WSGSystemIpv4ManagementInterface struct {
 	// Gateway
 	// Gateway
@@ -938,6 +1037,9 @@ func NewWSGSystemIpv4ManagementInterface() *WSGSystemIpv4ManagementInterface {
 	return m
 }
 
+// WSGSystemIpv6AccessAndCoreSeparation
+//
+// Definition: system_ipv6AccessAndCoreSeparation
 type WSGSystemIpv6AccessAndCoreSeparation struct {
 	// DefaultGateway
 	// Gateway
@@ -959,6 +1061,9 @@ func NewWSGSystemIpv6AccessAndCoreSeparation() *WSGSystemIpv6AccessAndCoreSepara
 	return m
 }
 
+// WSGSystemIpv6ControlInterface
+//
+// Definition: system_ipv6ControlInterface
 type WSGSystemIpv6ControlInterface struct {
 	// Gateway
 	// Gateway
@@ -980,6 +1085,9 @@ func NewWSGSystemIpv6ControlInterface() *WSGSystemIpv6ControlInterface {
 	return m
 }
 
+// WSGSystemIpv6ManagementInterface
+//
+// Definition: system_ipv6ManagementInterface
 type WSGSystemIpv6ManagementInterface struct {
 	// Gateway
 	// Gateway
@@ -1001,6 +1109,9 @@ func NewWSGSystemIpv6ManagementInterface() *WSGSystemIpv6ManagementInterface {
 	return m
 }
 
+// WSGSystemIpv6PrimaryInterface
+//
+// Definition: system_ipv6PrimaryInterface
 type WSGSystemIpv6PrimaryInterface struct {
 	// Gateway
 	// Gateway
@@ -1035,6 +1146,9 @@ func NewWSGSystemIpv6PrimaryInterface() *WSGSystemIpv6PrimaryInterface {
 	return m
 }
 
+// WSGSystemLwapp2scgConfiguration
+//
+// Definition: system_lwapp2scgConfiguration
 type WSGSystemLwapp2scgConfiguration struct {
 	// Acl
 	// acl  of the lwapp
@@ -1074,6 +1188,9 @@ func NewWSGSystemLwapp2scgConfiguration() *WSGSystemLwapp2scgConfiguration {
 	return m
 }
 
+// WSGSystemModifyControlPlane
+//
+// Definition: system_modifyControlPlane
 type WSGSystemModifyControlPlane struct {
 	// EnableAccessAndCoreSeparation
 	// Enable Access & Core Separation
@@ -1099,6 +1216,9 @@ func NewWSGSystemModifyControlPlane() *WSGSystemModifyControlPlane {
 	return m
 }
 
+// WSGSystemModifyCPStaticRoute
+//
+// Definition: system_modifyCPStaticRoute
 type WSGSystemModifyCPStaticRoute struct {
 	// StaticRoutes
 	// Static route for control plane.
@@ -1110,6 +1230,9 @@ func NewWSGSystemModifyCPStaticRoute() *WSGSystemModifyCPStaticRoute {
 	return m
 }
 
+// WSGSystemModifyCPUserDefinedInterface
+//
+// Definition: system_modifyCPUserDefinedInterface
 type WSGSystemModifyCPUserDefinedInterface struct {
 	// UserDefinedInterface
 	// User defined interface for Control Plane
@@ -1121,6 +1244,9 @@ func NewWSGSystemModifyCPUserDefinedInterface() *WSGSystemModifyCPUserDefinedInt
 	return m
 }
 
+// WSGSystemModifyDataPlane
+//
+// Definition: system_modifyDataPlane
 type WSGSystemModifyDataPlane struct {
 	// InterfaceMode
 	// Interface mode
@@ -1155,6 +1281,9 @@ func NewWSGSystemModifyDataPlane() *WSGSystemModifyDataPlane {
 	return m
 }
 
+// WSGSystemModifyDataPlaneState
+//
+// Definition: system_modifyDataPlaneState
 type WSGSystemModifyDataPlaneState struct {
 	// IsDataCenter
 	// Mark this Data Plane as a CALEA Relay
@@ -1166,6 +1295,9 @@ func NewWSGSystemModifyDataPlaneState() *WSGSystemModifyDataPlaneState {
 	return m
 }
 
+// WSGSystemModifyGatewayAdvanced
+//
+// Definition: system_modifyGatewayAdvanced
 type WSGSystemModifyGatewayAdvanced struct {
 	// AllowSessionOnAccountingFail
 	// Allow session on accounting fail
@@ -1210,6 +1342,9 @@ func NewWSGSystemModifyGatewayAdvanced() *WSGSystemModifyGatewayAdvanced {
 	return m
 }
 
+// WSGSystemModifyIpSupportType
+//
+// Definition: system_modifyIpSupportType
 type WSGSystemModifyIpSupportType struct {
 	// IpMode
 	// IP support version
@@ -1224,6 +1359,9 @@ func NewWSGSystemModifyIpSupportType() *WSGSystemModifyIpSupportType {
 	return m
 }
 
+// WSGSystemModifyLwapp2scg
+//
+// Definition: system_modifyLwapp2scg
 type WSGSystemModifyLwapp2scg struct {
 	// ApList
 	// accessPoint List  of the lwapp
@@ -1259,6 +1397,9 @@ func NewWSGSystemModifyLwapp2scg() *WSGSystemModifyLwapp2scg {
 	return m
 }
 
+// WSGSystemModifySnmpAgent
+//
+// Definition: system_modifySnmpAgent
 type WSGSystemModifySnmpAgent struct {
 	// SnmpNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message is sent out.)
@@ -1280,6 +1421,9 @@ func NewWSGSystemModifySnmpAgent() *WSGSystemModifySnmpAgent {
 	return m
 }
 
+// WSGSystemModifySystemTimeSetting
+//
+// Definition: system_modifySystemTimeSetting
 type WSGSystemModifySystemTimeSetting struct {
 	AuthenticationKey *WSGSystemAuthenticationKey `json:"authenticationKey,omitempty"`
 
@@ -1303,6 +1447,9 @@ func NewWSGSystemModifySystemTimeSetting() *WSGSystemModifySystemTimeSetting {
 	return m
 }
 
+// WSGSystemNorthboundInterface
+//
+// Definition: system_northboundInterface
 type WSGSystemNorthboundInterface struct {
 	Password *WSGCommonApLoginPassword `json:"password,omitempty"`
 
@@ -1320,6 +1467,9 @@ func NewWSGSystemNorthboundInterface() *WSGSystemNorthboundInterface {
 	return m
 }
 
+// WSGSystemNtpServerValidation
+//
+// Definition: system_ntpServerValidation
 type WSGSystemNtpServerValidation struct {
 	AuthenticationKey *WSGSystemAuthenticationKey `json:"authenticationKey,omitempty"`
 
@@ -1335,6 +1485,9 @@ func NewWSGSystemNtpServerValidation() *WSGSystemNtpServerValidation {
 	return m
 }
 
+// WSGSystemNtpServerValidationMessage
+//
+// Definition: system_ntpServerValidationMessage
 type WSGSystemNtpServerValidationMessage struct {
 	// Message
 	// NTP Server Validation Message
@@ -1346,6 +1499,9 @@ func NewWSGSystemNtpServerValidationMessage() *WSGSystemNtpServerValidationMessa
 	return m
 }
 
+// WSGSystemPortalLang
+//
+// Definition: system_portalLang
 type WSGSystemPortalLang struct {
 	// Display
 	// Display name
@@ -1361,6 +1517,9 @@ func NewWSGSystemPortalLang() *WSGSystemPortalLang {
 	return m
 }
 
+// WSGSystemPortalLangList
+//
+// Definition: system_portalLangList
 type WSGSystemPortalLangList struct {
 	// FirstIndex
 	// Index of the first portal names returned out of the complete portal names list
@@ -1382,6 +1541,9 @@ func NewWSGSystemPortalLangList() *WSGSystemPortalLangList {
 	return m
 }
 
+// WSGSystemPortStatistic
+//
+// Definition: system_portStatistic
 type WSGSystemPortStatistic struct {
 	// RxBps
 	// rxBps
@@ -1437,6 +1599,9 @@ func NewWSGSystemPortStatistic() *WSGSystemPortStatistic {
 	return m
 }
 
+// WSGSystemPrimaryInterface
+//
+// Definition: system_primaryInterface
 type WSGSystemPrimaryInterface struct {
 	// Gateway
 	// Gateway
@@ -1485,6 +1650,9 @@ func NewWSGSystemPrimaryInterface() *WSGSystemPrimaryInterface {
 	return m
 }
 
+// WSGSystemReservedPort
+//
+// Definition: system_reservedPort
 type WSGSystemReservedPort struct {
 	// BindingInterface
 	// The binding interfaces, ["Control", "Cluster", "Management"]
@@ -1520,6 +1688,9 @@ func NewWSGSystemReservedPort() *WSGSystemReservedPort {
 	return m
 }
 
+// WSGSystemSecondaryInterface
+//
+// Definition: system_secondaryInterface
 type WSGSystemSecondaryInterface struct {
 	// IpAddress
 	// IP address
@@ -1543,6 +1714,9 @@ func NewWSGSystemSecondaryInterface() *WSGSystemSecondaryInterface {
 	return m
 }
 
+// WSGSystemSecuritySetting
+//
+// Definition: system_securitySetting
 type WSGSystemSecuritySetting struct {
 	// AbsoluteSessionTimeout
 	// Constraints:
@@ -1575,6 +1749,9 @@ func NewWSGSystemSecuritySetting() *WSGSystemSecuritySetting {
 	return m
 }
 
+// WSGSystemSms
+//
+// Definition: system_sms
 type WSGSystemSms struct {
 	// AccountSid
 	// Account SID
@@ -1620,6 +1797,9 @@ func NewWSGSystemSms() *WSGSystemSms {
 	return m
 }
 
+// WSGSystemSmsList
+//
+// Definition: system_smsList
 type WSGSystemSmsList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -1643,6 +1823,9 @@ func NewWSGSystemSmsList() *WSGSystemSmsList {
 	return m
 }
 
+// WSGSystemSnmpAgentConfiguration
+//
+// Definition: system_snmpAgentConfiguration
 type WSGSystemSnmpAgentConfiguration struct {
 	// SnmpNotificationEnabled
 	// Enable SNMP Notifications Globally (If SNMP Notification is disabled globally, no Notification message is sent out.)
@@ -1662,6 +1845,9 @@ func NewWSGSystemSnmpAgentConfiguration() *WSGSystemSnmpAgentConfiguration {
 	return m
 }
 
+// WSGSystemStaticRoute
+//
+// Definition: system_staticRoute
 type WSGSystemStaticRoute struct {
 	// Gateway
 	// Gateway
@@ -1687,6 +1873,9 @@ func NewWSGSystemStaticRoute() *WSGSystemStaticRoute {
 	return m
 }
 
+// WSGSystemStaticRouteList
+//
+// Definition: system_staticRouteList
 type WSGSystemStaticRouteList struct {
 	// StaticRoutes
 	// Static route for Control Plane
@@ -1698,6 +1887,9 @@ func NewWSGSystemStaticRouteList() *WSGSystemStaticRouteList {
 	return m
 }
 
+// WSGSystemStatisticList
+//
+// Definition: system_statisticList
 type WSGSystemStatisticList []*WSGSystemStatisticListType
 
 func MakeWSGSystemStatisticList() WSGSystemStatisticList {
@@ -1705,6 +1897,9 @@ func MakeWSGSystemStatisticList() WSGSystemStatisticList {
 	return m
 }
 
+// WSGSystemStatisticListType
+//
+// Definition: system_statisticListType
 type WSGSystemStatisticListType struct {
 	Cluster *WSGSystemPortStatistic `json:"cluster,omitempty"`
 
@@ -1740,6 +1935,9 @@ func NewWSGSystemStatisticListType() *WSGSystemStatisticListType {
 	return m
 }
 
+// WSGSystemStatisticListTypeCpuType
+//
+// Definition: system_statisticListTypeCpuType
 type WSGSystemStatisticListTypeCpuType struct {
 	// MaxPercent
 	// maxPercent
@@ -1759,6 +1957,9 @@ func NewWSGSystemStatisticListTypeCpuType() *WSGSystemStatisticListTypeCpuType {
 	return m
 }
 
+// WSGSystemStatisticListTypeDiskType
+//
+// Definition: system_statisticListTypeDiskType
 type WSGSystemStatisticListTypeDiskType struct {
 	// Free
 	// free
@@ -1782,6 +1983,9 @@ func NewWSGSystemStatisticListTypeDiskType() *WSGSystemStatisticListTypeDiskType
 	return m
 }
 
+// WSGSystemStatisticListTypeMemoryType
+//
+// Definition: system_statisticListTypeMemoryType
 type WSGSystemStatisticListTypeMemoryType struct {
 	// MaxPercent
 	// maxPercent
@@ -1801,6 +2005,9 @@ func NewWSGSystemStatisticListTypeMemoryType() *WSGSystemStatisticListTypeMemory
 	return m
 }
 
+// WSGSystemSettings
+//
+// Definition: system_systemSettings
 type WSGSystemSettings struct {
 	// ApMacOUIEnabled
 	// Enabled AP Mac OUI feature or no
@@ -1820,6 +2027,9 @@ func NewWSGSystemSettings() *WSGSystemSettings {
 	return m
 }
 
+// WSGSystemTimeSetting
+//
+// Definition: system_systemTimeSetting
 type WSGSystemTimeSetting struct {
 	AuthenticationKey *WSGSystemAuthenticationKey `json:"authenticationKey,omitempty"`
 
@@ -1851,6 +2061,9 @@ func NewWSGSystemTimeSetting() *WSGSystemTimeSetting {
 	return m
 }
 
+// WSGSystemUpdateApMacOUI
+//
+// Definition: system_updateApMacOUI
 type WSGSystemUpdateApMacOUI struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 }
@@ -1860,6 +2073,9 @@ func NewWSGSystemUpdateApMacOUI() *WSGSystemUpdateApMacOUI {
 	return m
 }
 
+// WSGSystemUpdateDpMeshTunnelSetting
+//
+// Definition: system_updateDpMeshTunnelSetting
 type WSGSystemUpdateDpMeshTunnelSetting struct {
 	// Encrypted
 	// Data Plane mesh tunnel encrypted.
@@ -1871,6 +2087,9 @@ func NewWSGSystemUpdateDpMeshTunnelSetting() *WSGSystemUpdateDpMeshTunnelSetting
 	return m
 }
 
+// WSGSystemUserDefinedInterfaceList
+//
+// Definition: system_userDefinedInterfaceList
 type WSGSystemUserDefinedInterfaceList struct {
 	// UserDefinedInterface
 	// User defined interface for Control Plane
@@ -1883,6 +2102,8 @@ func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {
 }
 
 // AddGlobalSettingsSystemTimeValidate
+//
+// Operation ID: addGlobalSettingsSystemTimeValidate
 //
 // Use this API command to validate a NTP server.
 //
@@ -1913,6 +2134,8 @@ func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Conte
 
 // AddSystemApBalance
 //
+// Operation ID: addSystemAp_balance
+//
 // Execute ap balance.
 func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
@@ -1935,6 +2158,8 @@ func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...R
 }
 
 // AddSystemApMacOUIs
+//
+// Operation ID: addSystemApMacOUIs
 //
 // Use this API command to create AP Mac OUI.
 //
@@ -1963,6 +2188,8 @@ func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSyst
 
 // AddSystemApRoutineConfigInterval
 //
+// Operation ID: addSystemApRoutineConfigInterval
+//
 // Use this API command to get AP routine configuration interval setting.
 //
 // Request Body:
@@ -1990,6 +2217,8 @@ func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context,
 
 // AddSystemApRoutineStatusIntervalSlowdown
 //
+// Operation ID: addSystemApRoutineStatusIntervalSlowdown
+//
 // Use this API command to set AP routine status interval setting to 900 seconds.
 func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -2011,6 +2240,8 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 
 // AddSystemApRoutineStatusIntervalSpeedup
 //
+// Operation ID: addSystemApRoutineStatusIntervalSpeedup
+//
 // Use this API command to set AP routine status interval setting to 180 seconds.
 func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -2031,6 +2262,8 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 }
 
 // DeleteSystemApMacOUIsByOUI
+//
+// Operation ID: deleteSystemApMacOUIsByOUI
 //
 // Use this API command to delete AP Mac OUI.
 //
@@ -2057,6 +2290,8 @@ func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI s
 }
 
 // DeleteSystemNbi
+//
+// Operation ID: deleteSystemNbi
 //
 // Use this API command to disable the user information by Northbound Portal Interface.
 //
@@ -2086,6 +2321,8 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 
 // FindController
 //
+// Operation ID: findController
+//
 // Use this API command to retrieve the system summary.
 func (s *WSGSystemService) FindController(ctx context.Context, mutators ...RequestMutator) (*WSGSystemControllerList, *APIResponseMeta, error) {
 	var (
@@ -2107,6 +2344,8 @@ func (s *WSGSystemService) FindController(ctx context.Context, mutators ...Reque
 }
 
 // FindControllerStatisticsById
+//
+// Operation ID: findControllerStatisticsById
 //
 // Use this API command to retrieve the system statistics.
 //
@@ -2147,6 +2386,8 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 
 // FindSystem
 //
+// Operation ID: findSystem
+//
 // Use this API command to get settings of system. Currently, Only can get settings about AP number limit.
 func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSettings, *APIResponseMeta, error) {
 	var (
@@ -2168,6 +2409,8 @@ func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMu
 }
 
 // FindSystemApMacOUIs
+//
+// Operation ID: findSystemApMacOUIs
 //
 // Use this API command to retrieve a list of AP Mac OUIs.
 func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...RequestMutator) (*WSGSystemApMacOUIList, *APIResponseMeta, error) {
@@ -2191,6 +2434,8 @@ func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...
 
 // FindSystemApmodels
 //
+// Operation ID: findSystemApmodels
+//
 // Use this API command to retrieve support AP models for the current installed SZ version's default AP firmware.
 func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
@@ -2212,6 +2457,8 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...R
 }
 
 // FindSystemApmodelsByFirmwareVersion
+//
+// Operation ID: findSystemApmodelsByFirmwareVersion
 //
 // Use this API command to retrieve support AP models from input firmware version.
 //
@@ -2240,6 +2487,8 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 
 // FindSystemApRoutineConfigInterval
 //
+// Operation ID: findSystemApRoutineConfigInterval
+//
 // Use this API command to get AP routine configuration interval setting.
 func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context, mutators ...RequestMutator) (*WSGAPRoutineConfigIntervalRsp, *APIResponseMeta, error) {
 	var (
@@ -2262,6 +2511,8 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 
 // FindSystemApRoutineStatusInterval
 //
+// Operation ID: findSystemApRoutineStatusInterval
+//
 // Use this API command to get AP routine status interval setting.
 func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context, mutators ...RequestMutator) (*WSGAPRoutineStatusIntervalRsp, *APIResponseMeta, error) {
 	var (
@@ -2283,6 +2534,8 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 }
 
 // FindSystemByQueryCriteria
+//
+// Operation ID: findSystemByQueryCriteria
 //
 // Use this API command to query settings of system. Currently, Only can get settings about AP number limit by query criteria with domain and zone filters.
 //
@@ -2313,6 +2566,8 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 
 // FindSystemDevicesSummary
 //
+// Operation ID: findSystemDevicesSummary
+//
 // Use this API command to retrieve devices summary.
 func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGDeviceCapacityDevicesSummary, *APIResponseMeta, error) {
 	var (
@@ -2335,6 +2590,8 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutator
 
 // FindSystemGatewayAdvanced
 //
+// Operation ID: findSystemGatewayAdvanced
+//
 // Use this API command to retrieve gateway advanced setting.
 func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutators ...RequestMutator) (*WSGSystemGatewayAdvanced, *APIResponseMeta, error) {
 	var (
@@ -2356,6 +2613,8 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutato
 }
 
 // FindSystemInventory
+//
+// Operation ID: findSystemInventory
 //
 // Use this API command to retrieve the system inventory with current logon user domain.
 //
@@ -2391,6 +2650,8 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 
 // FindSystemNbi
 //
+// Operation ID: findSystemNbi
+//
 // Use this API command to retrieve user information by Northbound Portal Interface.
 //
 // Optional Parameters:
@@ -2420,6 +2681,8 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 
 // FindSystemSecuritySetting
 //
+// Operation ID: findSystemSecuritySetting
+//
 // Use this API command to retrieve the security setting.
 func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSecuritySetting, *APIResponseMeta, error) {
 	var (
@@ -2442,6 +2705,8 @@ func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutato
 
 // FindSystemSystemTime
 //
+// Operation ID: findSystemSystemTime
+//
 // Retrieve System Time Setting.
 func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ...RequestMutator) (*WSGSystemTimeSetting, *APIResponseMeta, error) {
 	var (
@@ -2463,6 +2728,8 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ..
 }
 
 // PartialUpdateSystem
+//
+// Operation ID: partialUpdateSystem
 //
 // Use this API command to modify settings of system. Currently, Only can modify settings about AP number limit by query criteria with domain and zone filters.
 //
@@ -2491,6 +2758,8 @@ func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSys
 
 // PartialUpdateSystemGatewayAdvanced
 //
+// Operation ID: partialUpdateSystemGatewayAdvanced
+//
 // Use this API command to modify the gateway advanced setting.
 //
 // Request Body:
@@ -2517,6 +2786,8 @@ func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Contex
 }
 
 // PartialUpdateSystemNbi
+//
+// Operation ID: partialUpdateSystemNbi
 //
 // Use this API command to modify the user information by Northbound Portal Interface.
 //
@@ -2552,6 +2823,8 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 
 // PartialUpdateSystemSystemTime
 //
+// Operation ID: partialUpdateSystemSystemTime
+//
 // Modify System Time Setting.
 //
 // Request Body:
@@ -2578,6 +2851,8 @@ func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, bo
 }
 
 // UpdateSystemApMacOUIsByOUI
+//
+// Operation ID: updateSystemApMacOUIsByOUI
 //
 // Use this API command to update AP Mac OUI.
 //
@@ -2610,6 +2885,8 @@ func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body 
 }
 
 // UpdateSystemSecuritySetting
+//
+// Operation ID: updateSystemSecuritySetting
 //
 // Use this API command to retrieve the security setting.
 //

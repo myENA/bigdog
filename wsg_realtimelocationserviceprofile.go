@@ -23,6 +23,8 @@ func (ss *WSGService) WSGRealTimeLocationServiceProfileService() *WSGRealTimeLoc
 
 // AddRkszonesRealTimeLocationServiceByZoneId
 //
+// Operation ID: addRkszonesRealTimeLocationServiceByZoneId
+//
 // Use this API command to create RTLS Profile.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationSe
 
 // DeleteRkszonesRealTimeLocationServiceById
 //
+// Operation ID: deleteRkszonesRealTimeLocationServiceById
+//
 // Use this API command to Delete RTLS Profile by profile's ID.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocatio
 }
 
 // FindRkszonesRealTimeLocationServiceById
+//
+// Operation ID: findRkszonesRealTimeLocationServiceById
 //
 // Use this API command to Get RTLS Profile by profile's ID.
 //
@@ -116,6 +122,8 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 
 // FindRkszonesRealTimeLocationServiceByZoneId
 //
+// Operation ID: findRkszonesRealTimeLocationServiceByZoneId
+//
 // Use this API command to Get RTLS Profile by zone ID.
 //
 // Required Parameters:
@@ -142,6 +150,8 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 }
 
 // UpdateRkszonesRealTimeLocationServiceById
+//
+// Operation ID: updateRkszonesRealTimeLocationServiceById
 //
 // Use this API command to Modify RTLS Profile by profile's ID.
 //

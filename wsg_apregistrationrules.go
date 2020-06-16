@@ -23,6 +23,8 @@ func (ss *WSGService) WSGAPRegistrationRulesService() *WSGAPRegistrationRulesSer
 
 // AddApRules
 //
+// Operation ID: addApRules
+//
 // Use this API command to create AP Registration Rules profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 
 // DeleteApRulesById
 //
+// Operation ID: deleteApRulesById
+//
 // Use this API command to delete AP Registration Rules profile.
 //
 // Required Parameters:
@@ -78,6 +82,8 @@ func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, i
 
 // FindApRules
 //
+// Operation ID: findApRules
+//
 // Use this API command to retrieve a list of AP Registration Rules profile.
 func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context, mutators ...RequestMutator) (*WSGAPRulesApRuleList, *APIResponseMeta, error) {
 	var (
@@ -99,6 +105,8 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context, mutator
 }
 
 // FindApRulesById
+//
+// Operation ID: findApRulesById
 //
 // Use this API command to retrieve AP Registration Rules profile by ID.
 //
@@ -127,6 +135,8 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 
 // FindApRulesPriorityDownById
 //
+// Operation ID: findApRulesPriorityDownById
+//
 // Use this API command to move Priority Down of AP Registration Rules profile.
 //
 // Required Parameters:
@@ -152,6 +162,8 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 
 // FindApRulesPriorityUpById
 //
+// Operation ID: findApRulesPriorityUpById
+//
 // Use this API command to move Priority Up of AP Registration Rules profile.
 //
 // Required Parameters:
@@ -176,6 +188,8 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 }
 
 // PartialUpdateApRulesById
+//
+// Operation ID: partialUpdateApRulesById
 //
 // Use this API command to modify the configuration of AP Registration Rules profile.
 //

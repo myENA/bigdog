@@ -23,6 +23,9 @@ func (ss *SwitchMService) SwitchMFirmwareConfigService() *SwitchMFirmwareConfigS
 	return NewSwitchMFirmwareConfigService(ss.apiClient)
 }
 
+// SwitchMFirmwareConfigFirmwaresQueryResultList
+//
+// Definition: firmware_firmwaresQueryResultList
 type SwitchMFirmwareConfigFirmwaresQueryResultList struct {
 	// Extra
 	// Extra information for Firmware list
@@ -54,6 +57,8 @@ func NewSwitchMFirmwareConfigFirmwaresQueryResultList() *SwitchMFirmwareConfigFi
 
 // SwitchMFirmwareConfigFirmwaresQueryResultListExtraType
 //
+// Definition: firmware_firmwaresQueryResultListExtraType
+//
 // Extra information for Firmware list
 type SwitchMFirmwareConfigFirmwaresQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -80,6 +85,9 @@ func NewSwitchMFirmwareConfigFirmwaresQueryResultListExtraType() *SwitchMFirmwar
 	return m
 }
 
+// SwitchMFirmwareConfigScheduleIds
+//
+// Definition: firmware_scheduleIds
 type SwitchMFirmwareConfigScheduleIds struct {
 	// Extra
 	// Extra information for Schedule Ids list
@@ -111,6 +119,8 @@ func NewSwitchMFirmwareConfigScheduleIds() *SwitchMFirmwareConfigScheduleIds {
 
 // SwitchMFirmwareConfigScheduleIdsExtraType
 //
+// Definition: firmware_scheduleIdsExtraType
+//
 // Extra information for Schedule Ids list
 type SwitchMFirmwareConfigScheduleIdsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -137,6 +147,9 @@ func NewSwitchMFirmwareConfigScheduleIdsExtraType() *SwitchMFirmwareConfigSchedu
 	return m
 }
 
+// SwitchMFirmwareConfigSwitchFirmware
+//
+// Definition: firmware_switchFirmware
 type SwitchMFirmwareConfigSwitchFirmware struct {
 	SwitchModels []*SwitchMFirmwareConfigSwitchModel `json:"switchModels,omitempty"`
 
@@ -150,6 +163,9 @@ func NewSwitchMFirmwareConfigSwitchFirmware() *SwitchMFirmwareConfigSwitchFirmwa
 	return m
 }
 
+// SwitchMFirmwareConfigSwitchModel
+//
+// Definition: firmware_switchModel
 type SwitchMFirmwareConfigSwitchModel struct {
 	// ImageFileNames
 	// Name of the Switch Image File
@@ -166,6 +182,8 @@ func NewSwitchMFirmwareConfigSwitchModel() *SwitchMFirmwareConfigSwitchModel {
 }
 
 // AddFirmware
+//
+// Operation ID: addFirmware
 //
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
 //
@@ -195,6 +213,8 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 }
 
 // AddFirmwareUpload
+//
+// Operation ID: addFirmwareUpload
 //
 // Use this API command to upload a firmware image zip file to SmartZone.
 //
@@ -227,6 +247,8 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 
 // DeleteFirmwareByVersion
 //
+// Operation ID: deleteFirmwareByVersion
+//
 // Use this API command to deletes a firmware image file from SmartZone.
 //
 // Required Parameters:
@@ -255,6 +277,8 @@ func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Conte
 
 // FindFirmware
 //
+// Operation ID: findFirmware
+//
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
 func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutators ...RequestMutator) (*SwitchMFirmwareConfigFirmwaresQueryResultList, *APIResponseMeta, error) {
 	var (
@@ -276,6 +300,8 @@ func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutator
 }
 
 // PartialUpdateFirmwareByVersion
+//
+// Operation ID: partialUpdateFirmwareByVersion
 //
 // Use this API command to update the given firmware version on switches matching criteria.
 //

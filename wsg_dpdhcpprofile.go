@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDPDHCPProfileService() *WSGDPDHCPProfileService {
 
 // AddDpDhcpProfiles
 //
+// Operation ID: addDpDhcpProfiles
+//
 // Use this API command to create basic DP DHCP profile - basic.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *W
 }
 
 // AddDpDhcpProfilesDpDhcpProfileHostsById
+//
+// Operation ID: addDpDhcpProfilesDpDhcpProfileHostsById
 //
 // Use this API command to create DP DHCP profile - host.
 //
@@ -86,6 +90,8 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx co
 
 // AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 //
+// Operation ID: addDpDhcpProfilesDpDhcpProfileOptionSpacesById
+//
 // Use this API command to create DP DHCP profile - option43 space.
 //
 // Request Body:
@@ -119,6 +125,8 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 }
 
 // AddDpDhcpProfilesDpDhcpProfilePoolsById
+//
+// Operation ID: addDpDhcpProfilesDpDhcpProfilePoolsById
 //
 // Use this API command to create DP DHCP profile - pool.
 //
@@ -154,6 +162,8 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx co
 
 // DeleteDpDhcpProfiles
 //
+// Operation ID: deleteDpDhcpProfiles
+//
 // Use this API command to delete DP DHCP profiles.
 //
 // Request Body:
@@ -183,6 +193,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfiles(ctx context.Context, body
 
 // DeleteDpDhcpProfilesById
 //
+// Operation ID: deleteDpDhcpProfilesById
+//
 // Use this API command to delete DP DHCP profile.
 //
 // Required Parameters:
@@ -210,6 +222,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, 
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
+//
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 //
 // Use this API command to delete DP DHCP profile - host.
 //
@@ -241,6 +255,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfileHostsById
+//
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfileHostsById
 //
 // Use this API command to delete DP DHCP profile - hosts.
 //
@@ -276,6 +292,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx
 
 // DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById
 //
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfileOptionSpacesById
+//
 // Use this API command to delete DP DHCP profile - option43 spaces.
 //
 // Request Body:
@@ -310,6 +328,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 
 // DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
 //
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
+//
 // Use this API command to delete DP DHCP profile - option43 space.
 //
 // Required Parameters:
@@ -340,6 +360,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 }
 
 // DeleteDpDhcpProfilesDpDhcpProfilePoolsById
+//
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfilePoolsById
 //
 // Use this API command to delete DP DHCP profile - pools.
 //
@@ -375,6 +397,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx
 
 // DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 //
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
+//
 // Use this API command to delete DP DHCP profile - pool.
 //
 // Required Parameters:
@@ -406,6 +430,8 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 
 // FindDpDhcpProfiles
 //
+// Operation ID: findDpDhcpProfiles
+//
 // Use this API command to retrieve DP profile - basic list.
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfileBasicBOList, *APIResponseMeta, error) {
 	var (
@@ -427,6 +453,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context, mutato
 }
 
 // FindDpDhcpProfilesById
+//
+// Operation ID: findDpDhcpProfilesById
 //
 // Use this API command to retrieve DP profile - basic.
 //
@@ -454,6 +482,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id
 }
 
 // FindDpDhcpProfilesDpDhcpProfileHostsByHostId
+//
+// Operation ID: findDpDhcpProfilesDpDhcpProfileHostsByHostId
 //
 // Use this API command to retrieve DP DHCP profile - host.
 //
@@ -485,6 +515,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(c
 
 // FindDpDhcpProfilesDpDhcpProfileHostsById
 //
+// Operation ID: findDpDhcpProfilesDpDhcpProfileHostsById
+//
 // Use this API command to retrieve DP DHCP profile - host list.
 //
 // Required Parameters:
@@ -512,6 +544,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx c
 
 // FindDpDhcpProfilesDpDhcpProfileOptionSpacesById
 //
+// Operation ID: findDpDhcpProfilesDpDhcpProfileOptionSpacesById
+//
 // Use this API command to retrieve DP DHCP profile - option43 space list.
 //
 // Required Parameters:
@@ -538,6 +572,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByI
 }
 
 // FindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
+//
+// Operation ID: findDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
 //
 // Use this API command to retrieve DP DHCP profile - option43 space.
 //
@@ -569,6 +605,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByS
 
 // FindDpDhcpProfilesDpDhcpProfilePoolsById
 //
+// Operation ID: findDpDhcpProfilesDpDhcpProfilePoolsById
+//
 // Use this API command to retrieve DP DHCP profile - pool list.
 //
 // Required Parameters:
@@ -595,6 +633,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx c
 }
 
 // FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId
+//
+// Operation ID: findDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 //
 // Use this API command to retrieve DP DHCP profile - pool.
 //
@@ -625,6 +665,8 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(c
 }
 
 // UpdateDpDhcpProfilesById
+//
+// Operation ID: updateDpDhcpProfilesById
 //
 // Use this API command to modify DP DHCP profile - basic.
 //
@@ -659,6 +701,8 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, 
 }
 
 // UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
+//
+// Operation ID: updateDpDhcpProfilesDpDhcpProfileHostsByHostId
 //
 // Use this API command to modify DP DHCP profile - host.
 //
@@ -697,6 +741,8 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 
 // UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
 //
+// Operation ID: updateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
+//
 // Use this API command to update DP DHCP profile - option43 space.
 //
 // Request Body:
@@ -733,6 +779,8 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesB
 }
 
 // UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
+//
+// Operation ID: updateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 //
 // Use this API command to modify DP DHCP profile - pool.
 //

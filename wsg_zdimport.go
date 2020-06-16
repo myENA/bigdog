@@ -23,6 +23,8 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 
 // AddZdImportConnectZD
 //
+// Operation ID: addZdImportConnectZD
+//
 // Connect to ZD.
 //
 // Request Body:
@@ -49,6 +51,8 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 }
 
 // AddZdImportMigrate
+//
+// Operation ID: addZdImportMigrate
 //
 // Migrate ZD to SCG.
 //
@@ -77,6 +81,8 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 
 // FindZdImportGetZDAPs
 //
+// Operation ID: findZdImportGetZDAPs
+//
 // Get ZD AP.
 //
 // Required Parameters:
@@ -103,6 +109,8 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 }
 
 // FindZdImportStatus
+//
+// Operation ID: findZdImportStatus
 //
 // Get Migrate Status.
 //

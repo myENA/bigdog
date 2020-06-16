@@ -23,6 +23,8 @@ func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfil
 
 // AddProfilesAuth
 //
+// Operation ID: addProfilesAuth
+//
 // Use this API command to create a new authentication profile.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 }
 
 // AddProfilesAuthCloneById
+//
+// Operation ID: addProfilesAuthCloneById
 //
 // Use this API command to clone an authentication profile.
 //
@@ -86,6 +90,8 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 
 // DeleteProfilesAuth
 //
+// Operation ID: deleteProfilesAuth
+//
 // Use this API command to delete a list of authentication profile.
 //
 // Request Body:
@@ -113,6 +119,8 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context
 
 // DeleteProfilesAuthById
 //
+// Operation ID: deleteProfilesAuthById
+//
 // Use this API command to delete an authentication profile.
 //
 // Required Parameters:
@@ -139,6 +147,8 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Con
 
 // FindProfilesAuth
 //
+// Operation ID: findProfilesAuth
+//
 // Use this API command to retrieve a list of authentication profiles.
 func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context, mutators ...RequestMutator) (*WSGProfileAuthenticationProfileList, *APIResponseMeta, error) {
 	var (
@@ -160,6 +170,8 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context, 
 }
 
 // FindProfilesAuthAuthorizationList
+//
+// Operation ID: findProfilesAuthAuthorizationList
 //
 // Use this API command to retrieve a list of authorization profiles.
 //
@@ -187,6 +199,8 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 }
 
 // FindProfilesAuthAuthServiceListByQueryCriteria
+//
+// Operation ID: findProfilesAuthAuthServiceListByQueryCriteria
 //
 // Use this API command to retrieve a list of authentication service.
 //
@@ -217,6 +231,8 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 
 // FindProfilesAuthById
 //
+// Operation ID: findProfilesAuthById
+//
 // Use this API command to retrieve an authentication profile.
 //
 // Required Parameters:
@@ -243,6 +259,8 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 }
 
 // FindProfilesAuthByQueryCriteria
+//
+// Operation ID: findProfilesAuthByQueryCriteria
 //
 // Use this API command to retrieve a list of authentication profiles by query criteria.
 //
@@ -273,6 +291,8 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 
 // FindRadiusProxyStatsByQueryCriteria
 //
+// Operation ID: findRadiusProxyStatsByQueryCriteria
+//
 // Use this API command to retrieve a list of Radius Proxy.
 //
 // Request Body:
@@ -301,6 +321,8 @@ func (s *WSGAuthenticationProfileService) FindRadiusProxyStatsByQueryCriteria(ct
 }
 
 // PartialUpdateProfilesAuthById
+//
+// Operation ID: partialUpdateProfilesAuthById
 //
 // Use this API command to modify the configuration of an authentication profile.
 //

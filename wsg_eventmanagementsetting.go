@@ -23,6 +23,8 @@ func (ss *WSGService) WSGEventManagementSettingService() *WSGEventManagementSett
 
 // FindRkszonesEventEmailSettingsByZoneId
 //
+// Operation ID: findRkszonesEventEmailSettingsByZoneId
+//
 // Get Event E-mail Setting of Zone Override.
 //
 // Required Parameters:
@@ -50,6 +52,8 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneI
 
 // FindRkszonesEventNotificationSettingsByZoneId
 //
+// Operation ID: findRkszonesEventNotificationSettingsByZoneId
+//
 // Get Event Notification Setting of Zone Override.
 //
 // Required Parameters:
@@ -76,6 +80,8 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettings
 }
 
 // UpdateRkszonesEventEmailSettingsByZoneId
+//
+// Operation ID: updateRkszonesEventEmailSettingsByZoneId
 //
 // Modify Event E-mail Setting of Zone Override.
 //
@@ -108,6 +114,8 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZon
 }
 
 // UpdateRkszonesEventNotificationSettingsByZoneId
+//
+// Operation ID: updateRkszonesEventNotificationSettingsByZoneId
 //
 // Modify Event Notification Setting of Zone Override.
 //

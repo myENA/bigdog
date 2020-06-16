@@ -23,6 +23,8 @@ func (ss *WSGService) WSGAccountSecurityService() *WSGAccountSecurityService {
 
 // AddAccountSecurity
 //
+// Operation ID: addAccountSecurity
+//
 // Use this API command to create the account security proile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body
 
 // DeleteAccountSecurity
 //
+// Operation ID: deleteAccountSecurity
+//
 // Use this API command to selete the account security profile.
 //
 // Request Body:
@@ -80,6 +84,8 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, b
 }
 
 // DeleteAccountSecurityById
+//
+// Operation ID: deleteAccountSecurityById
 //
 // Use this API command to delete the account security profile by id.
 //
@@ -115,6 +121,8 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Contex
 
 // FindAccountSecurity
 //
+// Operation ID: findAccountSecurity
+//
 // Use this API command to get account security profiles.
 func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context, mutators ...RequestMutator) (*WSGAccountSecurityProfileProfileListResult, *APIResponseMeta, error) {
 	var (
@@ -136,6 +144,8 @@ func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context, mut
 }
 
 // FindAccountSecurityById
+//
+// Operation ID: findAccountSecurityById
 //
 // Use this API command to retrieve the specific account security profile.
 //
@@ -170,6 +180,8 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 
 // PartialUpdateAccountSecurityById
 //
+// Operation ID: partialUpdateAccountSecurityById
+//
 // Use this API command to modify the specific account security profile.
 //
 // Request Body:
@@ -203,6 +215,8 @@ func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context
 }
 
 // UpdateAccountSecurityById
+//
+// Operation ID: updateAccountSecurityById
 //
 // Use this API command to modify the specific account security profile.
 //

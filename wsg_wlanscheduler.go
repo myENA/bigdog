@@ -21,6 +21,9 @@ func (ss *WSGService) WSGWLANSchedulerService() *WSGWLANSchedulerService {
 	return NewWSGWLANSchedulerService(ss.apiClient)
 }
 
+// WSGWLANSchedulerCreateWlanScheduler
+//
+// Definition: wlanscheduler_createWlanScheduler
 type WSGWLANSchedulerCreateWlanScheduler struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -63,6 +66,9 @@ func NewWSGWLANSchedulerCreateWlanScheduler() *WSGWLANSchedulerCreateWlanSchedul
 	return m
 }
 
+// WSGWLANSchedulerModifyWlanScheduler
+//
+// Definition: wlanscheduler_modifyWlanScheduler
 type WSGWLANSchedulerModifyWlanScheduler struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -102,6 +108,9 @@ func NewWSGWLANSchedulerModifyWlanScheduler() *WSGWLANSchedulerModifyWlanSchedul
 	return m
 }
 
+// WSGWLANSchedulerWlanSchedule
+//
+// Definition: wlanscheduler_wlanSchedule
 type WSGWLANSchedulerWlanSchedule struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -149,6 +158,9 @@ func NewWSGWLANSchedulerWlanSchedule() *WSGWLANSchedulerWlanSchedule {
 	return m
 }
 
+// WSGWLANSchedulerWlanScheduleList
+//
+// Definition: wlanscheduler_wlanScheduleList
 type WSGWLANSchedulerWlanScheduleList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -165,6 +177,8 @@ func NewWSGWLANSchedulerWlanScheduleList() *WSGWLANSchedulerWlanScheduleList {
 }
 
 // AddRkszonesWlanSchedulersByZoneId
+//
+// Operation ID: addRkszonesWlanSchedulersByZoneId
 //
 // Use this API command to create a new WLAN schedule.
 //
@@ -200,6 +214,8 @@ func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.
 
 // DeleteRkszonesWlanSchedulersById
 //
+// Operation ID: deleteRkszonesWlanSchedulersById
+//
 // Use this API command to delete a WLAN schedule.
 //
 // Required Parameters:
@@ -228,6 +244,8 @@ func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.C
 }
 
 // FindRkszonesWlanSchedulersById
+//
+// Operation ID: findRkszonesWlanSchedulersById
 //
 // Use this API command to retrieve a WLAN schedule.
 //
@@ -258,6 +276,8 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 }
 
 // FindRkszonesWlanSchedulersByZoneId
+//
+// Operation ID: findRkszonesWlanSchedulersByZoneId
 //
 // Use this API command to retrieve the list of WLAN schedule from a zone.
 //
@@ -298,6 +318,8 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context
 
 // FindServicesWlanSchedulerByQueryCriteria
 //
+// Operation ID: findServicesWlanSchedulerByQueryCriteria
+//
 // Query Wlan Schedulers with specified filters.
 //
 // Request Body:
@@ -326,6 +348,8 @@ func (s *WSGWLANSchedulerService) FindServicesWlanSchedulerByQueryCriteria(ctx c
 }
 
 // PartialUpdateRkszonesWlanSchedulersById
+//
+// Operation ID: partialUpdateRkszonesWlanSchedulersById
 //
 // Use this API command to modify the configuration of a WLAN schedule.
 //

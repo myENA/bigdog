@@ -23,6 +23,8 @@ func (ss *WSGService) WSGHotspotServiceService() *WSGHotspotServiceService {
 
 // AddRkszonesPortalsHotspotExternalByZoneId
 //
+// Operation ID: addRkszonesPortalsHotspotExternalByZoneId
+//
 // Use this API command to create a new Hotspot (WISPr) with external logon URL of a zone.MacAddressFormat.
 //
 // Request Body:
@@ -56,6 +58,8 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx
 }
 
 // AddRkszonesPortalsHotspotInternalByZoneId
+//
+// Operation ID: addRkszonesPortalsHotspotInternalByZoneId
 //
 // Use this API command to create a new Hotspot (WISPr) with internal logon URL of a zone.MacAddressFormat.
 //
@@ -91,6 +95,8 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 
 // AddRkszonesPortalsHotspotSmartClientOnlyByZoneId
 //
+// Operation ID: addRkszonesPortalsHotspotSmartClientOnlyByZoneId
+//
 // Use this API command to create a new Hotspot (WISPr) with smart client only of a zone.MacAddressFormat.
 //
 // Request Body:
@@ -125,6 +131,8 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZon
 
 // DeleteRkszonesPortalsHotspotById
 //
+// Operation ID: deleteRkszonesPortalsHotspotById
+//
 // Use this API command to delete a Hotspot (WISPr) of a zone.
 //
 // Required Parameters:
@@ -153,6 +161,8 @@ func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.
 }
 
 // FindRkszonesPortalsHotspotById
+//
+// Operation ID: findRkszonesPortalsHotspotById
 //
 // Use this API command to retrieve a Hotspot (WISPr) of zone.
 //
@@ -184,6 +194,8 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Co
 
 // FindRkszonesPortalsHotspotByZoneId
 //
+// Operation ID: findRkszonesPortalsHotspotByZoneId
+//
 // Use this API command to retrieve a list of Hotspot (WISPr) of a zone.
 //
 // Required Parameters:
@@ -210,6 +222,8 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx contex
 }
 
 // FindServicesHotspotByQueryCriteria
+//
+// Operation ID: findServicesHotspotByQueryCriteria
 //
 // Query Hotspot Profiles with specified filters.
 //
@@ -239,6 +253,8 @@ func (s *WSGHotspotServiceService) FindServicesHotspotByQueryCriteria(ctx contex
 }
 
 // PartialUpdateRkszonesPortalsHotspotById
+//
+// Operation ID: partialUpdateRkszonesPortalsHotspotById
 //
 // Use this API command to modify the configuration on Hotspot (WISPr) of a zone.MacAddressFormat.
 //

@@ -23,6 +23,8 @@ func (ss *WSGService) WSGWebAuthenticationService() *WSGWebAuthenticationService
 
 // AddRkszonesPortalsWebauthByZoneId
 //
+// Operation ID: addRkszonesPortalsWebauthByZoneId
+//
 // Use this API command to create a new web authentication of a zone.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx cont
 
 // DeleteRkszonesPortalsWebauthById
 //
+// Operation ID: deleteRkszonesPortalsWebauthById
+//
 // Use this API command to delete an web authentication of a zone.
 //
 // Required Parameters:
@@ -86,6 +90,8 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx conte
 
 // DeleteRkszonesPortalsWebauthRedirectById
 //
+// Operation ID: deleteRkszonesPortalsWebauthRedirectById
+//
 // Use this API command to set redirect to the URL that user intends to visit on web authentication of a zone.
 //
 // Required Parameters:
@@ -114,6 +120,8 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(c
 }
 
 // FindRkszonesPortalsWebauthById
+//
+// Operation ID: findRkszonesPortalsWebauthById
 //
 // Use this API command to retrieve a web authentication of a zone.
 //
@@ -145,6 +153,8 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context
 
 // FindRkszonesPortalsWebauthByZoneId
 //
+// Operation ID: findRkszonesPortalsWebauthByZoneId
+//
 // Use this API command to retrieve a list of web authentication of a zone.
 //
 // Required Parameters:
@@ -171,6 +181,8 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx con
 }
 
 // FindServicesWebAuthenticationByQueryCriteria
+//
+// Operation ID: findServicesWebAuthenticationByQueryCriteria
 //
 // Query Web Authentications with specified filters.
 //
@@ -200,6 +212,8 @@ func (s *WSGWebAuthenticationService) FindServicesWebAuthenticationByQueryCriter
 }
 
 // PartialUpdateRkszonesPortalsWebauthById
+//
+// Operation ID: partialUpdateRkszonesPortalsWebauthById
 //
 // Use this API command to modify the configuration on web authentication of a zone.
 //

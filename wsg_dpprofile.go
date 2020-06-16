@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGDPProfileBulkDelete
+//
+// Definition: dpProfile_bulkDelete
 type WSGDPProfileBulkDelete struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -11,6 +14,9 @@ func NewWSGDPProfileBulkDelete() *WSGDPProfileBulkDelete {
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileBasicBO
+//
+// Definition: dpProfile_dpDhcpProfileBasicBO
 type WSGDPProfileDpDhcpProfileBasicBO struct {
 	// DefaultLeaseTime
 	// defaultLeaseTime
@@ -46,6 +52,9 @@ func NewWSGDPProfileDpDhcpProfileBasicBO() *WSGDPProfileDpDhcpProfileBasicBO {
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileBasicBOList
+//
+// Definition: dpProfile_dpDhcpProfileBasicBOList
 type WSGDPProfileDpDhcpProfileBasicBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -61,6 +70,9 @@ func NewWSGDPProfileDpDhcpProfileBasicBOList() *WSGDPProfileDpDhcpProfileBasicBO
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileHostBO
+//
+// Definition: dpProfile_dpDhcpProfileHostBO
 type WSGDPProfileDpDhcpProfileHostBO struct {
 	// BroadcastAddress
 	// broadcastAddress
@@ -116,6 +128,9 @@ func NewWSGDPProfileDpDhcpProfileHostBO() *WSGDPProfileDpDhcpProfileHostBO {
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileHostBOList
+//
+// Definition: dpProfile_dpDhcpProfileHostBOList
 type WSGDPProfileDpDhcpProfileHostBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -131,6 +146,9 @@ func NewWSGDPProfileDpDhcpProfileHostBOList() *WSGDPProfileDpDhcpProfileHostBOLi
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileOptionBO
+//
+// Definition: dpProfile_dpDhcpProfileOptionBO
 type WSGDPProfileDpDhcpProfileOptionBO struct {
 	// CodeNumber
 	// codeNumber
@@ -154,6 +172,9 @@ func NewWSGDPProfileDpDhcpProfileOptionBO() *WSGDPProfileDpDhcpProfileOptionBO {
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileOptionInstance
+//
+// Definition: dpProfile_dpDhcpProfileOptionInstance
 type WSGDPProfileDpDhcpProfileOptionInstance struct {
 	FunctionName *string `json:"functionName,omitempty"`
 
@@ -165,6 +186,9 @@ func NewWSGDPProfileDpDhcpProfileOptionInstance() *WSGDPProfileDpDhcpProfileOpti
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO
+//
+// Definition: dpProfile_dpDhcpProfileOptionSpaceApplyToBO
 type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO struct {
 	// AppliedPoolNames
 	// appliedPoolNames
@@ -190,6 +214,9 @@ func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBO() *WSGDPProfileDpDhcpProfi
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList
+//
+// Definition: dpProfile_dpDhcpProfileOptionSpaceApplyToBOList
 type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -205,6 +232,9 @@ func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList() *WSGDPProfileDpDhcpP
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileOptionSpaceBO
+//
+// Definition: dpProfile_dpDhcpProfileOptionSpaceBO
 type WSGDPProfileDpDhcpProfileOptionSpaceBO struct {
 	// Description
 	// description
@@ -228,6 +258,9 @@ func NewWSGDPProfileDpDhcpProfileOptionSpaceBO() *WSGDPProfileDpDhcpProfileOptio
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileOptionSpaceInstance
+//
+// Definition: dpProfile_dpDhcpProfileOptionSpaceInstance
 type WSGDPProfileDpDhcpProfileOptionSpaceInstance struct {
 	Description *string `json:"description,omitempty"`
 
@@ -243,6 +276,9 @@ func NewWSGDPProfileDpDhcpProfileOptionSpaceInstance() *WSGDPProfileDpDhcpProfil
 	return m
 }
 
+// WSGDPProfileDpDhcpProfilePoolBO
+//
+// Definition: dpProfile_dpDhcpProfilePoolBO
 type WSGDPProfileDpDhcpProfilePoolBO struct {
 	// BroadcastAddress
 	// broadcastAddress
@@ -326,6 +362,9 @@ func NewWSGDPProfileDpDhcpProfilePoolBO() *WSGDPProfileDpDhcpProfilePoolBO {
 	return m
 }
 
+// WSGDPProfileDpDhcpProfilePoolBOList
+//
+// Definition: dpProfile_dpDhcpProfilePoolBOList
 type WSGDPProfileDpDhcpProfilePoolBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -341,6 +380,9 @@ func NewWSGDPProfileDpDhcpProfilePoolBOList() *WSGDPProfileDpDhcpProfilePoolBOLi
 	return m
 }
 
+// WSGDPProfileDpDhcpProfileQinqVlanRangeBO
+//
+// Definition: dpProfile_dpDhcpProfileQinqVlanRangeBO
 type WSGDPProfileDpDhcpProfileQinqVlanRangeBO struct {
 	// Cvlan
 	// cvlan
@@ -356,6 +398,9 @@ func NewWSGDPProfileDpDhcpProfileQinqVlanRangeBO() *WSGDPProfileDpDhcpProfileQin
 	return m
 }
 
+// WSGDPProfileDpNatProfileBasicBO
+//
+// Definition: dpProfile_dpNatProfileBasicBO
 type WSGDPProfileDpNatProfileBasicBO struct {
 	// AppliedDpKey
 	// The applied DP keys
@@ -393,6 +438,9 @@ func NewWSGDPProfileDpNatProfileBasicBO() *WSGDPProfileDpNatProfileBasicBO {
 	return m
 }
 
+// WSGDPProfileDpNatProfileBasicBOList
+//
+// Definition: dpProfile_dpNatProfileBasicBOList
 type WSGDPProfileDpNatProfileBasicBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -408,6 +456,9 @@ func NewWSGDPProfileDpNatProfileBasicBOList() *WSGDPProfileDpNatProfileBasicBOLi
 	return m
 }
 
+// WSGDPProfileDpNatProfilePoolBO
+//
+// Definition: dpProfile_dpNatProfilePoolBO
 type WSGDPProfileDpNatProfilePoolBO struct {
 	// Description
 	// description
@@ -455,6 +506,9 @@ func NewWSGDPProfileDpNatProfilePoolBO() *WSGDPProfileDpNatProfilePoolBO {
 	return m
 }
 
+// WSGDPProfileDpNatProfilePoolBOList
+//
+// Definition: dpProfile_dpNatProfilePoolBOList
 type WSGDPProfileDpNatProfilePoolBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -470,6 +524,9 @@ func NewWSGDPProfileDpNatProfilePoolBOList() *WSGDPProfileDpNatProfilePoolBOList
 	return m
 }
 
+// WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO
+//
+// Definition: dpProfile_dpNatProfilePrivateQinqVlanRangeBO
 type WSGDPProfileDpNatProfilePrivateQinqVlanRangeBO struct {
 	// Cvlan
 	// cvlan
@@ -485,6 +542,9 @@ func NewWSGDPProfileDpNatProfilePrivateQinqVlanRangeBO() *WSGDPProfileDpNatProfi
 	return m
 }
 
+// WSGDPProfileDpNatProfilePublicSubnetIdBO
+//
+// Definition: dpProfile_dpNatProfilePublicSubnetIdBO
 type WSGDPProfileDpNatProfilePublicSubnetIdBO struct {
 	// Ip
 	// ip
@@ -500,6 +560,9 @@ func NewWSGDPProfileDpNatProfilePublicSubnetIdBO() *WSGDPProfileDpNatProfilePubl
 	return m
 }
 
+// WSGDPProfileSettingBO
+//
+// Definition: dpProfile_dpProfileSettingBO
 type WSGDPProfileSettingBO struct {
 	// Description
 	// description
@@ -539,6 +602,9 @@ func NewWSGDPProfileSettingBO() *WSGDPProfileSettingBO {
 	return m
 }
 
+// WSGDPProfileSettingBOList
+//
+// Definition: dpProfile_dpProfileSettingBOList
 type WSGDPProfileSettingBOList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

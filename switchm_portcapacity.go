@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMPortCapacityService() *SwitchMPortCapacityServi
 	return NewSwitchMPortCapacityService(ss.apiClient)
 }
 
+// SwitchMPortCapacityCapacities
+//
+// Definition: portCapacity_capacities
 type SwitchMPortCapacityCapacities struct {
 	// Capacity
 	// Port Speed Capacity
@@ -33,6 +36,9 @@ func NewSwitchMPortCapacityCapacities() *SwitchMPortCapacityCapacities {
 	return m
 }
 
+// SwitchMPortCapacityResult
+//
+// Definition: portCapacity_result
 type SwitchMPortCapacityResult struct {
 	// Extra
 	// Extra field
@@ -64,6 +70,8 @@ func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 
 // SwitchMPortCapacityResultExtraType
 //
+// Definition: portCapacity_resultExtraType
+//
 // Extra field
 type SwitchMPortCapacityResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -91,6 +99,8 @@ func NewSwitchMPortCapacityResultExtraType() *SwitchMPortCapacityResultExtraType
 }
 
 // FindPortCapacity
+//
+// Operation ID: findPortCapacity
 //
 // Use this API command to Retrieve Switch Port Capacity List.
 func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, mutators ...RequestMutator) (*SwitchMPortCapacityResult, *APIResponseMeta, error) {

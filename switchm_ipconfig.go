@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// SwitchMIPConfigCreate
+//
+// Definition: ipConfig_create
 type SwitchMIPConfigCreate struct {
 	// DhcpRelayAgent
 	// DHCP Relay IP Address
@@ -49,6 +52,9 @@ func NewSwitchMIPConfigCreate() *SwitchMIPConfigCreate {
 	return m
 }
 
+// SwitchMIPConfigCreateResult
+//
+// Definition: ipConfig_createResult
 type SwitchMIPConfigCreateResult struct {
 	// Id
 	// The ID of Setting
@@ -60,6 +66,9 @@ func NewSwitchMIPConfigCreateResult() *SwitchMIPConfigCreateResult {
 	return m
 }
 
+// SwitchMIPConfig
+//
+// Definition: ipConfig_ipConfig
 type SwitchMIPConfig struct {
 	// CreatedTime
 	// Config Created Time
@@ -135,6 +144,9 @@ func NewSwitchMIPConfig() *SwitchMIPConfig {
 	return m
 }
 
+// SwitchMIPConfigList
+//
+// Definition: ipConfig_list
 type SwitchMIPConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -158,6 +170,9 @@ func NewSwitchMIPConfigList() *SwitchMIPConfigList {
 	return m
 }
 
+// SwitchMIPConfigModify
+//
+// Definition: ipConfig_modify
 type SwitchMIPConfigModify struct {
 	// DhcpRelayAgent
 	// DHCP Relay IP Address

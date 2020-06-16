@@ -23,6 +23,8 @@ func (ss *WSGService) WSGIdentityUserRoleService() *WSGIdentityUserRoleService {
 
 // AddIdentityUserrole
 //
+// Operation ID: addIdentityUserrole
+//
 // Use this API command to create identity user role.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 }
 
 // AddIdentityUserRoleList
+//
+// Operation ID: addIdentityUserRoleList
 //
 // Use this API command to retrieve a list of identity user role.
 //
@@ -81,6 +85,8 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 
 // DeleteIdentityUserrole
 //
+// Operation ID: deleteIdentityUserrole
+//
 // Use this API command to delete multiple identity user roles.
 //
 // Request Body:
@@ -108,6 +114,8 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 
 // DeleteIdentityUserroleById
 //
+// Operation ID: deleteIdentityUserroleById
+//
 // Use this API command to delete identity user role.
 //
 // Required Parameters:
@@ -134,6 +142,8 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 
 // FindIdentityUserrole
 //
+// Operation ID: findIdentityUserrole
+//
 // Use this API command to retrieve a list of identity user role.
 func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context, mutators ...RequestMutator) (*WSGIdentityList, *APIResponseMeta, error) {
 	var (
@@ -155,6 +165,8 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context, m
 }
 
 // FindIdentityUserroleById
+//
+// Operation ID: findIdentityUserroleById
 //
 // Use this API command to retrieve identity user role by ID.
 //
@@ -182,6 +194,8 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 }
 
 // PartialUpdateIdentityUserroleById
+//
+// Operation ID: partialUpdateIdentityUserroleById
 //
 // Use this API command to modify the configuration of identity user role.
 //

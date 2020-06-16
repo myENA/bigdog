@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// SwitchMEventConfig
+//
+// Definition: eventConfig_eventConfig
 type SwitchMEventConfig struct {
 	// Criteria
 	// Threshold of each Switch custom event config
@@ -51,6 +54,9 @@ func NewSwitchMEventConfig() *SwitchMEventConfig {
 	return m
 }
 
+// SwitchMEventConfigGetEventConfigList
+//
+// Definition: eventConfig_getEventConfigList
 type SwitchMEventConfigGetEventConfigList struct {
 	// Extra
 	// Extra information of responsed Switch custom event config list
@@ -82,6 +88,8 @@ func NewSwitchMEventConfigGetEventConfigList() *SwitchMEventConfigGetEventConfig
 
 // SwitchMEventConfigGetEventConfigListExtraType
 //
+// Definition: eventConfig_getEventConfigListExtraType
+//
 // Extra information of responsed Switch custom event config list
 type SwitchMEventConfigGetEventConfigListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -108,6 +116,9 @@ func NewSwitchMEventConfigGetEventConfigListExtraType() *SwitchMEventConfigGetEv
 	return m
 }
 
+// SwitchMEventConfigQueryResponse
+//
+// Definition: eventConfig_queryResponse
 type SwitchMEventConfigQueryResponse struct {
 	// Data
 	// Response data message of Public API
@@ -137,6 +148,8 @@ func NewSwitchMEventConfigQueryResponse() *SwitchMEventConfigQueryResponse {
 
 // SwitchMEventConfigQueryResponseDataType
 //
+// Definition: eventConfig_queryResponseDataType
+//
 // Response data message of Public API
 type SwitchMEventConfigQueryResponseDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -164,6 +177,8 @@ func NewSwitchMEventConfigQueryResponseDataType() *SwitchMEventConfigQueryRespon
 }
 
 // SwitchMEventConfigQueryResponseErrorType
+//
+// Definition: eventConfig_queryResponseErrorType
 //
 // Response error message of Public API
 type SwitchMEventConfigQueryResponseErrorType struct {
@@ -193,6 +208,8 @@ func NewSwitchMEventConfigQueryResponseErrorType() *SwitchMEventConfigQueryRespo
 
 // SwitchMEventConfigQueryResponseExtraType
 //
+// Definition: eventConfig_queryResponseExtraType
+//
 // Extra information of Public API response
 type SwitchMEventConfigQueryResponseExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -220,6 +237,8 @@ func NewSwitchMEventConfigQueryResponseExtraType() *SwitchMEventConfigQueryRespo
 }
 
 // SwitchMEventConfigQueryResponseMetaDataType
+//
+// Definition: eventConfig_queryResponseMetaDataType
 //
 // Meta-data of Public API response
 type SwitchMEventConfigQueryResponseMetaDataType struct {

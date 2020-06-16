@@ -23,6 +23,8 @@ func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
 
 // DeleteProfilesVdpById
 //
+// Operation ID: deleteProfilesVdpById
+//
 // Use this API command to delete an vdp.
 //
 // Required Parameters:
@@ -48,6 +50,8 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 }
 
 // FindProfilesVdp
+//
+// Operation ID: findProfilesVdp
 //
 // Use this API command to retrieve a list of vdp.
 //
@@ -83,6 +87,8 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 
 // FindProfilesVdpById
 //
+// Operation ID: findProfilesVdpById
+//
 // Use this API command to retrieve an vdp.
 //
 // Required Parameters:
@@ -109,6 +115,8 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 }
 
 // UpdateProfilesVdpApproveById
+//
+// Operation ID: updateProfilesVdpApproveById
 //
 // Use this API command to approve vdp.
 //

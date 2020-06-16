@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMConfigurationCloneService() *SwitchMConfigurati
 
 // AddCloneConfiguration
 //
+// Operation ID: addCloneConfiguration
+//
 // Use this API command to Get Switch Config.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Con
 
 // AddCloneConfigurationByGroup
 //
+// Operation ID: addCloneConfigurationByGroup
+//
 // Use this API command to Clone Switch Group Config.
 //
 // Request Body:
@@ -80,6 +84,8 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx cont
 }
 
 // UpdateCloneConfiguration
+//
+// Operation ID: updateCloneConfiguration
 //
 // Use this API command to Clone Switch Config.
 //

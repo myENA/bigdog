@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGModelsFindToolPing200ResponseType
+//
+// Definition: findToolPing200ResponseType
 type WSGModelsFindToolPing200ResponseType string
 
 func NewWSGModelsFindToolPing200ResponseType() *WSGModelsFindToolPing200ResponseType {
@@ -9,6 +12,9 @@ func NewWSGModelsFindToolPing200ResponseType() *WSGModelsFindToolPing200Response
 	return m
 }
 
+// WSGModelsFindToolTraceRoute200ResponseType
+//
+// Definition: findToolTraceRoute200ResponseType
 type WSGModelsFindToolTraceRoute200ResponseType string
 
 func NewWSGModelsFindToolTraceRoute200ResponseType() *WSGModelsFindToolTraceRoute200ResponseType {

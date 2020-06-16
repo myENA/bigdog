@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// SwitchMVEConfigCreate
+//
+// Definition: veConfig_create
 type SwitchMVEConfigCreate struct {
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
@@ -53,6 +56,9 @@ func NewSwitchMVEConfigCreate() *SwitchMVEConfigCreate {
 	return m
 }
 
+// SwitchMVEConfigCreateResult
+//
+// Definition: veConfig_createResult
 type SwitchMVEConfigCreateResult struct {
 	// Id
 	// The ID of Setting
@@ -64,6 +70,9 @@ func NewSwitchMVEConfigCreateResult() *SwitchMVEConfigCreateResult {
 	return m
 }
 
+// SwitchMVEConfigList
+//
+// Definition: veConfig_list
 type SwitchMVEConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -87,6 +96,9 @@ func NewSwitchMVEConfigList() *SwitchMVEConfigList {
 	return m
 }
 
+// SwitchMVEConfigModify
+//
+// Definition: veConfig_modify
 type SwitchMVEConfigModify struct {
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
@@ -130,6 +142,9 @@ func NewSwitchMVEConfigModify() *SwitchMVEConfigModify {
 	return m
 }
 
+// SwitchMVEConfig
+//
+// Definition: veConfig_veConfig
 type SwitchMVEConfig struct {
 	// CreatedTime
 	// Created Time

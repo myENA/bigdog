@@ -24,6 +24,8 @@ func (ss *WSGService) WSGAccessPointConfigurationService() *WSGAccessPointConfig
 
 // AddAps
 //
+// Operation ID: addAps
+//
 // Use this API command to create a new access point.
 //
 // Request Body:
@@ -50,6 +52,8 @@ func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *W
 }
 
 // AddApsPictureByApMac
+//
+// Operation ID: addApsPictureByApMac
 //
 // Use this API command to upload a new AP picture.
 //
@@ -85,6 +89,8 @@ func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Co
 
 // AddSwapAps
 //
+// Operation ID: addSwapAps
+//
 // Use this API command to swap in specific AP
 //
 // Request Body:
@@ -112,6 +118,8 @@ func (s *WSGAccessPointConfigurationService) AddSwapAps(ctx context.Context, bod
 
 // DeleteApsAltitudeByApMac
 //
+// Operation ID: deleteApsAltitudeByApMac
+//
 // Use this API command to disable AP level override of altitude. The access point will take its group's configuration or zone's configuration.
 //
 // Required Parameters:
@@ -137,6 +145,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx contex
 }
 
 // DeleteApsApMgmtVlanByApMac
+//
+// Operation ID: deleteApsApMgmtVlanByApMac
 //
 // Disable AP Management Vlan Override of an AP.
 //
@@ -164,6 +174,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx cont
 
 // DeleteApsAutoChannelSelection24ByApMac
 //
+// Operation ID: deleteApsAutoChannelSelection24ByApMac
+//
 // Use this API command to disable the AP level override of auto channel selection on the 2.4GHz radio. The access point will take its group's or zone's configuration.
 //
 // Required Parameters:
@@ -189,6 +201,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByAp
 }
 
 // DeleteApsAutoChannelSelection50ByApMac
+//
+// Operation ID: deleteApsAutoChannelSelection50ByApMac
 //
 // Use this API command to disable the AP level override of auto channel selection on the 5GHz radio. The access point will take its group's or zone's configuration.
 //
@@ -216,6 +230,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByAp
 
 // DeleteApsBonjourGatewayByApMac
 //
+// Operation ID: deleteApsBonjourGatewayByApMac
+//
 // Use this API command to disable AP level override of bonjour gateway. The access point will take its group's configuration or zone's configuration.
 //
 // Required Parameters:
@@ -241,6 +257,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx 
 }
 
 // DeleteApsByApMac
+//
+// Operation ID: deleteApsByApMac
 //
 // Use this API command to delete an access point.
 //
@@ -268,6 +286,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Contex
 
 // DeleteApsChannelEvaluationIntervalByApMac
 //
+// Operation ID: deleteApsChannelEvaluationIntervalByApMac
+//
 // Disable AP lChannel Evaluation Interval. The access point will take its group's configuration or zone's configuration.
 //
 // Required Parameters:
@@ -293,6 +313,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalB
 }
 
 // DeleteApsClientAdmissionControl24ByApMac
+//
+// Operation ID: deleteApsClientAdmissionControl24ByApMac
 //
 // Use this API command to disable AP level override of client admission control 2.4GHz radio configuration. The access point will take its group's configuration or zone's configuration.
 //
@@ -320,6 +342,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24By
 
 // DeleteApsClientAdmissionControl50ByApMac
 //
+// Operation ID: deleteApsClientAdmissionControl50ByApMac
+//
 // Use this API command to disable AP level override of client admission control 5GHz radio configuration. The access point will take its group's configuration or zone's configuration.
 //
 // Required Parameters:
@@ -345,6 +369,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50By
 }
 
 // DeleteApsDirectedMulticastFromNetworkEnabledByApMac
+//
+// Operation ID: deleteApsDirectedMulticastFromNetworkEnabledByApMac
 //
 // Use this API command to disable Directed Multicast from network to wired/wireless client configuration override.The AP will apply its group's or zone's configuration.
 //
@@ -372,6 +398,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetwo
 
 // DeleteApsDirectedMulticastFromWiredClientEnabledByApMac
 //
+// Operation ID: deleteApsDirectedMulticastFromWiredClientEnabledByApMac
+//
 // Use this API command to disable Island SSID Broadcast enabled configuration override.The AP will apply its group's or zone's configuration.
 //
 // Required Parameters:
@@ -397,6 +425,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWired
 }
 
 // DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac
+//
+// Operation ID: deleteApsDirectedMulticastFromWirelessClientEnabledByApMac
 //
 // Use this API command to disable Island SSID Broadcast enabled configuration override.The AP will apply its group's or zone's configuration.
 //
@@ -424,6 +454,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirel
 
 // DeleteApsGpsCoordinatesByApMac
 //
+// Operation ID: deleteApsGpsCoordinatesByApMac
+//
 // Disable AP Management GPS Cooordinates of an AP.
 //
 // Required Parameters:
@@ -449,6 +481,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx 
 }
 
 // DeleteApsLocationAdditionalInfoByApMac
+//
+// Operation ID: deleteApsLocationAdditionalInfoByApMac
 //
 // Use this API command to disable AP level override of location additionalInfo. The access point will take its group's configuration or zone's configuration.
 //
@@ -476,6 +510,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByAp
 
 // DeleteApsLocationByApMac
 //
+// Operation ID: deleteApsLocationByApMac
+//
 // Use this API command to disable AP level override of location. The access point will take its group's configuration or zone's configuration.
 //
 // Required Parameters:
@@ -501,6 +537,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx contex
 }
 
 // DeleteApsLoginByApMac
+//
+// Operation ID: deleteApsLoginByApMac
 //
 // Use this API command to disable the AP-level logon override. The AP will apply its group's or zone's configuration.
 //
@@ -528,6 +566,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.C
 
 // DeleteApsLteBandLockChannelsByApMac
 //
+// Operation ID: deleteApsLteBandLockChannelsByApMac
+//
 // Use this API command to disable LTE band lock channel override. The AP will apply its group's or zone's configuration.
 //
 // Required Parameters:
@@ -553,6 +593,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac
 }
 
 // DeleteApsMeshOptionsByApMac
+//
+// Operation ID: deleteApsMeshOptionsByApMac
 //
 // Use this API command to disable mesh options.
 //
@@ -580,6 +622,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx con
 
 // DeleteApsPictureByApMac
 //
+// Operation ID: deleteApsPictureByApMac
+//
 // Use this API command to delete an AP picture.
 //
 // Required Parameters:
@@ -605,6 +649,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context
 }
 
 // DeleteApsProtectionMode24ByApMac
+//
+// Operation ID: deleteApsProtectionMode24ByApMac
 //
 // Use this API command to disable 2.4GHz radio protection mode configuration override.The AP will apply its group's or zone's configuration.
 //
@@ -632,6 +678,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ct
 
 // DeleteApsRecoverySsidByApMac
 //
+// Operation ID: deleteApsRecoverySsidByApMac
+//
 // Use this API command to disable Recovery SSID configuration override.The AP will apply its group's or zone's configuration.
 //
 // Required Parameters:
@@ -657,6 +705,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx co
 }
 
 // DeleteApsRksGreForwardBroadcastByApMac
+//
+// Operation ID: deleteApsRksGreForwardBroadcastByApMac
 //
 // Use this API command to disable Ruckus GRE Broadcast packet forwarding override. The AP will apply its group's or zone's configuration.
 //
@@ -684,6 +734,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRksGreForwardBroadcastByAp
 
 // DeleteApsRogueApAggressivenessModeByApMac
 //
+// Operation ID: deleteApsRogueApAggressivenessModeByApMac
+//
 // Use this API command to disable rogue AP aggressiveness mode override. The AP will apply its group's or zone's configuration.
 //
 // Required Parameters:
@@ -709,6 +761,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeB
 }
 
 // DeleteApsRogueApJammingThresholdByApMac
+//
+// Operation ID: deleteApsRogueApJammingThresholdByApMac
 //
 // Use this API command to disable rogue AP jamming threshold override. The AP will apply its group's or zone's configuration.
 //
@@ -736,6 +790,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByA
 
 // DeleteApsRogueApReportThresholdByApMac
 //
+// Operation ID: deleteApsRogueApReportThresholdByApMac
+//
 // Use this API command to disable rogue AP report threshold override. The AP will apply its group's or zone's configuration.
 //
 // Required Parameters:
@@ -761,6 +817,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByAp
 }
 
 // DeleteApsSmartMonitorByApMac
+//
+// Operation ID: deleteApsSmartMonitorByApMac
 //
 // Use this API command to disable AP level override of smart monitor. The access point will take its group's configuration or zone's configuration.
 //
@@ -788,6 +846,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx co
 
 // DeleteApsSpecificByApMac
 //
+// Operation ID: deleteApsSpecificByApMac
+//
 // Use this API command to disable specific configuration override from AP group or zone.
 //
 // Required Parameters:
@@ -813,6 +873,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx contex
 }
 
 // DeleteApsSyslogByApMac
+//
+// Operation ID: deleteApsSyslogByApMac
 //
 // Use this API command to disable the AP level syslog override. The access point will take its group's or zone's configuration.
 //
@@ -840,6 +902,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.
 
 // DeleteApsVenueProfileByApMac
 //
+// Operation ID: deleteApsVenueProfileByApMac
+//
 // Use this API command to disable AP level override of venue profile. The access point will take its group's configuration or zone's configuration.
 //
 // Required Parameters:
@@ -865,6 +929,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx co
 }
 
 // DeleteApsWifi24ByApMac
+//
+// Operation ID: deleteApsWifi24ByApMac
 //
 // Use this API command to disable the AP level override of the 2.4GHz radio configuration. The access point will take its group's configuration or zone's configuration.
 //
@@ -892,6 +958,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.
 
 // DeleteApsWifi24ChannelByApMac
 //
+// Operation ID: deleteApsWifi24ChannelByApMac
+//
 // Use this API command to disable the AP level override of the 2.4GHz radio channel. The access point will take its group's configuration or zone's configuration.
 //
 // Required Parameters:
@@ -917,6 +985,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx c
 }
 
 // DeleteApsWifi24ChannelRangeByApMac
+//
+// Operation ID: deleteApsWifi24ChannelRangeByApMac
 //
 // Use this API command to disable the AP level override of the 2.4GHz radio channelRange. The access point will take its group's configuration or zone's configuration.
 //
@@ -944,6 +1014,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(
 
 // DeleteApsWifi24ChannelWidthByApMac
 //
+// Operation ID: deleteApsWifi24ChannelWidthByApMac
+//
 // Use this API command to disable the AP level override of the 2.4GHz radio channelWidth. The access point will take its group's configuration or zone's configuration.
 //
 // Required Parameters:
@@ -969,6 +1041,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(
 }
 
 // DeleteApsWifi24TxPowerByApMac
+//
+// Operation ID: deleteApsWifi24TxPowerByApMac
 //
 // Use this API command to disable the AP level override of the 2.4GHz radio txPower. The access point will take its group's configuration or zone's configuration.
 //
@@ -996,6 +1070,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx c
 
 // DeleteApsWifi50ByApMac
 //
+// Operation ID: deleteApsWifi50ByApMac
+//
 // Use this API command to disable the AP level override of 5GHz radio configuration. The access point will take its group's or zone's configuration.
 //
 // Required Parameters:
@@ -1021,6 +1097,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.
 }
 
 // DeleteApsWifi50ChannelByApMac
+//
+// Operation ID: deleteApsWifi50ChannelByApMac
 //
 // Use this API command to disable the AP level override of 5GHz radio channel. The access point will take its group's or zone's configuration.
 //
@@ -1048,6 +1126,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx c
 
 // DeleteApsWifi50ChannelRangeByApMac
 //
+// Operation ID: deleteApsWifi50ChannelRangeByApMac
+//
 // Use this API command to disable the AP level override of 5GHz radio channelRange. The access point will take its group's or zone's configuration.
 //
 // Required Parameters:
@@ -1073,6 +1153,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(
 }
 
 // DeleteApsWifi50ChannelWidthByApMac
+//
+// Operation ID: deleteApsWifi50ChannelWidthByApMac
 //
 // Use this API command to disable the AP level override of 5GHz radio channelWidth. The access point will take its group's or zone's configuration.
 //
@@ -1100,6 +1182,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(
 
 // DeleteApsWifi50TxPowerByApMac
 //
+// Operation ID: deleteApsWifi50TxPowerByApMac
+//
 // Use this API command to disable the AP level override of 5GHz radio txPower. The access point will take its group's or zone's configuration.
 //
 // Required Parameters:
@@ -1125,6 +1209,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx c
 }
 
 // DeleteApsWlanGroup24ByApMac
+//
+// Operation ID: deleteApsWlanGroup24ByApMac
 //
 // Use this API command to disable the AP level override of WLAN group configuration on 2.4GHz radio. The access point will take its group's or zone's configuration.
 //
@@ -1152,6 +1238,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx con
 
 // DeleteApsWlanGroup50ByApMac
 //
+// Operation ID: deleteApsWlanGroup50ByApMac
+//
 // Use this API command to disable the AP level override of WLAN group on the 5GHz radio. The access point will take its group's or zone's configuration.
 //
 // Required Parameters:
@@ -1177,6 +1265,8 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx con
 }
 
 // FindApRadiosByApMac
+//
+// Operation ID: findApRadiosByApMac
 //
 // Fetch radio details about an access point by MAC address
 //
@@ -1204,6 +1294,8 @@ func (s *WSGAccessPointConfigurationService) FindApRadiosByApMac(ctx context.Con
 }
 
 // FindAps
+//
+// Operation ID: findAps
 //
 // Use this API command to retrieve the list of APs that belong to a zone or a domain.
 //
@@ -1249,6 +1341,8 @@ func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, option
 
 // FindApsByApMac
 //
+// Operation ID: findApsByApMac
+//
 // Use this API command to retrieve the configuration of an AP.
 //
 // Required Parameters:
@@ -1275,6 +1369,8 @@ func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context,
 }
 
 // FindApsPictureByApMac
+//
+// Operation ID: findApsPictureByApMac
 //
 // Use this API command to retrieve the current AP picture.
 //
@@ -1303,6 +1399,8 @@ func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.C
 
 // FindApsSupportLogByApMac
 //
+// Operation ID: findApsSupportLogByApMac
+//
 // Use this API command to download AP support log.
 //
 // Required Parameters:
@@ -1330,6 +1428,8 @@ func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx contex
 
 // FindMeshZeroTouch
 //
+// Operation ID: findMeshZeroTouch
+//
 // Use this API command to retrieve a list of unapproved AP.
 func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Context, mutators ...RequestMutator) (*WSGMeshNodeInfoList, *APIResponseMeta, error) {
 	var (
@@ -1351,6 +1451,8 @@ func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Conte
 }
 
 // PartialUpdateApsByApMac
+//
+// Operation ID: partialUpdateApsByApMac
 //
 // Use this API command to modify the configuration of an AP.
 //
@@ -1384,6 +1486,8 @@ func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context
 
 // UpdateApsByApMac
 //
+// Operation ID: updateApsByApMac
+//
 // Use this API command to modify the entire information of an AP.
 //
 // Request Body:
@@ -1416,6 +1520,8 @@ func (s *WSGAccessPointConfigurationService) UpdateApsByApMac(ctx context.Contex
 
 // UpdateApsRebootByApMac
 //
+// Operation ID: updateApsRebootByApMac
+//
 // reboot an access point.
 //
 // Required Parameters:
@@ -1441,6 +1547,8 @@ func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.
 }
 
 // UpdateApsSpecificByApMac
+//
+// Operation ID: updateApsSpecificByApMac
 //
 // Use this API command to modify specific configuration.
 //
@@ -1473,6 +1581,8 @@ func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx contex
 }
 
 // UpdateMeshZeroTouch
+//
+// Operation ID: updateMeshZeroTouch
 //
 // Use this API command to approve/reject unapproved AP. Recommend to deploy 20 island APs to join per batch at the same time.
 //

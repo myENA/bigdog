@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGZoneApFirmware
+//
+// Definition: zone_apFirmware
 type WSGZoneApFirmware struct {
 	// FirmwareVersion
 	// version of the AP firmare
@@ -21,6 +24,9 @@ func NewWSGZoneApFirmware() *WSGZoneApFirmware {
 	return m
 }
 
+// WSGZoneApFirmwareList
+//
+// Definition: zone_apFirmwareList
 type WSGZoneApFirmwareList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -36,6 +42,9 @@ func NewWSGZoneApFirmwareList() *WSGZoneApFirmwareList {
 	return m
 }
 
+// WSGZoneApLogin
+//
+// Definition: zone_apLogin
 type WSGZoneApLogin struct {
 	// ApLoginName
 	// Constraints:
@@ -53,6 +62,9 @@ func NewWSGZoneApLogin() *WSGZoneApLogin {
 	return m
 }
 
+// WSGZoneApSnmpOptions
+//
+// Definition: zone_apSnmpOptions
 type WSGZoneApSnmpOptions struct {
 	// ApSnmpEnabled
 	// Enable AP SNMP
@@ -72,6 +84,9 @@ func NewWSGZoneApSnmpOptions() *WSGZoneApSnmpOptions {
 	return m
 }
 
+// WSGZoneAvailableTunnelProfile
+//
+// Definition: zone_availableTunnelProfile
 type WSGZoneAvailableTunnelProfile struct {
 	// AaaAffinityEnabled
 	// Enable AAA affinity (Soft GRE only)
@@ -99,6 +114,9 @@ func NewWSGZoneAvailableTunnelProfile() *WSGZoneAvailableTunnelProfile {
 	return m
 }
 
+// WSGZoneAvailableTunnelProfileList
+//
+// Definition: zone_availableTunnelProfileList
 type WSGZoneAvailableTunnelProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -114,6 +132,9 @@ func NewWSGZoneAvailableTunnelProfileList() *WSGZoneAvailableTunnelProfileList {
 	return m
 }
 
+// WSGZoneBackgroundScanning
+//
+// Definition: zone_backgroundScanning
 type WSGZoneBackgroundScanning struct {
 	// FrequencyInSec
 	// Frequency in second
@@ -129,6 +150,9 @@ func NewWSGZoneBackgroundScanning() *WSGZoneBackgroundScanning {
 	return m
 }
 
+// WSGZoneBandBalancing
+//
+// Definition: zone_bandBalancing
 type WSGZoneBandBalancing struct {
 	// Wifi24Percentage
 	// Percentage of client load on 2.4GHz radio band
@@ -144,6 +168,9 @@ func NewWSGZoneBandBalancing() *WSGZoneBandBalancing {
 	return m
 }
 
+// WSGZoneBonjourGatewayPolicyConfiguration
+//
+// Definition: zone_bonjourGatewayPolicyConfiguration
 type WSGZoneBonjourGatewayPolicyConfiguration struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
@@ -159,6 +186,9 @@ func NewWSGZoneBonjourGatewayPolicyConfiguration() *WSGZoneBonjourGatewayPolicyC
 	return m
 }
 
+// WSGZoneBonjourGatewayPolicyList
+//
+// Definition: zone_bonjourGatewayPolicyList
 type WSGZoneBonjourGatewayPolicyList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -174,6 +204,9 @@ func NewWSGZoneBonjourGatewayPolicyList() *WSGZoneBonjourGatewayPolicyList {
 	return m
 }
 
+// WSGZoneBonjourGatewayPolicySummary
+//
+// Definition: zone_bonjourGatewayPolicySummary
 type WSGZoneBonjourGatewayPolicySummary struct {
 	// Description
 	// Description of the bonjour gateway policy
@@ -202,6 +235,8 @@ func NewWSGZoneBonjourGatewayPolicySummary() *WSGZoneBonjourGatewayPolicySummary
 }
 
 // WSGZoneBonjourPolicyRule
+//
+// Definition: zone_bonjourPolicyRule
 //
 // Bonjour policy rule
 type WSGZoneBonjourPolicyRule struct {
@@ -242,6 +277,8 @@ func NewWSGZoneBonjourPolicyRule() *WSGZoneBonjourPolicyRule {
 
 // WSGZoneBonjourPolicyRuleConfiguration
 //
+// Definition: zone_bonjourPolicyRuleConfiguration
+//
 // Bonjour policy rule
 type WSGZoneBonjourPolicyRuleConfiguration struct {
 	// BridgeService
@@ -274,6 +311,9 @@ func NewWSGZoneBonjourPolicyRuleConfiguration() *WSGZoneBonjourPolicyRuleConfigu
 	return m
 }
 
+// WSGZoneClientLoadBalancing
+//
+// Definition: zone_clientLoadBalancing
 type WSGZoneClientLoadBalancing struct {
 	// AdjacentRadioThreshold
 	// Adjacent radio threshold
@@ -288,6 +328,9 @@ func NewWSGZoneClientLoadBalancing() *WSGZoneClientLoadBalancing {
 	return m
 }
 
+// WSGZoneCreateBonjourGatewayPolicy
+//
+// Definition: zone_createBonjourGatewayPolicy
 type WSGZoneCreateBonjourGatewayPolicy struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
@@ -306,6 +349,9 @@ func NewWSGZoneCreateBonjourGatewayPolicy() *WSGZoneCreateBonjourGatewayPolicy {
 	return m
 }
 
+// WSGZoneCreateDiffServProfile
+//
+// Definition: zone_createDiffServProfile
 type WSGZoneCreateDiffServProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -328,6 +374,9 @@ func NewWSGZoneCreateDiffServProfile() *WSGZoneCreateDiffServProfile {
 	return m
 }
 
+// WSGZoneCreateZone
+//
+// Definition: zone_createZone
 type WSGZoneCreateZone struct {
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
@@ -564,6 +613,9 @@ func NewWSGZoneCreateZone() *WSGZoneCreateZone {
 	return m
 }
 
+// WSGZoneCustomizedTimeZone
+//
+// Definition: zone_customizedTimeZone
 type WSGZoneCustomizedTimeZone struct {
 	// Abbreviation
 	// Time zone abbreviation
@@ -597,6 +649,9 @@ func NewWSGZoneCustomizedTimeZone() *WSGZoneCustomizedTimeZone {
 	return m
 }
 
+// WSGZoneDaylightSavingTime
+//
+// Definition: zone_daylightSavingTime
 type WSGZoneDaylightSavingTime struct {
 	// Day
 	// Day of the week (0 for Sunday, 1 for Monday, 2 for Tuesday, and so on)
@@ -633,6 +688,9 @@ func NewWSGZoneDaylightSavingTime() *WSGZoneDaylightSavingTime {
 	return m
 }
 
+// WSGZoneDhcpSiteConfigList
+//
+// Definition: zone_dhcpSiteConfigList
 type WSGZoneDhcpSiteConfigList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -648,6 +706,9 @@ func NewWSGZoneDhcpSiteConfigList() *WSGZoneDhcpSiteConfigList {
 	return m
 }
 
+// WSGZoneDiffServConfiguration
+//
+// Definition: zone_diffServConfiguration
 type WSGZoneDiffServConfiguration struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -671,6 +732,9 @@ func NewWSGZoneDiffServConfiguration() *WSGZoneDiffServConfiguration {
 	return m
 }
 
+// WSGZoneDiffServList
+//
+// Definition: zone_diffServList
 type WSGZoneDiffServList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -686,6 +750,9 @@ func NewWSGZoneDiffServList() *WSGZoneDiffServList {
 	return m
 }
 
+// WSGZoneDiffServSummary
+//
+// Definition: zone_diffServSummary
 type WSGZoneDiffServSummary struct {
 	// Id
 	// Identifier of the diff serv
@@ -701,6 +768,9 @@ func NewWSGZoneDiffServSummary() *WSGZoneDiffServSummary {
 	return m
 }
 
+// WSGZoneDownlinkDiffServ
+//
+// Definition: zone_downlinkDiffServ
 type WSGZoneDownlinkDiffServ struct {
 	// Downlink
 	// Downlink
@@ -716,6 +786,9 @@ func NewWSGZoneDownlinkDiffServ() *WSGZoneDownlinkDiffServ {
 	return m
 }
 
+// WSGZoneLoadBalancing
+//
+// Definition: zone_loadBalancing
 type WSGZoneLoadBalancing struct {
 	BandBalancing *WSGZoneBandBalancing `json:"bandBalancing,omitempty"`
 
@@ -742,6 +815,9 @@ func NewWSGZoneLoadBalancing() *WSGZoneLoadBalancing {
 	return m
 }
 
+// WSGZoneMeshConfiguration
+//
+// Definition: zone_meshConfiguration
 type WSGZoneMeshConfiguration struct {
 	// MeshRadioIdx
 	// Mesh radio index
@@ -766,6 +842,9 @@ func NewWSGZoneMeshConfiguration() *WSGZoneMeshConfiguration {
 	return m
 }
 
+// WSGZoneModfiyApFirmware
+//
+// Definition: zone_modfiyApFirmware
 type WSGZoneModfiyApFirmware struct {
 	// FirmwareVersion
 	// new version of the AP firmare
@@ -777,6 +856,9 @@ func NewWSGZoneModfiyApFirmware() *WSGZoneModfiyApFirmware {
 	return m
 }
 
+// WSGZoneModifyBonjourGatewayEnable
+//
+// Definition: zone_modifyBonjourGatewayEnable
 type WSGZoneModifyBonjourGatewayEnable struct {
 	// EnabledBonjourGateway
 	// Enable Bonjour gateway on th AP
@@ -790,6 +872,9 @@ func NewWSGZoneModifyBonjourGatewayEnable() *WSGZoneModifyBonjourGatewayEnable {
 	return m
 }
 
+// WSGZoneModifyBonjourGatewayPolicy
+//
+// Definition: zone_modifyBonjourGatewayPolicy
 type WSGZoneModifyBonjourGatewayPolicy struct {
 	// BonjourPolicyRuleList
 	// Bonjour policy rule list
@@ -805,6 +890,9 @@ func NewWSGZoneModifyBonjourGatewayPolicy() *WSGZoneModifyBonjourGatewayPolicy {
 	return m
 }
 
+// WSGZoneModifyDiffServProfile
+//
+// Definition: zone_modifyDiffServProfile
 type WSGZoneModifyDiffServProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -827,6 +915,9 @@ func NewWSGZoneModifyDiffServProfile() *WSGZoneModifyDiffServProfile {
 	return m
 }
 
+// WSGZoneModifyZone
+//
+// Definition: zone_modifyZone
 type WSGZoneModifyZone struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
@@ -1066,6 +1157,9 @@ func NewWSGZoneModifyZone() *WSGZoneModifyZone {
 	return m
 }
 
+// WSGZoneQueryCriteria
+//
+// Definition: zone_queryCriteria
 type WSGZoneQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
@@ -1125,6 +1219,9 @@ func NewWSGZoneQueryCriteria() *WSGZoneQueryCriteria {
 	return m
 }
 
+// WSGZoneQueryCriteriaExtraFiltersType
+//
+// Definition: zone_queryCriteriaExtraFiltersType
 type WSGZoneQueryCriteriaExtraFiltersType struct {
 	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
@@ -1147,6 +1244,9 @@ func NewWSGZoneQueryCriteriaExtraFiltersType() *WSGZoneQueryCriteriaExtraFilters
 	return m
 }
 
+// WSGZoneQueryCriteriaFiltersType
+//
+// Definition: zone_queryCriteriaFiltersType
 type WSGZoneQueryCriteriaFiltersType struct {
 	// Operator
 	// Operator for filtering
@@ -1175,6 +1275,8 @@ func NewWSGZoneQueryCriteriaFiltersType() *WSGZoneQueryCriteriaFiltersType {
 
 // WSGZoneQueryCriteriaOptionsType
 //
+// Definition: zone_queryCriteriaOptionsType
+//
 // Specified feature required information.
 type WSGZoneQueryCriteriaOptionsType struct {
 	// IncludeSharedResources
@@ -1189,6 +1291,9 @@ func NewWSGZoneQueryCriteriaOptionsType() *WSGZoneQueryCriteriaOptionsType {
 	return m
 }
 
+// WSGZoneRogue
+//
+// Definition: zone_rogue
 type WSGZoneRogue struct {
 	// MaliciousTypes
 	// Malicious type when reportType is Malicious
@@ -1212,6 +1317,9 @@ func NewWSGZoneRogue() *WSGZoneRogue {
 	return m
 }
 
+// WSGZoneSnmpUser
+//
+// Definition: zone_snmpUser
 type WSGZoneSnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
@@ -1271,6 +1379,9 @@ func NewWSGZoneSnmpUser() *WSGZoneSnmpUser {
 	return m
 }
 
+// WSGZoneSoftGreRef
+//
+// Definition: zone_softGreRef
 type WSGZoneSoftGreRef struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
@@ -1284,6 +1395,9 @@ func NewWSGZoneSoftGreRef() *WSGZoneSoftGreRef {
 	return m
 }
 
+// WSGZoneSyslog
+//
+// Definition: zone_syslog
 type WSGZoneSyslog struct {
 	Address *WSGCommonIpAddress `json:"address,omitempty"`
 
@@ -1346,6 +1460,9 @@ func NewWSGZoneSyslog() *WSGZoneSyslog {
 	return m
 }
 
+// WSGZoneTimezoneSetting
+//
+// Definition: zone_timezoneSetting
 type WSGZoneTimezoneSetting struct {
 	CustomizedTimezone *WSGZoneCustomizedTimeZone `json:"customizedTimezone,omitempty"`
 
@@ -1359,6 +1476,9 @@ func NewWSGZoneTimezoneSetting() *WSGZoneTimezoneSetting {
 	return m
 }
 
+// WSGZoneUnsupportedApModel
+//
+// Definition: zone_unsupportedApModel
 type WSGZoneUnsupportedApModel struct {
 	// Amount
 	// amount of the AP Model
@@ -1374,6 +1494,9 @@ func NewWSGZoneUnsupportedApModel() *WSGZoneUnsupportedApModel {
 	return m
 }
 
+// WSGZoneUplinkDiffServ
+//
+// Definition: zone_uplinkDiffServ
 type WSGZoneUplinkDiffServ struct {
 	// Uplink
 	// Uplink
@@ -1389,6 +1512,9 @@ func NewWSGZoneUplinkDiffServ() *WSGZoneUplinkDiffServ {
 	return m
 }
 
+// WSGZoneConfiguration
+//
+// Definition: zone_zoneConfiguration
 type WSGZoneConfiguration struct {
 	AaaAffinityEnabled *bool `json:"aaaAffinityEnabled,omitempty"`
 
@@ -1634,6 +1760,9 @@ func NewWSGZoneConfiguration() *WSGZoneConfiguration {
 	return m
 }
 
+// WSGZoneList
+//
+// Definition: zone_zoneList
 type WSGZoneList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1649,6 +1778,9 @@ func NewWSGZoneList() *WSGZoneList {
 	return m
 }
 
+// WSGZoneSummary
+//
+// Definition: zone_zoneSummary
 type WSGZoneSummary struct {
 	// Id
 	// Identifier of the zone

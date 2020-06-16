@@ -21,6 +21,9 @@ func (ss *WSGService) WSGDevicePolicyService() *WSGDevicePolicyService {
 	return NewWSGDevicePolicyService(ss.apiClient)
 }
 
+// WSGDevicePolicyCreateDevicePolicy
+//
+// Definition: devicePolicy_createDevicePolicy
 type WSGDevicePolicyCreateDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -42,6 +45,9 @@ func NewWSGDevicePolicyCreateDevicePolicy() *WSGDevicePolicyCreateDevicePolicy {
 	return m
 }
 
+// WSGDevicePolicyPorfile
+//
+// Definition: devicePolicy_devicePolicyPorfile
 type WSGDevicePolicyPorfile struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -67,6 +73,9 @@ func NewWSGDevicePolicyPorfile() *WSGDevicePolicyPorfile {
 	return m
 }
 
+// WSGDevicePolicyRule
+//
+// Definition: devicePolicy_devicePolicyRule
 type WSGDevicePolicyRule struct {
 	// Action
 	// defaultAction of the device policy cofig
@@ -110,6 +119,9 @@ func NewWSGDevicePolicyRule() *WSGDevicePolicyRule {
 	return m
 }
 
+// WSGDevicePolicyModifyDevicePolicy
+//
+// Definition: devicePolicy_modifyDevicePolicy
 type WSGDevicePolicyModifyDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -131,6 +143,9 @@ func NewWSGDevicePolicyModifyDevicePolicy() *WSGDevicePolicyModifyDevicePolicy {
 	return m
 }
 
+// WSGDevicePolicyPorfileList
+//
+// Definition: devicePolicy_porfileList
 type WSGDevicePolicyPorfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -146,6 +161,9 @@ func NewWSGDevicePolicyPorfileList() *WSGDevicePolicyPorfileList {
 	return m
 }
 
+// WSGDevicePolicyPorfileListType
+//
+// Definition: devicePolicy_porfileListType
 type WSGDevicePolicyPorfileListType struct {
 	// Id
 	// Identifier of the service
@@ -160,6 +178,8 @@ func NewWSGDevicePolicyPorfileListType() *WSGDevicePolicyPorfileListType {
 }
 
 // AddRkszonesDevicePolicyByZoneId
+//
+// Operation ID: addRkszonesDevicePolicyByZoneId
 //
 // Create a new Device Policy Profile (for Firmware Versions less than 5.2).
 //
@@ -195,6 +215,8 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 
 // DeleteRkszonesDevicePolicyById
 //
+// Operation ID: deleteRkszonesDevicePolicyById
+//
 // Delete Device Policy Profile (for Firmware Versions less than 5.2).
 //
 // Required Parameters:
@@ -223,6 +245,8 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 }
 
 // FindRkszonesDevicePolicyById
+//
+// Operation ID: findRkszonesDevicePolicyById
 //
 // Retrieve a Device Policy Profile (for Firmware Versions less than 5.2).
 //
@@ -253,6 +277,8 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 }
 
 // FindRkszonesDevicePolicyByZoneId
+//
+// Operation ID: findRkszonesDevicePolicyByZoneId
 //
 // Retrieve a list of Device Policy Profiles within a zone (for Firmware Versions less than 5.2).
 //
@@ -293,6 +319,8 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 
 // FindServicesDevicePolicyByQueryCriteria
 //
+// Operation ID: findServicesDevicePolicyByQueryCriteria
+//
 // Query Device Policy Profiles with specified filters.
 //
 // Request Body:
@@ -321,6 +349,8 @@ func (s *WSGDevicePolicyService) FindServicesDevicePolicyByQueryCriteria(ctx con
 }
 
 // PartialUpdateRkszonesDevicePolicyById
+//
+// Operation ID: partialUpdateRkszonesDevicePolicyById
 //
 // Modify a specific Device Policy Profile (for Firmware Versions less than 5.2).
 //

@@ -23,6 +23,8 @@ func (ss *WSGService) WSGClientIsolationWhitelistService() *WSGClientIsolationWh
 
 // AddRkszonesClientIsolationWhitelistByZoneId
 //
+// Operation ID: addRkszonesClientIsolationWhitelistByZoneId
+//
 // Create a new ClientIsolationWhitelist.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelist
 
 // DeleteRkszonesClientIsolationWhitelist
 //
+// Operation ID: deleteRkszonesClientIsolationWhitelist
+//
 // Use this API command to delete Bulk Client Isolation Whitelist.
 //
 // Request Body:
@@ -84,6 +88,8 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 
 // DeleteRkszonesClientIsolationWhitelistById
 //
+// Operation ID: deleteRkszonesClientIsolationWhitelistById
+//
 // Delete a Client Isolation Whitelist.
 //
 // Required Parameters:
@@ -109,6 +115,8 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 }
 
 // FindRkszonesClientIsolationWhitelistById
+//
+// Operation ID: findRkszonesClientIsolationWhitelistById
 //
 // Retrieve an Client Isolation Whitelist.
 //
@@ -140,6 +148,8 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 
 // FindRkszonesClientIsolationWhitelistByZoneId
 //
+// Operation ID: findRkszonesClientIsolationWhitelistByZoneId
+//
 // Retrieve a list of Client Isolation Whitelist.
 //
 // Required Parameters:
@@ -166,6 +176,8 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 }
 
 // FindServicesClientIsolationWhitelistByQueryCriteria
+//
+// Operation ID: findServicesClientIsolationWhitelistByQueryCriteria
 //
 // Retrieve a list of Client Isolation Whitelist.
 //
@@ -195,6 +207,8 @@ func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelis
 }
 
 // PartialUpdateRkszonesClientIsolationWhitelistById
+//
+// Operation ID: partialUpdateRkszonesClientIsolationWhitelistById
 //
 // Modify a specific Client Isolation Whitelist basic.
 //

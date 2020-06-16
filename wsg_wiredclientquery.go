@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGWiredClientQueryClientQueryList
+//
+// Definition: wiredClientQuery_clientQueryList
 type WSGWiredClientQueryClientQueryList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -19,6 +22,9 @@ func NewWSGWiredClientQueryClientQueryList() *WSGWiredClientQueryClientQueryList
 	return m
 }
 
+// WSGWiredClientQueryCreateClientQuery
+//
+// Definition: wiredClientQuery_createClientQuery
 type WSGWiredClientQueryCreateClientQuery struct {
 	ApEthID *int `json:"apEthID,omitempty"`
 

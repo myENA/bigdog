@@ -23,6 +23,8 @@ func (ss *WSGService) WSGSoftGRETunnelProfileService() *WSGSoftGRETunnelProfileS
 
 // AddProfilesTunnelSoftgre
 //
+// Operation ID: addProfilesTunnelSoftgre
+//
 // Use this API command to create SoftGRE tunnel profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Co
 
 // DeleteProfilesTunnelSoftgre
 //
+// Operation ID: deleteProfilesTunnelSoftgre
+//
 // Use this API command to delete multiple SoftGRE tunnel profile.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context
 
 // DeleteProfilesTunnelSoftgreById
 //
+// Operation ID: deleteProfilesTunnelSoftgreById
+//
 // Use this API command to delete SoftGRE tunnel profile.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx con
 
 // FindProfilesTunnelSoftgre
 //
+// Operation ID: findProfilesTunnelSoftgre
+//
 // Use this API command to retrieve a list of SoftGRE tunnel profile.
 func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.Context, mutators ...RequestMutator) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
@@ -126,6 +134,8 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.C
 }
 
 // FindProfilesTunnelSoftgreById
+//
+// Operation ID: findProfilesTunnelSoftgreById
 //
 // Use this API command to retrieve SoftGRE tunnel profile.
 //
@@ -153,6 +163,8 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 }
 
 // FindProfilesTunnelSoftgreByQueryCriteria
+//
+// Operation ID: findProfilesTunnelSoftgreByQueryCriteria
 //
 // Use this API command to query a list of SoftGRE tunnel profile.
 //
@@ -182,6 +194,8 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 }
 
 // PartialUpdateProfilesTunnelSoftgreById
+//
+// Operation ID: partialUpdateProfilesTunnelSoftgreById
 //
 // Use this API command to modify the configuration of SoftGRE tunnel profile.
 //

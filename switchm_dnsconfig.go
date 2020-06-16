@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// SwitchMDNSConfigCreateDnsConfig
+//
+// Definition: dnsConfig_createDnsConfig
 type SwitchMDNSConfigCreateDnsConfig struct {
 	Dns *SwitchMDNSConfigObject `json:"dns,omitempty"`
 
@@ -15,6 +18,9 @@ func NewSwitchMDNSConfigCreateDnsConfig() *SwitchMDNSConfigCreateDnsConfig {
 	return m
 }
 
+// SwitchMDNSConfig
+//
+// Definition: dnsConfig_dnsConfig
 type SwitchMDNSConfig struct {
 	// CreatedTime
 	// The create time of the DNS Config
@@ -32,6 +38,9 @@ func NewSwitchMDNSConfig() *SwitchMDNSConfig {
 	return m
 }
 
+// SwitchMDNSConfigObject
+//
+// Definition: dnsConfig_dnsConfigObject
 type SwitchMDNSConfigObject struct {
 	// Ip
 	// DNS Config IP
@@ -43,6 +52,9 @@ func NewSwitchMDNSConfigObject() *SwitchMDNSConfigObject {
 	return m
 }
 
+// SwitchMDNSConfigUpdateDnsConfig
+//
+// Definition: dnsConfig_updateDnsConfig
 type SwitchMDNSConfigUpdateDnsConfig struct {
 	Dns *SwitchMDNSConfigObject `json:"dns,omitempty"`
 }

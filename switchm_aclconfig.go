@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// SwitchMACLConfig
+//
+// Definition: aclConfig_ACLConfig
 type SwitchMACLConfig struct {
 	AclRule []*SwitchMACLConfigACLRule `json:"aclRule,omitempty"`
 
@@ -59,6 +62,9 @@ func NewSwitchMACLConfig() *SwitchMACLConfig {
 	return m
 }
 
+// SwitchMACLConfigsQueryResult
+//
+// Definition: aclConfig_ACLConfigsQueryResult
 type SwitchMACLConfigsQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -90,6 +96,8 @@ func NewSwitchMACLConfigsQueryResult() *SwitchMACLConfigsQueryResult {
 
 // SwitchMACLConfigsQueryResultExtraType
 //
+// Definition: aclConfig_ACLConfigsQueryResultExtraType
+//
 // Any additional response data
 type SwitchMACLConfigsQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -116,6 +124,9 @@ func NewSwitchMACLConfigsQueryResultExtraType() *SwitchMACLConfigsQueryResultExt
 	return m
 }
 
+// SwitchMACLConfigACLRule
+//
+// Definition: aclConfig_ACLRule
 type SwitchMACLConfigACLRule struct {
 	// Action
 	// The action of AccessControl Rule
@@ -155,6 +166,9 @@ func NewSwitchMACLConfigACLRule() *SwitchMACLConfigACLRule {
 	return m
 }
 
+// SwitchMACLConfigCreateACLConfig
+//
+// Definition: aclConfig_createACLConfig
 type SwitchMACLConfigCreateACLConfig struct {
 	AclRule []*SwitchMACLConfigACLRule `json:"aclRule,omitempty"`
 
@@ -196,6 +210,9 @@ func NewSwitchMACLConfigCreateACLConfig() *SwitchMACLConfigCreateACLConfig {
 	return m
 }
 
+// SwitchMACLConfigUpdateACLConfig
+//
+// Definition: aclConfig_updateACLConfig
 type SwitchMACLConfigUpdateACLConfig struct {
 	AclRule []*SwitchMACLConfigACLRule `json:"aclRule,omitempty"`
 

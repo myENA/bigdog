@@ -23,6 +23,8 @@ func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
 
 // FindSmsGateway
 //
+// Operation ID: findSmsGateway
+//
 // Get SMS gateway.
 //
 // Optional Parameters:
@@ -52,6 +54,8 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 
 // FindSmsGatewayByQueryCriteria
 //
+// Operation ID: findSmsGatewayByQueryCriteria
+//
 // Query SMS gateway.
 //
 // Request Body:
@@ -80,6 +84,8 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 }
 
 // PartialUpdateSmsGateway
+//
+// Operation ID: partialUpdateSmsGateway
 //
 // Update SMS gateway.
 //

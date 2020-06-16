@@ -23,6 +23,8 @@ func (ss *WSGService) WSGHotspot20WLANServiceService() *WSGHotspot20WLANServiceS
 
 // AddRkszonesHs20sByZoneId
 //
+// Operation ID: addRkszonesHs20sByZoneId
+//
 // Use this API command to create a new Hotspot 2.0 WLAN profile of a zone.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Co
 
 // DeleteRkszonesHs20sById
 //
+// Operation ID: deleteRkszonesHs20sById
+//
 // Use this API command to delete a Hotspot 2.0 WLAN Profile of a zone.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Con
 }
 
 // FindRkszonesHs20sById
+//
+// Operation ID: findRkszonesHs20sById
 //
 // Use this API command to retrieve a Hotspot 2.0 WLAN profile of a zone.
 //
@@ -116,6 +122,8 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Conte
 
 // FindRkszonesHs20sByZoneId
 //
+// Operation ID: findRkszonesHs20sByZoneId
+//
 // Use this API command to retrieve a list of Hotspot 2.0 WLAN profiles of a zone.
 //
 // Required Parameters:
@@ -142,6 +150,8 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.C
 }
 
 // FindServicesHotspot20ProfileByQueryCriteria
+//
+// Operation ID: findServicesHotspot20ProfileByQueryCriteria
 //
 // Query Hotspot20 Profiles with specified filters.
 //
@@ -171,6 +181,8 @@ func (s *WSGHotspot20WLANServiceService) FindServicesHotspot20ProfileByQueryCrit
 }
 
 // PartialUpdateRkszonesHs20sById
+//
+// Operation ID: partialUpdateRkszonesHs20sById
 //
 // Use this API command to modify the configuration on Hotspot 2.0 WLAN profile of a zone.
 //

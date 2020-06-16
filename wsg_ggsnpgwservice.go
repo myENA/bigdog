@@ -23,6 +23,8 @@ func (ss *WSGService) WSGGGSNPGWServiceService() *WSGGGSNPGWServiceService {
 
 // DeleteServicesGgsnDnsServerList
 //
+// Operation ID: deleteServicesGgsnDnsServerList
+//
 // Use this API command to Disable the dns server list of GGSN/PGW.
 func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -44,6 +46,8 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.C
 
 // DeleteServicesGgsnGgsnList
 //
+// Operation ID: deleteServicesGgsnGgsnList
+//
 // Use this API command to disable the ggsn server list of GGSN/PGW.
 func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -64,6 +68,8 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Contex
 }
 
 // FindGgsnGtpcConStatsByQueryCriteria
+//
+// Operation ID: findGgsnGtpcConStatsByQueryCriteria
 //
 // Use this API command to retrieve a list of GGSN Connection.
 //
@@ -94,6 +100,8 @@ func (s *WSGGGSNPGWServiceService) FindGgsnGtpcConStatsByQueryCriteria(ctx conte
 
 // FindGgsnGtpStatsByQueryCriteria
 //
+// Operation ID: findGgsnGtpStatsByQueryCriteria
+//
 // Use this API command to retrieve a list of GGSN/PGW GTP-C Sessions.
 //
 // Request Body:
@@ -123,6 +131,8 @@ func (s *WSGGGSNPGWServiceService) FindGgsnGtpStatsByQueryCriteria(ctx context.C
 
 // FindServicesGgsn
 //
+// Operation ID: findServicesGgsn
+//
 // Use this API command to retrieve GGSN/PGW setting.
 func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context, mutators ...RequestMutator) (*WSGServiceGgsnConfig, *APIResponseMeta, error) {
 	var (
@@ -144,6 +154,8 @@ func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context, mutator
 }
 
 // PartialUpdateServicesGgsn
+//
+// Operation ID: partialUpdateServicesGgsn
 //
 // Use this API command to modify the setting of GGSN/PGW.
 //
@@ -172,6 +184,8 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context
 
 // PartialUpdateServicesGgsnDnsServerList
 //
+// Operation ID: partialUpdateServicesGgsnDnsServerList
+//
 // Use this API command to modify the dns server list of GGSN/PGW.
 //
 // Request Body:
@@ -199,6 +213,8 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx co
 
 // PartialUpdateServicesGgsnGgsnList
 //
+// Operation ID: partialUpdateServicesGgsnGgsnList
+//
 // Use this API command to modify the ggsn server list of GGSN/PGW.
 //
 // Request Body:
@@ -225,6 +241,8 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context
 }
 
 // PartialUpdateServicesGgsnGtpSettings
+//
+// Operation ID: partialUpdateServicesGgsnGtpSettings
 //
 // Use this API command to modify the gtp setting of GGSN/PGW.
 //

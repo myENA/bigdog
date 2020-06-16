@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAPRoutineConfigIntervalReq
+//
+// Definition: apRoutineConfigInterval_apRoutineConfigIntervalReq
 type WSGAPRoutineConfigIntervalReq struct {
 	ApRoutineConfigInterval *int `json:"apRoutineConfigInterval,omitempty"`
 }
@@ -11,6 +14,9 @@ func NewWSGAPRoutineConfigIntervalReq() *WSGAPRoutineConfigIntervalReq {
 	return m
 }
 
+// WSGAPRoutineConfigIntervalRsp
+//
+// Definition: apRoutineConfigInterval_apRoutineConfigIntervalRsp
 type WSGAPRoutineConfigIntervalRsp struct {
 	ApRoutineConfigInterval *int `json:"apRoutineConfigInterval,omitempty"`
 

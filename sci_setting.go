@@ -24,6 +24,9 @@ func (ss *SCIService) SCISettingService() *SCISettingService {
 	return NewSCISettingService(ss.apiClient)
 }
 
+// SCISettingSendTestEmail200ResponseType
+//
+// Definition: setting.sendTestEmail200ResponseType
 type SCISettingSendTestEmail200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -50,6 +53,8 @@ func NewSCISettingSendTestEmail200ResponseType() *SCISettingSendTestEmail200Resp
 }
 
 // SettingFindById
+//
+// Operation ID: setting.findById
 //
 // Find a model instance by id from the data source.
 //
@@ -85,6 +90,8 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 
 // SettingSendTestEmail
 //
+// Operation ID: setting.sendTestEmail
+//
 // Form Data Parameters:
 // - recipients string
 //		- required
@@ -112,6 +119,8 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues
 }
 
 // SettingUpsert
+//
+// Operation ID: setting.upsert
 //
 // Update an existing model instance or insert a new one into the data source.
 //

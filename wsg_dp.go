@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGDPSwitchoverDp
+//
+// Definition: dp_switchoverDp
 type WSGDPSwitchoverDp struct {
 	// ClusterName
 	// Name of destination cluster, Notice: System will take ipOrFqdn as 1st priority, and clusterName as 2nd.

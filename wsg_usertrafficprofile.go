@@ -23,6 +23,8 @@ func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileServi
 
 // AddProfilesUtp
 //
+// Operation ID: addProfilesUtp
+//
 // Use this API command to create a new user traffic profile.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body 
 }
 
 // AddProfilesUtpCloneById
+//
+// Operation ID: addProfilesUtpCloneById
 //
 // Use this API command to copy a traffic profile.
 //
@@ -86,6 +90,8 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Conte
 
 // DeleteProfilesUtp
 //
+// Operation ID: deleteProfilesUtp
+//
 // Use this API command to delete a list of traffic profile.
 //
 // Request Body:
@@ -113,6 +119,8 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, bo
 
 // DeleteProfilesUtpById
 //
+// Operation ID: deleteProfilesUtpById
+//
 // Use this API command to delete an user traffic profile.
 //
 // Required Parameters:
@@ -138,6 +146,8 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context
 }
 
 // DeleteProfilesUtpDownlinkRateLimitingById
+//
+// Operation ID: deleteProfilesUtpDownlinkRateLimitingById
 //
 // Use this API command to disable downlink rate limiting of user traffic profile.
 //
@@ -165,6 +175,8 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById
 
 // DeleteProfilesUtpUplinkRateLimitingById
 //
+// Operation ID: deleteProfilesUtpUplinkRateLimitingById
+//
 // Use this API command to disable uplink rateLimiting of user traffic profile.
 //
 // Required Parameters:
@@ -190,6 +202,8 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(c
 }
 
 // FindProfilesUtp
+//
+// Operation ID: findProfilesUtp
 //
 // Use this API command to retrieve a list of user traffic profile.
 //
@@ -225,6 +239,8 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, opti
 
 // FindProfilesUtpById
 //
+// Operation ID: findProfilesUtpById
+//
 // Use this API command to retrieve an user traffic profile.
 //
 // Required Parameters:
@@ -251,6 +267,8 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, 
 }
 
 // FindProfilesUtpByQueryCriteria
+//
+// Operation ID: findProfilesUtpByQueryCriteria
 //
 // Use this API command to retrieve a list of User Traffic Profile by query criteria.
 //
@@ -280,6 +298,8 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx contex
 }
 
 // PartialUpdateProfilesUtpById
+//
+// Operation ID: partialUpdateProfilesUtpById
 //
 // Use this API command to modify the configuration of user traffic profile.
 //

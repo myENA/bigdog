@@ -23,6 +23,8 @@ func (ss *WSGService) WSGResourceMonitoringService() *WSGResourceMonitoringServi
 
 // FindResourceMonitoringSummaryByQueryCriteria
 //
+// Operation ID: findResourceMonitoringSummaryByQueryCriteria
+//
 // Retrieve monitoring status of resource
 //
 // Request Body:

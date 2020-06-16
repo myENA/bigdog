@@ -21,6 +21,9 @@ func (ss *SwitchMService) SwitchMAAASettingsService() *SwitchMAAASettingsService
 	return NewSwitchMAAASettingsService(ss.apiClient)
 }
 
+// SwitchMAAASettingsAAASetting
+//
+// Definition: aaaSettings_AAASetting
 type SwitchMAAASettingsAAASetting struct {
 	Accounting *SwitchMAAASettingsAAASettingAccountingType `json:"accounting,omitempty"`
 
@@ -34,6 +37,9 @@ func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
 	return m
 }
 
+// SwitchMAAASettingsAAASettingAccountingType
+//
+// Definition: aaaSettings_AAASettingAccountingType
 type SwitchMAAASettingsAAASettingAccountingType struct {
 	Commands *SwitchMAAASettingsAAASettingAccountingTypeCommandsType `json:"commands,omitempty"`
 
@@ -49,6 +55,9 @@ func NewSwitchMAAASettingsAAASettingAccountingType() *SwitchMAAASettingsAAASetti
 	return m
 }
 
+// SwitchMAAASettingsAAASettingAccountingTypeCommandsType
+//
+// Definition: aaaSettings_AAASettingAccountingTypeCommandsType
 type SwitchMAAASettingsAAASettingAccountingTypeCommandsType struct {
 	// Level
 	// Constraints:
@@ -71,6 +80,9 @@ func NewSwitchMAAASettingsAAASettingAccountingTypeCommandsType() *SwitchMAAASett
 	return m
 }
 
+// SwitchMAAASettingsAAASettingAccountingTypeExecType
+//
+// Definition: aaaSettings_AAASettingAccountingTypeExecType
 type SwitchMAAASettingsAAASettingAccountingTypeExecType struct {
 	// Server1
 	// Constraints:
@@ -88,6 +100,9 @@ func NewSwitchMAAASettingsAAASettingAccountingTypeExecType() *SwitchMAAASettings
 	return m
 }
 
+// SwitchMAAASettingsAAASettingAuthenticationType
+//
+// Definition: aaaSettings_AAASettingAuthenticationType
 type SwitchMAAASettingsAAASettingAuthenticationType struct {
 	EnabledSSHAuthn *bool `json:"enabledSSHAuthn,omitempty"`
 
@@ -114,6 +129,9 @@ func NewSwitchMAAASettingsAAASettingAuthenticationType() *SwitchMAAASettingsAAAS
 	return m
 }
 
+// SwitchMAAASettingsAAASettingAuthorizationType
+//
+// Definition: aaaSettings_AAASettingAuthorizationType
 type SwitchMAAASettingsAAASettingAuthorizationType struct {
 	Commands *SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType `json:"commands,omitempty"`
 
@@ -129,6 +147,9 @@ func NewSwitchMAAASettingsAAASettingAuthorizationType() *SwitchMAAASettingsAAASe
 	return m
 }
 
+// SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType
+//
+// Definition: aaaSettings_AAASettingAuthorizationTypeCommandsType
 type SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType struct {
 	// Level
 	// Constraints:
@@ -151,6 +172,9 @@ func NewSwitchMAAASettingsAAASettingAuthorizationTypeCommandsType() *SwitchMAAAS
 	return m
 }
 
+// SwitchMAAASettingsAAASettingAuthorizationTypeExecType
+//
+// Definition: aaaSettings_AAASettingAuthorizationTypeExecType
 type SwitchMAAASettingsAAASettingAuthorizationTypeExecType struct {
 	// Server1
 	// Constraints:
@@ -169,6 +193,8 @@ func NewSwitchMAAASettingsAAASettingAuthorizationTypeExecType() *SwitchMAAASetti
 }
 
 // FindGroupAaaSettingsByGroupId
+//
+// Operation ID: findGroupAaaSettingsByGroupId
 //
 // Use this API command to retrieve the AAA settings.
 //
@@ -196,6 +222,8 @@ func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Co
 }
 
 // UpdateGroupAaaSettingsByGroupId
+//
+// Operation ID: updateGroupAaaSettingsByGroupId
 //
 // Use this API command to modify the AAA settings.
 //

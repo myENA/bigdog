@@ -23,6 +23,8 @@ func (ss *WSGService) WSGIdentityUserService() *WSGIdentityUserService {
 
 // AddIdentityUserList
 //
+// Operation ID: addIdentityUserList
+//
 // Use this API command to retrieve a list of identity user.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 }
 
 // AddIdentityUsers
+//
+// Operation ID: addIdentityUsers
 //
 // Use this API command to create identity user.
 //
@@ -81,6 +85,8 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 
 // DeleteIdentityUsers
 //
+// Operation ID: deleteIdentityUsers
+//
 // Use this API command to delete multiple identity users.
 //
 // Request Body:
@@ -108,6 +114,8 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 
 // DeleteIdentityUsersById
 //
+// Operation ID: deleteIdentityUsersById
+//
 // Use this API command to delete identity user.
 //
 // Required Parameters:
@@ -133,6 +141,8 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 }
 
 // FindIdentityUsers
+//
+// Operation ID: findIdentityUsers
 //
 // Use this API command to retrieve a list of identity user.
 //
@@ -228,6 +238,8 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 
 // FindIdentityUsersAaaserver
 //
+// Operation ID: findIdentityUsersAaaserver
+//
 // Use this API command to retrieve a list of aaa server.
 func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context, mutators ...RequestMutator) (*WSGIdentityAaaServerList, *APIResponseMeta, error) {
 	var (
@@ -249,6 +261,8 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context,
 }
 
 // FindIdentityUsersById
+//
+// Operation ID: findIdentityUsersById
 //
 // Use this API command to retrieve identity user.
 //
@@ -277,6 +291,8 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 
 // FindIdentityUsersCountries
 //
+// Operation ID: findIdentityUsersCountries
+//
 // Use this API command to retrieve a list of countries.
 func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context, mutators ...RequestMutator) (*WSGIdentityCountryList, *APIResponseMeta, error) {
 	var (
@@ -299,6 +315,8 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context,
 
 // FindIdentityUsersPackages
 //
+// Operation ID: findIdentityUsersPackages
+//
 // Use this API command to retrieve a list of packages.
 func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context, mutators ...RequestMutator) (*WSGIdentityPackageList, *APIResponseMeta, error) {
 	var (
@@ -320,6 +338,8 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context, 
 }
 
 // PartialUpdateIdentityUsersById
+//
+// Operation ID: partialUpdateIdentityUsersById
 //
 // Use this API command to modify the configuration of identity user.
 //

@@ -23,6 +23,9 @@ func (ss *SCIService) SCIUserService() *SCIUserService {
 	return NewSCIUserService(ss.apiClient)
 }
 
+// SCIUserBatchDelete200ResponseType
+//
+// Definition: user.batchDelete200ResponseType
 type SCIUserBatchDelete200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -32,6 +35,9 @@ func NewSCIUserBatchDelete200ResponseType() *SCIUserBatchDelete200ResponseType {
 	return m
 }
 
+// SCIUserGetResourceGroupsForUpsert200ResponseType
+//
+// Definition: user.getResourceGroupsForUpsert200ResponseType
 type SCIUserGetResourceGroupsForUpsert200ResponseType []interface{}
 
 func MakeSCIUserGetResourceGroupsForUpsert200ResponseType() SCIUserGetResourceGroupsForUpsert200ResponseType {
@@ -39,6 +45,9 @@ func MakeSCIUserGetResourceGroupsForUpsert200ResponseType() SCIUserGetResourceGr
 	return m
 }
 
+// SCIUserGetUsers200ResponseType
+//
+// Definition: user.getUsers200ResponseType
 type SCIUserGetUsers200ResponseType []*SCIModelsUser
 
 func MakeSCIUserGetUsers200ResponseType() SCIUserGetUsers200ResponseType {
@@ -46,6 +55,9 @@ func MakeSCIUserGetUsers200ResponseType() SCIUserGetUsers200ResponseType {
 	return m
 }
 
+// SCIUsergetfilters200ResponseType
+//
+// Definition: user.prototype.__get__filters200ResponseType
 type SCIUsergetfilters200ResponseType []*SCIModelsFilter
 
 func MakeSCIUsergetfilters200ResponseType() SCIUsergetfilters200ResponseType {
@@ -53,6 +65,9 @@ func MakeSCIUsergetfilters200ResponseType() SCIUsergetfilters200ResponseType {
 	return m
 }
 
+// SCIUsergetschedules200ResponseType
+//
+// Definition: user.prototype.__get__schedules200ResponseType
 type SCIUsergetschedules200ResponseType []*SCIModelsSchedule
 
 func MakeSCIUsergetschedules200ResponseType() SCIUsergetschedules200ResponseType {
@@ -61,6 +76,8 @@ func MakeSCIUsergetschedules200ResponseType() SCIUsergetschedules200ResponseType
 }
 
 // UserBatchDelete
+//
+// Operation ID: user.batchDelete
 //
 // Delete users and remove them from their related models.
 //
@@ -91,6 +108,8 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Val
 }
 
 // UserCreateWithRelations
+//
+// Operation ID: user.createWithRelations
 //
 // Create user and its related models.
 //
@@ -137,6 +156,8 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues
 
 // UserFindById
 //
+// Operation ID: user.findById
+//
 // Find a model instance by id from the data source.
 //
 // Required Parameters:
@@ -171,6 +192,8 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 
 // UserGetResourceGroupsForUpsert
 //
+// Operation ID: user.getResourceGroupsForUpsert
+//
 // Get resource groups that current user can manage.
 func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mutators ...RequestMutator) (SCIUserGetResourceGroupsForUpsert200ResponseType, *APIResponseMeta, error) {
 	var (
@@ -192,6 +215,8 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 }
 
 // UserGetUsers
+//
+// Operation ID: user.getUsers
 //
 // Get users that current user can manage.
 //
@@ -221,6 +246,8 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 }
 
 // UserLogin
+//
+// Operation ID: user.login
 //
 // Login a user with username/email and password.
 //
@@ -258,6 +285,8 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIModelsUs
 
 // UserLogout
 //
+// Operation ID: user.logout
+//
 // Logout a user with access token.
 //
 // Required Parameters:
@@ -283,6 +312,8 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accessToken string, mut
 }
 
 // UserPrototypeCreateFilters
+//
+// Operation ID: user.prototype.__create__filters
 //
 // Creates a new instance in filters of this model.
 //
@@ -318,6 +349,8 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 
 // UserPrototypeDestroyByIdFilters
 //
+// Operation ID: user.prototype.__destroyById__filters
+//
 // Delete a related item by id for filters.
 //
 // Required Parameters:
@@ -346,6 +379,8 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 }
 
 // UserPrototypeFindByIdFilters
+//
+// Operation ID: user.prototype.__findById__filters
 //
 // Find a related item by id for filters.
 //
@@ -376,6 +411,8 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 }
 
 // UserPrototypeGetFilters
+//
+// Operation ID: user.prototype.__get__filters
 //
 // Queries filters of user.
 //
@@ -411,6 +448,8 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 
 // UserPrototypeGetSchedules
 //
+// Operation ID: user.prototype.__get__schedules
+//
 // Queries schedules of user.
 //
 // Required Parameters:
@@ -444,6 +483,8 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 }
 
 // UserPrototypeUpdateByIdFilters
+//
+// Operation ID: user.prototype.__updateById__filters
 //
 // Update a related item by id for filters.
 //
@@ -482,6 +523,8 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 
 // UserPrototypeUpdateAttributes
 //
+// Operation ID: user.prototype.updateAttributes
+//
 // Update attributes for a model instance and persist it into the data source.
 //
 // Request Body:
@@ -515,6 +558,8 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 }
 
 // UserUpdateWithRelations
+//
+// Operation ID: user.updateWithRelations
 //
 // Update a user and its related models.
 //
@@ -562,6 +607,8 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues
 }
 
 // UserValidateCurrentPassword
+//
+// Operation ID: user.validateCurrentPassword
 //
 // check if current password entered is valid
 //

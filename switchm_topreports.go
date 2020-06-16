@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMTopReportsService() *SwitchMTopReportsService {
 
 // AddSwitchTopByFirmware
 //
+// Operation ID: addSwitchTopByFirmware
+//
 // Use this API command to retrieves top N switch count based on firmware version.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, b
 }
 
 // AddSwitchTopByModel
+//
+// Operation ID: addSwitchTopByModel
 //
 // Use this API command to retrieve top N switch count based on switch model.
 //

@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGDeviceCapacityDevicesSummary
+//
+// Definition: deviceCapacity_devicesSummary
 type WSGDeviceCapacityDevicesSummary struct {
 	// ApCapacity
 	// maximum ap capacity of this node.

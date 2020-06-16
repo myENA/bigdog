@@ -23,6 +23,8 @@ func (ss *WSGService) WSGWiredClientService() *WSGWiredClientService {
 
 // AddWiredClientsBulkDeauth
 //
+// Operation ID: addWiredClientsBulkDeauth
+//
 // Use this API command to bulk deauth client.
 //
 // Request Body:
@@ -50,6 +52,8 @@ func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 
 // AddWiredClientsDeauth
 //
+// Operation ID: addWiredClientsDeauth
+//
 // Use this API command to deauth client.
 //
 // Request Body:
@@ -76,6 +80,8 @@ func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body 
 }
 
 // FindWiredclientByQueryCriteria
+//
+// Operation ID: findWiredclientByQueryCriteria
 //
 // Query wired clients with specified filters
 //

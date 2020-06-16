@@ -21,6 +21,9 @@ func (ss *WSGService) WSGAdministrationService() *WSGAdministrationService {
 	return NewWSGAdministrationService(ss.apiClient)
 }
 
+// WSGAdministrationActiveDirectoryServer
+//
+// Definition: administration_activeDirectoryServer
 type WSGAdministrationActiveDirectoryServer struct {
 	// Ip
 	// Constraints:
@@ -52,6 +55,9 @@ func NewWSGAdministrationActiveDirectoryServer() *WSGAdministrationActiveDirecto
 	return m
 }
 
+// WSGAdministrationApPatchHistory
+//
+// Definition: administration_apPatchHistory
 type WSGAdministrationApPatchHistory struct {
 	// ApFwVersion
 	// apFwVersion of the AP Patch history
@@ -75,6 +81,9 @@ func NewWSGAdministrationApPatchHistory() *WSGAdministrationApPatchHistory {
 	return m
 }
 
+// WSGAdministrationApPatchHistoryList
+//
+// Definition: administration_apPatchHistoryList
 type WSGAdministrationApPatchHistoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -90,6 +99,9 @@ func NewWSGAdministrationApPatchHistoryList() *WSGAdministrationApPatchHistoryLi
 	return m
 }
 
+// WSGAdministrationApPatchInfo
+//
+// Definition: administration_apPatchInfo
 type WSGAdministrationApPatchInfo struct {
 	// ApModels
 	// AP Models of the upload file
@@ -113,6 +125,9 @@ func NewWSGAdministrationApPatchInfo() *WSGAdministrationApPatchInfo {
 	return m
 }
 
+// WSGAdministrationApPatchStatus
+//
+// Definition: administration_apPatchStatus
 type WSGAdministrationApPatchStatus struct {
 	ClusterOperationProgress *WSGClusterBladeClusterOperationProgress `json:"clusterOperationProgress,omitempty"`
 }
@@ -122,6 +137,9 @@ func NewWSGAdministrationApPatchStatus() *WSGAdministrationApPatchStatus {
 	return m
 }
 
+// WSGAdministrationApplicationLogAndStatus
+//
+// Definition: administration_applicationLogAndStatus
 type WSGAdministrationApplicationLogAndStatus struct {
 	// ApplicationName
 	// Application name
@@ -149,6 +167,9 @@ func NewWSGAdministrationApplicationLogAndStatus() *WSGAdministrationApplication
 	return m
 }
 
+// WSGAdministrationApplicationLogAndStatusList
+//
+// Definition: administration_applicationLogAndStatusList
 type WSGAdministrationApplicationLogAndStatusList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -164,6 +185,9 @@ func NewWSGAdministrationApplicationLogAndStatusList() *WSGAdministrationApplica
 	return m
 }
 
+// WSGAdministrationAutoExportBackup
+//
+// Definition: administration_autoExportBackup
 type WSGAdministrationAutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
@@ -179,6 +203,9 @@ func NewWSGAdministrationAutoExportBackup() *WSGAdministrationAutoExportBackup {
 	return m
 }
 
+// WSGAdministrationBackupFile
+//
+// Definition: administration_backupFile
 type WSGAdministrationBackupFile struct {
 	// BackupElapsed
 	// backup elapsed of the configuration backup file
@@ -226,6 +253,9 @@ func NewWSGAdministrationBackupFile() *WSGAdministrationBackupFile {
 	return m
 }
 
+// WSGAdministrationClusterBackupList
+//
+// Definition: administration_clusterBackupList
 type WSGAdministrationClusterBackupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -241,6 +271,9 @@ func NewWSGAdministrationClusterBackupList() *WSGAdministrationClusterBackupList
 	return m
 }
 
+// WSGAdministrationClusterBackupSummary
+//
+// Definition: administration_clusterBackupSummary
 type WSGAdministrationClusterBackupSummary struct {
 	// CreatedOn
 	// Created date and time of the cluster backup file
@@ -264,6 +297,9 @@ func NewWSGAdministrationClusterBackupSummary() *WSGAdministrationClusterBackupS
 	return m
 }
 
+// WSGAdministrationConfigurationBackupList
+//
+// Definition: administration_configurationBackupList
 type WSGAdministrationConfigurationBackupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -279,6 +315,9 @@ func NewWSGAdministrationConfigurationBackupList() *WSGAdministrationConfigurati
 	return m
 }
 
+// WSGAdministrationCreateAdminAAAServer
+//
+// Definition: administration_createAdminAAAServer
 type WSGAdministrationCreateAdminAAAServer struct {
 	ActiveDirectoryServer *WSGAdministrationActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
 
@@ -308,6 +347,9 @@ func NewWSGAdministrationCreateAdminAAAServer() *WSGAdministrationCreateAdminAAA
 	return m
 }
 
+// WSGAdministrationDefaultRoleMapping
+//
+// Definition: administration_defaultRoleMapping
 type WSGAdministrationDefaultRoleMapping struct {
 	// DefaultAdmin
 	// DefaultAdmin of DefaultRoleMapping object
@@ -327,6 +369,9 @@ func NewWSGAdministrationDefaultRoleMapping() *WSGAdministrationDefaultRoleMappi
 	return m
 }
 
+// WSGAdministrationLdapServer
+//
+// Definition: administration_ldapServer
 type WSGAdministrationLdapServer struct {
 	// AdminDomainName
 	// Admin Domain Name of LDAP Server object
@@ -382,6 +427,9 @@ func NewWSGAdministrationLdapServer() *WSGAdministrationLdapServer {
 	return m
 }
 
+// WSGAdministrationLicenses
+//
+// Definition: administration_licenses
 type WSGAdministrationLicenses struct {
 	// Count
 	// number of licenses
@@ -409,6 +457,9 @@ func NewWSGAdministrationLicenses() *WSGAdministrationLicenses {
 	return m
 }
 
+// WSGAdministrationLicenseServer
+//
+// Definition: administration_licenseServer
 type WSGAdministrationLicenseServer struct {
 	// IpAddress
 	// local license server IP address
@@ -431,6 +482,9 @@ func NewWSGAdministrationLicenseServer() *WSGAdministrationLicenseServer {
 	return m
 }
 
+// WSGAdministrationLicensesList
+//
+// Definition: administration_licensesList
 type WSGAdministrationLicensesList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -446,6 +500,9 @@ func NewWSGAdministrationLicensesList() *WSGAdministrationLicensesList {
 	return m
 }
 
+// WSGAdministrationLicensesSummary
+//
+// Definition: administration_licensesSummary
 type WSGAdministrationLicensesSummary struct {
 	CapacityControlLicenseCount *WSGAdministrationLicensesSummaryCapacityControlLicenseCountType `json:"capacityControlLicenseCount,omitempty"`
 
@@ -459,6 +516,9 @@ func NewWSGAdministrationLicensesSummary() *WSGAdministrationLicensesSummary {
 	return m
 }
 
+// WSGAdministrationLicensesSummaryCapacityControlLicenseCountType
+//
+// Definition: administration_licensesSummaryCapacityControlLicenseCountType
 type WSGAdministrationLicensesSummaryCapacityControlLicenseCountType struct {
 	// TotalCount
 	// total count of licenses
@@ -474,6 +534,9 @@ func NewWSGAdministrationLicensesSummaryCapacityControlLicenseCountType() *WSGAd
 	return m
 }
 
+// WSGAdministrationLicensesSummaryList
+//
+// Definition: administration_licensesSummaryList
 type WSGAdministrationLicensesSummaryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -489,6 +552,9 @@ func NewWSGAdministrationLicensesSummaryList() *WSGAdministrationLicensesSummary
 	return m
 }
 
+// WSGAdministrationLicensesSyncLogs
+//
+// Definition: administration_licensesSyncLogs
 type WSGAdministrationLicensesSyncLogs struct {
 	// CreateDateTime
 	// license sync log's create time
@@ -506,6 +572,9 @@ func NewWSGAdministrationLicensesSyncLogs() *WSGAdministrationLicensesSyncLogs {
 	return m
 }
 
+// WSGAdministrationLicensesSyncLogsList
+//
+// Definition: administration_licensesSyncLogsList
 type WSGAdministrationLicensesSyncLogsList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -521,6 +590,9 @@ func NewWSGAdministrationLicensesSyncLogsList() *WSGAdministrationLicensesSyncLo
 	return m
 }
 
+// WSGAdministrationModfiyLicenseServer
+//
+// Definition: administration_modfiyLicenseServer
 type WSGAdministrationModfiyLicenseServer struct {
 	IpAddress *string `json:"ipAddress,omitempty"`
 
@@ -541,6 +613,9 @@ func NewWSGAdministrationModfiyLicenseServer() *WSGAdministrationModfiyLicenseSe
 	return m
 }
 
+// WSGAdministrationModifyAdminAAAServer
+//
+// Definition: administration_modifyAdminAAAServer
 type WSGAdministrationModifyAdminAAAServer struct {
 	ActiveDirectoryServer *WSGAdministrationActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
 
@@ -570,6 +645,9 @@ func NewWSGAdministrationModifyAdminAAAServer() *WSGAdministrationModifyAdminAAA
 	return m
 }
 
+// WSGAdministrationModifyAutoExportBackup
+//
+// Definition: administration_modifyAutoExportBackup
 type WSGAdministrationModifyAutoExportBackup struct {
 	// EnableAutoExportBackup
 	// enable auto export backup
@@ -585,6 +663,9 @@ func NewWSGAdministrationModifyAutoExportBackup() *WSGAdministrationModifyAutoEx
 	return m
 }
 
+// WSGAdministrationModifyLogLevel
+//
+// Definition: administration_modifyLogLevel
 type WSGAdministrationModifyLogLevel struct {
 	// ApplicationName
 	// Application name.
@@ -602,6 +683,9 @@ func NewWSGAdministrationModifyLogLevel() *WSGAdministrationModifyLogLevel {
 	return m
 }
 
+// WSGAdministrationModifyScheduleBackup
+//
+// Definition: administration_modifyScheduleBackup
 type WSGAdministrationModifyScheduleBackup struct {
 	// DateOfMonth
 	// date of the month
@@ -637,6 +721,9 @@ func NewWSGAdministrationModifyScheduleBackup() *WSGAdministrationModifySchedule
 	return m
 }
 
+// WSGAdministrationRadiusServer
+//
+// Definition: administration_radiusServer
 type WSGAdministrationRadiusServer struct {
 	// Ip
 	// Constraints:
@@ -676,6 +763,9 @@ func NewWSGAdministrationRadiusServer() *WSGAdministrationRadiusServer {
 	return m
 }
 
+// WSGAdministrationRetrieveAdminAAAServer
+//
+// Definition: administration_retrieveAdminAAAServer
 type WSGAdministrationRetrieveAdminAAAServer struct {
 	ActiveDirectoryServer *WSGAdministrationActiveDirectoryServer `json:"activeDirectoryServer,omitempty"`
 
@@ -705,6 +795,9 @@ func NewWSGAdministrationRetrieveAdminAAAServer() *WSGAdministrationRetrieveAdmi
 	return m
 }
 
+// WSGAdministrationRetrieveAdminAAAServerList
+//
+// Definition: administration_retrieveAdminAAAServerList
 type WSGAdministrationRetrieveAdminAAAServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -720,6 +813,9 @@ func NewWSGAdministrationRetrieveAdminAAAServerList() *WSGAdministrationRetrieve
 	return m
 }
 
+// WSGAdministrationRetrieveAdminAAAServerListType
+//
+// Definition: administration_retrieveAdminAAAServerListType
 type WSGAdministrationRetrieveAdminAAAServerListType struct {
 	Id *string `json:"id,omitempty"`
 
@@ -736,6 +832,9 @@ func NewWSGAdministrationRetrieveAdminAAAServerListType() *WSGAdministrationRetr
 	return m
 }
 
+// WSGAdministrationScheduleBackup
+//
+// Definition: administration_scheduleBackup
 type WSGAdministrationScheduleBackup struct {
 	// DateOfMonth
 	// date of the month
@@ -771,6 +870,9 @@ func NewWSGAdministrationScheduleBackup() *WSGAdministrationScheduleBackup {
 	return m
 }
 
+// WSGAdministrationSecondaryRadiusServer
+//
+// Definition: administration_secondaryRadiusServer
 type WSGAdministrationSecondaryRadiusServer struct {
 	// Ip
 	// Constraints:
@@ -830,6 +932,9 @@ func NewWSGAdministrationSecondaryRadiusServer() *WSGAdministrationSecondaryRadi
 	return m
 }
 
+// WSGAdministrationTacacsServer
+//
+// Definition: administration_tacacsServer
 type WSGAdministrationTacacsServer struct {
 	// Ip
 	// Constraints:
@@ -861,6 +966,9 @@ func NewWSGAdministrationTacacsServer() *WSGAdministrationTacacsServer {
 	return m
 }
 
+// WSGAdministrationUpgradeHistoryList
+//
+// Definition: administration_upgradeHistoryList
 type WSGAdministrationUpgradeHistoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -876,6 +984,9 @@ func NewWSGAdministrationUpgradeHistoryList() *WSGAdministrationUpgradeHistoryLi
 	return m
 }
 
+// WSGAdministrationUpgradeHistorySummary
+//
+// Definition: administration_upgradeHistorySummary
 type WSGAdministrationUpgradeHistorySummary struct {
 	// ApFwVersion
 	// apFwVersion of the upgrade history
@@ -927,6 +1038,9 @@ func NewWSGAdministrationUpgradeHistorySummary() *WSGAdministrationUpgradeHistor
 	return m
 }
 
+// WSGAdministrationUpgradePatchInfo
+//
+// Definition: administration_upgradePatchInfo
 type WSGAdministrationUpgradePatchInfo struct {
 	ClusterOperationProgress *WSGClusterBladeClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 
@@ -938,6 +1052,9 @@ func NewWSGAdministrationUpgradePatchInfo() *WSGAdministrationUpgradePatchInfo {
 	return m
 }
 
+// WSGAdministrationUpgradeStatus
+//
+// Definition: administration_upgradeStatus
 type WSGAdministrationUpgradeStatus struct {
 	ClusterOperationProgress *WSGClusterBladeClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 }
@@ -947,6 +1064,9 @@ func NewWSGAdministrationUpgradeStatus() *WSGAdministrationUpgradeStatus {
 	return m
 }
 
+// WSGAdministrationZdAP
+//
+// Definition: administration_zdAP
 type WSGAdministrationZdAP struct {
 	// Connected
 	// AP Conntected
@@ -962,6 +1082,9 @@ func NewWSGAdministrationZdAP() *WSGAdministrationZdAP {
 	return m
 }
 
+// WSGAdministrationZdAPList
+//
+// Definition: administration_zdAPList
 type WSGAdministrationZdAPList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -979,6 +1102,9 @@ func NewWSGAdministrationZdAPList() *WSGAdministrationZdAPList {
 	return m
 }
 
+// WSGAdministrationZdImport
+//
+// Definition: administration_zdImport
 type WSGAdministrationZdImport struct {
 	// ApMacList
 	// List of AP MAC
@@ -1002,6 +1128,9 @@ func NewWSGAdministrationZdImport() *WSGAdministrationZdImport {
 	return m
 }
 
+// WSGAdministrationZdImportStatus
+//
+// Definition: administration_zdImportStatus
 type WSGAdministrationZdImportStatus struct {
 	// Details
 	// Details
@@ -1026,6 +1155,8 @@ func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 }
 
 // AddAdminaaa
+//
+// Operation ID: addAdminaaa
 //
 // Use this API command to create a new Admin AAA server
 //
@@ -1056,6 +1187,8 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 
 // AddRestart
 //
+// Operation ID: addRestart
+//
 // Use this API command to restart the controller.
 func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -1077,6 +1210,8 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...R
 
 // AddShutdown
 //
+// Operation ID: addShutdown
+//
 // Use this API command to shut down the controller.
 func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -1097,6 +1232,8 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...
 }
 
 // DeleteAdminaaaById
+//
+// Operation ID: deleteAdminaaaById
 //
 // Use this API command to delete an existing Admin AAA server
 //
@@ -1123,6 +1260,8 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 }
 
 // FindAdminaaa
+//
+// Operation ID: findAdminaaa
 //
 // Use this API command to retrieve the list of Admin AAA server
 //
@@ -1151,6 +1290,8 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 
 // FindAdminaaaById
 //
+// Operation ID: findAdminaaaById
+//
 // Use this API command to retrieve an existing Admin AAA server
 //
 // Required Parameters:
@@ -1178,6 +1319,8 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 
 // FindLicenses
 //
+// Operation ID: findLicenses
+//
 // Use this API command to get all licenses currently assign in SCG.
 func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesList, *APIResponseMeta, error) {
 	var (
@@ -1199,6 +1342,8 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 }
 
 // FindLicenseServer
+//
+// Operation ID: findLicenseServer
 //
 // Use this API command to get license server configuration.
 func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicenseServer, *APIResponseMeta, error) {
@@ -1222,6 +1367,8 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 
 // FindLicensesSummary
 //
+// Operation ID: findLicensesSummary
+//
 // Use this API command to get licenses summary information.
 func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSummaryList, *APIResponseMeta, error) {
 	var (
@@ -1244,6 +1391,8 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 
 // FindLicensesSyncLogs
 //
+// Operation ID: findLicensesSyncLogs
+//
 // Use this API command to get licenses synchronize logs.
 func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSyncLogsList, *APIResponseMeta, error) {
 	var (
@@ -1265,6 +1414,8 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 }
 
 // UpdateAdminaaaById
+//
+// Operation ID: updateAdminaaaById
 //
 // Use this API command to modify an existing Admin AAA server
 //
@@ -1298,6 +1449,8 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 
 // UpdateLicenseServer
 //
+// Operation ID: updateLicenseServer
+//
 // Use this API command to update license server configuration.
 //
 // Request Body:
@@ -1324,6 +1477,8 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 }
 
 // UpdateLicensesSync
+//
+// Operation ID: updateLicensesSync
 //
 // Use this API command to ask all SCG in cluster to sync licenses from license server.
 func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {

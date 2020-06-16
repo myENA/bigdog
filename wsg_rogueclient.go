@@ -22,6 +22,9 @@ func (ss *WSGService) WSGRogueClientService() *WSGRogueClientService {
 	return NewWSGRogueClientService(ss.apiClient)
 }
 
+// WSGRogueClientRogueInfo
+//
+// Definition: rogueclient_rogueInfo
 type WSGRogueClientRogueInfo struct {
 	// Channel
 	// Channel of the rogue client
@@ -69,6 +72,9 @@ func NewWSGRogueClientRogueInfo() *WSGRogueClientRogueInfo {
 	return m
 }
 
+// WSGRogueClientRogueInfoList
+//
+// Definition: rogueclient_rogueInfoList
 type WSGRogueClientRogueInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -100,6 +106,8 @@ func NewWSGRogueClientRogueInfoList() *WSGRogueClientRogueInfoList {
 
 // WSGRogueClientRogueInfoListExtraType
 //
+// Definition: rogueclient_rogueInfoListExtraType
+//
 // Any additional response data.
 type WSGRogueClientRogueInfoListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -127,6 +135,8 @@ func NewWSGRogueClientRogueInfoListExtraType() *WSGRogueClientRogueInfoListExtra
 }
 
 // FindRogueclientsByQueryCriteria
+//
+// Operation ID: findRogueclientsByQueryCriteria
 //
 // Use this API command to retrieve a list of rogue clients.
 //

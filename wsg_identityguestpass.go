@@ -24,6 +24,8 @@ func (ss *WSGService) WSGIdentityGuestPassService() *WSGIdentityGuestPassService
 
 // AddIdentityGuestpassGenerate
 //
+// Operation ID: addIdentityGuestpassGenerate
+//
 // Use this API command to generate identity guest pass.
 //
 // Request Body:
@@ -53,6 +55,8 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.C
 
 // AddIdentityGuestpassList
 //
+// Operation ID: addIdentityGuestpassList
+//
 // Use this API command to retrieve a list of identity guest pass.
 //
 // Request Body:
@@ -81,6 +85,8 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Conte
 }
 
 // AddIdentityGuestpassUpload
+//
+// Operation ID: addIdentityGuestpassUpload
 //
 // Use this API command to upload identity guest pass csv file.
 //
@@ -113,6 +119,8 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 
 // AddIdentityGuestpassUploadCommon
 //
+// Operation ID: addIdentityGuestpassUploadCommon
+//
 // Use this API command to update common identity guest pass settings.
 //
 // Request Body:
@@ -142,6 +150,8 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx conte
 
 // DeleteIdentityGuestpass
 //
+// Operation ID: deleteIdentityGuestpass
+//
 // Use this API command to delete multiple identity guest passes.
 //
 // Request Body:
@@ -169,6 +179,8 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Contex
 
 // DeleteIdentityGuestpassByUserId
 //
+// Operation ID: deleteIdentityGuestpassByUserId
+//
 // Use this API command to delete identity guest pass.
 //
 // Required Parameters:
@@ -194,6 +206,8 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 }
 
 // FindIdentityGuestpass
+//
+// Operation ID: findIdentityGuestpass
 //
 // Use this API command to retrieve a list of identity guest pass.
 //

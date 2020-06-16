@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMGroupService() *SwitchMGroupService {
 	return NewSwitchMGroupService(ss.apiClient)
 }
 
+// SwitchMGroupAuditId
+//
+// Definition: group_auditId
 type SwitchMGroupAuditId struct {
 	// Id
 	// Audit Id
@@ -37,6 +40,9 @@ func NewSwitchMGroupAuditId() *SwitchMGroupAuditId {
 	return m
 }
 
+// SwitchMGroupClientObjectID
+//
+// Definition: group_clientObjectID
 type SwitchMGroupClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
@@ -61,6 +67,8 @@ func NewSwitchMGroupClientObjectID() *SwitchMGroupClientObjectID {
 }
 
 // SwitchMGroupClientObjectIDExtraValuesType
+//
+// Definition: group_clientObjectIDExtraValuesType
 //
 // Extra values of the client
 type SwitchMGroupClientObjectIDExtraValuesType struct {
@@ -88,6 +96,9 @@ func NewSwitchMGroupClientObjectIDExtraValuesType() *SwitchMGroupClientObjectIDE
 	return m
 }
 
+// SwitchMGroupCloneConfigByGroup
+//
+// Definition: group_cloneConfigByGroup
 type SwitchMGroupCloneConfigByGroup struct {
 	Destination []string `json:"destination,omitempty"`
 
@@ -101,6 +112,9 @@ func NewSwitchMGroupCloneConfigByGroup() *SwitchMGroupCloneConfigByGroup {
 	return m
 }
 
+// SwitchMGroupCloneConfigBySwitch
+//
+// Definition: group_cloneConfigBySwitch
 type SwitchMGroupCloneConfigBySwitch struct {
 	// Config
 	// Config
@@ -118,6 +132,9 @@ func NewSwitchMGroupCloneConfigBySwitch() *SwitchMGroupCloneConfigBySwitch {
 	return m
 }
 
+// SwitchMGroupErrorObject
+//
+// Definition: group_errorObject
 type SwitchMGroupErrorObject struct {
 	List []string `json:"list,omitempty"`
 
@@ -131,6 +148,9 @@ func NewSwitchMGroupErrorObject() *SwitchMGroupErrorObject {
 	return m
 }
 
+// SwitchMGroupGetConfigBySwitch
+//
+// Definition: group_getConfigBySwitch
 type SwitchMGroupGetConfigBySwitch struct {
 	// Id
 	// ID
@@ -146,6 +166,9 @@ func NewSwitchMGroupGetConfigBySwitch() *SwitchMGroupGetConfigBySwitch {
 	return m
 }
 
+// SwitchMGroupsByIdsQueryResultList
+//
+// Definition: group_groupsByIdsQueryResultList
 type SwitchMGroupsByIdsQueryResultList struct {
 	Data *SwitchMGroupQueryResultList `json:"data,omitempty"`
 
@@ -170,6 +193,8 @@ func NewSwitchMGroupsByIdsQueryResultList() *SwitchMGroupsByIdsQueryResultList {
 }
 
 // SwitchMGroupsByIdsQueryResultListExtraType
+//
+// Definition: group_groupsByIdsQueryResultListExtraType
 //
 // Any additional response
 type SwitchMGroupsByIdsQueryResultListExtraType struct {
@@ -199,6 +224,8 @@ func NewSwitchMGroupsByIdsQueryResultListExtraType() *SwitchMGroupsByIdsQueryRes
 
 // SwitchMGroupsByIdsQueryResultListMetaDataType
 //
+// Definition: group_groupsByIdsQueryResultListMetaDataType
+//
 // Metadata of query result list
 type SwitchMGroupsByIdsQueryResultListMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -225,6 +252,9 @@ func NewSwitchMGroupsByIdsQueryResultListMetaDataType() *SwitchMGroupsByIdsQuery
 	return m
 }
 
+// SwitchMGroupQueryResultList
+//
+// Definition: group_queryResultList
 type SwitchMGroupQueryResultList struct {
 	// Extra
 	// Extra information for query result list
@@ -256,6 +286,8 @@ func NewSwitchMGroupQueryResultList() *SwitchMGroupQueryResultList {
 
 // SwitchMGroupQueryResultListExtraType
 //
+// Definition: group_queryResultListExtraType
+//
 // Extra information for query result list
 type SwitchMGroupQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -282,6 +314,9 @@ func NewSwitchMGroupQueryResultListExtraType() *SwitchMGroupQueryResultListExtra
 	return m
 }
 
+// SwitchMGroupSwitchGroup
+//
+// Definition: group_switchGroup
 type SwitchMGroupSwitchGroup struct {
 	// CreateDatetime
 	// Create datetime of the switch group
@@ -343,6 +378,8 @@ func NewSwitchMGroupSwitchGroup() *SwitchMGroupSwitchGroup {
 
 // SwitchMGroupSwitchGroupSampledInstantType
 //
+// Definition: group_switchGroupSampledInstantType
+//
 // Sampled instant of the switch group
 type SwitchMGroupSwitchGroupSampledInstantType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -370,6 +407,8 @@ func NewSwitchMGroupSwitchGroupSampledInstantType() *SwitchMGroupSwitchGroupSamp
 }
 
 // AddGroup
+//
+// Operation ID: addGroup
 //
 // Use this API command to create a new switch group under an existing domain or switch group.
 //
@@ -400,6 +439,8 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 
 // DeleteGroupBySwitchGroupId
 //
+// Operation ID: deleteGroupBySwitchGroupId
+//
 // Use this API command to delete a switch group.
 //
 // Required Parameters:
@@ -428,6 +469,8 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 
 // FindGroupBySwitchGroupId
 //
+// Operation ID: findGroupBySwitchGroupId
+//
 // Use this API command to retrieve switch group detail.
 //
 // Required Parameters:
@@ -454,6 +497,8 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 }
 
 // FindGroupIdsByDomainByDomainId
+//
+// Operation ID: findGroupIdsByDomainByDomainId
 //
 // Use this API command to retrieve the switch groups by domain ID.
 //
@@ -489,6 +534,8 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 
 // FindSwitchClientVisibilityByQueryCriteria
 //
+// Operation ID: findSwitchClientVisibilityByQueryCriteria
+//
 // Use this API command to Retrieve the switch client list.
 //
 // Request Body:
@@ -517,6 +564,8 @@ func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx cont
 }
 
 // PartialUpdateGroupBySwitchGroupId
+//
+// Operation ID: partialUpdateGroupBySwitchGroupId
 //
 // Use this API command to update an existing switch group name or description.
 //

@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMSwitchStackConfigService() *SwitchMSwitchStackC
 	return NewSwitchMSwitchStackConfigService(ss.apiClient)
 }
 
+// SwitchMSwitchStackConfigAuditIdList
+//
+// Definition: stack_auditIdList
 type SwitchMSwitchStackConfigAuditIdList struct {
 	Extra *SwitchMSwitchStackConfigAuditIdListExtraType `json:"extra,omitempty"`
 
@@ -41,6 +44,9 @@ func NewSwitchMSwitchStackConfigAuditIdList() *SwitchMSwitchStackConfigAuditIdLi
 	return m
 }
 
+// SwitchMSwitchStackConfigAuditIdListExtraType
+//
+// Definition: stack_auditIdListExtraType
 type SwitchMSwitchStackConfigAuditIdListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -66,6 +72,9 @@ func NewSwitchMSwitchStackConfigAuditIdListExtraType() *SwitchMSwitchStackConfig
 	return m
 }
 
+// SwitchMSwitchStackConfigList
+//
+// Definition: stack_list
 type SwitchMSwitchStackConfigList struct {
 	// FirstIndex
 	// Index of the first stack returned out of the complete stack list
@@ -93,6 +102,9 @@ func NewSwitchMSwitchStackConfigList() *SwitchMSwitchStackConfigList {
 	return m
 }
 
+// SwitchMSwitchStackConfigMember
+//
+// Definition: stack_member
 type SwitchMSwitchStackConfigMember struct {
 	// ActiveMode
 	// Role of stack
@@ -142,6 +154,8 @@ func NewSwitchMSwitchStackConfigMember() *SwitchMSwitchStackConfigMember {
 
 // SwitchMSwitchStackConfigMemberPortStatusType
 //
+// Definition: stack_memberPortStatusType
+//
 // Port status Information
 type SwitchMSwitchStackConfigMemberPortStatusType struct {
 	// AdminDown
@@ -174,6 +188,9 @@ func NewSwitchMSwitchStackConfigMemberPortStatusType() *SwitchMSwitchStackConfig
 	return m
 }
 
+// SwitchMSwitchStackConfigStackConfig
+//
+// Definition: stack_stackConfig
 type SwitchMSwitchStackConfigStackConfig struct {
 	// ActiveSwitchId
 	// Switch Id of Active Unit
@@ -197,6 +214,9 @@ func NewSwitchMSwitchStackConfigStackConfig() *SwitchMSwitchStackConfigStackConf
 	return m
 }
 
+// SwitchMSwitchStackConfigStackConfigList
+//
+// Definition: stack_stackConfigList
 type SwitchMSwitchStackConfigStackConfigList []*SwitchMSwitchStackConfigStackConfig
 
 func MakeSwitchMSwitchStackConfigStackConfigList() SwitchMSwitchStackConfigStackConfigList {
@@ -205,6 +225,8 @@ func MakeSwitchMSwitchStackConfigStackConfigList() SwitchMSwitchStackConfigStack
 }
 
 // AddStack
+//
+// Operation ID: addStack
 //
 // Use this API command to create a stack configuration.
 //
@@ -235,6 +257,8 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 
 // FindStackBySwitchId
 //
+// Operation ID: findStackBySwitchId
+//
 // Use this API command to retrieve a stack configuration configured via SZ.
 //
 // Required Parameters:
@@ -261,6 +285,8 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 }
 
 // FindStackMemberBySerialNumber
+//
+// Operation ID: findStackMemberBySerialNumber
 //
 // Use this API command to retrieve the member of switches in a stack.
 //

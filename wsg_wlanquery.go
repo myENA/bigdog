@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGWLANQueryApWlanBssid
+//
+// Definition: wlanQuery_apWlanBssid
 type WSGWLANQueryApWlanBssid struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -15,6 +18,9 @@ func NewWSGWLANQueryApWlanBssid() *WSGWLANQueryApWlanBssid {
 	return m
 }
 
+// WSGWLANQueryApWlanBssidQueryList
+//
+// Definition: wlanQuery_apWlanBssidQueryList
 type WSGWLANQueryApWlanBssidQueryList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -38,6 +44,9 @@ func NewWSGWLANQueryApWlanBssidQueryList() *WSGWLANQueryApWlanBssidQueryList {
 	return m
 }
 
+// WSGWLANQueryCreateWlanQuery
+//
+// Definition: wlanQuery_createWlanQuery
 type WSGWLANQueryCreateWlanQuery struct {
 	Alerts *int `json:"alerts,omitempty"`
 
@@ -122,6 +131,9 @@ func NewWSGWLANQueryCreateWlanQuery() *WSGWLANQueryCreateWlanQuery {
 	return m
 }
 
+// WSGWLANQueryWlanBssid
+//
+// Definition: wlanQuery_wlanBssid
 type WSGWLANQueryWlanBssid struct {
 	Bssid *string `json:"bssid,omitempty"`
 
@@ -137,6 +149,9 @@ func NewWSGWLANQueryWlanBssid() *WSGWLANQueryWlanBssid {
 	return m
 }
 
+// WSGWLANQueryList
+//
+// Definition: wlanQuery_wlanQueryList
 type WSGWLANQueryList struct {
 	Extra interface{} `json:"extra,omitempty"`
 

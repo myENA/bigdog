@@ -23,6 +23,8 @@ func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
 
 // AddProfilesTtgpdg
 //
+// Operation ID: addProfilesTtgpdg
+//
 // Use this API command to create TTG+PDG profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfi
 
 // DeleteProfilesTtgpdg
 //
+// Operation ID: deleteProfilesTtgpdg
+//
 // Use this API command to delete multiple TTG PDG profile.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCo
 
 // DeleteProfilesTtgpdgApnRealmsById
 //
+// Operation ID: deleteProfilesTtgpdgApnRealmsById
+//
 // Use this API command to disable the APN realm of TTG PDG profile.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context
 }
 
 // DeleteProfilesTtgpdgById
+//
+// Operation ID: deleteProfilesTtgpdgById
 //
 // Use this API command to delete TTG PDG profile.
 //
@@ -131,6 +139,8 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id stri
 
 // DeleteProfilesTtgpdgDhcpRelayById
 //
+// Operation ID: deleteProfilesTtgpdgDhcpRelayById
+//
 // Use this API command to disable the DHCP relay of TTG PDG profile.
 //
 // Required Parameters:
@@ -157,6 +167,8 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context
 
 // FindProfilesTtgpdg
 //
+// Operation ID: findProfilesTtgpdg
+//
 // Use this API command to retrieve a list of TTG+PDG profile.
 func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context, mutators ...RequestMutator) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
@@ -178,6 +190,8 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context, mutators ...R
 }
 
 // FindProfilesTtgpdgById
+//
+// Operation ID: findProfilesTtgpdgById
 //
 // Use this API command to retrieve TTG+PDG profile by ID.
 //
@@ -205,6 +219,8 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, id string
 }
 
 // FindProfilesTtgpdgByQueryCriteria
+//
+// Operation ID: findProfilesTtgpdgByQueryCriteria
 //
 // Use this API command to query a list of TTG+PDG profile.
 //
@@ -234,6 +250,8 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context
 }
 
 // PartialUpdateProfilesTtgpdgById
+//
+// Operation ID: partialUpdateProfilesTtgpdgById
 //
 // Use this API command to modify the configuration of TTG+PDG profile.
 //

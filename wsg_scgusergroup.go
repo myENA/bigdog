@@ -23,6 +23,8 @@ func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
 
 // AddUserGroups
 //
+// Operation ID: addUserGroups
+//
 // Add SCG user group.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 
 // DeleteUserGroups
 //
+// Operation ID: deleteUserGroups
+//
 // Delete multiple SCG user group.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 
 // DeleteUserGroupsByUserGroupId
 //
+// Operation ID: deleteUserGroupsByUserGroupId
+//
 // Delete SCG user group.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 }
 
 // FindUserGroupsByQueryCriteria
+//
+// Operation ID: findUserGroupsByQueryCriteria
 //
 // Query user groups.
 //
@@ -133,6 +141,8 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 }
 
 // FindUserGroupsByUserGroupId
+//
+// Operation ID: findUserGroupsByUserGroupId
 //
 // Get SCG user group.
 //
@@ -168,6 +178,8 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 
 // FindUserGroupsCurrentUserPermissionCategories
 //
+// Operation ID: findUserGroupsCurrentUserPermissionCategories
+//
 // Get permitted categories of current user.
 func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(ctx context.Context, mutators ...RequestMutator) (*WSGSCGUserGroupPermissionList, *APIResponseMeta, error) {
 	var (
@@ -190,6 +202,8 @@ func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(c
 
 // FindUserGroupsRoles
 //
+// Operation ID: findUserGroupsRoles
+//
 // Get pre-defined roles.
 func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context, mutators ...RequestMutator) (*WSGSCGUserGroupRoleLabelValueList, *APIResponseMeta, error) {
 	var (
@@ -211,6 +225,8 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context, mutato
 }
 
 // FindUserGroupsRolesPermissionsByRole
+//
+// Operation ID: findUserGroupsRolesPermissionsByRole
 //
 // Get permission items of role.
 //
@@ -245,6 +261,8 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 }
 
 // PartialUpdateUserGroupsByUserGroupId
+//
+// Operation ID: partialUpdateUserGroupsByUserGroupId
 //
 // Update user groups.
 //

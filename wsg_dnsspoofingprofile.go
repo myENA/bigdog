@@ -21,6 +21,9 @@ func (ss *WSGService) WSGDNSSpoofingProfileService() *WSGDNSSpoofingProfileServi
 	return NewWSGDNSSpoofingProfileService(ss.apiClient)
 }
 
+// WSGDNSSpoofingProfile
+//
+// Definition: dnsSpoofingProfile_dnsSpoofingProfile
 type WSGDNSSpoofingProfile struct {
 	// Description
 	// DNS Spoofing Profile's description
@@ -41,6 +44,9 @@ func NewWSGDNSSpoofingProfile() *WSGDNSSpoofingProfile {
 	return m
 }
 
+// WSGDNSSpoofingProfileDetail
+//
+// Definition: dnsSpoofingProfile_dnsSpoofingProfileDetail
 type WSGDNSSpoofingProfileDetail struct {
 	// CreateDateTime
 	// The user who create the DNS Spoofing Profile
@@ -84,6 +90,9 @@ func NewWSGDNSSpoofingProfileDetail() *WSGDNSSpoofingProfileDetail {
 	return m
 }
 
+// WSGDNSSpoofingProfileSummary
+//
+// Definition: dnsSpoofingProfile_dnsSpoofingProfileSummary
 type WSGDNSSpoofingProfileSummary struct {
 	// Id
 	// DNS Spoofing Profile's id
@@ -99,6 +108,9 @@ func NewWSGDNSSpoofingProfileSummary() *WSGDNSSpoofingProfileSummary {
 	return m
 }
 
+// WSGDNSSpoofingProfileDnsSpoofingRule
+//
+// Definition: dnsSpoofingProfile_dnsSpoofingRule
 type WSGDNSSpoofingProfileDnsSpoofingRule struct {
 	// DomainName
 	// Rule's Domain Name
@@ -118,6 +130,9 @@ func NewWSGDNSSpoofingProfileDnsSpoofingRule() *WSGDNSSpoofingProfileDnsSpoofing
 	return m
 }
 
+// WSGDNSSpoofingProfileGetDnsSpoofingProfileList
+//
+// Definition: dnsSpoofingProfile_getDnsSpoofingProfileList
 type WSGDNSSpoofingProfileGetDnsSpoofingProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -134,6 +149,8 @@ func NewWSGDNSSpoofingProfileGetDnsSpoofingProfileList() *WSGDNSSpoofingProfileG
 }
 
 // AddRkszonesDnsSpoofingProfilesByZoneId
+//
+// Operation ID: addRkszonesDnsSpoofingProfilesByZoneId
 //
 // Use this API command to create DNS Spoofing profile.
 //
@@ -169,6 +186,8 @@ func (s *WSGDNSSpoofingProfileService) AddRkszonesDnsSpoofingProfilesByZoneId(ct
 
 // DeleteRkszonesDnsSpoofingProfiles
 //
+// Operation ID: deleteRkszonesDnsSpoofingProfiles
+//
 // Use this API command to delete bulk DNS Spoofing profile.
 //
 // Request Body:
@@ -195,6 +214,8 @@ func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfiles(ctx con
 }
 
 // DeleteRkszonesDnsSpoofingProfilesById
+//
+// Operation ID: deleteRkszonesDnsSpoofingProfilesById
 //
 // Use this API command to delete DNS Spoofing profile.
 //
@@ -224,6 +245,8 @@ func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfilesById(ctx
 }
 
 // FindRkszonesDnsSpoofingProfilesById
+//
+// Operation ID: findRkszonesDnsSpoofingProfilesById
 //
 // Use this API command to retrieve DNS Spoofing profile.
 //
@@ -255,6 +278,8 @@ func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesById(ctx c
 
 // FindRkszonesDnsSpoofingProfilesByZoneId
 //
+// Operation ID: findRkszonesDnsSpoofingProfilesByZoneId
+//
 // Use this API command to retrieve a list of DNS Spoofing profile.
 //
 // Required Parameters:
@@ -281,6 +306,8 @@ func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesByZoneId(c
 }
 
 // UpdateRkszonesDnsSpoofingProfilesById
+//
+// Operation ID: updateRkszonesDnsSpoofingProfilesById
 //
 // Use this API command to update DNS Spoofing profile.
 //

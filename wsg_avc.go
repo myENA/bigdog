@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAVCAppCategory
+//
+// Definition: avc_appCategory
 type WSGAVCAppCategory struct {
 	// Id
 	// Identifier of the Application Category
@@ -17,6 +20,9 @@ func NewWSGAVCAppCategory() *WSGAVCAppCategory {
 	return m
 }
 
+// WSGAVCAppCategoryList
+//
+// Definition: avc_appCategoryList
 type WSGAVCAppCategoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -32,6 +38,9 @@ func NewWSGAVCAppCategoryList() *WSGAVCAppCategoryList {
 	return m
 }
 
+// WSGAVCApplication
+//
+// Definition: avc_application
 type WSGAVCApplication struct {
 	// AppId
 	// Identifier of the Application
@@ -51,6 +60,9 @@ func NewWSGAVCApplication() *WSGAVCApplication {
 	return m
 }
 
+// WSGAVCApplicationList
+//
+// Definition: avc_applicationList
 type WSGAVCApplicationList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -66,6 +78,9 @@ func NewWSGAVCApplicationList() *WSGAVCApplicationList {
 	return m
 }
 
+// WSGAVCApplicationPolicyProfile
+//
+// Definition: avc_applicationPolicyProfile
 type WSGAVCApplicationPolicyProfile struct {
 	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules,omitempty"`
 
@@ -123,6 +138,9 @@ func NewWSGAVCApplicationPolicyProfile() *WSGAVCApplicationPolicyProfile {
 	return m
 }
 
+// WSGAVCApplicationPolicyProfileList
+//
+// Definition: avc_applicationPolicyProfileList
 type WSGAVCApplicationPolicyProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -140,6 +158,9 @@ func NewWSGAVCApplicationPolicyProfileList() *WSGAVCApplicationPolicyProfileList
 	return m
 }
 
+// WSGAVCApplicationRule
+//
+// Definition: avc_applicationRule
 type WSGAVCApplicationRule struct {
 	// AppId
 	// Identifier of the Application from Signature Package
@@ -203,6 +224,9 @@ func NewWSGAVCApplicationRule() *WSGAVCApplicationRule {
 	return m
 }
 
+// WSGAVCCreateApplicationPolicyProfile
+//
+// Definition: avc_createApplicationPolicyProfile
 type WSGAVCCreateApplicationPolicyProfile struct {
 	// ApplicationRules
 	// Constraints:
@@ -234,6 +258,9 @@ func NewWSGAVCCreateApplicationPolicyProfile() *WSGAVCCreateApplicationPolicyPro
 	return m
 }
 
+// WSGAVCCreateUserDefinedProfile
+//
+// Definition: avc_createUserDefinedProfile
 type WSGAVCCreateUserDefinedProfile struct {
 	DestIp *WSGCommonIpAddress `json:"destIp,omitempty"`
 
@@ -276,6 +303,9 @@ func NewWSGAVCCreateUserDefinedProfile() *WSGAVCCreateUserDefinedProfile {
 	return m
 }
 
+// WSGAVCDeleteBulk
+//
+// Definition: avc_deleteBulk
 type WSGAVCDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -285,6 +315,9 @@ func NewWSGAVCDeleteBulk() *WSGAVCDeleteBulk {
 	return m
 }
 
+// WSGAVCModifyApplicationPolicyProfile
+//
+// Definition: avc_modifyApplicationPolicyProfile
 type WSGAVCModifyApplicationPolicyProfile struct {
 	ApplicationRules []*WSGAVCApplicationRule `json:"applicationRules,omitempty"`
 
@@ -306,6 +339,9 @@ func NewWSGAVCModifyApplicationPolicyProfile() *WSGAVCModifyApplicationPolicyPro
 	return m
 }
 
+// WSGAVCModifyUserDefinedProfile
+//
+// Definition: avc_modifyUserDefinedProfile
 type WSGAVCModifyUserDefinedProfile struct {
 	DestIp *WSGCommonIpAddress `json:"destIp,omitempty"`
 
@@ -338,6 +374,9 @@ func NewWSGAVCModifyUserDefinedProfile() *WSGAVCModifyUserDefinedProfile {
 	return m
 }
 
+// WSGAVCSignaturePackage
+//
+// Definition: avc_signaturePackage
 type WSGAVCSignaturePackage struct {
 	// FileName
 	// Name of the Signature Package
@@ -361,6 +400,9 @@ func NewWSGAVCSignaturePackage() *WSGAVCSignaturePackage {
 	return m
 }
 
+// WSGAVCUserDefinedProfile
+//
+// Definition: avc_userDefinedProfile
 type WSGAVCUserDefinedProfile struct {
 	// AppId
 	// AppId for Application Policy's User defined rule type
@@ -433,6 +475,9 @@ func NewWSGAVCUserDefinedProfile() *WSGAVCUserDefinedProfile {
 	return m
 }
 
+// WSGAVCUserDefinedProfileList
+//
+// Definition: avc_userDefinedProfileList
 type WSGAVCUserDefinedProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 

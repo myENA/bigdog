@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDevicePolicyInDomainLevelService() *WSGDevicePolicyInDo
 
 // AddDevicePolicy
 //
+// Operation ID: addDevicePolicy
+//
 // Use this API command to create a Device Policy profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGDevicePolicyInDomainLevelService) AddDevicePolicy(ctx context.Contex
 
 // DeleteDevicePolicy
 //
+// Operation ID: deleteDevicePolicy
+//
 // Use this API command to delete a list of Device Policy profile.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicy(ctx context.Con
 
 // DeleteDevicePolicyById
 //
+// Operation ID: deleteDevicePolicyById
+//
 // Use this API command to delete a Device Policy profile.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicyById(ctx context
 }
 
 // FindDevicePolicy
+//
+// Operation ID: findDevicePolicy
 //
 // Use this API command to retrieve list of Device Policy profiles.
 //
@@ -144,6 +152,8 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicy(ctx context.Conte
 
 // FindDevicePolicyById
 //
+// Operation ID: findDevicePolicyById
+//
 // Use this API command to retrieve a Device Policy profile.
 //
 // Required Parameters:
@@ -170,6 +180,8 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyById(ctx context.C
 }
 
 // FindDevicePolicyByQueryCriteria
+//
+// Operation ID: findDevicePolicyByQueryCriteria
 //
 // Query Device Policy Profile with specified filters.
 //
@@ -199,6 +211,8 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyByQueryCriteria(ct
 }
 
 // UpdateDevicePolicyById
+//
+// Operation ID: updateDevicePolicyById
 //
 // Use this API command to update a Device Policy profile.
 //

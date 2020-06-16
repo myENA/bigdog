@@ -23,6 +23,8 @@ func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificat
 
 // AddRkszonesRogueApPoliciesByZoneId
 //
+// Operation ID: addRkszonesRogueApPoliciesByZoneId
+//
 // Use this API command to create rogue AP policy.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId
 
 // DeleteRkszonesRogueApPoliciesById
 //
+// Operation ID: deleteRkszonesRogueApPoliciesById
+//
 // Use this API command to delete rogue AP policy.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(
 }
 
 // DeleteRkszonesRogueApPoliciesByZoneId
+//
+// Operation ID: deleteRkszonesRogueApPoliciesByZoneId
 //
 // Use this API command to delete bulk rogue AP policy.
 //
@@ -118,6 +124,8 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZon
 
 // FindRkszonesRogueApPoliciesById
 //
+// Operation ID: findRkszonesRogueApPoliciesById
+//
 // Use this API command to retrieve rogue AP policy.
 //
 // Required Parameters:
@@ -148,6 +156,8 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ct
 
 // FindRkszonesRogueApPoliciesByZoneId
 //
+// Operation ID: findRkszonesRogueApPoliciesByZoneId
+//
 // Use this API command to retrieve a list of rogue AP policy.
 //
 // Required Parameters:
@@ -174,6 +184,8 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneI
 }
 
 // PartialUpdateRkszonesRogueApPoliciesById
+//
+// Operation ID: partialUpdateRkszonesRogueApPoliciesById
 //
 // Use this API command to modify rogue AP policy.
 //

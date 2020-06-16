@@ -21,6 +21,9 @@ func (ss *WSGService) WSGSCGUserService() *WSGSCGUserService {
 	return NewWSGSCGUserService(ss.apiClient)
 }
 
+// WSGSCGUserCreateScgUser
+//
+// Definition: scguser_createScgUser
 type WSGSCGUserCreateScgUser struct {
 	// AccountLockout
 	// The number of successive failures before a lockout will occur. (System default admin ONLY)
@@ -132,6 +135,9 @@ func NewWSGSCGUserCreateScgUser() *WSGSCGUserCreateScgUser {
 	return m
 }
 
+// WSGSCGUserGetScgUser
+//
+// Definition: scguser_getScgUser
 type WSGSCGUserGetScgUser struct {
 	// AccountLockout
 	// Constraints:
@@ -269,6 +275,9 @@ func NewWSGSCGUserGetScgUser() *WSGSCGUserGetScgUser {
 	return m
 }
 
+// WSGSCGUserModifyScgUser
+//
+// Definition: scguser_modifyScgUser
 type WSGSCGUserModifyScgUser struct {
 	// AccountLockout
 	// Constraints:
@@ -380,6 +389,9 @@ func NewWSGSCGUserModifyScgUser() *WSGSCGUserModifyScgUser {
 	return m
 }
 
+// WSGSCGUserPatchScgUserGroup
+//
+// Definition: scguser_patchScgUserGroup
 type WSGSCGUserPatchScgUserGroup struct {
 	AccountSecurityProfileId *string `json:"accountSecurityProfileId,omitempty"`
 
@@ -440,6 +452,9 @@ func NewWSGSCGUserPatchScgUserGroup() *WSGSCGUserPatchScgUserGroup {
 	return m
 }
 
+// WSGSCGUserQueryCriteria
+//
+// Definition: scguser_queryCriteria
 type WSGSCGUserQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
@@ -499,6 +514,9 @@ func NewWSGSCGUserQueryCriteria() *WSGSCGUserQueryCriteria {
 	return m
 }
 
+// WSGSCGUserQueryCriteriaFiltersType
+//
+// Definition: scguser_queryCriteriaFiltersType
 type WSGSCGUserQueryCriteriaFiltersType struct {
 	// Operator
 	// operator
@@ -525,6 +543,9 @@ func NewWSGSCGUserQueryCriteriaFiltersType() *WSGSCGUserQueryCriteriaFiltersType
 	return m
 }
 
+// WSGSCGUserAuditId
+//
+// Definition: scguser_scgUserAuditId
 type WSGSCGUserAuditId struct {
 	// Id
 	// the identifier of the SCG user
@@ -536,6 +557,9 @@ func NewWSGSCGUserAuditId() *WSGSCGUserAuditId {
 	return m
 }
 
+// WSGSCGUserGroup
+//
+// Definition: scguser_scgUserGroup
 type WSGSCGUserGroup struct {
 	// AccountSecurityProfileId
 	// Constraints:
@@ -628,6 +652,9 @@ func NewWSGSCGUserGroup() *WSGSCGUserGroup {
 	return m
 }
 
+// WSGSCGUserGroupAuditId
+//
+// Definition: scguser_scgUserGroupAuditId
 type WSGSCGUserGroupAuditId struct {
 	// Id
 	// the identifier of the SCG user group
@@ -639,6 +666,9 @@ func NewWSGSCGUserGroupAuditId() *WSGSCGUserGroupAuditId {
 	return m
 }
 
+// WSGSCGUserGroupList
+//
+// Definition: scguser_scgUserGroupList
 type WSGSCGUserGroupList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -656,6 +686,9 @@ func NewWSGSCGUserGroupList() *WSGSCGUserGroupList {
 	return m
 }
 
+// WSGSCGUserGroupPermission
+//
+// Definition: scguser_scgUserGroupPermission
 type WSGSCGUserGroupPermission struct {
 	// Access
 	// Access level
@@ -695,6 +728,9 @@ func NewWSGSCGUserGroupPermission() *WSGSCGUserGroupPermission {
 	return m
 }
 
+// WSGSCGUserGroupPermissionItemsType
+//
+// Definition: scguser_scgUserGroupPermissionItemsType
 type WSGSCGUserGroupPermissionItemsType struct {
 	// Access
 	// Constraints:
@@ -711,6 +747,9 @@ func NewWSGSCGUserGroupPermissionItemsType() *WSGSCGUserGroupPermissionItemsType
 	return m
 }
 
+// WSGSCGUserGroupPermissionList
+//
+// Definition: scguser_scgUserGroupPermissionList
 type WSGSCGUserGroupPermissionList struct {
 	// Extra
 	// Any additional response data.
@@ -732,6 +771,8 @@ func NewWSGSCGUserGroupPermissionList() *WSGSCGUserGroupPermissionList {
 
 // WSGSCGUserGroupPermissionListExtraType
 //
+// Definition: scguser_scgUserGroupPermissionListExtraType
+//
 // Any additional response data.
 type WSGSCGUserGroupPermissionListExtraType struct {
 	// IsSuperAdmin
@@ -748,6 +789,9 @@ func NewWSGSCGUserGroupPermissionListExtraType() *WSGSCGUserGroupPermissionListE
 	return m
 }
 
+// WSGSCGUserGroupPermissionWithoutDetailItems
+//
+// Definition: scguser_scgUserGroupPermissionWithoutDetailItems
 type WSGSCGUserGroupPermissionWithoutDetailItems struct {
 	// Access
 	// Access level
@@ -775,6 +819,9 @@ func NewWSGSCGUserGroupPermissionWithoutDetailItems() *WSGSCGUserGroupPermission
 	return m
 }
 
+// WSGSCGUserGroupResourceGroup
+//
+// Definition: scguser_scgUserGroupResourceGroup
 type WSGSCGUserGroupResourceGroup struct {
 	// Id
 	// the identifier of the SCG resource group
@@ -796,6 +843,9 @@ func NewWSGSCGUserGroupResourceGroup() *WSGSCGUserGroupResourceGroup {
 	return m
 }
 
+// WSGSCGUserGroupRoleLabelValue
+//
+// Definition: scguser_scgUserGroupRoleLabelValue
 type WSGSCGUserGroupRoleLabelValue struct {
 	// Label
 	// Role display name
@@ -811,6 +861,9 @@ func NewWSGSCGUserGroupRoleLabelValue() *WSGSCGUserGroupRoleLabelValue {
 	return m
 }
 
+// WSGSCGUserGroupRoleLabelValueList
+//
+// Definition: scguser_scgUserGroupRoleLabelValueList
 type WSGSCGUserGroupRoleLabelValueList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -826,6 +879,9 @@ func NewWSGSCGUserGroupRoleLabelValueList() *WSGSCGUserGroupRoleLabelValueList {
 	return m
 }
 
+// WSGSCGUserList
+//
+// Definition: scguser_scgUserList
 type WSGSCGUserList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -844,6 +900,8 @@ func NewWSGSCGUserList() *WSGSCGUserList {
 }
 
 // AddUsers
+//
+// Operation ID: addUsers
 //
 // Add SCG user.
 //
@@ -874,6 +932,8 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 
 // DeleteUsers
 //
+// Operation ID: deleteUsers
+//
 // Delete multiple SCG user.
 //
 // Request Body:
@@ -901,6 +961,8 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 
 // DeleteUsersByUserId
 //
+// Operation ID: deleteUsersByUserId
+//
 // Delete SCG user.
 //
 // Required Parameters:
@@ -926,6 +988,8 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 }
 
 // FindUsersByQueryCriteria
+//
+// Operation ID: findUsersByQueryCriteria
 //
 // Query SCG users.
 //
@@ -956,6 +1020,8 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 
 // FindUsersByUserId
 //
+// Operation ID: findUsersByUserId
+//
 // Get SCG user.
 //
 // Required Parameters:
@@ -982,6 +1048,8 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 }
 
 // PartialUpdateUsersByUserId
+//
+// Operation ID: partialUpdateUsersByUserId
 //
 // Update SCG user.
 //

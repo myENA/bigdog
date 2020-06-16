@@ -21,6 +21,9 @@ func (ss *WSGService) WSGL2AccessControlService() *WSGL2AccessControlService {
 	return NewWSGL2AccessControlService(ss.apiClient)
 }
 
+// WSGL2AccessControlCreateL2AccessControl
+//
+// Definition: l2AccessControl_createL2AccessControl
 type WSGL2AccessControlCreateL2AccessControl struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -55,6 +58,9 @@ func NewWSGL2AccessControlCreateL2AccessControl() *WSGL2AccessControlCreateL2Acc
 	return m
 }
 
+// WSGL2AccessControlEtherTypeObject
+//
+// Definition: l2AccessControl_etherTypeObject
 type WSGL2AccessControlEtherTypeObject struct {
 	EtherType *WSGCommonEtherType `json:"etherType,omitempty"`
 }
@@ -64,6 +70,9 @@ func NewWSGL2AccessControlEtherTypeObject() *WSGL2AccessControlEtherTypeObject {
 	return m
 }
 
+// WSGL2AccessControl
+//
+// Definition: l2AccessControl_l2AccessControl
 type WSGL2AccessControl struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -121,6 +130,9 @@ func NewWSGL2AccessControl() *WSGL2AccessControl {
 	return m
 }
 
+// WSGL2AccessControlList
+//
+// Definition: l2AccessControl_l2AccessControlList
 type WSGL2AccessControlList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -138,6 +150,9 @@ func NewWSGL2AccessControlList() *WSGL2AccessControlList {
 	return m
 }
 
+// WSGL2AccessControlModifyL2AccessControl
+//
+// Definition: l2AccessControl_modifyL2AccessControl
 type WSGL2AccessControlModifyL2AccessControl struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -167,6 +182,9 @@ func NewWSGL2AccessControlModifyL2AccessControl() *WSGL2AccessControlModifyL2Acc
 	return m
 }
 
+// WSGL2AccessControlRuleObject
+//
+// Definition: l2AccessControl_ruleObject
 type WSGL2AccessControlRuleObject struct {
 	// Mac
 	// Constraints:
@@ -180,6 +198,8 @@ func NewWSGL2AccessControlRuleObject() *WSGL2AccessControlRuleObject {
 }
 
 // AddRkszonesL2ACLByZoneId
+//
+// Operation ID: addRkszonesL2ACLByZoneId
 //
 // Create a new L2 Access Control (for Firmware Versions less than 5.2).
 //
@@ -215,6 +235,8 @@ func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context
 
 // DeleteRkszonesL2ACLById
 //
+// Operation ID: deleteRkszonesL2ACLById
+//
 // Delete an L2 Access Control (for Firmware Versions less than 5.2).
 //
 // Required Parameters:
@@ -243,6 +265,8 @@ func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context,
 }
 
 // FindRkszonesL2ACLById
+//
+// Operation ID: findRkszonesL2ACLById
 //
 // Retrieve an L2 Access Control (for Firmware Versions less than 5.2).
 //
@@ -273,6 +297,8 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, i
 }
 
 // FindRkszonesL2ACLByZoneId
+//
+// Operation ID: findRkszonesL2ACLByZoneId
 //
 // Retrieve a list of L2 Access Control (for Firmware Versions less than 5.2).
 //
@@ -313,6 +339,8 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Contex
 
 // FindServicesL2AccessControlByQueryCriteria
 //
+// Operation ID: findServicesL2AccessControlByQueryCriteria
+//
 // Query L2 AccessControl Profiles with specified filters.
 //
 // Request Body:
@@ -341,6 +369,8 @@ func (s *WSGL2AccessControlService) FindServicesL2AccessControlByQueryCriteria(c
 }
 
 // PartialUpdateRkszonesL2ACLById
+//
+// Operation ID: partialUpdateRkszonesL2ACLById
 //
 // Modify a specific L2 Access Control basic (for Firmware Versions less than 5.2).
 //

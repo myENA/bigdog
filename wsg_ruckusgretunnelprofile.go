@@ -23,6 +23,8 @@ func (ss *WSGService) WSGRuckusGRETunnelProfileService() *WSGRuckusGRETunnelProf
 
 // AddProfilesTunnelRuckusgre
 //
+// Operation ID: addProfilesTunnelRuckusgre
+//
 // Use this API command to create RuckusGRE tunnel profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx contex
 
 // DeleteProfilesTunnelRuckusgre
 //
+// Operation ID: deleteProfilesTunnelRuckusgre
+//
 // Use this API command to delete multiple RuckusGRE tunnel profile.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx con
 
 // DeleteProfilesTunnelRuckusgreById
 //
+// Operation ID: deleteProfilesTunnelRuckusgreById
+//
 // Use this API command to delete RuckusGRE tunnel profile.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx
 
 // FindProfilesTunnelRuckusgre
 //
+// Operation ID: findProfilesTunnelRuckusgre
+//
 // Use this API command to retrieve a list of RuckusGRE tunnel profile.
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx context.Context, mutators ...RequestMutator) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
@@ -126,6 +134,8 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx conte
 }
 
 // FindProfilesTunnelRuckusgreById
+//
+// Operation ID: findProfilesTunnelRuckusgreById
 //
 // Use this API command to retrieve RuckusGRE tunnel profile.
 //
@@ -153,6 +163,8 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx c
 }
 
 // FindProfilesTunnelRuckusgreByQueryCriteria
+//
+// Operation ID: findProfilesTunnelRuckusgreByQueryCriteria
 //
 // Use this API command to query a list of RuckusGRE tunnel profile.
 //
@@ -182,6 +194,8 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCri
 }
 
 // PartialUpdateProfilesTunnelRuckusgreById
+//
+// Operation ID: partialUpdateProfilesTunnelRuckusgreById
 //
 // Use this API command to modify the configuration of RuckusGRE tunnel profile.
 //

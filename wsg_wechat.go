@@ -23,6 +23,8 @@ func (ss *WSGService) WSGWechatService() *WSGWechatService {
 
 // AddRkszonesPortalsWechatByZoneId
 //
+// Operation ID: addRkszonesPortalsWechatByZoneId
+//
 // Use this API command to create wechat portal.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context,
 
 // DeleteRkszonesPortalsWechatById
 //
+// Operation ID: deleteRkszonesPortalsWechatById
+//
 // Use this API command to delete wechat portal.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, 
 }
 
 // FindRkszonesPortalsWechatById
+//
+// Operation ID: findRkszonesPortalsWechatById
 //
 // Use this API command to retrieve wechat portal by ID.
 //
@@ -115,6 +121,8 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, id
 }
 
 // FindRkszonesPortalsWechatByZoneId
+//
+// Operation ID: findRkszonesPortalsWechatByZoneId
 //
 // Use this API command to retrieve a list of wechat portal.
 //
@@ -155,6 +163,8 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context
 
 // FindServicesWechatProfileByQueryCriteria
 //
+// Operation ID: findServicesWechatProfileByQueryCriteria
+//
 // Query Wechat Portals with specified filters.
 //
 // Request Body:
@@ -183,6 +193,8 @@ func (s *WSGWechatService) FindServicesWechatProfileByQueryCriteria(ctx context.
 }
 
 // PartialUpdateRkszonesPortalsWechatById
+//
+// Operation ID: partialUpdateRkszonesPortalsWechatById
 //
 // Use this API command to modify the configuration of wechat portal.
 //

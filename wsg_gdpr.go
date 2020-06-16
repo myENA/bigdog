@@ -21,6 +21,9 @@ func (ss *WSGService) WSGGDPRService() *WSGGDPRService {
 	return NewWSGGDPRService(ss.apiClient)
 }
 
+// WSGGDPRFtp
+//
+// Definition: gdpr_ftp
 type WSGGDPRFtp struct {
 	// FtpHost
 	// IP/DN of FTP
@@ -60,6 +63,9 @@ func NewWSGGDPRFtp() *WSGGDPRFtp {
 	return m
 }
 
+// WSGGDPRReport
+//
+// Definition: gdpr_report
 type WSGGDPRReport struct {
 	// Action
 	// Request action
@@ -83,6 +89,8 @@ func NewWSGGDPRReport() *WSGGDPRReport {
 }
 
 // AddGdprReport
+//
+// Operation ID: addGdprReport
 //
 // Use this API command to execute a client-related data search or delete task and upload a report to FTP. Also use this API to check task progress or to interrupt it.
 //

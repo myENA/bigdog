@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMLAGSettingService() *SwitchMLAGSettingService {
 
 // AddLagConfigs
 //
+// Operation ID: addLagConfigs
+//
 // Use this API command to Create LAG Config.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 
 // DeleteLagConfigs
 //
+// Operation ID: deleteLagConfigs
+//
 // Use this API command to Delete LAG Config by Id list.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *S
 
 // DeleteLagConfigsById
 //
+// Operation ID: deleteLagConfigsById
+//
 // Use this API command to Delete LAG Config.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id 
 
 // FindLagConfigs
 //
+// Operation ID: findLagConfigs
+//
 // Use this API command to Retrieve all LAG Config list.
 func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context, mutators ...RequestMutator) (*SwitchMLAGConfigList, *APIResponseMeta, error) {
 	var (
@@ -126,6 +134,8 @@ func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context, mutators 
 }
 
 // FindLagConfigsById
+//
+// Operation ID: findLagConfigsById
 //
 // Use this API command to Retrieve Specific LAG Config.
 //
@@ -153,6 +163,8 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 }
 
 // FindLagConfigsByQueryCriteria
+//
+// Operation ID: findLagConfigsByQueryCriteria
 //
 // Use this API command to Retrieve LAG Config list.
 //
@@ -182,6 +194,8 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 }
 
 // UpdateLagConfigsById
+//
+// Operation ID: updateLagConfigsById
 //
 // Use this API command to Update LAG Config.
 //

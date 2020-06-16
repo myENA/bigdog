@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGSyslogModifySyslogSettings
+//
+// Definition: syslog_modifySyslogSettings
 type WSGSyslogModifySyslogSettings struct {
 	// AppLogFacility
 	// appLogFacility: Local0-Local7
@@ -61,6 +64,9 @@ func NewWSGSyslogModifySyslogSettings() *WSGSyslogModifySyslogSettings {
 	return m
 }
 
+// WSGSyslogPrimaryServer
+//
+// Definition: syslog_primaryServer
 type WSGSyslogPrimaryServer struct {
 	// Host
 	// address of the syslog server.
@@ -82,6 +88,9 @@ func NewWSGSyslogPrimaryServer() *WSGSyslogPrimaryServer {
 	return m
 }
 
+// WSGSyslogPriority
+//
+// Definition: syslog_priority
 type WSGSyslogPriority struct {
 	// Critical
 	// Event severity
@@ -125,6 +134,9 @@ func NewWSGSyslogPriority() *WSGSyslogPriority {
 	return m
 }
 
+// WSGSyslogSecondaryServer
+//
+// Definition: syslog_secondaryServer
 type WSGSyslogSecondaryServer struct {
 	// Host
 	// address of the syslog server.
@@ -152,6 +164,9 @@ func NewWSGSyslogSecondaryServer() *WSGSyslogSecondaryServer {
 	return m
 }
 
+// WSGSyslogServerSetting
+//
+// Definition: syslog_syslogServerSetting
 type WSGSyslogServerSetting struct {
 	// AppLogFacility
 	// appLogFacility: Local0-Local7

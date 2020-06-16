@@ -23,6 +23,8 @@ func (ss *WSGService) WSGSNMPAgentService() *WSGSNMPAgentService {
 
 // FindSystemSnmpAgent
 //
+// Operation ID: findSystemSnmpAgent
+//
 // Retrieve SNMP Agent sertting.
 func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSnmpAgentConfiguration, *APIResponseMeta, error) {
 	var (
@@ -44,6 +46,8 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context, mutators 
 }
 
 // UpdateSystemSnmpAgent
+//
+// Operation ID: updateSystemSnmpAgent
 //
 // Modify syslog server setting.
 //

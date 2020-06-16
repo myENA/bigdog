@@ -23,6 +23,8 @@ func (ss *WSGService) WSGRuckusWirelessAPZoneService() *WSGRuckusWirelessAPZoneS
 
 // AddRkszones
 //
+// Operation ID: addRkszones
+//
 // Use this API command to create a new Ruckus Wireless AP zone.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszones(ctx context.Context, body *
 }
 
 // AddRkszonesDual
+//
+// Operation ID: addRkszonesDual
 //
 // Use this API command to create a new Ruckus Wireless AP zone of IPv4/IPv6.
 //
@@ -81,6 +85,8 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesDual(ctx context.Context, bo
 
 // AddRkszonesIpv6
 //
+// Operation ID: addRkszonesIpv6
+//
 // Use this API command to create a new Ruckus Wireless AP zone of IPv6.
 //
 // Request Body:
@@ -110,6 +116,8 @@ func (s *WSGRuckusWirelessAPZoneService) AddRkszonesIpv6(ctx context.Context, bo
 
 // DeleteRkszonesAltitudeById
 //
+// Operation ID: deleteRkszonesAltitudeById
+//
 // Use this API command to disable altitude configuration of zone.
 //
 // Required Parameters:
@@ -135,6 +143,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesAltitudeById(ctx context.
 }
 
 // DeleteRkszonesBackgroundScanning24ById
+//
+// Operation ID: deleteRkszonesBackgroundScanning24ById
 //
 // Use this API command to disable background scanning 2.4GHz radio configuration for APs that belong to a zone.
 //
@@ -162,6 +172,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning24ById(
 
 // DeleteRkszonesBackgroundScanning50ById
 //
+// Operation ID: deleteRkszonesBackgroundScanning50ById
+//
 // Use this API command to disable background scanning 5GHz radio configuration for APs that belong to a zone.
 //
 // Required Parameters:
@@ -187,6 +199,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesBackgroundScanning50ById(
 }
 
 // DeleteRkszonesById
+//
+// Operation ID: deleteRkszonesById
 //
 // Use this API command to delete a zone.
 //
@@ -214,6 +228,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesById(ctx context.Context,
 
 // DeleteRkszonesClientAdmissionControl24ById
 //
+// Operation ID: deleteRkszonesClientAdmissionControl24ById
+//
 // Use this API command to disable client admission control 2.4GHz radio configuration for APs that belong to a zone.
 //
 // Required Parameters:
@@ -239,6 +255,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl24B
 }
 
 // DeleteRkszonesClientAdmissionControl50ById
+//
+// Operation ID: deleteRkszonesClientAdmissionControl50ById
 //
 // Use this API command to disable client admission control 5GHz radio configuration for APs that belong to a zone.
 //
@@ -266,6 +284,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesClientAdmissionControl50B
 
 // DeleteRkszonesIpsecProfilesById
 //
+// Operation ID: deleteRkszonesIpsecProfilesById
+//
 // Use this API command to Delete IPsec profiles.
 //
 // Required Parameters:
@@ -291,6 +311,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesIpsecProfilesById(ctx con
 }
 
 // DeleteRkszonesLoadBalancingBandBalancingById
+//
+// Operation ID: deleteRkszonesLoadBalancingBandBalancingById
 //
 // Use this API command to disable band balancing for APs that belong to a zone.
 //
@@ -318,6 +340,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingBandBalancin
 
 // DeleteRkszonesLoadBalancingById
 //
+// Operation ID: deleteRkszonesLoadBalancingById
+//
 // Use this API command to disable overall load balancing configuration for APs that belong to a zone.
 //
 // Required Parameters:
@@ -343,6 +367,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingById(ctx con
 }
 
 // DeleteRkszonesLoadBalancingClientLoadBalancing24ById
+//
+// Operation ID: deleteRkszonesLoadBalancingClientLoadBalancing24ById
 //
 // Use this API command to disable client load balancing 2.4GHz radio configuration for APs that belong to a zone.
 //
@@ -370,6 +396,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingClientLoadBa
 
 // DeleteRkszonesLoadBalancingClientLoadBalancing50ById
 //
+// Operation ID: deleteRkszonesLoadBalancingClientLoadBalancing50ById
+//
 // Use this API command to disable client load balancing 5GHz radio configuration for APs that belong to a zone.
 //
 // Required Parameters:
@@ -395,6 +423,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLoadBalancingClientLoadBa
 }
 
 // DeleteRkszonesLocationBasedServiceById
+//
+// Operation ID: deleteRkszonesLocationBasedServiceById
 //
 // Use this API command to disable location based service for APs that belong to a zone.
 //
@@ -422,6 +452,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesLocationBasedServiceById(
 
 // DeleteRkszonesMeshById
 //
+// Operation ID: deleteRkszonesMeshById
+//
 // Use this API command to disable mesh networking.
 //
 // Required Parameters:
@@ -447,6 +479,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesMeshById(ctx context.Cont
 }
 
 // DeleteRkszonesRecoverySsidById
+//
+// Operation ID: deleteRkszonesRecoverySsidById
 //
 // Use this API command to clear recovery ssid setting of a zone.
 //
@@ -474,6 +508,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRecoverySsidById(ctx cont
 
 // DeleteRkszonesRogueById
 //
+// Operation ID: deleteRkszonesRogueById
+//
 // Use this API command to disable rogue AP detection for APs that belong to a zone.
 //
 // Required Parameters:
@@ -499,6 +535,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesRogueById(ctx context.Con
 }
 
 // DeleteRkszonesSmartMonitorById
+//
+// Operation ID: deleteRkszonesSmartMonitorById
 //
 // Use this API command to disable smart monitor for APs that belong to a zone.
 //
@@ -526,6 +564,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSmartMonitorById(ctx cont
 
 // DeleteRkszonesSnmpAgentById
 //
+// Operation ID: deleteRkszonesSnmpAgentById
+//
 // Use this API command to clear SNMPv2 and SNMPv3 agent that belong to a zone.
 //
 // Required Parameters:
@@ -551,6 +591,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSnmpAgentById(ctx context
 }
 
 // DeleteRkszonesSoftGreTunnelProfliesById
+//
+// Operation ID: deleteRkszonesSoftGreTunnelProfliesById
 //
 // Use this API command to Delete IPsec profiles.
 //
@@ -578,6 +620,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSoftGreTunnelProfliesById
 
 // DeleteRkszonesSyslogById
 //
+// Operation ID: deleteRkszonesSyslogById
+//
 // Use this API command to disable syslog configuration for APs that belong to a zone.
 //
 // Required Parameters:
@@ -604,6 +648,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesSyslogById(ctx context.Co
 
 // DeleteRkszonesVenueProfileById
 //
+// Operation ID: deleteRkszonesVenueProfileById
+//
 // Use this API command to clear Hotspot 2.0 venue profile for APs that belong to a zone.
 //
 // Required Parameters:
@@ -629,6 +675,8 @@ func (s *WSGRuckusWirelessAPZoneService) DeleteRkszonesVenueProfileById(ctx cont
 }
 
 // FindRkszones
+//
+// Operation ID: findRkszones
 //
 // Use this API command to retrieve the list of Ruckus Wireless AP zones that belong to a domain.
 //
@@ -669,6 +717,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszones(ctx context.Context, optio
 
 // FindRkszonesApFirmwareByZoneId
 //
+// Operation ID: findRkszonesApFirmwareByZoneId
+//
 // Use this API command to retrieve AP Firmware the list that belong to a zone.
 //
 // Required Parameters:
@@ -695,6 +745,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApFirmwareByZoneId(ctx cont
 }
 
 // FindRkszonesApmodelByModel
+//
+// Operation ID: findRkszonesApmodelByModel
 //
 // Use this API command to retrieve AP model specific configuration that belong to a zone.
 //
@@ -726,6 +778,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelByModel(ctx context.
 
 // FindRkszonesApmodelCommonAttributeByModel
 //
+// Operation ID: findRkszonesApmodelCommonAttributeByModel
+//
 // Use this API command to retrieve AP model common attribute that belong to a zone.
 //
 // Required Parameters:
@@ -756,6 +810,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesApmodelCommonAttributeByMod
 
 // FindRkszonesAvailableIpsecProfilesByZoneId
 //
+// Operation ID: findRkszonesAvailableIpsecProfilesByZoneId
+//
 // Get available IPSec tunnel profiles of this Zone.
 //
 // Required Parameters:
@@ -782,6 +838,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableIpsecProfilesByZon
 }
 
 // FindRkszonesAvailableTunnelProfilesByZoneId
+//
+// Operation ID: findRkszonesAvailableTunnelProfilesByZoneId
 //
 // Get available GRE tunnel profiles of this Zone.
 //
@@ -810,6 +868,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesAvailableTunnelProfilesByZo
 
 // FindRkszonesById
 //
+// Operation ID: findRkszonesById
+//
 // Use this API command to retrieve Ruckus Wireless AP zones configuration.
 //
 // Required Parameters:
@@ -837,6 +897,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesById(ctx context.Context, i
 
 // FindRkszonesMeshById
 //
+// Operation ID: findRkszonesMeshById
+//
 // Use this API command to retrieve the mesh configuration of a zone.
 //
 // Required Parameters:
@@ -863,6 +925,8 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszonesMeshById(ctx context.Contex
 }
 
 // PartialUpdateRkszonesById
+//
+// Operation ID: partialUpdateRkszonesById
 //
 // Use this API command to modify the configuration of a zone.
 //
@@ -896,6 +960,8 @@ func (s *WSGRuckusWirelessAPZoneService) PartialUpdateRkszonesById(ctx context.C
 
 // UpdateRkszonesApFirmwareByZoneId
 //
+// Operation ID: updateRkszonesApFirmwareByZoneId
+//
 // Use this API command to change the AP Firmware that belong to a zone.
 //
 // Request Body:
@@ -927,6 +993,8 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApFirmwareByZoneId(ctx co
 }
 
 // UpdateRkszonesApmodelByModel
+//
+// Operation ID: updateRkszonesApmodelByModel
 //
 // Use this API command to modify the AP model specific configuration that belong to a zone.
 //
@@ -962,6 +1030,8 @@ func (s *WSGRuckusWirelessAPZoneService) UpdateRkszonesApmodelByModel(ctx contex
 }
 
 // UpdateRkszonesById
+//
+// Operation ID: updateRkszonesById
 //
 // Use this API command to modify entire information of a zone.
 //

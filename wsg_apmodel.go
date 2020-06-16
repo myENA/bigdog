@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAPModel
+//
+// Definition: apmodel_apModel
 type WSGAPModel struct {
 	CellularSettings *WSGAPModelCellularSettings `json:"cellularSettings,omitempty"`
 
@@ -63,6 +66,9 @@ func NewWSGAPModel() *WSGAPModel {
 	return m
 }
 
+// WSGAPModelAuthenticatorAAAServer
+//
+// Definition: apmodel_authenticatorAAAServer
 type WSGAPModelAuthenticatorAAAServer struct {
 	// EnableUseSCGasProxy
 	// Constraints:
@@ -77,6 +83,9 @@ func NewWSGAPModelAuthenticatorAAAServer() *WSGAPModelAuthenticatorAAAServer {
 	return m
 }
 
+// WSGAPModelCellularSettings
+//
+// Definition: apmodel_cellularSettings
 type WSGAPModelCellularSettings struct {
 	// DataRoaming
 	// Constraints:
@@ -145,6 +154,9 @@ func NewWSGAPModelCellularSettings() *WSGAPModelCellularSettings {
 	return m
 }
 
+// WSGAPModelCommonAttribute
+//
+// Definition: apmodel_commonAttribute
 type WSGAPModelCommonAttribute struct {
 	AllowDfsCountry *string `json:"allowDfsCountry,omitempty"`
 
@@ -264,6 +276,9 @@ func NewWSGAPModelCommonAttribute() *WSGAPModelCommonAttribute {
 	return m
 }
 
+// WSGAPModelExternalAntenna
+//
+// Definition: apmodel_externalAntenna
 type WSGAPModelExternalAntenna struct {
 	// ChainMask
 	// Constraints:
@@ -289,6 +304,9 @@ func NewWSGAPModelExternalAntenna() *WSGAPModelExternalAntenna {
 	return m
 }
 
+// WSGAPModelLacpSetting
+//
+// Definition: apmodel_lacpSetting
 type WSGAPModelLacpSetting struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
@@ -300,6 +318,9 @@ func NewWSGAPModelLacpSetting() *WSGAPModelLacpSetting {
 	return m
 }
 
+// WSGAPModelLanPort8021X
+//
+// Definition: apmodel_lanPort8021X
 type WSGAPModelLanPort8021X struct {
 	Authenticator *WSGAPModelLanPortAuthenticator `json:"authenticator,omitempty"`
 
@@ -317,6 +338,9 @@ func NewWSGAPModelLanPort8021X() *WSGAPModelLanPort8021X {
 	return m
 }
 
+// WSGAPModelLanPortAuthenticator
+//
+// Definition: apmodel_lanPortAuthenticator
 type WSGAPModelLanPortAuthenticator struct {
 	Accounting *WSGAPModelAuthenticatorAAAServer `json:"accounting,omitempty"`
 
@@ -335,6 +359,9 @@ func NewWSGAPModelLanPortAuthenticator() *WSGAPModelLanPortAuthenticator {
 	return m
 }
 
+// WSGAPModelLanPortSetting
+//
+// Definition: apmodel_lanPortSetting
 type WSGAPModelLanPortSetting struct {
 	// Enabled
 	// Constraints:
@@ -369,6 +396,9 @@ func NewWSGAPModelLanPortSetting() *WSGAPModelLanPortSetting {
 	return m
 }
 
+// WSGAPModelLanPortSupplicant
+//
+// Definition: apmodel_lanPortSupplicant
 type WSGAPModelLanPortSupplicant struct {
 	// Password
 	// Constraints:
@@ -394,6 +424,9 @@ func NewWSGAPModelLanPortSupplicant() *WSGAPModelLanPortSupplicant {
 	return m
 }
 
+// WSGAPModelLldpSetting
+//
+// Definition: apmodel_lldpSetting
 type WSGAPModelLldpSetting struct {
 	// AdvertiseIntervalInSec
 	// Constraints:

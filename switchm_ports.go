@@ -26,6 +26,8 @@ func (ss *SwitchMService) SwitchMPortsService() *SwitchMPortsService {
 
 // AddSwitchPortsDetails
 //
+// Operation ID: addSwitchPortsDetails
+//
 // Use this API command to retrieve all the switch ports and its details currently managed by SmartZone.
 //
 // Request Body:
@@ -54,6 +56,8 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 }
 
 // AddSwitchPortsDetailsExport
+//
+// Operation ID: addSwitchPortsDetailsExport
 //
 // Download CSV of Switch Port Details
 //
@@ -85,6 +89,8 @@ func (s *SwitchMPortsService) AddSwitchPortsDetailsExport(ctx context.Context, b
 }
 
 // AddSwitchPortsSummary
+//
+// Operation ID: addSwitchPortsSummary
 //
 // Use this API command to retrieve ports summary based on status, speed of a switch, currently managed by SmartZone.
 //

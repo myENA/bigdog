@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGURLFilteringCreateUrlFilteringPolicy
+//
+// Definition: urlFiltering_createUrlFilteringPolicy
 type WSGURLFilteringCreateUrlFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
@@ -63,6 +66,9 @@ func NewWSGURLFilteringCreateUrlFilteringPolicy() *WSGURLFilteringCreateUrlFilte
 	return m
 }
 
+// WSGURLFilteringDeleteBulk
+//
+// Definition: urlFiltering_deleteBulk
 type WSGURLFilteringDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -72,6 +78,9 @@ func NewWSGURLFilteringDeleteBulk() *WSGURLFilteringDeleteBulk {
 	return m
 }
 
+// WSGURLFilteringModifyUrlFilteringPolicy
+//
+// Definition: urlFiltering_modifyUrlFilteringPolicy
 type WSGURLFilteringModifyUrlFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
@@ -125,6 +134,9 @@ func NewWSGURLFilteringModifyUrlFilteringPolicy() *WSGURLFilteringModifyUrlFilte
 	return m
 }
 
+// WSGURLFilteringBlockCategoriesList
+//
+// Definition: urlFiltering_urlFilteringBlockCategoriesList
 type WSGURLFilteringBlockCategoriesList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -140,6 +152,9 @@ func NewWSGURLFilteringBlockCategoriesList() *WSGURLFilteringBlockCategoriesList
 	return m
 }
 
+// WSGURLFilteringBlockCategory
+//
+// Definition: urlFiltering_urlFilteringBlockCategory
 type WSGURLFilteringBlockCategory struct {
 	// Id
 	// Identifier of the URL Filtering Category
@@ -155,6 +170,9 @@ func NewWSGURLFilteringBlockCategory() *WSGURLFilteringBlockCategory {
 	return m
 }
 
+// WSGURLFilteringPolicy
+//
+// Definition: urlFiltering_urlFilteringPolicy
 type WSGURLFilteringPolicy struct {
 	// Blacklist
 	// The blacklist of the URL Filtering policy
@@ -244,6 +262,9 @@ func NewWSGURLFilteringPolicy() *WSGURLFilteringPolicy {
 	return m
 }
 
+// WSGURLFilteringPolicyList
+//
+// Definition: urlFiltering_urlFilteringPolicyList
 type WSGURLFilteringPolicyList struct {
 	Extra interface{} `json:"extra,omitempty"`
 

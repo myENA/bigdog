@@ -24,6 +24,8 @@ func (ss *WSGService) WSGApplicationVisibilityControlService() *WSGApplicationVi
 
 // AddAvcApplicationPolicy
 //
+// Operation ID: addAvcApplicationPolicy
+//
 // Use this API command to create a new AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
 //
 // Request Body:
@@ -53,6 +55,8 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx con
 
 // AddAvcApplicationPolicyV2
 //
+// Operation ID: addAvcApplicationPolicyV2
+//
 // Use this API command to create a new AVC Application Policy profile.
 //
 // Request Body:
@@ -81,6 +85,8 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx c
 }
 
 // AddAvcSignaturePackageUpload
+//
+// Operation ID: addAvcSignaturePackageUpload
 //
 // Update AVC Signature Package by upload file (for 5.0 and Earlier Firmware Versions).
 //
@@ -113,6 +119,8 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ct
 
 // AddAvcSignaturePackageV2Upload
 //
+// Operation ID: addAvcSignaturePackageV2Upload
+//
 // Update AVC Signature Package by upload file.
 //
 // Form Data Parameters:
@@ -144,6 +152,8 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 
 // AddAvcUserDefined
 //
+// Operation ID: addAvcUserDefined
+//
 // Use this API command to create a new AVC User Defined profile.
 //
 // Request Body:
@@ -172,6 +182,8 @@ func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.C
 }
 
 // DeleteAvcApplicationPolicy
+//
+// Operation ID: deleteAvcApplicationPolicy
 //
 // Use this API command to delete a AVC Application Policy Profile (for 5.0 and Earlier Firmware Versions).
 //
@@ -202,6 +214,8 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx 
 
 // DeleteAvcApplicationPolicyById
 //
+// Operation ID: deleteAvcApplicationPolicyById
+//
 // Use this API command to delete a AVC Application Policy Profile (for 5.0 and Earlier Firmware Versions).
 //
 // Required Parameters:
@@ -227,6 +241,8 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(
 }
 
 // DeleteAvcApplicationPolicyV2
+//
+// Operation ID: deleteAvcApplicationPolicyV2
 //
 // Use this API command to delete a AVC Application Policy Profile.
 //
@@ -257,6 +273,8 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ct
 
 // DeleteAvcApplicationPolicyV2ById
 //
+// Operation ID: deleteAvcApplicationPolicyV2ById
+//
 // Use this API command to delete a AVC Application Policy Profile.
 //
 // Required Parameters:
@@ -282,6 +300,8 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ByI
 }
 
 // DeleteAvcUserDefined
+//
+// Operation ID: deleteAvcUserDefined
 //
 // Use this API command to delete a AVC User Defined Profile.
 //
@@ -310,6 +330,8 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx contex
 
 // DeleteAvcUserDefinedById
 //
+// Operation ID: deleteAvcUserDefinedById
+//
 // Use this API command to delete a AVC User Defined Profile.
 //
 // Required Parameters:
@@ -335,6 +357,8 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx co
 }
 
 // FindApplicationPolicyByQueryCriteria
+//
+// Operation ID: findApplicationPolicyByQueryCriteria
 //
 // Use this API command to retrieve a list of AVC Application Policy profiles (for 5.0 and Earlier Firmware Versions).
 //
@@ -365,6 +389,8 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCri
 
 // FindApplicationPolicyV2ByQueryCriteria
 //
+// Operation ID: findApplicationPolicyV2ByQueryCriteria
+//
 // Use this API command to retrieve a list of AVC Application Policy profiles.
 //
 // Request Body:
@@ -394,6 +420,8 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 
 // FindAvcApplicationPolicyById
 //
+// Operation ID: findAvcApplicationPolicyById
+//
 // Use this API command to retrieve a AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
 //
 // Required Parameters:
@@ -420,6 +448,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 }
 
 // FindAvcApplicationPolicyV2ById
+//
+// Operation ID: findAvcApplicationPolicyV2ById
 //
 // Use this API command to retrieve a AVC Application Policy profile.
 //
@@ -448,6 +478,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(
 
 // FindAvcSignaturePackage
 //
+// Operation ID: findAvcSignaturePackage
+//
 // Get current Signature Package info (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx context.Context, mutators ...RequestMutator) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
 	var (
@@ -469,6 +501,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx con
 }
 
 // FindAvcSignaturePackageApplicationByApplicationName
+//
+// Operation ID: findAvcSignaturePackageApplicationByApplicationName
 //
 // Get Application info (catId, appId and name) by application name (for 5.0 and Earlier Firmware Versions).
 //
@@ -497,6 +531,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 
 // FindAvcSignaturePackageApplications
 //
+// Operation ID: findAvcSignaturePackageApplications
+//
 // Get Application list from current Signature Package (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplications(ctx context.Context, mutators ...RequestMutator) (*WSGAVCApplicationList, *APIResponseMeta, error) {
 	var (
@@ -519,6 +555,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 
 // FindAvcSignaturePackageCategories
 //
+// Operation ID: findAvcSignaturePackageCategories
+//
 // Get Application Category list from current Signature Package (for 5.0 and Earlier Firmware Versions).
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategories(ctx context.Context, mutators ...RequestMutator) (*WSGAVCAppCategoryList, *APIResponseMeta, error) {
 	var (
@@ -540,6 +578,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategori
 }
 
 // FindAvcSignaturePackageCategoryByCategoryName
+//
+// Operation ID: findAvcSignaturePackageCategoryByCategoryName
 //
 // Get Application Category info (catId and name) by category name (for 5.0 and Earlier Firmware Versions).
 //
@@ -568,6 +608,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategory
 
 // FindAvcSignaturePackageV2
 //
+// Operation ID: findAvcSignaturePackageV2
+//
 // Get current Signature Package info.
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx context.Context, mutators ...RequestMutator) (*WSGAVCSignaturePackage, *APIResponseMeta, error) {
 	var (
@@ -589,6 +631,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 }
 
 // FindAvcSignaturePackageV2Applications
+//
+// Operation ID: findAvcSignaturePackageV2Applications
 //
 // Get Application list from current Signature Package.
 //
@@ -619,6 +663,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 
 // FindAvcSignaturePackageV2Categories
 //
+// Operation ID: findAvcSignaturePackageV2Categories
+//
 // Get Application Category list from current Signature Package.
 //
 // Optional Parameters:
@@ -648,6 +694,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 
 // FindAvcUserDefinedById
 //
+// Operation ID: findAvcUserDefinedById
+//
 // Use this API command to retrieve a AVC User Defined profile.
 //
 // Required Parameters:
@@ -674,6 +722,8 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 }
 
 // FindUserDefinedByQueryCriteria
+//
+// Operation ID: findUserDefinedByQueryCriteria
 //
 // Use this API command to retrieve a list of AVC User Defined profiles.
 //
@@ -703,6 +753,8 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 }
 
 // PartialUpdateAvcApplicationPolicyById
+//
+// Operation ID: partialUpdateAvcApplicationPolicyById
 //
 // Use this API command to modify the configuration on AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
 //
@@ -736,6 +788,8 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 
 // PartialUpdateAvcApplicationPolicyV2ById
 //
+// Operation ID: partialUpdateAvcApplicationPolicyV2ById
+//
 // Use this API command to modify the configuration on AVC Application Policy profile.
 //
 // Request Body:
@@ -767,6 +821,8 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 }
 
 // PartialUpdateAvcUserDefinedById
+//
+// Operation ID: partialUpdateAvcUserDefinedById
 //
 // Use this API command to modify the configuration on AVC User Defined profile.
 //

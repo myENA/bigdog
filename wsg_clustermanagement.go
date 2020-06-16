@@ -24,6 +24,8 @@ func (ss *WSGService) WSGClusterManagementService() *WSGClusterManagementService
 
 // AddApPatch
 //
+// Operation ID: addApPatch
+//
 // Use this API command to apply AP patch.
 func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationApPatchStatus, *APIResponseMeta, error) {
 	var (
@@ -46,6 +48,8 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators .
 }
 
 // AddApPatchFile
+//
+// Operation ID: addApPatchFile
 //
 // Use this API command to upload AP Patch File.
 //
@@ -76,6 +80,8 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, filena
 
 // AddClusterBackup
 //
+// Operation ID: addClusterBackup
+//
 // Backup cluster.
 func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -96,6 +102,8 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, muta
 }
 
 // AddClusterRestoreById
+//
+// Operation ID: addClusterRestoreById
 //
 // Restore cluster backup by ID.
 //
@@ -123,6 +131,8 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 
 // AddConfigurationBackup
 //
+// Operation ID: addConfigurationBackup
+//
 // Backup system configuration.
 func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -143,6 +153,8 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 }
 
 // AddConfigurationRestoreById
+//
+// Operation ID: addConfigurationRestoreById
 //
 // Restore system configuration with specified backupUUID.
 //
@@ -169,6 +181,8 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 }
 
 // AddConfigurationUpload
+//
+// Operation ID: addConfigurationUpload
 //
 // Upload system configuration file.
 //
@@ -199,6 +213,8 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 
 // AddUpgrade
 //
+// Operation ID: addUpgrade
+//
 // Use this API command to do system upgrade.
 func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationUpgradeStatus, *APIResponseMeta, error) {
 	var (
@@ -221,6 +237,8 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators .
 }
 
 // AddUpgradeUpload
+//
+// Operation ID: addUpgradeUpload
 //
 // Use this API command to upload patch file.
 //
@@ -253,6 +271,8 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, file
 
 // DeleteClusterById
 //
+// Operation ID: deleteClusterById
+//
 // Delete cluster backup by ID.
 //
 // Required Parameters:
@@ -278,6 +298,8 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 }
 
 // DeleteConfigurationById
+//
+// Operation ID: deleteConfigurationById
 //
 // Delete system configuration file.
 //
@@ -305,6 +327,8 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 
 // FindApPatch
 //
+// Operation ID: findApPatch
+//
 // Use this API command to retrive uploaded AP patch file info.
 func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationApPatchInfo, *APIResponseMeta, error) {
 	var (
@@ -326,6 +350,8 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators 
 }
 
 // FindApPatchHistory
+//
+// Operation ID: findApPatchHistory
 //
 // Use this API command to retrive AP patch history.
 //
@@ -366,6 +392,8 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 
 // FindApPatchStatus
 //
+// Operation ID: findApPatchStatus
+//
 // Use this API command to retrive cluster progress status.
 func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationApPatchStatus, *APIResponseMeta, error) {
 	var (
@@ -387,6 +415,8 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mut
 }
 
 // FindCluster
+//
+// Operation ID: findCluster
 //
 // Retrive cluster backup list.
 //
@@ -427,6 +457,8 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 
 // FindClusterGeoRedundancy
 //
+// Operation ID: findClusterGeoRedundancy
+//
 // Get cluster redundancy settings.
 func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Context, mutators ...RequestMutator) (*WSGClusterRedundancySettings, *APIResponseMeta, error) {
 	var (
@@ -449,6 +481,8 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 
 // FindClusterState
 //
+// Operation ID: findClusterState
+//
 // Use this API command to get current cluster, blade, and management service states
 func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, mutators ...RequestMutator) (*WSGClusterBladeClusterState, *APIResponseMeta, error) {
 	var (
@@ -470,6 +504,8 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, muta
 }
 
 // FindConfiguration
+//
+// Operation ID: findConfiguration
 //
 // Retrive system configuration list.
 //
@@ -505,6 +541,8 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 
 // FindConfigurationDownload
 //
+// Operation ID: findConfigurationDownload
+//
 // Download system configuration file.
 //
 // Required Parameters:
@@ -539,6 +577,8 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 
 // FindConfigurationSettingsAutoExportBackup
 //
+// Operation ID: findConfigurationSettingsAutoExportBackup
+//
 // Get Auto Export Backup Settings.
 func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationAutoExportBackup, *APIResponseMeta, error) {
 	var (
@@ -561,6 +601,8 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 
 // FindConfigurationSettingsScheduleBackup
 //
+// Operation ID: findConfigurationSettingsScheduleBackup
+//
 // Get Schedule Backup Setting.
 func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationScheduleBackup, *APIResponseMeta, error) {
 	var (
@@ -582,6 +624,8 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 }
 
 // FindUpgradeHistory
+//
+// Operation ID: findUpgradeHistory
 //
 // Use this API command to retrive upgrade history.
 //
@@ -622,6 +666,8 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 
 // FindUpgradePatch
 //
+// Operation ID: findUpgradePatch
+//
 // Use this API command to retrive upload file Info.
 func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationUpgradePatchInfo, *APIResponseMeta, error) {
 	var (
@@ -644,6 +690,8 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, muta
 
 // FindUpgradeStatus
 //
+// Operation ID: findUpgradeStatus
+//
 // Use this API command to retrive cluster progress status.
 func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationUpgradeStatus, *APIResponseMeta, error) {
 	var (
@@ -665,6 +713,8 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mut
 }
 
 // PartialUpdateConfigurationSettingsAutoExportBackup
+//
+// Operation ID: partialUpdateConfigurationSettingsAutoExportBackup
 //
 // Modify Auto Export Backup Settings.
 //
@@ -693,6 +743,8 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 
 // PartialUpdateConfigurationSettingsScheduleBackup
 //
+// Operation ID: partialUpdateConfigurationSettingsScheduleBackup
+//
 // Modify Schedule Backup Setting.
 //
 // Request Body:
@@ -719,6 +771,8 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 }
 
 // UpdateClusterGeoRedundancy
+//
+// Operation ID: updateClusterGeoRedundancy
 //
 // Update cluster redundancy settings.
 //

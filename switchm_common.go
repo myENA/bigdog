@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// SwitchMCommonBulkDeleteRequest
+//
+// Definition: common_bulkDeleteRequest
 type SwitchMCommonBulkDeleteRequest struct {
 	IdList SwitchMCommonIdList `json:"idList,omitempty"`
 }
@@ -15,6 +18,9 @@ func NewSwitchMCommonBulkDeleteRequest() *SwitchMCommonBulkDeleteRequest {
 	return m
 }
 
+// SwitchMCommonCreateResult
+//
+// Definition: common_createResult
 type SwitchMCommonCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
@@ -24,6 +30,12 @@ func NewSwitchMCommonCreateResult() *SwitchMCommonCreateResult {
 	return m
 }
 
+// SwitchMCommonFilterOperator
+//
+// Definition: common_filterOperator
+//
+// Constraints:
+//    - oneof:[eq,gt,lt,gte,lte]
 type SwitchMCommonFilterOperator string
 
 func NewSwitchMCommonFilterOperator() *SwitchMCommonFilterOperator {
@@ -31,6 +43,9 @@ func NewSwitchMCommonFilterOperator() *SwitchMCommonFilterOperator {
 	return m
 }
 
+// SwitchMCommonFullTextSearch
+//
+// Definition: common_fullTextSearch
 type SwitchMCommonFullTextSearch struct {
 	// Fields
 	// Specific fields to search
@@ -52,6 +67,9 @@ func NewSwitchMCommonFullTextSearch() *SwitchMCommonFullTextSearch {
 	return m
 }
 
+// SwitchMCommonIdList
+//
+// Definition: common_idList
 type SwitchMCommonIdList []string
 
 func MakeSwitchMCommonIdList() SwitchMCommonIdList {
@@ -59,6 +77,9 @@ func MakeSwitchMCommonIdList() SwitchMCommonIdList {
 	return m
 }
 
+// SwitchMCommonQueryCriteria
+//
+// Definition: common_queryCriteria
 type SwitchMCommonQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
@@ -118,6 +139,9 @@ func NewSwitchMCommonQueryCriteria() *SwitchMCommonQueryCriteria {
 	return m
 }
 
+// SwitchMCommonQueryCriteriaExtraFiltersType
+//
+// Definition: common_queryCriteriaExtraFiltersType
 type SwitchMCommonQueryCriteriaExtraFiltersType struct {
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
@@ -135,6 +159,9 @@ func NewSwitchMCommonQueryCriteriaExtraFiltersType() *SwitchMCommonQueryCriteria
 	return m
 }
 
+// SwitchMCommonQueryCriteriaExtraNotFiltersType
+//
+// Definition: common_queryCriteriaExtraNotFiltersType
 type SwitchMCommonQueryCriteriaExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
@@ -150,6 +177,9 @@ func NewSwitchMCommonQueryCriteriaExtraNotFiltersType() *SwitchMCommonQueryCrite
 	return m
 }
 
+// SwitchMCommonQueryCriteriaFiltersType
+//
+// Definition: common_queryCriteriaFiltersType
 type SwitchMCommonQueryCriteriaFiltersType struct {
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
@@ -168,6 +198,8 @@ func NewSwitchMCommonQueryCriteriaFiltersType() *SwitchMCommonQueryCriteriaFilte
 }
 
 // SwitchMCommonQueryCriteriaOptionsType
+//
+// Definition: common_queryCriteriaOptionsType
 //
 // Specified feature required information
 type SwitchMCommonQueryCriteriaOptionsType struct {
@@ -197,6 +229,8 @@ func NewSwitchMCommonQueryCriteriaOptionsType() *SwitchMCommonQueryCriteriaOptio
 
 // SwitchMCommonQueryCriteriaSortInfoType
 //
+// Definition: common_queryCriteriaSortInfoType
+//
 // About sorting
 type SwitchMCommonQueryCriteriaSortInfoType struct {
 	// Dir
@@ -212,6 +246,9 @@ func NewSwitchMCommonQueryCriteriaSortInfoType() *SwitchMCommonQueryCriteriaSort
 	return m
 }
 
+// SwitchMCommonQueryCriteriaSuperSet
+//
+// Definition: common_queryCriteriaSuperSet
 type SwitchMCommonQueryCriteriaSuperSet struct {
 	// Attributes
 	// Get specific columns only
@@ -271,6 +308,9 @@ func NewSwitchMCommonQueryCriteriaSuperSet() *SwitchMCommonQueryCriteriaSuperSet
 	return m
 }
 
+// SwitchMCommonQueryCriteriaSuperSetExtraFiltersType
+//
+// Definition: common_queryCriteriaSuperSetExtraFiltersType
 type SwitchMCommonQueryCriteriaSuperSetExtraFiltersType struct {
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
@@ -290,6 +330,9 @@ func NewSwitchMCommonQueryCriteriaSuperSetExtraFiltersType() *SwitchMCommonQuery
 	return m
 }
 
+// SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType
+//
+// Definition: common_queryCriteriaSuperSetExtraNotFiltersType
 type SwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
@@ -307,6 +350,9 @@ func NewSwitchMCommonQueryCriteriaSuperSetExtraNotFiltersType() *SwitchMCommonQu
 	return m
 }
 
+// SwitchMCommonQueryCriteriaSuperSetFiltersType
+//
+// Definition: common_queryCriteriaSuperSetFiltersType
 type SwitchMCommonQueryCriteriaSuperSetFiltersType struct {
 	Operator *SwitchMCommonFilterOperator `json:"operator,omitempty"`
 
@@ -327,6 +373,8 @@ func NewSwitchMCommonQueryCriteriaSuperSetFiltersType() *SwitchMCommonQueryCrite
 }
 
 // SwitchMCommonQueryCriteriaSuperSetOptionsType
+//
+// Definition: common_queryCriteriaSuperSetOptionsType
 //
 // Specified feature required informaion
 type SwitchMCommonQueryCriteriaSuperSetOptionsType struct {
@@ -414,6 +462,9 @@ func NewSwitchMCommonQueryCriteriaSuperSetOptionsType() *SwitchMCommonQueryCrite
 	return m
 }
 
+// SwitchMCommonTimeRange
+//
+// Definition: common_timeRange
 type SwitchMCommonTimeRange struct {
 	// End
 	// end time for collecting data

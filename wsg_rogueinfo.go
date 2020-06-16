@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// WSGRogueInfo
+//
+// Definition: rogueInfo_rogueInfo
 type WSGRogueInfo struct {
 	// Channel
 	// Channel of the rogue AP
@@ -53,6 +56,9 @@ func NewWSGRogueInfo() *WSGRogueInfo {
 	return m
 }
 
+// WSGRogueInfoList
+//
+// Definition: rogueInfo_rogueInfoList
 type WSGRogueInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -83,6 +89,8 @@ func NewWSGRogueInfoList() *WSGRogueInfoList {
 }
 
 // WSGRogueInfoListExtraType
+//
+// Definition: rogueInfo_rogueInfoListExtraType
 //
 // Any additional response data.
 type WSGRogueInfoListExtraType struct {

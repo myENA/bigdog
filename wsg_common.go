@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// WSGCommonAltitude
+//
+// Definition: common_altitude
 type WSGCommonAltitude struct {
 	// AltitudeUnit
 	// altitude unit
@@ -26,6 +29,8 @@ func NewWSGCommonAltitude() *WSGCommonAltitude {
 
 // WSGCommonApGpsSource
 //
+// Definition: common_apGpsSource
+//
 // GPS Source of the AP
 // Constraints:
 //    - oneof:[GPS,MANUAL]
@@ -36,6 +41,9 @@ func NewWSGCommonApGpsSource() *WSGCommonApGpsSource {
 	return m
 }
 
+// WSGCommonApLatencyInterval
+//
+// Definition: common_apLatencyInterval
 type WSGCommonApLatencyInterval struct {
 	// PingEnabled
 	// AP ping latency enabled
@@ -47,6 +55,12 @@ func NewWSGCommonApLatencyInterval() *WSGCommonApLatencyInterval {
 	return m
 }
 
+// WSGCommonApLoginName
+//
+// Definition: common_apLoginName
+//
+// Constraints:
+//    - max:64
 type WSGCommonApLoginName string
 
 func NewWSGCommonApLoginName() *WSGCommonApLoginName {
@@ -54,6 +68,12 @@ func NewWSGCommonApLoginName() *WSGCommonApLoginName {
 	return m
 }
 
+// WSGCommonApLoginPassword
+//
+// Definition: common_apLoginPassword
+//
+// Constraints:
+//    - max:64
 type WSGCommonApLoginPassword string
 
 func NewWSGCommonApLoginPassword() *WSGCommonApLoginPassword {
@@ -61,6 +81,9 @@ func NewWSGCommonApLoginPassword() *WSGCommonApLoginPassword {
 	return m
 }
 
+// WSGCommonApManagementVlan
+//
+// Definition: common_apManagementVlan
 type WSGCommonApManagementVlan struct {
 	// Id
 	// Vlan id of the zone
@@ -79,6 +102,9 @@ func NewWSGCommonApManagementVlan() *WSGCommonApManagementVlan {
 	return m
 }
 
+// WSGCommonApRadio50
+//
+// Definition: common_apRadio50
 type WSGCommonApRadio50 struct {
 	// AutoCellSizing
 	// Auto Cell Sizing
@@ -110,6 +136,9 @@ func NewWSGCommonApRadio50() *WSGCommonApRadio50 {
 	return m
 }
 
+// WSGCommonApRebootTimeout
+//
+// Definition: common_apRebootTimeout
 type WSGCommonApRebootTimeout struct {
 	// GatewayLossTimeoutInSec
 	// Gateway loss timeout in second
@@ -131,6 +160,9 @@ func NewWSGCommonApRebootTimeout() *WSGCommonApRebootTimeout {
 	return m
 }
 
+// WSGCommonAutoChannelSelection
+//
+// Definition: common_autoChannelSelection
 type WSGCommonAutoChannelSelection struct {
 	// ChannelFlyMtbc
 	// ChannelFly MTBC
@@ -155,6 +187,8 @@ func NewWSGCommonAutoChannelSelection() *WSGCommonAutoChannelSelection {
 
 // WSGCommonAwsVenue
 //
+// Definition: common_awsVenue
+//
 // Venue Code
 // Constraints:
 //    - max:64
@@ -166,6 +200,9 @@ func NewWSGCommonAwsVenue() *WSGCommonAwsVenue {
 	return m
 }
 
+// WSGCommonBaseServiceInfo
+//
+// Definition: common_baseServiceInfo
 type WSGCommonBaseServiceInfo struct {
 	// Id
 	// ID of service
@@ -189,6 +226,9 @@ func NewWSGCommonBaseServiceInfo() *WSGCommonBaseServiceInfo {
 	return m
 }
 
+// WSGCommonBulkDeleteRequest
+//
+// Definition: common_bulkDeleteRequest
 type WSGCommonBulkDeleteRequest struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -198,6 +238,9 @@ func NewWSGCommonBulkDeleteRequest() *WSGCommonBulkDeleteRequest {
 	return m
 }
 
+// WSGCommonClientAdmissionControl
+//
+// Definition: common_clientAdmissionControl
 type WSGCommonClientAdmissionControl struct {
 	// MaxRadioLoadPercent
 	// Maximum radio load percentage.
@@ -229,6 +272,9 @@ func NewWSGCommonClientAdmissionControl() *WSGCommonClientAdmissionControl {
 	return m
 }
 
+// WSGCommonCreateResult
+//
+// Definition: common_createResult
 type WSGCommonCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
@@ -238,6 +284,9 @@ func NewWSGCommonCreateResult() *WSGCommonCreateResult {
 	return m
 }
 
+// WSGCommonCreateResultIdName
+//
+// Definition: common_createResultIdName
 type WSGCommonCreateResultIdName struct {
 	Id *string `json:"id,omitempty"`
 
@@ -249,6 +298,13 @@ func NewWSGCommonCreateResultIdName() *WSGCommonCreateResultIdName {
 	return m
 }
 
+// WSGCommonDescription
+//
+// Definition: common_description
+//
+// Constraints:
+//    - nullable
+//    - max:64
 type WSGCommonDescription string
 
 func NewWSGCommonDescription() *WSGCommonDescription {
@@ -256,6 +312,13 @@ func NewWSGCommonDescription() *WSGCommonDescription {
 	return m
 }
 
+// WSGCommonDescriptionTo128
+//
+// Definition: common_descriptionto128
+//
+// Constraints:
+//    - nullable
+//    - max:128
 type WSGCommonDescriptionTo128 string
 
 func NewWSGCommonDescriptionTo128() *WSGCommonDescriptionTo128 {
@@ -263,6 +326,9 @@ func NewWSGCommonDescriptionTo128() *WSGCommonDescriptionTo128 {
 	return m
 }
 
+// WSGCommonDhcpProfileRef
+//
+// Definition: common_dhcpProfileRef
 type WSGCommonDhcpProfileRef struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -315,6 +381,9 @@ func NewWSGCommonDhcpProfileRef() *WSGCommonDhcpProfileRef {
 	return m
 }
 
+// WSGCommonDhcpSiteConfigListRef
+//
+// Definition: common_dhcpSiteConfigListRef
 type WSGCommonDhcpSiteConfigListRef struct {
 	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
@@ -354,6 +423,8 @@ func NewWSGCommonDhcpSiteConfigListRef() *WSGCommonDhcpSiteConfigListRef {
 
 // WSGCommonDhcpSiteConfigListRefSiteApsType
 //
+// Definition: common_dhcpSiteConfigListRefSiteApsType
+//
 // DHCP Site selected APs
 type WSGCommonDhcpSiteConfigListRefSiteApsType struct {
 	ApGatewayIp *string `json:"apGatewayIp,omitempty"`
@@ -381,6 +452,9 @@ func NewWSGCommonDhcpSiteConfigListRefSiteApsType() *WSGCommonDhcpSiteConfigList
 	return m
 }
 
+// WSGCommonDhcpSiteConfigRef
+//
+// Definition: common_dhcpSiteConfigRef
 type WSGCommonDhcpSiteConfigRef struct {
 	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
@@ -416,6 +490,8 @@ func NewWSGCommonDhcpSiteConfigRef() *WSGCommonDhcpSiteConfigRef {
 
 // WSGCommonDhcpSiteConfigRefSiteApsType
 //
+// Definition: common_dhcpSiteConfigRefSiteApsType
+//
 // DHCP Site selected APs. The content is effective when the siteMode is EnableOnMultipleAPs.
 type WSGCommonDhcpSiteConfigRefSiteApsType struct {
 	ApGatewayIp *string `json:"apGatewayIp,omitempty"`
@@ -446,6 +522,9 @@ func NewWSGCommonDhcpSiteConfigRefSiteApsType() *WSGCommonDhcpSiteConfigRefSiteA
 	return m
 }
 
+// WSGCommonDoAssignIp
+//
+// Definition: common_doAssignIp
 type WSGCommonDoAssignIp struct {
 	// DwpdEnabled
 	// DHCP Service Dynamic WAN Port Detection
@@ -477,6 +556,8 @@ func NewWSGCommonDoAssignIp() *WSGCommonDoAssignIp {
 
 // WSGCommonDoAssignIpSiteApsType
 //
+// Definition: common_doAssignIpSiteApsType
+//
 // DHCP Site selected APs. The content is effective when the siteMode is EnableOnMultipleAPs.
 type WSGCommonDoAssignIpSiteApsType struct {
 	ApMac *string `json:"apMac,omitempty"`
@@ -491,6 +572,9 @@ func NewWSGCommonDoAssignIpSiteApsType() *WSGCommonDoAssignIpSiteApsType {
 	return m
 }
 
+// WSGCommonEmail
+//
+// Definition: common_email
 type WSGCommonEmail string
 
 func NewWSGCommonEmail() *WSGCommonEmail {
@@ -498,6 +582,12 @@ func NewWSGCommonEmail() *WSGCommonEmail {
 	return m
 }
 
+// WSGCommonEtherType
+//
+// Definition: common_etherType
+//
+// Constraints:
+//    - oneof:[0x0800,0x86DD,0x8100,0x0806,0x8035,0x8808,0x8809,0x8863,0x8864,0x8870,0x888E,0x8906,0x22EA,0x88CC,0x9100]
 type WSGCommonEtherType string
 
 func NewWSGCommonEtherType() *WSGCommonEtherType {
@@ -505,6 +595,12 @@ func NewWSGCommonEtherType() *WSGCommonEtherType {
 	return m
 }
 
+// WSGCommonFilterOperator
+//
+// Definition: common_filterOperator
+//
+// Constraints:
+//    - oneof:[eq,gt,lt,gte,lte]
 type WSGCommonFilterOperator string
 
 func NewWSGCommonFilterOperator() *WSGCommonFilterOperator {
@@ -512,6 +608,9 @@ func NewWSGCommonFilterOperator() *WSGCommonFilterOperator {
 	return m
 }
 
+// WSGCommonFirmwareVersion
+//
+// Definition: common_firmwareVersion
 type WSGCommonFirmwareVersion string
 
 func NewWSGCommonFirmwareVersion() *WSGCommonFirmwareVersion {
@@ -519,6 +618,9 @@ func NewWSGCommonFirmwareVersion() *WSGCommonFirmwareVersion {
 	return m
 }
 
+// WSGCommonFQDN
+//
+// Definition: common_FQDN
 type WSGCommonFQDN string
 
 func NewWSGCommonFQDN() *WSGCommonFQDN {
@@ -526,6 +628,9 @@ func NewWSGCommonFQDN() *WSGCommonFQDN {
 	return m
 }
 
+// WSGCommonFullTextSearch
+//
+// Definition: common_fullTextSearch
 type WSGCommonFullTextSearch struct {
 	// Fields
 	// Specific fields to search
@@ -547,6 +652,9 @@ func NewWSGCommonFullTextSearch() *WSGCommonFullTextSearch {
 	return m
 }
 
+// WSGCommonGenericRef
+//
+// Definition: common_genericRef
 type WSGCommonGenericRef struct {
 	Id *string `json:"id,omitempty"`
 
@@ -558,6 +666,9 @@ func NewWSGCommonGenericRef() *WSGCommonGenericRef {
 	return m
 }
 
+// WSGCommonHealthCheckPolicy
+//
+// Definition: common_healthCheckPolicy
 type WSGCommonHealthCheckPolicy struct {
 	// ResponseFail
 	// Response Fail
@@ -596,6 +707,12 @@ func NewWSGCommonHealthCheckPolicy() *WSGCommonHealthCheckPolicy {
 	return m
 }
 
+// WSGCommonHTTPS
+//
+// Definition: common_HTTPS
+//
+// Constraints:
+//    - nullable
 type WSGCommonHTTPS string
 
 func NewWSGCommonHTTPS() *WSGCommonHTTPS {
@@ -603,6 +720,9 @@ func NewWSGCommonHTTPS() *WSGCommonHTTPS {
 	return m
 }
 
+// WSGCommonIdList
+//
+// Definition: common_idList
 type WSGCommonIdList []string
 
 func MakeWSGCommonIdList() WSGCommonIdList {
@@ -610,6 +730,9 @@ func MakeWSGCommonIdList() WSGCommonIdList {
 	return m
 }
 
+// WSGCommonIpAddress
+//
+// Definition: common_ipAddress
 type WSGCommonIpAddress string
 
 func NewWSGCommonIpAddress() *WSGCommonIpAddress {
@@ -617,6 +740,12 @@ func NewWSGCommonIpAddress() *WSGCommonIpAddress {
 	return m
 }
 
+// WSGCommonIpMode
+//
+// Definition: common_ipMode
+//
+// Constraints:
+//    - oneof:[IPV4,IPV6,IPV4_IPV6]
 type WSGCommonIpMode string
 
 func NewWSGCommonIpMode() *WSGCommonIpMode {
@@ -624,6 +753,12 @@ func NewWSGCommonIpMode() *WSGCommonIpMode {
 	return m
 }
 
+// WSGCommonLanguageName
+//
+// Definition: common_languageName
+//
+// Constraints:
+//    - oneof:[English,Chinese,Czech,Danish,Dutch,French,German,Japanese,Spanish,Korean,Swedish,Turkish,eng,chi,cze,dan,dut,fre,ger,jpn,kor,spa,swe,tur]
 type WSGCommonLanguageName string
 
 func NewWSGCommonLanguageName() *WSGCommonLanguageName {
@@ -631,6 +766,9 @@ func NewWSGCommonLanguageName() *WSGCommonLanguageName {
 	return m
 }
 
+// WSGCommonLatitude
+//
+// Definition: common_latitude
 type WSGCommonLatitude float64
 
 func NewWSGCommonLatitude() *WSGCommonLatitude {
@@ -638,6 +776,9 @@ func NewWSGCommonLatitude() *WSGCommonLatitude {
 	return m
 }
 
+// WSGCommonLocation
+//
+// Definition: common_location
 type WSGCommonLocation string
 
 func NewWSGCommonLocation() *WSGCommonLocation {
@@ -645,6 +786,9 @@ func NewWSGCommonLocation() *WSGCommonLocation {
 	return m
 }
 
+// WSGCommonLocationAdditionalInfo
+//
+// Definition: common_locationAdditionalInfo
 type WSGCommonLocationAdditionalInfo string
 
 func NewWSGCommonLocationAdditionalInfo() *WSGCommonLocationAdditionalInfo {
@@ -652,6 +796,9 @@ func NewWSGCommonLocationAdditionalInfo() *WSGCommonLocationAdditionalInfo {
 	return m
 }
 
+// WSGCommonLongitude
+//
+// Definition: common_longitude
 type WSGCommonLongitude float64
 
 func NewWSGCommonLongitude() *WSGCommonLongitude {
@@ -659,6 +806,9 @@ func NewWSGCommonLongitude() *WSGCommonLongitude {
 	return m
 }
 
+// WSGCommonLteBandLockChannel
+//
+// Definition: common_lteBandLockChannel
 type WSGCommonLteBandLockChannel struct {
 	// Channel3g
 	// LTE 3G channels
@@ -682,6 +832,9 @@ func NewWSGCommonLteBandLockChannel() *WSGCommonLteBandLockChannel {
 	return m
 }
 
+// WSGCommonMac
+//
+// Definition: common_mac
 type WSGCommonMac string
 
 func NewWSGCommonMac() *WSGCommonMac {
@@ -689,6 +842,9 @@ func NewWSGCommonMac() *WSGCommonMac {
 	return m
 }
 
+// WSGCommonMonitoringSummary
+//
+// Definition: common_monitoringSummary
 type WSGCommonMonitoringSummary struct {
 	FlaggedCount *int `json:"flaggedCount,omitempty"`
 
@@ -702,6 +858,13 @@ func NewWSGCommonMonitoringSummary() *WSGCommonMonitoringSummary {
 	return m
 }
 
+// WSGCommonNormalName
+//
+// Definition: common_normalName
+//
+// Constraints:
+//    - max:32
+//    - min:2
 type WSGCommonNormalName string
 
 func NewWSGCommonNormalName() *WSGCommonNormalName {
@@ -709,6 +872,13 @@ func NewWSGCommonNormalName() *WSGCommonNormalName {
 	return m
 }
 
+// WSGCommonNormalName2to64
+//
+// Definition: common_normalName2to64
+//
+// Constraints:
+//    - max:64
+//    - min:2
 type WSGCommonNormalName2to64 string
 
 func NewWSGCommonNormalName2to64() *WSGCommonNormalName2to64 {
@@ -716,6 +886,13 @@ func NewWSGCommonNormalName2to64() *WSGCommonNormalName2to64 {
 	return m
 }
 
+// WSGCommonNormalName2to128
+//
+// Definition: common_normalName2to128
+//
+// Constraints:
+//    - max:128
+//    - min:2
 type WSGCommonNormalName2to128 string
 
 func NewWSGCommonNormalName2to128() *WSGCommonNormalName2to128 {
@@ -723,6 +900,13 @@ func NewWSGCommonNormalName2to128() *WSGCommonNormalName2to128 {
 	return m
 }
 
+// WSGCommonNormalNameAllowBlank
+//
+// Definition: common_normalNameAllowBlank
+//
+// Constraints:
+//    - nullable
+//    - max:64
 type WSGCommonNormalNameAllowBlank string
 
 func NewWSGCommonNormalNameAllowBlank() *WSGCommonNormalNameAllowBlank {
@@ -730,6 +914,9 @@ func NewWSGCommonNormalNameAllowBlank() *WSGCommonNormalNameAllowBlank {
 	return m
 }
 
+// WSGCommonNormalURL
+//
+// Definition: common_normalURL
 type WSGCommonNormalURL string
 
 func NewWSGCommonNormalURL() *WSGCommonNormalURL {
@@ -737,6 +924,9 @@ func NewWSGCommonNormalURL() *WSGCommonNormalURL {
 	return m
 }
 
+// WSGCommonOui
+//
+// Definition: common_oui
 type WSGCommonOui string
 
 func NewWSGCommonOui() *WSGCommonOui {
@@ -744,6 +934,9 @@ func NewWSGCommonOui() *WSGCommonOui {
 	return m
 }
 
+// WSGCommonOverrideClientAdmissionControl
+//
+// Definition: common_overrideClientAdmissionControl
 type WSGCommonOverrideClientAdmissionControl struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
@@ -777,6 +970,9 @@ func NewWSGCommonOverrideClientAdmissionControl() *WSGCommonOverrideClientAdmiss
 	return m
 }
 
+// WSGCommonOverrideGenericRef
+//
+// Definition: common_overrideGenericRef
 type WSGCommonOverrideGenericRef struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
@@ -790,6 +986,9 @@ func NewWSGCommonOverrideGenericRef() *WSGCommonOverrideGenericRef {
 	return m
 }
 
+// WSGCommonOverrideSmartMonitor
+//
+// Definition: common_overrideSmartMonitor
 type WSGCommonOverrideSmartMonitor struct {
 	Enabled *bool `json:"enabled,omitempty"`
 
@@ -815,6 +1014,13 @@ func NewWSGCommonOverrideSmartMonitor() *WSGCommonOverrideSmartMonitor {
 	return m
 }
 
+// WSGCommonPoeModeSetting
+//
+// Definition: common_poeModeSetting
+//
+// Constraints:
+//    - nullable
+//    - oneof:[Auto,_802_3af,_802_3at,_802_3atPlus,_802_3bt_Class_5,_802_3bt_Class_6,_802_3bt_Class_7,_802_3bt_Class_8]
 type WSGCommonPoeModeSetting string
 
 func NewWSGCommonPoeModeSetting() *WSGCommonPoeModeSetting {
@@ -822,6 +1028,9 @@ func NewWSGCommonPoeModeSetting() *WSGCommonPoeModeSetting {
 	return m
 }
 
+// WSGCommonPortalCustomization
+//
+// Definition: common_portalCustomization
 type WSGCommonPortalCustomization struct {
 	// Language
 	// Constraints:
@@ -866,6 +1075,8 @@ func NewWSGCommonPortalCustomization() *WSGCommonPortalCustomization {
 
 // WSGCommonPortalLanguage
 //
+// Definition: common_portalLanguage
+//
 // Language
 // Constraints:
 //    - default:'en_US'
@@ -877,6 +1088,13 @@ func NewWSGCommonPortalLanguage() *WSGCommonPortalLanguage {
 	return m
 }
 
+// WSGCommonProtectionMode
+//
+// Definition: common_protectionMode
+//
+// Constraints:
+//    - default:'RTS_CTS'
+//    - oneof:[NONE,CTS_ONLY,RTS_CTS]
 type WSGCommonProtectionMode string
 
 func NewWSGCommonProtectionMode() *WSGCommonProtectionMode {
@@ -884,6 +1102,9 @@ func NewWSGCommonProtectionMode() *WSGCommonProtectionMode {
 	return m
 }
 
+// WSGCommonQinq
+//
+// Definition: common_qinq
 type WSGCommonQinq struct {
 	// Cvlan
 	// Constraints:
@@ -903,6 +1124,9 @@ func NewWSGCommonQinq() *WSGCommonQinq {
 	return m
 }
 
+// WSGCommonQueryCriteria
+//
+// Definition: common_queryCriteria
 type WSGCommonQueryCriteria struct {
 	// Attributes
 	// Get specific columns only
@@ -962,6 +1186,9 @@ func NewWSGCommonQueryCriteria() *WSGCommonQueryCriteria {
 	return m
 }
 
+// WSGCommonQueryCriteriaExtraFiltersType
+//
+// Definition: common_queryCriteriaExtraFiltersType
 type WSGCommonQueryCriteriaExtraFiltersType struct {
 	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
@@ -979,6 +1206,9 @@ func NewWSGCommonQueryCriteriaExtraFiltersType() *WSGCommonQueryCriteriaExtraFil
 	return m
 }
 
+// WSGCommonQueryCriteriaExtraNotFiltersType
+//
+// Definition: common_queryCriteriaExtraNotFiltersType
 type WSGCommonQueryCriteriaExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
@@ -994,6 +1224,9 @@ func NewWSGCommonQueryCriteriaExtraNotFiltersType() *WSGCommonQueryCriteriaExtra
 	return m
 }
 
+// WSGCommonQueryCriteriaFiltersType
+//
+// Definition: common_queryCriteriaFiltersType
 type WSGCommonQueryCriteriaFiltersType struct {
 	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
@@ -1012,6 +1245,8 @@ func NewWSGCommonQueryCriteriaFiltersType() *WSGCommonQueryCriteriaFiltersType {
 }
 
 // WSGCommonQueryCriteriaOptionsType
+//
+// Definition: common_queryCriteriaOptionsType
 //
 // Specified feature required information
 type WSGCommonQueryCriteriaOptionsType struct {
@@ -1041,6 +1276,8 @@ func NewWSGCommonQueryCriteriaOptionsType() *WSGCommonQueryCriteriaOptionsType {
 
 // WSGCommonQueryCriteriaSortInfoType
 //
+// Definition: common_queryCriteriaSortInfoType
+//
 // About sorting
 type WSGCommonQueryCriteriaSortInfoType struct {
 	// Dir
@@ -1056,6 +1293,9 @@ func NewWSGCommonQueryCriteriaSortInfoType() *WSGCommonQueryCriteriaSortInfoType
 	return m
 }
 
+// WSGCommonQueryCriteriaSuperSet
+//
+// Definition: common_queryCriteriaSuperSet
 type WSGCommonQueryCriteriaSuperSet struct {
 	// Attributes
 	// Get specific columns only
@@ -1115,6 +1355,9 @@ func NewWSGCommonQueryCriteriaSuperSet() *WSGCommonQueryCriteriaSuperSet {
 	return m
 }
 
+// WSGCommonQueryCriteriaSuperSetExtraFiltersType
+//
+// Definition: common_queryCriteriaSuperSetExtraFiltersType
 type WSGCommonQueryCriteriaSuperSetExtraFiltersType struct {
 	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
@@ -1134,6 +1377,9 @@ func NewWSGCommonQueryCriteriaSuperSetExtraFiltersType() *WSGCommonQueryCriteria
 	return m
 }
 
+// WSGCommonQueryCriteriaSuperSetExtraNotFiltersType
+//
+// Definition: common_queryCriteriaSuperSetExtraNotFiltersType
 type WSGCommonQueryCriteriaSuperSetExtraNotFiltersType struct {
 	// Type
 	// Filters for specific attribute
@@ -1151,6 +1397,9 @@ func NewWSGCommonQueryCriteriaSuperSetExtraNotFiltersType() *WSGCommonQueryCrite
 	return m
 }
 
+// WSGCommonQueryCriteriaSuperSetFiltersType
+//
+// Definition: common_queryCriteriaSuperSetFiltersType
 type WSGCommonQueryCriteriaSuperSetFiltersType struct {
 	Operator *WSGCommonFilterOperator `json:"operator,omitempty"`
 
@@ -1171,6 +1420,8 @@ func NewWSGCommonQueryCriteriaSuperSetFiltersType() *WSGCommonQueryCriteriaSuper
 }
 
 // WSGCommonQueryCriteriaSuperSetOptionsType
+//
+// Definition: common_queryCriteriaSuperSetOptionsType
 //
 // Specified feature required information
 type WSGCommonQueryCriteriaSuperSetOptionsType struct {
@@ -1262,6 +1513,9 @@ func NewWSGCommonQueryCriteriaSuperSetOptionsType() *WSGCommonQueryCriteriaSuper
 	return m
 }
 
+// WSGCommonRadio24
+//
+// Definition: common_radio24
 type WSGCommonRadio24 struct {
 	// AutoCellSizing
 	// Auto Cell Sizing
@@ -1290,6 +1544,9 @@ func NewWSGCommonRadio24() *WSGCommonRadio24 {
 	return m
 }
 
+// WSGCommonRadio24SuperSet
+//
+// Definition: common_radio24SuperSet
 type WSGCommonRadio24SuperSet struct {
 	// AutoCellSizing
 	// Auto Cell Sizing
@@ -1321,6 +1578,9 @@ func NewWSGCommonRadio24SuperSet() *WSGCommonRadio24SuperSet {
 	return m
 }
 
+// WSGCommonRadio50
+//
+// Definition: common_radio50
 type WSGCommonRadio50 struct {
 	// AutoCellSizing
 	// Auto Cell Sizing
@@ -1365,6 +1625,9 @@ func NewWSGCommonRadio50() *WSGCommonRadio50 {
 	return m
 }
 
+// WSGCommonRadio50SuperSet
+//
+// Definition: common_radio50SuperSet
 type WSGCommonRadio50SuperSet struct {
 	// AutoCellSizing
 	// Auto Cell Sizing
@@ -1416,6 +1679,9 @@ func NewWSGCommonRadio50SuperSet() *WSGCommonRadio50SuperSet {
 	return m
 }
 
+// WSGCommonRadiusServer
+//
+// Definition: common_radiusServer
 type WSGCommonRadiusServer struct {
 	// Ip
 	// Constraints:
@@ -1442,6 +1708,9 @@ func NewWSGCommonRadiusServer() *WSGCommonRadiusServer {
 	return m
 }
 
+// WSGCommonRateLimiting
+//
+// Definition: common_rateLimiting
 type WSGCommonRateLimiting struct {
 	// MaxOutstandingRequestsPerServer
 	// Maximum outstanding requests (MOR), value should be 0 or between 10 and 4096
@@ -1472,6 +1741,12 @@ func NewWSGCommonRateLimiting() *WSGCommonRateLimiting {
 	return m
 }
 
+// WSGCommonRealm
+//
+// Definition: common_realm
+//
+// Constraints:
+//    - max:255
 type WSGCommonRealm string
 
 func NewWSGCommonRealm() *WSGCommonRealm {
@@ -1479,6 +1754,9 @@ func NewWSGCommonRealm() *WSGCommonRealm {
 	return m
 }
 
+// WSGCommonRecoverySsid
+//
+// Definition: common_recoverySsid
 type WSGCommonRecoverySsid struct {
 	// RecoverySsidEnabled
 	// recovery ssid enable/disable
@@ -1490,6 +1768,9 @@ func NewWSGCommonRecoverySsid() *WSGCommonRecoverySsid {
 	return m
 }
 
+// WSGCommonSmartMonitor
+//
+// Definition: common_smartMonitor
 type WSGCommonSmartMonitor struct {
 	// IntervalInSec
 	// Interval in seconds. This is required if smartMonitor is enabled
@@ -1513,6 +1794,9 @@ func NewWSGCommonSmartMonitor() *WSGCommonSmartMonitor {
 	return m
 }
 
+// WSGCommonSnmpCommunity
+//
+// Definition: common_snmpCommunity
 type WSGCommonSnmpCommunity struct {
 	// CommunityName
 	// name of the SNMP Community.
@@ -1548,6 +1832,9 @@ func NewWSGCommonSnmpCommunity() *WSGCommonSnmpCommunity {
 	return m
 }
 
+// WSGCommonSnmpUser
+//
+// Definition: common_snmpUser
 type WSGCommonSnmpUser struct {
 	// AuthPassword
 	// authPassword of the SNMP User.
@@ -1607,6 +1894,9 @@ func NewWSGCommonSnmpUser() *WSGCommonSnmpUser {
 	return m
 }
 
+// WSGCommonSubNetMask
+//
+// Definition: common_subNetMask
 type WSGCommonSubNetMask string
 
 func NewWSGCommonSubNetMask() *WSGCommonSubNetMask {
@@ -1614,6 +1904,9 @@ func NewWSGCommonSubNetMask() *WSGCommonSubNetMask {
 	return m
 }
 
+// WSGCommonTargetConfig
+//
+// Definition: common_targetConfig
 type WSGCommonTargetConfig struct {
 	// Address
 	// address of the SNMP Trap
@@ -1635,6 +1928,9 @@ func NewWSGCommonTargetConfig() *WSGCommonTargetConfig {
 	return m
 }
 
+// WSGCommonTimeRange
+//
+// Definition: common_timeRange
 type WSGCommonTimeRange struct {
 	// End
 	// end time for collecting data
@@ -1662,6 +1958,8 @@ func NewWSGCommonTimeRange() *WSGCommonTimeRange {
 
 // WSGCommonTimeUnitStore
 //
+// Definition: common_timeUnitStore
+//
 // time unit
 // Constraints:
 //    - oneof:[second,minute,hour,day]
@@ -1672,6 +1970,9 @@ func NewWSGCommonTimeUnitStore() *WSGCommonTimeUnitStore {
 	return m
 }
 
+// WSGCommonTrafficClassProfileRef
+//
+// Definition: common_trafficClassProfileRef
 type WSGCommonTrafficClassProfileRef struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1693,6 +1994,9 @@ func NewWSGCommonTrafficClassProfileRef() *WSGCommonTrafficClassProfileRef {
 	return m
 }
 
+// WSGCommonTrafficClassRef
+//
+// Definition: common_trafficClassRef
 type WSGCommonTrafficClassRef struct {
 	// Id
 	// Identifier of the Traffic Class
@@ -1708,6 +2012,13 @@ func NewWSGCommonTrafficClassRef() *WSGCommonTrafficClassRef {
 	return m
 }
 
+// WSGCommonTxPower
+//
+// Definition: common_txPower
+//
+// Constraints:
+//    - default:'Full'
+//    - oneof:[Full,-1dB,-2dB,-3dB(1/2),-4dB,-5dB,-6dB(1/4),-7dB,-8dB,-9dB(1/8),-10dB,Min]
 type WSGCommonTxPower string
 
 func NewWSGCommonTxPower() *WSGCommonTxPower {
@@ -1715,6 +2026,9 @@ func NewWSGCommonTxPower() *WSGCommonTxPower {
 	return m
 }
 
+// WSGCommonWebAuthenticationPortalCustomization
+//
+// Definition: common_webAuthenticationPortalCustomization
 type WSGCommonWebAuthenticationPortalCustomization struct {
 	// Logo
 	// Logo encoded with base64, format is "data:image/png;base64,the base64 encoded logo"
@@ -1737,6 +2051,8 @@ func NewWSGCommonWebAuthenticationPortalCustomization() *WSGCommonWebAuthenticat
 
 // WSGCommonWildFQDN
 //
+// Definition: common_wildFQDN
+//
 // Compare with FQDN, it could start with '*.'
 type WSGCommonWildFQDN string
 
@@ -1746,6 +2062,8 @@ func NewWSGCommonWildFQDN() *WSGCommonWildFQDN {
 }
 
 // WSGCommonZoneTunnelType
+//
+// Definition: common_zoneTunnelType
 //
 // Tunnel type configuration of the zone. No_Tunneled is for IPv6 mode
 // Constraints:

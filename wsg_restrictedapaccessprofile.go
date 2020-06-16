@@ -23,6 +23,8 @@ func (ss *WSGService) WSGRestrictedAPAccessProfileService() *WSGRestrictedAPAcce
 
 // AddRkszonesRestrictedApAccessProfilesByZoneId
 //
+// Operation ID: addRkszonesRestrictedApAccessProfilesByZoneId
+//
 // Create a Restricted AP Access Profile.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGRestrictedAPAccessProfileService) AddRkszonesRestrictedApAccessProfi
 
 // DeleteRkszonesRestrictedApAccessProfiles
 //
+// Operation ID: deleteRkszonesRestrictedApAccessProfiles
+//
 // Use this API command to delete Bulk Restricted AP Access Profile.
 //
 // Request Body:
@@ -83,6 +87,8 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 }
 
 // DeleteRkszonesRestrictedApAccessProfilesById
+//
+// Operation ID: deleteRkszonesRestrictedApAccessProfilesById
 //
 // Delete a Restricted AP Access Profile.
 //
@@ -112,6 +118,8 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 }
 
 // FindRkszonesRestrictedApAccessProfilesById
+//
+// Operation ID: findRkszonesRestrictedApAccessProfilesById
 //
 // Retrieve a Restricted AP Access Profile.
 //
@@ -143,6 +151,8 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 
 // FindRkszonesRestrictedApAccessProfilesByQueryCriteria
 //
+// Operation ID: findRkszonesRestrictedApAccessProfilesByQueryCriteria
+//
 // Retrieve a list of Restricted AP Access Profile.
 //
 // Request Body:
@@ -171,6 +181,8 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 }
 
 // FindRkszonesRestrictedApAccessProfilesByZoneId
+//
+// Operation ID: findRkszonesRestrictedApAccessProfilesByZoneId
 //
 // Retrieve Restricted AP Access Profile list.
 //
@@ -210,6 +222,8 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 }
 
 // UpdateRkszonesRestrictedApAccessProfilesById
+//
+// Operation ID: updateRkszonesRestrictedApAccessProfilesById
 //
 // Modify a Restricted AP Access Profile.
 //

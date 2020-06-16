@@ -23,6 +23,8 @@ func (ss *WSGService) WSGPrecedenceProfileService() *WSGPrecedenceProfileService
 
 // AddPrecedence
 //
+// Operation ID: addPrecedence
+//
 // Use this API command to create Precedence Profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *W
 
 // DeletePrecedence
 //
+// Operation ID: deletePrecedence
+//
 // Use this API command to Bulk Delete Precedence Profile.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body
 
 // DeletePrecedenceById
 //
+// Operation ID: deletePrecedenceById
+//
 // Use this API command to Delete Precedence Profile by profile's ID.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, 
 }
 
 // FindPrecedence
+//
+// Operation ID: findPrecedence
 //
 // Use this API command to Get Precedence Profile list.
 //
@@ -139,6 +147,8 @@ func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, option
 
 // FindPrecedenceById
 //
+// Operation ID: findPrecedenceById
+//
 // Use this API command to Get Precedence Profile by profile's ID.
 //
 // Required Parameters:
@@ -165,6 +175,8 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id
 }
 
 // FindPrecedenceByQueryCriteria
+//
+// Operation ID: findPrecedenceByQueryCriteria
 //
 // Use this API command to query Precedence Profile.
 //
@@ -194,6 +206,8 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.
 }
 
 // PartialUpdatePrecedenceById
+//
+// Operation ID: partialUpdatePrecedenceById
 //
 // Use this API command to Modify Precedence Profile by profile's ID.
 //

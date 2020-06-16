@@ -24,6 +24,8 @@ func (ss *WSGService) WSGAccessPointAppService() *WSGAccessPointAppService {
 
 // FindApsLineman
 //
+// Operation ID: findApsLineman
+//
 // Use this API command to retrieve the summary information of an AP. This is used by the Ruckus Wireless AP mobile app.
 //
 // Optional Parameters:
@@ -73,6 +75,8 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 
 // FindApsTotalCount
 //
+// Operation ID: findApsTotalCount
+//
 // Use this API command to retrieve the total AP count within a zone or a domain.
 //
 // Optional Parameters:
@@ -107,6 +111,8 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 
 // FindLinemanWorkflow
 //
+// Operation ID: findLinemanWorkflow
+//
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
 func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, mutators ...RequestMutator) (*FileResponse, *APIResponseMeta, error) {
 	var (
@@ -128,6 +134,8 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 }
 
 // UpdateLinemanWorkflow
+//
+// Operation ID: updateLinemanWorkflow
 //
 // Use this API command to upload a workflow file used by the Ruckus Wireless AP mobile app.
 //

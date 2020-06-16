@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAlertAckBulkAlarms
+//
+// Definition: alert_ackBulkAlarms
 type WSGAlertAckBulkAlarms struct {
 	IdList []string `json:"idList,omitempty"`
 }
@@ -11,6 +14,9 @@ func NewWSGAlertAckBulkAlarms() *WSGAlertAckBulkAlarms {
 	return m
 }
 
+// WSGAlertClearBulkAlarms
+//
+// Definition: alert_clearBulkAlarms
 type WSGAlertClearBulkAlarms struct {
 	Comment *WSGCommonNormalNameAllowBlank `json:"comment,omitempty"`
 

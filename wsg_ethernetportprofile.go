@@ -23,6 +23,8 @@ func (ss *WSGService) WSGEthernetPortProfileService() *WSGEthernetPortProfileSer
 
 // AddRkszonesProfileEthernetPortByZoneId
 //
+// Operation ID: addRkszonesProfileEthernetPortByZoneId
+//
 // Create a new Ethernet Port Porfile.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(c
 
 // DeleteRkszonesProfileEthernetPortById
 //
+// Operation ID: deleteRkszonesProfileEthernetPortById
+//
 // Delete Ethernet Port Porfile.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ct
 }
 
 // FindRkszonesProfileEthernetPortById
+//
+// Operation ID: findRkszonesProfileEthernetPortById
 //
 // Retrieve a Ethernet Port Porfile.
 //
@@ -115,6 +121,8 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx 
 }
 
 // FindRkszonesProfileEthernetPortByZoneId
+//
+// Operation ID: findRkszonesProfileEthernetPortByZoneId
 //
 // Retrieve a list of Ethernet Port Porfiles within a zone.
 //
@@ -155,6 +163,8 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(
 
 // FindServicesEthernetPortProfileByQueryCriteria
 //
+// Operation ID: findServicesEthernetPortProfileByQueryCriteria
+//
 // Query Ethernet Port Profiles with specified filters.
 //
 // Request Body:
@@ -183,6 +193,8 @@ func (s *WSGEthernetPortProfileService) FindServicesEthernetPortProfileByQueryCr
 }
 
 // PartialUpdateRkszonesProfileEthernetPortById
+//
+// Operation ID: partialUpdateRkszonesProfileEthernetPortById
 //
 // Modify a specific Ethernet Port Porfile.
 //
@@ -218,6 +230,8 @@ func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPort
 }
 
 // UpdateRkszonesProfileEthernetPortById
+//
+// Operation ID: updateRkszonesProfileEthernetPortById
 //
 // Modify a specific Ethernet Port Porfile.
 //

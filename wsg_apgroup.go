@@ -21,6 +21,9 @@ func (ss *WSGService) WSGAPGroupService() *WSGAPGroupService {
 	return NewWSGAPGroupService(ss.apiClient)
 }
 
+// WSGAPGroupAddMembers
+//
+// Definition: apgroup_addMembers
 type WSGAPGroupAddMembers struct {
 	// MemberList
 	// List of apMac
@@ -32,6 +35,9 @@ func NewWSGAPGroupAddMembers() *WSGAPGroupAddMembers {
 	return m
 }
 
+// WSGAPGroupConfiguration
+//
+// Definition: apgroup_apGroupConfiguration
 type WSGAPGroupConfiguration struct {
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
@@ -149,6 +155,9 @@ func NewWSGAPGroupConfiguration() *WSGAPGroupConfiguration {
 	return m
 }
 
+// WSGAPGroupList
+//
+// Definition: apgroup_apGroupList
 type WSGAPGroupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -164,6 +173,9 @@ func NewWSGAPGroupList() *WSGAPGroupList {
 	return m
 }
 
+// WSGAPGroupMember
+//
+// Definition: apgroup_apGroupMember
 type WSGAPGroupMember struct {
 	ApMac *WSGCommonMac `json:"apMac,omitempty"`
 
@@ -177,6 +189,9 @@ func NewWSGAPGroupMember() *WSGAPGroupMember {
 	return m
 }
 
+// WSGAPGroupSummary
+//
+// Definition: apgroup_apGroupSummary
 type WSGAPGroupSummary struct {
 	// Id
 	// Identifier of the AP group
@@ -192,6 +207,9 @@ func NewWSGAPGroupSummary() *WSGAPGroupSummary {
 	return m
 }
 
+// WSGAPGroupCreateAPGroup
+//
+// Definition: apgroup_createAPGroup
 type WSGAPGroupCreateAPGroup struct {
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
@@ -297,6 +315,9 @@ func NewWSGAPGroupCreateAPGroup() *WSGAPGroupCreateAPGroup {
 	return m
 }
 
+// WSGAPGroupModifyAPGroup
+//
+// Definition: apgroup_modifyAPGroup
 type WSGAPGroupModifyAPGroup struct {
 	Altitude *WSGCommonAltitude `json:"altitude,omitempty"`
 
@@ -404,6 +425,8 @@ func NewWSGAPGroupModifyAPGroup() *WSGAPGroupModifyAPGroup {
 
 // AddRkszonesApgroupsByZoneId
 //
+// Operation ID: addRkszonesApgroupsByZoneId
+//
 // Use this API command to create new AP group within a zone.
 //
 // Request Body:
@@ -438,6 +461,8 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, bod
 
 // AddRkszonesApgroupsMembersByApMac
 //
+// Operation ID: addRkszonesApgroupsMembersByApMac
+//
 // Use this API command to add a member AP to an AP group.
 //
 // Required Parameters:
@@ -469,6 +494,8 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Contex
 }
 
 // AddRkszonesApgroupsMembersById
+//
+// Operation ID: addRkszonesApgroupsMembersById
 //
 // Add multiple members to an AP group.
 //
@@ -505,6 +532,8 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersById(ctx context.Context, 
 
 // DeleteRkszonesApgroupsAltitudeById
 //
+// Operation ID: deleteRkszonesApgroupsAltitudeById
+//
 // Use this API command to clear the altitude of AP group.
 //
 // Required Parameters:
@@ -534,6 +563,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Conte
 
 // DeleteRkszonesApgroupsApMgmtVlanById
 //
+// Operation ID: deleteRkszonesApgroupsApMgmtVlanById
+//
 // Disable AP Management Vlan Override of an AP group.
 //
 // Required Parameters:
@@ -562,6 +593,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Con
 }
 
 // DeleteRkszonesApgroupsApmodelByModel
+//
+// Operation ID: deleteRkszonesApgroupsApmodelByModel
 //
 // Use this API command to disable AP model specific configuration override zone that belong to an AP group.
 //
@@ -595,6 +628,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Con
 
 // DeleteRkszonesApgroupsAutoChannelSelection24ById
 //
+// Operation ID: deleteRkszonesApgroupsAutoChannelSelection24ById
+//
 // Disable Radio 2.4G Auto ChannelSelectMode and ChannelFly MTBC Override of an AP group.
 //
 // Required Parameters:
@@ -623,6 +658,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx
 }
 
 // DeleteRkszonesApgroupsAutoChannelSelection50ById
+//
+// Operation ID: deleteRkszonesApgroupsAutoChannelSelection50ById
 //
 // Disable Radio 5G Auto ChannelSelectMode and ChannelFly MTBC Override of an AP group.
 //
@@ -653,6 +690,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx
 
 // DeleteRkszonesApgroupsAwsVenueById
 //
+// Operation ID: deleteRkszonesApgroupsAwsVenueById
+//
 // Use this API command to disable AWS venue override. The AP will apply its group's or zone's configuration.
 //
 // Required Parameters:
@@ -681,6 +720,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAwsVenueById(ctx context.Conte
 }
 
 // DeleteRkszonesApgroupsById
+//
+// Operation ID: deleteRkszonesApgroupsById
 //
 // Use this API command to delete an AP group.
 //
@@ -711,6 +752,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id s
 
 // DeleteRkszonesApgroupsChannelEvaluationIntervalById
 //
+// Operation ID: deleteRkszonesApgroupsChannelEvaluationIntervalById
+//
 // Disable Channel Evaluation Interval Override of an AP group.
 //
 // Required Parameters:
@@ -739,6 +782,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(
 }
 
 // DeleteRkszonesApgroupsClientAdmissionControl24ById
+//
+// Operation ID: deleteRkszonesApgroupsClientAdmissionControl24ById
 //
 // Use this API command to disable client admission control 2.4GHz radio configuration override zone for APs that belong to an AP group.
 //
@@ -769,6 +814,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(c
 
 // DeleteRkszonesApgroupsClientAdmissionControl50ById
 //
+// Operation ID: deleteRkszonesApgroupsClientAdmissionControl50ById
+//
 // Use this API command to disable client admission control 5GHz radio configuration override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -797,6 +844,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(c
 }
 
 // DeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById
+//
+// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById
 //
 // Use this API command to disable Directed Multicast from Network to wired/wireless client configuration override zone for APs that belong to an AP group.
 //
@@ -827,6 +876,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEn
 
 // DeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById
 //
+// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById
+//
 // Use this API command to disable Directed Multicast from wired client to Network configuration override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -855,6 +906,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClie
 }
 
 // DeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById
+//
+// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById
 //
 // Use this API command to disable Directed Multicast from wireless client to Network configuration override zone for APs that belong to an AP group.
 //
@@ -885,6 +938,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessC
 
 // DeleteRkszonesApgroupsLocationAdditionalInfoById
 //
+// Operation ID: deleteRkszonesApgroupsLocationAdditionalInfoById
+//
 // Use this API command to disable location additionalInfo override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -913,6 +968,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx
 }
 
 // DeleteRkszonesApgroupsLocationBasedServiceById
+//
+// Operation ID: deleteRkszonesApgroupsLocationBasedServiceById
 //
 // Use this API command to disable location based service override zone for APs that belong to an AP group.
 //
@@ -943,6 +1000,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx c
 
 // DeleteRkszonesApgroupsLocationById
 //
+// Operation ID: deleteRkszonesApgroupsLocationById
+//
 // Use this API command to disable location override for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -972,6 +1031,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Conte
 
 // DeleteRkszonesApgroupsLteBandLockChannelsById
 //
+// Operation ID: deleteRkszonesApgroupsLteBandLockChannelsById
+//
 // Use this API command to disable LTE band lock channel override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1000,6 +1061,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx co
 }
 
 // DeleteRkszonesApgroupsMembersByApMac
+//
+// Operation ID: deleteRkszonesApgroupsMembersByApMac
 //
 // Use this API command to remove a member AP from an AP group.
 //
@@ -1033,6 +1096,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Con
 
 // DeleteRkszonesApgroupsProtectionMode24ById
 //
+// Operation ID: deleteRkszonesApgroupsProtectionMode24ById
+//
 // Use this API command to disable 2.4GHz radio protection mode configuration override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1061,6 +1126,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx conte
 }
 
 // DeleteRkszonesApgroupsRecoverySsidById
+//
+// Operation ID: deleteRkszonesApgroupsRecoverySsidById
 //
 // Use this API command to disable Recovery SSID configuration override zone for APs that belong to an AP group.
 //
@@ -1091,6 +1158,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.C
 
 // DeleteRkszonesApgroupsRksGreForwardBroadcastById
 //
+// Operation ID: deleteRkszonesApgroupsRksGreForwardBroadcastById
+//
 // Use this API command to disable Ruckus GRE Broadcast packet forwarding override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1119,6 +1188,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRksGreForwardBroadcastById(ctx
 }
 
 // DeleteRkszonesApgroupsRogueApAggressivenessModeById
+//
+// Operation ID: deleteRkszonesApgroupsRogueApAggressivenessModeById
 //
 // Use this API command to disable rogue AP aggressiveness mode override zone for APs that belong to an AP group.
 //
@@ -1149,6 +1220,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(
 
 // DeleteRkszonesApgroupsRogueApJammingThresholdById
 //
+// Operation ID: deleteRkszonesApgroupsRogueApJammingThresholdById
+//
 // Use this API command to disable rogue AP jamming threshold override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1177,6 +1250,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ct
 }
 
 // DeleteRkszonesApgroupsRogueApReportThresholdById
+//
+// Operation ID: deleteRkszonesApgroupsRogueApReportThresholdById
 //
 // Use this API command to disable rogue AP report threshold override zone for APs that belong to an AP group.
 //
@@ -1207,6 +1282,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx
 
 // DeleteRkszonesApgroupsVenueProfileById
 //
+// Operation ID: deleteRkszonesApgroupsVenueProfileById
+//
 // Use this API command to clear Hotspot 2.0 venue profile for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1235,6 +1312,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.C
 }
 
 // DeleteRkszonesApgroupsWifi24ById
+//
+// Operation ID: deleteRkszonesApgroupsWifi24ById
 //
 // Use this API command to disable 2.4GHz radio configuration override zone for APs that belong to an AP group.
 //
@@ -1265,6 +1344,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context
 
 // DeleteRkszonesApgroupsWifi24ChannelById
 //
+// Operation ID: deleteRkszonesApgroupsWifi24ChannelById
+//
 // Use this API command to disable 2.4GHz radio channel override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1293,6 +1374,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.
 }
 
 // DeleteRkszonesApgroupsWifi24ChannelRangeById
+//
+// Operation ID: deleteRkszonesApgroupsWifi24ChannelRangeById
 //
 // Use this API command to disable 2.4GHz radio channelRange override zone for APs that belong to an AP group.
 //
@@ -1323,6 +1406,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx con
 
 // DeleteRkszonesApgroupsWifi24ChannelWidthById
 //
+// Operation ID: deleteRkszonesApgroupsWifi24ChannelWidthById
+//
 // Use this API command to disable 2.4GHz radio channelWidth override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1351,6 +1436,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx con
 }
 
 // DeleteRkszonesApgroupsWifi24TxPowerById
+//
+// Operation ID: deleteRkszonesApgroupsWifi24TxPowerById
 //
 // Use this API command to disable 2.4GHz radio txPower override zone for APs that belong to an AP group.
 //
@@ -1381,6 +1468,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.
 
 // DeleteRkszonesApgroupsWifi50ById
 //
+// Operation ID: deleteRkszonesApgroupsWifi50ById
+//
 // Use this API command to disable 5GHz radio configuration override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1409,6 +1498,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context
 }
 
 // DeleteRkszonesApgroupsWifi50ChannelWidthById
+//
+// Operation ID: deleteRkszonesApgroupsWifi50ChannelWidthById
 //
 // Use this API command to disable 5GHz radio channelWidth override zone for APs that belong to an AP group.
 //
@@ -1439,6 +1530,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx con
 
 // DeleteRkszonesApgroupsWifi50IndoorChannelById
 //
+// Operation ID: deleteRkszonesApgroupsWifi50IndoorChannelById
+//
 // Use this API command to disable 5GHz radio indoorChannel override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1467,6 +1560,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx co
 }
 
 // DeleteRkszonesApgroupsWifi50IndoorChannelRangeById
+//
+// Operation ID: deleteRkszonesApgroupsWifi50IndoorChannelRangeById
 //
 // Use this API command to disable 5GHz radio indoorChannelRange override zone for APs that belong to an AP group.
 //
@@ -1497,6 +1592,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(c
 
 // DeleteRkszonesApgroupsWifi50OutdoorChannelById
 //
+// Operation ID: deleteRkszonesApgroupsWifi50OutdoorChannelById
+//
 // Use this API command to disable 5GHz radio outdoorChannel override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1525,6 +1622,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx c
 }
 
 // DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById
+//
+// Operation ID: deleteRkszonesApgroupsWifi50OutdoorChannelRangeById
 //
 // Use this API command to disable 5GHz radio outdoorChannelRange override zone for APs that belong to an AP group.
 //
@@ -1555,6 +1654,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(
 
 // DeleteRkszonesApgroupsWifi50TxPowerById
 //
+// Operation ID: deleteRkszonesApgroupsWifi50TxPowerById
+//
 // Use this API command to disable 5GHz radio txPower override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1583,6 +1684,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.
 }
 
 // DeleteRkszonesApgroupsWlanGroup24ById
+//
+// Operation ID: deleteRkszonesApgroupsWlanGroup24ById
 //
 // Use this API command to disable WLAN group on 2.4GHz radio override zone for APs that belong to an AP group.
 //
@@ -1613,6 +1716,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Co
 
 // DeleteRkszonesApgroupsWlanGroup50ById
 //
+// Operation ID: deleteRkszonesApgroupsWlanGroup50ById
+//
 // Use this API command to disable WLAN group on 5GHz radio override zone for APs that belong to an AP group.
 //
 // Required Parameters:
@@ -1641,6 +1746,8 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Co
 }
 
 // FindRkszonesApgroupsApmodelByModel
+//
+// Operation ID: findRkszonesApgroupsApmodelByModel
 //
 // Use this API command to retrieve AP model specific configuration override zone that belong to an AP group, NULL means the override setting is not checked inside an AP group.
 //
@@ -1675,6 +1782,8 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsApmodelByModel(ctx context.Conte
 
 // FindRkszonesApgroupsById
 //
+// Operation ID: findRkszonesApgroupsById
+//
 // Use this API command to retrieve information about an AP group.
 //
 // Required Parameters:
@@ -1704,6 +1813,8 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, id str
 }
 
 // FindRkszonesApgroupsByZoneId
+//
+// Operation ID: findRkszonesApgroupsByZoneId
 //
 // Use this API command to retrieve the list of AP groups that belong to a zone.
 //
@@ -1744,6 +1855,8 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zo
 
 // FindRkszonesApgroupsDefaultByZoneId
 //
+// Operation ID: findRkszonesApgroupsDefaultByZoneId
+//
 // Use this API command to retrieve information about default AP group of zone.
 //
 // Required Parameters:
@@ -1770,6 +1883,8 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Cont
 }
 
 // PartialUpdateRkszonesApgroupsById
+//
+// Operation ID: partialUpdateRkszonesApgroupsById
 //
 // Use this API command to modify the configuration of an AP group.
 //
@@ -1805,6 +1920,8 @@ func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Contex
 }
 
 // UpdateRkszonesApgroupsApmodelByModel
+//
+// Operation ID: updateRkszonesApgroupsApmodelByModel
 //
 // Use this API command to modify AP model specific configuration override zone that belong to an AP group.
 //
@@ -1843,6 +1960,8 @@ func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Con
 }
 
 // UpdateRkszonesApgroupsById
+//
+// Operation ID: updateRkszonesApgroupsById
 //
 // Use this API command to modify the entire information of an AP group.
 //

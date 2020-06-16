@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMSwitchService() *SwitchMSwitchService {
 	return NewSwitchMSwitchService(ss.apiClient)
 }
 
+// SwitchMSwitchAuditId
+//
+// Definition: switch_auditId
 type SwitchMSwitchAuditId struct {
 	// Id
 	// Audit Id
@@ -37,6 +40,9 @@ func NewSwitchMSwitchAuditId() *SwitchMSwitchAuditId {
 	return m
 }
 
+// SwitchMSwitchBarChart
+//
+// Definition: switch_barChart
 type SwitchMSwitchBarChart struct {
 	// Id
 	// Identifier of the barchart
@@ -56,6 +62,9 @@ func NewSwitchMSwitchBarChart() *SwitchMSwitchBarChart {
 	return m
 }
 
+// SwitchMSwitchConnectedAPsQueryList
+//
+// Definition: switch_connectedAPsQueryList
 type SwitchMSwitchConnectedAPsQueryList struct {
 	// Extra
 	// Any additional response data
@@ -87,6 +96,8 @@ func NewSwitchMSwitchConnectedAPsQueryList() *SwitchMSwitchConnectedAPsQueryList
 
 // SwitchMSwitchConnectedAPsQueryListExtraType
 //
+// Definition: switch_connectedAPsQueryListExtraType
+//
 // Any additional response data
 type SwitchMSwitchConnectedAPsQueryListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -113,6 +124,9 @@ func NewSwitchMSwitchConnectedAPsQueryListExtraType() *SwitchMSwitchConnectedAPs
 	return m
 }
 
+// SwitchMSwitchConnectedDevice
+//
+// Definition: switch_connectedDevice
 type SwitchMSwitchConnectedDevice struct {
 	// DomainId
 	// Identifier of the management domain to which the connected device belong
@@ -200,6 +214,8 @@ func NewSwitchMSwitchConnectedDevice() *SwitchMSwitchConnectedDevice {
 
 // SwitchMSwitchConnectedDeviceSampledInstantType
 //
+// Definition: switch_connectedDeviceSampledInstantType
+//
 // Sampled instant
 type SwitchMSwitchConnectedDeviceSampledInstantType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -226,6 +242,9 @@ func NewSwitchMSwitchConnectedDeviceSampledInstantType() *SwitchMSwitchConnected
 	return m
 }
 
+// SwitchMSwitchConnectedDevicesQueryList
+//
+// Definition: switch_connectedDevicesQueryList
 type SwitchMSwitchConnectedDevicesQueryList struct {
 	// Extra
 	// Any additional response data
@@ -257,6 +276,8 @@ func NewSwitchMSwitchConnectedDevicesQueryList() *SwitchMSwitchConnectedDevicesQ
 
 // SwitchMSwitchConnectedDevicesQueryListExtraType
 //
+// Definition: switch_connectedDevicesQueryListExtraType
+//
 // Any additional response data
 type SwitchMSwitchConnectedDevicesQueryListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -283,6 +304,9 @@ func NewSwitchMSwitchConnectedDevicesQueryListExtraType() *SwitchMSwitchConnecte
 	return m
 }
 
+// SwitchMSwitchDeleteSwitchesResultList
+//
+// Definition: switch_deleteSwitchesResultList
 type SwitchMSwitchDeleteSwitchesResultList struct {
 	// Extra
 	// Any additional response data
@@ -314,6 +338,8 @@ func NewSwitchMSwitchDeleteSwitchesResultList() *SwitchMSwitchDeleteSwitchesResu
 
 // SwitchMSwitchDeleteSwitchesResultListExtraType
 //
+// Definition: switch_deleteSwitchesResultListExtraType
+//
 // Any additional response data
 type SwitchMSwitchDeleteSwitchesResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -340,6 +366,9 @@ func NewSwitchMSwitchDeleteSwitchesResultListExtraType() *SwitchMSwitchDeleteSwi
 	return m
 }
 
+// SwitchMSwitchFirmware
+//
+// Definition: switch_firmware
 type SwitchMSwitchFirmware struct {
 	// FromVersion
 	// Original fireware version before firmware update
@@ -359,6 +388,9 @@ func NewSwitchMSwitchFirmware() *SwitchMSwitchFirmware {
 	return m
 }
 
+// SwitchMSwitchFirmwareHistoryQueryResultList
+//
+// Definition: switch_firmwareHistoryQueryResultList
 type SwitchMSwitchFirmwareHistoryQueryResultList struct {
 	// Extra
 	// Any additional response data
@@ -390,6 +422,8 @@ func NewSwitchMSwitchFirmwareHistoryQueryResultList() *SwitchMSwitchFirmwareHist
 
 // SwitchMSwitchFirmwareHistoryQueryResultListExtraType
 //
+// Definition: switch_firmwareHistoryQueryResultListExtraType
+//
 // Any additional response data
 type SwitchMSwitchFirmwareHistoryQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -416,6 +450,9 @@ func NewSwitchMSwitchFirmwareHistoryQueryResultListExtraType() *SwitchMSwitchFir
 	return m
 }
 
+// SwitchMSwitchNetworkSwitch
+//
+// Definition: switch_networkSwitch
 type SwitchMSwitchNetworkSwitch struct {
 	// Alarm
 	// Count of switch alarm
@@ -549,6 +586,8 @@ func NewSwitchMSwitchNetworkSwitch() *SwitchMSwitchNetworkSwitch {
 
 // SwitchMSwitchNetworkSwitchFirmwareUpdateType
 //
+// Definition: switch_networkSwitchFirmwareUpdateType
+//
 // Information of firmware update
 type SwitchMSwitchNetworkSwitchFirmwareUpdateType struct {
 	// ModifiedTime
@@ -579,6 +618,8 @@ func NewSwitchMSwitchNetworkSwitchFirmwareUpdateType() *SwitchMSwitchNetworkSwit
 
 // SwitchMSwitchNetworkSwitchPoeType
 //
+// Definition: switch_networkSwitchPoeType
+//
 // Information of PoE
 type SwitchMSwitchNetworkSwitchPoeType struct {
 	// Free
@@ -600,6 +641,8 @@ func NewSwitchMSwitchNetworkSwitchPoeType() *SwitchMSwitchNetworkSwitchPoeType {
 }
 
 // SwitchMSwitchNetworkSwitchPortStatusType
+//
+// Definition: switch_networkSwitchPortStatusType
 //
 // Information of port status
 type SwitchMSwitchNetworkSwitchPortStatusType struct {
@@ -637,6 +680,9 @@ func NewSwitchMSwitchNetworkSwitchPortStatusType() *SwitchMSwitchNetworkSwitchPo
 	return m
 }
 
+// SwitchMSwitchPortDetails
+//
+// Definition: switch_portDetails
 type SwitchMSwitchPortDetails struct {
 	// AdminStatus
 	// Admin status of switch port, UP or DOWN
@@ -754,6 +800,8 @@ func NewSwitchMSwitchPortDetails() *SwitchMSwitchPortDetails {
 
 // SwitchMSwitchPortDetailsPacketsType
 //
+// Definition: switch_portDetailsPacketsType
+//
 // Port packet transmit information
 type SwitchMSwitchPortDetailsPacketsType struct {
 	// BroadcastIn
@@ -780,6 +828,8 @@ func NewSwitchMSwitchPortDetailsPacketsType() *SwitchMSwitchPortDetailsPacketsTy
 
 // SwitchMSwitchPortDetailsPoeType
 //
+// Definition: switch_portDetailsPoeType
+//
 // PoE information of switch port
 type SwitchMSwitchPortDetailsPoeType struct {
 	// Free
@@ -801,6 +851,8 @@ func NewSwitchMSwitchPortDetailsPoeType() *SwitchMSwitchPortDetailsPoeType {
 }
 
 // SwitchMSwitchPortDetailsPortErrorType
+//
+// Definition: switch_portDetailsPortErrorType
 //
 // Port error Information
 type SwitchMSwitchPortDetailsPortErrorType struct {
@@ -826,6 +878,9 @@ func NewSwitchMSwitchPortDetailsPortErrorType() *SwitchMSwitchPortDetailsPortErr
 	return m
 }
 
+// SwitchMSwitchPortDetailsQueryResultList
+//
+// Definition: switch_portDetailsQueryResultList
 type SwitchMSwitchPortDetailsQueryResultList struct {
 	// Extra
 	// Any additional response data
@@ -857,6 +912,8 @@ func NewSwitchMSwitchPortDetailsQueryResultList() *SwitchMSwitchPortDetailsQuery
 
 // SwitchMSwitchPortDetailsQueryResultListExtraType
 //
+// Definition: switch_portDetailsQueryResultListExtraType
+//
 // Any additional response data
 type SwitchMSwitchPortDetailsQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -885,6 +942,8 @@ func NewSwitchMSwitchPortDetailsQueryResultListExtraType() *SwitchMSwitchPortDet
 
 // SwitchMSwitchPortDetailsTrafficUsageType
 //
+// Definition: switch_portDetailsTrafficUsageType
+//
 // Traffic usage information
 type SwitchMSwitchPortDetailsTrafficUsageType struct {
 	// Rx
@@ -902,6 +961,8 @@ func NewSwitchMSwitchPortDetailsTrafficUsageType() *SwitchMSwitchPortDetailsTraf
 }
 
 // SwitchMSwitchPortStatus
+//
+// Definition: switch_portStatus
 //
 // $
 type SwitchMSwitchPortStatus struct {
@@ -939,6 +1000,9 @@ func NewSwitchMSwitchPortStatus() *SwitchMSwitchPortStatus {
 	return m
 }
 
+// SwitchMSwitchStackMember
+//
+// Definition: switch_stackMember
 type SwitchMSwitchStackMember struct {
 	// ActiveMode
 	// Role of stack
@@ -978,6 +1042,9 @@ func NewSwitchMSwitchStackMember() *SwitchMSwitchStackMember {
 	return m
 }
 
+// SwitchMSwitchStackMemberQueryResult
+//
+// Definition: switch_stackMemberQueryResult
 type SwitchMSwitchStackMemberQueryResult struct {
 	// Extra
 	// Extra information for stack member list
@@ -1009,6 +1076,8 @@ func NewSwitchMSwitchStackMemberQueryResult() *SwitchMSwitchStackMemberQueryResu
 
 // SwitchMSwitchStackMemberQueryResultExtraType
 //
+// Definition: switch_stackMemberQueryResultExtraType
+//
 // Extra information for stack member list
 type SwitchMSwitchStackMemberQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -1037,6 +1106,8 @@ func NewSwitchMSwitchStackMemberQueryResultExtraType() *SwitchMSwitchStackMember
 
 // SwitchMSwitchIdList
 //
+// Definition: switch_switchIdList
+//
 // $
 type SwitchMSwitchIdList []string
 
@@ -1045,6 +1116,9 @@ func MakeSwitchMSwitchIdList() SwitchMSwitchIdList {
 	return m
 }
 
+// SwitchMSwitchPortsSummaryQueryResultList
+//
+// Definition: switch_switchPortsSummaryQueryResultList
 type SwitchMSwitchPortsSummaryQueryResultList struct {
 	// Extra
 	// Any additional response data
@@ -1076,6 +1150,8 @@ func NewSwitchMSwitchPortsSummaryQueryResultList() *SwitchMSwitchPortsSummaryQue
 
 // SwitchMSwitchPortsSummaryQueryResultListExtraType
 //
+// Definition: switch_switchPortsSummaryQueryResultListExtraType
+//
 // Any additional response data
 type SwitchMSwitchPortsSummaryQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -1102,6 +1178,9 @@ func NewSwitchMSwitchPortsSummaryQueryResultListExtraType() *SwitchMSwitchPortsS
 	return m
 }
 
+// SwitchMSwitchQueryResultList
+//
+// Definition: switch_switchQueryResultList
 type SwitchMSwitchQueryResultList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -1129,6 +1208,9 @@ func NewSwitchMSwitchQueryResultList() *SwitchMSwitchQueryResultList {
 	return m
 }
 
+// SwitchMSwitchRebootResponse
+//
+// Definition: switch_switchRebootResponse
 type SwitchMSwitchRebootResponse struct {
 	Id *string `json:"id,omitempty"`
 }
@@ -1138,6 +1220,9 @@ func NewSwitchMSwitchRebootResponse() *SwitchMSwitchRebootResponse {
 	return m
 }
 
+// SwitchMSwitchTopSwitchesByFirmwareQueryResultList
+//
+// Definition: switch_topSwitchesByFirmwareQueryResultList
 type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
 	// Extra
 	// Any additional response data
@@ -1169,6 +1254,8 @@ func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultList() *SwitchMSwitchTopSwi
 
 // SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType
 //
+// Definition: switch_topSwitchesByFirmwareQueryResultListExtraType
+//
 // Any additional response data
 type SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -1195,6 +1282,9 @@ func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType() *SwitchMSwi
 	return m
 }
 
+// SwitchMSwitchTopSwitchesByModelQueryResultList
+//
+// Definition: switch_topSwitchesByModelQueryResultList
 type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
 	// Extra
 	// Any additional response data
@@ -1226,6 +1316,8 @@ func NewSwitchMSwitchTopSwitchesByModelQueryResultList() *SwitchMSwitchTopSwitch
 
 // SwitchMSwitchTopSwitchesByModelQueryResultListExtraType
 //
+// Definition: switch_topSwitchesByModelQueryResultListExtraType
+//
 // Any additional response data
 type SwitchMSwitchTopSwitchesByModelQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -1253,6 +1345,8 @@ func NewSwitchMSwitchTopSwitchesByModelQueryResultListExtraType() *SwitchMSwitch
 }
 
 // AddSwitch
+//
+// Operation ID: addSwitch
 //
 // Use this API command to retrieve all the switches currently managed by SmartZone.
 //
@@ -1283,6 +1377,8 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 
 // AddSwitchReboot
 //
+// Operation ID: addSwitchReboot
+//
 // Reboot switch by MAC address
 //
 // Required Parameters:
@@ -1310,6 +1406,8 @@ func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchId str
 }
 
 // AddSwitchSnmpSyncedSwitch
+//
+// Operation ID: addSwitchSnmpSyncedSwitch
 //
 // Use this API command to retrieve all the switches currently managed by SmartZone and SNMP synced.
 //
@@ -1340,6 +1438,8 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 
 // AddSwitchViewDetails
 //
+// Operation ID: addSwitchViewDetails
+//
 // Use this API command to retrieve switch and port details for the selected Switch/SwitchGroup/Domain.
 //
 // Request Body:
@@ -1368,6 +1468,8 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 }
 
 // DeleteSwitch
+//
+// Operation ID: deleteSwitch
 //
 // Use this API command to delete multiple switches managed by SmartZone
 //
@@ -1398,6 +1500,8 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 
 // DeleteSwitchById
 //
+// Operation ID: deleteSwitchById
+//
 // Use this API command to delete a switch managed by SmartZone.
 //
 // Required Parameters:
@@ -1426,6 +1530,8 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string, 
 
 // FindSwitchById
 //
+// Operation ID: findSwitchById
+//
 // Use this API command to retrieve a switch status.
 //
 // Required Parameters:
@@ -1453,6 +1559,8 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string, mu
 
 // FindSwitchFirmwareBySwitchId
 //
+// Operation ID: findSwitchFirmwareBySwitchId
+//
 // Use this API command to get a list of firmware update history.
 //
 // Required Parameters:
@@ -1479,6 +1587,8 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 }
 
 // UpdateSwitchMoveByDestinationSwitchGroupId
+//
+// Operation ID: updateSwitchMoveByDestinationSwitchGroupId
 //
 // Use this API command to move a list of switches to a switch group.
 //

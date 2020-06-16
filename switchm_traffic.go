@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMTrafficService() *SwitchMTrafficService {
 	return NewSwitchMTrafficService(ss.apiClient)
 }
 
+// SwitchMTrafficTopPortErrorQueryResultList
+//
+// Definition: traffic_topPortErrorQueryResultList
 type SwitchMTrafficTopPortErrorQueryResultList struct {
 	// Extra
 	// Extra information for top port error
@@ -53,6 +56,8 @@ func NewSwitchMTrafficTopPortErrorQueryResultList() *SwitchMTrafficTopPortErrorQ
 
 // SwitchMTrafficTopPortErrorQueryResultListExtraType
 //
+// Definition: traffic_topPortErrorQueryResultListExtraType
+//
 // Extra information for top port error
 type SwitchMTrafficTopPortErrorQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -79,6 +84,9 @@ func NewSwitchMTrafficTopPortErrorQueryResultListExtraType() *SwitchMTrafficTopP
 	return m
 }
 
+// SwitchMTrafficTopPortTrafficUsageQueryResultList
+//
+// Definition: traffic_topPortTrafficUsageQueryResultList
 type SwitchMTrafficTopPortTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top port traffic usage
@@ -110,6 +118,8 @@ func NewSwitchMTrafficTopPortTrafficUsageQueryResultList() *SwitchMTrafficTopPor
 
 // SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType
 //
+// Definition: traffic_topPortTrafficUsageQueryResultListExtraType
+//
 // Extra information for top port traffic usage
 type SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -136,6 +146,9 @@ func NewSwitchMTrafficTopPortTrafficUsageQueryResultListExtraType() *SwitchMTraf
 	return m
 }
 
+// SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
+//
+// Definition: traffic_topSwitchPoEUtilizationQueryResultList
 type SwitchMTrafficTopSwitchPoEUtilizationQueryResultList struct {
 	// Extra
 	// Extra information for top PoE utilization
@@ -167,6 +180,8 @@ func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList() *SwitchMTrafficTo
 
 // SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType
 //
+// Definition: traffic_topSwitchPoEUtilizationQueryResultListExtraType
+//
 // Extra information for top PoE utilization
 type SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -193,6 +208,9 @@ func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType() *SwitchM
 	return m
 }
 
+// SwitchMTrafficTopTrafficUsageQueryResultList
+//
+// Definition: traffic_topTrafficUsageQueryResultList
 type SwitchMTrafficTopTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top traffic usage
@@ -224,6 +242,8 @@ func NewSwitchMTrafficTopTrafficUsageQueryResultList() *SwitchMTrafficTopTraffic
 
 // SwitchMTrafficTopTrafficUsageQueryResultListExtraType
 //
+// Definition: traffic_topTrafficUsageQueryResultListExtraType
+//
 // Extra information for top traffic usage
 type SwitchMTrafficTopTrafficUsageQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -250,6 +270,9 @@ func NewSwitchMTrafficTopTrafficUsageQueryResultListExtraType() *SwitchMTrafficT
 	return m
 }
 
+// SwitchMTraffic
+//
+// Definition: traffic_traffic
 type SwitchMTraffic struct {
 	// Rx
 	// RX traffic of the switch
@@ -273,6 +296,9 @@ func NewSwitchMTraffic() *SwitchMTraffic {
 	return m
 }
 
+// SwitchMTrafficQueryResultList
+//
+// Definition: traffic_trafficQueryResultList
 type SwitchMTrafficQueryResultList struct {
 	// Extra
 	// Extra information for traffic list
@@ -304,6 +330,8 @@ func NewSwitchMTrafficQueryResultList() *SwitchMTrafficQueryResultList {
 
 // SwitchMTrafficQueryResultListExtraType
 //
+// Definition: traffic_trafficQueryResultListExtraType
+//
 // Extra information for traffic list
 type SwitchMTrafficQueryResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -330,6 +358,9 @@ func NewSwitchMTrafficQueryResultListExtraType() *SwitchMTrafficQueryResultListE
 	return m
 }
 
+// SwitchMTrafficUsage
+//
+// Definition: traffic_trafficUsage
 type SwitchMTrafficUsage struct {
 	// Id
 	// Identifier of the Traffic Usage
@@ -350,6 +381,8 @@ func NewSwitchMTrafficUsage() *SwitchMTrafficUsage {
 }
 
 // AddTrafficTopPoeutilization
+//
+// Operation ID: addTrafficTopPoeutilization
 //
 // Use this API command retrieve the top 10 switches by the PoE utilization.
 //
@@ -380,6 +413,8 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 
 // AddTrafficTopPorterror
 //
+// Operation ID: addTrafficTopPorterror
+//
 // Use this API command to get the top 10 switches by the porterror.
 //
 // Request Body:
@@ -408,6 +443,8 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 }
 
 // AddTrafficTopPortusage
+//
+// Operation ID: addTrafficTopPortusage
 //
 // Use this API command to get the top 10 ports by the traffic.
 //
@@ -438,6 +475,8 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 
 // AddTrafficTopUsage
 //
+// Operation ID: addTrafficTopUsage
+//
 // Use this API command to retrieve Top Swich/Port usage data based on the time duration.
 //
 // Request Body:
@@ -466,6 +505,8 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 }
 
 // AddTrafficTotalTrend
+//
+// Operation ID: addTrafficTotalTrend
 //
 // Use this API command to retrieve Swich/Port trend data based on the time duration.
 //

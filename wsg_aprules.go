@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAPRulesApRuleConfiguration
+//
+// Definition: aprules_apRuleConfiguration
 type WSGAPRulesApRuleConfiguration struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -37,6 +40,9 @@ func NewWSGAPRulesApRuleConfiguration() *WSGAPRulesApRuleConfiguration {
 	return m
 }
 
+// WSGAPRulesApRuleList
+//
+// Definition: aprules_apRuleList
 type WSGAPRulesApRuleList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -52,6 +58,9 @@ func NewWSGAPRulesApRuleList() *WSGAPRulesApRuleList {
 	return m
 }
 
+// WSGAPRulesApRuleListType
+//
+// Definition: aprules_apRuleListType
 type WSGAPRulesApRuleListType struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -69,6 +78,9 @@ func NewWSGAPRulesApRuleListType() *WSGAPRulesApRuleListType {
 	return m
 }
 
+// WSGAPRulesCreateApRule
+//
+// Definition: aprules_createApRule
 type WSGAPRulesCreateApRule struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -100,6 +112,9 @@ func NewWSGAPRulesCreateApRule() *WSGAPRulesCreateApRule {
 	return m
 }
 
+// WSGAPRulesGpsCoordinates
+//
+// Definition: aprules_gpsCoordinates
 type WSGAPRulesGpsCoordinates struct {
 	// Distance
 	// distance
@@ -115,6 +130,9 @@ func NewWSGAPRulesGpsCoordinates() *WSGAPRulesGpsCoordinates {
 	return m
 }
 
+// WSGAPRulesIpAddressRange
+//
+// Definition: aprules_ipAddressRange
 type WSGAPRulesIpAddressRange struct {
 	FromIp *WSGCommonIpAddress `json:"fromIp,omitempty"`
 
@@ -126,6 +144,9 @@ func NewWSGAPRulesIpAddressRange() *WSGAPRulesIpAddressRange {
 	return m
 }
 
+// WSGAPRulesModifyApRule
+//
+// Definition: aprules_modifyApRule
 type WSGAPRulesModifyApRule struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -153,6 +174,9 @@ func NewWSGAPRulesModifyApRule() *WSGAPRulesModifyApRule {
 	return m
 }
 
+// WSGAPRulesSubnet
+//
+// Definition: aprules_subnet
 type WSGAPRulesSubnet struct {
 	NetworkAddress *WSGCommonIpAddress `json:"networkAddress,omitempty"`
 

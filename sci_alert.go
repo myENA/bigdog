@@ -22,6 +22,9 @@ func (ss *SCIService) SCIAlertService() *SCIAlertService {
 	return NewSCIAlertService(ss.apiClient)
 }
 
+// SCIAlertSendNotification200ResponseType
+//
+// Definition: alert.sendNotification200ResponseType
 type SCIAlertSendNotification200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -48,6 +51,8 @@ func NewSCIAlertSendNotification200ResponseType() *SCIAlertSendNotification200Re
 }
 
 // AlertSendNotification
+//
+// Operation ID: alert.sendNotification
 func (s *SCIAlertService) AlertSendNotification(ctx context.Context, mutators ...RequestMutator) (*SCIAlertSendNotification200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest

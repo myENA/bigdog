@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDPDHCPNATProfileService() *WSGDPDHCPNATProfileService {
 
 // AddDpProfileSettings
 //
+// Operation ID: addDpProfileSettings
+//
 // Use this API command to create DP DHCP & NAT profile setting.
 //
 // Request Body:
@@ -49,6 +51,8 @@ func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, b
 }
 
 // DeleteDpProfileSettings
+//
+// Operation ID: deleteDpProfileSettings
 //
 // Use this API command to delete DP DHCP & NAT profile settings.
 //
@@ -77,6 +81,8 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context
 
 // DeleteDpProfileSettingsByDpKey
 //
+// Operation ID: deleteDpProfileSettingsByDpKey
+//
 // Use this API command to delete DP DHCP & NAT profile setting.
 //
 // Required Parameters:
@@ -103,6 +109,8 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 
 // FindDpProfileSettings
 //
+// Operation ID: findDpProfileSettings
+//
 // Use this API command to retrieve DP DHCP & NAT profile setting list.
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context, mutators ...RequestMutator) (*WSGDPProfileSettingBOList, *APIResponseMeta, error) {
 	var (
@@ -124,6 +132,8 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context, 
 }
 
 // FindDpProfileSettingsByDpKey
+//
+// Operation ID: findDpProfileSettingsByDpKey
 //
 // Use this API command to retrieve DP DHCP & NAT profile setting.
 //
@@ -151,6 +161,8 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 }
 
 // UpdateDpProfileSettingsByDpKey
+//
+// Operation ID: updateDpProfileSettingsByDpKey
 //
 // Use this API command to modify DP DHCP & NAT profile setting.
 //

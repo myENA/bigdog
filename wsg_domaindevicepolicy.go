@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGDomainDevicePolicyCreateDomainDevicePolicy
+//
+// Definition: domainDevicePolicy_createDomainDevicePolicy
 type WSGDomainDevicePolicyCreateDomainDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -33,6 +36,9 @@ func NewWSGDomainDevicePolicyCreateDomainDevicePolicy() *WSGDomainDevicePolicyCr
 	return m
 }
 
+// WSGDomainDevicePolicyProfile
+//
+// Definition: domainDevicePolicy_domainDevicePolicyProfile
 type WSGDomainDevicePolicyProfile struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -58,6 +64,9 @@ func NewWSGDomainDevicePolicyProfile() *WSGDomainDevicePolicyProfile {
 	return m
 }
 
+// WSGDomainDevicePolicyRule
+//
+// Definition: domainDevicePolicy_domainDevicePolicyRule
 type WSGDomainDevicePolicyRule struct {
 	// Action
 	// defaultAction of the device policy cofig
@@ -103,6 +112,9 @@ func NewWSGDomainDevicePolicyRule() *WSGDomainDevicePolicyRule {
 	return m
 }
 
+// WSGDomainDevicePolicyModifyDomainDevicePolicy
+//
+// Definition: domainDevicePolicy_modifyDomainDevicePolicy
 type WSGDomainDevicePolicyModifyDomainDevicePolicy struct {
 	// DefaultAction
 	// defaultAction of the device policy cofig
@@ -124,6 +136,9 @@ func NewWSGDomainDevicePolicyModifyDomainDevicePolicy() *WSGDomainDevicePolicyMo
 	return m
 }
 
+// WSGDomainDevicePolicyProfileList
+//
+// Definition: domainDevicePolicy_profileList
 type WSGDomainDevicePolicyProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -139,6 +154,9 @@ func NewWSGDomainDevicePolicyProfileList() *WSGDomainDevicePolicyProfileList {
 	return m
 }
 
+// WSGDomainDevicePolicyProfileListType
+//
+// Definition: domainDevicePolicy_profileListType
 type WSGDomainDevicePolicyProfileListType struct {
 	// Id
 	// Identifier of the service

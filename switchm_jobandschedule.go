@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMJobAndScheduleService() *SwitchMJobAndScheduleS
 
 // AddJob
 //
+// Operation ID: addJob
+//
 // Use this API command to retrieve a list of jobs.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMJobAndScheduleService) AddJob(ctx context.Context, body *SwitchM
 
 // DeleteJobSchedule
 //
+// Operation ID: deleteJobSchedule
+//
 // Use this API command to delete a selected schedule.
 func (s *SwitchMJobAndScheduleService) DeleteJobSchedule(ctx context.Context, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
@@ -74,6 +78,8 @@ func (s *SwitchMJobAndScheduleService) DeleteJobSchedule(ctx context.Context, mu
 }
 
 // FindJobByJobId
+//
+// Operation ID: findJobByJobId
 //
 // Use this API command to retrieve a given job.
 //
@@ -107,6 +113,8 @@ func (s *SwitchMJobAndScheduleService) FindJobByJobId(ctx context.Context, body 
 }
 
 // FindJobScheduleByScheduleId
+//
+// Operation ID: findJobScheduleByScheduleId
 //
 // Use this API command to retrieve a given schedule.
 //

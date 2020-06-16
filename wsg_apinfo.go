@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAPInfo
+//
+// Definition: apInfo_apInfo
 type WSGAPInfo struct {
 	ApMac *WSGCommonMac `json:"apMac,omitempty"`
 
@@ -33,6 +36,13 @@ func NewWSGAPInfo() *WSGAPInfo {
 	return m
 }
 
+// WSGAPInfoApName
+//
+// Definition: apInfo_apName
+//
+// Constraints:
+//    - max:64
+//    - min:2
 type WSGAPInfoApName string
 
 func NewWSGAPInfoApName() *WSGAPInfoApName {

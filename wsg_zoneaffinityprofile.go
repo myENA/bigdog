@@ -23,6 +23,8 @@ func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileSer
 
 // AddProfilesZoneAffinity
 //
+// Operation ID: addProfilesZoneAffinity
+//
 // Use this API command to create zone affinity profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Cont
 
 // DeleteProfilesZoneAffinityById
 //
+// Operation ID: deleteProfilesZoneAffinityById
+//
 // Use this API command to delete zone affinity profile.
 //
 // Required Parameters:
@@ -77,6 +81,8 @@ func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx conte
 }
 
 // FindProfilesZoneAffinity
+//
+// Operation ID: findProfilesZoneAffinity
 //
 // Use this API command to get all zone affinity profiles.
 //
@@ -107,6 +113,8 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 
 // FindProfilesZoneAffinityById
 //
+// Operation ID: findProfilesZoneAffinityById
+//
 // Use this API command to get one zone affinity profile.
 //
 // Required Parameters:
@@ -133,6 +141,8 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context
 }
 
 // PartialUpdateProfilesZoneAffinityById
+//
+// Operation ID: partialUpdateProfilesZoneAffinityById
 //
 // Use this API command to modify zone affinity profile.
 //

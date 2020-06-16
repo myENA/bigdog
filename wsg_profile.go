@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGProfileAccountingProfile
+//
+// Definition: profile_accountingProfile
 type WSGProfileAccountingProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -53,6 +56,9 @@ func NewWSGProfileAccountingProfile() *WSGProfileAccountingProfile {
 	return m
 }
 
+// WSGProfileAccountingProfileList
+//
+// Definition: profile_accountingProfileList
 type WSGProfileAccountingProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -71,6 +77,8 @@ func NewWSGProfileAccountingProfileList() *WSGProfileAccountingProfileList {
 }
 
 // WSGProfileAcctServiceRealmMapping
+//
+// Definition: profile_acctServiceRealmMapping
 //
 // Accounting service per realm
 type WSGProfileAcctServiceRealmMapping struct {
@@ -105,6 +113,8 @@ func NewWSGProfileAcctServiceRealmMapping() *WSGProfileAcctServiceRealmMapping {
 }
 
 // WSGProfileAdvancedOptionContent
+//
+// Definition: profile_advancedOptionContent
 //
 // advanced option Content
 type WSGProfileAdvancedOptionContent struct {
@@ -164,6 +174,9 @@ func NewWSGProfileAdvancedOptionContent() *WSGProfileAdvancedOptionContent {
 	return m
 }
 
+// WSGProfileApnRealm
+//
+// Definition: profile_apnRealm
 type WSGProfileApnRealm struct {
 	// DefaultAPN
 	// name of the apnForwardingPolicys.
@@ -179,6 +192,9 @@ func NewWSGProfileApnRealm() *WSGProfileApnRealm {
 	return m
 }
 
+// WSGProfileAuthenticationProfile
+//
+// Definition: profile_authenticationProfile
 type WSGProfileAuthenticationProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -244,6 +260,9 @@ func NewWSGProfileAuthenticationProfile() *WSGProfileAuthenticationProfile {
 	return m
 }
 
+// WSGProfileAuthenticationProfileList
+//
+// Definition: profile_authenticationProfileList
 type WSGProfileAuthenticationProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -261,6 +280,9 @@ func NewWSGProfileAuthenticationProfileList() *WSGProfileAuthenticationProfileLi
 	return m
 }
 
+// WSGProfileBaseServiceInfoList
+//
+// Definition: profile_baseServiceInfoList
 type WSGProfileBaseServiceInfoList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -276,6 +298,9 @@ func NewWSGProfileBaseServiceInfoList() *WSGProfileBaseServiceInfoList {
 	return m
 }
 
+// WSGProfileBlockClient
+//
+// Definition: profile_blockClient
 type WSGProfileBlockClient struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -318,6 +343,9 @@ func NewWSGProfileBlockClient() *WSGProfileBlockClient {
 	return m
 }
 
+// WSGProfileBlockClientList
+//
+// Definition: profile_blockClientList
 type WSGProfileBlockClientList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -333,6 +361,9 @@ func NewWSGProfileBlockClientList() *WSGProfileBlockClientList {
 	return m
 }
 
+// WSGProfileBlockClientListType
+//
+// Definition: profile_blockClientListType
 type WSGProfileBlockClientListType struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -360,6 +391,9 @@ func NewWSGProfileBlockClientListType() *WSGProfileBlockClientListType {
 	return m
 }
 
+// WSGProfileBlockedPort
+//
+// Definition: profile_blockedPort
 type WSGProfileBlockedPort struct {
 	// Port
 	// port of the Blocked Port
@@ -377,6 +411,9 @@ func NewWSGProfileBlockedPort() *WSGProfileBlockedPort {
 	return m
 }
 
+// WSGProfileBonjourFencingPolicy
+//
+// Definition: profile_bonjourFencingPolicy
 type WSGProfileBonjourFencingPolicy struct {
 	// BonjourFencingRuleList
 	// Bonjour Fencing Rule List
@@ -433,6 +470,9 @@ func NewWSGProfileBonjourFencingPolicy() *WSGProfileBonjourFencingPolicy {
 	return m
 }
 
+// WSGProfileBonjourFencingPolicyList
+//
+// Definition: profile_bonjourFencingPolicyList
 type WSGProfileBonjourFencingPolicyList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -448,6 +488,9 @@ func NewWSGProfileBonjourFencingPolicyList() *WSGProfileBonjourFencingPolicyList
 	return m
 }
 
+// WSGProfileBonjourFencingRule
+//
+// Definition: profile_bonjourFencingRule
 type WSGProfileBonjourFencingRule struct {
 	ClosestAp *WSGCommonMac `json:"closestAp,omitempty"`
 
@@ -484,6 +527,9 @@ func NewWSGProfileBonjourFencingRule() *WSGProfileBonjourFencingRule {
 	return m
 }
 
+// WSGProfileBonjourFencingRuleDeviceMac
+//
+// Definition: profile_bonjourFencingRuleDeviceMac
 type WSGProfileBonjourFencingRuleDeviceMac struct {
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 }
@@ -493,6 +539,9 @@ func NewWSGProfileBonjourFencingRuleDeviceMac() *WSGProfileBonjourFencingRuleDev
 	return m
 }
 
+// WSGProfileBonjourFencingRuleMapping
+//
+// Definition: profile_bonjourFencingRuleMapping
 type WSGProfileBonjourFencingRuleMapping struct {
 	CustomServiceName *WSGCommonNormalName `json:"customServiceName,omitempty"`
 
@@ -508,6 +557,9 @@ func NewWSGProfileBonjourFencingRuleMapping() *WSGProfileBonjourFencingRuleMappi
 	return m
 }
 
+// WSGProfileBonjourFencingService
+//
+// Definition: profile_bonjourFencingService
 type WSGProfileBonjourFencingService struct {
 	NeighborApMac *string `json:"neighborApMac,omitempty"`
 
@@ -526,6 +578,9 @@ func NewWSGProfileBonjourFencingService() *WSGProfileBonjourFencingService {
 	return m
 }
 
+// WSGProfileBonjourFencingStatistic
+//
+// Definition: profile_bonjourFencingStatistic
 type WSGProfileBonjourFencingStatistic struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -543,6 +598,9 @@ func NewWSGProfileBonjourFencingStatistic() *WSGProfileBonjourFencingStatistic {
 	return m
 }
 
+// WSGProfileBridgeProfile
+//
+// Definition: profile_bridgeProfile
 type WSGProfileBridgeProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -588,6 +646,9 @@ func NewWSGProfileBridgeProfile() *WSGProfileBridgeProfile {
 	return m
 }
 
+// WSGProfileBridgeProfileList
+//
+// Definition: profile_bridgeProfileList
 type WSGProfileBridgeProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -607,6 +668,8 @@ func NewWSGProfileBridgeProfileList() *WSGProfileBridgeProfileList {
 
 // WSGProfileBridgeService
 //
+// Definition: profile_bridgeService
+//
 // Bonjour Service Type
 // Constraints:
 //    - oneof:[AIRDISK,AIRPLAY,AIRPORT_MANAGEMENT,AIRPRINT,AIRTUNES,APPLE_FILE_SHARING,APPLE_MOBILE_DEVICES,APPLETV,ICLOUD_SYNC,ITUNES_REMOTE,ITUNES_SHARING,OPEN_DIRECTORY_MASTER,OPTICAL_DISK_SHARING,SCREEN_SHARING,SECURE_FILE_SHARING,SECURE_SHELL,WWW_HTTP,WWW_HTTPS,WORKGROUP_MANAGER,XGRID,GOOGLE_CHROMECAST,OTHER]
@@ -617,6 +680,9 @@ func NewWSGProfileBridgeService() *WSGProfileBridgeService {
 	return m
 }
 
+// WSGProfileBulkBlockClient
+//
+// Definition: profile_bulkBlockClient
 type WSGProfileBulkBlockClient struct {
 	BlockClientList []*WSGProfileBulkBlockClientBlockClientListType `json:"blockClientList,omitempty"`
 
@@ -628,6 +694,9 @@ func NewWSGProfileBulkBlockClient() *WSGProfileBulkBlockClient {
 	return m
 }
 
+// WSGProfileBulkBlockClientBlockClientListType
+//
+// Definition: profile_bulkBlockClientBlockClientListType
 type WSGProfileBulkBlockClientBlockClientListType struct {
 	// ApMac
 	// Constraints:
@@ -649,6 +718,9 @@ func NewWSGProfileBulkBlockClientBlockClientListType() *WSGProfileBulkBlockClien
 	return m
 }
 
+// WSGProfileClientIsolationEntry
+//
+// Definition: profile_clientIsolationEntry
 type WSGProfileClientIsolationEntry struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -669,6 +741,9 @@ func NewWSGProfileClientIsolationEntry() *WSGProfileClientIsolationEntry {
 	return m
 }
 
+// WSGProfileClientIsolationWhitelist
+//
+// Definition: profile_clientIsolationWhitelist
 type WSGProfileClientIsolationWhitelist struct {
 	// ClientIsolationAutoEnabled
 	// Client Isolation Auto Enable
@@ -727,6 +802,9 @@ func NewWSGProfileClientIsolationWhitelist() *WSGProfileClientIsolationWhitelist
 	return m
 }
 
+// WSGProfileClientIsolationWhitelistArray
+//
+// Definition: profile_clientIsolationWhitelistArray
 type WSGProfileClientIsolationWhitelistArray struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -768,6 +846,8 @@ func NewWSGProfileClientIsolationWhitelistArray() *WSGProfileClientIsolationWhit
 
 // WSGProfileCmProtocolOptionContent
 //
+// Definition: profile_cmProtocolOptionContent
+//
 // Certificate Management Protocol Option
 type WSGProfileCmProtocolOptionContent struct {
 	// CmpDhcpOpt43Subcode
@@ -798,6 +878,9 @@ func NewWSGProfileCmProtocolOptionContent() *WSGProfileCmProtocolOptionContent {
 	return m
 }
 
+// WSGProfileCoreNetworkGateway
+//
+// Definition: profile_coreNetworkGateway
 type WSGProfileCoreNetworkGateway struct {
 	// KeepAlivePeriod
 	// ICMP Keep-Alive Period(secs)
@@ -843,6 +926,9 @@ func NewWSGProfileCoreNetworkGateway() *WSGProfileCoreNetworkGateway {
 	return m
 }
 
+// WSGProfileCreateAccountingProfile
+//
+// Definition: profile_createAccountingProfile
 type WSGProfileCreateAccountingProfile struct {
 	Description *WSGCommonDescriptionTo128 `json:"description,omitempty"`
 
@@ -869,6 +955,9 @@ func NewWSGProfileCreateAccountingProfile() *WSGProfileCreateAccountingProfile {
 	return m
 }
 
+// WSGProfileCreateAuthenticationProfile
+//
+// Definition: profile_createAuthenticationProfile
 type WSGProfileCreateAuthenticationProfile struct {
 	Description *WSGCommonDescriptionTo128 `json:"description,omitempty"`
 
@@ -908,6 +997,9 @@ func NewWSGProfileCreateAuthenticationProfile() *WSGProfileCreateAuthenticationP
 	return m
 }
 
+// WSGProfileCreateBonjourFencingPolicy
+//
+// Definition: profile_createBonjourFencingPolicy
 type WSGProfileCreateBonjourFencingPolicy struct {
 	// BonjourFencingRuleList
 	// Bonjour Fencing Rule List
@@ -932,6 +1024,9 @@ func NewWSGProfileCreateBonjourFencingPolicy() *WSGProfileCreateBonjourFencingPo
 	return m
 }
 
+// WSGProfileCreateBridgeProfile
+//
+// Definition: profile_createBridgeProfile
 type WSGProfileCreateBridgeProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -956,6 +1051,9 @@ func NewWSGProfileCreateBridgeProfile() *WSGProfileCreateBridgeProfile {
 	return m
 }
 
+// WSGProfileCreateClientIsolationWhitelist
+//
+// Definition: profile_createClientIsolationWhitelist
 type WSGProfileCreateClientIsolationWhitelist struct {
 	// ClientIsolationAutoEnabled
 	// Client Isolation Auto Enable
@@ -982,6 +1080,9 @@ func NewWSGProfileCreateClientIsolationWhitelist() *WSGProfileCreateClientIsolat
 	return m
 }
 
+// WSGProfileCreateDhcpProfile
+//
+// Definition: profile_createDhcpProfile
 type WSGProfileCreateDhcpProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1044,6 +1145,9 @@ func NewWSGProfileCreateDhcpProfile() *WSGProfileCreateDhcpProfile {
 	return m
 }
 
+// WSGProfileCreateDnsServerProfile
+//
+// Definition: profile_createDnsServerProfile
 type WSGProfileCreateDnsServerProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1080,6 +1184,9 @@ func NewWSGProfileCreateDnsServerProfile() *WSGProfileCreateDnsServerProfile {
 	return m
 }
 
+// WSGProfileCreateFirewallProfile
+//
+// Definition: profile_createFirewallProfile
 type WSGProfileCreateFirewallProfile struct {
 	// AppPolicyId
 	// Application Policy
@@ -1126,6 +1233,9 @@ func NewWSGProfileCreateFirewallProfile() *WSGProfileCreateFirewallProfile {
 	return m
 }
 
+// WSGProfileCreateIpsecProfile
+//
+// Definition: profile_createIpsecProfile
 type WSGProfileCreateIpsecProfile struct {
 	AdvancedOption *WSGProfileAdvancedOptionContent `json:"advancedOption,omitempty"`
 
@@ -1197,6 +1307,9 @@ func NewWSGProfileCreateIpsecProfile() *WSGProfileCreateIpsecProfile {
 	return m
 }
 
+// WSGProfileCreateL2oGREProfile
+//
+// Definition: profile_createL2oGREProfile
 type WSGProfileCreateL2oGREProfile struct {
 	// CoreNetworkGateway
 	// Constraints:
@@ -1226,6 +1339,9 @@ func NewWSGProfileCreateL2oGREProfile() *WSGProfileCreateL2oGREProfile {
 	return m
 }
 
+// WSGProfileCreateL3AccessControlPolicy
+//
+// Definition: profile_createL3AccessControlPolicy
 type WSGProfileCreateL3AccessControlPolicy struct {
 	// DefaultAction
 	// Default action
@@ -1256,6 +1372,9 @@ func NewWSGProfileCreateL3AccessControlPolicy() *WSGProfileCreateL3AccessControl
 	return m
 }
 
+// WSGProfileCreatePrecedenceProfile
+//
+// Definition: profile_createPrecedenceProfile
 type WSGProfileCreatePrecedenceProfile struct {
 	// DomainId
 	// Domain UUID
@@ -1277,6 +1396,9 @@ func NewWSGProfileCreatePrecedenceProfile() *WSGProfileCreatePrecedenceProfile {
 	return m
 }
 
+// WSGProfileCreateRestrictedApAccessProfile
+//
+// Definition: profile_createRestrictedApAccessProfile
 type WSGProfileCreateRestrictedApAccessProfile struct {
 	// BlockedPortList
 	// Blocked Port List
@@ -1303,6 +1425,9 @@ func NewWSGProfileCreateRestrictedApAccessProfile() *WSGProfileCreateRestrictedA
 	return m
 }
 
+// WSGProfileCreateResultList
+//
+// Definition: profile_createResultList
 type WSGProfileCreateResultList []*WSGCommonCreateResult
 
 func MakeWSGProfileCreateResultList() WSGProfileCreateResultList {
@@ -1310,6 +1435,9 @@ func MakeWSGProfileCreateResultList() WSGProfileCreateResultList {
 	return m
 }
 
+// WSGProfileCreateRogueApPolicy
+//
+// Definition: profile_createRogueApPolicy
 type WSGProfileCreateRogueApPolicy struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1329,6 +1457,9 @@ func NewWSGProfileCreateRogueApPolicy() *WSGProfileCreateRogueApPolicy {
 	return m
 }
 
+// WSGProfileCreateRtlsProfile
+//
+// Definition: profile_createRtlsProfile
 type WSGProfileCreateRtlsProfile struct {
 	// EkahauEnabled
 	// Eekahau Location Service Enabled
@@ -1356,6 +1487,9 @@ func NewWSGProfileCreateRtlsProfile() *WSGProfileCreateRtlsProfile {
 	return m
 }
 
+// WSGProfileCreateRuckusGREProfile
+//
+// Definition: profile_createRuckusGREProfile
 type WSGProfileCreateRuckusGREProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1405,6 +1539,9 @@ func NewWSGProfileCreateRuckusGREProfile() *WSGProfileCreateRuckusGREProfile {
 	return m
 }
 
+// WSGProfileCreateSoftGREProfile
+//
+// Definition: profile_createSoftGREProfile
 type WSGProfileCreateSoftGREProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1474,6 +1611,9 @@ func NewWSGProfileCreateSoftGREProfile() *WSGProfileCreateSoftGREProfile {
 	return m
 }
 
+// WSGProfileCreateTrafficClassProfile
+//
+// Definition: profile_createTrafficClassProfile
 type WSGProfileCreateTrafficClassProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1493,6 +1633,9 @@ func NewWSGProfileCreateTrafficClassProfile() *WSGProfileCreateTrafficClassProfi
 	return m
 }
 
+// WSGProfileCreateTtgpdgProfile
+//
+// Definition: profile_createTtgpdgProfile
 type WSGProfileCreateTtgpdgProfile struct {
 	// ApnForwardingRealms
 	// List of the APN Forwarding Policy Per Realm
@@ -1544,6 +1687,9 @@ func NewWSGProfileCreateTtgpdgProfile() *WSGProfileCreateTtgpdgProfile {
 	return m
 }
 
+// WSGProfileCreateUserTrafficProfile
+//
+// Definition: profile_createUserTrafficProfile
 type WSGProfileCreateUserTrafficProfile struct {
 	// AppPolicyId
 	// Application Policy UUID (for 5.0 and Earlier Firmware Versions)
@@ -1594,6 +1740,9 @@ func NewWSGProfileCreateUserTrafficProfile() *WSGProfileCreateUserTrafficProfile
 	return m
 }
 
+// WSGProfileCreateZoneAffinityProfile
+//
+// Definition: profile_createZoneAffinityProfile
 type WSGProfileCreateZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
@@ -1620,6 +1769,9 @@ func NewWSGProfileCreateZoneAffinityProfile() *WSGProfileCreateZoneAffinityProfi
 	return m
 }
 
+// WSGProfileDataPlaneL3RoamingData
+//
+// Definition: profile_dataPlaneL3RoamingData
 type WSGProfileDataPlaneL3RoamingData struct {
 	// Activated
 	// Show if this DP is included in the L3 roaming feature or not, 0 means excluded and 1 means included
@@ -1658,6 +1810,9 @@ func NewWSGProfileDataPlaneL3RoamingData() *WSGProfileDataPlaneL3RoamingData {
 	return m
 }
 
+// WSGProfileDeleteBulkAccountingProfile
+//
+// Definition: profile_deleteBulkAccountingProfile
 type WSGProfileDeleteBulkAccountingProfile struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -1667,6 +1822,9 @@ func NewWSGProfileDeleteBulkAccountingProfile() *WSGProfileDeleteBulkAccountingP
 	return m
 }
 
+// WSGProfileDeleteBulkAuthenticationProfile
+//
+// Definition: profile_deleteBulkAuthenticationProfile
 type WSGProfileDeleteBulkAuthenticationProfile struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -1676,6 +1834,9 @@ func NewWSGProfileDeleteBulkAuthenticationProfile() *WSGProfileDeleteBulkAuthent
 	return m
 }
 
+// WSGProfileDeleteBulkPrecedenceProfile
+//
+// Definition: profile_deleteBulkPrecedenceProfile
 type WSGProfileDeleteBulkPrecedenceProfile struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -1685,6 +1846,9 @@ func NewWSGProfileDeleteBulkPrecedenceProfile() *WSGProfileDeleteBulkPrecedenceP
 	return m
 }
 
+// WSGProfileDeleteBulkUserTrafficProfile
+//
+// Definition: profile_deleteBulkUserTrafficProfile
 type WSGProfileDeleteBulkUserTrafficProfile struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -1694,6 +1858,9 @@ func NewWSGProfileDeleteBulkUserTrafficProfile() *WSGProfileDeleteBulkUserTraffi
 	return m
 }
 
+// WSGProfileDhcpOption82
+//
+// Definition: profile_dhcpOption82
 type WSGProfileDhcpOption82 struct {
 	// DhcpOption82Enabled
 	// Enable DHCP Option 82
@@ -1743,6 +1910,9 @@ func NewWSGProfileDhcpOption82() *WSGProfileDhcpOption82 {
 	return m
 }
 
+// WSGProfileDhcpProfileList
+//
+// Definition: profile_dhcpProfileList
 type WSGProfileDhcpProfileList struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -1782,6 +1952,9 @@ func NewWSGProfileDhcpProfileList() *WSGProfileDhcpProfileList {
 	return m
 }
 
+// WSGProfileDhcpRelayNoRelayTunnel
+//
+// Definition: profile_dhcpRelayNoRelayTunnel
 type WSGProfileDhcpRelayNoRelayTunnel struct {
 	DhcpOption82 *WSGProfileDhcpOption82 `json:"dhcpOption82,omitempty"`
 
@@ -1807,6 +1980,9 @@ func NewWSGProfileDhcpRelayNoRelayTunnel() *WSGProfileDhcpRelayNoRelayTunnel {
 	return m
 }
 
+// WSGProfileDnsServerProfile
+//
+// Definition: profile_dnsServerProfile
 type WSGProfileDnsServerProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -1866,6 +2042,9 @@ func NewWSGProfileDnsServerProfile() *WSGProfileDnsServerProfile {
 	return m
 }
 
+// WSGProfileDnsServerProfileList
+//
+// Definition: profile_dnsServerProfileList
 type WSGProfileDnsServerProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -1883,6 +2062,9 @@ func NewWSGProfileDnsServerProfileList() *WSGProfileDnsServerProfileList {
 	return m
 }
 
+// WSGProfileDownlinkRateLimiting
+//
+// Definition: profile_downlinkRateLimiting
 type WSGProfileDownlinkRateLimiting struct {
 	// DownlinkRateLimitingBps
 	// Downlink rate limiting, range 0.1 ~ 200 mpbs
@@ -1899,6 +2081,8 @@ func NewWSGProfileDownlinkRateLimiting() *WSGProfileDownlinkRateLimiting {
 }
 
 // WSGProfileEspProposal
+//
+// Definition: profile_espProposal
 //
 // EspProposal based ipsec service mappings
 type WSGProfileEspProposal struct {
@@ -1931,6 +2115,8 @@ func NewWSGProfileEspProposal() *WSGProfileEspProposal {
 
 // WSGProfileEspSecurityAssociationContent
 //
+// Definition: profile_espSecurityAssociationContent
+//
 // espProposal Security Association Content
 type WSGProfileEspSecurityAssociationContent struct {
 	// EspProposals
@@ -1949,6 +2135,9 @@ func NewWSGProfileEspSecurityAssociationContent() *WSGProfileEspSecurityAssociat
 	return m
 }
 
+// WSGProfileFirewallProfile
+//
+// Definition: profile_firewallProfile
 type WSGProfileFirewallProfile struct {
 	// AppPolicyId
 	// Application Policy
@@ -2016,6 +2205,9 @@ func NewWSGProfileFirewallProfile() *WSGProfileFirewallProfile {
 	return m
 }
 
+// WSGProfileFirewallProfileArray
+//
+// Definition: profile_firewallProfileArray
 type WSGProfileFirewallProfileArray struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2031,6 +2223,9 @@ func NewWSGProfileFirewallProfileArray() *WSGProfileFirewallProfileArray {
 	return m
 }
 
+// WSGProfileFlexiVpnProfile
+//
+// Definition: profile_flexiVpnProfile
 type WSGProfileFlexiVpnProfile struct {
 	// DestinationZoneAffinityId
 	// Flexi-VPN Profile ID (Destination)
@@ -2074,6 +2269,9 @@ func NewWSGProfileFlexiVpnProfile() *WSGProfileFlexiVpnProfile {
 	return m
 }
 
+// WSGProfileFlexiVpnProfileList
+//
+// Definition: profile_flexiVpnProfileList
 type WSGProfileFlexiVpnProfileList struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -2113,6 +2311,9 @@ func NewWSGProfileFlexiVpnProfileList() *WSGProfileFlexiVpnProfileList {
 	return m
 }
 
+// WSGProfileGetL3RoamingConfig
+//
+// Definition: profile_getL3RoamingConfig
 type WSGProfileGetL3RoamingConfig struct {
 	// DataPlanes
 	// L3 roaming configuration for DPs
@@ -2124,6 +2325,9 @@ func NewWSGProfileGetL3RoamingConfig() *WSGProfileGetL3RoamingConfig {
 	return m
 }
 
+// WSGProfileHs20FriendlyName
+//
+// Definition: profile_hs20FriendlyName
 type WSGProfileHs20FriendlyName struct {
 	// Language
 	// Constraints:
@@ -2144,6 +2348,9 @@ func NewWSGProfileHs20FriendlyName() *WSGProfileHs20FriendlyName {
 	return m
 }
 
+// WSGProfileHs20Operator
+//
+// Definition: profile_hs20Operator
 type WSGProfileHs20Operator struct {
 	Certificate *WSGCommonGenericRef `json:"certificate,omitempty"`
 
@@ -2204,6 +2411,9 @@ func NewWSGProfileHs20Operator() *WSGProfileHs20Operator {
 	return m
 }
 
+// WSGProfileHs20OperatorList
+//
+// Definition: profile_hs20OperatorList
 type WSGProfileHs20OperatorList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -2221,6 +2431,9 @@ func NewWSGProfileHs20OperatorList() *WSGProfileHs20OperatorList {
 	return m
 }
 
+// WSGProfileHs20Provider
+//
+// Definition: profile_hs20Provider
 type WSGProfileHs20Provider struct {
 	// Accountings
 	// Accountings
@@ -2286,6 +2499,9 @@ func NewWSGProfileHs20Provider() *WSGProfileHs20Provider {
 	return m
 }
 
+// WSGProfileHs20ProviderList
+//
+// Definition: profile_hs20ProviderList
 type WSGProfileHs20ProviderList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -2304,6 +2520,8 @@ func NewWSGProfileHs20ProviderList() *WSGProfileHs20ProviderList {
 }
 
 // WSGProfileIkeProposal
+//
+// Definition: profile_ikeProposal
 //
 // IkeProposal based ipsec service mappings
 type WSGProfileIkeProposal struct {
@@ -2342,6 +2560,8 @@ func NewWSGProfileIkeProposal() *WSGProfileIkeProposal {
 
 // WSGProfileIkeSecurityAssociationContent
 //
+// Definition: profile_ikeSecurityAssociationContent
+//
 // ikeProposal Security Association Content
 type WSGProfileIkeSecurityAssociationContent struct {
 	// IkeProposals
@@ -2360,6 +2580,9 @@ func NewWSGProfileIkeSecurityAssociationContent() *WSGProfileIkeSecurityAssociat
 	return m
 }
 
+// WSGProfileIpAclRules
+//
+// Definition: profile_ipAclRules
 type WSGProfileIpAclRules struct {
 	// Action
 	// The access of traffic access control.
@@ -2487,6 +2710,12 @@ func NewWSGProfileIpAclRules() *WSGProfileIpAclRules {
 	return m
 }
 
+// WSGProfileIpMode
+//
+// Definition: profile_ipMode
+//
+// Constraints:
+//    - oneof:[IPV4,IPV6]
 type WSGProfileIpMode string
 
 func NewWSGProfileIpMode() *WSGProfileIpMode {
@@ -2494,6 +2723,9 @@ func NewWSGProfileIpMode() *WSGProfileIpMode {
 	return m
 }
 
+// WSGProfileIpsecProfile
+//
+// Definition: profile_ipsecProfile
 type WSGProfileIpsecProfile struct {
 	AdvancedOption *WSGProfileAdvancedOptionContent `json:"advancedOption,omitempty"`
 
@@ -2579,6 +2811,9 @@ func NewWSGProfileIpsecProfile() *WSGProfileIpsecProfile {
 	return m
 }
 
+// WSGProfileIpsecProfileList
+//
+// Definition: profile_ipsecProfileList
 type WSGProfileIpsecProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -2596,6 +2831,9 @@ func NewWSGProfileIpsecProfileList() *WSGProfileIpsecProfileList {
 	return m
 }
 
+// WSGProfileL2oGREProfile
+//
+// Definition: profile_l2oGREProfile
 type WSGProfileL2oGREProfile struct {
 	CoreNetworkGateway *WSGProfileCoreNetworkGateway `json:"coreNetworkGateway,omitempty"`
 
@@ -2643,6 +2881,9 @@ func NewWSGProfileL2oGREProfile() *WSGProfileL2oGREProfile {
 	return m
 }
 
+// WSGProfileL2oGREProfileList
+//
+// Definition: profile_l2oGREProfileList
 type WSGProfileL2oGREProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -2660,6 +2901,9 @@ func NewWSGProfileL2oGREProfileList() *WSGProfileL2oGREProfileList {
 	return m
 }
 
+// WSGProfileL3AccessControlPolicy
+//
+// Definition: profile_l3AccessControlPolicy
 type WSGProfileL3AccessControlPolicy struct {
 	// DefaultAction
 	// Default action
@@ -2694,6 +2938,9 @@ func NewWSGProfileL3AccessControlPolicy() *WSGProfileL3AccessControlPolicy {
 	return m
 }
 
+// WSGProfileL3AccessControlPolicyArray
+//
+// Definition: profile_l3AccessControlPolicyArray
 type WSGProfileL3AccessControlPolicyArray struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2709,6 +2956,9 @@ func NewWSGProfileL3AccessControlPolicyArray() *WSGProfileL3AccessControlPolicyA
 	return m
 }
 
+// WSGProfileL3AclRuleList
+//
+// Definition: profile_l3AclRuleList
 type WSGProfileL3AclRuleList struct {
 	// Action
 	// The access of traffic access control.
@@ -2820,6 +3070,9 @@ func NewWSGProfileL3AclRuleList() *WSGProfileL3AclRuleList {
 	return m
 }
 
+// WSGProfileLbsProfile
+//
+// Definition: profile_lbsProfile
 type WSGProfileLbsProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -2879,6 +3132,9 @@ func NewWSGProfileLbsProfile() *WSGProfileLbsProfile {
 	return m
 }
 
+// WSGProfileLbsProfileList
+//
+// Definition: profile_lbsProfileList
 type WSGProfileLbsProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -2896,6 +3152,9 @@ func NewWSGProfileLbsProfileList() *WSGProfileLbsProfileList {
 	return m
 }
 
+// WSGProfileModifyAccountingProfile
+//
+// Definition: profile_modifyAccountingProfile
 type WSGProfileModifyAccountingProfile struct {
 	Description *WSGCommonDescriptionTo128 `json:"description,omitempty"`
 
@@ -2923,6 +3182,9 @@ func NewWSGProfileModifyAccountingProfile() *WSGProfileModifyAccountingProfile {
 	return m
 }
 
+// WSGProfileModifyAuthenticationProfile
+//
+// Definition: profile_modifyAuthenticationProfile
 type WSGProfileModifyAuthenticationProfile struct {
 	Description *WSGCommonDescriptionTo128 `json:"description,omitempty"`
 
@@ -2960,6 +3222,9 @@ func NewWSGProfileModifyAuthenticationProfile() *WSGProfileModifyAuthenticationP
 	return m
 }
 
+// WSGProfileModifyBlockClient
+//
+// Definition: profile_modifyBlockClient
 type WSGProfileModifyBlockClient struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -2971,6 +3236,9 @@ func NewWSGProfileModifyBlockClient() *WSGProfileModifyBlockClient {
 	return m
 }
 
+// WSGProfileModifyBonjourFencingPolicy
+//
+// Definition: profile_modifyBonjourFencingPolicy
 type WSGProfileModifyBonjourFencingPolicy struct {
 	// BonjourFencingRuleList
 	// Bonjour Fencing Rule List
@@ -2990,6 +3258,9 @@ func NewWSGProfileModifyBonjourFencingPolicy() *WSGProfileModifyBonjourFencingPo
 	return m
 }
 
+// WSGProfileModifyBridgeProfile
+//
+// Definition: profile_modifyBridgeProfile
 type WSGProfileModifyBridgeProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -3011,6 +3282,9 @@ func NewWSGProfileModifyBridgeProfile() *WSGProfileModifyBridgeProfile {
 	return m
 }
 
+// WSGProfileModifyClientIsolationWhitelist
+//
+// Definition: profile_modifyClientIsolationWhitelist
 type WSGProfileModifyClientIsolationWhitelist struct {
 	// ClientIsolationAutoEnabled
 	// Client Isolation Auto Enable
@@ -3030,6 +3304,9 @@ func NewWSGProfileModifyClientIsolationWhitelist() *WSGProfileModifyClientIsolat
 	return m
 }
 
+// WSGProfileModifyDnsServerProfile
+//
+// Definition: profile_modifyDnsServerProfile
 type WSGProfileModifyDnsServerProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -3065,6 +3342,9 @@ func NewWSGProfileModifyDnsServerProfile() *WSGProfileModifyDnsServerProfile {
 	return m
 }
 
+// WSGProfileModifyFirewallProfile
+//
+// Definition: profile_modifyFirewallProfile
 type WSGProfileModifyFirewallProfile struct {
 	// AppPolicyId
 	// Application Policy
@@ -3108,6 +3388,9 @@ func NewWSGProfileModifyFirewallProfile() *WSGProfileModifyFirewallProfile {
 	return m
 }
 
+// WSGProfileModifyHS20Operator
+//
+// Definition: profile_modifyHS20Operator
 type WSGProfileModifyHS20Operator struct {
 	Certificate *WSGCommonGenericRef `json:"certificate,omitempty"`
 
@@ -3138,6 +3421,8 @@ func NewWSGProfileModifyHS20Operator() *WSGProfileModifyHS20Operator {
 }
 
 // WSGProfileModifyIpAclRules
+//
+// Definition: profile_modifyIpAclRules
 //
 // Traffic access control list
 type WSGProfileModifyIpAclRules struct {
@@ -3269,6 +3554,9 @@ func NewWSGProfileModifyIpAclRules() *WSGProfileModifyIpAclRules {
 	return m
 }
 
+// WSGProfileModifyIpsecProfile
+//
+// Definition: profile_modifyIpsecProfile
 type WSGProfileModifyIpsecProfile struct {
 	AdvancedOption *WSGProfileAdvancedOptionContent `json:"advancedOption,omitempty"`
 
@@ -3324,6 +3612,9 @@ func NewWSGProfileModifyIpsecProfile() *WSGProfileModifyIpsecProfile {
 	return m
 }
 
+// WSGProfileModifyL2oGREProfile
+//
+// Definition: profile_modifyL2oGREProfile
 type WSGProfileModifyL2oGREProfile struct {
 	CoreNetworkGateway *WSGProfileCoreNetworkGateway `json:"coreNetworkGateway,omitempty"`
 
@@ -3347,6 +3638,9 @@ func NewWSGProfileModifyL2oGREProfile() *WSGProfileModifyL2oGREProfile {
 	return m
 }
 
+// WSGProfileModifyL3AccessControlPolicy
+//
+// Definition: profile_modifyL3AccessControlPolicy
 type WSGProfileModifyL3AccessControlPolicy struct {
 	// DefaultAction
 	// Default action
@@ -3377,6 +3671,9 @@ func NewWSGProfileModifyL3AccessControlPolicy() *WSGProfileModifyL3AccessControl
 	return m
 }
 
+// WSGProfileModifyRestrictedApAccessProfile
+//
+// Definition: profile_modifyRestrictedApAccessProfile
 type WSGProfileModifyRestrictedApAccessProfile struct {
 	// BlockedPortList
 	// Blocked Port List
@@ -3403,6 +3700,9 @@ func NewWSGProfileModifyRestrictedApAccessProfile() *WSGProfileModifyRestrictedA
 	return m
 }
 
+// WSGProfileModifyRuckusGREProfile
+//
+// Definition: profile_modifyRuckusGREProfile
 type WSGProfileModifyRuckusGREProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -3448,6 +3748,9 @@ func NewWSGProfileModifyRuckusGREProfile() *WSGProfileModifyRuckusGREProfile {
 	return m
 }
 
+// WSGProfileModifySoftGREProfile
+//
+// Definition: profile_modifySoftGREProfile
 type WSGProfileModifySoftGREProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -3509,6 +3812,9 @@ func NewWSGProfileModifySoftGREProfile() *WSGProfileModifySoftGREProfile {
 	return m
 }
 
+// WSGProfileModifyUserTrafficProfile
+//
+// Definition: profile_modifyUserTrafficProfile
 type WSGProfileModifyUserTrafficProfile struct {
 	// AppPolicyId
 	// Application Policy UUID (for 5.0 and Earlier Firmware Versions)
@@ -3559,6 +3865,9 @@ func NewWSGProfileModifyUserTrafficProfile() *WSGProfileModifyUserTrafficProfile
 	return m
 }
 
+// WSGProfileModifyZoneAffinityProfile
+//
+// Definition: profile_modifyZoneAffinityProfile
 type WSGProfileModifyZoneAffinityProfile struct {
 	// Description
 	// The description of the profile
@@ -3581,6 +3890,9 @@ func NewWSGProfileModifyZoneAffinityProfile() *WSGProfileModifyZoneAffinityProfi
 	return m
 }
 
+// WSGProfilePrecedenceList
+//
+// Definition: profile_precedenceList
 type WSGProfilePrecedenceList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -3598,6 +3910,9 @@ func NewWSGProfilePrecedenceList() *WSGProfilePrecedenceList {
 	return m
 }
 
+// WSGProfilePrecedenceListType
+//
+// Definition: profile_precedenceListType
 type WSGProfilePrecedenceListType struct {
 	// DomainId
 	// Domain UUID
@@ -3623,6 +3938,9 @@ func NewWSGProfilePrecedenceListType() *WSGProfilePrecedenceListType {
 	return m
 }
 
+// WSGProfileClone
+//
+// Definition: profile_profileClone
 type WSGProfileClone struct {
 	// NewId
 	// name for new profile
@@ -3646,6 +3964,9 @@ func NewWSGProfileClone() *WSGProfileClone {
 	return m
 }
 
+// WSGProfileIdList
+//
+// Definition: profile_profileIdList
 type WSGProfileIdList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -3661,6 +3982,9 @@ func NewWSGProfileIdList() *WSGProfileIdList {
 	return m
 }
 
+// WSGProfileList
+//
+// Definition: profile_profileList
 type WSGProfileList struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -3702,6 +4026,9 @@ func NewWSGProfileList() *WSGProfileList {
 	return m
 }
 
+// WSGProfileListType
+//
+// Definition: profile_profileListType
 type WSGProfileListType struct {
 	// Id
 	// Identifier of the profile
@@ -3715,6 +4042,9 @@ func NewWSGProfileListType() *WSGProfileListType {
 	return m
 }
 
+// WSGProfileProviderAccounting
+//
+// Definition: profile_providerAccounting
 type WSGProfileProviderAccounting struct {
 	// Id
 	// Accounting id
@@ -3746,6 +4076,9 @@ func NewWSGProfileProviderAccounting() *WSGProfileProviderAccounting {
 	return m
 }
 
+// WSGProfileProviderAuthentication
+//
+// Definition: profile_providerAuthentication
 type WSGProfileProviderAuthentication struct {
 	// Id
 	// Authentication id
@@ -3785,6 +4118,9 @@ func NewWSGProfileProviderAuthentication() *WSGProfileProviderAuthentication {
 	return m
 }
 
+// WSGProfileProviderEAPAuthSetting
+//
+// Definition: profile_providerEAPAuthSetting
 type WSGProfileProviderEAPAuthSetting struct {
 	// Info
 	// EAP auth info
@@ -3819,6 +4155,9 @@ func NewWSGProfileProviderEAPAuthSetting() *WSGProfileProviderEAPAuthSetting {
 	return m
 }
 
+// WSGProfileProviderEAPMethod
+//
+// Definition: profile_providerEAPMethod
 type WSGProfileProviderEAPMethod struct {
 	// AuthSettings
 	// EAP method auth settings
@@ -3839,6 +4178,9 @@ func NewWSGProfileProviderEAPMethod() *WSGProfileProviderEAPMethod {
 	return m
 }
 
+// WSGProfileProviderExternalOSU
+//
+// Definition: profile_providerExternalOSU
 type WSGProfileProviderExternalOSU struct {
 	// CommonLanguageIcon
 	// The base64 encoded data of icon.
@@ -3879,6 +4221,9 @@ func NewWSGProfileProviderExternalOSU() *WSGProfileProviderExternalOSU {
 	return m
 }
 
+// WSGProfileProviderHomeOIs
+//
+// Definition: profile_providerHomeOIs
 type WSGProfileProviderHomeOIs struct {
 	// Name
 	// Name of the home OI
@@ -3899,6 +4244,9 @@ func NewWSGProfileProviderHomeOIs() *WSGProfileProviderHomeOIs {
 	return m
 }
 
+// WSGProfileProviderInternalOSU
+//
+// Definition: profile_providerInternalOSU
 type WSGProfileProviderInternalOSU struct {
 	// Certificate
 	// Constraints:
@@ -3958,6 +4306,9 @@ func NewWSGProfileProviderInternalOSU() *WSGProfileProviderInternalOSU {
 	return m
 }
 
+// WSGProfileProviderInternalOSUOsuAuthServicesType
+//
+// Definition: profile_providerInternalOSUOsuAuthServicesType
 type WSGProfileProviderInternalOSUOsuAuthServicesType struct {
 	// CredentialType
 	// Authentication credential type
@@ -3993,6 +4344,9 @@ func NewWSGProfileProviderInternalOSUOsuAuthServicesType() *WSGProfileProviderIn
 	return m
 }
 
+// WSGProfileProviderInternalOSUOsuPortalType
+//
+// Definition: profile_providerInternalOSUOsuPortalType
 type WSGProfileProviderInternalOSUOsuPortalType struct {
 	ExternalUrl *WSGCommonHTTPS `json:"externalUrl,omitempty"`
 
@@ -4011,6 +4365,9 @@ func NewWSGProfileProviderInternalOSUOsuPortalType() *WSGProfileProviderInternal
 	return m
 }
 
+// WSGProfileProviderOnlineSignup
+//
+// Definition: profile_providerOnlineSignup
 type WSGProfileProviderOnlineSignup struct {
 	ExternalOSU *WSGProfileProviderExternalOSU `json:"externalOSU,omitempty"`
 
@@ -4029,6 +4386,9 @@ func NewWSGProfileProviderOnlineSignup() *WSGProfileProviderOnlineSignup {
 	return m
 }
 
+// WSGProfileProviderPLMN
+//
+// Definition: profile_providerPLMN
 type WSGProfileProviderPLMN struct {
 	// Mcc
 	// MCC
@@ -4048,6 +4408,12 @@ func NewWSGProfileProviderPLMN() *WSGProfileProviderPLMN {
 	return m
 }
 
+// WSGProfileProviderProvisionProtocal
+//
+// Definition: profile_providerProvisionProtocal
+//
+// Constraints:
+//    - oneof:[SOAP_XML,OMA_DM]
 type WSGProfileProviderProvisionProtocal string
 
 func NewWSGProfileProviderProvisionProtocal() *WSGProfileProviderProvisionProtocal {
@@ -4055,6 +4421,9 @@ func NewWSGProfileProviderProvisionProtocal() *WSGProfileProviderProvisionProtoc
 	return m
 }
 
+// WSGProfileProviderRealm
+//
+// Definition: profile_providerRealm
 type WSGProfileProviderRealm struct {
 	// EapMethods
 	// EAP methods
@@ -4083,6 +4452,9 @@ func NewWSGProfileProviderRealm() *WSGProfileProviderRealm {
 	return m
 }
 
+// WSGProfileProviderSubscriptionDescription
+//
+// Definition: profile_providerSubscriptionDescription
 type WSGProfileProviderSubscriptionDescription struct {
 	// Description
 	// Description of the friendly name
@@ -4116,6 +4488,8 @@ func NewWSGProfileProviderSubscriptionDescription() *WSGProfileProviderSubscript
 
 // WSGProfileRateLimitingPrecedenceItem
 //
+// Definition: profile_RateLimitingPrecedenceItem
+//
 // Rate limiting precedence item
 type WSGProfileRateLimitingPrecedenceItem struct {
 	// Name
@@ -4135,6 +4509,8 @@ func NewWSGProfileRateLimitingPrecedenceItem() *WSGProfileRateLimitingPrecedence
 }
 
 // WSGProfileRealmAuthServiceMapping
+//
+// Definition: profile_realmAuthServiceMapping
 //
 // Realm based authentication service mappings
 type WSGProfileRealmAuthServiceMapping struct {
@@ -4185,6 +4561,9 @@ func NewWSGProfileRealmAuthServiceMapping() *WSGProfileRealmAuthServiceMapping {
 	return m
 }
 
+// WSGProfileRestrictedApAccessProfile
+//
+// Definition: profile_restrictedApAccessProfile
 type WSGProfileRestrictedApAccessProfile struct {
 	// BlockedPortList
 	// Blocked Port List
@@ -4235,6 +4614,9 @@ func NewWSGProfileRestrictedApAccessProfile() *WSGProfileRestrictedApAccessProfi
 	return m
 }
 
+// WSGProfileRestrictedApAccessProfileArray
+//
+// Definition: profile_restrictedApAccessProfileArray
 type WSGProfileRestrictedApAccessProfileArray struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -4250,6 +4632,9 @@ func NewWSGProfileRestrictedApAccessProfileArray() *WSGProfileRestrictedApAccess
 	return m
 }
 
+// WSGProfileReturnZoneAffinityProfile
+//
+// Definition: profile_returnZoneAffinityProfile
 type WSGProfileReturnZoneAffinityProfile struct {
 	// BaseDpVersion
 	// The lowest DP version in an Zone Affinity Profile
@@ -4308,6 +4693,9 @@ func NewWSGProfileReturnZoneAffinityProfile() *WSGProfileReturnZoneAffinityProfi
 	return m
 }
 
+// WSGProfileReturnZoneAffinityProfileZoneAffinityListWithPriorityType
+//
+// Definition: profile_returnZoneAffinityProfileZoneAffinityListWithPriorityType
 type WSGProfileReturnZoneAffinityProfileZoneAffinityListWithPriorityType struct {
 	// DpId
 	// DP ID
@@ -4323,6 +4711,9 @@ func NewWSGProfileReturnZoneAffinityProfileZoneAffinityListWithPriorityType() *W
 	return m
 }
 
+// WSGProfileRogueApPolicy
+//
+// Definition: profile_rogueApPolicy
 type WSGProfileRogueApPolicy struct {
 	CreateDateTime *int `json:"createDateTime,omitempty"`
 
@@ -4352,6 +4743,9 @@ func NewWSGProfileRogueApPolicy() *WSGProfileRogueApPolicy {
 	return m
 }
 
+// WSGProfileRogueApPolicyList
+//
+// Definition: profile_rogueApPolicyList
 type WSGProfileRogueApPolicyList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -4367,6 +4761,9 @@ func NewWSGProfileRogueApPolicyList() *WSGProfileRogueApPolicyList {
 	return m
 }
 
+// WSGProfileRogueApRuleList
+//
+// Definition: profile_rogueApRuleList
 type WSGProfileRogueApRuleList struct {
 	// Classification
 	// Constraints:
@@ -4398,6 +4795,9 @@ func NewWSGProfileRogueApRuleList() *WSGProfileRogueApRuleList {
 	return m
 }
 
+// WSGProfileRtlsProfileList
+//
+// Definition: profile_rtlsProfileList
 type WSGProfileRtlsProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -4415,6 +4815,9 @@ func NewWSGProfileRtlsProfileList() *WSGProfileRtlsProfileList {
 	return m
 }
 
+// WSGProfileRuckusGREProfile
+//
+// Definition: profile_ruckusGREProfile
 type WSGProfileRuckusGREProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -4480,6 +4883,9 @@ func NewWSGProfileRuckusGREProfile() *WSGProfileRuckusGREProfile {
 	return m
 }
 
+// WSGProfileRuckusGREProfileList
+//
+// Definition: profile_ruckusGREProfileList
 type WSGProfileRuckusGREProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -4497,6 +4903,9 @@ func NewWSGProfileRuckusGREProfileList() *WSGProfileRuckusGREProfileList {
 	return m
 }
 
+// WSGProfileSoftGREProfile
+//
+// Definition: profile_SoftGREProfile
 type WSGProfileSoftGREProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -4572,6 +4981,9 @@ func NewWSGProfileSoftGREProfile() *WSGProfileSoftGREProfile {
 	return m
 }
 
+// WSGProfileSoftGREProfileList
+//
+// Definition: profile_softGREProfileList
 type WSGProfileSoftGREProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -4589,6 +5001,9 @@ func NewWSGProfileSoftGREProfileList() *WSGProfileSoftGREProfileList {
 	return m
 }
 
+// WSGProfileTrafficClassProfileList
+//
+// Definition: profile_trafficClassProfileList
 type WSGProfileTrafficClassProfileList struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -4630,6 +5045,8 @@ func NewWSGProfileTrafficClassProfileList() *WSGProfileTrafficClassProfileList {
 
 // WSGProfileTtgCommonSetting
 //
+// Definition: profile_ttgCommonSetting
+//
 // Hosted AAA server RADIUS settings & PLMN ID settings
 type WSGProfileTtgCommonSetting struct {
 	// MobileCountryCode
@@ -4652,6 +5069,9 @@ func NewWSGProfileTtgCommonSetting() *WSGProfileTtgCommonSetting {
 	return m
 }
 
+// WSGProfileTtgpdgApnForwardingRealm
+//
+// Definition: profile_ttgpdgApnForwardingRealm
 type WSGProfileTtgpdgApnForwardingRealm struct {
 	// Apn
 	// the forwarding policy APN, if apnType is NIOI, APN Example : internet-v4.mnc111.mcc222.gprs
@@ -4675,6 +5095,9 @@ func NewWSGProfileTtgpdgApnForwardingRealm() *WSGProfileTtgpdgApnForwardingRealm
 	return m
 }
 
+// WSGProfileTtgpdgCommonSetting
+//
+// Definition: profile_ttgpdgCommonSetting
 type WSGProfileTtgpdgCommonSetting struct {
 	// AcctRetry
 	// Accounting retry of TTG PDG common setting
@@ -4704,6 +5127,9 @@ func NewWSGProfileTtgpdgCommonSetting() *WSGProfileTtgpdgCommonSetting {
 	return m
 }
 
+// WSGProfileTtgpdgProfile
+//
+// Definition: profile_ttgpdgProfile
 type WSGProfileTtgpdgProfile struct {
 	// ApnForwardingRealms
 	// List of the APN Forwarding Policy Per Realm
@@ -4767,6 +5193,9 @@ func NewWSGProfileTtgpdgProfile() *WSGProfileTtgpdgProfile {
 	return m
 }
 
+// WSGProfileTtgpdgProfileConfiguration
+//
+// Definition: profile_ttgpdgProfileConfiguration
 type WSGProfileTtgpdgProfileConfiguration struct {
 	// ApnForwardingRealms
 	// List of the APN Forwarding Policy Per Realm
@@ -4802,6 +5231,9 @@ func NewWSGProfileTtgpdgProfileConfiguration() *WSGProfileTtgpdgProfileConfigura
 	return m
 }
 
+// WSGProfileTtgpdgProfileList
+//
+// Definition: profile_ttgpdgProfileList
 type WSGProfileTtgpdgProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -4819,6 +5251,9 @@ func NewWSGProfileTtgpdgProfileList() *WSGProfileTtgpdgProfileList {
 	return m
 }
 
+// WSGProfileUpdateL3RoamingConfig
+//
+// Definition: profile_updateL3RoamingConfig
 type WSGProfileUpdateL3RoamingConfig struct {
 	// DataPlanes
 	// L3 roaming configuration for DPs
@@ -4830,6 +5265,9 @@ func NewWSGProfileUpdateL3RoamingConfig() *WSGProfileUpdateL3RoamingConfig {
 	return m
 }
 
+// WSGProfileUpdatePrecedenceProfile
+//
+// Definition: profile_updatePrecedenceProfile
 type WSGProfileUpdatePrecedenceProfile struct {
 	// DomainId
 	// Domain UUID
@@ -4851,6 +5289,9 @@ func NewWSGProfileUpdatePrecedenceProfile() *WSGProfileUpdatePrecedenceProfile {
 	return m
 }
 
+// WSGProfileUpdateRogueApPolicy
+//
+// Definition: profile_updateRogueApPolicy
 type WSGProfileUpdateRogueApPolicy struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -4864,6 +5305,9 @@ func NewWSGProfileUpdateRogueApPolicy() *WSGProfileUpdateRogueApPolicy {
 	return m
 }
 
+// WSGProfileUpdateRtlsProfile
+//
+// Definition: profile_updateRtlsProfile
 type WSGProfileUpdateRtlsProfile struct {
 	EkahauEnabled *bool `json:"ekahauEnabled,omitempty"`
 
@@ -4881,6 +5325,9 @@ func NewWSGProfileUpdateRtlsProfile() *WSGProfileUpdateRtlsProfile {
 	return m
 }
 
+// WSGProfileUplinkRateLimiting
+//
+// Definition: profile_uplinkRateLimiting
 type WSGProfileUplinkRateLimiting struct {
 	// UplinkRateLimitingBps
 	// Uplink rate limiting, range 0.1 ~ 200 mpbs
@@ -4896,6 +5343,9 @@ func NewWSGProfileUplinkRateLimiting() *WSGProfileUplinkRateLimiting {
 	return m
 }
 
+// WSGProfileUserTrafficProfile
+//
+// Definition: profile_userTrafficProfile
 type WSGProfileUserTrafficProfile struct {
 	// AppPolicyId
 	// Application Policy UUID (for 5.0 and Earlier Firmware Versions)
@@ -4974,6 +5424,9 @@ func NewWSGProfileUserTrafficProfile() *WSGProfileUserTrafficProfile {
 	return m
 }
 
+// WSGProfileUserTrafficProfileList
+//
+// Definition: profile_userTrafficProfileList
 type WSGProfileUserTrafficProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -4991,6 +5444,9 @@ func NewWSGProfileUserTrafficProfileList() *WSGProfileUserTrafficProfileList {
 	return m
 }
 
+// WSGProfileVdpProfile
+//
+// Definition: profile_vdpProfile
 type WSGProfileVdpProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -5096,6 +5552,8 @@ func NewWSGProfileVdpProfile() *WSGProfileVdpProfile {
 
 // WSGProfileVlanPrecedenceItem
 //
+// Definition: profile_VlanPrecedenceItem
+//
 // Vlan precedence item
 type WSGProfileVlanPrecedenceItem struct {
 	// Name
@@ -5114,6 +5572,9 @@ func NewWSGProfileVlanPrecedenceItem() *WSGProfileVlanPrecedenceItem {
 	return m
 }
 
+// WSGProfileZoneAffinityProfileList
+//
+// Definition: profile_zoneAffinityProfileList
 type WSGProfileZoneAffinityProfileList struct {
 	List []*WSGProfileReturnZoneAffinityProfile `json:"list,omitempty"`
 }

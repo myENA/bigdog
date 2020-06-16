@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMConfigurationService() *SwitchMConfigurationSer
 
 // AddSwitchconfig
 //
+// Operation ID: addSwitchconfig
+//
 // Use this API command to retrieve configuration backup list with specified filters.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 }
 
 // AddSwitchconfigBackup
+//
+// Operation ID: addSwitchconfigBackup
 //
 // Use this API command to backup configuration for a list of switches.
 //
@@ -81,6 +85,8 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 
 // AddSwitchconfigBackupDiff
 //
+// Operation ID: addSwitchconfigBackupDiff
+//
 // Use this API command to diff between two config back up files for a switch.
 //
 // Request Body:
@@ -110,6 +116,8 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 
 // DeleteSwitchconfig
 //
+// Operation ID: deleteSwitchconfig
+//
 // Use this API command to delete config backups by a list of config backup id.
 //
 // Request Body:
@@ -137,6 +145,8 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, bo
 
 // DeleteSwitchconfigByConfigId
 //
+// Operation ID: deleteSwitchconfigByConfigId
+//
 // Use this API command to delete the configuration backup.
 //
 // Required Parameters:
@@ -162,6 +172,8 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 }
 
 // FindSwitchconfigByConfigId
+//
+// Operation ID: findSwitchconfigByConfigId
 //
 // Use this API command to retrieve configuration backup content.
 //
@@ -190,6 +202,8 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 
 // FindSwitchconfigDownloadByConfigId
 //
+// Operation ID: findSwitchconfigDownloadByConfigId
+//
 // Use this API command to download configuration backup content as plain text.
 //
 // Required Parameters:
@@ -216,6 +230,8 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 }
 
 // UpdateSwitchconfigBackupByGroupId
+//
+// Operation ID: updateSwitchconfigBackupByGroupId
 //
 // Use this API command to backup configurations for all switches under a group.
 //
@@ -245,6 +261,8 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 }
 
 // UpdateSwitchconfigBackupRestoreByBackupId
+//
+// Operation ID: updateSwitchconfigBackupRestoreByBackupId
 //
 // Restore a configuration backup to the switch.
 //

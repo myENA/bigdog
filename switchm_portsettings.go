@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMPortSettingsService() *SwitchMPortSettingsServi
 	return NewSwitchMPortSettingsService(ss.apiClient)
 }
 
+// SwitchMPortSettingsCreateBulk
+//
+// Definition: portSettings_createBulk
 type SwitchMPortSettingsCreateBulk struct {
 	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
@@ -111,6 +114,9 @@ func NewSwitchMPortSettingsCreateBulk() *SwitchMPortSettingsCreateBulk {
 	return m
 }
 
+// SwitchMPortSettings
+//
+// Definition: portSettings_PortSettings
 type SwitchMPortSettings struct {
 	// CreatedTime
 	// The create time of the Port Settings
@@ -214,6 +220,9 @@ func NewSwitchMPortSettings() *SwitchMPortSettings {
 	return m
 }
 
+// SwitchMPortSettingsQueryResult
+//
+// Definition: portSettings_PortSettingsQueryResult
 type SwitchMPortSettingsQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -245,6 +254,8 @@ func NewSwitchMPortSettingsQueryResult() *SwitchMPortSettingsQueryResult {
 
 // SwitchMPortSettingsQueryResultExtraType
 //
+// Definition: portSettings_PortSettingsQueryResultExtraType
+//
 // Any additional response data
 type SwitchMPortSettingsQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -271,6 +282,9 @@ func NewSwitchMPortSettingsQueryResultExtraType() *SwitchMPortSettingsQueryResul
 	return m
 }
 
+// SwitchMPortSettingsUpdatePortSettings
+//
+// Definition: portSettings_UpdatePortSettings
 type SwitchMPortSettingsUpdatePortSettings struct {
 	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
@@ -348,6 +362,8 @@ func NewSwitchMPortSettingsUpdatePortSettings() *SwitchMPortSettingsUpdatePortSe
 
 // AddPortSettingsBulk
 //
+// Operation ID: addPortSettingsBulk
+//
 // Use this API command to Bulk update the port setting
 //
 // Request Body:
@@ -375,6 +391,8 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 
 // FindPortSettings
 //
+// Operation ID: findPortSettings
+//
 // Use this API command to Retrieve all Port Settings list.
 func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context, mutators ...RequestMutator) (*SwitchMPortSettingsQueryResult, *APIResponseMeta, error) {
 	var (
@@ -396,6 +414,8 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context, mutat
 }
 
 // FindPortSettingsById
+//
+// Operation ID: findPortSettingsById
 //
 // Use this API command to Retrieve Port Settings.
 //
@@ -423,6 +443,8 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 }
 
 // FindPortSettingsByQueryCriteria
+//
+// Operation ID: findPortSettingsByQueryCriteria
 //
 // Use this API command to Retrieve Port Settings list.
 //
@@ -452,6 +474,8 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 }
 
 // UpdatePortSettingsById
+//
+// Operation ID: updatePortSettingsById
 //
 // Use this API command to Update Port Settings.
 //

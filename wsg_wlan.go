@@ -21,6 +21,9 @@ func (ss *WSGService) WSGWLANService() *WSGWLANService {
 	return NewWSGWLANService(ss.apiClient)
 }
 
+// WSGWLANCreateGuestAccessWlan
+//
+// Definition: wlan_createGuestAccessWlan
 type WSGWLANCreateGuestAccessWlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -170,6 +173,9 @@ func NewWSGWLANCreateGuestAccessWlan() *WSGWLANCreateGuestAccessWlan {
 	return m
 }
 
+// WSGWLANCreateHotspot20OpenWlan
+//
+// Definition: wlan_createHotspot20OpenWlan
 type WSGWLANCreateHotspot20OpenWlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -309,6 +315,9 @@ func NewWSGWLANCreateHotspot20OpenWlan() *WSGWLANCreateHotspot20OpenWlan {
 	return m
 }
 
+// WSGWLANCreateHotspot20Wlan
+//
+// Definition: wlan_createHotspot20Wlan
 type WSGWLANCreateHotspot20Wlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -449,6 +458,9 @@ func NewWSGWLANCreateHotspot20Wlan() *WSGWLANCreateHotspot20Wlan {
 	return m
 }
 
+// WSGWLANCreateHotspotWlan
+//
+// Definition: wlan_createHotspotWlan
 type WSGWLANCreateHotspotWlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -598,6 +610,9 @@ func NewWSGWLANCreateHotspotWlan() *WSGWLANCreateHotspotWlan {
 	return m
 }
 
+// WSGWLANCreateStandard80211Wlan
+//
+// Definition: wlan_createStandard80211Wlan
 type WSGWLANCreateStandard80211Wlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -738,6 +753,9 @@ func NewWSGWLANCreateStandard80211Wlan() *WSGWLANCreateStandard80211Wlan {
 	return m
 }
 
+// WSGWLANCreateStandardOpenWlan
+//
+// Definition: wlan_createStandardOpenWlan
 type WSGWLANCreateStandardOpenWlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -878,6 +896,9 @@ func NewWSGWLANCreateStandardOpenWlan() *WSGWLANCreateStandardOpenWlan {
 	return m
 }
 
+// WSGWLANCreateWebAuthWlan
+//
+// Definition: wlan_createWebAuthWlan
 type WSGWLANCreateWebAuthWlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -1027,6 +1048,9 @@ func NewWSGWLANCreateWebAuthWlan() *WSGWLANCreateWebAuthWlan {
 	return m
 }
 
+// WSGWLANCreateWechatWlan
+//
+// Definition: wlan_createWechatWlan
 type WSGWLANCreateWechatWlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -1169,6 +1193,9 @@ func NewWSGWLANCreateWechatWlan() *WSGWLANCreateWechatWlan {
 	return m
 }
 
+// WSGWLANModifyWlan
+//
+// Definition: wlan_modifyWlan
 type WSGWLANModifyWlan struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -1306,6 +1333,9 @@ func NewWSGWLANModifyWlan() *WSGWLANModifyWlan {
 	return m
 }
 
+// WSGWLANAccounting
+//
+// Definition: wlan_wlanAccounting
 type WSGWLANAccounting struct {
 	// AccountingDelayEnabled
 	// Indicates whether accounting delay time is enabled
@@ -1346,6 +1376,9 @@ func NewWSGWLANAccounting() *WSGWLANAccounting {
 	return m
 }
 
+// WSGWLANAdvanced
+//
+// Definition: wlan_wlanAdvanced
 type WSGWLANAdvanced struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
@@ -1736,6 +1769,9 @@ func NewWSGWLANAdvanced() *WSGWLANAdvanced {
 	return m
 }
 
+// WSGWLANAuthentication
+//
+// Definition: wlan_wlanAuthentication
 type WSGWLANAuthentication struct {
 	// AuthenticationOption
 	// Option of the authentication service or profile, At least one ID or name or authenticationOption is required in the request. This only applies to hotspot and guest WLANs.
@@ -1783,6 +1819,13 @@ func NewWSGWLANAuthentication() *WSGWLANAuthentication {
 	return m
 }
 
+// WSGWLANBssMinRateMbps
+//
+// Definition: wlan_wlanBssMinRateMbps
+//
+// Constraints:
+//    - default:'Disable'
+//    - oneof:[Disable,1 mbps,2 mbps,5.5 mbps,12 mbps,24 mbps]
 type WSGWLANBssMinRateMbps string
 
 func NewWSGWLANBssMinRateMbps() *WSGWLANBssMinRateMbps {
@@ -1790,6 +1833,9 @@ func NewWSGWLANBssMinRateMbps() *WSGWLANBssMinRateMbps {
 	return m
 }
 
+// WSGWLANConfiguration
+//
+// Definition: wlan_wlanConfiguration
 type WSGWLANConfiguration struct {
 	AccessIpsecProfile *WSGCommonGenericRef `json:"accessIpsecProfile,omitempty"`
 
@@ -1945,6 +1991,9 @@ func NewWSGWLANConfiguration() *WSGWLANConfiguration {
 	return m
 }
 
+// WSGWLANCoreTunnel
+//
+// Definition: wlan_wlanCoreTunnel
 type WSGWLANCoreTunnel struct {
 	// Id
 	// Identifier of the forwarding profile. At least one ID or name is required in the request.
@@ -1967,6 +2016,9 @@ func NewWSGWLANCoreTunnel() *WSGWLANCoreTunnel {
 	return m
 }
 
+// WSGWLANDSCPSetting
+//
+// Definition: wlan_wlanDSCPSetting
 type WSGWLANDSCPSetting struct {
 	// Enable
 	// Enabled or disabled
@@ -2007,6 +2059,9 @@ func NewWSGWLANDSCPSetting() *WSGWLANDSCPSetting {
 	return m
 }
 
+// WSGWLANEncryption
+//
+// Definition: wlan_wlanEncryption
 type WSGWLANEncryption struct {
 	// Algorithm
 	// Encryption algorithm. This only applies to WPA2 and WPA mixed mode.
@@ -2061,6 +2116,9 @@ func NewWSGWLANEncryption() *WSGWLANEncryption {
 	return m
 }
 
+// WSGWLANHESSID
+//
+// Definition: wlan_wlanHESSID
 type WSGWLANHESSID string
 
 func NewWSGWLANHESSID() *WSGWLANHESSID {
@@ -2068,6 +2126,9 @@ func NewWSGWLANHESSID() *WSGWLANHESSID {
 	return m
 }
 
+// WSGWLANList
+//
+// Definition: wlan_wlanList
 type WSGWLANList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2083,6 +2144,9 @@ func NewWSGWLANList() *WSGWLANList {
 	return m
 }
 
+// WSGWLANMACAuth
+//
+// Definition: wlan_wlanMACAuth
 type WSGWLANMACAuth struct {
 	// CustomizedPassword
 	// User defined password. When this field is set to an empty string, the MAC address is used as password.
@@ -2102,6 +2166,13 @@ func NewWSGWLANMACAuth() *WSGWLANMACAuth {
 	return m
 }
 
+// WSGWLANMgmtTxRateMbps
+//
+// Definition: wlan_wlanMgmtTxRateMbps
+//
+// Constraints:
+//    - default:'2 mbps'
+//    - oneof:[1 mbps,2 mbps,5.5 mbps,6 mbps,9 mbps,11 mbps,12 mbps,18 mbps,24 mbps,36 mbps,48 mbps,54 mbps]
 type WSGWLANMgmtTxRateMbps string
 
 func NewWSGWLANMgmtTxRateMbps() *WSGWLANMgmtTxRateMbps {
@@ -2109,6 +2180,13 @@ func NewWSGWLANMgmtTxRateMbps() *WSGWLANMgmtTxRateMbps {
 	return m
 }
 
+// WSGWLANNameSSID
+//
+// Definition: wlan_wlanNameSSID
+//
+// Constraints:
+//    - max:32
+//    - min:1
 type WSGWLANNameSSID string
 
 func NewWSGWLANNameSSID() *WSGWLANNameSSID {
@@ -2116,6 +2194,9 @@ func NewWSGWLANNameSSID() *WSGWLANNameSSID {
 	return m
 }
 
+// WSGWLANRadius
+//
+// Definition: wlan_wlanRadius
 type WSGWLANRadius struct {
 	// CalledStaIdType
 	// Called station ID type
@@ -2188,6 +2269,9 @@ func NewWSGWLANRadius() *WSGWLANRadius {
 	return m
 }
 
+// WSGWLANSchedule
+//
+// Definition: wlan_wlanSchedule
 type WSGWLANSchedule struct {
 	// Id
 	// Identifier of the schedule profile. At least one ID or name is required in the request.
@@ -2211,6 +2295,9 @@ func NewWSGWLANSchedule() *WSGWLANSchedule {
 	return m
 }
 
+// WSGWLANSummary
+//
+// Definition: wlan_wlanSummary
 type WSGWLANSummary struct {
 	// Id
 	// Identifier of the WLAN
@@ -2238,6 +2325,9 @@ func NewWSGWLANSummary() *WSGWLANSummary {
 	return m
 }
 
+// WSGWLANVlan
+//
+// Definition: wlan_wlanVlan
 type WSGWLANVlan struct {
 	// AaaVlanOverride
 	// Indicates whether the AAA VLAN settings can be overriden or not
@@ -2271,6 +2361,8 @@ func NewWSGWLANVlan() *WSGWLANVlan {
 }
 
 // AddRkszonesWlansByZoneId
+//
+// Operation ID: addRkszonesWlansByZoneId
 //
 // Use this API command to create a new standard, open and non-tunneled basic WLAN.
 //
@@ -2306,6 +2398,8 @@ func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *WSG
 
 // AddRkszonesWlansGuestByZoneId
 //
+// Operation ID: addRkszonesWlansGuestByZoneId
+//
 // Use this API command to create a new guest access WLAN.
 //
 // Request Body:
@@ -2339,6 +2433,8 @@ func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body
 }
 
 // AddRkszonesWlansHotspot20ByZoneId
+//
+// Operation ID: addRkszonesWlansHotspot20ByZoneId
 //
 // Use this API command to create a new Hotspot 2.0 access WLAN.
 //
@@ -2374,6 +2470,8 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, 
 
 // AddRkszonesWlansHotspot20openByZoneId
 //
+// Operation ID: addRkszonesWlansHotspot20openByZoneId
+//
 // Use this API command to create a new Hotspot 2.0 Onboarding WLAN with Authentication Method as 'Open'.
 //
 // Request Body:
@@ -2407,6 +2505,8 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Conte
 }
 
 // AddRkszonesWlansHotspot20osenByZoneId
+//
+// Operation ID: addRkszonesWlansHotspot20osenByZoneId
 //
 // Use this API command to create a new Hotspot 2.0 Onboarding WLAN with Authentication Method as '802.1X'.
 //
@@ -2442,6 +2542,8 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Conte
 
 // AddRkszonesWlansQosMapsById
 //
+// Operation ID: addRkszonesWlansQosMapsById
+//
 // Use this API command to enable Qos Map Set of a WLAN.
 //
 // Required Parameters:
@@ -2470,6 +2572,8 @@ func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, id str
 }
 
 // AddRkszonesWlansStandard8021XByZoneId
+//
+// Operation ID: addRkszonesWlansStandard8021XByZoneId
 //
 // Use this API command to create a new standard, 802.1X and non-tunneled WLAN.
 //
@@ -2505,6 +2609,8 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Conte
 
 // AddRkszonesWlansStandard8021XmacByZoneId
 //
+// Operation ID: addRkszonesWlansStandard8021XmacByZoneId
+//
 // Use this API command to create a new standard, 802.1X with MAC address and non-tunneled WLAN.
 //
 // Request Body:
@@ -2538,6 +2644,8 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Co
 }
 
 // AddRkszonesWlansStandardmacByZoneId
+//
+// Operation ID: addRkszonesWlansStandardmacByZoneId
 //
 // Use this API command to create a new standard, MAC auth and non-tunneled WLAN.
 //
@@ -2573,6 +2681,8 @@ func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context
 
 // AddRkszonesWlansWebauthByZoneId
 //
+// Operation ID: addRkszonesWlansWebauthByZoneId
+//
 // Use this API command to creates new web authentication WLAN.
 //
 // Request Body:
@@ -2606,6 +2716,8 @@ func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, bo
 }
 
 // AddRkszonesWlansWechatByZoneId
+//
+// Operation ID: addRkszonesWlansWechatByZoneId
 //
 // Use this API command to create a new wechat WLAN.
 //
@@ -2641,6 +2753,8 @@ func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, bod
 
 // AddRkszonesWlansWispr8021XByZoneId
 //
+// Operation ID: addRkszonesWlansWispr8021XByZoneId
+//
 // Use this API command to create a new hotspot (WISPr) with 802.1X WLAN.
 //
 // Request Body:
@@ -2674,6 +2788,8 @@ func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context,
 }
 
 // AddRkszonesWlansWisprByZoneId
+//
+// Operation ID: addRkszonesWlansWisprByZoneId
 //
 // Use this API command to create new hotspot (WISPr) WLAN.
 //
@@ -2709,6 +2825,8 @@ func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body
 
 // AddRkszonesWlansWisprmacByZoneId
 //
+// Operation ID: addRkszonesWlansWisprmacByZoneId
+//
 // Use this API command to create a new hotspot (WISPr) with MAC bypass WLAN.
 //
 // Request Body:
@@ -2743,6 +2861,8 @@ func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, b
 
 // DeleteRkszonesWlansAccountingServiceOrProfileById
 //
+// Operation ID: deleteRkszonesWlansAccountingServiceOrProfileById
+//
 // Use this API command to disable the accounting of a WLAN.
 //
 // Required Parameters:
@@ -2771,6 +2891,8 @@ func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx c
 }
 
 // DeleteRkszonesWlansById
+//
+// Operation ID: deleteRkszonesWlansById
 //
 // Use this API command to delete a WLAN.
 //
@@ -2801,6 +2923,8 @@ func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, id string,
 
 // DeleteRkszonesWlansDevicePolicyById
 //
+// Operation ID: deleteRkszonesWlansDevicePolicyById
+//
 // Use this API command to disable the device policy of a WLAN.
 //
 // Required Parameters:
@@ -2829,6 +2953,8 @@ func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context
 }
 
 // DeleteRkszonesWlansDiffServProfileById
+//
+// Operation ID: deleteRkszonesWlansDiffServProfileById
 //
 // Use this API command to disable the DiffServ profile of a WLAN.
 //
@@ -2859,6 +2985,8 @@ func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Cont
 
 // DeleteRkszonesWlansDnsServerProfileById
 //
+// Operation ID: deleteRkszonesWlansDnsServerProfileById
+//
 // Use this API command to disable DNS server profile of a WLAN.
 //
 // Required Parameters:
@@ -2887,6 +3015,8 @@ func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Con
 }
 
 // DeleteRkszonesWlansL2ACLById
+//
+// Operation ID: deleteRkszonesWlansL2ACLById
 //
 // Use this API command to disable the layer 2 access control list (ACL) configuration of a WLAN.
 //
@@ -2917,6 +3047,8 @@ func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, id st
 
 // DeleteRkszonesWlansQosMapsById
 //
+// Operation ID: deleteRkszonesWlansQosMapsById
+//
 // Use this API command to disable Qos Map Set of a WLAN.
 //
 // Required Parameters:
@@ -2945,6 +3077,8 @@ func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, id 
 }
 
 // FindRkszonesWlansById
+//
+// Operation ID: findRkszonesWlansById
 //
 // Use this API command to retrieve a WLAN.
 //
@@ -2975,6 +3109,8 @@ func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, id string, z
 }
 
 // FindRkszonesWlansByZoneId
+//
+// Operation ID: findRkszonesWlansByZoneId
 //
 // Use this API command to retrieve a list of WLANs within a zone.
 //
@@ -3015,6 +3151,8 @@ func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId s
 
 // FindWlanByQueryCriteria
 //
+// Operation ID: findWlanByQueryCriteria
+//
 // Query WLANs with specified filters.
 //
 // Request Body:
@@ -3043,6 +3181,8 @@ func (s *WSGWLANService) FindWlanByQueryCriteria(ctx context.Context, body *WSGC
 }
 
 // PartialUpdateRkszonesWlansById
+//
+// Operation ID: partialUpdateRkszonesWlansById
 //
 // Use this API command to modify the configuration of a WLAN.
 //
@@ -3078,6 +3218,8 @@ func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, bod
 }
 
 // UpdateRkszonesWlansById
+//
+// Operation ID: updateRkszonesWlansById
 //
 // Use this API command to modify entire information of a WLAN.
 //

@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGEventManagementEventDataList
+//
+// Definition: eventManagement_eventDataList
 type WSGEventManagementEventDataList struct {
 	HasMore *bool `json:"hasMore,omitempty"`
 
@@ -17,6 +20,9 @@ func NewWSGEventManagementEventDataList() *WSGEventManagementEventDataList {
 	return m
 }
 
+// WSGEventManagementEventDataResponse
+//
+// Definition: eventManagement_eventDataResponse
 type WSGEventManagementEventDataResponse struct {
 	Data *WSGEventManagementEventDataList `json:"data,omitempty"`
 
@@ -38,6 +44,9 @@ func NewWSGEventManagementEventDataResponse() *WSGEventManagementEventDataRespon
 	return m
 }
 
+// WSGEventManagementEventEmailSetting
+//
+// Definition: eventManagement_eventEmailSetting
 type WSGEventManagementEventEmailSetting struct {
 	// EmailEnabled
 	// Enable/Disable Email sending function
@@ -53,6 +62,9 @@ func NewWSGEventManagementEventEmailSetting() *WSGEventManagementEventEmailSetti
 	return m
 }
 
+// WSGEventManagementEventSettingList
+//
+// Definition: eventManagement_eventSettingList
 type WSGEventManagementEventSettingList []*WSGEventManagementSingleEventSetting
 
 func MakeWSGEventManagementEventSettingList() WSGEventManagementEventSettingList {
@@ -60,6 +72,9 @@ func MakeWSGEventManagementEventSettingList() WSGEventManagementEventSettingList
 	return m
 }
 
+// WSGEventManagementSingleEventSetting
+//
+// Definition: eventManagement_singleEventSetting
 type WSGEventManagementSingleEventSetting struct {
 	// Category
 	// Event category

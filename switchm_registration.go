@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMRegistrationRulesService() *SwitchMRegistration
 	return NewSwitchMRegistrationRulesService(ss.apiClient)
 }
 
+// SwitchMRegistrationRulesClientObjectID
+//
+// Definition: registration_clientObjectID
 type SwitchMRegistrationRulesClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
@@ -46,6 +49,8 @@ func NewSwitchMRegistrationRulesClientObjectID() *SwitchMRegistrationRulesClient
 }
 
 // SwitchMRegistrationRulesClientObjectIDExtraValuesType
+//
+// Definition: registration_clientObjectIDExtraValuesType
 //
 // Extra values of the client
 type SwitchMRegistrationRulesClientObjectIDExtraValuesType struct {
@@ -73,6 +78,9 @@ func NewSwitchMRegistrationRulesClientObjectIDExtraValuesType() *SwitchMRegistra
 	return m
 }
 
+// SwitchMRegistrationRulesCreateResult
+//
+// Definition: registration_createResult
 type SwitchMRegistrationRulesCreateResult struct {
 	Data *SwitchMRegistrationRulesClientObjectID `json:"data,omitempty"`
 
@@ -97,6 +105,8 @@ func NewSwitchMRegistrationRulesCreateResult() *SwitchMRegistrationRulesCreateRe
 }
 
 // SwitchMRegistrationRulesCreateResultExtraType
+//
+// Definition: registration_createResultExtraType
 //
 // Any additional response
 type SwitchMRegistrationRulesCreateResultExtraType struct {
@@ -126,6 +136,8 @@ func NewSwitchMRegistrationRulesCreateResultExtraType() *SwitchMRegistrationRule
 
 // SwitchMRegistrationRulesCreateResultMetaDataType
 //
+// Definition: registration_createResultMetaDataType
+//
 // Matadata of Rule create result
 type SwitchMRegistrationRulesCreateResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -152,6 +164,9 @@ func NewSwitchMRegistrationRulesCreateResultMetaDataType() *SwitchMRegistrationR
 	return m
 }
 
+// SwitchMRegistrationRulesDeleteMultipleResult
+//
+// Definition: registration_deleteMultipleResult
 type SwitchMRegistrationRulesDeleteMultipleResult struct {
 	Data *SwitchMRegistrationRulesList `json:"data,omitempty"`
 
@@ -176,6 +191,8 @@ func NewSwitchMRegistrationRulesDeleteMultipleResult() *SwitchMRegistrationRules
 }
 
 // SwitchMRegistrationRulesDeleteMultipleResultExtraType
+//
+// Definition: registration_deleteMultipleResultExtraType
 //
 // Any additional response
 type SwitchMRegistrationRulesDeleteMultipleResultExtraType struct {
@@ -205,6 +222,8 @@ func NewSwitchMRegistrationRulesDeleteMultipleResultExtraType() *SwitchMRegistra
 
 // SwitchMRegistrationRulesDeleteMultipleResultMetaDataType
 //
+// Definition: registration_deleteMultipleResultMetaDataType
+//
 // Matadata of delete multiple rules result
 type SwitchMRegistrationRulesDeleteMultipleResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -231,6 +250,9 @@ func NewSwitchMRegistrationRulesDeleteMultipleResultMetaDataType() *SwitchMRegis
 	return m
 }
 
+// SwitchMRegistrationRulesDeleteResult
+//
+// Definition: registration_deleteResult
 type SwitchMRegistrationRulesDeleteResult struct {
 	Data *SwitchMRegistrationRulesClientObjectID `json:"data,omitempty"`
 
@@ -255,6 +277,8 @@ func NewSwitchMRegistrationRulesDeleteResult() *SwitchMRegistrationRulesDeleteRe
 }
 
 // SwitchMRegistrationRulesDeleteResultExtraType
+//
+// Definition: registration_deleteResultExtraType
 //
 // Any additional response
 type SwitchMRegistrationRulesDeleteResultExtraType struct {
@@ -284,6 +308,8 @@ func NewSwitchMRegistrationRulesDeleteResultExtraType() *SwitchMRegistrationRule
 
 // SwitchMRegistrationRulesDeleteResultMetaDataType
 //
+// Definition: registration_deleteResultMetaDataType
+//
 // Matadata of Rule delete result
 type SwitchMRegistrationRulesDeleteResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -310,6 +336,9 @@ func NewSwitchMRegistrationRulesDeleteResultMetaDataType() *SwitchMRegistrationR
 	return m
 }
 
+// SwitchMRegistrationRulesErrorObject
+//
+// Definition: registration_errorObject
 type SwitchMRegistrationRulesErrorObject struct {
 	List []string `json:"list,omitempty"`
 
@@ -323,6 +352,9 @@ func NewSwitchMRegistrationRulesErrorObject() *SwitchMRegistrationRulesErrorObje
 	return m
 }
 
+// SwitchMRegistrationRulesList
+//
+// Definition: registration_list
 type SwitchMRegistrationRulesList struct {
 	// Extra
 	// Any additional response data
@@ -354,6 +386,8 @@ func NewSwitchMRegistrationRulesList() *SwitchMRegistrationRulesList {
 
 // SwitchMRegistrationRulesListExtraType
 //
+// Definition: registration_listExtraType
+//
 // Any additional response data
 type SwitchMRegistrationRulesListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -380,6 +414,9 @@ func NewSwitchMRegistrationRulesListExtraType() *SwitchMRegistrationRulesListExt
 	return m
 }
 
+// SwitchMRegistrationRulesModifyResult
+//
+// Definition: registration_modifyResult
 type SwitchMRegistrationRulesModifyResult struct {
 	Data *SwitchMRegistrationRulesClientObjectID `json:"data,omitempty"`
 
@@ -404,6 +441,8 @@ func NewSwitchMRegistrationRulesModifyResult() *SwitchMRegistrationRulesModifyRe
 }
 
 // SwitchMRegistrationRulesModifyResultExtraType
+//
+// Definition: registration_modifyResultExtraType
 //
 // Any additional response
 type SwitchMRegistrationRulesModifyResultExtraType struct {
@@ -433,6 +472,8 @@ func NewSwitchMRegistrationRulesModifyResultExtraType() *SwitchMRegistrationRule
 
 // SwitchMRegistrationRulesModifyResultMetaDataType
 //
+// Definition: registration_modifyResultMetaDataType
+//
 // Matadata of rule modify result
 type SwitchMRegistrationRulesModifyResultMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -459,6 +500,9 @@ func NewSwitchMRegistrationRulesModifyResultMetaDataType() *SwitchMRegistrationR
 	return m
 }
 
+// SwitchMRegistrationRulesRegistrationRule
+//
+// Definition: registration_registrationRule
 type SwitchMRegistrationRulesRegistrationRule struct {
 	// CreateDatetime
 	// Create datetime of the registration rule
@@ -532,6 +576,9 @@ func NewSwitchMRegistrationRulesRegistrationRule() *SwitchMRegistrationRulesRegi
 	return m
 }
 
+// SwitchMRegistrationRulesRuleQueryResultList
+//
+// Definition: registration_ruleQueryResultList
 type SwitchMRegistrationRulesRuleQueryResultList struct {
 	Data *SwitchMRegistrationRulesList `json:"data,omitempty"`
 
@@ -556,6 +603,8 @@ func NewSwitchMRegistrationRulesRuleQueryResultList() *SwitchMRegistrationRulesR
 }
 
 // SwitchMRegistrationRulesRuleQueryResultListExtraType
+//
+// Definition: registration_ruleQueryResultListExtraType
 //
 // Any additional response
 type SwitchMRegistrationRulesRuleQueryResultListExtraType struct {
@@ -585,6 +634,8 @@ func NewSwitchMRegistrationRulesRuleQueryResultListExtraType() *SwitchMRegistrat
 
 // SwitchMRegistrationRulesRuleQueryResultListMetaDataType
 //
+// Definition: registration_ruleQueryResultListMetaDataType
+//
 // Matadata of Rule query result
 type SwitchMRegistrationRulesRuleQueryResultListMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -611,6 +662,9 @@ func NewSwitchMRegistrationRulesRuleQueryResultListMetaDataType() *SwitchMRegist
 	return m
 }
 
+// SwitchMRegistrationRulesRuleUUIDs
+//
+// Definition: registration_ruleUUIDs
 type SwitchMRegistrationRulesRuleUUIDs []string
 
 func MakeSwitchMRegistrationRulesRuleUUIDs() SwitchMRegistrationRulesRuleUUIDs {
@@ -619,6 +673,8 @@ func MakeSwitchMRegistrationRulesRuleUUIDs() SwitchMRegistrationRulesRuleUUIDs {
 }
 
 // AddRegistrationRules
+//
+// Operation ID: addRegistrationRules
 //
 // Use this API command to create new switch registration rule.
 //
@@ -649,6 +705,8 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 
 // DeleteRegistrationRules
 //
+// Operation ID: deleteRegistrationRules
+//
 // Use this API command to delete multiple switch registration rules.
 //
 // Request Body:
@@ -678,6 +736,8 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 
 // DeleteRegistrationRulesById
 //
+// Operation ID: deleteRegistrationRulesById
+//
 // Use this API command to delete a switch registration rule.
 //
 // Required Parameters:
@@ -706,6 +766,8 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 
 // FindRegistrationRules
 //
+// Operation ID: findRegistrationRules
+//
 // Use this API command to retrieves all the registration rules configured in SmartZone.
 func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Context, mutators ...RequestMutator) (*SwitchMRegistrationRulesRuleQueryResultList, *APIResponseMeta, error) {
 	var (
@@ -727,6 +789,8 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 }
 
 // UpdateRegistrationRulesById
+//
+// Operation ID: updateRegistrationRulesById
 //
 // Use this API command to modify the registration rule.
 //

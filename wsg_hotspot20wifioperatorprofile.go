@@ -23,6 +23,8 @@ func (ss *WSGService) WSGHotspot20WiFiOperatorProfileService() *WSGHotspot20WiFi
 
 // AddProfilesHs20Operators
 //
+// Operation ID: addProfilesHs20Operators
+//
 // Use this API command to create a new Hotspot 2.0 Wi-Fi operator.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) AddProfilesHs20Operators(ctx co
 
 // DeleteProfilesHs20Operators
 //
+// Operation ID: deleteProfilesHs20Operators
+//
 // Use this API command to delete multiple Hotspot 2.0 Wi-Fi operators.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20Operators(ctx
 
 // DeleteProfilesHs20OperatorsById
 //
+// Operation ID: deleteProfilesHs20OperatorsById
+//
 // Use this API command to delete a Hotspot 2.0 Wi-Fi operator.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsById
 
 // DeleteProfilesHs20OperatorsCertificateById
 //
+// Operation ID: deleteProfilesHs20OperatorsCertificateById
+//
 // Use this API command to disable certificate of a Hotspot 2.0 Wi-Fi operator.
 //
 // Required Parameters:
@@ -130,6 +138,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) DeleteProfilesHs20OperatorsCert
 }
 
 // FindProfilesHs20Operators
+//
+// Operation ID: findProfilesHs20Operators
 //
 // Use this API command to retrieve list of Hotspot 2.0 Wi-Fi Operators.
 //
@@ -165,6 +175,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx c
 
 // FindProfilesHs20OperatorsById
 //
+// Operation ID: findProfilesHs20OperatorsById
+//
 // Use this API command to retrieve a Hotspot 2.0 Wi-Fi operator.
 //
 // Required Parameters:
@@ -191,6 +203,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsById(c
 }
 
 // FindProfilesHs20OperatorsByQueryCriteria
+//
+// Operation ID: findProfilesHs20OperatorsByQueryCriteria
 //
 // Query hotspot 2.0 Wi-Fi operators.
 //
@@ -220,6 +234,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20OperatorsByQuer
 }
 
 // PartialUpdateProfilesHs20OperatorsById
+//
+// Operation ID: partialUpdateProfilesHs20OperatorsById
 //
 // Use this API command to modify the configuration of a Hotspot 2.0 Wi-Fi operator.
 //
@@ -252,6 +268,8 @@ func (s *WSGHotspot20WiFiOperatorProfileService) PartialUpdateProfilesHs20Operat
 }
 
 // UpdateProfilesHs20OperatorsById
+//
+// Operation ID: updateProfilesHs20OperatorsById
 //
 // Use this API command to modify entire configuration of a Hotspot 2.0 Wi-Fi operator.
 //

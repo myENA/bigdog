@@ -23,6 +23,8 @@ func (ss *WSGService) WSGL2AccessControlinDomainLevelService() *WSGL2AccessContr
 
 // AddL2AccessControls
 //
+// Operation ID: addL2AccessControls
+//
 // Use this API command to create a new L2 Access Control.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGL2AccessControlinDomainLevelService) AddL2AccessControls(ctx context
 
 // DeleteL2AccessControls
 //
+// Operation ID: deleteL2AccessControls
+//
 // Use this API command to delete a list of L2 Access Control.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGL2AccessControlinDomainLevelService) DeleteL2AccessControls(ctx cont
 
 // DeleteL2AccessControlsById
 //
+// Operation ID: deleteL2AccessControlsById
+//
 // Use this API command to delete an L2 Access Control.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGL2AccessControlinDomainLevelService) DeleteL2AccessControlsById(ctx 
 }
 
 // FindL2AccessControls
+//
+// Operation ID: findL2AccessControls
 //
 // Use this API command to retrieve a list of L2 Access Control.
 //
@@ -144,6 +152,8 @@ func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControls(ctx contex
 
 // FindL2AccessControlsById
 //
+// Operation ID: findL2AccessControlsById
+//
 // Use this API command to retrieve an L2 Access Control.
 //
 // Required Parameters:
@@ -170,6 +180,8 @@ func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControlsById(ctx co
 }
 
 // FindL2AccessControlsByQueryCriteria
+//
+// Operation ID: findL2AccessControlsByQueryCriteria
 //
 // Query L2 Access Control with specified filters.
 //
@@ -199,6 +211,8 @@ func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControlsByQueryCrit
 }
 
 // UpdateL2AccessControlsById
+//
+// Operation ID: updateL2AccessControlsById
 //
 // Use this API command to modify a specific L2 Access Control.
 //

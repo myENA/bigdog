@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGEventListEventQueryResultList
+//
+// Definition: eventList_eventQueryResultList
 type WSGEventListEventQueryResultList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -19,6 +22,9 @@ func NewWSGEventListEventQueryResultList() *WSGEventListEventQueryResultList {
 	return m
 }
 
+// WSGEventListSingleEvent
+//
+// Definition: eventList_singleEvent
 type WSGEventListSingleEvent struct {
 	Activity *string `json:"activity,omitempty"`
 

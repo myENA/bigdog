@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// SwitchMSwitchClientVisibilityClient
+//
+// Definition: switchClientVisibility_client
 type SwitchMSwitchClientVisibilityClient struct {
 	ClientAuthType *string `json:"clientAuthType,omitempty"`
 
@@ -35,6 +38,9 @@ func NewSwitchMSwitchClientVisibilityClient() *SwitchMSwitchClientVisibilityClie
 	return m
 }
 
+// SwitchMSwitchClientVisibilityList
+//
+// Definition: switchClientVisibility_list
 type SwitchMSwitchClientVisibilityList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

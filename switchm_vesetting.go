@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMVESettingsService() *SwitchMVESettingsService {
 
 // AddVeConfigs
 //
+// Operation ID: addVeConfigs
+//
 // Use this API command to Create VE Config.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *Switc
 
 // DeleteVeConfigs
 //
+// Operation ID: deleteVeConfigs
+//
 // Use this API command to Delete VE Config by Id list.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *SwitchMVESettingsService) DeleteVeConfigs(ctx context.Context, body *Sw
 
 // DeleteVeConfigsById
 //
+// Operation ID: deleteVeConfigsById
+//
 // Use this API command to Delete VE Config.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id s
 
 // FindVeConfigs
 //
+// Operation ID: findVeConfigs
+//
 // Use this API command to Retrieve VE Config List.
 func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context, mutators ...RequestMutator) (*SwitchMVEConfigList, *APIResponseMeta, error) {
 	var (
@@ -126,6 +134,8 @@ func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context, mutators .
 }
 
 // FindVeConfigsById
+//
+// Operation ID: findVeConfigsById
 //
 // Use this API command to Retrieve VE Config.
 //
@@ -153,6 +163,8 @@ func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id str
 }
 
 // FindVeConfigsByQueryCriteria
+//
+// Operation ID: findVeConfigsByQueryCriteria
 //
 // Use this API command to Retrieve VE Config list.
 //
@@ -182,6 +194,8 @@ func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Cont
 }
 
 // UpdateVeConfigsById
+//
+// Operation ID: updateVeConfigsById
 //
 // Use this API command to Update VE Config.
 //

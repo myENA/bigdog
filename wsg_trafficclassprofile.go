@@ -23,6 +23,8 @@ func (ss *WSGService) WSGTrafficClassProfileService() *WSGTrafficClassProfileSer
 
 // AddRkszonesTrafficClassProfileByZoneId
 //
+// Operation ID: addRkszonesTrafficClassProfileByZoneId
+//
 // Use this API command to create a new Traffic Class Profile of a zone.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(c
 
 // DeleteRkszonesTrafficClassProfileById
 //
+// Operation ID: deleteRkszonesTrafficClassProfileById
+//
 // Use this API command to delete a Traffic Class Profile of a zone.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ct
 }
 
 // DeleteRkszonesTrafficClassProfileByZoneId
+//
+// Operation ID: deleteRkszonesTrafficClassProfileByZoneId
 //
 // Use this API command to bulk delete Traffic Class Profiles of a zone.
 //
@@ -118,6 +124,8 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneI
 
 // FindRkszonesTrafficClassProfileById
 //
+// Operation ID: findRkszonesTrafficClassProfileById
+//
 // Use this API command to retrieve a Traffic Class Profile of zone.
 //
 // Required Parameters:
@@ -148,6 +156,8 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx 
 
 // FindRkszonesTrafficClassProfileByZoneId
 //
+// Operation ID: findRkszonesTrafficClassProfileByZoneId
+//
 // Use this API command to retrieve a list of Traffic Class Profile of a zone.
 //
 // Required Parameters:
@@ -174,6 +184,8 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(
 }
 
 // FindServicesTrafficClassProfileByQueryCriteria
+//
+// Operation ID: findServicesTrafficClassProfileByQueryCriteria
 //
 // Retrieve a list of Traffic Class Profile.
 //
@@ -203,6 +215,8 @@ func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCr
 }
 
 // PartialUpdateRkszonesTrafficClassProfileById
+//
+// Operation ID: partialUpdateRkszonesTrafficClassProfileById
 //
 // Use this API command to modify Traffic Class Profile of a zone.
 //

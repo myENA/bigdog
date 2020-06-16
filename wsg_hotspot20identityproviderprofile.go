@@ -23,6 +23,8 @@ func (ss *WSGService) WSGHotspot20IdentityProviderProfileService() *WSGHotspot20
 
 // AddProfilesHs20Identityproviders
 //
+// Operation ID: addProfilesHs20Identityproviders
+//
 // Use this API command to create a new Hotspot 2.0 identity provider.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityprov
 
 // DeleteProfilesHs20Identityproviders
 //
+// Operation ID: deleteProfilesHs20Identityproviders
+//
 // Use this API command to delete multiple Hotspot 2.0 identity provider.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 
 // DeleteProfilesHs20IdentityprovidersAccountingsById
 //
+// Operation ID: deleteProfilesHs20IdentityprovidersAccountingsById
+//
 // Use this API command to disable accountings of a Hotspot 2.0 identity provider.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 }
 
 // DeleteProfilesHs20IdentityprovidersById
+//
+// Operation ID: deleteProfilesHs20IdentityprovidersById
 //
 // Use this API command to delete a Hotspot 2.0 identity provider.
 //
@@ -131,6 +139,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 
 // DeleteProfilesHs20IdentityprovidersOsuById
 //
+// Operation ID: deleteProfilesHs20IdentityprovidersOsuById
+//
 // Use this API command to disable online signup & provisioning of a Hotspot 2.0 identity provider.
 //
 // Required Parameters:
@@ -156,6 +166,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 }
 
 // FindProfilesHs20Identityproviders
+//
+// Operation ID: findProfilesHs20Identityproviders
 //
 // Use this API command to retrieve list of Hotspot 2.0 identity providers.
 //
@@ -191,6 +203,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 
 // FindProfilesHs20IdentityprovidersById
 //
+// Operation ID: findProfilesHs20IdentityprovidersById
+//
 // Use this API command to retrieve a Hotspot 2.0 identity provider.
 //
 // Required Parameters:
@@ -217,6 +231,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 }
 
 // FindProfilesHs20IdentityprovidersByQueryCriteria
+//
+// Operation ID: findProfilesHs20IdentityprovidersByQueryCriteria
 //
 // Query hotspot 2.0 identity providers.
 //
@@ -246,6 +262,8 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 }
 
 // PartialUpdateProfilesHs20IdentityprovidersById
+//
+// Operation ID: partialUpdateProfilesHs20IdentityprovidersById
 //
 // Use this API command to modify the configuration of a Hotspot 2.0 identity provider.
 //

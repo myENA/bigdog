@@ -23,6 +23,8 @@ func (ss *WSGService) WSGPortalDetectionandSuppressionProfileService() *WSGPorta
 
 // AddRkszonesPortalDetectionProfilesByZoneId
 //
+// Operation ID: addRkszonesPortalDetectionProfilesByZoneId
+//
 // Use this API command to create portal detection and suppression profile.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGPortalDetectionandSuppressionProfileService) AddRkszonesPortalDetect
 
 // DeleteRkszonesPortalDetectionProfilesById
 //
+// Operation ID: deleteRkszonesPortalDetectionProfilesById
+//
 // Use this API command to delete portal detection and suppression profile by profile's ID.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDet
 }
 
 // DeleteRkszonesPortalDetectionProfilesByZoneId
+//
+// Operation ID: deleteRkszonesPortalDetectionProfilesByZoneId
 //
 // Use this API command to delete multiple portal detection and suppression profiles.
 //
@@ -118,6 +124,8 @@ func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDet
 
 // FindRkszonesPortalDetectionProfilesById
 //
+// Operation ID: findRkszonesPortalDetectionProfilesById
+//
 // Use this API command to get portal detection and suppression profile by profile's ID.
 //
 // Required Parameters:
@@ -148,6 +156,8 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 
 // FindRkszonesPortalDetectionProfilesByQueryCriteria
 //
+// Operation ID: findRkszonesPortalDetectionProfilesByQueryCriteria
+//
 // Query portal detection and suppression profile with specified filters.
 //
 // Request Body:
@@ -177,6 +187,8 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 
 // FindRkszonesPortalDetectionProfilesByZoneId
 //
+// Operation ID: findRkszonesPortalDetectionProfilesByZoneId
+//
 // Use this API command to get portal detection and suppression profile list.
 //
 // Required Parameters:
@@ -203,6 +215,8 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 }
 
 // PartialUpdateRkszonesPortalDetectionProfilesById
+//
+// Operation ID: partialUpdateRkszonesPortalDetectionProfilesById
 //
 // Use this API command to modify portal detection and suppression profile by profile's ID.
 //
@@ -238,6 +252,8 @@ func (s *WSGPortalDetectionandSuppressionProfileService) PartialUpdateRkszonesPo
 }
 
 // UpdateRkszonesPortalDetectionProfilesById
+//
+// Operation ID: updateRkszonesPortalDetectionProfilesById
 //
 // Use this API command to modify portal detection and suppression profile by profile's ID.
 //

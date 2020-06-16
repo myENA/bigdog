@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGSplitTunnelCreateSplitTunnelProfile
+//
+// Definition: splitTunnel_createSplitTunnelProfile
 type WSGSplitTunnelCreateSplitTunnelProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -22,6 +25,9 @@ func NewWSGSplitTunnelCreateSplitTunnelProfile() *WSGSplitTunnelCreateSplitTunne
 	return m
 }
 
+// WSGSplitTunnelModifySplitTunnelProfile
+//
+// Definition: splitTunnel_modifySplitTunnelProfile
 type WSGSplitTunnelModifySplitTunnelProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -37,6 +43,9 @@ func NewWSGSplitTunnelModifySplitTunnelProfile() *WSGSplitTunnelModifySplitTunne
 	return m
 }
 
+// WSGSplitTunnelIpMaskRule
+//
+// Definition: splitTunnel_SplitTunnelIpMaskRule
 type WSGSplitTunnelIpMaskRule struct {
 	// DestinationIp
 	// Destination IP of split tunnel profile rule
@@ -56,6 +65,9 @@ func NewWSGSplitTunnelIpMaskRule() *WSGSplitTunnelIpMaskRule {
 	return m
 }
 
+// WSGSplitTunnelProfile
+//
+// Definition: splitTunnel_splitTunnelProfile
 type WSGSplitTunnelProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -79,6 +91,9 @@ func NewWSGSplitTunnelProfile() *WSGSplitTunnelProfile {
 	return m
 }
 
+// WSGSplitTunnelProfileList
+//
+// Definition: splitTunnel_splitTunnelProfileList
 type WSGSplitTunnelProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -94,6 +109,9 @@ func NewWSGSplitTunnelProfileList() *WSGSplitTunnelProfileList {
 	return m
 }
 
+// WSGSplitTunnelProfileListType
+//
+// Definition: splitTunnel_splitTunnelProfileListType
 type WSGSplitTunnelProfileListType struct {
 	Id *string `json:"id,omitempty"`
 
@@ -105,6 +123,9 @@ func NewWSGSplitTunnelProfileListType() *WSGSplitTunnelProfileListType {
 	return m
 }
 
+// WSGSplitTunnelProfileQuery
+//
+// Definition: splitTunnel_splitTunnelProfileQuery
 type WSGSplitTunnelProfileQuery struct {
 	Extra interface{} `json:"extra,omitempty"`
 

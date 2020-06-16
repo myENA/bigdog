@@ -23,6 +23,8 @@ func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
 
 // FindLwapp2scg
 //
+// Operation ID: findLwapp2scg
+//
 // Use this API command to retrieve Lwapp Config.
 func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context, mutators ...RequestMutator) (*WSGSystemLwapp2scgConfiguration, *APIResponseMeta, error) {
 	var (
@@ -44,6 +46,8 @@ func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context, mutators ...Re
 }
 
 // PartialUpdateLwapp2scg
+//
+// Operation ID: partialUpdateLwapp2scg
 //
 // Use this API command to modify the basic information of the Lwapp Config.
 //
@@ -71,6 +75,8 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body 
 }
 
 // PartialUpdateLwapp2scgApList
+//
+// Operation ID: partialUpdateLwapp2scgApList
 //
 // Use this API command to modify the apList of the Lwapp Config.
 //

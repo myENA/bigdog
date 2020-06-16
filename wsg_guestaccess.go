@@ -23,6 +23,8 @@ func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
 
 // AddRkszonesPortalsGuestByZoneId
 //
+// Operation ID: addRkszonesPortalsGuestByZoneId
+//
 // Use this API command to create new guest access of a zone.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Cont
 
 // DeleteRkszonesPortalsGuestById
 //
+// Operation ID: deleteRkszonesPortalsGuestById
+//
 // Use this API command to delete guest access of a zone.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Conte
 }
 
 // DeleteRkszonesPortalsGuestRedirectById
+//
+// Operation ID: deleteRkszonesPortalsGuestRedirectById
 //
 // Use this API command to set redirect to the URL that user intends to visit on guest access of a zone.
 //
@@ -115,6 +121,8 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx conte
 
 // DeleteRkszonesPortalsGuestSmsGatewayById
 //
+// Operation ID: deleteRkszonesPortalsGuestSmsGatewayById
+//
 // Use this API command to disable SMS gateway on guest access of a zone.
 //
 // Required Parameters:
@@ -143,6 +151,8 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx con
 }
 
 // FindRkszonesPortalsGuestById
+//
+// Operation ID: findRkszonesPortalsGuestById
 //
 // Use this API command to retrieve guest access of a zone.
 //
@@ -174,6 +184,8 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context
 
 // FindRkszonesPortalsGuestByZoneId
 //
+// Operation ID: findRkszonesPortalsGuestByZoneId
+//
 // Use this API command to retrieve a list of guest access of a zone.
 //
 // Required Parameters:
@@ -200,6 +212,8 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Con
 }
 
 // FindServicesGuestAccessByQueryCriteria
+//
+// Operation ID: findServicesGuestAccessByQueryCriteria
 //
 // Query Guest Access Profiles with specified filters.
 //
@@ -229,6 +243,8 @@ func (s *WSGGuestAccessService) FindServicesGuestAccessByQueryCriteria(ctx conte
 }
 
 // PartialUpdateRkszonesPortalsGuestById
+//
+// Operation ID: partialUpdateRkszonesPortalsGuestById
 //
 // Use this API command to modify the configuration on guest access of a zone.
 //

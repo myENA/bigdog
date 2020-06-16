@@ -23,6 +23,8 @@ func (ss *WSGService) WSGFirewallProfileService() *WSGFirewallProfileService {
 
 // AddFirewallProfiles
 //
+// Operation ID: addFirewallProfiles
+//
 // Create a Firewall Profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGFirewallProfileService) AddFirewallProfiles(ctx context.Context, bod
 
 // DeleteFirewallProfiles
 //
+// Operation ID: deleteFirewallProfiles
+//
 // Use this API command to delete Bulk Firewall Profiles.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfiles(ctx context.Context, 
 
 // DeleteFirewallProfilesById
 //
+// Operation ID: deleteFirewallProfilesById
+//
 // Delete a Firewall Profile.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfilesById(ctx context.Conte
 }
 
 // FindFirewallProfiles
+//
+// Operation ID: findFirewallProfiles
 //
 // Retrieve Firewall Profile list.
 //
@@ -144,6 +152,8 @@ func (s *WSGFirewallProfileService) FindFirewallProfiles(ctx context.Context, op
 
 // FindFirewallProfilesById
 //
+// Operation ID: findFirewallProfilesById
+//
 // Retrieve a Firewall Profile.
 //
 // Required Parameters:
@@ -170,6 +180,8 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesById(ctx context.Context
 }
 
 // FindFirewallProfilesByQueryCriteria
+//
+// Operation ID: findFirewallProfilesByQueryCriteria
 //
 // Retrieve a list of Firewall Profile.
 //
@@ -200,6 +212,8 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesByQueryCriteria(ctx cont
 
 // FindFirewallProfilesEthernetPortProfilesById
 //
+// Operation ID: findFirewallProfilesEthernetPortProfilesById
+//
 // Retrieve a EthernetPort Profile list of Firewall Profile is used by
 //
 // Required Parameters:
@@ -227,6 +241,8 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesEthernetPortProfilesById
 
 // FindFirewallProfilesWlansById
 //
+// Operation ID: findFirewallProfilesWlansById
+//
 // Retrieve a WLAN list of Firewall Profile is used by
 //
 // Required Parameters:
@@ -253,6 +269,8 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesWlansById(ctx context.Co
 }
 
 // UpdateFirewallProfilesById
+//
+// Operation ID: updateFirewallProfilesById
 //
 // Modify a Firewall Profile.
 //

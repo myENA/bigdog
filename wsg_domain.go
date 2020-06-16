@@ -21,6 +21,9 @@ func (ss *WSGService) WSGDomainService() *WSGDomainService {
 	return NewWSGDomainService(ss.apiClient)
 }
 
+// WSGDomainCreateDomain
+//
+// Definition: domain_createDomain
 type WSGDomainCreateDomain struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -48,6 +51,9 @@ func NewWSGDomainCreateDomain() *WSGDomainCreateDomain {
 	return m
 }
 
+// WSGDomainConfiguration
+//
+// Definition: domain_domainConfiguration
 type WSGDomainConfiguration struct {
 	// AdministratorCount
 	// # of Subdomains
@@ -97,6 +103,9 @@ func NewWSGDomainConfiguration() *WSGDomainConfiguration {
 	return m
 }
 
+// WSGDomainList
+//
+// Definition: domain_domainList
 type WSGDomainList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -112,6 +121,9 @@ func NewWSGDomainList() *WSGDomainList {
 	return m
 }
 
+// WSGDomainModifyDomain
+//
+// Definition: domain_modifyDomain
 type WSGDomainModifyDomain struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -136,6 +148,8 @@ func NewWSGDomainModifyDomain() *WSGDomainModifyDomain {
 }
 
 // AddDomains
+//
+// Operation ID: addDomains
 //
 // Use this API command to create new domain.
 //
@@ -173,6 +187,8 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 
 // DeleteDomainsById
 //
+// Operation ID: deleteDomainsById
+//
 // Use this API command to delete domain.
 //
 // Required Parameters:
@@ -198,6 +214,8 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mut
 }
 
 // FindDomains
+//
+// Operation ID: findDomains
 //
 // Use this API command to retrieve a list of domain under Administration Domain.
 //
@@ -248,6 +266,8 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 
 // FindDomainsById
 //
+// Operation ID: findDomainsById
+//
 // Use this API command to retrieve domain by specified Domain ID.
 //
 // Required Parameters:
@@ -282,6 +302,8 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 
 // FindDomainsByNameByDomainName
 //
+// Operation ID: findDomainsByNameByDomainName
+//
 // Use this API command to retrieve a list of domain by specified Domain name.
 //
 // Required Parameters:
@@ -308,6 +330,8 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 }
 
 // FindDomainsSubdomainById
+//
+// Operation ID: findDomainsSubdomainById
 //
 // Use this API command to retrieve a list of subdomain by specified Domain ID.
 //
@@ -362,6 +386,8 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 }
 
 // PartialUpdateDomainsById
+//
+// Operation ID: partialUpdateDomainsById
 //
 // Use this API command to modify the configuration of domain.
 //

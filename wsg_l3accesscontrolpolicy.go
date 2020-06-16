@@ -23,6 +23,8 @@ func (ss *WSGService) WSGL3AccessControlPolicyService() *WSGL3AccessControlPolic
 
 // AddL3AccessControlPolicies
 //
+// Operation ID: addL3AccessControlPolicies
+//
 // Create a L3 Access Control Policy.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGL3AccessControlPolicyService) AddL3AccessControlPolicies(ctx context
 
 // DeleteL3AccessControlPolicies
 //
+// Operation ID: deleteL3AccessControlPolicies
+//
 // Use this API command to delete Bulk L3 Access Control Policies.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPolicies(ctx cont
 
 // DeleteL3AccessControlPoliciesById
 //
+// Operation ID: deleteL3AccessControlPoliciesById
+//
 // Delete a L3 Access Control Policy.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPoliciesById(ctx 
 }
 
 // FindL3AccessControlPolicies
+//
+// Operation ID: findL3AccessControlPolicies
 //
 // Retrieve L3 Access Control Policy list.
 //
@@ -144,6 +152,8 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPolicies(ctx contex
 
 // FindL3AccessControlPoliciesById
 //
+// Operation ID: findL3AccessControlPoliciesById
+//
 // Retrieve a L3 Access Control Policy.
 //
 // Required Parameters:
@@ -170,6 +180,8 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesById(ctx co
 }
 
 // FindL3AccessControlPoliciesByQueryCriteria
+//
+// Operation ID: findL3AccessControlPoliciesByQueryCriteria
 //
 // Retrieve a list of L3 Access Control Policy.
 //
@@ -199,6 +211,8 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesByQueryCrit
 }
 
 // UpdateL3AccessControlPoliciesById
+//
+// Operation ID: updateL3AccessControlPoliciesById
 //
 // Modify a L3 Access Control Policy.
 //

@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// WSGAPAlarmSummary
+//
+// Definition: ap_alarmSummary
 type WSGAPAlarmSummary struct {
 	// CriticalCount
 	// Critical alarm count
@@ -29,6 +32,9 @@ func NewWSGAPAlarmSummary() *WSGAPAlarmSummary {
 	return m
 }
 
+// WSGAPConfiguration
+//
+// Definition: ap_apConfiguration
 type WSGAPConfiguration struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
@@ -165,6 +171,9 @@ func NewWSGAPConfiguration() *WSGAPConfiguration {
 	return m
 }
 
+// WSGAPLinemanSummary
+//
+// Definition: ap_apLinemanSummary
 type WSGAPLinemanSummary struct {
 	// FirstIndex
 	// Index of the first AP returned out of the complete AP list
@@ -186,6 +195,9 @@ func NewWSGAPLinemanSummary() *WSGAPLinemanSummary {
 	return m
 }
 
+// WSGAPLinemanSummaryListType
+//
+// Definition: ap_apLinemanSummaryListType
 type WSGAPLinemanSummaryListType struct {
 	Alarms *WSGAPAlarmSummary `json:"alarms,omitempty"`
 
@@ -213,6 +225,9 @@ func NewWSGAPLinemanSummaryListType() *WSGAPLinemanSummaryListType {
 	return m
 }
 
+// WSGAPListEntry
+//
+// Definition: ap_apListEntry
 type WSGAPListEntry struct {
 	// FirstIndex
 	// Index of the first AP returned out of the complete AP list
@@ -234,6 +249,9 @@ func NewWSGAPListEntry() *WSGAPListEntry {
 	return m
 }
 
+// WSGAPListEntryListType
+//
+// Definition: ap_apListEntryListType
 type WSGAPListEntryListType struct {
 	// ApGroupId
 	// Identifier of the AP group to which the AP belongs
@@ -259,6 +277,13 @@ func NewWSGAPListEntryListType() *WSGAPListEntryListType {
 	return m
 }
 
+// WSGAPName
+//
+// Definition: ap_apName
+//
+// Constraints:
+//    - max:64
+//    - min:2
 type WSGAPName string
 
 func NewWSGAPName() *WSGAPName {
@@ -266,6 +291,9 @@ func NewWSGAPName() *WSGAPName {
 	return m
 }
 
+// WSGAPOperationalSummary
+//
+// Definition: ap_apOperationalSummary
 type WSGAPOperationalSummary struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
@@ -419,6 +447,9 @@ func NewWSGAPOperationalSummary() *WSGAPOperationalSummary {
 	return m
 }
 
+// WSGAPRadioConfiguration
+//
+// Definition: ap_apRadioConfiguration
 type WSGAPRadioConfiguration struct {
 	Data *WSGAPRadioConfigurationDataType `json:"data,omitempty"`
 
@@ -436,6 +467,9 @@ func NewWSGAPRadioConfiguration() *WSGAPRadioConfiguration {
 	return m
 }
 
+// WSGAPRadioConfigurationDataType
+//
+// Definition: ap_apRadioConfigurationDataType
 type WSGAPRadioConfigurationDataType struct {
 	HasMore *bool `json:"hasMore,omitempty"`
 
@@ -451,6 +485,9 @@ func NewWSGAPRadioConfigurationDataType() *WSGAPRadioConfigurationDataType {
 	return m
 }
 
+// WSGAPRadioConfigurationDataTypeListType
+//
+// Definition: ap_apRadioConfigurationDataTypeListType
 type WSGAPRadioConfigurationDataTypeListType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -532,6 +569,9 @@ func NewWSGAPRadioConfigurationDataTypeListType() *WSGAPRadioConfigurationDataTy
 	return m
 }
 
+// WSGAPRadioConfigurationDataTypeListTypeColumnsType
+//
+// Definition: ap_apRadioConfigurationDataTypeListTypeColumnsType
 type WSGAPRadioConfigurationDataTypeListTypeColumnsType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -597,6 +637,9 @@ func NewWSGAPRadioConfigurationDataTypeListTypeColumnsType() *WSGAPRadioConfigur
 	return m
 }
 
+// WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType
+//
+// Definition: ap_apRadioConfigurationDataTypeListTypeNullValueColumnNamesType
 type WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -622,6 +665,9 @@ func NewWSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType() *WSGAP
 	return m
 }
 
+// WSGAPRadioConfigurationErrorType
+//
+// Definition: ap_apRadioConfigurationErrorType
 type WSGAPRadioConfigurationErrorType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -647,6 +693,9 @@ func NewWSGAPRadioConfigurationErrorType() *WSGAPRadioConfigurationErrorType {
 	return m
 }
 
+// WSGAPRadioConfigurationExtraType
+//
+// Definition: ap_apRadioConfigurationExtraType
 type WSGAPRadioConfigurationExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -672,6 +721,9 @@ func NewWSGAPRadioConfigurationExtraType() *WSGAPRadioConfigurationExtraType {
 	return m
 }
 
+// WSGAPRadioConfigurationMetaDataType
+//
+// Definition: ap_apRadioConfigurationMetaDataType
 type WSGAPRadioConfigurationMetaDataType struct {
 	Fields []*WSGAPRadioConfigurationMetaDataTypeFieldsType `json:"fields,omitempty"`
 
@@ -691,6 +743,9 @@ func NewWSGAPRadioConfigurationMetaDataType() *WSGAPRadioConfigurationMetaDataTy
 	return m
 }
 
+// WSGAPRadioConfigurationMetaDataTypeFieldsType
+//
+// Definition: ap_apRadioConfigurationMetaDataTypeFieldsType
 type WSGAPRadioConfigurationMetaDataTypeFieldsType struct {
 	Name *string `json:"name,omitempty"`
 }
@@ -700,6 +755,9 @@ func NewWSGAPRadioConfigurationMetaDataTypeFieldsType() *WSGAPRadioConfiguration
 	return m
 }
 
+// WSGAPCreateAP
+//
+// Definition: ap_createAP
 type WSGAPCreateAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
@@ -755,6 +813,9 @@ func NewWSGAPCreateAP() *WSGAPCreateAP {
 	return m
 }
 
+// WSGAPLogin
+//
+// Definition: ap_login
 type WSGAPLogin struct {
 	// ApLoginName
 	// Constraints:
@@ -772,6 +833,9 @@ func NewWSGAPLogin() *WSGAPLogin {
 	return m
 }
 
+// WSGAPMesh
+//
+// Definition: ap_mesh
 type WSGAPMesh struct {
 	// MeshMode
 	// mesh mode
@@ -795,6 +859,9 @@ func NewWSGAPMesh() *WSGAPMesh {
 	return m
 }
 
+// WSGAPModifyAP
+//
+// Definition: ap_modifyAP
 type WSGAPModifyAP struct {
 	// AdministrativeState
 	// Administrative state of the AP. A locked AP will not provide any WLAN services.
@@ -924,6 +991,9 @@ func NewWSGAPModifyAP() *WSGAPModifyAP {
 	return m
 }
 
+// WSGAPModifyRogueType
+//
+// Definition: ap_modifyRogueType
 type WSGAPModifyRogueType struct {
 	// RogueMacList
 	// rogue mac list
@@ -935,6 +1005,9 @@ func NewWSGAPModifyRogueType() *WSGAPModifyRogueType {
 	return m
 }
 
+// WSGAPNeighborAPList
+//
+// Definition: ap_neighborAPList
 type WSGAPNeighborAPList struct {
 	// FirstIndex
 	// Index of the first Mesh Neighbor AP returned out of the complete Mesh Neighbor AP list
@@ -956,6 +1029,9 @@ func NewWSGAPNeighborAPList() *WSGAPNeighborAPList {
 	return m
 }
 
+// WSGAPNeighborAPListType
+//
+// Definition: ap_neighborAPListType
 type WSGAPNeighborAPListType struct {
 	// Channel
 	// Channel of the mesh neighbor AP
@@ -1005,6 +1081,9 @@ func NewWSGAPNeighborAPListType() *WSGAPNeighborAPListType {
 	return m
 }
 
+// WSGAPNetwork
+//
+// Definition: ap_network
 type WSGAPNetwork struct {
 	Gateway *WSGCommonIpAddress `json:"gateway,omitempty"`
 
@@ -1028,6 +1107,9 @@ func NewWSGAPNetwork() *WSGAPNetwork {
 	return m
 }
 
+// WSGAPNetworkIpv6
+//
+// Definition: ap_networkIpv6
 type WSGAPNetworkIpv6 struct {
 	Gateway *WSGCommonIpAddress `json:"gateway,omitempty"`
 
@@ -1049,6 +1131,9 @@ func NewWSGAPNetworkIpv6() *WSGAPNetworkIpv6 {
 	return m
 }
 
+// WSGAPSwapApConfigure
+//
+// Definition: ap_swapApConfigure
 type WSGAPSwapApConfigure struct {
 	// SwapInMac
 	// Constraints:
@@ -1066,6 +1151,9 @@ func NewWSGAPSwapApConfigure() *WSGAPSwapApConfigure {
 	return m
 }
 
+// WSGAPSwitchoverAP
+//
+// Definition: ap_switchoverAP
 type WSGAPSwitchoverAP struct {
 	// ApMacList
 	// AP MAC address list
@@ -1093,6 +1181,9 @@ func NewWSGAPSwitchoverAP() *WSGAPSwitchoverAP {
 	return m
 }
 
+// WSGAPSyslog
+//
+// Definition: ap_syslog
 type WSGAPSyslog struct {
 	Address *WSGCommonIpAddress `json:"address,omitempty"`
 
@@ -1161,6 +1252,9 @@ func NewWSGAPSyslog() *WSGAPSyslog {
 	return m
 }
 
+// WSGAPWlanGroup
+//
+// Definition: ap_wlanGroup
 type WSGAPWlanGroup struct {
 	// Id
 	// Identifier of the WLAN group

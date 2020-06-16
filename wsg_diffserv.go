@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDiffServService() *WSGDiffServService {
 
 // AddRkszonesDiffservByZoneId
 //
+// Operation ID: addRkszonesDiffservByZoneId
+//
 // Use this API command to create DiffServ profile.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 
 // DeleteRkszonesDiffservById
 //
+// Operation ID: deleteRkszonesDiffservById
+//
 // Use this API command to delete DiffServ profile.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id 
 }
 
 // FindRkszonesDiffservById
+//
+// Operation ID: findRkszonesDiffservById
 //
 // Use this API command to retrieve DiffServ profile.
 //
@@ -116,6 +122,8 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 
 // FindRkszonesDiffservByZoneId
 //
+// Operation ID: findRkszonesDiffservByZoneId
+//
 // Use this API command to retrieve a list of DiffServ profile.
 //
 // Required Parameters:
@@ -142,6 +150,8 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 }
 
 // FindServicesDscpProfileByQueryCriteria
+//
+// Operation ID: findServicesDscpProfileByQueryCriteria
 //
 // Query DSCP Profiles with specified filters.
 //
@@ -171,6 +181,8 @@ func (s *WSGDiffServService) FindServicesDscpProfileByQueryCriteria(ctx context.
 }
 
 // PartialUpdateRkszonesDiffservById
+//
+// Operation ID: partialUpdateRkszonesDiffservById
 //
 // Use this API command to modify the configuration of DiffServ profile.
 //

@@ -23,6 +23,8 @@ func (ss *WSGService) WSGFTPServerSettingsService() *WSGFTPServerSettingsService
 
 // AddFtps
 //
+// Operation ID: addFtps
+//
 // Add FTP server.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGFTPServerSettingsService) AddFtps(ctx context.Context, body *WSGSyst
 }
 
 // DeleteFtps
+//
+// Operation ID: deleteFtps
 //
 // Remove FTP servers.
 //
@@ -81,6 +85,8 @@ func (s *WSGFTPServerSettingsService) DeleteFtps(ctx context.Context, body *WSGS
 
 // DeleteFtpsByFtpId
 //
+// Operation ID: deleteFtpsByFtpId
+//
 // Remove FTP server.
 //
 // Required Parameters:
@@ -106,6 +112,8 @@ func (s *WSGFTPServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftp
 }
 
 // FindFtpsByFtpId
+//
+// Operation ID: findFtpsByFtpId
 //
 // Retrieve information of specific FTP server.
 //
@@ -133,6 +141,8 @@ func (s *WSGFTPServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 }
 
 // FindFtpsByQueryCriteria
+//
+// Operation ID: findFtpsByQueryCriteria
 //
 // Retrieve information of all FTP server.
 //
@@ -163,6 +173,8 @@ func (s *WSGFTPServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 
 // FindFtpsTest
 //
+// Operation ID: findFtpsTest
+//
 // Test ftp server of specific FTP server settings.
 //
 // Request Body:
@@ -191,6 +203,8 @@ func (s *WSGFTPServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 
 // FindFtpsTestByFtpId
 //
+// Operation ID: findFtpsTestByFtpId
+//
 // Test ftp server of specific FTP server id.
 //
 // Required Parameters:
@@ -217,6 +231,8 @@ func (s *WSGFTPServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 }
 
 // PartialUpdateFtpsByFtpId
+//
+// Operation ID: partialUpdateFtpsByFtpId
 //
 // Update FTP server settings.
 //

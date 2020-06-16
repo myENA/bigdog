@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// WSGMeshNodeInfoHelperZoneInfo
+//
+// Definition: meshNodeInfo_helperZoneInfo
 type WSGMeshNodeInfoHelperZoneInfo struct {
 	HelperAPZoneId *string `json:"helperAPZoneId,omitempty"`
 
@@ -17,6 +20,9 @@ func NewWSGMeshNodeInfoHelperZoneInfo() *WSGMeshNodeInfoHelperZoneInfo {
 	return m
 }
 
+// WSGMeshNodeInfo
+//
+// Definition: meshNodeInfo_meshNodeInfo
 type WSGMeshNodeInfo struct {
 	// ApMac
 	// The MAC of the mesh AP
@@ -74,6 +80,9 @@ func NewWSGMeshNodeInfo() *WSGMeshNodeInfo {
 	return m
 }
 
+// WSGMeshNodeInfoArray
+//
+// Definition: meshNodeInfo_meshNodeInfoArray
 type WSGMeshNodeInfoArray []*WSGMeshNodeInfo
 
 func MakeWSGMeshNodeInfoArray() WSGMeshNodeInfoArray {
@@ -81,6 +90,9 @@ func MakeWSGMeshNodeInfoArray() WSGMeshNodeInfoArray {
 	return m
 }
 
+// WSGMeshNodeInfoList
+//
+// Definition: meshNodeInfo_meshNodeInfoList
 type WSGMeshNodeInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -112,6 +124,8 @@ func NewWSGMeshNodeInfoList() *WSGMeshNodeInfoList {
 
 // WSGMeshNodeInfoListExtraType
 //
+// Definition: meshNodeInfo_meshNodeInfoListExtraType
+//
 // Any additional response data.
 type WSGMeshNodeInfoListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -138,6 +152,9 @@ func NewWSGMeshNodeInfoListExtraType() *WSGMeshNodeInfoListExtraType {
 	return m
 }
 
+// WSGMeshNodeInfoUpdateAPZeroTouch
+//
+// Definition: meshNodeInfo_updateAPZeroTouch
 type WSGMeshNodeInfoUpdateAPZeroTouch struct {
 	ApMac *string `json:"apMac,omitempty"`
 

@@ -22,6 +22,9 @@ func (ss *WSGService) WSGTrafficAnalysisService() *WSGTrafficAnalysisService {
 	return NewWSGTrafficAnalysisService(ss.apiClient)
 }
 
+// WSGTrafficAnalysisResults
+//
+// Definition: trafficanalysis_trafficAnalysisResults
 type WSGTrafficAnalysisResults struct {
 	Extra *WSGTrafficAnalysisResultsExtraType `json:"extra,omitempty"`
 
@@ -41,6 +44,9 @@ func NewWSGTrafficAnalysisResults() *WSGTrafficAnalysisResults {
 	return m
 }
 
+// WSGTrafficAnalysisResultsExtraType
+//
+// Definition: trafficanalysis_trafficAnalysisResultsExtraType
 type WSGTrafficAnalysisResultsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -66,6 +72,9 @@ func NewWSGTrafficAnalysisResultsExtraType() *WSGTrafficAnalysisResultsExtraType
 	return m
 }
 
+// WSGTrafficAnalysisResultsListType
+//
+// Definition: trafficanalysis_trafficAnalysisResultsListType
 type WSGTrafficAnalysisResultsListType struct {
 	AppName *string `json:"appName,omitempty"`
 
@@ -91,6 +100,9 @@ func NewWSGTrafficAnalysisResultsListType() *WSGTrafficAnalysisResultsListType {
 	return m
 }
 
+// WSGTrafficAnalysisResultsListTypeExtraValues24Type
+//
+// Definition: trafficanalysis_trafficAnalysisResultsListTypeExtraValues24Type
 type WSGTrafficAnalysisResultsListTypeExtraValues24Type struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -116,6 +128,9 @@ func NewWSGTrafficAnalysisResultsListTypeExtraValues24Type() *WSGTrafficAnalysis
 	return m
 }
 
+// WSGTrafficAnalysisResultsListTypeExtraValues50Type
+//
+// Definition: trafficanalysis_trafficAnalysisResultsListTypeExtraValues50Type
 type WSGTrafficAnalysisResultsListTypeExtraValues50Type struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -141,6 +156,9 @@ func NewWSGTrafficAnalysisResultsListTypeExtraValues50Type() *WSGTrafficAnalysis
 	return m
 }
 
+// WSGTrafficAnalysisResultsListTypeExtraValuesTotalType
+//
+// Definition: trafficanalysis_trafficAnalysisResultsListTypeExtraValuesTotalType
 type WSGTrafficAnalysisResultsListTypeExtraValuesTotalType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -167,6 +185,8 @@ func NewWSGTrafficAnalysisResultsListTypeExtraValuesTotalType() *WSGTrafficAnaly
 }
 
 // FindTrafficAnalysisAggregatesByQueryCriteria
+//
+// Operation ID: findTrafficAnalysisAggregatesByQueryCriteria
 //
 // View traffic analysis aggregates
 //
@@ -207,6 +227,8 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 
 // FindTrafficAnalysisAggregatesGroupedByQueryCriteria
 //
+// Operation ID: findTrafficAnalysisAggregatesGroupedByQueryCriteria
+//
 // View grouped traffic analysis aggregates
 //
 // Request Body:
@@ -246,6 +268,8 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 
 // FindTrafficAnalysisClientResourceByQueryCriteria
 //
+// Operation ID: findTrafficAnalysisClientResourceByQueryCriteria
+//
 // View client resource analytics
 //
 // Request Body:
@@ -284,6 +308,8 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 }
 
 // FindTrafficAnalysisLineRatesByQueryCriteria
+//
+// Operation ID: findTrafficAnalysisLineRatesByQueryCriteria
 //
 // View line rate aggregation data
 //

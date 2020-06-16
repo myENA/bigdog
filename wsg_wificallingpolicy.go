@@ -23,6 +23,8 @@ func (ss *WSGService) WSGWiFiCallingPolicyService() *WSGWiFiCallingPolicyService
 
 // AddWifiCallingWifiCallingPolicy
 //
+// Operation ID: addWifiCallingWifiCallingPolicy
+//
 // Use this API command to Create Wi-Fi Calling Policy.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGWiFiCallingPolicyService) AddWifiCallingWifiCallingPolicy(ctx contex
 }
 
 // DeleteWifiCallingWifiCallingPolicy
+//
+// Operation ID: deleteWifiCallingWifiCallingPolicy
 //
 // Use this API command to Delete bulk Wi-Fi Calling policies.
 //
@@ -81,6 +85,8 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicy(ctx con
 
 // DeleteWifiCallingWifiCallingPolicyById
 //
+// Operation ID: deleteWifiCallingWifiCallingPolicyById
+//
 // Use this API command to Delete a Wi-Fi Calling policy by ID.
 //
 // Required Parameters:
@@ -106,6 +112,8 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx
 }
 
 // FindWifiCallingByQueryCriteria
+//
+// Operation ID: findWifiCallingByQueryCriteria
 //
 // Use this API command to Query Wi-Fi Calling Policy List.
 //
@@ -135,6 +143,8 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context
 }
 
 // FindWifiCallingWifiCallingPolicy
+//
+// Operation ID: findWifiCallingWifiCallingPolicy
 //
 // Use this API command to Retrieve List of Wi-Fi Calling Policy.
 //
@@ -175,6 +185,8 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx conte
 
 // FindWifiCallingWifiCallingPolicyById
 //
+// Operation ID: findWifiCallingWifiCallingPolicyById
+//
 // Use this API command to Retrieve Wi-Fi Calling Policy.
 //
 // Required Parameters:
@@ -201,6 +213,8 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx c
 }
 
 // PartialUpdateWifiCallingWifiCallingPolicyById
+//
+// Operation ID: partialUpdateWifiCallingWifiCallingPolicyById
 //
 // Use this API command to Modify a Wi-Fi Calling policy.
 //
@@ -233,6 +247,8 @@ func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyB
 }
 
 // UpdateWifiCallingWifiCallingPolicyById
+//
+// Operation ID: updateWifiCallingWifiCallingPolicyById
 //
 // Use this API command to Modify Entire Wi-Fi Calling policy.
 //

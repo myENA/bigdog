@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// SwitchMLAGConfigCreate
+//
+// Definition: lagConfig_create
 type SwitchMLAGConfigCreate struct {
 	// GroupId
 	// Switch Group Id
@@ -31,6 +34,9 @@ func NewSwitchMLAGConfigCreate() *SwitchMLAGConfigCreate {
 	return m
 }
 
+// SwitchMLAGConfigCreateResult
+//
+// Definition: lagConfig_createResult
 type SwitchMLAGConfigCreateResult struct {
 	// Id
 	// The ID of LAG Config
@@ -42,6 +48,9 @@ func NewSwitchMLAGConfigCreateResult() *SwitchMLAGConfigCreateResult {
 	return m
 }
 
+// SwitchMLAGConfig
+//
+// Definition: lagConfig_lagConfig
 type SwitchMLAGConfig struct {
 	// CreatedTime
 	// The LAG Types in STATIC or DYNAMIC
@@ -83,6 +92,9 @@ func NewSwitchMLAGConfig() *SwitchMLAGConfig {
 	return m
 }
 
+// SwitchMLAGConfigList
+//
+// Definition: lagConfig_list
 type SwitchMLAGConfigList struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -106,6 +118,9 @@ func NewSwitchMLAGConfigList() *SwitchMLAGConfigList {
 	return m
 }
 
+// SwitchMLAGConfigModify
+//
+// Definition: lagConfig_modify
 type SwitchMLAGConfigModify struct {
 	// Name
 	// The Name of LAG Config

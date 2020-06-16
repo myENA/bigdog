@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMTroubleshootingService() *SwitchMTroubleshootin
 	return NewSwitchMTroubleshootingService(ss.apiClient)
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityRequest
+//
+// Definition: troubleShooting_remoteClientConnectivityRequest
 type SwitchMTroubleshootingRemoteClientConnectivityRequest struct {
 	ClientMac *string `json:"clientMac,omitempty"`
 
@@ -35,6 +38,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityRequest() *SwitchMTroubles
 	return m
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityResponse
+//
+// Definition: troubleShooting_remoteClientConnectivityResponse
 type SwitchMTroubleshootingRemoteClientConnectivityResponse struct {
 	Data *SwitchMTroubleshootingRemoteClientConnectivityResponseDataType `json:"data,omitempty"`
 
@@ -52,6 +58,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponse() *SwitchMTrouble
 	return m
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityResponseDataType
+//
+// Definition: troubleShooting_remoteClientConnectivityResponseDataType
 type SwitchMTroubleshootingRemoteClientConnectivityResponseDataType struct {
 	Ap *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType `json:"ap,omitempty"`
 
@@ -65,6 +74,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataType() *Switch
 	return m
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType
+//
+// Definition: troubleShooting_remoteClientConnectivityResponseDataTypeApType
 type SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType struct {
 	Connected *bool `json:"connected,omitempty"`
 
@@ -78,6 +90,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeApType() *
 	return m
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeClientType
+//
+// Definition: troubleShooting_remoteClientConnectivityResponseDataTypeClientType
 type SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeClientType struct {
 	Connected *bool `json:"connected,omitempty"`
 
@@ -91,6 +106,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeClientType
 	return m
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType
+//
+// Definition: troubleShooting_remoteClientConnectivityResponseDataTypeNetworkSwitchesType
 type SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType struct {
 	Connected *bool `json:"connected,omitempty"`
 
@@ -104,6 +122,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwi
 	return m
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityResponseErrorType
+//
+// Definition: troubleShooting_remoteClientConnectivityResponseErrorType
 type SwitchMTroubleshootingRemoteClientConnectivityResponseErrorType struct {
 	Message *string `json:"message,omitempty"`
 
@@ -117,6 +138,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponseErrorType() *Switc
 	return m
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType
+//
+// Definition: troubleShooting_remoteClientConnectivityResponseExtraType
 type SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -142,6 +166,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponseExtraType() *Switc
 	return m
 }
 
+// SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType
+//
+// Definition: troubleShooting_remoteClientConnectivityResponseMetaDataType
 type SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -167,6 +194,9 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType() *Sw
 	return m
 }
 
+// SwitchMTroubleshootingRemoteCommandResponse
+//
+// Definition: troubleShooting_remoteCommandResponse
 type SwitchMTroubleshootingRemoteCommandResponse struct {
 	Data *string `json:"data,omitempty"`
 
@@ -184,6 +214,9 @@ func NewSwitchMTroubleshootingRemoteCommandResponse() *SwitchMTroubleshootingRem
 	return m
 }
 
+// SwitchMTroubleshootingRemoteCommandResponseErrorType
+//
+// Definition: troubleShooting_remoteCommandResponseErrorType
 type SwitchMTroubleshootingRemoteCommandResponseErrorType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -209,6 +242,9 @@ func NewSwitchMTroubleshootingRemoteCommandResponseErrorType() *SwitchMTroublesh
 	return m
 }
 
+// SwitchMTroubleshootingRemoteCommandResponseExtraType
+//
+// Definition: troubleShooting_remoteCommandResponseExtraType
 type SwitchMTroubleshootingRemoteCommandResponseExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -234,6 +270,9 @@ func NewSwitchMTroubleshootingRemoteCommandResponseExtraType() *SwitchMTroublesh
 	return m
 }
 
+// SwitchMTroubleshootingRemoteCommandResponseMetaDataType
+//
+// Definition: troubleShooting_remoteCommandResponseMetaDataType
 type SwitchMTroubleshootingRemoteCommandResponseMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -259,6 +298,9 @@ func NewSwitchMTroubleshootingRemoteCommandResponseMetaDataType() *SwitchMTroubl
 	return m
 }
 
+// SwitchMTroubleshootingRemotePingRequest
+//
+// Definition: troubleShooting_remotePingRequest
 type SwitchMTroubleshootingRemotePingRequest struct {
 	PacketSize *int `json:"packetSize,omitempty"`
 
@@ -276,6 +318,9 @@ func NewSwitchMTroubleshootingRemotePingRequest() *SwitchMTroubleshootingRemoteP
 	return m
 }
 
+// SwitchMTroubleshootingRemoteTracerouteRequest
+//
+// Definition: troubleShooting_remoteTracerouteRequest
 type SwitchMTroubleshootingRemoteTracerouteRequest struct {
 	MaxTtl *int `json:"maxTtl,omitempty"`
 
@@ -291,6 +336,9 @@ func NewSwitchMTroubleshootingRemoteTracerouteRequest() *SwitchMTroubleshootingR
 	return m
 }
 
+// SwitchMTroubleshootingSupportLogStatus
+//
+// Definition: troubleShooting_supportLogStatus
 type SwitchMTroubleshootingSupportLogStatus struct {
 	// CreatedTime
 	// Created Time of this SupportLog Request
@@ -317,6 +365,8 @@ func NewSwitchMTroubleshootingSupportLogStatus() *SwitchMTroubleshootingSupportL
 }
 
 // ExecuteSwitchRemoteClientConnectivity
+//
+// Operation ID: executeSwitchRemoteClientConnectivity
 //
 // Switch trace client connectivity
 //
@@ -349,6 +399,8 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ct
 
 // ExecuteSwitchRemotePing
 //
+// Operation ID: executeSwitchRemotePing
+//
 // Switch remote ping
 //
 // Attempt to ping an address or hostname from a specific switch. Note: This API is quite slow, and may take > 5 seconds to respond
@@ -379,6 +431,8 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Cont
 }
 
 // ExecuteSwitchRemoteTraceroute
+//
+// Operation ID: executeSwitchRemoteTraceroute
 //
 // Switch remote traceroute
 //
@@ -411,6 +465,8 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx contex
 
 // FindSupportLogBySwitchId
 //
+// Operation ID: findSupportLogBySwitchId
+//
 // Use this API to request ICX to prepare support log.
 //
 // Required Parameters:
@@ -438,6 +494,8 @@ func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Con
 
 // FindSupportLogDownloadBySwitchId
 //
+// Operation ID: findSupportLogDownloadBySwitchId
+//
 // Use this API to download support log.
 //
 // Required Parameters:
@@ -462,6 +520,8 @@ func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx con
 }
 
 // FindSupportLogStatusBySwitchId
+//
+// Operation ID: findSupportLogStatusBySwitchId
 //
 // Use this API to get the status of current support log request.
 //

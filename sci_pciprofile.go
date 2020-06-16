@@ -24,6 +24,9 @@ func (ss *SCIService) SCIPCIProfileService() *SCIPCIProfileService {
 	return NewSCIPCIProfileService(ss.apiClient)
 }
 
+// SCIPCIProfileBatchDelete200ResponseType
+//
+// Definition: pciProfile.batchDelete200ResponseType
 type SCIPCIProfileBatchDelete200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -33,6 +36,9 @@ func NewSCIPCIProfileBatchDelete200ResponseType() *SCIPCIProfileBatchDelete200Re
 	return m
 }
 
+// SCIPCIProfileCreateWithRelations200ResponseType
+//
+// Definition: pciProfile.createWithRelations200ResponseType
 type SCIPCIProfileCreateWithRelations200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -58,6 +64,9 @@ func NewSCIPCIProfileCreateWithRelations200ResponseType() *SCIPCIProfileCreateWi
 	return m
 }
 
+// SCIPCIProfileFind200ResponseType
+//
+// Definition: pciProfile.find200ResponseType
 type SCIPCIProfileFind200ResponseType []*SCIModelsPciProfile
 
 func MakeSCIPCIProfileFind200ResponseType() SCIPCIProfileFind200ResponseType {
@@ -65,6 +74,9 @@ func MakeSCIPCIProfileFind200ResponseType() SCIPCIProfileFind200ResponseType {
 	return m
 }
 
+// SCIPCIProfilecountreports200ResponseType
+//
+// Definition: pciProfile.prototype.__count__reports200ResponseType
 type SCIPCIProfilecountreports200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -74,6 +86,9 @@ func NewSCIPCIProfilecountreports200ResponseType() *SCIPCIProfilecountreports200
 	return m
 }
 
+// SCIPCIProfilegetreports200ResponseType
+//
+// Definition: pciProfile.prototype.__get__reports200ResponseType
 type SCIPCIProfilegetreports200ResponseType []*SCIModelsPciReport
 
 func MakeSCIPCIProfilegetreports200ResponseType() SCIPCIProfilegetreports200ResponseType {
@@ -81,6 +96,9 @@ func MakeSCIPCIProfilegetreports200ResponseType() SCIPCIProfilegetreports200Resp
 	return m
 }
 
+// SCIPCIProfileUpdateWithRelations200ResponseType
+//
+// Definition: pciProfile.updateWithRelations200ResponseType
 type SCIPCIProfileUpdateWithRelations200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -107,6 +125,8 @@ func NewSCIPCIProfileUpdateWithRelations200ResponseType() *SCIPCIProfileUpdateWi
 }
 
 // PciProfileBatchDelete
+//
+// Operation ID: pciProfile.batchDelete
 //
 // Delete multiple PCI Profiles
 //
@@ -137,6 +157,8 @@ func (s *SCIPCIProfileService) PciProfileBatchDelete(ctx context.Context, formVa
 }
 
 // PciProfileCreateWithRelations
+//
+// Operation ID: pciProfile.createWithRelations
 //
 // Create a PCI profile and generate a report.
 //
@@ -172,6 +194,8 @@ func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context
 
 // PciProfileFind
 //
+// Operation ID: pciProfile.find
+//
 // Find all instances of the model matched by filter from the data source.
 //
 // Optional Parameters:
@@ -200,6 +224,8 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 }
 
 // PciProfilePrototypeCountReports
+//
+// Operation ID: pciProfile.prototype.__count__reports
 //
 // Counts reports of pciProfile.
 //
@@ -235,6 +261,8 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 
 // PciProfilePrototypeCreateReports
 //
+// Operation ID: pciProfile.prototype.__create__reports
+//
 // Creates a new instance in reports of this model.
 //
 // Request Body:
@@ -269,6 +297,8 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCreateReports(ctx context.Cont
 
 // PciProfilePrototypeDeleteReports
 //
+// Operation ID: pciProfile.prototype.__delete__reports
+//
 // Deletes all reports of this model.
 //
 // Required Parameters:
@@ -294,6 +324,8 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDeleteReports(ctx context.Cont
 }
 
 // PciProfilePrototypeDestroyByIdReports
+//
+// Operation ID: pciProfile.prototype.__destroyById__reports
 //
 // Delete a related item by id for reports.
 //
@@ -324,6 +356,8 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDestroyByIdReports(ctx context
 
 // PciProfilePrototypeFindByIdReports
 //
+// Operation ID: pciProfile.prototype.__findById__reports
+//
 // Find a related item by id for reports.
 //
 // Required Parameters:
@@ -353,6 +387,8 @@ func (s *SCIPCIProfileService) PciProfilePrototypeFindByIdReports(ctx context.Co
 }
 
 // PciProfilePrototypeGetReports
+//
+// Operation ID: pciProfile.prototype.__get__reports
 //
 // Queries reports of pciProfile.
 //
@@ -387,6 +423,8 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 }
 
 // PciProfilePrototypeUpdateByIdReports
+//
+// Operation ID: pciProfile.prototype.__updateById__reports
 //
 // Update a related item by id for reports.
 //
@@ -424,6 +462,8 @@ func (s *SCIPCIProfileService) PciProfilePrototypeUpdateByIdReports(ctx context.
 }
 
 // PciProfileUpdateWithRelations
+//
+// Operation ID: pciProfile.updateWithRelations
 //
 // Update a PCI profile and generate a report.
 //

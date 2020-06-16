@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// SwitchMDeployLogConfigurationHistoryQueryResult
+//
+// Definition: deployLog_ConfigurationHistoryQueryResult
 type SwitchMDeployLogConfigurationHistoryQueryResult struct {
 	// FirstIndex
 	// Index of the first config returned out of the complete list
@@ -25,6 +28,9 @@ func NewSwitchMDeployLogConfigurationHistoryQueryResult() *SwitchMDeployLogConfi
 	return m
 }
 
+// SwitchMDeployLog
+//
+// Definition: deployLog_deployLog
 type SwitchMDeployLog struct {
 	// ConfigType
 	// Config Type
@@ -92,6 +98,9 @@ func NewSwitchMDeployLog() *SwitchMDeployLog {
 	return m
 }
 
+// SwitchMDeployLogStatusSummary
+//
+// Definition: deployLog_deployLogStatusSummary
 type SwitchMDeployLogStatusSummary struct {
 	// Failed
 	// Deployment Fail Counter

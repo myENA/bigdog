@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAlertSummaryAlarmSummary
+//
+// Definition: alertSummary_alarmSummary
 type WSGAlertSummaryAlarmSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`
 
@@ -17,6 +20,9 @@ func NewWSGAlertSummaryAlarmSummary() *WSGAlertSummaryAlarmSummary {
 	return m
 }
 
+// WSGAlertSummaryEventSummary
+//
+// Definition: alertSummary_eventSummary
 type WSGAlertSummaryEventSummary struct {
 	CriticalCount *int `json:"criticalCount,omitempty"`
 

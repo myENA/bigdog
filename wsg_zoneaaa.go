@@ -23,6 +23,8 @@ func (ss *WSGService) WSGZoneAAAService() *WSGZoneAAAService {
 
 // AddRkszonesAaaAdByZoneId
 //
+// Operation ID: addRkszonesAaaAdByZoneId
+//
 // Use this API command to create a new active directory server of a zone.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *
 
 // AddRkszonesAaaLdapByZoneId
 //
+// Operation ID: addRkszonesAaaLdapByZoneId
+//
 // Use this API command to create a new LDAP server of a zone.
 //
 // Request Body:
@@ -90,6 +94,8 @@ func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body
 }
 
 // AddRkszonesAaaRadiusByZoneId
+//
+// Operation ID: addRkszonesAaaRadiusByZoneId
 //
 // Use this API command to create a new radius server of a zone.
 //
@@ -132,6 +138,8 @@ func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, bo
 
 // DeleteRkszonesAaaAdById
 //
+// Operation ID: deleteRkszonesAaaAdById
+//
 // Use this API command to delete an active directory server of a zone.
 //
 // Required Parameters:
@@ -161,6 +169,8 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id stri
 
 // DeleteRkszonesAaaById
 //
+// Operation ID: deleteRkszonesAaaById
+//
 // Use this API command to delete an AAA server.
 //
 // Required Parameters:
@@ -189,6 +199,8 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string
 }
 
 // DeleteRkszonesAaaByZoneId
+//
+// Operation ID: deleteRkszonesAaaByZoneId
 //
 // Use this API command to delete a list of AAA server.
 //
@@ -222,6 +234,8 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body 
 
 // DeleteRkszonesAaaLdapById
 //
+// Operation ID: deleteRkszonesAaaLdapById
+//
 // Use this API command to delete a LDAP server of a zone.
 //
 // Required Parameters:
@@ -250,6 +264,8 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id st
 }
 
 // DeleteRkszonesAaaRadiusById
+//
+// Operation ID: deleteRkszonesAaaRadiusById
 //
 // Use this API command to delete a radius server of a zone.
 //
@@ -280,6 +296,8 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id 
 
 // DeleteRkszonesAaaRadiusSecondaryById
 //
+// Operation ID: deleteRkszonesAaaRadiusSecondaryById
+//
 // Use this API command to disable secondary server on radius server of a zone.
 //
 // Required Parameters:
@@ -309,6 +327,8 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Con
 
 // DeleteRkszonesAaaRadiusStandbyPrimaryById
 //
+// Operation ID: deleteRkszonesAaaRadiusStandbyPrimaryById
+//
 // Use this API command to disable primary server on radius server of a zone for Standby Cluster.
 //
 // Required Parameters:
@@ -337,6 +357,8 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx contex
 }
 
 // FindRkszonesAaaAdById
+//
+// Operation ID: findRkszonesAaaAdById
 //
 // Use this API command to retrieve an active directory server of a zone.
 //
@@ -368,6 +390,8 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, id string
 
 // FindRkszonesAaaAdByZoneId
 //
+// Operation ID: findRkszonesAaaAdByZoneId
+//
 // Use this API command to retrieve a list of active directory servers of a zone.
 //
 // Required Parameters:
@@ -394,6 +418,8 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneI
 }
 
 // FindRkszonesAaaLdapById
+//
+// Operation ID: findRkszonesAaaLdapById
 //
 // Use this API command to retrieve a LDAP server of a zone.
 //
@@ -425,6 +451,8 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, id stri
 
 // FindRkszonesAaaLdapByZoneId
 //
+// Operation ID: findRkszonesAaaLdapByZoneId
+//
 // Use this API command to retrieve a list of LDAP servers of a zone.
 //
 // Required Parameters:
@@ -451,6 +479,8 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zon
 }
 
 // FindRkszonesAaaRadiusById
+//
+// Operation ID: findRkszonesAaaRadiusById
 //
 // Use this API command to retrieve a radius server of a zone.
 //
@@ -481,6 +511,8 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, id st
 }
 
 // FindRkszonesAaaRadiusByZoneId
+//
+// Operation ID: findRkszonesAaaRadiusByZoneId
 //
 // Use this API command to retrieve a list of radius servers of a zone.
 //
@@ -515,6 +547,8 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, z
 }
 
 // PartialUpdateRkszonesAaaAdById
+//
+// Operation ID: partialUpdateRkszonesAaaAdById
 //
 // Use this API command to modify the configuration on active directory server of a zone.
 //
@@ -551,6 +585,8 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, 
 
 // PartialUpdateRkszonesAaaLdapById
 //
+// Operation ID: partialUpdateRkszonesAaaLdapById
+//
 // Use this API command to modify the configuration on LDAP server of a zone.
 //
 // Request Body:
@@ -585,6 +621,8 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context
 }
 
 // PartialUpdateRkszonesAaaRadiusById
+//
+// Operation ID: partialUpdateRkszonesAaaRadiusById
 //
 // Use this API command to modify the configuration on radius server of a zone.
 //
@@ -621,6 +659,8 @@ func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Conte
 
 // UpdateRkszonesAaaAdById
 //
+// Operation ID: updateRkszonesAaaAdById
+//
 // Use this API command to modify the configuration on active directory server of a zone by complete attributes.
 //
 // Request Body:
@@ -656,6 +696,8 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *W
 
 // UpdateRkszonesAaaLdapById
 //
+// Operation ID: updateRkszonesAaaLdapById
+//
 // Use this API command to modify the configuration on LDAP server of a zone by complete attributes.
 //
 // Request Body:
@@ -690,6 +732,8 @@ func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body 
 }
 
 // UpdateRkszonesAaaRadiusById
+//
+// Operation ID: updateRkszonesAaaRadiusById
 //
 // Use this API command to modify the configuration on radius server of a zone by complete attributes.
 //

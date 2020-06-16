@@ -21,6 +21,9 @@ func (ss *WSGService) WSGCertificateService() *WSGCertificateService {
 	return NewWSGCertificateService(ss.apiClient)
 }
 
+// WSGCertificate
+//
+// Definition: certificate_certificate
 type WSGCertificate struct {
 	CertificasSigningRequest *WSGCommonGenericRef `json:"certificasSigningRequest,omitempty"`
 
@@ -68,6 +71,9 @@ func NewWSGCertificate() *WSGCertificate {
 	return m
 }
 
+// WSGCertificateList
+//
+// Definition: certificate_certificateList
 type WSGCertificateList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -83,6 +89,9 @@ func NewWSGCertificateList() *WSGCertificateList {
 	return m
 }
 
+// WSGCertificateListType
+//
+// Definition: certificate_certificateListType
 type WSGCertificateListType struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -98,6 +107,9 @@ func NewWSGCertificateListType() *WSGCertificateListType {
 	return m
 }
 
+// WSGCertificatesSigningRequest
+//
+// Definition: certificate_certificatesSigningRequest
 type WSGCertificatesSigningRequest struct {
 	// City
 	// City of the certificates signing request
@@ -141,6 +153,9 @@ func NewWSGCertificatesSigningRequest() *WSGCertificatesSigningRequest {
 	return m
 }
 
+// WSGCertificateCertSetting
+//
+// Definition: certificate_certSetting
 type WSGCertificateCertSetting struct {
 	// ServiceCertificates
 	// Certificate Setting of the service
@@ -152,6 +167,9 @@ func NewWSGCertificateCertSetting() *WSGCertificateCertSetting {
 	return m
 }
 
+// WSGCertificateClientCert
+//
+// Definition: certificate_clientCert
 type WSGCertificateClientCert struct {
 	// Data
 	// Data of the client certificate
@@ -193,6 +211,9 @@ func NewWSGCertificateClientCert() *WSGCertificateClientCert {
 	return m
 }
 
+// WSGCertificateClientCertList
+//
+// Definition: certificate_clientCertList
 type WSGCertificateClientCertList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -208,6 +229,9 @@ func NewWSGCertificateClientCertList() *WSGCertificateClientCertList {
 	return m
 }
 
+// WSGCertificateClientCertListType
+//
+// Definition: certificate_clientCertListType
 type WSGCertificateClientCertListType struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -223,6 +247,9 @@ func NewWSGCertificateClientCertListType() *WSGCertificateClientCertListType {
 	return m
 }
 
+// WSGCertificateCreateCert
+//
+// Definition: certificate_createCert
 type WSGCertificateCreateCert struct {
 	CertificasSigningRequest *WSGCommonGenericRef `json:"certificasSigningRequest,omitempty"`
 
@@ -263,6 +290,9 @@ func NewWSGCertificateCreateCert() *WSGCertificateCreateCert {
 	return m
 }
 
+// WSGCertificateCreateClientCert
+//
+// Definition: certificate_createClientCert
 type WSGCertificateCreateClientCert struct {
 	// Data
 	// The value must be in PEM format which is a Base64 encoded DER client certificate.
@@ -299,6 +329,9 @@ func NewWSGCertificateCreateClientCert() *WSGCertificateCreateClientCert {
 	return m
 }
 
+// WSGCertificateCreateCSR
+//
+// Definition: certificate_createCSR
 type WSGCertificateCreateCSR struct {
 	// City
 	// City of the certificates signing request
@@ -356,6 +389,9 @@ func NewWSGCertificateCreateCSR() *WSGCertificateCreateCSR {
 	return m
 }
 
+// WSGCertificateCreateTrustedCAChain
+//
+// Definition: certificate_createTrustedCAChain
 type WSGCertificateCreateTrustedCAChain struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -382,6 +418,9 @@ func NewWSGCertificateCreateTrustedCAChain() *WSGCertificateCreateTrustedCAChain
 	return m
 }
 
+// WSGCertificateCsrList
+//
+// Definition: certificate_csrList
 type WSGCertificateCsrList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -397,6 +436,9 @@ func NewWSGCertificateCsrList() *WSGCertificateCsrList {
 	return m
 }
 
+// WSGCertificateCsrListType
+//
+// Definition: certificate_csrListType
 type WSGCertificateCsrListType struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -412,6 +454,9 @@ func NewWSGCertificateCsrListType() *WSGCertificateCsrListType {
 	return m
 }
 
+// WSGCertificateDeleteBulk
+//
+// Definition: certificate_deleteBulk
 type WSGCertificateDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -421,6 +466,9 @@ func NewWSGCertificateDeleteBulk() *WSGCertificateDeleteBulk {
 	return m
 }
 
+// WSGCertificateModifyTrustedCAChain
+//
+// Definition: certificate_modifyTrustedCAChain
 type WSGCertificateModifyTrustedCAChain struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -446,6 +494,9 @@ func NewWSGCertificateModifyTrustedCAChain() *WSGCertificateModifyTrustedCAChain
 	return m
 }
 
+// WSGCertificateServiceCertificate
+//
+// Definition: certificate_serviceCertificate
 type WSGCertificateServiceCertificate struct {
 	Certificate *WSGCommonGenericRef `json:"certificate,omitempty"`
 
@@ -462,6 +513,9 @@ func NewWSGCertificateServiceCertificate() *WSGCertificateServiceCertificate {
 	return m
 }
 
+// WSGCertificateServiceCertificates
+//
+// Definition: certificate_serviceCertificates
 type WSGCertificateServiceCertificates []*WSGCertificateServiceCertificate
 
 func MakeWSGCertificateServiceCertificates() WSGCertificateServiceCertificates {
@@ -469,6 +523,9 @@ func MakeWSGCertificateServiceCertificates() WSGCertificateServiceCertificates {
 	return m
 }
 
+// WSGCertificateTrustedCAChain
+//
+// Definition: certificate_trustedCAChain
 type WSGCertificateTrustedCAChain struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -494,6 +551,9 @@ func NewWSGCertificateTrustedCAChain() *WSGCertificateTrustedCAChain {
 	return m
 }
 
+// WSGCertificateTrustedCAChainCertList
+//
+// Definition: certificate_trustedCAChainCertList
 type WSGCertificateTrustedCAChainCertList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -509,6 +569,9 @@ func NewWSGCertificateTrustedCAChainCertList() *WSGCertificateTrustedCAChainCert
 	return m
 }
 
+// WSGCertificateTrustedCAChainCertListType
+//
+// Definition: certificate_trustedCAChainCertListType
 type WSGCertificateTrustedCAChainCertListType struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -544,6 +607,8 @@ func NewWSGCertificateTrustedCAChainCertListType() *WSGCertificateTrustedCAChain
 
 // AddCertstoreCertificate
 //
+// Operation ID: addCertstoreCertificate
+//
 // Use this API command to create an installed certificate.
 //
 // Request Body:
@@ -572,6 +637,8 @@ func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, bod
 }
 
 // AddCertstoreClientCert
+//
+// Operation ID: addCertstoreClientCert
 //
 // Use this API command to create a client certificate.
 //
@@ -602,6 +669,8 @@ func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body
 
 // AddCertstoreCsr
 //
+// Operation ID: addCertstoreCsr
+//
 // Use this API command to create a certificates signing request.
 //
 // Request Body:
@@ -630,6 +699,8 @@ func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCe
 }
 
 // AddCertstoreTrustedCAChainCert
+//
+// Operation ID: addCertstoreTrustedCAChainCert
 //
 // Use this API command to create trusted CA chain certificates.
 //
@@ -660,6 +731,8 @@ func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Conte
 
 // DeleteCertstoreCertificateById
 //
+// Operation ID: deleteCertstoreCertificateById
+//
 // Use this API command to delete an installed certificate.
 //
 // Required Parameters:
@@ -685,6 +758,8 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 }
 
 // DeleteCertstoreClientCertById
+//
+// Operation ID: deleteCertstoreClientCertById
 //
 // Use this API command to delete a client certificate.
 //
@@ -712,6 +787,8 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 
 // DeleteCertstoreCsrById
 //
+// Operation ID: deleteCertstoreCsrById
+//
 // Use this API command to delete a certificates signing request.
 //
 // Required Parameters:
@@ -737,6 +814,8 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id s
 }
 
 // DeleteCertstoreTrustedCAChainCert
+//
+// Operation ID: deleteCertstoreTrustedCAChainCert
 //
 // Use this API command to delete bulk trusted CA chain certificates.
 //
@@ -765,6 +844,8 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Co
 
 // DeleteCertstoreTrustedCAChainCertById
 //
+// Operation ID: deleteCertstoreTrustedCAChainCertById
+//
 // Use this API command to delete a trusted CA chain certificate.
 //
 // Required Parameters:
@@ -790,6 +871,8 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 }
 
 // FindCertstoreCertificate
+//
+// Operation ID: findCertstoreCertificate
 //
 // Use this API command to retrieve list of installed certificates.
 //
@@ -825,6 +908,8 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 
 // FindCertstoreCertificateById
 //
+// Operation ID: findCertstoreCertificateById
+//
 // Use this API command to retrieve an installed certificate.
 //
 // Required Parameters:
@@ -851,6 +936,8 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 }
 
 // FindCertstoreClientCert
+//
+// Operation ID: findCertstoreClientCert
 //
 // Use this API command to retrieve list of client certificates.
 //
@@ -886,6 +973,8 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 
 // FindCertstoreClientCertById
 //
+// Operation ID: findCertstoreClientCertById
+//
 // Use this API command to retrieve a client certificate.
 //
 // Required Parameters:
@@ -912,6 +1001,8 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 }
 
 // FindCertstoreCsr
+//
+// Operation ID: findCertstoreCsr
 //
 // Use this API command to retrieve list of certificates signing request.
 //
@@ -947,6 +1038,8 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 
 // FindCertstoreCsrById
 //
+// Operation ID: findCertstoreCsrById
+//
 // Use this API command to retrieve a certificates signing request.
 //
 // Required Parameters:
@@ -974,6 +1067,8 @@ func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id str
 
 // FindCertstoreSetting
 //
+// Operation ID: findCertstoreSetting
+//
 // Use this API command to retrieve certificate setting.
 func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context, mutators ...RequestMutator) (*WSGCertificateCertSetting, *APIResponseMeta, error) {
 	var (
@@ -995,6 +1090,8 @@ func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context, mutato
 }
 
 // FindCertstoreTrustedCAChainCert
+//
+// Operation ID: findCertstoreTrustedCAChainCert
 //
 // Use this API command to retrieve list of installed trusted CA chain certificates.
 //
@@ -1030,6 +1127,8 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 
 // FindCertstoreTrustedCAChainCertById
 //
+// Operation ID: findCertstoreTrustedCAChainCertById
+//
 // Use this API command to retrieve an installed trusted CA chain certificates.
 //
 // Required Parameters:
@@ -1056,6 +1155,8 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 }
 
 // PartialUpdateCertstoreSetting
+//
+// Operation ID: partialUpdateCertstoreSetting
 //
 // Use this API command to Modify the Certificate Setting.
 //
@@ -1084,6 +1185,8 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Contex
 
 // PartialUpdateCertstoreSettingServiceCertificates
 //
+// Operation ID: partialUpdateCertstoreSettingServiceCertificates
+//
 // Use this API command to Modify serviceCertificates of the Certificate Setting.
 //
 // Request Body:
@@ -1110,6 +1213,8 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates
 }
 
 // PartialUpdateCertstoreTrustedCAChainCertById
+//
+// Operation ID: partialUpdateCertstoreTrustedCAChainCertById
 //
 // Use this API command to patch a trusted CA chain certificates.
 //

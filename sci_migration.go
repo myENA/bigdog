@@ -24,6 +24,9 @@ func (ss *SCIService) SCIMigrationService() *SCIMigrationService {
 	return NewSCIMigrationService(ss.apiClient)
 }
 
+// SCIMigrationCount200ResponseType
+//
+// Definition: Migration.count200ResponseType
 type SCIMigrationCount200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -33,6 +36,9 @@ func NewSCIMigrationCount200ResponseType() *SCIMigrationCount200ResponseType {
 	return m
 }
 
+// SCIMigrationDeleteById200ResponseType
+//
+// Definition: Migration.deleteById200ResponseType
 type SCIMigrationDeleteById200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -58,6 +64,9 @@ func NewSCIMigrationDeleteById200ResponseType() *SCIMigrationDeleteById200Respon
 	return m
 }
 
+// SCIMigrationgetMigrationsidexists200ResponseType
+//
+// Definition: Migration.exists__get_Migrations_{id}_exists200ResponseType
 type SCIMigrationgetMigrationsidexists200ResponseType struct {
 	Exists *bool `json:"exists,omitempty"`
 }
@@ -67,6 +76,9 @@ func NewSCIMigrationgetMigrationsidexists200ResponseType() *SCIMigrationgetMigra
 	return m
 }
 
+// SCIMigrationheadMigrationsid200ResponseType
+//
+// Definition: Migration.exists__head_Migrations_{id}200ResponseType
 type SCIMigrationheadMigrationsid200ResponseType struct {
 	Exists *bool `json:"exists,omitempty"`
 }
@@ -76,6 +88,9 @@ func NewSCIMigrationheadMigrationsid200ResponseType() *SCIMigrationheadMigration
 	return m
 }
 
+// SCIMigrationFind200ResponseType
+//
+// Definition: Migration.find200ResponseType
 type SCIMigrationFind200ResponseType []*SCIModelsMigration
 
 func MakeSCIMigrationFind200ResponseType() SCIMigrationFind200ResponseType {
@@ -84,6 +99,8 @@ func MakeSCIMigrationFind200ResponseType() SCIMigrationFind200ResponseType {
 }
 
 // SCIMigrationUpdateAll200ResponseType
+//
+// Definition: Migration.updateAll200ResponseType
 //
 // The number of instances updated
 type SCIMigrationUpdateAll200ResponseType struct {
@@ -112,6 +129,8 @@ func NewSCIMigrationUpdateAll200ResponseType() *SCIMigrationUpdateAll200Response
 }
 
 // MigrationCount
+//
+// Operation ID: Migration.count
 //
 // Count instances of the model matched by where from the data source.
 //
@@ -142,6 +161,8 @@ func (s *SCIMigrationService) MigrationCount(ctx context.Context, optionalParams
 
 // MigrationCreate
 //
+// Operation ID: Migration.create
+//
 // Create a new instance of the model and persist it into the data source.
 //
 // Request Body:
@@ -171,6 +192,8 @@ func (s *SCIMigrationService) MigrationCreate(ctx context.Context, data *SCIMode
 
 // MigrationCreateChangeStreamGetMigrationsChangeStream
 //
+// Operation ID: Migration.createChangeStream__get_Migrations_change-stream
+//
 // Create a change stream.
 //
 // Optional Parameters:
@@ -199,6 +222,8 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamGetMigrationsChangeStre
 }
 
 // MigrationCreateChangeStreamPostMigrationsChangeStream
+//
+// Operation ID: Migration.createChangeStream__post_Migrations_change-stream
 //
 // Create a change stream.
 //
@@ -230,6 +255,8 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamPostMigrationsChangeStr
 
 // MigrationDeleteById
 //
+// Operation ID: Migration.deleteById
+//
 // Delete a model instance by id from the data source.
 //
 // Required Parameters:
@@ -258,6 +285,8 @@ func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string
 
 // MigrationExistsGetMigrationsIdExists
 //
+// Operation ID: Migration.exists__get_Migrations_{id}_exists
+//
 // Check whether a model instance exists in the data source.
 //
 // Required Parameters:
@@ -284,6 +313,8 @@ func (s *SCIMigrationService) MigrationExistsGetMigrationsIdExists(ctx context.C
 }
 
 // MigrationFind
+//
+// Operation ID: Migration.find
 //
 // Find all instances of the model matched by filter from the data source.
 //
@@ -313,6 +344,8 @@ func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams 
 }
 
 // MigrationFindById
+//
+// Operation ID: Migration.findById
 //
 // Find a model instance by id from the data source.
 //
@@ -348,6 +381,8 @@ func (s *SCIMigrationService) MigrationFindById(ctx context.Context, id string, 
 
 // MigrationFindOne
 //
+// Operation ID: Migration.findOne
+//
 // Find first instance of the model matched by filter from the data source.
 //
 // Optional Parameters:
@@ -376,6 +411,8 @@ func (s *SCIMigrationService) MigrationFindOne(ctx context.Context, optionalPara
 }
 
 // MigrationMigrateByName
+//
+// Operation ID: Migration.migrateByName
 //
 // Run specific migration by name
 //
@@ -409,6 +446,8 @@ func (s *SCIMigrationService) MigrationMigrateByName(ctx context.Context, name s
 
 // MigrationMigrateTo
 //
+// Operation ID: Migration.migrateTo
+//
 // Run all pending migrations
 //
 // Optional Parameters:
@@ -435,6 +474,8 @@ func (s *SCIMigrationService) MigrationMigrateTo(ctx context.Context, optionalPa
 }
 
 // MigrationPrototypeUpdateAttributes
+//
+// Operation ID: Migration.prototype.updateAttributes
 //
 // Update attributes for a model instance and persist it into the data source.
 //
@@ -470,6 +511,8 @@ func (s *SCIMigrationService) MigrationPrototypeUpdateAttributes(ctx context.Con
 
 // MigrationRollbackTo
 //
+// Operation ID: Migration.rollbackTo
+//
 // Rollback migrations
 //
 // Required Parameters:
@@ -494,6 +537,8 @@ func (s *SCIMigrationService) MigrationRollbackTo(ctx context.Context, to string
 }
 
 // MigrationUpdateAll
+//
+// Operation ID: Migration.updateAll
 //
 // Update instances of the model matched by where from the data source.
 //
@@ -530,6 +575,8 @@ func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIM
 }
 
 // MigrationUpsert
+//
+// Operation ID: Migration.upsert
 //
 // Update an existing model instance or insert a new one into the data source.
 //

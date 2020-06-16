@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// SwitchMVLANConfigCreateVlanConfig
+//
+// Definition: vlanConfig_createVlanConfig
 type SwitchMVLANConfigCreateVlanConfig struct {
 	ArpInspections []*SwitchMVLANConfigVlanArpInspections `json:"arpInspections,omitempty"`
 
@@ -85,6 +88,9 @@ func NewSwitchMVLANConfigCreateVlanConfig() *SwitchMVLANConfigCreateVlanConfig {
 	return m
 }
 
+// SwitchMVLANConfigUpdateVlanConfig
+//
+// Definition: vlanConfig_updateVlanConfig
 type SwitchMVLANConfigUpdateVlanConfig struct {
 	ArpInspections []*SwitchMVLANConfigVlanArpInspections `json:"arpInspections,omitempty"`
 
@@ -148,6 +154,9 @@ func NewSwitchMVLANConfigUpdateVlanConfig() *SwitchMVLANConfigUpdateVlanConfig {
 	return m
 }
 
+// SwitchMVLANConfigVlanArpInspections
+//
+// Definition: vlanConfig_vlanArpInspections
 type SwitchMVLANConfigVlanArpInspections struct {
 	// Ip
 	// The IP of ArpInspections
@@ -163,6 +172,9 @@ func NewSwitchMVLANConfigVlanArpInspections() *SwitchMVLANConfigVlanArpInspectio
 	return m
 }
 
+// SwitchMVLANConfig
+//
+// Definition: vlanConfig_VlanConfig
 type SwitchMVLANConfig struct {
 	ArpInspections []*SwitchMVLANConfigVlanArpInspections `json:"arpInspections,omitempty"`
 
@@ -252,6 +264,9 @@ func NewSwitchMVLANConfig() *SwitchMVLANConfig {
 	return m
 }
 
+// SwitchMVLANConfigQueryResult
+//
+// Definition: vlanConfig_vlanConfigQueryResult
 type SwitchMVLANConfigQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -283,6 +298,8 @@ func NewSwitchMVLANConfigQueryResult() *SwitchMVLANConfigQueryResult {
 
 // SwitchMVLANConfigQueryResultExtraType
 //
+// Definition: vlanConfig_vlanConfigQueryResultExtraType
+//
 // Any additional response data
 type SwitchMVLANConfigQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -309,6 +326,9 @@ func NewSwitchMVLANConfigQueryResultExtraType() *SwitchMVLANConfigQueryResultExt
 	return m
 }
 
+// SwitchMVLANConfigVlanPorts
+//
+// Definition: vlanConfig_VlanPorts
 type SwitchMVLANConfigVlanPorts struct {
 	// SwitchModel
 	// The Switch Model of Ports

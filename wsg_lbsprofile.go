@@ -23,6 +23,8 @@ func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 
 // AddProfilesLbs
 //
+// Operation ID: addProfilesLbs
+//
 // Create LBS profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 
 // DeleteProfilesLbs
 //
+// Operation ID: deleteProfilesLbs
+//
 // Delete multiple LBS profile.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGC
 
 // DeleteProfilesLbsById
 //
+// Operation ID: deleteProfilesLbsById
+//
 // Delete LBS profile.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 }
 
 // FindProfilesLbsById
+//
+// Operation ID: findProfilesLbsById
 //
 // Retrieve LBS profile.
 //
@@ -131,6 +139,8 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 }
 
 // FindProfilesLbsByQueryCriteria
+//
+// Operation ID: findProfilesLbsByQueryCriteria
 //
 // Query LBS profiles.
 //
@@ -160,6 +170,8 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 }
 
 // PartialUpdateProfilesLbsById
+//
+// Operation ID: partialUpdateProfilesLbsById
 //
 // Update LBS profile.
 //

@@ -4,6 +4,8 @@ package bigdog
 
 // WSGDHCPPoolsDhcpClientInfo
 //
+// Definition: dhcppools_dhcpClientInfo
+//
 // DHCP Pool Client Information List
 type WSGDHCPPoolsDhcpClientInfo struct {
 	ClientIp *string `json:"clientIp,omitempty"`
@@ -25,6 +27,8 @@ func NewWSGDHCPPoolsDhcpClientInfo() *WSGDHCPPoolsDhcpClientInfo {
 }
 
 // WSGDHCPPoolsDhcpPoolInfo
+//
+// Definition: dhcppools_dhcpPoolInfo
 //
 // DHCP Pool Information List
 type WSGDHCPPoolsDhcpPoolInfo struct {
@@ -56,6 +60,9 @@ func NewWSGDHCPPoolsDhcpPoolInfo() *WSGDHCPPoolsDhcpPoolInfo {
 	return m
 }
 
+// WSGDHCPPoolsDhcpPoolInfoClientInfoListType
+//
+// Definition: dhcppools_dhcpPoolInfoClientInfoListType
 type WSGDHCPPoolsDhcpPoolInfoClientInfoListType struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -72,6 +79,8 @@ func NewWSGDHCPPoolsDhcpPoolInfoClientInfoListType() *WSGDHCPPoolsDhcpPoolInfoCl
 }
 
 // WSGDHCPPools
+//
+// Definition: dhcppools_dhcpPools
 //
 // DHCP Pools Usage Per AP
 type WSGDHCPPools struct {

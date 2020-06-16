@@ -23,6 +23,8 @@ func (ss *WSGService) WSGURLFilteringPolicyService() *WSGURLFilteringPolicyServi
 
 // AddUrlFilteringUrlFilteringPolicy
 //
+// Operation ID: addUrlFilteringUrlFilteringPolicy
+//
 // Use this API command to create a URL Filtering policy.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx con
 }
 
 // DeleteUrlFilteringUrlFilteringPolicy
+//
+// Operation ID: deleteUrlFilteringUrlFilteringPolicy
 //
 // Use this API command to delete bulk URL Filtering policies.
 //
@@ -81,6 +85,8 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx 
 
 // DeleteUrlFilteringUrlFilteringPolicyById
 //
+// Operation ID: deleteUrlFilteringUrlFilteringPolicyById
+//
 // Use this API command to delete a URL Filtering policy.
 //
 // Required Parameters:
@@ -107,6 +113,8 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(
 
 // FindUrlFilteringBlockCategories
 //
+// Operation ID: findUrlFilteringBlockCategories
+//
 // Use this API command to retrieve the block categories of URL Filtering.
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx context.Context, mutators ...RequestMutator) (*WSGURLFilteringBlockCategoriesList, *APIResponseMeta, error) {
 	var (
@@ -128,6 +136,8 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx conte
 }
 
 // FindUrlFilteringByQueryCriteria
+//
+// Operation ID: findUrlFilteringByQueryCriteria
 //
 // Use this API command to retrieve a list of URL Filtering policies by query criteria.
 //
@@ -157,6 +167,8 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx conte
 }
 
 // FindUrlFilteringUrlFilteringPolicy
+//
+// Operation ID: findUrlFilteringUrlFilteringPolicy
 //
 // Use this API command to retrieve list of URL Filtering policies.
 //
@@ -197,6 +209,8 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx co
 
 // FindUrlFilteringUrlFilteringPolicyById
 //
+// Operation ID: findUrlFilteringUrlFilteringPolicyById
+//
 // Use this API command to retrieve an URL Filtering policy.
 //
 // Required Parameters:
@@ -223,6 +237,8 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ct
 }
 
 // PartialUpdateUrlFilteringUrlFilteringPolicyById
+//
+// Operation ID: partialUpdateUrlFilteringUrlFilteringPolicyById
 //
 // Use this API command to patch a URL Filtering policy.
 //

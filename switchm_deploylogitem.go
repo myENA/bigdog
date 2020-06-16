@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
+//
+// Definition: deployLogItem_ConfigurationHistoryDetailQueryResult
 type SwitchMDeployLogItemConfigurationHistoryDetailQueryResult struct {
 	// FirstIndex
 	// Indicator of whether there are more configs after the current displayed list
@@ -25,6 +28,9 @@ func NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult() *SwitchMDepl
 	return m
 }
 
+// SwitchMDeployLogItem
+//
+// Definition: deployLogItem_deployLogItem
 type SwitchMDeployLogItem struct {
 	// Clis
 	// CLI Command
@@ -75,6 +81,8 @@ func NewSwitchMDeployLogItem() *SwitchMDeployLogItem {
 }
 
 // SwitchMDeployLogItemDispatchFailedReasonType
+//
+// Definition: deployLogItem_deployLogItemDispatchFailedReasonType
 //
 // Deployment Fail Description
 type SwitchMDeployLogItemDispatchFailedReasonType struct {

@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAPPackCaptureApPacketCaptureReq
+//
+// Definition: apPacketCapture_apPacketCaptureReq
 type WSGAPPackCaptureApPacketCaptureReq struct {
 	// CaptureInterface
 	// Capture interface
@@ -28,6 +31,9 @@ func NewWSGAPPackCaptureApPacketCaptureReq() *WSGAPPackCaptureApPacketCaptureReq
 	return m
 }
 
+// WSGAPPackCaptureApPacketCaptureRes
+//
+// Definition: apPacketCapture_apPacketCaptureRes
 type WSGAPPackCaptureApPacketCaptureRes struct {
 	// ApMac
 	// AP MAC address

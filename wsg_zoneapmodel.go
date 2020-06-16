@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGZoneAPModelApModel
+//
+// Definition: zoneApmodel_apModel
 type WSGZoneAPModelApModel struct {
 	CellularSettings *WSGAPModelCellularSettings `json:"cellularSettings,omitempty"`
 
@@ -63,6 +66,9 @@ func NewWSGZoneAPModelApModel() *WSGZoneAPModelApModel {
 	return m
 }
 
+// WSGZoneAPModelLanPortSetting
+//
+// Definition: zoneApmodel_lanPortSetting
 type WSGZoneAPModelLanPortSetting struct {
 	// Enabled
 	// Constraints:

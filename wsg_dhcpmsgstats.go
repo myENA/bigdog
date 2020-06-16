@@ -4,6 +4,8 @@ package bigdog
 
 // WSGDHCPMessageStatsDhcpMsgStats
 //
+// Definition: dhcpMsgStats_dhcpMsgStats
+//
 // DHCP Message Statistic Per AP
 type WSGDHCPMessageStatsDhcpMsgStats struct {
 	ApMac *string `json:"apMac,omitempty"`
@@ -39,6 +41,8 @@ func NewWSGDHCPMessageStatsDhcpMsgStats() *WSGDHCPMessageStatsDhcpMsgStats {
 
 // WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType
 //
+// Definition: dhcpMsgStats_dhcpMsgStatsDhcpMsgRecvdStatsType
+//
 // DHCP Message Received Statistic
 type WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType struct {
 	DhcpDecline *int `json:"dhcpDecline,omitempty"`
@@ -58,6 +62,8 @@ func NewWSGDHCPMessageStatsDhcpMsgStatsDhcpMsgRecvdStatsType() *WSGDHCPMessageSt
 }
 
 // WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgSentStatsType
+//
+// Definition: dhcpMsgStats_dhcpMsgStatsDhcpMsgSentStatsType
 //
 // DHCP Message Sent Statistic
 type WSGDHCPMessageStatsDhcpMsgStatsDhcpMsgSentStatsType struct {

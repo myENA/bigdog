@@ -23,6 +23,8 @@ func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndS
 
 // FindApplicationsByBladeUUID
 //
+// Operation ID: findApplicationsByBladeUUID
+//
 // Use this API command to retrieve a list of application log and status.
 //
 // Required Parameters:
@@ -62,6 +64,8 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 
 // FindApplicationsDownloadByBladeUUID
 //
+// Operation ID: findApplicationsDownloadByBladeUUID
+//
 // Use this API command to download logs of the application.
 //
 // Required Parameters:
@@ -99,6 +103,8 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 
 // FindApplicationsDownloadsnapByBladeUUID
 //
+// Operation ID: findApplicationsDownloadsnapByBladeUUID
+//
 // Use this API command to download snapshot logs.
 //
 // Required Parameters:
@@ -125,6 +131,8 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 }
 
 // PartialUpdateApplications
+//
+// Operation ID: partialUpdateApplications
 //
 // Use this API command to modify log level of specified application.
 //

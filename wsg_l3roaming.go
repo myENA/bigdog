@@ -23,6 +23,8 @@ func (ss *WSGService) WSGL3RoamingService() *WSGL3RoamingService {
 
 // FindProfilesTunnelL3Roaming
 //
+// Operation ID: findProfilesTunnelL3Roaming
+//
 // Use this API command to retrieve L3 Roaming basic configuration.
 func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context, mutators ...RequestMutator) (*WSGProfileGetL3RoamingConfig, *APIResponseMeta, error) {
 	var (
@@ -44,6 +46,8 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context, m
 }
 
 // PartialUpdateProfilesTunnelL3Roaming
+//
+// Operation ID: partialUpdateProfilesTunnelL3Roaming
 //
 // Use this API command to modify L3 Roaming basic configuration.
 //

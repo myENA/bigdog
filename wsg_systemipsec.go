@@ -21,6 +21,9 @@ func (ss *WSGService) WSGSystemIPsecService() *WSGSystemIPsecService {
 	return NewWSGSystemIPsecService(ss.apiClient)
 }
 
+// WSGSystemIPsecGetResult
+//
+// Definition: systemIPsec_getResult
 type WSGSystemIPsecGetResult struct {
 	// AuthType
 	// Authentication type
@@ -104,6 +107,9 @@ func NewWSGSystemIPsecGetResult() *WSGSystemIPsecGetResult {
 	return m
 }
 
+// WSGSystemIPsecProposal
+//
+// Definition: systemIPsec_proposal
 type WSGSystemIPsecProposal struct {
 	// AuthAlg
 	// Authentication algorithm
@@ -123,6 +129,9 @@ func NewWSGSystemIPsecProposal() *WSGSystemIPsecProposal {
 	return m
 }
 
+// WSGSystemIPsecUpdate
+//
+// Definition: systemIPsec_update
 type WSGSystemIPsecUpdate struct {
 	// AuthType
 	// Authentication type
@@ -210,6 +219,8 @@ func NewWSGSystemIPsecUpdate() *WSGSystemIPsecUpdate {
 
 // FindSystemIpsec
 //
+// Operation ID: findSystemIpsec
+//
 // Use this API command to retrieve the System IPSec.
 func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ...RequestMutator) (*WSGSystemIPsecGetResult, *APIResponseMeta, error) {
 	var (
@@ -231,6 +242,8 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ..
 }
 
 // UpdateSystemIpsec
+//
+// Operation ID: updateSystemIpsec
 //
 // Use this API command to modify the System IPSec.
 //

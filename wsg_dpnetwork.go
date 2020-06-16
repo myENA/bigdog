@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDPNetworkService() *WSGDPNetworkService {
 
 // DeletePlanesStaticRouteByBladeUUID
 //
+// Operation ID: deletePlanesStaticRouteByBladeUUID
+//
 // Use this API command to delete static route.
 //
 // Required Parameters:
@@ -49,6 +51,8 @@ func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Con
 
 // FindPlanes
 //
+// Operation ID: findPlanes
+//
 // Use this API command to retrieve a list of data planes.
 func (s *WSGDPNetworkService) FindPlanes(ctx context.Context, mutators ...RequestMutator) (*WSGSystemDataPlaneList, *APIResponseMeta, error) {
 	var (
@@ -70,6 +74,8 @@ func (s *WSGDPNetworkService) FindPlanes(ctx context.Context, mutators ...Reques
 }
 
 // FindPlanesByBladeUUID
+//
+// Operation ID: findPlanesByBladeUUID
 //
 // Use this API command to retrieve data plane by id.
 //
@@ -97,6 +103,8 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 }
 
 // FindPlanesDpTunnelSetting
+//
+// Operation ID: findPlanesDpTunnelSetting
 //
 // Use this API command to get DP mesh tunnel setting.
 //
@@ -126,6 +134,8 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, opt
 }
 
 // PartialUpdatePlanesByBladeUUID
+//
+// Operation ID: partialUpdatePlanesByBladeUUID
 //
 // Use this API command to modify the configuration of data plane.
 //
@@ -159,6 +169,8 @@ func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context
 
 // PartialUpdatePlaneStatesByBladeUUID
 //
+// Operation ID: partialUpdatePlaneStatesByBladeUUID
+//
 // Use this API command to update DP state profile.
 //
 // Request Body:
@@ -190,6 +202,8 @@ func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Co
 }
 
 // UpdatePlanesDpTunnelSetting
+//
+// Operation ID: updatePlanesDpTunnelSetting
 //
 // Use this API command to update DP mesh tunnel setting.
 //

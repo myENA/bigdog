@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementSer
 
 // AddProfilesDnsserver
 //
+// Operation ID: addProfilesDnsserver
+//
 // Use this API command to create DNS server profile.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context
 }
 
 // AddProfilesDnsserverCloneById
+//
+// Operation ID: addProfilesDnsserverCloneById
 //
 // Use this API command to clone an DNS server profile.
 //
@@ -86,6 +90,8 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx contex
 
 // DeleteProfilesDnsserver
 //
+// Operation ID: deleteProfilesDnsserver
+//
 // Use this API command to delete a list of DNS server profile.
 //
 // Request Body:
@@ -113,6 +119,8 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Cont
 
 // DeleteProfilesDnsserverById
 //
+// Operation ID: deleteProfilesDnsserverById
+//
 // Use this API command to delete DNS server profile.
 //
 // Required Parameters:
@@ -138,6 +146,8 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.
 }
 
 // FindProfilesDnsserver
+//
+// Operation ID: findProfilesDnsserver
 //
 // Use this API command to retrieve a list of DNS server profile.
 //
@@ -173,6 +183,8 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Contex
 
 // FindProfilesDnsserverById
 //
+// Operation ID: findProfilesDnsserverById
+//
 // Use this API command to retrieve DNS server profile.
 //
 // Required Parameters:
@@ -199,6 +211,8 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Co
 }
 
 // FindProfilesDnsserverByQueryCriteria
+//
+// Operation ID: findProfilesDnsserverByQueryCriteria
 //
 // Use this API command to retrieve a list of DNS server profile  by query criteria.
 //
@@ -228,6 +242,8 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx
 }
 
 // PartialUpdateProfilesDnsserverById
+//
+// Operation ID: partialUpdateProfilesDnsserverById
 //
 // Use this API command to modify the configuration of DNS server profile.
 //

@@ -22,6 +22,9 @@ func (ss *WSGService) WSGSCIService() *WSGSCIService {
 	return NewWSGSCIService(ss.apiClient)
 }
 
+// WSGSCICreateSciProfile
+//
+// Definition: sci_createSciProfile
 type WSGSCICreateSciProfile struct {
 	// SciPassword
 	// SCI password of the SCI profile for SZ/SCI interface
@@ -65,6 +68,9 @@ func NewWSGSCICreateSciProfile() *WSGSCICreateSciProfile {
 	return m
 }
 
+// WSGSCIDeleteSciProfile
+//
+// Definition: sci_deleteSciProfile
 type WSGSCIDeleteSciProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
@@ -78,6 +84,9 @@ func NewWSGSCIDeleteSciProfile() *WSGSCIDeleteSciProfile {
 	return m
 }
 
+// WSGSCIDeleteSciProfileList
+//
+// Definition: sci_deleteSciProfileList
 type WSGSCIDeleteSciProfileList struct {
 	List []*WSGSCIDeleteSciProfile `json:"list,omitempty"`
 }
@@ -87,6 +96,9 @@ func NewWSGSCIDeleteSciProfileList() *WSGSCIDeleteSciProfileList {
 	return m
 }
 
+// WSGSCIModifyEventCode
+//
+// Definition: sci_modifyEventCode
 type WSGSCIModifyEventCode struct {
 	// SciAcceptedEventCodes
 	// Constraints:
@@ -99,6 +111,9 @@ func NewWSGSCIModifyEventCode() *WSGSCIModifyEventCode {
 	return m
 }
 
+// WSGSCIModifySciEnabled
+//
+// Definition: sci_modifySciEnabled
 type WSGSCIModifySciEnabled struct {
 	// SciEnabled
 	// Is SZ/SCI interface enabled or disabled
@@ -112,6 +127,9 @@ func NewWSGSCIModifySciEnabled() *WSGSCIModifySciEnabled {
 	return m
 }
 
+// WSGSCIModifySciProfile
+//
+// Definition: sci_modifySciProfile
 type WSGSCIModifySciProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
@@ -159,6 +177,9 @@ func NewWSGSCIModifySciProfile() *WSGSCIModifySciProfile {
 	return m
 }
 
+// WSGSCIEventCode
+//
+// Definition: sci_sciEventCode
 type WSGSCIEventCode struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
@@ -180,6 +201,9 @@ func NewWSGSCIEventCode() *WSGSCIEventCode {
 	return m
 }
 
+// WSGSCIEventCodeListType
+//
+// Definition: sci_sciEventCodeListType
 type WSGSCIEventCodeListType struct {
 	// Code
 	// SCI accepted event code
@@ -195,6 +219,9 @@ func NewWSGSCIEventCodeListType() *WSGSCIEventCodeListType {
 	return m
 }
 
+// WSGSCIProfile
+//
+// Definition: sci_sciProfile
 type WSGSCIProfile struct {
 	// Id
 	// UUID of the SCI profile for SZ/SCI interface
@@ -234,6 +261,9 @@ func NewWSGSCIProfile() *WSGSCIProfile {
 	return m
 }
 
+// WSGSCIProfileList
+//
+// Definition: sci_sciProfileList
 type WSGSCIProfileList struct {
 	Extra *WSGSCIProfileListExtraType `json:"extra,omitempty"`
 
@@ -282,6 +312,9 @@ func NewWSGSCIProfileList() *WSGSCIProfileList {
 	return m
 }
 
+// WSGSCIProfileListExtraType
+//
+// Definition: sci_sciProfileListExtraType
 type WSGSCIProfileListExtraType struct {
 	// SciEnabled
 	// SCI password of the SCI profile for SZ/SCI interface
@@ -294,6 +327,8 @@ func NewWSGSCIProfileListExtraType() *WSGSCIProfileListExtraType {
 }
 
 // AddSciSciEventCode
+//
+// Operation ID: addSciSciEventCode
 //
 // Use this API command to modify SciAcceptedEventCodes.
 //
@@ -324,6 +359,8 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 
 // AddSciSciProfile
 //
+// Operation ID: addSciSciProfile
+//
 // Use this API command to create sciProfile.
 //
 // Request Body:
@@ -352,6 +389,8 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 }
 
 // DeleteSciSciProfile
+//
+// Operation ID: deleteSciSciProfile
 //
 // Use this API command to delete sciProfile list.
 //
@@ -382,6 +421,8 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 
 // DeleteSciSciProfileById
 //
+// Operation ID: deleteSciSciProfileById
+//
 // Use this API command to delete sciProfile.
 //
 // Required Parameters:
@@ -408,6 +449,8 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string, 
 
 // FindSciSciEventCode
 //
+// Operation ID: findSciSciEventCode
+//
 // Use this API command to retrieve SciAcceptedEventCodes.
 func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...RequestMutator) (*WSGSCIEventCode, *APIResponseMeta, error) {
 	var (
@@ -430,6 +473,8 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...Req
 
 // FindSciSciProfile
 //
+// Operation ID: findSciSciProfile
+//
 // Use this API command to retrieve sciProfile list.
 func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...RequestMutator) (*WSGSCIProfileList, *APIResponseMeta, error) {
 	var (
@@ -451,6 +496,8 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...Reque
 }
 
 // FindSciSciProfileById
+//
+// Operation ID: findSciSciProfileById
 //
 // Use this API command to retrieve sciProfile.
 //
@@ -478,6 +525,8 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string, mu
 }
 
 // PartialUpdateSciSciEnabled
+//
+// Operation ID: partialUpdateSciSciEnabled
 //
 // Use this API command to modify SCI settings is enabled or not.
 //
@@ -507,6 +556,8 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 }
 
 // PartialUpdateSciSciProfileById
+//
+// Operation ID: partialUpdateSciSciProfileById
 //
 // Use this API command to modify sciProfile.
 //

@@ -21,6 +21,9 @@ func (ss *WSGService) WSGWLANGroupService() *WSGWLANGroupService {
 	return NewWSGWLANGroupService(ss.apiClient)
 }
 
+// WSGWLANGroupCreateWlanGroup
+//
+// Definition: wlangroup_createWlanGroup
 type WSGWLANGroupCreateWlanGroup struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -35,6 +38,9 @@ func NewWSGWLANGroupCreateWlanGroup() *WSGWLANGroupCreateWlanGroup {
 	return m
 }
 
+// WSGWLANGroupModifyWlanGroup
+//
+// Definition: wlangroup_modifyWlanGroup
 type WSGWLANGroupModifyWlanGroup struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -46,6 +52,9 @@ func NewWSGWLANGroupModifyWlanGroup() *WSGWLANGroupModifyWlanGroup {
 	return m
 }
 
+// WSGWLANGroupModifyWlanGroupMember
+//
+// Definition: wlangroup_modifyWlanGroupMember
 type WSGWLANGroupModifyWlanGroupMember struct {
 	// AccessVlan
 	// Access VLAN
@@ -68,6 +77,9 @@ func NewWSGWLANGroupModifyWlanGroupMember() *WSGWLANGroupModifyWlanGroupMember {
 	return m
 }
 
+// WSGWLANGroup
+//
+// Definition: wlangroup_wlanGroup
 type WSGWLANGroup struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -118,6 +130,9 @@ func NewWSGWLANGroup() *WSGWLANGroup {
 	return m
 }
 
+// WSGWLANGroupList
+//
+// Definition: wlangroup_wlanGroupList
 type WSGWLANGroupList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -133,6 +148,9 @@ func NewWSGWLANGroupList() *WSGWLANGroupList {
 	return m
 }
 
+// WSGWLANGroupWlanMember
+//
+// Definition: wlangroup_wlanMember
 type WSGWLANGroupWlanMember struct {
 	// AccessVlan
 	// Access VLAN
@@ -167,6 +185,8 @@ func NewWSGWLANGroupWlanMember() *WSGWLANGroupWlanMember {
 
 // AddRkszonesWlangroupsByZoneId
 //
+// Operation ID: addRkszonesWlangroupsByZoneId
+//
 // Use this API command to create a new WLAN group.
 //
 // Request Body:
@@ -200,6 +220,8 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context,
 }
 
 // AddRkszonesWlangroupsMembersById
+//
+// Operation ID: addRkszonesWlangroupsMembersById
 //
 // Use this API command to add a member to a WLAN group.
 //
@@ -236,6 +258,8 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Conte
 
 // DeleteRkszonesWlangroupsById
 //
+// Operation ID: deleteRkszonesWlangroupsById
+//
 // Use this API command to delete a WLAN group.
 //
 // Required Parameters:
@@ -264,6 +288,8 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, 
 }
 
 // DeleteRkszonesWlangroupsMembersByMemberId
+//
+// Operation ID: deleteRkszonesWlangroupsMembersByMemberId
 //
 // Use this API command to remove a member from a WLAN group.
 //
@@ -297,6 +323,8 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx cont
 
 // DeleteRkszonesWlangroupsMembersNasIdByMemberId
 //
+// Operation ID: deleteRkszonesWlangroupsMembersNasIdByMemberId
+//
 // Use this API command to disable a member NAS-ID override of a WLAN group.
 //
 // Required Parameters:
@@ -328,6 +356,8 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx
 }
 
 // DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId
+//
+// Operation ID: deleteRkszonesWlangroupsMembersVlanOverrideByMemberId
 //
 // Use this API command to disable a member VLAN override of a WLAN group.
 //
@@ -361,6 +391,8 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMembe
 
 // FindRkszonesWlangroupsById
 //
+// Operation ID: findRkszonesWlangroupsById
+//
 // Use this API command to retrieve the WLAN group.
 //
 // Required Parameters:
@@ -390,6 +422,8 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id
 }
 
 // FindRkszonesWlangroupsByZoneId
+//
+// Operation ID: findRkszonesWlangroupsByZoneId
 //
 // Use this API command to retrieve the list of WLAN groups within a zone.
 //
@@ -430,6 +464,8 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context
 
 // PartialUpdateRkszonesWlangroupsById
 //
+// Operation ID: partialUpdateRkszonesWlangroupsById
+//
 // Use this API command to modify the configuration of a WLAN group.
 //
 // Request Body:
@@ -464,6 +500,8 @@ func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Co
 }
 
 // PartialUpdateRkszonesWlangroupsMembersByMemberId
+//
+// Operation ID: partialUpdateRkszonesWlangroupsMembersByMemberId
 //
 // Use this API command to modify a member of a WLAN group.
 //

@@ -23,6 +23,8 @@ func (ss *WSGService) WSGSplitTunnelProfileService() *WSGSplitTunnelProfileServi
 
 // AddRkszonesSplitTunnelProfilesByZoneId
 //
+// Operation ID: addRkszonesSplitTunnelProfilesByZoneId
+//
 // Create a split tunnel profile.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ct
 
 // DeleteRkszonesSplitTunnelProfilesById
 //
+// Operation ID: deleteRkszonesSplitTunnelProfilesById
+//
 // Use this API command to delete a split tunnel profile by ID.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx
 }
 
 // FindRkszonesSplitTunnelProfilesById
+//
+// Operation ID: findRkszonesSplitTunnelProfilesById
 //
 // Get a split tunnel profile by ID.
 //
@@ -116,6 +122,8 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx c
 
 // FindRkszonesSplitTunnelProfilesByQueryCriteria
 //
+// Operation ID: findRkszonesSplitTunnelProfilesByQueryCriteria
+//
 // Use this API command to retrieve a list of split tunnel profile by query criteria.
 //
 // Request Body:
@@ -145,6 +153,8 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCri
 
 // FindRkszonesSplitTunnelProfilesByZoneId
 //
+// Operation ID: findRkszonesSplitTunnelProfilesByZoneId
+//
 // Get a ID list of split tunnel profile in this Zone.
 //
 // Required Parameters:
@@ -171,6 +181,8 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(c
 }
 
 // PartialUpdateRkszonesSplitTunnelProfilesById
+//
+// Operation ID: partialUpdateRkszonesSplitTunnelProfilesById
 //
 // Use this API command to modify a split tunnel profile.
 //
@@ -206,6 +218,8 @@ func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesB
 }
 
 // UpdateRkszonesSplitTunnelProfilesById
+//
+// Operation ID: updateRkszonesSplitTunnelProfilesById
 //
 // Use this API command to modify entire information of a split tunnel profile.
 //

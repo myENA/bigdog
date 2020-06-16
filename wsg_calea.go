@@ -22,6 +22,9 @@ func (ss *WSGService) WSGCALEAService() *WSGCALEAService {
 	return NewWSGCALEAService(ss.apiClient)
 }
 
+// WSGCALEACommonSettingRq
+//
+// Definition: calea_caleaCommonSettingRq
 type WSGCALEACommonSettingRq struct {
 	// CaleaServerIp
 	// CARLEA Server IP
@@ -37,6 +40,9 @@ func NewWSGCALEACommonSettingRq() *WSGCALEACommonSettingRq {
 	return m
 }
 
+// WSGCALEACommonSettingRsp
+//
+// Definition: calea_caleaCommonSettingRsp
 type WSGCALEACommonSettingRsp struct {
 	// CaleaServerIp
 	// CARLEA Server IP
@@ -52,6 +58,9 @@ func NewWSGCALEACommonSettingRsp() *WSGCALEACommonSettingRsp {
 	return m
 }
 
+// WSGCALEAMacListRq
+//
+// Definition: calea_caleaMacListRq
 type WSGCALEAMacListRq struct {
 	MacList []string `json:"macList,omitempty"`
 }
@@ -61,6 +70,9 @@ func NewWSGCALEAMacListRq() *WSGCALEAMacListRq {
 	return m
 }
 
+// WSGCALEAMacListRsp
+//
+// Definition: calea_caleaMacListRsp
 type WSGCALEAMacListRsp struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -77,6 +89,8 @@ func NewWSGCALEAMacListRsp() *WSGCALEAMacListRsp {
 }
 
 // AddSystemCaleaCommonSetting
+//
+// Operation ID: addSystemCaleaCommonSetting
 //
 // Use this API command to set CALEA common setting.
 //
@@ -105,6 +119,8 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 
 // AddSystemCaleaMac
 //
+// Operation ID: addSystemCaleaMac
+//
 // Use this API command to add specified CALEA UE MACs
 //
 // Request Body:
@@ -131,6 +147,8 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 }
 
 // AddSystemCaleaMacList
+//
+// Operation ID: addSystemCaleaMacList
 //
 // Use this API command to upload csv file of CALEA UE MACs.
 //
@@ -163,6 +181,8 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, filename st
 
 // DeleteSystemCaleaMac
 //
+// Operation ID: deleteSystemCaleaMac
+//
 // Use this API command to delete specified CALEA UE MACs.
 //
 // Request Body:
@@ -190,6 +210,8 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 
 // DeleteSystemCaleaMacList
 //
+// Operation ID: deleteSystemCaleaMacList
+//
 // Use this API command to delete all CALEA UE MACs.
 func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
@@ -210,6 +232,8 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context, mutators
 }
 
 // FindSystemCaleaCommonSetting
+//
+// Operation ID: findSystemCaleaCommonSetting
 //
 // Use this API command to get CALEA common setting.
 func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context, mutators ...RequestMutator) (*WSGCALEACommonSettingRsp, *APIResponseMeta, error) {
@@ -232,6 +256,8 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context, muta
 }
 
 // FindSystemCaleaMacList
+//
+// Operation ID: findSystemCaleaMacList
 //
 // Use this API command to get all CALEA UE MACs.
 func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context, mutators ...RequestMutator) (*WSGCALEAMacListRsp, *APIResponseMeta, error) {

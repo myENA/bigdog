@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDPNATProfileService() *WSGDPNATProfileService {
 
 // AddDpNatProfiles
 //
+// Operation ID: addDpNatProfiles
+//
 // Use this API command to create DHCP NAT profile - basic.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGDPNATProfileService) AddDpNatProfiles(ctx context.Context, body *WSG
 }
 
 // AddDpNatProfilesDpNatPoolsById
+//
+// Operation ID: addDpNatProfilesDpNatPoolsById
 //
 // Use this API command to create DHCP NAT profile - pool.
 //
@@ -86,6 +90,8 @@ func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Cont
 
 // DeleteDpNatProfiles
 //
+// Operation ID: deleteDpNatProfiles
+//
 // Use this API command to delete DHCP NAT profiles.
 //
 // Request Body:
@@ -115,6 +121,8 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *
 
 // DeleteDpNatProfilesById
 //
+// Operation ID: deleteDpNatProfilesById
+//
 // Use this API command to delete DHCP NAT profile.
 //
 // Required Parameters:
@@ -142,6 +150,8 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, id
 }
 
 // DeleteDpNatProfilesDpNatPoolsById
+//
+// Operation ID: deleteDpNatProfilesDpNatPoolsById
 //
 // Use this API command to delete DP NAT profile - pools.
 //
@@ -177,6 +187,8 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.C
 
 // DeleteDpNatProfilesDpNatPoolsByPoolId
 //
+// Operation ID: deleteDpNatProfilesDpNatPoolsByPoolId
+//
 // Use this API command to delete DP NAT profile - pool.
 //
 // Required Parameters:
@@ -208,6 +220,8 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx conte
 
 // FindDpNatProfiles
 //
+// Operation ID: findDpNatProfiles
+//
 // Use this API command to retrieve DHCP NAT profile - basic list.
 func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context, mutators ...RequestMutator) (*WSGDPProfileDpNatProfileBasicBOList, *APIResponseMeta, error) {
 	var (
@@ -229,6 +243,8 @@ func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context, mutators
 }
 
 // FindDpNatProfilesById
+//
+// Operation ID: findDpNatProfilesById
 //
 // Use this API command to retrieve DHCP NAT profile - basic.
 //
@@ -257,6 +273,8 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, id s
 
 // FindDpNatProfilesDpNatPoolsById
 //
+// Operation ID: findDpNatProfilesDpNatPoolsById
+//
 // Use this API command to retrieve DP NAT profile - pool list.
 //
 // Required Parameters:
@@ -283,6 +301,8 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Con
 }
 
 // FindDpNatProfilesDpNatPoolsByPoolId
+//
+// Operation ID: findDpNatProfilesDpNatPoolsByPoolId
 //
 // Use this API command to retrieve DP DHCP profile - pool.
 //
@@ -313,6 +333,8 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context
 }
 
 // UpdateDpNatProfilesById
+//
+// Operation ID: updateDpNatProfilesById
 //
 // Use this API command to modify DHCP NAT profile - basic.
 //
@@ -347,6 +369,8 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, bo
 }
 
 // UpdateDpNatProfilesDpNatPoolsByPoolId
+//
+// Operation ID: updateDpNatProfilesDpNatPoolsByPoolId
 //
 // Use this API command to modify DHCP NAT profile - pool.
 //

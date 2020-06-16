@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGRACStatsGgsnGtp
+//
+// Definition: racStats_ggsnGtp
 type WSGRACStatsGgsnGtp struct {
 	// CbladeId
 	// Control Blade ID
@@ -137,6 +140,9 @@ func NewWSGRACStatsGgsnGtp() *WSGRACStatsGgsnGtp {
 	return m
 }
 
+// WSGRACStatsGgsnGtpcCon
+//
+// Definition: racStats_ggsnGtpcCon
 type WSGRACStatsGgsnGtpcCon struct {
 	// CbladeId
 	// Control Blade ID
@@ -184,6 +190,9 @@ func NewWSGRACStatsGgsnGtpcCon() *WSGRACStatsGgsnGtpcCon {
 	return m
 }
 
+// WSGRACStatsGgsnGtpcConList
+//
+// Definition: racStats_ggsnGtpcConList
 type WSGRACStatsGgsnGtpcConList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -201,6 +210,9 @@ func NewWSGRACStatsGgsnGtpcConList() *WSGRACStatsGgsnGtpcConList {
 	return m
 }
 
+// WSGRACStatsGgsnGtpList
+//
+// Definition: racStats_ggsnGtpList
 type WSGRACStatsGgsnGtpList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -218,6 +230,9 @@ func NewWSGRACStatsGgsnGtpList() *WSGRACStatsGgsnGtpList {
 	return m
 }
 
+// WSGRACStatsRadiusProxy
+//
+// Definition: racStats_radiusProxy
 type WSGRACStatsRadiusProxy struct {
 	// AaASerIp
 	// AAA IP
@@ -413,6 +428,9 @@ func NewWSGRACStatsRadiusProxy() *WSGRACStatsRadiusProxy {
 	return m
 }
 
+// WSGRACStatsRadiusProxyList
+//
+// Definition: racStats_radiusProxyList
 type WSGRACStatsRadiusProxyList struct {
 	Extra interface{} `json:"extra,omitempty"`
 

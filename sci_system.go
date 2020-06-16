@@ -22,6 +22,9 @@ func (ss *SCIService) SCISystemService() *SCISystemService {
 	return NewSCISystemService(ss.apiClient)
 }
 
+// SCISystemDeleteById200ResponseType
+//
+// Definition: system.deleteById200ResponseType
 type SCISystemDeleteById200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -47,6 +50,9 @@ func NewSCISystemDeleteById200ResponseType() *SCISystemDeleteById200ResponseType
 	return m
 }
 
+// SCISystemFind200ResponseType
+//
+// Definition: system.find200ResponseType
 type SCISystemFind200ResponseType []*SCIModelsSystem
 
 func MakeSCISystemFind200ResponseType() SCISystemFind200ResponseType {
@@ -54,6 +60,9 @@ func MakeSCISystemFind200ResponseType() SCISystemFind200ResponseType {
 	return m
 }
 
+// SCISystemGetSsids200ResponseType
+//
+// Definition: system.getSsids200ResponseType
 type SCISystemGetSsids200ResponseType []interface{}
 
 func MakeSCISystemGetSsids200ResponseType() SCISystemGetSsids200ResponseType {
@@ -62,6 +71,8 @@ func MakeSCISystemGetSsids200ResponseType() SCISystemGetSsids200ResponseType {
 }
 
 // SystemCreate
+//
+// Operation ID: system.create
 //
 // Create a new instance of the model and persist it into the data source.
 //
@@ -92,6 +103,8 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 
 // SystemDeleteById
 //
+// Operation ID: system.deleteById
+//
 // Delete a model instance by id from the data source.
 //
 // Required Parameters:
@@ -119,6 +132,8 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 }
 
 // SystemFind
+//
+// Operation ID: system.find
 //
 // Find all instances of the model matched by filter from the data source.
 //
@@ -148,6 +163,8 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 }
 
 // SystemFindById
+//
+// Operation ID: system.findById
 //
 // Find a model instance by id from the data source.
 //
@@ -183,6 +200,8 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 
 // SystemGetSsids
 //
+// Operation ID: system.getSsids
+//
 // authenticate user with specific role
 func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...RequestMutator) (SCISystemGetSsids200ResponseType, *APIResponseMeta, error) {
 	var (
@@ -205,6 +224,8 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 }
 
 // SystemPrototypeUpdateAttributes
+//
+// Operation ID: system.prototype.updateAttributes
 //
 // Update attributes for a model instance and persist it into the data source.
 //

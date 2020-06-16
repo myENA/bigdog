@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMEventService() *SwitchMEventService {
 
 // AddCustomEvent
 //
+// Operation ID: addCustomEvent
+//
 // Use this API command to create a new text pattern event config
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 
 // DeleteCustomEventById
 //
+// Operation ID: deleteCustomEventById
+//
 // Use this API command to delete a text pattern event config
 //
 // Required Parameters:
@@ -80,6 +84,8 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 
 // FindCustomEvent
 //
+// Operation ID: findCustomEvent
+//
 // Use this API command to retrieve switch event config list
 func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...RequestMutator) (*SwitchMEventConfigGetEventConfigList, *APIResponseMeta, error) {
 	var (
@@ -101,6 +107,8 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...R
 }
 
 // FindCustomEventById
+//
+// Operation ID: findCustomEventById
 //
 // Use this API command to retrieve one switch event config
 //
@@ -128,6 +136,8 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 }
 
 // UpdateCustomEventById
+//
+// Operation ID: updateCustomEventById
 //
 // Use this API command to modify a switch custom event config. The patch variable {id} is same as id attribute in the request payload. For CPU/Memory, only key, type, criteria, and severity attributes are required.
 //

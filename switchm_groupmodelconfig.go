@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMGroupModelConfigService() *SwitchMGroupModelCon
 	return NewSwitchMGroupModelConfigService(ss.apiClient)
 }
 
+// SwitchMGroupModelConfigGroupConfigAuditId
+//
+// Definition: groupModelConfig_groupConfigAuditId
 type SwitchMGroupModelConfigGroupConfigAuditId struct {
 	// Id
 	// The identifier of the Group Model Config
@@ -37,6 +40,9 @@ func NewSwitchMGroupModelConfigGroupConfigAuditId() *SwitchMGroupModelConfigGrou
 	return m
 }
 
+// SwitchMGroupModelConfig
+//
+// Definition: groupModelConfig_groupModelConfig
 type SwitchMGroupModelConfig struct {
 	// CreatedTime
 	// The create time of the Group Model Config
@@ -84,6 +90,9 @@ func NewSwitchMGroupModelConfig() *SwitchMGroupModelConfig {
 	return m
 }
 
+// SwitchMGroupModelConfigQueryResult
+//
+// Definition: groupModelConfig_groupModelConfigQueryResult
 type SwitchMGroupModelConfigQueryResult struct {
 	// Extra
 	// Any additional response data
@@ -115,6 +124,8 @@ func NewSwitchMGroupModelConfigQueryResult() *SwitchMGroupModelConfigQueryResult
 
 // SwitchMGroupModelConfigQueryResultExtraType
 //
+// Definition: groupModelConfig_groupModelConfigQueryResultExtraType
+//
 // Any additional response data
 type SwitchMGroupModelConfigQueryResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -141,6 +152,9 @@ func NewSwitchMGroupModelConfigQueryResultExtraType() *SwitchMGroupModelConfigQu
 	return m
 }
 
+// SwitchMGroupModelConfigSelectedIds
+//
+// Definition: groupModelConfig_selectedIds
 type SwitchMGroupModelConfigSelectedIds struct {
 	SelectedIdList []string `json:"selectedIdList,omitempty"`
 }
@@ -150,6 +164,9 @@ func NewSwitchMGroupModelConfigSelectedIds() *SwitchMGroupModelConfigSelectedIds
 	return m
 }
 
+// SwitchMGroupModelConfigUpdateGroupConfigResultList
+//
+// Definition: groupModelConfig_updateGroupConfigResultList
 type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
 	// Extra
 	// Any additional response data
@@ -181,6 +198,8 @@ func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelC
 
 // SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType
 //
+// Definition: groupModelConfig_updateGroupConfigResultListExtraType
+//
 // Any additional response data
 type SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -208,6 +227,8 @@ func NewSwitchMGroupModelConfigUpdateGroupConfigResultListExtraType() *SwitchMGr
 }
 
 // FindGroupModelConfigsByQueryCriteria
+//
+// Operation ID: findGroupModelConfigsByQueryCriteria
 //
 // Use this API command to retrieve the list of group model configs.
 //
@@ -237,6 +258,8 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 }
 
 // UpdateGroupModelConfigsByGroupId
+//
+// Operation ID: updateGroupModelConfigsByGroupId
 //
 // Use this API command to add or remove the model family of a group config.
 //

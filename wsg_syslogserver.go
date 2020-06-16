@@ -23,6 +23,8 @@ func (ss *WSGService) WSGSyslogServerService() *WSGSyslogServerService {
 
 // FindSystemSyslog
 //
+// Operation ID: findSystemSyslog
+//
 // Retrieve syslog server sertting.
 //
 // Optional Parameters:
@@ -57,6 +59,8 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 
 // PartialUpdateSystemSyslog
 //
+// Operation ID: partialUpdateSystemSyslog
+//
 // Modify syslog server setting.
 //
 // Request Body:
@@ -83,6 +87,8 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 }
 
 // PartialUpdateSystemSyslogPrimaryServer
+//
+// Operation ID: partialUpdateSystemSyslogPrimaryServer
 //
 // Modify Primary Server of syslog.
 //
@@ -111,6 +117,8 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 
 // PartialUpdateSystemSyslogPriority
 //
+// Operation ID: partialUpdateSystemSyslogPriority
+//
 // Modify Priority of syslog.
 //
 // Request Body:
@@ -137,6 +145,8 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 }
 
 // PartialUpdateSystemSyslogSecondaryServer
+//
+// Operation ID: partialUpdateSystemSyslogSecondaryServer
 //
 // Modify Secondary Server of syslog.
 //

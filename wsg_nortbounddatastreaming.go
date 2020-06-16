@@ -22,6 +22,9 @@ func (ss *WSGService) WSGNorthboundDataStreamingService() *WSGNorthboundDataStre
 	return NewWSGNorthboundDataStreamingService(ss.apiClient)
 }
 
+// WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile
+//
+// Definition: northboundDataStreaming_createNorthboundDataStreamingProfile
 type WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile struct {
 	// DataTypes
 	// Subscribed data types of the Northbound Data Streaming Profile
@@ -71,6 +74,9 @@ func NewWSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile() *WSGNor
 	return m
 }
 
+// WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes
+//
+// Definition: northboundDataStreaming_modifyNorthboundDataStreamingEventCodes
 type WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes struct {
 	// NorthboundDataStreamingAcceptedEventCodes
 	// Constraints:
@@ -83,6 +89,9 @@ func NewWSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes() *WSG
 	return m
 }
 
+// WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile
+//
+// Definition: northboundDataStreaming_modifyNorthboundDataStreamingProfile
 type WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile struct {
 	// DataTypes
 	// Subscribed data types of the Northbound Data Streaming Profile
@@ -132,6 +141,9 @@ func NewWSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile() *WSGNor
 	return m
 }
 
+// WSGNorthboundDataStreamingEventCodes
+//
+// Definition: northboundDataStreaming_northboundDataStreamingEventCodes
 type WSGNorthboundDataStreamingEventCodes struct {
 	// FirstIndex
 	// Index of the first event code returned from the complete event code set
@@ -153,6 +165,9 @@ func NewWSGNorthboundDataStreamingEventCodes() *WSGNorthboundDataStreamingEventC
 	return m
 }
 
+// WSGNorthboundDataStreamingEventCodesListType
+//
+// Definition: northboundDataStreaming_northboundDataStreamingEventCodesListType
 type WSGNorthboundDataStreamingEventCodesListType struct {
 	// Code
 	// Northbound Data Streaming accepted event code
@@ -168,6 +183,9 @@ func NewWSGNorthboundDataStreamingEventCodesListType() *WSGNorthboundDataStreami
 	return m
 }
 
+// WSGNorthboundDataStreamingProfile
+//
+// Definition: northboundDataStreaming_northboundDataStreamingProfile
 type WSGNorthboundDataStreamingProfile struct {
 	// ConnectionStatus
 	// Connection status of the Northbound Data Streaming Profile
@@ -213,6 +231,9 @@ func NewWSGNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingProfile {
 	return m
 }
 
+// WSGNorthboundDataStreamingProfileList
+//
+// Definition: northboundDataStreaming_northboundDataStreamingProfileList
 type WSGNorthboundDataStreamingProfileList struct {
 	Extra *WSGNorthboundDataStreamingProfileListExtraType `json:"extra,omitempty"`
 
@@ -261,6 +282,9 @@ func NewWSGNorthboundDataStreamingProfileList() *WSGNorthboundDataStreamingProfi
 	return m
 }
 
+// WSGNorthboundDataStreamingProfileListExtraType
+//
+// Definition: northboundDataStreaming_northboundDataStreamingProfileListExtraType
 type WSGNorthboundDataStreamingProfileListExtraType struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled
@@ -284,6 +308,9 @@ func NewWSGNorthboundDataStreamingProfileListExtraType() *WSGNorthboundDataStrea
 	return m
 }
 
+// WSGNorthboundDataStreamingSettings
+//
+// Definition: northboundDataStreaming_northboundDataStreamingSettings
 type WSGNorthboundDataStreamingSettings struct {
 	// NorthboundDataStreamingEnabled
 	// Is Northbound Data Streaming enabled or disabled
@@ -312,6 +339,8 @@ func NewWSGNorthboundDataStreamingSettings() *WSGNorthboundDataStreamingSettings
 }
 
 // AddNorthboundDataStreamingProfile
+//
+// Operation ID: addNorthboundDataStreamingProfile
 //
 // Use this API command to create northbound Data Streaming Profile
 //
@@ -342,6 +371,8 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 
 // DeleteNorthboundDataStreamingProfileById
 //
+// Operation ID: deleteNorthboundDataStreamingProfileById
+//
 // Use this API command to delete northbound Data Streaming Profile
 //
 // Required Parameters:
@@ -368,6 +399,8 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 
 // FindNorthboundDataStreamingEventCodes
 //
+// Operation ID: findNorthboundDataStreamingEventCodes
+//
 // Use this API command to retrieve NorthboundDataStreamingEventCodes.
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context, mutators ...RequestMutator) (*WSGNorthboundDataStreamingEventCodes, *APIResponseMeta, error) {
 	var (
@@ -389,6 +422,8 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 }
 
 // FindNorthboundDataStreamingProfileById
+//
+// Operation ID: findNorthboundDataStreamingProfileById
 //
 // Use this API command to retrieve northbound Data Streaming Profile
 //
@@ -417,6 +452,8 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 
 // FindNorthboundDataStreamingProfileList
 //
+// Operation ID: findNorthboundDataStreamingProfileList
+//
 // Use this API command to retrieve northbound Data Streaming Profile List
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context, mutators ...RequestMutator) (*WSGNorthboundDataStreamingProfileList, *APIResponseMeta, error) {
 	var (
@@ -438,6 +475,8 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 }
 
 // UpdateNorthboundDataStreamingEventCodes
+//
+// Operation ID: updateNorthboundDataStreamingEventCodes
 //
 // Use this API command to modify NorthboundDataStreamingEventCodes.
 //
@@ -467,6 +506,8 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 }
 
 // UpdateNorthboundDataStreamingProfileById
+//
+// Operation ID: updateNorthboundDataStreamingProfileById
 //
 // Use this API command to update northbound Data Streaming Profile
 //
@@ -501,6 +542,8 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 }
 
 // UpdateNorthboundDataStreamingSettings
+//
+// Operation ID: updateNorthboundDataStreamingSettings
 //
 // Use this API command to modify Northbound Data Streaming Settings.
 //

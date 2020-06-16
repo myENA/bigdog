@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAlarmListAlarmQueryResultList
+//
+// Definition: alarmList_alarmQueryResultList
 type WSGAlarmListAlarmQueryResultList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -19,6 +22,9 @@ func NewWSGAlarmListAlarmQueryResultList() *WSGAlarmListAlarmQueryResultList {
 	return m
 }
 
+// WSGAlarmListSingleAlarm
+//
+// Definition: alarmList_singleAlarm
 type WSGAlarmListSingleAlarm struct {
 	Acknowledged *string `json:"acknowledged,omitempty"`
 

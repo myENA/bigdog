@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// SwitchMJobErrorObject
+//
+// Definition: job_errorObject
 type SwitchMJobErrorObject struct {
 	List []string `json:"list,omitempty"`
 
@@ -19,6 +22,9 @@ func NewSwitchMJobErrorObject() *SwitchMJobErrorObject {
 	return m
 }
 
+// SwitchMJob
+//
+// Definition: job_job
 type SwitchMJob struct {
 	// Action
 	// Action of the job
@@ -84,6 +90,9 @@ func NewSwitchMJob() *SwitchMJob {
 	return m
 }
 
+// SwitchMJobCsvDataMapType
+//
+// Definition: job_jobCsvDataMapType
 type SwitchMJobCsvDataMapType struct {
 	XAdditionalProperties map[string]string `json:"-"`
 }
@@ -109,6 +118,9 @@ func NewSwitchMJobCsvDataMapType() *SwitchMJobCsvDataMapType {
 	return m
 }
 
+// SwitchMJobSchedule
+//
+// Definition: job_jobSchedule
 type SwitchMJobSchedule struct {
 	// CreatedTimestamp
 	// Created timestamp of job schedule
@@ -128,6 +140,9 @@ func NewSwitchMJobSchedule() *SwitchMJobSchedule {
 	return m
 }
 
+// SwitchMJobScheduleResponse
+//
+// Definition: job_jobScheduleResponse
 type SwitchMJobScheduleResponse struct {
 	Data *SwitchMJobSchedule `json:"data,omitempty"`
 
@@ -152,6 +167,8 @@ func NewSwitchMJobScheduleResponse() *SwitchMJobScheduleResponse {
 }
 
 // SwitchMJobScheduleResponseExtraType
+//
+// Definition: job_jobScheduleResponseExtraType
 //
 // Extra response of job schedule
 type SwitchMJobScheduleResponseExtraType struct {
@@ -181,6 +198,8 @@ func NewSwitchMJobScheduleResponseExtraType() *SwitchMJobScheduleResponseExtraTy
 
 // SwitchMJobScheduleResponseMetaDataType
 //
+// Definition: job_jobScheduleResponseMetaDataType
+//
 // metaData of job schedule
 type SwitchMJobScheduleResponseMetaDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -207,6 +226,9 @@ func NewSwitchMJobScheduleResponseMetaDataType() *SwitchMJobScheduleResponseMeta
 	return m
 }
 
+// SwitchMJobList
+//
+// Definition: job_list
 type SwitchMJobList struct {
 	// Extra
 	// Extra information for job list
@@ -237,6 +259,8 @@ func NewSwitchMJobList() *SwitchMJobList {
 }
 
 // SwitchMJobListExtraType
+//
+// Definition: job_listExtraType
 //
 // Extra information for job list
 type SwitchMJobListExtraType struct {

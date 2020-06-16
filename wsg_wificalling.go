@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGWIFICallingCreateWifiCallingPolicy
+//
+// Definition: wifiCalling_createWifiCallingPolicy
 type WSGWIFICallingCreateWifiCallingPolicy struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -33,6 +36,9 @@ func NewWSGWIFICallingCreateWifiCallingPolicy() *WSGWIFICallingCreateWifiCalling
 	return m
 }
 
+// WSGWIFICallingDeleteBulk
+//
+// Definition: wifiCalling_deleteBulk
 type WSGWIFICallingDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -42,6 +48,9 @@ func NewWSGWIFICallingDeleteBulk() *WSGWIFICallingDeleteBulk {
 	return m
 }
 
+// WSGWIFICallingEpdg
+//
+// Definition: wifiCalling_epdg
 type WSGWIFICallingEpdg struct {
 	// Fqdn
 	// Fully qualified domain name of ePDG
@@ -55,6 +64,9 @@ func NewWSGWIFICallingEpdg() *WSGWIFICallingEpdg {
 	return m
 }
 
+// WSGWIFICallingModifyWifiCallingPolicy
+//
+// Definition: wifiCalling_modifyWifiCallingPolicy
 type WSGWIFICallingModifyWifiCallingPolicy struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -76,6 +88,9 @@ func NewWSGWIFICallingModifyWifiCallingPolicy() *WSGWIFICallingModifyWifiCalling
 	return m
 }
 
+// WSGWIFICallingPolicy
+//
+// Definition: wifiCalling_wifiCallingPolicy
 type WSGWIFICallingPolicy struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -133,6 +148,9 @@ func NewWSGWIFICallingPolicy() *WSGWIFICallingPolicy {
 	return m
 }
 
+// WSGWIFICallingPolicyList
+//
+// Definition: wifiCalling_wifiCallingPolicyList
 type WSGWIFICallingPolicyList struct {
 	Extra interface{} `json:"extra,omitempty"`
 

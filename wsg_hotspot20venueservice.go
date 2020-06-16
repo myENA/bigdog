@@ -23,6 +23,8 @@ func (ss *WSGService) WSGHotspot20VenueServiceService() *WSGHotspot20VenueServic
 
 // AddRkszonesHs20VenuesByZoneId
 //
+// Operation ID: addRkszonesHs20VenuesByZoneId
+//
 // Use this API command to create a new Hotspot 2.0 venue profile of a zone.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx cont
 
 // DeleteRkszonesHs20VenuesById
 //
+// Operation ID: deleteRkszonesHs20VenuesById
+//
 // Use this API command to delete Hotspot 2.0 venue profile of a zone.
 //
 // Required Parameters:
@@ -85,6 +89,8 @@ func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx conte
 }
 
 // FindRkszonesHs20VenuesById
+//
+// Operation ID: findRkszonesHs20VenuesById
 //
 // Use this API command to retrieve a Hotspot 2.0 venue profile of a zone.
 //
@@ -116,6 +122,8 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context
 
 // FindRkszonesHs20VenuesByZoneId
 //
+// Operation ID: findRkszonesHs20VenuesByZoneId
+//
 // Use this API command to retrieve a list of Hotspot 2.0 venue profile of a zone.
 //
 // Required Parameters:
@@ -142,6 +150,8 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx con
 }
 
 // FindServicesVenueProfileByQueryCriteria
+//
+// Operation ID: findServicesVenueProfileByQueryCriteria
 //
 // Query Venue Profiles with specified filters.
 //
@@ -171,6 +181,8 @@ func (s *WSGHotspot20VenueServiceService) FindServicesVenueProfileByQueryCriteri
 }
 
 // PartialUpdateRkszonesHs20VenuesById
+//
+// Operation ID: partialUpdateRkszonesHs20VenuesById
 //
 // Use this API command to modify the configuration on Hotspot 2.0 venue profile of a zone.
 //

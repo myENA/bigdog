@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMCommonSettingsService() *SwitchMCommonSettingsS
 
 // AddDnsConfig
 //
+// Operation ID: addDnsConfig
+//
 // Use this API command to Create DNS Config.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *S
 
 // DeleteDnsConfigBySwitchGroupId
 //
+// Operation ID: deleteDnsConfigBySwitchGroupId
+//
 // Use this API command to Delete DNS Config.
 //
 // Required Parameters:
@@ -77,6 +81,8 @@ func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 }
 
 // FindDnsConfigBySwitchGroupId
+//
+// Operation ID: findDnsConfigBySwitchGroupId
 //
 // Use this API command to Retrieve DNS Config.
 //
@@ -104,6 +110,8 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 }
 
 // UpdateDnsConfigBySwitchGroupId
+//
+// Operation ID: updateDnsConfigBySwitchGroupId
 //
 // Use this API command to Update DNS Config.
 //

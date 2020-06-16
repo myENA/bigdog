@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// WSGMeshNeighborInfo
+//
+// Definition: meshNeighborInfo_meshNeighborInfo
 type WSGMeshNeighborInfo struct {
 	// ApFirmware
 	// The firmware of the neighbor AP
@@ -53,6 +56,9 @@ func NewWSGMeshNeighborInfo() *WSGMeshNeighborInfo {
 	return m
 }
 
+// WSGMeshNeighborInfoList
+//
+// Definition: meshNeighborInfo_meshNeighborInfoList
 type WSGMeshNeighborInfoList struct {
 	// Extra
 	// Any additional response data.
@@ -83,6 +89,8 @@ func NewWSGMeshNeighborInfoList() *WSGMeshNeighborInfoList {
 }
 
 // WSGMeshNeighborInfoListExtraType
+//
+// Definition: meshNeighborInfo_meshNeighborInfoListExtraType
 //
 // Any additional response data.
 type WSGMeshNeighborInfoListExtraType struct {

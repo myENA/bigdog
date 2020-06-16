@@ -23,6 +23,8 @@ func (ss *WSGService) WSGAuthenticationServiceService() *WSGAuthenticationServic
 
 // AddServicesAuthAd
 //
+// Operation ID: addServicesAuthAd
+//
 // Use this API command to create a new active directory authentication service.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context,
 }
 
 // AddServicesAuthHlr
+//
+// Operation ID: addServicesAuthHlr
 //
 // Use this API command to create a new hlr authentication service.
 //
@@ -81,6 +85,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context
 
 // AddServicesAuthLdap
 //
+// Operation ID: addServicesAuthLdap
+//
 // Use this API command to create a new LDAP authentication service.
 //
 // Request Body:
@@ -110,6 +116,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Contex
 
 // AddServicesAuthRadius
 //
+// Operation ID: addServicesAuthRadius
+//
 // Use this API command to create a new RADIUS authentication service.
 //
 // Request Body:
@@ -138,6 +146,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Cont
 }
 
 // AddServicesAuthTestById
+//
+// Operation ID: addServicesAuthTestById
 //
 // Use this API command to test an authentication service.
 //
@@ -171,6 +181,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 
 // DeleteServicesAuth
 //
+// Operation ID: deleteServicesAuth
+//
 // Use this API command to delete a list of authentication service.
 //
 // Request Body:
@@ -198,6 +210,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 
 // DeleteServicesAuthAdById
 //
+// Operation ID: deleteServicesAuthAdById
+//
 // Use this API command to delete an active directory authentication service.
 //
 // Required Parameters:
@@ -223,6 +237,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 }
 
 // DeleteServicesAuthById
+//
+// Operation ID: deleteServicesAuthById
 //
 // Use this API command to delete an authentication service.
 //
@@ -250,6 +266,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 
 // DeleteServicesAuthHlrById
 //
+// Operation ID: deleteServicesAuthHlrById
+//
 // Use this API command to delete a hlr authentication service.
 //
 // Required Parameters:
@@ -275,6 +293,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 }
 
 // DeleteServicesAuthLdapById
+//
+// Operation ID: deleteServicesAuthLdapById
 //
 // Use this API command to delete a LDAP authentication service.
 //
@@ -302,6 +322,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 
 // DeleteServicesAuthRadiusById
 //
+// Operation ID: deleteServicesAuthRadiusById
+//
 // Use this API command to delete a RADIUS authentication service.
 //
 // Required Parameters:
@@ -327,6 +349,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 }
 
 // DeleteServicesAuthRadiusSecondaryById
+//
+// Operation ID: deleteServicesAuthRadiusSecondaryById
 //
 // Use this API command to disable secondary RADIUS server of a RADIUS authentication service.
 //
@@ -354,6 +378,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 
 // DeleteServicesAuthRadiusStandbyPrimaryById
 //
+// Operation ID: deleteServicesAuthRadiusStandbyPrimaryById
+//
 // Use this API command to disable Standby secondary RADIUS server of a RADIUS authentication service.
 //
 // Required Parameters:
@@ -379,6 +405,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 }
 
 // FindServicesAaaServerAuthByQueryCriteria
+//
+// Operation ID: findServicesAaaServerAuthByQueryCriteria
 //
 // Query Non-Proxy Authentication AAAServers with specified filters.
 //
@@ -409,6 +437,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAaaServerAuthByQueryCriter
 
 // FindServicesAuthAd
 //
+// Operation ID: findServicesAuthAd
+//
 // Use this API command to retrieve a list of active directory authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context, mutators ...RequestMutator) (*WSGServiceActiveDirectoryServiceList, *APIResponseMeta, error) {
 	var (
@@ -430,6 +460,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 }
 
 // FindServicesAuthAdById
+//
+// Operation ID: findServicesAuthAdById
 //
 // Use this API command to retrieve an active directory authentication service.
 //
@@ -457,6 +489,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 }
 
 // FindServicesAuthAdByQueryCriteria
+//
+// Operation ID: findServicesAuthAdByQueryCriteria
 //
 // Use this API command to retrieve a list of AD Authentication services by query criteria.
 //
@@ -487,6 +521,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx 
 
 // FindServicesAuthByQueryCriteria
 //
+// Operation ID: findServicesAuthByQueryCriteria
+//
 // Use this API command to retrieve a list of Authentication services by query criteria.
 //
 // Request Body:
@@ -516,6 +552,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 
 // FindServicesAuthGuestById
 //
+// Operation ID: findServicesAuthGuestById
+//
 // Use this API command to retrieve a Guest authentication service.
 //
 // Required Parameters:
@@ -543,6 +581,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 
 // FindServicesAuthHlr
 //
+// Operation ID: findServicesAuthHlr
+//
 // Use this API command to retrieve a list of hlr authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Context, mutators ...RequestMutator) (*WSGServiceHlrServiceList, *APIResponseMeta, error) {
 	var (
@@ -564,6 +604,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 }
 
 // FindServicesAuthHlrById
+//
+// Operation ID: findServicesAuthHlrById
 //
 // Use this API command to retrieve a hlr authentication service.
 //
@@ -591,6 +633,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 }
 
 // FindServicesAuthHlrByQueryCriteria
+//
+// Operation ID: findServicesAuthHlrByQueryCriteria
 //
 // Use this API command to retrieve a list of hlr Authentication services by query criteria.
 //
@@ -621,6 +665,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx
 
 // FindServicesAuthLdap
 //
+// Operation ID: findServicesAuthLdap
+//
 // Use this API command to retrieve a list of LDAP authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Context, mutators ...RequestMutator) (*WSGServiceLDAPServiceList, *APIResponseMeta, error) {
 	var (
@@ -642,6 +688,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 }
 
 // FindServicesAuthLdapById
+//
+// Operation ID: findServicesAuthLdapById
 //
 // Use this API command to retrieve a LDAP authentication service.
 //
@@ -669,6 +717,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 }
 
 // FindServicesAuthLdapByQueryCriteria
+//
+// Operation ID: findServicesAuthLdapByQueryCriteria
 //
 // Use this API command to retrieve a list of LDAP Authentication services by query criteria.
 //
@@ -699,6 +749,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 
 // FindServicesAuthLocalDbById
 //
+// Operation ID: findServicesAuthLocal_dbById
+//
 // Use this API command to retrieve a LocalDB authentication service.
 //
 // Required Parameters:
@@ -726,6 +778,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocalDbById(ctx contex
 
 // FindServicesAuthRadius
 //
+// Operation ID: findServicesAuthRadius
+//
 // Use this API command to retrieve a list of RADIUS authentication services.
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Context, mutators ...RequestMutator) (*WSGServiceRadiusAuthenticationServiceList, *APIResponseMeta, error) {
 	var (
@@ -747,6 +801,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 }
 
 // FindServicesAuthRadiusById
+//
+// Operation ID: findServicesAuthRadiusById
 //
 // Use this API command to retrieve a RADIUS authentication service.
 //
@@ -774,6 +830,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 }
 
 // FindServicesAuthRadiusByQueryCriteria
+//
+// Operation ID: findServicesAuthRadiusByQueryCriteria
 //
 // Use this API command to retrieve a list of radius Authentication services by query criteria.
 //
@@ -803,6 +861,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 }
 
 // PartialUpdateServicesAuthAdById
+//
+// Operation ID: partialUpdateServicesAuthAdById
 //
 // Use this API command to modify the configuration of an active directory authentication service.
 //
@@ -836,6 +896,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 
 // PartialUpdateServicesAuthHlrById
 //
+// Operation ID: partialUpdateServicesAuthHlrById
+//
 // Use this API command to modify the configuration of a hlr authentication service.
 //
 // Request Body:
@@ -867,6 +929,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 }
 
 // PartialUpdateServicesAuthLdapById
+//
+// Operation ID: partialUpdateServicesAuthLdapById
 //
 // Use this API command to modify the configuration of a LDAP authentication service.
 //
@@ -900,6 +964,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx 
 
 // PartialUpdateServicesAuthLocalDbById
 //
+// Operation ID: partialUpdateServicesAuthLocal_dbById
+//
 // Use this API command to update LocalDB authentication service.
 //
 // Request Body:
@@ -931,6 +997,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocalDbById(c
 }
 
 // PartialUpdateServicesAuthRadiusById
+//
+// Operation ID: partialUpdateServicesAuthRadiusById
 //
 // Use this API command to modify the configuration of a RADIUS authentication service.
 //

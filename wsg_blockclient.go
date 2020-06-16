@@ -23,6 +23,8 @@ func (ss *WSGService) WSGBlockClientService() *WSGBlockClientService {
 
 // AddBlockClient
 //
+// Operation ID: addBlockClient
+//
 // Create new Block Clients by list.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 }
 
 // AddBlockClientByApMacByApMac
+//
+// Operation ID: addBlockClientByApMacByApMac
 //
 // Create a new Block Client by AP MAC.
 //
@@ -86,6 +90,8 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 
 // DeleteBlockClient
 //
+// Operation ID: deleteBlockClient
+//
 // Delete Block Client List.
 //
 // Request Body:
@@ -113,6 +119,8 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 
 // DeleteBlockClientById
 //
+// Operation ID: deleteBlockClientById
+//
 // Delete a Block Client.
 //
 // Required Parameters:
@@ -138,6 +146,8 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 }
 
 // FindBlockClientById
+//
+// Operation ID: findBlockClientById
 //
 // Retrieve a Block Client.
 //
@@ -165,6 +175,8 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 }
 
 // FindBlockClientByQueryCriteria
+//
+// Operation ID: findBlockClientByQueryCriteria
 //
 // Retrieve a list of Block Client.
 //
@@ -195,6 +207,8 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 
 // FindBlockClientByZoneByZoneId
 //
+// Operation ID: findBlockClientByZoneByZoneId
+//
 // Retrieve a list of Block Client.
 //
 // Required Parameters:
@@ -221,6 +235,8 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 }
 
 // PartialUpdateBlockClientById
+//
+// Operation ID: partialUpdateBlockClientById
 //
 // Modify a specific Block Client basic.
 //
@@ -253,6 +269,8 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 }
 
 // UpdateBlockClientById
+//
+// Operation ID: updateBlockClientById
 //
 // Modify a specific Block Client basic.
 //

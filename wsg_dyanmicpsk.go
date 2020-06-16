@@ -24,6 +24,8 @@ func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
 
 // AddRkszonesWlansDpskBatchGenUnboundById
 //
+// Operation ID: addRkszonesWlansDpskBatchGenUnboundById
+//
 // Use this API command to batch generate DPSKs of a WLAN. You can either specify passphrases or not. If the amount is bigger than 1, system will generate usernames with index. e.g. student-1, student-2, ...etc.
 //
 // Request Body:
@@ -61,6 +63,8 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx conte
 
 // AddRkszonesWlansDpskById
 //
+// Operation ID: addRkszonesWlansDpskById
+//
 // Use this API command to delete DPSKs of a WLAN.
 //
 // Request Body:
@@ -97,6 +101,8 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 }
 
 // AddRkszonesWlansDpskUploadById
+//
+// Operation ID: addRkszonesWlansDpskUploadById
 //
 // Use this API command to upload DPSK file of a WLAN (CSV file and Content-Type multipart/form-data ONLY).
 //
@@ -137,6 +143,8 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 
 // FindDpskByQueryCriteria
 //
+// Operation ID: findDpskByQueryCriteria
+//
 // Query DPSKs with specified filters.
 //
 // Request Body:
@@ -166,6 +174,8 @@ func (s *WSGDynamicPSKService) FindDpskByQueryCriteria(ctx context.Context, body
 
 // FindRkszonesDeleteExpiredDpskByZoneId
 //
+// Operation ID: findRkszonesDeleteExpiredDpskByZoneId
+//
 // Use this API command to retrieve interval of delete expired DPSK of a zone.
 //
 // Required Parameters:
@@ -192,6 +202,8 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 }
 
 // FindRkszonesDownloadDpskCsvSample
+//
+// Operation ID: findRkszonesDownloadDpskCsvSample
 //
 // Use this API command to download DPSK CSV sample.
 //
@@ -222,6 +234,8 @@ func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Con
 
 // FindRkszonesDpskByZoneId
 //
+// Operation ID: findRkszonesDpskByZoneId
+//
 // Use this API command to retrieve DPSK info of a zone.
 //
 // Required Parameters:
@@ -249,6 +263,8 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zon
 
 // FindRkszonesDpskEnabledWlansByZoneId
 //
+// Operation ID: findRkszonesDpskEnabledWlansByZoneId
+//
 // Use this API command to retrieve DPSK enabled WLAN info of a zone.
 //
 // Required Parameters:
@@ -275,6 +291,8 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.
 }
 
 // FindRkszonesWlansDpskByDpskId
+//
+// Operation ID: findRkszonesWlansDpskByDpskId
 //
 // Use this API command to retrieve DPSK info.
 //
@@ -309,6 +327,8 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context
 
 // FindRkszonesWlansDpskById
 //
+// Operation ID: findRkszonesWlansDpskById
+//
 // Use this API command to retrieve DPSK info of a WLAN.
 //
 // Required Parameters:
@@ -338,6 +358,8 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, id
 }
 
 // PartialUpdateRkszonesWlansDpskByDpskId
+//
+// Operation ID: partialUpdateRkszonesWlansDpskByDpskId
 //
 // Use this API command to update DPSK info.
 //
@@ -376,6 +398,8 @@ func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx contex
 }
 
 // UpdateRkszonesDeleteExpiredDpskByZoneId
+//
+// Operation ID: updateRkszonesDeleteExpiredDpskByZoneId
 //
 // Use this API command to modify interval of delete expired DPSK of a zone.
 //

@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGClusterRedundancyActiveCluster
+//
+// Definition: clusterRedundancy_activeCluster
 type WSGClusterRedundancyActiveCluster struct {
 	// ManagementEntryList
 	// Management entry list of target active cluster
@@ -21,6 +24,9 @@ func NewWSGClusterRedundancyActiveCluster() *WSGClusterRedundancyActiveCluster {
 	return m
 }
 
+// WSGClusterRedundancySettings
+//
+// Definition: clusterRedundancy_clusterRedundancySettings
 type WSGClusterRedundancySettings struct {
 	// ActiveClusterList
 	// A list of target active clusters (Active-Active only)
@@ -76,6 +82,9 @@ func NewWSGClusterRedundancySettings() *WSGClusterRedundancySettings {
 	return m
 }
 
+// WSGClusterRedundancyManagementEntry
+//
+// Definition: clusterRedundancy_managementEntry
 type WSGClusterRedundancyManagementEntry struct {
 	// Ip
 	// Management IP
@@ -91,6 +100,9 @@ func NewWSGClusterRedundancyManagementEntry() *WSGClusterRedundancyManagementEnt
 	return m
 }
 
+// WSGClusterRedundancyUpdateClusterRedundancy
+//
+// Definition: clusterRedundancy_updateClusterRedundancy
 type WSGClusterRedundancyUpdateClusterRedundancy struct {
 	// ActiveClusterList
 	// A list of target active clusters (Active-Active only)

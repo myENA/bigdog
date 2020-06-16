@@ -23,6 +23,9 @@ func (ss *SCIService) SCIResourceGroupService() *SCIResourceGroupService {
 	return NewSCIResourceGroupService(ss.apiClient)
 }
 
+// SCIResourceGroupBatchDelete200ResponseType
+//
+// Definition: resourceGroup.batchDelete200ResponseType
 type SCIResourceGroupBatchDelete200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -32,6 +35,9 @@ func NewSCIResourceGroupBatchDelete200ResponseType() *SCIResourceGroupBatchDelet
 	return m
 }
 
+// SCIResourceGroupFind200ResponseType
+//
+// Definition: resourceGroup.find200ResponseType
 type SCIResourceGroupFind200ResponseType []*SCIModelsResourceGroup
 
 func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseType {
@@ -40,6 +46,8 @@ func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseTy
 }
 
 // ResourceGroupBatchDelete
+//
+// Operation ID: resourceGroup.batchDelete
 //
 // Delete multiple Resource Groups
 //
@@ -71,6 +79,8 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 
 // ResourceGroupCreate
 //
+// Operation ID: resourceGroup.create
+//
 // Create a new instance of the model and persist it into the data source.
 //
 // Request Body:
@@ -100,6 +110,8 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 
 // ResourceGroupFind
 //
+// Operation ID: resourceGroup.find
+//
 // Find all instances of the model matched by filter from the data source.
 //
 // Optional Parameters:
@@ -128,6 +140,8 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 }
 
 // ResourceGroupFindById
+//
+// Operation ID: resourceGroup.findById
 //
 // Find a model instance by id from the data source.
 //
@@ -162,6 +176,8 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 }
 
 // ResourceGroupPrototypeUpdateAttributes
+//
+// Operation ID: resourceGroup.prototype.updateAttributes
 //
 // Update attributes for a model instance and persist it into the data source.
 //

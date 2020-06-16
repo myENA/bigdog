@@ -23,6 +23,8 @@ func (ss *SwitchMService) SwitchMIPSettingsService() *SwitchMIPSettingsService {
 
 // AddIpConfigs
 //
+// Operation ID: addIpConfigs
+//
 // Use this API command to Create IP Config.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *SwitchMIPSettingsService) AddIpConfigs(ctx context.Context, body *Switc
 
 // DeleteIpConfigs
 //
+// Operation ID: deleteIpConfigs
+//
 // Use this API command to Delete IP Config by Id list.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *SwitchMIPSettingsService) DeleteIpConfigs(ctx context.Context, body *Sw
 
 // DeleteIpConfigsById
 //
+// Operation ID: deleteIpConfigsById
+//
 // Use this API command to Delete IP Config.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *SwitchMIPSettingsService) DeleteIpConfigsById(ctx context.Context, id s
 
 // FindIpConfigs
 //
+// Operation ID: findIpConfigs
+//
 // Use this API command to Retrieve IP Config List.
 func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context, mutators ...RequestMutator) (*SwitchMIPConfigList, *APIResponseMeta, error) {
 	var (
@@ -126,6 +134,8 @@ func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context, mutators .
 }
 
 // FindIpConfigsById
+//
+// Operation ID: findIpConfigsById
 //
 // Use this API command to Retrieve IP Config.
 //
@@ -153,6 +163,8 @@ func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id str
 }
 
 // FindIpConfigsByQueryCriteria
+//
+// Operation ID: findIpConfigsByQueryCriteria
 //
 // Use this API command to Retrieve IP Config list.
 //
@@ -182,6 +194,8 @@ func (s *SwitchMIPSettingsService) FindIpConfigsByQueryCriteria(ctx context.Cont
 }
 
 // UpdateIpConfigsById
+//
+// Operation ID: updateIpConfigsById
 //
 // Use this API command to Update IP Config.
 //

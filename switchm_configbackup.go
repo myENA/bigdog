@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// SwitchMConfigurationBackupBackupIds
+//
+// Definition: configBackup_backupIds
 type SwitchMConfigurationBackupBackupIds []string
 
 func MakeSwitchMConfigurationBackupBackupIds() SwitchMConfigurationBackupBackupIds {
@@ -9,6 +12,9 @@ func MakeSwitchMConfigurationBackupBackupIds() SwitchMConfigurationBackupBackupI
 	return m
 }
 
+// SwitchMConfigurationBackup
+//
+// Definition: configBackup_cfgbk
 type SwitchMConfigurationBackup struct {
 	// FailureReason
 	// Failure reason of the config backup and config restore
@@ -52,6 +58,9 @@ func NewSwitchMConfigurationBackup() *SwitchMConfigurationBackup {
 	return m
 }
 
+// SwitchMConfigurationBackupConfigBackupContent
+//
+// Definition: configBackup_configBackupContent
 type SwitchMConfigurationBackupConfigBackupContent struct {
 	// Config
 	// Content of the ConfigBackup
@@ -71,6 +80,9 @@ func NewSwitchMConfigurationBackupConfigBackupContent() *SwitchMConfigurationBac
 	return m
 }
 
+// SwitchMConfigurationBackupConfigBackupDiff
+//
+// Definition: configBackup_configBackupDiff
 type SwitchMConfigurationBackupConfigBackupDiff struct {
 	ConfigBackup1 *SwitchMConfigurationBackupConfigBackupContent `json:"configBackup1,omitempty"`
 
@@ -82,6 +94,9 @@ func NewSwitchMConfigurationBackupConfigBackupDiff() *SwitchMConfigurationBackup
 	return m
 }
 
+// SwitchMConfigurationBackupConfigBackupDiffInput
+//
+// Definition: configBackup_configBackupDiffInput
 type SwitchMConfigurationBackupConfigBackupDiffInput struct {
 	// ConfigBackupId1
 	// The first config backup id of diff input
@@ -97,6 +112,9 @@ func NewSwitchMConfigurationBackupConfigBackupDiffInput() *SwitchMConfigurationB
 	return m
 }
 
+// SwitchMConfigurationBackupCreateBackupResultList
+//
+// Definition: configBackup_createBackupResultList
 type SwitchMConfigurationBackupCreateBackupResultList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -124,6 +142,9 @@ func NewSwitchMConfigurationBackupCreateBackupResultList() *SwitchMConfiguration
 	return m
 }
 
+// SwitchMConfigurationBackupCreateBackupResultListType
+//
+// Definition: configBackup_createBackupResultListType
 type SwitchMConfigurationBackupCreateBackupResultListType struct {
 	// ConfigBackupId
 	// Identifier of config backup
@@ -143,6 +164,9 @@ func NewSwitchMConfigurationBackupCreateBackupResultListType() *SwitchMConfigura
 	return m
 }
 
+// SwitchMConfigurationBackupList
+//
+// Definition: configBackup_list
 type SwitchMConfigurationBackupList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -170,6 +194,9 @@ func NewSwitchMConfigurationBackupList() *SwitchMConfigurationBackupList {
 	return m
 }
 
+// SwitchMConfigurationBackupSwitchIds
+//
+// Definition: configBackup_switchIds
 type SwitchMConfigurationBackupSwitchIds []string
 
 func MakeSwitchMConfigurationBackupSwitchIds() SwitchMConfigurationBackupSwitchIds {

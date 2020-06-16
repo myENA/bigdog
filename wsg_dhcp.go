@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDHCPService() *WSGDHCPService {
 
 // AddRkszonesDhcpSiteDhcpProfileByZoneId
 //
+// Operation ID: addRkszonesDhcpSiteDhcpProfileByZoneId
+//
 // Use this API command to create DHCP Pool.
 //
 // Request Body:
@@ -56,6 +58,8 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Cont
 }
 
 // AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
+//
+// Operation ID: addRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
 //
 // Use this API command to get the DHCP/NAT service IP assignment when selecting with "Enable on Multiple APs". In the Manually Select AP mode (the manualSelect is true), the body should contain the selected APs (include the siteAps array). Otherwise, there is no need to include the selected APs in the Auto Select AP mode (see samples).
 //
@@ -91,6 +95,8 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx
 
 // DeleteRkszonesDhcpSiteDhcpProfileById
 //
+// Operation ID: deleteRkszonesDhcpSiteDhcpProfileById
+//
 // Use this API command to delete DHCP Pool by pool's ID.
 //
 // Required Parameters:
@@ -119,6 +125,8 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Conte
 }
 
 // DeleteRkszonesDhcpSiteDhcpProfileByZoneId
+//
+// Operation ID: deleteRkszonesDhcpSiteDhcpProfileByZoneId
 //
 // Use this API command to delete multiple DHCP Pools.
 //
@@ -152,6 +160,8 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.C
 
 // FindDhcpDataDhcpMsgStatsByApMac
 //
+// Operation ID: findDhcpDataDhcpMsgStatsByApMac
+//
 // Use this API command to get AP DHCP Message Statistic.
 //
 // Required Parameters:
@@ -179,6 +189,8 @@ func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, ap
 
 // FindDhcpDataDhcpPoolsByApMac
 //
+// Operation ID: findDhcpDataDhcpPoolsByApMac
+//
 // Use this API command to get AP DHCP Pools Usage.
 //
 // Required Parameters:
@@ -205,6 +217,8 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac
 }
 
 // FindDhcpDataDhcpPoolsByPoolIndex
+//
+// Operation ID: findDhcpDataDhcpPoolsByPoolIndex
 //
 // Use this API command to get AP DHCP Pool Usage by pool's index.
 //
@@ -236,6 +250,8 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, a
 
 // FindRkszonesDhcpSiteDhcpProfileById
 //
+// Operation ID: findRkszonesDhcpSiteDhcpProfileById
+//
 // Use this API command to get DHCP Pool by pool's ID.
 //
 // Required Parameters:
@@ -266,6 +282,8 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context
 
 // FindRkszonesDhcpSiteDhcpProfileByZoneId
 //
+// Operation ID: findRkszonesDhcpSiteDhcpProfileByZoneId
+//
 // Use this API command to get DHCP Pool list.
 //
 // Required Parameters:
@@ -293,6 +311,8 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Con
 
 // FindRkszonesDhcpSiteDhcpSiteConfigByZoneId
 //
+// Operation ID: findRkszonesDhcpSiteDhcpSiteConfigByZoneId
+//
 // Use this API command to get DHCP Configuration.
 //
 // Required Parameters:
@@ -319,6 +339,8 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.
 }
 
 // FindRkszonesServicesDhcpSiteConfigByQueryCriteria
+//
+// Operation ID: findRkszonesServicesDhcpSiteConfigByQueryCriteria
 //
 // Use this API command to modify DHCP/NAT service configuration of Domain.
 //
@@ -349,6 +371,8 @@ func (s *WSGDHCPService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx c
 
 // FindServicesDhcpProfileByQueryCriteria
 //
+// Operation ID: findServicesDhcpProfileByQueryCriteria
+//
 // Query DHCP Profiles with specified filters.
 //
 // Request Body:
@@ -377,6 +401,8 @@ func (s *WSGDHCPService) FindServicesDhcpProfileByQueryCriteria(ctx context.Cont
 }
 
 // PartialUpdateRkszonesDhcpSiteDhcpProfileById
+//
+// Operation ID: partialUpdateRkszonesDhcpSiteDhcpProfileById
 //
 // Use this API command to modify DHCP Pool by pool's ID.
 //

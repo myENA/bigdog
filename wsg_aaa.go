@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAAAActiveDirectory
+//
+// Definition: aaa_activeDirectory
 type WSGAAAActiveDirectory struct {
 	// AdminDomainName
 	// Admin domain name
@@ -71,6 +74,9 @@ func NewWSGAAAActiveDirectory() *WSGAAAActiveDirectory {
 	return m
 }
 
+// WSGAAAActiveDirectoryList
+//
+// Definition: aaa_activeDirectoryList
 type WSGAAAActiveDirectoryList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -86,6 +92,9 @@ func NewWSGAAAActiveDirectoryList() *WSGAAAActiveDirectoryList {
 	return m
 }
 
+// WSGAAAAuthenticationServer
+//
+// Definition: aaa_authenticationServer
 type WSGAAAAuthenticationServer struct {
 	// Description
 	// Description of the RADIUS server
@@ -135,6 +144,9 @@ func NewWSGAAAAuthenticationServer() *WSGAAAAuthenticationServer {
 	return m
 }
 
+// WSGAAAAuthenticationServerList
+//
+// Definition: aaa_authenticationServerList
 type WSGAAAAuthenticationServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -150,6 +162,9 @@ func NewWSGAAAAuthenticationServerList() *WSGAAAAuthenticationServerList {
 	return m
 }
 
+// WSGAAACreateActiveDirectoryServer
+//
+// Definition: aaa_createActiveDirectoryServer
 type WSGAAACreateActiveDirectoryServer struct {
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
@@ -210,6 +225,9 @@ func NewWSGAAACreateActiveDirectoryServer() *WSGAAACreateActiveDirectoryServer {
 	return m
 }
 
+// WSGAAACreateAuthenticationServer
+//
+// Definition: aaa_createAuthenticationServer
 type WSGAAACreateAuthenticationServer struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -239,6 +257,9 @@ func NewWSGAAACreateAuthenticationServer() *WSGAAACreateAuthenticationServer {
 	return m
 }
 
+// WSGAAACreateLDAPServer
+//
+// Definition: aaa_createLDAPServer
 type WSGAAACreateLDAPServer struct {
 	// AdminDomainName
 	// Constraints:
@@ -315,6 +336,8 @@ func NewWSGAAACreateLDAPServer() *WSGAAACreateLDAPServer {
 
 // WSGAAAGroupAttrIdentityUserRoleMapping
 //
+// Definition: aaa_groupAttrIdentityUserRoleMapping
+//
 // User traffic profile mapping
 type WSGAAAGroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
@@ -341,6 +364,8 @@ func NewWSGAAAGroupAttrIdentityUserRoleMapping() *WSGAAAGroupAttrIdentityUserRol
 
 // WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType
 //
+// Definition: aaa_groupAttrIdentityUserRoleMappingUserRoleType
+//
 // Identity user role
 type WSGAAAGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
@@ -363,6 +388,8 @@ func NewWSGAAAGroupAttrIdentityUserRoleMappingUserRoleType() *WSGAAAGroupAttrIde
 
 // WSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
 //
+// Definition: aaa_groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
+//
 // Identity user role
 type WSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType struct {
 	// Id
@@ -379,6 +406,9 @@ func NewWSGAAAGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
 	return m
 }
 
+// WSGAAALDAPServer
+//
+// Definition: aaa_LDAPServer
 type WSGAAALDAPServer struct {
 	// AdminDomainName
 	// Admin domain name
@@ -454,6 +484,9 @@ func NewWSGAAALDAPServer() *WSGAAALDAPServer {
 	return m
 }
 
+// WSGAAALDAPServerList
+//
+// Definition: aaa_LDAPServerList
 type WSGAAALDAPServerList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -469,6 +502,9 @@ func NewWSGAAALDAPServerList() *WSGAAALDAPServerList {
 	return m
 }
 
+// WSGAAAModifyActiveDirectoryServer
+//
+// Definition: aaa_modifyActiveDirectoryServer
 type WSGAAAModifyActiveDirectoryServer struct {
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
@@ -520,6 +556,9 @@ func NewWSGAAAModifyActiveDirectoryServer() *WSGAAAModifyActiveDirectoryServer {
 	return m
 }
 
+// WSGAAAModifyAuthenticationServer
+//
+// Definition: aaa_modifyAuthenticationServer
 type WSGAAAModifyAuthenticationServer struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -545,6 +584,8 @@ func NewWSGAAAModifyAuthenticationServer() *WSGAAAModifyAuthenticationServer {
 
 // WSGAAAModifyGroupAttrIdentityUserRoleMapping
 //
+// Definition: aaa_modifyGroupAttrIdentityUserRoleMapping
+//
 // User traffic profile mapping
 type WSGAAAModifyGroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
@@ -567,6 +608,8 @@ func NewWSGAAAModifyGroupAttrIdentityUserRoleMapping() *WSGAAAModifyGroupAttrIde
 
 // WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType
 //
+// Definition: aaa_modifyGroupAttrIdentityUserRoleMappingUserRoleType
+//
 // Identity user role
 type WSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Id
@@ -581,6 +624,9 @@ func NewWSGAAAModifyGroupAttrIdentityUserRoleMappingUserRoleType() *WSGAAAModify
 	return m
 }
 
+// WSGAAAModifyLDAPServer
+//
+// Definition: aaa_modifyLDAPServer
 type WSGAAAModifyLDAPServer struct {
 	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
@@ -634,6 +680,9 @@ func NewWSGAAAModifyLDAPServer() *WSGAAAModifyLDAPServer {
 	return m
 }
 
+// WSGAAATestAAAServerResult
+//
+// Definition: aaa_testAAAServerResult
 type WSGAAATestAAAServerResult struct {
 	// PrimaryServer
 	// Primary server test result
@@ -649,6 +698,9 @@ func NewWSGAAATestAAAServerResult() *WSGAAATestAAAServerResult {
 	return m
 }
 
+// WSGAAATestAuthenticationServer
+//
+// Definition: aaa_testAuthenticationServer
 type WSGAAATestAuthenticationServer struct {
 	// AaaServer
 	// Constraints:

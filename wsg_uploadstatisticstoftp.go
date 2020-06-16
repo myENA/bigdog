@@ -23,6 +23,8 @@ func (ss *WSGService) WSGUploadStatisticstoFTPService() *WSGUploadStatisticstoFT
 
 // FindGlobalSettingsStatsFtp
 //
+// Operation ID: findGlobalSettingsStatsFtp
+//
 // Use this API command to retrieve the uploading statistical data to FTP server setting.
 func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context.Context, mutators ...RequestMutator) (*WSGSystemFtpGlobalSetting, *APIResponseMeta, error) {
 	var (
@@ -44,6 +46,8 @@ func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context
 }
 
 // PartialUpdateGlobalSettingsStatsFtp
+//
+// Operation ID: partialUpdateGlobalSettingsStatsFtp
 //
 // Use this API command to modify the setting of uploading statistical data to FTP server.
 //

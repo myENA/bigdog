@@ -23,6 +23,8 @@ func (ss *WSGService) WSGDataPlaneOperationalService() *WSGDataPlaneOperationalS
 
 // AddDpsSwitchoverCluster
 //
+// Operation ID: addDpsSwitchoverCluster
+//
 // Use this API command to switchover DP to another cluster
 //
 // Request Body:

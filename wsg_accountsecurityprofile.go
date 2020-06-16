@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGAccountSecurityProfileCreate
+//
+// Definition: accountSecurityProfile_create
 type WSGAccountSecurityProfileCreate struct {
 	// AccountLockout
 	// The number of successive failures before a lockout will occur.
@@ -94,6 +97,9 @@ func NewWSGAccountSecurityProfileCreate() *WSGAccountSecurityProfileCreate {
 	return m
 }
 
+// WSGAccountSecurityProfileDelete
+//
+// Definition: accountSecurityProfile_delete
 type WSGAccountSecurityProfileDelete struct {
 	// Id
 	// Profile id
@@ -105,6 +111,9 @@ func NewWSGAccountSecurityProfileDelete() *WSGAccountSecurityProfileDelete {
 	return m
 }
 
+// WSGAccountSecurityProfileDeleteList
+//
+// Definition: accountSecurityProfile_deleteList
 type WSGAccountSecurityProfileDeleteList struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -114,6 +123,9 @@ func NewWSGAccountSecurityProfileDeleteList() *WSGAccountSecurityProfileDeleteLi
 	return m
 }
 
+// WSGAccountSecurityProfileGetById
+//
+// Definition: accountSecurityProfile_getById
 type WSGAccountSecurityProfileGetById struct {
 	// Id
 	// Profile id
@@ -127,6 +139,9 @@ func NewWSGAccountSecurityProfileGetById() *WSGAccountSecurityProfileGetById {
 	return m
 }
 
+// WSGAccountSecurityProfileGetByIdResult
+//
+// Definition: accountSecurityProfile_getByIdResult
 type WSGAccountSecurityProfileGetByIdResult struct {
 	AccountLockout *int `json:"accountLockout,omitempty"`
 
@@ -175,6 +190,9 @@ func NewWSGAccountSecurityProfileGetByIdResult() *WSGAccountSecurityProfileGetBy
 	return m
 }
 
+// WSGAccountSecurityProfileProfileListResult
+//
+// Definition: accountSecurityProfile_profileListResult
 type WSGAccountSecurityProfileProfileListResult struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -190,6 +208,9 @@ func NewWSGAccountSecurityProfileProfileListResult() *WSGAccountSecurityProfileP
 	return m
 }
 
+// WSGAccountSecurityProfileUpdate
+//
+// Definition: accountSecurityProfile_update
 type WSGAccountSecurityProfileUpdate struct {
 	// AccountLockout
 	// The number of successive failures before a lockout will occur.

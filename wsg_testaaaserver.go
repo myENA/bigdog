@@ -23,6 +23,8 @@ func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
 
 // AddSystemAaaTest
 //
+// Operation ID: addSystemAaaTest
+//
 // Use this API command to test AAA server.
 //
 // Request Body:

@@ -23,6 +23,8 @@ func (ss *WSGService) WSGEventAndAlarmService() *WSGEventAndAlarmService {
 
 // AddAlertAlarmList
 //
+// Operation ID: addAlertAlarmList
+//
 // Query Alarms with specified filters.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGEventAndAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 }
 
 // AddAlertAlarmSummary
+//
+// Operation ID: addAlertAlarmSummary
 //
 // Use this API command to retrieve the alarm summary with specified filters.
 //
@@ -81,6 +85,8 @@ func (s *WSGEventAndAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 
 // AddAlertEventList
 //
+// Operation ID: addAlertEventList
+//
 // Query Events with specified filters.
 //
 // Request Body:
@@ -109,6 +115,8 @@ func (s *WSGEventAndAlarmService) AddAlertEventList(ctx context.Context, body *W
 }
 
 // AddAlertEventSummary
+//
+// Operation ID: addAlertEventSummary
 //
 // Use this API command to retrieve the event summary with specified filters.
 //
@@ -139,6 +147,8 @@ func (s *WSGEventAndAlarmService) AddAlertEventSummary(ctx context.Context, body
 
 // UpdateAlertAlarmAck
 //
+// Operation ID: updateAlertAlarmAck
+//
 // Acknowledge multiple Alarms with provided alarmIDs.
 //
 // Request Body:
@@ -165,6 +175,8 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 }
 
 // UpdateAlertAlarmAckByAlarmID
+//
+// Operation ID: updateAlertAlarmAckByAlarmID
 //
 // Acknowledge a single Alarm with provided alarmID.
 //
@@ -194,6 +206,8 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 
 // UpdateAlertAlarmClear
 //
+// Operation ID: updateAlertAlarmClear
+//
 // Clear multiple Alarms with provided alarmIDs.
 //
 // Request Body:
@@ -220,6 +234,8 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 }
 
 // UpdateAlertAlarmClearByAlarmID
+//
+// Operation ID: updateAlertAlarmClearByAlarmID
 //
 // Clear a single Alarm with provided alarmID.
 //

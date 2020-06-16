@@ -23,6 +23,8 @@ func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 
 // AddProfilesTunnelIpsec
 //
+// Operation ID: addProfilesTunnelIpsec
+//
 // Create a new ipsec.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 
 // DeleteProfilesTunnelIpsec
 //
+// Operation ID: deleteProfilesTunnelIpsec
+//
 // Delete multiple ipsec.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 
 // DeleteProfilesTunnelIpsecById
 //
+// Operation ID: deleteProfilesTunnelIpsecById
+//
 // Delete a ipsec.
 //
 // Required Parameters:
@@ -104,6 +110,8 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 }
 
 // FindProfilesTunnelIpsec
+//
+// Operation ID: findProfilesTunnelIpsec
 //
 // Retrieve a list of IPSEC.
 //
@@ -139,6 +147,8 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 
 // FindProfilesTunnelIpsecById
 //
+// Operation ID: findProfilesTunnelIpsecById
+//
 // Retrieve a IPSEC.
 //
 // Required Parameters:
@@ -165,6 +175,8 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 }
 
 // FindProfilesTunnelIpsecByQueryCriteria
+//
+// Operation ID: findProfilesTunnelIpsecByQueryCriteria
 //
 // Query a list of IPSEC.
 //
@@ -194,6 +206,8 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 }
 
 // PartialUpdateProfilesTunnelIpsecById
+//
+// Operation ID: partialUpdateProfilesTunnelIpsecById
 //
 // Modify a specific ipsec basic.
 //

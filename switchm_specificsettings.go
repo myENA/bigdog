@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMSpecificSettingsService() *SwitchMSpecificSetti
 	return NewSwitchMSpecificSettingsService(ss.apiClient)
 }
 
+// SwitchMSpecificSettingsDHCPOption
+//
+// Definition: specificSettings_DHCPOption
 type SwitchMSpecificSettingsDHCPOption struct {
 	// Seq
 	// Seq of Option
@@ -41,6 +44,9 @@ func NewSwitchMSpecificSettingsDHCPOption() *SwitchMSpecificSettingsDHCPOption {
 	return m
 }
 
+// SwitchMSpecificSettingsDHCPServer
+//
+// Definition: specificSettings_DHCPServer
 type SwitchMSpecificSettingsDHCPServer struct {
 	// DefaultRouterIp
 	// Default Router Ip
@@ -82,6 +88,9 @@ func NewSwitchMSpecificSettingsDHCPServer() *SwitchMSpecificSettingsDHCPServer {
 	return m
 }
 
+// SwitchMSpecificSettingsIdList
+//
+// Definition: specificSettings_idList
 type SwitchMSpecificSettingsIdList struct {
 	// Hostname
 	// Hostname
@@ -97,6 +106,9 @@ func NewSwitchMSpecificSettingsIdList() *SwitchMSpecificSettingsIdList {
 	return m
 }
 
+// SwitchMSpecificSettings
+//
+// Definition: specificSettings_SpecificSettings
 type SwitchMSpecificSettings struct {
 	// CreatedTime
 	// The create time of the Specific Settings
@@ -134,6 +146,9 @@ func NewSwitchMSpecificSettings() *SwitchMSpecificSettings {
 	return m
 }
 
+// SwitchMSpecificSettingsAllResult
+//
+// Definition: specificSettings_specificSettingsAllResult
 type SwitchMSpecificSettingsAllResult struct {
 	// Extra
 	// Any additional response data
@@ -165,6 +180,8 @@ func NewSwitchMSpecificSettingsAllResult() *SwitchMSpecificSettingsAllResult {
 
 // SwitchMSpecificSettingsAllResultExtraType
 //
+// Definition: specificSettings_specificSettingsAllResultExtraType
+//
 // Any additional response data
 type SwitchMSpecificSettingsAllResultExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -191,6 +208,9 @@ func NewSwitchMSpecificSettingsAllResultExtraType() *SwitchMSpecificSettingsAllR
 	return m
 }
 
+// SwitchMSpecificSettingsUpdateSpecificSettings
+//
+// Definition: specificSettings_UpdateSpecificSettings
 type SwitchMSpecificSettingsUpdateSpecificSettings struct {
 	// DhcpServerEnabled
 	// DHCP server enabled
@@ -218,6 +238,8 @@ func NewSwitchMSpecificSettingsUpdateSpecificSettings() *SwitchMSpecificSettings
 
 // DeleteSpecificSettingsById
 //
+// Operation ID: deleteSpecificSettingsById
+//
 // Use this API command to Delete Specific Settings.
 //
 // Required Parameters:
@@ -244,6 +266,8 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 
 // FindSpecificSettings
 //
+// Operation ID: findSpecificSettings
+//
 // Use this API command to Retrieve all Specific Setting list.
 func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Context, mutators ...RequestMutator) (*SwitchMSpecificSettingsAllResult, *APIResponseMeta, error) {
 	var (
@@ -265,6 +289,8 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 }
 
 // FindSpecificSettingsById
+//
+// Operation ID: findSpecificSettingsById
 //
 // Use this API command to Retrieve Specific Settings.
 //
@@ -292,6 +318,8 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 }
 
 // UpdateSpecificSettingsById
+//
+// Operation ID: updateSpecificSettingsById
 //
 // Use this API command to Update Specific Settings.
 //

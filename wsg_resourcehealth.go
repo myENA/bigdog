@@ -23,6 +23,8 @@ func (ss *WSGService) WSGResourceHealthService() *WSGResourceHealthService {
 
 // FindResourceHealthSummaryByQueryCriteria
 //
+// Operation ID: findResourceHealthSummaryByQueryCriteria
+//
 // Get current connected count of requested resource
 //
 // Request Body:

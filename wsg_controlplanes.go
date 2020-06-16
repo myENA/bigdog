@@ -23,6 +23,8 @@ func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
 
 // DeleteControlPlanesStaticRoutesByBladeUUID
 //
+// Operation ID: deleteControlPlanesStaticRoutesByBladeUUID
+//
 // Use this API command to delete the static route of control plane.
 //
 // Required Parameters:
@@ -48,6 +50,8 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 }
 
 // DeleteControlPlanesUserDefinedInterfaceByBladeUUID
+//
+// Operation ID: deleteControlPlanesUserDefinedInterfaceByBladeUUID
 //
 // Use this API command to delete the user defined interface of control plane.
 //
@@ -75,6 +79,8 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 
 // FindControlPlanes
 //
+// Operation ID: findControlPlanes
+//
 // Use this API command to retrieve the list of control plane.
 func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context, mutators ...RequestMutator) (*WSGSystemControlPlaneList, *APIResponseMeta, error) {
 	var (
@@ -96,6 +102,8 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context, mutator
 }
 
 // FindControlPlanesByBladeUUID
+//
+// Operation ID: findControlPlanesByBladeUUID
 //
 // Use this API command to retrieve control plane.
 //
@@ -123,6 +131,8 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 }
 
 // FindControlPlanesInterfaces
+//
+// Operation ID: findControlPlanesInterfaces
 //
 // Use this API command to retrieve Control Plane Interface list.
 //
@@ -153,6 +163,8 @@ func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Contex
 
 // FindControlPlanesStaticRoutesByBladeUUID
 //
+// Operation ID: findControlPlanesStaticRoutesByBladeUUID
+//
 // Use this API command to retrieve static route of control plane.
 //
 // Required Parameters:
@@ -180,6 +192,8 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 
 // FindControlPlanesUserDefinedInterfaceByBladeUUID
 //
+// Operation ID: findControlPlanesUserDefinedInterfaceByBladeUUID
+//
 // Use this API command to retrieve user defined interface of control plane.
 //
 // Required Parameters:
@@ -206,6 +220,8 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 }
 
 // PartialUpdateControlPlanesByBladeUUID
+//
+// Operation ID: partialUpdateControlPlanesByBladeUUID
 //
 // Use this API command to modify the configuration of control plane.
 //
@@ -239,6 +255,8 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 
 // PartialUpdateControlPlanesIpSupport
 //
+// Operation ID: partialUpdateControlPlanesIpSupport
+//
 // Use this API command to modify ip support of control plane.
 //
 // Request Body:
@@ -265,6 +283,8 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx contex
 }
 
 // PartialUpdateControlPlanesStaticRoutesByBladeUUID
+//
+// Operation ID: partialUpdateControlPlanesStaticRoutesByBladeUUID
 //
 // Use this API command to modify the static route of control plane.
 //
@@ -297,6 +317,8 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeU
 }
 
 // PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID
+//
+// Operation ID: partialUpdateControlPlanesUserDefinedInterfaceByBladeUUID
 //
 // Use this API command to modify user defined interface of control plane.
 //

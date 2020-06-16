@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGServiceActiveDirectoryService
+//
+// Definition: service_ActiveDirectoryService
 type WSGServiceActiveDirectoryService struct {
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
@@ -123,6 +126,9 @@ func NewWSGServiceActiveDirectoryService() *WSGServiceActiveDirectoryService {
 	return m
 }
 
+// WSGServiceActiveDirectoryServiceList
+//
+// Definition: service_ActiveDirectoryServiceList
 type WSGServiceActiveDirectoryServiceList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -140,6 +146,9 @@ func NewWSGServiceActiveDirectoryServiceList() *WSGServiceActiveDirectoryService
 	return m
 }
 
+// WSGServiceCommonAccountingService
+//
+// Definition: service_commonAccountingService
 type WSGServiceCommonAccountingService struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -199,6 +208,9 @@ func NewWSGServiceCommonAccountingService() *WSGServiceCommonAccountingService {
 	return m
 }
 
+// WSGServiceCommonAccountingServiceList
+//
+// Definition: service_commonAccountingServiceList
 type WSGServiceCommonAccountingServiceList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -216,6 +228,9 @@ func NewWSGServiceCommonAccountingServiceList() *WSGServiceCommonAccountingServi
 	return m
 }
 
+// WSGServiceCommonAuthenticationService
+//
+// Definition: service_commonAuthenticationService
 type WSGServiceCommonAuthenticationService struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -281,6 +296,9 @@ func NewWSGServiceCommonAuthenticationService() *WSGServiceCommonAuthenticationS
 	return m
 }
 
+// WSGServiceCommonAuthenticationServiceList
+//
+// Definition: service_commonAuthenticationServiceList
 type WSGServiceCommonAuthenticationServiceList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -298,6 +316,9 @@ func NewWSGServiceCommonAuthenticationServiceList() *WSGServiceCommonAuthenticat
 	return m
 }
 
+// WSGServiceCreateActiveDirectoryAuthentication
+//
+// Definition: service_createActiveDirectoryAuthentication
 type WSGServiceCreateActiveDirectoryAuthentication struct {
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
@@ -399,6 +420,9 @@ func NewWSGServiceCreateActiveDirectoryAuthentication() *WSGServiceCreateActiveD
 	return m
 }
 
+// WSGServiceCreateHlrAuthentication
+//
+// Definition: service_createHlrAuthentication
 type WSGServiceCreateHlrAuthentication struct {
 	// AddressIndicator
 	// Constraints:
@@ -541,6 +565,9 @@ func NewWSGServiceCreateHlrAuthentication() *WSGServiceCreateHlrAuthentication {
 	return m
 }
 
+// WSGServiceCreateLDAPAuthentication
+//
+// Definition: service_createLDAPAuthentication
 type WSGServiceCreateLDAPAuthentication struct {
 	// AdminDomainName
 	// Constraints:
@@ -651,6 +678,9 @@ func NewWSGServiceCreateLDAPAuthentication() *WSGServiceCreateLDAPAuthentication
 	return m
 }
 
+// WSGServiceCreateRadiusAccounting
+//
+// Definition: service_createRadiusAccounting
 type WSGServiceCreateRadiusAccounting struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -698,6 +728,9 @@ func NewWSGServiceCreateRadiusAccounting() *WSGServiceCreateRadiusAccounting {
 	return m
 }
 
+// WSGServiceCreateRadiusAuthentication
+//
+// Definition: service_createRadiusAuthentication
 type WSGServiceCreateRadiusAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -754,6 +787,9 @@ func NewWSGServiceCreateRadiusAuthentication() *WSGServiceCreateRadiusAuthentica
 	return m
 }
 
+// WSGServiceDeleteBulkAccountingService
+//
+// Definition: service_deleteBulkAccountingService
 type WSGServiceDeleteBulkAccountingService struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -763,6 +799,9 @@ func NewWSGServiceDeleteBulkAccountingService() *WSGServiceDeleteBulkAccountingS
 	return m
 }
 
+// WSGServiceDeleteBulkAuthenticationService
+//
+// Definition: service_deleteBulkAuthenticationService
 type WSGServiceDeleteBulkAuthenticationService struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -772,6 +811,9 @@ func NewWSGServiceDeleteBulkAuthenticationService() *WSGServiceDeleteBulkAuthent
 	return m
 }
 
+// WSGServiceDnsServer
+//
+// Definition: service_dnsServer
 type WSGServiceDnsServer struct {
 	// Ip
 	// IP of server
@@ -783,6 +825,9 @@ func NewWSGServiceDnsServer() *WSGServiceDnsServer {
 	return m
 }
 
+// WSGServiceDnsServerList
+//
+// Definition: service_dnsServerList
 type WSGServiceDnsServerList []*WSGServiceDnsServer
 
 func MakeWSGServiceDnsServerList() WSGServiceDnsServerList {
@@ -790,6 +835,9 @@ func MakeWSGServiceDnsServerList() WSGServiceDnsServerList {
 	return m
 }
 
+// WSGServiceGgsn
+//
+// Definition: service_ggsn
 type WSGServiceGgsn struct {
 	// DomainName
 	// Domain name of GGSN
@@ -805,6 +853,9 @@ func NewWSGServiceGgsn() *WSGServiceGgsn {
 	return m
 }
 
+// WSGServiceGgsnConfig
+//
+// Definition: service_ggsnConfig
 type WSGServiceGgsnConfig struct {
 	DnsServerList WSGServiceDnsServerList `json:"dnsServerList,omitempty"`
 
@@ -818,6 +869,9 @@ func NewWSGServiceGgsnConfig() *WSGServiceGgsnConfig {
 	return m
 }
 
+// WSGServiceGgsnList
+//
+// Definition: service_ggsnList
 type WSGServiceGgsnList []*WSGServiceGgsn
 
 func MakeWSGServiceGgsnList() WSGServiceGgsnList {
@@ -826,6 +880,8 @@ func MakeWSGServiceGgsnList() WSGServiceGgsnList {
 }
 
 // WSGServiceGroupAttrIdentityUserRoleMapping
+//
+// Definition: service_groupAttrIdentityUserRoleMapping
 //
 // User traffic profile mapping
 type WSGServiceGroupAttrIdentityUserRoleMapping struct {
@@ -853,6 +909,8 @@ func NewWSGServiceGroupAttrIdentityUserRoleMapping() *WSGServiceGroupAttrIdentit
 
 // WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType
 //
+// Definition: service_groupAttrIdentityUserRoleMappingUserRoleType
+//
 // Identity user role
 type WSGServiceGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
@@ -875,6 +933,8 @@ func NewWSGServiceGroupAttrIdentityUserRoleMappingUserRoleType() *WSGServiceGrou
 
 // WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
 //
+// Definition: service_groupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType
+//
 // Identity user role
 type WSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfileType struct {
 	// Id
@@ -891,6 +951,9 @@ func NewWSGServiceGroupAttrIdentityUserRoleMappingUserRoleTypeUserTrafficProfile
 	return m
 }
 
+// WSGServiceGtpSettings
+//
+// Definition: service_gtpSettings
 type WSGServiceGtpSettings struct {
 	// DnsNumberOfRetries
 	// DNS Number of Retries
@@ -933,6 +996,9 @@ func NewWSGServiceGtpSettings() *WSGServiceGtpSettings {
 	return m
 }
 
+// WSGServiceHlrService
+//
+// Definition: service_hlrService
 type WSGServiceHlrService struct {
 	// AddressIndicator
 	// - For HLR Authentiaction server
@@ -1148,6 +1214,9 @@ func NewWSGServiceHlrService() *WSGServiceHlrService {
 	return m
 }
 
+// WSGServiceHlrServiceList
+//
+// Definition: service_hlrServiceList
 type WSGServiceHlrServiceList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -1165,6 +1234,9 @@ func NewWSGServiceHlrServiceList() *WSGServiceHlrServiceList {
 	return m
 }
 
+// WSGServiceLDAPService
+//
+// Definition: service_LDAPService
 type WSGServiceLDAPService struct {
 	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
@@ -1286,6 +1358,9 @@ func NewWSGServiceLDAPService() *WSGServiceLDAPService {
 	return m
 }
 
+// WSGServiceLDAPServiceList
+//
+// Definition: service_LDAPServiceList
 type WSGServiceLDAPServiceList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -1303,6 +1378,9 @@ func NewWSGServiceLDAPServiceList() *WSGServiceLDAPServiceList {
 	return m
 }
 
+// WSGServiceMncNdc
+//
+// Definition: service_mncNdc
 type WSGServiceMncNdc struct {
 	// Mcc
 	// MCC
@@ -1330,6 +1408,9 @@ func NewWSGServiceMncNdc() *WSGServiceMncNdc {
 	return m
 }
 
+// WSGServiceModifyActiveDirectoryAuthentication
+//
+// Definition: service_modifyActiveDirectoryAuthentication
 type WSGServiceModifyActiveDirectoryAuthentication struct {
 	AdminDomainName *WSGCommonNormalName2to64 `json:"adminDomainName,omitempty"`
 
@@ -1419,6 +1500,8 @@ func NewWSGServiceModifyActiveDirectoryAuthentication() *WSGServiceModifyActiveD
 
 // WSGServiceModifyGroupAttrIdentityUserRoleMapping
 //
+// Definition: service_modifyGroupAttrIdentityUserRoleMapping
+//
 // User traffic profile mapping
 type WSGServiceModifyGroupAttrIdentityUserRoleMapping struct {
 	// GroupAttr
@@ -1441,6 +1524,8 @@ func NewWSGServiceModifyGroupAttrIdentityUserRoleMapping() *WSGServiceModifyGrou
 
 // WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType
 //
+// Definition: service_modifyGroupAttrIdentityUserRoleMappingUserRoleType
+//
 // Identity user role
 type WSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType struct {
 	// Id
@@ -1455,6 +1540,9 @@ func NewWSGServiceModifyGroupAttrIdentityUserRoleMappingUserRoleType() *WSGServi
 	return m
 }
 
+// WSGServiceModifyHlrAuthentication
+//
+// Definition: service_modifyHlrAuthentication
 type WSGServiceModifyHlrAuthentication struct {
 	// AddressIndicator
 	// Constraints:
@@ -1594,6 +1682,9 @@ func NewWSGServiceModifyHlrAuthentication() *WSGServiceModifyHlrAuthentication {
 	return m
 }
 
+// WSGServiceModifyLDAPAuthentication
+//
+// Definition: service_modifyLDAPAuthentication
 type WSGServiceModifyLDAPAuthentication struct {
 	AdminDomainName *WSGCommonNormalName2to128 `json:"adminDomainName,omitempty"`
 
@@ -1681,6 +1772,9 @@ func NewWSGServiceModifyLDAPAuthentication() *WSGServiceModifyLDAPAuthentication
 	return m
 }
 
+// WSGServiceModifyLocalDbAuthentication
+//
+// Definition: service_modifyLocalDbAuthentication
 type WSGServiceModifyLocalDbAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1722,6 +1816,9 @@ func NewWSGServiceModifyLocalDbAuthentication() *WSGServiceModifyLocalDbAuthenti
 	return m
 }
 
+// WSGServiceModifyRadiusAccounting
+//
+// Definition: service_modifyRadiusAccounting
 type WSGServiceModifyRadiusAccounting struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1767,6 +1864,9 @@ func NewWSGServiceModifyRadiusAccounting() *WSGServiceModifyRadiusAccounting {
 	return m
 }
 
+// WSGServiceModifyRadiusAuthentication
+//
+// Definition: service_modifyRadiusAuthentication
 type WSGServiceModifyRadiusAuthentication struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -1816,6 +1916,9 @@ func NewWSGServiceModifyRadiusAuthentication() *WSGServiceModifyRadiusAuthentica
 	return m
 }
 
+// WSGServiceRadiusAccountingService
+//
+// Definition: service_radiusAccountingService
 type WSGServiceRadiusAccountingService struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -1889,6 +1992,9 @@ func NewWSGServiceRadiusAccountingService() *WSGServiceRadiusAccountingService {
 	return m
 }
 
+// WSGServiceRadiusAccountingServiceList
+//
+// Definition: service_radiusAccountingServiceList
 type WSGServiceRadiusAccountingServiceList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -1906,6 +2012,9 @@ func NewWSGServiceRadiusAccountingServiceList() *WSGServiceRadiusAccountingServi
 	return m
 }
 
+// WSGServiceRadiusAuthenticationService
+//
+// Definition: service_radiusAuthenticationService
 type WSGServiceRadiusAuthenticationService struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -1989,6 +2098,9 @@ func NewWSGServiceRadiusAuthenticationService() *WSGServiceRadiusAuthenticationS
 	return m
 }
 
+// WSGServiceRadiusAuthenticationServiceList
+//
+// Definition: service_radiusAuthenticationServiceList
 type WSGServiceRadiusAuthenticationServiceList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -2006,6 +2118,9 @@ func NewWSGServiceRadiusAuthenticationServiceList() *WSGServiceRadiusAuthenticat
 	return m
 }
 
+// WSGServiceSccpGtt
+//
+// Definition: service_sccpGtt
 type WSGServiceSccpGtt struct {
 	// AddressIndicator
 	// - For HLR Authentiaction server
@@ -2061,6 +2176,9 @@ func NewWSGServiceSccpGtt() *WSGServiceSccpGtt {
 	return m
 }
 
+// WSGServiceSctpAssociation
+//
+// Definition: service_sctpAssociation
 type WSGServiceSctpAssociation struct {
 	// AdjPointCode
 	// Adj Pointcode
@@ -2098,6 +2216,9 @@ func NewWSGServiceSctpAssociation() *WSGServiceSctpAssociation {
 	return m
 }
 
+// WSGServiceSecondaryRadiusServer
+//
+// Definition: service_secondaryRadiusServer
 type WSGServiceSecondaryRadiusServer struct {
 	// AutoFallbackDisable
 	// Automatic fallback enabled or disabled
@@ -2131,6 +2252,9 @@ func NewWSGServiceSecondaryRadiusServer() *WSGServiceSecondaryRadiusServer {
 	return m
 }
 
+// WSGServiceTestingConfig
+//
+// Definition: service_testingConfig
 type WSGServiceTestingConfig struct {
 	// Id
 	// Identifier of the authentication service
@@ -2144,6 +2268,9 @@ func NewWSGServiceTestingConfig() *WSGServiceTestingConfig {
 	return m
 }
 
+// WSGServiceTestingConfigLoginRequestType
+//
+// Definition: service_testingConfigLoginRequestType
 type WSGServiceTestingConfigLoginRequestType struct {
 	// Password
 	// password for test user

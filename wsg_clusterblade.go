@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGClusterBladeBladeProgress
+//
+// Definition: clusterblade_bladeProgress
 type WSGClusterBladeBladeProgress struct {
 	// BladeUUID
 	// bladeUUID of bladeProgress
@@ -29,6 +32,9 @@ func NewWSGClusterBladeBladeProgress() *WSGClusterBladeBladeProgress {
 	return m
 }
 
+// WSGClusterBladeClusterOperationProgress
+//
+// Definition: clusterblade_clusterOperationProgress
 type WSGClusterBladeClusterOperationProgress struct {
 	Operation *WSGClusterBladeOperation `json:"operation,omitempty"`
 
@@ -44,6 +50,9 @@ func NewWSGClusterBladeClusterOperationProgress() *WSGClusterBladeClusterOperati
 	return m
 }
 
+// WSGClusterBladeClusterState
+//
+// Definition: clusterblade_clusterState
 type WSGClusterBladeClusterState struct {
 	// ClusterName
 	// cluster name
@@ -79,6 +88,9 @@ func NewWSGClusterBladeClusterState() *WSGClusterBladeClusterState {
 	return m
 }
 
+// WSGClusterBladeClusterStateManagementServiceStateListType
+//
+// Definition: clusterblade_clusterStateManagementServiceStateListType
 type WSGClusterBladeClusterStateManagementServiceStateListType struct {
 	// ManagementServiceState
 	// management service state
@@ -100,6 +112,9 @@ func NewWSGClusterBladeClusterStateManagementServiceStateListType() *WSGClusterB
 	return m
 }
 
+// WSGClusterBladeClusterStateNodeStateListType
+//
+// Definition: clusterblade_clusterStateNodeStateListType
 type WSGClusterBladeClusterStateNodeStateListType struct {
 	// NodeId
 	// Identifier of the controller node
@@ -119,6 +134,9 @@ func NewWSGClusterBladeClusterStateNodeStateListType() *WSGClusterBladeClusterSt
 	return m
 }
 
+// WSGClusterBladeClusterUpgradeProgress
+//
+// Definition: clusterblade_clusterUpgradeProgress
 type WSGClusterBladeClusterUpgradeProgress struct {
 	// BladeProgresss
 	// bladeProgressMap of clusterOperationProgress
@@ -156,6 +174,12 @@ func NewWSGClusterBladeClusterUpgradeProgress() *WSGClusterBladeClusterUpgradePr
 	return m
 }
 
+// WSGClusterBladeOperation
+//
+// Definition: clusterblade_operation
+//
+// Constraints:
+//    - oneof:[None,Join,Backup,Restore,Upload,Upgrade,BackupAndUpgrade,RemoveBlade,ChangeBladeIP,DiskSnapshot,UploadVDPFirmware,UploadAPFirmware,AddAPFirmware,AddLteFirmware]
 type WSGClusterBladeOperation string
 
 func NewWSGClusterBladeOperation() *WSGClusterBladeOperation {
@@ -163,6 +187,9 @@ func NewWSGClusterBladeOperation() *WSGClusterBladeOperation {
 	return m
 }
 
+// WSGClusterBladePreviousOperationRecord
+//
+// Definition: clusterblade_previousOperationRecord
 type WSGClusterBladePreviousOperationRecord struct {
 	// ErrorMsg
 	// errorMsg of previousOperationRecord
@@ -180,6 +207,9 @@ func NewWSGClusterBladePreviousOperationRecord() *WSGClusterBladePreviousOperati
 	return m
 }
 
+// WSGClusterBladeUploadPatchInfo
+//
+// Definition: clusterblade_uploadPatchInfo
 type WSGClusterBladeUploadPatchInfo struct {
 	// AllowVersions
 	// allowVersions of uploadPatchInfo

@@ -22,6 +22,9 @@ func (ss *WSGService) WSGAdminSCGService() *WSGAdminSCGService {
 	return NewWSGAdminSCGService(ss.apiClient)
 }
 
+// WSGAdminSCGScgAaaServer
+//
+// Definition: adminscg_scgAaaServer
 type WSGAdminSCGScgAaaServer struct {
 	Data *WSGAdminSCGScgAaaServerDataType `json:"data,omitempty"`
 
@@ -39,6 +42,9 @@ func NewWSGAdminSCGScgAaaServer() *WSGAdminSCGScgAaaServer {
 	return m
 }
 
+// WSGAdminSCGScgAaaServerDataType
+//
+// Definition: adminscg_scgAaaServerDataType
 type WSGAdminSCGScgAaaServerDataType struct {
 	HasMore *bool `json:"hasMore,omitempty"`
 
@@ -54,6 +60,9 @@ func NewWSGAdminSCGScgAaaServerDataType() *WSGAdminSCGScgAaaServerDataType {
 	return m
 }
 
+// WSGAdminSCGScgAaaServerDataTypeListType
+//
+// Definition: adminscg_scgAaaServerDataTypeListType
 type WSGAdminSCGScgAaaServerDataTypeListType struct {
 	AdminDomainName *string `json:"adminDomainName,omitempty"`
 
@@ -229,6 +238,9 @@ func NewWSGAdminSCGScgAaaServerDataTypeListType() *WSGAdminSCGScgAaaServerDataTy
 	return m
 }
 
+// WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType
+//
+// Definition: adminscg_scgAaaServerDataTypeListTypeNullValueColumnNamesType
 type WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -254,6 +266,9 @@ func NewWSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType() *WSGAd
 	return m
 }
 
+// WSGAdminSCGScgAaaServerErrorType
+//
+// Definition: adminscg_scgAaaServerErrorType
 type WSGAdminSCGScgAaaServerErrorType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -279,6 +294,9 @@ func NewWSGAdminSCGScgAaaServerErrorType() *WSGAdminSCGScgAaaServerErrorType {
 	return m
 }
 
+// WSGAdminSCGScgAaaServerExtraType
+//
+// Definition: adminscg_scgAaaServerExtraType
 type WSGAdminSCGScgAaaServerExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -304,6 +322,9 @@ func NewWSGAdminSCGScgAaaServerExtraType() *WSGAdminSCGScgAaaServerExtraType {
 	return m
 }
 
+// WSGAdminSCGScgAaaServerMetaDataType
+//
+// Definition: adminscg_scgAaaServerMetaDataType
 type WSGAdminSCGScgAaaServerMetaDataType struct {
 	Fields []*WSGAdminSCGScgAaaServerMetaDataTypeFieldsType `json:"fields,omitempty"`
 
@@ -323,6 +344,9 @@ func NewWSGAdminSCGScgAaaServerMetaDataType() *WSGAdminSCGScgAaaServerMetaDataTy
 	return m
 }
 
+// WSGAdminSCGScgAaaServerMetaDataTypeFieldsType
+//
+// Definition: adminscg_scgAaaServerMetaDataTypeFieldsType
 type WSGAdminSCGScgAaaServerMetaDataTypeFieldsType struct {
 	Name *string `json:"name,omitempty"`
 }
@@ -333,6 +357,8 @@ func NewWSGAdminSCGScgAaaServerMetaDataTypeFieldsType() *WSGAdminSCGScgAaaServer
 }
 
 // FindScgAdminAaaServers
+//
+// Operation ID: findScgAdminAaaServers
 //
 // Use this API command to retrieve a list of registered AAA servers
 func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutators ...RequestMutator) (*WSGAdminSCGScgAaaServer, *APIResponseMeta, error) {

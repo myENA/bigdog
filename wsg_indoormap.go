@@ -21,6 +21,9 @@ func (ss *WSGService) WSGIndoorMapService() *WSGIndoorMapService {
 	return NewWSGIndoorMapService(ss.apiClient)
 }
 
+// WSGIndoorMapAccessPointList
+//
+// Definition: indoorMap_accessPointList
 type WSGIndoorMapAccessPointList []*WSGIndoorMapAp
 
 func MakeWSGIndoorMapAccessPointList() WSGIndoorMapAccessPointList {
@@ -28,6 +31,9 @@ func MakeWSGIndoorMapAccessPointList() WSGIndoorMapAccessPointList {
 	return m
 }
 
+// WSGIndoorMapBasicIndoorMap
+//
+// Definition: indoorMap_basicIndoorMap
 type WSGIndoorMapBasicIndoorMap struct {
 	Address *string `json:"address,omitempty"`
 
@@ -76,6 +82,9 @@ func NewWSGIndoorMapBasicIndoorMap() *WSGIndoorMapBasicIndoorMap {
 	return m
 }
 
+// WSGIndoorMapIndooMapAuditId
+//
+// Definition: indoorMap_indooMapAuditId
 type WSGIndoorMapIndooMapAuditId struct {
 	// Id
 	// the identifier of the indoor map
@@ -91,6 +100,9 @@ func NewWSGIndoorMapIndooMapAuditId() *WSGIndoorMapIndooMapAuditId {
 	return m
 }
 
+// WSGIndoorMap
+//
+// Definition: indoorMap_indoorMap
 type WSGIndoorMap struct {
 	// Address
 	// address
@@ -163,6 +175,9 @@ func NewWSGIndoorMap() *WSGIndoorMap {
 	return m
 }
 
+// WSGIndoorMapAp
+//
+// Definition: indoorMap_indoorMapAp
 type WSGIndoorMapAp struct {
 	IndoorMapXy *WSGIndoorMapXy `json:"indoorMapXy,omitempty"`
 
@@ -176,6 +191,9 @@ func NewWSGIndoorMapAp() *WSGIndoorMapAp {
 	return m
 }
 
+// WSGIndoorMapList
+//
+// Definition: indoorMap_indoorMapList
 type WSGIndoorMapList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -199,6 +217,9 @@ func NewWSGIndoorMapList() *WSGIndoorMapList {
 	return m
 }
 
+// WSGIndoorMapSummary
+//
+// Definition: indoorMap_indoorMapSummary
 type WSGIndoorMapSummary struct {
 	// Address
 	// address
@@ -269,6 +290,9 @@ func NewWSGIndoorMapSummary() *WSGIndoorMapSummary {
 	return m
 }
 
+// WSGIndoorMapSummaryList
+//
+// Definition: indoorMap_indoorMapSummaryList
 type WSGIndoorMapSummaryList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -292,6 +316,9 @@ func NewWSGIndoorMapSummaryList() *WSGIndoorMapSummaryList {
 	return m
 }
 
+// WSGIndoorMapXy
+//
+// Definition: indoorMap_indoorMapXy
 type WSGIndoorMapXy struct {
 	// X
 	// x
@@ -307,6 +334,9 @@ func NewWSGIndoorMapXy() *WSGIndoorMapXy {
 	return m
 }
 
+// WSGIndoorMapScale
+//
+// Definition: indoorMap_scale
 type WSGIndoorMapScale struct {
 	A *WSGIndoorMapXy `json:"a,omitempty"`
 
@@ -329,6 +359,8 @@ func NewWSGIndoorMapScale() *WSGIndoorMapScale {
 }
 
 // AddMaps
+//
+// Operation ID: addMaps
 //
 // Use this API command to create indoorMap.
 //
@@ -359,6 +391,8 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap, m
 
 // DeleteMapsByIndoorMapId
 //
+// Operation ID: deleteMapsByIndoorMapId
+//
 // Use this API command to delete indoor map.
 //
 // Required Parameters:
@@ -384,6 +418,8 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 }
 
 // FindMaps
+//
+// Operation ID: findMaps
 //
 // Use this API command to get indoor map list.
 //
@@ -415,6 +451,8 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 
 // FindMapsByIndoorMapId
 //
+// Operation ID: findMapsByIndoorMapId
+//
 // Use this API command to get indoor maps.
 //
 // Required Parameters:
@@ -441,6 +479,8 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 }
 
 // FindMapsByQueryCriteria
+//
+// Operation ID: findMapsByQueryCriteria
 //
 // Use this API command to query indoorMap.
 //
@@ -470,6 +510,8 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 }
 
 // PartialUpdateMapsByIndoorMapId
+//
+// Operation ID: partialUpdateMapsByIndoorMapId
 //
 // Use this API command to update specific indoor map.
 //
@@ -502,6 +544,8 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 }
 
 // UpdateMapsApsByIndoorMapId
+//
+// Operation ID: updateMapsApsByIndoorMapId
 //
 // Use this API command to put Aps in indoor map.
 //

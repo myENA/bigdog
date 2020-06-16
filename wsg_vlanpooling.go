@@ -21,6 +21,9 @@ func (ss *WSGService) WSGVLANPoolingService() *WSGVLANPoolingService {
 	return NewWSGVLANPoolingService(ss.apiClient)
 }
 
+// WSGVLANPoolingCreateVlanPooling
+//
+// Definition: vlanpooling_createVlanPooling
 type WSGVLANPoolingCreateVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
@@ -53,6 +56,9 @@ func NewWSGVLANPoolingCreateVlanPooling() *WSGVLANPoolingCreateVlanPooling {
 	return m
 }
 
+// WSGVLANPoolingDeleteBulkVlanPooling
+//
+// Definition: vlanpooling_deleteBulkVlanPooling
 type WSGVLANPoolingDeleteBulkVlanPooling struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -62,6 +68,9 @@ func NewWSGVLANPoolingDeleteBulkVlanPooling() *WSGVLANPoolingDeleteBulkVlanPooli
 	return m
 }
 
+// WSGVLANPoolingModifyVlanPooling
+//
+// Definition: vlanpooling_modifyVlanPooling
 type WSGVLANPoolingModifyVlanPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
@@ -87,6 +96,9 @@ func NewWSGVLANPoolingModifyVlanPooling() *WSGVLANPoolingModifyVlanPooling {
 	return m
 }
 
+// WSGVLANPooling
+//
+// Definition: vlanpooling_vlanPooling
 type WSGVLANPooling struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
@@ -116,6 +128,9 @@ func NewWSGVLANPooling() *WSGVLANPooling {
 	return m
 }
 
+// WSGVLANPoolingList
+//
+// Definition: vlanpooling_vlanPoolingList
 type WSGVLANPoolingList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -133,6 +148,9 @@ func NewWSGVLANPoolingList() *WSGVLANPoolingList {
 	return m
 }
 
+// WSGVLANPoolingListType
+//
+// Definition: vlanpooling_vlanPoolingListType
 type WSGVLANPoolingListType struct {
 	// Algo
 	// Algorithm of the VLAN pooling profile
@@ -167,6 +185,8 @@ func NewWSGVLANPoolingListType() *WSGVLANPoolingListType {
 
 // AddVlanpoolings
 //
+// Operation ID: addVlanpoolings
+//
 // Use this API command to create new VLAN pooling.
 //
 // Request Body:
@@ -196,6 +216,8 @@ func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVL
 
 // DeleteVlanpoolings
 //
+// Operation ID: deleteVlanpoolings
+//
 // Use this API command to bulk delete VLAN pooling.
 //
 // Request Body:
@@ -223,6 +245,8 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WS
 
 // DeleteVlanpoolingsById
 //
+// Operation ID: deleteVlanpoolingsById
+//
 // Use this API command to delete VLAN pooling.
 //
 // Required Parameters:
@@ -248,6 +272,8 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id s
 }
 
 // FindServicesVlanPoolingByQueryCriteria
+//
+// Operation ID: findServicesVlanPoolingByQueryCriteria
 //
 // Query Vlan Pooling Profiles with specified filters.
 //
@@ -278,6 +304,8 @@ func (s *WSGVLANPoolingService) FindServicesVlanPoolingByQueryCriteria(ctx conte
 
 // FindVlanpoolingsById
 //
+// Operation ID: findVlanpoolingsById
+//
 // Use this API command to retrieve VLAN pooling.
 //
 // Required Parameters:
@@ -304,6 +332,8 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id str
 }
 
 // FindVlanpoolingsByQueryCriteria
+//
+// Operation ID: findVlanpoolingsByQueryCriteria
 //
 // Use this API command to retrieve a list of VLAN poolings.
 //
@@ -333,6 +363,8 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 }
 
 // PartialUpdateVlanpoolingsById
+//
+// Operation ID: partialUpdateVlanpoolingsById
 //
 // Use this API command to modify the configuration on VLAN pooling.
 //

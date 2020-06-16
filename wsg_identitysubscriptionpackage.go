@@ -23,6 +23,8 @@ func (ss *WSGService) WSGIdentitySubscriptionPackageService() *WSGIdentitySubscr
 
 // AddIdentityPackageList
 //
+// Operation ID: addIdentityPackageList
+//
 // Use this API command to retrieve a list of subscription package.
 //
 // Request Body:
@@ -51,6 +53,8 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 }
 
 // AddIdentityPackages
+//
+// Operation ID: addIdentityPackages
 //
 // Use this API command to create subscription package.
 //
@@ -81,6 +85,8 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 
 // DeleteIdentityPackages
 //
+// Operation ID: deleteIdentityPackages
+//
 // Use this API command to delete multiple subscription packages.
 //
 // Request Body:
@@ -108,6 +114,8 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx conte
 
 // DeleteIdentityPackagesById
 //
+// Operation ID: deleteIdentityPackagesById
+//
 // Use this API command to delete subscription package.
 //
 // Required Parameters:
@@ -134,6 +142,8 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 
 // FindIdentityPackages
 //
+// Operation ID: findIdentityPackages
+//
 // Use this API command to retrieve a list of subscription package.
 func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context.Context, mutators ...RequestMutator) (*WSGIdentitySubscriptionPackageList, *APIResponseMeta, error) {
 	var (
@@ -155,6 +165,8 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 }
 
 // FindIdentityPackagesById
+//
+// Operation ID: findIdentityPackagesById
 //
 // Use this API command to retrieve subscription package.
 //
@@ -182,6 +194,8 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 }
 
 // PartialUpdateIdentityPackagesById
+//
+// Operation ID: partialUpdateIdentityPackagesById
 //
 // Use this API command to modify the configuration of subscription package.
 //

@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGClientDeAuthClient
+//
+// Definition: client_deAuthClient
 type WSGClientDeAuthClient struct {
 	// ApMac
 	// Constraints:
@@ -19,6 +22,9 @@ func NewWSGClientDeAuthClient() *WSGClientDeAuthClient {
 	return m
 }
 
+// WSGClientDeAuthClientList
+//
+// Definition: client_deAuthClientList
 type WSGClientDeAuthClientList struct {
 	ClientList []*WSGClientDeAuthClient `json:"clientList,omitempty"`
 }
@@ -28,6 +34,9 @@ func NewWSGClientDeAuthClientList() *WSGClientDeAuthClientList {
 	return m
 }
 
+// WSGClientDisconnectClient
+//
+// Definition: client_disconnectClient
 type WSGClientDisconnectClient struct {
 	// ApMac
 	// Constraints:
@@ -45,6 +54,9 @@ func NewWSGClientDisconnectClient() *WSGClientDisconnectClient {
 	return m
 }
 
+// WSGClientDisconnectClientList
+//
+// Definition: client_disconnectClientList
 type WSGClientDisconnectClientList struct {
 	ClientList []*WSGClientDisconnectClient `json:"clientList,omitempty"`
 }
@@ -54,6 +66,9 @@ func NewWSGClientDisconnectClientList() *WSGClientDisconnectClientList {
 	return m
 }
 
+// WSGClientHistoricalClient
+//
+// Definition: client_historicalClient
 type WSGClientHistoricalClient struct {
 	// ApMac
 	// Client connected AP's MAC address
@@ -133,6 +148,9 @@ func NewWSGClientHistoricalClient() *WSGClientHistoricalClient {
 	return m
 }
 
+// WSGClientHistoricalClientList
+//
+// Definition: client_historicalClientList
 type WSGClientHistoricalClientList struct {
 	Extra interface{} `json:"extra,omitempty"`
 

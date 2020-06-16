@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGDPSKBatchGenUnbound
+//
+// Definition: dpsk_batchGenUnbound
 type WSGDPSKBatchGenUnbound struct {
 	// Amount
 	// Amount of generate unbound DPSK
@@ -31,6 +34,9 @@ func NewWSGDPSKBatchGenUnbound() *WSGDPSKBatchGenUnbound {
 	return m
 }
 
+// WSGDPSKDeleteDpskResult
+//
+// Definition: dpsk_deleteDpskResult
 type WSGDPSKDeleteDpskResult struct {
 	ResultCount *int `json:"resultCount,omitempty"`
 }
@@ -40,6 +46,9 @@ func NewWSGDPSKDeleteDpskResult() *WSGDPSKDeleteDpskResult {
 	return m
 }
 
+// WSGDPSKDeleteDPSKs
+//
+// Definition: dpsk_deleteDPSKs
 type WSGDPSKDeleteDPSKs struct {
 	IdList []string `json:"idList,omitempty"`
 }
@@ -49,6 +58,9 @@ func NewWSGDPSKDeleteDPSKs() *WSGDPSKDeleteDPSKs {
 	return m
 }
 
+// WSGDPSKDeleteExpiredDpskConfig
+//
+// Definition: dpsk_deleteExpiredDpskConfig
 type WSGDPSKDeleteExpiredDpskConfig struct {
 	// DeleteExpiredDpsk
 	// Delete expired DPSK interval of the Zone.
@@ -64,6 +76,8 @@ func NewWSGDPSKDeleteExpiredDpskConfig() *WSGDPSKDeleteExpiredDpskConfig {
 
 // WSGDPSKInfo
 //
+// Definition: dpsk_dpskInfo
+//
 // Information list of DPSK
 type WSGDPSKInfo []*WSGDPSKInfoType
 
@@ -72,6 +86,9 @@ func MakeWSGDPSKInfo() WSGDPSKInfo {
 	return m
 }
 
+// WSGDPSKInfoType
+//
+// Definition: dpsk_dpskInfoType
 type WSGDPSKInfoType struct {
 	// CreationDateTime
 	// Creationd date/time of DPSK
@@ -119,6 +136,9 @@ func NewWSGDPSKInfoType() *WSGDPSKInfoType {
 	return m
 }
 
+// WSGDPSKQueryList
+//
+// Definition: dpsk_dpskQueryList
 type WSGDPSKQueryList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -138,6 +158,9 @@ func NewWSGDPSKQueryList() *WSGDPSKQueryList {
 	return m
 }
 
+// WSGDPSKQueryListType
+//
+// Definition: dpsk_dpskQueryListType
 type WSGDPSKQueryListType struct {
 	// CreateDateTime
 	// Creationd time of DPSK
@@ -205,6 +228,9 @@ func NewWSGDPSKQueryListType() *WSGDPSKQueryListType {
 	return m
 }
 
+// WSGDPSKGetDpskEnabledWlans
+//
+// Definition: dpsk_getDpskEnabledWlans
 type WSGDPSKGetDpskEnabledWlans struct {
 	// FirstIndex
 	// Index of the first DPSK enabled WLAN returned out of the complete WLAN list
@@ -226,6 +252,9 @@ func NewWSGDPSKGetDpskEnabledWlans() *WSGDPSKGetDpskEnabledWlans {
 	return m
 }
 
+// WSGDPSKGetDpskEnabledWlansListType
+//
+// Definition: dpsk_getDpskEnabledWlansListType
 type WSGDPSKGetDpskEnabledWlansListType struct {
 	// Ssid
 	// SSID of the DPSK enabled WLAN
@@ -245,6 +274,9 @@ func NewWSGDPSKGetDpskEnabledWlansListType() *WSGDPSKGetDpskEnabledWlansListType
 	return m
 }
 
+// WSGDPSKGetDpskInfoList
+//
+// Definition: dpsk_getDpskInfoList
 type WSGDPSKGetDpskInfoList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -260,6 +292,9 @@ func NewWSGDPSKGetDpskInfoList() *WSGDPSKGetDpskInfoList {
 	return m
 }
 
+// WSGDPSKGetDpskResult
+//
+// Definition: dpsk_getDpskResult
 type WSGDPSKGetDpskResult struct {
 	DpskInfoList WSGDPSKInfo `json:"dpskInfoList,omitempty"`
 
@@ -271,6 +306,9 @@ func NewWSGDPSKGetDpskResult() *WSGDPSKGetDpskResult {
 	return m
 }
 
+// WSGDPSKModifyDeleteExpiredDpsk
+//
+// Definition: dpsk_modifyDeleteExpiredDpsk
 type WSGDPSKModifyDeleteExpiredDpsk struct {
 	// DeleteExpiredDpsk
 	// Delete expired DPSK interval of the Zone.
@@ -284,6 +322,9 @@ func NewWSGDPSKModifyDeleteExpiredDpsk() *WSGDPSKModifyDeleteExpiredDpsk {
 	return m
 }
 
+// WSGDPSKUpdateDpsk
+//
+// Definition: dpsk_updateDpsk
 type WSGDPSKUpdateDpsk struct {
 	// UserName
 	// User Name of DPSK
@@ -295,6 +336,9 @@ func NewWSGDPSKUpdateDpsk() *WSGDPSKUpdateDpsk {
 	return m
 }
 
+// WSGDPSKWlanDpskSetting
+//
+// Definition: dpsk_wlanDpskSetting
 type WSGDPSKWlanDpskSetting struct {
 	// DpskEnabled
 	// DPSK enabled
@@ -331,6 +375,9 @@ func NewWSGDPSKWlanDpskSetting() *WSGDPSKWlanDpskSetting {
 	return m
 }
 
+// WSGDPSKWlanExternalDpsk
+//
+// Definition: dpsk_wlanExternalDpsk
 type WSGDPSKWlanExternalDpsk struct {
 	// AuthService
 	// Autentication of the WLAN relate to external DPSK
@@ -355,6 +402,8 @@ func NewWSGDPSKWlanExternalDpsk() *WSGDPSKWlanExternalDpsk {
 
 // WSGDPSKWlanExternalDpskAuthServiceType
 //
+// Definition: dpsk_wlanExternalDpskAuthServiceType
+//
 // Autentication of the WLAN relate to external DPSK
 type WSGDPSKWlanExternalDpskAuthServiceType struct {
 	// Id
@@ -372,6 +421,8 @@ func NewWSGDPSKWlanExternalDpskAuthServiceType() *WSGDPSKWlanExternalDpskAuthSer
 }
 
 // WSGDPSKWlanExternalDpskEncryptionType
+//
+// Definition: dpsk_wlanExternalDpskEncryptionType
 //
 // Encryption of the WLAN relate to external DPSK
 type WSGDPSKWlanExternalDpskEncryptionType struct {

@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGPortalDetectionProfileCreatePortalDetectionProfile
+//
+// Definition: portalDetectionProfile_createPortalDetectionProfile
 type WSGPortalDetectionProfileCreatePortalDetectionProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
@@ -20,6 +23,9 @@ func NewWSGPortalDetectionProfileCreatePortalDetectionProfile() *WSGPortalDetect
 	return m
 }
 
+// WSGPortalDetectionProfilePortalDetectionPattern
+//
+// Definition: portalDetectionProfile_portalDetectionPattern
 type WSGPortalDetectionProfilePortalDetectionPattern struct {
 	// HttpCode
 	// HTTP status codes
@@ -59,6 +65,9 @@ func NewWSGPortalDetectionProfilePortalDetectionPattern() *WSGPortalDetectionPro
 	return m
 }
 
+// WSGPortalDetectionProfile
+//
+// Definition: portalDetectionProfile_portalDetectionProfile
 type WSGPortalDetectionProfile struct {
 	// CreateDateTime
 	// Timestamp of being created
@@ -108,6 +117,9 @@ func NewWSGPortalDetectionProfile() *WSGPortalDetectionProfile {
 	return m
 }
 
+// WSGPortalDetectionProfileList
+//
+// Definition: portalDetectionProfile_portalDetectionProfileList
 type WSGPortalDetectionProfileList struct {
 	Extra interface{} `json:"extra,omitempty"`
 

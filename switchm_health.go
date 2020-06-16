@@ -22,6 +22,9 @@ func (ss *SwitchMService) SwitchMHealthService() *SwitchMHealthService {
 	return NewSwitchMHealthService(ss.apiClient)
 }
 
+// SwitchMHealthAggMetrics
+//
+// Definition: health_aggMetrics
 type SwitchMHealthAggMetrics struct {
 	// Extra
 	// Extra information for Aggregation Metrics
@@ -53,6 +56,8 @@ func NewSwitchMHealthAggMetrics() *SwitchMHealthAggMetrics {
 
 // SwitchMHealthAggMetricsExtraType
 //
+// Definition: health_aggMetricsExtraType
+//
 // Extra information for Aggregation Metrics
 type SwitchMHealthAggMetricsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -79,6 +84,9 @@ func NewSwitchMHealthAggMetricsExtraType() *SwitchMHealthAggMetricsExtraType {
 	return m
 }
 
+// SwitchMHealthAggs
+//
+// Definition: health_aggs
 type SwitchMHealthAggs struct {
 	// Id
 	// Identifier of the aggregation value
@@ -98,6 +106,9 @@ func NewSwitchMHealthAggs() *SwitchMHealthAggs {
 	return m
 }
 
+// SwitchMHealthIcxMetrics
+//
+// Definition: health_icxMetrics
 type SwitchMHealthIcxMetrics struct {
 	// Extra
 	// Extra information for ICX Metrics
@@ -129,6 +140,8 @@ func NewSwitchMHealthIcxMetrics() *SwitchMHealthIcxMetrics {
 
 // SwitchMHealthIcxMetricsExtraType
 //
+// Definition: health_icxMetricsExtraType
+//
 // Extra information for ICX Metrics
 type SwitchMHealthIcxMetricsExtraType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -155,6 +168,9 @@ func NewSwitchMHealthIcxMetricsExtraType() *SwitchMHealthIcxMetricsExtraType {
 	return m
 }
 
+// SwitchMHealthMetrics
+//
+// Definition: health_metrics
 type SwitchMHealthMetrics struct {
 	// Avg
 	// Average metrics.  Value may be either float or "NaN"
@@ -178,6 +194,9 @@ func NewSwitchMHealthMetrics() *SwitchMHealthMetrics {
 	return m
 }
 
+// SwitchMHealthStatus
+//
+// Definition: health_status
 type SwitchMHealthStatus struct {
 	// Fan
 	// Fan
@@ -209,6 +228,9 @@ func NewSwitchMHealthStatus() *SwitchMHealthStatus {
 	return m
 }
 
+// SwitchMHealthStatusFanType
+//
+// Definition: health_statusFanType
 type SwitchMHealthStatusFanType struct {
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
@@ -230,6 +252,9 @@ func NewSwitchMHealthStatusFanType() *SwitchMHealthStatusFanType {
 	return m
 }
 
+// SwitchMHealthStatusPowerSupplyType
+//
+// Definition: health_statusPowerSupplyType
 type SwitchMHealthStatusPowerSupplyType struct {
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
@@ -251,6 +276,9 @@ func NewSwitchMHealthStatusPowerSupplyType() *SwitchMHealthStatusPowerSupplyType
 	return m
 }
 
+// SwitchMHealthStatusTemperatureType
+//
+// Definition: health_statusTemperatureType
 type SwitchMHealthStatusTemperatureType struct {
 	// SlotNumber
 	// Solt number
@@ -267,6 +295,8 @@ func NewSwitchMHealthStatusTemperatureType() *SwitchMHealthStatusTemperatureType
 }
 
 // AddHealthCpuAgg
+//
+// Operation ID: addHealthCpuAgg
 //
 // Use this API command to retrieve aggregated CPU (min, max, avg, curr) data based on the time duration.
 //
@@ -297,6 +327,8 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 
 // AddHealthCpuLine
 //
+// Operation ID: addHealthCpuLine
+//
 // Use this API command to retrieve CPU trend data based on the time duration.
 //
 // Request Body:
@@ -325,6 +357,8 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 }
 
 // AddHealthMemAgg
+//
+// Operation ID: addHealthMemAgg
 //
 // Use this API command to retrieve aggregated CPU (min, max, avg, curr) data based on the time duration.
 //
@@ -355,6 +389,8 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 
 // AddHealthMemLine
 //
+// Operation ID: addHealthMemLine
+//
 // Use this API command to retrieve switch memory trend data based on the time duration.
 //
 // Request Body:
@@ -384,6 +420,8 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 
 // AddHealthStatus
 //
+// Operation ID: addHealthStatus
+//
 // Use this API command to retrieve switch health status.
 //
 // Request Body:
@@ -412,6 +450,8 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 }
 
 // AddHealthStatusAll
+//
+// Operation ID: addHealthStatusAll
 //
 // Use this API command to retrieve fan, temperature and power supply status for the switch managed by SmartZone.
 //

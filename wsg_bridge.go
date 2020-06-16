@@ -23,6 +23,8 @@ func (ss *WSGService) WSGBridgeService() *WSGBridgeService {
 
 // AddProfilesBridge
 //
+// Operation ID: addProfilesBridge
+//
 // Use this API command to create Bridge profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfi
 
 // DeleteProfilesBridge
 //
+// Operation ID: deleteProfilesBridge
+//
 // Use this API command to delete multiple bridge profile.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCo
 
 // DeleteProfilesBridgeById
 //
+// Operation ID: deleteProfilesBridgeById
+//
 // Use this API command to delete Bridge profile.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id stri
 
 // FindProfilesBridge
 //
+// Operation ID: findProfilesBridge
+//
 // Use this API command to retrieve a list of Bridge profile.
 func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context, mutators ...RequestMutator) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
@@ -126,6 +134,8 @@ func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context, mutators ...R
 }
 
 // FindProfilesBridgeById
+//
+// Operation ID: findProfilesBridgeById
 //
 // Use this API command to retrieve Bridge profile by ID.
 //
@@ -153,6 +163,8 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 }
 
 // FindProfilesBridgeByQueryCriteria
+//
+// Operation ID: findProfilesBridgeByQueryCriteria
 //
 // Use this API command to query a list of Bridge profile.
 //
@@ -182,6 +194,8 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 }
 
 // PartialUpdateProfilesBridgeById
+//
+// Operation ID: partialUpdateProfilesBridgeById
 //
 // Use this API command to modify the configuration of Bridge profile.
 //

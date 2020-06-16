@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGClientQueryList
+//
+// Definition: clientQuery_clientQueryList
 type WSGClientQueryList struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -19,6 +22,9 @@ func NewWSGClientQueryList() *WSGClientQueryList {
 	return m
 }
 
+// WSGClientQueryCreateClientQuery
+//
+// Definition: clientQuery_createClientQuery
 type WSGClientQueryCreateClientQuery struct {
 	Alerts *int `json:"alerts,omitempty"`
 
@@ -120,6 +126,9 @@ func NewWSGClientQueryCreateClientQuery() *WSGClientQueryCreateClientQuery {
 	return m
 }
 
+// WSGClientQueryTcWithQuota
+//
+// Definition: clientQuery_tcWithQuota
 type WSGClientQueryTcWithQuota struct {
 	TcMaxQuota *string `json:"tcMaxQuota,omitempty"`
 

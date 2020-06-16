@@ -23,6 +23,8 @@ func (ss *WSGService) WSGBonjourFencingPolicyService() *WSGBonjourFencingPolicyS
 
 // AddRkszonesBonjourFencingPolicyByZoneId
 //
+// Operation ID: addRkszonesBonjourFencingPolicyByZoneId
+//
 // Use this API command to create Bonjour Fencing Policy.
 //
 // Request Body:
@@ -57,6 +59,8 @@ func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId
 
 // DeleteRkszonesBonjourFencingPolicy
 //
+// Operation ID: deleteRkszonesBonjourFencingPolicy
+//
 // Use this API command to delete Bulk Bonjour Fencing Policy.
 //
 // Request Body:
@@ -84,6 +88,8 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx 
 
 // DeleteRkszonesBonjourFencingPolicyById
 //
+// Operation ID: deleteRkszonesBonjourFencingPolicyById
+//
 // Use this API command to delete Bonjour Fencing Policy.
 //
 // Required Parameters:
@@ -109,6 +115,8 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(
 }
 
 // FindApsBonjourFencingStatisticByApMac
+//
+// Operation ID: findApsBonjourFencingStatisticByApMac
 //
 // Use this API command to get Bonjour Fencing Statistic per AP.
 //
@@ -136,6 +144,8 @@ func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(c
 }
 
 // FindRkszonesBonjourFencingPolicyById
+//
+// Operation ID: findRkszonesBonjourFencingPolicyById
 //
 // Use this API command to retrieve Bonjour Fencing Policy.
 //
@@ -167,6 +177,8 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ct
 
 // FindRkszonesBonjourFencingPolicyByZoneId
 //
+// Operation ID: findRkszonesBonjourFencingPolicyByZoneId
+//
 // Use this API command to retrieve a list of Bonjour Fencing Policy.
 //
 // Required Parameters:
@@ -193,6 +205,8 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 }
 
 // FindServicesBonjourFencingPolicyByQueryCriteria
+//
+// Operation ID: findServicesBonjourFencingPolicyByQueryCriteria
 //
 // Use this API command to retrieve a list of Bonjour Fencing Policy.
 //
@@ -222,6 +236,8 @@ func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQuery
 }
 
 // PartialUpdateRkszonesBonjourFencingPolicyById
+//
+// Operation ID: partialUpdateRkszonesBonjourFencingPolicyById
 //
 // Use this API command to modify the configuration of Bonjour Fencing Policy.
 //

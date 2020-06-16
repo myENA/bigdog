@@ -21,6 +21,9 @@ func (ss *WSGService) WSGServiceTicketService() *WSGServiceTicketService {
 	return NewWSGServiceTicketService(ss.apiClient)
 }
 
+// WSGServiceTicketLoginRequest
+//
+// Definition: serviceTicket_loginRequest
 type WSGServiceTicketLoginRequest struct {
 	// Password
 	// Logon password
@@ -40,6 +43,9 @@ func NewWSGServiceTicketLoginRequest() *WSGServiceTicketLoginRequest {
 	return m
 }
 
+// WSGServiceTicketLoginResponse
+//
+// Definition: serviceTicket_loginResponse
 type WSGServiceTicketLoginResponse struct {
 	ControllerVersion *string `json:"controllerVersion,omitempty"`
 
@@ -54,6 +60,8 @@ func NewWSGServiceTicketLoginResponse() *WSGServiceTicketLoginResponse {
 }
 
 // AddServiceTicket
+//
+// Operation ID: addServiceTicket
 //
 // Use this API command to log on to the controller and acquire a valid service ticket.
 //
@@ -83,6 +91,8 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 }
 
 // DeleteServiceTicket
+//
+// Operation ID: deleteServiceTicket
 //
 // Use this API command to log off of the controller.
 //

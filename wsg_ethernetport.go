@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGEthernetPortCreateEthernetPortProfile
+//
+// Definition: ethernetPort_createEthernetPortProfile
 type WSGEthernetPortCreateEthernetPortProfile struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
@@ -93,6 +96,9 @@ func NewWSGEthernetPortCreateEthernetPortProfile() *WSGEthernetPortCreateEtherne
 	return m
 }
 
+// WSGEthernetPortProfile
+//
+// Definition: ethernetPort_ethernetPortProfile
 type WSGEthernetPortProfile struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
@@ -179,6 +185,9 @@ func NewWSGEthernetPortProfile() *WSGEthernetPortProfile {
 	return m
 }
 
+// WSGEthernetPortModifyEthernetPortProfile
+//
+// Definition: ethernetPort_modifyEthernetPortProfile
 type WSGEthernetPortModifyEthernetPortProfile struct {
 	// AntiSpoofingEnabled
 	// Anti-Spoofing enabled
@@ -256,6 +265,9 @@ func NewWSGEthernetPortModifyEthernetPortProfile() *WSGEthernetPortModifyEtherne
 	return m
 }
 
+// WSGEthernetPortProfileList
+//
+// Definition: ethernetPort_profileList
 type WSGEthernetPortProfileList struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -271,6 +283,9 @@ func NewWSGEthernetPortProfileList() *WSGEthernetPortProfileList {
 	return m
 }
 
+// WSGEthernetPortProfileListType
+//
+// Definition: ethernetPort_profileListType
 type WSGEthernetPortProfileListType struct {
 	// Id
 	// Identifier of the service

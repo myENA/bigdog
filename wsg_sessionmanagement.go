@@ -21,6 +21,9 @@ func (ss *WSGService) WSGSessionManagementService() *WSGSessionManagementService
 	return NewWSGSessionManagementService(ss.apiClient)
 }
 
+// WSGSessionManagementRuckusSession
+//
+// Definition: sessionManagement_ruckusSession
 type WSGSessionManagementRuckusSession struct {
 	// AuthType
 	// The authentication type of logon
@@ -56,6 +59,9 @@ func NewWSGSessionManagementRuckusSession() *WSGSessionManagementRuckusSession {
 	return m
 }
 
+// WSGSessionManagementRuckusSessions
+//
+// Definition: sessionManagement_ruckusSessions
 type WSGSessionManagementRuckusSessions struct {
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -72,6 +78,8 @@ func NewWSGSessionManagementRuckusSessions() *WSGSessionManagementRuckusSessions
 }
 
 // FindSessionManagement
+//
+// Operation ID: findSessionManagement
 //
 // Use this API command to retrieve information about the current logon sessions.
 func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context, mutators ...RequestMutator) (*WSGSessionManagementRuckusSessions, *APIResponseMeta, error) {

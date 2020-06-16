@@ -23,6 +23,8 @@ func (ss *WSGService) WSGL2oGREService() *WSGL2oGREService {
 
 // AddProfilesL2ogre
 //
+// Operation ID: addProfilesL2ogre
+//
 // Use this API command to create L2oGRE profile.
 //
 // Request Body:
@@ -52,6 +54,8 @@ func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *WSGProfi
 
 // DeleteProfilesL2ogre
 //
+// Operation ID: deleteProfilesL2ogre
+//
 // Use this API command to delete multiple L2oGRE profile.
 //
 // Request Body:
@@ -79,6 +83,8 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *WSGCo
 
 // DeleteProfilesL2ogreById
 //
+// Operation ID: deleteProfilesL2ogreById
+//
 // Use this API command to delete L2oGRE profile.
 //
 // Required Parameters:
@@ -105,6 +111,8 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id stri
 
 // FindProfilesL2ogre
 //
+// Operation ID: findProfilesL2ogre
+//
 // Use this API command to retrieve a list of L2oGRE profile.
 func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context, mutators ...RequestMutator) (*WSGProfileList, *APIResponseMeta, error) {
 	var (
@@ -126,6 +134,8 @@ func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context, mutators ...R
 }
 
 // FindProfilesL2ogreById
+//
+// Operation ID: findProfilesL2ogreById
 //
 // Use this API command to retrieve L2oGRE profile by ID.
 //
@@ -153,6 +163,8 @@ func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string
 }
 
 // FindProfilesL2ogreByQueryCriteria
+//
+// Operation ID: findProfilesL2ogreByQueryCriteria
 //
 // Use this API command to query a list of L2oGRE profile.
 //
@@ -182,6 +194,8 @@ func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context
 }
 
 // PartialUpdateProfilesL2ogreById
+//
+// Operation ID: partialUpdateProfilesL2ogreById
 //
 // Use this API command to modify the configuration of L2oGRE profile.
 //

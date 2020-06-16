@@ -6,6 +6,9 @@ import (
 	"encoding/json"
 )
 
+// SCIModelsFilter
+//
+// Definition: filter
 type SCIModelsFilter struct {
 	// Filter
 	// {"type":"and","fields": [{"type":"or","fields": [{"type":"selector","dimension":"radio","value":"2.4"}]}]}}
@@ -32,6 +35,8 @@ func NewSCIModelsFilter() *SCIModelsFilter {
 
 // SCIModelsMigration
 //
+// Definition: Migration
+//
 // View and run pending migrations.
 type SCIModelsMigration struct {
 	Id *float64 `json:"id,omitempty"`
@@ -53,6 +58,8 @@ func NewSCIModelsMigration() *SCIModelsMigration {
 }
 
 // SCIModelsMigrationMap
+//
+// Definition: MigrationMap
 //
 // Migration Mappings.
 type SCIModelsMigrationMap struct {
@@ -81,6 +88,9 @@ func NewSCIModelsMigrationMap() *SCIModelsMigrationMap {
 	return m
 }
 
+// SCIModelsMigrationMapDataType
+//
+// Definition: MigrationMapDataType
 type SCIModelsMigrationMapDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -106,6 +116,9 @@ func NewSCIModelsMigrationMapDataType() *SCIModelsMigrationMapDataType {
 	return m
 }
 
+// SCIModelsPciProfile
+//
+// Definition: pciProfile
 type SCIModelsPciProfile struct {
 	// Answers
 	// list of selected ssids
@@ -133,6 +146,8 @@ func NewSCIModelsPciProfile() *SCIModelsPciProfile {
 
 // SCIModelsPciProfileAnswersType
 //
+// Definition: pciProfileAnswersType
+//
 // list of selected ssids
 type SCIModelsPciProfileAnswersType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
@@ -159,6 +174,9 @@ func NewSCIModelsPciProfileAnswersType() *SCIModelsPciProfileAnswersType {
 	return m
 }
 
+// SCIModelsPciReport
+//
+// Definition: pciReport
 type SCIModelsPciReport struct {
 	// Date
 	// Date of report generation
@@ -183,6 +201,9 @@ func NewSCIModelsPciReport() *SCIModelsPciReport {
 	return m
 }
 
+// SCIModelsPciReportStatusesType
+//
+// Definition: pciReportStatusesType
 type SCIModelsPciReportStatusesType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -208,6 +229,9 @@ func NewSCIModelsPciReportStatusesType() *SCIModelsPciReportStatusesType {
 	return m
 }
 
+// SCIModelsReport
+//
+// Definition: report
 type SCIModelsReport struct {
 	Component *string `json:"component,omitempty"`
 
@@ -241,6 +265,9 @@ func NewSCIModelsReport() *SCIModelsReport {
 	return m
 }
 
+// SCIModelsReportRouteParametersType
+//
+// Definition: reportRouteParametersType
 type SCIModelsReportRouteParametersType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -266,6 +293,9 @@ func NewSCIModelsReportRouteParametersType() *SCIModelsReportRouteParametersType
 	return m
 }
 
+// SCIModelsResourceGroup
+//
+// Definition: resourceGroup
 type SCIModelsResourceGroup struct {
 	Description *string `json:"description,omitempty"`
 
@@ -297,6 +327,9 @@ func NewSCIModelsResourceGroup() *SCIModelsResourceGroup {
 	return m
 }
 
+// SCIModelsSchedule
+//
+// Definition: schedule
 type SCIModelsSchedule struct {
 	// Day
 	// 1 for 1st or monday
@@ -356,6 +389,9 @@ func NewSCIModelsSchedule() *SCIModelsSchedule {
 	return m
 }
 
+// SCIModelsSection
+//
+// Definition: section
 type SCIModelsSection struct {
 	Component *string `json:"component,omitempty"`
 
@@ -385,6 +421,9 @@ func NewSCIModelsSection() *SCIModelsSection {
 	return m
 }
 
+// SCIModelsSectionDefaultParametersType
+//
+// Definition: sectionDefaultParametersType
 type SCIModelsSectionDefaultParametersType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -410,6 +449,9 @@ func NewSCIModelsSectionDefaultParametersType() *SCIModelsSectionDefaultParamete
 	return m
 }
 
+// SCIModelsSectionLayoutType
+//
+// Definition: sectionLayoutType
 type SCIModelsSectionLayoutType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -435,6 +477,9 @@ func NewSCIModelsSectionLayoutType() *SCIModelsSectionLayoutType {
 	return m
 }
 
+// SCIModelsSetting
+//
+// Definition: setting
 type SCIModelsSetting struct {
 	// Key
 	// Constraints:
@@ -452,6 +497,9 @@ func NewSCIModelsSetting() *SCIModelsSetting {
 	return m
 }
 
+// SCIModelsSettingValuesType
+//
+// Definition: settingValuesType
 type SCIModelsSettingValuesType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -477,6 +525,9 @@ func NewSCIModelsSettingValuesType() *SCIModelsSettingValuesType {
 	return m
 }
 
+// SCIModelsSystem
+//
+// Definition: system
 type SCIModelsSystem struct {
 	BackupLocation *string `json:"backupLocation,omitempty"`
 
@@ -519,6 +570,9 @@ func NewSCIModelsSystem() *SCIModelsSystem {
 	return m
 }
 
+// SCIModelsSystemPciDataType
+//
+// Definition: systemPciDataType
 type SCIModelsSystemPciDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -544,6 +598,9 @@ func NewSCIModelsSystemPciDataType() *SCIModelsSystemPciDataType {
 	return m
 }
 
+// SCIModelsUser
+//
+// Definition: user
 type SCIModelsUser struct {
 	// Email
 	// Constraints:
@@ -576,6 +633,8 @@ func NewSCIModelsUser() *SCIModelsUser {
 
 // SCIModelsUserLogin
 //
+// Definition: userLogin
+//
 // Credentials used to log a user in
 type SCIModelsUserLogin struct {
 	// Password
@@ -595,6 +654,8 @@ func NewSCIModelsUserLogin() *SCIModelsUserLogin {
 }
 
 // SCIModelsUserLoginResponse
+//
+// Definition: userLoginResponse
 //
 // User Login details
 type SCIModelsUserLoginResponse struct {

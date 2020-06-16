@@ -23,6 +23,9 @@ func (ss *SCIService) SCIFacetService() *SCIFacetService {
 	return NewSCIFacetService(ss.apiClient)
 }
 
+// SCIFacetGetFacet200ResponseType
+//
+// Definition: facet.getFacet200ResponseType
 type SCIFacetGetFacet200ResponseType []interface{}
 
 func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
@@ -31,6 +34,8 @@ func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 }
 
 // FacetGetFacet
+//
+// Operation ID: facet.getFacet
 //
 // For the <b><code>filter</code></b> field below, an example would be
 // <pre>

@@ -21,6 +21,9 @@ func (ss *WSGService) WSGFlexiVPNService() *WSGFlexiVPNService {
 	return NewWSGFlexiVPNService(ss.apiClient)
 }
 
+// WSGFlexiVPNSetting
+//
+// Definition: flexiVpn_flexiVpnSetting
 type WSGFlexiVPNSetting struct {
 	// ZoneAffinityId
 	// Zone Affinity ID
@@ -35,6 +38,8 @@ func NewWSGFlexiVPNSetting() *WSGFlexiVPNSetting {
 }
 
 // DeleteRkszonesWlansFlexiVpnProfileById
+//
+// Operation ID: deleteRkszonesWlansFlexiVpnProfileById
 //
 // Use this API command to delete Flexi-VPN on WLAN
 //
@@ -64,6 +69,8 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 }
 
 // FindServicesFlexiVpnProfileByQueryCriteria
+//
+// Operation ID: findServicesFlexiVpnProfileByQueryCriteria
 //
 // Use this API command to query Flexi-VPN profiles.
 //

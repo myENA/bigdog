@@ -21,6 +21,9 @@ func (ss *WSGService) WSGVendorSpecificAttributeProfileService() *WSGVendorSpeci
 	return NewWSGVendorSpecificAttributeProfileService(ss.apiClient)
 }
 
+// WSGVendorSpecificAttributeProfileCreateResult
+//
+// Definition: vendorSpecificAttributeProfile_createResult
 type WSGVendorSpecificAttributeProfileCreateResult struct {
 	// Id
 	// Identifier of the vendor specific attribute profile
@@ -32,6 +35,9 @@ func NewWSGVendorSpecificAttributeProfileCreateResult() *WSGVendorSpecificAttrib
 	return m
 }
 
+// WSGVendorSpecificAttributeProfileDeleteBulk
+//
+// Definition: vendorSpecificAttributeProfile_deleteBulk
 type WSGVendorSpecificAttributeProfileDeleteBulk struct {
 	IdList WSGCommonIdList `json:"idList,omitempty"`
 }
@@ -41,6 +47,9 @@ func NewWSGVendorSpecificAttributeProfileDeleteBulk() *WSGVendorSpecificAttribut
 	return m
 }
 
+// WSGVendorSpecificAttributeProfileGet
+//
+// Definition: vendorSpecificAttributeProfile_get
 type WSGVendorSpecificAttributeProfileGet struct {
 	// Attributes
 	// Vendor specific attribute list for Radius protocol
@@ -68,6 +77,9 @@ func NewWSGVendorSpecificAttributeProfileGet() *WSGVendorSpecificAttributeProfil
 	return m
 }
 
+// WSGVendorSpecificAttributeProfileList
+//
+// Definition: vendorSpecificAttributeProfile_list
 type WSGVendorSpecificAttributeProfileList struct {
 	// FirstIndex
 	// Index of the first profile returned out of the profile list
@@ -91,6 +103,9 @@ func NewWSGVendorSpecificAttributeProfileList() *WSGVendorSpecificAttributeProfi
 	return m
 }
 
+// WSGVendorSpecificAttributeProfileListType
+//
+// Definition: vendorSpecificAttributeProfile_listType
 type WSGVendorSpecificAttributeProfileListType struct {
 	// Id
 	// Identifier of the vendor specific attribute profile
@@ -104,6 +119,9 @@ func NewWSGVendorSpecificAttributeProfileListType() *WSGVendorSpecificAttributeP
 	return m
 }
 
+// WSGVendorSpecificAttributeProfilePersist
+//
+// Definition: vendorSpecificAttributeProfile_persist
 type WSGVendorSpecificAttributeProfilePersist struct {
 	// Attributes
 	// Vendor specific attribute list for Radius protocol
@@ -124,6 +142,9 @@ func NewWSGVendorSpecificAttributeProfilePersist() *WSGVendorSpecificAttributePr
 	return m
 }
 
+// WSGVendorSpecificAttributeProfileQueryCriteriaResult
+//
+// Definition: vendorSpecificAttributeProfile_queryCriteriaResult
 type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
 	Extra interface{} `json:"extra,omitempty"`
 
@@ -141,6 +162,9 @@ func NewWSGVendorSpecificAttributeProfileQueryCriteriaResult() *WSGVendorSpecifi
 	return m
 }
 
+// WSGVendorSpecificAttributeProfileVendorSpecificAttribute
+//
+// Definition: vendorSpecificAttributeProfile_vendorSpecificAttribute
 type WSGVendorSpecificAttributeProfileVendorSpecificAttribute struct {
 	// KeyId
 	// Key ID of vendor specific attribute
@@ -182,6 +206,8 @@ func NewWSGVendorSpecificAttributeProfileVendorSpecificAttribute() *WSGVendorSpe
 
 // AddRkszonesVendorSpecificAttributeProfilesByZoneId
 //
+// Operation ID: addRkszonesVendorSpecificAttributeProfilesByZoneId
+//
 // Create a vendor specific attribute profile.
 //
 // Request Body:
@@ -216,6 +242,8 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 
 // DeleteRkszonesVendorSpecificAttributeProfilesById
 //
+// Operation ID: deleteRkszonesVendorSpecificAttributeProfilesById
+//
 // Use this API command to delete a vendor specific attribute profile by ID.
 //
 // Required Parameters:
@@ -244,6 +272,8 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 }
 
 // DeleteRkszonesVendorSpecificAttributeProfilesByZoneId
+//
+// Operation ID: deleteRkszonesVendorSpecificAttributeProfilesByZoneId
 //
 // Use this API command to delete a list of vendor specific attribute profile.
 //
@@ -277,6 +307,8 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 
 // FindRkszonesVendorSpecificAttributeProfilesById
 //
+// Operation ID: findRkszonesVendorSpecificAttributeProfilesById
+//
 // Get a vendor specific attribute profile by ID.
 //
 // Required Parameters:
@@ -307,6 +339,8 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 
 // FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria
 //
+// Operation ID: findRkszonesVendorSpecificAttributeProfilesByQueryCriteria
+//
 // Use this API command to retrieve a list of vendor specific attribute profile by query criteria.
 //
 // Request Body:
@@ -336,6 +370,8 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 
 // FindRkszonesVendorSpecificAttributeProfilesByZoneId
 //
+// Operation ID: findRkszonesVendorSpecificAttributeProfilesByZoneId
+//
 // Get a ID list of vendor specific attribute profile in this Zone.
 //
 // Required Parameters:
@@ -362,6 +398,8 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 }
 
 // UpdateRkszonesVendorSpecificAttributeProfilesById
+//
+// Operation ID: updateRkszonesVendorSpecificAttributeProfilesById
 //
 // Use this API command to modify entire information of a vendor specific attribute profile.
 //

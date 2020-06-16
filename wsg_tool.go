@@ -2,6 +2,9 @@ package bigdog
 
 // API Version: v9_0
 
+// WSGToolSpeedFlex
+//
+// Definition: tool_speedFlex
 type WSGToolSpeedFlex struct {
 	ClientIp *WSGCommonIpAddress `json:"clientIp,omitempty"`
 
@@ -41,6 +44,9 @@ func NewWSGToolSpeedFlex() *WSGToolSpeedFlex {
 	return m
 }
 
+// WSGToolTestResult
+//
+// Definition: tool_testResult
 type WSGToolTestResult struct {
 	// Downlink
 	// Downlink

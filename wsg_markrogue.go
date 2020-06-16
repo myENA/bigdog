@@ -23,6 +23,8 @@ func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
 
 // AddRogueMarkIgnore
 //
+// Operation ID: addRogueMarkIgnore
+//
 // Mark a rogue AP as ignore.
 //
 // Request Body:
@@ -49,6 +51,8 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 }
 
 // AddRogueMarkKnown
+//
+// Operation ID: addRogueMarkKnown
 //
 // Mark a rogue AP as know.
 //
@@ -77,6 +81,8 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 
 // AddRogueMarkMalicious
 //
+// Operation ID: addRogueMarkMalicious
+//
 // Mark a rogue AP as malicious.
 //
 // Request Body:
@@ -103,6 +109,8 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 }
 
 // AddRogueMarkRogue
+//
+// Operation ID: addRogueMarkRogue
 //
 // Mark a rogue AP as rogue.
 //
@@ -131,6 +139,8 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 
 // AddRogueUnMark
 //
+// Operation ID: addRogueUnMark
+//
 // Use this API command to remove the manual admin classification marking.
 //
 // Request Body:
@@ -157,6 +167,8 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 }
 
 // FindRogueMarkKnown
+//
+// Operation ID: findRogueMarkKnown
 //
 // Get Known Rogue AP list.
 func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context, mutators ...RequestMutator) (*WSGAPModifyRogueType, *APIResponseMeta, error) {

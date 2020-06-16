@@ -26,6 +26,8 @@ func (ss *SwitchMService) SwitchMWiredClientsService() *SwitchMWiredClientsServi
 
 // AddSwitchClients
 //
+// Operation ID: addSwitchClients
+//
 // Use this API command to retrieve all the wired clients connected to switch, currently managed by SmartZone.
 //
 // Request Body:
@@ -55,6 +57,8 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 
 // AddSwitchClientsAp
 //
+// Operation ID: addSwitchClientsAp
+//
 // Use this API command to retrieve all the Ruckus APs connected to switch, currently managed by SmartZone.
 //
 // Request Body:
@@ -83,6 +87,8 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 }
 
 // AddSwitchClientsAPExport
+//
+// Operation ID: addSwitchClientsAPExport
 //
 // Download CSV of AP's discovered via LLDP
 //
@@ -114,6 +120,8 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Contex
 }
 
 // AddSwitchClientsExport
+//
+// Operation ID: addSwitchClientsExport
 //
 // Download CSV of wired clients discovered via LLDP
 //

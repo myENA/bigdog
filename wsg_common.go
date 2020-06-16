@@ -1473,7 +1473,7 @@ func NewWSGCommonRateLimiting() *WSGCommonRateLimiting {
 }
 
 type WSGCommonRbacMetadata struct {
-	RbacMetadata []string `json:"rbacMetadata,omitempty"`
+	RbacMetadata interface{} `json:"rbacMetadata,omitempty"`
 }
 
 func NewWSGCommonRbacMetadata() *WSGCommonRbacMetadata {

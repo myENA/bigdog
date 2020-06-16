@@ -1472,15 +1472,6 @@ func NewWSGCommonRateLimiting() *WSGCommonRateLimiting {
 	return m
 }
 
-type WSGCommonRbacMetadata struct {
-	RbacMetadata interface{} `json:"rbacMetadata,omitempty"`
-}
-
-func NewWSGCommonRbacMetadata() *WSGCommonRbacMetadata {
-	m := new(WSGCommonRbacMetadata)
-	return m
-}
-
 type WSGCommonRealm string
 
 func NewWSGCommonRealm() *WSGCommonRealm {

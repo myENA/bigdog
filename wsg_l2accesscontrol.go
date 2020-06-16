@@ -122,7 +122,7 @@ func NewWSGL2AccessControl() *WSGL2AccessControl {
 }
 
 type WSGL2AccessControlList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

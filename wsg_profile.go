@@ -54,7 +54,7 @@ func NewWSGProfileAccountingProfile() *WSGProfileAccountingProfile {
 }
 
 type WSGProfileAccountingProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -245,7 +245,7 @@ func NewWSGProfileAuthenticationProfile() *WSGProfileAuthenticationProfile {
 }
 
 type WSGProfileAuthenticationProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -589,7 +589,7 @@ func NewWSGProfileBridgeProfile() *WSGProfileBridgeProfile {
 }
 
 type WSGProfileBridgeProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1867,7 +1867,7 @@ func NewWSGProfileDnsServerProfile() *WSGProfileDnsServerProfile {
 }
 
 type WSGProfileDnsServerProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2205,7 +2205,7 @@ func NewWSGProfileHs20Operator() *WSGProfileHs20Operator {
 }
 
 type WSGProfileHs20OperatorList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2287,7 +2287,7 @@ func NewWSGProfileHs20Provider() *WSGProfileHs20Provider {
 }
 
 type WSGProfileHs20ProviderList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2580,7 +2580,7 @@ func NewWSGProfileIpsecProfile() *WSGProfileIpsecProfile {
 }
 
 type WSGProfileIpsecProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2644,7 +2644,7 @@ func NewWSGProfileL2oGREProfile() *WSGProfileL2oGREProfile {
 }
 
 type WSGProfileL2oGREProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -2880,7 +2880,7 @@ func NewWSGProfileLbsProfile() *WSGProfileLbsProfile {
 }
 
 type WSGProfileLbsProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -3582,7 +3582,7 @@ func NewWSGProfileModifyZoneAffinityProfile() *WSGProfileModifyZoneAffinityProfi
 }
 
 type WSGProfilePrecedenceList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -3674,7 +3674,7 @@ type WSGProfileList struct {
 	// Creator Name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -4399,7 +4399,7 @@ func NewWSGProfileRogueApRuleList() *WSGProfileRogueApRuleList {
 }
 
 type WSGProfileRtlsProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -4481,7 +4481,7 @@ func NewWSGProfileRuckusGREProfile() *WSGProfileRuckusGREProfile {
 }
 
 type WSGProfileRuckusGREProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -4573,7 +4573,7 @@ func NewWSGProfileSoftGREProfile() *WSGProfileSoftGREProfile {
 }
 
 type WSGProfileSoftGREProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -4803,7 +4803,7 @@ func NewWSGProfileTtgpdgProfileConfiguration() *WSGProfileTtgpdgProfileConfigura
 }
 
 type WSGProfileTtgpdgProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -4975,7 +4975,7 @@ func NewWSGProfileUserTrafficProfile() *WSGProfileUserTrafficProfile {
 }
 
 type WSGProfileUserTrafficProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

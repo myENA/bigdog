@@ -185,7 +185,7 @@ func NewWSGRACStatsGgsnGtpcCon() *WSGRACStatsGgsnGtpcCon {
 }
 
 type WSGRACStatsGgsnGtpcConList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -202,7 +202,7 @@ func NewWSGRACStatsGgsnGtpcConList() *WSGRACStatsGgsnGtpcConList {
 }
 
 type WSGRACStatsGgsnGtpList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -414,7 +414,7 @@ func NewWSGRACStatsRadiusProxy() *WSGRACStatsRadiusProxy {
 }
 
 type WSGRACStatsRadiusProxyList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

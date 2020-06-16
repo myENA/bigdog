@@ -963,7 +963,7 @@ func NewWSGAdministrationZdAP() *WSGAdministrationZdAP {
 }
 
 type WSGAdministrationZdAPList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

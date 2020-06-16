@@ -414,15 +414,6 @@ func NewSwitchMCommonQueryCriteriaSuperSetOptionsType() *SwitchMCommonQueryCrite
 	return m
 }
 
-type SwitchMCommonRbacMetadata struct {
-	RbacMetadata interface{} `json:"rbacMetadata,omitempty"`
-}
-
-func NewSwitchMCommonRbacMetadata() *SwitchMCommonRbacMetadata {
-	m := new(SwitchMCommonRbacMetadata)
-	return m
-}
-
 type SwitchMCommonTimeRange struct {
 	// End
 	// end time for collecting data

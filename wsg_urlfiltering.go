@@ -245,7 +245,7 @@ func NewWSGURLFilteringPolicy() *WSGURLFilteringPolicy {
 }
 
 type WSGURLFilteringPolicyList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

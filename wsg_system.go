@@ -666,7 +666,7 @@ func NewWSGSystemFtpGlobalSetting() *WSGSystemFtpGlobalSetting {
 }
 
 type WSGSystemFtpList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first FTP returned out of the complete FTP list
@@ -1621,7 +1621,7 @@ func NewWSGSystemSms() *WSGSystemSms {
 }
 
 type WSGSystemSmsList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first SMS gateway returned out of the complete SMS gateway list

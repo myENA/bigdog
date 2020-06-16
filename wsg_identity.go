@@ -396,7 +396,7 @@ func NewWSGIdentityGuestPassConfiguration() *WSGIdentityGuestPassConfiguration {
 }
 
 type WSGIdentityGuestPassList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -413,7 +413,7 @@ func NewWSGIdentityGuestPassList() *WSGIdentityGuestPassList {
 }
 
 type WSGIdentityList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1086,7 +1086,7 @@ func NewWSGIdentitySubscriptionPackage() *WSGIdentitySubscriptionPackage {
 }
 
 type WSGIdentitySubscriptionPackageList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1363,7 +1363,7 @@ func NewWSGIdentityUserConfigurationCredentialsGuestPassDtoType() *WSGIdentityUs
 }
 
 type WSGIdentityUserList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

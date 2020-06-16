@@ -124,7 +124,7 @@ func NewWSGAVCApplicationPolicyProfile() *WSGAVCApplicationPolicyProfile {
 }
 
 type WSGAVCApplicationPolicyProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -434,7 +434,7 @@ func NewWSGAVCUserDefinedProfile() *WSGAVCUserDefinedProfile {
 }
 
 type WSGAVCUserDefinedProfileList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

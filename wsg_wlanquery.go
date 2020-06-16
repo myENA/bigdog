@@ -16,7 +16,7 @@ func NewWSGWLANQueryApWlanBssid() *WSGWLANQueryApWlanBssid {
 }
 
 type WSGWLANQueryApWlanBssidQueryList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of first index in current page
@@ -138,7 +138,7 @@ func NewWSGWLANQueryWlanBssid() *WSGWLANQueryWlanBssid {
 }
 
 type WSGWLANQueryList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

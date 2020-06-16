@@ -124,7 +124,7 @@ func NewWSGServiceActiveDirectoryService() *WSGServiceActiveDirectoryService {
 }
 
 type WSGServiceActiveDirectoryServiceList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -200,7 +200,7 @@ func NewWSGServiceCommonAccountingService() *WSGServiceCommonAccountingService {
 }
 
 type WSGServiceCommonAccountingServiceList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -282,7 +282,7 @@ func NewWSGServiceCommonAuthenticationService() *WSGServiceCommonAuthenticationS
 }
 
 type WSGServiceCommonAuthenticationServiceList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1149,7 +1149,7 @@ func NewWSGServiceHlrService() *WSGServiceHlrService {
 }
 
 type WSGServiceHlrServiceList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1287,7 +1287,7 @@ func NewWSGServiceLDAPService() *WSGServiceLDAPService {
 }
 
 type WSGServiceLDAPServiceList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1890,7 +1890,7 @@ func NewWSGServiceRadiusAccountingService() *WSGServiceRadiusAccountingService {
 }
 
 type WSGServiceRadiusAccountingServiceList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -1990,7 +1990,7 @@ func NewWSGServiceRadiusAuthenticationService() *WSGServiceRadiusAuthenticationS
 }
 
 type WSGServiceRadiusAuthenticationServiceList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

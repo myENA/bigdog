@@ -134,7 +134,7 @@ func NewWSGClientHistoricalClient() *WSGClientHistoricalClient {
 }
 
 type WSGClientHistoricalClientList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

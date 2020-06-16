@@ -177,7 +177,7 @@ func NewWSGIndoorMapAp() *WSGIndoorMapAp {
 }
 
 type WSGIndoorMapList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first indoorMapList returned out of the complete indoor maps list
@@ -270,7 +270,7 @@ func NewWSGIndoorMapSummary() *WSGIndoorMapSummary {
 }
 
 type WSGIndoorMapSummaryList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first indoorMapList returned out of the complete indoor maps list

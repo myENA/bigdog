@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_0
 
 type WSGWiredClientQueryClientQueryList struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

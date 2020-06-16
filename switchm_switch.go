@@ -1103,7 +1103,7 @@ func NewSwitchMSwitchPortsSummaryQueryResultListExtraType() *SwitchMSwitchPortsS
 }
 
 type SwitchMSwitchQueryResultList struct {
-	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first registration rule returned out of the complete registration rule list

@@ -125,7 +125,7 @@ func NewWSGVendorSpecificAttributeProfilePersist() *WSGVendorSpecificAttributePr
 }
 
 type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
-	Extra *WSGCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 

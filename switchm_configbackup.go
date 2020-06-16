@@ -98,7 +98,7 @@ func NewSwitchMConfigurationBackupConfigBackupDiffInput() *SwitchMConfigurationB
 }
 
 type SwitchMConfigurationBackupCreateBackupResultList struct {
-	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of first index in current page
@@ -144,7 +144,7 @@ func NewSwitchMConfigurationBackupCreateBackupResultListType() *SwitchMConfigura
 }
 
 type SwitchMConfigurationBackupList struct {
-	Extra *SwitchMCommonRbacMetadata `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ConfigBackup returned out of the complete ConfigBackup list

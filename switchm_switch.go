@@ -966,7 +966,7 @@ type SwitchMSwitchStackMember struct {
 	// Switch name of stack
 	SwitchName *string `json:"switchName,omitempty"`
 
-	SwitchPorts *SwitchMSwitchPortDetails `json:"switchPorts,omitempty"`
+	SwitchPorts []*SwitchMSwitchPortDetails `json:"switchPorts,omitempty"`
 
 	// SwitchUnit
 	// Switch unit of stack

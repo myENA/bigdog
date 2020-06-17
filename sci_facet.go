@@ -55,6 +55,7 @@ func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 // Required Parameters:
 // - name string
 //		- required
+//		- oneof:[system,switchHierarchy]
 func (s *SCIFacetService) FacetGetFacet(ctx context.Context, formValues url.Values, name string, mutators ...RequestMutator) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest

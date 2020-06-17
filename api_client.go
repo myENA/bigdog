@@ -63,9 +63,33 @@ const (
 	VSZDomainTypePartner = "PARTNER"
 
 	VSZServiceTicketQueryParameter = "serviceTicket"
+)
+
+const (
+	SCIReportIDWirelessClients      = 1
+	SCIReportIDNetworkWireless      = 2
+	SCIReportIDWirelessApplications = 3
+	SCIReportIDWLANs                = 4
+	SCIReportIDAirtimeUtilization   = 5
+	SCIReportIDSessionsSummary      = 6
+	SCIReportIDAPsReboot            = 8
+	SCIReportIDInventoryAPs         = 9
+	SCIReportIDOverview             = 10
+	SCIReportIDAPDetails            = 11
+	SCIReportIDClientDetails        = 12
+	SCIReportIDSCNetworkTraffic     = 13
+	SCIReportIDDataExplorer         = 14
+	SCIReportIDInventoryControllers = 15
+	SCIReportIDInventorySwitches    = 16
+	SCIReportIDNetworkWired         = 17
+	SCIReportIDSwitchDetails        = 18
+	SCIReportIDComparison           = 19
+	SCIReportIDClientHealth         = 20
 
 	SCIAccessTokenQueryParameter = "accessToken"
+)
 
+const (
 	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
 	logDebugAPIRequestWithBodyFormat = "%s with body"

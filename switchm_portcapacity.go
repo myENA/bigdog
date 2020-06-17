@@ -103,7 +103,13 @@ func NewSwitchMPortCapacityResultExtraType() *SwitchMPortCapacityResultExtraType
 // Operation ID: findPortCapacity
 //
 // Use this API command to Retrieve Switch Port Capacity List.
-func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, mutators ...RequestMutator) (*SwitchMPortCapacityResult, *APIResponseMeta, error) {
+//
+// Required Parameters:
+// - model string
+//		- required
+// - portIdentifier string
+//		- required
+func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model string, portIdentifier string, mutators ...RequestMutator) (*SwitchMPortCapacityResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -116,6 +122,8 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, mutat
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortCapacity, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetQueryParameter("model", []string{model})
+	req.SetQueryParameter("portIdentifier", []string{portIdentifier})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMPortCapacityResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

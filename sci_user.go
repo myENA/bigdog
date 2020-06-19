@@ -75,6 +75,54 @@ func MakeSCIUsergetschedules200ResponseType() SCIUsergetschedules200ResponseType
 	return m
 }
 
+// SCIUserLoginRequest
+//
+// Definition: user.userLoginRequest
+//
+// Credentials used to log a user in
+type SCIUserLoginRequest struct {
+	// Password
+	// Constraints:
+	//    - required
+	Password *string `json:"password"`
+
+	// Username
+	// Constraints:
+	//    - required
+	Username *string `json:"username"`
+}
+
+func NewSCIUserLoginRequest() *SCIUserLoginRequest {
+	m := new(SCIUserLoginRequest)
+	return m
+}
+
+// SCIUserLoginResponse
+//
+// Definition: user.userLoginResponse
+//
+// User Login details
+type SCIUserLoginResponse struct {
+	Created *string `json:"created,omitempty"`
+
+	Id *string `json:"id,omitempty"`
+
+	ResourceGroup *string `json:"resourceGroup,omitempty"`
+
+	Role *string `json:"role,omitempty"`
+
+	Ttl *int `json:"ttl,omitempty"`
+
+	UserId *int `json:"userId,omitempty"`
+
+	Username *string `json:"username,omitempty"`
+}
+
+func NewSCIUserLoginResponse() *SCIUserLoginResponse {
+	m := new(SCIUserLoginResponse)
+	return m
+}
+
 // UserBatchDelete
 //
 // Operation ID: user.batchDelete
@@ -252,16 +300,16 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 // Login a user with username/email and password.
 //
 // Request Body:
-//	 - body *SCIModelsUserLogin
+//	 - body *SCIUserLoginRequest
 //
 // Optional Parameters:
 // - include string
 //		- nullable
-func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIModelsUserLogin, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsUserLoginResponse, *APIResponseMeta, error) {
+func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLoginRequest, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIUserLoginResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIModelsUserLoginResponse
+		resp     *SCIUserLoginResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -278,7 +326,7 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIModelsUs
 		req.SetQueryParameter("include", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIModelsUserLoginResponse()
+	resp = NewSCIUserLoginResponse()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

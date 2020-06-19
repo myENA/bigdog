@@ -237,7 +237,7 @@ type SCIModelsReport struct {
 
 	DatasourcesUsed []interface{} `json:"datasourcesUsed,omitempty"`
 
-	ExcludedFilters []interface{} `json:"excludedFilters,omitempty"`
+	ExcludedFilters []string `json:"excludedFilters,omitempty"`
 
 	FilterDataSource *string `json:"filterDataSource,omitempty"`
 
@@ -245,7 +245,7 @@ type SCIModelsReport struct {
 
 	Id *float64 `json:"id,omitempty"`
 
-	Layout []interface{} `json:"layout,omitempty"`
+	Layout []*SCIModelsReportLayout `json:"layout,omitempty"`
 
 	RouteParameters *SCIModelsReportRouteParametersType `json:"routeParameters,omitempty"`
 
@@ -262,6 +262,65 @@ type SCIModelsReport struct {
 
 func NewSCIModelsReport() *SCIModelsReport {
 	m := new(SCIModelsReport)
+	return m
+}
+
+// SCIModelsReportLayout
+//
+// Definition: reportLayout
+//
+// Layout descriptor of a report
+type SCIModelsReportLayout struct {
+	DesiredWidth *string `json:"desiredWidth,omitempty"`
+
+	Layout []*SCIModelsReportLayout `json:"layout,omitempty"`
+
+	Section *int `json:"section,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIModelsReportLayout) UnmarshalJSON(b []byte) error {
+	tmpt := new(SCIModelsReportLayout)
+	if err := json.Unmarshal(b, tmpt); err != nil {
+		return err
+	}
+	tmp := make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmp); err != nil {
+		return err
+	}
+	delete(tmp, "desiredWidth")
+	delete(tmp, "layout")
+	delete(tmp, "section")
+	tmpt.XAdditionalProperties = tmp
+	*t = *tmpt
+	return nil
+}
+
+func (t *SCIModelsReportLayout) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.DesiredWidth != nil {
+		tmp["desiredWidth"] = t.DesiredWidth
+	}
+	if t.Layout != nil {
+		tmp["layout"] = t.Layout
+	}
+	if t.Section != nil {
+		tmp["section"] = t.Section
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCIModelsReportLayout() *SCIModelsReportLayout {
+	m := new(SCIModelsReportLayout)
 	return m
 }
 
@@ -628,53 +687,5 @@ type SCIModelsUser struct {
 
 func NewSCIModelsUser() *SCIModelsUser {
 	m := new(SCIModelsUser)
-	return m
-}
-
-// SCIModelsUserLogin
-//
-// Definition: userLogin
-//
-// Credentials used to log a user in
-type SCIModelsUserLogin struct {
-	// Password
-	// Constraints:
-	//    - required
-	Password *string `json:"password"`
-
-	// Username
-	// Constraints:
-	//    - required
-	Username *string `json:"username"`
-}
-
-func NewSCIModelsUserLogin() *SCIModelsUserLogin {
-	m := new(SCIModelsUserLogin)
-	return m
-}
-
-// SCIModelsUserLoginResponse
-//
-// Definition: userLoginResponse
-//
-// User Login details
-type SCIModelsUserLoginResponse struct {
-	Created *string `json:"created,omitempty"`
-
-	Id *string `json:"id,omitempty"`
-
-	ResourceGroup *string `json:"resourceGroup,omitempty"`
-
-	Role *string `json:"role,omitempty"`
-
-	Ttl *int `json:"ttl,omitempty"`
-
-	UserId *int `json:"userId,omitempty"`
-
-	Username *string `json:"username,omitempty"`
-}
-
-func NewSCIModelsUserLoginResponse() *SCIModelsUserLoginResponse {
-	m := new(SCIModelsUserLoginResponse)
 	return m
 }

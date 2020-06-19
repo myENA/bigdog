@@ -333,10 +333,10 @@ func (s *SCIreportService) ReportPrototypeGetSections(ctx context.Context, id st
 //
 // For the <b><code>urlSegmentName</code></b> field below, examples could be <code>overview</code>, <code>network</code>, <code>ap</code>, <code>clients</code>
 //
-// Form Data Parameters:
+// Required Parameters:
 // - urlSegmentName string
 //		- required
-func (s *SCIreportService) ReportWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIreportWithRelations200ResponseType, *APIResponseMeta, error) {
+func (s *SCIreportService) ReportWithRelations(ctx context.Context, urlSegmentName string, mutators ...RequestMutator) (*SCIreportWithRelations200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -348,11 +348,9 @@ func (s *SCIreportService) ReportWithRelations(ctx context.Context, formValues u
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteSCIReportWithRelations, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp, rm, err
-	}
+	req.SetQueryParameter("urlSegmentName", []string{urlSegmentName})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIreportWithRelations200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

@@ -409,7 +409,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 
 	if sourceErr != nil {
 		// if the incoming error is from a service ticket provider, return as-is
-		if sterr, ok := sourceErr.(*ServiceTicketProviderError); ok {
+		if sterr, ok := sourceErr.(*VSZServiceTicketProviderError); ok {
 			return sterr.ResponseMeta(), sterr
 		}
 

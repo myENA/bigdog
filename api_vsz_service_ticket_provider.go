@@ -64,37 +64,41 @@ type UsernamePasswordVSZSServiceTicketProvider struct {
 }
 
 func NewUsernamePasswordServiceTicketProvider(username, password string, sessionTTL time.Duration) *UsernamePasswordVSZSServiceTicketProvider {
-	a := new(UsernamePasswordVSZSServiceTicketProvider)
-	a.username = username
-	a.password = password
-	a.sessionTTL = sessionTTL
-	return a
+	stp := new(UsernamePasswordVSZSServiceTicketProvider)
+	stp.username = username
+	stp.password = password
+	stp.sessionTTL = sessionTTL
+	return stp
 }
 
-func (a *UsernamePasswordVSZSServiceTicketProvider) Username() string {
-	return a.username
+func (stp *UsernamePasswordVSZSServiceTicketProvider) Username() string {
+	return stp.username
 }
 
-func (a *UsernamePasswordVSZSServiceTicketProvider) Password() string {
-	return a.password
+func (stp *UsernamePasswordVSZSServiceTicketProvider) Password() string {
+	return stp.password
+}
+
+func (stp *UsernamePasswordVSZSServiceTicketProvider) SessionTTL() time.Duration {
+	return stp.sessionTTL
 }
 
 // Current returns the current service ticket, if there is one.
-func (a *UsernamePasswordVSZSServiceTicketProvider) Current() (VSZServiceTicketCAS, string, error) {
-	a.mu.RLock()
-	defer a.mu.RUnlock()
+func (stp *UsernamePasswordVSZSServiceTicketProvider) Current() (VSZServiceTicketCAS, string, error) {
+	stp.mu.RLock()
+	defer stp.mu.RUnlock()
 
-	if a.serviceTicket != "" && time.Now().Before(a.expires) {
-		return a.cas, a.serviceTicket, nil
+	if stp.serviceTicket != "" && time.Now().Before(stp.expires) {
+		return stp.cas, stp.serviceTicket, nil
 	}
 
-	return a.cas, "", ErrServiceTicketRequiresRefresh
+	return stp.cas, "", ErrServiceTicketRequiresRefresh
 }
 
 // Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
-func (a *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Context, client *VSZClient, cas VSZServiceTicketCAS) (VSZServiceTicketCAS, error) {
-	a.mu.Lock()
-	defer a.mu.Unlock()
+func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Context, client *VSZClient, cas VSZServiceTicketCAS) (VSZServiceTicketCAS, error) {
+	stp.mu.Lock()
+	defer stp.mu.Unlock()
 
 	var (
 		loginRequest  *WSGServiceTicketLoginRequest
@@ -102,23 +106,23 @@ func (a *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Context,
 		rm            *APIResponseMeta
 		err           error
 
-		username = a.username
-		password = a.password
+		username = stp.username
+		password = stp.password
 	)
 
 	if client == nil {
-		return a.cas, NewServiceTicketProviderError(newErrAPIResponseMeta(), ErrServiceTicketClientNil)
+		return stp.cas, NewVSZServiceTicketProviderError(newErrAPIResponseMeta(), ErrServiceTicketClientNil)
 	}
 
 	// if the passed cas value is greater than the internal CAS, assume weirdness and return current CAS and an error
-	if a.cas < cas {
-		return a.cas, NewServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
+	if stp.cas < cas {
+		return stp.cas, NewVSZServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
 	}
 	// if the passed in CAS value is less than the currently stored one, assume another routine called either Refresh
 	// or Invalidate and just return current cas
-	if a.cas > cas {
+	if stp.cas > cas {
 		// todo: is this ok...?
-		return a.cas, nil
+		return stp.cas, nil
 	}
 
 	// if cas matches internal...
@@ -126,32 +130,32 @@ func (a *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Context,
 	// try to execute logon
 	loginRequest = &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
 	if loginResponse, rm, err = client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest); err != nil {
-		a.cas = a.iterateCAS()
-		a.serviceTicket = ""
-		a.expires = time.Time{}
-		return a.cas, NewServiceTicketProviderError(rm, err)
+		stp.cas = stp.iterateCAS()
+		stp.serviceTicket = ""
+		stp.expires = time.Time{}
+		return stp.cas, NewVSZServiceTicketProviderError(rm, err)
 	}
 
 	// this case is extremely unlikely, but keep it here just in case.  don't want no npe.
 	if loginResponse == nil || loginResponse.ServiceTicket == nil || *loginResponse.ServiceTicket == "" {
-		a.cas = a.iterateCAS()
-		a.serviceTicket = ""
-		a.expires = time.Time{}
-		return a.cas, NewServiceTicketProviderError(rm, ErrServiceTicketResponseEmpty)
+		stp.cas = stp.iterateCAS()
+		stp.serviceTicket = ""
+		stp.expires = time.Time{}
+		return stp.cas, NewVSZServiceTicketProviderError(rm, ErrServiceTicketResponseEmpty)
 	}
 
 	// if reached, assume login successful
-	a.serviceTicket = *loginResponse.ServiceTicket
-	a.cas = a.iterateCAS()
-	a.expires = time.Now().Add(a.sessionTTL)
+	stp.cas = stp.iterateCAS()
+	stp.serviceTicket = *loginResponse.ServiceTicket
+	stp.expires = time.Now().Add(stp.sessionTTL)
 
-	return a.cas, nil
+	return stp.cas, nil
 }
 
 // Invalidate will mark the current session as invalid.
-func (a *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Context, client *VSZClient, cas VSZServiceTicketCAS) (VSZServiceTicketCAS, error) {
-	a.mu.Lock()
-	defer a.mu.Unlock()
+func (stp *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Context, client *VSZClient, cas VSZServiceTicketCAS) (VSZServiceTicketCAS, error) {
+	stp.mu.Lock()
+	defer stp.mu.Unlock()
 
 	var (
 		rm  *APIResponseMeta
@@ -159,31 +163,30 @@ func (a *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Conte
 	)
 
 	// if current cas is less than provided, assume insanity.
-	if a.cas < cas {
-		return a.cas, NewServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
+	if stp.cas < cas {
+		return stp.cas, NewVSZServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
 	}
 
 	// if current cas is greater than provided, assume Refresh or Invalidate has already been called.
-	if a.cas > cas {
-		// todo: is this ok?
-		return a.cas, nil
+	if stp.cas > cas {
+		return stp.cas, nil
 	}
 
 	// if we have a service ticket stored, attempt to invalidate it at the VSZ
-	if a.serviceTicket != "" {
-		if _, rm, err = client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, a.serviceTicket); err != nil {
-			err = NewServiceTicketProviderError(rm, err)
+	if stp.serviceTicket != "" {
+		if _, rm, err = client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, stp.serviceTicket); err != nil {
+			err = NewVSZServiceTicketProviderError(rm, err)
 		}
 
 		// update internal state
-		a.serviceTicket = ""
-		a.cas = a.iterateCAS()
-		a.expires = time.Time{}
+		stp.cas = stp.iterateCAS()
+		stp.serviceTicket = ""
+		stp.expires = time.Time{}
 	}
 
-	return a.cas, err
+	return stp.cas, err
 }
 
-func (a *UsernamePasswordVSZSServiceTicketProvider) iterateCAS() VSZServiceTicketCAS {
+func (*UsernamePasswordVSZSServiceTicketProvider) iterateCAS() VSZServiceTicketCAS {
 	return VSZServiceTicketCAS(time.Now().UnixNano())
 }

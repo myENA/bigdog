@@ -10,125 +10,190 @@ import (
 	"net/url"
 )
 
-type SCIreportService struct {
+type SCIReportService struct {
 	apiClient *SCIClient
 }
 
-func NewSCIreportService(c *SCIClient) *SCIreportService {
-	s := new(SCIreportService)
+func NewSCIReportService(c *SCIClient) *SCIReportService {
+	s := new(SCIReportService)
 	s.apiClient = c
 	return s
 }
 
-func (ss *SCIService) SCIreportService() *SCIreportService {
-	return NewSCIreportService(ss.apiClient)
+func (ss *SCIService) SCIReportService() *SCIReportService {
+	return NewSCIReportService(ss.apiClient)
 }
 
-// SCIreportFind200ResponseType
+// SCIReportFind200ResponseType
 //
 // Definition: report.find200ResponseType
-type SCIreportFind200ResponseType []*SCIModelsReport
+type SCIReportFind200ResponseType []*SCIModelsReport
 
-func MakeSCIreportFind200ResponseType() SCIreportFind200ResponseType {
-	m := make(SCIreportFind200ResponseType, 0)
+func MakeSCIReportFind200ResponseType() SCIReportFind200ResponseType {
+	m := make(SCIReportFind200ResponseType, 0)
 	return m
 }
 
-// SCIreportGetData200ResponseType
+// SCIReportGetData200ResponseType
 //
 // Definition: report.getData200ResponseType
-type SCIreportGetData200ResponseType struct {
-	Data []*SCIreportGetData200ResponseTypeDataType `json:"data,omitempty"`
+type SCIReportGetData200ResponseType struct {
+	Data []*SCIReportGetData200ResponseTypeDataType `json:"data,omitempty"`
 
-	Metadata *SCIreportGetData200ResponseTypeMetadataType `json:"metadata,omitempty"`
+	Metadata *SCIReportGetData200ResponseTypeMetadataType `json:"metadata,omitempty"`
 }
 
-func NewSCIreportGetData200ResponseType() *SCIreportGetData200ResponseType {
-	m := new(SCIreportGetData200ResponseType)
+func NewSCIReportGetData200ResponseType() *SCIReportGetData200ResponseType {
+	m := new(SCIReportGetData200ResponseType)
 	return m
 }
 
-// SCIreportGetData200ResponseTypeDataType
+// SCIReportGetData200ResponseTypeDataType
 //
 // Definition: report.getData200ResponseTypeDataType
-type SCIreportGetData200ResponseTypeDataType struct {
+type SCIReportGetData200ResponseTypeDataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SCIreportGetData200ResponseTypeDataType) UnmarshalJSON(b []byte) error {
+func (t *SCIReportGetData200ResponseTypeDataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SCIreportGetData200ResponseTypeDataType{XAdditionalProperties: tmp}
+	*t = SCIReportGetData200ResponseTypeDataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SCIreportGetData200ResponseTypeDataType) MarshalJSON() ([]byte, error) {
+func (t *SCIReportGetData200ResponseTypeDataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSCIreportGetData200ResponseTypeDataType() *SCIreportGetData200ResponseTypeDataType {
-	m := new(SCIreportGetData200ResponseTypeDataType)
+func NewSCIReportGetData200ResponseTypeDataType() *SCIReportGetData200ResponseTypeDataType {
+	m := new(SCIReportGetData200ResponseTypeDataType)
 	return m
 }
 
-// SCIreportGetData200ResponseTypeMetadataType
+// SCIReportGetData200ResponseTypeMetadataType
 //
 // Definition: report.getData200ResponseTypeMetadataType
-type SCIreportGetData200ResponseTypeMetadataType struct {
+type SCIReportGetData200ResponseTypeMetadataType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SCIreportGetData200ResponseTypeMetadataType) UnmarshalJSON(b []byte) error {
+func (t *SCIReportGetData200ResponseTypeMetadataType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SCIreportGetData200ResponseTypeMetadataType{XAdditionalProperties: tmp}
+	*t = SCIReportGetData200ResponseTypeMetadataType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SCIreportGetData200ResponseTypeMetadataType) MarshalJSON() ([]byte, error) {
+func (t *SCIReportGetData200ResponseTypeMetadataType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSCIreportGetData200ResponseTypeMetadataType() *SCIreportGetData200ResponseTypeMetadataType {
-	m := new(SCIreportGetData200ResponseTypeMetadataType)
+func NewSCIReportGetData200ResponseTypeMetadataType() *SCIReportGetData200ResponseTypeMetadataType {
+	m := new(SCIReportGetData200ResponseTypeMetadataType)
 	return m
 }
 
-// SCIreportWithRelations200ResponseType
+// SCIReportQueryFilter
+//
+// Definition: report.queryFilter
+//
+// Data query filter body
+type SCIReportQueryFilter struct {
+	AlphaNumeric *bool `json:"alphaNumeric,omitempty"`
+
+	Dimension *string `json:"dimension,omitempty"`
+
+	Filter []*SCIReportQueryFilter `json:"filter,omitempty"`
+
+	Function *string `json:"function,omitempty"`
+
+	Lower *string `json:"lower,omitempty"`
+
+	LowerStrict *bool `json:"lowerStrict,omitempty"`
+
+	Pattern *string `json:"pattern,omitempty"`
+
+	Query *SCIReportSearchQuery `json:"query,omitempty"`
+
+	// Type
+	// Type of filter
+	// Constraints:
+	//    - required
+	Type *string `json:"type"`
+
+	Upper *string `json:"upper,omitempty"`
+
+	UpperStrict *bool `json:"upperStrict,omitempty"`
+
+	Value *string `json:"value,omitempty"`
+
+	Values []string `json:"values,omitempty"`
+}
+
+func NewSCIReportQueryFilter() *SCIReportQueryFilter {
+	m := new(SCIReportQueryFilter)
+	return m
+}
+
+// SCIReportSearchQuery
+//
+// Definition: report.searchQuery
+//
+// Search query
+type SCIReportSearchQuery struct {
+	CaseSensitive *bool `json:"caseSensitive,omitempty"`
+
+	// Type
+	// Constraints:
+	//    - required
+	Type *string `json:"type"`
+
+	Value *string `json:"value,omitempty"`
+
+	Values []string `json:"values,omitempty"`
+}
+
+func NewSCIReportSearchQuery() *SCIReportSearchQuery {
+	m := new(SCIReportSearchQuery)
+	return m
+}
+
+// SCIReportWithRelations200ResponseType
 //
 // Definition: report.withRelations200ResponseType
-type SCIreportWithRelations200ResponseType struct {
+type SCIReportWithRelations200ResponseType struct {
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
-func (t *SCIreportWithRelations200ResponseType) UnmarshalJSON(b []byte) error {
+func (t *SCIReportWithRelations200ResponseType) UnmarshalJSON(b []byte) error {
 	tmp := make(map[string]interface{})
 	if err := json.Unmarshal(b, &tmp); err != nil {
 		return err
 	}
-	*t = SCIreportWithRelations200ResponseType{XAdditionalProperties: tmp}
+	*t = SCIReportWithRelations200ResponseType{XAdditionalProperties: tmp}
 	return nil
 }
 
-func (t *SCIreportWithRelations200ResponseType) MarshalJSON() ([]byte, error) {
+func (t *SCIReportWithRelations200ResponseType) MarshalJSON() ([]byte, error) {
 	if t == nil || t.XAdditionalProperties == nil {
 		return nil, nil
 	}
 	return json.Marshal(t.XAdditionalProperties)
 }
 
-func NewSCIreportWithRelations200ResponseType() *SCIreportWithRelations200ResponseType {
-	m := new(SCIreportWithRelations200ResponseType)
+func NewSCIReportWithRelations200ResponseType() *SCIReportWithRelations200ResponseType {
+	m := new(SCIReportWithRelations200ResponseType)
 	return m
 }
 
@@ -147,7 +212,7 @@ func NewSCIreportWithRelations200ResponseType() *SCIreportWithRelations200Respon
 //		- required
 // - id string
 //		- required
-func (s *SCIreportService) ReportDownloadReport(ctx context.Context, formValues url.Values, format string, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues url.Values, format string, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -179,11 +244,11 @@ func (s *SCIreportService) ReportDownloadReport(ctx context.Context, formValues 
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIreportService) ReportFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIreportFind200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportFind200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     SCIreportFind200ResponseType
+		resp     SCIReportFind200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -196,7 +261,7 @@ func (s *SCIreportService) ReportFind(ctx context.Context, optionalParams map[st
 		req.SetQueryParameter("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = MakeSCIreportFind200ResponseType()
+	resp = MakeSCIReportFind200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
@@ -214,7 +279,7 @@ func (s *SCIreportService) ReportFind(ctx context.Context, optionalParams map[st
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIreportService) ReportFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsReport, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsReport, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -266,11 +331,11 @@ func (s *SCIreportService) ReportFindById(ctx context.Context, id string, option
 //		- required
 // - sectionId string
 //		- required
-func (s *SCIreportService) ReportGetData(ctx context.Context, formValues url.Values, id string, sectionId string, mutators ...RequestMutator) (*SCIreportGetData200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Values, id string, sectionId string, mutators ...RequestMutator) (*SCIReportGetData200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIreportGetData200ResponseType
+		resp     *SCIReportGetData200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -286,7 +351,7 @@ func (s *SCIreportService) ReportGetData(ctx context.Context, formValues url.Val
 	req.SetPathParameter("id", id)
 	req.SetPathParameter("sectionId", sectionId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIreportGetData200ResponseType()
+	resp = NewSCIReportGetData200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -304,7 +369,7 @@ func (s *SCIreportService) ReportGetData(ctx context.Context, formValues url.Val
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIreportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportgetsections200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportgetsections200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -336,11 +401,11 @@ func (s *SCIreportService) ReportPrototypeGetSections(ctx context.Context, id st
 // Required Parameters:
 // - urlSegmentName string
 //		- required
-func (s *SCIreportService) ReportWithRelations(ctx context.Context, urlSegmentName string, mutators ...RequestMutator) (*SCIreportWithRelations200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentName string, mutators ...RequestMutator) (*SCIReportWithRelations200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIreportWithRelations200ResponseType
+		resp     *SCIReportWithRelations200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -352,7 +417,7 @@ func (s *SCIreportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("urlSegmentName", []string{urlSegmentName})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIreportWithRelations200ResponseType()
+	resp = NewSCIReportWithRelations200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
